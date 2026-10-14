@@ -15,6 +15,7 @@ function eventAction(v:AppraisalView,policy:AppraisalPolicy):Body {
   let choice=offer.choices.includes('decline')?'decline':offer.choices.includes('pay')?'pay':offer.choices.includes('oath')?'oath':offer.choices.includes('surrender')?'surrender':offer.choices.includes('die')?'die':offer.choices.includes('energy')?'energy':'item';
   const useful=policy==='aggressive'?['E09','E21','E22','E24','E27','E28','E46']:policy==='collector'?['E02','E04','E05','E07','E15','E18','E26','E29','E31','E33','E34','E35','E36','E38','E39','E41','E42']:policy==='trader'?['E04','E15','E19','E21','E25','E43','E44','E45','E47']:['E03','E04','E12','E15','E16','E17','E18','E22','E28','E30','E35','E41','E42'];
   if(useful.includes(offer.id) && p.credits>=5 && p.energy>=4) choice=offer.choices.find(c=>c!=='decline')!;
+  if(Number(offer.id.slice(1))>50 && policy!=='cautious') choice='accept';
   if(v.survival && offer.id==='E03' && p.energy<3)choice=p.credits>=2?'pay':p.life!>1?'debt':'decline';
   if(v.survival && offer.id==='E42' && p.energy<3 && offer.choices.includes('energy'))choice='energy';
   const visible=[...p.stock,...p.inventory,...v.listings.map(l=>l.item)];
@@ -43,6 +44,8 @@ export function appraisalBotDecision(v:AppraisalView,policy:AppraisalPolicy):Bod
     const item=p.inventory.find(i=>i.lockedUntil===null && v.market.orders.some(o=>o.kind===i.kind && (o.quota[p.id]??0)>0));
     if(item) return {type:'market-sell',itemId:item.id,orderId:v.market.orders.find(o=>o.kind===item.kind && (o.quota[p.id]??0)>0)!.id};
   }
+  const lot=v.market.lots?.find(l=>l.winnerId===undefined && l.yourBid===null && p.credits>=l.minimum+10);
+  if(lot && (policy==='collector' || policy==='trader') && v.phase!=='PORTALS') return {type:'bid',lotId:lot.id,credits:lot.minimum+(policy==='collector'?2:0)};
   if(v.phase==='PORTALS') {
     const portals=p.portals.filter(portal=>!portal.disabled);
     const chosen=policy==='trader'?portals.find(portal=>v.market.orders.some(o=>o.kind===portal.hint)):
@@ -80,6 +83,11 @@ export function appraisalBotDecision(v:AppraisalView,policy:AppraisalPolicy):Bod
     if(policy==='trader') {
       const listing=v.listings.find(l=>l.ownerId!==p.id && l.purchase && !l.item.owner.startsWith('npc:') && v.market.orders.some(o=>o.kind===l.item.kind && (o.quota[p.id]??0)>0) && !v.trades.some(o=>o.buyerId===p.id && o.itemId===l.itemId) && !v.players.find(other=>other.id===l.ownerId)!.done);
       if(listing) {const credits=Math.floor(ITEM_SPECS[listing.item.kind].anchor*.75);if(p.credits>=credits) return {type:'propose',sellerId:listing.ownerId,itemId:listing.itemId,credits};}
+    }
+    const unsold=v.brokerage?p.stock.find(i=>i.appraisal!==null && i.owner.startsWith('npc:')):undefined;
+    if(unsold) {
+      const affordable=p.credits>=buyPrice(v,unsold) && p.energy>=npcEnergy(v) && p.dealMode!=='condition';
+      return {type:'unsold',itemId:unsold.id,choice:affordable && policy!=='trader'?'buy':policy==='cautious'?'penalty':'consign'};
     }
     return {type:'done'};
   }

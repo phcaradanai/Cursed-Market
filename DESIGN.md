@@ -392,9 +392,23 @@ Legacy relic choices retain paper fill, a thin divider border, native radio and 
 
 ### Navigation
 
-The appraisal phase header reports the current phase, encounter, resources and deadline; it is not a clickable stepper. Stock choices and inventory thumbnails are native buttons with `aria-pressed`, a selected outline and explicit item labels. Phase changes have a concise status message; countdown ticks have `aria-live="off"`. Native disclosure summaries expose rules, statuses, notes and sharing.
+The appraisal phase header reports the current phase, encounter, resources and deadline; it is not a clickable stepper. Stock choices and inventory thumbnails are native buttons with `aria-pressed`, a selected outline and explicit item labels. Phase changes have a concise status message; countdown ticks have `aria-live="off"`. Native disclosure summaries expose rules, notes and sharing; statuses are a badge list whose names open peek cards.
 
-The legacy phase row remains informational, with current phase shown through rust, bold weight, underline and `aria-current="step"`. It wraps at its own breakpoint. No chip or tag primitive is defined in either source.
+The legacy phase row remains informational, with current phase shown through rust, bold weight, underline and `aria-current="step"`. It wraps at its own breakpoint.
+
+### Choice cards and game terms (2026-10-14)
+
+The appraisal client has no `<select>`. Every pick (event choice, target item, status, fact, guess, trade swap, lobby timing and voice mode) is a `ChoiceCards` group in `src/appraisal-client/lore.tsx`: native radios inside label cards, a ring indicator plus amber border for the selected card, a danger variant for consequence choices, item art at 48px when the option is an item, and a compact chip grid for short options. Each event choice card states its own cost and outcome, so the player compares options before confirming.
+
+Status, item and merchant names inside game text are highlighted terms (`Rich`, `StatusTerm`, `ItemTerm`, `NpcTerm`): buff green, debuff red, item amber and merchant bronze, each with an icon or dotted underline so colour is never the only signal, and paper-panel variants on the parchment desk. Hover, keyboard focus or tap opens a fixed peek card clamped to the viewport: status name, good/bad tag, plain effect and duration; or item art, value range, viewer-known facts and possible effects; or merchant portrait and hint. Inside labels and buttons the term is a passive span with hover-only peek, because nested controls are invalid. Peek cards fade in over 140ms and reduced motion removes it.
+
+### Phase focus, event dialog and result cards (2026-10-14)
+
+Each phase shows only what its decision needs. The HUD adds a one-line amber hint under the phase title. Portal choice shows portals, the full Dark Market and statuses. Appraisal shows the merchant and a three-step desk: inspect, appraise, buy. Only one step panel is visible; each step tab shows its state, a judged item opens on Buy, and spent inspections move the desk to Appraise. Statuses and a one-line Dark Market summary sit beside it, and the inventory is a closed drawer. Trade shows unsold duty, trades, the full market, the inventory and other players. Reveal and results use a single column. The rules disclosure stays at the bottom in every phase.
+
+An offered event blocks table actions, so it opens as a modal dialog (`EventModal` in `feedback.tsx`) over a dimmed, inert table. The player can tuck it away to study the table; a bottom pill brings it back. Results arrive as toast cards in the top corner (top on phones). `outcomeBetween` diffs consecutive private views and reports inspection reveals, items gained or lost, statuses, credits, energy and life, merchant detection, incoming offers, trade replies and auction results. Engine notes such as "ทายถูก! … ได้ 2 เครดิต" become the card title, and a phase change becomes the title with its hint. Tone is good (green), bad (oxblood wash) or info. Cards pause on hover or focus and dismiss after 6.5s with a thin timer bar. Reduced motion removes the motion and the timer bar. The collapsed "ประวัติผลล่าสุด" keeps the last six notes.
+
+Event and status descriptions in `content.ts` are player-facing plain Thai: one or two sentences naming the cost and result, without implementation notes.
 
 ### Art, knowledge and commitments
 

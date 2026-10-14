@@ -73,7 +73,9 @@ test('full phase surfaces render with live DTO data and no missing text',()=>{
   for(const phase of ['PORTALS','APPRAISAL','TRADE','REVEAL','RESULTS'] as const) {
     const state=appraisalFixture();state.phase=phase;const room=roomView(state);
     const html=renderToStaticMarkup(createElement(GameTable,{room,submit:()=>{},send:()=>true,disabled:false}));
-    assert(html.includes('Dark Market'));assert(html.includes('ของที่คุณเก็บไว้'));assert(html.includes('เครดิต'));assert(!html.includes('undefined'));
+    const table=['PORTALS','APPRAISAL','TRADE'].includes(phase);
+    assert.equal(html.includes('id="market-title"'),table,`${phase}: market only beside live decisions`);assert.equal(html.includes('ของที่คุณเก็บไว้'),table,phase);
+    assert(html.includes('เครดิต'));assert(!html.includes('undefined'));
     assert(!html.includes('schedule'));assert(!html.includes('reservation'));assert(!html.includes('fixture'));
   }
   const html=renderToStaticMarkup(createElement(App));assert(html.includes('สร้างห้องใหม่'));assert(html.includes('ชื่อที่ใช้ในเกม'));
@@ -110,7 +112,7 @@ test('seller sees an incoming unlisted swap identity without the buyer private t
 test('E08 identifies both fixed portals and exact mandatory discount/status before commitment',()=>{
   const state=appraisalFixture('E08');state.players[0]!.portals[0]!.npc='orc';state.players[0]!.portals[1]!.npc='autometa';offerEvent(state,state.players[0]!,'E08');
   const game=appraisalViewFor(state,'alice');const html=renderToStaticMarkup(createElement(EventDecision,{game,offer:game.self.eventOffer!,submit:()=>{},disabled:false}));
-  for(const phrase of ['เลือกเครดิต','ออร์กผู้รักษาเกียรติ','เลือกเงื่อนไข','Autometa','ลด 3 เครดิตต่อการซื้อ','อุปกรณ์หนัก','การซื้อจาก NPC สองครั้งถัดไป','ถึงจบ ช่วงพบพ่อค้า ถัดไป'])assert(html.includes(phrase),phrase);
+  for(const phrase of ['เลือกเครดิต','ออร์กผู้รักษาเกียรติ','เลือกเงื่อนไข','Autometa','ลด 3 เครดิตต่อการซื้อ','อุปกรณ์หนัก','การซื้อจาก NPC สองครั้งถัดไป','หมดเมื่อจบช่วงหน้า'])assert(html.includes(phrase),phrase);
 });
 test('same-kind Dark Market items use inventory identifiers and separate known facts',()=>{
   const state=appraisalFixture();const p=state.players[0]!;state.items['second-food']={...state.items['owned-food']!,id:'second-food'};p.inventory.push('second-food');p.knowledge['owned-food']={genuine:true,cursed:false};p.knowledge['second-food']={genuine:false,cursed:true};
@@ -132,3 +134,31 @@ test('price stepper clamps to whole credits 0–1000 and Thai copy hides engine 
   assert.equal(readable('ยอมรับก่อน resolve เหตุ'),'ยอมรับก่อนเกิดเหตุ');assert.equal(readable('events'),'events');
 });
 
+test('game UI uses choice cards instead of dropdowns and highlights status/item names with peek cards',()=>{
+  const state=appraisalFixture('E41');offerEvent(state,state.players[0]!,'E41');const room=roomView(state);const game=room.game!;
+  const event=renderToStaticMarkup(createElement(EventDecision,{game,offer:game.self.eventOffer!,submit:()=>{},disabled:false}));
+  assert(!event.includes('<select'));assert(event.includes('type="radio"'));assert(event.includes('choice-card'));
+  const table=renderToStaticMarkup(createElement(GameTable,{room,submit:()=>{},send:()=>true,disabled:false}));
+  assert(!table.includes('<select'));assert(table.includes('class="term debuff"'));assert(table.includes('role="tooltip"'));
+  const desk=renderToStaticMarkup(createElement(AppraisalDesk,{game,item:game.self.stock[0]!,submit:()=>{},disabled:false}));
+  assert(desk.includes('class="term buff"') || desk.includes('class="term debuff"'),'item effects name their status');
+});
+test('result cards: a correct E46 guess says so, and phase changes announce what to do next',async()=>{
+  const {outcomeBetween,appendedNotes}=await import('../src/appraisal-client/model.js');
+  let state=appraisalFixture('E46');offerEvent(state,state.players[0]!,'E46');
+  const before=appraisalViewFor(state,'alice');const itemId=state.players[0]!.eventOffer!.itemIds[0]!;const genuine=state.items[itemId]!.genuine;
+  state=applyAppraisalAction(state,{type:'event',key:state.players[0]!.eventOffer!.key,choice:'accept',itemId,guess:genuine,playerId:'alice',requestId:'guess',encounter:1});
+  const outcome=outcomeBetween(before,appraisalViewFor(state,'alice'))!;
+  assert.equal(outcome.tone,'good');assert.match(outcome.title,/^ทายถูก!/);assert(outcome.lines.some(l=>l.includes(genuine?'ของแท้':'ของปลอม')));assert(outcome.lines.includes('+2 เครดิต'));
+  const quiet=appraisalViewFor(state,'alice');assert.equal(outcomeBetween(quiet,quiet),null,'an unchanged view makes no card');
+  const traded=structuredClone(state);traded.phase='TRADE';const phase=outcomeBetween(quiet,appraisalViewFor(traded,'alice'))!;
+  assert.equal(phase.title,'ต่อรองกับผู้เล่น');assert(phase.lines[0]!.includes('ขายหรือแลก'));
+  assert.deepEqual(appendedNotes(['a','b'],['b','c']),['c']);assert.deepEqual(appendedNotes(['a'],['a','a']),['a']);assert.deepEqual(appendedNotes([],[]),[]);
+});
+test('desk shows one step at a time and the event takes the stage as a dialog',()=>{
+  const state=appraisalFixture('E41');const room=roomView(state);
+  const desk=renderToStaticMarkup(createElement(AppraisalDesk,{game:room.game!,item:room.game!.self.stock[0]!,submit:()=>{},disabled:false}));
+  assert.equal((desk.match(/role="tabpanel"/g)??[]).length,3);assert.equal((desk.match(/role="tabpanel"[^>]*hidden=""/g)??[]).length,2);
+  offerEvent(state,state.players[0]!,'E41');const html=renderToStaticMarkup(createElement(GameTable,{room:roomView(state),submit:()=>{},send:()=>true,disabled:false}));
+  assert(html.includes('role="dialog"'));assert(html.includes('aria-modal="true"'));assert(html.includes('inert'));
+});

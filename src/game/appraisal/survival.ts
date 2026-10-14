@@ -3,6 +3,8 @@ import type { AppraisalConfig, AppraisalState, CollectorResult } from './types.j
 
 /** Experimental numbers; the life/energy/end condition was confirmed by the user. */
 export const SURVIVAL_RULES:NonNullable<AppraisalConfig['survival']>={maxLife:6,encounterLifeCost:1,entryEnergyCost:1};
+/** Experimental numbers for unsold-appraisal duty, vault auctions and NPC × held-item events. */
+export const BROKERAGE_RULES:NonNullable<AppraisalConfig['brokerage']>={auctionProbability:.5,maxLots:2,bondProbability:.65};
 export function collectRun(state:AppraisalState):void {
   check(state.config.survival && state.players.every(p=>p.life===0),'collector','Collector รับของเมื่อทุกคนชีวิตหมดเท่านั้น');
   check(!state.collector,'collector','Collector คิดคะแนนแล้ว');

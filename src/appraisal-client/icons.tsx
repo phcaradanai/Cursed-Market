@@ -21,3 +21,4 @@ export const MarketIcon=()=> <Icon><path d="M4 9.5 6 4.5h12l2 5M4 9.5h16M4 9.5v1
 export const MinusIcon=()=> <Icon><path d="M6 12h12"/></Icon>;
 export const PlusIcon=()=> <Icon><path d="M12 6v12M6 12h12"/></Icon>;
 export const SoundIcon=({on}:{on:boolean})=> <Icon><path d="M4.5 9.5h3l4.5-4v13l-4.5-4h-3v-5Z"/>{on?<path d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a7.8 7.8 0 0 1 0 11"/>:<path d="m15.5 9.5 5 5M20.5 9.5l-5 5"/>}</Icon>;
+export const CloseIcon=()=> <Icon><path d="m7 7 10 10M17 7 7 17"/></Icon>;

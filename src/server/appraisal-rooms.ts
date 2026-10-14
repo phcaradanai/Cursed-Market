@@ -44,7 +44,7 @@ export class AppraisalRoomService extends RoomLifecycle<AppraisalState, Appraisa
       }
       case 'reveal-ready':
         insist(room.game?.phase === 'REVEAL' && message.matchId === room.matchId && message.encounter === room.game.encounter,
-          'stale-reveal', 'ผล encounter นี้ผ่านไปแล้ว ใช้ผลล่าสุด');
+          'stale-reveal', 'ผลช่วงนี้ผ่านไปแล้ว ใช้ผลล่าสุด');
         insist(!room.game.config.survival || room.game.players.find(p=>p.id===seat.id)?.life!==0,'spectator','ชีวิตหมดแล้ว ดูผู้เล่นที่ยังมีชีวิตไปต่อ');
         room.revealReady.add(seat.id);
         if (room.seats.every(s => room.game?.config.survival && room.game.players.find(p=>p.id===s.id)?.life===0 || room.revealReady.has(s.id))) this.advance(room);

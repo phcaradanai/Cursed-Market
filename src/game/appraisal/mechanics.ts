@@ -146,6 +146,7 @@ export function appraise(state: AppraisalState, p: Appraiser, itemId: string, va
   p.valuations[itemId] = {value,accuracy,caught,accepted};
   item.lastAppraisal = value; item.lastAccepted = accepted;
   p.notes.push(accepted?`NPC ยอมรับราคา ${value} credit`:`NPC ปฏิเสธราคา ${value}; ยังซื้อราคาหน้าร้าน ${item.ask} credit ได้`);
+  if (caught) p.notes.push('พ่อค้าจับได้ว่าคุณกดราคา!');
   p.notes = p.notes.slice(-30);
   consumeStatus(p,'B04'); consumeStatus(p,'D03');
   if (p.honorJob && accuracy) grant(state,p,'B07'); p.honorJob = false;
@@ -211,5 +212,6 @@ export function marketSell(state: AppraisalState, p: Appraiser, itemId: string, 
   check(order && order.kind === item.kind && (order.quota[p.id] ?? 0) > 0,'market-order','ไม่มีสิทธิ์รับซื้อตามรายการ');
   check(state.market.budget >= order.price,'market-budget','งบรับซื้อหมด');
   reward(state,p,order.price,'dark-market',true); state.market.budget -= order.price; order.quota[p.id]!--;
-  retire(state,p,itemId,'dark-market'); trace(state,p,'market-sale',{itemId,orderId,price:order.price});
+  retire(state,p,itemId,'dark-market'); if (state.config.brokerage) { item.owner='dark-market'; state.vault!.push(itemId); }
+  trace(state,p,'market-sale',{itemId,orderId,price:order.price});
 }

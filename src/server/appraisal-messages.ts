@@ -49,6 +49,11 @@ function action(value: unknown): AppraisalSeatAction {
         ...(body.swapItemId === undefined ? {} : { swapItemId: string(body.swapItemId) }),
         ...(body.condition === undefined ? {} : { condition: boolean(body.condition) }) };
     case 'respond': keys(body, [...fields, 'offerId', 'accept']); return { type: 'respond', ...base, offerId: string(body.offerId), accept: boolean(body.accept) };
+    case 'unsold':
+      keys(body, [...fields, 'itemId', 'choice']);
+      if (body.choice !== 'buy' && body.choice !== 'penalty' && body.choice !== 'consign') throw new MessageError();
+      return { type: 'unsold', ...base, itemId: string(body.itemId), choice: body.choice };
+    case 'bid': keys(body, [...fields, 'lotId', 'credits']); return { type: 'bid', ...base, lotId: string(body.lotId), credits: integer(body.credits) };
     case 'done': keys(body, fields); return { type: 'done', ...base };
     default: throw new MessageError();
   }

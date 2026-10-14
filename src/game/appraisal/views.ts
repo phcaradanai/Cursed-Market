@@ -2,6 +2,12 @@ import { ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, itemFamily, itemImage, priceRang
 import { counterLimit, known, npcQuote, player, recoveryOffer } from './mechanics.js';
 import type { AppraisalState, AppraisalView, ItemView } from './types.js';
 
+/** Sealed bids: a seat sees only its own bid and how many bids exist. */
+function marketView(state:AppraisalState,playerId:string):AppraisalView['market'] {
+  const {lots,...market}=structuredClone(state.market);
+  return {...market,...(lots?{lots:lots.map(l=>({id:l.id,itemId:l.itemId,minimum:l.minimum,item:{...appraisalItemView(state,playerId,l.itemId),appraisal:null,appraisalAccepted:null},yourBid:l.bids[playerId]??null,bidCount:Object.keys(l.bids).length,...(l.winnerId!==undefined?{winnerId:l.winnerId}:{}),...(l.price!==undefined?{price:l.price}:{})}))}:{})};
+}
+
 export function appraisalItemView(state:AppraisalState,playerId:string,itemId:string):ItemView {
   const p=player(state,playerId); const item=state.items[itemId]!; const spec=ITEM_SPECS[item.kind];
   const k=state.phase==='RESULTS' && state.config.survival && state.collector?.some(row=>row.items.some(i=>i.id===itemId))?{...known(state,p,itemId),base:item.base,genuine:item.genuine,cursed:item.cursed}:known(state,p,itemId); const owner=state.players.find(s=>s.id===item.owner);
@@ -25,10 +31,10 @@ export function appraisalViewFor(state:AppraisalState,playerId:string):Appraisal
   const {knowledge:_knowledge,portals:_portals,stock:_stock,inventory:_inventory,valuations:_valuations,startWealth:_startWealth,acceptedDanger:_acceptedDanger,seenEvents:_seenEvents,resolvedEvents:_resolvedEvents,...self}=structuredClone(p);
   return {
     version:state.version,phase:state.phase,encounter:state.encounter,encounterCount:state.config.survival?null:state.config.encounters,revision:state.revision,
-    ...(state.config.survival?{survival:structuredClone(state.config.survival),maxEnergy:state.config.maxEnergy}:{}),...(state.collector?{collector:structuredClone(state.collector)}:{}),
+    ...(state.config.survival?{survival:structuredClone(state.config.survival),maxEnergy:state.config.maxEnergy}:{}),...(state.collector?{collector:structuredClone(state.collector)}:{}),...(state.config.brokerage?{brokerage:true}:{}),
     self:{...self,...(state.config.survival && state.phase!=='RESULTS'?{accuracyBonus:0}:{}),inventory:p.inventory.map(id=>appraisalItemView(state,p.id,id)),stock:p.stock.filter(id=>state.items[id]!.owner.startsWith('npc:')).map(id=>appraisalItemView(state,p.id,id)),portals:p.portals.map(portal=>({id:portal.id,npc:portal.npc,hint:state.items[portal.stock[0]!]!.kind,disabled:portal.disabled})),counterLimit:counterLimit(p),...(recoveryOffer(state,p)?{recoveryOffer:recoveryOffer(state,p)!}:{})},
     players:state.players.map(other=>({id:other.id,credits:other.credits,energy:other.energy,score:other.score,paused:other.paused,done:other.done,itemCount:other.inventory.length,...(other.life!==undefined?{life:other.life}:{})})),
-    market:structuredClone(state.market),listings:state.listings.map(l=>({...l,item:appraisalItemView(state,p.id,l.itemId)})),
+    market:marketView(state,p.id),listings:state.listings.map(l=>({...l,item:appraisalItemView(state,p.id,l.itemId)})),
     trades:state.trades.filter(t=>t.buyerId===p.id || t.sellerId===p.id).map(t=>({...structuredClone(t),item:appraisalItemView(state,p.id,t.itemId),swapItem:t.swapItemId?appraisalItemView(state,p.id,t.swapItemId):null})),history:state.config.survival && state.phase!=='RESULTS'?[]:structuredClone(state.history),
   };
 }

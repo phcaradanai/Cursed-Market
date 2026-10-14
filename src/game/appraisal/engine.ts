@@ -1,6 +1,7 @@
 import { randomAt } from '../random.js';
 import { ITEM_SPECS, NPC_SPECS, merchantKinds, priceRange } from './content.js';
-import { defaultEvent, drawEvent, resolveEvent } from './events.js';
+import { defaultEvent, drawBondEvent, drawEvent, resolveEvent } from './events.js';
+import { auctionLots, placeBid, settleAuction, settleRemainingUnsold, settleUnsold } from './brokerage.js';
 import { activate, appraise, check, consumeStatus, damageLife, healLife, inspect, marketSell, ownedItem, player, purchase, recover, recoveryOffer, reward, spend, status, stockItem, trace, transfer, unlocked, wealth } from './mechanics.js';
 import { collectRun } from './survival.js';
 import type { AppraisalAction, AppraisalConfig, AppraisalState, Appraiser, DarkMarket, NpcId, Portal } from './types.js';
@@ -22,6 +23,11 @@ function validateConfig(config:AppraisalConfig):void {
     check(Object.keys(rules).length===3 && ['maxLife','encounterLifeCost','entryEnergyCost'].every(key=>Number.isSafeInteger(rules[key as keyof typeof rules])),'config','กติกาชีวิตไม่ถูกต้อง');
     check(rules.maxLife>=1 && rules.maxLife<=100 && rules.encounterLifeCost>=1 && rules.encounterLifeCost<=rules.maxLife && rules.entryEnergyCost>=0 && rules.entryEnergyCost<=config.maxEnergy,'config','ค่าชีวิตหรือต้นทุนเริ่มรอบไม่ถูกต้อง');
   }
+  if(config.brokerage!==undefined){
+    const rules=config.brokerage;
+    check(!!rules && typeof rules==='object' && !Array.isArray(rules) && Object.keys(rules).length===3,'config','กติกานายหน้าไม่ถูกต้อง');
+    check([rules.auctionProbability,rules.bondProbability].every(v=>Number.isFinite(v) && v>=0 && v<=1) && Number.isSafeInteger(rules.maxLots) && rules.maxLots>=1 && rules.maxLots<=4,'config','กติกานายหน้าไม่ถูกต้อง');
+  }
 }
 export function createAppraisalRun(playerIds:string[],seed:string,overrides:Partial<AppraisalConfig>={}):AppraisalState {
   return initialiseAppraisalRun(playerIds,seed,{...DEFAULT_APPRAISAL_CONFIG,...overrides});
@@ -35,6 +41,7 @@ function initialiseAppraisalRun(playerIds:string[],seed:string,config:AppraisalC
   check(typeof seed==='string' && seed.length>0 && seed.length<=256,'seed','seed ไม่ถูกต้อง');
   check(config && typeof config==='object','config','กติกาไม่ถูกต้อง'); validateConfig(config);
   const state:AppraisalState={version:config.survival?5:4,seed,config,encounter:1,phase:'PORTALS',revision:0,players:[],items:{},schedule:{},bank:config.bankReserve,reservedRewards:0,market:{encounter:1,open:false,budget:0,orders:[]},listings:[],publicKnowledge:{},trades:[],ledger:[],trace:[],history:[],accepted:{},commands:[]};
+  if(config.brokerage) state.vault=[];
   playerIds.forEach((id,seat)=>{
     const schedule:Portal[][]=[];
     for(let encounter=1;encounter<=(config.survival?1:config.encounters);encounter++) {
@@ -73,6 +80,8 @@ function generatePortals(state:AppraisalState,id:string,seat:number,encounter:nu
 }
 function makeMarket(state:AppraisalState):DarkMarket {
   const market:DarkMarket={encounter:state.encounter,open:false,budget:0,orders:[]};
+  // Vault auctions roll independently of the sell-order market.
+  if(state.config.brokerage) market.lots=auctionLots(state);
   if(randomAt(state.seed,`${state.encounter}:market:open`)>=state.config.marketProbability) return market;
   const pool=[...new Set(Object.values(state.items).map(item=>item.kind))];
   const count=1+Math.floor(randomAt(state.seed,`${state.encounter}:market:count`)*Math.min(pool.length,state.config.marketMaxOrders));
@@ -94,6 +103,7 @@ function pauseIfNeeded(state:AppraisalState,p:Appraiser):void {
   if(p.paused) {p.done=true;p.eventOffer=null;}
 }
 function settleEncounter(state:AppraisalState):void {
+  if(state.config.brokerage) {for(const p of state.players) settleRemainingUnsold(state,p);settleAuction(state);}
   for(const p of state.players) {
     if(state.config.survival && p.life===0){
       if(p.subsidy){p.subsidy=false;state.reservedRewards--;}
@@ -117,7 +127,7 @@ function progress(state:AppraisalState):void {
   while(moves++<4 && state.players.every(p=>p.done || !!p.paused)) {
     if(state.phase==='PORTALS') {
       state.phase='APPRAISAL';
-      for(const p of state.players) { p.done=!!p.paused || !p.stock.length; if(!p.done) drawEvent(state,p); }
+      for(const p of state.players) { p.done=!!p.paused || !p.stock.length; if(!p.done && !drawBondEvent(state,p)) drawEvent(state,p); }
     } else if(state.phase==='APPRAISAL') {
       state.phase='TRADE';
       for(const p of state.players) {p.done=!!p.paused; if(!p.done) drawEvent(state,p);}
@@ -213,6 +223,8 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
       break;
     }
     case 'event': resolveEvent(state,p,action);break;
+    case 'unsold': check(state.config.brokerage && ['APPRAISAL','TRADE'].includes(state.phase) && !p.eventOffer,'phase','resolve event ก่อนจัดการของค้าง');settleUnsold(state,p,action.itemId,action.choice);break;
+    case 'bid': check(state.config.brokerage,'action-type','ห้องนี้ไม่มีการประมูล');placeBid(state,p,action.lotId,action.credits);break;
     case 'market-sell': marketSell(state,p,action.itemId,action.orderId);break;
     case 'share': check(['APPRAISAL','TRADE'].includes(state.phase),'phase','ยังเปิดรายการไม่ได้');share(state,p,action.itemId,action.allow,action.purchase);break;
     case 'propose': check(state.phase==='TRADE','phase','ยังไม่ใช่ช่วงต่อรอง');propose(state,p,action);break;
@@ -263,5 +275,7 @@ export function assertAppraisalInvariants(state:AppraisalState):void {
     check(p.statuses.every(s=>s.charges>0 && (s.expires>=state.encounter || !!state.config.survival && p.life===0)) && new Set(p.statuses.map(s=>s.id)).size===p.statuses.length,'status','สถานะไม่ถูกต้อง');
   }
   for(const item of Object.values(state.items)) if(state.players.some(p=>p.id===item.owner)) check(owned.has(item.id),'owner','ของมีเจ้าของแต่ไม่มีใน inventory');
+  check(!!state.config.brokerage===Array.isArray(state.vault),'vault','คลัง Dark Market ไม่ตรงกติกา');
+  if(state.vault) check(new Set(state.vault).size===state.vault.length && state.vault.every(id=>state.items[id]?.owner==='dark-market') && Object.values(state.items).filter(i=>i.owner==='dark-market').length===state.vault.length,'vault','คลัง Dark Market ไม่ตรงเจ้าของ');
   if(state.config.survival){check(state.version===5,'version','กติกาชีวิตต้องเป็น v0.5');if(state.phase==='RESULTS')check(state.players.every(p=>p.life===0) && state.collector?.length===state.players.length,'collector','จบได้เมื่อทุกคนตายและ Collector คิดผลแล้ว');else check(!state.collector,'collector','เปิดผล Collector ก่อนจบไม่ได้');}
 }

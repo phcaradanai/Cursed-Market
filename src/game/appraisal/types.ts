@@ -1,7 +1,9 @@
 export const STATUS_IDS = ['B01','B02','B03','B04','B05','B06','B07','B08','B09','B10','D01','D02','D03','D04','D05','D06','D07','D08','D09','D10'] as const;
 export type StatusId = typeof STATUS_IDS[number];
 export const EVENT_IDS = ['E01','E02','E03','E04','E05','E06','E07','E08','E09','E10','E11','E12','E13','E14','E15','E16','E17','E18','E19','E20','E21','E22','E23','E24','E25','E26','E27','E28','E29','E30','E31','E32','E33','E34','E35','E36','E37','E38','E39','E40','E41','E42','E43','E44','E45','E46','E47','E48','E49','E50'] as const;
-export type EventId = typeof EVENT_IDS[number];
+/** NPC × held-item encounters. Kept outside EVENT_IDS so the original random pool never changes. */
+export const BOND_EVENT_IDS = ['E51','E52','E53','E54','E55','E56','E57','E58','E59','E60','E61','E62','E63','E64','E65','E66','E67','E68','E69','E70','E71','E72'] as const;
+export type EventId = typeof EVENT_IDS[number] | typeof BOND_EVENT_IDS[number];
 export type NpcId = 'orc' | 'vampire' | 'autometa' | 'alien' | 'darkone' | 'beast';
 export type ItemFamily = 'mirror' | 'orb' | 'key' | 'mask' | 'potion' | 'battery' | 'amulet' | 'blade' | 'scanner' | 'food';
 export type ItemKind = ItemFamily | 'memory-mirror' | 'rift-mirror' | 'blood-orb' | 'storm-orb' |
@@ -16,7 +18,10 @@ export interface AppraisalConfig {
   bankReserve: number; marketProbability: number; marketMaxOrders: number; marketQuota: number;
   /** Absent in v0.4: retain encounter recovery and historical scoring exactly. */
   survival?: { maxLife:number; encounterLifeCost:number; entryEnergyCost:number };
+  /** Absent in v0.4/v0.5 audits: unsold-appraisal duty, Dark Market vault auctions and NPC × held-item events. */
+  brokerage?: { auctionProbability:number; maxLots:number; bondProbability:number };
 }
+export type UnsoldChoice = 'buy'|'penalty'|'consign';
 export interface RecoveryOffer { target:'energy'|'life'; credits:number; amount:number }
 export interface CollectorResult {
   playerId:string; credits:number; itemValue:number; modifierPercent:number; statusIds:StatusId[]; score:number;
@@ -36,6 +41,8 @@ export interface EventOffer {
   id: EventId; key: string; choices: string[]; itemIds: string[]; statusIds: StatusId[];
   otherPlayerIds: string[]; quotedPrices: Record<string,number>;
   facts: Record<string,Knowledge>; targetKinds: Record<string,ItemKind>;
+  /** Held item a bond swap hands to the NPC; fixed when the offer opens. */
+  giveItemId?: string;
 }
 export interface Appraiser {
   id: string; credits: number; energy: number; inventory: string[]; statuses: Status[];
@@ -51,7 +58,9 @@ export interface Appraiser {
   notes: string[];
 }
 export interface MarketOrder { id: string; kind: ItemKind; price: number; quota: Record<string,number> }
-export interface DarkMarket { encounter: number; open: boolean; budget: number; orders: MarketOrder[] }
+export interface AuctionLot { id: string; itemId: string; minimum: number; bids: Record<string,number>; winnerId?: string | null; price?: number }
+export interface DarkMarket { encounter: number; open: boolean; budget: number; orders: MarketOrder[]; lots?: AuctionLot[] }
+export interface AuctionLotView { id: string; itemId: string; minimum: number; item: ItemView; yourBid: number | null; bidCount: number; winnerId?: string | null; price?: number }
 export interface TradeOffer {
   id: string; buyerId: string; sellerId: string; itemId: string; swapItemId: string | null;
   credits: number; source: 'inventory' | 'npc'; encounter: number; status: 'open'|'accepted'|'rejected';
@@ -73,6 +82,8 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
   | { type: 'respond'; offerId: string; accept: boolean }
   | { type: 'done' }
   | { type:'recover-resource'; target:'energy'|'life' }
+  | { type:'unsold'; itemId:string; choice:UnsoldChoice }
+  | { type:'bid'; lotId:string; credits:number }
 );
 export interface SharedListing { ownerId: string; itemId: string; purchase: boolean }
 export interface AppraisalState {
@@ -84,6 +95,8 @@ export interface AppraisalState {
   ledger: LedgerEntry[]; trace: TraceEntry[]; history: EncounterResult[];
   accepted: Record<string,string>; commands: Array<AppraisalAction | { type: 'advance' }>;
   collector?:CollectorResult[];
+  /** Items the Dark Market bought or took on consignment; present only with brokerage rules. */
+  vault?: string[];
 }
 export interface ItemView {
   id: string; kind: ItemKind; name: string; image: string; owner: string;
@@ -95,13 +108,13 @@ export interface ItemView {
 }
 export interface AppraisalView {
   version: 4 | 5; phase: AppraisalPhase; encounter: number; encounterCount: number | null; revision: number;
-  survival?:NonNullable<AppraisalConfig['survival']>; maxEnergy?:number; collector?:CollectorResult[];
+  survival?:NonNullable<AppraisalConfig['survival']>; maxEnergy?:number; collector?:CollectorResult[]; brokerage?:boolean;
   self: Omit<Appraiser,'knowledge'|'portals'|'stock'|'inventory'|'valuations'|'startWealth'|'acceptedDanger'|'seenEvents'|'resolvedEvents'> & {
     inventory: ItemView[]; stock: ItemView[]; portals: Array<{id:string; npc:NpcId; hint:ItemKind; disabled:boolean}>;
     counterLimit: number;
     recoveryOffer?:RecoveryOffer;
   };
   players: Array<{id:string;credits:number;energy:number;score:number;paused:Appraiser['paused'];done:boolean;itemCount:number;life?:number}>;
-  market: DarkMarket; listings: Array<SharedListing & { item: ItemView }>;
+  market: Omit<DarkMarket,'lots'> & { lots?: AuctionLotView[] }; listings: Array<SharedListing & { item: ItemView }>;
   trades: Array<TradeOffer & {item:ItemView;swapItem:ItemView|null}>; history: EncounterResult[];
 }

@@ -1,10 +1,14 @@
-export const STATUS_IDS = ['B01','B02','B03','B04','B05','B06','B07','B08','B09','B10','D01','D02','D03','D04','D05','D06','D07','D08','D09','D10'] as const;
+export const STATUS_IDS = ['B01','B02','B03','B04','B05','B06','B07','B08','B09','B10','B11','B12','B13','B14','B15','B16','D01','D02','D03','D04','D05','D06','D07','D08','D09','D10','D11','D12','D13','D14','D15','D16'] as const;
 export type StatusId = typeof STATUS_IDS[number];
 export const EVENT_IDS = ['E01','E02','E03','E04','E05','E06','E07','E08','E09','E10','E11','E12','E13','E14','E15','E16','E17','E18','E19','E20','E21','E22','E23','E24','E25','E26','E27','E28','E29','E30','E31','E32','E33','E34','E35','E36','E37','E38','E39','E40','E41','E42','E43','E44','E45','E46','E47','E48','E49','E50'] as const;
 /** NPC × held-item encounters. Kept outside EVENT_IDS so the original random pool never changes. */
-export const BOND_EVENT_IDS = ['E51','E52','E53','E54','E55','E56','E57','E58','E59','E60','E61','E62','E63','E64','E65','E66','E67','E68','E69','E70','E71','E72'] as const;
-export type EventId = typeof EVENT_IDS[number] | typeof BOND_EVENT_IDS[number];
-export type NpcId = 'orc' | 'vampire' | 'autometa' | 'alien' | 'darkone' | 'beast';
+export const BOND_EVENT_IDS = ['E51','E52','E53','E54','E55','E56','E57','E58','E59','E60','E61','E62','E63','E64','E65','E66','E67','E68','E69','E70','E71','E72','E74','E75','E76','E77','E78','E79','E80','E81','E82','E83'] as const;
+/** Random events that only exist in the deep-sea/swarm expansion; kept outside EVENT_IDS so the original pool never changes. */
+export const EXPANSION_EVENT_IDS = ['E84','E85','E86','E87','E88','E89','E90','E91','E92','E93'] as const;
+/** Merchant wish announcement; kept outside both pools so neither changes. */
+export const WISH_EVENT_ID = 'E73' as const;
+export type EventId = typeof EVENT_IDS[number] | typeof BOND_EVENT_IDS[number] | typeof WISH_EVENT_ID | typeof EXPANSION_EVENT_IDS[number];
+export type NpcId = 'orc' | 'vampire' | 'autometa' | 'alien' | 'darkone' | 'beast' | 'deepsea' | 'swarm';
 export type ItemFamily = 'mirror' | 'orb' | 'key' | 'mask' | 'potion' | 'battery' | 'amulet' | 'blade' | 'scanner' | 'food';
 export const PASSIVE_ITEM_IDS=['inspection-warrant','tax-order','noble-seal','gambler-hat','lucky-die','merchant-ledger','friendship-ring','negotiator-gloves','guild-badge','light-satchel','surveyor-lens','curse-compass','market-pass','authenticity-seal','smuggler-cloak','merchant-canteen','healing-brooch','inspector-notebook'] as const;
 export type PassiveKind=typeof PASSIVE_ITEM_IDS[number];
@@ -12,7 +16,8 @@ export type InspectionProperty='price'|'authenticity'|'effects';
 export type ItemKind = ItemFamily | 'memory-mirror' | 'rift-mirror' | 'blood-orb' | 'storm-orb' |
   'bone-key' | 'clockwork-key' | 'bone-mask' | 'void-mask' | 'blood-tonic' | 'dream-tonic' |
   'sun-cell' | 'void-cell' | 'oath-charm' | 'echo-charm' | 'bone-blade' | 'eclipse-blade' |
-  'truth-lens' | 'curse-meter' | 'ember-feed' | 'moon-feed' | PassiveKind;
+  'truth-lens' | 'curse-meter' | 'ember-feed' | 'moon-feed' | 'smith-hammer' | 'whetstone' | 'doubt-lens' | 'void-seal' |
+  'abyss-pearl' | 'tide-lantern' | 'kraken-ink' | 'siren-conch' | 'hive-comb' | 'chitin-blade' | 'larva-cell' | 'compound-mirror' | PassiveKind;
 export type AppraisalPhase = 'PORTALS' | 'APPRAISAL' | 'TRADE' | 'REVEAL' | 'RESULTS';
 export interface AppraisalConfig {
   /** Absent in original v0.4 audits: retain the original 10-item generation pool. */
@@ -21,6 +26,20 @@ export interface AppraisalConfig {
   roundRewards?: boolean;
   /** Absent in saved runs: retain the pre-commission/trust/market-contract rules. */
   commerce?: boolean;
+  /** Absent in saved runs: retain the old effects check where only B02 could reveal a curse. */
+  curseSight?: boolean;
+  /** Absent in saved runs: buying from an NPC still costs energy there. */
+  freeBuy?: boolean;
+  /** Absent in saved runs: fake items never produce their good effect there. */
+  fakeEffect?: boolean;
+  /** Absent in saved runs: merchants do not clean curses and the smith tools are never stocked. */
+  cleanse?: boolean;
+  /** Absent in saved runs: merchants never announce wishes. */
+  wishlist?: boolean;
+  /** Absent in saved runs: listings carry no appraiser claims and the challenge tools are never stocked. */
+  challenge?: boolean;
+  /** Absent in saved runs: the Deep Sea Monster and The Swarm never appear and their items, statuses and events stay out of play. */
+  expansion?: boolean;
   encounters: number; startingCredits: number; maxEnergy: number; recoveryEnergy: number;
   bankReserve: number; marketProbability: number; marketMaxOrders: number; marketQuota: number;
   /** Absent in v0.4: retain encounter recovery and historical scoring exactly. */
@@ -29,6 +48,8 @@ export interface AppraisalConfig {
   brokerage?: { auctionProbability:number; maxLots:number; bondProbability:number };
 }
 export type UnsoldChoice = 'buy'|'penalty'|'consign';
+export interface CleanseOffer { npc:NpcId; items:Array<{itemId:string;price:number;chance:number;done:boolean}>; stoneBonus:number }
+export interface WishOffer { npc:NpcId; kind:ItemKind; price:number; trust:number; buffs:number; debuffs:number; tried:boolean; options:Array<{markup:number;price:number;chance:number}>; itemIds:string[] }
 export interface RecoveryOffer { target:'energy'|'life'; credits:number; amount:number }
 export interface CollectorResult {
   playerId:string; credits:number; itemValue:number; modifierPercent:number; statusIds:StatusId[]; score:number;
@@ -51,6 +72,8 @@ export interface EventOffer {
   facts: Record<string,Knowledge>; targetKinds: Record<string,ItemKind>;
   /** Held item a bond swap hands to the NPC; fixed when the offer opens. */
   giveItemId?: string;
+  /** What a merchant announces in E73. */
+  wish?: {kind:ItemKind;price:number};
 }
 export type CoinSide = 'heads' | 'tails';
 export interface RoundReward {
@@ -72,6 +95,11 @@ export interface Appraiser {
   honorJob: boolean; honestyReward: 'B03' | 'B04' | null; acceptedDanger: boolean;
   caught: boolean; subsidy: boolean; revealedInfo: string[];
   dealMode: 'any'|'cash'|'condition';
+  /** Items a merchant already tried to cleanse this encounter; present only with cleanse rules. */
+  cleansed?: string[];
+  /** What each merchant said it wants; kept until sold. Present only with wishlist rules. */
+  wishes?: Partial<Record<NpcId,{kind:ItemKind;price:number}>>;
+  wishTried?: boolean;
   notes: string[];
 }
 export interface MarketContract {
@@ -87,6 +115,10 @@ export interface TradeOffer {
   id: string; buyerId: string; sellerId: string; itemId: string; swapItemId: string | null;
   credits: number; source: 'inventory' | 'npc'; encounter: number; status: 'open'|'accepted'|'rejected';
   condition: boolean;
+  /** Buyer calls this claim on the listing a lie; settled when the seller accepts. */
+  challenge?: 'genuine'|'cursed';
+  /** Void seal staked on the challenge: cancels the penalty if the buyer is wrong. */
+  sealId?: string;
 }
 export interface LedgerEntry { from: string; to: string; amount: number; reason: string; encounter: number }
 export interface TraceEntry { type: string; encounter: number; playerId: string; details: Record<string,unknown> }
@@ -99,17 +131,19 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
   | { type: 'activate'; itemId: string }
   | { type: 'event'; key: string; choice: string; itemId?: string; statusId?: StatusId; otherPlayerId?: string; fact?: 'base'|'genuine'|'cursed'; guess?: boolean }
   | { type: 'market-sell'; itemId: string; orderId: string; resolution?:'discount'|'sacrifice' }
-  | { type: 'share'; itemId: string; allow: boolean; purchase: boolean }
-  | { type: 'propose'; sellerId: string; itemId: string; credits: number; swapItemId?: string; condition?: boolean }
+  | { type: 'share'; itemId: string; allow: boolean; purchase: boolean; claims?: { genuine?: boolean; cursed?: boolean } }
+  | { type: 'propose'; sellerId: string; itemId: string; credits: number; swapItemId?: string; condition?: boolean; challenge?: 'genuine'|'cursed'; sealId?: string }
   | { type: 'respond'; offerId: string; accept: boolean }
   | { type: 'round-flip'; guess:CoinSide; attempt:number }
   | { type: 'round-bank' }
   | { type: 'done' }
   | { type:'recover-resource'; target:'energy'|'life' }
+  | { type:'wish-sell'; itemId:string; markup:number }
+  | { type:'cleanse'; itemId:string; stoneId?:string }
   | { type:'unsold'; itemId:string; choice:UnsoldChoice }
   | { type:'bid'; lotId:string; credits:number }
 );
-export interface SharedListing { ownerId: string; itemId: string; purchase: boolean }
+export interface SharedListing { ownerId: string; itemId: string; purchase: boolean; claims?: { genuine?: boolean; cursed?: boolean } }
 export interface AppraisalState {
   version: 4 | 5; seed: string; config: AppraisalConfig; encounter: number; phase: AppraisalPhase;
   revision: number; players: Appraiser[]; items: Record<string,AppraisalItem>;
@@ -133,11 +167,13 @@ export interface ItemView {
 }
 export interface AppraisalView {
   version: 4 | 5; phase: AppraisalPhase; encounter: number; encounterCount: number | null; revision: number;
-  survival?:NonNullable<AppraisalConfig['survival']>; maxEnergy?:number; collector?:CollectorResult[]; brokerage?:boolean; roundRewardBase?:number; passives?:boolean;
+  survival?:NonNullable<AppraisalConfig['survival']>; curseSight?:boolean; freeBuy?:boolean; fakeEffect?:boolean; cleanse?:boolean; wishlist?:boolean; challenge?:boolean; maxEnergy?:number; collector?:CollectorResult[]; brokerage?:boolean; roundRewardBase?:number; passives?:boolean;
   self: Omit<Appraiser,'knowledge'|'portals'|'stock'|'inventory'|'valuations'|'startWealth'|'acceptedDanger'|'seenEvents'|'resolvedEvents'> & {
     inventory: ItemView[]; stock: ItemView[]; portals: Array<{id:string; npc:NpcId; hint:ItemKind; disabled:boolean}>;
     counterLimit: number;
     recoveryOffer?:RecoveryOffer;
+    cleanseOffer?:CleanseOffer;
+    wishOffer?:WishOffer;
   };
   players: Array<{id:string;credits:number;energy:number;score:number;paused:Appraiser['paused'];done:boolean;itemCount:number;life?:number}>;
   market: Omit<DarkMarket,'lots'> & { lots?: AuctionLotView[] }; listings: Array<SharedListing & { item: ItemView }>;

@@ -41,8 +41,8 @@ export function Toasts({toasts,dismiss,survival}:{toasts:Toast[];dismiss:(id:num
  * An event blocks every table action until it is answered, so it takes the stage as a dialog.
  * The player can tuck it away to study the table; a pill brings it back.
  */
-export function EventModal({game,offer,submit,disabled}:Actions&{offer:EventOffer}) {
-  const [tucked,setTucked]=useState(false);const panel=useRef<HTMLDivElement>(null);
+export function EventModal({game,offer,submit,disabled,tucked,setTucked}:Actions&{offer:EventOffer;tucked:boolean;setTucked:(value:boolean)=>void}) {
+  const panel=useRef<HTMLDivElement>(null);
   useEffect(()=>{
     if(tucked) return;
     panel.current?.focus();

@@ -1,6 +1,7 @@
 import { marketOrderReserve } from '../game/appraisal/market-contracts.js';
 import { emptyPassives, freeInspectionCount, heldPassives } from '../game/appraisal/passives.js';
-import type { InspectionProperty } from '../game/appraisal/types.js';
+import type { InspectionProperty, Knowledge } from '../game/appraisal/types.js';
+import { FAKE_EFFECT_CHANCE, collectorTotal, itemScoreValue } from '../game/appraisal/scoring.js';
 import { BOND_SPECS, CONSIGN_RULES, EVENT_CATALOG, ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, UNSOLD_PENALTIES } from '../game/appraisal/content.js';
 import type { AppraisalView, EventOffer, ItemView, NpcId, StatusId } from '../game/appraisal/types.js';
 import type { AppraisalSeatAction } from '../shared/appraisal-protocol.js';
@@ -34,8 +35,34 @@ export const playerPassives=(game:AppraisalView,exclude?:string)=>game.passives 
 export const npcAcceptanceChance=(game:AppraisalView,npc:NpcId)=>Math.min(95,(game.self.npcTrust?.[npc]??0)*5+playerPassives(game).acceptance);
 export const inspectionQuota=(game:AppraisalView)=>2+playerPassives(game).inspections;
 export const freeInspectionRemaining=(game:AppraisalView,property:InspectionProperty)=>freeInspectionCount(playerPassives(game),game.self,property);
-export const inspectionCost = (game:AppraisalView,property:InspectionProperty='price') => freeInspectionRemaining(game,property)>0?0:Math.max(0,1+Number(hasStatus(game,'D01'))-Number(hasStatus(game,'B05')));
-export const purchaseEnergy = (game:AppraisalView) => Math.max(0,1+Number(hasStatus(game,'D06'))-playerPassives(game).buyEnergy);
+export const inspectionCost = (game:AppraisalView,property:InspectionProperty='price') => freeInspectionRemaining(game,property)>0?0:Math.max(0,1+Number(hasStatus(game,'D01'))-Number(hasStatus(game,'B05')))*Number(!hasStatus(game,'B11'));
+export const purchaseEnergy = (game:AppraisalView) => Math.max(0,(game.freeBuy?0:1)+Number(hasStatus(game,'D06'))-playerPassives(game).buyEnergy);
+export const effectsInspectionLabel=(game:AppraisalView)=>game.curseSight?'ตรวจคำสาป':'ตรวจผลของสินค้า';
+/** Nothing is left for the third inspection to teach. */
+export const effectsKnownFor=(game:AppraisalView,k:Knowledge)=>game.curseSight?k.cursed!==undefined:!!k.effectsKnown && (!hasStatus(game,'B02') || k.cursed!==undefined);
+export const needShort=(game:AppraisalView,need:{credits:number;energy:number}):string|null=>
+  game.self.credits<need.credits?`เครดิตไม่พอ ต้องใช้ ${need.credits} มี ${game.self.credits}`:game.self.energy<need.energy?`พลังไม่พอ ต้องใช้ ${need.energy} มี ${game.self.energy}`:null;
+/** Why an inspection button is locked for every item, or null. `quiet` suppresses the note while offline or after the seat is done. */
+export function inspectionBlock(game:AppraisalView,quiet:boolean):string|null {
+  if(quiet) return null;
+  if(game.self.eventOffer) return 'ตอบเหตุการณ์ก่อน จึงตรวจได้';
+  if(game.phase!=='APPRAISAL') return 'ตรวจได้เฉพาะช่วงประเมินและซื้อ';
+  if(game.self.inspections>=inspectionQuota(game)) return 'ใช้สิทธิ์ตรวจครบแล้วในช่วงนี้';
+  return null;
+}
+/** Why a purchase is locked, or null. The numbers shown on the button are the same ones checked here. */
+export function purchaseBlock(game:AppraisalView,total:number,quiet:boolean):string|null {
+  if(game.self.eventOffer) return 'ตอบเหตุการณ์ก่อน จึงซื้อได้';
+  if(quiet) return null;
+  return needShort(game,{credits:total,energy:purchaseEnergy(game)});
+}
+/** Mirror of the server's activation cost and preconditions. */
+export function activationBlock(game:AppraisalView,itemId:string,quiet:boolean):string|null {
+  if(game.self.eventOffer) return 'ตอบเหตุการณ์ก่อน จึงเปิดใช้ได้';
+  if(quiet) return null;
+  if(game.self.activated.includes(itemId)) return 'ชิ้นนี้เปิดใช้ในช่วงนี้แล้ว';
+  return needShort(game,{credits:0,energy:1});
+}
 /** A preview uses only the seat DTO. Hidden base/reservation and RNG never enter this module. */
 export function riskRange(game:AppraisalView,item:ItemView,value:number):[number,number] | null {
   const range=item.knowledge.base!==undefined?[item.knowledge.base,item.knowledge.base]:item.knowledge.range;
@@ -49,10 +76,78 @@ export function riskRange(game:AppraisalView,item:ItemView,value:number):[number
   return [Math.floor(Math.min(...risks)),Math.ceil(Math.max(...risks))];
 }
 export function purchasePrice(game:AppraisalView,items:ItemView[],condition:boolean,extraDiscount=0):number {
-  return Math.max(0,items.reduce((sum,item)=>sum+item.price,0)-(hasStatus(game,'B03')?2:0)-(condition?(items[0]?.condition.discount??0):0)-extraDiscount-playerPassives(game).discount);
+  return Math.max(0,items.reduce((sum,item)=>sum+item.price,0)-(hasStatus(game,'B03')?2:0)+(hasStatus(game,'D12')?2:0)-(condition?(items[0]?.condition.discount??0):0)-extraDiscount-playerPassives(game).discount);
 }
 export function marketOptions(game:AppraisalView,item:ItemView) {
   return game.market.orders.filter(o=>game.market.open && o.kind===item.kind && (o.quota[game.self.id]??0)>0 && game.market.budget>=marketOrderReserve(o) && item.lockedUntil===null);
+}
+/** What an event choice charges up front, mirroring events.ts. Hidden facts never enter this. */
+export function eventNeeds(game:AppraisalView,offer:EventOffer,choice:string,itemId:string):{credits:number;energy:number} {
+  const none={credits:0,energy:0};
+  if(choice==='decline') return none;
+  const mod=(n:number)=>Math.max(0,n+Number(hasStatus(game,'D01'))-Number(hasStatus(game,'B05')));
+  const item=game.self.stock.find(i=>i.id===itemId);
+  const deal=game.self.dealMode==='condition';
+  const bond=bondOf(offer);
+  if(bond) return {credits:0,energy:bond.mode==='reveal'?bond.energyCost??0:0};
+  switch(offer.id) {
+    case 'E01': return choice==='stay'?{credits:0,energy:1}:none;
+    case 'E03': case 'E10': case 'E37': case 'E48': case 'E49': return choice==='pay'?{credits:2,energy:0}:none;
+    case 'E04': case 'E14': case 'E22': case 'E32': case 'E85': case 'E88': return {credits:1,energy:0};
+    case 'E84': case 'E93': return {credits:0,energy:1};
+    case 'E87': return {credits:0,energy:2};
+    case 'E91': return {credits:0,energy:game.survival?0:2};
+    case 'E26': case 'E28': case 'E41': return {credits:2,energy:0};
+    case 'E05': case 'E15': case 'E18': case 'E23': case 'E31': case 'E36': case 'E38': case 'E39': case 'E46': return {credits:0,energy:1};
+    case 'E11': return {credits:0,energy:mod(choice==='careful'?2:1)};
+    case 'E12': return {credits:1,energy:mod(0)};
+    case 'E13': case 'E16': return {credits:0,energy:mod(1)};
+    case 'E17': return {credits:2,energy:mod(0)};
+    case 'E20': return {credits:0,energy:mod(2)};
+    case 'E40': return choice==='repair'?{credits:0,energy:2}:none;
+    case 'E09': case 'E24': case 'E27': return item?{credits:purchasePrice(game,[item],deal,2),energy:purchaseEnergy(game)}:none;
+    case 'E29': return item?{credits:purchasePrice(game,[item],deal,3),energy:purchaseEnergy(game)}:none;
+    case 'E30': return item?{credits:purchasePrice(game,[item],deal,-2),energy:purchaseEnergy(game)}:none;
+    case 'E21': return {credits:purchasePrice(game,game.self.stock.slice(0,2),deal,2),energy:purchaseEnergy(game)};
+    case 'E25': return {credits:0,energy:purchaseEnergy(game)};
+    default: return none;
+  }
+}
+/** Item options that would still teach something; the server offers the whole shelf for some events. */
+export function eventItemUsable(game:AppraisalView,offer:EventOffer,id:string):boolean {
+  const seen=[...game.self.stock,...game.self.inventory,...game.listings.map(l=>l.item)].find(i=>i.id===id);
+  const k=seen?.knowledge;if(!k) return true;
+  switch(offer.id) {
+    case 'E11': case 'E46': return k.genuine===undefined;
+    case 'E12': return k.certificate===undefined;
+    case 'E16': return game.curseSight?k.cursed===undefined:!k.effectsKnown;
+    case 'E17': return k.base===undefined;
+    case 'E20': return !k.activationKnown;
+    default: return true;
+  }
+}
+/** Score range for one item from what this seat knows. Same formula the Collector uses. */
+export function itemScoreRange(k:Knowledge):[number,number]|null {
+  const range=k.base!==undefined?[k.base,k.base]:k.range;if(!range) return null;
+  const genuine=k.genuine===undefined?[true,false]:[k.genuine],cursed=k.cursed===undefined?[false,true]:[k.cursed];
+  const values=range.flatMap(base=>genuine.flatMap(g=>cursed.map(c=>itemScoreValue(base,g,c))));
+  return [Math.min(...values),Math.max(...values)];
+}
+/** What the Collector would pay for the pack right now, from known facts only; unpriced items count 0. */
+export function collectorEstimate(game:AppraisalView):{min:number;max:number;unpriced:number;modifier:number} {
+  let low=0,high=0,unpriced=0;
+  for(const item of game.self.inventory) {const r=itemScoreRange(item.knowledge);if(r){low+=r[0];high+=r[1];}else unpriced++;}
+  const has=(id:StatusId)=>game.self.statuses.some(s=>s.id===id && s.charges>0);
+  const modifier=(has('B10')?20:0)-(has('D10')?20:0);
+  return {min:collectorTotal(game.self.credits,low,modifier),max:collectorTotal(game.self.credits,high,modifier),unpriced,modifier};
+}
+/** The four authentic/fake × cursed/clean results of opening an item, said only as far as the facts are known. */
+export function activationOutcome(k:Knowledge):string {
+  const {genuine,cursed}=k;const pct=`${Math.round(FAKE_EFFECT_CHANCE*100)}%`;
+  if(genuine===undefined && cursed===undefined) return `ยังไม่รู้ว่าแท้หรือมีคำสาป ของแท้ได้ผลดีแน่ ของปลอมมีโอกาส ${pct}`;
+  if(genuine!==undefined && cursed!==undefined) return genuine?(cursed?'ได้ผลดี แต่โดนคำสาปด้วย':'ได้ผลดีเต็มที่ ไม่มีผลเสีย'):(cursed?`ผลดีออกฤทธิ์ได้ ${pct} แต่โดนคำสาปแน่`:`ผลดีออกฤทธิ์ได้ ${pct} ไม่มีผลเสีย`);
+  if(genuine!==undefined) return genuine?'ได้ผลดี · ยังไม่รู้ว่าจะโดนคำสาปไหม':`ผลดีออกฤทธิ์ได้ ${pct} · ยังไม่รู้ว่าจะโดนคำสาปไหม`;
+  return cursed?`โดนคำสาปแน่ · ผลดีออกแน่ถ้าเป็นของแท้ ถ้าปลอมได้ ${pct}`:`ไม่โดนคำสาป · ผลดีออกแน่ถ้าเป็นของแท้ ถ้าปลอมได้ ${pct}`;
 }
 export function eventCatalog(offer:EventOffer) { return EVENT_CATALOG.find(e=>e.id===offer.id)!; }
 const itemEvents=new Set(['E07','E09','E11','E12','E16','E17','E19','E20','E24','E25','E27','E29','E30','E31','E32','E33','E34','E35','E36','E38','E39','E44','E45','E46','E47']);
@@ -69,9 +164,10 @@ export function eventStatusOptions(offer:EventOffer,choice:string):StatusId[] {
   if(offer.id==='E34') return offer.statusIds.filter(id=>id.startsWith('B') && id!=='B10');
   if(offer.id==='E35') return offer.statusIds.filter(id=>id==='D01' || id==='D05');
   if(offer.id==='E41') return offer.statusIds.filter(id=>id.startsWith('D'));
+  if(offer.id==='E88') return offer.statusIds.filter(id=>['D11','D12','D13','D14','D15','D16'].includes(id));
   return [];
 }
-export function eventNeedsStatus(offer:EventOffer,choice:string):boolean {return choice!=='decline' && ['E06','E34','E35','E41'].includes(offer.id);}
+export function eventNeedsStatus(offer:EventOffer,choice:string):boolean {return choice!=='decline' && ['E06','E34','E35','E41','E88'].includes(offer.id);}
 export const factName={base:'มูลค่าจริง',genuine:'ความแท้',cursed:'คำสาป'};
 export function eventFacts(offer:EventOffer,itemId:string):Array<keyof typeof factName> {
   return (['base','genuine','cursed'] as const).filter(fact=>offer.facts[itemId]?.[fact]!==undefined);
@@ -117,7 +213,7 @@ export function eventCost(game:AppraisalView,offer:EventOffer,choice:string,item
     const discount=offer.id==='E29'?3:offer.id==='E30'?-2:2;
     return `ซื้อของที่เลือก ${purchasePrice(game,[item],game.self.dealMode==='condition',discount)} เครดิต · ${purchaseEnergy(game)} พลัง${game.self.dealMode==='condition'?` · รับ ${statusName(item.condition.statusId)}`:''}`;
   }
-  const fixed:Record<string,string>={E02:'ไม่จ่ายทันที · รับความเสี่ยงงานประเมินพิเศษ',E04:'1 เครดิต',E05:'1 พลัง',E06:'สละสถานะที่เลือก แลกสถานะใหม่',E07:'ใช้หมด: อาหารที่เลือก',E13:energy(1),E14:'1 เครดิต',E15:'1 พลัง',E16:energy(1),E17:`2 เครดิต · ${energy(0)}`,E18:'1 พลัง',E19:'เปิดผลตรวจของปลอม · รับ 1 เครดิต',E20:energy(2),E22:'1 เครดิต',E23:'1 พลัง',E25:`ใช้หมด: ของที่เลือก · รับสินค้าชิ้นแรกของร้าน · ${purchaseEnergy(game)} พลัง${game.self.dealMode==='condition' && game.self.stock[0]?` · รับ ${statusName(game.self.stock[0].condition.statusId)}`:''}`,E26:'2 เครดิต',E28:'2 เครดิต',E31:'1 พลัง · รับลมหายใจต้องสาป',E32:'ใช้หมด: ลูกแก้ว · 1 เครดิต',E33:'ใช้หมด: กุญแจเงา',E34:'สละ buff ที่เลือก',E35:'ใช้หมด: ยาชำระล้าง',E36:'1 พลัง',E38:'1 พลัง · รับตรานักโกง',E39:'1 พลัง · รับกระหายโลหิต',E41:'2 เครดิต',E43:'ไม่จ่าย · รับ 1 เครดิตเมื่อซื้อขายกับผู้เล่นสำเร็จ',E45:'เปิดข้อมูลที่เลือกให้ทุกคน · รับ 1 เครดิต',E46:'1 พลัง · ทายถูกได้ 2 เครดิต',E47:'ดูรายการข้ามร้าน · ไม่มีการโอนของ'};
+  const fixed:Record<string,string>={E02:'ไม่จ่ายทันที · รับความเสี่ยงงานประเมินพิเศษ',E04:'1 เครดิต',E05:'1 พลัง',E06:'สละสถานะที่เลือก แลกสถานะใหม่',E07:'ใช้หมด: อาหารที่เลือก',E13:energy(1),E14:'1 เครดิต',E15:'1 พลัง',E16:energy(1),E17:`2 เครดิต · ${energy(0)}`,E18:'1 พลัง',E19:'เปิดผลตรวจของปลอม · รับ 1 เครดิต',E20:energy(2),E22:'1 เครดิต',E23:'1 พลัง',E25:`ใช้หมด: ของที่เลือก · รับสินค้าชิ้นแรกของร้าน · ${purchaseEnergy(game)} พลัง${game.self.dealMode==='condition' && game.self.stock[0]?` · รับ ${statusName(game.self.stock[0].condition.statusId)}`:''}`,E26:'2 เครดิต',E28:'2 เครดิต',E31:'1 พลัง · รับลมหายใจต้องสาป',E32:'ใช้หมด: ลูกแก้ว · 1 เครดิต',E33:'ใช้หมด: กุญแจเงา',E34:'สละ buff ที่เลือก',E35:'ใช้หมด: ยาชำระล้าง',E36:'1 พลัง',E38:'1 พลัง · รับตรานักโกง',E39:'1 พลัง · รับกระหายโลหิต',E41:'2 เครดิต',E43:'ไม่จ่าย · รับ 1 เครดิตเมื่อซื้อขายกับผู้เล่นสำเร็จ',E45:'เปิดข้อมูลที่เลือกให้ทุกคน · รับ 1 เครดิต',E46:'1 พลัง · ทายถูกได้ 2 เครดิต',E47:'ดูรายการข้ามร้าน · ไม่มีการโอนของ',E73:'ไม่เสียอะไร · พ่อค้าจำของที่ต้องการไว้ ขายให้ได้เมื่อพบกันอีก',E84:'1 พลัง · รับ เสียงกระซิบเหวลึก',E85:'1 เครดิต · รับ สายสัมพันธ์ของรัง',E86:'รับ 3 เครดิต · รับ ใยพันขา',E87:'2 พลัง · สุ่ม 50%: ได้ 6 เครดิตและ ลมหายใจใต้น้ำลึก หรือรับ แรงดันห้วงลึก',E88:'1 เครดิต · ล้างผลเสียที่เลือก',E89:'ไม่เสียอะไร · รับ ตาประกอบหลายเหลี่ยม แต่รับ หมอกวิกลจริต',E90:'ไม่เสียอะไร · รับ ฝูงหนุนหลัง แต่รับ พิษฝูง',E91:'2 พลัง (กติกาชีวิตเสียชีวิต 1) · รับ ไข่มุกนำโชค และ ลมหายใจใต้น้ำลึก แต่รับ น้ำเค็มกัดกร่อน',E92:'รับ 2 เครดิต · รับ กลิ่นรัง',E93:'1 พลัง · สุ่ม 60%: ได้ 1 เครดิตและ สายสัมพันธ์ของรัง หรือรับ ใยพันขา'};
   if(offer.id==='E08') {
     const portal=game.self.portals[choice==='cash'?0:1];const npc=portal?NPC_SPECS[portal.npc]:null;
     return !npc?'เลือกได้รายเดียว':choice==='cash'?`${npc.name} · จ่ายเครดิตอย่างเดียว`:`${npc.name} · ลด ${npc.discount} เครดิต แลก ${statusName(npc.condition)}`;
@@ -165,8 +261,8 @@ export function appendedNotes(prev:string[],next:string[]):string[] {
   for(let k=Math.min(prev.length,next.length);k>0;k--) if(next.slice(0,k).every((note,i)=>note===prev[prev.length-k+i])) return next.slice(k);
   return next;
 }
-const BAD_NOTE=/ทายผิด|จับได้|ปฏิเสธ|ขายไม่ออก|ไม่ยอมแลก|ทิ้ง|ค่าผ่านทาง/;
-const GOOD_NOTE=/ทายถูก|ยอมรับราคา|ชนะ|เงียบ ๆ/;
+const BAD_NOTE=/ทายผิด|จับได้|ปฏิเสธ|ขายไม่ออก|ไม่ยอมแลก|ทิ้ง|ค่าผ่านทาง|ไม่ออกฤทธิ์|คำสาปทำงาน/;
+const GOOD_NOTE=/ทายถูก|ยอมรับราคา|ชนะ|เงียบ ๆ|ของแท้ ไม่มีคำสาป/;
 const signed=(n:number,unit:string)=>`${n>0?'+':'−'}${Math.abs(n)} ${unit}`;
 /**
  * Turn the difference between two private views into one player-facing result card.

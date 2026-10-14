@@ -6,6 +6,10 @@ import { integer, keys, MessageError, object, parseMessage, string } from './mes
 
 function boolean(value: unknown): boolean { if (typeof value !== 'boolean') throw new MessageError(); return value; }
 function encounter(value: unknown): number { const n = integer(value); if (n < 1) throw new MessageError(); return n; }
+function claims(value: unknown): { genuine?: boolean; cursed?: boolean } {
+  const body = object(value); keys(body, ['genuine', 'cursed']);
+  return { ...(body.genuine === undefined ? {} : { genuine: boolean(body.genuine) }), ...(body.cursed === undefined ? {} : { cursed: boolean(body.cursed) }) };
+}
 function action(value: unknown): AppraisalSeatAction {
   const body = object(value); const requestId = string(body.requestId, 80);
   if (!/^[a-zA-Z0-9_-]+$/.test(requestId)) throw new MessageError();
@@ -30,6 +34,8 @@ function action(value: unknown): AppraisalSeatAction {
     }
     case 'activate': keys(body, [...fields, 'itemId']); return { type: 'activate', ...base, itemId: string(body.itemId) };
     case 'recover-resource': keys(body,[...fields,'target']);if(body.target!=='energy' && body.target!=='life')throw new MessageError();return {type:'recover-resource',...base,target:body.target};
+    case 'wish-sell': keys(body,[...fields,'itemId','markup']);return {type:'wish-sell',...base,itemId:string(body.itemId),markup:integer(body.markup)};
+    case 'cleanse': keys(body,[...fields,'itemId','stoneId']);return {type:'cleanse',...base,itemId:string(body.itemId),...(body.stoneId===undefined?{}:{stoneId:string(body.stoneId)})};
     case 'event': {
       keys(body, [...fields, 'key', 'choice', 'itemId', 'statusId', 'otherPlayerId', 'fact', 'guess']);
       if (body.statusId !== undefined && !STATUS_IDS.includes(body.statusId as StatusId)) throw new MessageError();
@@ -45,12 +51,16 @@ function action(value: unknown): AppraisalSeatAction {
       keys(body,[...fields,'itemId','orderId','resolution']);
       if(body.resolution!==undefined && body.resolution!=='discount' && body.resolution!=='sacrifice')throw new MessageError();
       return {type:'market-sell',...base,itemId:string(body.itemId),orderId:string(body.orderId),...(body.resolution===undefined?{}:{resolution:body.resolution})};
-    case 'share': keys(body, [...fields, 'itemId', 'allow', 'purchase']); return { type: 'share', ...base, itemId: string(body.itemId), allow: boolean(body.allow), purchase: boolean(body.purchase) };
+    case 'share': keys(body, [...fields, 'itemId', 'allow', 'purchase', 'claims']); return { type: 'share', ...base, itemId: string(body.itemId), allow: boolean(body.allow), purchase: boolean(body.purchase),
+      ...(body.claims === undefined ? {} : { claims: claims(body.claims) }) };
     case 'propose':
-      keys(body, [...fields, 'sellerId', 'itemId', 'credits', 'swapItemId', 'condition']);
+      keys(body, [...fields, 'sellerId', 'itemId', 'credits', 'swapItemId', 'condition', 'challenge', 'sealId']);
+      if (body.challenge !== undefined && body.challenge !== 'genuine' && body.challenge !== 'cursed') throw new MessageError();
       return { type: 'propose', ...base, sellerId: string(body.sellerId, 32), itemId: string(body.itemId), credits: integer(body.credits),
         ...(body.swapItemId === undefined ? {} : { swapItemId: string(body.swapItemId) }),
-        ...(body.condition === undefined ? {} : { condition: boolean(body.condition) }) };
+        ...(body.condition === undefined ? {} : { condition: boolean(body.condition) }),
+        ...(body.challenge === undefined ? {} : { challenge: body.challenge as 'genuine'|'cursed' }),
+        ...(body.sealId === undefined ? {} : { sealId: string(body.sealId) }) };
     case 'respond': keys(body, [...fields, 'offerId', 'accept']); return { type: 'respond', ...base, offerId: string(body.offerId), accept: boolean(body.accept) };
     case 'unsold':
       keys(body, [...fields, 'itemId', 'choice']);

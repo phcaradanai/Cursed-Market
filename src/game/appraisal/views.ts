@@ -1,3 +1,5 @@
+import { cleanseOffer } from './cleanse.js';
+import { wishOffer } from './wishlist.js';
 import { passiveBonuses, passivesEnabled } from './passives.js';
 import { ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, itemFamily, itemImage } from './content.js';
 import { counterLimit, known, npcQuote, player, recoveryOffer } from './mechanics.js';
@@ -32,11 +34,11 @@ export function appraisalViewFor(state:AppraisalState,playerId:string):Appraisal
   const p=player(state,playerId);
   const {knowledge:_knowledge,portals:_portals,stock:_stock,inventory:_inventory,valuations:_valuations,startWealth:_startWealth,acceptedDanger:_acceptedDanger,seenEvents:_seenEvents,resolvedEvents:_resolvedEvents,...self}=structuredClone(p);
   return {
-    ...(passivesEnabled(state.config)?{passives:true}:{}),
+    ...(passivesEnabled(state.config)?{passives:true}:{}),...(state.config.curseSight?{curseSight:true}:{}),...(state.config.freeBuy?{freeBuy:true}:{}),...(state.config.fakeEffect?{fakeEffect:true}:{}),...(state.config.cleanse?{cleanse:true}:{}),...(state.config.wishlist?{wishlist:true}:{}),...(state.config.challenge?{challenge:true}:{}),
     version:state.version,phase:state.phase,encounter:state.encounter,encounterCount:state.config.survival?null:state.config.encounters,revision:state.revision,
     ...(state.config.roundRewards?{roundRewardBase:(state.encounter%2?10:15)+passiveBonuses(state,p).income}:{}),
     ...(state.config.survival?{survival:structuredClone(state.config.survival),maxEnergy:state.config.maxEnergy}:{}),...(state.collector?{collector:structuredClone(state.collector)}:{}),...(state.config.brokerage?{brokerage:true}:{}),
-    self:{...self,...(state.config.survival && state.phase!=='RESULTS'?{accuracyBonus:0}:{}),inventory:p.inventory.map(id=>appraisalItemView(state,p.id,id)),stock:p.stock.filter(id=>state.items[id]!.owner.startsWith('npc:')).map(id=>appraisalItemView(state,p.id,id)),portals:p.portals.map(portal=>({id:portal.id,npc:portal.npc,hint:state.items[portal.stock[0]!]!.kind,disabled:portal.disabled})),counterLimit:counterLimit(p),...(recoveryOffer(state,p)?{recoveryOffer:recoveryOffer(state,p)!}:{})},
+    self:{...self,...(state.config.survival && state.phase!=='RESULTS'?{accuracyBonus:0}:{}),inventory:p.inventory.map(id=>appraisalItemView(state,p.id,id)),stock:p.stock.filter(id=>state.items[id]!.owner.startsWith('npc:')).map(id=>appraisalItemView(state,p.id,id)),portals:p.portals.map(portal=>({id:portal.id,npc:portal.npc,hint:state.items[portal.stock[0]!]!.kind,disabled:portal.disabled})),counterLimit:counterLimit(p),...(recoveryOffer(state,p)?{recoveryOffer:recoveryOffer(state,p)!}:{}),...(cleanseOffer(state,p)?{cleanseOffer:cleanseOffer(state,p)!}:{}),...(wishOffer(state,p)?{wishOffer:wishOffer(state,p)!}:{})},
     players:state.players.map(other=>({id:other.id,credits:other.credits,energy:other.energy,score:other.score,paused:other.paused,done:other.done,itemCount:other.inventory.length,...(other.life!==undefined?{life:other.life}:{})})),
     market:marketView(state,p.id),listings:state.listings.map(l=>({...l,item:appraisalItemView(state,p.id,l.itemId)})),
     trades:state.trades.filter(t=>t.buyerId===p.id || t.sellerId===p.id).map(t=>({...structuredClone(t),item:appraisalItemView(state,p.id,t.itemId),swapItem:t.swapItemId?appraisalItemView(state,p.id,t.swapItemId):null})),history:state.config.survival && state.phase!=='RESULTS'?[]:structuredClone(state.history),

@@ -51,7 +51,7 @@ test('purchase preview uses accepted quote and buyer discounts, once for a bundl
   const state=appraisalFixture();const p=state.players[0]!;grant(state,p,'B03');grant(state,p,'D06');
   for(const id of p.stock) {const i=state.items[id]!;i.lastAppraisal=10;i.lastAccepted=false;}
   let game=appraisalViewFor(state,p.id);
-  assert.equal(purchasePrice(game,game.self.stock,false),42);assert.equal(purchasePrice(game,game.self.stock,true),40);assert.equal(purchaseEnergy(game),2);
+  assert.equal(purchasePrice(game,game.self.stock,false),42);assert.equal(purchasePrice(game,game.self.stock,true),40);assert.equal(purchaseEnergy(game),1,'NPC purchases cost no energy except D06 heavy gear');
   state.items[p.stock[0]!]!.lastAccepted=true;p.valuations[p.stock[0]!]={value:10,accuracy:false,caught:false,accepted:true};game=appraisalViewFor(state,p.id);assert.equal(purchasePrice(game,[game.self.stock[0]!],false),8);
   const html=renderToStaticMarkup(createElement(AppraisalDesk,{game,item:game.self.stock[1]!,submit:()=>{},disabled:false}));
   assert(html.includes('NPC ปฏิเสธ'));assert(html.includes('ราคาที่พ่อค้ายอมขาย 24 เครดิต'));assert(html.includes('ใช้ราคาหน้าร้าน 24 เครดิต'));

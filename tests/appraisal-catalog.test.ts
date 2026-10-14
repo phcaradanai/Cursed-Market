@@ -3,14 +3,14 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
 import test from 'node:test';
 import { advanceAppraisalEncounter, applyAppraisalAction, appraisalViewFor, assertAppraisalInvariants, createAppraisalRun, exportAppraisalAudit, replayAppraisalAudit } from '../src/game/appraisal/index.js';
-import { ITEM_SPECS, NPC_SPECS, itemFamily, itemImage, merchantKinds } from '../src/game/appraisal/content.js';
+import { EXPANSION_KINDS, ITEM_SPECS, NPC_SPECS, itemFamily, itemImage, merchantKinds } from '../src/game/appraisal/content.js';
 import { analyseAppraisalMatchAudit } from '../src/playtest/appraisal-report.js';
 import { eventEligible, offerEvent, resolveEvent } from '../src/game/appraisal/events.js';
 import { appraisalFixture } from './support/appraisal-fixture.js';
 import type { AppraisalAction, AppraisalState, EventId, ItemKind, NpcId } from '../src/game/appraisal/types.js';
 import type { AppraisalMatchAudit } from '../src/shared/appraisal-protocol.js';
 
-const kinds=(Object.keys(ITEM_SPECS) as ItemKind[]).filter(kind=>!passiveSpec(kind));
+const kinds=(Object.keys(ITEM_SPECS) as ItemKind[]).filter(kind=>!passiveSpec(kind) && !['smith-hammer','whetstone','doubt-lens','void-seal'].includes(kind) && !EXPANSION_KINDS.includes(kind));
 type Body=AppraisalAction extends infer A ? A extends AppraisalAction ? Omit<A,'playerId'|'requestId'|'encounter'> : never : never;
 function driver(initial:AppraisalState) {
   let state=initial,request=0;

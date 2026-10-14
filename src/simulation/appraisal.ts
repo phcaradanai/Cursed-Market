@@ -8,8 +8,8 @@ import type { AppraisalAction, AppraisalAudit, AppraisalConfig, AppraisalView, I
 export const APPRAISAL_POLICIES=['cautious','aggressive','collector','trader'] as const;
 export type AppraisalPolicy=typeof APPRAISAL_POLICIES[number];
 type Body=AppraisalAction extends infer A ? A extends AppraisalAction ? Omit<A,'playerId'|'requestId'|'encounter'> : never : never;
-function npcEnergy(v:AppraisalView):number {return 1+(v.self.statuses.some(s=>s.id==='D06')?1:0);}
-function buyPrice(v:AppraisalView,item:ItemView):number {return Math.max(0,item.price-(v.self.statuses.some(s=>s.id==='B03')?2:0));}
+function npcEnergy(v:AppraisalView):number {return (v.freeBuy?0:1)+(v.self.statuses.some(s=>s.id==='D06')?1:0);}
+function buyPrice(v:AppraisalView,item:ItemView):number {return Math.max(0,item.price-(v.self.statuses.some(s=>s.id==='B03')?2:0)+(v.self.statuses.some(s=>s.id==='D12')?2:0));}
 function eventAction(v:AppraisalView,policy:AppraisalPolicy):Body {
   const offer=v.self.eventOffer!;const p=v.self;
   let choice=offer.choices.includes('decline')?'decline':offer.choices.includes('pay')?'pay':offer.choices.includes('oath')?'oath':offer.choices.includes('surrender')?'surrender':offer.choices.includes('die')?'die':offer.choices.includes('energy')?'energy':'item';
@@ -25,6 +25,7 @@ function eventAction(v:AppraisalView,policy:AppraisalPolicy):Body {
   if(offer.id==='E17') itemId=offer.itemIds.find(id=>visible.find(i=>i.id===id)?.knowledge.base===undefined);
   let statusId=offer.statusIds.find(id=>id.startsWith('D'));
   if(offer.id==='E06') statusId=offer.statusIds.find(id=>id.startsWith('D') && id!==(choice==='interest'?'D04':'D07'));
+  if(offer.id==='E88') statusId=offer.statusIds.find(id=>['D11','D12','D13','D14','D15','D16'].includes(id));
   if(offer.id==='E34') statusId=offer.statusIds.find(id=>id.startsWith('B') && id!=='B10');
   if(offer.id==='E35') statusId=offer.statusIds.find(id=>id==='D01' || id==='D05');
   const target=p.stock.find(i=>i.id===itemId);

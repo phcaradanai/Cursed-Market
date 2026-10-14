@@ -1,5 +1,5 @@
 import { npcAcceptanceChance } from './model.js';
-import { ITEM_SPECS, NPC_SPECS } from '../game/appraisal/content.js';
+import { ITEM_SPECS, NPC_SPECS, npcImage } from '../game/appraisal/content.js';
 import type { AppraisalView, EventOffer } from '../game/appraisal/types.js';
 import { NpcTerm } from './lore.js';
 
@@ -25,7 +25,7 @@ export function PortalEventPreview({game,offer,choice}:{game:AppraisalView;offer
     <h3 id="event-portals-title">พ่อค้าที่รออยู่หลังประตู</h3>
     <p>ดูของที่อาจได้และนิสัยพ่อค้าก่อนตัดสินใจ ยืนยันเหตุการณ์แล้วจึงเลือกเข้าประตูที่ยังเปิดได้หนึ่งราย</p>
     <div className="event-portal-grid">{game.self.portals.map((portal,index)=><article key={portal.id} className={`event-portal${open[index]?'':' will-close'}`}>
-      <img src={`/art/npc-${portal.npc}.png`} alt="" width="56" height="70"/>
+      <img src={npcImage(portal.npc)} alt="" width="56" height="70"/>
       <div><h4><NpcTerm npc={portal.npc}/></h4><p>อาจมี {ITEM_SPECS[portal.hint].name}</p><p>{NPC_SPECS[portal.npc].hint}</p>
         {game.self.npcTrust && <p className="trust-note">ไว้ใจ {game.self.npcTrust[portal.npc]??0}/10 · ต่อรอง +{npcAcceptanceChance(game,portal.npc)} จุดเปอร์เซ็นต์</p>}
       </div>

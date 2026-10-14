@@ -62,8 +62,8 @@ for(const id of EVENT_IDS.filter(id=>Number(id.slice(1))<48)) test(`${id}: decli
   state=act(state,'alice',{type:'event',choice:'decline'});
   const after=state.players[0]!;assert.deepEqual({credits:after.credits,energy:after.energy,inventory:after.inventory,statuses:after.statuses},before);
 });
-test('catalog counts are 50 mechanical handlers and 20 independent status types',()=>{
-  assert.equal(new Set(EVENT_IDS).size,50);assert.equal(new Set(STATUS_IDS).size,20);
+test('catalog counts are 50 mechanical handlers and 32 independent status types',()=>{
+  assert.equal(new Set(EVENT_IDS).size,50);assert.equal(new Set(STATUS_IDS).size,32);
 });
 test('price20/offer10 is 20% detection; risk modifiers are points and apply only to NPC',()=>{
   const state=fixture();const p=state.players[0]!,item=state.items[p.stock[0]!]!;
@@ -81,10 +81,12 @@ test('D02 preserves B01 and already known truth; B05 and D01 cancel inspection c
 test('B02 opens curse truth; B03/D06 apply once to a bundle and D09 prevents transfers',()=>{
   let state=fixture();let p=state.players[0]!;grant(state,p,'B02');
   state=act(state,'alice',{type:'inspect',itemId:p.stock[0]!,property:'effects'});p=state.players[0]!;
-  assert.equal(p.knowledge[p.stock[0]!]!.cursed,true);assert(!status(p,'B02'));grant(state,p,'B03');grant(state,p,'D06');
+  assert.equal(p.knowledge[p.stock[0]!]!.cursed,true);assert(status(p,'B02'),'the curse check itself needs no B02, so the buff is kept');
+  state=act(state,'alice',{type:'inspect',itemId:p.stock[1]!,property:'authenticity'});p=state.players[0]!;
+  assert.equal(p.knowledge[p.stock[1]!]!.cursed,state.items[p.stock[1]!]!.cursed);assert(!status(p,'B02'));grant(state,p,'B03');grant(state,p,'D06');
   const ids=[...p.stock],credits=p.credits,energy=p.energy;
   state=act(state,'alice',{type:'buy',itemIds:ids,condition:false});p=state.players[0]!;
-  assert.equal(p.credits,credits-42);assert.equal(p.energy,energy-2);assert(!status(p,'B03'));assert.equal(status(p,'D06')!.charges,1);
+  assert.equal(p.credits,credits-42);assert.equal(p.energy,energy-1,'free buying leaves only the heavy-gear D06 cost');assert(!status(p,'B03'));assert.equal(status(p,'D06')!.charges,1);
   grant(state,p,'D09',ids[0]!);assert.throws(()=>act(state,'alice',{type:'share',itemId:ids[0]!,allow:true,purchase:true}));
 });
 test('B06/B07/B08 prevent only their declared effects, not voluntary costs',()=>{
@@ -184,7 +186,7 @@ test('old event keys are rejected within the same encounter and failed spending 
   assert.equal(state.items['owned-orb']!.owner,'alice');
 });
 test('all exhausted seats settle and recover; B09/D04/D05/D07/D10 timing and expiry are explicit',()=>{
-  let state=fixture();
+  let state=fixture();state.config.freeBuy=false;
   for(const p of state.players) {p.energy=1;grant(state,p,'D10');grant(state,p,'B09');grant(state,p,'D04');grant(state,p,'D07');grant(state,p,'D05');grant(state,p,'B05');}
   state=act(state,'alice',{type:'buy',itemIds:[state.players[0]!.stock[0]!],condition:false});assert.equal(state.players[0]!.paused,'exhausted');
   state=act(state,'bob',{type:'buy',itemIds:[state.players[1]!.stock[0]!],condition:false});assert.equal(state.phase,'REVEAL');

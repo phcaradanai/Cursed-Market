@@ -96,7 +96,7 @@ const BASE_EVENT_CATALOG: ReadonlyArray<{id:EventId;name:string;when:string;desc
     "id": "E16",
     "name": "แสงที่เผยเงื่อนไข",
     "when": "สินค้ามี buff/debuff ที่ยังไม่ทราบจังหวะ",
-    "description": "ใช้พลัง 1 ส่องดูว่าสินค้าที่เลือกให้ผลอะไรเมื่อเปิดใช้"
+    "description": "ใช้พลัง 1 ส่องสินค้าที่เลือก เปิดผลของสินค้าและบอกว่ามีคำสาปหรือไม่"
   },
   {
     "id": "E17",
@@ -336,9 +336,29 @@ export const BOND_SPECS: ReadonlyArray<BondSpec> = [
   {id:'E70',npc:'alien',mode:'swap',known:'fake',risk:.5,name:'ของปลอมข้ามจักรวาล',when:'พบ Alien; ถือของที่คุณรู้ว่าเป็นของปลอม',description:'ลองแลกของปลอมกับสินค้าในร้านหนึ่งชิ้น โอกาส 50% ที่ Alien จับได้: ไม่แลกและรับ D03'},
   {id:'E71',npc:'orc',mode:'show',families:['mask'],buffs:['B07'],name:'หน้ากากนักรบ',when:'พบออร์ก; ถือหน้ากาก',description:'ออร์กนับถือหน้ากากนักรบ ได้รับ B07 โดยไม่ต้องสละของ'},
   {id:'E72',npc:'autometa',mode:'show',families:['mirror'],buffs:['B01'],name:'กระจกสอบเทียบ',when:'พบ Autometa; ถือกระจก',description:'Autometa ใช้กระจกของคุณสอบเทียบเลนส์ ได้รับ B01 โดยไม่ต้องสละของ'},
+  {id:'E74',npc:'deepsea',mode:'swap',kinds:['abyss-pearl'],genuineOnly:true,name:'ไข่มุกคืนทะเล',when:'พบอสูรใต้ทะเลลึก; ถือไข่มุกห้วงลึก',description:'อสูรใต้ทะเลลึกขอไข่มุกที่คุณถือคืนสู่ห้วงน้ำ แลกกับสินค้าในร้านหนึ่งชิ้นโดยไม่คิดเครดิตหรือพลัง หากไข่มุกเป็นของปลอม อสูรปฏิเสธ คุณเก็บของไว้และรับ D10'},
+  {id:'E75',npc:'deepsea',mode:'reveal',kinds:['kraken-ink'],reveal:['base','genuine'],energyCost:1,name:'หมึกเขียนความจริง',when:'พบอสูรใต้ทะเลลึก; ถือหมึกยักษ์ดำ',description:'จ่ายพลัง 1 ให้อสูรใช้หมึกเขียนความจริงบนสินค้าที่เลือก เปิดมูลค่าจริงและความแท้ ไม่ใช้สิทธิ์ตรวจ'},
+  {id:'E76',npc:'deepsea',mode:'show',families:['amulet'],buffs:['B12'],name:'เสียงที่ฟังได้',when:'พบอสูรใต้ทะเลลึก; ถือเครื่องราง',description:'อสูรใต้ทะเลลึกได้ยินเครื่องรางของคุณสะท้อนเสียงห้วงน้ำ ได้รับ B12 โดยไม่ต้องสละของ'},
+  {id:'E77',npc:'deepsea',mode:'sell',families:['mask'],price:1.1,name:'หน้ากากของผู้จมน้ำ',when:'พบอสูรใต้ทะเลลึก; ถือหน้ากาก; ธนาคารมีงบพอ',description:'อสูรใต้ทะเลลึกซื้อหน้ากากหนึ่งชิ้นในราคาอ้างอิง 110% ของชนิดนั้น ไม่สนว่าแท้หรือปลอม'},
+  {id:'E78',npc:'deepsea',mode:'tribute',families:['food'],energy:2,buffs:['B11'],name:'เครื่องเซ่นจากผิวน้ำ',when:'พบอสูรใต้ทะเลลึก; ถืออาหาร',description:'มอบอาหารหนึ่งชิ้นให้อสูรใต้ทะเลลึก ฟื้นพลัง 2 และได้รับ B11'},
+  {id:'E79',npc:'swarm',mode:'show',families:['blade'],buffs:['B13'],debuffs:['D11'],name:'ฝูงเกรงคมดาบ',when:'พบ The Swarm; ถือดาบ',description:'ฝูงมนุษย์แมลงถอยให้ผู้ถือดาบและยอมหนุนหลัง ได้รับ B13 แต่ถูกพิษฝูงกัดเป็นค่าผ่านทาง รับ D11'},
+  {id:'E80',npc:'swarm',mode:'swap',families:['food'],name:'น้ำหวานแลกของเก็บ',when:'พบ The Swarm; ถืออาหาร',description:'The Swarm ขออาหารที่คุณถือไปเลี้ยงตัวอ่อน แลกกับสินค้าในร้านหนึ่งชิ้นโดยไม่คิดเครดิตหรือพลัง'},
+  {id:'E81',npc:'swarm',mode:'tribute',families:['potion'],cleanse:'debuffs',name:'ยาแก้พิษให้ฝูงกลืน',when:'พบ The Swarm; ถือยา; มี debuff',description:'มอบยาหนึ่งชิ้นให้ The Swarm ฝูงดูดผลเสียทั้งหมดที่ติดตัวคุณไป'},
+  {id:'E82',npc:'swarm',mode:'reveal',families:['scanner'],reveal:['base','cursed'],energyCost:1,name:'ตาของทั้งฝูง',when:'พบ The Swarm; ถือเครื่องตรวจ',description:'จ่ายพลัง 1 ยืมสายตาของทั้งฝูงส่องสินค้าที่เลือก เปิดมูลค่าจริงและคำสาป ไม่ใช้สิทธิ์ตรวจ'},
+  {id:'E83',npc:'swarm',mode:'sell',families:['battery'],price:1.2,name:'รังต้องการพลัง',when:'พบ The Swarm; ถือแบตเตอรี่; ธนาคารมีงบพอ',description:'The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไปจุดรังในราคาอ้างอิง 120% ของชนิดนั้น'},
 ];
 export const EVENT_CATALOG: ReadonlyArray<{id:EventId;name:string;when:string;description:string}> = [
-  ...BASE_EVENT_CATALOG,...BOND_SPECS.map(({id,name,when,description})=>({id,name,when,description})),
+  ...BASE_EVENT_CATALOG,{id:'E84',name:'คลื่นกระซิบจากก้นบึ้ง',when:'พบอสูรใต้ทะเลลึก; มีพลัง 1',description:'อสูรใต้ทะเลลึกส่งคลื่นเสียงให้คุณฟัง ใช้พลัง 1 รับ B12'},
+  {id:'E85',name:'ผึ้งส่งสาร',when:'พบ The Swarm; มีเครดิต 1',description:'ตัวส่งสารของฝูงขอเครดิต 1 แลกการแนะนำคนซื้อ รับ B15'},
+  {id:'E86',name:'ตาข่ายใยแมงมุม',when:'ธนาคารมีงบ 3 เครดิต',description:'เก็บของจากใยที่ขึงไว้ รับ 3 เครดิตทันที แต่ติดใยพันขา รับ D15'},
+  {id:'E87',name:'ดำน้ำหาไข่มุก',when:'มีพลัง 2; ธนาคารมีงบ 6 เครดิต',description:'ใช้พลัง 2 ดำลงไปหาไข่มุก สุ่มจากเส้นทางของห้อง สำเร็จรับ 6 เครดิตและ B14 พลาดรับ D12'},
+  {id:'E88',name:'ผึ้งเลียพิษ',when:'มีผลเสียจากฝูงหรือห้วงลึกติดตัว; มีเครดิต 1',description:'จ่าย 1 เครดิตให้ผึ้งเลียพิษออก เลือกล้างหนึ่งในผลเสีย D11–D16 ที่ติดตัว'},
+  {id:'E89',name:'หมอกเมาห้วงลึก',when:'ยังไม่มี B11 และ D14',description:'สูดหมอกใต้น้ำ ได้ตาประกอบหลายเหลี่ยม B11 แต่เสียสติชั่วคราว รับ D14'},
+  {id:'E90',name:'คำสัญญาของฝูง',when:'พบ The Swarm',description:'ฝูงยอมหนุนหลังการขายของคุณ รับ B13 แต่ทิ้งพิษไว้ รับ D11'},
+  {id:'E91',name:'เสียงเรียกจากเหวลึก',when:'พบอสูรใต้ทะเลลึก; มีพลัง 2 หรือชีวิตเกิน 1',description:'ตอบเสียงเรียก เสียพลัง 2 (กติกาชีวิตเสียชีวิต 1) รับ B16 และ B14 แต่น้ำเค็มกัดช่วงนี้ รับ D16'},
+  {id:'E92',name:'ตลาดมืดใต้น้ำ',when:'ช่วงต่อรอง; ธนาคารมีงบ 2 เครดิต',description:'ขายข่าวการค้าให้ตลาดใต้น้ำ รับ 2 เครดิตแต่กลิ่นรังติดตัว รับ D13'},
+  {id:'E93',name:'สำรวจรังร้าง',when:'มีพลัง 1; ธนาคารมีงบ 1 เครดิต',description:'ใช้พลัง 1 ค้นรังร้าง สุ่มจากเส้นทางของห้อง 60% รับ 1 เครดิตและ B15 อีก 40% รับ D15'},
+  {id:'E73',name:'ของที่ข้าตามหา',when:'พบพ่อค้าที่ยังไม่เคยบอกของที่อยากได้',description:'พ่อค้าบอกของที่ตามหาและเสนอราคาสูงกว่าตลาด ถ้าครั้งหน้าคุณเลือกพ่อค้านี้อีกและถือของชนิดนั้นอยู่ ขายให้ได้ ต่อรองราคาได้ โอกาสขึ้นกับความไว้ใจและผลดีผลเสียที่ติดตัว'},...BOND_SPECS.map(({id,name,when,description})=>({id,name,when,description})),
 ];
 /** What each NPC does when an item you appraised leaves the table unsold. Always payable: credits cap at what you hold. */
 export const UNSOLD_PENALTIES: Record<NpcId,{credits:number;energy:number;statuses:StatusId[];life:number;text:string}> = {
@@ -348,6 +368,8 @@ export const UNSOLD_PENALTIES: Record<NpcId,{credits:number;energy:number;status
   alien:{credits:0,energy:1,statuses:['D02'],life:0,text:'Alien ส่งคลื่นสับสน เสียพลัง 1 และรับหมอกราคา'},
   darkone:{credits:2,energy:0,statuses:['D03'],life:1,text:'Dark One ยึดเครดิต 2 เท่าที่มีและประทับตรานักโกง · กติกาชีวิตเสียชีวิต 1'},
   beast:{credits:0,energy:1,statuses:['D01'],life:0,text:'สัตว์นำทางงอน เสียพลัง 1 และรับอ่อนล้า'},
+  deepsea:{credits:1,energy:1,statuses:['D14'],life:1,text:'อสูรใต้ทะเลลึกส่งเสียงกล่อมประสาท เสียพลัง 1 ยึดเครดิต 1 เท่าที่มี และรับหมอกวิกลจริต · กติกาชีวิตเสียชีวิต 1'},
+  swarm:{credits:2,energy:0,statuses:['D11'],life:0,text:'ฝูงรุมเก็บค่าเสียหาย 2 เครดิตเท่าที่มี และทิ้งพิษฝูงไว้'},
 };
 /** Seeded consignment outcomes; thresholds are cumulative. */
 export const CONSIGN_RULES = { cleanBelow:.4, debuffBelow:.8, debuffs:['D01','D02','D03','D06'] as StatusId[], fee:2 };
@@ -363,7 +385,7 @@ export const STATUS_CATALOG: ReadonlyArray<{id:StatusId;name:string;description:
   {
     "id": "B02",
     "name": "อ่านคำสาป",
-    "description": "ตรวจผลของสินค้าครั้งถัดไป รู้ด้วยว่ามีคำสาปไหม",
+    "description": "ตรวจราคาหรือความแท้ครั้งถัดไป อ่านคำสาปของสินค้านั้นให้ด้วย",
     "duration": "1 ครั้ง · หมดเมื่อจบช่วงหน้า",
     "source": "เครื่องแปล/การสแกน; ข้อสัญญาที่ NPC เสนอต้องเปิดก่อนรับอยู่แล้ว"
   },
@@ -492,6 +514,90 @@ export const STATUS_CATALOG: ReadonlyArray<{id:StatusId;name:string;description:
     "description": "การฟื้นพลังสองครั้งถัดไปได้น้อยลงครั้งละ 2",
     "duration": "2 ครั้ง · หมดเมื่อจบช่วงหน้า",
     "source": "ชำระล้าง/หลีกเลี่ยงดีลเลือด/ใช้การฟื้นตามกติกากลับเข้าเล่น"
+  },
+  {
+    "id": "B11",
+    "name": "ตาประกอบหลายเหลี่ยม",
+    "description": "การตรวจสองครั้งถัดไปไม่เสียพลัง (ยังนับสิทธิ์ตรวจ)",
+    "duration": "2 ครั้ง · หมดเมื่อจบช่วงหน้า",
+    "source": "ตะเกียงน้ำขึ้น/กระจกตารวม/ข้อเสนอของ The Swarm"
+  },
+  {
+    "id": "B12",
+    "name": "เสียงกระซิบเหวลึก",
+    "description": "การประเมินครั้งถัดไป โอกาสที่ NPC ยอมรับราคาต่ำเพิ่ม 25 จุดเปอร์เซ็นต์ ไม่ลดความเสี่ยงจับผิด",
+    "duration": "1 การประเมิน · หมดเมื่อจบช่วงหน้า",
+    "source": "หมึกยักษ์ดำ/อสูรใต้ทะเลลึก"
+  },
+  {
+    "id": "B13",
+    "name": "ฝูงหนุนหลัง",
+    "description": "การขาย Dark Market ครั้งถัดไปได้ราคาเพิ่ม 20% ปัดลง",
+    "duration": "1 การขาย · หมดเมื่อจบช่วงหน้า",
+    "source": "ดาบเปลือกแมลง/ข้อตกลงกับ The Swarm"
+  },
+  {
+    "id": "B14",
+    "name": "ลมหายใจใต้น้ำลึก",
+    "description": "การฟื้นพลังครั้งถัดไปได้เพิ่ม 2 (ไม่นับการฟื้นขั้นต่ำท้ายช่วง)",
+    "duration": "1 ครั้ง · หมดเมื่อจบช่วงหน้า",
+    "source": "ไข่มุกห้วงลึก/เซลล์ตัวอ่อนเรืองแสง"
+  },
+  {
+    "id": "B15",
+    "name": "สายสัมพันธ์ของรัง",
+    "description": "การขายของที่คุณประเมินครั้งถัดไปได้ความไว้ใจเพิ่มอีก 1",
+    "duration": "1 การขาย · หมดเมื่อจบช่วงหน้า",
+    "source": "รวงรังฝูง/พ่อค้าผึ้งส่งสาร"
+  },
+  {
+    "id": "B16",
+    "name": "ไข่มุกนำโชค",
+    "description": "การล้างคำสาปครั้งถัดไปมีโอกาสสำเร็จเพิ่ม 20 จุดเปอร์เซ็นต์ และการต่อรองขายของที่พ่อค้าตามหาเพิ่ม 15 จุดเปอร์เซ็นต์ ใช้อย่างใดอย่างหนึ่งก่อน",
+    "duration": "1 ครั้ง · หมดเมื่อจบช่วงหน้า",
+    "source": "สังข์เรียกเงา/เสียงเรียกจากเหวลึก"
+  },
+  {
+    "id": "D11",
+    "name": "พิษฝูง",
+    "description": "ท้ายช่วงถัดไปเสียพลัง 1 ต่อครั้ง รวมสองครั้ง",
+    "duration": "2 ครั้ง · หมดเมื่อจบช่วงหน้า",
+    "source": "รวงรังฝูง/เซลล์ตัวอ่อน/ข้อตกลงกับ The Swarm"
+  },
+  {
+    "id": "D12",
+    "name": "แรงดันห้วงลึก",
+    "description": "การซื้อจาก NPC ครั้งถัดไปแพงขึ้น 2 เครดิต",
+    "duration": "1 การซื้อ · หมดเมื่อจบช่วงหน้า",
+    "source": "ไข่มุกห้วงลึก/การดำน้ำพลาด"
+  },
+  {
+    "id": "D13",
+    "name": "กลิ่นรัง",
+    "description": "การขาย Dark Market ครั้งถัดไปได้ราคาลด 20% ปัดลง",
+    "duration": "1 การขาย · หมดเมื่อจบช่วงหน้า",
+    "source": "ดาบเปลือกแมลง/ขายข้อมูลใต้น้ำ"
+  },
+  {
+    "id": "D14",
+    "name": "หมอกวิกลจริต",
+    "description": "การเปิดใช้สินค้าครั้งถัดไป ผลดีไม่ออกฤทธิ์ แต่คำสาปยังทำงานตามปกติ",
+    "duration": "1 การเปิดใช้ · หมดเมื่อจบช่วงหน้า",
+    "source": "หมึกยักษ์ดำ/หมอกเมาทะเลลึก"
+  },
+  {
+    "id": "D15",
+    "name": "ใยพันขา",
+    "description": "ค่านายหน้าจากการขายครั้งถัดไปลดครึ่งหนึ่ง ปัดลง",
+    "duration": "1 การขาย · หมดเมื่อจบช่วงหน้า",
+    "source": "ดาบเปลือกแมลง/ตาข่ายใย"
+  },
+  {
+    "id": "D16",
+    "name": "น้ำเค็มกัดกร่อน",
+    "description": "ช่วงนี้ดีลฟื้นพลังหรือชีวิตแพงขึ้น 2 เครดิต และการล้างคำสาปมีโอกาสสำเร็จลด 15 จุดเปอร์เซ็นต์",
+    "duration": "เฉพาะช่วงนี้",
+    "source": "ตะเกียงน้ำขึ้น/เสียงเรียกจากเหวลึก"
   }
 ];
 
@@ -527,14 +633,35 @@ export const ITEM_SPECS: Record<ItemKind,ItemSpec> = {
   'curse-meter':{name:'เครื่องวัดคลื่นคำสาป',family:'scanner',anchor:20,buff:'B02',drawback:'D06',consumable:false},
   'ember-feed':{name:'อาหารสัตว์เมล็ดเพลิง',family:'food',anchor:11,buff:'B03',drawback:'D05',consumable:true},
   'moon-feed':{name:'อาหารสัตว์ละอองจันทร์',family:'food',anchor:6,buff:'B06',drawback:'D10',consumable:true},
+  'smith-hammer':{name:'ฆ้อนช่างดาบ',family:'blade',anchor:24,buff:'B04',drawback:'D06',consumable:false},
+  whetstone:{name:'หินขัดล้างสนิมคำสาป',family:'blade',anchor:9,buff:'B03',drawback:'D01',consumable:true},
+  'doubt-lens':{name:'แว่นจับพิรุธ',family:'scanner',anchor:21,buff:'B04',drawback:'D03',consumable:false},
+  'void-seal':{name:'ตราโมฆะ',family:'amulet',anchor:12,buff:'B07',drawback:'D08',consumable:true},
+  'abyss-pearl':{name:'ไข่มุกห้วงลึก',family:'orb',anchor:27,buff:'B14',drawback:'D12',consumable:true,energyRecovery:4},
+  'tide-lantern':{name:'ตะเกียงน้ำขึ้น',family:'scanner',anchor:23,buff:'B11',drawback:'D16',consumable:false},
+  'kraken-ink':{name:'หมึกยักษ์ดำ',family:'potion',anchor:15,buff:'B12',drawback:'D14',consumable:true},
+  'siren-conch':{name:'สังข์เรียกเงา',family:'amulet',anchor:25,buff:'B16',drawback:'D13',consumable:false},
+  'hive-comb':{name:'รวงรังฝูง',family:'food',anchor:12,buff:'B15',drawback:'D11',consumable:true},
+  'chitin-blade':{name:'ดาบเปลือกแมลง',family:'blade',anchor:28,buff:'B13',drawback:'D15',consumable:false},
+  'larva-cell':{name:'เซลล์ตัวอ่อนเรืองแสง',family:'battery',anchor:19,buff:'B14',drawback:'D11',consumable:false},
+  'compound-mirror':{name:'กระจกตารวม',family:'mirror',anchor:22,buff:'B11',drawback:'D15',consumable:false},
   ...PASSIVE_ITEMS,
 };
 export function itemFamily(kind:ItemKind):ItemFamily { return ITEM_SPECS[kind].family ?? kind as ItemFamily; }
-export function itemImage(kind:ItemKind):string { return `/art/item-${itemFamily(kind)}.png`; }
+/** The ten original kinds have painted art; every other kind has its own vector illustration. */
+const PAINTED_KINDS:ItemKind[]=['mirror','orb','key','mask','potion','battery','amulet','blade','scanner','food'];
+export function itemImage(kind:ItemKind):string { return `/art/item-${kind}.${PAINTED_KINDS.includes(kind)?'png':'svg'}`; }
+const PAINTED_NPCS:NpcId[]=['orc','vampire','autometa','alien','darkone','beast'];
+export function npcImage(npc:NpcId):string { return `/art/npc-${npc}.${PAINTED_NPCS.includes(npc)?'png':'svg'}`; }
 /** Version 1 preserves the exact original order and RNG index mapping. */
-export function merchantKinds(npc:NpcId,catalogVersion:1|2|3=1):ItemKind[] {
+const CLEANSE_KINDS:ItemKind[]=['smith-hammer','whetstone'],CHALLENGE_KINDS:ItemKind[]=['doubt-lens','void-seal'];
+/** Merchants and items that exist only when the expansion rules are on (catalog version 3). */
+export const EXPANSION_NPCS:NpcId[]=['deepsea','swarm'];
+export const expansionActive=(config:{catalogVersion?:1|2|3;expansion?:boolean})=>config.catalogVersion===3 && !!config.expansion;
+export const EXPANSION_KINDS:ItemKind[]=['abyss-pearl','tide-lantern','kraken-ink','siren-conch','hive-comb','chitin-blade','larva-cell','compound-mirror'];
+export function merchantKinds(npc:NpcId,catalogVersion:1|2|3=1,cleanse=false,challenge=false,expansion=false):ItemKind[] {
   const favorites=NPC_SPECS[npc].favorite;
-  return catalogVersion===1 ? favorites : (Object.keys(ITEM_SPECS) as ItemKind[]).filter(kind=>(catalogVersion===3 || !passiveSpec(kind)) && favorites.includes(itemFamily(kind)));
+  return catalogVersion===1 ? favorites : (Object.keys(ITEM_SPECS) as ItemKind[]).filter(kind=>(catalogVersion===3 && cleanse || !CLEANSE_KINDS.includes(kind)) && (catalogVersion===3 && challenge || !CHALLENGE_KINDS.includes(kind)) && (catalogVersion===3 && expansion || !EXPANSION_KINDS.includes(kind)) && (catalogVersion===3 || !passiveSpec(kind)) && favorites.includes(itemFamily(kind)));
 }
 export const NPC_SPECS: Record<NpcId,{name:string;sensitivity:number;condition:StatusId;discount:number;reservation:[number,number];favorite:ItemKind[];hint:string}> = {
   orc:{name:'ออร์กผู้รักษาเกียรติ',sensitivity:1,condition:'D03',discount:2,reservation:[.45,.8],favorite:['blade','amulet','food'],hint:'ราคาที่ดูถูกอาจทำให้เสียทรัพย์'},
@@ -542,6 +669,8 @@ export const NPC_SPECS: Record<NpcId,{name:string;sensitivity:number;condition:S
   autometa:{name:'นักค้าจักรกล Autometa',sensitivity:.5,condition:'D06',discount:3,reservation:[.7,.9],favorite:['scanner','battery','key'],hint:'ตรวจจับต่ำ แต่ราคามีกฎตายตัวและของเพิ่มภาระพลัง'},
   alien:{name:'ผู้แลกเปลี่ยน Alien',sensitivity:1.25,condition:'D02',discount:3,reservation:[.4,.85],favorite:['mask','orb','potion'],hint:'ภาษาและข้อมูลราคาไม่แน่นอน'},
   darkone:{name:'Dark One',sensitivity:1.5,condition:'D04',discount:4,reservation:[.25,.7],favorite:['key','amulet','mirror'],hint:'สัญญากดราคามีผลถึงชีวิต ต้องยอมรับก่อน'},
+  deepsea:{name:'อสูรใต้ทะเลลึก',sensitivity:1.1,condition:'D12',discount:3,reservation:[.3,.75],favorite:['potion','orb','amulet'],hint:'เสียงจากห้วงลึกกดดันทุกการต่อรอง ส่วนลดแลกแรงดันที่ทำให้ซื้อครั้งถัดไปแพงขึ้น'},
+  swarm:{name:'The Swarm ฝูงมนุษย์แมลง',sensitivity:.8,condition:'D11',discount:3,reservation:[.4,.8],favorite:['food','blade','battery'],hint:'ทุกตัวในฝูงฟังการต่อรองพร้อมกัน ส่วนลดแลกพิษที่กัดพลังท้ายช่วง'},
   beast:{name:'สัตว์นำทางข้ามมิติ',sensitivity:.6,condition:'D01',discount:1,reservation:[.35,.6],favorite:['food','potion','battery'],hint:'อาหารแลกการตรวจที่ประหยัดแรง'},
 };
 export function priceRange(kind:ItemKind):[number,number] {

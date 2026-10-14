@@ -1,6 +1,8 @@
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
-import { ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, itemFamily, itemImage } from '../game/appraisal/content.js';
+import { ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, itemFamily, itemImage, npcImage } from '../game/appraisal/content.js';
+import { CHALLENGE_TOOLS } from '../game/appraisal/challenge-rules.js';
+import { CLEANSE_TOOLS } from '../game/appraisal/cleanse-rules.js';
 import { passiveSpec } from '../game/appraisal/passives.js';
 import type { ItemKind, ItemView, NpcId, StatusId } from '../game/appraisal/types.js';
 import { readable, scoreStatusText, statusName } from './model.js';
@@ -64,6 +66,8 @@ export function ItemCard({kind,item}:{kind:ItemKind;item?:ItemView|undefined}) {
       <strong>{spec.name}</strong>
       <span>{k?.base!==undefined?`มูลค่าจริง ${k.base} เครดิต`:k?.range?`เบาะแสมูลค่า ${k.range[0]}–${k.range[1]} เครดิต`:'ยังไม่มีข้อมูลมูลค่า · ต้องตรวจราคาสินค้าชิ้นนี้'}</span>
       {item && <span>{knownText(item)}</span>}
+      {kind in CHALLENGE_TOOLS && <span>ท้าทายคำระบุ · {CHALLENGE_TOOLS[kind as keyof typeof CHALLENGE_TOOLS].text}</span>}
+      {kind in CLEANSE_TOOLS && <span>ล้างคำสาป · {CLEANSE_TOOLS[kind as keyof typeof CLEANSE_TOOLS].text}</span>}
       {passiveSpec(kind) && <span>ขณะถือ · สะสมได้: {passiveSpec(kind)!.passive.text}</span>}
       <span>เปิดใช้อาจได้ {benefit} · เสี่ยง {statusName(spec.drawback)}{spec.consumable?' · ใช้แล้วหมด':''}</span>
     </span>
@@ -74,11 +78,11 @@ export function ItemTerm({kind,item,label,passive=false}:{kind:ItemKind;item?:It
 }
 export function NpcTerm({npc,label,passive=false}:{npc:NpcId;label?:string;passive?:boolean}) {
   const spec=NPC_SPECS[npc];
-  return <Peek tone="npc" passive={passive} label={label??spec.name} card={<><img src={`/art/npc-${npc}.png`} alt="" width="72" height="90"/><span className="peek-text"><strong>{spec.name}</strong><span>{spec.hint}</span></span></>}/>;
+  return <Peek tone="npc" passive={passive} label={label??spec.name} card={<><img src={npcImage(npc)} alt="" width="72" height="90"/><span className="peek-text"><strong>{spec.name}</strong><span>{spec.hint}</span></span></>}/>;
 }
 
 type Token = {text:string} & ({kind:'status';id:StatusId}|{kind:'item';id:ItemKind}|{kind:'npc';id:NpcId});
-const NPC_ALIASES:Record<NpcId,string[]>={orc:['ออร์ก'],vampire:['Vampire','แวมไพร์'],autometa:['Autometa'],alien:['Alien'],darkone:['Dark One'],beast:['สัตว์นำทาง']};
+const NPC_ALIASES:Record<NpcId,string[]>={orc:['ออร์ก'],vampire:['Vampire','แวมไพร์'],autometa:['Autometa'],alien:['Alien'],darkone:['Dark One'],beast:['สัตว์นำทาง'],deepsea:['อสูรใต้ทะเลลึก','Deep Sea Monster'],swarm:['The Swarm','ฝูงมนุษย์แมลง']};
 const TOKENS:Token[]=[
   ...STATUS_CATALOG.map(s=>({text:s.name,kind:'status' as const,id:s.id})),
   ...(Object.keys(ITEM_SPECS) as ItemKind[]).map(kind=>({text:ITEM_SPECS[kind].name,kind:'item' as const,id:kind})),
@@ -102,14 +106,14 @@ export function Rich({text,survival=false,passive=false}:{text:string;survival?:
   return <>{parts}</>;
 }
 
-export interface ChoiceOption { value:string; title:ReactNode; detail?:ReactNode; art?:string; tone?:'quiet'|'danger'|undefined }
+export interface ChoiceOption { value:string; title:ReactNode; detail?:ReactNode; art?:string; tone?:'quiet'|'danger'|undefined; disabled?:boolean|undefined }
 /** Selectable cards backed by native radios: keyboard arrows, labels and form semantics stay intact. */
 export function ChoiceCards({legend,options,value,onChange,disabled=false,compact=false,hideLegend=false}:{legend:string;options:ChoiceOption[];value:string;onChange:(value:string)=>void;disabled?:boolean;compact?:boolean;hideLegend?:boolean}) {
   const name=useId();
   return <fieldset className={`choice-cards${compact?' compact':''}`} disabled={disabled}>
     <legend className={hideLegend?'sr-only':''}>{legend}</legend>
-    <div className="choice-grid">{options.map(option=><label key={option.value} className={`choice-card${option.value===value?' selected':''}${option.tone?` ${option.tone}`:''}${option.art?' has-art':''}`}>
-      <input type="radio" name={name} value={option.value} checked={option.value===value} onChange={()=>onChange(option.value)}/>
+    <div className="choice-grid">{options.map(option=><label key={option.value} className={`choice-card${option.value===value?' selected':''}${option.tone?` ${option.tone}`:''}${option.art?' has-art':''}${option.disabled?' unavailable':''}`}>
+      <input type="radio" name={name} value={option.value} checked={option.value===value} disabled={option.disabled} onChange={()=>onChange(option.value)}/>
       {option.art && <img src={option.art} alt="" width="56" height="56"/>}
       <span className="choice-text"><span className="choice-title">{option.title}</span>{option.detail && <span className="choice-detail">{option.detail}</span>}</span>
     </label>)}</div>

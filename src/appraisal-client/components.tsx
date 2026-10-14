@@ -1,3 +1,8 @@
+import { marketBonus, marketCost, marketRequirements, MarketSale } from './MarketSale.js';
+import { PortalEventPreview, portalChoiceTitle } from './PortalEventPreview.js';
+import { commissionRate, passiveSpec } from '../game/appraisal/passives.js';
+import { freeInspectionRemaining, inspectionQuota, npcAcceptanceChance, playerPassives } from './model.js';
+import { TRUST_CAP } from '../game/appraisal/market-contracts.js';
 import { useEffect, useId, useState } from 'react';
 import { ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, itemImage } from '../game/appraisal/content.js';
 import type { AppraisalView, EventOffer, ItemView } from '../game/appraisal/types.js';
@@ -11,7 +16,7 @@ export interface Actions { game:AppraisalView; submit:(action:Decision)=>void; d
 export function ItemFacts({item}:{item:ItemView}) {
   const k=item.knowledge;
   return <dl className="facts">
-    <div className={k.base===undefined?'unknown':''}><dt>มูลค่าจริง</dt><dd>{k.base!==undefined?`${k.base} เครดิต`:`ยังไม่รู้ · เบาะแส ${item.range[0]}–${item.range[1]}`}</dd></div>
+    <div className={k.base===undefined?'unknown':''}><dt>มูลค่าจริง</dt><dd>{k.base!==undefined?`${k.base} เครดิต`:k.range?`ยังไม่รู้ · เบาะแส ${k.range[0]}–${k.range[1]}`:'ยังไม่รู้ · ใช้ตรวจราคาเพื่อหาเบาะแส'}</dd></div>
     <div className={k.genuine===undefined?'unknown':''}><dt>ความแท้</dt><dd>{k.genuine===undefined?'ยังไม่ตรวจ':k.genuine?'ของแท้':'ของปลอม'}</dd></div>
     <div className={k.cursed===undefined?'unknown':''}><dt>คำสาป</dt><dd>{k.cursed===undefined?'ยังไม่ทราบ':k.cursed?'มีคำสาป':'ไม่มีคำสาป'}</dd></div>
     {item.certificate && <div className={k.certificate===undefined?'unknown':''}><dt>ใบรับรองพ่อค้า</dt><dd>{k.certificate===undefined?'มีใบรับรอง · ยังไม่ตรวจ':k.certificate?'ตรวจแล้วตรงความจริง':'ตรวจแล้วเป็นเท็จ'}</dd></div>}
@@ -19,14 +24,15 @@ export function ItemFacts({item}:{item:ItemView}) {
   </dl>;
 }
 export function Inspect({game,item,submit,disabled}:Actions&{item:ItemView}) {
-  const cost=inspectionCost(game);
-  const blocked=disabled || game.phase!=='APPRAISAL' || !!game.self.eventOffer || game.self.inspections>=2 || game.self.energy<cost;
+  const price=inspectionCost(game,'price'),auth=inspectionCost(game,'authenticity'),effects=inspectionCost(game,'effects');
+  const blocked=disabled || game.phase!=='APPRAISAL' || !!game.self.eventOffer || game.self.inspections>=inspectionQuota(game);
   return <div className="inspection">
-    <p>ตรวจได้อีก {Math.max(0,2-game.self.inspections)} ครั้งในช่วงนี้ · ครั้งละ {cost} พลัง{hasStatus(game,'D02')?' · หมอกราคาบังมูลค่าจริงอยู่':''}</p>
+    <p>ตรวจได้อีก {Math.max(0,inspectionQuota(game)-game.self.inspections)} ครั้งในช่วงนี้ · ราคา {price} / ความแท้ {auth} / ผลสินค้า {effects} พลัง{hasStatus(game,'D02')?' · หมอกราคาบังมูลค่าจริงอยู่':''}</p>
+    {(['price','authenticity','effects'] as const).some(p=>freeInspectionRemaining(game,p)>0) && <p className="positive-text">สิทธิ์ฟรีที่เหลือช่วงนี้: ราคา {freeInspectionRemaining(game,'price')} · ความแท้ {freeInspectionRemaining(game,'authenticity')} · ผลสินค้า {freeInspectionRemaining(game,'effects')}</p>}
     <div className="actions">
-      <button className="inspect" disabled={blocked || item.knowledge.base!==undefined} onClick={()=>submit({type:'inspect',itemId:item.id,property:'price'})}><InspectIcon/>ตรวจราคา</button>
-      <button className="inspect" disabled={blocked || item.knowledge.genuine!==undefined} onClick={()=>submit({type:'inspect',itemId:item.id,property:'authenticity'})}><InspectIcon/>ตรวจความแท้</button>
-      <button className="inspect" disabled={blocked || (!!item.knowledge.effectsKnown && (!hasStatus(game,'B02') || item.knowledge.cursed!==undefined))} onClick={()=>submit({type:'inspect',itemId:item.id,property:'effects'})}><InspectIcon/>ตรวจผลของสินค้า</button>
+      <button className="inspect" disabled={blocked || game.self.energy<price || item.knowledge.base!==undefined} onClick={()=>submit({type:'inspect',itemId:item.id,property:'price'})}><InspectIcon/>ตรวจราคา{price===0?' · ฟรี':''}</button>
+      <button className="inspect" disabled={blocked || game.self.energy<auth || item.knowledge.genuine!==undefined} onClick={()=>submit({type:'inspect',itemId:item.id,property:'authenticity'})}><InspectIcon/>ตรวจความแท้{auth===0?' · ฟรี':''}</button>
+      <button className="inspect" disabled={blocked || game.self.energy<effects || (!!item.knowledge.effectsKnown && (!hasStatus(game,'B02') || item.knowledge.cursed!==undefined))} onClick={()=>submit({type:'inspect',itemId:item.id,property:'effects'})}><InspectIcon/>ตรวจผลของสินค้า{effects===0?' · ฟรี':''}</button>
     </div>
   </div>;
 }
@@ -53,16 +59,16 @@ export function Contract({item,condition,setCondition,disabled,survival=false}:{
 type DeskStep='inspect'|'appraise'|'buy';
 /** Start where the player left off: a judged item goes straight to buying. */
 function openingStep(game:AppraisalView,item:ItemView):DeskStep {
-  return item.appraisal!==null || game.self.caught?'buy':game.self.inspections<2?'inspect':'appraise';
+  return item.appraisal!==null || game.self.caught?'buy':game.self.inspections<inspectionQuota(game)?'inspect':'appraise';
 }
 export function AppraisalDesk({game,item,submit,disabled}:Actions&{item:ItemView}) {
-  const [value,setValue]=useState(String(item.knowledge.base??Math.round((item.range[0]+item.range[1])/2)));
+  const [value,setValue]=useState(String(item.knowledge.base??(item.knowledge.range?Math.round((item.knowledge.range[0]+item.knowledge.range[1])/2):item.price)));
   const [danger,setDanger]=useState(false);
   const [condition,setCondition]=useState(item.condition.required);
   const [buyBoth,setBuyBoth]=useState(false);
   const [deskStep,setDeskStep]=useState<DeskStep>(()=>openingStep(game,item));
   useEffect(()=>{if(item.appraisal!==null || game.self.caught) setDeskStep('buy');},[item.appraisal,game.self.caught]);
-  useEffect(()=>{if(game.self.inspections>=2 && item.appraisal===null && !game.self.caught) setDeskStep(current=>current==='inspect'?'appraise':current);},[game.self.inspections]);
+  useEffect(()=>{if(game.self.inspections>=inspectionQuota(game) && item.appraisal===null && !game.self.caught) setDeskStep(current=>current==='inspect'?'appraise':current);},[game.self.inspections,game.self.inventory]);
   const inputId=useId();const tabs=useId();
   const number=Number(value);
   const valid=value.trim()!=='' && Number.isSafeInteger(number) && number>=0 && number<=1000;
@@ -73,7 +79,7 @@ export function AppraisalDesk({game,item,submit,disabled}:Actions&{item:ItemView
   const canAct=!disabled && !game.self.eventOffer;
   const step=(delta:number)=>setValue(stepPrice(value,delta));
   const riskLevel=risk===null?'':risk[1]>=30?' high':risk[1]>=15?' medium':'';
-  const left=Math.max(0,2-game.self.inspections);
+  const left=Math.max(0,inspectionQuota(game)-game.self.inspections);
   const steps:Array<{id:DeskStep;label:string;meta:string}>=[
     {id:'inspect',label:'ตรวจ',meta:left?`เหลือ ${left} ครั้ง`:'ใช้สิทธิ์ครบ'},
     {id:'appraise',label:'ตีราคา',meta:item.appraisal===null?(game.self.caught?'ถูกจับผิดแล้ว':'ยังไม่ตีราคา'):`${item.appraisal} · ${item.appraisalAccepted?'ตกลง':'ปฏิเสธ'}`},
@@ -85,6 +91,9 @@ export function AppraisalDesk({game,item,submit,disabled}:Actions&{item:ItemView
     <div className="desk-reading">
       {game.self.eventOffer && !disabled && <p className="blocked-note">ตอบเหตุการณ์ก่อน ปุ่มบนโต๊ะนี้จึงจะกดได้</p>}
       <ItemFacts item={item}/>
+      {game.self.npcTrust && <p className="trust-note">ความไว้ใจ {NPC_SPECS[item.npc].name} {game.self.npcTrust[item.npc]??0}/{TRUST_CAP} · โอกาสยอมรับราคาต่ำกว่าปกติเพิ่ม {npcAcceptanceChance(game,item.npc)} จุดเปอร์เซ็นต์ · รวมผลของสะสมแล้ว · ความเสี่ยงจับผิดยังมีอยู่</p>}
+      {game.self.npcTrust && <p className="commission-note">ของที่คุณประเมินขายได้: รับค่านายหน้า {commissionRate(playerPassives(game))}% ของราคาขายจริง (ปัดลง){playerPassives(game).saleFee?` + ค่าดำเนินการ ${playerPassives(game).saleFee} เครดิต`:''} และความไว้ใจ +{1+playerPassives(game).trust} ต่อชิ้น · รับครั้งเดียว ไม่ซ้ำเมื่อขายต่อ</p>}
+      {game.passives && passiveSpec(item.kind) && <p className="trust-note">ถือแล้วได้ผลสะสม: {passiveSpec(item.kind)!.passive.text}</p>}
       <p className="item-effects">เมื่อเปิดใช้: <Rich text={item.possibleBenefit} survival={!!game.survival}/><br/>ความเสี่ยง: <Rich text={item.possibleDrawback} survival={!!game.survival}/>{ITEM_SPECS[item.kind].consumable?' · ใช้แล้วหมดไป':''}</p>
       {item.appraisal!==null && <p className={`verdict${item.appraisalAccepted?' accepted':' rejected'}`}>คุณเสนอ {item.appraisal} เครดิต · {item.appraisalAccepted?'NPC ยอมรับ':'NPC ปฏิเสธ'} · ต่อรองเหลือ {Math.max(0,game.self.counterLimit-game.self.counters)} ครั้ง</p>}
       <div className="desk-steps" role="tablist" aria-label="ขั้นตอนบนโต๊ะ">{steps.map((s,index)=><button key={s.id} type="button" role="tab" id={`${tabs}-${s.id}`} aria-controls={`${tabs}-${s.id}-panel`} aria-selected={deskStep===s.id} className={deskStep===s.id?'current':''} onClick={()=>setDeskStep(s.id)}>
@@ -97,7 +106,7 @@ export function AppraisalDesk({game,item,submit,disabled}:Actions&{item:ItemView
       <form onSubmit={e=>{e.preventDefault();if(valid)submit({type:item.appraisal===null?'appraise':'counter',itemId:item.id,value:number,acceptDanger:danger});}}>
         <label htmlFor={inputId}>{item.appraisal===null?'ราคาที่คุณประเมิน':'ราคาที่คุณต่อรองใหม่'} (เครดิต)</label>
         <div className="price-entry"><div className="stepper"><button type="button" aria-label="ลดราคา 1 เครดิต" disabled={!canAct || valid && number<=0} onClick={()=>step(-1)}><MinusIcon/></button><input id={inputId} type="number" inputMode="numeric" min="0" max="1000" step="1" required value={value} onChange={e=>setValue(e.target.value)} disabled={!canAct}/><button type="button" aria-label="เพิ่มราคา 1 เครดิต" disabled={!canAct || valid && number>=1000} onClick={()=>step(1)}><PlusIcon/></button></div><button className="primary appraise" disabled={!canAct || !valid || game.self.energy<1 || game.self.caught || item.appraisal!==null && game.self.counters>=game.self.counterLimit || item.npc==='darkone' && !danger}><AppraiseIcon/>{item.appraisal===null?'ยืนยันการประเมิน':'ยื่นราคาต่อรอง'} · 1 พลัง</button></div>
-        <p className={`risk${riskLevel}`}>{risk?<>โอกาสถูกจับผิด <strong>{risk[0]===risk[1]?risk[0]:`${risk[0]}–${risk[1]}`}%</strong> จากข้อมูลที่คุณรู้</>:'ใส่จำนวนเต็ม 0–1000'} · ถูกจับผิดอาจเสียเงินหรือของ{item.npc==='darkone'?' และถึงชีวิตตามสัญญา':''}</p>
+        <p className={`risk${riskLevel}`}>{!valid?'ใส่จำนวนเต็ม 0–1000':risk?<>โอกาสถูกจับผิด <strong>{risk[0]===risk[1]?risk[0]:`${risk[0]}–${risk[1]}`}%</strong> จากข้อมูลที่คุณรู้</>:'ยังคำนวณโอกาสถูกจับผิดไม่ได้ · ตรวจราคาเพื่อหาเบาะแสมูลค่า'} · ถูกจับผิดอาจเสียเงินหรือของ{item.npc==='darkone'?' และถึงชีวิตตามสัญญา':''}</p>
         {item.npc==='darkone' && <label className="check danger-text"><input type="checkbox" checked={danger} onChange={e=>setDanger(e.target.checked)} disabled={!canAct}/><span>{game.survival?'ยอมรับสัญญา Dark One: หากถูกจับผิด อาจต้องสละของหรือชีวิตเป็น 0 เป็นผู้ชมจนจบ run ของและเครดิตยังรอ Collector':'ยอมรับสัญญา Dark One: หากถูกจับผิด อาจต้องสละของหรือตาย พักเฉพาะช่วงนี้และคะแนนช่วงนี้เป็น 0'}</span></label>}
         {game.self.caught && <p className="danger-text">พ่อค้าจับผิดแล้ว ไม่รับการประเมินหรือต่อรองเพิ่ม ยังซื้อในราคาที่แสดงได้</p>}
       </form>
@@ -128,8 +137,13 @@ export function EventDecision({game,offer,submit,disabled}:Actions&{offer:EventO
   const catalog=eventCatalog(offer);const survival=!!game.survival;const consequence=isConsequence(offer.id);
   const visible=[...game.self.stock,...game.self.inventory,...game.listings.map(l=>l.item)];
   const priced=offer.id==='E44' || bondOf(offer)?.mode==='sell';
-  return <section className={`event-offer${consequence?' consequence':''}`} aria-labelledby={`event-${offer.id}`}>
+  const title=(c:string)=>portalChoiceTitle(game,offer,c)??choiceTitle(offer,c,survival);
+  const portalEvent=game.phase==='PORTALS' && ['E01','E08','E10'].includes(offer.id);
+  // E01/E10 decline closes the same door as switch; show that outcome once.
+  const choices=portalEvent && offer.id!=='E08'?offer.choices.filter(c=>c!=='decline'):offer.choices;
+  return <section className={`event-offer${consequence?' consequence':''}${portalEvent?' portal-event':''}`} aria-labelledby={`event-${offer.id}`}>
     <h2 id={`event-${offer.id}`}><EventIcon/>{catalog.name}</h2>
+    <PortalEventPreview game={game} offer={offer} choice={choice}/>
     <div className="event-copy">
       <p className="event-say">{survival && offer.id==='E50'?'คุณผิดสัญญา Dark One สละของหนึ่งชิ้นเพื่อรอด หรือชีวิตเป็น 0 แล้วเป็นผู้ชมจนจบ run ของและเครดิตที่เหลือยังรอ Collector':<Rich text={catalog.description} survival={survival}/>}</p>
       {offer.giveItemId && <p className="event-give">พ่อค้าขอ <ItemTerm kind={offer.targetKinds[offer.giveItemId]!} item={visible.find(i=>i.id===offer.giveItemId)}/> จากคลังของคุณ</p>}
@@ -140,7 +154,7 @@ export function EventDecision({game,offer,submit,disabled}:Actions&{offer:EventO
       })}</dl>}
     </div>
     <form className="event-form" onSubmit={e=>{e.preventDefault();if(action)submit(action);}}>
-      <ChoiceCards legend="คุณจะเลือกทางไหน" value={choice} onChange={setChoice} disabled={disabled} options={offer.choices.map(c=>({value:c,title:choiceTitle(offer,c,survival),
+      <ChoiceCards legend="คุณจะเลือกทางไหน" value={choice} onChange={setChoice} disabled={disabled} options={choices.map(c=>({value:c,title:title(c),
         detail:<Rich passive survival={survival} text={`${eventCost(game,offer,c,itemId)}${eventScoreText(game,offer,c,effectiveStatus)}`}/>,
         tone:c==='decline'?'quiet':consequence && dangerChoices.has(c)?'danger':undefined}))}/>
       {eventNeedsItem(offer,choice) && <ChoiceCards legend={offer.giveItemId?'เลือกของในร้านที่จะได้':'เลือกสินค้า'} value={itemId} onChange={setItemId} disabled={disabled} options={offer.itemIds.map((id,index)=>{
@@ -151,7 +165,7 @@ export function EventDecision({game,offer,submit,disabled}:Actions&{offer:EventO
       {eventNeedsStatus(offer,choice) && <ChoiceCards compact legend="เลือกสถานะ" value={effectiveStatus} onChange={setStatusId} disabled={disabled} options={statusOptions.map(id=>({value:id,title:<><span className={id.startsWith('D')?'danger-text':'positive-text'}>{id.startsWith('D')?<DebuffIcon/>:<BuffIcon/>}</span>{statusName(id)}</>}))}/>}
       {offer.id==='E45' && choice!=='decline' && <ChoiceCards compact legend="ผลตรวจที่จะเปิดให้ทุกคน" value={effectiveFact} onChange={setFact} disabled={disabled} options={facts.map(f=>{const v=offer.facts[itemId]?.[f];return {value:f,title:`${factName[f]}: ${typeof v==='boolean'?v?'ใช่':'ไม่ใช่':String(v)}`};})}/>}
       {offer.id==='E46' && choice!=='decline' && <ChoiceCards compact legend="คุณทายว่า" value={String(guess)} onChange={v=>setGuess(v==='true')} disabled={disabled} options={[{value:'true',title:'ของแท้'},{value:'false',title:'ของปลอม'}]}/>}
-      <button className={consequence?'danger':'primary'} disabled={disabled || !action}>ยืนยัน: {choiceTitle(offer,choice,survival)}</button>
+      <button className={consequence?'danger':'primary'} disabled={disabled || !action}>ยืนยัน: {title(choice)}</button>
     </form>
   </section>;
 }
@@ -166,12 +180,12 @@ export function DarkMarket({game,submit,disabled,compact=false}:Actions&{compact
   return <aside className={`dark-market${game.market.open || lots.length?' open':' closed'}`} aria-labelledby="market-title">
     <h2 id="market-title"><MarketIcon/>Dark Market</h2>
     {!game.market.open?<p className="market-closed">ตลาดเงาปิดในช่วงนี้ เก็บของไว้ลุ้นรายการรับซื้อในช่วงถัดไป</p>:<>
-      <p className="market-lede">รับซื้อถึงจบช่วงพบพ่อค้านี้ ซื้อของใหม่แล้วนำมาขายได้</p>
+      <p className="market-lede">รับซื้อถึงจบช่วงพบพ่อค้านี้ ซื้อของใหม่แล้วนำมาขายได้ · ป้ายเป็นราคาฐาน ปุ่มขายรวมผลของสะสม</p>
       <ul className="wanted">{game.market.orders.map(order=>{
         const quota=order.quota[game.self.id]??0;
         const owned=game.self.inventory.filter(item=>marketOptions(game,item).some(o=>o.id===order.id));
-        return <li key={order.id}><img src={itemImage(order.kind)} alt="" width="1254" height="1254" loading="lazy"/><div><h3><ItemTerm kind={order.kind}/></h3><p className="order-quote">รับซื้อ <strong><CoinIcon/>{order.price} เครดิต</strong> · สิทธิ์คุณ {quota} ชิ้น</p>
-          {quota===0?<p>ใช้สิทธิ์รายการนี้แล้ว</p>:owned.length?owned.map(item=><div key={item.id} className="market-held"><p><strong>{inventoryLabel(game,item)}</strong></p><ItemFacts item={item}/><button disabled={disabled || !!game.self.eventOffer && isConsequence(game.self.eventOffer.id)} onClick={()=>submit({type:'market-sell',itemId:item.id,orderId:order.id})}>ขายคลัง #{game.self.inventory.findIndex(i=>i.id===item.id)+1} รับ {order.price} เครดิต</button></div>):<p>ยังไม่มีของที่ขายได้ในรายการนี้</p>}
+        return <li key={order.id}><img src={itemImage(order.kind)} alt="" width="1254" height="1254" loading="lazy"/><div><h3><ItemTerm kind={order.kind}/></h3><p className="order-quote">รับซื้อ <strong><CoinIcon/>{order.price} เครดิต</strong> · สิทธิ์คุณ {quota} ชิ้น</p>{order.contract && <div className="market-contract"><p><strong>ต้องการ: {marketRequirements(order.contract)}</strong></p><p className="positive-text">ตรงเงื่อนไข: {order.price} เครดิต + <Rich text={marketBonus(order.contract)} survival={!!game.survival}/></p><p className="danger-text">ไม่ตรง: ลด 20% เหลือ {Math.floor(order.price*80/100)} เครดิต หรือ <Rich text={marketCost(order.contract)} survival={!!game.survival}/> เพื่อรับราคาเต็ม {order.price} เครดิต · ไม่ได้โบนัส</p></div>}
+          {quota===0?<p>ใช้สิทธิ์รายการนี้แล้ว</p>:owned.length?owned.map(item=><div key={item.id} className="market-held"><p><strong>{inventoryLabel(game,item)}</strong></p><ItemFacts item={item}/><MarketSale game={game} item={item} order={order} submit={submit} disabled={disabled || !!game.self.eventOffer && isConsequence(game.self.eventOffer.id)}/></div>):<p>ยังไม่มีของที่ขายได้ในรายการนี้</p>}
         </div></li>;
       })}</ul>
       <p className="supporting">ขายแล้วโอนของทันที · ของที่ติดครอบครองอัปมงคลต้องปลดล็อกก่อน{game.brokerage?' · ของที่ขายเข้าคลังและอาจถูกนำมาประมูลภายหลัง':''}</p>
@@ -221,7 +235,7 @@ export function Inventory({game,submit,disabled,drawer=false}:Actions&{drawer?:b
   return <Shell className={`inventory${drawer?' drawer':''}`} aria-labelledby="inventory-title">
     {drawer?<summary>{heading}</summary>:heading}
     {!game.self.inventory.length?<p>คลังยังว่าง ซื้อจากพ่อค้าหรือแลกกับเพื่อนเพื่อเริ่มสะสม</p>:<ul className="inventory-row">{game.self.inventory.map(i=><li key={i.id}><button className={`item-thumb ${i.id===selected?'selected':''}`} aria-pressed={i.id===selected} onClick={()=>setSelected(i.id===selected?null:i.id)}><Peek passive tone="item" label={<><img src={i.image} alt="" width="1254" height="1254" loading="lazy"/><span className="thumb-label">{inventoryLabel(game,i)}</span></>} card={<ItemCard kind={i.kind} item={i}/>}/>{i.lockedUntil!==null && <span className="thumb-label">ล็อกถึงจบช่วง {i.lockedUntil}</span>}</button></li>)}</ul>}
-    {item && <div className="inventory-detail"><h3>{item.name}</h3><ItemFacts item={item}/><p>ผลที่เป็นไปได้: <Rich text={item.possibleBenefit} survival={!!game.survival}/> · <Rich text={item.possibleDrawback} survival={!!game.survival}/></p>
+    {item && <div className="inventory-detail"><h3>{item.name}</h3><ItemFacts item={item}/>{game.passives && passiveSpec(item.kind) && <p className="trust-note">ขณะถือ · สะสมได้: {passiveSpec(item.kind)!.passive.text}</p>}<p>ผลที่เป็นไปได้: <Rich text={item.possibleBenefit} survival={!!game.survival}/> · <Rich text={item.possibleDrawback} survival={!!game.survival}/></p>
       {item.lockedUntil!==null && <p><StatusTerm id="D09" survival={!!game.survival}/>: ขายหรือแลกไม่ได้จนจบช่วง {item.lockedUntil} ยังเปิดใช้ได้</p>}
       {playing && <><Inspect game={game} item={item} submit={submit} disabled={disabled}/>
         <p>{ITEM_SPECS[item.kind].consumable?'ใช้แล้วหมดไป':'เปิดใช้ได้ช่วงละครั้ง'} · ถ้ายังไม่รู้ว่าแท้หรือมีคำสาป อาจโดนผลเสีย</p>

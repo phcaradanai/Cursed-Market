@@ -41,7 +41,10 @@ function action(value: unknown): AppraisalSeatAction {
         ...(body.fact === undefined ? {} : { fact: body.fact as 'base' | 'genuine' | 'cursed' }),
         ...(body.guess === undefined ? {} : { guess: boolean(body.guess) }) };
     }
-    case 'market-sell': keys(body, [...fields, 'itemId', 'orderId']); return { type: 'market-sell', ...base, itemId: string(body.itemId), orderId: string(body.orderId) };
+    case 'market-sell':
+      keys(body,[...fields,'itemId','orderId','resolution']);
+      if(body.resolution!==undefined && body.resolution!=='discount' && body.resolution!=='sacrifice')throw new MessageError();
+      return {type:'market-sell',...base,itemId:string(body.itemId),orderId:string(body.orderId),...(body.resolution===undefined?{}:{resolution:body.resolution})};
     case 'share': keys(body, [...fields, 'itemId', 'allow', 'purchase']); return { type: 'share', ...base, itemId: string(body.itemId), allow: boolean(body.allow), purchase: boolean(body.purchase) };
     case 'propose':
       keys(body, [...fields, 'sellerId', 'itemId', 'credits', 'swapItemId', 'condition']);
@@ -54,6 +57,11 @@ function action(value: unknown): AppraisalSeatAction {
       if (body.choice !== 'buy' && body.choice !== 'penalty' && body.choice !== 'consign') throw new MessageError();
       return { type: 'unsold', ...base, itemId: string(body.itemId), choice: body.choice };
     case 'bid': keys(body, [...fields, 'lotId', 'credits']); return { type: 'bid', ...base, lotId: string(body.lotId), credits: integer(body.credits) };
+    case 'round-flip':
+      keys(body,[...fields,'guess','attempt']);
+      if(body.guess!=='heads' && body.guess!=='tails')throw new MessageError();
+      return {type:'round-flip',...base,guess:body.guess,attempt:integer(body.attempt)};
+    case 'round-bank': keys(body,fields);return {type:'round-bank',...base};
     case 'done': keys(body, fields); return { type: 'done', ...base };
     default: throw new MessageError();
   }

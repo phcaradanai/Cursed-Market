@@ -4,7 +4,7 @@ import { grant, reward } from '../../src/game/appraisal/mechanics.js';
 import type { AppraisalState, EventId, ItemKind, NpcId } from '../../src/game/appraisal/types.js';
 
 export function appraisalFixture(id:EventId='E18',count=2):AppraisalState {
-  const state=createAppraisalRun(['alice','bob','cara'].slice(0,count),'fixture',{marketProbability:0});
+  const state=createAppraisalRun(['alice','bob','cara'].slice(0,count),'fixture',{marketProbability:0,catalogVersion:2});
   const p=state.players[0]!,peer=state.players[1]!;
   for(const seat of state.players) {seat.eventOffer=null;seat.done=false;seat.offerSlots=0;reward(state,seat,160,'test-fixture');}
   state.phase=['E01','E08','E10'].includes(id)?'PORTALS':['E43','E44','E45','E47'].includes(id)?'TRADE':'APPRAISAL';

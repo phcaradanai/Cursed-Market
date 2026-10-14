@@ -9,7 +9,7 @@ import type { LifecyclePeer, LifecycleRoom, LifecycleSeat } from './room-lifecyc
 type Room = LifecycleRoom<AppraisalState, AppraisalServerMessage>;
 type Seat = LifecycleSeat<AppraisalServerMessage>;
 export const APPRAISAL_PHASE_MS: Record<Exclude<AppraisalPhase, 'RESULTS'>, number> = {
-  PORTALS: 30000, APPRAISAL: 90000, TRADE: 45000, REVEAL: 4000,
+  PORTALS: 30000, APPRAISAL: 90000, TRADE: 45000, REVEAL: 30000,
 };
 export class AppraisalRoomService extends RoomLifecycle<AppraisalState, AppraisalClientMessage, AppraisalServerMessage> {
   private readonly durations: typeof APPRAISAL_PHASE_MS;
@@ -38,6 +38,7 @@ export class AppraisalRoomService extends RoomLifecycle<AppraisalState, Appraisa
       }
       case 'action': {
         insist(room.game && message.matchId === room.matchId, 'stale-match', 'คำสั่งนี้เป็นของแมตช์เก่า ใช้สถานะล่าสุด');
+        insist(!room.revealReady.has(seat.id) || !!room.game.accepted[`${seat.id}:${message.action.requestId}`],'already-ready','ยืนยันไปต่อแล้ว รอรอบถัดไป');
         const previous = room.game;
         room.game = applyAppraisalAction(previous, { ...message.action, playerId: seat.id });
         this.phaseChanged(room, previous); peer.send({ type: 'ack', requestId: message.action.requestId }); break;

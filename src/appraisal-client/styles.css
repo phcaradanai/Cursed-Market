@@ -217,6 +217,20 @@ input.room-code{letter-spacing:.24em;font-size:18px}
 .event-offer.consequence{--panel-fill:linear-gradient(180deg,#46241f,#331a17);--panel-gap:#3d1f1b;border-color:var(--oxblood-line)}
 .event-offer.consequence h2 .icon{color:var(--danger)}
 .event-copy{min-width:0}
+.event-portal-context{grid-column:1/-1;min-width:0;margin:4px 0 16px}
+.event-portal-context h3{font-size:20px;margin:0 0 6px}
+.event-portal-context>p{margin:6px 0 14px}
+.event-portal-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.event-portal{display:grid;grid-template-columns:56px minmax(0,1fr);align-content:start;gap:10px;padding-block:12px;border-block:1px solid var(--line)}
+.event-portal img{width:56px;height:70px;object-fit:cover;border-radius:4px}
+.event-portal h4{font-size:17px;margin:0 0 6px;overflow-wrap:anywhere}
+.event-portal p{font-size:15px;line-height:1.55;margin:4px 0}
+.event-portal .portal-projection{grid-column:1/-1;margin:0;font-weight:700}
+.event-portal-context .portal-preview-note{margin:12px 0 0;font-weight:600}
+.portal-event .event-copy,.portal-event .event-form{grid-column:1/-1}
+.portal-event .choice-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+.portal-event .portal-contracts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:20px}
+@media(max-width:640px){.event-portal-grid{grid-template-columns:1fr;gap:0}.event-portal{grid-template-columns:56px minmax(0,1fr);padding-block:10px;border-top:0}.event-portal:first-child{border-top:1px solid var(--line)}.event-portal .portal-projection{grid-column:2}.event-portal-context{margin-bottom:10px}}
 .event-form{align-self:start;min-width:0;padding:16px;background:rgb(0 0 0 / .22);border:1px solid var(--line);border-radius:8px}
 .event-form button{width:100%}
 .event-say{font-size:17px;line-height:1.75;max-width:62ch}
@@ -343,6 +357,7 @@ tr.leader>*{color:var(--amber);font-weight:700}
 .inventory.drawer>summary:hover h2{color:var(--amber-hover)}
 /* The event dialog: it blocks the table anyway, so it owns the stage until answered or tucked away. */
 .modal-backdrop{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:24px 16px;background:rgb(12 9 7 / .74);overflow-y:auto;animation:backdrop-in 180ms var(--ease)}
+.modal-backdrop{align-items:safe center}
 .modal{width:min(920px,100%);outline:none;animation:modal-in 240ms var(--ease)}
 .modal .event-offer{margin:0;box-shadow:inset 0 0 0 4px var(--panel-gap),inset 0 0 0 5px var(--frame-inner),0 24px 60px rgb(0 0 0 / .55)}
 .modal-tuck{display:flex;margin:12px auto 0;color:var(--muted);border-color:var(--line);background:rgb(20 15 13 / .8)}
@@ -430,3 +445,52 @@ tr.leader>*{color:var(--amber);font-weight:700}
 @media(max-width:900px){.table-layout{grid-template-columns:minmax(0,1fr)}.side-play{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start}.table-layout:has(.portals) .side-play{grid-row:1}.entry-layout{grid-template-columns:1fr .65fr}.entry-portrait{align-self:start}.phase-header{gap:12px 18px}}
 @media(max-width:640px){.toasts{top:12px;right:16px}.modal-backdrop{padding:12px 8px}.desk-steps button small{display:none}.desk-reading .desk-steps button{gap:6px;padding:6px;min-height:44px}.step-label{white-space:nowrap;font-size:15px}.app-shell{padding:12px 16px 16px}.masthead{flex-wrap:wrap;gap:8px 12px;margin-bottom:16px}.masthead>div{gap:10px;margin-left:auto}.connection{font-size:13px;white-space:nowrap}.connection.online .connection-label,.sound-label{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.sound-toggle{min-width:44px;padding:6px}.brand{font-size:20px;letter-spacing:.1em;white-space:nowrap}.results{padding:18px 16px}.entry-layout{display:flex;flex-direction:column;gap:24px;margin:16px 0}.entry-portrait{max-width:260px;align-self:center;padding:8px}.entry-copy form{max-width:none}.entry-copy h1{font-size:34px}.phase-header{padding:14px 16px;gap:12px}.phase-header h1{font-size:24px}.countdown{order:3}.resources{order:2;width:100%;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr)}.resource{min-width:0;padding:2px 8px}.resource:first-child{border-left:0;padding-left:0}.resource dt{font-size:12px;gap:4px}.resource dt .icon{width:16px;height:16px}.resource dd{font-size:20px}.resource dd small{font-size:13px}.resource dd.pending{font-size:13px;line-height:1.6;white-space:normal}.roster{order:4;width:100%;overflow-x:auto;padding-top:10px;border-top:1px solid var(--line)}.portal-row{grid-template-columns:1fr}.portal{display:grid;grid-template-columns:104px minmax(0,1fr)}.portal>img{width:104px;height:100%;min-height:150px;aspect-ratio:auto;border-bottom:0;border-right:1px solid var(--frame-line)}.portal>div{padding:12px 14px}.portal h3{font-size:19px}.merchant{grid-template-columns:84px minmax(0,1fr)}.merchant>img{grid-row:auto;width:84px;min-height:110px}.merchant h2{font-size:20px}.recovery-deal{grid-column:1/-1}.desk{grid-template-columns:minmax(0,1fr);gap:14px;padding:14px}.desk-title{font-size:21px}.relic-art{position:static;width:100%;max-width:260px;margin:0 auto}.desk-reading{padding:16px}.facts>div{grid-template-columns:84px minmax(0,1fr);gap:8px}.price-entry .appraise{flex-basis:100%}.event-offer{padding:18px 16px}.event-form{padding:12px}.trade-listing{grid-template-columns:76px minmax(0,1fr);gap:14px;padding:14px}.trade-art{width:76px;grid-row:span 2}.trade-listing>div{display:contents}.trade-listing h3,.trade-listing>div>p:first-of-type{grid-column:2}.trade-listing .facts,.trade-listing form,.trade-listing>div>p{grid-column:1/-1}.inventory-row li{flex-basis:136px}.seat-list li{align-items:flex-start}.error{align-items:flex-start;flex-direction:column}h2{font-size:22px}.lobby{margin:20px 0}.timer-fields{grid-template-columns:1fr}footer{font-size:14px}.end-phase button{width:100%}}
 @media(prefers-reduced-motion:reduce){.relic-art,.peek,.modal,.modal-backdrop,.toast{animation:none}.toast-timer{display:none}*,*::before,*::after{transition:none!important}.portal:not(.closed):hover{transform:none}}
+
+/* A single minted coin rises above an isometric tabletop, then lands on the server's face. */
+.round-reward{display:grid;grid-template-columns:240px minmax(0,1fr);align-items:center;gap:24px;padding:24px 12px 28px;margin-bottom:24px;border-bottom:1px solid var(--line)}
+.round-reward-copy{min-width:0}
+.round-reward h2{color:var(--amber)}
+.reward-amount{font-size:20px;color:var(--cream);min-height:40px}
+.reward-amount strong{font-size:28px;color:var(--amber);font-variant-numeric:tabular-nums}
+.coin-outcome{min-height:28px;color:var(--cream)}
+.reward-timeout{font-size:14px;margin:12px 0 0}
+.coin-scene{position:relative;height:250px;perspective:700px;isolation:isolate}
+.coin-plinth{position:absolute;width:142px;height:142px;left:50%;top:90px;background:var(--panel-raised);border:1px solid var(--bronze);border-radius:12px;transform:translateX(-50%) rotateX(60deg) rotateZ(45deg);box-shadow:8px 12px 18px rgb(0 0 0 / .32)}
+.coin-shadow{position:absolute;width:108px;height:48px;left:50%;top:151px;border-radius:50%;background:rgb(0 0 0 / .45);filter:blur(5px);transform:translateX(-50%)}
+.coin-flight{position:absolute;left:calc(50% - 52px);top:112px;width:104px;height:104px;transform-style:preserve-3d}
+.coin-angle{width:100%;height:100%;transform:rotateX(55deg) rotateZ(-30deg);transform-style:preserve-3d}
+.coin-body{position:relative;width:100%;height:100%;transform:rotateY(var(--coin-landing));transform-style:preserve-3d}
+.coin-edge,.coin-face{position:absolute;inset:0;border-radius:50%;background:var(--bronze);border:2px solid var(--bronze);backface-visibility:visible}
+.coin-face{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0;background:radial-gradient(circle at 32% 25%,var(--amber-hover),var(--amber) 58%,var(--bronze));border:3px solid var(--amber-hover);color:var(--ink);backface-visibility:hidden;box-shadow:inset 0 0 0 4px var(--bronze),inset 0 0 0 6px var(--amber-hover)}
+.coin-face>span{font-family:"Noto Serif Thai",serif;font-weight:700;font-size:44px;line-height:1.2}
+.coin-face small{font-size:14px;font-weight:700;line-height:1.4}
+.coin-heads{transform:translateZ(6px)}
+.coin-tails{transform:rotateY(180deg) translateZ(6px)}
+.tossing .coin-flight{animation:round-coin-flight 1.3s both;will-change:transform}
+.tossing .coin-body{animation:round-coin-spin 1.3s cubic-bezier(.16,.3,.36,1) both}
+.tossing .coin-shadow{animation:round-coin-shadow 1.3s both}
+@keyframes round-coin-flight{0%,100%{transform:translateY(0)}12%{transform:translateY(-40px)}46%{transform:translateY(-116px)}78%{transform:translateY(-30px)}90%{transform:translateY(0)}95%{transform:translateY(-7px)}}
+@keyframes round-coin-spin{from{transform:rotateY(0deg)}to{transform:rotateY(var(--coin-landing))}}
+@keyframes round-coin-shadow{0%,100%{opacity:1;transform:translateX(-50%) scale(1)}46%{opacity:.35;transform:translateX(-50%) scale(.55)}}
+@media(max-width:640px){.round-reward{grid-template-columns:minmax(0,1fr);gap:0;padding:0 4px 24px}.coin-scene{height:220px}.coin-flight{top:90px}.coin-plinth{top:68px}.coin-shadow{top:129px}.round-reward .actions>button{flex:1 1 130px}}
+@media(prefers-reduced-motion:reduce){.tossing .coin-flight,.tossing .coin-body,.tossing .coin-shadow{animation:none;will-change:auto}.coin-scene{perspective:none}}
+
+.trust-note{font-size:14px;color:var(--amber);margin:8px 0 12px}
+.desk .trust-note,.desk .commission-note{color:var(--ink)}
+.commission-note{font-size:14px;padding:12px 0;border-top:1px solid var(--paper-line)}
+.market-contract{margin:12px 0 16px;padding:12px 0;border-block:1px solid var(--line)}
+.market-contract p:last-child,.market-decision p:last-child{margin-bottom:0}
+.market-decision .actions{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+.market-decision button{white-space:normal;text-wrap:pretty;width:100%}
+.market-decision>.supporting{font-size:14px;margin-top:8px}
+
+.held-effects{margin:24px 0;padding:16px 20px;border:1px solid var(--line);border-radius:8px;background:var(--panel-raised)}
+.held-effects summary{cursor:pointer;font-weight:700;color:var(--amber);min-height:44px;display:flex;align-items:center}
+.held-effects>p{max-width:72ch;margin:12px 0}
+.held-effects ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px 24px;padding:0;list-style:none;margin:20px 0}
+.held-effects li{display:flex;flex-direction:column;gap:6px;padding-top:12px;border-top:1px solid var(--line)}
+.held-effects li span{color:var(--muted);font-size:15px;line-height:1.65}
+.desk-reading .inspection .positive-text{color:var(--ink);font-weight:600}
+.held-effects>summary{position:relative;padding-right:24px}
+.held-effects>summary::after{content:"";position:absolute;right:2px;top:50%;width:8px;height:8px;border-right:1.6px solid var(--amber);border-bottom:1.6px solid var(--amber);transform:translateY(-70%) rotate(45deg)}
+.held-effects[open]>summary::after{transform:translateY(-30%) rotate(135deg)}

@@ -145,7 +145,7 @@ for(const count of [2,3,4])test(`canonical ${count}-seat room audit reaches Coll
     else {const peer=peers.find(p=>!p.room.game!.self.paused&&!p.room.game!.self.done)!;assert(peer);service.handle(peer,{type:'action',matchId:peer.room.matchId!,action:{type:'done',requestId:`canonical-${++request}`,encounter:peer.room.game!.encounter}});}
   }
   assert.equal(host.room.game!.phase,'RESULTS');service.handle(host,{type:'audit',matchId:host.room.matchId!});const message=host.messages.findLast(m=>m.type==='audit');assert(message?.type==='audit');
-  const metrics=analyseAppraisalMatchAudit(message.audit);assert.equal(metrics.playerCount,count);assert.equal(metrics.encounters,6);assert(metrics.collector?.every(row=>row.score===40));
+  const metrics=analyseAppraisalMatchAudit(message.audit);assert.equal(metrics.playerCount,count);assert.equal(metrics.encounters,6);assert(metrics.collector?.every(row=>row.score===100));
   const forged=structuredClone(message.audit);forged.schemaVersion=4;assert.throws(()=>analyseAppraisalMatchAudit(forged));
 });
 test('survival SSR distinguishes zero energy from death and exposes Collector credit/item/modifier results',()=>{
@@ -183,7 +183,7 @@ test('F1 score effects are disclosed in D10 direct/cross-shop/E08 contracts and 
   html=renderToStaticMarkup(createElement(GameTable,{room:view(s),submit:()=>{},send:()=>true,disabled:false}));assert(html.includes('คนกลาง'));assert(!html.includes('เจรจาทวีคูณ'));
 });
 test('F2 command-only privacy: hidden wealth/accuracy stay private through appraisal, reveal, advance and spectator views',()=>{
-  const initial=createAppraisalRun(['a','b'],'history-review-7',{survival:SURVIVAL_RULES});
+  const initial=createAppraisalRun(['a','b'],'history-review-7',{survival:SURVIVAL_RULES,catalogVersion:2});
   let s=initial;
   for(const id of ['a','b']){
     const p=s.players.find(p=>p.id===id)!;

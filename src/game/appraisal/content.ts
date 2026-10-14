@@ -1,3 +1,4 @@
+import { PASSIVE_ITEMS, passiveSpec } from './passives.js';
 import type { EventId, StatusId, ItemFamily, ItemKind, NpcId } from './types.js';
 
 const BASE_EVENT_CATALOG: ReadonlyArray<{id:EventId;name:string;when:string;description:string}> = [
@@ -526,13 +527,14 @@ export const ITEM_SPECS: Record<ItemKind,ItemSpec> = {
   'curse-meter':{name:'เครื่องวัดคลื่นคำสาป',family:'scanner',anchor:20,buff:'B02',drawback:'D06',consumable:false},
   'ember-feed':{name:'อาหารสัตว์เมล็ดเพลิง',family:'food',anchor:11,buff:'B03',drawback:'D05',consumable:true},
   'moon-feed':{name:'อาหารสัตว์ละอองจันทร์',family:'food',anchor:6,buff:'B06',drawback:'D10',consumable:true},
+  ...PASSIVE_ITEMS,
 };
 export function itemFamily(kind:ItemKind):ItemFamily { return ITEM_SPECS[kind].family ?? kind as ItemFamily; }
 export function itemImage(kind:ItemKind):string { return `/art/item-${itemFamily(kind)}.png`; }
 /** Version 1 preserves the exact original order and RNG index mapping. */
-export function merchantKinds(npc:NpcId,catalogVersion:1|2=1):ItemKind[] {
+export function merchantKinds(npc:NpcId,catalogVersion:1|2|3=1):ItemKind[] {
   const favorites=NPC_SPECS[npc].favorite;
-  return catalogVersion===1 ? favorites : (Object.keys(ITEM_SPECS) as ItemKind[]).filter(kind=>favorites.includes(itemFamily(kind)));
+  return catalogVersion===1 ? favorites : (Object.keys(ITEM_SPECS) as ItemKind[]).filter(kind=>(catalogVersion===3 || !passiveSpec(kind)) && favorites.includes(itemFamily(kind)));
 }
 export const NPC_SPECS: Record<NpcId,{name:string;sensitivity:number;condition:StatusId;discount:number;reservation:[number,number];favorite:ItemKind[];hint:string}> = {
   orc:{name:'ออร์กผู้รักษาเกียรติ',sensitivity:1,condition:'D03',discount:2,reservation:[.45,.8],favorite:['blade','amulet','food'],hint:'ราคาที่ดูถูกอาจทำให้เสียทรัพย์'},

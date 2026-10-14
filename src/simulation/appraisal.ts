@@ -61,7 +61,7 @@ export function appraisalBotDecision(v:AppraisalView,policy:AppraisalPolicy):Bod
     }
     const toAppraise=p.stock.find(i=>i.appraisal===null);
     if(toAppraise && !p.caught && p.energy>=3) {
-      const [low,high]=toAppraise.range;
+      const [low,high]=toAppraise.range??[toAppraise.price,toAppraise.price];
       const value=Math.round(policy==='aggressive'?low*.65:policy==='trader'?low:policy==='collector'?(low+high)*.4:(low+high)/2);
       return {type:'appraise',itemId:toAppraise.id,value,acceptDanger:true};
     }
@@ -102,7 +102,9 @@ export function simulateAppraisalRun(count:number,policy:AppraisalPolicy,seed:st
     for(let offset=0;offset<count;offset++) {const index=(cursor+offset)%count;if(!state.players[index]!.paused && !state.players[index]!.done) {selected=index;break;}}
     if(selected<0) throw new Error('No active seat before automatic phase completion');
     cursor=(selected+1)%count;const p=state.players[selected]!;
-    const body=appraisalBotDecision(appraisalViewFor(state,p.id),policy);
+    // Replenished income can sustain life indefinitely. Retire synthetic seats after
+    // twelve encounters so a replay test remains bounded; live play has no such cap.
+    const body=state.config.survival && state.encounter>12?{type:'done'} as const:appraisalBotDecision(appraisalViewFor(state,p.id),policy);
     state=applyAppraisalAction(state,{...body,playerId:p.id,requestId:`sim-${turn}`,encounter:state.encounter} as AppraisalAction);
   }
   if(state.phase!=='RESULTS') throw new Error('Appraisal simulation exceeded action bound');

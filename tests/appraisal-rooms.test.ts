@@ -6,6 +6,7 @@ import { offerEvent } from '../src/game/appraisal/events.js';
 import { parseAppraisalMessage } from '../src/server/appraisal-messages.js';
 import { AppraisalRoomService } from '../src/server/appraisal-rooms.js';
 import { MessageError } from '../src/server/messages.js';
+import { randomAt } from '../src/game/random.js';
 import type { LifecyclePeer } from '../src/server/room-lifecycle.js';
 import type { AppraisalRoomView, AppraisalServerMessage, AppraisalSeatAction } from '../src/shared/appraisal-protocol.js';
 
@@ -37,6 +38,7 @@ function setup(count = 3, config: Partial<AppraisalConfig> = {}) {
   return { rooms, clients, act, decline, portals, endPhase, tick: () => { now += 11; rooms.tick(); }, late: () => { now += 11; }, now: () => now };
 }
 const actionBodies = [
+  {type:'round-flip',guess:'heads',attempt:1},{type:'round-bank'},
   { type: 'enter', portalId: 'p' }, { type: 'inspect', itemId: 'i', property: 'price' },
   { type: 'appraise', itemId: 'i', value: 0, acceptDanger: true }, { type: 'counter', itemId: 'i', value: 20 },
   { type: 'buy', itemIds: ['i', 'j'], condition: true }, { type: 'activate', itemId: 'i' },
@@ -58,10 +60,35 @@ test('v0.4 parser reconstructs every action and rejects actor/seed/event injecti
     { type: 'event', key: 'x', choice: 'accept', statusId: 'D99' }, { type: 'event', key: 'x', choice: 'accept', fact: 'seed' },
     { type: 'appraise', itemId: 'i', value: -1 }, { type: 'counter', itemId: 'i', value: 2, acceptDanger: 1 },
     { type: 'propose', sellerId: 'x', itemId: 'i', credits: Number.MAX_SAFE_INTEGER + 1 }, { type: 'inspect', itemId: 'i', property: 'all' },
+    {type:'round-flip',guess:'edge',attempt:1},{type:'round-flip',guess:'heads',attempt:1.5},
+    {type:'round-flip',guess:'tails',attempt:1,side:'tails'},{type:'round-bank',amount:100},
   ]) assert.throws(() => parseAppraisalMessage({ type: 'action', matchId: 'm', action: { ...body, requestId: 'x', encounter: 1 } }), MessageError);
   assert.throws(() => parseAppraisalMessage({ type: 'action', matchId: 'm', action: { type: 'done', requestId: 'bad:id', encounter: 1 } }), MessageError);
   assert.throws(() => parseAppraisalMessage({ type: 'reveal-ready', matchId: 'm', auctionNumber: 1 }), MessageError);
   assert.deepEqual(parseAppraisalMessage({ type: 'join', name: ' ไทย ', roomCode: 'abc234' }), { type: 'join', name: 'ไทย', roomCode: 'ABC234' });
+});
+
+test('round wagers freeze after ready, reconnect preserves pending winnings, and timeout banks them once',()=>{
+  const s=setup(2);s.portals();s.endPhase();s.endPhase();const [a,b]=s.clients as [Client,Client];
+  assert.equal(a.room.game!.phase,'REVEAL');
+  const state=s.rooms.state(a.room.code);const id=a.room.yourSeatId;
+  const guess=randomAt(state.seed,`1:${id}:round-coin:1`)<.5?'heads':'tails';
+  s.act(a,{type:'round-flip',guess,attempt:1},'coin-once');assert.equal(a.room.game!.self.roundReward!.amount,15);
+  s.act(a,{type:'round-flip',guess,attempt:1},'coin-once');assert.equal(a.room.game!.self.roundReward!.flips,1);
+  const resumed=new Client();s.rooms.disconnect(a);s.rooms.receive(resumed,{type:'resume',roomCode:a.room.code,token:a.joined.token});
+  assert.deepEqual(resumed.room.game!.self.roundReward,a.room.game!.self.roundReward);
+  const before=resumed.room.game!.self.credits;
+  s.rooms.receive(resumed,{type:'reveal-ready',matchId:resumed.room.matchId!,encounter:1});
+  s.act(resumed,{type:'round-flip',guess:'heads',attempt:2});assert.equal(resumed.error?.type==='error' && resumed.error.code,'already-ready');
+  s.tick();assert.equal(resumed.room.game!.encounter,2);assert.equal(resumed.room.game!.self.credits,before+15);
+  assert.equal(b.room.game!.self.credits,50);const ledger=structuredClone(s.rooms.state(a.room.code).ledger);s.rooms.tick();assert.deepEqual(s.rooms.state(a.room.code).ledger,ledger);
+});
+
+test('cashout pays immediately and reveal-ready cannot pay the same round twice',()=>{
+  const s=setup(2);s.portals();s.endPhase();s.endPhase();const [a,b]=s.clients as [Client,Client];
+  const before=a.room.game!.self.credits;s.act(a,{type:'round-bank'});assert.equal(a.room.game!.self.credits,before+10);
+  for(const c of [a,b])s.rooms.receive(c,{type:'reveal-ready',matchId:c.room.matchId!,encounter:1});
+  assert.equal(a.room.game!.encounter,2);assert.equal(a.room.game!.self.credits,before+10);
 });
 test('v0.4 deadlines stay fixed and exact deadline commands use safe defaults once', () => {
   const s = setup(2); const [a, b] = s.clients as [Client, Client]; const deadline = a.room.deadline;

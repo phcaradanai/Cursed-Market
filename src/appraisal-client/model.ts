@@ -1,9 +1,12 @@
+import { marketOrderReserve } from '../game/appraisal/market-contracts.js';
+import { emptyPassives, freeInspectionCount, heldPassives } from '../game/appraisal/passives.js';
+import type { InspectionProperty } from '../game/appraisal/types.js';
 import { BOND_SPECS, CONSIGN_RULES, EVENT_CATALOG, ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, UNSOLD_PENALTIES } from '../game/appraisal/content.js';
-import type { AppraisalView, EventOffer, ItemView, StatusId } from '../game/appraisal/types.js';
+import type { AppraisalView, EventOffer, ItemView, NpcId, StatusId } from '../game/appraisal/types.js';
 import type { AppraisalSeatAction } from '../shared/appraisal-protocol.js';
 
 export type Decision = AppraisalSeatAction extends infer A ? A extends AppraisalSeatAction ? Omit<A,'requestId'|'encounter'> : never : never;
-export const phaseName = {PORTALS:'เลือกประตู',APPRAISAL:'ประเมินและซื้อ',TRADE:'ต่อรองกับผู้เล่น',REVEAL:'สรุปผลช่วง',RESULTS:'จบการเดินทาง'};
+export const phaseName = {PORTALS:'เลือกประตู',APPRAISAL:'ประเมินและซื้อ',TRADE:'ต่อรองกับผู้เล่น',REVEAL:'รับเครดิตหลังซื้อขาย',RESULTS:'จบการเดินทาง'};
 export const statusName = (id:StatusId) => STATUS_CATALOG.find(s=>s.id===id)!.name;
 export function scoreStatusText(id:StatusId,survival=false):string {
   return !survival?'':id==='B10'?' · Collector เพิ่มคะแนนรวม 20% หากสถานะยังอยู่เมื่อตาย':id==='D10'?' · Collector ลดคะแนนรวม 20% หากสถานะยังอยู่เมื่อตาย':'';
@@ -27,12 +30,18 @@ export function stepPrice(value:string,delta:number):string {
 export function hasStatus(game:AppraisalView,id:StatusId):boolean {
   return game.self.statuses.some(s=>s.id===id && s.starts<=game.encounter && s.expires>=game.encounter && s.charges>0);
 }
-export const inspectionCost = (game:AppraisalView) => Math.max(0,1+Number(hasStatus(game,'D01'))-Number(hasStatus(game,'B05')));
-export const purchaseEnergy = (game:AppraisalView) => 1+Number(hasStatus(game,'D06'));
+export const playerPassives=(game:AppraisalView,exclude?:string)=>game.passives && game.self.life!==0?heldPassives(game.self.inventory.filter(i=>i.id!==exclude)):emptyPassives();
+export const npcAcceptanceChance=(game:AppraisalView,npc:NpcId)=>Math.min(95,(game.self.npcTrust?.[npc]??0)*5+playerPassives(game).acceptance);
+export const inspectionQuota=(game:AppraisalView)=>2+playerPassives(game).inspections;
+export const freeInspectionRemaining=(game:AppraisalView,property:InspectionProperty)=>freeInspectionCount(playerPassives(game),game.self,property);
+export const inspectionCost = (game:AppraisalView,property:InspectionProperty='price') => freeInspectionRemaining(game,property)>0?0:Math.max(0,1+Number(hasStatus(game,'D01'))-Number(hasStatus(game,'B05')));
+export const purchaseEnergy = (game:AppraisalView) => Math.max(0,1+Number(hasStatus(game,'D06'))-playerPassives(game).buyEnergy);
 /** A preview uses only the seat DTO. Hidden base/reservation and RNG never enter this module. */
-export function riskRange(game:AppraisalView,item:ItemView,value:number):[number,number] {
+export function riskRange(game:AppraisalView,item:ItemView,value:number):[number,number] | null {
+  const range=item.knowledge.base!==undefined?[item.knowledge.base,item.knowledge.base]:item.knowledge.range;
+  if(!range)return null;
   const risks:number[]=[];
-  for(let base=item.range[0];base<=item.range[1];base++) {
+  for(let base=range[0]!;base<=range[1]!;base++) {
     const under=Math.max(0,1-value/base);
     const modifier=(under>0?.1*(Number(hasStatus(game,'D03'))-Number(hasStatus(game,'B04'))):0)+(game.self.honorJob && Math.abs(value-base)>base*.1?.1:0);
     risks.push(Math.max(0,Math.min(1,.4*under*NPC_SPECS[item.npc].sensitivity+modifier))*100);
@@ -40,10 +49,10 @@ export function riskRange(game:AppraisalView,item:ItemView,value:number):[number
   return [Math.floor(Math.min(...risks)),Math.ceil(Math.max(...risks))];
 }
 export function purchasePrice(game:AppraisalView,items:ItemView[],condition:boolean,extraDiscount=0):number {
-  return Math.max(0,items.reduce((sum,item)=>sum+item.price,0)-(hasStatus(game,'B03')?2:0)-(condition?(items[0]?.condition.discount??0):0)-extraDiscount);
+  return Math.max(0,items.reduce((sum,item)=>sum+item.price,0)-(hasStatus(game,'B03')?2:0)-(condition?(items[0]?.condition.discount??0):0)-extraDiscount-playerPassives(game).discount);
 }
 export function marketOptions(game:AppraisalView,item:ItemView) {
-  return game.market.orders.filter(o=>game.market.open && o.kind===item.kind && (o.quota[game.self.id]??0)>0 && game.market.budget>=o.price && item.lockedUntil===null);
+  return game.market.orders.filter(o=>game.market.open && o.kind===item.kind && (o.quota[game.self.id]??0)>0 && game.market.budget>=marketOrderReserve(o) && item.lockedUntil===null);
 }
 export function eventCatalog(offer:EventOffer) { return EVENT_CATALOG.find(e=>e.id===offer.id)!; }
 const itemEvents=new Set(['E07','E09','E11','E12','E16','E17','E19','E20','E24','E25','E27','E29','E30','E31','E32','E33','E34','E35','E36','E38','E39','E44','E45','E46','E47']);
@@ -82,6 +91,16 @@ const eventChoiceNames:Partial<Record<string,Record<string,string>>>={E42:{energ
 /** Button and card title for one event choice; a few events name the same choice key differently. */
 export const choiceTitle=(offer:EventOffer,choice:string,survival=false)=>eventChoiceNames[offer.id]?.[choice]??choiceName(choice,survival);
 export function eventCost(game:AppraisalView,offer:EventOffer,choice:string,itemId:string):string {
+  if(game.phase==='PORTALS' && ['E01','E08','E10'].includes(offer.id)) {
+    const first=NPC_SPECS[game.self.portals[0]!.npc].name;
+    if(offer.id==='E08') {
+      if(choice==='decline')return 'ไม่จ่ายเครดิตหรือพลัง · ประตูที่เปิดอยู่ยังเลือกได้ตามเดิม';
+      const npc=NPC_SPECS[game.self.portals[choice==='cash'?0:1]!.npc];
+      return `${choice==='cash'?'จ่ายเครดิตอย่างเดียว ไม่มีส่วนลด':`ลด ${npc.discount} เครดิตต่อการซื้อ · ต้องรับ ${statusName(npc.condition)}`} · ปิดประตูอื่นทั้งหมด`;
+    }
+    if(choice==='switch' || choice==='decline')return `ไม่เสียเครดิตหรือพลัง · เข้า ${first} ไม่ได้ในช่วงนี้ เลือกพ่อค้าจากประตูอื่นที่เปิดอยู่`;
+    return `${offer.id==='E01'?'1 พลัง':choice==='pay'?'2 เครดิต':'รับหมอกราคา · ตรวจมูลค่าจริงไม่ได้จนหมดสถานะ'} · เก็บสิทธิ์เลือก ${first} และประตูอื่นที่เปิดอยู่${game.self.portals[0]!.disabled?' · ประตูนี้ปิดอยู่แล้ว เหตุการณ์นี้ไม่เปิดประตูคืน':''}`;
+  }
   if(choice==='decline') return ['E01','E10'].includes(offer.id)?'ประตูแรกจะถูกปิดในช่วงนี้':'ไม่จ่ายเครดิตหรือพลัง';
   const bond=bondOf(offer);
   if(bond) {
@@ -136,8 +155,8 @@ export const consignText=`${CONSIGN_RULES.cleanBelow*100}% ไม่มีผล
 export const phaseHint:Record<AppraisalView['phase'],string>={
   PORTALS:'เลือกพ่อค้าหนึ่งรายที่จะเชิญมาที่โต๊ะ',
   APPRAISAL:'ตรวจของ → ตีราคา → ตัดสินใจซื้อ',
-  TRADE:'ขายหรือแลกของกับเพื่อน แล้วจัดการของที่ค้างโต๊ะ',
-  REVEAL:'ดูผลช่วงนี้ แล้วกดพร้อมไปต่อ',
+  TRADE:'ขายหรือแลกของกับเพื่อน จัดการของค้างโต๊ะ แล้วรับเครดิตเติมก่อนพบพ่อค้าช่วงถัดไป',
+  REVEAL:'จบช่วงซื้อขายนี้แล้ว รับเครดิตเติม หรือเสี่ยงหัวก้อยพร้อมผลของสะสม ก่อนเลือกประตูครั้งถัดไป',
   RESULTS:'จบการเดินทาง ดูคะแนนสุดท้าย',
 };
 export interface Outcome { tone:'good'|'bad'|'info'; title:string; lines:string[] }
@@ -195,7 +214,7 @@ export function outcomeBetween(prev:AppraisalView,next:AppraisalView):Outcome|nu
   const phaseChanged=prev.phase!==next.phase || prev.encounter!==next.encounter;
   if(!phaseChanged && !lines.length && !notes.length) return null;
   const tone=bad>good?'bad':good>bad?'good':'info';
-  if(phaseChanged) return {tone:life<0?'bad':'info',title:next.phase==='REVEAL'?`สรุปผลช่วง ${next.encounter}`:`${phaseName[next.phase]}${next.phase==='PORTALS'?` · ช่วง ${next.encounter}`:''}`,lines:[phaseHint[next.phase],...notes,...lines]};
+  if(phaseChanged) return {tone:life<0?'bad':'info',title:next.phase==='REVEAL'?`รับเครดิตหลังซื้อขายช่วง ${next.encounter}`:`${phaseName[next.phase]}${next.phase==='PORTALS'?` · ช่วง ${next.encounter}`:''}`,lines:[phaseHint[next.phase],...notes,...lines]};
   const activated=n.activated.find(id=>!p.activated.includes(id));
   const resolved=p.eventOffer && n.eventOffer?.key!==p.eventOffer.key?EVENT_CATALOG.find(e=>e.id===p.eventOffer!.id)?.name:undefined;
   const title=notes[0]??(resolved?resolved:activated?`เปิดใช้ ${after.get(activated)?.name??before.get(activated)?.name??'สินค้า'}`:gained[0]?`ได้ ${gained[0].name}`:lost[0]?(credits>0?`ขาย ${lost[0].name}`:`เสีย ${lost[0].name}`):reveals?'ผลการตรวจ':'ผลการกระทำ');

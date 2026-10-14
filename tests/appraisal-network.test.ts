@@ -7,7 +7,7 @@ import test from 'node:test';
 import { WebSocket } from 'ws';
 import { createApp } from '../src/server/app.js';
 import { AppraisalRoomService } from '../src/server/appraisal-rooms.js';
-import { createAppraisalRun, replayAppraisalAudit } from '../src/game/appraisal/index.js';
+import { createAppraisalRun, replayAppraisalAudit, SURVIVAL_RULES } from '../src/game/appraisal/index.js';
 import type { AppraisalState, AppraisalConfig } from '../src/game/appraisal/types.js';
 import { offerEvent } from '../src/game/appraisal/events.js';
 import { appraisalBotDecision } from '../src/simulation/appraisal.js';
@@ -60,6 +60,60 @@ async function setup(count: number, rooms: AppraisalRoomService = new AppraisalR
   async function endPhase() { const phase = clients[0]!.room!.game!.phase; for (const c of clients) if (c.room!.game!.phase === phase && !c.room!.game!.self.done && !c.room!.game!.self.paused) await act(c, { type: 'done' }); }
   return { app, http, url, clients, act, decline, enter, endPhase };
 }
+test('actual sockets apply stacked free inspections, 20% commission, noble income and hat odds then reset free uses',async t=>{
+  const rooms=new TestRooms(Date.now,{catalogVersion:3,survival:SURVIVAL_RULES,startingCredits:200,marketProbability:0});const s=await setup(2,rooms);t.after(()=>s.app.close());await s.enter();
+  const a=s.clients[0]!,state=rooms.state(a.room!.code),p=state.players.find(p=>p.id===a.room!.yourSeatId)!;
+  for(const kind of ['inspection-warrant','tax-order','noble-seal','gambler-hat'] as const)for(let n=0;n<2;n++){const source=state.items[p.stock[0]!]!,id=`socket-${kind}-${n}`;state.items[id]={...source,id,kind,owner:p.id,genuine:false,cursed:true};p.inventory.push(id);}
+  const target=state.items[p.stock[0]!]!;Object.assign(target,{npc:'orc',kind:'eclipse-blade',base:40,ask:40,reservation:1});p.energy=0;rooms.publish(a.room!.code);await a.until(()=>a.room!.game!.self.inventory.length===8?true:undefined);
+  assert.equal(a.room!.game!.self.stock[0]!.range,undefined);await s.act(a,{type:'inspect',itemId:target.id,property:'price'});assert.equal(a.room!.game!.self.energy,0);assert.equal(a.room!.game!.self.passiveUses!.price,1);
+  rooms.state(a.room!.code).players.find(p=>p.id===a.room!.yourSeatId)!.energy=2;rooms.publish(a.room!.code);await a.until(()=>a.room!.game!.self.energy===2?true:undefined);
+  await s.act(a,{type:'appraise',itemId:target.id,value:40,acceptDanger:true});await s.act(a,{type:'buy',itemIds:[target.id],condition:false});assert.equal(a.room!.game!.self.credits,168);
+  await s.endPhase();await s.endPhase();assert.equal(a.room!.game!.phase,'REVEAL');assert.equal(a.room!.game!.self.roundReward!.amount,14);assert.equal(a.room!.game!.self.roundReward!.winChance,60);await s.act(a,{type:'round-bank'});assert.equal(a.room!.game!.self.credits,182);
+  for(const c of s.clients)c.send({type:'reveal-ready',matchId:c.room!.matchId!,encounter:1});await Promise.all(s.clients.map(c=>c.phase('PORTALS',2)));assert.deepEqual(a.room!.game!.self.passiveUses,{});
+});
+test('actual sockets pay appraisal commission, retain NPC trust and settle an explicit market mismatch cost',async t=>{
+  const rooms=new TestRooms(Date.now,{marketProbability:0});const s=await setup(2,rooms);t.after(()=>s.app.close());await s.enter();
+  const a=s.clients[0]!;let state=rooms.state(a.room!.code);const p=state.players.find(p=>p.id===a.room!.yourSeatId)!;
+  const item=state.items[p.stock[0]!]!;item.base=40;item.ask=40;item.reservation=1;item.genuine=true;item.cursed=false;
+  await s.act(a,{type:'appraise',itemId:item.id,value:40,acceptDanger:true});await s.act(a,{type:'buy',itemIds:[item.id],condition:false});
+  assert.equal(a.room!.game!.self.credits,4);assert.equal(a.room!.game!.self.npcTrust![item.npc],1);
+  state=rooms.state(a.room!.code);state.items[item.id]!.cursed=true;
+  state.market={encounter:1,open:true,budget:56,orders:[{id:'socket-contract',kind:item.kind,price:25,quota:Object.fromEntries(state.players.map(p=>[p.id,1])),contract:{requirements:[{property:'cursed',value:false}],bonus:{kind:'credits',amount:3},fullPriceCost:{kind:'energy',amount:2}}}]};
+  rooms.publish(a.room!.code);await a.until(()=>a.room!.game!.market.orders[0]?.id==='socket-contract'?true:undefined);
+  assert.equal(a.room!.game!.self.inventory[0]!.knowledge.cursed,undefined);const energy=a.room!.game!.self.energy;
+  await s.act(a,{type:'market-sell',itemId:item.id,orderId:'socket-contract',resolution:'sacrifice'});
+  assert.equal(a.room!.game!.self.credits,29);assert.equal(a.room!.game!.self.energy,energy-2);assert.equal(a.room!.game!.self.npcTrust![item.npc],1);assert.equal(a.room!.game!.self.inventory.length,0);
+  assert(a.room!.game!.self.notes.at(-1)!.includes('ราคาเต็ม'));
+});
+test('actual survival sockets receive 10 then 15 after trading, and enter the next merchant with the credited wallet',async t=>{
+  const s=await setup(2,new TestRooms(Date.now,{survival:SURVIVAL_RULES,marketProbability:0,startingCredits:200}));t.after(()=>s.app.close());
+  const a=s.clients[0]!;
+  for(const encounter of [1,2]) {
+    for(const c of s.clients) {await s.decline(c);await s.act(c,{type:'enter',portalId:c.room!.game!.self.portals.find(p=>!p.disabled)!.id});}
+    for(const c of s.clients)await s.decline(c);
+    const item=a.room!.game!.self.stock[0]!;await s.act(a,{type:'buy',itemIds:[item.id],condition:false});
+    const wallet=a.room!.game!.self.credits;
+    await s.endPhase();assert.equal(a.room!.game!.phase,'TRADE');assert.equal(a.room!.game!.self.roundReward,undefined);
+    await s.endPhase();assert.equal(a.room!.game!.phase,'REVEAL');assert.equal(a.room!.game!.encounter,encounter);
+    const base=encounter%2?10:15;assert.equal(a.room!.game!.self.roundReward!.amount,base);assert.equal(a.room!.game!.self.credits,wallet);
+    await s.act(a,{type:'round-bank'});assert.equal(a.room!.game!.self.credits,wallet+base);
+    for(const c of s.clients)c.send({type:'reveal-ready',matchId:c.room!.matchId!,encounter});
+    await Promise.all(s.clients.map(c=>c.phase('PORTALS',encounter+1)));
+    assert.equal(a.room!.game!.self.credits,wallet+base);assert(a.room!.game!.self.life!>0);assert.equal(a.room!.game!.collector,undefined);
+  }
+});
+test('actual sockets deliver round credits and authoritative coin results, then reconnect without rerolling',async t=>{
+  const s=await setup(2);t.after(()=>s.app.close());await s.enter();await s.endPhase();await s.endPhase();
+  const [a,b]=s.clients as [SocketClient,SocketClient];assert.equal(a.room!.game!.phase,'REVEAL');
+  const before=a.room!.game!.self.credits;await s.act(a,{type:'round-flip',guess:'heads',attempt:1});
+  const reward=a.room!.game!.self.roundReward!;assert.equal(reward.flips,1);assert.equal(reward.amount,reward.lastFlip!.correct?15:0);assert.equal(a.room!.game!.self.credits,before);
+  await s.act(b,{type:'round-bank'});assert.equal(b.room!.game!.self.credits,50);
+  const joined=a.messages.find(m=>m.type==='joined');assert(joined?.type==='joined');
+  a.socket.close();const resumed=await SocketClient.open(s.url);resumed.send({type:'resume',roomCode:joined.roomCode,token:joined.token});
+  await resumed.until(()=>resumed.room);assert.deepEqual(resumed.room!.game!.self.roundReward,reward);
+  for(const c of [resumed,b])c.send({type:'reveal-ready',matchId:c.room!.matchId!,encounter:1});
+  await Promise.all([resumed.phase('PORTALS',2),b.phase('PORTALS',2)]);assert.equal(resumed.room!.game!.self.credits,before+reward.amount);assert.equal(b.room!.game!.self.credits,50);
+});
 for (const count of [2, 3, 4]) test(`v0.4 HTTP/WebSocket ${count}-player appraisal run, replayable room audit, rematch and stale match rejection`, async t => {
   const s = await setup(count); t.after(() => s.app.close()); const host = s.clients[0]!, matchId = host.room!.matchId!;
   assert.equal((await fetch(s.http + '/health')).status, 200); assert.equal(host.room!.rulesVersion, '0.4');
@@ -142,7 +196,7 @@ class MarketRooms extends TestRooms {
   protected createGame(ids: string[]): AppraisalState {
     // Pick a replayable fixture seed where the first seat has a visible matching route hint.
     for (let i = 0; i < 100; i++) {
-      const state = createAppraisalRun(ids, `network-market-${i}`, { marketProbability: 1, startingCredits: 500 });
+      const state = createAppraisalRun(ids, `network-market-${i}`, { commerce:false, marketProbability: 1, startingCredits: 500 });
       const p = state.players[0]!;
       if (!p.eventOffer && p.portals.some(portal => state.market.orders.some(order => order.kind === state.items[portal.stock[0]!]!.kind))) return state;
     }
@@ -168,7 +222,7 @@ test('v0.4 actual Dark Market buys new stock immediately once and stays open thr
 test('v0.4 actual cross-shop fee and NPC payment roll back together, competing buyers cannot acquire a sold item', async t => {
   const rooms = new TestRooms(Date.now, { startingCredits: 500 }); const s = await setup(3, rooms); t.after(() => s.app.close()); await s.enter();
   const [seller, buyer, rival] = s.clients as [SocketClient, SocketClient, SocketClient]; const item = seller.room!.game!.self.stock[0]!;
-  const base = item.range[1];
+  const base = 100;
   await s.act(seller, { type: 'appraise', itemId: item.id, value: base, acceptDanger: true }); await s.act(seller, { type: 'share', itemId: item.id, allow: true, purchase: true });
   await s.endPhase(); for (const c of s.clients) await s.decline(c);
   await s.act(buyer, { type: 'propose', sellerId: seller.room!.yourSeatId, itemId: item.id, credits: buyer.room!.game!.self.credits - base + 1 });
@@ -179,7 +233,7 @@ test('v0.4 actual cross-shop fee and NPC payment roll back together, competing b
   await s.act(buyer, { type: 'propose', sellerId: seller.room!.yourSeatId, itemId: item.id, credits: 3 }); await s.act(rival, { type: 'propose', sellerId: seller.room!.yourSeatId, itemId: item.id, credits: 4 });
   const offer = seller.room!.game!.trades.find(t => t.status === 'open' && t.buyerId === buyer.room!.yourSeatId)!, competing = seller.room!.game!.trades.find(t => t.status === 'open' && t.buyerId === rival.room!.yourSeatId)!;
   const buyerBefore = buyer.room!.game!.self.credits, sellerBefore = seller.room!.game!.self.credits;
-  await s.act(seller, { type: 'respond', offerId: offer.id, accept: true }); assert.equal(buyer.room!.game!.self.credits, buyerBefore - base - 3); assert.equal(seller.room!.game!.self.credits, sellerBefore + 3);
+  await s.act(seller, { type: 'respond', offerId: offer.id, accept: true }); assert.equal(buyer.room!.game!.self.credits, buyerBefore - base - 3); assert.equal(seller.room!.game!.self.credits, sellerBefore + 3 + Math.floor(base/10));
   assert.equal(rooms.state(seller.room!.code).items[item.id]!.owner, buyer.room!.yourSeatId); assert.equal(seller.room!.game!.trades.find(t => t.id === competing.id)!.status, 'rejected');
   const after = structuredClone(rooms.state(seller.room!.code)); seller.send({ type: 'action', matchId: seller.room!.matchId!, action: { type: 'respond', offerId: competing.id, accept: true, requestId: 'competing', encounter: 1 } });
   await seller.until(() => seller.messages.find(m => m.type === 'error' && m.requestId === 'competing')); assert.deepEqual(rooms.state(seller.room!.code), after);

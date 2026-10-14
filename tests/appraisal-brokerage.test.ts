@@ -20,7 +20,7 @@ const act=(state:AppraisalState,playerId:string,body:Body)=>applyAppraisalAction
 
 /** Both seats at an APPRAISAL table with the given NPC; alice holds one genuine, uncursed item of every kind. */
 function brokerFixture(npc:NpcId='orc',overrides:Partial<AppraisalConfig>={}):AppraisalState {
-  const state=createAppraisalRun(['alice','bob'],'broker',{marketProbability:0,brokerage:BROKERAGE_RULES,...overrides});
+  const state=createAppraisalRun(['alice','bob'],'broker',{catalogVersion:2,marketProbability:0,brokerage:BROKERAGE_RULES,...overrides});
   state.phase='APPRAISAL';
   for(const seat of state.players) {
     seat.eventOffer=null;seat.done=false;seat.offerSlots=0;seat.energy=7;reward(state,seat,100,'test-fixture');
@@ -97,7 +97,7 @@ test('unsold duty: buy, NPC penalty and Dark Market consignment each clear the a
   assert.throws(()=>act(state,'alice',{type:'unsold',itemId:state.players[0]!.stock[1]!,choice:'penalty'}),'only appraised items carry the duty');
 
   const bought=act(state,'alice',{type:'unsold',itemId,choice:'buy'});
-  assert.equal(bought.items[itemId]!.owner,'alice');assert.equal(bought.players[0]!.credits,state.players[0]!.credits-20);
+  assert.equal(bought.items[itemId]!.owner,'alice');assert.equal(bought.players[0]!.credits,state.players[0]!.credits-20+2);
 
   const penalised=act(state,'alice',{type:'unsold',itemId,choice:'penalty'});
   assert.equal(penalised.players[0]!.credits,state.players[0]!.credits-UNSOLD_PENALTIES.orc.credits);

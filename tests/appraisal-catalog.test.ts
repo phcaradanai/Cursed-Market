@@ -1,3 +1,4 @@
+import { passiveSpec } from '../src/game/appraisal/passives.js';
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
 import test from 'node:test';
@@ -9,7 +10,7 @@ import { appraisalFixture } from './support/appraisal-fixture.js';
 import type { AppraisalAction, AppraisalState, EventId, ItemKind, NpcId } from '../src/game/appraisal/types.js';
 import type { AppraisalMatchAudit } from '../src/shared/appraisal-protocol.js';
 
-const kinds=Object.keys(ITEM_SPECS) as ItemKind[];
+const kinds=(Object.keys(ITEM_SPECS) as ItemKind[]).filter(kind=>!passiveSpec(kind));
 type Body=AppraisalAction extends infer A ? A extends AppraisalAction ? Omit<A,'playerId'|'requestId'|'encounter'> : never : never;
 function driver(initial:AppraisalState) {
   let state=initial,request=0;
@@ -26,7 +27,7 @@ function driver(initial:AppraisalState) {
 }
 function offered(kind:ItemKind,market:boolean) {
   for(let i=0;i<256;i++) {
-    const state=createAppraisalRun(['alice','bob'],`catalog-${kind}-${market}-${i}`,{startingCredits:200,maxEnergy:20,bankReserve:10000,marketProbability:market?1:0,marketMaxOrders:30});
+    const state=createAppraisalRun(['alice','bob'],`catalog-${kind}-${market}-${i}`,{catalogVersion:2,commerce:false,startingCredits:200,maxEnergy:20,bankReserve:10000,marketProbability:market?1:0,marketMaxOrders:30});
     const portal=state.players[0]!.portals.find(portal=>portal.stock.some(id=>state.items[id]!.kind===kind && (market || (state.items[id]!.genuine&&!state.items[id]!.cursed))));
     if(!portal || (market && !state.market.orders.some(o=>o.kind===kind)))continue;
     const id=portal.stock.find(id=>state.items[id]!.kind===kind && (market || (state.items[id]!.genuine&&!state.items[id]!.cursed)))!;
@@ -48,7 +49,7 @@ test('catalog has 30 distinct reachable products with usable family artwork and 
     assert.equal(merchantKinds(npc,2).length,9);
   }
   assert.deepEqual(new Set(Object.keys(NPC_SPECS).flatMap(npc=>merchantKinds(npc as NpcId,2))),new Set(kinds));
-  assert.throws(()=>createAppraisalRun(['a','b'],'bad-version',{catalogVersion:3 as 2}),/เวอร์ชันคลังสินค้า/);
+  assert.throws(()=>createAppraisalRun(['a','b'],'bad-version',{catalogVersion:4 as 2}),/เวอร์ชันคลังสินค้า/);
 });
 
 for(const kind of kinds)test(`catalog ${kind}: seeded NPC purchase, activation, Dark Market sale, private view and strict replay`,()=>{

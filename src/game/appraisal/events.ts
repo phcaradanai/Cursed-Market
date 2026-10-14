@@ -1,3 +1,4 @@
+import { inspectionLimit } from './passives.js';
 import { randomAt } from '../random.js';
 import { ITEM_SPECS, NPC_SPECS, itemFamily, priceRange } from './content.js';
 import { check, consumeStatus, counterLimit, damageLife, grant, kill, known, learn, ownedItem, penaltyItem, purchase, recover, removeStatus, retire, reward, spend, status, stockItem, trace, unlocked } from './mechanics.js';
@@ -23,7 +24,7 @@ export function eventEligible(state:AppraisalState,p:Appraiser,id:EventId):boole
   const npc=p.stock[0] ? state.items[p.stock[0]]!.npc : null;
   const stock=p.stock.filter(itemId => state.items[itemId]?.owner===`npc:${p.id}:${state.encounter}`);
   const unknownPrice=stock.some(itemId=>known(state,p,itemId).base===undefined);
-  const inspectable=p.inspections<2;
+  const inspectable=p.inspections<inspectionLimit(state,p);
   const next=!!state.config.survival || state.encounter<state.config.encounters;
   if (consequences.includes(id)) {
     if (!p.caught || p.consequenceSlots>=1) return false;
@@ -154,7 +155,7 @@ function chooseStatus(offer:EventOffer,command:Extract<AppraisalAction,{type:'ev
   check(command.statusId && offer.statusIds.includes(command.statusId),'event-target','เลือกสถานะที่อยู่ใน event'); return command.statusId;
 }
 function eventInspect(state:AppraisalState,p:Appraiser,itemId:string,credits:number,energy:number,k:Knowledge):void {
-  stockItem(state,p,itemId); check(p.inspections<2,'inspections','สิทธิ์ตรวจหมด');
+  stockItem(state,p,itemId); check(p.inspections<inspectionLimit(state,p),'inspections','สิทธิ์ตรวจหมด');
   const cost=Math.max(0,energy+(status(p,'D01')?1:0)-(status(p,'B05')?1:0));
   spend(state,p,credits,cost,'event-inspect'); consumeStatus(p,'D01'); consumeStatus(p,'B05'); p.inspections++; learn(p,itemId,k);
 }

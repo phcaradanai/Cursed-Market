@@ -1,6 +1,7 @@
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
-import { ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, itemFamily, itemImage, priceRange } from '../game/appraisal/content.js';
+import { ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, itemFamily, itemImage } from '../game/appraisal/content.js';
+import { passiveSpec } from '../game/appraisal/passives.js';
 import type { ItemKind, ItemView, NpcId, StatusId } from '../game/appraisal/types.js';
 import { readable, scoreStatusText, statusName } from './model.js';
 import { BuffIcon, DebuffIcon } from './icons.js';
@@ -53,16 +54,17 @@ const knownText=(item:ItemView)=>{
   const k=item.knowledge;
   return [k.genuine===undefined?'ยังไม่รู้ว่าแท้ไหม':k.genuine?'ของแท้':'ของปลอม',k.cursed===undefined?'ยังไม่รู้เรื่องคำสาป':k.cursed?'มีคำสาป':'ไม่มีคำสาป'].join(' · ');
 };
-/** Kind-level hints are public; a viewer's ItemView adds only what that viewer already knows. */
+/** Price clues are item-specific knowledge; the kind alone never reveals a value range. */
 export function ItemCard({kind,item}:{kind:ItemKind;item?:ItemView|undefined}) {
-  const spec=ITEM_SPECS[kind];const [low,high]=item?.range??priceRange(kind);
+  const spec=ITEM_SPECS[kind];const k=item?.knowledge;
   const benefit=itemFamily(kind)==='orb'?`ฟื้นพลัง ${spec.energyRecovery??3}`:statusName(spec.buff);
   return <>
     <img src={itemImage(kind)} alt="" width="72" height="72"/>
     <span className="peek-text">
       <strong>{spec.name}</strong>
-      <span>{low===high?`มูลค่าจริง ${low} เครดิต`:`มูลค่าราว ${low}–${high} เครดิต`}</span>
+      <span>{k?.base!==undefined?`มูลค่าจริง ${k.base} เครดิต`:k?.range?`เบาะแสมูลค่า ${k.range[0]}–${k.range[1]} เครดิต`:'ยังไม่มีข้อมูลมูลค่า · ต้องตรวจราคาสินค้าชิ้นนี้'}</span>
       {item && <span>{knownText(item)}</span>}
+      {passiveSpec(kind) && <span>ขณะถือ · สะสมได้: {passiveSpec(kind)!.passive.text}</span>}
       <span>เปิดใช้อาจได้ {benefit} · เสี่ยง {statusName(spec.drawback)}{spec.consumable?' · ใช้แล้วหมด':''}</span>
     </span>
   </>;

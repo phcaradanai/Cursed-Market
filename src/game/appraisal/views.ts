@@ -1,4 +1,5 @@
-import { ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, itemFamily, itemImage, priceRange } from './content.js';
+import { passiveBonuses, passivesEnabled } from './passives.js';
+import { ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, itemFamily, itemImage } from './content.js';
 import { counterLimit, known, npcQuote, player, recoveryOffer } from './mechanics.js';
 import type { AppraisalState, AppraisalView, ItemView } from './types.js';
 
@@ -18,8 +19,9 @@ export function appraisalItemView(state:AppraisalState,playerId:string,itemId:st
     k.effectsKnown?buff.description:`อาจได้รับ ${buff.name}`;
   const profile=NPC_SPECS[item.npc]; const shop=state.players.find(s=>s.id===item.npcOwnerId);
   return {id:item.id,kind:item.kind,npc:item.npc,name:spec.name,image:itemImage(item.kind),owner:item.owner,
-    range:k.base!==undefined?[k.base,k.base]:k.range??priceRange(item.kind),ask:item.ask,appraisal:item.lastAppraisal,
+    ...(k.base!==undefined?{range:[k.base,k.base] as [number,number]}:k.range?{range:k.range}:{}),ask:item.ask,appraisal:item.lastAppraisal,
     price:shop?npcQuote(shop,item):item.ask,appraisalAccepted:item.lastAccepted,
+    ...(item.appraisedBy?{appraisedBy:item.appraisedBy,commissionPaid:!!item.commissionPaid}:{}),
     lockedUntil:lock?.expires??null,knowledge:k,certificate:item.certificate,
     possibleBenefit:benefit+(state.config.survival && ['food','potion'].includes(itemFamily(item.kind))?' · ของแท้ฟื้นชีวิต 2': '')+(state.config.survival && spec.buff==='B10'?' · ขณะมีสิทธิ์เหลือ Collector เพิ่มคะแนน 20%':'') ,
     possibleDrawback:(k.effectsKnown?drawback.description:`อาจได้รับ ${drawback.name}`)+(state.config.survival?' · หากมีคำสาป เปิดใช้เสียชีวิต 1':'')+(state.config.survival && spec.drawback==='D10'?' · ขณะสถานะยังอยู่ Collector ลดคะแนน 20%':''),
@@ -30,7 +32,9 @@ export function appraisalViewFor(state:AppraisalState,playerId:string):Appraisal
   const p=player(state,playerId);
   const {knowledge:_knowledge,portals:_portals,stock:_stock,inventory:_inventory,valuations:_valuations,startWealth:_startWealth,acceptedDanger:_acceptedDanger,seenEvents:_seenEvents,resolvedEvents:_resolvedEvents,...self}=structuredClone(p);
   return {
+    ...(passivesEnabled(state.config)?{passives:true}:{}),
     version:state.version,phase:state.phase,encounter:state.encounter,encounterCount:state.config.survival?null:state.config.encounters,revision:state.revision,
+    ...(state.config.roundRewards?{roundRewardBase:(state.encounter%2?10:15)+passiveBonuses(state,p).income}:{}),
     ...(state.config.survival?{survival:structuredClone(state.config.survival),maxEnergy:state.config.maxEnergy}:{}),...(state.collector?{collector:structuredClone(state.collector)}:{}),...(state.config.brokerage?{brokerage:true}:{}),
     self:{...self,...(state.config.survival && state.phase!=='RESULTS'?{accuracyBonus:0}:{}),inventory:p.inventory.map(id=>appraisalItemView(state,p.id,id)),stock:p.stock.filter(id=>state.items[id]!.owner.startsWith('npc:')).map(id=>appraisalItemView(state,p.id,id)),portals:p.portals.map(portal=>({id:portal.id,npc:portal.npc,hint:state.items[portal.stock[0]!]!.kind,disabled:portal.disabled})),counterLimit:counterLimit(p),...(recoveryOffer(state,p)?{recoveryOffer:recoveryOffer(state,p)!}:{})},
     players:state.players.map(other=>({id:other.id,credits:other.credits,energy:other.energy,score:other.score,paused:other.paused,done:other.done,itemCount:other.inventory.length,...(other.life!==undefined?{life:other.life}:{})})),

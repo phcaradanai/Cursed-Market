@@ -1,7 +1,7 @@
 import { randomAt } from '../random.js';
 import { BOND_SPECS, CONSIGN_RULES, ITEM_SPECS, UNSOLD_PENALTIES, itemFamily } from './content.js';
 import type { BondSpec } from './content.js';
-import { check, damageLife, grant, healLife, known, learn, ownedItem, player, purchase, recover, removeStatus, retire, reward, spend, stockItem, trace, unlocked } from './mechanics.js';
+import { check, completeAppraisedSale, damageLife, grant, healLife, known, learn, ownedItem, player, purchase, recover, removeStatus, retire, reward, spend, stockItem, trace, unlocked } from './mechanics.js';
 import type { AppraisalAction, AppraisalItem, AppraisalState, Appraiser, AuctionLot, EventId, EventOffer, UnsoldChoice } from './types.js';
 
 /* ---------- NPC × held-item events (E51–E72) ---------- */
@@ -181,6 +181,7 @@ export function settleAuction(state:AppraisalState):void {
     if(!winner) {lot.winnerId=null;continue;}
     const item=state.items[lot.itemId]!;
     spend(state,winner.p,winner.amount,0,'dark-auction');
+    completeAppraisedSale(state,item,winner.amount);
     item.owner=winner.p.id;winner.p.inventory.push(item.id);state.vault=state.vault!.filter(id=>id!==item.id);
     lot.winnerId=winner.p.id;lot.price=winner.amount;
     trace(state,winner.p,'auction-won',{lotId:lot.id,itemId:item.id,price:winner.amount});

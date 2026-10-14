@@ -6,14 +6,21 @@ export const BOND_EVENT_IDS = ['E51','E52','E53','E54','E55','E56','E57','E58','
 export type EventId = typeof EVENT_IDS[number] | typeof BOND_EVENT_IDS[number];
 export type NpcId = 'orc' | 'vampire' | 'autometa' | 'alien' | 'darkone' | 'beast';
 export type ItemFamily = 'mirror' | 'orb' | 'key' | 'mask' | 'potion' | 'battery' | 'amulet' | 'blade' | 'scanner' | 'food';
+export const PASSIVE_ITEM_IDS=['inspection-warrant','tax-order','noble-seal','gambler-hat','lucky-die','merchant-ledger','friendship-ring','negotiator-gloves','guild-badge','light-satchel','surveyor-lens','curse-compass','market-pass','authenticity-seal','smuggler-cloak','merchant-canteen','healing-brooch','inspector-notebook'] as const;
+export type PassiveKind=typeof PASSIVE_ITEM_IDS[number];
+export type InspectionProperty='price'|'authenticity'|'effects';
 export type ItemKind = ItemFamily | 'memory-mirror' | 'rift-mirror' | 'blood-orb' | 'storm-orb' |
   'bone-key' | 'clockwork-key' | 'bone-mask' | 'void-mask' | 'blood-tonic' | 'dream-tonic' |
   'sun-cell' | 'void-cell' | 'oath-charm' | 'echo-charm' | 'bone-blade' | 'eclipse-blade' |
-  'truth-lens' | 'curse-meter' | 'ember-feed' | 'moon-feed';
+  'truth-lens' | 'curse-meter' | 'ember-feed' | 'moon-feed' | PassiveKind;
 export type AppraisalPhase = 'PORTALS' | 'APPRAISAL' | 'TRADE' | 'REVEAL' | 'RESULTS';
 export interface AppraisalConfig {
   /** Absent in original v0.4 audits: retain the original 10-item generation pool. */
-  catalogVersion?: 1 | 2;
+  catalogVersion?: 1 | 2 | 3;
+  /** Absent in historical audits: preserve their original economy. */
+  roundRewards?: boolean;
+  /** Absent in saved runs: retain the pre-commission/trust/market-contract rules. */
+  commerce?: boolean;
   encounters: number; startingCredits: number; maxEnergy: number; recoveryEnergy: number;
   bankReserve: number; marketProbability: number; marketMaxOrders: number; marketQuota: number;
   /** Absent in v0.4: retain encounter recovery and historical scoring exactly. */
@@ -33,6 +40,7 @@ export interface AppraisalItem {
   id: string; kind: ItemKind; base: number; genuine: boolean; cursed: boolean; ask: number;
   owner: string; npcOwnerId: string; npc: NpcId; encounter: number; certificate: boolean;
   lastAppraisal: number | null;
+  appraisedBy?:string; commissionPaid?:boolean;
   reservation: number; lastAccepted: boolean | null;
 }
 export interface Portal { id: string; npc: NpcId; stock: string[]; disabled: boolean }
@@ -44,7 +52,16 @@ export interface EventOffer {
   /** Held item a bond swap hands to the NPC; fixed when the offer opens. */
   giveItemId?: string;
 }
+export type CoinSide = 'heads' | 'tails';
+export interface RoundReward {
+  encounter:number; base:number; amount:number; flips:number; settled:boolean;
+  incomeBonus?:number; winBonus?:number; winChance?:number;
+  lastFlip?:{guess:CoinSide; side:CoinSide; correct:boolean};
+}
 export interface Appraiser {
+  passiveUses?:Partial<Record<InspectionProperty,number>>;
+  roundReward?:RoundReward;
+  npcTrust?:Partial<Record<NpcId,number>>;
   id: string; credits: number; energy: number; inventory: string[]; statuses: Status[];
   life?:number; recoveryUsed?:boolean;
   paused: 'dead' | 'exhausted' | null; done: boolean; portals: Portal[]; selectedPortalId: string | null;
@@ -57,7 +74,12 @@ export interface Appraiser {
   dealMode: 'any'|'cash'|'condition';
   notes: string[];
 }
-export interface MarketOrder { id: string; kind: ItemKind; price: number; quota: Record<string,number> }
+export interface MarketContract {
+  requirements:Array<{property:'genuine'|'cursed';value:boolean}>;
+  bonus:{kind:'credits';amount:number}|{kind:'energy';amount:number}|{kind:'life';amount:number}|{kind:'buff';statusId:Extract<StatusId,`B${string}`>};
+  fullPriceCost:{kind:'energy';amount:number}|{kind:'life';amount:number}|{kind:'debuff';statusId:Extract<StatusId,`D${string}`>};
+}
+export interface MarketOrder { id: string; kind: ItemKind; price: number; quota: Record<string,number>; contract?:MarketContract }
 export interface AuctionLot { id: string; itemId: string; minimum: number; bids: Record<string,number>; winnerId?: string | null; price?: number }
 export interface DarkMarket { encounter: number; open: boolean; budget: number; orders: MarketOrder[]; lots?: AuctionLot[] }
 export interface AuctionLotView { id: string; itemId: string; minimum: number; item: ItemView; yourBid: number | null; bidCount: number; winnerId?: string | null; price?: number }
@@ -76,10 +98,12 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
   | { type: 'buy'; itemIds: string[]; condition: boolean }
   | { type: 'activate'; itemId: string }
   | { type: 'event'; key: string; choice: string; itemId?: string; statusId?: StatusId; otherPlayerId?: string; fact?: 'base'|'genuine'|'cursed'; guess?: boolean }
-  | { type: 'market-sell'; itemId: string; orderId: string }
+  | { type: 'market-sell'; itemId: string; orderId: string; resolution?:'discount'|'sacrifice' }
   | { type: 'share'; itemId: string; allow: boolean; purchase: boolean }
   | { type: 'propose'; sellerId: string; itemId: string; credits: number; swapItemId?: string; condition?: boolean }
   | { type: 'respond'; offerId: string; accept: boolean }
+  | { type: 'round-flip'; guess:CoinSide; attempt:number }
+  | { type: 'round-bank' }
   | { type: 'done' }
   | { type:'recover-resource'; target:'energy'|'life' }
   | { type:'unsold'; itemId:string; choice:UnsoldChoice }
@@ -101,14 +125,15 @@ export interface AppraisalState {
 export interface ItemView {
   id: string; kind: ItemKind; name: string; image: string; owner: string;
   npc: NpcId;
-  range: [number,number]; ask: number; appraisal: number | null; lockedUntil: number | null;
+  range?: [number,number]; ask: number; appraisal: number | null; lockedUntil: number | null;
   price: number; appraisalAccepted: boolean | null;
+  appraisedBy?:string; commissionPaid?:boolean;
   knowledge: Knowledge; certificate: boolean; possibleBenefit: string; possibleDrawback: string;
   condition: {statusId:StatusId;discount:number;available:boolean;required:boolean};
 }
 export interface AppraisalView {
   version: 4 | 5; phase: AppraisalPhase; encounter: number; encounterCount: number | null; revision: number;
-  survival?:NonNullable<AppraisalConfig['survival']>; maxEnergy?:number; collector?:CollectorResult[]; brokerage?:boolean;
+  survival?:NonNullable<AppraisalConfig['survival']>; maxEnergy?:number; collector?:CollectorResult[]; brokerage?:boolean; roundRewardBase?:number; passives?:boolean;
   self: Omit<Appraiser,'knowledge'|'portals'|'stock'|'inventory'|'valuations'|'startWealth'|'acceptedDanger'|'seenEvents'|'resolvedEvents'> & {
     inventory: ItemView[]; stock: ItemView[]; portals: Array<{id:string; npc:NpcId; hint:ItemKind; disabled:boolean}>;
     counterLimit: number;

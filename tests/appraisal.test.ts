@@ -191,7 +191,7 @@ test('all exhausted seats settle and recover; B09/D04/D05/D07/D10 timing and exp
   const credits=state.players.map(p=>p.credits);assert(state.players.every(p=>status(p,'D05')?.charges===1));
   state=advanceAppraisalEncounter(state);assert.equal(state.encounter,2);
   for(const [i,p] of state.players.entries()) {
-    assert.equal(p.paused,null);assert.equal(p.energy,4);assert.equal(p.credits,credits[i]!-2);
+    assert.equal(p.paused,null);assert.equal(p.energy,4);assert.equal(p.credits,credits[i]!+10-2);
     assert.equal(p.portals.filter(v=>!v.disabled).length,2);assert(!status(p,'D07'));assert(!status(p,'D04'));assert(!status(p,'B09'));assert(!status(p,'B05'));assert.equal(status(p,'D10')!.charges,1);
   }
   for(let steps=0;steps<20 && state.phase!=='REVEAL';steps++) {const p=state.players.find(v=>!v.done && !v.paused)!;state=act(state,p.id,{type:'done'});}
@@ -223,7 +223,7 @@ test('intermittent market draws are seeded, budgeted, reachable, and independent
     const a=createAppraisalRun(['a','b','c'],`market-${i}`);const b=createAppraisalRun(['a','b','c'],`market-${i}`);
     assert.deepEqual(a.market,b.market);if(!a.market.open) {closed++;continue;}opened++;counts.add(a.market.orders.length);
     const pool=new Set(Object.values(a.items).map(item=>item.kind));assert(a.market.orders.every(order=>pool.has(order.kind)));
-    assert.equal(a.market.budget,a.market.orders.reduce((sum,o)=>sum+o.price*3,0));
+    assert.equal(a.market.budget,a.market.orders.reduce((sum,o)=>sum+(o.price+(o.contract?.bonus.kind==='credits'?o.contract.bonus.amount:0))*3,0));
     assert(a.market.orders.every(o=>o.price>=ITEM_SPECS[o.kind].anchor*1.25-1 && o.price<=ITEM_SPECS[o.kind].anchor*1.75+1));
   }
   assert(opened>40 && opened<160 && closed>0);assert.deepEqual([...counts].sort(),[1,2,3]);
@@ -251,6 +251,6 @@ test('NPCs reject a zero appraisal without turning it into a free purchase or ex
   assert.equal(JSON.stringify(appraisalViewFor(state,p.id)).includes('"reservation"'),false);
   if(p.eventOffer) state=act(state,p.id,{type:'event',choice:'pay'});
   p=state.players[0]!;const credits=p.credits;
-  state=act(state,p.id,{type:'buy',itemIds:[itemId],condition:false});assert.equal(state.players[0]!.credits,credits-20);
+  state=act(state,p.id,{type:'buy',itemIds:[itemId],condition:false});assert.equal(state.players[0]!.credits,credits-20+2);
   for(const item of Object.values(createAppraisalRun(['a','b'],'reservation').items)) assert(item.reservation>=1 && item.reservation<=item.ask);
 });

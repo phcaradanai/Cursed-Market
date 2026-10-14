@@ -37,10 +37,11 @@ for(const id of EVENT_IDS) test(`v0.4 UI ${id}: every offered choice builds an e
 test('visible-data risk bounds enclose every possible hidden base, including honor/status jumps',()=>{
   for(const npc of ['orc','vampire','autometa','alien','darkone','beast'] as const) {
     const state=appraisalFixture();const p=state.players[0]!;const target=state.items[p.stock[0]!]!;target.npc=npc;p.honorJob=true;grant(state,p,'D03');grant(state,p,'B04');
+    p.knowledge[target.id]={range:[16,24]};
     const game=appraisalViewFor(state,p.id);const item=game.self.stock[0]!;
     for(const value of [0,10,17,20,24,30,1000]) {
-      const [low,high]=riskRange(game,item,value);
-      for(let base=item.range[0];base<=item.range[1];base++) {const exact=detectionRisk(p,target,value,base)*100;assert(exact>=low && exact<=high,`${npc}/${value}/${base}: ${low}..${high} vs ${exact}`);}
+      const [low,high]=riskRange(game,item,value)!;
+      for(let base=item.range![0];base<=item.range![1];base++) {const exact=detectionRisk(p,target,value,base)*100;assert(exact>=low && exact<=high,`${npc}/${value}/${base}: ${low}..${high} vs ${exact}`);}
     }
   }
   const state=appraisalFixture();state.players[0]!.knowledge[state.players[0]!.stock[0]!]={base:20};

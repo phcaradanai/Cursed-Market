@@ -1,3 +1,6 @@
+import { marketConditionMatch, marketOrderReserve, trustAcceptanceBonus, TRUST_CAP } from './market-contracts.js';
+import { commissionRate, freeInspectionCount, inspectionLimit, passiveBonuses, passiveMarketBonus, passivesEnabled } from './passives.js';
+import type { PassiveBonuses } from './passives.js';
 import { RuleError } from '../engine.js';
 import { randomAt } from '../random.js';
 import { ITEM_SPECS, NPC_SPECS, itemFamily, priceRange } from './content.js';
@@ -48,6 +51,11 @@ export function transfer(state: AppraisalState, from: Appraiser, to: Appraiser, 
   from.credits -= credits; to.credits += credits;
   if (credits) state.ledger.push({from:from.id,to:to.id,amount:credits,reason,encounter:state.encounter});
 }
+/** Artifact bonuses are funded separately, just like encounter income. */
+export function fundPassive(state:AppraisalState,p:Appraiser,amount:number,reason:'gear-commission'|'gear-market'):void {
+  check(passivesEnabled(state.config) && Number.isSafeInteger(amount) && amount>=0,'passive-reward','โบนัสสินค้าไม่ถูกต้อง');
+  if(!amount)return;p.credits+=amount;state.ledger.push({from:'@item-fund',to:p.id,amount,reason,encounter:state.encounter});
+}
 export function recover(state: AppraisalState, p: Appraiser, amount: number, reason: string, minimum = false): void {
   let gained = amount;
   if (!minimum && status(p,'D10')) { gained = Math.max(0,amount-2); consumeStatus(p,'D10'); }
@@ -69,7 +77,8 @@ export function recoveryOffer(state:AppraisalState,p:Appraiser):RecoveryOffer|un
   if(!state.config.survival || p.life===0 || !p.selectedPortalId || p.recoveryUsed)return;
   const npc=p.portals.find(portal=>portal.id===p.selectedPortalId)?.npc;
   if(!npc)return;
-  return ['vampire','autometa','alien'].includes(npc)?{target:'energy',credits:2,amount:3}:{target:'life',credits:4,amount:2};
+  const b=passiveBonuses(state,p);
+  return ['vampire','autometa','alien'].includes(npc)?{target:'energy',credits:2,amount:3+b.energyRecovery}:{target:'life',credits:4,amount:2+b.lifeRecovery};
 }
 export function unlocked(p: Appraiser, itemId: string): boolean {
   return !p.statuses.some(s => s.id === 'D09' && s.targetItemId === itemId && s.charges > 0);
@@ -105,11 +114,15 @@ export function inspect(state: AppraisalState, p: Appraiser, itemId: string, pro
   check(['price','authenticity','effects'].includes(property),'property','ข้อมูลที่จะตรวจไม่ถูกต้อง');
   const item = state.items[itemId];
   check(item && (item.owner === p.id || p.stock.includes(itemId)),'inspect','ตรวจได้เฉพาะของตนหรือร้านปัจจุบัน');
-  check(p.inspections < 2,'inspections','ใช้สิทธิ์ตรวจครบแล้ว');
+  check(p.inspections < inspectionLimit(state,p),'inspections','ใช้สิทธิ์ตรวจครบแล้ว');
   const k = known(state,p,itemId);
   check(property === 'price' ? k.base === undefined : property === 'authenticity' ? k.genuine === undefined : !k.effectsKnown || (status(p,'B02') && k.cursed === undefined),'known','รู้ข้อมูลนี้แล้ว');
   const cost = Math.max(0,1 + (status(p,'D01') ? 1 : 0) - (status(p,'B05') ? 1 : 0));
-  spend(state,p,0,cost,'inspect'); consumeStatus(p,'B05'); consumeStatus(p,'D01'); p.inspections++;
+  const free=cost>0 && freeInspectionCount(passiveBonuses(state,p),p,property)>0;
+  spend(state,p,0,free?0:cost,'inspect');
+  if(free){p.passiveUses??={};p.passiveUses[property]=(p.passiveUses[property]??0)+1;}
+  else {consumeStatus(p,'B05');consumeStatus(p,'D01');}
+  p.inspections++;
   if (property === 'price') {
     if (status(p,'B01') && !status(p,'D02')) { learn(p,itemId,{base:item.base}); consumeStatus(p,'B01'); }
     else {
@@ -139,12 +152,13 @@ export function appraise(state: AppraisalState, p: Appraiser, itemId: string, va
   const risk = detectionRisk(p,item,value);
   const caught = randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:detection`) < risk;
   const accuracy = Math.abs(value-item.base) <= item.base*.1;
-  const accepted = value >= item.reservation;
+  const accepted = value >= item.reservation || !!state.config.commerce && value>0 && randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:trust-accept:${counter?p.counters:0}`)<Math.min(.95,trustAcceptanceBonus(p,item.npc)+passiveBonuses(state,p).acceptance/100);
   const previous = p.valuations[itemId];
   if (accuracy && !previous?.accuracy) p.accuracyBonus += 5;
   if (!accuracy && previous?.accuracy) p.accuracyBonus -= 5;
   p.valuations[itemId] = {value,accuracy,caught,accepted};
   item.lastAppraisal = value; item.lastAccepted = accepted;
+  if(state.config.commerce)item.appraisedBy=p.id;
   p.notes.push(accepted?`NPC ยอมรับราคา ${value} credit`:`NPC ปฏิเสธราคา ${value}; ยังซื้อราคาหน้าร้าน ${item.ask} credit ได้`);
   if (caught) p.notes.push('พ่อค้าจับได้ว่าคุณกดราคา!');
   p.notes = p.notes.slice(-30);
@@ -156,6 +170,19 @@ export function appraise(state: AppraisalState, p: Appraiser, itemId: string, va
 export function npcQuote(shop:Appraiser,item:AppraisalItem):number {
   const valuation=shop.valuations[item.id];return valuation?.accepted?valuation.value:item.ask;
 }
+/** The original NPC sale pays once; reselling an owned item cannot farm commission or trust. */
+export function completeAppraisedSale(state:AppraisalState,item:AppraisalItem,salePrice:number,bonuses?:PassiveBonuses):void {
+  if(!state.config.commerce || !item.appraisedBy || item.commissionPaid || salePrice<=0)return;
+  item.commissionPaid=true;const appraiser=player(state,item.appraisedBy);
+  if(state.config.survival && appraiser.life===0)return;
+  const b=bonuses??passiveBonuses(state,appraiser,[item.id]);const baseCommission=Math.floor(salePrice/10);
+  const extra=Math.floor(salePrice*commissionRate(b)/100)-baseCommission+b.saleFee;
+  const commission=baseCommission+extra;
+  reward(state,appraiser,baseCommission,'appraisal-commission');if(extra)fundPassive(state,appraiser,extra,'gear-commission');
+  const trust=appraiser.npcTrust!;trust[item.npc]=Math.min(TRUST_CAP,(trust[item.npc]??0)+1+b.trust);
+  appraiser.notes.push(`ขาย ${ITEM_SPECS[item.kind].name} ได้ ${salePrice} เครดิต · ค่านายหน้า +${commission} เครดิต · ความไว้ใจ ${NPC_SPECS[item.npc].name} ${trust[item.npc]}/${TRUST_CAP}`);appraiser.notes=appraiser.notes.slice(-30);
+  trace(state,appraiser,'appraisal-commission',{itemId:item.id,npc:item.npc,salePrice,commission,trust:trust[item.npc]});
+}
 export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraiser, itemIds: string[], options: {discount?:number;condition?:boolean;grantStatus?:StatusId;lock?:boolean;barterItemId?:string} = {}): void {
   check(Array.isArray(itemIds) && itemIds.length > 0 && itemIds.length<=2 && itemIds.every(id=>typeof id==='string') && new Set(itemIds).size === itemIds.length,'bundle','ชุดสินค้าไม่ถูกต้อง');
   const items = itemIds.map(id => stockItem(state,shop,id));
@@ -165,14 +192,18 @@ export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraise
   check(items.every(item => item.npc === items[0]!.npc),'bundle','สินค้าไม่ได้อยู่ร้านเดียวกัน');
   check(!options.condition || !['D04','D07'].includes(profile.condition) || !!state.config.survival || state.encounter < state.config.encounters,'condition','เงื่อนไขนี้ไม่มี encounter ถัดไป');
   const basePrice = items.reduce((sum,item) => sum + npcQuote(shop,item),0);
-  const discount = (options.discount ?? 0) + (status(buyer,'B03') ? 2 : 0) + (options.condition ? profile.discount : 0);
+  const b=passiveBonuses(state,buyer);const commissionBonuses=new Map(state.players.map(p=>[p.id,passiveBonuses(state,p)]));
+  const discount = (options.discount ?? 0) + (status(buyer,'B03') ? 2 : 0) + (options.condition ? profile.discount : 0)+b.discount;
   const price = options.barterItemId ? 0 : Math.max(0,basePrice-discount);
-  const energy = 1 + (status(buyer,'D06') ? 1 : 0);
+  const energy = Math.max(0,1 + (status(buyer,'D06') ? 1 : 0)-b.buyEnergy);
   if (options.barterItemId) ownedItem(state,buyer,options.barterItemId,true);
   spend(state,buyer,price,energy,'npc-purchase');
   if (options.barterItemId) retire(state,buyer,options.barterItemId,'npc-barter');
   consumeStatus(buyer,'B03'); consumeStatus(buyer,'D06');
-  for (const item of items) {
+  let allocated=0;
+  for (const [index,item] of items.entries()) {
+    const share=index===items.length-1?price-allocated:basePrice?Math.floor(price*npcQuote(shop,item)/basePrice):0;allocated+=share;
+    completeAppraisedSale(state,item,share,commissionBonuses.get(item.appraisedBy??''));
     item.owner = buyer.id; buyer.inventory.push(item.id); shop.stock = shop.stock.filter(id => id !== item.id);
     state.listings = state.listings.filter(l => l.itemId !== item.id);
   }
@@ -206,12 +237,43 @@ export function kill(state: AppraisalState, p: Appraiser): void {
   else if(state.config.survival)damageLife(state,p,p.life!,'dark-one-contract');
   else { p.paused = 'dead'; p.done = true; p.eventOffer = null; trace(state,p,'death'); }
 }
-export function marketSell(state: AppraisalState, p: Appraiser, itemId: string, orderId: string): void {
+export function marketSell(state: AppraisalState, p: Appraiser, itemId: string, orderId: string, resolution:'discount'|'sacrifice'='discount'): void {
+  check(resolution==='discount' || resolution==='sacrifice','market-resolution','เลือกรับราคาลดหรือสละตามเงื่อนไข');
   const item = ownedItem(state,p,itemId,true); const order = state.market.orders.find(o => o.id === orderId);
   check(state.market.open && state.market.encounter === state.encounter,'market-closed','Dark Market ปิดแล้ว');
   check(order && order.kind === item.kind && (order.quota[p.id] ?? 0) > 0,'market-order','ไม่มีสิทธิ์รับซื้อตามรายการ');
-  check(state.market.budget >= order.price,'market-budget','งบรับซื้อหมด');
-  reward(state,p,order.price,'dark-market',true); state.market.budget -= order.price; order.quota[p.id]!--;
+  const reserved=marketOrderReserve(order);check(state.market.budget>=reserved,'market-budget','งบรับซื้อหมด');
+  const contract=order.contract;
+  // Check that an optional sacrifice is payable before consulting hidden item facts.
+  // Otherwise a rejected sale could become a free authenticity/curse probe.
+  if(contract && resolution==='sacrifice') {
+    const cost=contract.fullPriceCost;
+    if(cost.kind==='energy')check(p.energy>=cost.amount,'energy','พลังไม่พอสำหรับเงื่อนไขราคาเต็ม');
+    if(cost.kind==='debuff')check(!status(p,cost.statusId) || status(p,'B06'),'market-cost','มีผลเสียนี้อยู่แล้ว รับซ้ำเพื่อแลกราคาเต็มไม่ได้');
+    if(cost.kind==='life')check(state.config.survival && p.life!>cost.amount,'life','ต้องเหลือชีวิตอย่างน้อย 1 หลังจ่าย');
+  }
+  const matched=!contract || marketConditionMatch(contract,item)==='match';
+  let price=order.price;
+  if(contract && !matched) {
+    if(resolution==='discount')price=Math.floor(price*80/100);
+    else {
+      const cost=contract.fullPriceCost;
+      if(cost.kind==='energy')spend(state,p,0,cost.amount,'market-condition');
+      else if(cost.kind==='life') {check(state.config.survival && p.life!>cost.amount,'life','ต้องเหลือชีวิตอย่างน้อย 1 หลังจ่าย');damageLife(state,p,cost.amount,'market-condition');}
+      else grant(state,p,cost.statusId);
+    }
+  }
+  const creditsBonus=matched && contract?.bonus.kind==='credits'?contract.bonus.amount:0;
+  const gearBonus=passiveMarketBonus(order,passiveBonuses(state,p,[itemId]),!!contract && matched,!!contract && !matched && resolution==='discount');
+  reward(state,p,price+creditsBonus,'dark-market',true);state.market.budget-=reserved;order.quota[p.id]!--;
+  if(gearBonus)fundPassive(state,p,gearBonus,'gear-market');
+  if(matched && contract) {
+    const bonus=contract.bonus;
+    if(bonus.kind==='energy')recover(state,p,bonus.amount,'market-condition');
+    else if(bonus.kind==='life')healLife(state,p,bonus.amount,'market-condition');
+    else if(bonus.kind==='buff')grant(state,p,bonus.statusId);
+  }
+  if(contract || gearBonus) {p.notes.push(`Dark Market: ${matched?'ตรงเงื่อนไข รับโบนัส':resolution==='discount'?(gearBonus?'ไม่ตรงเงื่อนไข รับราคาลด':'ไม่ตรงเงื่อนไข ลดราคา 20%'):'ไม่ตรงเงื่อนไข สละตามข้อตกลงเพื่อรับราคาเต็ม'} · รับ ${price+creditsBonus+gearBonus} เครดิต${gearBonus?` รวมโบนัสของถือ ${gearBonus}`:''}`);p.notes=p.notes.slice(-30);}
   retire(state,p,itemId,'dark-market'); if (state.config.brokerage) { item.owner='dark-market'; state.vault!.push(itemId); }
-  trace(state,p,'market-sale',{itemId,orderId,price:order.price});
+  trace(state,p,'market-sale',{itemId,orderId,price:price+creditsBonus+gearBonus,...(contract?{matched,resolution,bonus:matched?contract.bonus:null}:{})});
 }

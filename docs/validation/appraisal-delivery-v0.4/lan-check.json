@@ -1,0 +1,141 @@
+{
+  "checkedAt": "2026-10-13T20:57:35.722Z",
+  "base": "http://192.168.1.114:3103",
+  "scope": "HTTP assets and synthetic LAN-address sockets; no browser, image inspection or human/device playtest",
+  "assets": [
+    {
+      "path": "/assets/index-D-jma38X.js",
+      "mime": "text/javascript; charset=utf-8",
+      "bytes": 287333
+    },
+    {
+      "path": "/assets/index-CRDKzADz.css",
+      "mime": "text/css; charset=utf-8",
+      "bytes": 14298
+    },
+    {
+      "path": "/art/item-amulet.png",
+      "mime": "image/png",
+      "bytes": 2391483
+    },
+    {
+      "path": "/art/item-battery.png",
+      "mime": "image/png",
+      "bytes": 2139680
+    },
+    {
+      "path": "/art/item-blade.png",
+      "mime": "image/png",
+      "bytes": 2205869
+    },
+    {
+      "path": "/art/item-food.png",
+      "mime": "image/png",
+      "bytes": 2630061
+    },
+    {
+      "path": "/art/item-key.png",
+      "mime": "image/png",
+      "bytes": 2137368
+    },
+    {
+      "path": "/art/item-mask.png",
+      "mime": "image/png",
+      "bytes": 2483129
+    },
+    {
+      "path": "/art/item-mirror.png",
+      "mime": "image/png",
+      "bytes": 2004355
+    },
+    {
+      "path": "/art/item-orb.png",
+      "mime": "image/png",
+      "bytes": 2075870
+    },
+    {
+      "path": "/art/item-potion.png",
+      "mime": "image/png",
+      "bytes": 2340570
+    },
+    {
+      "path": "/art/item-scanner.png",
+      "mime": "image/png",
+      "bytes": 2007077
+    },
+    {
+      "path": "/art/npc-alien.png",
+      "mime": "image/png",
+      "bytes": 2568668
+    },
+    {
+      "path": "/art/npc-autometa.png",
+      "mime": "image/png",
+      "bytes": 2342035
+    },
+    {
+      "path": "/art/npc-beast.png",
+      "mime": "image/png",
+      "bytes": 2541368
+    },
+    {
+      "path": "/art/npc-darkone.png",
+      "mime": "image/png",
+      "bytes": 2354983
+    },
+    {
+      "path": "/art/npc-orc.png",
+      "mime": "image/png",
+      "bytes": 2543682
+    },
+    {
+      "path": "/art/npc-vampire.png",
+      "mime": "image/png",
+      "bytes": 2448776
+    },
+    {
+      "path": "/fonts/cormorantgaramond.ttf",
+      "mime": "font/ttf",
+      "bytes": 1195560
+    },
+    {
+      "path": "/fonts/notosansthai.ttf",
+      "mime": "font/ttf",
+      "bytes": 218652
+    },
+    {
+      "path": "/fonts/notoserifthai.ttf",
+      "mime": "font/ttf",
+      "bytes": 292188
+    }
+  ],
+  "matches": [
+    {
+      "count": 2,
+      "matchId": "f4b023c431d20465",
+      "phase": "RESULTS",
+      "encounters": 3,
+      "replay": true,
+      "rematchReset": true,
+      "commands": 72
+    },
+    {
+      "count": 3,
+      "matchId": "04149f9f9604b087",
+      "phase": "RESULTS",
+      "encounters": 3,
+      "replay": true,
+      "rematchReset": true,
+      "commands": 112
+    },
+    {
+      "count": 4,
+      "matchId": "2b2c1c0939dca51a",
+      "phase": "RESULTS",
+      "encounters": 3,
+      "replay": true,
+      "rematchReset": true,
+      "commands": 136
+    }
+  ]
+}

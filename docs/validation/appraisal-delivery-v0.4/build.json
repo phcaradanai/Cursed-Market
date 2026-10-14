@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-14",
+  "command": "npm run build",
+  "exitCode": 0,
+  "serverTypeScript": true,
+  "legacyClientTypeScriptVite": true,
+  "appraisalClientTypeScriptVite": true,
+  "appraisalOutputs": {"html":"dist/appraisal-client/index.html","css":"assets/index-CRDKzADz.css","js":"assets/index-D-jma38X.js"},
+  "runtimeNodeCryptoOrBrowserExternalInClient": false,
+  "renderedBrowserQA": false
+}

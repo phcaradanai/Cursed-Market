@@ -1,0 +1,1334 @@
+{
+  "evidenceKind": "synthetic-compatibility-fixture",
+  "events": [
+    {
+      "type": "game-created",
+      "seed": "delivery-legacy-0.3",
+      "playerIds": [
+        "a",
+        "b",
+        "c"
+      ],
+      "config": {
+        "startingCoins": 15,
+        "inspectionsPerPlayer": 2,
+        "escrowCoins": 2,
+        "falseCertificatePenalty": 2,
+        "demandBonus": 3,
+        "genuineProbability": 0.5,
+        "cursedProbability": 0.5,
+        "curseWagers": true,
+        "fastMarket": true,
+        "rogueRun": true
+      }
+    },
+    {
+      "type": "route-opened",
+      "stage": 1,
+      "auctionNumber": 1
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "vote-route",
+        "playerId": "a",
+        "nodeId": "1-1",
+        "requestId": "compat-1",
+        "auctionNumber": 1
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "vote-route",
+        "playerId": "b",
+        "nodeId": "1-1",
+        "requestId": "compat-2",
+        "auctionNumber": 1
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "vote-route",
+        "playerId": "c",
+        "nodeId": "1-1",
+        "requestId": "compat-3",
+        "auctionNumber": 1
+      }
+    },
+    {
+      "type": "route-selected",
+      "stage": 1,
+      "node": {
+        "name": "ตลาดมืด",
+        "description": "ของแท้หายากแต่มีค่าสูง ต้องอ่านคำรับประกันให้ดี",
+        "genuineProbability": 0.35,
+        "cursedProbability": 0.45,
+        "genuineValue": 14,
+        "fakeValue": 0,
+        "cursePenalty": 7,
+        "demandBonus": 3,
+        "ante": 2,
+        "id": "1-1",
+        "demand": "Mirror"
+      },
+      "votes": [
+        {
+          "playerId": "a",
+          "nodeId": "1-1"
+        },
+        {
+          "playerId": "b",
+          "nodeId": "1-1"
+        },
+        {
+          "playerId": "c",
+          "nodeId": "1-1"
+        }
+      ]
+    },
+    {
+      "type": "auction-started",
+      "auctionNumber": 1,
+      "sellerId": "a",
+      "demand": "Mirror"
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "offer",
+        "playerId": "a",
+        "relicId": "lot-1-1",
+        "mode": "as-is",
+        "requestId": "compat-4",
+        "auctionNumber": 1
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "bid",
+        "playerId": "b",
+        "amount": 1,
+        "wager": {
+          "cursed": true,
+          "stake": 1
+        },
+        "requestId": "compat-5",
+        "auctionNumber": 1
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "bid",
+        "playerId": "c",
+        "amount": 1,
+        "wager": {
+          "cursed": true,
+          "stake": 1
+        },
+        "requestId": "compat-6",
+        "auctionNumber": 1
+      }
+    },
+    {
+      "type": "auction-settled",
+      "result": {
+        "auctionNumber": 1,
+        "sellerId": "a",
+        "demand": "Mirror",
+        "relic": {
+          "id": "lot-1-1",
+          "name": "Mask Relic",
+          "family": "Mask",
+          "genuine": true,
+          "cursed": true
+        },
+        "mode": "as-is",
+        "bids": [
+          {
+            "playerId": "b",
+            "amount": 1,
+            "wager": {
+              "cursed": true,
+              "stake": 1
+            }
+          },
+          {
+            "playerId": "c",
+            "amount": 1,
+            "wager": {
+              "cursed": true,
+              "stake": 1
+            }
+          }
+        ],
+        "winnerId": "c",
+        "price": 1,
+        "tiedPlayerIds": [
+          "b",
+          "c"
+        ],
+        "tieIndex": 1,
+        "certificate": "none",
+        "escrowReturned": 0,
+        "compensation": 0,
+        "trustPenalty": 0,
+        "relicScore": 7,
+        "demandBonus": 0,
+        "wagers": [
+          {
+            "playerId": "b",
+            "cursed": true,
+            "stake": 1,
+            "correct": true,
+            "payout": 2
+          },
+          {
+            "playerId": "c",
+            "cursed": true,
+            "stake": 1,
+            "correct": true,
+            "payout": 2
+          }
+        ],
+        "potBefore": 2,
+        "potAfter": 0,
+        "marketId": "1-1",
+        "buildBonus": 0
+      }
+    },
+    {
+      "type": "auction-started",
+      "auctionNumber": 2,
+      "sellerId": "b",
+      "demand": "Mirror"
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "offer",
+        "playerId": "b",
+        "relicId": "lot-2-1",
+        "mode": "as-is",
+        "requestId": "compat-7",
+        "auctionNumber": 2
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "bid",
+        "playerId": "a",
+        "amount": 1,
+        "wager": {
+          "cursed": true,
+          "stake": 1
+        },
+        "requestId": "compat-8",
+        "auctionNumber": 2
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "bid",
+        "playerId": "c",
+        "amount": 1,
+        "wager": {
+          "cursed": true,
+          "stake": 1
+        },
+        "requestId": "compat-9",
+        "auctionNumber": 2
+      }
+    },
+    {
+      "type": "auction-settled",
+      "result": {
+        "auctionNumber": 2,
+        "sellerId": "b",
+        "demand": "Mirror",
+        "relic": {
+          "id": "lot-2-1",
+          "name": "Mask Relic",
+          "family": "Mask",
+          "genuine": true,
+          "cursed": true
+        },
+        "mode": "as-is",
+        "bids": [
+          {
+            "playerId": "a",
+            "amount": 1,
+            "wager": {
+              "cursed": true,
+              "stake": 1
+            }
+          },
+          {
+            "playerId": "c",
+            "amount": 1,
+            "wager": {
+              "cursed": true,
+              "stake": 1
+            }
+          }
+        ],
+        "winnerId": "c",
+        "price": 1,
+        "tiedPlayerIds": [
+          "a",
+          "c"
+        ],
+        "tieIndex": 1,
+        "certificate": "none",
+        "escrowReturned": 0,
+        "compensation": 0,
+        "trustPenalty": 0,
+        "relicScore": 7,
+        "demandBonus": 0,
+        "wagers": [
+          {
+            "playerId": "a",
+            "cursed": true,
+            "stake": 1,
+            "correct": true,
+            "payout": 2
+          },
+          {
+            "playerId": "c",
+            "cursed": true,
+            "stake": 1,
+            "correct": true,
+            "payout": 2
+          }
+        ],
+        "potBefore": 2,
+        "potAfter": 0,
+        "marketId": "1-1",
+        "buildBonus": 0
+      }
+    },
+    {
+      "type": "auction-started",
+      "auctionNumber": 3,
+      "sellerId": "c",
+      "demand": "Mirror"
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "offer",
+        "playerId": "c",
+        "relicId": "lot-3-1",
+        "mode": "as-is",
+        "requestId": "compat-10",
+        "auctionNumber": 3
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "bid",
+        "playerId": "a",
+        "amount": 1,
+        "wager": {
+          "cursed": true,
+          "stake": 1
+        },
+        "requestId": "compat-11",
+        "auctionNumber": 3
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "bid",
+        "playerId": "b",
+        "amount": 1,
+        "wager": {
+          "cursed": true,
+          "stake": 1
+        },
+        "requestId": "compat-12",
+        "auctionNumber": 3
+      }
+    },
+    {
+      "type": "auction-settled",
+      "result": {
+        "auctionNumber": 3,
+        "sellerId": "c",
+        "demand": "Mirror",
+        "relic": {
+          "id": "lot-3-1",
+          "name": "Key Relic",
+          "family": "Key",
+          "genuine": true,
+          "cursed": true
+        },
+        "mode": "as-is",
+        "bids": [
+          {
+            "playerId": "a",
+            "amount": 1,
+            "wager": {
+              "cursed": true,
+              "stake": 1
+            }
+          },
+          {
+            "playerId": "b",
+            "amount": 1,
+            "wager": {
+              "cursed": true,
+              "stake": 1
+            }
+          }
+        ],
+        "winnerId": "b",
+        "price": 1,
+        "tiedPlayerIds": [
+          "a",
+          "b"
+        ],
+        "tieIndex": 1,
+        "certificate": "none",
+        "escrowReturned": 0,
+        "compensation": 0,
+        "trustPenalty": 0,
+        "relicScore": 7,
+        "demandBonus": 0,
+        "wagers": [
+          {
+            "playerId": "a",
+            "cursed": true,
+            "stake": 1,
+            "correct": true,
+            "payout": 2
+          },
+          {
+            "playerId": "b",
+            "cursed": true,
+            "stake": 1,
+            "correct": true,
+            "payout": 2
+          }
+        ],
+        "potBefore": 2,
+        "potAfter": 0,
+        "marketId": "1-1",
+        "buildBonus": 0
+      }
+    },
+    {
+      "type": "boons-opened",
+      "stage": 1,
+      "auctionNumber": 4
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "choose-boon",
+        "playerId": "a",
+        "boonId": null,
+        "requestId": "compat-13",
+        "auctionNumber": 4
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "choose-boon",
+        "playerId": "b",
+        "boonId": null,
+        "requestId": "compat-14",
+        "auctionNumber": 4
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "choose-boon",
+        "playerId": "c",
+        "boonId": null,
+        "requestId": "compat-15",
+        "auctionNumber": 4
+      }
+    },
+    {
+      "type": "route-opened",
+      "stage": 2,
+      "auctionNumber": 4
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "vote-route",
+        "playerId": "a",
+        "nodeId": "2-5",
+        "requestId": "compat-16",
+        "auctionNumber": 4
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "vote-route",
+        "playerId": "b",
+        "nodeId": "2-5",
+        "requestId": "compat-17",
+        "auctionNumber": 4
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "vote-route",
+        "playerId": "c",
+        "nodeId": "2-5",
+        "requestId": "compat-18",
+        "auctionNumber": 4
+      }
+    },
+    {
+      "type": "route-selected",
+      "stage": 2,
+      "node": {
+        "name": "งานวัดเสี่ยงโชค",
+        "description": "กองกลางสูง โอกาสคำสาปผันผวน ต้องแบ่งทุนให้พอ",
+        "genuineProbability": 0.5,
+        "cursedProbability": 0.6,
+        "genuineValue": 11,
+        "fakeValue": 1,
+        "cursePenalty": 8,
+        "demandBonus": 4,
+        "ante": 4,
+        "id": "2-5",
+        "demand": "Key"
+      },
+      "votes": [
+        {
+          "playerId": "a",
+          "nodeId": "2-5"
+        },
+        {
+          "playerId": "b",
+          "nodeId": "2-5"
+        },
+        {
+          "playerId": "c",
+          "nodeId": "2-5"
+        }
+      ]
+    },
+    {
+      "type": "auction-started",
+      "auctionNumber": 4,
+      "sellerId": "a",
+      "demand": "Key"
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "offer",
+        "playerId": "a",
+        "relicId": "lot-4-1",
+        "mode": "as-is",
+        "requestId": "compat-19",
+        "auctionNumber": 4
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "bid",
+        "playerId": "b",
+        "amount": 1,
+        "wager": {
+          "cursed": true,
+          "stake": 1
+        },
+        "requestId": "compat-20",
+        "auctionNumber": 4
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "bid",
+        "playerId": "c",
+        "amount": 1,
+        "wager": {
+          "cursed": true,
+          "stake": 1
+        },
+        "requestId": "compat-21",
+        "auctionNumber": 4
+      }
+    },
+    {
+      "type": "auction-settled",
+      "result": {
+        "auctionNumber": 4,
+        "sellerId": "a",
+        "demand": "Key",
+        "relic": {
+          "id": "lot-4-1",
+          "name": "Mirror Relic",
+          "family": "Mirror",
+          "genuine": true,
+          "cursed": false
+        },
+        "mode": "as-is",
+        "bids": [
+          {
+            "playerId": "b",
+            "amount": 1,
+            "wager": {
+              "cursed": true,
+              "stake": 1
+            }
+          },
+          {
+            "playerId": "c",
+            "amount": 1,
+            "wager": {
+              "cursed": true,
+              "stake": 1
+            }
+          }
+        ],
+        "winnerId": "c",
+        "price": 1,
+        "tiedPlayerIds": [
+          "b",
+          "c"
+        ],
+        "tieIndex": 1,
+        "certificate": "none",
+        "escrowReturned": 0,
+        "compensation": 0,
+        "trustPenalty": 0,
+        "relicScore": 11,
+        "demandBonus": 0,
+        "wagers": [
+          {
+            "playerId": "b",
+            "cursed": true,
+            "stake": 1,
+            "correct": false,
+            "payout": 0
+          },
+          {
+            "playerId": "c",
+            "cursed": true,
+            "stake": 1,
+            "correct": false,
+            "payout": 0
+          }
+        ],
+        "potBefore": 4,
+        "potAfter": 6,
+        "marketId": "2-5",
+        "buildBonus": 0
+      }
+    },
+    {
+      "type": "auction-started",
+      "auctionNumber": 5,
+      "sellerId": "b",
+      "demand": "Key"
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "offer",
+        "playerId": "b",
+        "relicId": "lot-5-1",
+        "mode": "as-is",
+        "requestId": "compat-22",
+        "auctionNumber": 5
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "bid",
+        "playerId": "a",
+        "amount": 1,
+        "wager": {
+          "cursed": true,
+          "stake": 1
+        },
+        "requestId": "compat-23",
+        "auctionNumber": 5
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "bid",
+        "playerId": "c",
+        "amount": 1,
+        "wager": {
+          "cursed": true,
+          "stake": 1
+        },
+        "requestId": "compat-24",
+        "auctionNumber": 5
+      }
+    },
+    {
+      "type": "auction-settled",
+      "result": {
+        "auctionNumber": 5,
+        "sellerId": "b",
+        "demand": "Key",
+        "relic": {
+          "id": "lot-5-1",
+          "name": "Key Relic",
+          "family": "Key",
+          "genuine": false,
+          "cursed": false
+        },
+        "mode": "as-is",
+        "bids": [
+          {
+            "playerId": "a",
+            "amount": 1,
+            "wager": {
+              "cursed": true,
+              "stake": 1
+            }
+          },
+          {
+            "playerId": "c",
+            "amount": 1,
+            "wager": {
+              "cursed": true,
+              "stake": 1
+            }
+          }
+        ],
+        "winnerId": "a",
+        "price": 1,
+        "tiedPlayerIds": [
+          "a",
+          "c"
+        ],
+        "tieIndex": 0,
+        "certificate": "none",
+        "escrowReturned": 0,
+        "compensation": 0,
+        "trustPenalty": 0,
+        "relicScore": 1,
+        "demandBonus": 0,
+        "wagers": [
+          {
+            "playerId": "a",
+            "cursed": true,
+            "stake": 1,
+            "correct": false,
+            "payout": 0
+          },
+          {
+            "playerId": "c",
+            "cursed": true,
+            "stake": 1,
+            "correct": false,
+            "payout": 0
+          }
+        ],
+        "potBefore": 10,
+        "potAfter": 12,
+        "marketId": "2-5",
+        "buildBonus": 0
+      }
+    },
+    {
+      "type": "auction-started",
+      "auctionNumber": 6,
+      "sellerId": "c",
+      "demand": "Key"
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "offer",
+        "playerId": "c",
+        "relicId": "lot-6-1",
+        "mode": "as-is",
+        "requestId": "compat-25",
+        "auctionNumber": 6
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "bid",
+        "playerId": "a",
+        "amount": 1,
+        "wager": {
+          "cursed": true,
+          "stake": 1
+        },
+        "requestId": "compat-26",
+        "auctionNumber": 6
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "bid",
+        "playerId": "b",
+        "amount": 1,
+        "wager": {
+          "cursed": true,
+          "stake": 1
+        },
+        "requestId": "compat-27",
+        "auctionNumber": 6
+      }
+    },
+    {
+      "type": "auction-settled",
+      "result": {
+        "auctionNumber": 6,
+        "sellerId": "c",
+        "demand": "Key",
+        "relic": {
+          "id": "lot-6-1",
+          "name": "Clock Relic",
+          "family": "Clock",
+          "genuine": true,
+          "cursed": true
+        },
+        "mode": "as-is",
+        "bids": [
+          {
+            "playerId": "a",
+            "amount": 1,
+            "wager": {
+              "cursed": true,
+              "stake": 1
+            }
+          },
+          {
+            "playerId": "b",
+            "amount": 1,
+            "wager": {
+              "cursed": true,
+              "stake": 1
+            }
+          }
+        ],
+        "winnerId": "b",
+        "price": 1,
+        "tiedPlayerIds": [
+          "a",
+          "b"
+        ],
+        "tieIndex": 1,
+        "certificate": "none",
+        "escrowReturned": 0,
+        "compensation": 0,
+        "trustPenalty": 0,
+        "relicScore": 3,
+        "demandBonus": 0,
+        "wagers": [
+          {
+            "playerId": "a",
+            "cursed": true,
+            "stake": 1,
+            "correct": true,
+            "payout": 9
+          },
+          {
+            "playerId": "b",
+            "cursed": true,
+            "stake": 1,
+            "correct": true,
+            "payout": 9
+          }
+        ],
+        "potBefore": 16,
+        "potAfter": 0,
+        "marketId": "2-5",
+        "buildBonus": 0
+      }
+    },
+    {
+      "type": "boons-opened",
+      "stage": 2,
+      "auctionNumber": 7
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "choose-boon",
+        "playerId": "a",
+        "boonId": null,
+        "requestId": "compat-28",
+        "auctionNumber": 7
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "choose-boon",
+        "playerId": "b",
+        "boonId": null,
+        "requestId": "compat-29",
+        "auctionNumber": 7
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "choose-boon",
+        "playerId": "c",
+        "boonId": null,
+        "requestId": "compat-30",
+        "auctionNumber": 7
+      }
+    },
+    {
+      "type": "route-opened",
+      "stage": 3,
+      "auctionNumber": 7
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "vote-route",
+        "playerId": "a",
+        "nodeId": "3-2",
+        "requestId": "compat-31",
+        "auctionNumber": 7
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "vote-route",
+        "playerId": "b",
+        "nodeId": "3-2",
+        "requestId": "compat-32",
+        "auctionNumber": 7
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "vote-route",
+        "playerId": "c",
+        "nodeId": "3-2",
+        "requestId": "compat-33",
+        "auctionNumber": 7
+      }
+    },
+    {
+      "type": "route-selected",
+      "stage": 3,
+      "node": {
+        "name": "สุสานนักสะสม",
+        "description": "คำสาปหนัก ของแท้ราคาแพง และกองกลางสูง",
+        "genuineProbability": 0.7,
+        "cursedProbability": 0.85,
+        "genuineValue": 14,
+        "fakeValue": 1,
+        "cursePenalty": 10,
+        "demandBonus": 5,
+        "ante": 4,
+        "id": "3-2",
+        "demand": "Clock"
+      },
+      "votes": [
+        {
+          "playerId": "a",
+          "nodeId": "3-2"
+        },
+        {
+          "playerId": "b",
+          "nodeId": "3-2"
+        },
+        {
+          "playerId": "c",
+          "nodeId": "3-2"
+        }
+      ]
+    },
+    {
+      "type": "auction-started",
+      "auctionNumber": 7,
+      "sellerId": "a",
+      "demand": "Clock"
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "offer",
+        "playerId": "a",
+        "relicId": "lot-7-1",
+        "mode": "as-is",
+        "requestId": "compat-34",
+        "auctionNumber": 7
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "bid",
+        "playerId": "b",
+        "amount": 1,
+        "wager": {
+          "cursed": true,
+          "stake": 1
+        },
+        "requestId": "compat-35",
+        "auctionNumber": 7
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "bid",
+        "playerId": "c",
+        "amount": 1,
+        "wager": {
+          "cursed": true,
+          "stake": 1
+        },
+        "requestId": "compat-36",
+        "auctionNumber": 7
+      }
+    },
+    {
+      "type": "auction-settled",
+      "result": {
+        "auctionNumber": 7,
+        "sellerId": "a",
+        "demand": "Clock",
+        "relic": {
+          "id": "lot-7-1",
+          "name": "Clock Relic",
+          "family": "Clock",
+          "genuine": true,
+          "cursed": true
+        },
+        "mode": "as-is",
+        "bids": [
+          {
+            "playerId": "b",
+            "amount": 1,
+            "wager": {
+              "cursed": true,
+              "stake": 1
+            }
+          },
+          {
+            "playerId": "c",
+            "amount": 1,
+            "wager": {
+              "cursed": true,
+              "stake": 1
+            }
+          }
+        ],
+        "winnerId": "b",
+        "price": 1,
+        "tiedPlayerIds": [
+          "b",
+          "c"
+        ],
+        "tieIndex": 0,
+        "certificate": "none",
+        "escrowReturned": 0,
+        "compensation": 0,
+        "trustPenalty": 0,
+        "relicScore": 4,
+        "demandBonus": 5,
+        "wagers": [
+          {
+            "playerId": "b",
+            "cursed": true,
+            "stake": 1,
+            "correct": true,
+            "payout": 3
+          },
+          {
+            "playerId": "c",
+            "cursed": true,
+            "stake": 1,
+            "correct": true,
+            "payout": 3
+          }
+        ],
+        "potBefore": 4,
+        "potAfter": 0,
+        "marketId": "3-2",
+        "buildBonus": 0
+      }
+    },
+    {
+      "type": "auction-started",
+      "auctionNumber": 8,
+      "sellerId": "b",
+      "demand": "Clock"
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "offer",
+        "playerId": "b",
+        "relicId": "lot-8-1",
+        "mode": "as-is",
+        "requestId": "compat-37",
+        "auctionNumber": 8
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "bid",
+        "playerId": "a",
+        "amount": 1,
+        "wager": {
+          "cursed": true,
+          "stake": 1
+        },
+        "requestId": "compat-38",
+        "auctionNumber": 8
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "bid",
+        "playerId": "c",
+        "amount": 1,
+        "wager": {
+          "cursed": true,
+          "stake": 1
+        },
+        "requestId": "compat-39",
+        "auctionNumber": 8
+      }
+    },
+    {
+      "type": "auction-settled",
+      "result": {
+        "auctionNumber": 8,
+        "sellerId": "b",
+        "demand": "Clock",
+        "relic": {
+          "id": "lot-8-1",
+          "name": "Mirror Relic",
+          "family": "Mirror",
+          "genuine": true,
+          "cursed": true
+        },
+        "mode": "as-is",
+        "bids": [
+          {
+            "playerId": "a",
+            "amount": 1,
+            "wager": {
+              "cursed": true,
+              "stake": 1
+            }
+          },
+          {
+            "playerId": "c",
+            "amount": 1,
+            "wager": {
+              "cursed": true,
+              "stake": 1
+            }
+          }
+        ],
+        "winnerId": "c",
+        "price": 1,
+        "tiedPlayerIds": [
+          "a",
+          "c"
+        ],
+        "tieIndex": 1,
+        "certificate": "none",
+        "escrowReturned": 0,
+        "compensation": 0,
+        "trustPenalty": 0,
+        "relicScore": 4,
+        "demandBonus": 0,
+        "wagers": [
+          {
+            "playerId": "a",
+            "cursed": true,
+            "stake": 1,
+            "correct": true,
+            "payout": 3
+          },
+          {
+            "playerId": "c",
+            "cursed": true,
+            "stake": 1,
+            "correct": true,
+            "payout": 3
+          }
+        ],
+        "potBefore": 4,
+        "potAfter": 0,
+        "marketId": "3-2",
+        "buildBonus": 0
+      }
+    },
+    {
+      "type": "auction-started",
+      "auctionNumber": 9,
+      "sellerId": "c",
+      "demand": "Clock"
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "offer",
+        "playerId": "c",
+        "relicId": "lot-9-1",
+        "mode": "as-is",
+        "requestId": "compat-40",
+        "auctionNumber": 9
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "bid",
+        "playerId": "a",
+        "amount": 1,
+        "wager": {
+          "cursed": true,
+          "stake": 1
+        },
+        "requestId": "compat-41",
+        "auctionNumber": 9
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "type": "bid",
+        "playerId": "b",
+        "amount": 1,
+        "wager": {
+          "cursed": true,
+          "stake": 1
+        },
+        "requestId": "compat-42",
+        "auctionNumber": 9
+      }
+    },
+    {
+      "type": "auction-settled",
+      "result": {
+        "auctionNumber": 9,
+        "sellerId": "c",
+        "demand": "Clock",
+        "relic": {
+          "id": "lot-9-1",
+          "name": "Key Relic",
+          "family": "Key",
+          "genuine": false,
+          "cursed": true
+        },
+        "mode": "as-is",
+        "bids": [
+          {
+            "playerId": "a",
+            "amount": 1,
+            "wager": {
+              "cursed": true,
+              "stake": 1
+            }
+          },
+          {
+            "playerId": "b",
+            "amount": 1,
+            "wager": {
+              "cursed": true,
+              "stake": 1
+            }
+          }
+        ],
+        "winnerId": "a",
+        "price": 1,
+        "tiedPlayerIds": [
+          "a",
+          "b"
+        ],
+        "tieIndex": 0,
+        "certificate": "none",
+        "escrowReturned": 0,
+        "compensation": 0,
+        "trustPenalty": 0,
+        "relicScore": -9,
+        "demandBonus": 0,
+        "wagers": [
+          {
+            "playerId": "a",
+            "cursed": true,
+            "stake": 1,
+            "correct": true,
+            "payout": 3
+          },
+          {
+            "playerId": "b",
+            "cursed": true,
+            "stake": 1,
+            "correct": true,
+            "payout": 3
+          }
+        ],
+        "potBefore": 4,
+        "potAfter": 0,
+        "marketId": "3-2",
+        "buildBonus": 0
+      }
+    },
+    {
+      "type": "game-ended"
+    }
+  ],
+  "scores": [
+    {
+      "playerId": "b",
+      "coins": 28,
+      "relicPoints": 14,
+      "demandPoints": 5,
+      "trustPenalty": 0,
+      "total": 47
+    },
+    {
+      "playerId": "c",
+      "coins": 18,
+      "relicPoints": 29,
+      "demandPoints": 0,
+      "trustPenalty": 0,
+      "total": 47
+    },
+    {
+      "playerId": "a",
+      "coins": 29,
+      "relicPoints": -8,
+      "demandPoints": 0,
+      "trustPenalty": 0,
+      "total": 21
+    }
+  ],
+  "winnerIds": [
+    "b"
+  ]
+}

@@ -1,0 +1,5 @@
+Use case: stylized-concept.
+Asset type: standalone raster illustration for a Cursed Market realistic-card game; this is one card's art, not a UI mockup.
+Style: realistic painted fantasy concept art, credible skin and material detail, restrained warm amber light, deep charcoal and worn bronze. Strong central silhouette that remains readable at 160 pixels. Opaque quiet charcoal-brown background. No text, letters, labels, card border, frame, logo, watermark, UI, price, rarity badge, glow denoting curses, or authenticity signals. The same art will be reused whether an item is genuine, fake, cursed or safe; do not telegraph hidden truth. No gore. One clearly separated subject only.
+Subject: Portrait of an Autometa dimensional merchant, a finely engineered humanoid automaton in tarnished bronze and dark iron, articulated face plates, small amber glass eyes and a courteous precise expression. Old mechanical craftsmanship, no modern screen. Head and shoulders, one mechanical open hand at bottom.
+Composition: portrait 4:5 card illustration, centered close framing, eyes clearly visible, head not cropped, usable margin around silhouette.

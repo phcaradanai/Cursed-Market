@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-10-14T03:47:47.329Z",
+  "command": "node dist/src/simulation/appraisal.js --runs 100 --out docs/simulation/appraisal-catalog-v0.4",
+  "hashes": {
+    "src/game/appraisal/audit.ts": "9ff86c3d89e6a6483a426b7419685cc52577e517e1ab1a2fd69bf70bcd44dc36",
+    "src/game/appraisal/content.ts": "3cf7064963bbdd8c7676289a2fc1607fb91b8995d89610d35e7f1fde948fa080",
+    "src/game/appraisal/engine.ts": "6d3c3f63d1d8f29f5f8d2493fa90092edd84805ba43bc51bac3a23a22808e947",
+    "src/game/appraisal/events.ts": "7a44eebe2c9b59cb6a619c5ba4adb28797a4bc93c09d8563e20690cbcad4d4ec",
+    "src/game/appraisal/index.ts": "9938bb4c393e41e661b55264fb22ad991239efb28f724e1b972855c5e917fde7",
+    "src/game/appraisal/mechanics.ts": "945bf2bd4e266c9d0881d86f4c2b5b82d444e578aa4f3e59408f5d6229e59ef6",
+    "src/game/appraisal/types.ts": "c4ff5766a4b8425a86b33446b134644c6e1bbbfc27d838f175461801dd4011e8",
+    "src/game/appraisal/views.ts": "02fbc42a500ffbfc2d1fdf117641dc415550863560deca1469df22cd3dc974d6",
+    "src/simulation/appraisal.ts": "855e35c7f6a5ab590e5a6b170cd2c6761b58a28d84bb01533aa071544e6b71b1"
+  }
+}

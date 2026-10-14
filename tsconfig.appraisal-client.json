@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.client.json",
+  "include": [
+    "src/appraisal-client/**/*.ts",
+    "src/appraisal-client/**/*.tsx"
+  ],
+  "compilerOptions": {
+    "target": "ES2023",
+    "lib": [
+      "ES2023",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "types": [
+      "vite/client",
+      "node"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "file": "notosansthai.ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosansthai/NotoSansThai%5Bwdth%2Cwght%5D.ttf",
+    "bytes": 218652
+  },
+  {
+    "file": "notosansthai-OFL.txt",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosansthai/OFL.txt",
+    "bytes": 4380
+  },
+  {
+    "file": "notoserifthai.ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/notoserifthai/NotoSerifThai%5Bwdth%2Cwght%5D.ttf",
+    "bytes": 292188
+  },
+  {
+    "file": "notoserifthai-OFL.txt",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/notoserifthai/OFL.txt",
+    "bytes": 4380
+  },
+  {
+    "file": "cormorantgaramond.ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/cormorantgaramond/CormorantGaramond%5Bwght%5D.ttf",
+    "bytes": 1195560
+  },
+  {
+    "file": "cormorantgaramond-OFL.txt",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/cormorantgaramond/OFL.txt",
+    "bytes": 4387
+  }
+]

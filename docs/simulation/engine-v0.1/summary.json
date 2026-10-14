@@ -1,0 +1,558 @@
+{
+  "schemaVersion": 1,
+  "seedPrefix": "cursed-market-v0.1",
+  "config": {
+    "startingCoins": 15,
+    "inspectionsPerPlayer": 2,
+    "escrowCoins": 2,
+    "falseCertificatePenalty": 2,
+    "demandBonus": 3,
+    "genuineProbability": 0.5,
+    "cursedProbability": 0.5
+  },
+  "gamesPerScenario": 1000,
+  "totalGames": 12000,
+  "verified": [
+    "coin conservation after every action",
+    "nonnegative coin/token balances",
+    "single settlement per auction",
+    "scores reconstructed from history",
+    "full deterministic event replay"
+  ],
+  "summaries": [
+    {
+      "players": 2,
+      "scenario": "cautious",
+      "games": 1000,
+      "auctions": 8000,
+      "soldAuctions": 5368,
+      "totalBids": 8000,
+      "positiveBidCount": 5368,
+      "tiedSales": 0,
+      "soldCertificates": 4922,
+      "falseCertificates": 0,
+      "saleRate": 0.671,
+      "passBidRate": 0.329,
+      "meanPositiveBid": 3.549925,
+      "meanWinningPrice": 3.549925,
+      "tiedSaleRate": 0,
+      "falseCertificateRateAmongSoldCertificates": 0,
+      "truthfulGenuineCursedSales": 2078,
+      "cursedShareOfSales": 0.466468,
+      "meanRichestCoinShare": 0.662733,
+      "negativeScoreRate": 0,
+      "inspectionCounts": {
+        "genuine": 1515,
+        "cursed": 2210
+      },
+      "meanUnusedTokens": 0.1375,
+      "winSharesBySeat": [
+        0.515,
+        0.485
+      ],
+      "byPolicy": [
+        {
+          "policy": "cautious",
+          "seats": 2000,
+          "winShare": 0.5,
+          "meanScore": 27.6045
+        }
+      ]
+    },
+    {
+      "players": 2,
+      "scenario": "trusting",
+      "games": 1000,
+      "auctions": 8000,
+      "soldAuctions": 7045,
+      "totalBids": 8000,
+      "positiveBidCount": 7045,
+      "tiedSales": 0,
+      "soldCertificates": 6304,
+      "falseCertificates": 0,
+      "saleRate": 0.880625,
+      "passBidRate": 0.119375,
+      "meanPositiveBid": 5.13215,
+      "meanWinningPrice": 5.13215,
+      "tiedSaleRate": 0,
+      "falseCertificateRateAmongSoldCertificates": 0,
+      "truthfulGenuineCursedSales": 2996,
+      "cursedShareOfSales": 0.51242,
+      "meanRichestCoinShare": 0.716667,
+      "negativeScoreRate": 0,
+      "inspectionCounts": {
+        "genuine": 1582,
+        "cursed": 2143
+      },
+      "meanUnusedTokens": 0.1375,
+      "winSharesBySeat": [
+        0.5395,
+        0.4605
+      ],
+      "byPolicy": [
+        {
+          "policy": "trusting",
+          "seats": 2000,
+          "winShare": 0.5,
+          "meanScore": 29.175
+        }
+      ]
+    },
+    {
+      "players": 2,
+      "scenario": "skeptical",
+      "games": 1000,
+      "auctions": 8000,
+      "soldAuctions": 5456,
+      "totalBids": 8000,
+      "positiveBidCount": 5456,
+      "tiedSales": 0,
+      "soldCertificates": 4920,
+      "falseCertificates": 0,
+      "saleRate": 0.682,
+      "passBidRate": 0.318,
+      "meanPositiveBid": 3.366202,
+      "meanWinningPrice": 3.366202,
+      "tiedSaleRate": 0,
+      "falseCertificateRateAmongSoldCertificates": 0,
+      "truthfulGenuineCursedSales": 2066,
+      "cursedShareOfSales": 0.47379,
+      "meanRichestCoinShare": 0.644533,
+      "negativeScoreRate": 0,
+      "inspectionCounts": {
+        "genuine": 1508,
+        "cursed": 2217
+      },
+      "meanUnusedTokens": 0.1375,
+      "winSharesBySeat": [
+        0.527,
+        0.473
+      ],
+      "byPolicy": [
+        {
+          "policy": "skeptical",
+          "seats": 2000,
+          "winShare": 0.5,
+          "meanScore": 27.3565
+        }
+      ]
+    },
+    {
+      "players": 2,
+      "scenario": "mixed",
+      "games": 1000,
+      "auctions": 8000,
+      "soldAuctions": 6047,
+      "totalBids": 8000,
+      "positiveBidCount": 6047,
+      "tiedSales": 0,
+      "soldCertificates": 4845,
+      "falseCertificates": 410,
+      "saleRate": 0.755875,
+      "passBidRate": 0.244125,
+      "meanPositiveBid": 4.722011,
+      "meanWinningPrice": 4.722011,
+      "tiedSaleRate": 0,
+      "falseCertificateRateAmongSoldCertificates": 0.084623,
+      "truthfulGenuineCursedSales": 1895,
+      "cursedShareOfSales": 0.493964,
+      "meanRichestCoinShare": 0.8266,
+      "negativeScoreRate": 0.0205,
+      "inspectionCounts": {
+        "genuine": 1988,
+        "cursed": 1663
+      },
+      "meanUnusedTokens": 0.1745,
+      "winSharesBySeat": [
+        0.5,
+        0.5
+      ],
+      "byPolicy": [
+        {
+          "policy": "cautious",
+          "seats": 500,
+          "winShare": 0.97,
+          "meanScore": 35.62
+        },
+        {
+          "policy": "trusting",
+          "seats": 500,
+          "winShare": 0.046,
+          "meanScore": 21.092
+        },
+        {
+          "policy": "skeptical",
+          "seats": 500,
+          "winShare": 0.95,
+          "meanScore": 36.316
+        },
+        {
+          "policy": "random",
+          "seats": 500,
+          "winShare": 0.034,
+          "meanScore": 12.158
+        }
+      ]
+    },
+    {
+      "players": 3,
+      "scenario": "cautious",
+      "games": 1000,
+      "auctions": 9000,
+      "soldAuctions": 8209,
+      "totalBids": 18000,
+      "positiveBidCount": 13718,
+      "tiedSales": 2235,
+      "soldCertificates": 7401,
+      "falseCertificates": 0,
+      "saleRate": 0.912111,
+      "passBidRate": 0.237889,
+      "meanPositiveBid": 3.43206,
+      "meanWinningPrice": 3.657936,
+      "tiedSaleRate": 0.272262,
+      "falseCertificateRateAmongSoldCertificates": 0,
+      "truthfulGenuineCursedSales": 3166,
+      "cursedShareOfSales": 0.477037,
+      "meanRichestCoinShare": 0.471089,
+      "negativeScoreRate": 0,
+      "inspectionCounts": {
+        "genuine": 2404,
+        "cursed": 3472
+      },
+      "meanUnusedTokens": 0.041333,
+      "winSharesBySeat": [
+        0.332,
+        0.3365,
+        0.3315
+      ],
+      "byPolicy": [
+        {
+          "policy": "cautious",
+          "seats": 3000,
+          "winShare": 0.333333,
+          "meanScore": 25.722
+        }
+      ]
+    },
+    {
+      "players": 3,
+      "scenario": "trusting",
+      "games": 1000,
+      "auctions": 9000,
+      "soldAuctions": 8833,
+      "totalBids": 18000,
+      "positiveBidCount": 16483,
+      "tiedSales": 2306,
+      "soldCertificates": 7569,
+      "falseCertificates": 0,
+      "saleRate": 0.981444,
+      "passBidRate": 0.084278,
+      "meanPositiveBid": 5.202512,
+      "meanWinningPrice": 5.845466,
+      "tiedSaleRate": 0.261066,
+      "falseCertificateRateAmongSoldCertificates": 0,
+      "truthfulGenuineCursedSales": 3273,
+      "cursedShareOfSales": 0.488622,
+      "meanRichestCoinShare": 0.525622,
+      "negativeScoreRate": 0,
+      "inspectionCounts": {
+        "genuine": 2521,
+        "cursed": 3355
+      },
+      "meanUnusedTokens": 0.041333,
+      "winSharesBySeat": [
+        0.3335,
+        0.3265,
+        0.34
+      ],
+      "byPolicy": [
+        {
+          "policy": "trusting",
+          "seats": 3000,
+          "winShare": 0.333333,
+          "meanScore": 25.799333
+        }
+      ]
+    },
+    {
+      "players": 3,
+      "scenario": "skeptical",
+      "games": 1000,
+      "auctions": 9000,
+      "soldAuctions": 8382,
+      "totalBids": 18000,
+      "positiveBidCount": 14060,
+      "tiedSales": 2236,
+      "soldCertificates": 7445,
+      "falseCertificates": 0,
+      "saleRate": 0.931333,
+      "passBidRate": 0.218889,
+      "meanPositiveBid": 3.259886,
+      "meanWinningPrice": 3.535314,
+      "tiedSaleRate": 0.266762,
+      "falseCertificateRateAmongSoldCertificates": 0,
+      "truthfulGenuineCursedSales": 3182,
+      "cursedShareOfSales": 0.486519,
+      "meanRichestCoinShare": 0.461044,
+      "negativeScoreRate": 0,
+      "inspectionCounts": {
+        "genuine": 2384,
+        "cursed": 3492
+      },
+      "meanUnusedTokens": 0.041333,
+      "winSharesBySeat": [
+        0.3165,
+        0.338,
+        0.3455
+      ],
+      "byPolicy": [
+        {
+          "policy": "skeptical",
+          "seats": 3000,
+          "winShare": 0.333333,
+          "meanScore": 25.485
+        }
+      ]
+    },
+    {
+      "players": 3,
+      "scenario": "mixed",
+      "games": 1000,
+      "auctions": 9000,
+      "soldAuctions": 8526,
+      "totalBids": 18000,
+      "positiveBidCount": 14167,
+      "tiedSales": 770,
+      "soldCertificates": 6455,
+      "falseCertificates": 470,
+      "saleRate": 0.947333,
+      "passBidRate": 0.212944,
+      "meanPositiveBid": 4.246912,
+      "meanWinningPrice": 5.06662,
+      "tiedSaleRate": 0.090312,
+      "falseCertificateRateAmongSoldCertificates": 0.072812,
+      "truthfulGenuineCursedSales": 2468,
+      "cursedShareOfSales": 0.484987,
+      "meanRichestCoinShare": 0.603778,
+      "negativeScoreRate": 0.024,
+      "inspectionCounts": {
+        "genuine": 3175,
+        "cursed": 2669
+      },
+      "meanUnusedTokens": 0.052,
+      "winSharesBySeat": [
+        0.355,
+        0.394,
+        0.251
+      ],
+      "byPolicy": [
+        {
+          "policy": "cautious",
+          "seats": 750,
+          "winShare": 0.618667,
+          "meanScore": 32.266667
+        },
+        {
+          "policy": "trusting",
+          "seats": 750,
+          "winShare": 0.16,
+          "meanScore": 23.758667
+        },
+        {
+          "policy": "skeptical",
+          "seats": 750,
+          "winShare": 0.544,
+          "meanScore": 31.569333
+        },
+        {
+          "policy": "random",
+          "seats": 750,
+          "winShare": 0.010667,
+          "meanScore": 11.118667
+        }
+      ]
+    },
+    {
+      "players": 4,
+      "scenario": "cautious",
+      "games": 1000,
+      "auctions": 12000,
+      "soldAuctions": 11705,
+      "totalBids": 36000,
+      "positiveBidCount": 29762,
+      "tiedSales": 5936,
+      "soldCertificates": 10422,
+      "falseCertificates": 0,
+      "saleRate": 0.975417,
+      "passBidRate": 0.173278,
+      "meanPositiveBid": 3.296351,
+      "meanWinningPrice": 3.695429,
+      "tiedSaleRate": 0.507134,
+      "falseCertificateRateAmongSoldCertificates": 0,
+      "truthfulGenuineCursedSales": 4638,
+      "cursedShareOfSales": 0.499103,
+      "meanRichestCoinShare": 0.372417,
+      "negativeScoreRate": 0,
+      "inspectionCounts": {
+        "genuine": 3257,
+        "cursed": 4692
+      },
+      "meanUnusedTokens": 0.01275,
+      "winSharesBySeat": [
+        0.2665,
+        0.2625,
+        0.239,
+        0.232
+      ],
+      "byPolicy": [
+        {
+          "policy": "cautious",
+          "seats": 4000,
+          "winShare": 0.25,
+          "meanScore": 25.77175
+        }
+      ]
+    },
+    {
+      "players": 4,
+      "scenario": "trusting",
+      "games": 1000,
+      "auctions": 12000,
+      "soldAuctions": 11974,
+      "totalBids": 36000,
+      "positiveBidCount": 33748,
+      "tiedSales": 5385,
+      "soldCertificates": 10169,
+      "falseCertificates": 0,
+      "saleRate": 0.997833,
+      "passBidRate": 0.062556,
+      "meanPositiveBid": 5.254978,
+      "meanWinningPrice": 6.119008,
+      "tiedSaleRate": 0.449724,
+      "falseCertificateRateAmongSoldCertificates": 0,
+      "truthfulGenuineCursedSales": 4554,
+      "cursedShareOfSales": 0.506598,
+      "meanRichestCoinShare": 0.420933,
+      "negativeScoreRate": 0.0005,
+      "inspectionCounts": {
+        "genuine": 3411,
+        "cursed": 4538
+      },
+      "meanUnusedTokens": 0.01275,
+      "winSharesBySeat": [
+        0.2405,
+        0.25,
+        0.2475,
+        0.262
+      ],
+      "byPolicy": [
+        {
+          "policy": "trusting",
+          "seats": 4000,
+          "winShare": 0.25,
+          "meanScore": 25.613
+        }
+      ]
+    },
+    {
+      "players": 4,
+      "scenario": "skeptical",
+      "games": 1000,
+      "auctions": 12000,
+      "soldAuctions": 11907,
+      "totalBids": 36000,
+      "positiveBidCount": 30660,
+      "tiedSales": 5690,
+      "soldCertificates": 10471,
+      "falseCertificates": 0,
+      "saleRate": 0.99225,
+      "passBidRate": 0.148333,
+      "meanPositiveBid": 3.137704,
+      "meanWinningPrice": 3.613673,
+      "tiedSaleRate": 0.47787,
+      "falseCertificateRateAmongSoldCertificates": 0,
+      "truthfulGenuineCursedSales": 4660,
+      "cursedShareOfSales": 0.506341,
+      "meanRichestCoinShare": 0.36415,
+      "negativeScoreRate": 0.00125,
+      "inspectionCounts": {
+        "genuine": 3229,
+        "cursed": 4720
+      },
+      "meanUnusedTokens": 0.01275,
+      "winSharesBySeat": [
+        0.2345,
+        0.2665,
+        0.2555,
+        0.2435
+      ],
+      "byPolicy": [
+        {
+          "policy": "skeptical",
+          "seats": 4000,
+          "winShare": 0.25,
+          "meanScore": 25.57575
+        }
+      ]
+    },
+    {
+      "players": 4,
+      "scenario": "mixed",
+      "games": 1000,
+      "auctions": 12000,
+      "soldAuctions": 11879,
+      "totalBids": 36000,
+      "positiveBidCount": 28771,
+      "tiedSales": 1948,
+      "soldCertificates": 8627,
+      "falseCertificates": 600,
+      "saleRate": 0.989917,
+      "passBidRate": 0.200806,
+      "meanPositiveBid": 3.91846,
+      "meanWinningPrice": 5.28765,
+      "tiedSaleRate": 0.163987,
+      "falseCertificateRateAmongSoldCertificates": 0.069549,
+      "truthfulGenuineCursedSales": 3443,
+      "cursedShareOfSales": 0.50181,
+      "meanRichestCoinShare": 0.50905,
+      "negativeScoreRate": 0.035,
+      "inspectionCounts": {
+        "genuine": 4320,
+        "cursed": 3623
+      },
+      "meanUnusedTokens": 0.01425,
+      "winSharesBySeat": [
+        0.293,
+        0.274,
+        0.214,
+        0.219
+      ],
+      "byPolicy": [
+        {
+          "policy": "cautious",
+          "seats": 1000,
+          "winShare": 0.585,
+          "meanScore": 34.777
+        },
+        {
+          "policy": "trusting",
+          "seats": 1000,
+          "winShare": 0.084,
+          "meanScore": 22.608
+        },
+        {
+          "policy": "skeptical",
+          "seats": 1000,
+          "winShare": 0.33,
+          "meanScore": 31.709
+        },
+        {
+          "policy": "random",
+          "seats": 1000,
+          "winShare": 0.001,
+          "meanScore": 8.927
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "checkedAt": "2026-10-14T04:30:17.893Z",
+  "base": "http://192.168.10.150:3105",
+  "assets": [
+    {
+      "path": "/assets/index-C1c_bC4L.js",
+      "mime": "text/javascript; charset=utf-8",
+      "bytes": 293962,
+      "sha256": "dbff6379ba686ac23ce4b5dc6fdaa9f3da32d477ad8d7c93bc5c0ea12cb35cab"
+    },
+    {
+      "path": "/assets/index-COXbJ23Z.css",
+      "mime": "text/css; charset=utf-8",
+      "bytes": 14678,
+      "sha256": "198b8b75d3a24f424fc966ced585c06f23d7b6e872204d429fae12361719ae57"
+    },
+    {
+      "path": "/art/item-amulet.png",
+      "mime": "image/png",
+      "bytes": 2391483,
+      "sha256": "beab5184eb849f86d945df6345192e29ed770ed3e590374991740492ddbc5db6"
+    },
+    {
+      "path": "/art/item-battery.png",
+      "mime": "image/png",
+      "bytes": 2139680,
+      "sha256": "23042ddeef1263847b365d731d41001e40852a0bf4b9becd360743037e2e04cb"
+    },
+    {
+      "path": "/art/item-blade.png",
+      "mime": "image/png",
+      "bytes": 2205869,
+      "sha256": "c3648e98b5da6b8ac24cce3d28e321cdec920e25f029d80b2c857ed49969b240"
+    },
+    {
+      "path": "/art/item-food.png",
+      "mime": "image/png",
+      "bytes": 2630061,
+      "sha256": "5cfc8c667bc7241fa1aae654ca1e71872905f902778e20622db1726eece51e9c"
+    },
+    {
+      "path": "/art/item-key.png",
+      "mime": "image/png",
+      "bytes": 2137368,
+      "sha256": "d610567b235c4c882064c59402e02cf1d0b6a179c4d788f0637c7f2e662cec75"
+    },
+    {
+      "path": "/art/item-mask.png",
+      "mime": "image/png",
+      "bytes": 2483129,
+      "sha256": "38fd36fd15fd660e50ab93a78f452185bd74a00d8302c2d80e88d7418bfd9339"
+    },
+    {
+      "path": "/art/item-mirror.png",
+      "mime": "image/png",
+      "bytes": 2004355,
+      "sha256": "fec9db26bc2e530e1b777ad15015155a6a6caf861c00cfb03a550536c0916dad"
+    },
+    {
+      "path": "/art/item-orb.png",
+      "mime": "image/png",
+      "bytes": 2075870,
+      "sha256": "a5d5acbc7be7444e174eb7c67800fceeaa7f124f3ef9e95f7a62d6a53c24862a"
+    },
+    {
+      "path": "/art/item-potion.png",
+      "mime": "image/png",
+      "bytes": 2340570,
+      "sha256": "98641ba6e48dffd3342ebd4f41f069cab4ede7599f979366fcf2ed11de16b0ef"
+    },
+    {
+      "path": "/art/item-scanner.png",
+      "mime": "image/png",
+      "bytes": 2007077,
+      "sha256": "e352e61b3c94b354c2d6a65b2d36ac90091777e4b22c5b8da5a485ef1ea75501"
+    },
+    {
+      "path": "/art/npc-alien.png",
+      "mime": "image/png",
+      "bytes": 2568668,
+      "sha256": "9b94293d3c3c99f1dd588911035c24d006e24804b99cbddd877f9543bf287a12"
+    },
+    {
+      "path": "/art/npc-autometa.png",
+      "mime": "image/png",
+      "bytes": 2342035,
+      "sha256": "c69039684d71569038c6a6a3abbacc42cfd4e5eea52a3e9ecada255a6b31c89c"
+    },
+    {
+      "path": "/art/npc-beast.png",
+      "mime": "image/png",
+      "bytes": 2541368,
+      "sha256": "ad6351ca10c136144de8ce2c59c82309a92a6dd6e2513c5a5ae363ce3b7be41a"
+    },
+    {
+      "path": "/art/npc-darkone.png",
+      "mime": "image/png",
+      "bytes": 2354983,
+      "sha256": "31f97715f0cd695f4e6ce5a4d76ba303fab59aa80cb3373c8a3b041eaaff0caa"
+    },
+    {
+      "path": "/art/npc-orc.png",
+      "mime": "image/png",
+      "bytes": 2543682,
+      "sha256": "887a65e1f7a754e6e9dee8aed3cee5c492e7dbfe68b3ab14f44b2fb89b34cd3b"
+    },
+    {
+      "path": "/art/npc-vampire.png",
+      "mime": "image/png",
+      "bytes": 2448776,
+      "sha256": "8942a772ec6faa7527b6dce4d67e98cbc0cf89343ddf9d6f0ca46b20a93e3efb"
+    },
+    {
+      "path": "/fonts/cormorantgaramond.ttf",
+      "mime": "font/ttf",
+      "bytes": 1195560,
+      "sha256": "b20b7d9626dd956b2c5e558692ad328b1f19e3275e2782db4fa07670d83f35e0"
+    },
+    {
+      "path": "/fonts/notosansthai.ttf",
+      "mime": "font/ttf",
+      "bytes": 218652,
+      "sha256": "5a1c559bb539583c8a1fd99d1c5b9491e5e14478c9cd2bd0970d5c3096cc9ef8"
+    },
+    {
+      "path": "/fonts/notoserifthai.ttf",
+      "mime": "font/ttf",
+      "bytes": 292188,
+      "sha256": "34a7ad11647c845303aabdde639059806c56b84719e5d2ceb28eb038711bdf53"
+    }
+  ]
+}

@@ -1,0 +1,2112 @@
+
+> cursed-market@0.1.0 test
+> npm run build:server && node --test dist/tests/*.test.js
+
+
+> cursed-market@0.1.0 build:server
+> tsc -p tsconfig.json
+
+TAP version 13
+# Subtest: catalog has 30 distinct reachable products with usable family artwork and different mechanical profiles
+ok 1 - catalog has 30 distinct reachable products with usable family artwork and different mechanical profiles
+  ---
+  duration_ms: 5.049041
+  type: 'test'
+  ...
+# Subtest: catalog mirror: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 2 - catalog mirror: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 76.05775
+  type: 'test'
+  ...
+# Subtest: catalog orb: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 3 - catalog orb: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 28.523583
+  type: 'test'
+  ...
+# Subtest: catalog key: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 4 - catalog key: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 59.23525
+  type: 'test'
+  ...
+# Subtest: catalog mask: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 5 - catalog mask: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 274.296833
+  type: 'test'
+  ...
+# Subtest: catalog potion: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 6 - catalog potion: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 128.524375
+  type: 'test'
+  ...
+# Subtest: catalog battery: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 7 - catalog battery: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 70.937709
+  type: 'test'
+  ...
+# Subtest: catalog amulet: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 8 - catalog amulet: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 57.463375
+  type: 'test'
+  ...
+# Subtest: catalog blade: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 9 - catalog blade: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 91.642833
+  type: 'test'
+  ...
+# Subtest: catalog scanner: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 10 - catalog scanner: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 151.083083
+  type: 'test'
+  ...
+# Subtest: catalog food: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 11 - catalog food: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 109.060958
+  type: 'test'
+  ...
+# Subtest: catalog memory-mirror: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 12 - catalog memory-mirror: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 57.03825
+  type: 'test'
+  ...
+# Subtest: catalog rift-mirror: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 13 - catalog rift-mirror: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 107.010917
+  type: 'test'
+  ...
+# Subtest: catalog blood-orb: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 14 - catalog blood-orb: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 68.751166
+  type: 'test'
+  ...
+# Subtest: catalog storm-orb: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 15 - catalog storm-orb: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 58.726208
+  type: 'test'
+  ...
+# Subtest: catalog bone-key: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 16 - catalog bone-key: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 102.69425
+  type: 'test'
+  ...
+# Subtest: catalog clockwork-key: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 17 - catalog clockwork-key: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 220.016791
+  type: 'test'
+  ...
+# Subtest: catalog bone-mask: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 18 - catalog bone-mask: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 71.780208
+  type: 'test'
+  ...
+# Subtest: catalog void-mask: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 19 - catalog void-mask: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 131.689625
+  type: 'test'
+  ...
+# Subtest: catalog blood-tonic: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 20 - catalog blood-tonic: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 81.330166
+  type: 'test'
+  ...
+# Subtest: catalog dream-tonic: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 21 - catalog dream-tonic: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 45.668333
+  type: 'test'
+  ...
+# Subtest: catalog sun-cell: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 22 - catalog sun-cell: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 35.212083
+  type: 'test'
+  ...
+# Subtest: catalog void-cell: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 23 - catalog void-cell: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 60.169042
+  type: 'test'
+  ...
+# Subtest: catalog oath-charm: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 24 - catalog oath-charm: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 37.211583
+  type: 'test'
+  ...
+# Subtest: catalog echo-charm: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 25 - catalog echo-charm: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 31.380875
+  type: 'test'
+  ...
+# Subtest: catalog bone-blade: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 26 - catalog bone-blade: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 33.594209
+  type: 'test'
+  ...
+# Subtest: catalog eclipse-blade: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 27 - catalog eclipse-blade: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 20.947791
+  type: 'test'
+  ...
+# Subtest: catalog truth-lens: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 28 - catalog truth-lens: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 33.451708
+  type: 'test'
+  ...
+# Subtest: catalog curse-meter: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 29 - catalog curse-meter: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 32.789209
+  type: 'test'
+  ...
+# Subtest: catalog ember-feed: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 30 - catalog ember-feed: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 45.400167
+  type: 'test'
+  ...
+# Subtest: catalog moon-feed: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+ok 31 - catalog moon-feed: seeded NPC purchase, activation, Dark Market sale, private view and strict replay
+  ---
+  duration_ms: 56.383042
+  type: 'test'
+  ...
+# Subtest: E07 accepts the new moon-feed family member
+ok 32 - E07 accepts the new moon-feed family member
+  ---
+  duration_ms: 1.606875
+  type: 'test'
+  ...
+# Subtest: E31 accepts the new memory-mirror family member
+ok 33 - E31 accepts the new memory-mirror family member
+  ---
+  duration_ms: 1.02275
+  type: 'test'
+  ...
+# Subtest: E32 accepts the new blood-orb family member
+ok 34 - E32 accepts the new blood-orb family member
+  ---
+  duration_ms: 1.066167
+  type: 'test'
+  ...
+# Subtest: E33 accepts the new bone-key family member
+ok 35 - E33 accepts the new bone-key family member
+  ---
+  duration_ms: 1.025417
+  type: 'test'
+  ...
+# Subtest: E34 accepts the new void-mask family member
+ok 36 - E34 accepts the new void-mask family member
+  ---
+  duration_ms: 0.6905
+  type: 'test'
+  ...
+# Subtest: E35 accepts the new dream-tonic family member
+ok 37 - E35 accepts the new dream-tonic family member
+  ---
+  duration_ms: 0.642167
+  type: 'test'
+  ...
+# Subtest: E36 accepts the new sun-cell family member
+ok 38 - E36 accepts the new sun-cell family member
+  ---
+  duration_ms: 1.065291
+  type: 'test'
+  ...
+# Subtest: E38 accepts the new echo-charm family member
+ok 39 - E38 accepts the new echo-charm family member
+  ---
+  duration_ms: 1.57125
+  type: 'test'
+  ...
+# Subtest: E39 accepts the new eclipse-blade family member
+ok 40 - E39 accepts the new eclipse-blade family member
+  ---
+  duration_ms: 2.31925
+  type: 'test'
+  ...
+# Subtest: new key preview names the actual door-unlock effect before activation
+ok 41 - new key preview names the actual door-unlock effect before activation
+  ---
+  duration_ms: 1.206542
+  type: 'test'
+  ...
+# Subtest: all published original v0.4 raw/room audits retain their exact 10-product replay and reporting
+ok 42 - all published original v0.4 raw/room audits retain their exact 10-product replay and reporting
+  ---
+  duration_ms: 1484.834292
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E01: every offered choice builds an engine-accepted decision
+ok 43 - v0.4 UI E01: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 21.883708
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E02: every offered choice builds an engine-accepted decision
+ok 44 - v0.4 UI E02: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 8.826375
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E03: every offered choice builds an engine-accepted decision
+ok 45 - v0.4 UI E03: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 7.2775
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E04: every offered choice builds an engine-accepted decision
+ok 46 - v0.4 UI E04: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.215375
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E05: every offered choice builds an engine-accepted decision
+ok 47 - v0.4 UI E05: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 6.861708
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E06: every offered choice builds an engine-accepted decision
+ok 48 - v0.4 UI E06: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 4.382541
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E07: every offered choice builds an engine-accepted decision
+ok 49 - v0.4 UI E07: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 2.595916
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E08: every offered choice builds an engine-accepted decision
+ok 50 - v0.4 UI E08: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 5.044875
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E09: every offered choice builds an engine-accepted decision
+ok 51 - v0.4 UI E09: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.645292
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E10: every offered choice builds an engine-accepted decision
+ok 52 - v0.4 UI E10: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 8.844833
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E11: every offered choice builds an engine-accepted decision
+ok 53 - v0.4 UI E11: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 4.011125
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E12: every offered choice builds an engine-accepted decision
+ok 54 - v0.4 UI E12: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 5.701792
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E13: every offered choice builds an engine-accepted decision
+ok 55 - v0.4 UI E13: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 5.680917
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E14: every offered choice builds an engine-accepted decision
+ok 56 - v0.4 UI E14: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.365083
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E15: every offered choice builds an engine-accepted decision
+ok 57 - v0.4 UI E15: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.728958
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E16: every offered choice builds an engine-accepted decision
+ok 58 - v0.4 UI E16: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 1.867167
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E17: every offered choice builds an engine-accepted decision
+ok 59 - v0.4 UI E17: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 1.815041
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E18: every offered choice builds an engine-accepted decision
+ok 60 - v0.4 UI E18: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 1.995166
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E19: every offered choice builds an engine-accepted decision
+ok 61 - v0.4 UI E19: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 1.747042
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E20: every offered choice builds an engine-accepted decision
+ok 62 - v0.4 UI E20: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 4.534792
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E21: every offered choice builds an engine-accepted decision
+ok 63 - v0.4 UI E21: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 1.791625
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E22: every offered choice builds an engine-accepted decision
+ok 64 - v0.4 UI E22: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 1.670625
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E23: every offered choice builds an engine-accepted decision
+ok 65 - v0.4 UI E23: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 1.787958
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E24: every offered choice builds an engine-accepted decision
+ok 66 - v0.4 UI E24: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 1.855834
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E25: every offered choice builds an engine-accepted decision
+ok 67 - v0.4 UI E25: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 4.288208
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E26: every offered choice builds an engine-accepted decision
+ok 68 - v0.4 UI E26: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 1.868708
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E27: every offered choice builds an engine-accepted decision
+ok 69 - v0.4 UI E27: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 1.857209
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E28: every offered choice builds an engine-accepted decision
+ok 70 - v0.4 UI E28: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 2.091375
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E29: every offered choice builds an engine-accepted decision
+ok 71 - v0.4 UI E29: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 1.882125
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E30: every offered choice builds an engine-accepted decision
+ok 72 - v0.4 UI E30: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.637625
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E31: every offered choice builds an engine-accepted decision
+ok 73 - v0.4 UI E31: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 1.943375
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E32: every offered choice builds an engine-accepted decision
+ok 74 - v0.4 UI E32: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 1.843209
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E33: every offered choice builds an engine-accepted decision
+ok 75 - v0.4 UI E33: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 1.809625
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E34: every offered choice builds an engine-accepted decision
+ok 76 - v0.4 UI E34: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 1.922875
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E35: every offered choice builds an engine-accepted decision
+ok 77 - v0.4 UI E35: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.032708
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E36: every offered choice builds an engine-accepted decision
+ok 78 - v0.4 UI E36: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 10.256667
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E37: every offered choice builds an engine-accepted decision
+ok 79 - v0.4 UI E37: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.655916
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E38: every offered choice builds an engine-accepted decision
+ok 80 - v0.4 UI E38: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 5.902667
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E39: every offered choice builds an engine-accepted decision
+ok 81 - v0.4 UI E39: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 5.008875
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E40: every offered choice builds an engine-accepted decision
+ok 82 - v0.4 UI E40: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 10.487125
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E41: every offered choice builds an engine-accepted decision
+ok 83 - v0.4 UI E41: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 9.079416
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E42: every offered choice builds an engine-accepted decision
+ok 84 - v0.4 UI E42: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 8.382459
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E43: every offered choice builds an engine-accepted decision
+ok 85 - v0.4 UI E43: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 5.26075
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E44: every offered choice builds an engine-accepted decision
+ok 86 - v0.4 UI E44: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 9.399625
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E45: every offered choice builds an engine-accepted decision
+ok 87 - v0.4 UI E45: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.553
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E46: every offered choice builds an engine-accepted decision
+ok 88 - v0.4 UI E46: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 2.70225
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E47: every offered choice builds an engine-accepted decision
+ok 89 - v0.4 UI E47: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.745625
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E48: every offered choice builds an engine-accepted decision
+ok 90 - v0.4 UI E48: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 2.022625
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E49: every offered choice builds an engine-accepted decision
+ok 91 - v0.4 UI E49: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 6.916916
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E50: every offered choice builds an engine-accepted decision
+ok 92 - v0.4 UI E50: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 5.635292
+  type: 'test'
+  ...
+# Subtest: visible-data risk bounds enclose every possible hidden base, including honor/status jumps
+ok 93 - visible-data risk bounds enclose every possible hidden base, including honor/status jumps
+  ---
+  duration_ms: 9.504375
+  type: 'test'
+  ...
+# Subtest: purchase preview uses accepted quote and buyer discounts, once for a bundle
+ok 94 - purchase preview uses accepted quote and buyer discounts, once for a bundle
+  ---
+  duration_ms: 4.076834
+  type: 'test'
+  ...
+# Subtest: inspection and market availability respect status charges, locks, quota and budget
+ok 95 - inspection and market availability respect status charges, locks, quota and budget
+  ---
+  duration_ms: 125.276083
+  type: 'test'
+  ...
+# Subtest: unknown authenticity and curse remain unknown in the desk; Dark One requires separate consent
+ok 96 - unknown authenticity and curse remain unknown in the desk; Dark One requires separate consent
+  ---
+  duration_ms: 4.82475
+  type: 'test'
+  ...
+# Subtest: full phase surfaces render with live DTO data and no missing text
+ok 97 - full phase surfaces render with live DTO data and no missing text
+  ---
+  duration_ms: 88.024792
+  type: 'test'
+  ...
+# Subtest: cross-shop form presents actual NPC price plus fee; player trade offers allow zero
+ok 98 - cross-shop form presents actual NPC price plus fee; player trade offers allow zero
+  ---
+  duration_ms: 4.965
+  type: 'test'
+  ...
+# Subtest: confirmed consequences expose timeout defaults and decline cannot forge targets
+ok 99 - confirmed consequences expose timeout defaults and decline cannot forge targets
+  ---
+  duration_ms: 12.020791
+  type: 'test'
+  ...
+# Subtest: six NPC and ten item assets ship independently with embedded prompt provenance
+ok 100 - six NPC and ten item assets ship independently with embedded prompt provenance
+  ---
+  duration_ms: 98.44
+  type: 'test'
+  ...
+# Subtest: seller sees an incoming unlisted swap identity without the buyer private truth
+ok 101 - seller sees an incoming unlisted swap identity without the buyer private truth
+  ---
+  duration_ms: 50.876417
+  type: 'test'
+  ...
+# Subtest: E08 identifies both fixed portals and exact mandatory discount/status before commitment
+ok 102 - E08 identifies both fixed portals and exact mandatory discount/status before commitment
+  ---
+  duration_ms: 2.025292
+  type: 'test'
+  ...
+# Subtest: same-kind Dark Market items use inventory identifiers and separate known facts
+ok 103 - same-kind Dark Market items use inventory identifiers and separate known facts
+  ---
+  duration_ms: 5.344792
+  type: 'test'
+  ...
+# Subtest: v0.4 HTTP/WebSocket 2-player appraisal run, replayable room audit, rematch and stale match rejection
+ok 104 - v0.4 HTTP/WebSocket 2-player appraisal run, replayable room audit, rematch and stale match rejection
+  ---
+  duration_ms: 214.963083
+  type: 'test'
+  ...
+# Subtest: v0.4 HTTP/WebSocket 3-player appraisal run, replayable room audit, rematch and stale match rejection
+ok 105 - v0.4 HTTP/WebSocket 3-player appraisal run, replayable room audit, rematch and stale match rejection
+  ---
+  duration_ms: 655.207
+  type: 'test'
+  ...
+# Subtest: v0.4 HTTP/WebSocket 4-player appraisal run, replayable room audit, rematch and stale match rejection
+ok 106 - v0.4 HTTP/WebSocket 4-player appraisal run, replayable room audit, rematch and stale match rejection
+  ---
+  duration_ms: 838.715375
+  type: 'test'
+  ...
+# Subtest: v0.4 actual socket rejects actor and hidden-state injection, keeps inspections/tokens private and resumes accepted command retries
+ok 107 - v0.4 actual socket rejects actor and hidden-state injection, keeps inspections/tokens private and resumes accepted command retries
+  ---
+  duration_ms: 51.26075
+  type: 'test'
+  ...
+# Subtest: v0.4 actual 2-seat disconnect timeout run completes and restores results/audit
+ok 108 - v0.4 actual 2-seat disconnect timeout run completes and restores results/audit
+  ---
+  duration_ms: 19.633209
+  type: 'test'
+  ...
+# Subtest: v0.4 actual 3-seat disconnect timeout run completes and restores results/audit
+ok 109 - v0.4 actual 3-seat disconnect timeout run completes and restores results/audit
+  ---
+  duration_ms: 59.350625
+  type: 'test'
+  ...
+# Subtest: v0.4 actual 4-seat disconnect timeout run completes and restores results/audit
+ok 110 - v0.4 actual 4-seat disconnect timeout run completes and restores results/audit
+  ---
+  duration_ms: 85.806917
+  type: 'test'
+  ...
+# Subtest: v0.4 actual zero-price player trade is private, atomic and repeat approval pays/transfers once
+ok 111 - v0.4 actual zero-price player trade is private, atomic and repeat approval pays/transfers once
+  ---
+  duration_ms: 53.564125
+  type: 'test'
+  ...
+# Subtest: v0.4 actual all-exhausted seats show rest then return next encounter
+ok 112 - v0.4 actual all-exhausted seats show rest then return next encounter
+  ---
+  duration_ms: 27.921125
+  type: 'test'
+  ...
+# Subtest: v0.4 actual Dark Market buys new stock immediately once and stays open through TRADE
+ok 113 - v0.4 actual Dark Market buys new stock immediately once and stays open through TRADE
+  ---
+  duration_ms: 20.571791
+  type: 'test'
+  ...
+# Subtest: v0.4 actual cross-shop fee and NPC payment roll back together, competing buyers cannot acquire a sold item
+ok 114 - v0.4 actual cross-shop fee and NPC payment roll back together, competing buyers cannot acquire a sold item
+  ---
+  duration_ms: 37.188291
+  type: 'test'
+  ...
+# Subtest: v0.4 actual confirmed-death fixture settles all seats and restores play next encounter
+ok 115 - v0.4 actual confirmed-death fixture settles all seats and restores play next encounter
+  ---
+  duration_ms: 26.616916
+  type: 'test'
+  ...
+# Subtest: downloaded 2/3/4-player appraisal audits replay and produce version-specific evidence
+ok 116 - downloaded 2/3/4-player appraisal audits replay and produce version-specific evidence
+  ---
+  duration_ms: 1180.93475
+  type: 'test'
+  ...
+# Subtest: appraisal report rejects forged run, roster, mode and missing room metadata
+ok 117 - appraisal report rejects forged run, roster, mode and missing room metadata
+  ---
+  duration_ms: 76.555792
+  type: 'test'
+  ...
+# Subtest: appraisal timing/timeout metadata must match phases and safe default commands
+ok 118 - appraisal timing/timeout metadata must match phases and safe default commands
+  ---
+  duration_ms: 530.340417
+  type: 'test'
+  ...
+# Subtest: deadline-driven audit with skipped empty appraisal phases validates recorded defaults
+ok 119 - deadline-driven audit with skipped empty appraisal phases validates recorded defaults
+  ---
+  duration_ms: 34.93275
+  type: 'test'
+  ...
+# Subtest: mixed report rejects duplicate matches; CLI accepts room and raw run plus legacy audit
+ok 120 - mixed report rejects duplicate matches; CLI accepts room and raw run plus legacy audit
+  ---
+  duration_ms: 726.22725
+  type: 'test'
+  ...
+# Subtest: v0.4 parser reconstructs every action and rejects actor/seed/event injection and malformed optional values
+ok 121 - v0.4 parser reconstructs every action and rejects actor/seed/event injection and malformed optional values
+  ---
+  duration_ms: 9.272875
+  type: 'test'
+  ...
+# Subtest: v0.4 deadlines stay fixed and exact deadline commands use safe defaults once
+ok 122 - v0.4 deadlines stay fixed and exact deadline commands use safe defaults once
+  ---
+  duration_ms: 6.931541
+  type: 'test'
+  ...
+# Subtest: v0.4 reconnect restores private inspection, pending event key and idempotent requests; replaced peer loses authority
+ok 123 - v0.4 reconnect restores private inspection, pending event key and idempotent requests; replaced peer loses authority
+  ---
+  duration_ms: 10.221459
+  type: 'test'
+  ...
+# Subtest: v0.4 2 absent seats safely timeout to results, export replayable audit and rematch
+ok 124 - v0.4 2 absent seats safely timeout to results, export replayable audit and rematch
+  ---
+  duration_ms: 13.364709
+  type: 'test'
+  ...
+# Subtest: v0.4 3 absent seats safely timeout to results, export replayable audit and rematch
+ok 125 - v0.4 3 absent seats safely timeout to results, export replayable audit and rematch
+  ---
+  duration_ms: 18.727791
+  type: 'test'
+  ...
+# Subtest: v0.4 4 absent seats safely timeout to results, export replayable audit and rematch
+ok 126 - v0.4 4 absent seats safely timeout to results, export replayable audit and rematch
+  ---
+  duration_ms: 39.331625
+  type: 'test'
+  ...
+# Subtest: v0.4 all exhausted seats auto-settle and return next encounter without timeout deadlock
+ok 127 - v0.4 all exhausted seats auto-settle and return next encounter without timeout deadlock
+  ---
+  duration_ms: 8.234375
+  type: 'test'
+  ...
+# Subtest: v0.4 P2P zero-price approval is atomic, has no NPC punishment and duplicate approval transfers once
+ok 128 - v0.4 P2P zero-price approval is atomic, has no NPC punishment and duplicate approval transfers once
+  ---
+  duration_ms: 15.075208
+  type: 'test'
+  ...
+# Subtest: v0.4 stale event keys reject without mutation even inside the same encounter
+ok 129 - v0.4 stale event keys reject without mutation even inside the same encounter
+  ---
+  duration_ms: 5.021583
+  type: 'test'
+  ...
+# Subtest: v0.4 timeout declines optional credit contracts and settles accepted NPC consequences
+ok 130 - v0.4 timeout declines optional credit contracts and settles accepted NPC consequences
+  ---
+  duration_ms: 2.542666
+  type: 'test'
+  ...
+# Subtest: v0.5 keeps life separate, spends entry energy and validates survival config while v0.4 is unchanged
+ok 131 - v0.5 keeps life separate, spends entry energy and validates survival config while v0.4 is unchanged
+  ---
+  duration_ms: 5.7095
+  type: 'test'
+  ...
+# Subtest: spending last energy does not pause, zero-energy actions fail atomically and free decisions remain legal
+ok 132 - spending last energy does not pause, zero-energy actions fail atomically and free decisions remain legal
+  ---
+  duration_ms: 6.608667
+  type: 'test'
+  ...
+# Subtest: NPC energy recovery is available at zero energy, costs credits once and retry is idempotent
+ok 133 - NPC energy recovery is available at zero energy, costs credits once and retry is idempotent
+  ---
+  duration_ms: 3.4575
+  type: 'test'
+  ...
+# Subtest: NPC life recovery is available at zero energy, costs credits once and retry is idempotent
+ok 134 - NPC life recovery is available at zero energy, costs credits once and retry is idempotent
+  ---
+  duration_ms: 2.596291
+  type: 'test'
+  ...
+# Subtest: zero-energy vampire blood pact restores energy but costs life and cannot resurrect a dead player
+ok 135 - zero-energy vampire blood pact restores energy but costs life and cannot resurrect a dead player
+  ---
+  duration_ms: 3.925708
+  type: 'test'
+  ...
+# Subtest: restorative consumable authenticity=true curse=false applies distinct life effects
+ok 136 - restorative consumable authenticity=true curse=false applies distinct life effects
+  ---
+  duration_ms: 2.160334
+  type: 'test'
+  ...
+# Subtest: restorative consumable authenticity=false curse=false applies distinct life effects
+ok 137 - restorative consumable authenticity=false curse=false applies distinct life effects
+  ---
+  duration_ms: 1.942541
+  type: 'test'
+  ...
+# Subtest: restorative consumable authenticity=true curse=true applies distinct life effects
+ok 138 - restorative consumable authenticity=true curse=true applies distinct life effects
+  ---
+  duration_ms: 0.86475
+  type: 'test'
+  ...
+# Subtest: restorative consumable authenticity=false curse=true applies distinct life effects
+ok 139 - restorative consumable authenticity=false curse=true applies distinct life effects
+  ---
+  duration_ms: 0.863375
+  type: 'test'
+  ...
+# Subtest: death is permanent, freezes owned property/statuses and survivors continue past it
+ok 140 - death is permanent, freezes owned property/statuses and survivors continue past it
+  ---
+  duration_ms: 2.547875
+  type: 'test'
+  ...
+# Subtest: all dead invokes Collector once: true/fake/cursed values plus credits and score statuses, without history bonuses
+ok 141 - all dead invokes Collector once: true/fake/cursed values plus credits and score statuses, without history bonuses
+  ---
+  duration_ms: 1.103667
+  type: 'test'
+  ...
+# Subtest: score buff and debuff cancel and Collector handles zero inventory and tied credit scores
+ok 142 - score buff and debuff cancel and Collector handles zero inventory and tied credit scores
+  ---
+  duration_ms: 1.59775
+  type: 'test'
+  ...
+# Subtest: a complete command-only survival run exceeds three encounters, drains life and strictly replays
+ok 143 - a complete command-only survival run exceeds three encounters, drains life and strictly replays
+  ---
+  duration_ms: 79.822083
+  type: 'test'
+  ...
+# Subtest: parser accepts late encounters and recovery but rejects actor/target injections and unsafe numbers
+ok 144 - parser accepts late encounters and recovery but rejects actor/target injections and unsafe numbers
+  ---
+  duration_ms: 0.444667
+  type: 'test'
+  ...
+# Subtest: v0.4 historical audits still replay with their exact old shape and scoring
+ok 145 - v0.4 historical audits still replay with their exact old shape and scoring
+  ---
+  duration_ms: 185.615041
+  type: 'test'
+  ...
+# Subtest: survival cautious reads only DTOs and completes strict seeded replay
+ok 146 - survival cautious reads only DTOs and completes strict seeded replay
+  ---
+  duration_ms: 828.843417
+  type: 'test'
+  ...
+# Subtest: survival aggressive reads only DTOs and completes strict seeded replay
+ok 147 - survival aggressive reads only DTOs and completes strict seeded replay
+  ---
+  duration_ms: 812.021667
+  type: 'test'
+  ...
+# Subtest: survival collector reads only DTOs and completes strict seeded replay
+ok 148 - survival collector reads only DTOs and completes strict seeded replay
+  ---
+  duration_ms: 346.42775
+  type: 'test'
+  ...
+# Subtest: survival trader reads only DTOs and completes strict seeded replay
+ok 149 - survival trader reads only DTOs and completes strict seeded replay
+  ---
+  duration_ms: 579.326917
+  type: 'test'
+  ...
+# Subtest: room death/resume/reveal/final audit/rematch with timers true
+ok 150 - room death/resume/reveal/final audit/rematch with timers true
+  ---
+  duration_ms: 6.970542
+  type: 'test'
+  ...
+# Subtest: room death/resume/reveal/final audit/rematch with timers false
+ok 151 - room death/resume/reveal/final audit/rematch with timers false
+  ---
+  duration_ms: 3.145
+  type: 'test'
+  ...
+# Subtest: canonical 2-seat room audit reaches Collector and validates factual metadata
+ok 152 - canonical 2-seat room audit reaches Collector and validates factual metadata
+  ---
+  duration_ms: 82.634791
+  type: 'test'
+  ...
+# Subtest: canonical 3-seat room audit reaches Collector and validates factual metadata
+ok 153 - canonical 3-seat room audit reaches Collector and validates factual metadata
+  ---
+  duration_ms: 96.378833
+  type: 'test'
+  ...
+# Subtest: canonical 4-seat room audit reaches Collector and validates factual metadata
+ok 154 - canonical 4-seat room audit reaches Collector and validates factual metadata
+  ---
+  duration_ms: 143.820834
+  type: 'test'
+  ...
+# Subtest: survival SSR distinguishes zero energy from death and exposes Collector credit/item/modifier results
+ok 155 - survival SSR distinguishes zero energy from death and exposes Collector credit/item/modifier results
+  ---
+  duration_ms: 45.7715
+  type: 'test'
+  ...
+# Subtest: F1 score effects are disclosed in D10 direct/cross-shop/E08 contracts and B10/D10 event choices
+ok 156 - F1 score effects are disclosed in D10 direct/cross-shop/E08 contracts and B10/D10 event choices
+  ---
+  duration_ms: 21.896917
+  type: 'test'
+  ...
+# Subtest: F2 command-only privacy: hidden wealth/accuracy stay private through appraisal, reveal, advance and spectator views
+ok 157 - F2 command-only privacy: hidden wealth/accuracy stay private through appraisal, reveal, advance and spectator views
+  ---
+  duration_ms: 51.964209
+  type: 'test'
+  ...
+# Subtest: timer parser strictly accepts booleans and whole 1–900 second values for all four phases
+ok 158 - timer parser strictly accepts booleans and whole 1–900 second values for all four phases
+  ---
+  duration_ms: 1.165291
+  type: 'test'
+  ...
+# Subtest: only lobby host changes settings, resets readiness, persists through join/resume/host transfer and rematch
+ok 159 - only lobby host changes settings, resets readiness, persists through join/resume/host transfer and rematch
+  ---
+  duration_ms: 51.025792
+  type: 'test'
+  ...
+# Subtest: untimed 2-seat run has no expiry, waits for manual completion and exports replayable audit without timeouts
+ok 160 - untimed 2-seat run has no expiry, waits for manual completion and exports replayable audit without timeouts
+  ---
+  duration_ms: 16.085791
+  type: 'test'
+  ...
+# Subtest: untimed 3-seat run has no expiry, waits for manual completion and exports replayable audit without timeouts
+ok 161 - untimed 3-seat run has no expiry, waits for manual completion and exports replayable audit without timeouts
+  ---
+  duration_ms: 44.3465
+  type: 'test'
+  ...
+# Subtest: untimed 4-seat run has no expiry, waits for manual completion and exports replayable audit without timeouts
+ok 162 - untimed 4-seat run has no expiry, waits for manual completion and exports replayable audit without timeouts
+  ---
+  duration_ms: 185.875875
+  type: 'test'
+  ...
+# Subtest: custom phase deadlines expire once, do not extend on action, and differ between rooms
+ok 163 - custom phase deadlines expire once, do not extend on action, and differ between rooms
+  ---
+  duration_ms: 70.1165
+  type: 'test'
+  ...
+# Subtest: untimed disconnect retains pending seat and safe resume without inventing timeout actions
+ok 164 - untimed disconnect retains pending seat and safe resume without inventing timeout actions
+  ---
+  duration_ms: 5.968208
+  type: 'test'
+  ...
+# Subtest: settings controls disclose units and untimed waits, are host-only, and preserve old server compatibility
+ok 165 - settings controls disclose units and untimed waits, are host-only, and preserve old server compatibility
+  ---
+  duration_ms: 23.303875
+  type: 'test'
+  ...
+# Subtest: Dark Market renders existing family image paths for every one of the 30 products
+ok 166 - Dark Market renders existing family image paths for every one of the 30 products
+  ---
+  duration_ms: 17.418291
+  type: 'test'
+  ...
+# Subtest: done-state waiting copy promises timeout only when the room has timers enabled
+ok 167 - done-state waiting copy promises timeout only when the room has timers enabled
+  ---
+  duration_ms: 20.612291
+  type: 'test'
+  ...
+# Subtest: E01: eligible offer resolves its actual choice and rejects an empty context
+ok 168 - E01: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 34.167125
+  type: 'test'
+  ...
+# Subtest: E02: eligible offer resolves its actual choice and rejects an empty context
+ok 169 - E02: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 12.645458
+  type: 'test'
+  ...
+# Subtest: E03: eligible offer resolves its actual choice and rejects an empty context
+ok 170 - E03: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 8.869833
+  type: 'test'
+  ...
+# Subtest: E04: eligible offer resolves its actual choice and rejects an empty context
+ok 171 - E04: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 2.598
+  type: 'test'
+  ...
+# Subtest: E05: eligible offer resolves its actual choice and rejects an empty context
+ok 172 - E05: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 2.828292
+  type: 'test'
+  ...
+# Subtest: E06: eligible offer resolves its actual choice and rejects an empty context
+ok 173 - E06: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 11.76175
+  type: 'test'
+  ...
+# Subtest: E07: eligible offer resolves its actual choice and rejects an empty context
+ok 174 - E07: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 4.637041
+  type: 'test'
+  ...
+# Subtest: E08: eligible offer resolves its actual choice and rejects an empty context
+ok 175 - E08: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 15.445667
+  type: 'test'
+  ...
+# Subtest: E09: eligible offer resolves its actual choice and rejects an empty context
+ok 176 - E09: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 17.213625
+  type: 'test'
+  ...
+# Subtest: E10: eligible offer resolves its actual choice and rejects an empty context
+ok 177 - E10: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 3.217625
+  type: 'test'
+  ...
+# Subtest: E11: eligible offer resolves its actual choice and rejects an empty context
+ok 178 - E11: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 5.704166
+  type: 'test'
+  ...
+# Subtest: E12: eligible offer resolves its actual choice and rejects an empty context
+ok 179 - E12: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 11.205917
+  type: 'test'
+  ...
+# Subtest: E13: eligible offer resolves its actual choice and rejects an empty context
+ok 180 - E13: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 3.299875
+  type: 'test'
+  ...
+# Subtest: E14: eligible offer resolves its actual choice and rejects an empty context
+ok 181 - E14: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 6.379125
+  type: 'test'
+  ...
+# Subtest: E15: eligible offer resolves its actual choice and rejects an empty context
+ok 182 - E15: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 3.623834
+  type: 'test'
+  ...
+# Subtest: E16: eligible offer resolves its actual choice and rejects an empty context
+ok 183 - E16: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 2.200667
+  type: 'test'
+  ...
+# Subtest: E17: eligible offer resolves its actual choice and rejects an empty context
+ok 184 - E17: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 36.7445
+  type: 'test'
+  ...
+# Subtest: E18: eligible offer resolves its actual choice and rejects an empty context
+ok 185 - E18: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 1.748792
+  type: 'test'
+  ...
+# Subtest: E19: eligible offer resolves its actual choice and rejects an empty context
+ok 186 - E19: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 3.694625
+  type: 'test'
+  ...
+# Subtest: E20: eligible offer resolves its actual choice and rejects an empty context
+ok 187 - E20: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 3.814959
+  type: 'test'
+  ...
+# Subtest: E21: eligible offer resolves its actual choice and rejects an empty context
+ok 188 - E21: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 2.656333
+  type: 'test'
+  ...
+# Subtest: E22: eligible offer resolves its actual choice and rejects an empty context
+ok 189 - E22: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 7.344875
+  type: 'test'
+  ...
+# Subtest: E23: eligible offer resolves its actual choice and rejects an empty context
+ok 190 - E23: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 4.601125
+  type: 'test'
+  ...
+# Subtest: E24: eligible offer resolves its actual choice and rejects an empty context
+ok 191 - E24: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 6.376541
+  type: 'test'
+  ...
+# Subtest: E25: eligible offer resolves its actual choice and rejects an empty context
+ok 192 - E25: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 1.588959
+  type: 'test'
+  ...
+# Subtest: E26: eligible offer resolves its actual choice and rejects an empty context
+ok 193 - E26: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 1.608791
+  type: 'test'
+  ...
+# Subtest: E27: eligible offer resolves its actual choice and rejects an empty context
+ok 194 - E27: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 3.52025
+  type: 'test'
+  ...
+# Subtest: E28: eligible offer resolves its actual choice and rejects an empty context
+ok 195 - E28: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 1.611542
+  type: 'test'
+  ...
+# Subtest: E29: eligible offer resolves its actual choice and rejects an empty context
+ok 196 - E29: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 11.475083
+  type: 'test'
+  ...
+# Subtest: E30: eligible offer resolves its actual choice and rejects an empty context
+ok 197 - E30: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 1.510833
+  type: 'test'
+  ...
+# Subtest: E31: eligible offer resolves its actual choice and rejects an empty context
+ok 198 - E31: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 1.437792
+  type: 'test'
+  ...
+# Subtest: E32: eligible offer resolves its actual choice and rejects an empty context
+ok 199 - E32: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 3.045791
+  type: 'test'
+  ...
+# Subtest: E33: eligible offer resolves its actual choice and rejects an empty context
+ok 200 - E33: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 4.361875
+  type: 'test'
+  ...
+# Subtest: E34: eligible offer resolves its actual choice and rejects an empty context
+ok 201 - E34: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 7.818584
+  type: 'test'
+  ...
+# Subtest: E35: eligible offer resolves its actual choice and rejects an empty context
+ok 202 - E35: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 3.2
+  type: 'test'
+  ...
+# Subtest: E36: eligible offer resolves its actual choice and rejects an empty context
+ok 203 - E36: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 1.420458
+  type: 'test'
+  ...
+# Subtest: E37: eligible offer resolves its actual choice and rejects an empty context
+ok 204 - E37: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 1.275416
+  type: 'test'
+  ...
+# Subtest: E38: eligible offer resolves its actual choice and rejects an empty context
+ok 205 - E38: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 1.3115
+  type: 'test'
+  ...
+# Subtest: E39: eligible offer resolves its actual choice and rejects an empty context
+ok 206 - E39: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 1.330584
+  type: 'test'
+  ...
+# Subtest: E40: eligible offer resolves its actual choice and rejects an empty context
+ok 207 - E40: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 2.380916
+  type: 'test'
+  ...
+# Subtest: E41: eligible offer resolves its actual choice and rejects an empty context
+ok 208 - E41: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 1.461458
+  type: 'test'
+  ...
+# Subtest: E42: eligible offer resolves its actual choice and rejects an empty context
+ok 209 - E42: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 7.828208
+  type: 'test'
+  ...
+# Subtest: E43: eligible offer resolves its actual choice and rejects an empty context
+ok 210 - E43: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 1.587
+  type: 'test'
+  ...
+# Subtest: E44: eligible offer resolves its actual choice and rejects an empty context
+ok 211 - E44: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 1.432375
+  type: 'test'
+  ...
+# Subtest: E45: eligible offer resolves its actual choice and rejects an empty context
+ok 212 - E45: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 3.491958
+  type: 'test'
+  ...
+# Subtest: E46: eligible offer resolves its actual choice and rejects an empty context
+ok 213 - E46: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 9.623833
+  type: 'test'
+  ...
+# Subtest: E47: eligible offer resolves its actual choice and rejects an empty context
+ok 214 - E47: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 6.904959
+  type: 'test'
+  ...
+# Subtest: E48: eligible offer resolves its actual choice and rejects an empty context
+ok 215 - E48: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 6.457375
+  type: 'test'
+  ...
+# Subtest: E49: eligible offer resolves its actual choice and rejects an empty context
+ok 216 - E49: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 4.274333
+  type: 'test'
+  ...
+# Subtest: E50: eligible offer resolves its actual choice and rejects an empty context
+ok 217 - E50: eligible offer resolves its actual choice and rejects an empty context
+  ---
+  duration_ms: 10.003333
+  type: 'test'
+  ...
+# Subtest: E01: decline does not charge or transfer goods
+ok 218 - E01: decline does not charge or transfer goods
+  ---
+  duration_ms: 12.4445
+  type: 'test'
+  ...
+# Subtest: E02: decline does not charge or transfer goods
+ok 219 - E02: decline does not charge or transfer goods
+  ---
+  duration_ms: 2.603542
+  type: 'test'
+  ...
+# Subtest: E03: decline does not charge or transfer goods
+ok 220 - E03: decline does not charge or transfer goods
+  ---
+  duration_ms: 11.120208
+  type: 'test'
+  ...
+# Subtest: E04: decline does not charge or transfer goods
+ok 221 - E04: decline does not charge or transfer goods
+  ---
+  duration_ms: 6.307917
+  type: 'test'
+  ...
+# Subtest: E05: decline does not charge or transfer goods
+ok 222 - E05: decline does not charge or transfer goods
+  ---
+  duration_ms: 5.657583
+  type: 'test'
+  ...
+# Subtest: E06: decline does not charge or transfer goods
+ok 223 - E06: decline does not charge or transfer goods
+  ---
+  duration_ms: 0.785792
+  type: 'test'
+  ...
+# Subtest: E07: decline does not charge or transfer goods
+ok 224 - E07: decline does not charge or transfer goods
+  ---
+  duration_ms: 0.731792
+  type: 'test'
+  ...
+# Subtest: E08: decline does not charge or transfer goods
+ok 225 - E08: decline does not charge or transfer goods
+  ---
+  duration_ms: 0.70775
+  type: 'test'
+  ...
+# Subtest: E09: decline does not charge or transfer goods
+ok 226 - E09: decline does not charge or transfer goods
+  ---
+  duration_ms: 0.791208
+  type: 'test'
+  ...
+# Subtest: E10: decline does not charge or transfer goods
+ok 227 - E10: decline does not charge or transfer goods
+  ---
+  duration_ms: 0.712375
+  type: 'test'
+  ...
+# Subtest: E11: decline does not charge or transfer goods
+ok 228 - E11: decline does not charge or transfer goods
+  ---
+  duration_ms: 0.880125
+  type: 'test'
+  ...
+# Subtest: E12: decline does not charge or transfer goods
+ok 229 - E12: decline does not charge or transfer goods
+  ---
+  duration_ms: 5.39
+  type: 'test'
+  ...
+# Subtest: E13: decline does not charge or transfer goods
+ok 230 - E13: decline does not charge or transfer goods
+  ---
+  duration_ms: 2.167667
+  type: 'test'
+  ...
+# Subtest: E14: decline does not charge or transfer goods
+ok 231 - E14: decline does not charge or transfer goods
+  ---
+  duration_ms: 12.553209
+  type: 'test'
+  ...
+# Subtest: E15: decline does not charge or transfer goods
+ok 232 - E15: decline does not charge or transfer goods
+  ---
+  duration_ms: 0.80925
+  type: 'test'
+  ...
+# Subtest: E16: decline does not charge or transfer goods
+ok 233 - E16: decline does not charge or transfer goods
+  ---
+  duration_ms: 15.640542
+  type: 'test'
+  ...
+# Subtest: E17: decline does not charge or transfer goods
+ok 234 - E17: decline does not charge or transfer goods
+  ---
+  duration_ms: 8.356292
+  type: 'test'
+  ...
+# Subtest: E18: decline does not charge or transfer goods
+ok 235 - E18: decline does not charge or transfer goods
+  ---
+  duration_ms: 0.891084
+  type: 'test'
+  ...
+# Subtest: E19: decline does not charge or transfer goods
+ok 236 - E19: decline does not charge or transfer goods
+  ---
+  duration_ms: 0.95375
+  type: 'test'
+  ...
+# Subtest: E20: decline does not charge or transfer goods
+ok 237 - E20: decline does not charge or transfer goods
+  ---
+  duration_ms: 9.966667
+  type: 'test'
+  ...
+# Subtest: E21: decline does not charge or transfer goods
+ok 238 - E21: decline does not charge or transfer goods
+  ---
+  duration_ms: 0.760083
+  type: 'test'
+  ...
+# Subtest: E22: decline does not charge or transfer goods
+ok 239 - E22: decline does not charge or transfer goods
+  ---
+  duration_ms: 0.715875
+  type: 'test'
+  ...
+# Subtest: E23: decline does not charge or transfer goods
+ok 240 - E23: decline does not charge or transfer goods
+  ---
+  duration_ms: 0.719167
+  type: 'test'
+  ...
+# Subtest: E24: decline does not charge or transfer goods
+ok 241 - E24: decline does not charge or transfer goods
+  ---
+  duration_ms: 0.702625
+  type: 'test'
+  ...
+# Subtest: E25: decline does not charge or transfer goods
+ok 242 - E25: decline does not charge or transfer goods
+  ---
+  duration_ms: 4.259292
+  type: 'test'
+  ...
+# Subtest: E26: decline does not charge or transfer goods
+ok 243 - E26: decline does not charge or transfer goods
+  ---
+  duration_ms: 4.27575
+  type: 'test'
+  ...
+# Subtest: E27: decline does not charge or transfer goods
+ok 244 - E27: decline does not charge or transfer goods
+  ---
+  duration_ms: 3.515542
+  type: 'test'
+  ...
+# Subtest: E28: decline does not charge or transfer goods
+ok 245 - E28: decline does not charge or transfer goods
+  ---
+  duration_ms: 3.122125
+  type: 'test'
+  ...
+# Subtest: E29: decline does not charge or transfer goods
+ok 246 - E29: decline does not charge or transfer goods
+  ---
+  duration_ms: 2.317416
+  type: 'test'
+  ...
+# Subtest: E30: decline does not charge or transfer goods
+ok 247 - E30: decline does not charge or transfer goods
+  ---
+  duration_ms: 2.232959
+  type: 'test'
+  ...
+# Subtest: E31: decline does not charge or transfer goods
+ok 248 - E31: decline does not charge or transfer goods
+  ---
+  duration_ms: 6.31875
+  type: 'test'
+  ...
+# Subtest: E32: decline does not charge or transfer goods
+ok 249 - E32: decline does not charge or transfer goods
+  ---
+  duration_ms: 1.234333
+  type: 'test'
+  ...
+# Subtest: E33: decline does not charge or transfer goods
+ok 250 - E33: decline does not charge or transfer goods
+  ---
+  duration_ms: 2.453417
+  type: 'test'
+  ...
+# Subtest: E34: decline does not charge or transfer goods
+ok 251 - E34: decline does not charge or transfer goods
+  ---
+  duration_ms: 0.911958
+  type: 'test'
+  ...
+# Subtest: E35: decline does not charge or transfer goods
+ok 252 - E35: decline does not charge or transfer goods
+  ---
+  duration_ms: 0.744209
+  type: 'test'
+  ...
+# Subtest: E36: decline does not charge or transfer goods
+ok 253 - E36: decline does not charge or transfer goods
+  ---
+  duration_ms: 0.731666
+  type: 'test'
+  ...
+# Subtest: E37: decline does not charge or transfer goods
+ok 254 - E37: decline does not charge or transfer goods
+  ---
+  duration_ms: 0.692834
+  type: 'test'
+  ...
+# Subtest: E38: decline does not charge or transfer goods
+ok 255 - E38: decline does not charge or transfer goods
+  ---
+  duration_ms: 2.92
+  type: 'test'
+  ...
+# Subtest: E39: decline does not charge or transfer goods
+ok 256 - E39: decline does not charge or transfer goods
+  ---
+  duration_ms: 0.862666
+  type: 'test'
+  ...
+# Subtest: E40: decline does not charge or transfer goods
+ok 257 - E40: decline does not charge or transfer goods
+  ---
+  duration_ms: 0.736667
+  type: 'test'
+  ...
+# Subtest: E41: decline does not charge or transfer goods
+ok 258 - E41: decline does not charge or transfer goods
+  ---
+  duration_ms: 6.208708
+  type: 'test'
+  ...
+# Subtest: E42: decline does not charge or transfer goods
+ok 259 - E42: decline does not charge or transfer goods
+  ---
+  duration_ms: 2.308708
+  type: 'test'
+  ...
+# Subtest: E43: decline does not charge or transfer goods
+ok 260 - E43: decline does not charge or transfer goods
+  ---
+  duration_ms: 2.461167
+  type: 'test'
+  ...
+# Subtest: E44: decline does not charge or transfer goods
+ok 261 - E44: decline does not charge or transfer goods
+  ---
+  duration_ms: 1.215708
+  type: 'test'
+  ...
+# Subtest: E45: decline does not charge or transfer goods
+ok 262 - E45: decline does not charge or transfer goods
+  ---
+  duration_ms: 2.224
+  type: 'test'
+  ...
+# Subtest: E46: decline does not charge or transfer goods
+ok 263 - E46: decline does not charge or transfer goods
+  ---
+  duration_ms: 7.34175
+  type: 'test'
+  ...
+# Subtest: E47: decline does not charge or transfer goods
+ok 264 - E47: decline does not charge or transfer goods
+  ---
+  duration_ms: 1.573
+  type: 'test'
+  ...
+# Subtest: catalog counts are 50 mechanical handlers and 20 independent status types
+ok 265 - catalog counts are 50 mechanical handlers and 20 independent status types
+  ---
+  duration_ms: 0.194208
+  type: 'test'
+  ...
+# Subtest: price20/offer10 is 20% detection; risk modifiers are points and apply only to NPC
+ok 266 - price20/offer10 is 20% detection; risk modifiers are points and apply only to NPC
+  ---
+  duration_ms: 5.989125
+  type: 'test'
+  ...
+# Subtest: D02 preserves B01 and already known truth; B05 and D01 cancel inspection costs
+ok 267 - D02 preserves B01 and already known truth; B05 and D01 cancel inspection costs
+  ---
+  duration_ms: 4.960125
+  type: 'test'
+  ...
+# Subtest: B02 opens curse truth; B03/D06 apply once to a bundle and D09 prevents transfers
+ok 268 - B02 opens curse truth; B03/D06 apply once to a bundle and D09 prevents transfers
+  ---
+  duration_ms: 1.421916
+  type: 'test'
+  ...
+# Subtest: B06/B07/B08 prevent only their declared effects, not voluntary costs
+ok 269 - B06/B07/B08 prevent only their declared effects, not voluntary costs
+  ---
+  duration_ms: 3.899291
+  type: 'test'
+  ...
+# Subtest: B10 and D08 change negotiation allowance; duplicate grants do not stack
+ok 270 - B10 and D08 change negotiation allowance; duplicate grants do not stack
+  ---
+  duration_ms: 2.085084
+  type: 'test'
+  ...
+# Subtest: dark market transfers immediately, uses current quotas, rejects stale/locked/duplicate sales
+ok 271 - dark market transfers immediately, uses current quotas, rejects stale/locked/duplicate sales
+  ---
+  duration_ms: 3.933375
+  type: 'test'
+  ...
+# Subtest: private view omits seed/future stock/truth; shared listings never copy another seat inspection
+ok 272 - private view omits seed/future stock/truth; shared listings never copy another seat inspection
+  ---
+  duration_ms: 2.282375
+  type: 'test'
+  ...
+# Subtest: P2P at price0 transfers once with no NPC reaction; cross-shop requires permission
+ok 273 - P2P at price0 transfers once with no NPC reaction; cross-shop requires permission
+  ---
+  duration_ms: 3.359708
+  type: 'test'
+  ...
+# Subtest: 2/3/4 seat seeded appraisal runs finish and replay, with tampering rejected
+ok 274 - 2/3/4 seat seeded appraisal runs finish and replay, with tampering rejected
+  ---
+  duration_ms: 5304.298958
+  type: 'test'
+  ...
+# Subtest: bank/prototype seat IDs are rejected and invalid action leaves original state intact
+ok 275 - bank/prototype seat IDs are rejected and invalid action leaves original state intact
+  ---
+  duration_ms: 1.166042
+  type: 'test'
+  ...
+# Subtest: alternative event choices carry their exact costs, protections and penalties
+ok 276 - alternative event choices carry their exact costs, protections and penalties
+  ---
+  duration_ms: 8.20175
+  type: 'test'
+  ...
+# Subtest: old event keys are rejected within the same encounter and failed spending is atomic
+ok 277 - old event keys are rejected within the same encounter and failed spending is atomic
+  ---
+  duration_ms: 1.210625
+  type: 'test'
+  ...
+# Subtest: all exhausted seats settle and recover; B09/D04/D05/D07/D10 timing and expiry are explicit
+ok 278 - all exhausted seats settle and recover; B09/D04/D05/D07/D10 timing and expiry are explicit
+  ---
+  duration_ms: 2.34125
+  type: 'test'
+  ...
+# Subtest: death zeros this encounter without erasing prior scores; all dead seats cannot stall a run
+ok 279 - death zeros this encounter without erasing prior scores; all dead seats cannot stall a run
+  ---
+  duration_ms: 1.120334
+  type: 'test'
+  ...
+# Subtest: cross-shop sale pays NPC and appraiser once, and insufficient combined funds roll back both
+ok 280 - cross-shop sale pays NPC and appraiser once, and insufficient combined funds roll back both
+  ---
+  duration_ms: 2.602166
+  type: 'test'
+  ...
+# Subtest: intermittent market draws are seeded, budgeted, reachable, and independent of inventory targeting
+ok 281 - intermittent market draws are seeded, budgeted, reachable, and independent of inventory targeting
+  ---
+  duration_ms: 293.966542
+  type: 'test'
+  ...
+# Subtest: competing buyers lose stale offers immediately after the first ownership transfer
+ok 282 - competing buyers lose stale offers immediately after the first ownership transfer
+  ---
+  duration_ms: 131.093792
+  type: 'test'
+  ...
+# Subtest: NPCs reject a zero appraisal without turning it into a free purchase or exposing reservation
+ok 283 - NPCs reject a zero appraisal without turning it into a free purchase or exposing reservation
+  ---
+  duration_ms: 2.077375
+  type: 'test'
+  ...
+# Subtest: all four relic values and independent hidden attributes
+ok 284 - all four relic values and independent hidden attributes
+  ---
+  duration_ms: 64.721791
+  type: 'test'
+  ...
+# Subtest: genuine contract for genuine=true, cursed=true: true
+ok 285 - genuine contract for genuine=true, cursed=true: true
+  ---
+  duration_ms: 8.409667
+  type: 'test'
+  ...
+# Subtest: genuine contract for genuine=false, cursed=false: false
+ok 286 - genuine contract for genuine=false, cursed=false: false
+  ---
+  duration_ms: 5.140834
+  type: 'test'
+  ...
+# Subtest: genuine contract for genuine=false, cursed=true: false
+ok 287 - genuine contract for genuine=false, cursed=true: false
+  ---
+  duration_ms: 4.351
+  type: 'test'
+  ...
+# Subtest: uncursed contract for genuine=true, cursed=true: false
+ok 288 - uncursed contract for genuine=true, cursed=true: false
+  ---
+  duration_ms: 2.049625
+  type: 'test'
+  ...
+# Subtest: uncursed contract for genuine=false, cursed=true: false
+ok 289 - uncursed contract for genuine=false, cursed=true: false
+  ---
+  duration_ms: 0.373625
+  type: 'test'
+  ...
+# Subtest: uncursed contract for genuine=false, cursed=false: true
+ok 290 - uncursed contract for genuine=false, cursed=false: true
+  ---
+  duration_ms: 0.353916
+  type: 'test'
+  ...
+# Subtest: uncursed contract for genuine=true, cursed=false: true
+ok 291 - uncursed contract for genuine=true, cursed=false: true
+  ---
+  duration_ms: 0.229417
+  type: 'test'
+  ...
+# Subtest: as-is contract for genuine=true, cursed=true: none
+ok 292 - as-is contract for genuine=true, cursed=true: none
+  ---
+  duration_ms: 0.398666
+  type: 'test'
+  ...
+# Subtest: unsold false guarantees return escrow without trust penalty or owned relic
+ok 293 - unsold false guarantees return escrow without trust penalty or owned relic
+  ---
+  duration_ms: 3.471375
+  type: 'test'
+  ...
+# Subtest: demand bonus belongs only to the genuine purchase's auction
+ok 294 - demand bonus belongs only to the genuine purchase's auction
+  ---
+  duration_ms: 0.623042
+  type: 'test'
+  ...
+# Subtest: seller roles, phases, stale auctions, unavailable escrow, and unknown seats reject
+ok 295 - seller roles, phases, stale auctions, unavailable escrow, and unknown seats reject
+  ---
+  duration_ms: 0.668166
+  type: 'test'
+  ...
+# Subtest: whole-number bids stay within available coins, including zero and all-in
+ok 296 - whole-number bids stay within available coins, including zero and all-in
+  ---
+  duration_ms: 0.416834
+  type: 'test'
+  ...
+# Subtest: inspection reveals one bit privately, costs one token, and cannot repeat
+ok 297 - inspection reveals one bit privately, costs one token, and cannot repeat
+  ---
+  duration_ms: 7.899333
+  type: 'test'
+  ...
+# Subtest: allowlisted views hide truth, discarded lots, seed, logs and opponents' locked bids
+ok 298 - allowlisted views hide truth, discarded lots, seed, logs and opponents' locked bids
+  ---
+  duration_ms: 1.896291
+  type: 'test'
+  ...
+# Subtest: another seat's serialized view cannot distinguish unrevealed truth, inspection findings or bid amounts
+ok 299 - another seat's serialized view cannot distinguish unrevealed truth, inspection findings or bid amounts
+  ---
+  duration_ms: 0.462333
+  type: 'test'
+  ...
+# Subtest: request retries settle only once; conflicting reuse rejects, including after advance
+ok 300 - request retries settle only once; conflicting reuse rejects, including after advance
+  ---
+  duration_ms: 0.231291
+  type: 'test'
+  ...
+# Subtest: seeded highest-bid tie ignores packet order and is auditable
+ok 301 - seeded highest-bid tie ignores packet order and is auditable
+  ---
+  duration_ms: 0.286583
+  type: 'test'
+  ...
+# Subtest: seeded generation is deterministic and probabilities can reach all four extreme truths
+ok 302 - seeded generation is deterministic and probabilities can reach all four extreme truths
+  ---
+  duration_ms: 1.952583
+  type: 'test'
+  ...
+# Subtest: invalid setup and malformed runtime actions reject without mutating state
+ok 303 - invalid setup and malformed runtime actions reject without mutating state
+  ---
+  duration_ms: 0.49975
+  type: 'test'
+  ...
+# Subtest: 2 players complete 8 auctions with equal seller turns, no elimination and reproducible scores
+ok 304 - 2 players complete 8 auctions with equal seller turns, no elimination and reproducible scores
+  ---
+  duration_ms: 107.897167
+  type: 'test'
+  ...
+# Subtest: 3 players complete 9 auctions with equal seller turns, no elimination and reproducible scores
+ok 305 - 3 players complete 9 auctions with equal seller turns, no elimination and reproducible scores
+  ---
+  duration_ms: 380.602667
+  type: 'test'
+  ...
+# Subtest: 4 players complete 12 auctions with equal seller turns, no elimination and reproducible scores
+ok 306 - 4 players complete 12 auctions with equal seller turns, no elimination and reproducible scores
+  ---
+  duration_ms: 480.086042
+  type: 'test'
+  ...
+# Subtest: replay detects tampered bids, inspections and settlement
+ok 307 - replay detects tampered bids, inspections and settlement
+  ---
+  duration_ms: 6.521875
+  type: 'test'
+  ...
+# Subtest: final score ranks by total, then remaining coins, then shared victory; negatives are valid
+ok 308 - final score ranks by total, then remaining coins, then shared victory; negatives are valid
+  ---
+  duration_ms: 0.624875
+  type: 'test'
+  ...
+# Subtest: real WebSocket protocol authenticates seats, keeps private data private and resumes locked bids
+ok 309 - real WebSocket protocol authenticates seats, keeps private data private and resumes locked bids
+  ---
+  duration_ms: 124.300375
+  type: 'test'
+  ...
+# Subtest: real network 2-player match reaches results, exports replayable audit and rematches
+ok 310 - real network 2-player match reaches results, exports replayable audit and rematches
+  ---
+  duration_ms: 99.783625
+  type: 'test'
+  ...
+# Subtest: real network 3-player match reaches results, exports replayable audit and rematches
+ok 311 - real network 3-player match reaches results, exports replayable audit and rematches
+  ---
+  duration_ms: 219.946875
+  type: 'test'
+  ...
+# Subtest: real network 4-player match reaches results, exports replayable audit and rematches
+ok 312 - real network 4-player match reaches results, exports replayable audit and rematches
+  ---
+  duration_ms: 450.526
+  type: 'test'
+  ...
+# Subtest: HTTP only serves client assets and cross-origin WebSocket upgrades reject
+ok 313 - HTTP only serves client assets and cross-origin WebSocket upgrades reject
+  ---
+  duration_ms: 42.70575
+  type: 'test'
+  ...
+# Subtest: network timeout defaults are visible in room projections
+ok 314 - network timeout defaults are visible in room projections
+  ---
+  duration_ms: 9.035375
+  type: 'test'
+  ...
+# Subtest: completed logs produce decision and timing evidence without claiming human fun
+ok 315 - completed logs produce decision and timing evidence without claiming human fun
+  ---
+  duration_ms: 12.991416
+  type: 'test'
+  ...
+# Subtest: timeout passes are excluded from manual strategy counts
+ok 316 - timeout passes are excluded from manual strategy counts
+  ---
+  duration_ms: 8.039875
+  type: 'test'
+  ...
+# Subtest: no sales has no price or tie denominator, rather than a misleading zero
+ok 317 - no sales has no price or tie denominator, rather than a misleading zero
+  ---
+  duration_ms: 4.335916
+  type: 'test'
+  ...
+# Subtest: rejects altered outcomes, scores, roster and incomplete matches
+ok 318 - rejects altered outcomes, scores, roster and incomplete matches
+  ---
+  duration_ms: 9.469667
+  type: 'test'
+  ...
+# Subtest: rejects missing, duplicate and invalid timing metadata
+ok 319 - rejects missing, duplicate and invalid timing metadata
+  ---
+  duration_ms: 5.149833
+  type: 'test'
+  ...
+# Subtest: rejects repeated copies of a match and non-export input
+ok 320 - rejects repeated copies of a match and non-export input
+  ---
+  duration_ms: 8.212375
+  type: 'test'
+  ...
+# Subtest: runtime schema rejects impersonation, extra fields, invalid names, bids and tokens
+ok 321 - runtime schema rejects impersonation, extra fields, invalid names, bids and tokens
+  ---
+  duration_ms: 1.944458
+  type: 'test'
+  ...
+# Subtest: room capacity, ready/start and host authority enforce 2–4 seats
+ok 322 - room capacity, ready/start and host authority enforce 2–4 seats
+  ---
+  duration_ms: 5.244208
+  type: 'test'
+  ...
+# Subtest: tokens stay private, reconnect restores a locked inspection and bid and replaces old socket
+ok 323 - tokens stay private, reconnect restores a locked inspection and bid and replaces old socket
+  ---
+  duration_ms: 7.55075
+  type: 'test'
+  ...
+# Subtest: deadlines do not extend on partial choices; duplicate final bid settles once
+ok 324 - deadlines do not extend on partial choices; duplicate final bid settles once
+  ---
+  duration_ms: 2.372584
+  type: 'test'
+  ...
+# Subtest: offline seller/buyers use safe defaults and every match completes without elimination
+ok 325 - offline seller/buyers use safe defaults and every match completes without elimination
+  ---
+  duration_ms: 49.662334
+  type: 'test'
+  ...
+# Subtest: route and boon deadlines stay fixed; reconnect retains votes and private offers while defaults skip unresolved choices
+ok 326 - route and boon deadlines stay fixed; reconnect retains votes and private offers while defaults skip unresolved choices
+  ---
+  duration_ms: 9.414875
+  type: 'test'
+  ...
+# Subtest: audit is inaccessible before results and stale match actions reject after rematch
+ok 327 - audit is inaccessible before results and stale match actions reject after rematch
+  ---
+  duration_ms: 23.634
+  type: 'test'
+  ...
+# Subtest: lobby host passes to a connected player; offline seats can be removed and tokens revoked
+ok 328 - lobby host passes to a connected player; offline seats can be removed and tokens revoked
+  ---
+  duration_ms: 1.1985
+  type: 'test'
+  ...
+# Subtest: reveal advances only on all seat acknowledgements or timer; stale acknowledgements reject
+ok 329 - reveal advances only on all seat acknowledgements or timer; stale acknowledgements reject
+  ---
+  duration_ms: 1.688292
+  type: 'test'
+  ...
+# Subtest: run starts at a three-branch frontier without exposing seller truth, future offers or seed
+ok 330 - run starts at a three-branch frontier without exposing seller truth, future offers or seed
+  ---
+  duration_ms: 4.532541
+  type: 'test'
+  ...
+# Subtest: route votes are private, immutable, retryable and resolve independently of packet order
+ok 331 - route votes are private, immutable, retryable and resolve independently of packet order
+  ---
+  duration_ms: 17.385292
+  type: 'test'
+  ...
+# Subtest: majority chooses its branch; all abstentions choose lowest curse risk and spend no player coins
+ok 332 - majority chooses its branch; all abstentions choose lowest curse risk and spend no player coins
+  ---
+  duration_ms: 2.877708
+  type: 'test'
+  ...
+# Subtest: branch selection changes current rules and future frontier; identical seeds and choices reproduce a run
+ok 333 - branch selection changes current rules and future frontier; identical seeds and choices reproduce a run
+  ---
+  duration_ms: 20.372333
+  type: 'test'
+  ...
+# Subtest: each buyer's random boon offers stay private; choice locks, skip is safe, old inventory is not repriced
+ok 334 - each buyer's random boon offers stay private; choice locks, skip is safe, old inventory is not repriced
+  ---
+  duration_ms: 2.02875
+  type: 'test'
+  ...
+# Subtest: builds change the value of the same relic, and high-roller cap still respects the wallet
+ok 335 - builds change the value of the same relic, and high-roller cap still respects the wallet
+  ---
+  duration_ms: 0.507
+  type: 'test'
+  ...
+# Subtest: run messages reject injected seed, foreign actor, malformed choice and out-of-range stakes
+ok 336 - run messages reject injected seed, foreign actor, malformed choice and out-of-range stakes
+  ---
+  duration_ms: 0.673375
+  type: 'test'
+  ...
+# Subtest: 300 synthetic 2/3/4-player roguelike runs preserve economy, equal seller turns, independent scores and exact replay
+ok 337 - 300 synthetic 2/3/4-player roguelike runs preserve economy, equal seller turns, independent scores and exact replay
+  ---
+  duration_ms: 2374.743875
+  type: 'test'
+  ...
+# Subtest: fast market permits each buyer to inspect and bid independently; bid closes inspection
+ok 338 - fast market permits each buyer to inspect and bid independently; bid closes inspection
+  ---
+  duration_ms: 5.452958
+  type: 'test'
+  ...
+# Subtest: unsold relic still settles wagers; wrong predictions carry the full pot plus next ante
+ok 339 - unsold relic still settles wagers; wrong predictions carry the full pot plus next ante
+  ---
+  duration_ms: 0.811667
+  type: 'test'
+  ...
+# Subtest: correct wager wins without buying; opponents' wrong stakes fund the payout
+ok 340 - correct wager wins without buying; opponents' wrong stakes fund the payout
+  ---
+  duration_ms: 0.844292
+  type: 'test'
+  ...
+# Subtest: proportional integer payouts conserve coins and use largest remainders
+ok 341 - proportional integer payouts conserve coins and use largest remainders
+  ---
+  duration_ms: 0.508583
+  type: 'test'
+  ...
+# Subtest: wager payout rounding and auction ties do not depend on packet order
+ok 342 - wager payout rounding and auction ties do not depend on packet order
+  ---
+  duration_ms: 0.737334
+  type: 'test'
+  ...
+# Subtest: sealed wagers cannot be inferred from opponents' views or public coin balances
+ok 343 - sealed wagers cannot be inferred from opponents' views or public coin balances
+  ---
+  duration_ms: 0.659167
+  type: 'test'
+  ...
+# Subtest: bid plus stake cannot overspend; invalid wagers and seller wagering reject without mutation
+ok 344 - bid plus stake cannot overspend; invalid wagers and seller wagering reject without mutation
+  ---
+  duration_ms: 0.972791
+  type: 'test'
+  ...
+# Subtest: wager retries settle once and changed prediction conflicts even after reveal
+ok 345 - wager retries settle once and changed prediction conflicts even after reveal
+  ---
+  duration_ms: 0.435208
+  type: 'test'
+  ...
+# Subtest: runtime parser rejects nested spoofing, wrong prediction type and invalid wager amount
+ok 346 - runtime parser rejects nested spoofing, wrong prediction type and invalid wager amount
+  ---
+  duration_ms: 0.518417
+  type: 'test'
+  ...
+# Subtest: v0.1 keeps its four phases and rejects experimental wagering
+ok 347 - v0.1 keeps its four phases and rejects experimental wagering
+  ---
+  duration_ms: 0.602666
+  type: 'test'
+  ...
+# Subtest: unclaimed pot returns to the market at match end, never to the last seller
+ok 348 - unclaimed pot returns to the market at match end, never to the last seller
+  ---
+  duration_ms: 1.003625
+  type: 'test'
+  ...
+# Subtest: 750 synthetic v0.2 matches preserve economy, independent scores, secrets and seeded replay
+ok 349 - 750 synthetic v0.2 matches preserve economy, independent scores, secrets and seeded replay
+  ---
+  duration_ms: 2080.257541
+  type: 'test'
+  ...
+1..349
+# tests 349
+# suites 0
+# pass 349
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6798.337125

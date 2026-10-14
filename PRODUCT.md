@@ -1,0 +1,58 @@
+# Cursed Market
+
+<!-- impeccable:product-schema 1 -->
+
+## Platform
+
+web
+
+## Stack
+
+React + TypeScript + Vite, with an authoritative Node.js server. The independent appraisal entry and asset bundle preserve the legacy auction entry and existing LAN servers.
+
+## Users
+
+Private groups of 2–4 players on their own browser/device. Human playtesting prioritizes LAN groups of 3–4, while preserving functional 2-player play. External voice is optional; in-app voice is outside scope.
+
+## Product Purpose
+
+Test whether evaluating and accepting a risky dimensional artifact creates enough temptation, doubt, commitment and surprise to make players request another run. The first auction playtest was reported as lifeless, repetitive, predictable and not fun. Differentiation from Dealer's Life and enjoyable decisions remain hypotheses. A 10–15 minute run is an experimental target to measure.
+
+## Positioning
+
+Players are appraisers choosing portals to Orc, Vampire, Autometa, Alien, Dark One or Beast merchants. Each merchant offers artifacts with hidden base value, authenticity and curses. Players inspect, appraise, negotiate, purchase with credits or accept conditions, construct run-local inventories/statuses, and trade with other appraisers. A low NPC appraisal risks detection and consequences; low P2P offers do not invoke NPC retaliation.
+
+v0.5 runs seeded encounters until all players have zero life, with 50 mechanically resolved event types, 20 combined buff/debuff types and 30 product kinds. Life and energy are separate. Historical v0.4 retains three encounters. The 10/10 split and numeric balance are assistant-selected experiments recorded in `docs/plan/Appraisal_Rules_Decisions_v0.4.md`, not human-validated balance.
+
+The Dark Market rolls before each encounter and, when open, buys until that encounter ends. One or more randomly selected item types receive fixed quotes with quotas and reserved funding. Newly bought artifacts can be sold immediately. Previously sold types remain eligible for future demand; the system does not target anyone's inventory or sale history. The 50% opening probability and 1–3 order default are provisional.
+
+## Operating Context
+
+Private room code, ready/start, simultaneous private portal and NPC decisions, shared negotiation, reveal/results and rematch. Credit and energy are separate resources. Zero energy keeps the player active for portals, non-energy decisions and recovery encounters; energy-cost actions require sufficient energy. Life zero permanently spectators the player for this run. Living players lose one life at encounter end and can recover life through goods/deals. All dead triggers one Collector settlement of held item value, remaining credits and score-status modifiers; no accumulated encounter or accuracy score is added. The lobby host chooses timed or untimed play and whole-second durations of 1–900 seconds for each of four phases. Timed deadlines and safe defaults advance absent seats; untimed play waits for required manual completion, including living disconnected seats returning and living seats confirming reveal. Dead spectators never block continuation. An opaque temporary session token supports seat resume.
+
+## Capabilities and Constraints
+
+The authoritative server owns hidden truths, validation, random results, atomic settlement and room timing. Timing changes are host-only before start, reset readiness when values change, persist across resume/host transfer/rematch and are locked during the run. Enabled deadlines stay fixed per phase; disabled timing has null deadlines. Optional timer metadata in schema-v4/v5 room audits preserves older audit compatibility. Appraisers has 6 merchant types, 30 artifact kinds across 10 art families, inspection, accepted price previews, conditions, inventory activation, P2P exchange, permissioned cross-shop purchases, Dark Market and downloadable schema-v4/v5 replay audits. In-memory rooms do not survive server restart.
+
+The Thai realistic-card UI is implemented using live private DTOs, separate generated NPC/item art with exact prompt provenance, self-hosted Thai typography, bounded motion and opt-in synthesized feedback. Realistic cards are the authorized goal's working delivery direction, not a user-approved final brand. The three concepts in `docs/art/concepts/v0.4/` remain exploration; they are not functional UI screenshots or approved comps.
+
+Numerical survival defaults are experimental: life6/max6, energy10 and entrycost1ifavailable, one merchant recovery deal per encounter, true food/potion healing2, cursed activation damage1 and B10/D10 Collector +20%/−20%. Dead inventory, credits and status ages freeze until collection. See `docs/plan/Survival_Collector_v0.5.md`.
+
+No accounts, ranking, combat, permanent progression, public hosting, Three.js world, pixel spritesheet or automation is included. Existing LAN processes and baseline audits are preserved. The user's instruction **“หยุดตรวจภาพ ใช้ผลตรวจเดิม”** remains binding: no new screenshot, raster or visual QA. The later missing-image report authorized narrow functional browser DOM/image-decoding diagnostics; these cannot certify rendered layout, mobile interaction, screen-reader behavior, visual fidelity or final art quality.
+
+The user subsequently required at least 30 products. The catalog now has 30 distinct kinds; each merchant has nine favored variants, and family events accept them. New runs use catalogVersion 2; exact-config restore preserves original v0.4 audits with no version field. Existing family art is deliberately reused. The missing Dark Market images came from constructing nonexistent filenames for new variants; all orders now use the shared family-image mapper. New survival entry uses http://192.168.10.150:3107; listeners 3100–3105 are preserved. Explicit APPRAISAL_RULES=survival selects engine/audit schema5; no flag preserves v0.4/schema4, and exact historical replay remains required. See docs/validation/survival-v0.5.md and the historical timer/catalog reports.
+
+## Evidence on Hand
+
+v0.5 current delivery passes349 automated tests,27 focused survival/privacy/SSR regressions, full server/legacy/appraisal builds,120 strictly replayed seeded runs(6–16encounters), six actual LAN2/3/4-seat custom timed/untimed runs with Collector and rematch,12 old/new CLI replays and9mixedv4/v5reports. Fresh finish reviewer scored F1 commitment disclosure andF2hidden-valueprojection resolved in one batch. See `docs/validation/survival-v0.5.md`. No v0.5 browser or visual QA occurred.
+
+GDD v0.1 and prior auction/roguelike baselines remain historical. User feedback is recorded in `docs/playtests/2026-10-13-first-feedback.md`; participant counts, individual ratings and human audit are unknown. The prior v0.4 delivery passed 322 automated tests, including domain coverage for all event/status IDs, 61 UI/model/SSR tests, 5 report/replay tests, 42 catalog/migration tests and 10 timer/image regressions. Six actual LAN-address 2/3/4-player HTTP/WebSocket runs cover custom timed and untimed completion, strict replay and rematch. Both production bundles build successfully. The timer finish reviewer resolved its one bounded untimed-copy finding in `docs/validation/appraisal-timers-v0.4-review.md`; the original three resolved UI findings remain historical.
+
+M0–M5 technical delivery is complete at playtest readiness under `docs/plan/Card_Appraisers_Delivery_v0.4.md`. Previous M3 evidence remains separate in the domain/network reports. Bots and source review do not establish human fun. The technical goal ends at playtest readiness and does not depend on waiting for human attendance.
+
+## Product Principles
+
+- Make the current decision, its cost, accepted quote and exact condition visible before commitment.
+- Keep seed, future offers and unrevealed/private item facts on the server; retry and reconnect do not reroll or pay twice.
+- Keep zero-energy recovery choices available; show permanent death and spectator waiting clearly. Calculate final score once when every player has died.
+- Complete and verify the requested 50-event/20-status scope, then use human evidence to change decision quality before expanding content or visual polish.

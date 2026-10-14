@@ -1,0 +1,1921 @@
+{
+  "schemaVersion": 1,
+  "evidenceKind": "match-logs-only",
+  "limitation": "Logs cannot establish human participation, understanding, engagement, enjoyment or voluntary rematches. Collect the observer worksheet separately.",
+  "humanFunValidated": false,
+  "voluntaryRematchRate": null,
+  "matches": [
+    {
+      "matchId": "6766e4fd547ccbc6",
+      "rulesVersion": "0.1",
+      "run": null,
+      "playtestMode": "no-voice",
+      "playerCount": 3,
+      "recordedDurationSeconds": 0.396,
+      "auctions": 9,
+      "sold": {
+        "numerator": 0,
+        "denominator": 9,
+        "value": 0
+      },
+      "averageWinningBid": null,
+      "highestBidTies": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "manualPassBids": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "defaultBidCount": 18,
+      "curseWagers": {
+        "count": 0,
+        "totalStaked": 0,
+        "correct": 0,
+        "largestPot": 0,
+        "unclaimedAtEnd": 0
+      },
+      "richestFinalCoinShare": {
+        "numerator": 15,
+        "denominator": 45,
+        "value": 0.3333333333333333
+      },
+      "truthfulGenuineButCursedSales": 0,
+      "timeoutsByPhase": {
+        "ROUTE_CHOICE": 0,
+        "BOON_CHOICE": 0,
+        "SELLER_PREP": 9,
+        "BUYER_INSPECTION": 18,
+        "SEALED_BID": 18,
+        "REVEAL": 9
+      },
+      "phaseSeconds": {
+        "ROUTE_CHOICE": {
+          "mean": null,
+          "max": null
+        },
+        "BOON_CHOICE": {
+          "mean": null,
+          "max": null
+        },
+        "SELLER_PREP": {
+          "mean": 0.010999999999999998,
+          "max": 0.011
+        },
+        "BUYER_INSPECTION": {
+          "mean": 0.010999999999999998,
+          "max": 0.011
+        },
+        "SEALED_BID": {
+          "mean": 0.010999999999999998,
+          "max": 0.011
+        },
+        "REVEAL": {
+          "mean": 0.010999999999999998,
+          "max": 0.011
+        }
+      },
+      "players": [
+        {
+          "playerId": "89cf45266fbdaefa",
+          "finalScore": 15,
+          "finalCoins": 15,
+          "inspectionTokensUnused": 2,
+          "manualOffers": {
+            "as-is": 0,
+            "genuine": 0,
+            "uncursed": 0
+          },
+          "manualInspectionChoices": {
+            "genuine": 0,
+            "cursed": 0,
+            "pass": 0
+          },
+          "manualBidChoices": {
+            "positive": 0,
+            "pass": 0
+          },
+          "defaultChoices": 15,
+          "falseCertificates": 0
+        },
+        {
+          "playerId": "8af99aa601c5cfd4",
+          "finalScore": 15,
+          "finalCoins": 15,
+          "inspectionTokensUnused": 2,
+          "manualOffers": {
+            "as-is": 0,
+            "genuine": 0,
+            "uncursed": 0
+          },
+          "manualInspectionChoices": {
+            "genuine": 0,
+            "cursed": 0,
+            "pass": 0
+          },
+          "manualBidChoices": {
+            "positive": 0,
+            "pass": 0
+          },
+          "defaultChoices": 15,
+          "falseCertificates": 0
+        },
+        {
+          "playerId": "0b8e98ec95c31546",
+          "finalScore": 15,
+          "finalCoins": 15,
+          "inspectionTokensUnused": 2,
+          "manualOffers": {
+            "as-is": 0,
+            "genuine": 0,
+            "uncursed": 0
+          },
+          "manualInspectionChoices": {
+            "genuine": 0,
+            "cursed": 0,
+            "pass": 0
+          },
+          "manualBidChoices": {
+            "positive": 0,
+            "pass": 0
+          },
+          "defaultChoices": 15,
+          "falseCertificates": 0
+        }
+      ]
+    },
+    {
+      "matchId": "b7fe8f55dc827a82",
+      "rulesVersion": "0.2-experimental",
+      "run": null,
+      "playtestMode": "no-voice",
+      "playerCount": 3,
+      "recordedDurationSeconds": 0.297,
+      "auctions": 9,
+      "sold": {
+        "numerator": 0,
+        "denominator": 9,
+        "value": 0
+      },
+      "averageWinningBid": null,
+      "highestBidTies": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "manualPassBids": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "defaultBidCount": 18,
+      "curseWagers": {
+        "count": 0,
+        "totalStaked": 0,
+        "correct": 0,
+        "largestPot": 18,
+        "unclaimedAtEnd": 18
+      },
+      "richestFinalCoinShare": {
+        "numerator": 15,
+        "denominator": 45,
+        "value": 0.3333333333333333
+      },
+      "truthfulGenuineButCursedSales": 0,
+      "timeoutsByPhase": {
+        "ROUTE_CHOICE": 0,
+        "BOON_CHOICE": 0,
+        "SELLER_PREP": 9,
+        "BUYER_INSPECTION": 0,
+        "SEALED_BID": 18,
+        "REVEAL": 9
+      },
+      "phaseSeconds": {
+        "ROUTE_CHOICE": {
+          "mean": null,
+          "max": null
+        },
+        "BOON_CHOICE": {
+          "mean": null,
+          "max": null
+        },
+        "SELLER_PREP": {
+          "mean": 0.010999999999999998,
+          "max": 0.011
+        },
+        "BUYER_INSPECTION": {
+          "mean": null,
+          "max": null
+        },
+        "SEALED_BID": {
+          "mean": 0.010999999999999998,
+          "max": 0.011
+        },
+        "REVEAL": {
+          "mean": 0.010999999999999998,
+          "max": 0.011
+        }
+      },
+      "players": [
+        {
+          "playerId": "7667ca97debd3fad",
+          "finalScore": 15,
+          "finalCoins": 15,
+          "inspectionTokensUnused": 2,
+          "manualOffers": {
+            "as-is": 0,
+            "genuine": 0,
+            "uncursed": 0
+          },
+          "manualInspectionChoices": {
+            "genuine": 0,
+            "cursed": 0,
+            "pass": 0
+          },
+          "manualBidChoices": {
+            "positive": 0,
+            "pass": 0
+          },
+          "defaultChoices": 9,
+          "falseCertificates": 0
+        },
+        {
+          "playerId": "155dfee67d7d4194",
+          "finalScore": 15,
+          "finalCoins": 15,
+          "inspectionTokensUnused": 2,
+          "manualOffers": {
+            "as-is": 0,
+            "genuine": 0,
+            "uncursed": 0
+          },
+          "manualInspectionChoices": {
+            "genuine": 0,
+            "cursed": 0,
+            "pass": 0
+          },
+          "manualBidChoices": {
+            "positive": 0,
+            "pass": 0
+          },
+          "defaultChoices": 9,
+          "falseCertificates": 0
+        },
+        {
+          "playerId": "39c75b9244d85860",
+          "finalScore": 15,
+          "finalCoins": 15,
+          "inspectionTokensUnused": 2,
+          "manualOffers": {
+            "as-is": 0,
+            "genuine": 0,
+            "uncursed": 0
+          },
+          "manualInspectionChoices": {
+            "genuine": 0,
+            "cursed": 0,
+            "pass": 0
+          },
+          "manualBidChoices": {
+            "positive": 0,
+            "pass": 0
+          },
+          "defaultChoices": 9,
+          "falseCertificates": 0
+        }
+      ]
+    },
+    {
+      "matchId": "dac30497a3a54660",
+      "rulesVersion": "0.3-roguelike-experimental",
+      "run": {
+        "path": [
+          {
+            "id": "1-0",
+            "name": "วิหารชำระล้าง",
+            "demand": "Mirror",
+            "cursedProbability": 0.05,
+            "ante": 1
+          },
+          {
+            "id": "2-4",
+            "name": "ตรอกของเลียนแบบ",
+            "demand": "Mirror",
+            "cursedProbability": 0.15,
+            "ante": 1
+          },
+          {
+            "id": "3-4",
+            "name": "ตรอกของเลียนแบบ",
+            "demand": "Clock",
+            "cursedProbability": 0.35,
+            "ante": 1
+          }
+        ],
+        "builds": [
+          {
+            "playerId": "42e91fb379d61bab",
+            "boons": []
+          },
+          {
+            "playerId": "05ea6baf1d381a38",
+            "boons": []
+          },
+          {
+            "playerId": "c7d6d4c4f2beab3e",
+            "boons": []
+          }
+        ],
+        "routeVotes": 9
+      },
+      "playtestMode": "no-voice",
+      "playerCount": 3,
+      "recordedDurationSeconds": 0.352,
+      "auctions": 9,
+      "sold": {
+        "numerator": 0,
+        "denominator": 9,
+        "value": 0
+      },
+      "averageWinningBid": null,
+      "highestBidTies": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "manualPassBids": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "defaultBidCount": 18,
+      "curseWagers": {
+        "count": 0,
+        "totalStaked": 0,
+        "correct": 0,
+        "largestPot": 9,
+        "unclaimedAtEnd": 9
+      },
+      "richestFinalCoinShare": {
+        "numerator": 15,
+        "denominator": 45,
+        "value": 0.3333333333333333
+      },
+      "truthfulGenuineButCursedSales": 0,
+      "timeoutsByPhase": {
+        "ROUTE_CHOICE": 9,
+        "BOON_CHOICE": 6,
+        "SELLER_PREP": 9,
+        "BUYER_INSPECTION": 0,
+        "SEALED_BID": 18,
+        "REVEAL": 9
+      },
+      "phaseSeconds": {
+        "ROUTE_CHOICE": {
+          "mean": 0.011000000000000001,
+          "max": 0.011
+        },
+        "BOON_CHOICE": {
+          "mean": 0.011,
+          "max": 0.011
+        },
+        "SELLER_PREP": {
+          "mean": 0.010999999999999998,
+          "max": 0.011
+        },
+        "BUYER_INSPECTION": {
+          "mean": null,
+          "max": null
+        },
+        "SEALED_BID": {
+          "mean": 0.010999999999999998,
+          "max": 0.011
+        },
+        "REVEAL": {
+          "mean": 0.010999999999999998,
+          "max": 0.011
+        }
+      },
+      "players": [
+        {
+          "playerId": "42e91fb379d61bab",
+          "finalScore": 15,
+          "finalCoins": 15,
+          "inspectionTokensUnused": 2,
+          "manualOffers": {
+            "as-is": 0,
+            "genuine": 0,
+            "uncursed": 0
+          },
+          "manualInspectionChoices": {
+            "genuine": 0,
+            "cursed": 0,
+            "pass": 0
+          },
+          "manualBidChoices": {
+            "positive": 0,
+            "pass": 0
+          },
+          "defaultChoices": 14,
+          "falseCertificates": 0
+        },
+        {
+          "playerId": "05ea6baf1d381a38",
+          "finalScore": 15,
+          "finalCoins": 15,
+          "inspectionTokensUnused": 2,
+          "manualOffers": {
+            "as-is": 0,
+            "genuine": 0,
+            "uncursed": 0
+          },
+          "manualInspectionChoices": {
+            "genuine": 0,
+            "cursed": 0,
+            "pass": 0
+          },
+          "manualBidChoices": {
+            "positive": 0,
+            "pass": 0
+          },
+          "defaultChoices": 14,
+          "falseCertificates": 0
+        },
+        {
+          "playerId": "c7d6d4c4f2beab3e",
+          "finalScore": 15,
+          "finalCoins": 15,
+          "inspectionTokensUnused": 2,
+          "manualOffers": {
+            "as-is": 0,
+            "genuine": 0,
+            "uncursed": 0
+          },
+          "manualInspectionChoices": {
+            "genuine": 0,
+            "cursed": 0,
+            "pass": 0
+          },
+          "manualBidChoices": {
+            "positive": 0,
+            "pass": 0
+          },
+          "defaultChoices": 14,
+          "falseCertificates": 0
+        }
+      ]
+    },
+    {
+      "matchId": "a518fea8e7703528",
+      "rulesVersion": "0.4-appraisers-experimental",
+      "playtestMode": "no-voice",
+      "playerCount": 2,
+      "recordedDurationSeconds": 0.098,
+      "encounters": 3,
+      "commandCounts": {
+        "appraise": 11,
+        "buy": 5,
+        "done": 12,
+        "enter": 6,
+        "event": 14,
+        "share": 11
+      },
+      "manualCommandCounts": {
+        "appraise": 11,
+        "buy": 5,
+        "done": 12,
+        "enter": 6,
+        "event": 14,
+        "share": 11
+      },
+      "defaultChoices": 0,
+      "eventOffers": {
+        "E01": 1,
+        "E04": 1,
+        "E08": 1,
+        "E10": 1,
+        "E13": 1,
+        "E17": 1,
+        "E20": 2,
+        "E27": 1,
+        "E36": 1,
+        "E42": 1,
+        "E44": 1,
+        "E48": 2
+      },
+      "eventAccepts": {
+        "E04": 1,
+        "E44": 1,
+        "E48": 2
+      },
+      "eventDeclines": {
+        "E01": 1,
+        "E08": 1,
+        "E10": 1,
+        "E13": 1,
+        "E17": 1,
+        "E20": 2,
+        "E27": 1,
+        "E36": 1,
+        "E42": 1
+      },
+      "recordedAppraisals": {
+        "count": 11,
+        "caught": 2,
+        "accepted": 6
+      },
+      "transactionCounts": {
+        "E04": 1,
+        "E44": 1,
+        "E48": 1,
+        "npc-purchase": 5
+      },
+      "phases": [
+        {
+          "encounter": 1,
+          "phase": "PORTALS",
+          "seconds": 0.022
+        },
+        {
+          "encounter": 1,
+          "phase": "APPRAISAL",
+          "seconds": 0.012
+        },
+        {
+          "encounter": 1,
+          "phase": "TRADE",
+          "seconds": 0.008
+        },
+        {
+          "encounter": 1,
+          "phase": "REVEAL",
+          "seconds": 0.004
+        },
+        {
+          "encounter": 2,
+          "phase": "PORTALS",
+          "seconds": 0.004
+        },
+        {
+          "encounter": 2,
+          "phase": "APPRAISAL",
+          "seconds": 0.012
+        },
+        {
+          "encounter": 2,
+          "phase": "TRADE",
+          "seconds": 0.011
+        },
+        {
+          "encounter": 2,
+          "phase": "REVEAL",
+          "seconds": 0.001
+        },
+        {
+          "encounter": 3,
+          "phase": "PORTALS",
+          "seconds": 0.006
+        },
+        {
+          "encounter": 3,
+          "phase": "APPRAISAL",
+          "seconds": 0.009
+        },
+        {
+          "encounter": 3,
+          "phase": "TRADE",
+          "seconds": 0.007
+        },
+        {
+          "encounter": 3,
+          "phase": "REVEAL",
+          "seconds": 0.002
+        }
+      ],
+      "players": [
+        {
+          "playerId": "e6b0070f8207fcbf",
+          "name": "เจ้าของ",
+          "credits": 1,
+          "energy": 6,
+          "itemCount": 1,
+          "score": 5,
+          "deadEncounters": 0,
+          "exhaustedEncounters": 0
+        },
+        {
+          "playerId": "f788baba0d9f10d8",
+          "name": "นักประเมิน",
+          "credits": 15,
+          "energy": 6,
+          "itemCount": 2,
+          "score": 4,
+          "deadEncounters": 0,
+          "exhaustedEncounters": 0
+        }
+      ],
+      "winnerIds": [
+        "e6b0070f8207fcbf"
+      ],
+      "scoreBreakdown": [
+        {
+          "encounter": 1,
+          "playerId": "e6b0070f8207fcbf",
+          "gain": 0,
+          "accuracy": 0,
+          "score": 0,
+          "paused": null
+        },
+        {
+          "encounter": 1,
+          "playerId": "f788baba0d9f10d8",
+          "gain": 4,
+          "accuracy": 0,
+          "score": 4,
+          "paused": null
+        },
+        {
+          "encounter": 2,
+          "playerId": "e6b0070f8207fcbf",
+          "gain": 0,
+          "accuracy": 5,
+          "score": 5,
+          "paused": null
+        },
+        {
+          "encounter": 2,
+          "playerId": "f788baba0d9f10d8",
+          "gain": 0,
+          "accuracy": 0,
+          "score": 0,
+          "paused": null
+        },
+        {
+          "encounter": 3,
+          "playerId": "e6b0070f8207fcbf",
+          "gain": 0,
+          "accuracy": 0,
+          "score": 0,
+          "paused": null
+        },
+        {
+          "encounter": 3,
+          "playerId": "f788baba0d9f10d8",
+          "gain": 0,
+          "accuracy": 0,
+          "score": 0,
+          "paused": null
+        }
+      ]
+    },
+    {
+      "matchId": "a57c827fac9015ac",
+      "rulesVersion": "0.4-appraisers-experimental",
+      "playtestMode": "no-voice",
+      "playerCount": 3,
+      "recordedDurationSeconds": 0.191,
+      "encounters": 3,
+      "commandCounts": {
+        "appraise": 18,
+        "buy": 11,
+        "done": 18,
+        "enter": 9,
+        "event": 18,
+        "market-sell": 1,
+        "share": 21
+      },
+      "manualCommandCounts": {
+        "appraise": 18,
+        "buy": 11,
+        "done": 18,
+        "enter": 9,
+        "event": 18,
+        "market-sell": 1,
+        "share": 21
+      },
+      "defaultChoices": 0,
+      "eventOffers": {
+        "E01": 2,
+        "E04": 1,
+        "E08": 2,
+        "E10": 1,
+        "E11": 1,
+        "E14": 2,
+        "E18": 2,
+        "E21": 1,
+        "E42": 1,
+        "E43": 2,
+        "E44": 1,
+        "E46": 2
+      },
+      "eventAccepts": {
+        "E04": 1,
+        "E43": 2,
+        "E44": 1
+      },
+      "eventDeclines": {
+        "E01": 2,
+        "E08": 2,
+        "E10": 1,
+        "E11": 1,
+        "E14": 2,
+        "E18": 2,
+        "E21": 1,
+        "E42": 1,
+        "E46": 2
+      },
+      "recordedAppraisals": {
+        "count": 18,
+        "caught": 0,
+        "accepted": 12
+      },
+      "transactionCounts": {
+        "E04": 1,
+        "E44": 1,
+        "dark-market": 1,
+        "npc-purchase": 11
+      },
+      "phases": [
+        {
+          "encounter": 1,
+          "phase": "PORTALS",
+          "seconds": 0.008
+        },
+        {
+          "encounter": 1,
+          "phase": "APPRAISAL",
+          "seconds": 0.035
+        },
+        {
+          "encounter": 1,
+          "phase": "TRADE",
+          "seconds": 0.01
+        },
+        {
+          "encounter": 1,
+          "phase": "REVEAL",
+          "seconds": 0.003
+        },
+        {
+          "encounter": 2,
+          "phase": "PORTALS",
+          "seconds": 0.008
+        },
+        {
+          "encounter": 2,
+          "phase": "APPRAISAL",
+          "seconds": 0.035
+        },
+        {
+          "encounter": 2,
+          "phase": "TRADE",
+          "seconds": 0.023
+        },
+        {
+          "encounter": 2,
+          "phase": "REVEAL",
+          "seconds": 0.003
+        },
+        {
+          "encounter": 3,
+          "phase": "PORTALS",
+          "seconds": 0.014
+        },
+        {
+          "encounter": 3,
+          "phase": "APPRAISAL",
+          "seconds": 0.028
+        },
+        {
+          "encounter": 3,
+          "phase": "TRADE",
+          "seconds": 0.02
+        },
+        {
+          "encounter": 3,
+          "phase": "REVEAL",
+          "seconds": 0.004
+        }
+      ],
+      "players": [
+        {
+          "playerId": "5c762ceb9480eada",
+          "name": "เจ้าของ",
+          "credits": 3,
+          "energy": 4,
+          "itemCount": 4,
+          "score": 10,
+          "deadEncounters": 0,
+          "exhaustedEncounters": 0
+        },
+        {
+          "playerId": "f548abe4d1cfbeda",
+          "name": "นักประเมิน",
+          "credits": 9,
+          "energy": 3,
+          "itemCount": 4,
+          "score": 13,
+          "deadEncounters": 0,
+          "exhaustedEncounters": 0
+        },
+        {
+          "playerId": "622111800761b4ba",
+          "name": "นักประเมิน",
+          "credits": 20,
+          "energy": 6,
+          "itemCount": 1,
+          "score": 17,
+          "deadEncounters": 0,
+          "exhaustedEncounters": 0
+        }
+      ],
+      "winnerIds": [
+        "622111800761b4ba"
+      ],
+      "scoreBreakdown": [
+        {
+          "encounter": 1,
+          "playerId": "5c762ceb9480eada",
+          "gain": 6,
+          "accuracy": 0,
+          "score": 6,
+          "paused": null
+        },
+        {
+          "encounter": 1,
+          "playerId": "f548abe4d1cfbeda",
+          "gain": 12,
+          "accuracy": 0,
+          "score": 12,
+          "paused": null
+        },
+        {
+          "encounter": 1,
+          "playerId": "622111800761b4ba",
+          "gain": 10,
+          "accuracy": 0,
+          "score": 10,
+          "paused": null
+        },
+        {
+          "encounter": 2,
+          "playerId": "5c762ceb9480eada",
+          "gain": 0,
+          "accuracy": 0,
+          "score": 0,
+          "paused": null
+        },
+        {
+          "encounter": 2,
+          "playerId": "f548abe4d1cfbeda",
+          "gain": 0,
+          "accuracy": 0,
+          "score": 0,
+          "paused": null
+        },
+        {
+          "encounter": 2,
+          "playerId": "622111800761b4ba",
+          "gain": 2,
+          "accuracy": 0,
+          "score": 2,
+          "paused": null
+        },
+        {
+          "encounter": 3,
+          "playerId": "5c762ceb9480eada",
+          "gain": 4,
+          "accuracy": 0,
+          "score": 4,
+          "paused": null
+        },
+        {
+          "encounter": 3,
+          "playerId": "f548abe4d1cfbeda",
+          "gain": 1,
+          "accuracy": 0,
+          "score": 1,
+          "paused": null
+        },
+        {
+          "encounter": 3,
+          "playerId": "622111800761b4ba",
+          "gain": 0,
+          "accuracy": 5,
+          "score": 5,
+          "paused": null
+        }
+      ]
+    },
+    {
+      "matchId": "b8e543dbddf5d41f",
+      "rulesVersion": "0.4-appraisers-experimental",
+      "playtestMode": "no-voice",
+      "playerCount": 4,
+      "recordedDurationSeconds": 0.247,
+      "encounters": 3,
+      "commandCounts": {
+        "appraise": 23,
+        "buy": 17,
+        "done": 24,
+        "enter": 12,
+        "event": 25,
+        "market-sell": 5,
+        "share": 26
+      },
+      "manualCommandCounts": {
+        "appraise": 23,
+        "buy": 17,
+        "done": 24,
+        "enter": 12,
+        "event": 25,
+        "market-sell": 5,
+        "share": 26
+      },
+      "defaultChoices": 0,
+      "eventOffers": {
+        "E01": 2,
+        "E08": 2,
+        "E09": 1,
+        "E10": 2,
+        "E11": 1,
+        "E12": 1,
+        "E13": 2,
+        "E15": 1,
+        "E21": 1,
+        "E30": 1,
+        "E36": 1,
+        "E39": 1,
+        "E40": 1,
+        "E42": 3,
+        "E43": 3,
+        "E46": 1,
+        "E48": 1
+      },
+      "eventAccepts": {
+        "E15": 1,
+        "E43": 3,
+        "E48": 1
+      },
+      "eventDeclines": {
+        "E01": 2,
+        "E08": 2,
+        "E09": 1,
+        "E10": 2,
+        "E11": 1,
+        "E12": 1,
+        "E13": 2,
+        "E21": 1,
+        "E30": 1,
+        "E36": 1,
+        "E39": 1,
+        "E40": 1,
+        "E42": 3,
+        "E46": 1
+      },
+      "recordedAppraisals": {
+        "count": 23,
+        "caught": 1,
+        "accepted": 15
+      },
+      "transactionCounts": {
+        "E48": 1,
+        "dark-market": 5,
+        "npc-purchase": 17
+      },
+      "phases": [
+        {
+          "encounter": 1,
+          "phase": "PORTALS",
+          "seconds": 0.007
+        },
+        {
+          "encounter": 1,
+          "phase": "APPRAISAL",
+          "seconds": 0.043
+        },
+        {
+          "encounter": 1,
+          "phase": "TRADE",
+          "seconds": 0.011
+        },
+        {
+          "encounter": 1,
+          "phase": "REVEAL",
+          "seconds": 0.002
+        },
+        {
+          "encounter": 2,
+          "phase": "PORTALS",
+          "seconds": 0.033
+        },
+        {
+          "encounter": 2,
+          "phase": "APPRAISAL",
+          "seconds": 0.035
+        },
+        {
+          "encounter": 2,
+          "phase": "TRADE",
+          "seconds": 0.022
+        },
+        {
+          "encounter": 2,
+          "phase": "REVEAL",
+          "seconds": 0.003
+        },
+        {
+          "encounter": 3,
+          "phase": "PORTALS",
+          "seconds": 0.023
+        },
+        {
+          "encounter": 3,
+          "phase": "APPRAISAL",
+          "seconds": 0.033
+        },
+        {
+          "encounter": 3,
+          "phase": "TRADE",
+          "seconds": 0.029
+        },
+        {
+          "encounter": 3,
+          "phase": "REVEAL",
+          "seconds": 0.006
+        }
+      ],
+      "players": [
+        {
+          "playerId": "40b0b12d1910cb80",
+          "name": "เจ้าของ",
+          "credits": 3,
+          "energy": 2,
+          "itemCount": 4,
+          "score": 26,
+          "deadEncounters": 0,
+          "exhaustedEncounters": 0
+        },
+        {
+          "playerId": "664286011d3bf28a",
+          "name": "นักประเมิน",
+          "credits": 5,
+          "energy": 8,
+          "itemCount": 1,
+          "score": 5,
+          "deadEncounters": 0,
+          "exhaustedEncounters": 0
+        },
+        {
+          "playerId": "7085de76f3da077d",
+          "name": "นักประเมิน",
+          "credits": 12,
+          "energy": 2,
+          "itemCount": 4,
+          "score": 38,
+          "deadEncounters": 0,
+          "exhaustedEncounters": 0
+        },
+        {
+          "playerId": "2ac9d644f6c61ad6",
+          "name": "นักประเมิน",
+          "credits": 21,
+          "energy": 3,
+          "itemCount": 3,
+          "score": 44,
+          "deadEncounters": 0,
+          "exhaustedEncounters": 0
+        }
+      ],
+      "winnerIds": [
+        "2ac9d644f6c61ad6"
+      ],
+      "scoreBreakdown": [
+        {
+          "encounter": 1,
+          "playerId": "40b0b12d1910cb80",
+          "gain": 6,
+          "accuracy": 0,
+          "score": 6,
+          "paused": null
+        },
+        {
+          "encounter": 1,
+          "playerId": "664286011d3bf28a",
+          "gain": 0,
+          "accuracy": 5,
+          "score": 5,
+          "paused": null
+        },
+        {
+          "encounter": 1,
+          "playerId": "7085de76f3da077d",
+          "gain": 28,
+          "accuracy": 5,
+          "score": 33,
+          "paused": null
+        },
+        {
+          "encounter": 1,
+          "playerId": "2ac9d644f6c61ad6",
+          "gain": 0,
+          "accuracy": 0,
+          "score": 0,
+          "paused": null
+        },
+        {
+          "encounter": 2,
+          "playerId": "40b0b12d1910cb80",
+          "gain": 11,
+          "accuracy": 0,
+          "score": 11,
+          "paused": null
+        },
+        {
+          "encounter": 2,
+          "playerId": "664286011d3bf28a",
+          "gain": 0,
+          "accuracy": 0,
+          "score": 0,
+          "paused": null
+        },
+        {
+          "encounter": 2,
+          "playerId": "7085de76f3da077d",
+          "gain": 5,
+          "accuracy": 0,
+          "score": 5,
+          "paused": null
+        },
+        {
+          "encounter": 2,
+          "playerId": "2ac9d644f6c61ad6",
+          "gain": 8,
+          "accuracy": 5,
+          "score": 13,
+          "paused": null
+        },
+        {
+          "encounter": 3,
+          "playerId": "40b0b12d1910cb80",
+          "gain": 9,
+          "accuracy": 0,
+          "score": 9,
+          "paused": null
+        },
+        {
+          "encounter": 3,
+          "playerId": "664286011d3bf28a",
+          "gain": 0,
+          "accuracy": 0,
+          "score": 0,
+          "paused": null
+        },
+        {
+          "encounter": 3,
+          "playerId": "7085de76f3da077d",
+          "gain": 0,
+          "accuracy": 0,
+          "score": 0,
+          "paused": null
+        },
+        {
+          "encounter": 3,
+          "playerId": "2ac9d644f6c61ad6",
+          "gain": 21,
+          "accuracy": 10,
+          "score": 31,
+          "paused": null
+        }
+      ]
+    },
+    {
+      "matchId": "f4b023c431d20465",
+      "rulesVersion": "0.4-appraisers-experimental",
+      "playtestMode": "no-voice",
+      "playerCount": 2,
+      "recordedDurationSeconds": 0.042,
+      "encounters": 3,
+      "commandCounts": {
+        "appraise": 12,
+        "buy": 10,
+        "done": 12,
+        "enter": 6,
+        "event": 13,
+        "market-sell": 3,
+        "share": 13
+      },
+      "manualCommandCounts": {
+        "appraise": 12,
+        "buy": 10,
+        "done": 12,
+        "enter": 6,
+        "event": 13,
+        "market-sell": 3,
+        "share": 13
+      },
+      "defaultChoices": 0,
+      "eventOffers": {
+        "E01": 2,
+        "E08": 1,
+        "E10": 2,
+        "E12": 1,
+        "E15": 1,
+        "E18": 1,
+        "E23": 1,
+        "E27": 1,
+        "E29": 1,
+        "E42": 1,
+        "E48": 1
+      },
+      "eventAccepts": {
+        "E15": 1,
+        "E48": 1
+      },
+      "eventDeclines": {
+        "E01": 2,
+        "E08": 1,
+        "E10": 2,
+        "E12": 1,
+        "E18": 1,
+        "E23": 1,
+        "E27": 1,
+        "E29": 1,
+        "E42": 1
+      },
+      "recordedAppraisals": {
+        "count": 12,
+        "caught": 1,
+        "accepted": 11
+      },
+      "transactionCounts": {
+        "E48": 1,
+        "dark-market": 3,
+        "npc-purchase": 10
+      },
+      "phases": [
+        {
+          "encounter": 1,
+          "phase": "PORTALS",
+          "seconds": 0.004
+        },
+        {
+          "encounter": 1,
+          "phase": "APPRAISAL",
+          "seconds": 0.007
+        },
+        {
+          "encounter": 1,
+          "phase": "TRADE",
+          "seconds": 0.002
+        },
+        {
+          "encounter": 1,
+          "phase": "REVEAL",
+          "seconds": 0.001
+        },
+        {
+          "encounter": 2,
+          "phase": "PORTALS",
+          "seconds": 0.001
+        },
+        {
+          "encounter": 2,
+          "phase": "APPRAISAL",
+          "seconds": 0.007
+        },
+        {
+          "encounter": 2,
+          "phase": "TRADE",
+          "seconds": 0.004
+        },
+        {
+          "encounter": 2,
+          "phase": "REVEAL",
+          "seconds": 0.001
+        },
+        {
+          "encounter": 3,
+          "phase": "PORTALS",
+          "seconds": 0.002
+        },
+        {
+          "encounter": 3,
+          "phase": "APPRAISAL",
+          "seconds": 0.006
+        },
+        {
+          "encounter": 3,
+          "phase": "TRADE",
+          "seconds": 0.006
+        },
+        {
+          "encounter": 3,
+          "phase": "REVEAL",
+          "seconds": 0.001
+        }
+      ],
+      "players": [
+        {
+          "playerId": "556d50d5910cce3f",
+          "name": "LAN synthetic host",
+          "credits": 19,
+          "energy": 1,
+          "itemCount": 4,
+          "score": 44,
+          "deadEncounters": 0,
+          "exhaustedEncounters": 0
+        },
+        {
+          "playerId": "745fe104902a0c51",
+          "name": "LAN synthetic appraiser",
+          "credits": 2,
+          "energy": 4,
+          "itemCount": 3,
+          "score": 5,
+          "deadEncounters": 0,
+          "exhaustedEncounters": 0
+        }
+      ],
+      "winnerIds": [
+        "556d50d5910cce3f"
+      ],
+      "scoreBreakdown": [
+        {
+          "encounter": 1,
+          "playerId": "556d50d5910cce3f",
+          "gain": 39,
+          "accuracy": 0,
+          "score": 39,
+          "paused": null
+        },
+        {
+          "encounter": 1,
+          "playerId": "745fe104902a0c51",
+          "gain": 0,
+          "accuracy": 0,
+          "score": 0,
+          "paused": null
+        },
+        {
+          "encounter": 2,
+          "playerId": "556d50d5910cce3f",
+          "gain": 0,
+          "accuracy": 0,
+          "score": 0,
+          "paused": null
+        },
+        {
+          "encounter": 2,
+          "playerId": "745fe104902a0c51",
+          "gain": 0,
+          "accuracy": 5,
+          "score": 5,
+          "paused": null
+        },
+        {
+          "encounter": 3,
+          "playerId": "556d50d5910cce3f",
+          "gain": 0,
+          "accuracy": 5,
+          "score": 5,
+          "paused": null
+        },
+        {
+          "encounter": 3,
+          "playerId": "745fe104902a0c51",
+          "gain": 0,
+          "accuracy": 0,
+          "score": 0,
+          "paused": null
+        }
+      ]
+    },
+    {
+      "matchId": "04149f9f9604b087",
+      "rulesVersion": "0.4-appraisers-experimental",
+      "playtestMode": "no-voice",
+      "playerCount": 3,
+      "recordedDurationSeconds": 0.075,
+      "encounters": 3,
+      "commandCounts": {
+        "appraise": 18,
+        "buy": 16,
+        "done": 18,
+        "enter": 9,
+        "event": 21,
+        "market-sell": 7,
+        "share": 20
+      },
+      "manualCommandCounts": {
+        "appraise": 18,
+        "buy": 16,
+        "done": 18,
+        "enter": 9,
+        "event": 21,
+        "market-sell": 7,
+        "share": 20
+      },
+      "defaultChoices": 0,
+      "eventOffers": {
+        "E01": 1,
+        "E05": 1,
+        "E08": 2,
+        "E10": 3,
+        "E14": 1,
+        "E17": 1,
+        "E18": 1,
+        "E23": 1,
+        "E29": 2,
+        "E30": 1,
+        "E42": 2,
+        "E43": 1,
+        "E46": 1,
+        "E48": 1,
+        "E49": 2
+      },
+      "eventAccepts": {
+        "E43": 1,
+        "E48": 1,
+        "E49": 2
+      },
+      "eventDeclines": {
+        "E01": 1,
+        "E05": 1,
+        "E08": 2,
+        "E10": 3,
+        "E14": 1,
+        "E17": 1,
+        "E18": 1,
+        "E23": 1,
+        "E29": 2,
+        "E30": 1,
+        "E42": 2,
+        "E46": 1
+      },
+      "recordedAppraisals": {
+        "count": 18,
+        "caught": 3,
+        "accepted": 8
+      },
+      "transactionCounts": {
+        "E48": 1,
+        "E49": 2,
+        "dark-market": 7,
+        "npc-purchase": 16
+      },
+      "phases": [
+        {
+          "encounter": 1,
+          "phase": "PORTALS",
+          "seconds": 0.002
+        },
+        {
+          "encounter": 1,
+          "phase": "APPRAISAL",
+          "seconds": 0.01
+        },
+        {
+          "encounter": 1,
+          "phase": "TRADE",
+          "seconds": 0.006
+        },
+        {
+          "encounter": 1,
+          "phase": "REVEAL",
+          "seconds": 0.001
+        },
+        {
+          "encounter": 2,
+          "phase": "PORTALS",
+          "seconds": 0.004
+        },
+        {
+          "encounter": 2,
+          "phase": "APPRAISAL",
+          "seconds": 0.014
+        },
+        {
+          "encounter": 2,
+          "phase": "TRADE",
+          "seconds": 0.007
+        },
+        {
+          "encounter": 2,
+          "phase": "REVEAL",
+          "seconds": 0.001
+        },
+        {
+          "encounter": 3,
+          "phase": "PORTALS",
+          "seconds": 0.005
+        },
+        {
+          "encounter": 3,
+          "phase": "APPRAISAL",
+          "seconds": 0.014
+        },
+        {
+          "encounter": 3,
+          "phase": "TRADE",
+          "seconds": 0.01
+        },
+        {
+          "encounter": 3,
+          "phase": "REVEAL",
+          "seconds": 0.001
+        }
+      ],
+      "players": [
+        {
+          "playerId": "5e7eec3611120946",
+          "name": "LAN synthetic host",
+          "credits": 8,
+          "energy": 4,
+          "itemCount": 3,
+          "score": 5,
+          "deadEncounters": 0,
+          "exhaustedEncounters": 0
+        },
+        {
+          "playerId": "f39941616cbe50f7",
+          "name": "LAN synthetic appraiser",
+          "credits": 13,
+          "energy": 2,
+          "itemCount": 3,
+          "score": 47,
+          "deadEncounters": 0,
+          "exhaustedEncounters": 0
+        },
+        {
+          "playerId": "caf25b324d47744c",
+          "name": "LAN synthetic appraiser",
+          "credits": 42,
+          "energy": 2,
+          "itemCount": 3,
+          "score": 37,
+          "deadEncounters": 0,
+          "exhaustedEncounters": 0
+        }
+      ],
+      "winnerIds": [
+        "f39941616cbe50f7"
+      ],
+      "scoreBreakdown": [
+        {
+          "encounter": 1,
+          "playerId": "5e7eec3611120946",
+          "gain": 0,
+          "accuracy": 5,
+          "score": 5,
+          "paused": null
+        },
+        {
+          "encounter": 1,
+          "playerId": "f39941616cbe50f7",
+          "gain": 11,
+          "accuracy": 0,
+          "score": 11,
+          "paused": null
+        },
+        {
+          "encounter": 1,
+          "playerId": "caf25b324d47744c",
+          "gain": 21,
+          "accuracy": 0,
+          "score": 21,
+          "paused": null
+        },
+        {
+          "encounter": 2,
+          "playerId": "5e7eec3611120946",
+          "gain": 0,
+          "accuracy": 0,
+          "score": 0,
+          "paused": null
+        },
+        {
+          "encounter": 2,
+          "playerId": "f39941616cbe50f7",
+          "gain": 25,
+          "accuracy": 0,
+          "score": 25,
+          "paused": null
+        },
+        {
+          "encounter": 2,
+          "playerId": "caf25b324d47744c",
+          "gain": 10,
+          "accuracy": 0,
+          "score": 10,
+          "paused": null
+        },
+        {
+          "encounter": 3,
+          "playerId": "5e7eec3611120946",
+          "gain": 0,
+          "accuracy": 0,
+          "score": 0,
+          "paused": null
+        },
+        {
+          "encounter": 3,
+          "playerId": "f39941616cbe50f7",
+          "gain": 11,
+          "accuracy": 0,
+          "score": 11,
+          "paused": null
+        },
+        {
+          "encounter": 3,
+          "playerId": "caf25b324d47744c",
+          "gain": 6,
+          "accuracy": 0,
+          "score": 6,
+          "paused": null
+        }
+      ]
+    },
+    {
+      "matchId": "2b2c1c0939dca51a",
+      "rulesVersion": "0.4-appraisers-experimental",
+      "playtestMode": "no-voice",
+      "playerCount": 4,
+      "recordedDurationSeconds": 0.109,
+      "encounters": 3,
+      "commandCounts": {
+        "appraise": 24,
+        "buy": 18,
+        "done": 24,
+        "enter": 12,
+        "event": 24,
+        "market-sell": 3,
+        "share": 28
+      },
+      "manualCommandCounts": {
+        "appraise": 24,
+        "buy": 18,
+        "done": 24,
+        "enter": 12,
+        "event": 24,
+        "market-sell": 3,
+        "share": 28
+      },
+      "defaultChoices": 0,
+      "eventOffers": {
+        "E01": 1,
+        "E05": 1,
+        "E08": 3,
+        "E09": 1,
+        "E10": 2,
+        "E12": 2,
+        "E13": 1,
+        "E14": 1,
+        "E16": 2,
+        "E17": 2,
+        "E26": 1,
+        "E30": 1,
+        "E43": 2,
+        "E44": 2,
+        "E46": 2
+      },
+      "eventAccepts": {
+        "E43": 1,
+        "E44": 2
+      },
+      "eventDeclines": {
+        "E01": 1,
+        "E05": 1,
+        "E08": 3,
+        "E09": 1,
+        "E10": 2,
+        "E12": 2,
+        "E13": 1,
+        "E14": 1,
+        "E16": 2,
+        "E17": 2,
+        "E26": 1,
+        "E30": 1,
+        "E43": 1,
+        "E46": 2
+      },
+      "recordedAppraisals": {
+        "count": 24,
+        "caught": 0,
+        "accepted": 15
+      },
+      "transactionCounts": {
+        "E44": 2,
+        "dark-market": 3,
+        "npc-purchase": 18
+      },
+      "phases": [
+        {
+          "encounter": 1,
+          "phase": "PORTALS",
+          "seconds": 0.003
+        },
+        {
+          "encounter": 1,
+          "phase": "APPRAISAL",
+          "seconds": 0.016
+        },
+        {
+          "encounter": 1,
+          "phase": "TRADE",
+          "seconds": 0.01
+        },
+        {
+          "encounter": 1,
+          "phase": "REVEAL",
+          "seconds": 0.001
+        },
+        {
+          "encounter": 2,
+          "phase": "PORTALS",
+          "seconds": 0.004
+        },
+        {
+          "encounter": 2,
+          "phase": "APPRAISAL",
+          "seconds": 0.015
+        },
+        {
+          "encounter": 2,
+          "phase": "TRADE",
+          "seconds": 0.015
+        },
+        {
+          "encounter": 2,
+          "phase": "REVEAL",
+          "seconds": 0.002
+        },
+        {
+          "encounter": 3,
+          "phase": "PORTALS",
+          "seconds": 0.004
+        },
+        {
+          "encounter": 3,
+          "phase": "APPRAISAL",
+          "seconds": 0.018
+        },
+        {
+          "encounter": 3,
+          "phase": "TRADE",
+          "seconds": 0.018
+        },
+        {
+          "encounter": 3,
+          "phase": "REVEAL",
+          "seconds": 0.003
+        }
+      ],
+      "players": [
+        {
+          "playerId": "86cb11f2966c9b33",
+          "name": "LAN synthetic host",
+          "credits": 28,
+          "energy": 5,
+          "itemCount": 1,
+          "score": 8,
+          "deadEncounters": 0,
+          "exhaustedEncounters": 0
+        },
+        {
+          "playerId": "3e35a67cdce8f0b6",
+          "name": "LAN synthetic appraiser",
+          "credits": 3,
+          "energy": 4,
+          "itemCount": 4,
+          "score": 12,
+          "deadEncounters": 0,
+          "exhaustedEncounters": 0
+        },
+        {
+          "playerId": "5a3691b01d2b2ebf",
+          "name": "LAN synthetic appraiser",
+          "credits": 8,
+          "energy": 2,
+          "itemCount": 4,
+          "score": 21,
+          "deadEncounters": 0,
+          "exhaustedEncounters": 0
+        },
+        {
+          "playerId": "c3411e389a20b12e",
+          "name": "LAN synthetic appraiser",
+          "credits": 2,
+          "energy": 3,
+          "itemCount": 4,
+          "score": 18,
+          "deadEncounters": 0,
+          "exhaustedEncounters": 0
+        }
+      ],
+      "winnerIds": [
+        "5a3691b01d2b2ebf"
+      ],
+      "scoreBreakdown": [
+        {
+          "encounter": 1,
+          "playerId": "86cb11f2966c9b33",
+          "gain": 2,
+          "accuracy": 0,
+          "score": 2,
+          "paused": null
+        },
+        {
+          "encounter": 1,
+          "playerId": "3e35a67cdce8f0b6",
+          "gain": 11,
+          "accuracy": 0,
+          "score": 11,
+          "paused": null
+        },
+        {
+          "encounter": 1,
+          "playerId": "5a3691b01d2b2ebf",
+          "gain": 7,
+          "accuracy": 0,
+          "score": 7,
+          "paused": null
+        },
+        {
+          "encounter": 1,
+          "playerId": "c3411e389a20b12e",
+          "gain": 4,
+          "accuracy": 0,
+          "score": 4,
+          "paused": null
+        },
+        {
+          "encounter": 2,
+          "playerId": "86cb11f2966c9b33",
+          "gain": 1,
+          "accuracy": 0,
+          "score": 1,
+          "paused": null
+        },
+        {
+          "encounter": 2,
+          "playerId": "3e35a67cdce8f0b6",
+          "gain": 0,
+          "accuracy": 0,
+          "score": 0,
+          "paused": null
+        },
+        {
+          "encounter": 2,
+          "playerId": "5a3691b01d2b2ebf",
+          "gain": 5,
+          "accuracy": 0,
+          "score": 5,
+          "paused": null
+        },
+        {
+          "encounter": 2,
+          "playerId": "c3411e389a20b12e",
+          "gain": 0,
+          "accuracy": 0,
+          "score": 0,
+          "paused": null
+        },
+        {
+          "encounter": 3,
+          "playerId": "86cb11f2966c9b33",
+          "gain": 0,
+          "accuracy": 5,
+          "score": 5,
+          "paused": null
+        },
+        {
+          "encounter": 3,
+          "playerId": "3e35a67cdce8f0b6",
+          "gain": 1,
+          "accuracy": 0,
+          "score": 1,
+          "paused": null
+        },
+        {
+          "encounter": 3,
+          "playerId": "5a3691b01d2b2ebf",
+          "gain": 4,
+          "accuracy": 5,
+          "score": 9,
+          "paused": null
+        },
+        {
+          "encounter": 3,
+          "playerId": "c3411e389a20b12e",
+          "gain": 9,
+          "accuracy": 5,
+          "score": 14,
+          "paused": null
+        }
+      ]
+    }
+  ]
+}

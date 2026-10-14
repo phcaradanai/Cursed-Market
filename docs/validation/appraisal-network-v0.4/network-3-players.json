@@ -1,0 +1,3041 @@
+{
+  "schemaVersion": 4,
+  "matchId": "ef448134d72b2533",
+  "playtestMode": "no-voice",
+  "startedAt": 1791910006863,
+  "endedAt": 1791910007015,
+  "seats": [
+    {
+      "id": "33f027722f7cfe6d",
+      "name": "เจ้าของ"
+    },
+    {
+      "id": "3942b34bfd2a185b",
+      "name": "นักประเมิน"
+    },
+    {
+      "id": "f1422b77542acdef",
+      "name": "นักประเมิน"
+    }
+  ],
+  "run": {
+    "schemaVersion": 4,
+    "playerIds": [
+      "33f027722f7cfe6d",
+      "3942b34bfd2a185b",
+      "f1422b77542acdef"
+    ],
+    "seed": "8a58a8167a1a7390f9f65eaf29cf0ce19fad9bdf5088353476e8a40237efc763",
+    "config": {
+      "encounters": 3,
+      "startingCredits": 40,
+      "maxEnergy": 10,
+      "recoveryEnergy": 4,
+      "bankReserve": 2000,
+      "marketProbability": 0.5,
+      "marketMaxOrders": 3,
+      "marketQuota": 1
+    },
+    "commands": [
+      {
+        "type": "event",
+        "requestId": "network-1",
+        "encounter": 1,
+        "key": "1:33f027722f7cfe6d:E08:0:0",
+        "choice": "decline",
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "event",
+        "requestId": "network-2",
+        "encounter": 1,
+        "key": "1:3942b34bfd2a185b:E10:0:0",
+        "choice": "decline",
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "event",
+        "requestId": "network-3",
+        "encounter": 1,
+        "key": "1:f1422b77542acdef:E01:0:0",
+        "choice": "decline",
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "enter",
+        "requestId": "network-4",
+        "encounter": 1,
+        "portalId": "portal-1-0-0",
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "enter",
+        "requestId": "network-5",
+        "encounter": 1,
+        "portalId": "portal-1-1-1",
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "enter",
+        "requestId": "network-6",
+        "encounter": 1,
+        "portalId": "portal-1-2-1",
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "event",
+        "requestId": "network-7",
+        "encounter": 1,
+        "key": "1:33f027722f7cfe6d:E18:1:0",
+        "choice": "decline",
+        "itemId": "item-1-0-0-0",
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "event",
+        "requestId": "network-8",
+        "encounter": 1,
+        "key": "1:3942b34bfd2a185b:E27:1:0",
+        "choice": "decline",
+        "itemId": "item-1-1-1-0",
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "event",
+        "requestId": "network-9",
+        "encounter": 1,
+        "key": "1:f1422b77542acdef:E12:1:0",
+        "choice": "decline",
+        "itemId": "item-1-2-1-0",
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "appraise",
+        "requestId": "network-10",
+        "encounter": 1,
+        "itemId": "item-1-0-0-0",
+        "value": 21,
+        "acceptDanger": true,
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "appraise",
+        "requestId": "network-11",
+        "encounter": 1,
+        "itemId": "item-1-1-1-0",
+        "value": 21,
+        "acceptDanger": true,
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "appraise",
+        "requestId": "network-12",
+        "encounter": 1,
+        "itemId": "item-1-2-1-0",
+        "value": 15,
+        "acceptDanger": true,
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "event",
+        "requestId": "network-13",
+        "encounter": 1,
+        "key": "1:33f027722f7cfe6d:E49:2:0",
+        "choice": "pay",
+        "itemId": "item-1-0-0-0",
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "appraise",
+        "requestId": "network-14",
+        "encounter": 1,
+        "itemId": "item-1-1-1-1",
+        "value": 18,
+        "acceptDanger": true,
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "appraise",
+        "requestId": "network-15",
+        "encounter": 1,
+        "itemId": "item-1-2-1-1",
+        "value": 14,
+        "acceptDanger": true,
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "buy",
+        "requestId": "network-16",
+        "encounter": 1,
+        "itemIds": [
+          "item-1-0-0-0"
+        ],
+        "condition": false,
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "buy",
+        "requestId": "network-17",
+        "encounter": 1,
+        "itemIds": [
+          "item-1-1-1-0"
+        ],
+        "condition": false,
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "buy",
+        "requestId": "network-18",
+        "encounter": 1,
+        "itemIds": [
+          "item-1-2-1-0"
+        ],
+        "condition": false,
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "buy",
+        "requestId": "network-19",
+        "encounter": 1,
+        "itemIds": [
+          "item-1-0-0-1"
+        ],
+        "condition": false,
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "buy",
+        "requestId": "network-20",
+        "encounter": 1,
+        "itemIds": [
+          "item-1-1-1-1"
+        ],
+        "condition": false,
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "done",
+        "requestId": "network-21",
+        "encounter": 1,
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "done",
+        "requestId": "network-22",
+        "encounter": 1,
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "done",
+        "requestId": "network-23",
+        "encounter": 1,
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "share",
+        "requestId": "network-24",
+        "encounter": 1,
+        "itemId": "item-1-2-1-0",
+        "allow": true,
+        "purchase": true,
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "share",
+        "requestId": "network-25",
+        "encounter": 1,
+        "itemId": "item-1-0-0-0",
+        "allow": true,
+        "purchase": true,
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "share",
+        "requestId": "network-26",
+        "encounter": 1,
+        "itemId": "item-1-1-1-0",
+        "allow": true,
+        "purchase": true,
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "done",
+        "requestId": "network-27",
+        "encounter": 1,
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "share",
+        "requestId": "network-28",
+        "encounter": 1,
+        "itemId": "item-1-0-0-1",
+        "allow": true,
+        "purchase": true,
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "share",
+        "requestId": "network-29",
+        "encounter": 1,
+        "itemId": "item-1-1-1-1",
+        "allow": true,
+        "purchase": true,
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "done",
+        "requestId": "network-30",
+        "encounter": 1,
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "done",
+        "requestId": "network-31",
+        "encounter": 1,
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "event",
+        "requestId": "network-32",
+        "encounter": 2,
+        "key": "2:f1422b77542acdef:E08:0:0",
+        "choice": "decline",
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "event",
+        "requestId": "network-33",
+        "encounter": 2,
+        "key": "2:33f027722f7cfe6d:E01:0:0",
+        "choice": "decline",
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "enter",
+        "requestId": "network-34",
+        "encounter": 2,
+        "portalId": "portal-2-1-0",
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "enter",
+        "requestId": "network-35",
+        "encounter": 2,
+        "portalId": "portal-2-2-0",
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "enter",
+        "requestId": "network-36",
+        "encounter": 2,
+        "portalId": "portal-2-0-1",
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "event",
+        "requestId": "network-37",
+        "encounter": 2,
+        "key": "2:3942b34bfd2a185b:E12:0:0",
+        "choice": "decline",
+        "itemId": "item-2-1-0-0",
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "event",
+        "requestId": "network-38",
+        "encounter": 2,
+        "key": "2:f1422b77542acdef:E26:1:0",
+        "choice": "decline",
+        "itemId": "item-2-2-0-0",
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "event",
+        "requestId": "network-39",
+        "encounter": 2,
+        "key": "2:33f027722f7cfe6d:E15:1:0",
+        "choice": "decline",
+        "itemId": "item-2-0-1-0",
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "appraise",
+        "requestId": "network-40",
+        "encounter": 2,
+        "itemId": "item-2-1-0-0",
+        "value": 8,
+        "acceptDanger": true,
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "appraise",
+        "requestId": "network-41",
+        "encounter": 2,
+        "itemId": "item-2-2-0-0",
+        "value": 21,
+        "acceptDanger": true,
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "appraise",
+        "requestId": "network-42",
+        "encounter": 2,
+        "itemId": "item-2-0-1-0",
+        "value": 12,
+        "acceptDanger": true,
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "appraise",
+        "requestId": "network-43",
+        "encounter": 2,
+        "itemId": "item-2-1-0-1",
+        "value": 5,
+        "acceptDanger": true,
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "appraise",
+        "requestId": "network-44",
+        "encounter": 2,
+        "itemId": "item-2-2-0-1",
+        "value": 21,
+        "acceptDanger": true,
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "appraise",
+        "requestId": "network-45",
+        "encounter": 2,
+        "itemId": "item-2-0-1-1",
+        "value": 9,
+        "acceptDanger": true,
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "done",
+        "requestId": "network-46",
+        "encounter": 2,
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "done",
+        "requestId": "network-47",
+        "encounter": 2,
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "event",
+        "requestId": "network-48",
+        "encounter": 2,
+        "key": "2:33f027722f7cfe6d:E48:2:0",
+        "choice": "pay",
+        "itemId": "item-1-0-0-0",
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "done",
+        "requestId": "network-49",
+        "encounter": 2,
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "event",
+        "requestId": "network-50",
+        "encounter": 2,
+        "key": "2:3942b34bfd2a185b:E42:1:0",
+        "choice": "decline",
+        "itemId": "item-2-1-0-0",
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "share",
+        "requestId": "network-51",
+        "encounter": 2,
+        "itemId": "item-1-2-1-0",
+        "allow": true,
+        "purchase": true,
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "share",
+        "requestId": "network-52",
+        "encounter": 2,
+        "itemId": "item-1-0-0-0",
+        "allow": true,
+        "purchase": true,
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "share",
+        "requestId": "network-53",
+        "encounter": 2,
+        "itemId": "item-1-1-1-0",
+        "allow": true,
+        "purchase": true,
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "done",
+        "requestId": "network-54",
+        "encounter": 2,
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "share",
+        "requestId": "network-55",
+        "encounter": 2,
+        "itemId": "item-1-0-0-1",
+        "allow": true,
+        "purchase": true,
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "share",
+        "requestId": "network-56",
+        "encounter": 2,
+        "itemId": "item-1-1-1-1",
+        "allow": true,
+        "purchase": true,
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "done",
+        "requestId": "network-57",
+        "encounter": 2,
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "done",
+        "requestId": "network-58",
+        "encounter": 2,
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "event",
+        "requestId": "network-59",
+        "encounter": 3,
+        "key": "3:f1422b77542acdef:E10:0:0",
+        "choice": "decline",
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "event",
+        "requestId": "network-60",
+        "encounter": 3,
+        "key": "3:33f027722f7cfe6d:E10:0:0",
+        "choice": "decline",
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "enter",
+        "requestId": "network-61",
+        "encounter": 3,
+        "portalId": "portal-3-1-0",
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "enter",
+        "requestId": "network-62",
+        "encounter": 3,
+        "portalId": "portal-3-2-1",
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "enter",
+        "requestId": "network-63",
+        "encounter": 3,
+        "portalId": "portal-3-0-1",
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "event",
+        "requestId": "network-64",
+        "encounter": 3,
+        "key": "3:3942b34bfd2a185b:E03:0:0",
+        "choice": "decline",
+        "itemId": "item-3-1-0-0",
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "event",
+        "requestId": "network-65",
+        "encounter": 3,
+        "key": "3:f1422b77542acdef:E23:1:0",
+        "choice": "decline",
+        "itemId": "item-3-2-1-0",
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "event",
+        "requestId": "network-66",
+        "encounter": 3,
+        "key": "3:33f027722f7cfe6d:E32:1:0",
+        "choice": "decline",
+        "itemId": "item-1-0-0-1",
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "appraise",
+        "requestId": "network-67",
+        "encounter": 3,
+        "itemId": "item-3-1-0-0",
+        "value": 21,
+        "acceptDanger": true,
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "appraise",
+        "requestId": "network-68",
+        "encounter": 3,
+        "itemId": "item-3-2-1-0",
+        "value": 21,
+        "acceptDanger": true,
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "appraise",
+        "requestId": "network-69",
+        "encounter": 3,
+        "itemId": "item-3-0-1-0",
+        "value": 12,
+        "acceptDanger": true,
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "appraise",
+        "requestId": "network-70",
+        "encounter": 3,
+        "itemId": "item-3-1-0-1",
+        "value": 9,
+        "acceptDanger": true,
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "appraise",
+        "requestId": "network-71",
+        "encounter": 3,
+        "itemId": "item-3-2-1-1",
+        "value": 21,
+        "acceptDanger": true,
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "appraise",
+        "requestId": "network-72",
+        "encounter": 3,
+        "itemId": "item-3-0-1-1",
+        "value": 9,
+        "acceptDanger": true,
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "done",
+        "requestId": "network-73",
+        "encounter": 3,
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "done",
+        "requestId": "network-74",
+        "encounter": 3,
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "done",
+        "requestId": "network-75",
+        "encounter": 3,
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "event",
+        "requestId": "network-76",
+        "encounter": 3,
+        "key": "3:3942b34bfd2a185b:E44:1:0",
+        "choice": "decline",
+        "itemId": "item-1-1-1-0",
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "share",
+        "requestId": "network-77",
+        "encounter": 3,
+        "itemId": "item-1-2-1-0",
+        "allow": true,
+        "purchase": true,
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "share",
+        "requestId": "network-78",
+        "encounter": 3,
+        "itemId": "item-1-0-0-0",
+        "allow": true,
+        "purchase": true,
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "share",
+        "requestId": "network-79",
+        "encounter": 3,
+        "itemId": "item-1-1-1-0",
+        "allow": true,
+        "purchase": true,
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "done",
+        "requestId": "network-80",
+        "encounter": 3,
+        "playerId": "f1422b77542acdef"
+      },
+      {
+        "type": "share",
+        "requestId": "network-81",
+        "encounter": 3,
+        "itemId": "item-1-0-0-1",
+        "allow": true,
+        "purchase": true,
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "share",
+        "requestId": "network-82",
+        "encounter": 3,
+        "itemId": "item-1-1-1-1",
+        "allow": true,
+        "purchase": true,
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "done",
+        "requestId": "network-83",
+        "encounter": 3,
+        "playerId": "33f027722f7cfe6d"
+      },
+      {
+        "type": "done",
+        "requestId": "network-84",
+        "encounter": 3,
+        "playerId": "3942b34bfd2a185b"
+      },
+      {
+        "type": "advance"
+      }
+    ],
+    "ledger": [
+      {
+        "from": "33f027722f7cfe6d",
+        "to": "bank",
+        "amount": 2,
+        "reason": "E49",
+        "encounter": 1
+      },
+      {
+        "from": "33f027722f7cfe6d",
+        "to": "bank",
+        "amount": 21,
+        "reason": "npc-purchase",
+        "encounter": 1
+      },
+      {
+        "from": "3942b34bfd2a185b",
+        "to": "bank",
+        "amount": 21,
+        "reason": "npc-purchase",
+        "encounter": 1
+      },
+      {
+        "from": "f1422b77542acdef",
+        "to": "bank",
+        "amount": 20,
+        "reason": "npc-purchase",
+        "encounter": 1
+      },
+      {
+        "from": "33f027722f7cfe6d",
+        "to": "bank",
+        "amount": 13,
+        "reason": "npc-purchase",
+        "encounter": 1
+      },
+      {
+        "from": "3942b34bfd2a185b",
+        "to": "bank",
+        "amount": 18,
+        "reason": "npc-purchase",
+        "encounter": 1
+      },
+      {
+        "from": "33f027722f7cfe6d",
+        "to": "bank",
+        "amount": 2,
+        "reason": "E48",
+        "encounter": 2
+      }
+    ],
+    "history": [
+      {
+        "encounter": 1,
+        "playerId": "33f027722f7cfe6d",
+        "gain": 8,
+        "accuracy": 0,
+        "score": 8,
+        "paused": null
+      },
+      {
+        "encounter": 1,
+        "playerId": "3942b34bfd2a185b",
+        "gain": 0,
+        "accuracy": 0,
+        "score": 0,
+        "paused": null
+      },
+      {
+        "encounter": 1,
+        "playerId": "f1422b77542acdef",
+        "gain": 0,
+        "accuracy": 0,
+        "score": 0,
+        "paused": null
+      },
+      {
+        "encounter": 2,
+        "playerId": "33f027722f7cfe6d",
+        "gain": 0,
+        "accuracy": 0,
+        "score": 0,
+        "paused": null
+      },
+      {
+        "encounter": 2,
+        "playerId": "3942b34bfd2a185b",
+        "gain": 0,
+        "accuracy": 0,
+        "score": 0,
+        "paused": null
+      },
+      {
+        "encounter": 2,
+        "playerId": "f1422b77542acdef",
+        "gain": 0,
+        "accuracy": 0,
+        "score": 0,
+        "paused": null
+      },
+      {
+        "encounter": 3,
+        "playerId": "33f027722f7cfe6d",
+        "gain": 0,
+        "accuracy": 5,
+        "score": 5,
+        "paused": null
+      },
+      {
+        "encounter": 3,
+        "playerId": "3942b34bfd2a185b",
+        "gain": 0,
+        "accuracy": 5,
+        "score": 5,
+        "paused": null
+      },
+      {
+        "encounter": 3,
+        "playerId": "f1422b77542acdef",
+        "gain": 0,
+        "accuracy": 0,
+        "score": 0,
+        "paused": null
+      }
+    ],
+    "trace": [
+      {
+        "type": "event-offered",
+        "encounter": 1,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "id": "E08",
+          "key": "1:33f027722f7cfe6d:E08:0:0",
+          "choices": [
+            "cash",
+            "condition",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 1,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "id": "E10",
+          "key": "1:3942b34bfd2a185b:E10:0:0",
+          "choices": [
+            "pay",
+            "fog",
+            "switch",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 1,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "id": "E01",
+          "key": "1:f1422b77542acdef:E01:0:0",
+          "choices": [
+            "stay",
+            "switch",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 1,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "id": "E08"
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 1,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "id": "E10"
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 1,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "id": "E01"
+        }
+      },
+      {
+        "type": "portal-entered",
+        "encounter": 1,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "portalId": "portal-1-0-0",
+          "npc": "vampire"
+        }
+      },
+      {
+        "type": "portal-entered",
+        "encounter": 1,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "portalId": "portal-1-1-1",
+          "npc": "orc"
+        }
+      },
+      {
+        "type": "portal-entered",
+        "encounter": 1,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "portalId": "portal-1-2-1",
+          "npc": "autometa"
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 1,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "id": "E18",
+          "key": "1:33f027722f7cfe6d:E18:1:0",
+          "choices": [
+            "discount",
+            "risk",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 1,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "id": "E27",
+          "key": "1:3942b34bfd2a185b:E27:1:0",
+          "choices": [
+            "accept",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 1,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "id": "E12",
+          "key": "1:f1422b77542acdef:E12:1:0",
+          "choices": [
+            "accept",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 1,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "id": "E18"
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 1,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "id": "E27"
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 1,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "id": "E12"
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 1,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "energy": 1,
+          "reason": "appraise"
+        }
+      },
+      {
+        "type": "appraised",
+        "encounter": 1,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "itemId": "item-1-0-0-0",
+          "value": 21,
+          "risk": 0.12972972972972974,
+          "caught": true,
+          "counter": false,
+          "accepted": true
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 1,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "id": "E49",
+          "key": "1:33f027722f7cfe6d:E49:2:0",
+          "choices": [
+            "pay",
+            "oath"
+          ]
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 1,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "energy": 1,
+          "reason": "appraise"
+        }
+      },
+      {
+        "type": "appraised",
+        "encounter": 1,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "itemId": "item-1-1-1-0",
+          "value": 21,
+          "risk": 0.05,
+          "caught": false,
+          "counter": false,
+          "accepted": true
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 1,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "energy": 1,
+          "reason": "appraise"
+        }
+      },
+      {
+        "type": "appraised",
+        "encounter": 1,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "itemId": "item-1-2-1-0",
+          "value": 15,
+          "risk": 0.06363636363636364,
+          "caught": false,
+          "counter": false,
+          "accepted": false
+        }
+      },
+      {
+        "type": "event-resolved",
+        "encounter": 1,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "id": "E49",
+          "choice": "pay"
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 1,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "energy": 1,
+          "reason": "appraise"
+        }
+      },
+      {
+        "type": "appraised",
+        "encounter": 1,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "itemId": "item-1-1-1-1",
+          "value": 18,
+          "risk": 0.12307692307692308,
+          "caught": false,
+          "counter": false,
+          "accepted": true
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 1,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "energy": 1,
+          "reason": "appraise"
+        }
+      },
+      {
+        "type": "appraised",
+        "encounter": 1,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "itemId": "item-1-2-1-1",
+          "value": 14,
+          "risk": 0.07272727272727274,
+          "caught": false,
+          "counter": false,
+          "accepted": false
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 1,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "energy": 1,
+          "reason": "npc-purchase"
+        }
+      },
+      {
+        "type": "npc-purchased",
+        "encounter": 1,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "itemIds": [
+            "item-1-0-0-0"
+          ],
+          "shopId": "33f027722f7cfe6d",
+          "price": 21,
+          "energy": 1,
+          "condition": false
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 1,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "energy": 1,
+          "reason": "npc-purchase"
+        }
+      },
+      {
+        "type": "npc-purchased",
+        "encounter": 1,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "itemIds": [
+            "item-1-1-1-0"
+          ],
+          "shopId": "3942b34bfd2a185b",
+          "price": 21,
+          "energy": 1,
+          "condition": false
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 1,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "energy": 1,
+          "reason": "npc-purchase"
+        }
+      },
+      {
+        "type": "npc-purchased",
+        "encounter": 1,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "itemIds": [
+            "item-1-2-1-0"
+          ],
+          "shopId": "f1422b77542acdef",
+          "price": 20,
+          "energy": 1,
+          "condition": false
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 1,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "energy": 1,
+          "reason": "npc-purchase"
+        }
+      },
+      {
+        "type": "npc-purchased",
+        "encounter": 1,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "itemIds": [
+            "item-1-0-0-1"
+          ],
+          "shopId": "33f027722f7cfe6d",
+          "price": 13,
+          "energy": 1,
+          "condition": false
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 1,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "energy": 1,
+          "reason": "npc-purchase"
+        }
+      },
+      {
+        "type": "npc-purchased",
+        "encounter": 1,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "itemIds": [
+            "item-1-1-1-1"
+          ],
+          "shopId": "3942b34bfd2a185b",
+          "price": 18,
+          "energy": 1,
+          "condition": false
+        }
+      },
+      {
+        "type": "listing-shared",
+        "encounter": 1,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "itemId": "item-1-2-1-0",
+          "allow": true,
+          "purchase": true
+        }
+      },
+      {
+        "type": "listing-shared",
+        "encounter": 1,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "itemId": "item-1-0-0-0",
+          "allow": true,
+          "purchase": true
+        }
+      },
+      {
+        "type": "listing-shared",
+        "encounter": 1,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "itemId": "item-1-1-1-0",
+          "allow": true,
+          "purchase": true
+        }
+      },
+      {
+        "type": "listing-shared",
+        "encounter": 1,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "itemId": "item-1-0-0-1",
+          "allow": true,
+          "purchase": true
+        }
+      },
+      {
+        "type": "listing-shared",
+        "encounter": 1,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "itemId": "item-1-1-1-1",
+          "allow": true,
+          "purchase": true
+        }
+      },
+      {
+        "type": "energy-restored",
+        "encounter": 2,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "amount": 2,
+          "reason": "encounter-rest"
+        }
+      },
+      {
+        "type": "energy-restored",
+        "encounter": 2,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "amount": 2,
+          "reason": "encounter-rest"
+        }
+      },
+      {
+        "type": "energy-restored",
+        "encounter": 2,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "amount": 2,
+          "reason": "encounter-rest"
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 2,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "id": "E01",
+          "key": "2:33f027722f7cfe6d:E01:0:0",
+          "choices": [
+            "stay",
+            "switch",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 2,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "id": "E08",
+          "key": "2:f1422b77542acdef:E08:0:0",
+          "choices": [
+            "cash",
+            "condition",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 2,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "id": "E08"
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 2,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "id": "E01"
+        }
+      },
+      {
+        "type": "portal-entered",
+        "encounter": 2,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "portalId": "portal-2-1-0",
+          "npc": "beast"
+        }
+      },
+      {
+        "type": "portal-entered",
+        "encounter": 2,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "portalId": "portal-2-2-0",
+          "npc": "orc"
+        }
+      },
+      {
+        "type": "portal-entered",
+        "encounter": 2,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "portalId": "portal-2-0-1",
+          "npc": "alien"
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 2,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "id": "E15",
+          "key": "2:33f027722f7cfe6d:E15:1:0",
+          "choices": [
+            "price",
+            "curse",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 2,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "id": "E12",
+          "key": "2:3942b34bfd2a185b:E12:0:0",
+          "choices": [
+            "accept",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 2,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "id": "E26",
+          "key": "2:f1422b77542acdef:E26:1:0",
+          "choices": [
+            "accept",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 2,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "id": "E12"
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 2,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "id": "E26"
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 2,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "id": "E15"
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 2,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "energy": 1,
+          "reason": "appraise"
+        }
+      },
+      {
+        "type": "appraised",
+        "encounter": 2,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "itemId": "item-2-1-0-0",
+          "value": 8,
+          "risk": 0.08000000000000002,
+          "caught": false,
+          "counter": false,
+          "accepted": true
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 2,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "energy": 1,
+          "reason": "appraise"
+        }
+      },
+      {
+        "type": "appraised",
+        "encounter": 2,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "itemId": "item-2-2-0-0",
+          "value": 21,
+          "risk": 0.08888888888888889,
+          "caught": false,
+          "counter": false,
+          "accepted": true
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 2,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "energy": 1,
+          "reason": "appraise"
+        }
+      },
+      {
+        "type": "appraised",
+        "encounter": 2,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "itemId": "item-2-0-1-0",
+          "value": 12,
+          "risk": 0.22727272727272732,
+          "caught": false,
+          "counter": false,
+          "accepted": false
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 2,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "energy": 1,
+          "reason": "appraise"
+        }
+      },
+      {
+        "type": "appraised",
+        "encounter": 2,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "itemId": "item-2-1-0-1",
+          "value": 5,
+          "risk": 0.03999999999999999,
+          "caught": false,
+          "counter": false,
+          "accepted": true
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 2,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "energy": 1,
+          "reason": "appraise"
+        }
+      },
+      {
+        "type": "appraised",
+        "encounter": 2,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "itemId": "item-2-2-0-1",
+          "value": 21,
+          "risk": 0.16666666666666666,
+          "caught": false,
+          "counter": false,
+          "accepted": false
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 2,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "energy": 1,
+          "reason": "appraise"
+        }
+      },
+      {
+        "type": "appraised",
+        "encounter": 2,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "itemId": "item-2-0-1-1",
+          "value": 9,
+          "risk": 0.25,
+          "caught": true,
+          "counter": false,
+          "accepted": false
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 2,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "id": "E48",
+          "key": "2:33f027722f7cfe6d:E48:2:0",
+          "choices": [
+            "pay",
+            "item"
+          ]
+        }
+      },
+      {
+        "type": "event-resolved",
+        "encounter": 2,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "id": "E48",
+          "choice": "pay"
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 2,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "id": "E42",
+          "key": "2:3942b34bfd2a185b:E42:1:0",
+          "choices": [
+            "energy",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 2,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "id": "E42"
+        }
+      },
+      {
+        "type": "listing-shared",
+        "encounter": 2,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "itemId": "item-1-2-1-0",
+          "allow": true,
+          "purchase": true
+        }
+      },
+      {
+        "type": "listing-shared",
+        "encounter": 2,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "itemId": "item-1-0-0-0",
+          "allow": true,
+          "purchase": true
+        }
+      },
+      {
+        "type": "listing-shared",
+        "encounter": 2,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "itemId": "item-1-1-1-0",
+          "allow": true,
+          "purchase": true
+        }
+      },
+      {
+        "type": "listing-shared",
+        "encounter": 2,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "itemId": "item-1-0-0-1",
+          "allow": true,
+          "purchase": true
+        }
+      },
+      {
+        "type": "listing-shared",
+        "encounter": 2,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "itemId": "item-1-1-1-1",
+          "allow": true,
+          "purchase": true
+        }
+      },
+      {
+        "type": "energy-restored",
+        "encounter": 3,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "amount": 2,
+          "reason": "encounter-rest"
+        }
+      },
+      {
+        "type": "energy-restored",
+        "encounter": 3,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "amount": 2,
+          "reason": "encounter-rest"
+        }
+      },
+      {
+        "type": "energy-restored",
+        "encounter": 3,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "amount": 2,
+          "reason": "encounter-rest"
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 3,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "id": "E10",
+          "key": "3:33f027722f7cfe6d:E10:0:0",
+          "choices": [
+            "pay",
+            "fog",
+            "switch",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 3,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "id": "E10",
+          "key": "3:f1422b77542acdef:E10:0:0",
+          "choices": [
+            "pay",
+            "fog",
+            "switch",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 3,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "id": "E10"
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 3,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "id": "E10"
+        }
+      },
+      {
+        "type": "portal-entered",
+        "encounter": 3,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "portalId": "portal-3-1-0",
+          "npc": "vampire"
+        }
+      },
+      {
+        "type": "portal-entered",
+        "encounter": 3,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "portalId": "portal-3-2-1",
+          "npc": "vampire"
+        }
+      },
+      {
+        "type": "portal-entered",
+        "encounter": 3,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "portalId": "portal-3-0-1",
+          "npc": "alien"
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 3,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "id": "E32",
+          "key": "3:33f027722f7cfe6d:E32:1:0",
+          "choices": [
+            "accept",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 3,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "id": "E03",
+          "key": "3:3942b34bfd2a185b:E03:0:0",
+          "choices": [
+            "pay",
+            "debt",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 3,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "id": "E23",
+          "key": "3:f1422b77542acdef:E23:1:0",
+          "choices": [
+            "accept",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 3,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "id": "E03"
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 3,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "id": "E23"
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 3,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "id": "E32"
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 3,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "energy": 1,
+          "reason": "appraise"
+        }
+      },
+      {
+        "type": "appraised",
+        "encounter": 3,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "itemId": "item-3-1-0-0",
+          "value": 21,
+          "risk": 0.1090909090909091,
+          "caught": false,
+          "counter": false,
+          "accepted": true
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 3,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "energy": 1,
+          "reason": "appraise"
+        }
+      },
+      {
+        "type": "appraised",
+        "encounter": 3,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "itemId": "item-3-2-1-0",
+          "value": 21,
+          "risk": 0.048000000000000015,
+          "caught": false,
+          "counter": false,
+          "accepted": true
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 3,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "energy": 1,
+          "reason": "appraise"
+        }
+      },
+      {
+        "type": "appraised",
+        "encounter": 3,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "itemId": "item-3-0-1-0",
+          "value": 12,
+          "risk": 0.09999999999999998,
+          "caught": false,
+          "counter": false,
+          "accepted": true
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 3,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "energy": 1,
+          "reason": "appraise"
+        }
+      },
+      {
+        "type": "appraised",
+        "encounter": 3,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "itemId": "item-3-1-0-1",
+          "value": 9,
+          "risk": 0,
+          "caught": false,
+          "counter": false,
+          "accepted": true
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 3,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "energy": 1,
+          "reason": "appraise"
+        }
+      },
+      {
+        "type": "appraised",
+        "encounter": 3,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "itemId": "item-3-2-1-1",
+          "value": 21,
+          "risk": 0.1090909090909091,
+          "caught": false,
+          "counter": false,
+          "accepted": true
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 3,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "energy": 1,
+          "reason": "appraise"
+        }
+      },
+      {
+        "type": "appraised",
+        "encounter": 3,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "itemId": "item-3-0-1-1",
+          "value": 9,
+          "risk": 0,
+          "caught": false,
+          "counter": false,
+          "accepted": true
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 3,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "id": "E44",
+          "key": "3:3942b34bfd2a185b:E44:1:0",
+          "choices": [
+            "accept",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 3,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "id": "E44"
+        }
+      },
+      {
+        "type": "listing-shared",
+        "encounter": 3,
+        "playerId": "f1422b77542acdef",
+        "details": {
+          "itemId": "item-1-2-1-0",
+          "allow": true,
+          "purchase": true
+        }
+      },
+      {
+        "type": "listing-shared",
+        "encounter": 3,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "itemId": "item-1-0-0-0",
+          "allow": true,
+          "purchase": true
+        }
+      },
+      {
+        "type": "listing-shared",
+        "encounter": 3,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "itemId": "item-1-1-1-0",
+          "allow": true,
+          "purchase": true
+        }
+      },
+      {
+        "type": "listing-shared",
+        "encounter": 3,
+        "playerId": "33f027722f7cfe6d",
+        "details": {
+          "itemId": "item-1-0-0-1",
+          "allow": true,
+          "purchase": true
+        }
+      },
+      {
+        "type": "listing-shared",
+        "encounter": 3,
+        "playerId": "3942b34bfd2a185b",
+        "details": {
+          "itemId": "item-1-1-1-1",
+          "allow": true,
+          "purchase": true
+        }
+      }
+    ],
+    "items": {
+      "item-1-0-0-0": {
+        "id": "item-1-0-0-0",
+        "kind": "blade",
+        "base": 37,
+        "ask": 28,
+        "genuine": true,
+        "cursed": false,
+        "owner": "33f027722f7cfe6d",
+        "npcOwnerId": "33f027722f7cfe6d",
+        "npc": "vampire",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": 21,
+        "lastAccepted": true,
+        "reservation": 16
+      },
+      "item-1-0-0-1": {
+        "id": "item-1-0-0-1",
+        "kind": "orb",
+        "base": 10,
+        "ask": 13,
+        "genuine": true,
+        "cursed": true,
+        "owner": "33f027722f7cfe6d",
+        "npcOwnerId": "33f027722f7cfe6d",
+        "npc": "vampire",
+        "encounter": 1,
+        "certificate": false,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 5
+      },
+      "item-1-0-1-0": {
+        "id": "item-1-0-1-0",
+        "kind": "potion",
+        "base": 9,
+        "ask": 14,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:33f027722f7cfe6d:1",
+        "npcOwnerId": "33f027722f7cfe6d",
+        "npc": "alien",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 7
+      },
+      "item-1-0-1-1": {
+        "id": "item-1-0-1-1",
+        "kind": "potion",
+        "base": 9,
+        "ask": 15,
+        "genuine": false,
+        "cursed": false,
+        "owner": "npc:33f027722f7cfe6d:1",
+        "npcOwnerId": "33f027722f7cfe6d",
+        "npc": "alien",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 4
+      },
+      "item-1-0-2-0": {
+        "id": "item-1-0-2-0",
+        "kind": "scanner",
+        "base": 19,
+        "ask": 23,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:33f027722f7cfe6d:1",
+        "npcOwnerId": "33f027722f7cfe6d",
+        "npc": "autometa",
+        "encounter": 1,
+        "certificate": false,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 14
+      },
+      "item-1-0-2-1": {
+        "id": "item-1-0-2-1",
+        "kind": "scanner",
+        "base": 23,
+        "ask": 21,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:33f027722f7cfe6d:1",
+        "npcOwnerId": "33f027722f7cfe6d",
+        "npc": "autometa",
+        "encounter": 1,
+        "certificate": false,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 18
+      },
+      "item-2-0-0-0": {
+        "id": "item-2-0-0-0",
+        "kind": "scanner",
+        "base": 19,
+        "ask": 20,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:33f027722f7cfe6d:2",
+        "npcOwnerId": "33f027722f7cfe6d",
+        "npc": "autometa",
+        "encounter": 2,
+        "certificate": false,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 16
+      },
+      "item-2-0-0-1": {
+        "id": "item-2-0-0-1",
+        "kind": "scanner",
+        "base": 27,
+        "ask": 22,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:33f027722f7cfe6d:2",
+        "npcOwnerId": "33f027722f7cfe6d",
+        "npc": "autometa",
+        "encounter": 2,
+        "certificate": false,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 22
+      },
+      "item-2-0-1-0": {
+        "id": "item-2-0-1-0",
+        "kind": "mask",
+        "base": 22,
+        "ask": 17,
+        "genuine": false,
+        "cursed": false,
+        "owner": "npc:33f027722f7cfe6d:2",
+        "npcOwnerId": "33f027722f7cfe6d",
+        "npc": "alien",
+        "encounter": 2,
+        "certificate": true,
+        "lastAppraisal": 12,
+        "lastAccepted": false,
+        "reservation": 17
+      },
+      "item-2-0-1-1": {
+        "id": "item-2-0-1-1",
+        "kind": "orb",
+        "base": 18,
+        "ask": 12,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:33f027722f7cfe6d:2",
+        "npcOwnerId": "33f027722f7cfe6d",
+        "npc": "alien",
+        "encounter": 2,
+        "certificate": false,
+        "lastAppraisal": 9,
+        "lastAccepted": false,
+        "reservation": 12
+      },
+      "item-2-0-2-0": {
+        "id": "item-2-0-2-0",
+        "kind": "orb",
+        "base": 16,
+        "ask": 14,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:33f027722f7cfe6d:2",
+        "npcOwnerId": "33f027722f7cfe6d",
+        "npc": "vampire",
+        "encounter": 2,
+        "certificate": false,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 7
+      },
+      "item-2-0-2-1": {
+        "id": "item-2-0-2-1",
+        "kind": "orb",
+        "base": 17,
+        "ask": 13,
+        "genuine": false,
+        "cursed": false,
+        "owner": "npc:33f027722f7cfe6d:2",
+        "npcOwnerId": "33f027722f7cfe6d",
+        "npc": "vampire",
+        "encounter": 2,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 8
+      },
+      "item-3-0-0-0": {
+        "id": "item-3-0-0-0",
+        "kind": "blade",
+        "base": 38,
+        "ask": 29,
+        "genuine": true,
+        "cursed": true,
+        "owner": "npc:33f027722f7cfe6d:3",
+        "npcOwnerId": "33f027722f7cfe6d",
+        "npc": "vampire",
+        "encounter": 3,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 24
+      },
+      "item-3-0-0-1": {
+        "id": "item-3-0-0-1",
+        "kind": "orb",
+        "base": 12,
+        "ask": 16,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:33f027722f7cfe6d:3",
+        "npcOwnerId": "33f027722f7cfe6d",
+        "npc": "vampire",
+        "encounter": 3,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 5
+      },
+      "item-3-0-1-0": {
+        "id": "item-3-0-1-0",
+        "kind": "mask",
+        "base": 15,
+        "ask": 16,
+        "genuine": true,
+        "cursed": true,
+        "owner": "npc:33f027722f7cfe6d:3",
+        "npcOwnerId": "33f027722f7cfe6d",
+        "npc": "alien",
+        "encounter": 3,
+        "certificate": true,
+        "lastAppraisal": 12,
+        "lastAccepted": true,
+        "reservation": 7
+      },
+      "item-3-0-1-1": {
+        "id": "item-3-0-1-1",
+        "kind": "orb",
+        "base": 9,
+        "ask": 17,
+        "genuine": true,
+        "cursed": true,
+        "owner": "npc:33f027722f7cfe6d:3",
+        "npcOwnerId": "33f027722f7cfe6d",
+        "npc": "alien",
+        "encounter": 3,
+        "certificate": true,
+        "lastAppraisal": 9,
+        "lastAccepted": true,
+        "reservation": 8
+      },
+      "item-3-0-2-0": {
+        "id": "item-3-0-2-0",
+        "kind": "battery",
+        "base": 16,
+        "ask": 15,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:33f027722f7cfe6d:3",
+        "npcOwnerId": "33f027722f7cfe6d",
+        "npc": "autometa",
+        "encounter": 3,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 14
+      },
+      "item-3-0-2-1": {
+        "id": "item-3-0-2-1",
+        "kind": "scanner",
+        "base": 26,
+        "ask": 25,
+        "genuine": true,
+        "cursed": true,
+        "owner": "npc:33f027722f7cfe6d:3",
+        "npcOwnerId": "33f027722f7cfe6d",
+        "npc": "autometa",
+        "encounter": 3,
+        "certificate": false,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 21
+      },
+      "item-1-1-0-0": {
+        "id": "item-1-1-0-0",
+        "kind": "key",
+        "base": 16,
+        "ask": 18,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:3942b34bfd2a185b:1",
+        "npcOwnerId": "3942b34bfd2a185b",
+        "npc": "autometa",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 12
+      },
+      "item-1-1-0-1": {
+        "id": "item-1-1-0-1",
+        "kind": "scanner",
+        "base": 26,
+        "ask": 21,
+        "genuine": false,
+        "cursed": true,
+        "owner": "npc:3942b34bfd2a185b:1",
+        "npcOwnerId": "3942b34bfd2a185b",
+        "npc": "autometa",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 21
+      },
+      "item-1-1-1-0": {
+        "id": "item-1-1-1-0",
+        "kind": "blade",
+        "base": 24,
+        "ask": 28,
+        "genuine": false,
+        "cursed": false,
+        "owner": "3942b34bfd2a185b",
+        "npcOwnerId": "3942b34bfd2a185b",
+        "npc": "orc",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": 21,
+        "lastAccepted": true,
+        "reservation": 15
+      },
+      "item-1-1-1-1": {
+        "id": "item-1-1-1-1",
+        "kind": "amulet",
+        "base": 26,
+        "ask": 29,
+        "genuine": true,
+        "cursed": false,
+        "owner": "3942b34bfd2a185b",
+        "npcOwnerId": "3942b34bfd2a185b",
+        "npc": "orc",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": 18,
+        "lastAccepted": true,
+        "reservation": 17
+      },
+      "item-1-1-2-0": {
+        "id": "item-1-1-2-0",
+        "kind": "mirror",
+        "base": 20,
+        "ask": 27,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:3942b34bfd2a185b:1",
+        "npcOwnerId": "3942b34bfd2a185b",
+        "npc": "vampire",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 13
+      },
+      "item-1-1-2-1": {
+        "id": "item-1-1-2-1",
+        "kind": "blade",
+        "base": 39,
+        "ask": 32,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:3942b34bfd2a185b:1",
+        "npcOwnerId": "3942b34bfd2a185b",
+        "npc": "vampire",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 21
+      },
+      "item-2-1-0-0": {
+        "id": "item-2-1-0-0",
+        "kind": "potion",
+        "base": 12,
+        "ask": 10,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:3942b34bfd2a185b:2",
+        "npcOwnerId": "3942b34bfd2a185b",
+        "npc": "beast",
+        "encounter": 2,
+        "certificate": true,
+        "lastAppraisal": 8,
+        "lastAccepted": true,
+        "reservation": 6
+      },
+      "item-2-1-0-1": {
+        "id": "item-2-1-0-1",
+        "kind": "food",
+        "base": 6,
+        "ask": 11,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:3942b34bfd2a185b:2",
+        "npcOwnerId": "3942b34bfd2a185b",
+        "npc": "beast",
+        "encounter": 2,
+        "certificate": false,
+        "lastAppraisal": 5,
+        "lastAccepted": true,
+        "reservation": 3
+      },
+      "item-2-1-1-0": {
+        "id": "item-2-1-1-0",
+        "kind": "mirror",
+        "base": 22,
+        "ask": 23,
+        "genuine": false,
+        "cursed": false,
+        "owner": "npc:3942b34bfd2a185b:2",
+        "npcOwnerId": "3942b34bfd2a185b",
+        "npc": "darkone",
+        "encounter": 2,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 16
+      },
+      "item-2-1-1-1": {
+        "id": "item-2-1-1-1",
+        "kind": "amulet",
+        "base": 18,
+        "ask": 25,
+        "genuine": false,
+        "cursed": true,
+        "owner": "npc:3942b34bfd2a185b:2",
+        "npcOwnerId": "3942b34bfd2a185b",
+        "npc": "darkone",
+        "encounter": 2,
+        "certificate": false,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 9
+      },
+      "item-2-1-2-0": {
+        "id": "item-2-1-2-0",
+        "kind": "mask",
+        "base": 12,
+        "ask": 18,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:3942b34bfd2a185b:2",
+        "npcOwnerId": "3942b34bfd2a185b",
+        "npc": "alien",
+        "encounter": 2,
+        "certificate": false,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 8
+      },
+      "item-2-1-2-1": {
+        "id": "item-2-1-2-1",
+        "kind": "potion",
+        "base": 13,
+        "ask": 13,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:3942b34bfd2a185b:2",
+        "npcOwnerId": "3942b34bfd2a185b",
+        "npc": "alien",
+        "encounter": 2,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 10
+      },
+      "item-3-1-0-0": {
+        "id": "item-3-1-0-0",
+        "kind": "blade",
+        "base": 33,
+        "ask": 29,
+        "genuine": false,
+        "cursed": false,
+        "owner": "npc:3942b34bfd2a185b:3",
+        "npcOwnerId": "3942b34bfd2a185b",
+        "npc": "vampire",
+        "encounter": 3,
+        "certificate": false,
+        "lastAppraisal": 21,
+        "lastAccepted": true,
+        "reservation": 17
+      },
+      "item-3-1-0-1": {
+        "id": "item-3-1-0-1",
+        "kind": "orb",
+        "base": 9,
+        "ask": 15,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:3942b34bfd2a185b:3",
+        "npcOwnerId": "3942b34bfd2a185b",
+        "npc": "vampire",
+        "encounter": 3,
+        "certificate": false,
+        "lastAppraisal": 9,
+        "lastAccepted": true,
+        "reservation": 5
+      },
+      "item-3-1-1-0": {
+        "id": "item-3-1-1-0",
+        "kind": "mask",
+        "base": 22,
+        "ask": 21,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:3942b34bfd2a185b:3",
+        "npcOwnerId": "3942b34bfd2a185b",
+        "npc": "alien",
+        "encounter": 3,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 18
+      },
+      "item-3-1-1-1": {
+        "id": "item-3-1-1-1",
+        "kind": "orb",
+        "base": 12,
+        "ask": 16,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:3942b34bfd2a185b:3",
+        "npcOwnerId": "3942b34bfd2a185b",
+        "npc": "alien",
+        "encounter": 3,
+        "certificate": false,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 9
+      },
+      "item-3-1-2-0": {
+        "id": "item-3-1-2-0",
+        "kind": "key",
+        "base": 16,
+        "ask": 23,
+        "genuine": false,
+        "cursed": true,
+        "owner": "npc:3942b34bfd2a185b:3",
+        "npcOwnerId": "3942b34bfd2a185b",
+        "npc": "autometa",
+        "encounter": 3,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 12
+      },
+      "item-3-1-2-1": {
+        "id": "item-3-1-2-1",
+        "kind": "battery",
+        "base": 21,
+        "ask": 14,
+        "genuine": false,
+        "cursed": false,
+        "owner": "npc:3942b34bfd2a185b:3",
+        "npcOwnerId": "3942b34bfd2a185b",
+        "npc": "autometa",
+        "encounter": 3,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 14
+      },
+      "item-1-2-0-0": {
+        "id": "item-1-2-0-0",
+        "kind": "battery",
+        "base": 15,
+        "ask": 16,
+        "genuine": true,
+        "cursed": true,
+        "owner": "npc:f1422b77542acdef:1",
+        "npcOwnerId": "f1422b77542acdef",
+        "npc": "beast",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 9
+      },
+      "item-1-2-0-1": {
+        "id": "item-1-2-0-1",
+        "kind": "potion",
+        "base": 10,
+        "ask": 14,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:f1422b77542acdef:1",
+        "npcOwnerId": "f1422b77542acdef",
+        "npc": "beast",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 6
+      },
+      "item-1-2-1-0": {
+        "id": "item-1-2-1-0",
+        "kind": "scanner",
+        "base": 22,
+        "ask": 20,
+        "genuine": true,
+        "cursed": true,
+        "owner": "f1422b77542acdef",
+        "npcOwnerId": "f1422b77542acdef",
+        "npc": "autometa",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": 15,
+        "lastAccepted": false,
+        "reservation": 18
+      },
+      "item-1-2-1-1": {
+        "id": "item-1-2-1-1",
+        "kind": "key",
+        "base": 22,
+        "ask": 23,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:f1422b77542acdef:1",
+        "npcOwnerId": "f1422b77542acdef",
+        "npc": "autometa",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": 14,
+        "lastAccepted": false,
+        "reservation": 16
+      },
+      "item-1-2-2-0": {
+        "id": "item-1-2-2-0",
+        "kind": "key",
+        "base": 22,
+        "ask": 18,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:f1422b77542acdef:1",
+        "npcOwnerId": "f1422b77542acdef",
+        "npc": "darkone",
+        "encounter": 1,
+        "certificate": false,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 6
+      },
+      "item-1-2-2-1": {
+        "id": "item-1-2-2-1",
+        "kind": "mirror",
+        "base": 27,
+        "ask": 24,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:f1422b77542acdef:1",
+        "npcOwnerId": "f1422b77542acdef",
+        "npc": "darkone",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 18
+      },
+      "item-2-2-0-0": {
+        "id": "item-2-2-0-0",
+        "kind": "blade",
+        "base": 27,
+        "ask": 30,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:f1422b77542acdef:2",
+        "npcOwnerId": "f1422b77542acdef",
+        "npc": "orc",
+        "encounter": 2,
+        "certificate": true,
+        "lastAppraisal": 21,
+        "lastAccepted": true,
+        "reservation": 16
+      },
+      "item-2-2-0-1": {
+        "id": "item-2-2-0-1",
+        "kind": "blade",
+        "base": 36,
+        "ask": 28,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:f1422b77542acdef:2",
+        "npcOwnerId": "f1422b77542acdef",
+        "npc": "orc",
+        "encounter": 2,
+        "certificate": true,
+        "lastAppraisal": 21,
+        "lastAccepted": false,
+        "reservation": 28
+      },
+      "item-2-2-1-0": {
+        "id": "item-2-2-1-0",
+        "kind": "battery",
+        "base": 16,
+        "ask": 19,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:f1422b77542acdef:2",
+        "npcOwnerId": "f1422b77542acdef",
+        "npc": "autometa",
+        "encounter": 2,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 12
+      },
+      "item-2-2-1-1": {
+        "id": "item-2-2-1-1",
+        "kind": "scanner",
+        "base": 22,
+        "ask": 21,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:f1422b77542acdef:2",
+        "npcOwnerId": "f1422b77542acdef",
+        "npc": "autometa",
+        "encounter": 2,
+        "certificate": false,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 17
+      },
+      "item-2-2-2-0": {
+        "id": "item-2-2-2-0",
+        "kind": "potion",
+        "base": 11,
+        "ask": 15,
+        "genuine": false,
+        "cursed": false,
+        "owner": "npc:f1422b77542acdef:2",
+        "npcOwnerId": "f1422b77542acdef",
+        "npc": "beast",
+        "encounter": 2,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 5
+      },
+      "item-2-2-2-1": {
+        "id": "item-2-2-2-1",
+        "kind": "potion",
+        "base": 11,
+        "ask": 14,
+        "genuine": true,
+        "cursed": true,
+        "owner": "npc:f1422b77542acdef:2",
+        "npcOwnerId": "f1422b77542acdef",
+        "npc": "beast",
+        "encounter": 2,
+        "certificate": false,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 5
+      },
+      "item-3-2-0-0": {
+        "id": "item-3-2-0-0",
+        "kind": "orb",
+        "base": 19,
+        "ask": 17,
+        "genuine": true,
+        "cursed": true,
+        "owner": "npc:f1422b77542acdef:3",
+        "npcOwnerId": "f1422b77542acdef",
+        "npc": "alien",
+        "encounter": 3,
+        "certificate": false,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 8
+      },
+      "item-3-2-0-1": {
+        "id": "item-3-2-0-1",
+        "kind": "mask",
+        "base": 18,
+        "ask": 21,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:f1422b77542acdef:3",
+        "npcOwnerId": "f1422b77542acdef",
+        "npc": "alien",
+        "encounter": 3,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 15
+      },
+      "item-3-2-1-0": {
+        "id": "item-3-2-1-0",
+        "kind": "blade",
+        "base": 25,
+        "ask": 28,
+        "genuine": true,
+        "cursed": true,
+        "owner": "npc:f1422b77542acdef:3",
+        "npcOwnerId": "f1422b77542acdef",
+        "npc": "vampire",
+        "encounter": 3,
+        "certificate": false,
+        "lastAppraisal": 21,
+        "lastAccepted": true,
+        "reservation": 10
+      },
+      "item-3-2-1-1": {
+        "id": "item-3-2-1-1",
+        "kind": "blade",
+        "base": 33,
+        "ask": 31,
+        "genuine": true,
+        "cursed": true,
+        "owner": "npc:f1422b77542acdef:3",
+        "npcOwnerId": "f1422b77542acdef",
+        "npc": "vampire",
+        "encounter": 3,
+        "certificate": false,
+        "lastAppraisal": 21,
+        "lastAccepted": true,
+        "reservation": 13
+      },
+      "item-3-2-2-0": {
+        "id": "item-3-2-2-0",
+        "kind": "scanner",
+        "base": 18,
+        "ask": 24,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:f1422b77542acdef:3",
+        "npcOwnerId": "f1422b77542acdef",
+        "npc": "autometa",
+        "encounter": 3,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 16
+      },
+      "item-3-2-2-1": {
+        "id": "item-3-2-2-1",
+        "kind": "battery",
+        "base": 14,
+        "ask": 15,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:f1422b77542acdef:3",
+        "npcOwnerId": "f1422b77542acdef",
+        "npc": "autometa",
+        "encounter": 3,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 10
+      }
+    },
+    "final": [
+      {
+        "id": "33f027722f7cfe6d",
+        "credits": 2,
+        "energy": 7,
+        "inventory": [
+          "item-1-0-0-0",
+          "item-1-0-0-1"
+        ],
+        "score": 13
+      },
+      {
+        "id": "3942b34bfd2a185b",
+        "credits": 1,
+        "energy": 6,
+        "inventory": [
+          "item-1-1-1-0",
+          "item-1-1-1-1"
+        ],
+        "score": 5
+      },
+      {
+        "id": "f1422b77542acdef",
+        "credits": 20,
+        "energy": 7,
+        "inventory": [
+          "item-1-2-1-0"
+        ],
+        "score": 0
+      }
+    ]
+  },
+  "phaseTimes": [
+    {
+      "phase": "PORTALS",
+      "startedAt": 1791910006863,
+      "endedAt": 1791910006875,
+      "encounter": 1
+    },
+    {
+      "phase": "APPRAISAL",
+      "startedAt": 1791910006875,
+      "endedAt": 1791910006903,
+      "encounter": 1
+    },
+    {
+      "phase": "TRADE",
+      "startedAt": 1791910006903,
+      "endedAt": 1791910006913,
+      "encounter": 1
+    },
+    {
+      "phase": "REVEAL",
+      "startedAt": 1791910006913,
+      "endedAt": 1791910006917,
+      "encounter": 1
+    },
+    {
+      "phase": "PORTALS",
+      "startedAt": 1791910006917,
+      "endedAt": 1791910006928,
+      "encounter": 2
+    },
+    {
+      "phase": "APPRAISAL",
+      "startedAt": 1791910006928,
+      "endedAt": 1791910006953,
+      "encounter": 2
+    },
+    {
+      "phase": "TRADE",
+      "startedAt": 1791910006953,
+      "endedAt": 1791910006964,
+      "encounter": 2
+    },
+    {
+      "phase": "REVEAL",
+      "startedAt": 1791910006964,
+      "endedAt": 1791910006965,
+      "encounter": 2
+    },
+    {
+      "phase": "PORTALS",
+      "startedAt": 1791910006965,
+      "endedAt": 1791910006986,
+      "encounter": 3
+    },
+    {
+      "phase": "APPRAISAL",
+      "startedAt": 1791910006986,
+      "endedAt": 1791910006998,
+      "encounter": 3
+    },
+    {
+      "phase": "TRADE",
+      "startedAt": 1791910006998,
+      "endedAt": 1791910007012,
+      "encounter": 3
+    },
+    {
+      "phase": "REVEAL",
+      "startedAt": 1791910007012,
+      "endedAt": 1791910007015,
+      "encounter": 3
+    }
+  ],
+  "timeouts": []
+}

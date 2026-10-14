@@ -1,0 +1,11 @@
+{
+  "src/server/app.ts": "b154e91470952ef4fd7c16ab47191c500c2fefeb0bf0905e6e3ecde754f2b44d",
+  "src/server/messages.ts": "9aca862e4cedf704babca0fb627268de531fd2cc2717e8f62afa268f59be6ee4",
+  "src/server/rooms.ts": "e7f49dd8b939f8a1f179e678f98758e011864ff8a54cc05dc20876118fbd2ffb",
+  "src/server/room-lifecycle.ts": "5a877f44afe3ddc0dccf507b3734dc52365eee2b6dccb638095ddee99b7544cb",
+  "src/server/appraisal-messages.ts": "206d5d31a198e5fb51e2d49e5436104760ac1e1502b38f7ad2d9cff65f366faf",
+  "src/server/appraisal-rooms.ts": "a97ef5af588148c420f9dfb2b379fb6f0e5b4e92ea388bb9c8ec9b4230407dec",
+  "src/shared/appraisal-protocol.ts": "c6cd4df4a4022df03b34db9d005bdd39c09743dcf700d8ee0cf6b6b4b9cb3b81",
+  "tests/appraisal-network.test.ts": "4b78e11642cc0e03741657bbf92f0df21ac3ec8d1e2ed54af7c403678b1da116",
+  "tests/appraisal-rooms.test.ts": "a7753c718791609fcd2c2ae1fcb88bc0325f6fb35bb042c24b31628e5a06c251"
+}

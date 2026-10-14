@@ -1,0 +1,66 @@
+{
+  "replayChecks": [
+    {
+      "path": "docs/simulation/engine-v0.1/example-match.json",
+      "phase": "RESULTS",
+      "rulesVersion": null
+    },
+    {
+      "path": "docs/validation/appraisal-delivery-v0.4/compatibility/legacy-0.2-raw.json",
+      "phase": "RESULTS",
+      "rulesVersion": null
+    },
+    {
+      "path": "docs/validation/appraisal-delivery-v0.4/compatibility/legacy-0.3-raw.json",
+      "phase": "RESULTS",
+      "rulesVersion": null
+    },
+    {
+      "path": "docs/simulation/appraisal-delivery-v0.4/example-run.json",
+      "phase": "RESULTS",
+      "rulesVersion": "0.4"
+    },
+    {
+      "path": "docs/simulation/appraisal-catalog-v0.4/example-run.json",
+      "phase": "RESULTS",
+      "rulesVersion": "0.4"
+    },
+    {
+      "path": "docs/simulation/survival-v0.5/example-3-collector.json",
+      "phase": "RESULTS",
+      "rulesVersion": "0.5"
+    },
+    {
+      "path": "docs/validation/survival-v0.5/network/lan-timed-2-players.json",
+      "phase": "RESULTS",
+      "rulesVersion": "0.5"
+    },
+    {
+      "path": "docs/validation/survival-v0.5/network/lan-timed-3-players.json",
+      "phase": "RESULTS",
+      "rulesVersion": "0.5"
+    },
+    {
+      "path": "docs/validation/survival-v0.5/network/lan-timed-4-players.json",
+      "phase": "RESULTS",
+      "rulesVersion": "0.5"
+    },
+    {
+      "path": "docs/validation/survival-v0.5/network/lan-untimed-2-players.json",
+      "phase": "RESULTS",
+      "rulesVersion": "0.5"
+    },
+    {
+      "path": "docs/validation/survival-v0.5/network/lan-untimed-3-players.json",
+      "phase": "RESULTS",
+      "rulesVersion": "0.5"
+    },
+    {
+      "path": "docs/validation/survival-v0.5/network/lan-untimed-4-players.json",
+      "phase": "RESULTS",
+      "rulesVersion": "0.5"
+    }
+  ],
+  "mixedReports": 9,
+  "humanFunValidated": false
+}

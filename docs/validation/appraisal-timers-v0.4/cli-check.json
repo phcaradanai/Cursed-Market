@@ -1,0 +1,50 @@
+{
+  "replayChecks": [
+    {
+      "path": "docs/simulation/engine-v0.1/example-match.json",
+      "phase": "RESULTS"
+    },
+    {
+      "path": "docs/validation/appraisal-delivery-v0.4/compatibility/legacy-0.2-raw.json",
+      "phase": "RESULTS"
+    },
+    {
+      "path": "docs/validation/appraisal-delivery-v0.4/compatibility/legacy-0.3-raw.json",
+      "phase": "RESULTS"
+    },
+    {
+      "path": "docs/simulation/appraisal-delivery-v0.4/example-run.json",
+      "phase": "RESULTS"
+    },
+    {
+      "path": "docs/simulation/appraisal-catalog-v0.4/example-run.json",
+      "phase": "RESULTS"
+    },
+    {
+      "path": "docs/validation/appraisal-timers-v0.4/network/lan-timed-2-players.json",
+      "phase": "RESULTS"
+    },
+    {
+      "path": "docs/validation/appraisal-timers-v0.4/network/lan-timed-3-players.json",
+      "phase": "RESULTS"
+    },
+    {
+      "path": "docs/validation/appraisal-timers-v0.4/network/lan-timed-4-players.json",
+      "phase": "RESULTS"
+    },
+    {
+      "path": "docs/validation/appraisal-timers-v0.4/network/lan-untimed-2-players.json",
+      "phase": "RESULTS"
+    },
+    {
+      "path": "docs/validation/appraisal-timers-v0.4/network/lan-untimed-3-players.json",
+      "phase": "RESULTS"
+    },
+    {
+      "path": "docs/validation/appraisal-timers-v0.4/network/lan-untimed-4-players.json",
+      "phase": "RESULTS"
+    }
+  ],
+  "mixedReports": 9,
+  "humanFunValidated": false
+}

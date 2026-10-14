@@ -1,0 +1,1550 @@
+{
+  "schemaVersion": 1,
+  "matchId": "dac30497a3a54660",
+  "playtestMode": "no-voice",
+  "startedAt": 1000,
+  "endedAt": 1352,
+  "seats": [
+    {
+      "id": "42e91fb379d61bab",
+      "name": "Synthetic compatibility"
+    },
+    {
+      "id": "05ea6baf1d381a38",
+      "name": "Synthetic fixture"
+    },
+    {
+      "id": "c7d6d4c4f2beab3e",
+      "name": "Synthetic fixture"
+    }
+  ],
+  "events": [
+    {
+      "type": "game-created",
+      "seed": "027e5ac369af447ccc32f960992950bbadf7d2201313518af9e36da5368fd05f",
+      "playerIds": [
+        "42e91fb379d61bab",
+        "05ea6baf1d381a38",
+        "c7d6d4c4f2beab3e"
+      ],
+      "config": {
+        "startingCoins": 15,
+        "inspectionsPerPlayer": 2,
+        "escrowCoins": 2,
+        "falseCertificatePenalty": 2,
+        "demandBonus": 3,
+        "genuineProbability": 0.5,
+        "cursedProbability": 0.5,
+        "curseWagers": true,
+        "fastMarket": true,
+        "rogueRun": true
+      }
+    },
+    {
+      "type": "route-opened",
+      "stage": 1,
+      "auctionNumber": 1
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:1:ROUTE_CHOICE:42e91fb379d61bab",
+        "auctionNumber": 1,
+        "playerId": "42e91fb379d61bab",
+        "type": "vote-route",
+        "nodeId": null
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:1:ROUTE_CHOICE:05ea6baf1d381a38",
+        "auctionNumber": 1,
+        "playerId": "05ea6baf1d381a38",
+        "type": "vote-route",
+        "nodeId": null
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:1:ROUTE_CHOICE:c7d6d4c4f2beab3e",
+        "auctionNumber": 1,
+        "playerId": "c7d6d4c4f2beab3e",
+        "type": "vote-route",
+        "nodeId": null
+      }
+    },
+    {
+      "type": "route-selected",
+      "stage": 1,
+      "node": {
+        "name": "วิหารชำระล้าง",
+        "description": "ของแท้บ่อย คำสาปน้อย แต่กำไรและกองกลางต่ำ",
+        "genuineProbability": 0.85,
+        "cursedProbability": 0.05,
+        "genuineValue": 8,
+        "fakeValue": 1,
+        "cursePenalty": 6,
+        "demandBonus": 2,
+        "ante": 1,
+        "id": "1-0",
+        "demand": "Mirror"
+      },
+      "votes": [
+        {
+          "playerId": "42e91fb379d61bab",
+          "nodeId": null
+        },
+        {
+          "playerId": "05ea6baf1d381a38",
+          "nodeId": null
+        },
+        {
+          "playerId": "c7d6d4c4f2beab3e",
+          "nodeId": null
+        }
+      ]
+    },
+    {
+      "type": "auction-started",
+      "auctionNumber": 1,
+      "sellerId": "42e91fb379d61bab",
+      "demand": "Mirror"
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:1:SELLER_PREP:42e91fb379d61bab",
+        "auctionNumber": 1,
+        "playerId": "42e91fb379d61bab",
+        "type": "offer",
+        "relicId": "lot-1-1",
+        "mode": "as-is"
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:1:SEALED_BID:05ea6baf1d381a38",
+        "auctionNumber": 1,
+        "playerId": "05ea6baf1d381a38",
+        "type": "bid",
+        "amount": 0
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:1:SEALED_BID:c7d6d4c4f2beab3e",
+        "auctionNumber": 1,
+        "playerId": "c7d6d4c4f2beab3e",
+        "type": "bid",
+        "amount": 0
+      }
+    },
+    {
+      "type": "auction-settled",
+      "result": {
+        "auctionNumber": 1,
+        "sellerId": "42e91fb379d61bab",
+        "demand": "Mirror",
+        "relic": {
+          "id": "lot-1-1",
+          "name": "Clock Relic",
+          "family": "Clock",
+          "genuine": false,
+          "cursed": false
+        },
+        "mode": "as-is",
+        "bids": [
+          {
+            "playerId": "05ea6baf1d381a38",
+            "amount": 0
+          },
+          {
+            "playerId": "c7d6d4c4f2beab3e",
+            "amount": 0
+          }
+        ],
+        "winnerId": null,
+        "price": 0,
+        "tiedPlayerIds": [],
+        "tieIndex": null,
+        "certificate": "unsold",
+        "escrowReturned": 0,
+        "compensation": 0,
+        "trustPenalty": 0,
+        "relicScore": 0,
+        "demandBonus": 0,
+        "wagers": [],
+        "potBefore": 1,
+        "potAfter": 1,
+        "marketId": "1-0",
+        "buildBonus": 0
+      }
+    },
+    {
+      "type": "auction-started",
+      "auctionNumber": 2,
+      "sellerId": "05ea6baf1d381a38",
+      "demand": "Mirror"
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:2:SELLER_PREP:05ea6baf1d381a38",
+        "auctionNumber": 2,
+        "playerId": "05ea6baf1d381a38",
+        "type": "offer",
+        "relicId": "lot-2-1",
+        "mode": "as-is"
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:2:SEALED_BID:42e91fb379d61bab",
+        "auctionNumber": 2,
+        "playerId": "42e91fb379d61bab",
+        "type": "bid",
+        "amount": 0
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:2:SEALED_BID:c7d6d4c4f2beab3e",
+        "auctionNumber": 2,
+        "playerId": "c7d6d4c4f2beab3e",
+        "type": "bid",
+        "amount": 0
+      }
+    },
+    {
+      "type": "auction-settled",
+      "result": {
+        "auctionNumber": 2,
+        "sellerId": "05ea6baf1d381a38",
+        "demand": "Mirror",
+        "relic": {
+          "id": "lot-2-1",
+          "name": "Mask Relic",
+          "family": "Mask",
+          "genuine": true,
+          "cursed": false
+        },
+        "mode": "as-is",
+        "bids": [
+          {
+            "playerId": "42e91fb379d61bab",
+            "amount": 0
+          },
+          {
+            "playerId": "c7d6d4c4f2beab3e",
+            "amount": 0
+          }
+        ],
+        "winnerId": null,
+        "price": 0,
+        "tiedPlayerIds": [],
+        "tieIndex": null,
+        "certificate": "unsold",
+        "escrowReturned": 0,
+        "compensation": 0,
+        "trustPenalty": 0,
+        "relicScore": 0,
+        "demandBonus": 0,
+        "wagers": [],
+        "potBefore": 2,
+        "potAfter": 2,
+        "marketId": "1-0",
+        "buildBonus": 0
+      }
+    },
+    {
+      "type": "auction-started",
+      "auctionNumber": 3,
+      "sellerId": "c7d6d4c4f2beab3e",
+      "demand": "Mirror"
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:3:SELLER_PREP:c7d6d4c4f2beab3e",
+        "auctionNumber": 3,
+        "playerId": "c7d6d4c4f2beab3e",
+        "type": "offer",
+        "relicId": "lot-3-1",
+        "mode": "as-is"
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:3:SEALED_BID:42e91fb379d61bab",
+        "auctionNumber": 3,
+        "playerId": "42e91fb379d61bab",
+        "type": "bid",
+        "amount": 0
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:3:SEALED_BID:05ea6baf1d381a38",
+        "auctionNumber": 3,
+        "playerId": "05ea6baf1d381a38",
+        "type": "bid",
+        "amount": 0
+      }
+    },
+    {
+      "type": "auction-settled",
+      "result": {
+        "auctionNumber": 3,
+        "sellerId": "c7d6d4c4f2beab3e",
+        "demand": "Mirror",
+        "relic": {
+          "id": "lot-3-1",
+          "name": "Clock Relic",
+          "family": "Clock",
+          "genuine": true,
+          "cursed": false
+        },
+        "mode": "as-is",
+        "bids": [
+          {
+            "playerId": "42e91fb379d61bab",
+            "amount": 0
+          },
+          {
+            "playerId": "05ea6baf1d381a38",
+            "amount": 0
+          }
+        ],
+        "winnerId": null,
+        "price": 0,
+        "tiedPlayerIds": [],
+        "tieIndex": null,
+        "certificate": "unsold",
+        "escrowReturned": 0,
+        "compensation": 0,
+        "trustPenalty": 0,
+        "relicScore": 0,
+        "demandBonus": 0,
+        "wagers": [],
+        "potBefore": 3,
+        "potAfter": 3,
+        "marketId": "1-0",
+        "buildBonus": 0
+      }
+    },
+    {
+      "type": "boons-opened",
+      "stage": 1,
+      "auctionNumber": 4
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:4:BOON_CHOICE:42e91fb379d61bab",
+        "auctionNumber": 4,
+        "playerId": "42e91fb379d61bab",
+        "type": "choose-boon",
+        "boonId": null
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:4:BOON_CHOICE:05ea6baf1d381a38",
+        "auctionNumber": 4,
+        "playerId": "05ea6baf1d381a38",
+        "type": "choose-boon",
+        "boonId": null
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:4:BOON_CHOICE:c7d6d4c4f2beab3e",
+        "auctionNumber": 4,
+        "playerId": "c7d6d4c4f2beab3e",
+        "type": "choose-boon",
+        "boonId": null
+      }
+    },
+    {
+      "type": "route-opened",
+      "stage": 2,
+      "auctionNumber": 4
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:4:ROUTE_CHOICE:42e91fb379d61bab",
+        "auctionNumber": 4,
+        "playerId": "42e91fb379d61bab",
+        "type": "vote-route",
+        "nodeId": null
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:4:ROUTE_CHOICE:05ea6baf1d381a38",
+        "auctionNumber": 4,
+        "playerId": "05ea6baf1d381a38",
+        "type": "vote-route",
+        "nodeId": null
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:4:ROUTE_CHOICE:c7d6d4c4f2beab3e",
+        "auctionNumber": 4,
+        "playerId": "c7d6d4c4f2beab3e",
+        "type": "vote-route",
+        "nodeId": null
+      }
+    },
+    {
+      "type": "route-selected",
+      "stage": 2,
+      "node": {
+        "name": "ตรอกของเลียนแบบ",
+        "description": "ของปลอมมากและยังมีค่า ของแท้พบยากแต่ให้แต้มสูง",
+        "genuineProbability": 0.25,
+        "cursedProbability": 0.15,
+        "genuineValue": 16,
+        "fakeValue": 4,
+        "cursePenalty": 6,
+        "demandBonus": 2,
+        "ante": 1,
+        "id": "2-4",
+        "demand": "Mirror"
+      },
+      "votes": [
+        {
+          "playerId": "42e91fb379d61bab",
+          "nodeId": null
+        },
+        {
+          "playerId": "05ea6baf1d381a38",
+          "nodeId": null
+        },
+        {
+          "playerId": "c7d6d4c4f2beab3e",
+          "nodeId": null
+        }
+      ]
+    },
+    {
+      "type": "auction-started",
+      "auctionNumber": 4,
+      "sellerId": "42e91fb379d61bab",
+      "demand": "Mirror"
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:4:SELLER_PREP:42e91fb379d61bab",
+        "auctionNumber": 4,
+        "playerId": "42e91fb379d61bab",
+        "type": "offer",
+        "relicId": "lot-4-1",
+        "mode": "as-is"
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:4:SEALED_BID:05ea6baf1d381a38",
+        "auctionNumber": 4,
+        "playerId": "05ea6baf1d381a38",
+        "type": "bid",
+        "amount": 0
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:4:SEALED_BID:c7d6d4c4f2beab3e",
+        "auctionNumber": 4,
+        "playerId": "c7d6d4c4f2beab3e",
+        "type": "bid",
+        "amount": 0
+      }
+    },
+    {
+      "type": "auction-settled",
+      "result": {
+        "auctionNumber": 4,
+        "sellerId": "42e91fb379d61bab",
+        "demand": "Mirror",
+        "relic": {
+          "id": "lot-4-1",
+          "name": "Clock Relic",
+          "family": "Clock",
+          "genuine": false,
+          "cursed": false
+        },
+        "mode": "as-is",
+        "bids": [
+          {
+            "playerId": "05ea6baf1d381a38",
+            "amount": 0
+          },
+          {
+            "playerId": "c7d6d4c4f2beab3e",
+            "amount": 0
+          }
+        ],
+        "winnerId": null,
+        "price": 0,
+        "tiedPlayerIds": [],
+        "tieIndex": null,
+        "certificate": "unsold",
+        "escrowReturned": 0,
+        "compensation": 0,
+        "trustPenalty": 0,
+        "relicScore": 0,
+        "demandBonus": 0,
+        "wagers": [],
+        "potBefore": 4,
+        "potAfter": 4,
+        "marketId": "2-4",
+        "buildBonus": 0
+      }
+    },
+    {
+      "type": "auction-started",
+      "auctionNumber": 5,
+      "sellerId": "05ea6baf1d381a38",
+      "demand": "Mirror"
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:5:SELLER_PREP:05ea6baf1d381a38",
+        "auctionNumber": 5,
+        "playerId": "05ea6baf1d381a38",
+        "type": "offer",
+        "relicId": "lot-5-1",
+        "mode": "as-is"
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:5:SEALED_BID:42e91fb379d61bab",
+        "auctionNumber": 5,
+        "playerId": "42e91fb379d61bab",
+        "type": "bid",
+        "amount": 0
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:5:SEALED_BID:c7d6d4c4f2beab3e",
+        "auctionNumber": 5,
+        "playerId": "c7d6d4c4f2beab3e",
+        "type": "bid",
+        "amount": 0
+      }
+    },
+    {
+      "type": "auction-settled",
+      "result": {
+        "auctionNumber": 5,
+        "sellerId": "05ea6baf1d381a38",
+        "demand": "Mirror",
+        "relic": {
+          "id": "lot-5-1",
+          "name": "Clock Relic",
+          "family": "Clock",
+          "genuine": true,
+          "cursed": true
+        },
+        "mode": "as-is",
+        "bids": [
+          {
+            "playerId": "42e91fb379d61bab",
+            "amount": 0
+          },
+          {
+            "playerId": "c7d6d4c4f2beab3e",
+            "amount": 0
+          }
+        ],
+        "winnerId": null,
+        "price": 0,
+        "tiedPlayerIds": [],
+        "tieIndex": null,
+        "certificate": "unsold",
+        "escrowReturned": 0,
+        "compensation": 0,
+        "trustPenalty": 0,
+        "relicScore": 0,
+        "demandBonus": 0,
+        "wagers": [],
+        "potBefore": 5,
+        "potAfter": 5,
+        "marketId": "2-4",
+        "buildBonus": 0
+      }
+    },
+    {
+      "type": "auction-started",
+      "auctionNumber": 6,
+      "sellerId": "c7d6d4c4f2beab3e",
+      "demand": "Mirror"
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:6:SELLER_PREP:c7d6d4c4f2beab3e",
+        "auctionNumber": 6,
+        "playerId": "c7d6d4c4f2beab3e",
+        "type": "offer",
+        "relicId": "lot-6-1",
+        "mode": "as-is"
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:6:SEALED_BID:42e91fb379d61bab",
+        "auctionNumber": 6,
+        "playerId": "42e91fb379d61bab",
+        "type": "bid",
+        "amount": 0
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:6:SEALED_BID:05ea6baf1d381a38",
+        "auctionNumber": 6,
+        "playerId": "05ea6baf1d381a38",
+        "type": "bid",
+        "amount": 0
+      }
+    },
+    {
+      "type": "auction-settled",
+      "result": {
+        "auctionNumber": 6,
+        "sellerId": "c7d6d4c4f2beab3e",
+        "demand": "Mirror",
+        "relic": {
+          "id": "lot-6-1",
+          "name": "Mask Relic",
+          "family": "Mask",
+          "genuine": false,
+          "cursed": false
+        },
+        "mode": "as-is",
+        "bids": [
+          {
+            "playerId": "42e91fb379d61bab",
+            "amount": 0
+          },
+          {
+            "playerId": "05ea6baf1d381a38",
+            "amount": 0
+          }
+        ],
+        "winnerId": null,
+        "price": 0,
+        "tiedPlayerIds": [],
+        "tieIndex": null,
+        "certificate": "unsold",
+        "escrowReturned": 0,
+        "compensation": 0,
+        "trustPenalty": 0,
+        "relicScore": 0,
+        "demandBonus": 0,
+        "wagers": [],
+        "potBefore": 6,
+        "potAfter": 6,
+        "marketId": "2-4",
+        "buildBonus": 0
+      }
+    },
+    {
+      "type": "boons-opened",
+      "stage": 2,
+      "auctionNumber": 7
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:7:BOON_CHOICE:42e91fb379d61bab",
+        "auctionNumber": 7,
+        "playerId": "42e91fb379d61bab",
+        "type": "choose-boon",
+        "boonId": null
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:7:BOON_CHOICE:05ea6baf1d381a38",
+        "auctionNumber": 7,
+        "playerId": "05ea6baf1d381a38",
+        "type": "choose-boon",
+        "boonId": null
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:7:BOON_CHOICE:c7d6d4c4f2beab3e",
+        "auctionNumber": 7,
+        "playerId": "c7d6d4c4f2beab3e",
+        "type": "choose-boon",
+        "boonId": null
+      }
+    },
+    {
+      "type": "route-opened",
+      "stage": 3,
+      "auctionNumber": 7
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:7:ROUTE_CHOICE:42e91fb379d61bab",
+        "auctionNumber": 7,
+        "playerId": "42e91fb379d61bab",
+        "type": "vote-route",
+        "nodeId": null
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:7:ROUTE_CHOICE:05ea6baf1d381a38",
+        "auctionNumber": 7,
+        "playerId": "05ea6baf1d381a38",
+        "type": "vote-route",
+        "nodeId": null
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:7:ROUTE_CHOICE:c7d6d4c4f2beab3e",
+        "auctionNumber": 7,
+        "playerId": "c7d6d4c4f2beab3e",
+        "type": "vote-route",
+        "nodeId": null
+      }
+    },
+    {
+      "type": "route-selected",
+      "stage": 3,
+      "node": {
+        "name": "ตรอกของเลียนแบบ",
+        "description": "ของปลอมมากและยังมีค่า ของแท้พบยากแต่ให้แต้มสูง",
+        "genuineProbability": 0.25,
+        "cursedProbability": 0.35,
+        "genuineValue": 16,
+        "fakeValue": 4,
+        "cursePenalty": 6,
+        "demandBonus": 2,
+        "ante": 1,
+        "id": "3-4",
+        "demand": "Clock"
+      },
+      "votes": [
+        {
+          "playerId": "42e91fb379d61bab",
+          "nodeId": null
+        },
+        {
+          "playerId": "05ea6baf1d381a38",
+          "nodeId": null
+        },
+        {
+          "playerId": "c7d6d4c4f2beab3e",
+          "nodeId": null
+        }
+      ]
+    },
+    {
+      "type": "auction-started",
+      "auctionNumber": 7,
+      "sellerId": "42e91fb379d61bab",
+      "demand": "Clock"
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:7:SELLER_PREP:42e91fb379d61bab",
+        "auctionNumber": 7,
+        "playerId": "42e91fb379d61bab",
+        "type": "offer",
+        "relicId": "lot-7-1",
+        "mode": "as-is"
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:7:SEALED_BID:05ea6baf1d381a38",
+        "auctionNumber": 7,
+        "playerId": "05ea6baf1d381a38",
+        "type": "bid",
+        "amount": 0
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:7:SEALED_BID:c7d6d4c4f2beab3e",
+        "auctionNumber": 7,
+        "playerId": "c7d6d4c4f2beab3e",
+        "type": "bid",
+        "amount": 0
+      }
+    },
+    {
+      "type": "auction-settled",
+      "result": {
+        "auctionNumber": 7,
+        "sellerId": "42e91fb379d61bab",
+        "demand": "Clock",
+        "relic": {
+          "id": "lot-7-1",
+          "name": "Mask Relic",
+          "family": "Mask",
+          "genuine": false,
+          "cursed": false
+        },
+        "mode": "as-is",
+        "bids": [
+          {
+            "playerId": "05ea6baf1d381a38",
+            "amount": 0
+          },
+          {
+            "playerId": "c7d6d4c4f2beab3e",
+            "amount": 0
+          }
+        ],
+        "winnerId": null,
+        "price": 0,
+        "tiedPlayerIds": [],
+        "tieIndex": null,
+        "certificate": "unsold",
+        "escrowReturned": 0,
+        "compensation": 0,
+        "trustPenalty": 0,
+        "relicScore": 0,
+        "demandBonus": 0,
+        "wagers": [],
+        "potBefore": 7,
+        "potAfter": 7,
+        "marketId": "3-4",
+        "buildBonus": 0
+      }
+    },
+    {
+      "type": "auction-started",
+      "auctionNumber": 8,
+      "sellerId": "05ea6baf1d381a38",
+      "demand": "Clock"
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:8:SELLER_PREP:05ea6baf1d381a38",
+        "auctionNumber": 8,
+        "playerId": "05ea6baf1d381a38",
+        "type": "offer",
+        "relicId": "lot-8-1",
+        "mode": "as-is"
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:8:SEALED_BID:42e91fb379d61bab",
+        "auctionNumber": 8,
+        "playerId": "42e91fb379d61bab",
+        "type": "bid",
+        "amount": 0
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:8:SEALED_BID:c7d6d4c4f2beab3e",
+        "auctionNumber": 8,
+        "playerId": "c7d6d4c4f2beab3e",
+        "type": "bid",
+        "amount": 0
+      }
+    },
+    {
+      "type": "auction-settled",
+      "result": {
+        "auctionNumber": 8,
+        "sellerId": "05ea6baf1d381a38",
+        "demand": "Clock",
+        "relic": {
+          "id": "lot-8-1",
+          "name": "Mirror Relic",
+          "family": "Mirror",
+          "genuine": false,
+          "cursed": true
+        },
+        "mode": "as-is",
+        "bids": [
+          {
+            "playerId": "42e91fb379d61bab",
+            "amount": 0
+          },
+          {
+            "playerId": "c7d6d4c4f2beab3e",
+            "amount": 0
+          }
+        ],
+        "winnerId": null,
+        "price": 0,
+        "tiedPlayerIds": [],
+        "tieIndex": null,
+        "certificate": "unsold",
+        "escrowReturned": 0,
+        "compensation": 0,
+        "trustPenalty": 0,
+        "relicScore": 0,
+        "demandBonus": 0,
+        "wagers": [],
+        "potBefore": 8,
+        "potAfter": 8,
+        "marketId": "3-4",
+        "buildBonus": 0
+      }
+    },
+    {
+      "type": "auction-started",
+      "auctionNumber": 9,
+      "sellerId": "c7d6d4c4f2beab3e",
+      "demand": "Clock"
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:9:SELLER_PREP:c7d6d4c4f2beab3e",
+        "auctionNumber": 9,
+        "playerId": "c7d6d4c4f2beab3e",
+        "type": "offer",
+        "relicId": "lot-9-1",
+        "mode": "as-is"
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:9:SEALED_BID:42e91fb379d61bab",
+        "auctionNumber": 9,
+        "playerId": "42e91fb379d61bab",
+        "type": "bid",
+        "amount": 0
+      }
+    },
+    {
+      "type": "action-accepted",
+      "action": {
+        "requestId": "timeout:dac30497a3a54660:9:SEALED_BID:05ea6baf1d381a38",
+        "auctionNumber": 9,
+        "playerId": "05ea6baf1d381a38",
+        "type": "bid",
+        "amount": 0
+      }
+    },
+    {
+      "type": "auction-settled",
+      "result": {
+        "auctionNumber": 9,
+        "sellerId": "c7d6d4c4f2beab3e",
+        "demand": "Clock",
+        "relic": {
+          "id": "lot-9-1",
+          "name": "Mirror Relic",
+          "family": "Mirror",
+          "genuine": false,
+          "cursed": true
+        },
+        "mode": "as-is",
+        "bids": [
+          {
+            "playerId": "42e91fb379d61bab",
+            "amount": 0
+          },
+          {
+            "playerId": "05ea6baf1d381a38",
+            "amount": 0
+          }
+        ],
+        "winnerId": null,
+        "price": 0,
+        "tiedPlayerIds": [],
+        "tieIndex": null,
+        "certificate": "unsold",
+        "escrowReturned": 0,
+        "compensation": 0,
+        "trustPenalty": 0,
+        "relicScore": 0,
+        "demandBonus": 0,
+        "wagers": [],
+        "potBefore": 9,
+        "potAfter": 9,
+        "marketId": "3-4",
+        "buildBonus": 0
+      }
+    },
+    {
+      "type": "game-ended"
+    }
+  ],
+  "scores": [
+    {
+      "playerId": "42e91fb379d61bab",
+      "coins": 15,
+      "relicPoints": 0,
+      "demandPoints": 0,
+      "trustPenalty": 0,
+      "total": 15
+    },
+    {
+      "playerId": "05ea6baf1d381a38",
+      "coins": 15,
+      "relicPoints": 0,
+      "demandPoints": 0,
+      "trustPenalty": 0,
+      "total": 15
+    },
+    {
+      "playerId": "c7d6d4c4f2beab3e",
+      "coins": 15,
+      "relicPoints": 0,
+      "demandPoints": 0,
+      "trustPenalty": 0,
+      "total": 15
+    }
+  ],
+  "winnerIds": [
+    "42e91fb379d61bab",
+    "05ea6baf1d381a38",
+    "c7d6d4c4f2beab3e"
+  ],
+  "timeouts": [
+    {
+      "at": 1011,
+      "phase": "ROUTE_CHOICE",
+      "playerId": "42e91fb379d61bab",
+      "auctionNumber": 1
+    },
+    {
+      "at": 1011,
+      "phase": "ROUTE_CHOICE",
+      "playerId": "05ea6baf1d381a38",
+      "auctionNumber": 1
+    },
+    {
+      "at": 1011,
+      "phase": "ROUTE_CHOICE",
+      "playerId": "c7d6d4c4f2beab3e",
+      "auctionNumber": 1
+    },
+    {
+      "at": 1022,
+      "phase": "SELLER_PREP",
+      "playerId": "42e91fb379d61bab",
+      "auctionNumber": 1
+    },
+    {
+      "at": 1033,
+      "phase": "SEALED_BID",
+      "playerId": "05ea6baf1d381a38",
+      "auctionNumber": 1
+    },
+    {
+      "at": 1033,
+      "phase": "SEALED_BID",
+      "playerId": "c7d6d4c4f2beab3e",
+      "auctionNumber": 1
+    },
+    {
+      "at": 1044,
+      "phase": "REVEAL",
+      "playerId": null,
+      "auctionNumber": 1
+    },
+    {
+      "at": 1055,
+      "phase": "SELLER_PREP",
+      "playerId": "05ea6baf1d381a38",
+      "auctionNumber": 2
+    },
+    {
+      "at": 1066,
+      "phase": "SEALED_BID",
+      "playerId": "42e91fb379d61bab",
+      "auctionNumber": 2
+    },
+    {
+      "at": 1066,
+      "phase": "SEALED_BID",
+      "playerId": "c7d6d4c4f2beab3e",
+      "auctionNumber": 2
+    },
+    {
+      "at": 1077,
+      "phase": "REVEAL",
+      "playerId": null,
+      "auctionNumber": 2
+    },
+    {
+      "at": 1088,
+      "phase": "SELLER_PREP",
+      "playerId": "c7d6d4c4f2beab3e",
+      "auctionNumber": 3
+    },
+    {
+      "at": 1099,
+      "phase": "SEALED_BID",
+      "playerId": "42e91fb379d61bab",
+      "auctionNumber": 3
+    },
+    {
+      "at": 1099,
+      "phase": "SEALED_BID",
+      "playerId": "05ea6baf1d381a38",
+      "auctionNumber": 3
+    },
+    {
+      "at": 1110,
+      "phase": "REVEAL",
+      "playerId": null,
+      "auctionNumber": 3
+    },
+    {
+      "at": 1121,
+      "phase": "BOON_CHOICE",
+      "playerId": "42e91fb379d61bab",
+      "auctionNumber": 4
+    },
+    {
+      "at": 1121,
+      "phase": "BOON_CHOICE",
+      "playerId": "05ea6baf1d381a38",
+      "auctionNumber": 4
+    },
+    {
+      "at": 1121,
+      "phase": "BOON_CHOICE",
+      "playerId": "c7d6d4c4f2beab3e",
+      "auctionNumber": 4
+    },
+    {
+      "at": 1132,
+      "phase": "ROUTE_CHOICE",
+      "playerId": "42e91fb379d61bab",
+      "auctionNumber": 4
+    },
+    {
+      "at": 1132,
+      "phase": "ROUTE_CHOICE",
+      "playerId": "05ea6baf1d381a38",
+      "auctionNumber": 4
+    },
+    {
+      "at": 1132,
+      "phase": "ROUTE_CHOICE",
+      "playerId": "c7d6d4c4f2beab3e",
+      "auctionNumber": 4
+    },
+    {
+      "at": 1143,
+      "phase": "SELLER_PREP",
+      "playerId": "42e91fb379d61bab",
+      "auctionNumber": 4
+    },
+    {
+      "at": 1154,
+      "phase": "SEALED_BID",
+      "playerId": "05ea6baf1d381a38",
+      "auctionNumber": 4
+    },
+    {
+      "at": 1154,
+      "phase": "SEALED_BID",
+      "playerId": "c7d6d4c4f2beab3e",
+      "auctionNumber": 4
+    },
+    {
+      "at": 1165,
+      "phase": "REVEAL",
+      "playerId": null,
+      "auctionNumber": 4
+    },
+    {
+      "at": 1176,
+      "phase": "SELLER_PREP",
+      "playerId": "05ea6baf1d381a38",
+      "auctionNumber": 5
+    },
+    {
+      "at": 1187,
+      "phase": "SEALED_BID",
+      "playerId": "42e91fb379d61bab",
+      "auctionNumber": 5
+    },
+    {
+      "at": 1187,
+      "phase": "SEALED_BID",
+      "playerId": "c7d6d4c4f2beab3e",
+      "auctionNumber": 5
+    },
+    {
+      "at": 1198,
+      "phase": "REVEAL",
+      "playerId": null,
+      "auctionNumber": 5
+    },
+    {
+      "at": 1209,
+      "phase": "SELLER_PREP",
+      "playerId": "c7d6d4c4f2beab3e",
+      "auctionNumber": 6
+    },
+    {
+      "at": 1220,
+      "phase": "SEALED_BID",
+      "playerId": "42e91fb379d61bab",
+      "auctionNumber": 6
+    },
+    {
+      "at": 1220,
+      "phase": "SEALED_BID",
+      "playerId": "05ea6baf1d381a38",
+      "auctionNumber": 6
+    },
+    {
+      "at": 1231,
+      "phase": "REVEAL",
+      "playerId": null,
+      "auctionNumber": 6
+    },
+    {
+      "at": 1242,
+      "phase": "BOON_CHOICE",
+      "playerId": "42e91fb379d61bab",
+      "auctionNumber": 7
+    },
+    {
+      "at": 1242,
+      "phase": "BOON_CHOICE",
+      "playerId": "05ea6baf1d381a38",
+      "auctionNumber": 7
+    },
+    {
+      "at": 1242,
+      "phase": "BOON_CHOICE",
+      "playerId": "c7d6d4c4f2beab3e",
+      "auctionNumber": 7
+    },
+    {
+      "at": 1253,
+      "phase": "ROUTE_CHOICE",
+      "playerId": "42e91fb379d61bab",
+      "auctionNumber": 7
+    },
+    {
+      "at": 1253,
+      "phase": "ROUTE_CHOICE",
+      "playerId": "05ea6baf1d381a38",
+      "auctionNumber": 7
+    },
+    {
+      "at": 1253,
+      "phase": "ROUTE_CHOICE",
+      "playerId": "c7d6d4c4f2beab3e",
+      "auctionNumber": 7
+    },
+    {
+      "at": 1264,
+      "phase": "SELLER_PREP",
+      "playerId": "42e91fb379d61bab",
+      "auctionNumber": 7
+    },
+    {
+      "at": 1275,
+      "phase": "SEALED_BID",
+      "playerId": "05ea6baf1d381a38",
+      "auctionNumber": 7
+    },
+    {
+      "at": 1275,
+      "phase": "SEALED_BID",
+      "playerId": "c7d6d4c4f2beab3e",
+      "auctionNumber": 7
+    },
+    {
+      "at": 1286,
+      "phase": "REVEAL",
+      "playerId": null,
+      "auctionNumber": 7
+    },
+    {
+      "at": 1297,
+      "phase": "SELLER_PREP",
+      "playerId": "05ea6baf1d381a38",
+      "auctionNumber": 8
+    },
+    {
+      "at": 1308,
+      "phase": "SEALED_BID",
+      "playerId": "42e91fb379d61bab",
+      "auctionNumber": 8
+    },
+    {
+      "at": 1308,
+      "phase": "SEALED_BID",
+      "playerId": "c7d6d4c4f2beab3e",
+      "auctionNumber": 8
+    },
+    {
+      "at": 1319,
+      "phase": "REVEAL",
+      "playerId": null,
+      "auctionNumber": 8
+    },
+    {
+      "at": 1330,
+      "phase": "SELLER_PREP",
+      "playerId": "c7d6d4c4f2beab3e",
+      "auctionNumber": 9
+    },
+    {
+      "at": 1341,
+      "phase": "SEALED_BID",
+      "playerId": "42e91fb379d61bab",
+      "auctionNumber": 9
+    },
+    {
+      "at": 1341,
+      "phase": "SEALED_BID",
+      "playerId": "05ea6baf1d381a38",
+      "auctionNumber": 9
+    },
+    {
+      "at": 1352,
+      "phase": "REVEAL",
+      "playerId": null,
+      "auctionNumber": 9
+    }
+  ],
+  "phaseTimes": [
+    {
+      "phase": "ROUTE_CHOICE",
+      "startedAt": 1000,
+      "endedAt": 1011,
+      "auctionNumber": 1
+    },
+    {
+      "phase": "SELLER_PREP",
+      "startedAt": 1011,
+      "endedAt": 1022,
+      "auctionNumber": 1
+    },
+    {
+      "phase": "SEALED_BID",
+      "startedAt": 1022,
+      "endedAt": 1033,
+      "auctionNumber": 1
+    },
+    {
+      "phase": "REVEAL",
+      "startedAt": 1033,
+      "endedAt": 1044,
+      "auctionNumber": 1
+    },
+    {
+      "phase": "SELLER_PREP",
+      "startedAt": 1044,
+      "endedAt": 1055,
+      "auctionNumber": 2
+    },
+    {
+      "phase": "SEALED_BID",
+      "startedAt": 1055,
+      "endedAt": 1066,
+      "auctionNumber": 2
+    },
+    {
+      "phase": "REVEAL",
+      "startedAt": 1066,
+      "endedAt": 1077,
+      "auctionNumber": 2
+    },
+    {
+      "phase": "SELLER_PREP",
+      "startedAt": 1077,
+      "endedAt": 1088,
+      "auctionNumber": 3
+    },
+    {
+      "phase": "SEALED_BID",
+      "startedAt": 1088,
+      "endedAt": 1099,
+      "auctionNumber": 3
+    },
+    {
+      "phase": "REVEAL",
+      "startedAt": 1099,
+      "endedAt": 1110,
+      "auctionNumber": 3
+    },
+    {
+      "phase": "BOON_CHOICE",
+      "startedAt": 1110,
+      "endedAt": 1121,
+      "auctionNumber": 4
+    },
+    {
+      "phase": "ROUTE_CHOICE",
+      "startedAt": 1121,
+      "endedAt": 1132,
+      "auctionNumber": 4
+    },
+    {
+      "phase": "SELLER_PREP",
+      "startedAt": 1132,
+      "endedAt": 1143,
+      "auctionNumber": 4
+    },
+    {
+      "phase": "SEALED_BID",
+      "startedAt": 1143,
+      "endedAt": 1154,
+      "auctionNumber": 4
+    },
+    {
+      "phase": "REVEAL",
+      "startedAt": 1154,
+      "endedAt": 1165,
+      "auctionNumber": 4
+    },
+    {
+      "phase": "SELLER_PREP",
+      "startedAt": 1165,
+      "endedAt": 1176,
+      "auctionNumber": 5
+    },
+    {
+      "phase": "SEALED_BID",
+      "startedAt": 1176,
+      "endedAt": 1187,
+      "auctionNumber": 5
+    },
+    {
+      "phase": "REVEAL",
+      "startedAt": 1187,
+      "endedAt": 1198,
+      "auctionNumber": 5
+    },
+    {
+      "phase": "SELLER_PREP",
+      "startedAt": 1198,
+      "endedAt": 1209,
+      "auctionNumber": 6
+    },
+    {
+      "phase": "SEALED_BID",
+      "startedAt": 1209,
+      "endedAt": 1220,
+      "auctionNumber": 6
+    },
+    {
+      "phase": "REVEAL",
+      "startedAt": 1220,
+      "endedAt": 1231,
+      "auctionNumber": 6
+    },
+    {
+      "phase": "BOON_CHOICE",
+      "startedAt": 1231,
+      "endedAt": 1242,
+      "auctionNumber": 7
+    },
+    {
+      "phase": "ROUTE_CHOICE",
+      "startedAt": 1242,
+      "endedAt": 1253,
+      "auctionNumber": 7
+    },
+    {
+      "phase": "SELLER_PREP",
+      "startedAt": 1253,
+      "endedAt": 1264,
+      "auctionNumber": 7
+    },
+    {
+      "phase": "SEALED_BID",
+      "startedAt": 1264,
+      "endedAt": 1275,
+      "auctionNumber": 7
+    },
+    {
+      "phase": "REVEAL",
+      "startedAt": 1275,
+      "endedAt": 1286,
+      "auctionNumber": 7
+    },
+    {
+      "phase": "SELLER_PREP",
+      "startedAt": 1286,
+      "endedAt": 1297,
+      "auctionNumber": 8
+    },
+    {
+      "phase": "SEALED_BID",
+      "startedAt": 1297,
+      "endedAt": 1308,
+      "auctionNumber": 8
+    },
+    {
+      "phase": "REVEAL",
+      "startedAt": 1308,
+      "endedAt": 1319,
+      "auctionNumber": 8
+    },
+    {
+      "phase": "SELLER_PREP",
+      "startedAt": 1319,
+      "endedAt": 1330,
+      "auctionNumber": 9
+    },
+    {
+      "phase": "SEALED_BID",
+      "startedAt": 1330,
+      "endedAt": 1341,
+      "auctionNumber": 9
+    },
+    {
+      "phase": "REVEAL",
+      "startedAt": 1341,
+      "endedAt": 1352,
+      "auctionNumber": 9
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+✔ v0.5 keeps life separate, spends entry energy and validates survival config while v0.4 is unchanged (6.24325ms)
+✔ spending last energy does not pause, zero-energy actions fail atomically and free decisions remain legal (5.290208ms)
+✔ NPC energy recovery is available at zero energy, costs credits once and retry is idempotent (1.115667ms)
+✔ NPC life recovery is available at zero energy, costs credits once and retry is idempotent (0.751625ms)
+✔ zero-energy vampire blood pact restores energy but costs life and cannot resurrect a dead player (0.855833ms)
+✔ restorative consumable authenticity=true curse=false applies distinct life effects (0.624167ms)
+✔ restorative consumable authenticity=false curse=false applies distinct life effects (0.547042ms)
+✔ restorative consumable authenticity=true curse=true applies distinct life effects (0.504542ms)
+✔ restorative consumable authenticity=false curse=true applies distinct life effects (0.718792ms)
+✔ death is permanent, freezes owned property/statuses and survivors continue past it (2.312667ms)
+✔ all dead invokes Collector once: true/fake/cursed values plus credits and score statuses, without history bonuses (0.887209ms)
+✔ score buff and debuff cancel and Collector handles zero inventory and tied credit scores (0.735042ms)
+✔ a complete command-only survival run exceeds three encounters, drains life and strictly replays (37.727416ms)
+✔ parser accepts late encounters and recovery but rejects actor/target injections and unsafe numbers (0.437084ms)
+✔ v0.4 historical audits still replay with their exact old shape and scoring (31.670083ms)
+✔ survival cautious reads only DTOs and completes strict seeded replay (210.679375ms)
+✔ survival aggressive reads only DTOs and completes strict seeded replay (225.783708ms)
+✔ survival collector reads only DTOs and completes strict seeded replay (207.54825ms)
+✔ survival trader reads only DTOs and completes strict seeded replay (340.375083ms)
+✔ room death/resume/reveal/final audit/rematch with timers true (2.877292ms)
+✔ room death/resume/reveal/final audit/rematch with timers false (1.629125ms)
+✔ canonical 2-seat room audit reaches Collector and validates factual metadata (28.5455ms)
+✔ canonical 3-seat room audit reaches Collector and validates factual metadata (49.892916ms)
+✔ canonical 4-seat room audit reaches Collector and validates factual metadata (76.941041ms)
+✔ survival SSR distinguishes zero energy from death and exposes Collector credit/item/modifier results (17.548833ms)
+✔ F1 score effects are disclosed in D10 direct/cross-shop/E08 contracts and B10/D10 event choices (8.000541ms)
+✔ F2 command-only privacy: hidden wealth/accuracy stay private through appraisal, reveal, advance and spectator views (28.382042ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1443.378542

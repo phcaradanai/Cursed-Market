@@ -1,0 +1,59 @@
+{
+  "checkedAt": "2026-10-13T20:58:51.406Z",
+  "evidenceKind": "synthetic-only",
+  "replayChecks": [
+    {
+      "version": "0.1",
+      "kind": "raw",
+      "path": "docs/validation/appraisal-delivery-v0.4/compatibility/legacy-0.1-raw.json",
+      "phase": "RESULTS"
+    },
+    {
+      "version": "0.1",
+      "kind": "room",
+      "path": "docs/validation/appraisal-delivery-v0.4/compatibility/legacy-0.1-room.json",
+      "phase": "RESULTS"
+    },
+    {
+      "version": "0.2",
+      "kind": "raw",
+      "path": "docs/validation/appraisal-delivery-v0.4/compatibility/legacy-0.2-raw.json",
+      "phase": "RESULTS"
+    },
+    {
+      "version": "0.2",
+      "kind": "room",
+      "path": "docs/validation/appraisal-delivery-v0.4/compatibility/legacy-0.2-room.json",
+      "phase": "RESULTS"
+    },
+    {
+      "version": "0.3",
+      "kind": "raw",
+      "path": "docs/validation/appraisal-delivery-v0.4/compatibility/legacy-0.3-raw.json",
+      "phase": "RESULTS"
+    },
+    {
+      "version": "0.3",
+      "kind": "room",
+      "path": "docs/validation/appraisal-delivery-v0.4/compatibility/legacy-0.3-room.json",
+      "phase": "RESULTS"
+    },
+    {
+      "kind": "existing/raw-v4/room-v4",
+      "path": "docs/simulation/engine-v0.1/example-match.json",
+      "phase": "RESULTS"
+    },
+    {
+      "kind": "existing/raw-v4/room-v4",
+      "path": "docs/simulation/appraisal-delivery-v0.4/example-run.json",
+      "phase": "RESULTS"
+    },
+    {
+      "kind": "existing/raw-v4/room-v4",
+      "path": "docs/validation/appraisal-delivery-v0.4/network/lan-4-players.json",
+      "phase": "RESULTS"
+    }
+  ],
+  "reportChecks": 9,
+  "humanFunValidated": false
+}

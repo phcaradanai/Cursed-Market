@@ -1,0 +1,182 @@
+{
+  "version": "0.4",
+  "workingDirection": "realistic cards, not final brand approval",
+  "assets": [
+    {
+      "id": "npc-orc",
+      "subjectType": "npc",
+      "prompt": "Use case: stylized-concept.\nAsset type: standalone raster illustration for a Cursed Market realistic-card game; this is one card's art, not a UI mockup.\nStyle: realistic painted fantasy concept art, credible skin and material detail, restrained warm amber light, deep charcoal and worn bronze. Strong central silhouette that remains readable at 160 pixels. Opaque quiet charcoal-brown background. No text, letters, labels, card border, frame, logo, watermark, UI, price, rarity badge, glow denoting curses, or authenticity signals. The same art will be reused whether an item is genuine, fake, cursed or safe; do not telegraph hidden truth. No gore. One clearly separated subject only.\nSubject: Portrait of an experienced orc dimensional merchant, broad weathered olive skin, two worn tusks, tired amber eyes, rugged burgundy wool and tarnished bronze fasteners. One open hand offering negotiation near lower frame. Dignified, alert, neither attacking nor smiling broadly. Head and shoulders with some chest and offering hand visible.\nComposition: portrait 4:5 card illustration, centered close framing, eyes clearly visible, head not cropped, usable margin around silhouette.",
+      "mode": "built-in image_gen generate",
+      "destination": "src/appraisal-client/public/art/npc-orc.png",
+      "status": "generated",
+      "sourcePath": "/Users/oyl-mac_m1/.codex/generated_images/01a133c4-d6ee-7440-a4cc-a9a03f678cd2/exec-d1d3400f-f4f2-41e4-a874-d7c4d72a0c41.png",
+      "bytes": 2543682,
+      "sha256": "887a65e1f7a754e6e9dee8aed3cee5c492e7dbfe68b3ab14f44b2fb89b34cd3b"
+    },
+    {
+      "id": "npc-vampire",
+      "subjectType": "npc",
+      "prompt": "Use case: stylized-concept.\nAsset type: standalone raster illustration for a Cursed Market realistic-card game; this is one card's art, not a UI mockup.\nStyle: realistic painted fantasy concept art, credible skin and material detail, restrained warm amber light, deep charcoal and worn bronze. Strong central silhouette that remains readable at 160 pixels. Opaque quiet charcoal-brown background. No text, letters, labels, card border, frame, logo, watermark, UI, price, rarity badge, glow denoting curses, or authenticity signals. The same art will be reused whether an item is genuine, fake, cursed or safe; do not telegraph hidden truth. No gore. One clearly separated subject only.\nSubject: Portrait of an adult vampire antiquities merchant, pale realistic face, dark swept-back hair, restrained wine-red velvet collar, antique brass clasp, calm calculating expression. A hint of one fang, no blood. Head and shoulders with gloved offering hand visible near bottom.\nComposition: portrait 4:5 card illustration, centered close framing, eyes clearly visible, head not cropped, usable margin around silhouette.",
+      "mode": "built-in image_gen generate",
+      "destination": "src/appraisal-client/public/art/npc-vampire.png",
+      "status": "generated",
+      "sourcePath": "/Users/oyl-mac_m1/.codex/generated_images/01a133c4-d6ee-7440-a4cc-a9a03f678cd2/exec-9546a9b3-3b4f-4c61-90fb-6c7763489c54.png",
+      "bytes": 2448776,
+      "sha256": "8942a772ec6faa7527b6dce4d67e98cbc0cf89343ddf9d6f0ca46b20a93e3efb"
+    },
+    {
+      "id": "npc-autometa",
+      "subjectType": "npc",
+      "prompt": "Use case: stylized-concept.\nAsset type: standalone raster illustration for a Cursed Market realistic-card game; this is one card's art, not a UI mockup.\nStyle: realistic painted fantasy concept art, credible skin and material detail, restrained warm amber light, deep charcoal and worn bronze. Strong central silhouette that remains readable at 160 pixels. Opaque quiet charcoal-brown background. No text, letters, labels, card border, frame, logo, watermark, UI, price, rarity badge, glow denoting curses, or authenticity signals. The same art will be reused whether an item is genuine, fake, cursed or safe; do not telegraph hidden truth. No gore. One clearly separated subject only.\nSubject: Portrait of an Autometa dimensional merchant, a finely engineered humanoid automaton in tarnished bronze and dark iron, articulated face plates, small amber glass eyes and a courteous precise expression. Old mechanical craftsmanship, no modern screen. Head and shoulders, one mechanical open hand at bottom.\nComposition: portrait 4:5 card illustration, centered close framing, eyes clearly visible, head not cropped, usable margin around silhouette.",
+      "mode": "built-in image_gen generate",
+      "destination": "src/appraisal-client/public/art/npc-autometa.png",
+      "status": "generated",
+      "sourcePath": "/Users/oyl-mac_m1/.codex/generated_images/01a133c4-d6ee-7440-a4cc-a9a03f678cd2/exec-f40dfdfd-d3cd-4c36-b319-786df4c83691.png",
+      "bytes": 2342035,
+      "sha256": "c69039684d71569038c6a6a3abbacc42cfd4e5eea52a3e9ecada255a6b31c89c"
+    },
+    {
+      "id": "npc-alien",
+      "subjectType": "npc",
+      "prompt": "Use case: stylized-concept.\nAsset type: standalone raster illustration for a Cursed Market realistic-card game; this is one card's art, not a UI mockup.\nStyle: realistic painted fantasy concept art, credible skin and material detail, restrained warm amber light, deep charcoal and worn bronze. Strong central silhouette that remains readable at 160 pixels. Opaque quiet charcoal-brown background. No text, letters, labels, card border, frame, logo, watermark, UI, price, rarity badge, glow denoting curses, or authenticity signals. The same art will be reused whether an item is genuine, fake, cursed or safe; do not telegraph hidden truth. No gore. One clearly separated subject only.\nSubject: Portrait of an Alien dimensional exchange merchant, believable non-human anatomy with smooth weathered slate skin, four attentive eyes, elongated head and layered ochre trading cloth. Strange but readable curious expression, one long-fingered open hand. Realistic tactile creature, not a toy or cartoon.\nComposition: portrait 4:5 card illustration, centered close framing, eyes clearly visible, head not cropped, usable margin around silhouette.",
+      "mode": "built-in image_gen generate",
+      "destination": "src/appraisal-client/public/art/npc-alien.png",
+      "status": "generated",
+      "sourcePath": "/Users/oyl-mac_m1/.codex/generated_images/01a133c4-d6ee-7440-a4cc-a9a03f678cd2/exec-ce0ec314-2e9d-4ba1-a59b-31070a192276.png",
+      "bytes": 2568668,
+      "sha256": "9b94293d3c3c99f1dd588911035c24d006e24804b99cbddd877f9543bf287a12"
+    },
+    {
+      "id": "npc-darkone",
+      "subjectType": "npc",
+      "prompt": "Use case: stylized-concept.\nAsset type: standalone raster illustration for a Cursed Market realistic-card game; this is one card's art, not a UI mockup.\nStyle: realistic painted fantasy concept art, credible skin and material detail, restrained warm amber light, deep charcoal and worn bronze. Strong central silhouette that remains readable at 160 pixels. Opaque quiet charcoal-brown background. No text, letters, labels, card border, frame, logo, watermark, UI, price, rarity badge, glow denoting curses, or authenticity signals. The same art will be reused whether an item is genuine, fake, cursed or safe; do not telegraph hidden truth. No gore. One clearly separated subject only.\nSubject: Portrait of the Dark One contract merchant, tall hooded otherworldly figure with an obsidian textured face partly visible beneath deep cloth, two faint amber eyes, long elegant fingers extended in invitation. Foreboding quiet bargaining presence, no gore, no combat pose, no magical aura.\nComposition: portrait 4:5 card illustration, centered close framing, eyes clearly visible, head not cropped, usable margin around silhouette.",
+      "mode": "built-in image_gen generate",
+      "destination": "src/appraisal-client/public/art/npc-darkone.png",
+      "status": "generated",
+      "sourcePath": "/Users/oyl-mac_m1/.codex/generated_images/01a133c4-d6ee-7440-a4cc-a9a03f678cd2/exec-0758ddc9-156a-49de-b6bb-3f5b21b4bb37.png",
+      "bytes": 2354983,
+      "sha256": "31f97715f0cd695f4e6ce5a4d76ba303fab59aa80cb3373c8a3b041eaaff0caa"
+    },
+    {
+      "id": "npc-beast",
+      "subjectType": "npc",
+      "prompt": "Use case: stylized-concept.\nAsset type: standalone raster illustration for a Cursed Market realistic-card game; this is one card's art, not a UI mockup.\nStyle: realistic painted fantasy concept art, credible skin and material detail, restrained warm amber light, deep charcoal and worn bronze. Strong central silhouette that remains readable at 160 pixels. Opaque quiet charcoal-brown background. No text, letters, labels, card border, frame, logo, watermark, UI, price, rarity badge, glow denoting curses, or authenticity signals. The same art will be reused whether an item is genuine, fake, cursed or safe; do not telegraph hidden truth. No gore. One clearly separated subject only.\nSubject: Portrait of a large fox-marten-like dimensional guide beast, believable soft dark russet fur, long ears, clever eyes and a worn leather merchant satchel around its shoulders. Friendly but watchful expression, one forepaw on the counter edge. Creature merchant, no human face, no cartoon.\nComposition: portrait 4:5 card illustration, centered close framing, eyes clearly visible, head not cropped, usable margin around silhouette.",
+      "mode": "built-in image_gen generate",
+      "destination": "src/appraisal-client/public/art/npc-beast.png",
+      "status": "generated",
+      "sourcePath": "/Users/oyl-mac_m1/.codex/generated_images/01a133c4-d6ee-7440-a4cc-a9a03f678cd2/exec-acc66993-35db-4aed-930a-f2dd1818e7b9.png",
+      "bytes": 2541368,
+      "sha256": "ad6351ca10c136144de8ce2c59c82309a92a6dd6e2513c5a5ae363ce3b7be41a"
+    },
+    {
+      "id": "item-mirror",
+      "subjectType": "item",
+      "prompt": "Use case: stylized-concept.\nAsset type: standalone raster illustration for a Cursed Market realistic-card game; this is one card's art, not a UI mockup.\nStyle: realistic painted fantasy concept art, credible skin and material detail, restrained warm amber light, deep charcoal and worn bronze. Strong central silhouette that remains readable at 160 pixels. Opaque quiet charcoal-brown background. No text, letters, labels, card border, frame, logo, watermark, UI, price, rarity badge, glow denoting curses, or authenticity signals. The same art will be reused whether an item is genuine, fake, cursed or safe; do not telegraph hidden truth. No gore. One clearly separated subject only.\nSubject: One oval antique moon mirror, worn silver-bronze filigree handle and rim, smoky reflective glass showing only soft neutral studio light. No face, skull, portal or mystical reflection. Entire object visible in a three-quarter product view.\nComposition: square 1:1 product illustration, single object centered and filling about 75 percent of frame with clear margin. No cropped edges.",
+      "mode": "built-in image_gen generate",
+      "destination": "src/appraisal-client/public/art/item-mirror.png",
+      "status": "generated",
+      "sourcePath": "/Users/oyl-mac_m1/.codex/generated_images/01a133c4-d6ee-7440-a4cc-a9a03f678cd2/exec-13ab3b0f-1e87-453e-b5df-5d18c244568f.png",
+      "bytes": 2004355,
+      "sha256": "fec9db26bc2e530e1b777ad15015155a6a6caf861c00cfb03a550536c0916dad"
+    },
+    {
+      "id": "item-orb",
+      "subjectType": "item",
+      "prompt": "Use case: stylized-concept.\nAsset type: standalone raster illustration for a Cursed Market realistic-card game; this is one card's art, not a UI mockup.\nStyle: realistic painted fantasy concept art, credible skin and material detail, restrained warm amber light, deep charcoal and worn bronze. Strong central silhouette that remains readable at 160 pixels. Opaque quiet charcoal-brown background. No text, letters, labels, card border, frame, logo, watermark, UI, price, rarity badge, glow denoting curses, or authenticity signals. The same art will be reused whether an item is genuine, fake, cursed or safe; do not telegraph hidden truth. No gore. One clearly separated subject only.\nSubject: One smooth palm-sized milky glass energy orb nestled in a simple worn bronze cradle. Subtle amber light caught in the glass is material reflection, not magical glow. Entire object visible.\nComposition: square 1:1 product illustration, single object centered and filling about 75 percent of frame with clear margin. No cropped edges.",
+      "mode": "built-in image_gen generate",
+      "destination": "src/appraisal-client/public/art/item-orb.png",
+      "status": "generated",
+      "sourcePath": "/Users/oyl-mac_m1/.codex/generated_images/01a133c4-d6ee-7440-a4cc-a9a03f678cd2/exec-00628881-add0-4c89-8bf6-e8295c6a6bf6.png",
+      "bytes": 2075870,
+      "sha256": "a5d5acbc7be7444e174eb7c67800fceeaa7f124f3ef9e95f7a62d6a53c24862a"
+    },
+    {
+      "id": "item-key",
+      "subjectType": "item",
+      "prompt": "Use case: stylized-concept.\nAsset type: standalone raster illustration for a Cursed Market realistic-card game; this is one card's art, not a UI mockup.\nStyle: realistic painted fantasy concept art, credible skin and material detail, restrained warm amber light, deep charcoal and worn bronze. Strong central silhouette that remains readable at 160 pixels. Opaque quiet charcoal-brown background. No text, letters, labels, card border, frame, logo, watermark, UI, price, rarity badge, glow denoting curses, or authenticity signals. The same art will be reused whether an item is genuine, fake, cursed or safe; do not telegraph hidden truth. No gore. One clearly separated subject only.\nSubject: One long antique iron shadow key, open circular bow, intricate notches, fine engraving and honest wear. Lying diagonally as a clear large isolated object. No locks or extra keys.\nComposition: square 1:1 product illustration, single object centered and filling about 75 percent of frame with clear margin. No cropped edges.",
+      "mode": "built-in image_gen generate",
+      "destination": "src/appraisal-client/public/art/item-key.png",
+      "status": "generated",
+      "sourcePath": "/Users/oyl-mac_m1/.codex/generated_images/01a133c4-d6ee-7440-a4cc-a9a03f678cd2/exec-eb0a78e2-91ad-4769-aa59-26a416f314b8.png",
+      "bytes": 2137368,
+      "sha256": "d610567b235c4c882064c59402e02cf1d0b6a179c4d788f0637c7f2e662cec75"
+    },
+    {
+      "id": "item-mask",
+      "subjectType": "item",
+      "prompt": "Use case: stylized-concept.\nAsset type: standalone raster illustration for a Cursed Market realistic-card game; this is one card's art, not a UI mockup.\nStyle: realistic painted fantasy concept art, credible skin and material detail, restrained warm amber light, deep charcoal and worn bronze. Strong central silhouette that remains readable at 160 pixels. Opaque quiet charcoal-brown background. No text, letters, labels, card border, frame, logo, watermark, UI, price, rarity badge, glow denoting curses, or authenticity signals. The same art will be reused whether an item is genuine, fake, cursed or safe; do not telegraph hidden truth. No gore. One clearly separated subject only.\nSubject: One aged whisper mask, ivory-toned carved surface, a few fine cracks, asymmetric cheek carving and dusty burgundy ties. Two empty eye holes, no wearer, no glow. Entire mask visible.\nComposition: square 1:1 product illustration, single object centered and filling about 75 percent of frame with clear margin. No cropped edges.",
+      "mode": "built-in image_gen generate",
+      "destination": "src/appraisal-client/public/art/item-mask.png",
+      "status": "generated",
+      "sourcePath": "/Users/oyl-mac_m1/.codex/generated_images/01a133c4-d6ee-7440-a4cc-a9a03f678cd2/exec-d2cd1517-decf-4c89-9884-bbe0b08babfe.png",
+      "bytes": 2483129,
+      "sha256": "38fd36fd15fd660e50ab93a78f452185bd74a00d8302c2d80e88d7418bfd9339"
+    },
+    {
+      "id": "item-potion",
+      "subjectType": "item",
+      "prompt": "Use case: stylized-concept.\nAsset type: standalone raster illustration for a Cursed Market realistic-card game; this is one card's art, not a UI mockup.\nStyle: realistic painted fantasy concept art, credible skin and material detail, restrained warm amber light, deep charcoal and worn bronze. Strong central silhouette that remains readable at 160 pixels. Opaque quiet charcoal-brown background. No text, letters, labels, card border, frame, logo, watermark, UI, price, rarity badge, glow denoting curses, or authenticity signals. The same art will be reused whether an item is genuine, fake, cursed or safe; do not telegraph hidden truth. No gore. One clearly separated subject only.\nSubject: One small corked apothecary bottle of cleansing potion with translucent pale tea-colored liquid, cloudy aged glass, tarnished bronze neck wire and an unmarked wax seal. No readable label, no surrounding bottles.\nComposition: square 1:1 product illustration, single object centered and filling about 75 percent of frame with clear margin. No cropped edges.",
+      "mode": "built-in image_gen generate",
+      "destination": "src/appraisal-client/public/art/item-potion.png",
+      "status": "generated",
+      "sourcePath": "/Users/oyl-mac_m1/.codex/generated_images/01a133c4-d6ee-7440-a4cc-a9a03f678cd2/exec-7f3b893c-9e53-45c0-bbf0-e9d25e2c3e77.png",
+      "bytes": 2340570,
+      "sha256": "98641ba6e48dffd3342ebd4f41f069cab4ede7599f979366fcf2ed11de16b0ef"
+    },
+    {
+      "id": "item-battery",
+      "subjectType": "item",
+      "prompt": "Use case: stylized-concept.\nAsset type: standalone raster illustration for a Cursed Market realistic-card game; this is one card's art, not a UI mockup.\nStyle: realistic painted fantasy concept art, credible skin and material detail, restrained warm amber light, deep charcoal and worn bronze. Strong central silhouette that remains readable at 160 pixels. Opaque quiet charcoal-brown background. No text, letters, labels, card border, frame, logo, watermark, UI, price, rarity badge, glow denoting curses, or authenticity signals. The same art will be reused whether an item is genuine, fake, cursed or safe; do not telegraph hidden truth. No gore. One clearly separated subject only.\nSubject: One compact interdimensional battery, a rugged bronze-and-iron power cell with a translucent amber glass core and mechanical ribs. Believable weight and age, no screen or charging symbol. Entire object visible.\nComposition: square 1:1 product illustration, single object centered and filling about 75 percent of frame with clear margin. No cropped edges.",
+      "mode": "built-in image_gen generate",
+      "destination": "src/appraisal-client/public/art/item-battery.png",
+      "status": "generated",
+      "sourcePath": "/Users/oyl-mac_m1/.codex/generated_images/01a133c4-d6ee-7440-a4cc-a9a03f678cd2/exec-799327a0-8bf3-4134-8245-d5564d5c2245.png",
+      "bytes": 2139680,
+      "sha256": "23042ddeef1263847b365d731d41001e40852a0bf4b9becd360743037e2e04cb"
+    },
+    {
+      "id": "item-amulet",
+      "subjectType": "item",
+      "prompt": "Use case: stylized-concept.\nAsset type: standalone raster illustration for a Cursed Market realistic-card game; this is one card's art, not a UI mockup.\nStyle: realistic painted fantasy concept art, credible skin and material detail, restrained warm amber light, deep charcoal and worn bronze. Strong central silhouette that remains readable at 160 pixels. Opaque quiet charcoal-brown background. No text, letters, labels, card border, frame, logo, watermark, UI, price, rarity badge, glow denoting curses, or authenticity signals. The same art will be reused whether an item is genuine, fake, cursed or safe; do not telegraph hidden truth. No gore. One clearly separated subject only.\nSubject: One antique mind-guard amulet, a sculpted bronze pendant set with a matte deep green stone, short worn leather cord coiled naturally behind it. No invented holy or hate emblem, no skull, no aura.\nComposition: square 1:1 product illustration, single object centered and filling about 75 percent of frame with clear margin. No cropped edges.",
+      "mode": "built-in image_gen generate",
+      "destination": "src/appraisal-client/public/art/item-amulet.png",
+      "status": "generated",
+      "sourcePath": "/Users/oyl-mac_m1/.codex/generated_images/01a133c4-d6ee-7440-a4cc-a9a03f678cd2/exec-3e73f424-1d7c-4d16-89e1-e827dccc458d.png",
+      "bytes": 2391483,
+      "sha256": "beab5184eb849f86d945df6345192e29ed770ed3e590374991740492ddbc5db6"
+    },
+    {
+      "id": "item-blade",
+      "subjectType": "item",
+      "prompt": "Use case: stylized-concept.\nAsset type: standalone raster illustration for a Cursed Market realistic-card game; this is one card's art, not a UI mockup.\nStyle: realistic painted fantasy concept art, credible skin and material detail, restrained warm amber light, deep charcoal and worn bronze. Strong central silhouette that remains readable at 160 pixels. Opaque quiet charcoal-brown background. No text, letters, labels, card border, frame, logo, watermark, UI, price, rarity badge, glow denoting curses, or authenticity signals. The same art will be reused whether an item is genuine, fake, cursed or safe; do not telegraph hidden truth. No gore. One clearly separated subject only.\nSubject: One bloodsteel ceremonial short blade with dark worn steel, subtle rust-red patina and aged bronze guard. Entire blade visible diagonally. No blood, no hand, no combat scene.\nComposition: square 1:1 product illustration, single object centered and filling about 75 percent of frame with clear margin. No cropped edges.",
+      "mode": "built-in image_gen generate",
+      "destination": "src/appraisal-client/public/art/item-blade.png",
+      "status": "generated",
+      "sourcePath": "/Users/oyl-mac_m1/.codex/generated_images/01a133c4-d6ee-7440-a4cc-a9a03f678cd2/exec-bda745a5-1214-4c03-8767-77b3cd0c3f76.png",
+      "bytes": 2205869,
+      "sha256": "c3648e98b5da6b8ac24cce3d28e321cdec920e25f029d80b2c857ed49969b240"
+    },
+    {
+      "id": "item-scanner",
+      "subjectType": "item",
+      "prompt": "Use case: stylized-concept.\nAsset type: standalone raster illustration for a Cursed Market realistic-card game; this is one card's art, not a UI mockup.\nStyle: realistic painted fantasy concept art, credible skin and material detail, restrained warm amber light, deep charcoal and worn bronze. Strong central silhouette that remains readable at 160 pixels. Opaque quiet charcoal-brown background. No text, letters, labels, card border, frame, logo, watermark, UI, price, rarity badge, glow denoting curses, or authenticity signals. The same art will be reused whether an item is genuine, fake, cursed or safe; do not telegraph hidden truth. No gore. One clearly separated subject only.\nSubject: One antique price scanner, a handheld bronze measuring instrument with a circular glass lens, a few precise mechanical adjustment dials and a dark leather grip. No text, numerals, screen or extra tools. Entire object visible.\nComposition: square 1:1 product illustration, single object centered and filling about 75 percent of frame with clear margin. No cropped edges.",
+      "mode": "built-in image_gen generate",
+      "destination": "src/appraisal-client/public/art/item-scanner.png",
+      "status": "generated",
+      "sourcePath": "/Users/oyl-mac_m1/.codex/generated_images/01a133c4-d6ee-7440-a4cc-a9a03f678cd2/exec-4dd16b55-6b1c-4abc-83ba-0b31b49bf7ef.png",
+      "bytes": 2007077,
+      "sha256": "e352e61b3c94b354c2d6a65b2d36ac90091777e4b22c5b8da5a485ef1ea75501"
+    },
+    {
+      "id": "item-food",
+      "subjectType": "item",
+      "prompt": "Use case: stylized-concept.\nAsset type: standalone raster illustration for a Cursed Market realistic-card game; this is one card's art, not a UI mockup.\nStyle: realistic painted fantasy concept art, credible skin and material detail, restrained warm amber light, deep charcoal and worn bronze. Strong central silhouette that remains readable at 160 pixels. Opaque quiet charcoal-brown background. No text, letters, labels, card border, frame, logo, watermark, UI, price, rarity badge, glow denoting curses, or authenticity signals. The same art will be reused whether an item is genuine, fake, cursed or safe; do not telegraph hidden truth. No gore. One clearly separated subject only.\nSubject: One folded waxed-cloth parcel of guide-beast food, opened to reveal a modest pile of realistic dried fruit, seeds and small dried meat pieces. Warm earthy colors, no plate, no animal, no extra packaging.\nComposition: square 1:1 product illustration, single object centered and filling about 75 percent of frame with clear margin. No cropped edges.",
+      "mode": "built-in image_gen generate",
+      "destination": "src/appraisal-client/public/art/item-food.png",
+      "status": "generated",
+      "sourcePath": "/Users/oyl-mac_m1/.codex/generated_images/01a133c4-d6ee-7440-a4cc-a9a03f678cd2/exec-cbc60741-6a3d-4b0e-8c69-a6293819f08e.png",
+      "bytes": 2630061,
+      "sha256": "5cfc8c667bc7241fa1aae654ca1e71872905f902778e20622db1726eece51e9c"
+    }
+  ]
+}

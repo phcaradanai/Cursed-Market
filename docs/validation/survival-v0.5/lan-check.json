@@ -1,0 +1,217 @@
+{
+  "checkedAt": "2026-10-14T05:34:08.592Z",
+  "base": "http://192.168.10.150:3107",
+  "requestPacingMs": 75,
+  "scope": "HTTP assets and synthetic LAN-address sockets; no browser, image inspection or human/device playtest",
+  "assets": [
+    {
+      "path": "/assets/index-CohgoWXR.js",
+      "mime": "text/javascript; charset=utf-8",
+      "bytes": 305999
+    },
+    {
+      "path": "/assets/index-DP9shhVZ.css",
+      "mime": "text/css; charset=utf-8",
+      "bytes": 14693
+    },
+    {
+      "path": "/art/item-amulet.png",
+      "mime": "image/png",
+      "bytes": 2391483
+    },
+    {
+      "path": "/art/item-battery.png",
+      "mime": "image/png",
+      "bytes": 2139680
+    },
+    {
+      "path": "/art/item-blade.png",
+      "mime": "image/png",
+      "bytes": 2205869
+    },
+    {
+      "path": "/art/item-food.png",
+      "mime": "image/png",
+      "bytes": 2630061
+    },
+    {
+      "path": "/art/item-key.png",
+      "mime": "image/png",
+      "bytes": 2137368
+    },
+    {
+      "path": "/art/item-mask.png",
+      "mime": "image/png",
+      "bytes": 2483129
+    },
+    {
+      "path": "/art/item-mirror.png",
+      "mime": "image/png",
+      "bytes": 2004355
+    },
+    {
+      "path": "/art/item-orb.png",
+      "mime": "image/png",
+      "bytes": 2075870
+    },
+    {
+      "path": "/art/item-potion.png",
+      "mime": "image/png",
+      "bytes": 2340570
+    },
+    {
+      "path": "/art/item-scanner.png",
+      "mime": "image/png",
+      "bytes": 2007077
+    },
+    {
+      "path": "/art/npc-alien.png",
+      "mime": "image/png",
+      "bytes": 2568668
+    },
+    {
+      "path": "/art/npc-autometa.png",
+      "mime": "image/png",
+      "bytes": 2342035
+    },
+    {
+      "path": "/art/npc-beast.png",
+      "mime": "image/png",
+      "bytes": 2541368
+    },
+    {
+      "path": "/art/npc-darkone.png",
+      "mime": "image/png",
+      "bytes": 2354983
+    },
+    {
+      "path": "/art/npc-orc.png",
+      "mime": "image/png",
+      "bytes": 2543682
+    },
+    {
+      "path": "/art/npc-vampire.png",
+      "mime": "image/png",
+      "bytes": 2448776
+    },
+    {
+      "path": "/fonts/cormorantgaramond.ttf",
+      "mime": "font/ttf",
+      "bytes": 1195560
+    },
+    {
+      "path": "/fonts/notosansthai.ttf",
+      "mime": "font/ttf",
+      "bytes": 218652
+    },
+    {
+      "path": "/fonts/notoserifthai.ttf",
+      "mime": "font/ttf",
+      "bytes": 292188
+    }
+  ],
+  "matches": [
+    {
+      "count": 2,
+      "matchId": "06758cc94842a82c",
+      "timersEnabled": true,
+      "rulesVersion": "0.5",
+      "catalogVersion": 2,
+      "collectorScores": [
+        89,
+        21
+      ],
+      "phase": "RESULTS",
+      "encounters": 16,
+      "replay": true,
+      "rematchReset": true,
+      "commands": 278
+    },
+    {
+      "count": 3,
+      "matchId": "074c9a9e7597a903",
+      "timersEnabled": true,
+      "rulesVersion": "0.5",
+      "catalogVersion": 2,
+      "collectorScores": [
+        37,
+        24,
+        62
+      ],
+      "phase": "RESULTS",
+      "encounters": 18,
+      "replay": true,
+      "rematchReset": true,
+      "commands": 307
+    },
+    {
+      "count": 4,
+      "matchId": "934044dd7a385cef",
+      "timersEnabled": true,
+      "rulesVersion": "0.5",
+      "catalogVersion": 2,
+      "collectorScores": [
+        51,
+        25,
+        20,
+        18
+      ],
+      "phase": "RESULTS",
+      "encounters": 10,
+      "replay": true,
+      "rematchReset": true,
+      "commands": 260
+    },
+    {
+      "count": 2,
+      "matchId": "c8727c9443c91f0e",
+      "timersEnabled": false,
+      "rulesVersion": "0.5",
+      "catalogVersion": 2,
+      "collectorScores": [
+        52,
+        92
+      ],
+      "phase": "RESULTS",
+      "encounters": 12,
+      "replay": true,
+      "rematchReset": true,
+      "commands": 219
+    },
+    {
+      "count": 3,
+      "matchId": "555a24956b144738",
+      "timersEnabled": false,
+      "rulesVersion": "0.5",
+      "catalogVersion": 2,
+      "collectorScores": [
+        38,
+        35,
+        15
+      ],
+      "phase": "RESULTS",
+      "encounters": 8,
+      "replay": true,
+      "rematchReset": true,
+      "commands": 207
+    },
+    {
+      "count": 4,
+      "matchId": "17643fb161e92409",
+      "timersEnabled": false,
+      "rulesVersion": "0.5",
+      "catalogVersion": 2,
+      "collectorScores": [
+        41,
+        46,
+        45,
+        20
+      ],
+      "phase": "RESULTS",
+      "encounters": 8,
+      "replay": true,
+      "rematchReset": true,
+      "commands": 302
+    }
+  ]
+}

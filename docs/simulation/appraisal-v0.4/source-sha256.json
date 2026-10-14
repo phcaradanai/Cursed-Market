@@ -1,0 +1,12 @@
+{
+  "src/game/appraisal/views.ts": "908ae6e3a10103b71e131a31f615a37f664bda2ef550ae08fffe1857ae196305",
+  "src/game/appraisal/engine.ts": "29509ae152d09395d09275f30d9576806f170488653e645c0e1fae662c2c691f",
+  "src/game/appraisal/content.ts": "02b30ff01b5053c55e21d65c9d97bf8e9b5f56b8b341cf214087e068f093f9f1",
+  "src/game/appraisal/types.ts": "f44c7f4507828adb4d962dbaf52d66ff03330f81a5de61245cfe4b8db693d1d2",
+  "src/game/appraisal/mechanics.ts": "34e585f79bb1941457ea623dd84747755e4db5b5f6e07257ffca7fb899494f10",
+  "src/game/appraisal/events.ts": "2619c04f8067960044bbc927b7cc5bbb9c4ac5636a326bdcfb5551e0c66abe9e",
+  "src/game/appraisal/index.ts": "a199070fd6980a0333231a715d99be4a9014544c50c02c0855faacfbb0aa5cb5",
+  "src/game/appraisal/audit.ts": "68cf2a5da7f60dab582c4bc6bc7dfd558262c3db6200c4f33ab6064e62c78a72",
+  "src/simulation/appraisal.ts": "855e35c7f6a5ab590e5a6b170cd2c6761b58a28d84bb01533aa071544e6b71b1",
+  "tests/appraisal.test.ts": "76a915dfa87ad325ac11f6c9f0021d8d8efe9cc0318670383dc9687e1da9fa09"
+}

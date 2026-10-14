@@ -1,0 +1,1641 @@
+{
+  "checkedAt": "2026-10-14T05:33:49.624Z",
+  "rulesVersion": "0.5",
+  "runs": 120,
+  "strictReplay": true,
+  "humanFunValidated": false,
+  "cases": [
+    {
+      "count": 2,
+      "policy": "cautious",
+      "runs": [
+        {
+          "seed": "survival-v0.5:2:cautious:0",
+          "encounters": 6,
+          "commands": 109,
+          "sha256": "535dba58f202f0c9f3bb3efd0bffafc026b3d0921c7e358f3fa99e7f5d3f3cd7",
+          "scores": [
+            24,
+            39
+          ],
+          "deaths": 2,
+          "recoveryDeals": 1
+        },
+        {
+          "seed": "survival-v0.5:2:cautious:1",
+          "encounters": 8,
+          "commands": 130,
+          "sha256": "c4aada81f7711f6bf9cc77e8d528ac4e281b989b099322361d52ad1ba9f571d6",
+          "scores": [
+            28,
+            38
+          ],
+          "deaths": 2,
+          "recoveryDeals": 6
+        },
+        {
+          "seed": "survival-v0.5:2:cautious:2",
+          "encounters": 10,
+          "commands": 145,
+          "sha256": "f3e799c4a27baca54149afca82cef2a4ee26eac610036facd0daacacd3763303",
+          "scores": [
+            14,
+            24
+          ],
+          "deaths": 2,
+          "recoveryDeals": 6
+        },
+        {
+          "seed": "survival-v0.5:2:cautious:3",
+          "encounters": 6,
+          "commands": 108,
+          "sha256": "8c7040f6622bec582bd57207f4cf2e13b2d30c9ac5e5116dc08099f0562bac13",
+          "scores": [
+            42,
+            31
+          ],
+          "deaths": 2,
+          "recoveryDeals": 3
+        },
+        {
+          "seed": "survival-v0.5:2:cautious:4",
+          "encounters": 6,
+          "commands": 101,
+          "sha256": "1b57340877bb725e8f5e1ef00f4ca2c2c47670ce9f3880977ef1dbb1ee3c176c",
+          "scores": [
+            31,
+            31
+          ],
+          "deaths": 2,
+          "recoveryDeals": 2
+        },
+        {
+          "seed": "survival-v0.5:2:cautious:5",
+          "encounters": 6,
+          "commands": 113,
+          "sha256": "96c09018b5f9f2d268b917ca1885487853ab78055a1c486bbcb1b160b8e424aa",
+          "scores": [
+            28,
+            19
+          ],
+          "deaths": 2,
+          "recoveryDeals": 5
+        },
+        {
+          "seed": "survival-v0.5:2:cautious:6",
+          "encounters": 6,
+          "commands": 106,
+          "sha256": "83bdf64f542444fc6337de967bd0260a4949eb3e59838383dfbf0b335d02ad16",
+          "scores": [
+            32,
+            40
+          ],
+          "deaths": 2,
+          "recoveryDeals": 3
+        },
+        {
+          "seed": "survival-v0.5:2:cautious:7",
+          "encounters": 8,
+          "commands": 124,
+          "sha256": "ce5de73316d4cd543d58143fab7844df2424e41893a47044e9fa3785f3adca2e",
+          "scores": [
+            26,
+            36
+          ],
+          "deaths": 2,
+          "recoveryDeals": 3
+        },
+        {
+          "seed": "survival-v0.5:2:cautious:8",
+          "encounters": 8,
+          "commands": 143,
+          "sha256": "74fdab23d38448ab8fbf3f1e9d1ac59e0f8453b5f8c2d6c82a31add6d081c06c",
+          "scores": [
+            34,
+            20
+          ],
+          "deaths": 2,
+          "recoveryDeals": 7
+        },
+        {
+          "seed": "survival-v0.5:2:cautious:9",
+          "encounters": 8,
+          "commands": 127,
+          "sha256": "94420f0bd4be1d67c9e6c8b6aa2f8bf9cd9d5335924005f1f035365a8d9f7734",
+          "scores": [
+            22,
+            45
+          ],
+          "deaths": 2,
+          "recoveryDeals": 4
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "policy": "aggressive",
+      "runs": [
+        {
+          "seed": "survival-v0.5:2:aggressive:0",
+          "encounters": 8,
+          "commands": 120,
+          "sha256": "d6f9887ef45564726c16779bee3fac17649b6e8411e727f18464b19cdab00d63",
+          "scores": [
+            0,
+            1
+          ],
+          "deaths": 2,
+          "recoveryDeals": 7
+        },
+        {
+          "seed": "survival-v0.5:2:aggressive:1",
+          "encounters": 10,
+          "commands": 171,
+          "sha256": "f119270126e979322cbcbba38433980a63aba1b48934d410f84cbacc6b30cdbb",
+          "scores": [
+            25,
+            27
+          ],
+          "deaths": 2,
+          "recoveryDeals": 9
+        },
+        {
+          "seed": "survival-v0.5:2:aggressive:2",
+          "encounters": 8,
+          "commands": 140,
+          "sha256": "bd3f696c1a0d973832478950be9147a4531264105fc229892a1019f780cc191c",
+          "scores": [
+            19,
+            24
+          ],
+          "deaths": 2,
+          "recoveryDeals": 7
+        },
+        {
+          "seed": "survival-v0.5:2:aggressive:3",
+          "encounters": 10,
+          "commands": 135,
+          "sha256": "d762571b1d7a5b5035c8a11dfd853edf409a79a4806f5f67418f0c9296b816f8",
+          "scores": [
+            19,
+            30
+          ],
+          "deaths": 2,
+          "recoveryDeals": 4
+        },
+        {
+          "seed": "survival-v0.5:2:aggressive:4",
+          "encounters": 10,
+          "commands": 143,
+          "sha256": "8776925a0e5882b74ecaac4774df29c2dbffda9a6626c26fe49f65c318ddd8f9",
+          "scores": [
+            14,
+            18
+          ],
+          "deaths": 2,
+          "recoveryDeals": 7
+        },
+        {
+          "seed": "survival-v0.5:2:aggressive:5",
+          "encounters": 6,
+          "commands": 63,
+          "sha256": "52b2fbaa7f16fed4d8f63baedd26f0330797eb2dde1defe2b648cc2addb22129",
+          "scores": [
+            56,
+            40
+          ],
+          "deaths": 2,
+          "recoveryDeals": 2
+        },
+        {
+          "seed": "survival-v0.5:2:aggressive:6",
+          "encounters": 6,
+          "commands": 109,
+          "sha256": "de934460627377c486e6dc4750d63163fdccaff24a576679c74fcba233d4eb04",
+          "scores": [
+            7,
+            26
+          ],
+          "deaths": 2,
+          "recoveryDeals": 3
+        },
+        {
+          "seed": "survival-v0.5:2:aggressive:7",
+          "encounters": 8,
+          "commands": 122,
+          "sha256": "afc6be06da6702b473994a8190eb8a51dab13b1048f4bbc4b3259577bda53607",
+          "scores": [
+            21,
+            39
+          ],
+          "deaths": 2,
+          "recoveryDeals": 2
+        },
+        {
+          "seed": "survival-v0.5:2:aggressive:8",
+          "encounters": 8,
+          "commands": 131,
+          "sha256": "e4efddcd89a7bfae64d684740fc1197232660f221ebbc8281b1f55c60775ae16",
+          "scores": [
+            35,
+            45
+          ],
+          "deaths": 2,
+          "recoveryDeals": 6
+        },
+        {
+          "seed": "survival-v0.5:2:aggressive:9",
+          "encounters": 8,
+          "commands": 131,
+          "sha256": "ffbc6c7eedbaf00bf43aa2da78005540b3f8cfcc6c4ea091753d562633afac1e",
+          "scores": [
+            11,
+            18
+          ],
+          "deaths": 2,
+          "recoveryDeals": 5
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "policy": "collector",
+      "runs": [
+        {
+          "seed": "survival-v0.5:2:collector:0",
+          "encounters": 8,
+          "commands": 125,
+          "sha256": "cdd9d4bd842347078d8bba8fdddba700dabc7c3b825ac2ebf961cfe71ebe9967",
+          "scores": [
+            29,
+            35
+          ],
+          "deaths": 2,
+          "recoveryDeals": 4
+        },
+        {
+          "seed": "survival-v0.5:2:collector:1",
+          "encounters": 8,
+          "commands": 109,
+          "sha256": "8a8d8ff2188ef2070e043ad02591591d86e1c05e8933527cb22b16b950c0c8b8",
+          "scores": [
+            20,
+            8
+          ],
+          "deaths": 2,
+          "recoveryDeals": 2
+        },
+        {
+          "seed": "survival-v0.5:2:collector:2",
+          "encounters": 9,
+          "commands": 135,
+          "sha256": "58f7dd14c6b1d823fc9ab141d5c005a38eeef6e0fddc06bd9b79b9d653425216",
+          "scores": [
+            24,
+            41
+          ],
+          "deaths": 2,
+          "recoveryDeals": 5
+        },
+        {
+          "seed": "survival-v0.5:2:collector:3",
+          "encounters": 10,
+          "commands": 145,
+          "sha256": "a5639af46fa0ce212165a733181c95f195d50b430708e112192b2f03de06b0e2",
+          "scores": [
+            40,
+            35
+          ],
+          "deaths": 2,
+          "recoveryDeals": 5
+        },
+        {
+          "seed": "survival-v0.5:2:collector:4",
+          "encounters": 8,
+          "commands": 116,
+          "sha256": "963c2e2f980214e6fbb600048969abb7e18a5338ae69b56e5f0103c71cdb9644",
+          "scores": [
+            12,
+            24
+          ],
+          "deaths": 2,
+          "recoveryDeals": 7
+        },
+        {
+          "seed": "survival-v0.5:2:collector:5",
+          "encounters": 7,
+          "commands": 126,
+          "sha256": "7f9edadee5c38bbb91f511b0fe1c8d82bde505efc31896413d9ef0f64a8fe94d",
+          "scores": [
+            19,
+            40
+          ],
+          "deaths": 2,
+          "recoveryDeals": 7
+        },
+        {
+          "seed": "survival-v0.5:2:collector:6",
+          "encounters": 7,
+          "commands": 115,
+          "sha256": "cac81e5c424890ba44f2c24742730218711b06c16ae282b68e912f846fd682b3",
+          "scores": [
+            18,
+            6
+          ],
+          "deaths": 2,
+          "recoveryDeals": 4
+        },
+        {
+          "seed": "survival-v0.5:2:collector:7",
+          "encounters": 6,
+          "commands": 96,
+          "sha256": "64c5bf9731ce5fb51e0554eeb98d7860572f63acba3b4493881d0f4b15f3cc6c",
+          "scores": [
+            34,
+            40
+          ],
+          "deaths": 2,
+          "recoveryDeals": 1
+        },
+        {
+          "seed": "survival-v0.5:2:collector:8",
+          "encounters": 8,
+          "commands": 126,
+          "sha256": "9600fff37f30257cfc37ee61201d4225e9c646b3b5862267d272e6639a7a6903",
+          "scores": [
+            24,
+            7
+          ],
+          "deaths": 2,
+          "recoveryDeals": 6
+        },
+        {
+          "seed": "survival-v0.5:2:collector:9",
+          "encounters": 7,
+          "commands": 110,
+          "sha256": "33652bc9b0737e6e72b7ecbf952a4cd1c34c05ab02b22405a5fbe56b8fe7d53d",
+          "scores": [
+            18,
+            7
+          ],
+          "deaths": 2,
+          "recoveryDeals": 6
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "policy": "trader",
+      "runs": [
+        {
+          "seed": "survival-v0.5:2:trader:0",
+          "encounters": 8,
+          "commands": 116,
+          "sha256": "5c40cdf62d25ca266c055214a989ace2407a7fb2f151db790b52d340c343a579",
+          "scores": [
+            39,
+            7
+          ],
+          "deaths": 2,
+          "recoveryDeals": 3
+        },
+        {
+          "seed": "survival-v0.5:2:trader:1",
+          "encounters": 10,
+          "commands": 170,
+          "sha256": "6bbcf3761fca576634a614957dbffc3297cbcdc4e831a8be2f4c4e8b89cab658",
+          "scores": [
+            65,
+            50
+          ],
+          "deaths": 2,
+          "recoveryDeals": 9
+        },
+        {
+          "seed": "survival-v0.5:2:trader:2",
+          "encounters": 8,
+          "commands": 153,
+          "sha256": "641959b0b343f1d2b5908493a658fe43850f983a3f7aa6817d445507bf306f90",
+          "scores": [
+            20,
+            13
+          ],
+          "deaths": 2,
+          "recoveryDeals": 9
+        },
+        {
+          "seed": "survival-v0.5:2:trader:3",
+          "encounters": 12,
+          "commands": 221,
+          "sha256": "3927958bbc9864c22c994bcbd8d3416cba8ece76b87bda4e2386849ccb20f329",
+          "scores": [
+            16,
+            74
+          ],
+          "deaths": 2,
+          "recoveryDeals": 13
+        },
+        {
+          "seed": "survival-v0.5:2:trader:4",
+          "encounters": 8,
+          "commands": 128,
+          "sha256": "27741b95dd9201cdb42e2828b5da93efe47c3509e050aeb559b04d85ed206696",
+          "scores": [
+            25,
+            25
+          ],
+          "deaths": 2,
+          "recoveryDeals": 7
+        },
+        {
+          "seed": "survival-v0.5:2:trader:5",
+          "encounters": 8,
+          "commands": 140,
+          "sha256": "08e0229c8e5f4be8223ee883e4438d1dffd066811d252b333a1b653857c208b9",
+          "scores": [
+            30,
+            25
+          ],
+          "deaths": 2,
+          "recoveryDeals": 5
+        },
+        {
+          "seed": "survival-v0.5:2:trader:6",
+          "encounters": 6,
+          "commands": 125,
+          "sha256": "49fa6d1bba1fa12009f8c47e99e1ef0400b20ac8ffd43921ef721dbce4010a7e",
+          "scores": [
+            32,
+            49
+          ],
+          "deaths": 2,
+          "recoveryDeals": 4
+        },
+        {
+          "seed": "survival-v0.5:2:trader:7",
+          "encounters": 6,
+          "commands": 114,
+          "sha256": "5a8f7098a0a070331c314589739fff2b527c9e4340a7c5b5d81790a88f2a9c8c",
+          "scores": [
+            20,
+            27
+          ],
+          "deaths": 2,
+          "recoveryDeals": 2
+        },
+        {
+          "seed": "survival-v0.5:2:trader:8",
+          "encounters": 10,
+          "commands": 163,
+          "sha256": "25094a4f07d1eedc8735c104bde46f251473c424f36a091f93c075f6a0e9f9fd",
+          "scores": [
+            10,
+            17
+          ],
+          "deaths": 2,
+          "recoveryDeals": 8
+        },
+        {
+          "seed": "survival-v0.5:2:trader:9",
+          "encounters": 6,
+          "commands": 117,
+          "sha256": "b900df39aba69213307d5eb259890a7b6b282a064b81d582dfbc4437fc476c3e",
+          "scores": [
+            47,
+            24
+          ],
+          "deaths": 2,
+          "recoveryDeals": 4
+        }
+      ]
+    },
+    {
+      "count": 3,
+      "policy": "cautious",
+      "runs": [
+        {
+          "seed": "survival-v0.5:3:cautious:0",
+          "encounters": 8,
+          "commands": 204,
+          "sha256": "ffc8f50bfea7043752d42a521909326db686d0aa592141c5d6368cfdf8150241",
+          "scores": [
+            37,
+            11,
+            35
+          ],
+          "deaths": 3,
+          "recoveryDeals": 5
+        },
+        {
+          "seed": "survival-v0.5:3:cautious:1",
+          "encounters": 10,
+          "commands": 205,
+          "sha256": "0f69d9baf0dfd835d35290cc37f17fedfd676bcefe80aa5d4beb0c155734d13d",
+          "scores": [
+            36,
+            32,
+            25
+          ],
+          "deaths": 3,
+          "recoveryDeals": 10
+        },
+        {
+          "seed": "survival-v0.5:3:cautious:2",
+          "encounters": 10,
+          "commands": 198,
+          "sha256": "e9352f7fbfda66087fce164efaaa7091d79f5e33011ace6b077d02a588573ce8",
+          "scores": [
+            26,
+            19,
+            35
+          ],
+          "deaths": 3,
+          "recoveryDeals": 6
+        },
+        {
+          "seed": "survival-v0.5:3:cautious:3",
+          "encounters": 8,
+          "commands": 187,
+          "sha256": "14daca4c3e19e5570f1c7cbd69f5d5a87dc7afc47c10a2129d0202df71c489f2",
+          "scores": [
+            20,
+            25,
+            37
+          ],
+          "deaths": 3,
+          "recoveryDeals": 9
+        },
+        {
+          "seed": "survival-v0.5:3:cautious:4",
+          "encounters": 10,
+          "commands": 218,
+          "sha256": "1393a1e24b61890a2539ac1e724173672ba92ff08a647a37c583879ed1910fe3",
+          "scores": [
+            32,
+            25,
+            31
+          ],
+          "deaths": 3,
+          "recoveryDeals": 9
+        },
+        {
+          "seed": "survival-v0.5:3:cautious:5",
+          "encounters": 8,
+          "commands": 198,
+          "sha256": "2faa7f7e8618e390b4bfdb6dcfc43e45e47c48d1379dc3e3c1a79c1ed5083d6c",
+          "scores": [
+            11,
+            10,
+            15
+          ],
+          "deaths": 3,
+          "recoveryDeals": 7
+        },
+        {
+          "seed": "survival-v0.5:3:cautious:6",
+          "encounters": 8,
+          "commands": 191,
+          "sha256": "ab7bee669b53a7123bb7b65a1b8f569111d156af940f8c05d17f8f73fe77a0ab",
+          "scores": [
+            21,
+            9,
+            38
+          ],
+          "deaths": 3,
+          "recoveryDeals": 8
+        },
+        {
+          "seed": "survival-v0.5:3:cautious:7",
+          "encounters": 8,
+          "commands": 174,
+          "sha256": "dd0bbccc3a864f6da0bd234f43c8019c4ce146f0c35c21ab4d7890f061e72fb6",
+          "scores": [
+            43,
+            35,
+            10
+          ],
+          "deaths": 3,
+          "recoveryDeals": 4
+        },
+        {
+          "seed": "survival-v0.5:3:cautious:8",
+          "encounters": 8,
+          "commands": 183,
+          "sha256": "dc734a4a078dde62dcc9bbea9c7d7b03a853aa63ffa4a743664b29f7396fae0e",
+          "scores": [
+            28,
+            34,
+            27
+          ],
+          "deaths": 3,
+          "recoveryDeals": 6
+        },
+        {
+          "seed": "survival-v0.5:3:cautious:9",
+          "encounters": 8,
+          "commands": 172,
+          "sha256": "1b90d500663c5898e5c6c4aee5daabfb592f330d60137dc01a81f939ffcdfce0",
+          "scores": [
+            24,
+            40,
+            26
+          ],
+          "deaths": 3,
+          "recoveryDeals": 5
+        }
+      ]
+    },
+    {
+      "count": 3,
+      "policy": "aggressive",
+      "runs": [
+        {
+          "seed": "survival-v0.5:3:aggressive:0",
+          "encounters": 8,
+          "commands": 199,
+          "sha256": "04d9a5c9e8587a243b9217d97c640f89089046b7ecae87739e3074e1cde1b7ec",
+          "scores": [
+            25,
+            22,
+            34
+          ],
+          "deaths": 3,
+          "recoveryDeals": 8
+        },
+        {
+          "seed": "survival-v0.5:3:aggressive:1",
+          "encounters": 6,
+          "commands": 169,
+          "sha256": "d59696c82bc453d11c2e221491307a9bd56bb2ccabd86860a80dd8fdff673596",
+          "scores": [
+            39,
+            42,
+            24
+          ],
+          "deaths": 3,
+          "recoveryDeals": 5
+        },
+        {
+          "seed": "survival-v0.5:3:aggressive:2",
+          "encounters": 8,
+          "commands": 185,
+          "sha256": "d5b556b160d8e9217951e2d9978274114ddf16129ec56cc8312baeaff2782ae9",
+          "scores": [
+            36,
+            40,
+            14
+          ],
+          "deaths": 3,
+          "recoveryDeals": 2
+        },
+        {
+          "seed": "survival-v0.5:3:aggressive:3",
+          "encounters": 8,
+          "commands": 164,
+          "sha256": "0734159f83d5963265a9e9739e23711538577c6d94fd5eeb4c71191594a92ec5",
+          "scores": [
+            24,
+            40,
+            38
+          ],
+          "deaths": 3,
+          "recoveryDeals": 2
+        },
+        {
+          "seed": "survival-v0.5:3:aggressive:4",
+          "encounters": 6,
+          "commands": 158,
+          "sha256": "3982a2f827b6fffdd22c95c77d90fc08ffc9ba75bbccd326a43d05257e544e67",
+          "scores": [
+            38,
+            15,
+            34
+          ],
+          "deaths": 3,
+          "recoveryDeals": 2
+        },
+        {
+          "seed": "survival-v0.5:3:aggressive:5",
+          "encounters": 8,
+          "commands": 176,
+          "sha256": "2a39f0eb29ad1399c0f7c3e950912a865f8af192a6700146b4208875c7ac5a2b",
+          "scores": [
+            23,
+            22,
+            1
+          ],
+          "deaths": 3,
+          "recoveryDeals": 5
+        },
+        {
+          "seed": "survival-v0.5:3:aggressive:6",
+          "encounters": 6,
+          "commands": 113,
+          "sha256": "53c7e4ddaeb8b990b97282e709b8018cc1937b5bb2c1c9e6c86d81ad10f35cec",
+          "scores": [
+            39,
+            40,
+            34
+          ],
+          "deaths": 3,
+          "recoveryDeals": 2
+        },
+        {
+          "seed": "survival-v0.5:3:aggressive:7",
+          "encounters": 12,
+          "commands": 213,
+          "sha256": "275fe21daa5015f944d5afd72bae8754b58af0542fee974f6b2707f913606042",
+          "scores": [
+            32,
+            17,
+            28
+          ],
+          "deaths": 3,
+          "recoveryDeals": 6
+        },
+        {
+          "seed": "survival-v0.5:3:aggressive:8",
+          "encounters": 6,
+          "commands": 162,
+          "sha256": "73861e6cdaa3ec472a03d82061ebeb5e245e11f7ade50e86858b028a0246df81",
+          "scores": [
+            28,
+            39,
+            29
+          ],
+          "deaths": 3,
+          "recoveryDeals": 3
+        },
+        {
+          "seed": "survival-v0.5:3:aggressive:9",
+          "encounters": 8,
+          "commands": 191,
+          "sha256": "7c8ffe5d5f646bb931b6bdc2408f4a9a1eaf7dc27a2ee35ab23f2a53ea5ecbe3",
+          "scores": [
+            10,
+            50,
+            14
+          ],
+          "deaths": 3,
+          "recoveryDeals": 3
+        }
+      ]
+    },
+    {
+      "count": 3,
+      "policy": "collector",
+      "runs": [
+        {
+          "seed": "survival-v0.5:3:collector:0",
+          "encounters": 8,
+          "commands": 168,
+          "sha256": "59aa5e32e4e9782b26cde201cd8d5d709b55279aebcd559ffe0d6c2984037be3",
+          "scores": [
+            15,
+            29,
+            31
+          ],
+          "deaths": 3,
+          "recoveryDeals": 5
+        },
+        {
+          "seed": "survival-v0.5:3:collector:1",
+          "encounters": 7,
+          "commands": 134,
+          "sha256": "bb73687cd693e86ececb5cdbd2f992d5fb30b7efdfd8e611216e35e5671b1327",
+          "scores": [
+            20,
+            2,
+            19
+          ],
+          "deaths": 3,
+          "recoveryDeals": 3
+        },
+        {
+          "seed": "survival-v0.5:3:collector:2",
+          "encounters": 8,
+          "commands": 178,
+          "sha256": "e0384795c69ed097563bc16b6cc0e3231113641e0cc9e7fc3e716643106d06fa",
+          "scores": [
+            45,
+            19,
+            2
+          ],
+          "deaths": 3,
+          "recoveryDeals": 9
+        },
+        {
+          "seed": "survival-v0.5:3:collector:3",
+          "encounters": 10,
+          "commands": 202,
+          "sha256": "24838f367772f38993f41b49eb48337e0564b5a46d09c3345c5e75ac08a90c83",
+          "scores": [
+            29,
+            22,
+            1
+          ],
+          "deaths": 3,
+          "recoveryDeals": 8
+        },
+        {
+          "seed": "survival-v0.5:3:collector:4",
+          "encounters": 8,
+          "commands": 172,
+          "sha256": "1c119f0f07dfe556f63056f29d678d4b92882415a6b41be7525faadf6635a350",
+          "scores": [
+            3,
+            21,
+            25
+          ],
+          "deaths": 3,
+          "recoveryDeals": 6
+        },
+        {
+          "seed": "survival-v0.5:3:collector:5",
+          "encounters": 7,
+          "commands": 149,
+          "sha256": "3d8512afc1583377ca756c08aee32d62d20dd62fccc9ac1f87114f2c8092868e",
+          "scores": [
+            45,
+            22,
+            27
+          ],
+          "deaths": 3,
+          "recoveryDeals": 5
+        },
+        {
+          "seed": "survival-v0.5:3:collector:6",
+          "encounters": 8,
+          "commands": 173,
+          "sha256": "ab913cc8a9fc10a0095ba64a1ab24cef94e35c4b481e726ed2e33386eabbe108",
+          "scores": [
+            7,
+            37,
+            22
+          ],
+          "deaths": 3,
+          "recoveryDeals": 3
+        },
+        {
+          "seed": "survival-v0.5:3:collector:7",
+          "encounters": 7,
+          "commands": 142,
+          "sha256": "700b26305d997ae98f16f7fe2b88df0a4036e0030f3c3e41b89a5009084c74ad",
+          "scores": [
+            20,
+            21,
+            12
+          ],
+          "deaths": 3,
+          "recoveryDeals": 6
+        },
+        {
+          "seed": "survival-v0.5:3:collector:8",
+          "encounters": 6,
+          "commands": 127,
+          "sha256": "318e73d8b88a5c9f9a201bcb122458f212d98038aa7b019fd508247c0b0680e9",
+          "scores": [
+            37,
+            37,
+            11
+          ],
+          "deaths": 3,
+          "recoveryDeals": 4
+        },
+        {
+          "seed": "survival-v0.5:3:collector:9",
+          "encounters": 6,
+          "commands": 164,
+          "sha256": "ddce09812cdffbde0cbb8d85d48693debd3e80e198429220b6d97d8bc38820c0",
+          "scores": [
+            34,
+            42,
+            26
+          ],
+          "deaths": 3,
+          "recoveryDeals": 7
+        }
+      ]
+    },
+    {
+      "count": 3,
+      "policy": "trader",
+      "runs": [
+        {
+          "seed": "survival-v0.5:3:trader:0",
+          "encounters": 6,
+          "commands": 173,
+          "sha256": "18aa467215fcef4e094496c7e1d13859f3e44b2f6684b605579c831788f84948",
+          "scores": [
+            22,
+            37,
+            37
+          ],
+          "deaths": 3,
+          "recoveryDeals": 6
+        },
+        {
+          "seed": "survival-v0.5:3:trader:1",
+          "encounters": 8,
+          "commands": 177,
+          "sha256": "9ffd92615f9f1bba71dbd09b4dec38acf85215402ff0d53716473057c8c3e785",
+          "scores": [
+            20,
+            37,
+            30
+          ],
+          "deaths": 3,
+          "recoveryDeals": 4
+        },
+        {
+          "seed": "survival-v0.5:3:trader:2",
+          "encounters": 10,
+          "commands": 192,
+          "sha256": "5c41656e0ecf35e61b3e6761a14c334cb4238b3030a951fc0fbf60411dbedde3",
+          "scores": [
+            38,
+            50,
+            61
+          ],
+          "deaths": 3,
+          "recoveryDeals": 5
+        },
+        {
+          "seed": "survival-v0.5:3:trader:3",
+          "encounters": 8,
+          "commands": 207,
+          "sha256": "1a2521f812c034fba417a4cc2782ac683d447a9f8eda1e6370d8c1e15125d6bf",
+          "scores": [
+            41,
+            56,
+            58
+          ],
+          "deaths": 3,
+          "recoveryDeals": 4
+        },
+        {
+          "seed": "survival-v0.5:3:trader:4",
+          "encounters": 8,
+          "commands": 211,
+          "sha256": "9656e0acbfe2e20b7a50e83c3e2209b7f2d6950737aeef4d925c54df03b83e06",
+          "scores": [
+            43,
+            36,
+            28
+          ],
+          "deaths": 3,
+          "recoveryDeals": 7
+        },
+        {
+          "seed": "survival-v0.5:3:trader:5",
+          "encounters": 8,
+          "commands": 196,
+          "sha256": "adc49f13188621088fb526f8ec725490f3c53e630bf19697183278a4f0d1108c",
+          "scores": [
+            35,
+            35,
+            28
+          ],
+          "deaths": 3,
+          "recoveryDeals": 5
+        },
+        {
+          "seed": "survival-v0.5:3:trader:6",
+          "encounters": 8,
+          "commands": 197,
+          "sha256": "b62963d8550bcd5ef88b7ca831e4334450b2b21b0134aa3f54983bfc230dcc97",
+          "scores": [
+            25,
+            29,
+            54
+          ],
+          "deaths": 3,
+          "recoveryDeals": 9
+        },
+        {
+          "seed": "survival-v0.5:3:trader:7",
+          "encounters": 8,
+          "commands": 204,
+          "sha256": "f705cb634c2fb7336902fb0146b2469a9d733e36d782d19fb2a0f48e6cfc459d",
+          "scores": [
+            41,
+            55,
+            58
+          ],
+          "deaths": 3,
+          "recoveryDeals": 10
+        },
+        {
+          "seed": "survival-v0.5:3:trader:8",
+          "encounters": 12,
+          "commands": 271,
+          "sha256": "6d1c450bae68316772c806321064a2fb05b4bba841957b1456e76cc051c6aa0e",
+          "scores": [
+            50,
+            51,
+            38
+          ],
+          "deaths": 3,
+          "recoveryDeals": 15
+        },
+        {
+          "seed": "survival-v0.5:3:trader:9",
+          "encounters": 16,
+          "commands": 355,
+          "sha256": "08fe0514a1bd6d22d129877d4551e5ebbf99a8dd0be5d1a3b04fc4b876b90fed",
+          "scores": [
+            30,
+            47,
+            35
+          ],
+          "deaths": 3,
+          "recoveryDeals": 19
+        }
+      ]
+    },
+    {
+      "count": 4,
+      "policy": "cautious",
+      "runs": [
+        {
+          "seed": "survival-v0.5:4:cautious:0",
+          "encounters": 10,
+          "commands": 253,
+          "sha256": "a0786442d7d56dbc35893d5502b32a7d28a5e9aeb550b870799142a0cc4d455e",
+          "scores": [
+            17,
+            39,
+            24,
+            28
+          ],
+          "deaths": 4,
+          "recoveryDeals": 10
+        },
+        {
+          "seed": "survival-v0.5:4:cautious:1",
+          "encounters": 8,
+          "commands": 253,
+          "sha256": "a26626818d959633271725b82a945a2fd908d3745e1486a49943acbb552b72ef",
+          "scores": [
+            36,
+            24,
+            19,
+            35
+          ],
+          "deaths": 4,
+          "recoveryDeals": 8
+        },
+        {
+          "seed": "survival-v0.5:4:cautious:2",
+          "encounters": 10,
+          "commands": 312,
+          "sha256": "ac82ad3ea048519e2bea84f7ac8840a178f404120752dad52dc846fc09cf6812",
+          "scores": [
+            6,
+            30,
+            31,
+            23
+          ],
+          "deaths": 4,
+          "recoveryDeals": 19
+        },
+        {
+          "seed": "survival-v0.5:4:cautious:3",
+          "encounters": 12,
+          "commands": 286,
+          "sha256": "1ae0c723bbe11278d1079dd837031a7ee66e29f140d3f288c12344adc2f5c91e",
+          "scores": [
+            18,
+            18,
+            13,
+            25
+          ],
+          "deaths": 4,
+          "recoveryDeals": 11
+        },
+        {
+          "seed": "survival-v0.5:4:cautious:4",
+          "encounters": 10,
+          "commands": 273,
+          "sha256": "9f966b18645362622612d92a971216e2195d5b7cb448e158cb73495ba892ce58",
+          "scores": [
+            23,
+            31,
+            43,
+            20
+          ],
+          "deaths": 4,
+          "recoveryDeals": 13
+        },
+        {
+          "seed": "survival-v0.5:4:cautious:5",
+          "encounters": 10,
+          "commands": 278,
+          "sha256": "be9e338c8c6b6d3345e534d101104ed728b9541cd276ec20ad97965aa56110dd",
+          "scores": [
+            27,
+            21,
+            30,
+            28
+          ],
+          "deaths": 4,
+          "recoveryDeals": 10
+        },
+        {
+          "seed": "survival-v0.5:4:cautious:6",
+          "encounters": 6,
+          "commands": 217,
+          "sha256": "4e1e7e1e3a086996928444e84dabdee91e9313a88cc85f72fc14146f37dd1911",
+          "scores": [
+            42,
+            20,
+            27,
+            24
+          ],
+          "deaths": 4,
+          "recoveryDeals": 10
+        },
+        {
+          "seed": "survival-v0.5:4:cautious:7",
+          "encounters": 10,
+          "commands": 299,
+          "sha256": "8012e7f78530fdb18299113e75e4c39878f3b095aa7771fe7804febd7b0acffc",
+          "scores": [
+            26,
+            6,
+            26,
+            16
+          ],
+          "deaths": 4,
+          "recoveryDeals": 17
+        },
+        {
+          "seed": "survival-v0.5:4:cautious:8",
+          "encounters": 8,
+          "commands": 229,
+          "sha256": "ff4a47b499bf6b11e0a55bae6c7004ea27947afcbfa8b1f9310882393b0869f5",
+          "scores": [
+            7,
+            7,
+            30,
+            35
+          ],
+          "deaths": 4,
+          "recoveryDeals": 7
+        },
+        {
+          "seed": "survival-v0.5:4:cautious:9",
+          "encounters": 8,
+          "commands": 253,
+          "sha256": "2efa143b4833bdade5a81587bde2b7aa5cd5ee9d8cb4aa6524f17be64406ab43",
+          "scores": [
+            43,
+            28,
+            18,
+            26
+          ],
+          "deaths": 4,
+          "recoveryDeals": 12
+        }
+      ]
+    },
+    {
+      "count": 4,
+      "policy": "aggressive",
+      "runs": [
+        {
+          "seed": "survival-v0.5:4:aggressive:0",
+          "encounters": 8,
+          "commands": 224,
+          "sha256": "1565e645635b9ea7b3d1dc0bfe5cdcb184ecdb0bf38fe89b3b0b00d9dbacbf52",
+          "scores": [
+            52,
+            21,
+            29,
+            15
+          ],
+          "deaths": 4,
+          "recoveryDeals": 4
+        },
+        {
+          "seed": "survival-v0.5:4:aggressive:1",
+          "encounters": 10,
+          "commands": 269,
+          "sha256": "ebb59a6fc1af7bf879b391639a500f596079328c6997b4143b3657bf47599926",
+          "scores": [
+            21,
+            18,
+            22,
+            37
+          ],
+          "deaths": 4,
+          "recoveryDeals": 9
+        },
+        {
+          "seed": "survival-v0.5:4:aggressive:2",
+          "encounters": 8,
+          "commands": 242,
+          "sha256": "28cc700ad733642f19ad3a4c042172003258d2c53bcec72a33c5303bfdebeec7",
+          "scores": [
+            32,
+            27,
+            21,
+            16
+          ],
+          "deaths": 4,
+          "recoveryDeals": 6
+        },
+        {
+          "seed": "survival-v0.5:4:aggressive:3",
+          "encounters": 8,
+          "commands": 214,
+          "sha256": "ab535d53a44ae62b9c050befcc269147c8a9cf36012192046b72c7c514e9db42",
+          "scores": [
+            1,
+            29,
+            18,
+            28
+          ],
+          "deaths": 4,
+          "recoveryDeals": 5
+        },
+        {
+          "seed": "survival-v0.5:4:aggressive:4",
+          "encounters": 8,
+          "commands": 239,
+          "sha256": "28c5335485957d8ad4245e2bacfc24c4df0f2216085b9e35fffd069a5d7d4d18",
+          "scores": [
+            55,
+            18,
+            45,
+            22
+          ],
+          "deaths": 4,
+          "recoveryDeals": 5
+        },
+        {
+          "seed": "survival-v0.5:4:aggressive:5",
+          "encounters": 10,
+          "commands": 262,
+          "sha256": "227a141938173ab195e29e6f478d4f52edaf576551ca9c90c2b790e0bb1eb7e9",
+          "scores": [
+            44,
+            41,
+            52,
+            6
+          ],
+          "deaths": 4,
+          "recoveryDeals": 9
+        },
+        {
+          "seed": "survival-v0.5:4:aggressive:6",
+          "encounters": 8,
+          "commands": 219,
+          "sha256": "1a4494e213122a75fd1e77f9b5f12a5ef18e300270c9836475530bbc22bb2b9d",
+          "scores": [
+            34,
+            31,
+            22,
+            37
+          ],
+          "deaths": 4,
+          "recoveryDeals": 4
+        },
+        {
+          "seed": "survival-v0.5:4:aggressive:7",
+          "encounters": 8,
+          "commands": 250,
+          "sha256": "f89e946b4ad89ebbd706509fb666dfaecab34808ef314dc18432f336e0973ffa",
+          "scores": [
+            7,
+            38,
+            39,
+            9
+          ],
+          "deaths": 4,
+          "recoveryDeals": 7
+        },
+        {
+          "seed": "survival-v0.5:4:aggressive:8",
+          "encounters": 8,
+          "commands": 239,
+          "sha256": "56302918f96eb867bb370ffa1a5d1d1dc84f0f5f1e38209c1b9702c7c70e4543",
+          "scores": [
+            10,
+            35,
+            7,
+            13
+          ],
+          "deaths": 4,
+          "recoveryDeals": 9
+        },
+        {
+          "seed": "survival-v0.5:4:aggressive:9",
+          "encounters": 10,
+          "commands": 262,
+          "sha256": "bfdc2df2f203ea277582aaa3e1ec3793cde5aec288acd47e59a942e395f25927",
+          "scores": [
+            2,
+            6,
+            11,
+            16
+          ],
+          "deaths": 4,
+          "recoveryDeals": 10
+        }
+      ]
+    },
+    {
+      "count": 4,
+      "policy": "collector",
+      "runs": [
+        {
+          "seed": "survival-v0.5:4:collector:0",
+          "encounters": 8,
+          "commands": 244,
+          "sha256": "5a84fd617409bf3f60701d818e92d59dbc91ca09ceaaef787687baefb1c1ac11",
+          "scores": [
+            51,
+            9,
+            10,
+            29
+          ],
+          "deaths": 4,
+          "recoveryDeals": 12
+        },
+        {
+          "seed": "survival-v0.5:4:collector:1",
+          "encounters": 8,
+          "commands": 221,
+          "sha256": "6d4198bfe5f6ea8ce3fc8c92c88df51fc1eb29b0487dc4c6d658e883026d530f",
+          "scores": [
+            3,
+            0,
+            21,
+            27
+          ],
+          "deaths": 4,
+          "recoveryDeals": 10
+        },
+        {
+          "seed": "survival-v0.5:4:collector:2",
+          "encounters": 9,
+          "commands": 233,
+          "sha256": "ef14917b2ceeab3327c08b4b03fdc4f12fa7279356d74d1ecfe312f901381a51",
+          "scores": [
+            29,
+            35,
+            20,
+            28
+          ],
+          "deaths": 4,
+          "recoveryDeals": 6
+        },
+        {
+          "seed": "survival-v0.5:4:collector:3",
+          "encounters": 13,
+          "commands": 260,
+          "sha256": "0aefc46e1762cdd79d0164cc0480c0f8513176c24474f0b09d864862a36c0ed3",
+          "scores": [
+            36,
+            31,
+            2,
+            20
+          ],
+          "deaths": 4,
+          "recoveryDeals": 11
+        },
+        {
+          "seed": "survival-v0.5:4:collector:4",
+          "encounters": 8,
+          "commands": 215,
+          "sha256": "f67bdebeee7f7c10b0a9cea33e03be846585e1dddf6ee2459b9900cd0a52c7c5",
+          "scores": [
+            33,
+            32,
+            40,
+            27
+          ],
+          "deaths": 4,
+          "recoveryDeals": 5
+        },
+        {
+          "seed": "survival-v0.5:4:collector:5",
+          "encounters": 8,
+          "commands": 218,
+          "sha256": "1e4f274c8bf8a7da82eac3de48db85d1e2edf36994fab94df93bd5d07807343f",
+          "scores": [
+            17,
+            28,
+            23,
+            26
+          ],
+          "deaths": 4,
+          "recoveryDeals": 9
+        },
+        {
+          "seed": "survival-v0.5:4:collector:6",
+          "encounters": 8,
+          "commands": 218,
+          "sha256": "24bb4017a4785698c229edf9f689cd298d0a2fd9c08aa25e0df7272ff372166d",
+          "scores": [
+            1,
+            30,
+            3,
+            9
+          ],
+          "deaths": 4,
+          "recoveryDeals": 9
+        },
+        {
+          "seed": "survival-v0.5:4:collector:7",
+          "encounters": 11,
+          "commands": 242,
+          "sha256": "f5277ca2485bbbc09f0611a1bf0bc866b23d12d211cf3f7582663f8d31c95eed",
+          "scores": [
+            7,
+            56,
+            18,
+            27
+          ],
+          "deaths": 4,
+          "recoveryDeals": 7
+        },
+        {
+          "seed": "survival-v0.5:4:collector:8",
+          "encounters": 9,
+          "commands": 224,
+          "sha256": "f9e4096546e8df0c1a9d552ee5f90f73117b7b11148552a4e8ff4eabac51dec4",
+          "scores": [
+            8,
+            15,
+            26,
+            27
+          ],
+          "deaths": 4,
+          "recoveryDeals": 7
+        },
+        {
+          "seed": "survival-v0.5:4:collector:9",
+          "encounters": 9,
+          "commands": 224,
+          "sha256": "a28ddbb19940b256cc63490042fa3060e6ff800d85bdfc4989927b3cdcc62471",
+          "scores": [
+            20,
+            2,
+            14,
+            4
+          ],
+          "deaths": 4,
+          "recoveryDeals": 8
+        }
+      ]
+    },
+    {
+      "count": 4,
+      "policy": "trader",
+      "runs": [
+        {
+          "seed": "survival-v0.5:4:trader:0",
+          "encounters": 10,
+          "commands": 258,
+          "sha256": "7a479e02d8a08d1676ceeee45ce4c42e77bd3195c4eb57e1343e77a5696646be",
+          "scores": [
+            68,
+            10,
+            16,
+            3
+          ],
+          "deaths": 4,
+          "recoveryDeals": 12
+        },
+        {
+          "seed": "survival-v0.5:4:trader:1",
+          "encounters": 14,
+          "commands": 310,
+          "sha256": "28bf7eb3670481101af1be806148802e2a35316902e98168f753741314f5c6fa",
+          "scores": [
+            24,
+            40,
+            20,
+            75
+          ],
+          "deaths": 4,
+          "recoveryDeals": 13
+        },
+        {
+          "seed": "survival-v0.5:4:trader:2",
+          "encounters": 10,
+          "commands": 266,
+          "sha256": "27c77840514bec24d40be7202c36126f228fa7498e6fb8e6470a3220375f66a0",
+          "scores": [
+            66,
+            33,
+            35,
+            34
+          ],
+          "deaths": 4,
+          "recoveryDeals": 9
+        },
+        {
+          "seed": "survival-v0.5:4:trader:3",
+          "encounters": 14,
+          "commands": 369,
+          "sha256": "73ce9fea1eb94a16c06c6fc24243dde78f0087fb260df6089924cd837d54e548",
+          "scores": [
+            28,
+            27,
+            81,
+            84
+          ],
+          "deaths": 4,
+          "recoveryDeals": 18
+        },
+        {
+          "seed": "survival-v0.5:4:trader:4",
+          "encounters": 6,
+          "commands": 234,
+          "sha256": "45226c5258edcd08a62362a43a92c8dafe5dd6169b693143843b4d66e6355894",
+          "scores": [
+            53,
+            27,
+            18,
+            48
+          ],
+          "deaths": 4,
+          "recoveryDeals": 7
+        },
+        {
+          "seed": "survival-v0.5:4:trader:5",
+          "encounters": 10,
+          "commands": 306,
+          "sha256": "7a8b4c5fafcb1bbddfa6acd2ba31301cb1048c42838d675e5ba7d59977676458",
+          "scores": [
+            27,
+            30,
+            30,
+            30
+          ],
+          "deaths": 4,
+          "recoveryDeals": 16
+        },
+        {
+          "seed": "survival-v0.5:4:trader:6",
+          "encounters": 8,
+          "commands": 276,
+          "sha256": "b828edffaebf6763c2154d3e1c190983f8175c12f26496f1184a702dba3aca61",
+          "scores": [
+            48,
+            69,
+            38,
+            9
+          ],
+          "deaths": 4,
+          "recoveryDeals": 13
+        },
+        {
+          "seed": "survival-v0.5:4:trader:7",
+          "encounters": 10,
+          "commands": 303,
+          "sha256": "7b98b9d3b52f7a56f4e485b34dad136223cca984b6772657189116a3333c7a13",
+          "scores": [
+            47,
+            46,
+            24,
+            29
+          ],
+          "deaths": 4,
+          "recoveryDeals": 13
+        },
+        {
+          "seed": "survival-v0.5:4:trader:8",
+          "encounters": 12,
+          "commands": 424,
+          "sha256": "ea73547cb47e8c546add2f818cc85cd24b07526d6d28ed25add14d8c8f7002d2",
+          "scores": [
+            62,
+            64,
+            34,
+            43
+          ],
+          "deaths": 4,
+          "recoveryDeals": 19
+        },
+        {
+          "seed": "survival-v0.5:4:trader:9",
+          "encounters": 8,
+          "commands": 218,
+          "sha256": "4f152d25ed518f9b9c8d05e175996f8cf0ae45666d4300195244f0eb1e4c3281",
+          "scores": [
+            38,
+            40,
+            36,
+            16
+          ],
+          "deaths": 4,
+          "recoveryDeals": 9
+        }
+      ]
+    }
+  ]
+}

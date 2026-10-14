@@ -1,0 +1,37 @@
+{
+  "name": "cursed-market",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "build": "npm run build:server && npm run build:client && npm run build:appraisal",
+    "build:server": "tsc -p tsconfig.json",
+    "build:client": "tsc -p tsconfig.client.json && vite build",
+    "start": "node dist/src/server/main.js",
+    "dev": "npm run build:server && node scripts/dev.mjs",
+    "test": "npm run build:server && node --test dist/tests/*.test.js",
+    "simulate": "npm run build:server && node dist/src/simulation/run.js",
+    "simulate:appraisal": "npm run build:server && node dist/src/simulation/appraisal.js",
+    "replay": "npm run build:server && node dist/src/simulation/replay.js",
+    "playtest:report": "npm run --silent build:server && node dist/src/playtest/run.js",
+    "check": "npm test && npm run build:client && node dist/src/simulation/run.js --games 1000 --out /tmp/cursed-market-check",
+    "build:appraisal": "tsc -p tsconfig.appraisal-client.json && vite build --config vite.appraisal.config.mjs",
+    "start:appraisal": "node dist/src/server/appraisal-main.js"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.0",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@types/ws": "^8.18.2",
+    "typescript": "5.9.3",
+    "vite": "^7.3.6"
+  },
+  "dependencies": {
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "ws": "^8.21.3"
+  }
+}

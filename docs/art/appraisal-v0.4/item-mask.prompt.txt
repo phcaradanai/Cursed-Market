@@ -1,0 +1,5 @@
+Use case: stylized-concept.
+Asset type: standalone raster illustration for a Cursed Market realistic-card game; this is one card's art, not a UI mockup.
+Style: realistic painted fantasy concept art, credible skin and material detail, restrained warm amber light, deep charcoal and worn bronze. Strong central silhouette that remains readable at 160 pixels. Opaque quiet charcoal-brown background. No text, letters, labels, card border, frame, logo, watermark, UI, price, rarity badge, glow denoting curses, or authenticity signals. The same art will be reused whether an item is genuine, fake, cursed or safe; do not telegraph hidden truth. No gore. One clearly separated subject only.
+Subject: One aged whisper mask, ivory-toned carved surface, a few fine cracks, asymmetric cheek carving and dusty burgundy ties. Two empty eye holes, no wearer, no glow. Entire mask visible.
+Composition: square 1:1 product illustration, single object centered and filling about 75 percent of frame with clear margin. No cropped edges.

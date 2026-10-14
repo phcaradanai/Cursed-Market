@@ -1,0 +1,345 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-13T06:50:32.133Z",
+  "title": "Design System: Cursed Market",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Rust",
+        "tonalRamp": [
+          "oklch(15.00% 0.1169 34.95)",
+          "oklch(26.43% 0.1169 34.95)",
+          "oklch(37.86% 0.1169 34.95)",
+          "oklch(49.29% 0.1169 34.95)",
+          "oklch(60.71% 0.1169 34.95)",
+          "oklch(72.14% 0.1169 34.95)",
+          "oklch(83.57% 0.1169 34.95)",
+          "oklch(95.00% 0.1169 34.95)"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "Deep Rust",
+        "tonalRamp": [
+          "oklch(15.00% 0.0979 34.24)",
+          "oklch(26.43% 0.0979 34.24)",
+          "oklch(37.86% 0.0979 34.24)",
+          "oklch(49.29% 0.0979 34.24)",
+          "oklch(60.71% 0.0979 34.24)",
+          "oklch(72.14% 0.0979 34.24)",
+          "oklch(83.57% 0.0979 34.24)",
+          "oklch(95.00% 0.0979 34.24)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Dark Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.0123 78.07)",
+          "oklch(26.43% 0.0123 78.07)",
+          "oklch(37.86% 0.0123 78.07)",
+          "oklch(49.29% 0.0123 78.07)",
+          "oklch(60.71% 0.0123 78.07)",
+          "oklch(72.14% 0.0123 78.07)",
+          "oklch(83.57% 0.0123 78.07)",
+          "oklch(95.00% 0.0123 78.07)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.0220 75.10)",
+          "oklch(26.43% 0.0220 75.10)",
+          "oklch(37.86% 0.0220 75.10)",
+          "oklch(49.29% 0.0220 75.10)",
+          "oklch(60.71% 0.0220 75.10)",
+          "oklch(72.14% 0.0220 75.10)",
+          "oklch(83.57% 0.0220 75.10)",
+          "oklch(95.00% 0.0220 75.10)"
+        ]
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "Warm Ground",
+        "tonalRamp": [
+          "oklch(15.00% 0.0156 86.43)",
+          "oklch(26.43% 0.0156 86.43)",
+          "oklch(37.86% 0.0156 86.43)",
+          "oklch(49.29% 0.0156 86.43)",
+          "oklch(60.71% 0.0156 86.43)",
+          "oklch(72.14% 0.0156 86.43)",
+          "oklch(83.57% 0.0156 86.43)",
+          "oklch(95.00% 0.0156 86.43)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Pale Paper",
+        "tonalRamp": [
+          "oklch(15.00% 0.0142 84.58)",
+          "oklch(26.43% 0.0142 84.58)",
+          "oklch(37.86% 0.0142 84.58)",
+          "oklch(49.29% 0.0142 84.58)",
+          "oklch(60.71% 0.0142 84.58)",
+          "oklch(72.14% 0.0142 84.58)",
+          "oklch(83.57% 0.0142 84.58)",
+          "oklch(95.00% 0.0142 84.58)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Divider",
+        "tonalRamp": [
+          "oklch(15.00% 0.0272 82.37)",
+          "oklch(26.43% 0.0272 82.37)",
+          "oklch(37.86% 0.0272 82.37)",
+          "oklch(49.29% 0.0272 82.37)",
+          "oklch(60.71% 0.0272 82.37)",
+          "oklch(72.14% 0.0272 82.37)",
+          "oklch(83.57% 0.0272 82.37)",
+          "oklch(95.00% 0.0272 82.37)"
+        ]
+      },
+      "field-line": {
+        "role": "neutral",
+        "displayName": "Field Stroke",
+        "tonalRamp": [
+          "oklch(15.00% 0.0303 78.02)",
+          "oklch(26.43% 0.0303 78.02)",
+          "oklch(37.86% 0.0303 78.02)",
+          "oklch(49.29% 0.0303 78.02)",
+          "oklch(60.71% 0.0303 78.02)",
+          "oklch(72.14% 0.0303 78.02)",
+          "oklch(83.57% 0.0303 78.02)",
+          "oklch(95.00% 0.0303 78.02)"
+        ]
+      },
+      "hover-wash": {
+        "role": "neutral",
+        "displayName": "Hover Wash",
+        "tonalRamp": [
+          "oklch(15.00% 0.0248 83.42)",
+          "oklch(26.43% 0.0248 83.42)",
+          "oklch(37.86% 0.0248 83.42)",
+          "oklch(49.29% 0.0248 83.42)",
+          "oklch(60.71% 0.0248 83.42)",
+          "oklch(72.14% 0.0248 83.42)",
+          "oklch(83.57% 0.0248 83.42)",
+          "oklch(95.00% 0.0248 83.42)"
+        ]
+      },
+      "notice-wash": {
+        "role": "neutral",
+        "displayName": "Notice Wash",
+        "tonalRamp": [
+          "oklch(15.00% 0.0277 83.53)",
+          "oklch(26.43% 0.0277 83.53)",
+          "oklch(37.86% 0.0277 83.53)",
+          "oklch(49.29% 0.0277 83.53)",
+          "oklch(60.71% 0.0277 83.53)",
+          "oklch(72.14% 0.0277 83.53)",
+          "oklch(83.57% 0.0277 83.53)",
+          "oklch(95.00% 0.0277 83.53)"
+        ]
+      },
+      "error-ink": {
+        "role": "neutral",
+        "displayName": "Error Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.1075 33.23)",
+          "oklch(26.43% 0.1075 33.23)",
+          "oklch(37.86% 0.1075 33.23)",
+          "oklch(49.29% 0.1075 33.23)",
+          "oklch(60.71% 0.1075 33.23)",
+          "oklch(72.14% 0.1075 33.23)",
+          "oklch(83.57% 0.1075 33.23)",
+          "oklch(95.00% 0.1075 33.23)"
+        ]
+      },
+      "error-wash": {
+        "role": "neutral",
+        "displayName": "Error Wash",
+        "tonalRamp": [
+          "oklch(15.00% 0.0274 53.14)",
+          "oklch(26.43% 0.0274 53.14)",
+          "oklch(37.86% 0.0274 53.14)",
+          "oklch(49.29% 0.0274 53.14)",
+          "oklch(60.71% 0.0274 53.14)",
+          "oklch(72.14% 0.0274 53.14)",
+          "oklch(83.57% 0.0274 53.14)",
+          "oklch(95.00% 0.0274 53.14)"
+        ]
+      },
+      "finding-ink": {
+        "role": "neutral",
+        "displayName": "Finding Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.0456 133.42)",
+          "oklch(26.43% 0.0456 133.42)",
+          "oklch(37.86% 0.0456 133.42)",
+          "oklch(49.29% 0.0456 133.42)",
+          "oklch(60.71% 0.0456 133.42)",
+          "oklch(72.14% 0.0456 133.42)",
+          "oklch(83.57% 0.0456 133.42)",
+          "oklch(95.00% 0.0456 133.42)"
+        ]
+      },
+      "finding-wash": {
+        "role": "neutral",
+        "displayName": "Finding Wash",
+        "tonalRamp": [
+          "oklch(15.00% 0.0232 120.20)",
+          "oklch(26.43% 0.0232 120.20)",
+          "oklch(37.86% 0.0232 120.20)",
+          "oklch(49.29% 0.0232 120.20)",
+          "oklch(60.71% 0.0232 120.20)",
+          "oklch(72.14% 0.0232 120.20)",
+          "oklch(83.57% 0.0232 120.20)",
+          "oklch(95.00% 0.0232 120.20)"
+        ]
+      },
+      "symbol-ink": {
+        "role": "neutral",
+        "displayName": "Symbol Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.0435 74.34)",
+          "oklch(26.43% 0.0435 74.34)",
+          "oklch(37.86% 0.0435 74.34)",
+          "oklch(49.29% 0.0435 74.34)",
+          "oklch(60.71% 0.0435 74.34)",
+          "oklch(72.14% 0.0435 74.34)",
+          "oklch(83.57% 0.0435 74.34)",
+          "oklch(95.00% 0.0435 74.34)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Responsive section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Compact task or item headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Thai explanations and controls."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Visible field labels."
+      },
+      "supporting": {
+        "displayName": "Supporting",
+        "purpose": "Phase labels, help and metadata."
+      }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": [
+      {
+        "name": "narrow",
+        "value": "760px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary Button; immediate hover and explicit keyboard focus.",
+      "html": "<button class=\"ds-button-primary\">ล็อกราคา</button>",
+      "css": ".ds-button-primary{font:16px Tahoma, \"Noto Sans Thai\", sans-serif;line-height:1.5;min-height:44px;padding:9px 18px;border:1px solid var(--ink,#29251f);border-radius:4px;color:var(--ink,#29251f);background:transparent;cursor:pointer;background:var(--accent,#8b3925);border-color:var(--accent,#8b3925);color:var(--paper,#fffaf0);}.ds-button-primary:hover:not(:disabled){background:#6d2b1c;border-color:#6d2b1c;}.ds-button-primary:focus-visible{outline:3px solid var(--accent,#8b3925);outline-offset:4px;}.ds-button-primary:disabled{opacity:.55;cursor:not-allowed;}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Secondary Button; immediate hover and explicit keyboard focus.",
+      "html": "<button class=\"ds-button-secondary\">ตรวจความแท้ · 1 สิทธิ์</button>",
+      "css": ".ds-button-secondary{font:16px Tahoma, \"Noto Sans Thai\", sans-serif;line-height:1.5;min-height:44px;padding:9px 18px;border:1px solid var(--ink,#29251f);border-radius:4px;color:var(--ink,#29251f);background:transparent;cursor:pointer;}.ds-button-secondary:hover:not(:disabled){background:#e7decd;}.ds-button-secondary:focus-visible{outline:3px solid var(--accent,#8b3925);outline-offset:4px;}.ds-button-secondary:disabled{opacity:.55;cursor:not-allowed;}"
+    },
+    {
+      "name": "Text Button",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "Text Button; immediate hover and explicit keyboard focus.",
+      "html": "<button class=\"ds-button-text\">ไม่ตรวจ เก็บสิทธิ์ไว้</button>",
+      "css": ".ds-button-text{font:16px Tahoma, \"Noto Sans Thai\", sans-serif;line-height:1.5;min-height:44px;padding:9px 18px;border:1px solid var(--ink,#29251f);border-radius:4px;color:var(--ink,#29251f);background:transparent;cursor:pointer;border-color:transparent;text-decoration:underline;text-underline-offset:4px;padding-inline:5px;}.ds-button-text:hover:not(:disabled){background:#e7decd;}.ds-button-text:focus-visible{outline:3px solid var(--accent,#8b3925);outline-offset:4px;}.ds-button-text:disabled{opacity:.55;cursor:not-allowed;}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Visible label and pale field; native focus and selection.",
+      "html": "<label class=\"ds-label\">ชื่อที่ใช้ในตลาด<input class=\"ds-input\" name=\"name\" maxlength=\"24\" placeholder=\"ชื่อของคุณ\"></label>",
+      "css": ".ds-label{display:block;font:600 16px/1.65 Tahoma, \"Noto Sans Thai\", sans-serif;color:var(--ink,#29251f);}.ds-input{display:block;font:inherit;width:100%;min-height:46px;padding:9px 12px;margin-top:6px;border:1px solid #877b69;border-radius:4px;color:var(--ink,#29251f);background:var(--paper,#fffaf0);caret-color:var(--accent,#8b3925);}.ds-input::placeholder{color:var(--muted,#655c50);opacity:1;}.ds-input:focus-visible{outline:3px solid var(--accent,#8b3925);outline-offset:4px;}"
+    },
+    {
+      "name": "Relic Choice",
+      "kind": "card",
+      "refersTo": "relic-choice",
+      "description": "Native radio, neutral family SVG and private truth; selected border uses rust.",
+      "html": "<label class=\"ds-relic-choice\"><input class=\"ds-relic-radio\" type=\"radio\" name=\"ds-relic\" checked><span class=\"ds-choice-number\">ชิ้นที่ 1</span><div class=\"ds-relic\"><svg class=\"ds-symbol\" viewBox=\"0 0 64 64\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"23\" cy=\"21\" r=\"12\"/><path d=\"m31 30 22 22m-7-7 7-7m-14 0 7-7\"/></svg><h3 class=\"ds-relic-title\">กุญแจ</h3><div class=\"ds-truth\"><span>ของแท้</span><span class=\"ds-danger\">มีคำสาป</span></div></div></label>",
+      "css": ".ds-relic-choice{display:block;font:600 16px/1.65 Tahoma, \"Noto Sans Thai\", sans-serif;color:var(--ink,#29251f);padding:18px;border:1px solid var(--line,#c6bcaa);background:var(--paper,#fffaf0);cursor:pointer;position:relative;}.ds-relic-choice:has(input:checked){border-color:var(--accent,#8b3925);outline:1px solid var(--accent,#8b3925);}.ds-relic-radio{width:20px;min-height:20px;margin:0;accent-color:var(--accent,#8b3925);vertical-align:middle;}.ds-relic-radio:focus-visible{outline:3px solid var(--accent,#8b3925);outline-offset:4px;}.ds-choice-number{margin-left:9px;font-size:14px;vertical-align:middle;}.ds-relic{text-align:center;padding:12px;}.ds-symbol{width:64px;height:64px;margin-bottom:12px;color:#65533b;}.ds-relic-title{font-size:19px;line-height:1.55;margin:0;}.ds-truth{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 16px;margin-top:8px;font-size:15px;}.ds-danger{color:var(--accent,#8b3925);font-weight:600;}@media(max-width:760px){.ds-relic-choice{padding:12px 8px;}.ds-truth{gap:3px;font-size:14px;}}"
+    },
+    {
+      "name": "Phase Navigation",
+      "kind": "nav",
+      "refersTo": "phase-navigation",
+      "description": "Informational phase row with an underlined current step; no interactive hover state.",
+      "html": "<nav class=\"ds-phases\" aria-label=\"ขั้นตอนประมูล\"><span>ผู้ขายเลือกสินค้า</span><span aria-current=\"step\">ตรวจสินค้า</span><span>ประมูลแบบปิด</span><span>เปิดผลประมูล</span></nav>",
+      "css": ".ds-phases{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--line,#c6bcaa);font:14px/1.65 Tahoma, \"Noto Sans Thai\", sans-serif;color:var(--muted,#655c50);}.ds-phases [aria-current]{color:var(--accent,#8b3925);font-weight:700;text-decoration:underline;text-underline-offset:7px;}@media(max-width:760px){.ds-phases{gap:9px 20px;}}"
+    },
+    {
+      "name": "Private Finding",
+      "kind": "custom",
+      "refersTo": "private-finding",
+      "description": "A private result names the known attribute and keeps the other explicitly unknown.",
+      "html": "<p class=\"ds-finding\" role=\"status\">ผลตรวจเฉพาะคุณ: ของแท้ · อีกคุณสมบัติยังไม่ทราบ</p>",
+      "css": ".ds-finding{font:16px/1.65 Tahoma, \"Noto Sans Thai\", sans-serif;max-width:70ch;padding:14px 18px;margin-block:15px;background:#e5ead9;color:#34432a;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Readable auction work surface",
+    "overview": "A pale warm ground, dark ink and rust commitments make the prototype easy to read while friends make timed decisions. This is the shipped provisional presentation, not an approved production identity. Human fun tests come before polished art or a larger visual system.\n\nSource authority: `src/client/styles.css`, `src/client/App.tsx` and `src/client/Relic.tsx`, checked against the built CSS in `dist/client`. The system records reusable controls and information treatments; marketplace composition remains in `.impeccable/surfaces/marketplace.md`.",
+    "keyCharacteristics": [
+      "Readable Thai text with generous line spacing.",
+      "Flat surfaces, fine dividers and compact native controls.",
+      "Explicit labels for decisions, private findings and outcomes.",
+      "Static family symbols that do not reveal hidden attributes."
+    ],
+    "rules": [
+      {
+        "name": "The Legibility Rule",
+        "body": "Preserve Thai line spacing and wrap user names before narrowing or clipping meaningful text.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Surface Rule",
+        "body": "Preserve the current border and tonal separation while this prototype is being tested.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Property Scope Rule",
+        "body": "A guarantee or inspection of one attribute never visually implies knowledge of the other attribute.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "**Do** preserve visible Thai labels, explicit focus and wrapping names.",
+      "**Do** state the cost, locked state and exact scope of a decision.",
+      "**Do** keep family symbols identical across hidden attribute combinations.",
+      "**Do** keep additions provisional until human playtests provide evidence."
+    ],
+    "donts": [
+      "**Don't** communicate truth, curse, readiness or errors through color alone.",
+      "**Don't** expose private attributes through illustration variants.",
+      "**Don't** introduce polished art, motion or a larger identity before the authorized human fun tests."
+    ]
+  }
+}

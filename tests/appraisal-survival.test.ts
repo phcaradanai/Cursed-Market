@@ -202,3 +202,12 @@ test('F2 command-only privacy: hidden wealth/accuracy stay private through appra
   const spectator=structuredClone(s);kill(spectator,spectator.players[1]!);assert.deepEqual(appraisalViewFor(spectator,'b').history,[]);
   s=finish(s);const projected=appraisalViewFor(s,'b');assert(projected.collector!.find(row=>row.playerId==='a')!.items.some(item=>item.id===stock && item.value===37));assert.deepEqual(projected.history,s.history);replayAppraisalAudit(exportAppraisalAudit(s));
 });
+test('roster reports reveal confirmation, not the stale trade flag, and drops death badges at Collector results',()=>{
+  let s=end(fixture());assert.equal(s.phase,'REVEAL');
+  const ids=s.players.map(p=>p.id);
+  let html=renderToStaticMarkup(createElement(GameTable,{room:{...view(s),revealReady:[ids[0]!]},submit:()=>{},send:()=>true,disabled:false}));
+  assert(html.includes(`${ids[0]} · คุณ · พร้อมไปต่อแล้ว`));assert(html.includes(`${ids[1]} · รอยืนยันไปต่อ`));assert(!html.includes('· จบช่วงนี้แล้ว'));
+  s=finish(s);html=renderToStaticMarkup(createElement(GameTable,{room:view(s),submit:()=>{},send:()=>true,disabled:false}));
+  assert(html.includes('จบการเดินทาง'));assert(!html.includes('ผู้ชม · ชีวิตหมด'));assert(!html.includes('undefined'));
+});
+

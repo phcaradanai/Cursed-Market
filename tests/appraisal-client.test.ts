@@ -10,9 +10,10 @@ import { detectionRisk, grant } from '../src/game/appraisal/mechanics.js';
 import { EVENT_IDS } from '../src/game/appraisal/types.js';
 import type { AppraisalState } from '../src/game/appraisal/types.js';
 import type { AppraisalRoomView } from '../src/shared/appraisal-protocol.js';
-import { App, GameTable } from '../src/appraisal-client/App.js';
+import { App, GameTable, monogram } from '../src/appraisal-client/App.js';
+import { supportedRulesVersion } from '../src/appraisal-client/connection.js';
 import { AppraisalDesk, DarkMarket, EventDecision, Inventory, TradeListing, Trades } from '../src/appraisal-client/components.js';
-import { defaultConsequence, eventCost, eventDecision, eventFacts, eventStatusOptions, inspectionCost, marketOptions, purchaseEnergy, purchasePrice, riskRange } from '../src/appraisal-client/model.js';
+import { defaultConsequence, eventCost, eventDecision, eventFacts, eventStatusOptions, inspectionCost, marketOptions, purchaseEnergy, purchasePrice, readable, riskRange, stepPrice } from '../src/appraisal-client/model.js';
 import { appraisalFixture } from './support/appraisal-fixture.js';
 
 function roomView(state:AppraisalState):AppraisalRoomView {
@@ -118,3 +119,16 @@ test('same-kind Dark Market items use inventory identifiers and separate known f
   for(const id of ['owned-food','second-food']){const text=`คลัง #${p.inventory.indexOf(id)+1}`;assert(market.includes(text));assert(inventory.includes(text));}
   for(const text of ['ของแท้','ของปลอม','มีคำสาป','ไม่มีคำสาป'])assert(market.includes(text));assert(!market.includes('ขายชิ้น 1'));
 });
+test('browser client accepts survival rooms and labels seats legibly',()=>{
+  for(const version of ['0.4','0.5'] as const)assert(supportedRulesVersion(version),version);
+  assert(!supportedRulesVersion('0.3'));
+  assert.equal(monogram('kael'),'K');assert.equal(monogram('เอกชัย'),'เอ');assert.equal(monogram('สมชาย'),'ส');assert.equal(monogram('  '),'?');
+});
+test('price stepper clamps to whole credits 0–1000 and Thai copy hides engine English',()=>{
+  const cases:[string,number,string][]=[['17',1,'18'],['17',-1,'16'],['0',-1,'0'],['1000',1,'1000'],['1500',-1,'1000'],['1500',1,'1000'],['-5',1,'0'],['12.5',-1,'12'],['',1,'1'],['',-1,'0']];
+  for(const [value,delta,expected] of cases)assert.equal(stepPrice(value,delta),expected,`${value}${delta>0?'+':'-'}`);
+  assert.equal(readable('เพิ่มโอกาส 10 percentage points'),'เพิ่มโอกาส 10 จุดเปอร์เซ็นต์');
+  assert.equal(readable('ไม่รับทั้งสองอย่างจาก event เดียว'),'ไม่รับทั้งสองอย่างจาก เหตุการณ์ เดียว');
+  assert.equal(readable('ยอมรับก่อน resolve เหตุ'),'ยอมรับก่อนเกิดเหตุ');assert.equal(readable('events'),'events');
+});
+

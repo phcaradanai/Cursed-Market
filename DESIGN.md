@@ -1,13 +1,13 @@
 ---
 name: Cursed Market
-description: Working v0.4 realistic-card game; legacy auction tokens retained for independent LAN builds.
+description: Working v0.4/v0.5 realistic-card game polished toward the realistic-card concept; legacy auction tokens retained for independent LAN builds.
 colors:
   table: "#211b18"
   panel: "#302721"
   cream: "#f2e4cc"
   bronze: "#a48251"
   table-muted: "#c7b79c"
-  table-line: "#796449"
+  table-line: "#5e4e3a"
   paper-ink: "#30271f"
   paper-muted: "#67533e"
   amber: "#e9b765"
@@ -16,7 +16,24 @@ colors:
   danger: "#e4a99a"
   danger-wash: "#422a27"
   positive: "#a5c6a0"
+  panel-raised: "#3a2f27"
+  bronze-bright: "#c9a46a"
+  frame-line: "#7d6342"
+  parchment-light: "#f6ebd6"
+  parchment-edge: "#e8d6b6"
+  steel: "#2f3d4d"
+  steel-line: "#6683a2"
+  oxblood: "#4f1b17"
+  oxblood-line: "#9b4436"
+  energy: "#8fb8e6"
+  life: "#e48f84"
+  seat-1: "#7aa6d6"
+  seat-2: "#d4806f"
+  seat-3: "#8fbf8a"
+  seat-4: "#b596d6"
   paper-line: "#97836a"
+  paper-field-line: "#80694f"
+  risk-medium: "#7d4a10"
   accent: "#8b3925"
   accent-hover: "#6d2b1c"
   ink: "#29251f"
@@ -62,6 +79,19 @@ typography:
     fontSize: "16px"
     fontWeight: 600
     lineHeight: 1.7
+  appraisal-small:
+    fontFamily: '"Noto Sans Thai", sans-serif'
+    fontSize: "15px"
+    lineHeight: 1.7
+  appraisal-caption:
+    fontFamily: '"Noto Sans Thai", sans-serif'
+    fontSize: "13px"
+    lineHeight: 1.5
+  appraisal-resource:
+    fontFamily: '"Noto Sans Thai", sans-serif'
+    fontSize: "26px"
+    fontWeight: 700
+    lineHeight: 1.3
   headline:
     fontFamily: 'Tahoma, "Noto Sans Thai", sans-serif'
     fontSize: "clamp(23px, 2.5vw, 30px)"
@@ -85,6 +115,9 @@ typography:
     lineHeight: 1.65
 rounded:
   appraisal-control: "6px"
+  appraisal-inset: "8px"
+  appraisal-frame: "10px"
+  appraisal-pill: "999px"
   art-card: "12px"
   control: "4px"
   container: "0px"
@@ -114,10 +147,35 @@ components:
   appraisal-button-secondary-hover:
     backgroundColor: "{colors.panel}"
   appraisal-button-danger:
-    backgroundColor: "{colors.danger-wash}"
-    textColor: "{colors.danger}"
+    backgroundColor: "{colors.oxblood}"
+    textColor: "{colors.cream}"
     rounded: "{rounded.appraisal-control}"
     padding: "8px 16px"
+  appraisal-button-inspect:
+    backgroundColor: "{colors.steel}"
+    textColor: "{colors.cream}"
+    rounded: "{rounded.appraisal-control}"
+    padding: "8px 16px"
+  appraisal-button-appraise:
+    backgroundColor: "{colors.amber}"
+    textColor: "{colors.paper-ink}"
+    rounded: "{rounded.appraisal-control}"
+    padding: "8px 16px"
+  appraisal-frame:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.cream}"
+    rounded: "{rounded.appraisal-frame}"
+  appraisal-hud:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.cream}"
+    rounded: "{rounded.appraisal-frame}"
+    padding: "16px 24px"
+  appraisal-seat-disc:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.cream}"
+    rounded: "{rounded.appraisal-pill}"
+    width: "40px"
+    height: "40px"
   appraisal-button-paper-primary:
     backgroundColor: "{colors.accent}"
     textColor: "{colors.paper}"
@@ -213,18 +271,19 @@ components:
 
 **Creative North Star: "Dimensional appraisal table"**
 
-The implemented v0.4 table pairs realistic merchant portraits and artifact art with a warm charcoal ground, bronze dividers and cream decision panels. Thai labels keep inspection, appraisal, accepted NPC quote, contract and purchase distinct. This descriptive north star records the active goal's working card direction; it is not a user-approved production identity.
+The implemented table pairs realistic merchant portraits and artifact art with a lamp-lit charcoal ground, ornamented bronze frames and a parchment decision panel. The 2026-10-14 polish moved the runtime toward the realistic-card concept: a framed HUD bar, the merchant beside the item, colour-coded inspect/appraise/buy actions, an oxblood Dark Market band and a card-tray inventory. Thai labels keep inspection, appraisal, accepted NPC quote, contract and purchase distinct. This descriptive north star records the active goal's working card direction; it is not a user-approved production identity.
 
 The appraisal source authority is `src/appraisal-client/styles.css`, `App.tsx` and `components.tsx`. The independent legacy auction UI in `src/client` keeps its pale ground, dark ink, rust controls and neutral SVG relic symbols. All existing legacy frontmatter tokens remain available; the complete prior documents in `docs/art/appraisal-v0.4/legacy-design/` are unchanged. Layout direction belongs to `docs/art/appraisal-v0.4/direction.md`, and product scope belongs to `PRODUCT.md`.
 
-This documentation records source declarations and behavior. The user's instruction **“หยุดตรวจภาพ ใช้ผลตรวจเดิม”** excludes new browser sessions, screenshots and image QA. The focused finish review in `docs/validation/appraisal-ui-review-v0.4.md` scored F1–F3 resolved through source/test evidence. Historical captures do not validate v0.4 rendering; final brand approval and human enjoyment remain open.
+On 2026-10-14 the user requested UI/UX polish and authorized any useful tools, superseding the earlier **“หยุดตรวจภาพ ใช้ผลตรวจเดิม”** restriction. Dev-server review with live bot seats covered entry, lobby, portals, appraisal, inventory, trade, statuses and reveal at 1440×900; reveal, portals, appraisal and Collector results at 375×812; and results at 1280×800. The production bundle was then smoke-tested at 375×812 (lobby, portals, appraisal, trade, reconnecting masthead, no horizontal overflow) and 1000×800 (appraisal). Not seen in a browser: a mid-run spectator, a sellable Dark Market row, E48+ consequence events, the urgent countdown and a v0.4 room. It does not certify screen-reader output, final art quality, brand approval or human enjoyment.
 
 **Key Characteristics:**
 
 - Realistic merchant and single-item art identifies the subject without revealing hidden truth.
 - Charcoal information regions and cream appraisal panels use separate foreground and action colors.
 - Thai reading text, visible native controls and explicit unknown facts support timed decisions.
-- Fine region dividers, rounded art surfaces and one bounded artifact arrival effect define the implemented depth.
+- Ornamented bronze frames (double rule plus SVG corner brackets) mark the key surfaces: HUD, item desk, Dark Market, event, results and the entry portrait. Supporting panels use a single bronze rule.
+- One bounded artifact arrival effect and short state transitions define the implemented motion.
 - Legacy auction primitives remain scoped to their independent interface.
 
 ## Colors
@@ -281,9 +340,11 @@ Appraisal headings use balanced wrapping. Prices, resources, timers and score ta
 
 ## Layout
 
-The appraisal shell is centered with a maximum width of 1440px and padding of 24px 32px 16px. The entry uses two columns and an 1100px content limit. The play table has a flexible main region, a 300px Dark Market region and a 32px gap. A 1px divider separates the market. The desk pairs artifact art with the cream reading panel. Portal choices use three columns; inventory uses a horizontally scrollable row, and result tables scroll within their own container.
+The game screen opens with a framed HUD bar: phase title and room code, countdown pill, credit/energy/life/score readouts with icons, and a roster of seat discs whose badges show done, paused or spectator state (with hidden text, never colour alone). During appraisal the main column is a stage: a 232px merchant portrait card (quote, hint, recovery deal) beside stock tabs with thumbnails and the item desk. The desk has a centred title band, square art that stays in view while the parchment column scrolls, and the parchment facts/actions panel. Portal cards crop portraits to 4:3 so, when no event is pending, every enter button sits in the first 1440×900 viewport. Inventory is a horizontally scrolling card tray under a centred title band.
 
-At the observed 1100px breakpoint, shell padding becomes 24px, the market becomes 260px, gaps reduce and the desk stacks. At 900px the table becomes one column; during portal choice the market is placed first. The desk returns to two columns in this intermediate layout. At 640px the shell uses 16px padding, the desk stacks again, portals become illustrated rows with 96px-wide portraits, forms wrap, the price-confirm button takes a full row and inventory cards narrow from 150px to 135px. These are source rules, not proof of rendered fit.
+The appraisal shell is centered with a maximum width of 1440px and padding of 16px 32px 20px. The entry uses two columns and an 1100px content limit. The play table has a flexible main region and a 312px side column (Dark Market, statuses, notes) with a 28px gap. The desk pairs artifact art with the cream reading panel. Portal choices use three columns; inventory uses a horizontally scrollable row, and result tables scroll within their own container.
+
+At 1100px the side column becomes 272px, the merchant card turns into a 104px-portrait row above the desk and events stack to one column. At 900px the table becomes one column; during portal choice the market is placed first, and the side panels sit in an auto-fit row. At 640px the shell uses 16px padding, the masthead keeps one line (online dot and icon-only sound toggle keep their accessible names), resources share one row, the roster scrolls, portals become 104px-portrait rows, the desk stacks with art capped at 260px, the appraise button takes a full row and inventory cards narrow to 136px. Only 1440, 1280 (results), 1000 and 375 widths were viewed; the 900px breakpoint remains a source rule, not proof of rendered fit.
 
 The legacy shell retains a 1216px maximum width and 32px horizontal padding. Its 760px breakpoint changes padding to 20px and stacks entry, lobby, market and phase headers. Legacy relic choices remain two columns, actions wrap and score tables scroll. Its marketplace keeps the flexible work area, 265px participant column and 48px gap above that breakpoint.
 
@@ -291,7 +352,7 @@ Spacing is practical rather than a strict modular scale. Reused spacing steps ar
 
 ## Elevation & Depth
 
-Appraisal regions use tonal separation and fine rules. Portrait/art frames add a soft offset shadow (`0 12px 28px rgb(0 0 0 / .3)`); the cream reading panel is a tonal surface without that shadow. New desk art has one arrival animation, from brightness 0.82 and a lower shadow (`0 4px 12px rgb(0 0 0 / .2)`) to its visible resting state, lasting 320ms with `cubic-bezier(.16,1,.3,1)`. Reduced-motion disables the animation. Buttons change fill immediately; the source has no button transition token.
+Key appraisal surfaces use a bronze frame: a 1px frame-line border, an inset double rule (4px panel gap, 1px translucent bronze) and 16px SVG corner brackets drawn as crisp geometry. Supporting panels (merchant, portals, statuses, trade listings, inventory cards) use only the 1px frame line. The page ground is the table colour lit by a soft warm radial from the top and darkened toward the bottom; no stripe or grain textures. Portrait/art frames add a soft offset shadow (`0 12px 28px rgb(0 0 0 / .3)`); the cream reading panel is a tonal surface without that shadow. New desk art has one arrival animation, from brightness 0.82 and a lower shadow (`0 4px 12px rgb(0 0 0 / .2)`) to its visible resting state, lasting 320ms with `cubic-bezier(.16,1,.3,1)`. Reduced-motion disables the animation. Buttons and portal cards transition fill, border and colour over 160–220ms with the same ease-out curve; hover-capable pointers also lift portal cards 3px. Reduced-motion removes transitions and the lift.
 
 The legacy interface remains flat, with pale fields, message washes and thin rules. It has no authored shadows or animated transitions.
 
@@ -307,13 +368,13 @@ Legacy controls retain their control radius, while relic choices and message sur
 
 ### Buttons
 
-Appraisal table buttons have a 44px minimum height, bronze outline, transparent fill and inherited cream text. Primary buttons use Amber with Paper Ink and bold weight; their hover uses Hover Amber. Danger buttons use the named penalty pair and danger stroke; their inherited hover fill becomes Raised Charcoal. Paper-panel primary buttons use Rust with Pale Paper; paper secondary buttons use Paper Ink, Paper Divider and Hover Wash. Disabled buttons, fields and selects use 0.55 opacity and a blocked cursor. Focus follows the active surface's palette.
+Appraisal table buttons have a 44px minimum height, bronze outline, transparent fill, inherited cream text and an optional leading 20px icon. Primary buttons use a short amber metal gradient with Paper Ink and bold weight. Danger buttons use Oxblood with cream text. Inspect buttons on every surface use Steel with a steel line; the desk's appraise button uses a gold gradient with Paper Ink and the buy button keeps Rust. The price field is a stepper: −/+ 44px buttons around a centred 22px numeral, with the native spinner hidden. Paper-panel primary buttons use Rust with Pale Paper; paper secondary buttons use Paper Ink, Paper Divider and Hover Wash. Disabled buttons, fields and selects use 0.55 opacity and a blocked cursor. Focus follows the active surface's palette.
 
 Legacy outlined secondary, filled rust primary and underlined text variants keep the 44px minimum height, immediate hover and original padding. Their focus and disabled treatments remain separate from the appraisal surface.
 
 ### Inputs / Fields
 
-Appraisal text, number and select controls have a 46px minimum height and visible labels. Table fields use Raised Charcoal, Cream and Worn Bronze; paper fields use Pale Paper, Paper Ink and Paper Divider. Carets, native checkbox accents and selection change with the surface. The native checkbox is 20px within a label row with a 44px minimum height. Read-only room-code copying announces success or selects the field with manual-copy guidance.
+Appraisal text, number and select controls have a 46px minimum height and visible labels. Table fields use Raised Charcoal, Cream and Worn Bronze; paper fields and the price stepper use Pale Paper, Paper Ink and Paper Field Line (`paper-field-line`, at least 3.6:1 against the parchment so the field boundary stays visible). Carets, native checkbox accents and selection change with the surface. The native checkbox is 20px within a label row with a 44px minimum height. Read-only room-code copying announces success or selects the field with manual-copy guidance.
 
 Legacy fields retain pale fill, original field stroke and native rust radio accents. The sidecar supplies independent field snippets with declared font and palette fallbacks.
 
@@ -324,6 +385,10 @@ Portal cards pair portrait, actual merchant identity, hinted item type, contract
 General sections use fine rules. Event decisions use a charcoal fill; mandatory consequences use the penalty wash. Notices, loading, errors, empty stock/inventory, paused/done seats, reconnect and replaced-tab guidance have explicit text. The source blocks duplicate decisions while awaiting acknowledgment; the server owns final action validation. The sidecar's reading-panel example uses unknown facts from source and omits raster art rather than inventing a replacement asset.
 
 Legacy relic choices retain paper fill, a thin divider border, native radio and selected outline. Private findings and errors keep their separate semantic washes.
+
+### Icons
+
+`src/appraisal-client/icons.tsx` holds one authored family on a 24px grid with a 1.6 stroke and round joins: coin, energy, life, score, timer, inspect, appraise, buy, portal, pass, buff, debuff, event, market, minus, plus and sound. Icons are always `aria-hidden`; the adjacent text names the meaning. Buff and debuff differ by shape (solid ring with up chevron vs dashed ring with down chevron) as well as colour.
 
 ### Navigation
 
@@ -358,4 +423,4 @@ Optional synthesized sound starts off and is enabled by a player's gesture. Sour
 - **Don't** expose another viewer's private inspection facts through text, image variants or preview data.
 - **Don't** slice the critique concept into functional UI assets or call it an approved comp.
 - **Don't** treat the working realistic-card direction as final brand approval.
-- **Don't** use historical captures or this source-only documentation as v0.4 browser, device or visual validation.
+- **Don't** treat the 2026-10-14 viewport review as screen-reader, art-quality or brand validation.

@@ -2,7 +2,7 @@
 
 Active Project #1; อีก 3 concepts พักไว้โดยไม่กำหนดเวลากลับมาทำ
 
-**สถานะ 2026-10-14:** กติกา [Survival + Collector v0.5](docs/plan/Survival_Collector_v0.5.md) แยกชีวิตกับพลัง พลัง 0 ยังพบ encounter ได้ ชีวิต 0 เป็นผู้ชมจนจบ run เล่นจนทุกคนตาย แล้ว Collector รวมมูลค่าสินค้าและเครดิตพร้อมผลคะแนนจากสถานะ เปิดบน LAN **http://192.168.10.150:3107** ผ่าน349tests,build,120seededreplays และ6actualLANruns ทั้งสองโหมด รุ่นก่อนและห้องเดิมเก็บไว้ หลักฐานเทคนิคไม่พิสูจน์ความสนุก; ยังต้องทดสอบกับคนหลัง feedback ว่ารุ่นแรกซ้ำและคาดเดาง่าย
+**สถานะ 2026-10-14:** กติกา [Survival + Collector v0.5](docs/plan/Survival_Collector_v0.5.md) แยกชีวิตกับพลัง พลัง 0 ยังพบ encounter ได้ ชีวิต 0 เป็นผู้ชมจนจบ run เล่นจนทุกคนตาย แล้ว Collector รวมมูลค่าสินค้าและเครดิตพร้อมผลคะแนนจากสถานะ เปิดบน LAN **http://192.168.10.150:3107** ผ่าน352tests,build,120seededreplays และ6actualLANruns ทั้งสองโหมด รุ่นก่อนและห้องเดิมเก็บไว้ หลักฐานเทคนิคไม่พิสูจน์ความสนุก; ยังต้องทดสอบกับคนหลัง feedback ว่ารุ่นแรกซ้ำและคาดเดาง่าย
 
 ## เกมที่ส่งมอบ
 
@@ -65,6 +65,6 @@ Server ไม่ส่ง seed, future offers, hidden truth หรือ interna
 
 ใช้ [protocol v0.5](docs/playtests/appraisal-v0.5.md) และ [แบบบันทึก](docs/playtests/appraisal-session-v0.5.md): กลุ่มแรก LAN 3–4 คน แล้วเปรียบเทียบ voice/no-voice และกลุ่ม 2 คน จดเหตุผลเลือกประตู/ประเมิน/เก็บ/ขาย ความเสียดายจากตลาด ความรู้สึกต่อความเสี่ยง เวลาที่เป็นผู้ชม การฟื้นชีวิต/พลัง ความเข้าใจคะแนน Collector และ rematch ที่ผู้เล่นขอเองก่อนผู้จัดชวน หากยังเลือกแบบเดิมทุกครั้ง ให้แก้กติกาตามหลักฐานก่อนเพิ่ม art/events
 
-คำสั่งผู้ใช้ให้หยุดตรวจภาพยังมีผล รอบแก้รูป v0.4 ใช้ browser DOM และการ decode รูปเพื่อวินิจฉัยการทำงานเท่านั้น; v0.5 ตรวจ source/SSR และเครือข่าย ไม่มี screenshot หรือการตรวจภาพ/layout ใหม่ Source/SSR/build ไม่รับรอง rendered layout, mobile/accessibility หรือคุณภาพ art จริง ยังไม่มี human fun/balance/final brand approval ไม่รวม accounts/ranking/combat/permanent progression/Three.js world/in-app voice/automation
+รอบขัดเกลา UI 2026-10-14 ผู้ใช้อนุญาตให้ใช้เครื่องมือตรวจภาพแล้ว (แทนคำสั่งหยุดตรวจภาพเดิม): พบว่า client ใน browser ปฏิเสธห้อง v0.5 ทุกห้อง จึงแก้พร้อม test ตรวจหน้าจอจริงบน dev server ที่ 1440×900 (lobby/ประตู/ประเมิน/ต่อรอง/ผล encounter), 375×812 (ประตู/ประเมิน/ผล/Collector) และ 1280×800 (Collector) แล้ว smoke test bundle จริงที่ 375×812 และ 1000×800 ยังไม่เห็นในเบราว์เซอร์: ผู้ชมกลาง run, แถว Dark Market ที่ขายได้, เหตุการณ์ E48+, นับถอยหลังใกล้หมด และห้อง v0.4 ยังไม่รับรอง screen reader หรือคุณภาพ art จริง ยังไม่มี human fun/balance/final brand approval ไม่รวม accounts/ranking/combat/permanent progression/Three.js world/in-app voice/automation
 
 ประวัติ: [GDD v0.1](docs/plan/Cursed_Market_GDD_v0.1.md), [feedback แรก](docs/playtests/2026-10-13-first-feedback.md), [v0.2 wagers](docs/validation/curse-wagers-v0.2.md), [v0.3 roguelike](docs/validation/roguelike-run-v0.3.md), [legacy simulation](docs/simulation/engine-v0.1/report.md), [สถานะโครงการ](docs/plan/Project_Status.md)

@@ -4,6 +4,8 @@ import type { AppraisalClientMessage, AppraisalRoomView, AppraisalSeatAction, Ap
 type Connection = "connecting" | "online" | "reconnecting" | "replaced";
 export type Decision = AppraisalSeatAction extends infer A ? A extends AppraisalSeatAction ? Omit<A, "requestId" | "encounter"> : never : never;
 const STORAGE_KEY = "cursed-market-appraisal-seat";
+/** v0.4 rooms and explicit survival (v0.5) rooms share this client bundle. */
+export const supportedRulesVersion = (version: string): boolean => version === "0.4" || version === "0.5";
 interface Credentials { roomCode: string; token: string }
 function savedSeat(): Credentials | null {
   try {
@@ -45,7 +47,7 @@ export function useConnection() {
             for (const action of pending.current.values()) socket.send(JSON.stringify(action));
             break;
           case "state":
-            if (message.room.rulesVersion !== "0.4") { setError("หน้านี้ต้องเชื่อมกับห้องนักประเมิน v0.4 กรุณาตรวจที่อยู่เกม"); break; }
+            if (!supportedRulesVersion(message.room.rulesVersion)) { setError("หน้านี้ต้องเชื่อมกับห้องนักประเมิน v0.4 หรือ v0.5 กรุณาตรวจที่อยู่เกม"); break; }
             roomRef.current = message.room;
             setRoom(message.room);
             break;

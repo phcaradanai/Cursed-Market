@@ -17,7 +17,12 @@ export function eventScoreText(game:AppraisalView,offer:EventOffer,choice:string
   return '';
 }
 export function readable(text:string):string {
-  return text.replace(/\b[BD]\d{2}\b/g,id=>statusName(id as StatusId)).replace(/base value|base/g,'มูลค่าจริง').replace(/encounter/g,'ช่วงพบพ่อค้า').replace(/settlement/g,'การคิดผลรอบ').replace(/seed/g,'เส้นทาง').replace(/credit/g,'เครดิต');
+  return text.replace(/\b[BD]\d{2}\b/g,id=>statusName(id as StatusId)).replace(/base value|base/g,'มูลค่าจริง').replace(/encounter/g,'ช่วงพบพ่อค้า').replace(/settlement/g,'การคิดผลรอบ').replace(/seed/g,'เส้นทาง').replace(/credit/g,'เครดิต').replace(/percentage points/g,'จุดเปอร์เซ็นต์').replace(/\bevent\b/g,'เหตุการณ์').replace(/ก่อน resolve /g,'ก่อนเกิด').replace(/\bserver\b/g,'เซิร์ฟเวอร์');
+}
+/** Price stepper: out-of-range or fractional entries clamp into the 0–1000 integer range before stepping. */
+export function stepPrice(value:string,delta:number):string {
+  const number=Number(value);const base=value.trim()!=='' && Number.isFinite(number)?Math.round(number):0;
+  return String(Math.max(0,Math.min(1000,base+delta)));
 }
 export function hasStatus(game:AppraisalView,id:StatusId):boolean {
   return game.self.statuses.some(s=>s.id===id && s.starts<=game.encounter && s.expires>=game.encounter && s.charges>0);

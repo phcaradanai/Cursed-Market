@@ -26,7 +26,7 @@ export function eventText(id: EventId): { name: string; when: string; descriptio
   };
 }
 
-export const omenText = (omen: Omen): { name: string; text: string } => {
+export const omenText = (omen: { id: string; name: string; text: string }): { name: string; text: string } => {
   const en = EN_OMEN[omen.id];
   return { name: pick(omen.name, en?.name), text: pick(omen.text, en?.text) };
 };

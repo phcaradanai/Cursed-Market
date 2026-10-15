@@ -16,7 +16,7 @@ import { ChoiceCards, Rich } from './lore.js';
 import { CoinIcon, EnergyIcon, LifeIcon, PassIcon, PortalIcon, ScoreIcon, SoundIcon, TimerIcon } from './icons.js';
 import { setLang, t, useLang } from './i18n.js';
 import { LockReason, tip, useLock } from './reasons.js';
-import { itemName, npcName, npcHint, statusName } from './catalog-text.js';
+import { itemName, npcName, npcHint, statusName, omenText } from './catalog-text.js';
 
 type Send=(message:AppraisalClientMessage)=>boolean;
 const graphemes=(text:string)=>typeof Intl.Segmenter==='function'?[...new Intl.Segmenter('th',{granularity:'grapheme'}).segment(text)].map(s=>s.segment):[...text];
@@ -219,7 +219,7 @@ export function GameTable({room,submit,send,disabled}:{room:AppraisalRoomView;su
       <Roster room={room}/></header>
     <NpcContracts game={game}/>
     <WishlistPanel game={game}/>
-    {game.omen && playable && <p className="omen" role="note"><strong>{t('ลางของช่วงนี้ · {name}',{name:game.omen.name})}</strong> {game.omen.text}</p>}
+    {game.omen && playable && (()=>{const omen=omenText(game.omen);return <p className="omen" role="note"><strong>{t('ลางของช่วงนี้ · {name}',{name:omen.name})}</strong> {omen.text}</p>;})()}
     <p className="sr-only" role="status" key={`${game.encounter}-${game.phase}`}>{phaseLabel(game.phase)} {t('ช่วง {n}',{n:game.encounter})}{game.encounterCount!==null?t(' จาก {n}',{n:game.encounterCount}):t(' เล่นจนทุกคนชีวิตหมด')}</p>
     {self.paused && playable && !game.survival && <div className="notice" role="status"><h2>{self.paused==='dead'?t('สัญญาคร่าชีวิตคุณในช่วงนี้'):t('พลังหมดในช่วงนี้')}</h2><p>{self.paused==='dead'?t('คะแนนช่วงนี้เป็น 0 คะแนนที่ได้ก่อนหน้ายังอยู่'):t('คะแนนที่ทำได้ในช่วงนี้ยังอยู่')} {t('พักดูเพื่อนจนจบช่วงนี้ แล้วกลับมาเล่นช่วงถัดไป')}</p></div>}
     {game.survival && self.life===0 && playable && <div className="notice" role="status"><h2>{t('ชีวิตหมดแล้ว · คุณเป็นผู้ชม')}</h2><p>{t('ดูเพื่อนจนทุกคนชีวิตหมด Collector จะรับของที่คุณเก็บไว้และคิดคะแนนพร้อมกัน ไม่มีการกลับมาเล่นใน run นี้')}</p></div>}

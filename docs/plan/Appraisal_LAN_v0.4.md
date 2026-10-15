@@ -28,7 +28,7 @@ PORT=3105 HOST=0.0.0.0 npm run start:appraisal
 
 ห้องอยู่ใน memory; restart ทำให้ห้องและ audit ที่ยังไม่ดาวน์โหลดหาย ต้องเก็บผลก่อนหยุด ถ้า port ถูกใช้อยู่ให้ใช้พอร์ตว่างใหม่และแจ้ง URL ห้าม kill เซิร์ฟเวอร์ที่ยังมีคนเล่น IP LAN อาจเปลี่ยนเมื่อ reconnect Wi-Fi ตรวจจาก Network settings ของ server แล้วเปลี่ยน IP ใน URL
 
-`npm start` และ `npm run dev` ยังเป็น legacy auction v0.3; v0.4 ใช้คำสั่ง `start:appraisal` และ bundle `dist/appraisal-client` แยกจาก `dist/client` พอร์ต 3100/3101/3102/3103/3104 ของ session เดิมคงไว้ ไม่ restart/kill
+(ประวัติ) ตอนนั้น `npm start` และ `npm run dev` เป็น legacy auction v0.3 ปัจจุบันชี้ไปเกมปัจจุบัน v0.5 แล้ว ส่วน legacy คือ `start:legacy`/`dev:legacy`; v0.4 ใช้คำสั่ง `start:appraisal` และ bundle `dist/appraisal-client` แยกจาก `dist/client` พอร์ต 3100/3101/3102/3103/3104 ของ session เดิมคงไว้ ไม่ restart/kill
 
 ## ตรวจซ้ำและอ่านผล
 

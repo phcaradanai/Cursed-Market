@@ -7,11 +7,14 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "build": "npm run build:server && npm run build:client && npm run build:appraisal",
+    "clean": "node scripts/clean.mjs",
+    "build": "npm run clean && npm run build:server && npm run build:client && npm run build:appraisal",
     "build:server": "tsc -p tsconfig.json",
     "build:client": "tsc -p tsconfig.client.json && vite build",
-    "start": "node dist/src/server/main.js",
+    "start": "node dist/src/server/appraisal-main.js",
+    "start:legacy": "node dist/src/server/main.js",
     "dev": "npm run build:server && node scripts/dev.mjs",
+    "dev:legacy": "npm run build:server && node scripts/dev.mjs legacy",
     "test": "npm run build:server && node --test dist/tests/*.test.js",
     "simulate": "npm run build:server && node dist/src/simulation/run.js",
     "simulate:appraisal": "npm run build:server && node dist/src/simulation/appraisal.js",

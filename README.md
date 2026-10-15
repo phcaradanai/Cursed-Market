@@ -29,17 +29,20 @@ Card + realistic art เป็นแนวทำงานของ goal ไม�
 
 ## รัน v0.5
 
-Node.js 22.12+:
+Node.js 22.12+ เกมมีเวอร์ชันเดียวคือ v0.5 เจ้าของห้องเลือกโหมด **ปกติ** (3 ช่วง ไม่มีชีวิต) หรือ **เอาชีวิตรอด** (มีชีวิต Collector นับคะแนนตอนจบ) ในล็อบบี้ และสลับภาษาไทย/English ได้ที่ปุ่มบนสุด
 
 ```sh
 npm ci
-npm run build
-APPRAISAL_RULES=survival PORT=3107 HOST=0.0.0.0 npm run start:appraisal
+npm run build   # ลบ dist เดิมก่อนแล้วสร้างใหม่ทั้งหมด
+PORT=3107 HOST=0.0.0.0 npm start
 ```
 
-เปิด `http://localhost:3107` บน server; คนละเครื่องใช้ LAN IP กับ port ที่เปิด สร้างห้อง ส่งรหัส เจ้าของเลือกจับเวลา/ไม่จับเวลาและกดบันทึกก่อนทุกคนพร้อม แล้วเจ้าของเริ่ม ดู [LAN guide](docs/plan/Appraisal_LAN_v0.5.md) สำหรับวิธีเล่น/reconnect/เปลี่ยน IP ดาวน์โหลด audit หลังจบ **ก่อน rematch/restart**
+เปิด `http://localhost:3107` บน server; คนละเครื่องใช้ LAN IP กับ port ที่เปิด สร้างห้อง ส่งรหัส เจ้าของเลือกโหมดและจับเวลา/ไม่จับเวลา แล้วทุกคนกดพร้อม เจ้าของเริ่ม ดู [LAN guide](docs/plan/Appraisal_LAN_v0.5.md) และ [ภาษา](docs/i18n.md)
 
-`npm start` และ `npm run dev` ยังใช้ legacy auction v0.3 แยกจาก `start:appraisal` พอร์ตเดิม 3100/3101/3102/3103/3104/3105 เก็บไว้ ไม่ restart/kill ใน session นี้ Appraisers ใช้ `dist/appraisal-client`; legacy ใช้ `dist/client` ไม่มี public hosting หากไม่ตั้ง `APPRAISAL_RULES=survival` จะใช้กติกา v0.4
+- เล่นคนเดียว: ในล็อบบี้เจ้าของห้องกด **เพิ่มบอท** (เลือกสไตล์ ระวังตัว/บุกเบิก/นักสะสม/พ่อค้า) ได้ถึง 4 ที่นั่ง บอทพร้อมเสมอและเล่นด้วยข้อมูลเท่าผู้เล่น
+- `npm run dev`: โหมดพัฒนา เปิด `http://localhost:5174` (server พอร์ต 3103, แก้โค้ดแล้ว reload เอง)
+- `APPRAISAL_RULES=survival npm start`: ตั้งโหมดเริ่มต้นของห้องใหม่เป็นเอาชีวิตรอด (เจ้าของห้องเปลี่ยนในล็อบบี้ได้)
+- ต้นแบบ auction เก่า (v0.3) แยกไว้: `npm run start:legacy` และ `npm run dev:legacy`
 
 ## ตรวจและอ่าน audit
 

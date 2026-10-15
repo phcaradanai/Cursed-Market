@@ -1,7 +1,9 @@
-import { advanceAppraisalEncounter, applyAppraisalAction, appraisalViewFor, createAppraisalRun, defaultAppraisalAction, exportAppraisalAudit } from '../game/appraisal/index.js';
+import { SURVIVAL_RULES, advanceAppraisalEncounter, applyAppraisalAction, appraisalViewFor, createAppraisalRun, defaultAppraisalAction, exportAppraisalAudit } from '../game/appraisal/index.js';
 import type { AppraisalConfig, AppraisalPhase, AppraisalState } from '../game/appraisal/types.js';
-import type { AppraisalClientMessage, AppraisalServerMessage, AppraisalRoomView, AppraisalTimerSettings } from '../shared/appraisal-protocol.js';
+import type { AppraisalBotPolicy, AppraisalMode, AppraisalClientMessage, AppraisalServerMessage, AppraisalRoomView, AppraisalTimerSettings } from '../shared/appraisal-protocol.js';
 import { APPRAISAL_TIMER_PHASES } from '../shared/appraisal-protocol.js';
+import { appraisalBotDecision } from '../simulation/appraisal.js';
+import type { AppraisalAction } from '../game/appraisal/types.js';
 import { parseAppraisalMessage } from './appraisal-messages.js';
 import { insist, RoomLifecycle } from './room-lifecycle.js';
 import type { LifecyclePeer, LifecycleRoom, LifecycleSeat } from './room-lifecycle.js';
@@ -11,13 +13,20 @@ type Seat = LifecycleSeat<AppraisalServerMessage>;
 export const APPRAISAL_PHASE_MS: Record<Exclude<AppraisalPhase, 'RESULTS'>, number> = {
   PORTALS: 30000, APPRAISAL: 90000, TRADE: 45000, REVEAL: 30000,
 };
+/** Replenished income can keep a bot alive indefinitely, so survival bots stop spending after this encounter and the run can end. */
+const BOT_RETIRE_ENCOUNTER = 12;
 export class AppraisalRoomService extends RoomLifecycle<AppraisalState, AppraisalClientMessage, AppraisalServerMessage> {
   private readonly durations: typeof APPRAISAL_PHASE_MS;
   constructor(now: () => number = Date.now, durations: Partial<typeof APPRAISAL_PHASE_MS> = {}, idleMs = 30 * 60 * 1000, private readonly runConfig:Partial<AppraisalConfig> = {}) {
     super(now, idleMs); this.durations = { ...APPRAISAL_PHASE_MS, ...durations };
   }
   protected parse(value: unknown): AppraisalClientMessage { return parseAppraisalMessage(value); }
-  protected createGame(ids: string[], seed: string): AppraisalState { return createAppraisalRun(ids, seed, this.runConfig); }
+  /** The server's configured mode is only the lobby default; the host can switch before the match starts. */
+  private modeOf(room: Room): AppraisalMode { return room.mode === 'survival' || room.mode === 'classic' ? room.mode : this.runConfig.survival ? 'survival' : 'classic'; }
+  protected createGame(ids: string[], seed: string, room: Room): AppraisalState {
+    const { survival, ...base } = this.runConfig;
+    return createAppraisalRun(ids, seed, this.modeOf(room) === 'survival' ? { ...base, survival: survival ?? SURVIVAL_RULES } : base);
+  }
   protected number(game: AppraisalState): number { return game.encounter; }
   private timerSettings(room:Room):AppraisalTimerSettings { return structuredClone(room.timing??{enabled:true,durationsMs:this.durations}) as AppraisalTimerSettings; }
   protected duration(phase: string,room:Room): number | null {
@@ -33,8 +42,24 @@ export class AppraisalRoomService extends RoomLifecycle<AppraisalState, Appraisa
       case 'timer-settings': {
         this.hostOnly(room,seat);insist(!room.game,'match-started','ตั้งเวลาได้ก่อนเริ่มเกมเท่านั้น');
         const current=this.timerSettings(room);
-        if(current.enabled!==message.settings.enabled || APPRAISAL_TIMER_PHASES.some(phase=>current.durationsMs[phase]!==message.settings.durationsMs[phase]))room.seats.forEach(s=>{s.ready=false;});
+        if(current.enabled!==message.settings.enabled || APPRAISAL_TIMER_PHASES.some(phase=>current.durationsMs[phase]!==message.settings.durationsMs[phase]))this.unready(room);
         room.timing=structuredClone(message.settings);break;
+      }
+      case 'add-bot': {
+        this.hostOnly(room,seat);insist(!room.game,'match-started','เพิ่มบอทได้ก่อนเริ่มเกมเท่านั้น');
+        insist(room.seats.length<4,'room-full','ห้องนี้มีผู้เล่นครบ 4 คนแล้ว');
+        const used=new Set(room.seats.filter(s=>s.bot).map(s=>s.name));let n=1;while(used.has(`Bot ${n}`))n++;
+        this.addBotSeat(room,`Bot ${n}`,message.policy);break;
+      }
+      case 'remove-bot': {
+        this.hostOnly(room,seat);insist(!room.game,'match-started','นำบอทออกได้ก่อนเริ่มเกมเท่านั้น');
+        const bot=room.seats.find(s=>s.id===message.seatId);insist(bot?.bot,'not-a-bot','ที่นั่งนี้ไม่ใช่บอท');
+        room.seats=room.seats.filter(s=>s!==bot);break;
+      }
+      case 'rules-mode': {
+        this.hostOnly(room,seat);insist(!room.game,'match-started','เลือกโหมดได้ก่อนเริ่มเกมเท่านั้น');
+        if(this.modeOf(room)!==message.mode)this.unready(room);
+        room.mode=message.mode;break;
       }
       case 'action': {
         insist(room.game && message.matchId === room.matchId, 'stale-match', 'คำสั่งนี้เป็นของแมตช์เก่า ใช้สถานะล่าสุด');
@@ -48,7 +73,7 @@ export class AppraisalRoomService extends RoomLifecycle<AppraisalState, Appraisa
           'stale-reveal', 'ผลช่วงนี้ผ่านไปแล้ว ใช้ผลล่าสุด');
         insist(!room.game.config.survival || room.game.players.find(p=>p.id===seat.id)?.life!==0,'spectator','ชีวิตหมดแล้ว ดูผู้เล่นที่ยังมีชีวิตไปต่อ');
         room.revealReady.add(seat.id);
-        if (room.seats.every(s => room.game?.config.survival && room.game.players.find(p=>p.id===s.id)?.life===0 || room.revealReady.has(s.id))) this.advance(room);
+        if (this.revealDone(room)) this.advance(room);
         break;
       case 'audit':
         insist(room.game?.phase === 'RESULTS' && message.matchId === room.matchId, 'audit-private', 'ดาวน์โหลดข้อมูลลับได้หลังจบ run เท่านั้น');
@@ -59,6 +84,38 @@ export class AppraisalRoomService extends RoomLifecycle<AppraisalState, Appraisa
           timeouts: room.timeouts.map(({ number, ...row }) => ({ ...row, encounter: number })) } });
         break;
       default: break;
+    }
+  }
+  private botSeq = 0;
+  /** Reveal is over once every living seat has confirmed; bots confirm as soon as the phase opens. */
+  private revealDone(room: Room): boolean {
+    return room.seats.every(s => room.game?.config.survival && room.game.players.find(p=>p.id===s.id)?.life===0 || room.revealReady.has(s.id));
+  }
+  /** Bot seats play through the same actions and DTOs as a human; a rejected move falls back to ending their turn. */
+  protected override afterChange(room: Room): void {
+    for (let guard = 0; room.game && guard < 600; guard++) {
+      const game = room.game;
+      if (game.phase === 'RESULTS') return;
+      let acted = false;
+      if (game.phase === 'REVEAL') {
+        for (const seat of room.seats) if (seat.bot && !room.revealReady.has(seat.id) && !(game.config.survival && game.players.find(p=>p.id===seat.id)?.life===0)) { room.revealReady.add(seat.id); acted = true; }
+        if (acted && this.revealDone(room)) this.advance(room);
+        if (!acted) return;
+        continue;
+      }
+      for (const seat of room.seats) {
+        const current: AppraisalState = room.game!;const player = seat.bot && current.phase===game.phase ? current.players.find(p=>p.id===seat.id) : undefined;
+        if (!player || player.paused || player.done) continue;
+        const previous: AppraisalState = current;
+        const attempt = (body: object): AppraisalState => applyAppraisalAction(previous, { ...body, playerId: seat.id, requestId: `bot-${++this.botSeq}`, encounter: previous.encounter } as AppraisalAction);
+        try {
+          try { room.game = attempt(previous.config.survival && previous.encounter > BOT_RETIRE_ENCOUNTER ? { type: 'done' } : appraisalBotDecision(appraisalViewFor(previous, seat.id), seat.bot as never)); }
+          catch { room.game = attempt({ type: 'done' }); }
+          this.phaseChanged(room, previous); acted = true;
+        } catch { /* leave this seat to the phase timer */ }
+        if (room.game!.phase !== game.phase) break;
+      }
+      if (!acted) return;
     }
   }
   protected timeout(room: Room, now: number): void {
@@ -77,8 +134,8 @@ export class AppraisalRoomService extends RoomLifecycle<AppraisalState, Appraisa
   }
   protected broadcast(room: Room): void {
     for (const seat of room.seats) if (seat.peer) {
-      const view: AppraisalRoomView = { rulesVersion: this.runConfig.survival?'0.5':'0.4', code: room.code, hostId: room.hostId, yourSeatId: seat.id,
-        seats: room.seats.map(s => ({ id: s.id, name: s.name, ready: s.ready, connected: s.connected })), matchSeats: structuredClone(room.matchSeats),
+      const view: AppraisalRoomView = { rulesVersion: '0.5', mode: this.modeOf(room), code: room.code, hostId: room.hostId, yourSeatId: seat.id,
+        seats: room.seats.map(s => ({ id: s.id, name: s.name, ready: s.ready, connected: s.connected, ...(s.bot ? { bot: s.bot as AppraisalBotPolicy } : {}) })), matchSeats: structuredClone(room.matchSeats),
         playtestMode: room.playtestMode, matchId: room.matchId, deadline: room.deadline, serverTime: this.now(), revealReady: [...room.revealReady],
         timerSettings:this.timerSettings(room),
         game: room.game ? appraisalViewFor(room.game, seat.id) : null };

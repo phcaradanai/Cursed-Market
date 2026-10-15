@@ -13,7 +13,7 @@ Reload แท็บเดิมกลับที่นั่งด้วย ses
 ```sh
 npm ci
 npm run build
-APPRAISAL_RULES=survival PORT=3107 HOST=0.0.0.0 npm run start:appraisal
+PORT=3107 HOST=0.0.0.0 npm start
 ```
 
 PORTนี้เป็น snapshot ของ session; ถ้าถูกใช้อยู่ให้ใช้พอร์ตว่างใหม่ ห้าม restart/killห้องที่กำลังเล่น ห้องเก็บใน memory ข้อมูลที่ยังไม่ดาวน์โหลดหายเมื่อหยุดprocess Default PORT ยังคง3103; ไม่ตั้ง APPRAISAL_RULES=survival ใช้กติกาv0.4เดิม พอร์ต3100–3105เดิมเก็บไว้
@@ -24,3 +24,6 @@ npm run --silent playtest:report -- path/to/downloaded-v5.json > /tmp/survival-s
 ```
 
 Replay/reportรองรับ schema5ใหม่และ4เดิม ดู [กติกาและค่าทดลอง](Survival_Collector_v0.5.md), [หลักฐานเทคนิค](../validation/survival-v0.5.md) และ [human playtest](../playtests/appraisal-v0.5.md). ไม่มี public hosting; IPอาจเปลี่ยนเมื่อเครือข่ายเปลี่ยน การตรวจ socket จากเครื่องserverไม่ยืนยัน reachability ของทุกอุปกรณ์
+
+
+เกมมีเวอร์ชันเดียว (v0.5) เจ้าของห้องเลือกโหมดปกติหรือเอาชีวิตรอดในล็อบบี้ `APPRAISAL_RULES=survival` ตั้งเพียงโหมดเริ่มต้นของห้องใหม่ โหมดพัฒนาใช้ `npm run dev` (http://localhost:5174)

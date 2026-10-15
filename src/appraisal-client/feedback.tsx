@@ -4,6 +4,7 @@ import { EventDecision } from './components.js';
 import type { Actions } from './components.js';
 import { BuffIcon, CloseIcon, DebuffIcon, EventIcon } from './icons.js';
 import { Rich } from './lore.js';
+import { t } from './i18n.js';
 import { eventCatalog, isConsequence, outcomeBetween, playerNote } from './model.js';
 import type { Outcome } from './model.js';
 
@@ -29,12 +30,12 @@ function ToastCard({toast,dismiss,survival}:{toast:Toast;dismiss:()=>void;surviv
     <span className="toast-icon" aria-hidden="true">{toast.tone==='bad'?<DebuffIcon/>:toast.tone==='good'?<BuffIcon/>:<EventIcon/>}</span>
     <div className="toast-body"><strong><Rich passive survival={survival} text={toast.title}/></strong>
       {toast.lines.length>0 && <ul>{toast.lines.map((line,index)=><li key={`${index}-${line}`}><Rich passive survival={survival} text={line}/></li>)}</ul>}</div>
-    <button type="button" className="toast-close" onClick={dismiss} aria-label="ปิดการแจ้งเตือน"><CloseIcon/></button>
+    <button type="button" className="toast-close" onClick={dismiss} aria-label={t('ปิดการแจ้งเตือน')}><CloseIcon/></button>
     {!paused && <span className="toast-timer" style={{animationDuration:`${TOAST_MS}ms`}} aria-hidden="true"/>}
   </li>;
 }
 export function Toasts({toasts,dismiss,survival,playerNames={}}:{toasts:Toast[];dismiss:(id:number)=>void;survival:boolean;playerNames?:Record<string,string>}) {
-  return <ol className="toasts" aria-live="polite" aria-label="ผลที่เพิ่งเกิด">{toasts.map(t=><ToastCard key={t.id} toast={{...t,title:playerNote(t.title,playerNames),lines:t.lines.map(line=>playerNote(line,playerNames))}} survival={survival} dismiss={()=>dismiss(t.id)}/>)}</ol>;
+  return <ol className="toasts" aria-live="polite" aria-label={t('ผลที่เพิ่งเกิด')}>{toasts.map(t=><ToastCard key={t.id} toast={{...t,title:playerNote(t.title,playerNames),lines:t.lines.map(line=>playerNote(line,playerNames))}} survival={survival} dismiss={()=>dismiss(t.id)}/>)}</ol>;
 }
 
 /**
@@ -49,11 +50,11 @@ export function EventModal({game,offer,submit,disabled,tucked,setTucked,playerNa
     const overflow=document.body.style.overflow;document.body.style.overflow='hidden';
     return ()=>{document.body.style.overflow=overflow;};
   },[tucked]);
-  if(tucked) return <button type="button" className={`event-pill${isConsequence(offer.id)?' danger':''}`} onClick={()=>setTucked(false)}><EventIcon/><span>เหตุการณ์รอคุณ: {eventCatalog(offer).name}</span><strong>กลับไปตัดสินใจ</strong></button>;
+  if(tucked) return <button type="button" className={`event-pill${isConsequence(offer.id)?' danger':''}`} onClick={()=>setTucked(false)}><EventIcon/><span>{t('เหตุการณ์รอคุณ: {name}',{name:eventCatalog(offer).name})}</span><strong>{t('กลับไปตัดสินใจ')}</strong></button>;
   return <div className="modal-backdrop">
     <div ref={panel} className="modal" role="dialog" aria-modal="true" aria-labelledby={`event-${offer.id}`} tabIndex={-1}>
       <EventDecision game={game} offer={offer} submit={submit} disabled={disabled} playerNames={playerNames}/>
-      <button type="button" className="modal-tuck" onClick={()=>setTucked(true)}>ซ่อนไว้ก่อน ขอดูโต๊ะ</button>
+      <button type="button" className="modal-tuck" onClick={()=>setTucked(true)}>{t('ซ่อนไว้ก่อน ขอดูโต๊ะ')}</button>
     </div>
   </div>;
 }

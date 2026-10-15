@@ -119,3 +119,17 @@ test('E73 with two wishes open offers replace choices; saved runs keep free, unl
   assert.deepEqual(parseAppraisalMessage(msg),msg);assert.deepEqual(parseAppraisalMessage({...msg,action:{type:'wish-new',requestId:'r1',encounter:1}}),{...msg,action:{type:'wish-new',requestId:'r1',encounter:1}});
   assert.throws(()=>parseAppraisalMessage({...msg,action:{...msg.action,extra:1}}));
 });
+test('the wish list is in the seat view in every phase, not only at the table, and renders in the game table',async()=>{
+  const {createElement}=await import('react');const {renderToStaticMarkup}=await import('react-dom/server');
+  const {WishlistPanel}=await import('../src/appraisal-client/WishlistPanel.js');
+  for(const phase of ['PORTALS','APPRAISAL','TRADE','REVEAL'] as const){
+    const state=shop(`wishbook-${phase}`);state.phase=phase;
+    const game=appraisalViewFor(state,state.players[0]!.id);
+    assert.equal(game.self.wishBook?.length,1,phase);assert.equal(game.self.wishBook![0]!.kind,'mirror');assert(game.self.wishBook![0]!.price>=game.self.wishBook![0]!.floor);
+    const html=renderToStaticMarkup(createElement(WishlistPanel,{game}));
+    assert(html.includes('รายการตามหาของ'),phase);assert(html.includes('wishlist-panel'));
+  }
+  const empty=appraisalFixture('E18');empty.players[0]!.wishes={};
+  assert.equal(appraisalViewFor(empty,empty.players[0]!.id).self.wishBook,undefined,'no wishes, no panel');
+  assert.equal(renderToStaticMarkup(createElement(WishlistPanel,{game:appraisalViewFor(empty,empty.players[0]!.id)})),'');
+});

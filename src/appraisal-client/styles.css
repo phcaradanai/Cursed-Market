@@ -513,3 +513,9 @@ tr.leader>*{color:var(--amber);font-weight:700}
 .held-effects>summary{position:relative;padding-right:24px}
 .held-effects>summary::after{content:"";position:absolute;right:2px;top:50%;width:8px;height:8px;border-right:1.6px solid var(--amber);border-bottom:1.6px solid var(--amber);transform:translateY(-70%) rotate(45deg)}
 .held-effects[open]>summary::after{transform:translateY(-30%) rotate(135deg)}
+
+.mode-picker{margin:16px 0}
+.mode-guide table{width:100%}
+.mode-guide th.current,.mode-guide td.current{background:color-mix(in srgb,var(--accent,#c9a46a) 16%,transparent)}
+
+.wishlist-panel{margin:8px 0}.wishlist-panel summary{cursor:pointer;min-height:44px;display:list-item;font-weight:600}.wishlist-panel li{margin:8px 0;list-style:none}.wishlist-panel ul{padding:0}

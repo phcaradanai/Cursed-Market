@@ -204,6 +204,8 @@ export interface AppraisalView {
     cleanseOffer?:CleanseOffer;
     wishOffer?:WishOffer;
     wishDesk?:WishDesk;
+    /** Every open wish with its current price, in any phase, so the seat can recall what to buy. */
+    wishBook?:WishBookRow[];
   };
   players: Array<{id:string;credits:number;energy:number;score:number;paused:Appraiser['paused'];done:boolean;itemCount:number;life?:number}>;
   market: Omit<DarkMarket,'lots'> & { lots?: AuctionLotView[] }; listings: Array<SharedListing & { item: ItemView }>;

@@ -116,7 +116,7 @@ test('actual sockets deliver round credits and authoritative coin results, then 
 });
 for (const count of [2, 3, 4]) test(`v0.4 HTTP/WebSocket ${count}-player appraisal run, replayable room audit, rematch and stale match rejection`, async t => {
   const s = await setup(count); t.after(() => s.app.close()); const host = s.clients[0]!, matchId = host.room!.matchId!;
-  assert.equal((await fetch(s.http + '/health')).status, 200); assert.equal(host.room!.rulesVersion, '0.4');
+  assert.equal((await fetch(s.http + '/health')).status, 200); assert.equal(host.room!.rulesVersion, '0.5');
   let cursor = 0, turn = 0, staleChecked = false;
   while (host.room!.game!.phase !== 'RESULTS' && turn++ < 400) {
     const game = host.room!.game!;

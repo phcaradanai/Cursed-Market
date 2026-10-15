@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import type { AppraisalClientMessage, AppraisalRoomView, AppraisalSeatAction, AppraisalServerMessage } from "../shared/appraisal-protocol.js";
+import { t } from "./i18n.js";
 
 type Connection = "connecting" | "online" | "reconnecting" | "replaced";
 export type Decision = AppraisalSeatAction extends infer A ? A extends AppraisalSeatAction ? Omit<A, "requestId" | "encounter"> : never : never;
 const STORAGE_KEY = "cursed-market-appraisal-seat";
-/** v0.4 rooms and explicit survival (v0.5) rooms share this client bundle. */
-export const supportedRulesVersion = (version: string): boolean => version === "0.4" || version === "0.5";
+/** One rules version; classic and survival are modes inside it. */
+export const supportedRulesVersion = (version: string): boolean => version === "0.5";
 interface Credentials { roomCode: string; token: string }
 function savedSeat(): Credentials | null {
   try {
@@ -47,7 +48,7 @@ export function useConnection() {
             for (const action of pending.current.values()) socket.send(JSON.stringify(action));
             break;
           case "state":
-            if (!supportedRulesVersion(message.room.rulesVersion)) { setError("หน้านี้ต้องเชื่อมกับห้องนักประเมิน v0.4 หรือ v0.5 กรุณาตรวจที่อยู่เกม"); break; }
+            if (!supportedRulesVersion(message.room.rulesVersion)) { setError(t("หน้านี้ต้องเชื่อมกับห้องนักประเมิน v0.5 กรุณาตรวจที่อยู่เกม")); break; }
             roomRef.current = message.room;
             setRoom(message.room);
             break;
@@ -99,7 +100,7 @@ export function useConnection() {
   }, []);
 
   const send = (message: AppraisalClientMessage) => {
-    if (socketRef.current?.readyState !== WebSocket.OPEN) { setError("กำลังเชื่อมต่อใหม่ รอให้กลับมาออนไลน์ก่อน"); return false; }
+    if (socketRef.current?.readyState !== WebSocket.OPEN) { setError(t("กำลังเชื่อมต่อใหม่ รอให้กลับมาออนไลน์ก่อน")); return false; }
     setError("");
     socketRef.current.send(JSON.stringify(message));
     return true;

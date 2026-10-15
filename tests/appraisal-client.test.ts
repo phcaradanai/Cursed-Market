@@ -17,7 +17,7 @@ import { defaultConsequence, eventCost, eventDecision, eventFacts, eventStatusOp
 import { appraisalFixture } from './support/appraisal-fixture.js';
 
 function roomView(state:AppraisalState):AppraisalRoomView {
-  return {rulesVersion:'0.4',code:'ABC234',hostId:'alice',yourSeatId:'alice',seats:state.players.map(p=>({id:p.id,name:p.id==='alice'?'ผู้ประเมินหนึ่ง':'ผู้ประเมินสอง',connected:true,ready:true})),matchSeats:state.players.map(p=>({id:p.id,name:p.id})),playtestMode:'no-voice',matchId:'match-ui',deadline:10000,serverTime:1000,revealReady:[],game:appraisalViewFor(state,'alice')};
+  return {rulesVersion:'0.5',mode:'classic',code:'ABC234',hostId:'alice',yourSeatId:'alice',seats:state.players.map(p=>({id:p.id,name:p.id==='alice'?'ผู้ประเมินหนึ่ง':'ผู้ประเมินสอง',connected:true,ready:true})),matchSeats:state.players.map(p=>({id:p.id,name:p.id})),playtestMode:'no-voice',matchId:'match-ui',deadline:10000,serverTime:1000,revealReady:[],game:appraisalViewFor(state,'alice')};
 }
 for(const id of EVENT_IDS) test(`v0.4 UI ${id}: every offered choice builds an engine-accepted decision`,()=>{
   const initial=appraisalFixture(id);offerEvent(initial,initial.players[0]!,id);
@@ -123,8 +123,8 @@ test('same-kind Dark Market items use inventory identifiers and separate known f
   for(const text of ['ของแท้','ของปลอม','มีคำสาป','ไม่มีคำสาป'])assert(market.includes(text));assert(!market.includes('ขายชิ้น 1'));
 });
 test('browser client accepts survival rooms and labels seats legibly',()=>{
-  for(const version of ['0.4','0.5'] as const)assert(supportedRulesVersion(version),version);
-  assert(!supportedRulesVersion('0.3'));
+  assert(supportedRulesVersion('0.5'));
+  for(const version of ['0.3','0.4']) assert(!supportedRulesVersion(version),version);
   assert.equal(monogram('kael'),'K');assert.equal(monogram('เอกชัย'),'เอ');assert.equal(monogram('สมชาย'),'ส');assert.equal(monogram('  '),'?');
 });
 test('price stepper clamps to whole credits 0–1000 and Thai copy hides engine English',()=>{

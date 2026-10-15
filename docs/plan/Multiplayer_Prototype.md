@@ -1,11 +1,13 @@
+> **Legacy (auction v0.3).** The current game is v0.5: use `npm run dev` / `npm start` (see README). The commands below now run as `npm run dev:legacy` / `npm run start:legacy`.
+
 # Cursed Market — Multiplayer prototype
 
 Milestone 2 uses the unchanged GDD v0.1 rules kernel. The online layer owns identity, room lifecycle and deadlines; it never duplicates scoring or settlement.
 
 ## Runtime
 
-- `npm run dev`: TypeScript server watcher, Node watcher and Vite HMR at port 5173. WebSocket proxy uses the same browser origin.
-- `npm run build && npm start`: production client build and Node HTTP/WebSocket server at port 3100. `HOST` defaults to `0.0.0.0`; `PORT` can override 3100.
+- `npm run dev:legacy`: TypeScript server watcher, Node watcher and Vite HMR at port 5173. WebSocket proxy uses the same browser origin.
+- `npm run build && npm run start:legacy`: production client build and Node HTTP/WebSocket server at port 3100. `HOST` defaults to `0.0.0.0`; `PORT` can override 3100.
 - Two or more devices on the same LAN open the server machine's LAN address, then join with the room code. `localhost` works only on the server machine.
 - Public hosting is not configured. A later host must support persistent WebSockets and HTTPS/WSS.
 

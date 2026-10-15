@@ -1,7 +1,7 @@
 import { STATUS_IDS } from '../game/appraisal/types.js';
 import type { StatusId } from '../game/appraisal/types.js';
-import type { AppraisalClientMessage, AppraisalSeatAction } from '../shared/appraisal-protocol.js';
-import { validTimerSettings } from '../shared/appraisal-protocol.js';
+import type { AppraisalBotPolicy, AppraisalClientMessage, AppraisalSeatAction } from '../shared/appraisal-protocol.js';
+import { APPRAISAL_BOT_POLICIES, validTimerSettings } from '../shared/appraisal-protocol.js';
 import { integer, keys, MessageError, object, parseMessage, string } from './messages.js';
 
 function boolean(value: unknown): boolean { if (typeof value !== 'boolean') throw new MessageError(); return value; }
@@ -82,6 +82,15 @@ function action(value: unknown): AppraisalSeatAction {
 /** An actor always comes from the authenticated seat, never from JSON. */
 export function parseAppraisalMessage(value: unknown): AppraisalClientMessage {
   const body = object(value);
+  if(body.type==='add-bot') {
+    keys(body,['type','policy']);if(!(APPRAISAL_BOT_POLICIES as readonly unknown[]).includes(body.policy))throw new MessageError();
+    return {type:'add-bot',policy:body.policy as AppraisalBotPolicy};
+  }
+  if(body.type==='remove-bot') {keys(body,['type','seatId']);return {type:'remove-bot',seatId:string(body.seatId,32)};}
+  if(body.type==='rules-mode') {
+    keys(body,['type','mode']);if(body.mode!=='classic' && body.mode!=='survival')throw new MessageError();
+    return {type:'rules-mode',mode:body.mode};
+  }
   if(body.type==='timer-settings') {
     keys(body,['type','settings']);if(!validTimerSettings(body.settings))throw new MessageError();
     return {type:'timer-settings',settings:structuredClone(body.settings)};

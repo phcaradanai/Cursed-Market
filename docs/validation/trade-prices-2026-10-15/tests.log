@@ -1,0 +1,484 @@
+TAP version 13
+# Subtest: v0.4 UI E01: every offered choice builds an engine-accepted decision
+ok 1 - v0.4 UI E01: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 21.236542
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E02: every offered choice builds an engine-accepted decision
+ok 2 - v0.4 UI E02: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 5.443792
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E03: every offered choice builds an engine-accepted decision
+ok 3 - v0.4 UI E03: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 7.477083
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E04: every offered choice builds an engine-accepted decision
+ok 4 - v0.4 UI E04: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 5.926041
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E05: every offered choice builds an engine-accepted decision
+ok 5 - v0.4 UI E05: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 7.919542
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E06: every offered choice builds an engine-accepted decision
+ok 6 - v0.4 UI E06: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 7.447833
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E07: every offered choice builds an engine-accepted decision
+ok 7 - v0.4 UI E07: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 6.323541
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E08: every offered choice builds an engine-accepted decision
+ok 8 - v0.4 UI E08: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 7.917042
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E09: every offered choice builds an engine-accepted decision
+ok 9 - v0.4 UI E09: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 5.551084
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E10: every offered choice builds an engine-accepted decision
+ok 10 - v0.4 UI E10: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 7.433083
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E11: every offered choice builds an engine-accepted decision
+ok 11 - v0.4 UI E11: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 6.352333
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E12: every offered choice builds an engine-accepted decision
+ok 12 - v0.4 UI E12: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 4.367708
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E13: every offered choice builds an engine-accepted decision
+ok 13 - v0.4 UI E13: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.018334
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E14: every offered choice builds an engine-accepted decision
+ok 14 - v0.4 UI E14: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.393333
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E15: every offered choice builds an engine-accepted decision
+ok 15 - v0.4 UI E15: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 4.311875
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E16: every offered choice builds an engine-accepted decision
+ok 16 - v0.4 UI E16: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.529542
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E17: every offered choice builds an engine-accepted decision
+ok 17 - v0.4 UI E17: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.980125
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E18: every offered choice builds an engine-accepted decision
+ok 18 - v0.4 UI E18: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.88175
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E19: every offered choice builds an engine-accepted decision
+ok 19 - v0.4 UI E19: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 2.947542
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E20: every offered choice builds an engine-accepted decision
+ok 20 - v0.4 UI E20: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.079625
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E21: every offered choice builds an engine-accepted decision
+ok 21 - v0.4 UI E21: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.300166
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E22: every offered choice builds an engine-accepted decision
+ok 22 - v0.4 UI E22: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.369875
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E23: every offered choice builds an engine-accepted decision
+ok 23 - v0.4 UI E23: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 4.550292
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E24: every offered choice builds an engine-accepted decision
+ok 24 - v0.4 UI E24: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.737209
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E25: every offered choice builds an engine-accepted decision
+ok 25 - v0.4 UI E25: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.3045
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E26: every offered choice builds an engine-accepted decision
+ok 26 - v0.4 UI E26: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.096708
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E27: every offered choice builds an engine-accepted decision
+ok 27 - v0.4 UI E27: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.472167
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E28: every offered choice builds an engine-accepted decision
+ok 28 - v0.4 UI E28: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.140375
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E29: every offered choice builds an engine-accepted decision
+ok 29 - v0.4 UI E29: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.543417
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E30: every offered choice builds an engine-accepted decision
+ok 30 - v0.4 UI E30: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 4.856125
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E31: every offered choice builds an engine-accepted decision
+ok 31 - v0.4 UI E31: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 4.790042
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E32: every offered choice builds an engine-accepted decision
+ok 32 - v0.4 UI E32: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.286625
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E33: every offered choice builds an engine-accepted decision
+ok 33 - v0.4 UI E33: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 4.021
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E34: every offered choice builds an engine-accepted decision
+ok 34 - v0.4 UI E34: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 4.146
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E35: every offered choice builds an engine-accepted decision
+ok 35 - v0.4 UI E35: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 5.002375
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E36: every offered choice builds an engine-accepted decision
+ok 36 - v0.4 UI E36: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 4.148917
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E37: every offered choice builds an engine-accepted decision
+ok 37 - v0.4 UI E37: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 4.714208
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E38: every offered choice builds an engine-accepted decision
+ok 38 - v0.4 UI E38: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 5.32725
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E39: every offered choice builds an engine-accepted decision
+ok 39 - v0.4 UI E39: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 6.017666
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E40: every offered choice builds an engine-accepted decision
+ok 40 - v0.4 UI E40: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 4.326459
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E41: every offered choice builds an engine-accepted decision
+ok 41 - v0.4 UI E41: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 2.896292
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E42: every offered choice builds an engine-accepted decision
+ok 42 - v0.4 UI E42: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.948667
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E43: every offered choice builds an engine-accepted decision
+ok 43 - v0.4 UI E43: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 2.31875
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E44: every offered choice builds an engine-accepted decision
+ok 44 - v0.4 UI E44: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 7.103333
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E45: every offered choice builds an engine-accepted decision
+ok 45 - v0.4 UI E45: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.363875
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E46: every offered choice builds an engine-accepted decision
+ok 46 - v0.4 UI E46: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.137541
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E47: every offered choice builds an engine-accepted decision
+ok 47 - v0.4 UI E47: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 2.73225
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E48: every offered choice builds an engine-accepted decision
+ok 48 - v0.4 UI E48: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 3.452292
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E49: every offered choice builds an engine-accepted decision
+ok 49 - v0.4 UI E49: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 2.971125
+  type: 'test'
+  ...
+# Subtest: v0.4 UI E50: every offered choice builds an engine-accepted decision
+ok 50 - v0.4 UI E50: every offered choice builds an engine-accepted decision
+  ---
+  duration_ms: 7.941333
+  type: 'test'
+  ...
+# Subtest: visible-data risk bounds enclose every possible hidden base, including honor/status jumps
+ok 51 - visible-data risk bounds enclose every possible hidden base, including honor/status jumps
+  ---
+  duration_ms: 6.800584
+  type: 'test'
+  ...
+# Subtest: purchase preview uses accepted quote and buyer discounts, once for a bundle
+ok 52 - purchase preview uses accepted quote and buyer discounts, once for a bundle
+  ---
+  duration_ms: 4.352792
+  type: 'test'
+  ...
+# Subtest: inspection and market availability respect status charges, locks, quota and budget
+ok 53 - inspection and market availability respect status charges, locks, quota and budget
+  ---
+  duration_ms: 1.617375
+  type: 'test'
+  ...
+# Subtest: unknown authenticity and curse remain unknown in the desk; Dark One requires separate consent
+ok 54 - unknown authenticity and curse remain unknown in the desk; Dark One requires separate consent
+  ---
+  duration_ms: 4.118417
+  type: 'test'
+  ...
+# Subtest: full phase surfaces render with live DTO data and no missing text
+ok 55 - full phase surfaces render with live DTO data and no missing text
+  ---
+  duration_ms: 76.229292
+  type: 'test'
+  ...
+# Subtest: cross-shop form presents actual NPC price plus fee; player trade offers allow zero
+ok 56 - cross-shop form presents actual NPC price plus fee; player trade offers allow zero
+  ---
+  duration_ms: 3.105
+  type: 'test'
+  ...
+# Subtest: confirmed consequences expose timeout defaults and decline cannot forge targets
+ok 57 - confirmed consequences expose timeout defaults and decline cannot forge targets
+  ---
+  duration_ms: 2.9125
+  type: 'test'
+  ...
+# Subtest: six NPC and ten item assets ship independently with embedded prompt provenance
+ok 58 - six NPC and ten item assets ship independently with embedded prompt provenance
+  ---
+  duration_ms: 52.98
+  type: 'test'
+  ...
+# Subtest: seller sees an incoming unlisted swap identity without the buyer private truth
+ok 59 - seller sees an incoming unlisted swap identity without the buyer private truth
+  ---
+  duration_ms: 4.414208
+  type: 'test'
+  ...
+# Subtest: E08 identifies both fixed portals and exact mandatory discount/status before commitment
+ok 60 - E08 identifies both fixed portals and exact mandatory discount/status before commitment
+  ---
+  duration_ms: 4.254791
+  type: 'test'
+  ...
+# Subtest: same-kind Dark Market items use inventory identifiers and separate known facts
+ok 61 - same-kind Dark Market items use inventory identifiers and separate known facts
+  ---
+  duration_ms: 4.935791
+  type: 'test'
+  ...
+# Subtest: browser client accepts survival rooms and labels seats legibly
+ok 62 - browser client accepts survival rooms and labels seats legibly
+  ---
+  duration_ms: 0.177375
+  type: 'test'
+  ...
+# Subtest: price stepper clamps to whole credits 0–1000 and Thai copy hides engine English
+ok 63 - price stepper clamps to whole credits 0–1000 and Thai copy hides engine English
+  ---
+  duration_ms: 0.153584
+  type: 'test'
+  ...
+# Subtest: game UI uses choice cards instead of dropdowns and highlights status/item names with peek cards
+ok 64 - game UI uses choice cards instead of dropdowns and highlights status/item names with peek cards
+  ---
+  duration_ms: 5.817583
+  type: 'test'
+  ...
+# Subtest: result cards: a correct E46 guess says so, and phase changes announce what to do next
+ok 65 - result cards: a correct E46 guess says so, and phase changes announce what to do next
+  ---
+  duration_ms: 3.274583
+  type: 'test'
+  ...
+# Subtest: desk shows one step at a time and the event takes the stage as a dialog
+ok 66 - desk shows one step at a time and the event takes the stage as a dialog
+  ---
+  duration_ms: 6.306833
+  type: 'test'
+  ...
+# Subtest: language switch: two languages, default Thai, placeholders filled in both
+ok 67 - language switch: two languages, default Thai, placeholders filled in both
+  ---
+  duration_ms: 1.159167
+  type: 'test'
+  ...
+# Subtest: language switch notifies subscribers and survives a missing localStorage
+ok 68 - language switch notifies subscribers and survives a missing localStorage
+  ---
+  duration_ms: 0.093083
+  type: 'test'
+  ...
+# Subtest: every translated client string has an English entry
+ok 69 - every translated client string has an English entry
+  ---
+  duration_ms: 1.819125
+  type: 'test'
+  ...
+# Subtest: English values never carry Thai text, and their placeholders match the Thai source
+ok 70 - English values never carry Thai text, and their placeholders match the Thai source
+  ---
+  duration_ms: 2.037958
+  type: 'test'
+  ...
+# Subtest: English mode renders every phase with no Thai text left in the table (engine notes aside)
+ok 71 - English mode renders every phase with no Thai text left in the table (engine notes aside)
+  ---
+  duration_ms: 100.347833
+  type: 'test'
+  ...
+# Subtest: the Rules panel follows the room mode
+ok 72 - the Rules panel follows the room mode
+  ---
+  duration_ms: 32.248291
+  type: 'test'
+  ...
+# Subtest: uninspected prices have no DTO range, fact clue, kind-card fallback, midpoint default or numerical risk
+ok 73 - uninspected prices have no DTO range, fact clue, kind-card fallback, midpoint default or numerical risk
+  ---
+  duration_ms: 19.798291
+  type: 'test'
+  ...
+# Subtest: price inspection unlocks only this item for this seat; other inspections and another item stay hidden
+ok 74 - price inspection unlocks only this item for this seat; other inspections and another item stay hidden
+  ---
+  duration_ms: 7.675625
+  type: 'test'
+  ...
+# Subtest: exact price revealed by price inspection still renders correctly and known public results remain available
+ok 75 - exact price revealed by price inspection still renders correctly and known public results remain available
+  ---
+  duration_ms: 3.767
+  type: 'test'
+  ...
+# Subtest: trade listings show the last appraisal and current NPC price, including a rejected appraisal
+ok 76 - trade listings show the last appraisal and current NPC price, including a rejected appraisal
+  ---
+  duration_ms: 16.131417
+  type: 'test'
+  ...
+# Subtest: zero appraisals remain visible, unappraised goods stay unknown and private inspections stay private
+ok 77 - zero appraisals remain visible, unappraised goods stay unknown and private inspections stay private
+  ---
+  duration_ms: 5.125209
+  type: 'test'
+  ...
+# Subtest: both trading seats can compare main and swap appraisals; owned inventory shows the appraisal during TRADE
+ok 78 - both trading seats can compare main and swap appraisals; owned inventory shows the appraisal during TRADE
+  ---
+  duration_ms: 50.0115
+  type: 'test'
+  ...
+# Subtest: trade appraisal labels follow the English language setting
+ok 79 - trade appraisal labels follow the English language setting
+  ---
+  duration_ms: 3.666417
+  type: 'test'
+  ...
+1..79
+# tests 79
+# suites 0
+# pass 79
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 566.376708

@@ -14,7 +14,8 @@ import {GameTable,SurvivalResults} from '../src/appraisal-client/App.js';
 import {AppraisalDesk,Contract,EventDecision,Statuses,TradeListing} from '../src/appraisal-client/components.js';
 import {eventScoreText} from '../src/appraisal-client/model.js';
 import {analyseAppraisalMatchAudit} from '../src/playtest/appraisal-report.js';
-import {simulateAppraisalRun} from '../src/simulation/appraisal.js';
+import {simulateAppraisalRun,APPRAISAL_POLICIES} from '../src/simulation/appraisal.js';
+import {APPRAISAL_BOT_POLICIES} from '../src/shared/appraisal-protocol.js';
 
 type Body=AppraisalAction extends infer A?A extends AppraisalAction?Omit<A,'playerId'|'requestId'|'encounter'>:never:never;
 let request=0;
@@ -43,7 +44,7 @@ function own(s:AppraisalState,id:string,kind:ItemKind='mirror',genuine=true,curs
   s.items[itemId]={id:itemId,kind,base,genuine,cursed,ask:base,owner:id,npcOwnerId:id,npc:'orc',encounter:s.encounter,certificate:false,lastAppraisal:null,lastAccepted:null,reservation:1};p.inventory.push(itemId);return itemId;
 }
 function view(s:AppraisalState,id='alice'):AppraisalRoomView {
-  return {rulesVersion:'0.5',code:'ABC234',hostId:'alice',yourSeatId:id,seats:s.players.map(p=>({id:p.id,name:p.id,ready:true,connected:true})),matchSeats:s.players.map(p=>({id:p.id,name:p.id})),playtestMode:'no-voice',matchId:'survival-ui',deadline:null,serverTime:0,revealReady:[],timerSettings:{enabled:false,durationsMs:{PORTALS:30000,APPRAISAL:90000,TRADE:45000,REVEAL:4000}},game:appraisalViewFor(s,id)};
+  return {rulesVersion:'0.5',mode:s.config.survival?'survival':'classic',code:'ABC234',hostId:'alice',yourSeatId:id,seats:s.players.map(p=>({id:p.id,name:p.id,ready:true,connected:true})),matchSeats:s.players.map(p=>({id:p.id,name:p.id})),playtestMode:'no-voice',matchId:'survival-ui',deadline:null,serverTime:0,revealReady:[],timerSettings:{enabled:false,durationsMs:{PORTALS:30000,APPRAISAL:90000,TRADE:45000,REVEAL:4000}},game:appraisalViewFor(s,id)};
 }
 class Peer {close(){} messages:AppraisalServerMessage[]=[];send(m:AppraisalServerMessage){this.messages.push(m);}get room(){const m=this.messages.findLast(m=>m.type==='state');assert(m?.type==='state');return m.room;}get joined(){const m=this.messages.findLast(m=>m.type==='joined');assert(m?.type==='joined');return m;}}
 
@@ -211,3 +212,52 @@ test('roster reports reveal confirmation, not the stale trade flag, and drops de
   assert(html.includes('จบการเดินทาง'));assert(!html.includes('ผู้ชม · ชีวิตหมด'));assert(!html.includes('undefined'));
 });
 
+test('the host picks classic or survival in the lobby; guests cannot, and the pick decides the rules',()=>{
+  const service=new AppraisalRoomService(()=>0);const host=new Peer(),guest=new Peer();
+  service.handle(host,{type:'create',name:'Alice'});service.handle(guest,{type:'join',roomCode:host.room.code,name:'Bob'});
+  assert.equal(host.room.mode,'classic');assert.equal(host.room.rulesVersion,'0.5');
+  service.handle(guest,{type:'rules-mode',mode:'survival'});assert.equal(guest.messages.at(-1)!.type,'error');assert.equal(host.room.mode,'classic');
+  service.handle(host,{type:'ready',ready:true});service.handle(guest,{type:'ready',ready:true});
+  service.handle(host,{type:'rules-mode',mode:'survival'});assert.equal(host.room.mode,'survival');assert.equal(host.room.seats.some(s=>s.ready),false,'switching mode clears ready');
+  service.handle(host,{type:'ready',ready:true});service.handle(guest,{type:'ready',ready:true});service.handle(host,{type:'start'});
+  assert.equal(host.room.rulesVersion,'0.5');assert.notEqual(host.room.game!.self.life,undefined,'survival game has life');
+  service.handle(host,{type:'rules-mode',mode:'classic'});assert.equal(host.messages.at(-1)!.type,'error');assert.equal(host.room.mode,'survival');
+});
+test('a classic room has no life, and the default mode follows the server setting',()=>{
+  const classic=new AppraisalRoomService(()=>0),surv=new AppraisalRoomService(()=>0,{},undefined,{survival:SURVIVAL_RULES});
+  for(const [service,mode] of [[classic,'classic'],[surv,'survival']] as const){
+    const host=new Peer(),guest=new Peer();service.handle(host,{type:'create',name:'A'});service.handle(guest,{type:'join',roomCode:host.room.code,name:'B'});assert.equal(host.room.mode,mode);
+    service.handle(host,{type:'rules-mode',mode:'classic'});service.handle(host,{type:'ready',ready:true});service.handle(guest,{type:'ready',ready:true});service.handle(host,{type:'start'});
+    assert.equal(host.room.game!.self.life,undefined);
+  }
+});
+for(const mode of ['classic','survival'] as const)test(`solo ${mode} room: a host plus bots plays a full replayable match`,()=>{
+  const service=new AppraisalRoomService(()=>0);const host=new Peer();
+  service.handle(host,{type:'create',name:'Solo'});
+  service.handle(host,{type:'ready',ready:true});service.handle(host,{type:'start'});assert.equal(host.messages.at(-1)!.type,'error','one seat alone cannot start');
+  service.handle(host,{type:'rules-mode',mode});
+  service.handle(host,{type:'add-bot',policy:'cautious'});service.handle(host,{type:'add-bot',policy:'trader'});
+  assert.deepEqual(host.room.seats.map(s=>s.bot??null),[null,'cautious','trader']);assert(host.room.seats.slice(1).every(s=>s.ready&&s.connected));
+  service.handle(host,{type:'ready',ready:true});service.handle(host,{type:'start'});assert.equal(host.room.game!.players.length,3);
+  for(let i=0;i<400 && host.room.game!.phase!=='RESULTS';i++){
+    const g=host.room.game!;
+    if(g.phase==='REVEAL')service.handle(host,{type:'reveal-ready',matchId:host.room.matchId!,encounter:g.encounter});
+    else if(!g.self.paused && !g.self.done)service.handle(host,{type:'action',matchId:host.room.matchId!,action:{type:'done',requestId:`solo-${i}`,encounter:g.encounter}});
+    else service.handle(host,{type:'reveal-ready',matchId:host.room.matchId!,encounter:g.encounter});
+    if(host.messages.at(-1)!.type==='error' && i>399)break;
+  }
+  assert.equal(host.room.game!.phase,'RESULTS');
+  service.handle(host,{type:'audit',matchId:host.room.matchId!});const audit=host.messages.findLast(m=>m.type==='audit') as unknown as {audit:{run:Parameters<typeof replayAppraisalAudit>[0]}};
+  assert.equal(replayAppraisalAudit(audit.audit.run).phase,'RESULTS');
+  service.handle(host,{type:'rematch'});assert(host.room.seats.filter(s=>s.bot).every(s=>s.ready),'bots stay ready after a rematch');
+  service.handle(host,{type:'remove-bot',seatId:host.room.seats[1]!.id});assert.equal(host.room.seats.length,2);
+});
+test('only the host adds bots before the match, up to four seats, and bot styles match the simulation',()=>{
+  const service=new AppraisalRoomService(()=>0);const host=new Peer(),guest=new Peer();
+  service.handle(host,{type:'create',name:'A'});service.handle(guest,{type:'join',roomCode:host.room.code,name:'B'});
+  service.handle(guest,{type:'add-bot',policy:'cautious'});assert.equal(guest.messages.at(-1)!.type,'error');
+  service.handle(host,{type:'add-bot',policy:'aggressive'});service.handle(host,{type:'add-bot',policy:'collector'});assert.equal(host.room.seats.length,4);
+  service.handle(host,{type:'add-bot',policy:'trader'});assert.equal(host.messages.at(-1)!.type,'error');
+  assert.throws(()=>service.receive(host,{type:'add-bot',policy:'nonsense'}));
+  assert.deepEqual([...APPRAISAL_BOT_POLICIES],[...APPRAISAL_POLICIES]);
+});

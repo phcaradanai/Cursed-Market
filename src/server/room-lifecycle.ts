@@ -14,9 +14,12 @@ export interface RoomTransport {
   tick(): void;
 }
 export type ControlMessage = Exclude<ClientMessage, { type: 'action' | 'reveal-ready' | 'audit' }>;
-export interface LifecycleSeat<M> extends SeatView { token: string; peer: LifecyclePeer<M> | null }
+/** A seat with `bot` set is played by the server: always connected and ready, never has a peer. */
+export interface LifecycleSeat<M> extends SeatView { token: string; peer: LifecyclePeer<M> | null; bot?: string }
 export interface LifecycleRoom<G, M> {
   timing?:{enabled:boolean;durationsMs:Record<string,number>};
+  /** Rules mode picked by the host in the lobby; subclasses that have modes read it in createGame. */
+  mode?: string;
   code: string; hostId: string; seats: LifecycleSeat<M>[];
   matchSeats: { id: string; name: string }[]; playtestMode: PlaytestMode;
   game: G | null; matchId: string | null; deadline: number | null;
@@ -38,7 +41,7 @@ export abstract class RoomLifecycle<G extends { phase: string }, C extends { typ
   constructor(protected readonly now: () => number = Date.now, private readonly idleMs = 30 * 60 * 1000) {}
   get count(): number { return this.rooms.size; }
   protected abstract parse(value: unknown): C;
-  protected abstract createGame(ids: string[], seed: string): G;
+  protected abstract createGame(ids: string[], seed: string, room: LifecycleRoom<G, M>): G;
   protected abstract number(game: G): number;
   protected abstract duration(phase: string, room: LifecycleRoom<G,M>): number | null;
   protected abstract advanceGame(game: G): G;
@@ -91,15 +94,15 @@ export abstract class RoomLifecycle<G extends { phase: string }, C extends { typ
           this.hostOnly(room, seat); insist(!room.game, 'match-started', 'แมตช์เริ่มแล้ว');
           insist(room.seats.length >= 2 && room.seats.every(s => s.ready && s.connected), 'not-ready', 'ต้องมี 2–4 คน และทุกคนพร้อมและเชื่อมต่ออยู่');
           room.matchId = randomBytes(8).toString('hex'); room.matchSeats = room.seats.map(s => ({ id: s.id, name: s.name }));
-          room.game = this.createGame(room.seats.map(s => s.id), randomBytes(32).toString('hex'));
+          room.game = this.createGame(room.seats.map(s => s.id), randomBytes(32).toString('hex'), room);
           room.startedAt = this.now(); room.endedAt = null; room.phaseTimes = []; room.timeouts = []; this.beginPhase(room); break;
         case 'rematch':
           this.hostOnly(room, seat); insist(room.game?.phase === 'RESULTS', 'phase', 'ต้องจบแมตช์ก่อนเล่นอีกครั้ง');
-          room.game = null; room.matchId = null; room.deadline = null; room.revealReady.clear(); room.seats.forEach(s => { s.ready = false; }); break;
+          room.game = null; room.matchId = null; room.deadline = null; room.revealReady.clear(); this.unready(room); break;
         case 'leave':
           insist(!room.game || room.game.phase === 'RESULTS', 'match-started', 'แมตช์กำลังเล่น ปิดแท็บได้และกลับมาที่ seat เดิมภายหลัง');
           this.bindings.delete(peer); room.seats = room.seats.filter(s => s !== seat);
-          if (!room.seats.length) this.rooms.delete(room.code); else if (room.hostId === seat.id) room.hostId = room.seats[0]!.id;
+          if (!room.seats.some(s => !s.bot)) this.rooms.delete(room.code); else if (room.hostId === seat.id) room.hostId = room.seats.find(s => !s.bot)!.id;
           peer.send({ type: 'left' } as M); break;
         case 'remove-seat': {
           this.hostOnly(room, seat); insist(!room.game, 'match-started', 'นำ seat ออกได้เฉพาะก่อนเริ่มแมตช์');
@@ -109,7 +112,7 @@ export abstract class RoomLifecycle<G extends { phase: string }, C extends { typ
         }
         default: this.matchMessage(room, seat, peer, message);
       }
-      if (this.rooms.has(room.code)) this.broadcast(room);
+      if (this.rooms.has(room.code)) { this.afterChange(room); this.broadcast(room); }
     } catch (error) {
       const body = message as unknown as { type: string; action?: { requestId?: string } };
       peer.send({ type: 'error', code: error instanceof RuleError ? error.code : 'server-error',
@@ -123,16 +126,23 @@ export abstract class RoomLifecycle<G extends { phase: string }, C extends { typ
     const binding = this.bindings.get(peer); if (!binding) return;
     this.bindings.delete(peer); const { room, seat } = binding; seat.peer = null; seat.connected = false;
     if (!room.game) seat.ready = false;
-    if (room.hostId === seat.id) room.hostId = room.seats.find(s => s.connected)?.id ?? seat.id;
+    if (room.hostId === seat.id) room.hostId = room.seats.find(s => s.connected && !s.bot)?.id ?? seat.id;
     this.broadcast(room);
   }
   tick(): void {
     const now = this.now();
     for (const room of this.rooms.values()) {
-      if (room.seats.every(s => !s.connected) && now - room.lastActivity > this.idleMs) { this.rooms.delete(room.code); continue; }
+      if (room.seats.every(s => !s.connected || s.bot) && now - room.lastActivity > this.idleMs) { this.rooms.delete(room.code); continue; }
       if (!room.game || room.deadline === null || now < room.deadline) continue;
-      this.timeout(room, now); this.broadcast(room);
+      this.timeout(room, now); this.afterChange(room); this.broadcast(room);
     }
+  }
+  /** Hook after any state change, before the broadcast; rules versions with bot seats play them here. */
+  protected afterChange(_room: LifecycleRoom<G, M>): void {}
+  /** Everyone must ready up again; bot seats are always ready. */
+  protected unready(room: LifecycleRoom<G, M>): void { room.seats.forEach(s => { s.ready = !!s.bot; }); }
+  protected addBotSeat(room: LifecycleRoom<G, M>, name: string, bot: string): void {
+    room.seats.push({ ...this.newSeat(name), ready: true, connected: true, bot });
   }
   protected hostOnly(room: LifecycleRoom<G, M>, seat: LifecycleSeat<M>): void { insist(room.hostId === seat.id, 'host-only', 'เฉพาะเจ้าของห้องทำรายการนี้ได้'); }
   protected phaseChanged(room: LifecycleRoom<G, M>, previous: G): void {
@@ -146,7 +156,7 @@ export abstract class RoomLifecycle<G extends { phase: string }, C extends { typ
     room.deadline = duration===null?null:room.phaseStartedAt+duration;
     if (room.game!.phase === 'RESULTS') room.endedAt = this.now();
   }
-  private newSeat(name: string): LifecycleSeat<M> { return { id: randomBytes(8).toString('hex'), name, ready: false, connected: false, token: randomBytes(32).toString('hex'), peer: null }; }
+  protected newSeat(name: string): LifecycleSeat<M> { return { id: randomBytes(8).toString('hex'), name, ready: false, connected: false, token: randomBytes(32).toString('hex'), peer: null }; }
   private attach(room: LifecycleRoom<G, M>, seat: LifecycleSeat<M>, peer: LifecyclePeer<M>): void {
     seat.peer = peer; seat.connected = true; room.lastActivity = this.now(); this.bindings.set(peer, { room, seat });
     if (!room.seats.find(s => s.id === room.hostId)?.connected) room.hostId = seat.id;

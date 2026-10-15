@@ -1,11 +1,14 @@
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import { ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, itemFamily, itemImage, npcImage } from '../game/appraisal/content.js';
+import { getLang, t, type Lang } from './i18n.js';
+import { itemName, npcHint, npcName, passiveText, statusDescription, statusDuration, statusName, toolText } from './catalog-text.js';
+import { EN_NPC } from './i18n-content.js';
 import { CHALLENGE_TOOLS } from '../game/appraisal/challenge-rules.js';
 import { CLEANSE_TOOLS } from '../game/appraisal/cleanse-rules.js';
 import { passiveSpec } from '../game/appraisal/passives.js';
 import type { ItemKind, ItemView, NpcId, StatusId } from '../game/appraisal/types.js';
-import { readable, scoreStatusText, statusName } from './model.js';
+import { readable, scoreStatusText } from './model.js';
 import { BuffIcon, DebuffIcon } from './icons.js';
 
 type Tone = 'buff'|'debuff'|'item'|'npc';
@@ -40,62 +43,68 @@ export function Peek({tone,label,card,passive=false}:{tone:Tone;label:ReactNode;
 }
 
 export function StatusCard({id,survival=false}:{id:StatusId;survival?:boolean}) {
-  const spec=STATUS_CATALOG.find(s=>s.id===id)!;const debuff=id.startsWith('D');
+  const debuff=id.startsWith('D');
   return <>
-    <span className="peek-head">{debuff?<DebuffIcon/>:<BuffIcon/>}<strong>{spec.name}</strong><span className="peek-tag">{debuff?'ผลเสีย':'ผลดี'}</span></span>
-    <span className="peek-body">{readable(spec.description)}{scoreStatusText(id,survival)}</span>
-    <span className="peek-foot">{readable(spec.duration)}</span>
+    <span className="peek-head">{debuff?<DebuffIcon/>:<BuffIcon/>}<strong>{statusName(id)}</strong><span className="peek-tag">{debuff?t('ผลเสีย'):t('ผลดี')}</span></span>
+    <span className="peek-body">{readable(statusDescription(id))}{scoreStatusText(id,survival)}</span>
+    <span className="peek-foot">{readable(statusDuration(id))}</span>
   </>;
 }
 export function StatusTerm({id,survival=false,passive=false}:{id:StatusId;survival?:boolean;passive?:boolean}) {
   const debuff=id.startsWith('D');
-  return <Peek tone={debuff?'debuff':'buff'} passive={passive} label={<>{debuff?<DebuffIcon/>:<BuffIcon/>}{statusName(id)}<span className="sr-only">{debuff?' (ผลเสีย)':' (ผลดี)'}</span></>} card={<StatusCard id={id} survival={survival}/>}/>;
+  return <Peek tone={debuff?'debuff':'buff'} passive={passive} label={<>{debuff?<DebuffIcon/>:<BuffIcon/>}{statusName(id)}<span className="sr-only">{debuff?t(' (ผลเสีย)'):t(' (ผลดี)')}</span></>} card={<StatusCard id={id} survival={survival}/>}/>;
 }
 
 const knownText=(item:ItemView)=>{
   const k=item.knowledge;
-  return [k.genuine===undefined?'ยังไม่รู้ว่าแท้ไหม':k.genuine?'ของแท้':'ของปลอม',k.cursed===undefined?'ยังไม่รู้เรื่องคำสาป':k.cursed?'มีคำสาป':'ไม่มีคำสาป'].join(' · ');
+  return [k.genuine===undefined?t('ยังไม่รู้ว่าแท้ไหม'):k.genuine?t('ของแท้'):t('ของปลอม'),k.cursed===undefined?t('ยังไม่รู้เรื่องคำสาป'):k.cursed?t('มีคำสาป'):t('ไม่มีคำสาป')].join(' · ');
 };
 /** Price clues are item-specific knowledge; the kind alone never reveals a value range. */
 export function ItemCard({kind,item}:{kind:ItemKind;item?:ItemView|undefined}) {
   const spec=ITEM_SPECS[kind];const k=item?.knowledge;
-  const benefit=itemFamily(kind)==='orb'?`ฟื้นพลัง ${spec.energyRecovery??3}`:statusName(spec.buff);
+  const benefit=itemFamily(kind)==='orb'?t('ฟื้นพลัง {n}',{n:spec.energyRecovery??3}):statusName(spec.buff);
+  const tool=kind in CHALLENGE_TOOLS?toolText(kind,CHALLENGE_TOOLS[kind as keyof typeof CHALLENGE_TOOLS].text):kind in CLEANSE_TOOLS?toolText(kind,CLEANSE_TOOLS[kind as keyof typeof CLEANSE_TOOLS].text):'';
   return <>
     <img src={itemImage(kind)} alt="" width="72" height="72"/>
     <span className="peek-text">
-      <strong>{spec.name}</strong>
-      <span>{k?.base!==undefined?`มูลค่าจริง ${k.base} เครดิต`:k?.range?`เบาะแสมูลค่า ${k.range[0]}–${k.range[1]} เครดิต`:'ยังไม่มีข้อมูลมูลค่า · ต้องตรวจราคาสินค้าชิ้นนี้'}</span>
+      <strong>{itemName(kind)}</strong>
+      <span>{k?.base!==undefined?t('มูลค่าจริง {n} เครดิต',{n:k.base}):k?.range?t('เบาะแสมูลค่า {a}–{b} เครดิต',{a:k.range[0],b:k.range[1]}):t('ยังไม่มีข้อมูลมูลค่า · ต้องตรวจราคาสินค้าชิ้นนี้')}</span>
       {item && <span>{knownText(item)}</span>}
-      {kind in CHALLENGE_TOOLS && <span>ท้าทายคำระบุ · {CHALLENGE_TOOLS[kind as keyof typeof CHALLENGE_TOOLS].text}</span>}
-      {kind in CLEANSE_TOOLS && <span>ล้างคำสาป · {CLEANSE_TOOLS[kind as keyof typeof CLEANSE_TOOLS].text}</span>}
-      {passiveSpec(kind) && <span>ขณะถือ · สะสมได้: {passiveSpec(kind)!.passive.text}</span>}
-      <span>เปิดใช้อาจได้ {benefit} · เสี่ยง {statusName(spec.drawback)}{spec.consumable?' · ใช้แล้วหมด':''}</span>
+      {tool && <span>{kind in CHALLENGE_TOOLS?t('ท้าทายคำระบุ · {text}',{text:tool}):t('ล้างคำสาป · {text}',{text:tool})}</span>}
+      {passiveSpec(kind) && <span>{t('ขณะถือ · สะสมได้: {text}',{text:passiveText(kind)})}</span>}
+      <span>{t('เปิดใช้อาจได้ {benefit} · เสี่ยง {drawback}',{benefit,drawback:statusName(spec.drawback)})}{spec.consumable?t(' · ใช้แล้วหมด'):''}</span>
     </span>
   </>;
 }
 export function ItemTerm({kind,item,label,passive=false}:{kind:ItemKind;item?:ItemView|undefined;label?:ReactNode;passive?:boolean}) {
-  return <Peek tone="item" passive={passive} label={label??ITEM_SPECS[kind].name} card={<ItemCard kind={kind} item={item}/>}/>;
+  return <Peek tone="item" passive={passive} label={label??itemName(kind)} card={<ItemCard kind={kind} item={item}/>}/>;
 }
 export function NpcTerm({npc,label,passive=false}:{npc:NpcId;label?:string;passive?:boolean}) {
-  const spec=NPC_SPECS[npc];
-  return <Peek tone="npc" passive={passive} label={label??spec.name} card={<><img src={npcImage(npc)} alt="" width="72" height="90"/><span className="peek-text"><strong>{spec.name}</strong><span>{spec.hint}</span></span></>}/>;
+  return <Peek tone="npc" passive={passive} label={label??npcName(npc)} card={<><img src={npcImage(npc)} alt="" width="72" height="90"/><span className="peek-text"><strong>{npcName(npc)}</strong><span>{npcHint(npc)}</span></span></>}/>;
 }
 
 type Token = {text:string} & ({kind:'status';id:StatusId}|{kind:'item';id:ItemKind}|{kind:'npc';id:NpcId});
-const NPC_ALIASES:Record<NpcId,string[]>={orc:['ออร์ก'],vampire:['Vampire','แวมไพร์'],autometa:['Autometa'],alien:['Alien'],darkone:['Dark One'],beast:['สัตว์นำทาง'],deepsea:['อสูรใต้ทะเลลึก','Deep Sea Monster'],swarm:['The Swarm','ฝูงมนุษย์แมลง']};
-const TOKENS:Token[]=[
-  ...STATUS_CATALOG.map(s=>({text:s.name,kind:'status' as const,id:s.id})),
-  ...(Object.keys(ITEM_SPECS) as ItemKind[]).map(kind=>({text:ITEM_SPECS[kind].name,kind:'item' as const,id:kind})),
-  ...(Object.keys(NPC_SPECS) as NpcId[]).flatMap(npc=>[NPC_SPECS[npc].name,...NPC_ALIASES[npc]].map(text=>({text,kind:'npc' as const,id:npc}))),
-].sort((a,b)=>b.text.length-a.text.length);
-const LOOKUP=new Map(TOKENS.map(t=>[t.text,t]));
-const PATTERN=new RegExp(TOKENS.map(t=>t.text.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|'),'g');
+const NPC_ALIASES:Record<NpcId,string[]>={orc:['ออร์ก','Orc'],vampire:['Vampire','แวมไพร์'],autometa:['Autometa'],alien:['Alien'],darkone:['Dark One'],beast:['สัตว์นำทาง','Guide Beast'],deepsea:['อสูรใต้ทะเลลึก','Deep Sea Monster'],swarm:['The Swarm','ฝูงมนุษย์แมลง']};
+/** Highlight patterns follow the active language, so English text lights up English names. */
+const tokenCache=new Map<Lang,{lookup:Map<string,Token>;pattern:RegExp}>();
+function tokensFor(lang:Lang){
+  const cached=tokenCache.get(lang);if(cached) return cached;
+  const npcNames=(Object.keys(NPC_SPECS) as NpcId[]).map(npc=>({npc,name:lang==='en'?(EN_NPC[npc]?.name??NPC_SPECS[npc].name):NPC_SPECS[npc].name}));
+  const tokens:Token[]=[
+    ...STATUS_CATALOG.map(s=>({text:lang==='en'?statusName(s.id):s.name,kind:'status' as const,id:s.id})),
+    ...(Object.keys(ITEM_SPECS) as ItemKind[]).map(kind=>({text:lang==='en'?itemName(kind):ITEM_SPECS[kind].name,kind:'item' as const,id:kind})),
+    ...npcNames.flatMap(({npc,name})=>[name,...(lang==='th'?NPC_ALIASES[npc]:NPC_ALIASES[npc].filter(alias=>/^[\x00-\x7f]+$/.test(alias)))].map(text=>({text,kind:'npc' as const,id:npc}))),
+  ].sort((a,b)=>b.text.length-a.text.length);
+  const value={lookup:new Map(tokens.map(tk=>[tk.text,tk])),pattern:new RegExp(tokens.map(tk=>tk.text.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|'),'g')};
+  tokenCache.set(lang,value);return value;
+}
 
 /** Game text with status, item and merchant names highlighted; each opens its short card. */
 export function Rich({text,survival=false,passive=false}:{text:string;survival?:boolean;passive?:boolean}) {
   const source=readable(text);const parts:ReactNode[]=[];let last=0;
-  for(const match of source.matchAll(PATTERN)) {
-    const token=LOOKUP.get(match[0])!;const at=match.index;
+  const {lookup,pattern}=tokensFor(getLang());
+  for(const match of source.matchAll(pattern)) {
+    const token=lookup.get(match[0])!;const at=match.index;
     if(at>last) parts.push(source.slice(last,at));
     const key=`${at}-${token.text}`;
     parts.push(token.kind==='status'?<StatusTerm key={key} id={token.id} survival={survival} passive={passive}/>:

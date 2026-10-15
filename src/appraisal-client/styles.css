@@ -189,7 +189,8 @@ input.room-code{letter-spacing:.24em;font-size:18px}
 .desk-reading .blocked-note{background:rgb(139 57 37 / .1);color:var(--accent)}
 .desk-reading h3{font-size:19px}
 .facts{display:grid;margin:0 0 16px}
-.facts>div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:6px 0;border-bottom:1px dashed rgb(151 131 106 / .45)}
+.facts>div{display:grid;grid-template-columns:112px minmax(0,1fr);gap:12px;padding:6px 0;border-bottom:1px dashed rgb(151 131 106 / .45)}
+.facts dt{overflow-wrap:anywhere}
 .facts dd{font-weight:600}
 .facts .unknown dd{font-weight:400;color:var(--muted)}
 .desk-reading .facts .unknown dd{color:var(--paper-muted)}
@@ -383,6 +384,8 @@ tr.leader>*{color:var(--amber);font-weight:700}
 @keyframes modal-in{from{opacity:0;transform:translateY(12px) scale(.98)}}
 /* Result cards: what just happened, in the top corner, gone after a few seconds. */
 .toasts{position:fixed;top:84px;right:24px;z-index:80;display:grid;gap:10px;width:min(380px,calc(100vw - 32px));margin:0;padding:0;list-style:none;pointer-events:none}
+/* Wide screens: the HUD (credits, energy, score) sits top-right, so results go bottom-right, newest last. */
+@media(min-width:1100px){.toasts{top:auto;bottom:24px;display:flex;flex-direction:column}}
 .toast{position:relative;display:grid;grid-template-columns:28px minmax(0,1fr) 36px;gap:10px;align-items:start;margin:0;padding:12px 8px 14px 14px;overflow:hidden;background:var(--panel-raised);border:1px solid var(--frame-line);border-radius:10px;box-shadow:0 14px 32px rgb(0 0 0 / .5);pointer-events:auto;animation:toast-in 260ms var(--ease)}
 .toast.good{border-color:rgb(165 198 160 / .6)}
 .toast.bad{background:var(--danger-wash);border-color:var(--oxblood-line)}

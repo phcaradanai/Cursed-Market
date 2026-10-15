@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-15",
+  "direction": "Match realistic painted Cursed Market catalog: charcoal-brown background, worn bronze, restrained amber lighting; unique composition per public kind; invariant across hidden truth.",
+  "assets": [
+    {
+      "id": "item-vital-flask",
+      "kind": "vital-flask",
+      "name": "ขวดพลังสำรอง",
+      "subject": "One round-bottomed thick glass reserve-energy flask filled with rich translucent amber liquid, a substantial tarnished brass stopper and two protective bronze ribs cradling the bulb. Narrow neck, small loop on the stopper, fine age-worn scratches, restrained internal amber shimmer. Distinct from a leather canteen and ordinary medicine bottle. Entire glass vessel centered at a three-quarter angle.",
+      "prompt": "Use case: stylized-concept.\nAsset type: ONE standalone square raster artifact illustration for the Cursed Market realistic fantasy card game.\nStyle/medium: detailed realistic painted dark fantasy, physically credible worn materials, old masters still-life quality. Quiet opaque charcoal-brown backdrop, warm amber side light, subtle bronze highlights and grounding shadow. Match an antique fantasy artifact catalog. Strong silhouette readable at 72 pixels, complete object with 10 percent margin.\nNo people, hands, readable writing, numbers, text, watermark, frame, card border, UI, badge, flat vector or cartoon. Do not encode hidden authenticity or curse; the same art will serve every hidden-truth variant. No gore.\nSubject: One round-bottomed thick glass reserve-energy flask filled with rich translucent amber liquid, a substantial tarnished brass stopper and two protective bronze ribs cradling the bulb. Narrow neck, small loop on the stopper, fine age-worn scratches, restrained internal amber shimmer. Distinct from a leather canteen and ordinary medicine bottle. Entire glass vessel centered at a three-quarter angle.",
+      "mode": "built-in image_gen generate",
+      "destination": "src/appraisal-client/public/art/item-vital-flask.jpg",
+      "sourcePath": "/Users/oyl-mac_m1/.codex/generated_images/01a13b0f-af19-77b3-b5cd-8c9378208df1/exec-47a7e1eb-35f3-4beb-bc9d-260fbe946eba.png",
+      "status": "generated",
+      "conversion": "sips JPEG quality 85, width 768, opaque square source",
+      "width": 768,
+      "height": 768,
+      "sourceSha256": "a583d397dbca948a27b4fab3826b05366e1df3b57e9097e6ff6e99016f55543b",
+      "sourceBytes": 2212952,
+      "sha256": "d6402f933483eaf20f2721eeaea43ae482775abbc8f7197c52ec72044bdb9e19",
+      "bytes": 182202,
+      "legacyAlias": "src/appraisal-client/public/art/item-vital-flask.svg"
+    },
+    {
+      "id": "item-life-relic",
+      "kind": "life-relic",
+      "name": "ศิลาชีพจรเก่า",
+      "subject": "One palm-sized ancient heart-shaped grey stone relic suspended by an old dark leather cord resting behind it. Weathered porous carved stone, hairline cracks, one thin muted emerald-green mineral vein following a pulse-like path through its center. A few tiny worn bronze binding staples repair the stone. Solid archaeological object, not a gemstone brooch or anatomically real heart. No bright magic aura. Entire artifact centered in three-quarter view.",
+      "prompt": "Use case: stylized-concept.\nAsset type: ONE standalone square raster artifact illustration for the Cursed Market realistic fantasy card game.\nStyle/medium: detailed realistic painted dark fantasy, physically credible worn materials, old masters still-life quality. Quiet opaque charcoal-brown backdrop, warm amber side light, subtle bronze highlights and grounding shadow. Match an antique fantasy artifact catalog. Strong silhouette readable at 72 pixels, complete object with 10 percent margin.\nNo people, hands, readable writing, numbers, text, watermark, frame, card border, UI, badge, flat vector or cartoon. Do not encode hidden authenticity or curse; the same art will serve every hidden-truth variant. No gore.\nSubject: One palm-sized ancient heart-shaped grey stone relic suspended by an old dark leather cord resting behind it. Weathered porous carved stone, hairline cracks, one thin muted emerald-green mineral vein following a pulse-like path through its center. A few tiny worn bronze binding staples repair the stone. Solid archaeological object, not a gemstone brooch or anatomically real heart. No bright magic aura. Entire artifact centered in three-quarter view.",
+      "mode": "built-in image_gen generate",
+      "destination": "src/appraisal-client/public/art/item-life-relic.jpg",
+      "sourcePath": "/Users/oyl-mac_m1/.codex/generated_images/01a13b0f-af19-77b3-b5cd-8c9378208df1/exec-212f89aa-64da-48e2-8441-7ac4f2232543.png",
+      "status": "generated",
+      "conversion": "sips JPEG quality 85, width 768, opaque square source",
+      "width": 768,
+      "height": 768,
+      "sourceSha256": "aa4af0e58a515e3ec4b3a31ee33a8199cf3ad37010df35e34f0777e10c244bdf",
+      "sourceBytes": 2580110,
+      "sha256": "1a36f5c83baee7021d0e8fbd63cfdfb52cb61bb2c1aebcd77a6e18d570daf1ba",
+      "bytes": 209953,
+      "legacyAlias": "src/appraisal-client/public/art/item-life-relic.svg"
+    },
+    {
+      "id": "item-wish-ledger",
+      "kind": "wish-ledger",
+      "name": "สมุดคำสัญญาพ่อค้า",
+      "subject": "One old merchant promise ledger bound in worn deep plum-purple leather, closed with an ornate antique gold-bronze clasp, three very small embossed neutral stars on the cover, a gold ribbon bookmark protruding from cream page edges. A short dark quill tucked into a loop along its spine. Tall compact book with distinctive plum leather, unlike a large burgundy accounting ledger or green inspector notebook. No words or letters. Entire book centered at a three-quarter angle.",
+      "prompt": "Use case: stylized-concept.\nAsset type: ONE standalone square raster artifact illustration for the Cursed Market realistic fantasy card game.\nStyle/medium: detailed realistic painted dark fantasy, physically credible worn materials, old masters still-life quality. Quiet opaque charcoal-brown backdrop, warm amber side light, subtle bronze highlights and grounding shadow. Match an antique fantasy artifact catalog. Strong silhouette readable at 72 pixels, complete object with 10 percent margin.\nNo people, hands, readable writing, numbers, text, watermark, frame, card border, UI, badge, flat vector or cartoon. Do not encode hidden authenticity or curse; the same art will serve every hidden-truth variant. No gore.\nSubject: One old merchant promise ledger bound in worn deep plum-purple leather, closed with an ornate antique gold-bronze clasp, three very small embossed neutral stars on the cover, a gold ribbon bookmark protruding from cream page edges. A short dark quill tucked into a loop along its spine. Tall compact book with distinctive plum leather, unlike a large burgundy accounting ledger or green inspector notebook. No words or letters. Entire book centered at a three-quarter angle.",
+      "mode": "built-in image_gen generate",
+      "destination": "src/appraisal-client/public/art/item-wish-ledger.jpg",
+      "sourcePath": "/Users/oyl-mac_m1/.codex/generated_images/01a13b0f-af19-77b3-b5cd-8c9378208df1/exec-e5705592-6e5b-4413-9055-89a64f1a1f6e.png",
+      "status": "generated",
+      "conversion": "sips JPEG quality 85, width 768, opaque square source",
+      "width": 768,
+      "height": 768,
+      "sourceSha256": "cefb9c1efad225f6c9ab55c38097549330bf1e143b0f9e74b8f56d45dcced6da",
+      "sourceBytes": 2604172,
+      "sha256": "615a52a5eec12b2ef8e19b49ffc15144336c93c6250123d3cc38545588d4302d",
+      "bytes": 210407,
+      "legacyAlias": "src/appraisal-client/public/art/item-wish-ledger.svg"
+    }
+  ]
+}

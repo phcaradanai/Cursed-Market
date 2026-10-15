@@ -62,8 +62,8 @@ for(const id of EVENT_IDS.filter(id=>Number(id.slice(1))<48)) test(`${id}: decli
   state=act(state,'alice',{type:'event',choice:'decline'});
   const after=state.players[0]!;assert.deepEqual({credits:after.credits,energy:after.energy,inventory:after.inventory,statuses:after.statuses},before);
 });
-test('catalog counts are 50 mechanical handlers and 32 independent status types',()=>{
-  assert.equal(new Set(EVENT_IDS).size,50);assert.equal(new Set(STATUS_IDS).size,32);
+test('catalog counts are 50 mechanical handlers and 40 independent status types',()=>{
+  assert.equal(new Set(EVENT_IDS).size,50);assert.equal(new Set(STATUS_IDS).size,40);
 });
 test('price20/offer10 is 20% detection; risk modifiers are points and apply only to NPC',()=>{
   const state=fixture();const p=state.players[0]!,item=state.items[p.stock[0]!]!;

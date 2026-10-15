@@ -1,3 +1,4 @@
+import { POLISH_EVENTS } from '../game/appraisal/polish-events.js';
 import { marketOrderReserve } from '../game/appraisal/market-contracts.js';
 import { emptyPassives, freeInspectionCount, heldPassives } from '../game/appraisal/passives.js';
 import type { InspectionProperty, Knowledge } from '../game/appraisal/types.js';
@@ -76,8 +77,11 @@ export function riskRange(game:AppraisalView,item:ItemView,value:number):[number
   return [Math.floor(Math.min(...risks)),Math.ceil(Math.max(...risks))];
 }
 export function purchasePrice(game:AppraisalView,items:ItemView[],condition:boolean,extraDiscount=0):number {
-  return Math.max(0,items.reduce((sum,item)=>sum+item.price,0)-(hasStatus(game,'B03')?2:0)+(hasStatus(game,'D12')?2:0)-(condition?(items[0]?.condition.discount??0):0)-extraDiscount-playerPassives(game).discount);
+  return (game.fee??0)+Math.max(0,items.reduce((sum,item)=>sum+item.price,0)-(hasStatus(game,'B03')?2:0)+(hasStatus(game,'D12')?2:0)-(condition?(items[0]?.condition.discount??0):0)-extraDiscount-playerPassives(game).discount);
 }
+/** A sale of something the seat owns, after statuses and the omen (Dark Market, wishes, bond buyers). */
+export const saleAdjusted=(game:AppraisalView,base:number)=>Math.max(0,Math.floor(base*(100+(game.salePct??0))/100));
+export const salePctText=(game:AppraisalView)=>{const pct=game.salePct??0;return pct?`ราคาขายของที่คุณเป็นเจ้าของถูกปรับ ${pct>0?'+':''}${pct}% จากผลติดตัวหรือลางของช่วงนี้ (ไม่รวมของที่ประเมินให้พ่อค้า)`:'';};
 export function marketOptions(game:AppraisalView,item:ItemView) {
   return game.market.orders.filter(o=>game.market.open && o.kind===item.kind && (o.quota[game.self.id]??0)>0 && game.market.budget>=marketOrderReserve(o) && item.lockedUntil===null);
 }
@@ -94,6 +98,8 @@ export function eventNeeds(game:AppraisalView,offer:EventOffer,choice:string,ite
     case 'E01': return choice==='stay'?{credits:0,energy:1}:none;
     case 'E03': case 'E10': case 'E37': case 'E48': case 'E49': return choice==='pay'?{credits:2,energy:0}:none;
     case 'E04': case 'E14': case 'E22': case 'E32': case 'E85': case 'E88': return {credits:1,energy:0};
+    case 'E73': return {credits:0,energy:game.wishContract?2:0};
+    case 'E94': case 'E95': case 'E96': case 'E97': case 'E98': case 'E99': case 'E100': case 'E101': return {credits:POLISH_EVENTS[offer.id]!.credits??0,energy:POLISH_EVENTS[offer.id]!.energy??0};
     case 'E84': case 'E93': return {credits:0,energy:1};
     case 'E87': return {credits:0,energy:2};
     case 'E91': return {credits:0,energy:game.survival?0:2};
@@ -164,10 +170,11 @@ export function eventStatusOptions(offer:EventOffer,choice:string):StatusId[] {
   if(offer.id==='E34') return offer.statusIds.filter(id=>id.startsWith('B') && id!=='B10');
   if(offer.id==='E35') return offer.statusIds.filter(id=>id==='D01' || id==='D05');
   if(offer.id==='E41') return offer.statusIds.filter(id=>id.startsWith('D'));
+  if(offer.id==='E108') return offer.boons??[];
   if(offer.id==='E88') return offer.statusIds.filter(id=>['D11','D12','D13','D14','D15','D16'].includes(id));
   return [];
 }
-export function eventNeedsStatus(offer:EventOffer,choice:string):boolean {return choice!=='decline' && ['E06','E34','E35','E41','E88'].includes(offer.id);}
+export function eventNeedsStatus(offer:EventOffer,choice:string):boolean {return choice!=='decline' && ['E06','E34','E35','E41','E88','E108'].includes(offer.id);}
 export const factName={base:'มูลค่าจริง',genuine:'ความแท้',cursed:'คำสาป'};
 export function eventFacts(offer:EventOffer,itemId:string):Array<keyof typeof factName> {
   return (['base','genuine','cursed'] as const).filter(fact=>offer.facts[itemId]?.[fact]!==undefined);
@@ -181,8 +188,9 @@ export function eventDecision(offer:EventOffer,choice:string,selection:{itemId:s
   if(choice!=='decline' && offer.id==='E46') action.guess=selection.guess;
   return action;
 }
-const choiceNames:Record<string,string>={accept:'ตกลง',decline:'ไม่รับ',stay:'ยึดประตูเดิม',switch:'ใช้ประตูอื่น',pay:'จ่ายเครดิต',debt:'รับความกระหายโลหิต',interest:'รับดอกเบี้ยเงา',seal:'ยอมปิดประตูครั้งหน้า',cash:'เลือกพ่อค้ารับเครดิต',condition:'เลือกพ่อค้าลดราคาแลกเงื่อนไข',fog:'ยอมรับหมอกราคา',careful:'ตรวจอย่างระวัง',force:'ฝืนตรวจ',price:'เลือกตาเห็นราคา',curse:'เลือกอ่านคำสาป',discount:'รับรางวัลส่วนลด',risk:'รับรางวัลลดการจับผิด',burden:'ยอมรับอุปกรณ์หนัก',repair:'ซ่อมเครื่อง',energy:'เลือกผลต่อพลัง',cleanse:'ล้างความกระหายโลหิต',item:'ยอมเสียสินค้าที่เลือก',oath:'สาบานห้ามต่อรอง',surrender:'สละสินค้าเพื่อถอนสัญญา',die:'รับผลตายและพักช่วงนี้'};
-export const choiceName=(choice:string,survival=false)=>survival && choice==='die'?'รับผลตายและเป็นผู้ชมจนจบ run':choiceNames[choice]??choice;
+export const replaceChoice=(choice:string)=>choice.startsWith('replace:')?choice.slice(8):null;
+const choiceNames:Record<string,string>={pick:'เลือกพรหนึ่งอย่าง',accept:'ตกลง',decline:'ไม่รับ',stay:'ยึดประตูเดิม',switch:'ใช้ประตูอื่น',pay:'จ่ายเครดิต',debt:'รับความกระหายโลหิต',interest:'รับดอกเบี้ยเงา',seal:'ยอมปิดประตูครั้งหน้า',cash:'เลือกพ่อค้ารับเครดิต',condition:'เลือกพ่อค้าลดราคาแลกเงื่อนไข',fog:'ยอมรับหมอกราคา',careful:'ตรวจอย่างระวัง',force:'ฝืนตรวจ',price:'เลือกตาเห็นราคา',curse:'เลือกอ่านคำสาป',discount:'รับรางวัลส่วนลด',risk:'รับรางวัลลดการจับผิด',burden:'ยอมรับอุปกรณ์หนัก',repair:'ซ่อมเครื่อง',energy:'เลือกผลต่อพลัง',cleanse:'ล้างความกระหายโลหิต',item:'ยอมเสียสินค้าที่เลือก',oath:'สาบานห้ามต่อรอง',surrender:'สละสินค้าเพื่อถอนสัญญา',die:'รับผลตายและพักช่วงนี้'};
+export const choiceName=(choice:string,survival=false)=>replaceChoice(choice)?`แทนคำขอของ ${NPC_SPECS[replaceChoice(choice) as NpcId]?.name??replaceChoice(choice)}`:survival && choice==='die'?'รับผลตายและเป็นผู้ชมจนจบ run':choiceNames[choice]??choice;
 const eventChoiceNames:Partial<Record<string,Record<string,string>>>={E42:{energy:'ฟื้นพลัง 2'},E48:{energy:'เสียพลัง 2',pay:'จ่ายค่าปรับ 2 เครดิต'},E49:{pay:'จ่าย 2 เครดิตให้ลืม'},E03:{pay:'จ่าย 2 เครดิต',debt:'จ่ายด้วยเลือด'},E37:{pay:'จ้างคนแบก',burden:'แบกเอง'},E10:{pay:'จ่ายค่าผ่าน',fog:'ผ่านฟรีในหมอก',switch:'เลี่ยงไปประตูอื่น'}};
 /** Button and card title for one event choice; a few events name the same choice key differently. */
 export const choiceTitle=(offer:EventOffer,choice:string,survival=false)=>eventChoiceNames[offer.id]?.[choice]??choiceName(choice,survival);
@@ -213,7 +221,9 @@ export function eventCost(game:AppraisalView,offer:EventOffer,choice:string,item
     const discount=offer.id==='E29'?3:offer.id==='E30'?-2:2;
     return `ซื้อของที่เลือก ${purchasePrice(game,[item],game.self.dealMode==='condition',discount)} เครดิต · ${purchaseEnergy(game)} พลัง${game.self.dealMode==='condition'?` · รับ ${statusName(item.condition.statusId)}`:''}`;
   }
-  const fixed:Record<string,string>={E02:'ไม่จ่ายทันที · รับความเสี่ยงงานประเมินพิเศษ',E04:'1 เครดิต',E05:'1 พลัง',E06:'สละสถานะที่เลือก แลกสถานะใหม่',E07:'ใช้หมด: อาหารที่เลือก',E13:energy(1),E14:'1 เครดิต',E15:'1 พลัง',E16:energy(1),E17:`2 เครดิต · ${energy(0)}`,E18:'1 พลัง',E19:'เปิดผลตรวจของปลอม · รับ 1 เครดิต',E20:energy(2),E22:'1 เครดิต',E23:'1 พลัง',E25:`ใช้หมด: ของที่เลือก · รับสินค้าชิ้นแรกของร้าน · ${purchaseEnergy(game)} พลัง${game.self.dealMode==='condition' && game.self.stock[0]?` · รับ ${statusName(game.self.stock[0].condition.statusId)}`:''}`,E26:'2 เครดิต',E28:'2 เครดิต',E31:'1 พลัง · รับลมหายใจต้องสาป',E32:'ใช้หมด: ลูกแก้ว · 1 เครดิต',E33:'ใช้หมด: กุญแจเงา',E34:'สละ buff ที่เลือก',E35:'ใช้หมด: ยาชำระล้าง',E36:'1 พลัง',E38:'1 พลัง · รับตรานักโกง',E39:'1 พลัง · รับกระหายโลหิต',E41:'2 เครดิต',E43:'ไม่จ่าย · รับ 1 เครดิตเมื่อซื้อขายกับผู้เล่นสำเร็จ',E45:'เปิดข้อมูลที่เลือกให้ทุกคน · รับ 1 เครดิต',E46:'1 พลัง · ทายถูกได้ 2 เครดิต',E47:'ดูรายการข้ามร้าน · ไม่มีการโอนของ',E73:'ไม่เสียอะไร · พ่อค้าจำของที่ต้องการไว้ ขายให้ได้เมื่อพบกันอีก',E84:'1 พลัง · รับ เสียงกระซิบเหวลึก',E85:'1 เครดิต · รับ สายสัมพันธ์ของรัง',E86:'รับ 3 เครดิต · รับ ใยพันขา',E87:'2 พลัง · สุ่ม 50%: ได้ 6 เครดิตและ ลมหายใจใต้น้ำลึก หรือรับ แรงดันห้วงลึก',E88:'1 เครดิต · ล้างผลเสียที่เลือก',E89:'ไม่เสียอะไร · รับ ตาประกอบหลายเหลี่ยม แต่รับ หมอกวิกลจริต',E90:'ไม่เสียอะไร · รับ ฝูงหนุนหลัง แต่รับ พิษฝูง',E91:'2 พลัง (กติกาชีวิตเสียชีวิต 1) · รับ ไข่มุกนำโชค และ ลมหายใจใต้น้ำลึก แต่รับ น้ำเค็มกัดกร่อน',E92:'รับ 2 เครดิต · รับ กลิ่นรัง',E93:'1 พลัง · สุ่ม 60%: ได้ 1 เครดิตและ สายสัมพันธ์ของรัง หรือรับ ใยพันขา'};
+  const polish=POLISH_EVENTS[offer.id];
+  if(polish) return [polish.credits?`${polish.credits} เครดิต`:'',polish.energy?`${polish.energy} พลัง`:'',polish.reward?`รับ ${polish.reward} เครดิต`:'',...polish.grant.map(s=>`รับ ${statusName(s)}`)].filter(Boolean).join(' · ');
+  const fixed:Record<string,string>={E02:'ไม่จ่ายทันที · รับความเสี่ยงงานประเมินพิเศษ',E04:'1 เครดิต',E05:'1 พลัง',E06:'สละสถานะที่เลือก แลกสถานะใหม่',E07:'ใช้หมด: อาหารที่เลือก',E13:energy(1),E14:'1 เครดิต',E15:'1 พลัง',E16:energy(1),E17:`2 เครดิต · ${energy(0)}`,E18:'1 พลัง',E19:'เปิดผลตรวจของปลอม · รับ 1 เครดิต',E20:energy(2),E22:'1 เครดิต',E23:'1 พลัง',E25:`ใช้หมด: ของที่เลือก · รับสินค้าชิ้นแรกของร้าน · ${purchaseEnergy(game)} พลัง${game.self.dealMode==='condition' && game.self.stock[0]?` · รับ ${statusName(game.self.stock[0].condition.statusId)}`:''}`,E26:'2 เครดิต',E28:'2 เครดิต',E31:'1 พลัง · รับลมหายใจต้องสาป',E32:'ใช้หมด: ลูกแก้ว · 1 เครดิต',E33:'ใช้หมด: กุญแจเงา',E34:'สละ buff ที่เลือก',E35:'ใช้หมด: ยาชำระล้าง',E36:'1 พลัง',E38:'1 พลัง · รับตรานักโกง',E39:'1 พลัง · รับกระหายโลหิต',E41:'2 เครดิต',E43:'ไม่จ่าย · รับ 1 เครดิตเมื่อซื้อขายกับผู้เล่นสำเร็จ',E45:'เปิดข้อมูลที่เลือกให้ทุกคน · รับ 1 เครดิต',E46:'1 พลัง · ทายถูกได้ 2 เครดิต',E47:'ดูรายการข้ามร้าน · ไม่มีการโอนของ',E108:'ไม่เสียอะไร · เลือกผลดีหนึ่งอย่างจากสามตัวเลือก หมดเมื่อจบช่วงหน้า',E73:'พ่อค้าจำของที่ต้องการไว้ ขายให้ได้เมื่อพบกันอีก · ทำสัญญาใหม่เสียพลัง 2 ถ้ามีเต็ม 2 รายการต้องแทนรายการเก่า ราคาลดลงทุกช่วงแต่ไม่ต่ำกว่าราคาฐาน',E84:'1 พลัง · รับ เสียงกระซิบเหวลึก',E85:'1 เครดิต · รับ สายสัมพันธ์ของรัง',E86:'รับ 3 เครดิต · รับ ใยพันขา',E87:'2 พลัง · สุ่ม 50%: ได้ 6 เครดิตและ ลมหายใจใต้น้ำลึก หรือรับ แรงดันห้วงลึก',E88:'1 เครดิต · ล้างผลเสียที่เลือก',E89:'ไม่เสียอะไร · รับ ตาประกอบหลายเหลี่ยม แต่รับ หมอกวิกลจริต',E90:'ไม่เสียอะไร · รับ ฝูงหนุนหลัง แต่รับ พิษฝูง',E91:'2 พลัง (กติกาชีวิตเสียชีวิต 1) · รับ ไข่มุกนำโชค และ ลมหายใจใต้น้ำลึก แต่รับ น้ำเค็มกัดกร่อน',E92:'รับ 2 เครดิต · รับ กลิ่นรัง',E93:'1 พลัง · สุ่ม 60%: ได้ 1 เครดิตและ สายสัมพันธ์ของรัง หรือรับ ใยพันขา'};
   if(offer.id==='E08') {
     const portal=game.self.portals[choice==='cash'?0:1];const npc=portal?NPC_SPECS[portal.npc]:null;
     return !npc?'เลือกได้รายเดียว':choice==='cash'?`${npc.name} · จ่ายเครดิตอย่างเดียว`:`${npc.name} · ลด ${npc.discount} เครดิต แลก ${statusName(npc.condition)}`;

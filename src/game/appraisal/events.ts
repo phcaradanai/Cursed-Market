@@ -1,11 +1,13 @@
 import { inspectionLimit } from './passives.js';
 import { randomAt } from '../random.js';
 import { ITEM_SPECS, NPC_SPECS, expansionActive, itemFamily, priceRange } from './content.js';
-import { check, consumeStatus, counterLimit, damageLife, grant, kill, known, learn, ownedItem, penaltyItem, purchase, recover, removeStatus, retire, reward, spend, status, stockItem, trace, unlocked } from './mechanics.js';
-import { BOND_EVENT_IDS, EVENT_IDS, EXPANSION_EVENT_IDS } from './types.js';
-import { drawWishEvent as drawWish, shopNpcOf, wishEligible, wishPick } from './wishlist.js';
+import { check, consumeStatus, counterLimit, damageLife, grant, kill, known, learn, ownedItem, penaltyItem, maxEnergyOf, purchase, recover, removeStatus, retire, reward, saleApply, salePreview, spend, status, stockItem, trace, unlocked, wishSlotsOf } from './mechanics.js';
+import { BOND_EVENT_IDS, BOON_EVENT_ID, EVENT_IDS, EXPANSION_EVENT_IDS, POLISH_EVENT_IDS, STATUS_IDS } from './types.js';
+import { POLISH_EVENTS } from './polish-events.js';
+import { applyWish, drawWishEvent as drawWish, shopNpcOf, wishEligible, wishPick } from './wishlist.js';
 import { bondEligible, bondQuotes, bondSpec, bondTargets, resolveBond } from './brokerage.js';
-import type { AppraisalAction, AppraisalState, Appraiser, EventId, EventOffer, ItemKind, Knowledge, StatusId } from './types.js';
+import { wishFloor } from './wishlist-rules.js';
+import type { AppraisalAction, AppraisalState, Appraiser, EventId, EventOffer, ItemKind, Knowledge, NpcId, StatusId } from './types.js';
 
 const consequences: EventId[] = ['E48','E49','E50'];
 function kindOwned(state: AppraisalState,p:Appraiser,kind:ItemKind):string[] { return p.inventory.filter(id => itemFamily(state.items[id]!.kind) === kind && !p.activated.includes(id)); }
@@ -23,12 +25,26 @@ function historyPrice(state:AppraisalState,p:Appraiser):number | undefined {
 }
 const NEW_DEBUFFS:StatusId[]=['D11','D12','D13','D14','D15','D16'];
 const freeBankOf=(state:AppraisalState)=>state.bank-state.market.budget-state.reservedRewards;
+/** Buffs the seat could be offered: not already active, and not the one-use shields that would instantly vanish. */
+function boonPool(p:Appraiser):StatusId[] {return STATUS_IDS.filter(id=>id.startsWith('B') && !status(p,id));}
+/** Three distinct boons, shuffled by the seed and the offer key so every draft differs. */
+function draftBoons(state:AppraisalState,p:Appraiser,key:string):StatusId[] {
+  return boonPool(p).map(id=>({id,rank:randomAt(state.seed,`${key}:boon:${id}`)})).sort((a,b)=>a.rank-b.rank).slice(0,3).map(row=>row.id);
+}
+/** Polish events: table-driven; each needs its cost, its reward from the bank, and a status it would actually change. */
+function polishEligible(state:AppraisalState,p:Appraiser,id:EventId):boolean {
+  const spec=POLISH_EVENTS[id];
+  if(!state.config.polish || !spec || state.phase!==spec.phase) return false;
+  return p.credits>=(spec.credits??0) && p.energy>=(spec.energy??0) && freeBankOf(state)>=(spec.reward??0)
+    && !spec.avoid.some(s=>!!status(p,s)) && (!spec.needsAuctions || !!state.config.brokerage);
+}
 /** Expansion events: only with the deep-sea/swarm rules, one per context, never in the original random pool. */
 function expansionEligible(state:AppraisalState,p:Appraiser,id:EventId):boolean {
   if(!expansionActive(state.config)) return false;
   const npc=p.selectedPortalId?p.portals.find(portal=>portal.id===p.selectedPortalId)?.npc:undefined;
   const bank=freeBankOf(state);const survival=!!state.config.survival;
-  if(id==='E92') return state.phase==='TRADE' && bank>=2;
+  // Selling trade news needs something to trade, and is pointless while the smell of the hive still clings.
+  if(id==='E92') return state.phase==='TRADE' && bank>=2 && !status(p,'D13') && (!state.config.polish || p.inventory.length>0);
   if(state.phase!=='APPRAISAL') return false;
   switch(id) {
     case 'E84': return npc==='deepsea' && p.energy>=1;
@@ -48,6 +64,8 @@ export function eventEligible(state:AppraisalState,p:Appraiser,id:EventId):boole
   if (bondSpec(id)) return bondEligible(state,p,id);
   if (id==='E73') return wishEligible(state,p);
   if ((EXPANSION_EVENT_IDS as readonly string[]).includes(id)) return expansionEligible(state,p,id);
+  if ((POLISH_EVENT_IDS as readonly string[]).includes(id)) return polishEligible(state,p,id);
+  if (id===BOON_EVENT_ID) return !!state.config.polish && state.phase==='APPRAISAL' && boonPool(p).length>=3;
   const npc=p.stock[0] ? state.items[p.stock[0]]!.npc : null;
   const stock=p.stock.filter(itemId => state.items[itemId]?.owner===`npc:${p.id}:${state.encounter}`);
   const unknownPrice=stock.some(itemId=>known(state,p,itemId).base===undefined);
@@ -63,7 +81,7 @@ export function eventEligible(state:AppraisalState,p:Appraiser,id:EventId):boole
   const bank=state.bank-state.market.budget-state.reservedRewards;
   switch(id) {
     case 'E02': return npc==='orc' && stock.length>0 && !Object.keys(p.valuations).length;
-    case 'E03': return npc==='vampire' && p.energy<state.config.maxEnergy;
+    case 'E03': return npc==='vampire' && p.energy<maxEnergyOf(state,p);
     case 'E04': return npc==='autometa' && unknownPrice;
     case 'E05': return npc==='alien' && inspectable && stock.some(v=>effectsUnknown(state,p,v));
     case 'E06': return npc==='darkone' && next && debuffs(p).some(v=>v!=='D04' || next);
@@ -90,7 +108,7 @@ export function eventEligible(state:AppraisalState,p:Appraiser,id:EventId):boole
     case 'E29': return stock.length>0 && !status(p,'D09');
     case 'E30': return stock.length>0 && !status(p,'B06');
     case 'E31': return kindOwned(state,p,'mirror').length>0;
-    case 'E32': return kindOwned(state,p,'orb').length>0 && p.energy<state.config.maxEnergy;
+    case 'E32': return kindOwned(state,p,'orb').length>0 && p.energy<maxEnergyOf(state,p);
     case 'E33': return kindOwned(state,p,'key').length>0 && !!status(p,'D07');
     case 'E34': return kindOwned(state,p,'mask').length>0 && p.statuses.some(s=>s.id.startsWith('B') && s.id!=='B10');
     case 'E35': return kindOwned(state,p,'potion').length>0 && (!!status(p,'D01') || !!status(p,'D05'));
@@ -100,9 +118,9 @@ export function eventEligible(state:AppraisalState,p:Appraiser,id:EventId):boole
     case 'E39': return state.phase==='APPRAISAL' && kindOwned(state,p,'blade').length>0 && stock.some(v=>!p.valuations[v]);
     case 'E40': return kindOwned(state,p,'scanner').length>0;
     case 'E41': return debuffs(p).length>0;
-    case 'E42': return p.energy<state.config.maxEnergy || !!status(p,'D10');
+    case 'E42': return p.energy<maxEnergyOf(state,p) || !!status(p,'D10');
     case 'E43': return state.phase==='TRADE' && !p.subsidy && bank>=1;
-    case 'E44': return movable(p).length>=2 && bank>=Math.max(...movable(p).map(v=>Math.floor(ITEM_SPECS[state.items[v]!.kind].anchor*.75)));
+    case 'E44': return movable(p).length>=2 && bank>=Math.max(...movable(p).map(v=>salePreview(state,p,Math.floor(ITEM_SPECS[state.items[v]!.kind].anchor*.75))));
     case 'E45': return Object.entries(p.knowledge).some(([item,k])=>['base','genuine','cursed'].some(f=>k[f as keyof Knowledge]!==undefined && state.publicKnowledge[item]?.[f as keyof Knowledge]===undefined && !p.revealedInfo.includes(`${item}:${f}`)));
     case 'E46': return p.energy>=1 && stock.some(v=>known(state,p,v).genuine===undefined) && bank>=2;
     case 'E47': return state.listings.some(l=>l.ownerId!==p.id && state.items[l.itemId]?.owner.startsWith('npc:') && !!state.players.find(other=>other.id===l.ownerId)?.valuations[l.itemId]);
@@ -121,9 +139,11 @@ export function eventChoices(state:AppraisalState,p:Appraiser,id:EventId):string
     case 'E18': return ['discount','risk','decline'];
     case 'E37': return ['pay','burden','decline'];
     case 'E40': return ['repair','fog','decline'];
-    case 'E42': return [...(p.energy<state.config.maxEnergy?['energy']:[]),...(status(p,'D10')?['cleanse']:[]),'decline'];
+    case 'E42': return [...(p.energy<maxEnergyOf(state,p)?['energy']:[]),...(status(p,'D10')?['cleanse']:[]),'decline'];
     case 'E48': return [...(p.credits>=2?['pay']:[]),...(p.inventory.length?['item']:[]),...(p.credits<2 && !p.inventory.length?['energy']:[])];
     case 'E49': return [...(p.credits>=2?['pay']:[]),'oath'];
+    case 'E108': return ['pick','decline'];
+    case 'E73': {const npc=shopNpcOf(p);const open=Object.keys(p.wishes??{});return state.config.wishContract && npc && !p.wishes?.[npc] && open.length>=wishSlotsOf(state,p,2)?[...open.map(n=>`replace:${n}`),'decline']:['accept','decline'];}
     case 'E50': return [...(p.inventory.length?['surrender']:[]),'die'];
     default: return ['accept','decline'];
   }
@@ -142,7 +162,7 @@ export function offerEvent(state:AppraisalState,p:Appraiser,id:EventId):void {
   if(id==='E12') itemIds=itemIds.filter(v=>state.items[v]!.certificate && known(state,p,v).certificate===undefined);
   if(id==='E19') itemIds=itemIds.filter(v=>known(state,p,v).genuine===false && state.publicKnowledge[v]?.genuine===undefined);
   if(id==='E07') itemIds=itemIds.filter(v=>unlocked(p,v));
-  const quotedPrices=Object.fromEntries(p.inventory.map(itemId=>[itemId,Math.floor(ITEM_SPECS[state.items[itemId]!.kind].anchor*.75)]));
+  const quotedPrices=Object.fromEntries(p.inventory.map(itemId=>[itemId,salePreview(state,p,Math.floor(ITEM_SPECS[state.items[itemId]!.kind].anchor*.75))]));
   const facts:Record<string,Knowledge>={};
   if(id==='E45') {
     for(const itemId of itemIds) {
@@ -153,10 +173,11 @@ export function offerEvent(state:AppraisalState,p:Appraiser,id:EventId):void {
     itemIds=Object.keys(facts);
   }
   let giveItemId:string|undefined;let quotes=quotedPrices;
+  const boons=id===BOON_EVENT_ID?draftBoons(state,p,key):undefined;
   const wish=id==='E73'?wishPick(state,p,shopNpcOf(p)!):undefined;
   if(bondSpec(id)) {const targets=bondTargets(state,p,id);itemIds=targets.itemIds;giveItemId=targets.giveItemId;quotes=bondQuotes(state,p,id);}
   const targetKinds=Object.fromEntries([...itemIds,...(giveItemId?[giveItemId]:[])].map(itemId=>[itemId,state.items[itemId]!.kind]));
-  p.eventOffer={id,key,choices:eventChoices(state,p,id),itemIds:[...itemIds],statusIds:p.statuses.map(s=>s.id),otherPlayerIds:state.listings.filter(l=>l.ownerId!==p.id).map(l=>l.ownerId),quotedPrices:quotes,facts,targetKinds,...(giveItemId?{giveItemId}:{}),...(wish?{wish}:{})};
+  p.eventOffer={id,key,choices:eventChoices(state,p,id),itemIds:[...itemIds],statusIds:p.statuses.map(s=>s.id),otherPlayerIds:state.listings.filter(l=>l.ownerId!==p.id).map(l=>l.ownerId),quotedPrices:quotes,facts,targetKinds,...(giveItemId?{giveItemId}:{}),...(wish?{wish}:{}),...(boons?{boons}:{})};
   if(reaction) p.consequenceSlots++; else p.offerSlots++;
   p.seenEvents.push(id); trace(state,p,'event-offered',{id,key,choices:p.eventOffer.choices});
 }
@@ -169,18 +190,30 @@ export function drawEvent(state:AppraisalState,p:Appraiser,reaction=false):void 
   offerEvent(state,p,pool[index]!);
 }
 export const drawWishEvent=(state:AppraisalState,p:Appraiser)=>drawWish(state,p,id=>offerEvent(state,p,id));
+/** Roguelike variety: with polish rules a seat sees every offer it qualifies for before any repeats. */
+function preferUnseen<T extends EventId>(state:AppraisalState,p:Appraiser,pool:readonly T[]):readonly T[] {
+  if(!state.config.polish) return pool;
+  const unseen=pool.filter(id=>!p.seenEvents.includes(id));return unseen.length?unseen:pool;
+}
+/** Polish rules: a seeded chance to offer one of the table-driven events that fits the table. */
+export function drawPolishEvent(state:AppraisalState,p:Appraiser):boolean {
+  if(!state.config.polish || p.eventOffer || p.paused || p.done || p.offerSlots>=2) return false;
+  const pool=preferUnseen(state,p,[...POLISH_EVENT_IDS,BOON_EVENT_ID].filter(id=>eventEligible(state,p,id)));
+  if(!pool.length || randomAt(state.seed,`${state.encounter}:${p.id}:${state.phase}:polish`)>=(state.phase==='TRADE'?.3:.45)) return false;
+  offerEvent(state,p,pool[Math.floor(randomAt(state.seed,`${state.encounter}:${p.id}:${state.phase}:polish:pick`)*pool.length)]!);return true;
+}
 /** Expansion rules: a seeded chance to offer one of the ten new events that fits the table. */
 export function drawExpansionEvent(state:AppraisalState,p:Appraiser):boolean {
   if(!expansionActive(state.config) || p.eventOffer || p.paused || p.done || p.offerSlots>=2) return false;
-  const pool=EXPANSION_EVENT_IDS.filter(id=>eventEligible(state,p,id));
-  if(!pool.length || randomAt(state.seed,`${state.encounter}:${p.id}:${state.phase}:expansion`)>=.5) return false;
+  const pool=preferUnseen(state,p,EXPANSION_EVENT_IDS.filter(id=>eventEligible(state,p,id)));
+  if(!pool.length || randomAt(state.seed,`${state.encounter}:${p.id}:${state.phase}:expansion`)>=(state.phase==='TRADE' && state.config.polish?.3:.5)) return false;
   offerEvent(state,p,pool[Math.floor(randomAt(state.seed,`${state.encounter}:${p.id}:${state.phase}:expansion:pick`)*pool.length)]!);return true;
 }
 /** Brokerage rules: on meeting an NPC, a seeded chance offers one NPC × held-item event before the random pool. */
 export function drawBondEvent(state:AppraisalState,p:Appraiser):boolean {
   const rules=state.config.brokerage;
   if(!rules || p.eventOffer || p.paused || p.done || p.offerSlots>=2) return false;
-  const pool=BOND_EVENT_IDS.filter(id=>eventEligible(state,p,id));
+  const pool=preferUnseen(state,p,BOND_EVENT_IDS.filter(id=>eventEligible(state,p,id)));
   if(!pool.length || randomAt(state.seed,`${state.encounter}:${p.id}:bond`)>=rules.bondProbability) return false;
   offerEvent(state,p,pool[Math.floor(randomAt(state.seed,`${state.encounter}:${p.id}:bond:pick`)*pool.length)]!);return true;
 }
@@ -203,7 +236,7 @@ export function resolveEvent(state:AppraisalState,p:Appraiser,command:Extract<Ap
   const item=()=>chooseItem(offer,command);
   const ownKind=(kind:ItemKind)=>{const itemId=item(); check(kindOwned(state,p,kind).includes(itemId),'event-target','สินค้าไม่เข้าเงื่อนไข'); ownedItem(state,p,itemId); return itemId;};
   if(bondSpec(id)) {resolveBond(state,p,offer,command);p.eventOffer=null;p.resolvedEvents.push(id);trace(state,p,'event-resolved',{id,choice});return;}
-  if(id==='E73') {const npc=shopNpcOf(p);check(npc && offer.wish,'wish','ไม่มีคำขอ');p.wishes![npc]={...offer.wish};p.notes.push(`${NPC_SPECS[npc].name}อยากได้ ${ITEM_SPECS[offer.wish.kind].name} ให้ ${offer.wish.price} เครดิต ถ้ามีมาขายครั้งหน้า`);p.notes=p.notes.slice(-30);p.eventOffer=null;p.resolvedEvents.push(id);trace(state,p,'event-resolved',{id,choice});return;}
+  if(id==='E73') {const npc=shopNpcOf(p);check(npc && offer.wish,'wish','ไม่มีคำขอ');applyWish(state,p,npc,offer.wish,choice.startsWith('replace:')?choice.slice(8) as NpcId:undefined);p.notes.push(`${NPC_SPECS[npc].name}อยากได้ ${ITEM_SPECS[offer.wish.kind].name} ให้ ${offer.wish.price} เครดิต${state.config.wishContract?` แต่ราคาลดลงทุกช่วง ไม่ต่ำกว่า ${wishFloor(offer.wish.kind)} เครดิต`:' ถ้ามีมาขายครั้งหน้า'}`);p.notes=p.notes.slice(-30);p.eventOffer=null;p.resolvedEvents.push(id);trace(state,p,'event-resolved',{id,choice});return;}
   const buy=(discount=0,extra?:StatusId,lock=false,barterItemId?:string)=>purchase(state,p,p,[item()],{discount,condition:p.dealMode==='condition',...(extra?{grantStatus:extra}:{}),lock,...(barterItemId?{barterItemId}:{})});
   switch(id) {
     case 'E01': if(choice==='stay') spend(state,p,0,1,id); else p.portals[0]!.disabled=true; break;
@@ -249,10 +282,15 @@ export function resolveEvent(state:AppraisalState,p:Appraiser,command:Extract<Ap
     case 'E41': {const selected=chooseStatus(offer,command); check(selected.startsWith('D') && status(p,selected),'status','เลือก debuff'); spend(state,p,2,0,id); removeStatus(p,selected); break;}
     case 'E42': if(choice==='energy') recover(state,p,2,id); else {check(status(p,'D10'),'status','ไม่มี D10'); removeStatus(p,'D10');} break;
     case 'E43': check(state.bank-state.market.budget-state.reservedRewards>=1,'bank','งบรางวัลไม่พอ'); p.subsidy=true; state.reservedRewards++; break;
-    case 'E44': {const v=item(); check(movable(p).length>=2 && offer.quotedPrices[v]!==undefined,'collector','ไม่มีข้อเสนอรับซื้อ'); reward(state,p,offer.quotedPrices[v]!,id); retire(state,p,v,id); break;}
+    case 'E44': {const v=item(); check(movable(p).length>=2 && offer.quotedPrices[v]!==undefined,'collector','ไม่มีข้อเสนอรับซื้อ'); reward(state,p,saleApply(state,p,Math.floor(ITEM_SPECS[state.items[v]!.kind].anchor*.75)),id); retire(state,p,v,id); break;}
     case 'E45': {const v=item(); const fact=command.fact; check(fact && ['base','genuine','cursed'].includes(fact),'fact','เลือกข้อมูลที่จะเปิด'); const value=p.knowledge[v]?.[fact]; check(value!==undefined && state.publicKnowledge[v]?.[fact]===undefined && !p.revealedInfo.includes(`${v}:${fact}`),'proof','ข้อมูลนี้ยังไม่เคยตรวจหรือเปิดแล้ว'); state.publicKnowledge[v]={...state.publicKnowledge[v],[fact]:value}; p.revealedInfo.push(`${v}:${fact}`); reward(state,p,1,id); break;}
     case 'E46': {const v=item(); const target=stockItem(state,p,v); check(typeof command.guess==='boolean' && known(state,p,v).genuine===undefined,'guess','ต้องทายแท้หรือปลอมที่ยังไม่รู้'); spend(state,p,0,1,id); const correct=command.guess===target.genuine; if(correct) reward(state,p,2,id); learn(p,v,{genuine:target.genuine}); p.notes.push(`${correct?'ทายถูก!':'ทายผิด'} ${ITEM_SPECS[target.kind].name}เป็น${target.genuine?'ของแท้':'ของปลอม'}${correct?' ได้ 2 เครดิต':''}`); p.notes=p.notes.slice(-30); trace(state,p,'guess',{itemId:v,correct}); break;}
     case 'E47': {const v=item(); check(state.listings.some(l=>l.itemId===v && l.ownerId!==p.id && state.items[v]!.owner.startsWith('npc:')),'listing','รายการข้ามร้านไม่ได้เปิด'); trace(state,p,'cross-shop-viewed',{itemId:v}); break;}
+    case 'E94': case 'E95': case 'E96': case 'E97': case 'E98': case 'E99': case 'E100': case 'E101': {
+      const spec=POLISH_EVENTS[id]!;check(spec.avoid.every(s=>!status(p,s)),'status','ผลติดตัวนี้ทำให้เหตุการณ์ไม่มีความหมายแล้ว');
+      spend(state,p,spec.credits??0,spec.energy??0,id); if(spec.reward) reward(state,p,spec.reward,id); for(const s of spec.grant) grant(state,p,s); break;
+    }
+    case 'E108': {const picked=command.statusId;check(picked && offer.boons?.includes(picked) && !status(p,picked),'event-target','เลือกพรที่เสนอให้และยังไม่ติดตัว');grant(state,p,picked);p.notes.push(`รับพร ${picked}`);p.notes=p.notes.slice(-30);break;}
     case 'E84': spend(state,p,0,1,id); grant(state,p,'B12'); break;
     case 'E85': spend(state,p,1,0,id); grant(state,p,'B15'); break;
     case 'E86': reward(state,p,3,id); grant(state,p,'D15'); break;

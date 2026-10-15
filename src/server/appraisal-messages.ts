@@ -34,6 +34,7 @@ function action(value: unknown): AppraisalSeatAction {
     }
     case 'activate': keys(body, [...fields, 'itemId']); return { type: 'activate', ...base, itemId: string(body.itemId) };
     case 'recover-resource': keys(body,[...fields,'target']);if(body.target!=='energy' && body.target!=='life')throw new MessageError();return {type:'recover-resource',...base,target:body.target};
+    case 'wish-new': keys(body,[...fields,'replaceNpc']);return {type:'wish-new',...base,...(body.replaceNpc===undefined?{}:{replaceNpc:string(body.replaceNpc,16) as never})};
     case 'wish-sell': keys(body,[...fields,'itemId','markup']);return {type:'wish-sell',...base,itemId:string(body.itemId),markup:integer(body.markup)};
     case 'cleanse': keys(body,[...fields,'itemId','stoneId']);return {type:'cleanse',...base,itemId:string(body.itemId),...(body.stoneId===undefined?{}:{stoneId:string(body.stoneId)})};
     case 'event': {

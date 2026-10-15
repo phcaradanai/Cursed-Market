@@ -11,7 +11,7 @@ import { useEffect, useId, useState } from 'react';
 import { ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, itemImage } from '../game/appraisal/content.js';
 import type { AppraisalView, EventOffer, ItemView } from '../game/appraisal/types.js';
 import type { AppraisalRoomView } from '../shared/appraisal-protocol.js';
-import { activationBlock, activationOutcome, choiceTitle, effectsInspectionLabel, effectsKnownFor, eventCatalog, eventItemUsable, eventNeeds, inspectionBlock, itemScoreRange, needShort, purchaseBlock, eventCost, eventDecision, eventFacts, eventItemName, eventNeedsItem, eventNeedsStatus, eventStatusOptions, factName, hasStatus, inspectionCost, inventoryLabel, marketOptions, purchaseEnergy, purchasePrice, readable, riskRange, stepPrice, scoreStatusText, eventScoreText, statusName, isConsequence, bondOf, unsoldItems, unsoldPenaltyText, consignText } from './model.js';
+import { salePctText, activationBlock, activationOutcome, choiceTitle, effectsInspectionLabel, effectsKnownFor, eventCatalog, eventItemUsable, eventNeeds, inspectionBlock, itemScoreRange, needShort, purchaseBlock, eventCost, eventDecision, eventFacts, eventItemName, eventNeedsItem, eventNeedsStatus, eventStatusOptions, factName, hasStatus, inspectionCost, inventoryLabel, marketOptions, purchaseEnergy, purchasePrice, readable, riskRange, stepPrice, scoreStatusText, eventScoreText, statusName, isConsequence, bondOf, unsoldItems, unsoldPenaltyText, consignText } from './model.js';
 import type { Decision } from './model.js';
 import { ChoiceCards, ItemCard, ItemTerm, NpcTerm, Peek, Rich, StatusTerm } from './lore.js';
 import { AppraiseIcon, BuffIcon, BuyIcon, CoinIcon, DebuffIcon, EventIcon, InspectIcon, MarketIcon, MinusIcon, PlusIcon } from './icons.js';
@@ -71,21 +71,36 @@ export function CleanseDeal({game,submit,disabled}:Actions) {
     <p className="supporting">ถ้าสินค้าไม่มีคำสาป พ่อค้าจะบอกว่าไม่พบ และยังคิดค่าบริการ</p>
   </details>;
 }
+/** Open wishes, what each is worth now, and the control to ask this merchant for a new one. */
+function WishBook({game,submit,disabled}:Actions) {
+  const desk=game.self.wishDesk;const [replace,setReplace]=useState('');
+  if(!desk || !game.wishContract) return null;
+  const pick=desk.replaceable.includes(replace as never)?replace:desk.replaceable[0]??'';
+  const why=disabled?null:game.self.eventOffer?'ตอบเหตุการณ์ก่อน':needShort(game,{credits:0,energy:desk.cost});
+  return <div className="wish-book"><h4>สัญญาตามหาของ {desk.book.length}/{desk.cap}</h4>
+    <p className="supporting">ทำสัญญาใหม่ทุกครั้งเสียพลัง {desk.cost} มีได้พร้อมกันสูงสุด {desk.cap} รายการ ทำซ้ำกับพ่อค้าเดิมหรือเลือกแทนรายการเก่าได้ ราคารับซื้อลดลงทุกช่วงแต่ไม่ต่ำกว่าราคาฐานของสินค้า ผลเสียที่ติดตัวไม่ทำให้ราคาฐานต่ำลง</p>
+    {desk.book.length>0 && <ul>{desk.book.map(row=><li key={row.npc}><strong>{NPC_SPECS[row.npc].name}</strong> ตามหา <ItemTerm kind={row.kind}/> · ตอนนี้ <strong>{row.price} เครดิต</strong>{row.price>row.floor?` · ช่วงหน้า ${row.next}`:' · ถึงราคาฐานแล้ว'} · ฐาน {row.floor} · เริ่มที่ {row.initial}{row.npc===desk.npc?' · พ่อค้าที่อยู่ตรงนี้':''}</li>)}</ul>}
+    {desk.replaceable.length>0 && <ChoiceCards compact legend="สัญญาเต็มแล้ว เลือกรายการเก่าที่จะแทน" value={pick} onChange={setReplace} disabled={disabled} options={desk.replaceable.map(n=>({value:n,title:`แทนคำขอของ ${NPC_SPECS[n].name}`,detail:desk.book.find(r=>r.npc===n)?`${ITEM_SPECS[desk.book.find(r=>r.npc===n)!.kind].name} · ${desk.book.find(r=>r.npc===n)!.price} เครดิต`:''}))}/>}
+    <div className="actions"><button disabled={disabled || !!why} onClick={()=>submit({type:'wish-new',...(desk.replaceable.length?{replaceNpc:pick as never}:{})})}>{desk.replaces?'ให้พ่อค้าตั้งคำขอใหม่แทนของเดิม':desk.replaceable.length?'ทำสัญญาใหม่แทนรายการที่เลือก':'ให้พ่อค้านี้บอกของที่อยากได้'} · {desk.cost} พลัง</button></div>
+    {why && <p className="why" role="status">{why}</p>}</div>;
+}
 /** A merchant that said what it wants: sell it here, optionally asking above the offer at lower odds. */
 export function WishDeal({game,submit,disabled}:Actions) {
   const wish=game.self.wishOffer;const [markup,setMarkup]=useState(0);const [picked,setPicked]=useState('');
-  if(!wish || !game.wishlist) return null;
+  if(!game.wishlist || (!wish && !game.self.wishDesk)) return null;
+  if(!wish) return <section className="wish-deal" aria-labelledby="wish-title"><h3 id="wish-title">พ่อค้านี้ยังไม่ได้บอกของที่อยากได้</h3><WishBook game={game} submit={submit} disabled={disabled}/></section>;
   const held=wish.itemIds.map(id=>game.self.inventory.find(i=>i.id===id)).filter((i):i is ItemView=>!!i);
   const itemId=held.some(i=>i.id===picked)?picked:held[0]?.id??'';
   const option=wish.options.find(o=>o.markup===markup)??wish.options[0]!;
   const why=disabled?null:game.self.eventOffer?'ตอบเหตุการณ์ก่อน':wish.tried?'ต่อรองกับพ่อค้านี้แล้วในช่วงนี้ รอครั้งหน้า':!held.length?'ยังไม่มีของที่พ่อค้าต้องการ':null;
   return <section className="wish-deal" aria-labelledby="wish-title"><h3 id="wish-title">{NPC_SPECS[wish.npc].name}ตามหา <ItemTerm kind={wish.kind}/></h3>
-    <p>รับซื้อ <strong>{wish.price} เครดิต</strong> สูงกว่าตลาด · ขอเพิ่มได้แต่โอกาสตกลงลดลง โอกาสคิดจากความไว้ใจ {wish.trust}/{TRUST_CAP} (+{wish.trust*3}) ผลดีที่ติดตัว {wish.buffs} อย่าง (+{wish.buffs*4}) ผลเสีย {wish.debuffs} อย่าง (−{wish.debuffs*4}) · อยู่ระหว่าง {WISH_FLOOR}–{WISH_CAP}% เสมอ</p>
-    <p className="supporting">ต่อรองได้ครั้งเดียวต่อช่วง ถ้าไม่ตกลงยังรอของชิ้นนี้ในครั้งหน้า พ่อค้าอาจจับได้ถ้าเป็นของปลอม</p>
+    <p>รับซื้อตอนนี้ <strong>{wish.price} เครดิต</strong>{wish.price>wish.floor?` · ช่วงหน้า ${wish.next} · ต่ำสุด ${wish.floor} (ราคาฐาน ผลเสียไม่ลดราคาฐาน)`:` · ถึงราคาฐานแล้ว ${wish.floor} เครดิต จะไม่ลดอีก`} · เริ่มที่ {wish.initial} · ขอเพิ่มได้แต่โอกาสตกลงลดลง โอกาสคิดจากความไว้ใจ {wish.trust}/{TRUST_CAP} (+{wish.trust*3}) ผลดีที่ติดตัว {wish.buffs} อย่าง (+{wish.buffs*4}) ผลเสีย {wish.debuffs} อย่าง (−{wish.debuffs*4}) · อยู่ระหว่าง {WISH_FLOOR}–{WISH_CAP}% เสมอ</p>
+    <p className="supporting">ต่อรองได้ครั้งเดียวต่อช่วง ถ้าไม่ตกลงยังรอของชิ้นนี้ในครั้งหน้า พ่อค้าอาจจับได้ถ้าเป็นของปลอม{salePctText(game)?` · ${salePctText(game)} ราคาที่แสดงปรับแล้ว`:''}</p>
     {held.length>1 && <ChoiceCards compact legend="เลือกชิ้นที่จะขาย" value={itemId} onChange={setPicked} disabled={disabled} options={held.map(i=>({value:i.id,title:inventoryLabel(game,i),art:i.image}))}/>}
     {held.length>0 && <ChoiceCards compact legend="ราคาที่ขอ" value={String(markup)} onChange={v=>setMarkup(Number(v))} disabled={disabled} options={wish.options.map(o=>({value:String(o.markup),title:`${o.price} เครดิต${o.markup?` (+${o.markup}%)`:''}`,detail:`โอกาสตกลง ${o.chance}%`}))}/>}
     <div className="actions"><button className="primary" disabled={disabled || !!why || !itemId} onClick={()=>submit({type:'wish-sell',itemId,markup})}>ขายให้พ่อค้า · {option.price} เครดิต · {option.chance}%</button></div>
-    {why && <p className="why" role="status">{why}</p>}</section>;
+    {why && <p className="why" role="status">{why}</p>}
+    <WishBook game={game} submit={submit} disabled={disabled}/></section>;
 }
 const claimChoice=(value:boolean|undefined)=>value===undefined?'':String(value);
 const fromChoice=(value:string):boolean|undefined=>value===''?undefined:value==='true';
@@ -239,7 +254,7 @@ export function EventDecision({game,offer,submit,disabled}:Actions&{offer:EventO
         return {value:id,title:eventItemName(offer,id),...(kind?{art:itemImage(kind)}:{}),
           detail:priced?`รับ ${offer.quotedPrices[id]} เครดิต`:seen?(seen.owner===game.self.id?inventoryLabel(game,seen):`ราคาร้าน ${seen.price} เครดิต`):`รายการ ${index+1}`};
       })}/>}
-      {eventNeedsStatus(offer,choice) && <ChoiceCards compact legend="เลือกสถานะ" value={effectiveStatus} onChange={setStatusId} disabled={disabled} options={statusOptions.map(id=>({value:id,title:<><span className={id.startsWith('D')?'danger-text':'positive-text'}>{id.startsWith('D')?<DebuffIcon/>:<BuffIcon/>}</span>{statusName(id)}</>}))}/>}
+      {eventNeedsStatus(offer,choice) && <ChoiceCards compact legend="เลือกสถานะ" value={effectiveStatus} onChange={setStatusId} disabled={disabled} options={statusOptions.map(id=>({value:id,title:<><span className={id.startsWith('D')?'danger-text':'positive-text'}>{id.startsWith('D')?<DebuffIcon/>:<BuffIcon/>}</span>{statusName(id)}</>,...(offer.id==='E108'?{detail:readable(STATUS_CATALOG.find(s=>s.id===id)!.description)}:{})}))}/>}
       {offer.id==='E45' && choice!=='decline' && <ChoiceCards compact legend="ผลตรวจที่จะเปิดให้ทุกคน" value={effectiveFact} onChange={setFact} disabled={disabled} options={facts.map(f=>{const v=offer.facts[itemId]?.[f];return {value:f,title:`${factName[f]}: ${typeof v==='boolean'?v?'ใช่':'ไม่ใช่':String(v)}`};})}/>}
       {offer.id==='E46' && choice!=='decline' && <ChoiceCards compact legend="คุณทายว่า" value={String(guess)} onChange={v=>setGuess(v==='true')} disabled={disabled} options={[{value:'true',title:'ของแท้'},{value:'false',title:'ของปลอม'}]}/>}
       <button className={consequence?'danger':'primary'} disabled={disabled || !action || !!blockedReason(choice,itemId)}>ยืนยัน: {title(choice)}</button>
@@ -258,6 +273,7 @@ export function DarkMarket({game,submit,disabled,compact=false}:Actions&{compact
     <h2 id="market-title"><MarketIcon/>Dark Market</h2>
     {!game.market.open?<p className="market-closed">ตลาดเงาปิดในช่วงนี้ เก็บของไว้ลุ้นรายการรับซื้อในช่วงถัดไป</p>:<>
       <p className="market-lede">รับซื้อถึงจบช่วงพบพ่อค้านี้ ซื้อของใหม่แล้วนำมาขายได้ · ป้ายเป็นราคาฐาน ปุ่มขายรวมผลของสะสม</p>
+      {salePctText(game) && <p className="supporting">{salePctText(game)}</p>}
       <ul className="wanted">{game.market.orders.map(order=>{
         const quota=order.quota[game.self.id]??0;
         const owned=game.self.inventory.filter(item=>marketOptions(game,item).some(o=>o.id===order.id));

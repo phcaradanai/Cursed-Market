@@ -1,10 +1,11 @@
 import { marketConditionMatch, marketOrderReserve, trustAcceptanceBonus, TRUST_CAP } from './market-contracts.js';
-import { commissionRate, freeInspectionCount, inspectionLimit, passiveBonuses, passiveMarketBonus, passivesEnabled } from './passives.js';
+import { commissionRate, freeInspectionCount, inspectionLimit, MAX_ENERGY_CAP, MAX_LIFE_BONUS_CAP, passiveBonuses, passiveMarketBonus, passivesEnabled, WISH_SLOT_CAP } from './passives.js';
 import type { PassiveBonuses } from './passives.js';
 import { RuleError } from '../engine.js';
 import { randomAt } from '../random.js';
 import { ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, itemFamily, priceRange } from './content.js';
 import { FAKE_EFFECT_CHANCE, itemScoreValue } from './scoring.js';
+import { omenOf } from './omens.js';
 import type { AppraisalItem, AppraisalState, Appraiser, Knowledge, RecoveryOffer, Status, StatusId } from './types.js';
 
 export function check(condition: unknown, code: string, message: string): asserts condition {
@@ -22,10 +23,46 @@ export function consumeStatus(p: Appraiser, id: StatusId): void {
   const s = status(p,id); if (s) s.charges--; p.statuses = p.statuses.filter(value => value.charges > 0);
 }
 export function removeStatus(p: Appraiser, id: StatusId): void { p.statuses = p.statuses.filter(s => s.id !== id); }
+/** Per-seat caps: held relics raise them, selling the relic lowers them again (see enforceCaps). */
+export function maxEnergyOf(state:AppraisalState,p:Appraiser):number {
+  const b=passiveBonuses(state,p);return Math.min(MAX_ENERGY_CAP,state.config.maxEnergy+b.maxEnergy+(state.config.survival?0:b.maxLife));
+}
+export function maxLifeOf(state:AppraisalState,p:Appraiser):number|undefined {
+  return state.config.survival?state.config.survival.maxLife+Math.min(MAX_LIFE_BONUS_CAP,passiveBonuses(state,p).maxLife):undefined;
+}
+export const wishSlotsOf=(state:AppraisalState,p:Appraiser,base:number)=>Math.min(Math.max(base,WISH_SLOT_CAP),base+passiveBonuses(state,p).wishSlots);
+/** Resources above a cap that no longer applies are lost. */
+export function enforceCaps(state:AppraisalState):void {
+  for(const p of state.players) {
+    p.energy=Math.min(p.energy,maxEnergyOf(state,p));
+    if(p.life!==undefined && p.life>0) p.life=Math.min(p.life,maxLifeOf(state,p)!);
+  }
+}
+/** The omen of the current encounter (polish rules only). */
+export const omenNow=(state:AppraisalState)=>omenOf(state.config,state.seed,state.encounter);
+/**
+ * One pipeline for every sale of an item the seat owns: Dark Market, a merchant's wish, bond buyers and the Collector's collector offer.
+ * Items appraised for a merchant (commission, cross-shop sales) never pass through it. Percentages add up, then floor once.
+ */
+export function salePercent(state:AppraisalState,p:Appraiser,market=false):number {
+  if(!market && !state.config.polish) return 0;
+  return (status(p,'B13')?20:0)-(status(p,'D13')?20:0)+(state.config.polish?(status(p,'B17')?15:0)-(status(p,'D17')?20:0)+(omenNow(state)?.salePct??0):0);
+}
+export const saleAdjusted=(base:number,pct:number)=>Math.max(0,Math.floor(base*(100+pct)/100));
+/** Quote without spending anything, so the UI and the engine agree. */
+export function salePreview(state:AppraisalState,p:Appraiser,base:number,market=false):number {return saleAdjusted(base,salePercent(state,p,market));}
+/** Settle a sale: adjusts the price and spends the one-shot statuses that shaped it. */
+export function saleApply(state:AppraisalState,p:Appraiser,base:number,market=false):number {
+  const price=saleAdjusted(base,salePercent(state,p,market));
+  if(market || state.config.polish){consumeStatus(p,'B13');consumeStatus(p,'D13');}
+  return price;
+}
+/** Flat surcharge on NPC purchases, curse cleansing and recovery deals. */
+export const feeSurcharge=(state:AppraisalState,p:Appraiser)=>state.config.polish?(status(p,'D18')?1:0)+(omenNow(state)?.fee??0):0;
 export function grant(state: AppraisalState, p: Appraiser, id: StatusId, targetItemId?: string): void {
   if (id.startsWith('D') && status(p,'B06')) { consumeStatus(p,'B06'); trace(state,p,'debuff-blocked',{id}); return; }
   if (!state.config.survival && ['B09','D04','D07'].includes(id) && state.encounter === state.config.encounters) return;
-  const currentOnly = ['B05','B10','D02','D16'].includes(id);
+  const currentOnly = ['B05','B10','D02','D16','B17','B18','D17','D18','D19'].includes(id);
   const charges = ['B05','B11','D01','D03','D05','D06','D10','D11'].includes(id) ? 2 : 1;
   const expires = state.encounter + (currentOnly ? 0 : 1);
   const starts = state.encounter + (['B09','D04','D07'].includes(id) ? 1 : 0);
@@ -61,17 +98,20 @@ export function recover(state: AppraisalState, p: Appraiser, amount: number, rea
   let gained = amount;
   if (!minimum && status(p,'D10')) { gained = Math.max(0,amount-2); consumeStatus(p,'D10'); }
   if (!minimum && status(p,'B14')) { gained += 2; consumeStatus(p,'B14'); }
-  const before = p.energy; p.energy = Math.min(state.config.maxEnergy,p.energy + gained);
+  const before = p.energy; p.energy = Math.min(maxEnergyOf(state,p),p.energy + gained);
   trace(state,p,'energy-restored',{amount:p.energy-before,reason});
 }
 export function healLife(state:AppraisalState,p:Appraiser,amount:number,reason:string):void {
   check(state.config.survival && p.life!==undefined && p.life>0,'life','ผู้ตายฟื้นกลับมาใน run นี้ไม่ได้');
-  const before=p.life;p.life=Math.min(state.config.survival.maxLife,p.life+amount);
+  const before=p.life;p.life=Math.min(maxLifeOf(state,p)!,p.life+amount);
   trace(state,p,'life-restored',{amount:p.life-before,reason});
 }
 export function damageLife(state:AppraisalState,p:Appraiser,amount:number,reason:string):void {
   check(p.life!==undefined,'life','กติกานี้ไม่มีชีวิตแยก');
-  const before=p.life;p.life=Math.max(0,p.life-amount);
+  let hit=amount;
+  if(hit>0 && status(p,'B19')){hit=Math.max(0,hit-1);consumeStatus(p,'B19');}
+  if(hit>0 && status(p,'D20')){hit+=1;consumeStatus(p,'D20');}
+  const before=p.life;p.life=Math.max(0,p.life-hit);
   trace(state,p,'life-lost',{amount:before-p.life,reason});
   if(p.life===0 && !p.paused){p.paused='dead';p.done=true;p.eventOffer=null;trace(state,p,'death',{reason});}
 }
@@ -80,7 +120,7 @@ export function recoveryOffer(state:AppraisalState,p:Appraiser):RecoveryOffer|un
   const npc=p.portals.find(portal=>portal.id===p.selectedPortalId)?.npc;
   if(!npc)return;
   const b=passiveBonuses(state,p);
-  const salt=status(p,'D16')?2:0;
+  const salt=(status(p,'D16')?2:0)+feeSurcharge(state,p);
   return ['vampire','autometa','alien','swarm'].includes(npc)?{target:'energy',credits:2+salt,amount:3+b.energyRecovery}:{target:'life',credits:4+salt,amount:2+b.lifeRecovery};
 }
 export function unlocked(p: Appraiser, itemId: string): boolean {
@@ -122,9 +162,11 @@ export function inspect(state: AppraisalState, p: Appraiser, itemId: string, pro
   check(property === 'price' ? k.base === undefined : property === 'authenticity' ? k.genuine === undefined : state.config.curseSight ? k.cursed === undefined : !k.effectsKnown || (status(p,'B02') && k.cursed === undefined),'known','รู้ข้อมูลนี้แล้ว');
   const cost = Math.max(0,1 + (status(p,'D01') ? 1 : 0) - (status(p,'B05') ? 1 : 0));
   const free=cost>0 && freeInspectionCount(passiveBonuses(state,p),p,property)>0;
-  const compoundEyes=cost>0 && !free && !!status(p,'B11');
-  spend(state,p,0,free||compoundEyes?0:cost,'inspect');
+  const insight=cost>0 && !free && p.inspections===0 && !!omenNow(state)?.firstInspectFree;
+  const compoundEyes=cost>0 && !free && !insight && !!status(p,'B11');
+  spend(state,p,0,free||compoundEyes||insight?0:cost,'inspect');
   if(free){p.passiveUses??={};p.passiveUses[property]=(p.passiveUses[property]??0)+1;}
+  else if(insight) {/* the omen pays for it */}
   else if(compoundEyes) consumeStatus(p,'B11');
   else {consumeStatus(p,'B05');consumeStatus(p,'D01');}
   p.inspections++;
@@ -160,7 +202,7 @@ export function appraise(state: AppraisalState, p: Appraiser, itemId: string, va
   const risk = detectionRisk(p,item,value);
   const caught = randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:detection`) < risk;
   const accuracy = Math.abs(value-item.base) <= item.base*.1;
-  const accepted = value >= item.reservation || !!state.config.commerce && value>0 && randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:trust-accept:${counter?p.counters:0}`)<Math.min(.95,trustAcceptanceBonus(p,item.npc)+passiveBonuses(state,p).acceptance/100+(status(p,'B12')?.25:0));
+  const accepted = value >= item.reservation || !!state.config.commerce && value>0 && randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:trust-accept:${counter?p.counters:0}`)<Math.min(.95,trustAcceptanceBonus(p,item.npc)+passiveBonuses(state,p).acceptance/100+(status(p,'B12')?.25:0)+(omenNow(state)?.accept??0)/100);
   const previous = p.valuations[itemId];
   if (accuracy && !previous?.accuracy) p.accuracyBonus += 5;
   if (!accuracy && previous?.accuracy) p.accuracyBonus -= 5;
@@ -204,9 +246,10 @@ export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraise
   const b=passiveBonuses(state,buyer);const commissionBonuses=new Map(state.players.map(p=>[p.id,passiveBonuses(state,p)]));
   const discount = (options.discount ?? 0) + (status(buyer,'B03') ? 2 : 0) - (status(buyer,'D12') ? 2 : 0) + (options.condition ? profile.discount : 0)+b.discount;
   const price = options.barterItemId ? 0 : Math.max(0,basePrice-discount);
+  const fee = options.barterItemId ? 0 : feeSurcharge(state,buyer);
   const energy = Math.max(0,(state.config.freeBuy ? 0 : 1) + (status(buyer,'D06') ? 1 : 0)-b.buyEnergy);
   if (options.barterItemId) ownedItem(state,buyer,options.barterItemId,true);
-  spend(state,buyer,price,energy,'npc-purchase');
+  spend(state,buyer,price+fee,energy,'npc-purchase');
   if (options.barterItemId) retire(state,buyer,options.barterItemId,'npc-barter');
   consumeStatus(buyer,'B03'); consumeStatus(buyer,'D06'); consumeStatus(buyer,'D12');
   let allocated=0;
@@ -219,7 +262,7 @@ export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraise
   if (options.grantStatus) grant(state,buyer,options.grantStatus);
   if (options.condition) grant(state,buyer,profile.condition);
   if (options.lock) grant(state,buyer,'D09',items[0]!.id);
-  trace(state,buyer,'npc-purchased',{itemIds,shopId:shop.id,price,energy,condition:options.condition ?? false});
+  trace(state,buyer,'npc-purchased',{itemIds,shopId:shop.id,price,energy,condition:options.condition ?? false,...(fee?{fee}:{})});
 }
 export function activate(state: AppraisalState, p: Appraiser, itemId: string): void {
   const item = ownedItem(state,p,itemId); check(!p.activated.includes(itemId),'activated','เปิดใช้ชิ้นนี้ใน encounter แล้ว');
@@ -292,8 +335,7 @@ export function marketSell(state: AppraisalState, p: Appraiser, itemId: string, 
       else grant(state,p,cost.statusId);
     }
   }
-  if(status(p,'B13')){price=Math.floor(price*120/100);consumeStatus(p,'B13');}
-  if(status(p,'D13')){price=Math.floor(price*80/100);consumeStatus(p,'D13');}
+  price=saleApply(state,p,price,true);
   const creditsBonus=matched && contract?.bonus.kind==='credits'?contract.bonus.amount:0;
   const gearBonus=passiveMarketBonus(order,passiveBonuses(state,p,[itemId]),!!contract && matched,!!contract && !matched && resolution==='discount');
   reward(state,p,price+creditsBonus,'dark-market',true);state.market.budget-=reserved;order.quota[p.id]!--;

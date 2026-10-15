@@ -5,8 +5,9 @@ export interface PassiveBonuses {
   freePrice:number; commission:number; income:number; luck:number; coinWin:number; saleFee:number;
   trust:number; acceptance:number; discount:number; buyEnergy:number; freeAuth:number; freeEffects:number;
   market:number; match:number; mitigation:number; energyRecovery:number; lifeRecovery:number; inspections:number;
+  maxEnergy:number; maxLife:number; wishSlots:number;
 }
-export const emptyPassives=():PassiveBonuses=>({freePrice:0,commission:0,income:0,luck:0,coinWin:0,saleFee:0,trust:0,acceptance:0,discount:0,buyEnergy:0,freeAuth:0,freeEffects:0,market:0,match:0,mitigation:0,energyRecovery:0,lifeRecovery:0,inspections:0});
+export const emptyPassives=():PassiveBonuses=>({freePrice:0,commission:0,income:0,luck:0,coinWin:0,saleFee:0,trust:0,acceptance:0,discount:0,buyEnergy:0,freeAuth:0,freeEffects:0,market:0,match:0,mitigation:0,energyRecovery:0,lifeRecovery:0,inspections:0,maxEnergy:0,maxLife:0,wishSlots:0});
 type PassiveSpec=ItemSpec & {passive:{effect:keyof PassiveBonuses;amount:number;text:string}};
 export const PASSIVE_ITEMS={
   'inspection-warrant':{name:'หมายสั่งตรวจราคา',family:'scanner',anchor:16,buff:'B01',drawback:'D02',consumable:false,passive:{effect:'freePrice',amount:1,text:'ตรวจราคาฟรี 1 ครั้งต่อช่วงต่อชิ้น ยังใช้จำนวนครั้งตรวจตามปกติ'}},
@@ -26,6 +27,9 @@ export const PASSIVE_ITEMS={
   'smuggler-cloak':{name:'เสื้อคลุมนักลักลอบ',family:'mask',anchor:29,buff:'B08',drawback:'D08',consumable:false,passive:{effect:'mitigation',amount:5,text:'ขายผิดเงื่อนไขแบบลดราคา ลดค่าปรับ 5 จุดเปอร์เซ็นต์ต่อชิ้น จาก 20% เหลือต่ำสุด 0% ไม่นับชิ้นที่ขาย'}},
   'merchant-canteen':{name:'กระติกแรงพ่อค้า',family:'battery',anchor:14,buff:'B09',drawback:'D10',consumable:false,passive:{effect:'energyRecovery',amount:1,text:'ดีลจ่ายเครดิตฟื้นพลังกับ NPC ฟื้นเพิ่ม 1 ต่อชิ้นที่ถือ ไม่เกินพลังสูงสุด'}},
   'healing-brooch':{name:'เข็มกลัดชีพจร',family:'amulet',anchor:27,buff:'B08',drawback:'D10',consumable:false,passive:{effect:'lifeRecovery',amount:1,text:'ดีลจ่ายเครดิตฟื้นชีวิตกับ NPC ฟื้นเพิ่ม 1 ต่อชิ้นที่ถือ ไม่เกินชีวิตสูงสุด ผู้ตายฟื้นไม่ได้'}},
+  'vital-flask':{name:'ขวดพลังสำรอง',family:'battery',anchor:22,buff:'B17',drawback:'D18',consumable:false,passive:{effect:'maxEnergy',amount:2,text:'พลังสูงสุด +2 ต่อชิ้น (รวมสูงสุด 20) ขายหรือแลกออกแล้วพลังที่เกินจะหายไป'}},
+  'life-relic':{name:'ศิลาชีพจรเก่า',family:'amulet',anchor:26,buff:'B19',drawback:'D20',consumable:false,passive:{effect:'maxLife',amount:1,text:'โหมดมีชีวิต: ชีวิตสูงสุด +1 ต่อชิ้น (สูงสุด +6) · โหมดปกติที่ไม่มีชีวิต: พลังสูงสุด +1 ต่อชิ้น'}},
+  'wish-ledger':{name:'สมุดคำสัญญาพ่อค้า',family:'key',anchor:20,buff:'B18',drawback:'D19',consumable:false,passive:{effect:'wishSlots',amount:1,text:'ทำสัญญาตามหาของพร้อมกันได้เพิ่ม 1 รายการต่อชิ้น (รวมสูงสุด 4 รายการ)'}},
   'inspector-notebook':{name:'สมุดนัดผู้ตรวจ',family:'mirror',anchor:18,buff:'B01',drawback:'D05',consumable:false,passive:{effect:'inspections',amount:1,text:'ตรวจสินค้าได้เพิ่ม 1 ครั้งต่อช่วงต่อชิ้น ค่าใช้พลังคิดตามประเภทการตรวจ'}},
 } satisfies Record<PassiveKind,PassiveSpec>;
 export const passivesEnabled=(config:Pick<AppraisalConfig,'catalogVersion'>)=>config.catalogVersion===3;
@@ -47,3 +51,4 @@ export const coinWinChance=(b:PassiveBonuses)=>Math.min(85,50+b.luck);
 export function passiveMarketBonus(order:MarketOrder,b:PassiveBonuses,match:boolean,markdown:boolean):number {
   return b.market+(match?b.match:0)+(markdown?Math.floor(order.price*(80+Math.min(20,b.mitigation))/100)-Math.floor(order.price*.8):0);
 }
+export const MAX_ENERGY_CAP=20,MAX_LIFE_BONUS_CAP=6,WISH_SLOT_CAP=4;

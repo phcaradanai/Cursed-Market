@@ -9,13 +9,14 @@ export const APPRAISAL_POLICIES=['cautious','aggressive','collector','trader'] a
 export type AppraisalPolicy=typeof APPRAISAL_POLICIES[number];
 type Body=AppraisalAction extends infer A ? A extends AppraisalAction ? Omit<A,'playerId'|'requestId'|'encounter'> : never : never;
 function npcEnergy(v:AppraisalView):number {return (v.freeBuy?0:1)+(v.self.statuses.some(s=>s.id==='D06')?1:0);}
-function buyPrice(v:AppraisalView,item:ItemView):number {return Math.max(0,item.price-(v.self.statuses.some(s=>s.id==='B03')?2:0)+(v.self.statuses.some(s=>s.id==='D12')?2:0));}
+function buyPrice(v:AppraisalView,item:ItemView):number {return Math.max(0,item.price-(v.self.statuses.some(s=>s.id==='B03')?2:0)+(v.self.statuses.some(s=>s.id==='D12')?2:0)+(v.fee??0));}
 function eventAction(v:AppraisalView,policy:AppraisalPolicy):Body {
   const offer=v.self.eventOffer!;const p=v.self;
   let choice=offer.choices.includes('decline')?'decline':offer.choices.includes('pay')?'pay':offer.choices.includes('oath')?'oath':offer.choices.includes('surrender')?'surrender':offer.choices.includes('die')?'die':offer.choices.includes('energy')?'energy':'item';
   const useful=policy==='aggressive'?['E09','E21','E22','E24','E27','E28','E46']:policy==='collector'?['E02','E04','E05','E07','E15','E18','E26','E29','E31','E33','E34','E35','E36','E38','E39','E41','E42']:policy==='trader'?['E04','E15','E19','E21','E25','E43','E44','E45','E47']:['E03','E04','E12','E15','E16','E17','E18','E22','E28','E30','E35','E41','E42'];
   if(useful.includes(offer.id) && p.credits>=5 && p.energy>=4) choice=offer.choices.find(c=>c!=='decline')!;
   if(Number(offer.id.slice(1))>50 && policy!=='cautious') choice='accept';
+  if(offer.id==='E73') choice=policy!=='cautious' && p.energy>=3 && offer.choices.includes('accept')?'accept':'decline';
   if(v.survival && offer.id==='E03' && p.energy<3)choice=p.credits>=2?'pay':p.life!>1?'debt':'decline';
   if(v.survival && offer.id==='E42' && p.energy<3 && offer.choices.includes('energy'))choice='energy';
   const visible=[...p.stock,...p.inventory,...v.listings.map(l=>l.item)];
@@ -25,6 +26,7 @@ function eventAction(v:AppraisalView,policy:AppraisalPolicy):Body {
   if(offer.id==='E17') itemId=offer.itemIds.find(id=>visible.find(i=>i.id===id)?.knowledge.base===undefined);
   let statusId=offer.statusIds.find(id=>id.startsWith('D'));
   if(offer.id==='E06') statusId=offer.statusIds.find(id=>id.startsWith('D') && id!==(choice==='interest'?'D04':'D07'));
+  if(offer.id==='E108') {statusId=offer.boons![0];choice=policy==='cautious'?'decline':'pick';}
   if(offer.id==='E88') statusId=offer.statusIds.find(id=>['D11','D12','D13','D14','D15','D16'].includes(id));
   if(offer.id==='E34') statusId=offer.statusIds.find(id=>id.startsWith('B') && id!=='B10');
   if(offer.id==='E35') statusId=offer.statusIds.find(id=>id==='D01' || id==='D05');

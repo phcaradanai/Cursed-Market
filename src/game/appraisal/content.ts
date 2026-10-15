@@ -346,9 +346,23 @@ export const BOND_SPECS: ReadonlyArray<BondSpec> = [
   {id:'E81',npc:'swarm',mode:'tribute',families:['potion'],cleanse:'debuffs',name:'ยาแก้พิษให้ฝูงกลืน',when:'พบ The Swarm; ถือยา; มี debuff',description:'มอบยาหนึ่งชิ้นให้ The Swarm ฝูงดูดผลเสียทั้งหมดที่ติดตัวคุณไป'},
   {id:'E82',npc:'swarm',mode:'reveal',families:['scanner'],reveal:['base','cursed'],energyCost:1,name:'ตาของทั้งฝูง',when:'พบ The Swarm; ถือเครื่องตรวจ',description:'จ่ายพลัง 1 ยืมสายตาของทั้งฝูงส่องสินค้าที่เลือก เปิดมูลค่าจริงและคำสาป ไม่ใช้สิทธิ์ตรวจ'},
   {id:'E83',npc:'swarm',mode:'sell',families:['battery'],price:1.2,name:'รังต้องการพลัง',when:'พบ The Swarm; ถือแบตเตอรี่; ธนาคารมีงบพอ',description:'The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไปจุดรังในราคาอ้างอิง 120% ของชนิดนั้น'},
+  {id:'E102',npc:'orc',mode:'show',kinds:['vital-flask'],buffs:['B17'],name:'ขวดของนักรบ',when:'พบออร์ก; ถือขวดพลังสำรอง',description:'ออร์กเห็นขวดพลังสำรองที่คุณพกและแนะนำช่องทางขาย ได้รับ B17 โดยไม่ต้องสละของ'},
+  {id:'E103',npc:'alien',mode:'reveal',kinds:['wish-ledger'],reveal:['base','genuine'],name:'ภาษาของสัญญา',when:'พบ Alien; ถือสมุดคำสัญญาพ่อค้า',description:'Alien อ่านสมุดคำสัญญาของคุณและบอกมูลค่าจริงกับความแท้ของสินค้าที่เลือกหนึ่งชิ้น ไม่ใช้พลังหรือสิทธิ์ตรวจ'},
+  {id:'E104',npc:'autometa',mode:'tribute',kinds:['vital-flask'],energy:3,buffs:['B20'],name:'แลกพลังสำรอง',when:'พบ Autometa; ถือขวดพลังสำรอง',description:'มอบขวดพลังสำรองหนึ่งชิ้นให้ Autometa ฟื้นพลัง 3 และได้รับ B20'},
+  {id:'E105',npc:'beast',mode:'show',kinds:['life-relic'],buffs:['B19'],name:'สัตว์รับรู้ศิลา',when:'พบสัตว์นำทาง; ถือศิลาชีพจรเก่า',description:'สัตว์นำทางสัมผัสศิลาชีพจรแล้วเฝ้าระวังให้คุณ ได้รับ B19 โดยไม่ต้องสละของ'},
+  {id:'E106',npc:'darkone',mode:'sell',kinds:['wish-ledger'],price:1.3,name:'สมุดสัญญาสำหรับคนตาย',when:'พบ Dark One; ถือสมุดคำสัญญาพ่อค้า; ธนาคารมีงบพอ',description:'Dark One ซื้อสมุดคำสัญญาหนึ่งเล่มในราคาอ้างอิง 130% ของชนิดนั้น'},
+  {id:'E107',npc:'deepsea',mode:'swap',kinds:['life-relic'],genuineOnly:true,name:'ศิลาคืนบึ้ง',when:'พบอสูรใต้ทะเลลึก; ถือศิลาชีพจรเก่า',description:'อสูรใต้ทะเลลึกขอศิลาที่คุณถือแลกกับสินค้าในร้านหนึ่งชิ้นโดยไม่คิดเครดิตหรือพลัง หากศิลาเป็นของปลอม อสูรปฏิเสธ คุณเก็บของไว้และรับ D10'},
 ];
 export const EVENT_CATALOG: ReadonlyArray<{id:EventId;name:string;when:string;description:string}> = [
-  ...BASE_EVENT_CATALOG,{id:'E84',name:'คลื่นกระซิบจากก้นบึ้ง',when:'พบอสูรใต้ทะเลลึก; มีพลัง 1',description:'อสูรใต้ทะเลลึกส่งคลื่นเสียงให้คุณฟัง ใช้พลัง 1 รับ B12'},
+  ...BASE_EVENT_CATALOG,{id:'E108',name:'เลือกหนึ่งพร',when:'ช่วงประเมิน; มีผลดีที่ยังไม่ติดตัวอย่างน้อย 3 อย่าง',description:'ลางดีเปิดทางให้เลือกผลดีหนึ่งอย่างจากสามตัวเลือกที่สุ่มจากเส้นทางของห้อง ไม่เสียอะไร แต่ผลดีเหล่านี้หมดเมื่อจบช่วงหน้า'},{id:'E94',name:'ข่าวตลาดจากคนรู้จัก',when:'ยังไม่มี B17 หรือ D17; มีเครดิต 2',description:'จ่าย 2 เครดิตซื้อข่าววงใน รับ B17 ช่วงนี้ขายของที่คุณเป็นเจ้าของได้ราคาเพิ่ม 15%'},
+  {id:'E95',name:'ขายข่าวลือเฟ้อ',when:'ยังไม่มี B17 หรือ D17; ธนาคารมีงบ 3 เครดิต',description:'ขายข่าวลือให้นักปั่นราคา รับ 3 เครดิตทันที แต่ราคาตลาดเฟ้อ รับ D17 ช่วงนี้ขายของที่คุณเป็นเจ้าของได้ลด 20%'},
+  {id:'E96',name:'เหรียญริมทาง',when:'ยังไม่มี B18 หรือ D19; มีพลัง 1',description:'เก็บเหรียญแปลกตาข้างโต๊ะ ใช้พลัง 1 รับ B18 เครดิตหลังซื้อขายเพิ่ม 3 และหัวก้อยถูกง่ายขึ้น'},
+  {id:'E97',name:'ผู้ประมูลเก่าแก่',when:'ห้องมีระบบประมูลตลาดเงา; มีเครดิต 2',description:'จ่าย 2 เครดิตให้ผู้ประมูลเก่าแก่สอนเคล็ดลับ รับ B20 ถ้าชนะประมูลครั้งถัดไปจ่ายน้อยลง 20%'},
+  {id:'E98',name:'วิญญาณคุ้มครอง',when:'ยังไม่มี B19 หรือ D20; มีพลัง 1',description:'ใช้พลัง 1 จุดธูปเรียกวิญญาณคุ้มครอง รับ B19 ผลเสียต่อชีวิตครั้งถัดไปลด 1'},
+  {id:'E99',name:'แผลเก่าเปิดอีกครั้ง',when:'ยังไม่มี B19 หรือ D20; ธนาคารมีงบ 4 เครดิต',description:'ยอมเปิดแผลเก่าให้หมอเก็บค่าหัว รับ 4 เครดิตทันที แต่รับ D20 ผลเสียต่อชีวิตครั้งถัดไปเพิ่ม 1'},
+  {id:'E100',name:'นักเก็บภาษีเงา',when:'ยังไม่มี D18; ธนาคารมีงบ 2 เครดิต',description:'รับเงินปิดปากจากนักเก็บภาษี 2 เครดิต แต่ติดภาษีแอบแฝง รับ D18 ช่วงนี้ซื้อ ล้างคำสาป และดีลฟื้นแพงขึ้น 1 เครดิต'},
+  {id:'E101',name:'ตลาดนัดข้ามมิติ',when:'ช่วงต่อรอง; ไม่มี B17 D17 D18; มีเครดิต 1',description:'จ่าย 1 เครดิตเข้าตลาดนัด รับ B17 ขายของได้ราคาเพิ่ม 15% แต่ต้องจ่ายภาษีแอบแฝง D18 ช่วงนี้'},
+  {id:'E84',name:'คลื่นกระซิบจากก้นบึ้ง',when:'พบอสูรใต้ทะเลลึก; มีพลัง 1',description:'อสูรใต้ทะเลลึกส่งคลื่นเสียงให้คุณฟัง ใช้พลัง 1 รับ B12'},
   {id:'E85',name:'ผึ้งส่งสาร',when:'พบ The Swarm; มีเครดิต 1',description:'ตัวส่งสารของฝูงขอเครดิต 1 แลกการแนะนำคนซื้อ รับ B15'},
   {id:'E86',name:'ตาข่ายใยแมงมุม',when:'ธนาคารมีงบ 3 เครดิต',description:'เก็บของจากใยที่ขึงไว้ รับ 3 เครดิตทันที แต่ติดใยพันขา รับ D15'},
   {id:'E87',name:'ดำน้ำหาไข่มุก',when:'มีพลัง 2; ธนาคารมีงบ 6 เครดิต',description:'ใช้พลัง 2 ดำลงไปหาไข่มุก สุ่มจากเส้นทางของห้อง สำเร็จรับ 6 เครดิตและ B14 พลาดรับ D12'},
@@ -358,7 +372,7 @@ export const EVENT_CATALOG: ReadonlyArray<{id:EventId;name:string;when:string;de
   {id:'E91',name:'เสียงเรียกจากเหวลึก',when:'พบอสูรใต้ทะเลลึก; มีพลัง 2 หรือชีวิตเกิน 1',description:'ตอบเสียงเรียก เสียพลัง 2 (กติกาชีวิตเสียชีวิต 1) รับ B16 และ B14 แต่น้ำเค็มกัดช่วงนี้ รับ D16'},
   {id:'E92',name:'ตลาดมืดใต้น้ำ',when:'ช่วงต่อรอง; ธนาคารมีงบ 2 เครดิต',description:'ขายข่าวการค้าให้ตลาดใต้น้ำ รับ 2 เครดิตแต่กลิ่นรังติดตัว รับ D13'},
   {id:'E93',name:'สำรวจรังร้าง',when:'มีพลัง 1; ธนาคารมีงบ 1 เครดิต',description:'ใช้พลัง 1 ค้นรังร้าง สุ่มจากเส้นทางของห้อง 60% รับ 1 เครดิตและ B15 อีก 40% รับ D15'},
-  {id:'E73',name:'ของที่ข้าตามหา',when:'พบพ่อค้าที่ยังไม่เคยบอกของที่อยากได้',description:'พ่อค้าบอกของที่ตามหาและเสนอราคาสูงกว่าตลาด ถ้าครั้งหน้าคุณเลือกพ่อค้านี้อีกและถือของชนิดนั้นอยู่ ขายให้ได้ ต่อรองราคาได้ โอกาสขึ้นกับความไว้ใจและผลดีผลเสียที่ติดตัว'},...BOND_SPECS.map(({id,name,when,description})=>({id,name,when,description})),
+  {id:'E73',name:'ของที่ข้าตามหา',when:'พบพ่อค้าที่ยังไม่เคยบอกของที่อยากได้',description:'พ่อค้าบอกของที่ตามหาและเสนอราคาสูงกว่าตลาด ใช้พลัง 2 เพื่อทำสัญญา เปิดสัญญาได้พร้อมกันสูงสุด 2 รายการ (เต็มแล้วต้องแทนรายการเก่า) ราคาลดลงทุกช่วงแต่ไม่ต่ำกว่าราคาฐานของสินค้า ถ้าครั้งหน้าคุณเลือกพ่อค้านี้อีกและถือของชนิดนั้นอยู่ ขายให้ได้ ต่อรองราคาได้ โอกาสขึ้นกับความไว้ใจและผลดีผลเสียที่ติดตัว'},...BOND_SPECS.map(({id,name,when,description})=>({id,name,when,description})),
 ];
 /** What each NPC does when an item you appraised leaves the table unsold. Always payable: credits cap at what you hold. */
 export const UNSOLD_PENALTIES: Record<NpcId,{credits:number;energy:number;statuses:StatusId[];life:number;text:string}> = {
@@ -598,6 +612,62 @@ export const STATUS_CATALOG: ReadonlyArray<{id:StatusId;name:string;description:
     "description": "ช่วงนี้ดีลฟื้นพลังหรือชีวิตแพงขึ้น 2 เครดิต และการล้างคำสาปมีโอกาสสำเร็จลด 15 จุดเปอร์เซ็นต์",
     "duration": "เฉพาะช่วงนี้",
     "source": "ตะเกียงน้ำขึ้น/เสียงเรียกจากเหวลึก"
+  },
+  {
+    "id": "B17",
+    "name": "ตลาดคึกคัก",
+    "description": "ช่วงนี้ขายของที่คุณเป็นเจ้าของได้ราคาเพิ่ม 15% ทั้ง Dark Market ผู้ซื้อตามหา และผู้ซื้อพิเศษ ไม่รวมของที่ประเมินให้พ่อค้า",
+    "duration": "เฉพาะช่วงนี้",
+    "source": "ข่าวตลาด/ลางตลาดคึกคัก"
+  },
+  {
+    "id": "B18",
+    "name": "เหรียญนำโชค",
+    "description": "เครดิตหลังซื้อขายของช่วงนี้เพิ่ม 3 และโอกาสทายหัวก้อยถูกเพิ่ม 10 จุดเปอร์เซ็นต์",
+    "duration": "เฉพาะช่วงนี้",
+    "source": "เหรียญริมทาง/เหตุการณ์โชคดี"
+  },
+  {
+    "id": "B19",
+    "name": "เกราะวิญญาณ",
+    "description": "ผลเสียต่อชีวิตครั้งถัดไปลดลง 1 หรือบทลงโทษของพ่อค้าที่ขายไม่ออกครั้งถัดไปถูกยกเว้นเครดิตและลดพลังที่เสีย 1",
+    "duration": "1 ครั้ง · หมดเมื่อจบช่วงหน้า",
+    "source": "วิญญาณคุ้มครอง/ของสะสม"
+  },
+  {
+    "id": "B20",
+    "name": "ประมูลได้เปรียบ",
+    "description": "ถ้าชนะประมูลครั้งถัดไป จ่ายน้อยลง 20% ปัดลง",
+    "duration": "1 ครั้ง · หมดเมื่อจบช่วงหน้า",
+    "source": "ผู้ประมูลเก่าแก่/ของสะสม"
+  },
+  {
+    "id": "D17",
+    "name": "ราคาตลาดเฟ้อ",
+    "description": "ช่วงนี้ขายของที่คุณเป็นเจ้าของได้ราคาลด 20% ทั้ง Dark Market ผู้ซื้อตามหา และผู้ซื้อพิเศษ ไม่รวมของที่ประเมินให้พ่อค้า",
+    "duration": "เฉพาะช่วงนี้",
+    "source": "ข่าวลือเฟ้อ/ลางราคาตลาดเฟ้อ"
+  },
+  {
+    "id": "D18",
+    "name": "ภาษีแอบแฝง",
+    "description": "ช่วงนี้ซื้อจากพ่อค้า ล้างคำสาป และดีลฟื้นต้องจ่ายเพิ่ม 1 เครดิต",
+    "duration": "เฉพาะช่วงนี้",
+    "source": "นักเก็บภาษีเงา"
+  },
+  {
+    "id": "D19",
+    "name": "เหรียญไม่เข้าข้าง",
+    "description": "เครดิตหลังซื้อขายของช่วงนี้ลด 3 และโอกาสทายหัวก้อยถูกลด 10 จุดเปอร์เซ็นต์",
+    "duration": "เฉพาะช่วงนี้",
+    "source": "เหรียญสาป/เหตุการณ์โชคร้าย"
+  },
+  {
+    "id": "D20",
+    "name": "บาดแผลเปิด",
+    "description": "ผลเสียต่อชีวิตครั้งถัดไปเพิ่ม 1 หรือบทลงโทษเครดิตของพ่อค้าที่ขายไม่ออกครั้งถัดไปเป็นสองเท่า",
+    "duration": "1 ครั้ง · หมดเมื่อจบช่วงหน้า",
+    "source": "แผลเก่า/คำสาปติดตัว"
   }
 ];
 
@@ -648,20 +718,19 @@ export const ITEM_SPECS: Record<ItemKind,ItemSpec> = {
   ...PASSIVE_ITEMS,
 };
 export function itemFamily(kind:ItemKind):ItemFamily { return ITEM_SPECS[kind].family ?? kind as ItemFamily; }
-/** The ten original kinds have painted art; every other kind has its own vector illustration. */
-const PAINTED_KINDS:ItemKind[]=['mirror','orb','key','mask','potion','battery','amulet','blade','scanner','food'];
-export function itemImage(kind:ItemKind):string { return `/art/item-${kind}.${PAINTED_KINDS.includes(kind)?'png':'svg'}`; }
-const PAINTED_NPCS:NpcId[]=['orc','vampire','autometa','alien','darkone','beast'];
-export function npcImage(npc:NpcId):string { return `/art/npc-${npc}.${PAINTED_NPCS.includes(npc)?'png':'svg'}`; }
+/** One realistic painting per public kind, invariant across hidden authenticity and curses. */
+export function itemImage(kind:ItemKind):string { return `/art/item-${kind}.jpg`; }
+export function npcImage(npc:NpcId):string { return `/art/npc-${npc}.jpg`; }
 /** Version 1 preserves the exact original order and RNG index mapping. */
 const CLEANSE_KINDS:ItemKind[]=['smith-hammer','whetstone'],CHALLENGE_KINDS:ItemKind[]=['doubt-lens','void-seal'];
 /** Merchants and items that exist only when the expansion rules are on (catalog version 3). */
 export const EXPANSION_NPCS:NpcId[]=['deepsea','swarm'];
 export const expansionActive=(config:{catalogVersion?:1|2|3;expansion?:boolean})=>config.catalogVersion===3 && !!config.expansion;
+export const POLISH_KINDS:ItemKind[]=['vital-flask','life-relic','wish-ledger'];
 export const EXPANSION_KINDS:ItemKind[]=['abyss-pearl','tide-lantern','kraken-ink','siren-conch','hive-comb','chitin-blade','larva-cell','compound-mirror'];
-export function merchantKinds(npc:NpcId,catalogVersion:1|2|3=1,cleanse=false,challenge=false,expansion=false):ItemKind[] {
+export function merchantKinds(npc:NpcId,catalogVersion:1|2|3=1,cleanse=false,challenge=false,expansion=false,polish=false):ItemKind[] {
   const favorites=NPC_SPECS[npc].favorite;
-  return catalogVersion===1 ? favorites : (Object.keys(ITEM_SPECS) as ItemKind[]).filter(kind=>(catalogVersion===3 && cleanse || !CLEANSE_KINDS.includes(kind)) && (catalogVersion===3 && challenge || !CHALLENGE_KINDS.includes(kind)) && (catalogVersion===3 && expansion || !EXPANSION_KINDS.includes(kind)) && (catalogVersion===3 || !passiveSpec(kind)) && favorites.includes(itemFamily(kind)));
+  return catalogVersion===1 ? favorites : (Object.keys(ITEM_SPECS) as ItemKind[]).filter(kind=>(catalogVersion===3 && cleanse || !CLEANSE_KINDS.includes(kind)) && (catalogVersion===3 && challenge || !CHALLENGE_KINDS.includes(kind)) && (catalogVersion===3 && expansion || !EXPANSION_KINDS.includes(kind)) && (catalogVersion===3 && polish || !POLISH_KINDS.includes(kind)) && (catalogVersion===3 || !passiveSpec(kind)) && favorites.includes(itemFamily(kind)));
 }
 export const NPC_SPECS: Record<NpcId,{name:string;sensitivity:number;condition:StatusId;discount:number;reservation:[number,number];favorite:ItemKind[];hint:string}> = {
   orc:{name:'ออร์กผู้รักษาเกียรติ',sensitivity:1,condition:'D03',discount:2,reservation:[.45,.8],favorite:['blade','amulet','food'],hint:'ราคาที่ดูถูกอาจทำให้เสียทรัพย์'},

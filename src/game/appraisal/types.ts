@@ -1,16 +1,20 @@
-export const STATUS_IDS = ['B01','B02','B03','B04','B05','B06','B07','B08','B09','B10','B11','B12','B13','B14','B15','B16','D01','D02','D03','D04','D05','D06','D07','D08','D09','D10','D11','D12','D13','D14','D15','D16'] as const;
+export const STATUS_IDS = ['B01','B02','B03','B04','B05','B06','B07','B08','B09','B10','B11','B12','B13','B14','B15','B16','B17','B18','B19','B20','D01','D02','D03','D04','D05','D06','D07','D08','D09','D10','D11','D12','D13','D14','D15','D16','D17','D18','D19','D20'] as const;
 export type StatusId = typeof STATUS_IDS[number];
 export const EVENT_IDS = ['E01','E02','E03','E04','E05','E06','E07','E08','E09','E10','E11','E12','E13','E14','E15','E16','E17','E18','E19','E20','E21','E22','E23','E24','E25','E26','E27','E28','E29','E30','E31','E32','E33','E34','E35','E36','E37','E38','E39','E40','E41','E42','E43','E44','E45','E46','E47','E48','E49','E50'] as const;
 /** NPC × held-item encounters. Kept outside EVENT_IDS so the original random pool never changes. */
-export const BOND_EVENT_IDS = ['E51','E52','E53','E54','E55','E56','E57','E58','E59','E60','E61','E62','E63','E64','E65','E66','E67','E68','E69','E70','E71','E72','E74','E75','E76','E77','E78','E79','E80','E81','E82','E83'] as const;
+export const BOND_EVENT_IDS = ['E51','E52','E53','E54','E55','E56','E57','E58','E59','E60','E61','E62','E63','E64','E65','E66','E67','E68','E69','E70','E71','E72','E102','E103','E104','E105','E106','E107','E74','E75','E76','E77','E78','E79','E80','E81','E82','E83'] as const;
 /** Random events that only exist in the deep-sea/swarm expansion; kept outside EVENT_IDS so the original pool never changes. */
+/** Polish-pass random events, data-driven (see polish-events.ts). */
+export const POLISH_EVENT_IDS = ['E94','E95','E96','E97','E98','E99','E100','E101'] as const;
+/** Boon draft: pick one of three seeded buffs, like a roguelike reward choice. */
+export const BOON_EVENT_ID = 'E108' as const;
 export const EXPANSION_EVENT_IDS = ['E84','E85','E86','E87','E88','E89','E90','E91','E92','E93'] as const;
 /** Merchant wish announcement; kept outside both pools so neither changes. */
 export const WISH_EVENT_ID = 'E73' as const;
-export type EventId = typeof EVENT_IDS[number] | typeof BOND_EVENT_IDS[number] | typeof WISH_EVENT_ID | typeof EXPANSION_EVENT_IDS[number];
+export type EventId = typeof EVENT_IDS[number] | typeof BOND_EVENT_IDS[number] | typeof WISH_EVENT_ID | typeof EXPANSION_EVENT_IDS[number] | typeof POLISH_EVENT_IDS[number] | typeof BOON_EVENT_ID;
 export type NpcId = 'orc' | 'vampire' | 'autometa' | 'alien' | 'darkone' | 'beast' | 'deepsea' | 'swarm';
 export type ItemFamily = 'mirror' | 'orb' | 'key' | 'mask' | 'potion' | 'battery' | 'amulet' | 'blade' | 'scanner' | 'food';
-export const PASSIVE_ITEM_IDS=['inspection-warrant','tax-order','noble-seal','gambler-hat','lucky-die','merchant-ledger','friendship-ring','negotiator-gloves','guild-badge','light-satchel','surveyor-lens','curse-compass','market-pass','authenticity-seal','smuggler-cloak','merchant-canteen','healing-brooch','inspector-notebook'] as const;
+export const PASSIVE_ITEM_IDS=['inspection-warrant','tax-order','noble-seal','gambler-hat','lucky-die','merchant-ledger','friendship-ring','negotiator-gloves','guild-badge','light-satchel','surveyor-lens','curse-compass','market-pass','authenticity-seal','smuggler-cloak','merchant-canteen','healing-brooch','inspector-notebook','vital-flask','life-relic','wish-ledger'] as const;
 export type PassiveKind=typeof PASSIVE_ITEM_IDS[number];
 export type InspectionProperty='price'|'authenticity'|'effects';
 export type ItemKind = ItemFamily | 'memory-mirror' | 'rift-mirror' | 'blood-orb' | 'storm-orb' |
@@ -36,10 +40,14 @@ export interface AppraisalConfig {
   cleanse?: boolean;
   /** Absent in saved runs: merchants never announce wishes. */
   wishlist?: boolean;
+  /** Absent in saved runs: wishes cost no energy, have no cap and never lose value. */
+  wishContract?: boolean;
   /** Absent in saved runs: listings carry no appraiser claims and the challenge tools are never stocked. */
   challenge?: boolean;
   /** Absent in saved runs: the Deep Sea Monster and The Swarm never appear and their items, statuses and events stay out of play. */
   expansion?: boolean;
+  /** Absent in saved runs: no omens, sale/fee/life modifiers beyond the original market rules, capacity relics or polish events. */
+  polish?: boolean;
   encounters: number; startingCredits: number; maxEnergy: number; recoveryEnergy: number;
   bankReserve: number; marketProbability: number; marketMaxOrders: number; marketQuota: number;
   /** Absent in v0.4: retain encounter recovery and historical scoring exactly. */
@@ -49,7 +57,9 @@ export interface AppraisalConfig {
 }
 export type UnsoldChoice = 'buy'|'penalty'|'consign';
 export interface CleanseOffer { npc:NpcId; items:Array<{itemId:string;price:number;chance:number;done:boolean}>; stoneBonus:number }
-export interface WishOffer { npc:NpcId; kind:ItemKind; price:number; trust:number; buffs:number; debuffs:number; tried:boolean; options:Array<{markup:number;price:number;chance:number}>; itemIds:string[] }
+export interface WishBookRow { npc:NpcId; kind:ItemKind; price:number; initial:number; floor:number; next:number; age:number }
+export interface WishDesk { npc:NpcId; cost:number; cap:number; book:WishBookRow[]; replaces:NpcId|null; replaceable:NpcId[] }
+export interface WishOffer { npc:NpcId; kind:ItemKind; price:number; initial:number; floor:number; next:number; age:number; trust:number; buffs:number; debuffs:number; tried:boolean; options:Array<{markup:number;price:number;chance:number}>; itemIds:string[] }
 export interface RecoveryOffer { target:'energy'|'life'; credits:number; amount:number }
 export interface CollectorResult {
   playerId:string; credits:number; itemValue:number; modifierPercent:number; statusIds:StatusId[]; score:number;
@@ -72,6 +82,8 @@ export interface EventOffer {
   facts: Record<string,Knowledge>; targetKinds: Record<string,ItemKind>;
   /** Held item a bond swap hands to the NPC; fixed when the offer opens. */
   giveItemId?: string;
+  /** The three buffs of a boon draft (E108), fixed when the offer opens. */
+  boons?: StatusId[];
   /** What a merchant announces in E73. */
   wish?: {kind:ItemKind;price:number};
 }
@@ -98,8 +110,10 @@ export interface Appraiser {
   /** Items a merchant already tried to cleanse this encounter; present only with cleanse rules. */
   cleansed?: string[];
   /** What each merchant said it wants; kept until sold. Present only with wishlist rules. */
-  wishes?: Partial<Record<NpcId,{kind:ItemKind;price:number}>>;
+  wishes?: Partial<Record<NpcId,{kind:ItemKind;price:number;set?:number}>>;
   wishTried?: boolean;
+  /** How many wishes this seat requested; keeps each re-roll different. */
+  wishRolls?: number;
   notes: string[];
 }
 export interface MarketContract {
@@ -139,6 +153,7 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
   | { type: 'done' }
   | { type:'recover-resource'; target:'energy'|'life' }
   | { type:'wish-sell'; itemId:string; markup:number }
+  | { type:'wish-new'; replaceNpc?:NpcId }
   | { type:'cleanse'; itemId:string; stoneId?:string }
   | { type:'unsold'; itemId:string; choice:UnsoldChoice }
   | { type:'bid'; lotId:string; credits:number }
@@ -167,13 +182,16 @@ export interface ItemView {
 }
 export interface AppraisalView {
   version: 4 | 5; phase: AppraisalPhase; encounter: number; encounterCount: number | null; revision: number;
-  survival?:NonNullable<AppraisalConfig['survival']>; curseSight?:boolean; freeBuy?:boolean; fakeEffect?:boolean; cleanse?:boolean; wishlist?:boolean; challenge?:boolean; maxEnergy?:number; collector?:CollectorResult[]; brokerage?:boolean; roundRewardBase?:number; passives?:boolean;
+  survival?:NonNullable<AppraisalConfig['survival']>; curseSight?:boolean; freeBuy?:boolean; fakeEffect?:boolean; cleanse?:boolean; wishlist?:boolean; wishContract?:boolean; challenge?:boolean; polish?:boolean; omen?:{id:string;name:string;text:string}; salePct?:number; fee?:number; maxEnergy?:number; collector?:CollectorResult[]; brokerage?:boolean; roundRewardBase?:number; passives?:boolean;
   self: Omit<Appraiser,'knowledge'|'portals'|'stock'|'inventory'|'valuations'|'startWealth'|'acceptedDanger'|'seenEvents'|'resolvedEvents'> & {
     inventory: ItemView[]; stock: ItemView[]; portals: Array<{id:string; npc:NpcId; hint:ItemKind; disabled:boolean}>;
     counterLimit: number;
+    /** Per-seat caps once held relics apply (polish rules). */
+    maxEnergy?: number; maxLife?: number;
     recoveryOffer?:RecoveryOffer;
     cleanseOffer?:CleanseOffer;
     wishOffer?:WishOffer;
+    wishDesk?:WishDesk;
   };
   players: Array<{id:string;credits:number;energy:number;score:number;paused:Appraiser['paused'];done:boolean;itemCount:number;life?:number}>;
   market: Omit<DarkMarket,'lots'> & { lots?: AuctionLotView[] }; listings: Array<SharedListing & { item: ItemView }>;

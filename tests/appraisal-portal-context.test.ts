@@ -4,7 +4,7 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { applyAppraisalAction, appraisalViewFor } from '../src/game/appraisal/index.js';
 import { offerEvent } from '../src/game/appraisal/events.js';
-import { NPC_SPECS } from '../src/game/appraisal/content.js';
+import { NPC_SPECS, npcImage } from '../src/game/appraisal/content.js';
 import { EventDecision } from '../src/appraisal-client/components.js';
 import { portalAvailability, portalChoiceTitle } from '../src/appraisal-client/PortalEventPreview.js';
 import { eventCost } from '../src/appraisal-client/model.js';
@@ -31,7 +31,7 @@ test('portal decisions expose all merchant hints before the choices, and name th
     const html=renderToStaticMarkup(createElement(EventDecision,{game,offer,submit:()=>{},disabled:false}));
     assert(html.indexOf('event-portal-grid')<html.indexOf('event-form'));
     for(const portal of game.self.portals) {
-      assert(html.includes(`/art/npc-${portal.npc}.png`));assert(html.includes(NPC_SPECS[portal.npc].name));assert(html.includes(NPC_SPECS[portal.npc].hint));
+      assert(html.includes(npcImage(portal.npc)));assert(html.includes(NPC_SPECS[portal.npc].name));assert(html.includes(NPC_SPECS[portal.npc].hint));
     }
     assert(html.includes('จึงเลือกเข้าประตู'));
     assert(!html.includes('ยึดประตูเดิม'));

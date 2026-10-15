@@ -42,8 +42,8 @@ test('two new merchants exist only with the expansion rules, and their stock mat
 });
 test('twelve new statuses (6 buffs, 6 debuffs) are in the catalog and unique',()=>{
   const ids=['B11','B12','B13','B14','B15','B16','D11','D12','D13','D14','D15','D16'];
-  assert.equal(STATUS_IDS.length,32);for(const id of ids){assert(STATUS_IDS.includes(id as never));const spec=STATUS_CATALOG.find(s=>s.id===id)!;assert(spec.name && spec.description.length>10);}
-  assert.equal(new Set(STATUS_CATALOG.map(s=>s.name)).size,32);
+  assert.equal(STATUS_IDS.length,40);for(const id of ids){assert(STATUS_IDS.includes(id as never));const spec=STATUS_CATALOG.find(s=>s.id===id)!;assert(spec.name && spec.description.length>10);}
+  assert.equal(new Set(STATUS_CATALOG.map(s=>s.name)).size,40);
   assert(Object.values(ITEM_SPECS).filter(spec=>EXPANSION_KINDS.some(k=>ITEM_SPECS[k]===spec)).every(spec=>ids.includes(spec.buff) && ids.includes(spec.drawback)));
 });
 test('B11 compound eyes: two free inspections, still counted; D12 raises the next purchase price once',()=>{
@@ -129,8 +129,12 @@ test('every item kind and merchant has its own artwork file; no two names share 
   const kinds=Object.keys(ITEM_SPECS) as ItemKind[];const paths=kinds.map(itemImage);
   assert.equal(new Set(paths).size,kinds.length,'one path per kind');
   const hashes=new Set<string>();
-  for(const kind of kinds){const file=`src/appraisal-client/public${itemImage(kind)}`;assert(existsSync(file),file);hashes.add(createHash('sha256').update(readFileSync(file)).digest('hex'));}
+  for(const kind of kinds){const file=`src/appraisal-client/public${itemImage(kind)}`;assert(existsSync(file),file);const bytes=readFileSync(file);
+    assert.equal(itemImage(kind),`/art/item-${kind}.jpg`);assert.equal(bytes.subarray(0,3).toString('hex'),'ffd8ff','every item, including capacity relics, must have a real painted raster');
+    hashes.add(createHash('sha256').update(bytes).digest('hex'));}
   assert.equal(hashes.size,kinds.length,'no byte-identical pictures under different names');
   const npcs=Object.keys(NPC_SPECS) as NpcId[];assert.equal(new Set(npcs.map(npcImage)).size,npcs.length);
-  for(const npc of npcs) assert(existsSync(`src/appraisal-client/public${npcImage(npc)}`));
+  const npcHashes=new Set<string>();
+  for(const npc of npcs){assert.equal(npcImage(npc),`/art/npc-${npc}.jpg`);const bytes=readFileSync(`src/appraisal-client/public${npcImage(npc)}`);assert.equal(bytes.subarray(0,3).toString('hex'),'ffd8ff');npcHashes.add(createHash('sha256').update(bytes).digest('hex'));}
+  assert.equal(npcHashes.size,npcs.length,'each merchant has a different portrait');
 });

@@ -22,7 +22,7 @@ export function createApp(options: { rooms?: RoomTransport; webRoot?: string } =
       file = resolve(webRoot, "index.html");
     }
     if (!existsSync(file)) { res.writeHead(503); res.end("Build the client with npm run build, or use npm run dev."); return; }
-    const mime: Record<string, string> = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".svg": "image/svg+xml", ".png": "image/png", ".woff2": "font/woff2", ".ttf": "font/ttf" };
+    const mime: Record<string, string> = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".woff2": "font/woff2", ".ttf": "font/ttf" };
     res.writeHead(200, {
       "Content-Type": mime[extname(file)] ?? "application/octet-stream",
       "Cache-Control": extname(file) === ".html" ? "no-cache" : "public, max-age=31536000, immutable",

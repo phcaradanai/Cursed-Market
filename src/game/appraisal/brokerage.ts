@@ -1,7 +1,7 @@
 import { randomAt } from '../random.js';
 import { BOND_SPECS, CONSIGN_RULES, ITEM_SPECS, UNSOLD_PENALTIES, itemFamily } from './content.js';
 import type { BondSpec } from './content.js';
-import { check, completeAppraisedSale, damageLife, grant, healLife, known, learn, ownedItem, player, purchase, recover, removeStatus, retire, reward, spend, stockItem, trace, unlocked } from './mechanics.js';
+import { check, completeAppraisedSale, consumeStatus, damageLife, grant, healLife, known, learn, ownedItem, player, purchase, recover, removeStatus, retire, reward, saleApply, salePreview, spend, status, stockItem, trace, unlocked } from './mechanics.js';
 import type { AppraisalAction, AppraisalItem, AppraisalState, Appraiser, AuctionLot, EventId, EventOffer, UnsoldChoice } from './types.js';
 
 /* ---------- NPC × held-item events (E51–E72) ---------- */
@@ -15,6 +15,8 @@ function freeBank(state:AppraisalState):number { return state.bank-state.market.
 function bondPrice(state:AppraisalState,spec:BondSpec,itemId:string):number {
   return Math.floor(ITEM_SPECS[state.items[itemId]!.kind].anchor*(spec.price??1));
 }
+/** What the seat would really receive: the shared sale pipeline applies to everything it owns. */
+function bondQuote(state:AppraisalState,p:Appraiser,spec:BondSpec,itemId:string):number {return salePreview(state,p,bondPrice(state,spec,itemId));}
 /** Held items that satisfy the NPC. Items handed over must be unlocked and unused this encounter. */
 export function bondItems(state:AppraisalState,p:Appraiser,spec:BondSpec):string[] {
   const gives=['swap','sell','tribute'].includes(spec.mode);
@@ -37,7 +39,7 @@ export function bondEligible(state:AppraisalState,p:Appraiser,id:EventId):boolea
   const held=bondItems(state,p,spec);if(!held.length) return false;
   if(spec.mode==='swap' && !shopStock(state,p).length) return false;
   if(spec.mode==='reveal' && !revealTargets(state,p,spec).length) return false;
-  if(spec.mode==='sell' && freeBank(state)<Math.max(...held.map(itemId=>bondPrice(state,spec,itemId)))) return false;
+  if(spec.mode==='sell' && freeBank(state)<Math.max(...held.map(itemId=>bondQuote(state,p,spec,itemId)))) return false;
   if(spec.energyCost && p.energy<spec.energyCost) return false;
   if(spec.cleanse==='debuffs' && !p.statuses.some(s=>s.id.startsWith('D'))) return false;
   return true;
@@ -52,7 +54,7 @@ export function bondTargets(state:AppraisalState,p:Appraiser,id:EventId):{itemId
 }
 export function bondQuotes(state:AppraisalState,p:Appraiser,id:EventId):Record<string,number> {
   const spec=bondSpec(id);
-  return spec?.mode==='sell'?Object.fromEntries(bondItems(state,p,spec).map(itemId=>[itemId,bondPrice(state,spec,itemId)])):{};
+  return spec?.mode==='sell'?Object.fromEntries(bondItems(state,p,spec).map(itemId=>[itemId,bondQuote(state,p,spec,itemId)])):{};
 }
 function applyGain(state:AppraisalState,p:Appraiser,spec:BondSpec):void {
   if(spec.cleanse==='D10') removeStatus(p,'D10');
@@ -82,7 +84,7 @@ export function resolveBond(state:AppraisalState,p:Appraiser,offer:EventOffer,co
     }
     case 'sell': case 'tribute': {
       const itemId=chosen();stillHeld(itemId);
-      if(spec.mode==='sell') reward(state,p,bondPrice(state,spec,itemId),spec.id);
+      if(spec.mode==='sell') reward(state,p,saleApply(state,p,bondPrice(state,spec,itemId)),spec.id);
       retire(state,p,itemId,spec.id);if(spec.mode==='tribute') applyGain(state,p,spec);break;
     }
     case 'swap': {
@@ -112,8 +114,12 @@ function payUpTo(state:AppraisalState,p:Appraiser,credits:number,reason:string):
 }
 export function unsoldPenalty(state:AppraisalState,p:Appraiser,item:AppraisalItem):void {
   const rule=UNSOLD_PENALTIES[item.npc];
-  const paid=payUpTo(state,p,rule.credits,'unsold-penalty');
-  const drained=Math.min(rule.energy,p.energy);p.energy-=drained;
+  // Spirit ward turns a credit/energy penalty into a lighter one; an open wound doubles the credits. Life penalties go through damageLife.
+  const lifePenalty=!!(rule.life && state.config.survival);
+  const ward=!lifePenalty && !!state.config.polish && !!status(p,'B19'),wound=!lifePenalty && !!state.config.polish && !!status(p,'D20');
+  if(ward) consumeStatus(p,'B19');if(wound) consumeStatus(p,'D20');
+  const paid=payUpTo(state,p,ward?0:rule.credits*(wound?2:1),'unsold-penalty');
+  const drained=Math.min(Math.max(0,rule.energy-(ward?1:0)),p.energy);p.energy-=drained;
   for(const id of rule.statuses) grant(state,p,id);
   leaveShop(state,p,item);
   p.notes.push(`${ITEM_SPECS[item.kind].name}ขายไม่ออก: ${rule.text}`);p.notes=p.notes.slice(-30);
@@ -126,7 +132,9 @@ function consign(state:AppraisalState,p:Appraiser,item:AppraisalItem):void {
   let outcome='clean';
   if(roll>=CONSIGN_RULES.debuffBelow) {const paid=payUpTo(state,p,CONSIGN_RULES.fee,'consign-fee');outcome=`fee:${paid}`;p.notes.push(`Dark Market รับฝากของ เก็บค่าผ่านทาง ${paid} เครดิต`);}
   else if(roll>=CONSIGN_RULES.cleanBelow) {
-    const debuff=CONSIGN_RULES.debuffs[Math.floor(randomAt(state.seed,`${state.encounter}:${p.id}:${item.id}:consign-debuff`)*CONSIGN_RULES.debuffs.length)]!;
+    // Polish rules add market inflation and hidden taxes to the debuffs a consignment can leave behind.
+    const pool=state.config.polish?[...CONSIGN_RULES.debuffs,'D17' as const,'D18' as const]:CONSIGN_RULES.debuffs;
+    const debuff=pool[Math.floor(randomAt(state.seed,`${state.encounter}:${p.id}:${item.id}:consign-debuff`)*pool.length)]!;
     grant(state,p,debuff);outcome=`debuff:${debuff}`;p.notes.push(`Dark Market รับฝากของ แต่ทิ้ง ${debuff} ไว้กับคุณ`);
   } else p.notes.push('Dark Market รับฝากของเงียบ ๆ ไม่มีผลติดตัว');
   p.notes=p.notes.slice(-30);
@@ -180,10 +188,12 @@ export function settleAuction(state:AppraisalState):void {
     const winner=bidders.find(b=>b.p.credits>=b.amount);
     if(!winner) {lot.winnerId=null;continue;}
     const item=state.items[lot.itemId]!;
-    spend(state,winner.p,winner.amount,0,'dark-auction');
-    completeAppraisedSale(state,item,winner.amount);
+    const edge=!!state.config.polish && !!status(winner.p,'B20');const paid=edge?winner.amount-Math.floor(winner.amount*20/100):winner.amount;
+    if(edge) consumeStatus(winner.p,'B20');
+    spend(state,winner.p,paid,0,'dark-auction');
+    completeAppraisedSale(state,item,paid);
     item.owner=winner.p.id;winner.p.inventory.push(item.id);state.vault=state.vault!.filter(id=>id!==item.id);
-    lot.winnerId=winner.p.id;lot.price=winner.amount;
-    trace(state,winner.p,'auction-won',{lotId:lot.id,itemId:item.id,price:winner.amount});
+    lot.winnerId=winner.p.id;lot.price=paid;
+    trace(state,winner.p,'auction-won',{lotId:lot.id,itemId:item.id,price:paid,...(edge?{bid:winner.amount}:{})});
   }
 }

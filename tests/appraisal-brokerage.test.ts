@@ -37,7 +37,7 @@ function brokerFixture(npc:NpcId='orc',overrides:Partial<AppraisalConfig>={}):Ap
 }
 
 test('brokerage is opt-in: default runs keep 50 random events, no vault and the original market-sale owner', () => {
-  assert.equal(EVENT_IDS.length,50);assert.equal(BOND_EVENT_IDS.length,32);assert.equal(BOND_SPECS.length,32);
+  assert.equal(EVENT_IDS.length,50);assert.equal(BOND_EVENT_IDS.length,38);assert.equal(BOND_SPECS.length,38);
   const plain=createAppraisalRun(['alice','bob'],'plain');assert.equal(plain.vault,undefined);assert.equal(plain.market.lots,undefined);
   for(const id of BOND_EVENT_IDS) assert.equal(eventEligible(plain,plain.players[0]!,id),false);
   assert.throws(()=>act(plain,'alice',{type:'bid',lotId:'x',credits:5}));

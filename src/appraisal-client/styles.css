@@ -444,6 +444,9 @@ tr.leader>*{color:var(--amber);font-weight:700}
 .cleanse-deal{margin:0 0 14px;padding:10px 12px;border:1px solid var(--line);border-radius:8px}
 .cleanse-deal summary{cursor:pointer;font-weight:600}
 .cleanse-deal ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.omen{margin:8px 0 12px;padding:8px 12px;border:1px solid var(--bronze);border-left:4px solid var(--amber);border-radius:8px;background:rgb(233 183 101 / .08)}
+.wish-book{margin:10px 0 0;padding-top:8px;border-top:1px dashed var(--line)}
+.wish-book ul{margin:6px 0;padding-left:18px}
 .wish-deal{margin:0 0 14px;padding:10px 12px;border:1px solid var(--amber);border-radius:8px}
 .claims,.claim-box{margin:8px 0}
 .why{margin:6px 0 0;color:var(--muted);font-size:.9em}

@@ -10,6 +10,7 @@ export function HeldEffects({game}:{game:AppraisalView}) {
   const b=playerPassives(game);
   return <details className="held-effects"><summary>ดูผลของสะสม · {entries.reduce((n,e)=>n+e.count,0)} ชิ้น · {entries.length} ชนิด</summary>
     <p>ค่านายหน้า {commissionRate(b)}%{b.saleFee?` + ${b.saleFee} เครดิตต่อการขาย`:''} · เงินหลังซื้อขาย +{b.income} · หัวก้อยถูก {coinWinChance(b)}% ได้ครั้งละ {5+b.coinWin} เครดิต · ตรวจได้ {2+b.inspections} ครั้งต่อช่วง</p>
+    {(b.maxEnergy>0 || b.maxLife>0 || b.wishSlots>0) && <p>ขีดจำกัดจากของสะสม · พลังสูงสุด {game.self.maxEnergy??game.maxEnergy??10}{game.self.maxLife!==undefined?` · ชีวิตสูงสุด ${game.self.maxLife}`:''} · สัญญาตามหาของได้ {game.self.wishDesk?.cap??2+b.wishSlots} รายการ</p>}
     <ul>{entries.map(({kind,count})=><li key={kind}><strong>{PASSIVE_ITEMS[kind].name} ×{count}</strong><span>{PASSIVE_ITEMS[kind].passive.text}</span></li>)}</ul>
     <p className="supporting">ออกฤทธิ์ทันทีขณะถือ ไม่ต้องเปิดใช้ ของแท้และของปลอมให้ผลสะสมเหมือนกัน · ขายหรือแลกออกแล้วผลหาย · สิทธิ์ตรวจฟรีนับต่อคนต่อช่วงตามจำนวนที่ถือ และยังใช้โควตาตรวจ</p>
   </details>;

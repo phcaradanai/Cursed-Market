@@ -561,7 +561,7 @@ export const EN_UI_TEXT: Record<string, string> = {
   "ออกฤทธิ์ทันทีขณะถือ ไม่ต้องเปิดใช้ ของแท้และของปลอมให้ผลสะสมเหมือนกัน · ขายหรือแลกออกแล้วผลหาย · สิทธิ์ตรวจฟรีนับต่อคนต่อช่วงตามจำนวนที่ถือ และยังใช้โควตาตรวจ": "Relic effects apply immediately while held and need no activation. Genuine and fake items give the same relic effects. Selling or trading one removes its effect. Free-inspection permits count per seat per encounter by how many you hold, and they still use your inspection quota.",
   "สัญญากับพ่อค้า": "Merchant contracts",
   "Vampire · จ่ายชีวิต 2 แล้ว": "Vampire · paid 2 life",
-  "เลือกพบ Vampire ครั้งหน้าเพื่อรับของฟรี ส่วนลด 50% ฟื้นพลัง ฟื้นชีวิต หรือพรอย่างใดอย่างหนึ่งแบบสุ่ม": "Meet the Vampire next time for a free item, 50% off, energy or life recovery, or one random boon",
+  "เลือกพบ Vampire ครั้งหน้าเพื่อรับผลตอบแทนแบบสุ่ม 1 อย่างเท่านั้น: ของฟรี 1 ชิ้น หรือ ส่วนลด 50% หรือ ฟื้นพลัง หรือ ฟื้นชีวิต หรือ พรสุ่ม (ไม่ได้ทั้งหมด)": "Meet the Vampire next time for exactly one random reward: a free item, or 50% off, or energy recovery, or life recovery, or a random buff (not all of them)",
   "Vampire · ลดราคาสินค้า 50%": "Vampire · 50% off goods",
   "ใช้กับการซื้อจากร้าน Vampire นี้ครั้งแรกในช่วงนี้ รวมซื้อสองชิ้นได้ คิดหลังส่วนลดคงที่ ไม่รวมค่าธรรมเนียม": "Applies to your first purchase from this Vampire shop this encounter. Two items can be bought together; the flat discount is applied after and excludes fees.",
   "Alien · ยืมของ {n} ชิ้น": "Alien · {n} items on loan",

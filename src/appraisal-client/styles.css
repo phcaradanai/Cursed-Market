@@ -240,6 +240,8 @@ input.room-code{letter-spacing:.24em;font-size:18px}
 @media(max-width:640px){.event-portal-grid{grid-template-columns:1fr;gap:0}.event-portal{grid-template-columns:56px minmax(0,1fr);padding-block:10px;border-top:0}.event-portal:first-child{border-top:1px solid var(--line)}.event-portal .portal-projection{grid-column:2}.event-portal-context{margin-bottom:10px}}
 .event-form{align-self:start;min-width:0;padding:16px;background:rgb(0 0 0 / .22);border:1px solid var(--line);border-radius:8px}
 .event-form button{width:100%}
+/* Keep the confirm action reachable while a long event form scrolls inside the modal on short screens. */
+@media(max-width:640px),(max-height:720px){.modal .event-form>button:last-child{position:sticky;bottom:0;z-index:1;box-shadow:0 0 0 8px var(--panel)}}
 .event-say{font-size:17px;line-height:1.75;max-width:62ch}
 .event-give{padding:8px 12px;border:1px dashed var(--bronze);border-radius:8px;background:rgb(0 0 0 / .18)}
 .portal-contracts>div{padding:12px 0;border-top:1px solid var(--line)}
@@ -349,7 +351,7 @@ tr.leader>*{color:var(--amber);font-weight:700}
 .step-number{display:inline-grid;place-items:center;flex-shrink:0;width:24px;height:24px;border:1.5px solid currentColor;border-radius:50%;font-size:13px;font-weight:700;line-height:1}
 .desk-steps .current .step-number{background:var(--accent);border-color:var(--accent);color:var(--paper)}
 .step-label{display:flex;flex-direction:column;min-width:0;font-weight:700;line-height:1.3}
-.step-label small{font-size:12px;font-weight:400;color:var(--paper-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.step-label small{font-size:13px;font-weight:400;line-height:1.4;color:var(--paper-muted);overflow-wrap:anywhere}
 .step-panel[hidden]{display:none}
 .step-next{width:100%;margin-top:12px}
 .verdict{margin:12px 0 0;padding:8px 12px;border-radius:8px;font-weight:600}
@@ -380,6 +382,8 @@ tr.leader>*{color:var(--amber);font-weight:700}
 .toast{position:relative;display:grid;grid-template-columns:28px minmax(0,1fr) 36px;gap:10px;align-items:start;margin:0;padding:12px 8px 14px 14px;overflow:hidden;background:var(--panel-raised);border:1px solid var(--frame-line);border-radius:10px;box-shadow:0 14px 32px rgb(0 0 0 / .5);pointer-events:auto;animation:toast-in 260ms var(--ease)}
 .toast.good{border-color:rgb(165 198 160 / .6)}
 .toast.bad{background:var(--danger-wash);border-color:var(--oxblood-line)}
+/* On phones and short windows only the two newest cards show, so a burst of results cannot bury the table or an open dialog. Older ones still expire on their own timers. */
+@media(max-width:640px),(max-height:720px){.toasts>.toast:not(:nth-last-child(-n+2)){display:none}}
 .toast-icon{color:var(--amber);padding-top:2px}
 .toast.good .toast-icon{color:var(--positive)}
 .toast.bad .toast-icon{color:var(--danger)}
@@ -449,7 +453,7 @@ tr.leader>*{color:var(--amber);font-weight:700}
 .choice-card.unavailable{opacity:.55;cursor:not-allowed}
 .choice-card.unavailable:hover{border-color:var(--line);background:rgb(0 0 0 / .2)}
 .cleanse-deal{margin:0 0 14px;padding:10px 12px;border:1px solid var(--line);border-radius:8px}
-.cleanse-deal summary{cursor:pointer;font-weight:600}
+.cleanse-deal summary{cursor:pointer;min-height:44px;display:list-item;font-weight:600}
 .cleanse-deal ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:10px}
 .omen{margin:8px 0 12px;padding:8px 12px;border:1px solid var(--bronze);border-left-color:var(--amber);border-radius:8px;background:rgb(233 183 101 / .08)}
 .wish-book{margin:10px 0 0;padding-top:8px;border-top:1px dashed var(--line)}
@@ -516,6 +520,7 @@ tr.leader>*{color:var(--amber);font-weight:700}
 
 .mode-picker{margin:16px 0}
 .mode-guide table{width:100%}
+.mode-guide td{white-space:normal;min-width:180px;vertical-align:top}
 .mode-guide th.current,.mode-guide td.current{background:color-mix(in srgb,var(--accent,#c9a46a) 16%,transparent)}
 
 .wishlist-panel{margin:8px 0}.wishlist-panel summary{cursor:pointer;min-height:44px;display:list-item;font-weight:600}.wishlist-panel li{margin:8px 0;list-style:none}.wishlist-panel ul{padding:0}

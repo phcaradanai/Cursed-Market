@@ -318,7 +318,11 @@ input.room-code{letter-spacing:.24em;font-size:18px}
 .trade-listing{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;padding:18px;margin-top:16px;background:var(--panel);border:1px solid var(--frame-line);border-radius:var(--card-radius)}
 .trade-art{width:120px;aspect-ratio:1;object-fit:cover;border-radius:8px;border:1px solid var(--frame-line)}
 .trade-listing h3{overflow-wrap:anywhere}
-.trade-listing form{max-width:520px}
+.trade-listing form{display:grid;gap:16px;max-width:520px}
+.trade-listing form>*{margin:0}
+.trade-listing form>button{justify-self:start}
+.field label{margin-bottom:6px}
+.trades>h3{margin-top:32px}
 .offers{padding:0;list-style:none}
 .offers li{padding:16px 0;border-top:1px solid var(--line)}
 .swap-details{margin:16px 0}
@@ -433,9 +437,9 @@ tr.leader>*{color:var(--amber);font-weight:700}
 .choice-cards legend{padding:0;margin-bottom:8px;font-weight:600}
 .choice-grid{display:grid;gap:8px}
 .choice-grid:has(.has-art),.choice-cards.compact .choice-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,180px),1fr))}
-.choice-card{position:relative;display:flex;align-items:flex-start;gap:10px;min-height:44px;padding:10px 12px 10px 38px;border:1px solid var(--line);border-radius:8px;background:rgb(0 0 0 / .2);cursor:pointer;transition:border-color 160ms var(--ease),background-color 160ms var(--ease)}
+.choice-card{position:relative;display:flex;align-items:center;gap:10px;min-height:44px;padding:10px 12px 10px 38px;border:1px solid var(--line);border-radius:8px;background:rgb(0 0 0 / .2);cursor:pointer;transition:border-color 160ms var(--ease),background-color 160ms var(--ease)}
 .choice-card input{position:absolute;width:1px;height:1px;margin:0;opacity:0}
-.choice-card::before{content:"";position:absolute;left:12px;top:14px;width:16px;height:16px;border:1.6px solid var(--bronze);border-radius:50%}
+.choice-card::before{content:"";position:absolute;left:12px;top:50%;margin-top:-8px;width:16px;height:16px;border:1.6px solid var(--bronze);border-radius:50%}
 .choice-card:hover{border-color:var(--bronze-bright);background:rgb(0 0 0 / .3)}
 .choice-card.selected{border-color:var(--amber);background:rgb(233 183 101 / .1)}
 .choice-card.selected::before{border-color:var(--amber);background:radial-gradient(circle,var(--amber) 0 4px,transparent 4.5px)}

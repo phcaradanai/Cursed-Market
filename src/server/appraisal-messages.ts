@@ -38,11 +38,13 @@ function action(value: unknown): AppraisalSeatAction {
     case 'wish-sell': keys(body,[...fields,'itemId','markup']);return {type:'wish-sell',...base,itemId:string(body.itemId),markup:integer(body.markup)};
     case 'cleanse': keys(body,[...fields,'itemId','stoneId']);return {type:'cleanse',...base,itemId:string(body.itemId),...(body.stoneId===undefined?{}:{stoneId:string(body.stoneId)})};
     case 'event': {
-      keys(body, [...fields, 'key', 'choice', 'itemId', 'statusId', 'otherPlayerId', 'fact', 'guess']);
+      keys(body, [...fields, 'key', 'choice', 'itemId', 'itemIds', 'statusId', 'otherPlayerId', 'fact', 'guess']);
+      if(body.itemIds!==undefined && (!Array.isArray(body.itemIds) || body.itemIds.length<1 || body.itemIds.length>3 || new Set(body.itemIds).size!==body.itemIds.length))throw new MessageError();
       if (body.statusId !== undefined && !STATUS_IDS.includes(body.statusId as StatusId)) throw new MessageError();
       if (body.fact !== undefined && body.fact !== 'base' && body.fact !== 'genuine' && body.fact !== 'cursed') throw new MessageError();
       return { type: 'event', ...base, key: string(body.key, 256), choice: string(body.choice, 64),
         ...(body.itemId === undefined ? {} : { itemId: string(body.itemId) }),
+        ...(body.itemIds === undefined ? {} : {itemIds:(body.itemIds as unknown[]).map(id=>string(id))}),
         ...(body.statusId === undefined ? {} : { statusId: body.statusId as StatusId }),
         ...(body.otherPlayerId === undefined ? {} : { otherPlayerId: string(body.otherPlayerId, 32) }),
         ...(body.fact === undefined ? {} : { fact: body.fact as 'base' | 'genuine' | 'cursed' }),

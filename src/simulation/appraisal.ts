@@ -27,6 +27,11 @@ function eventAction(v:AppraisalView,policy:AppraisalPolicy):Body {
   let statusId=offer.statusIds.find(id=>id.startsWith('D'));
   if(offer.id==='E06') statusId=offer.statusIds.find(id=>id.startsWith('D') && id!==(choice==='interest'?'D04':'D07'));
   if(offer.id==='E108') {statusId=offer.boons![0];choice=policy==='cautious'?'decline':'pick';}
+  if(offer.npcTerms){
+    choice=policy==='cautious'?'decline':offer.choices.find(c=>c!=='decline')??'decline';
+    if(offer.id==='E109' && p.life!<=3)choice='decline';
+    return {type:'event',key:offer.key,choice,...(itemId?{itemId}:{}),...(statusId?{statusId}:{}),...(offer.id==='E110' && choice!=='decline'?{itemIds:offer.itemIds.slice(0,Number(choice.slice(5)))}:{}),...(choice==='send-debuff'?{otherPlayerId:offer.otherPlayerIds[0]!}:{})};
+  }
   if(offer.id==='E88') statusId=offer.statusIds.find(id=>['D11','D12','D13','D14','D15','D16'].includes(id));
   if(offer.id==='E34') statusId=offer.statusIds.find(id=>id.startsWith('B') && id!=='B10');
   if(offer.id==='E35') statusId=offer.statusIds.find(id=>id==='D01' || id==='D05');

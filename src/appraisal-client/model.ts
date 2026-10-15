@@ -24,6 +24,12 @@ export function eventScoreText(game:AppraisalView,offer:EventOffer,choice:string
 export function readable(text:string):string {
   return text.replace(/\b[BD]\d{2}\b/g,id=>statusName(id as StatusId)).replace(/base value|base/g,'มูลค่าจริง').replace(/encounter/g,'ช่วงพบพ่อค้า').replace(/settlement/g,'การคิดผลรอบ').replace(/seed/g,'เส้นทาง').replace(/credit/g,'เครดิต').replace(/percentage points/g,'จุดเปอร์เซ็นต์').replace(/\bevent\b/g,'เหตุการณ์').replace(/ก่อน resolve /g,'ก่อนเกิด').replace(/\bserver\b/g,'เซิร์ฟเวอร์');
 }
+/** Display names belong to the room, while engine notes and audit commands keep stable seat IDs. */
+export function playerNote(text:string,names:Record<string,string>):string {
+  const ids=Object.keys(names);if(!ids.length)return text;
+  const escaped=ids.map(id=>id.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'));
+  return text.replace(new RegExp(`(?<![A-Za-z0-9_-])(?:${escaped.join('|')})(?![A-Za-z0-9_-])`,'g'),id=>names[id]??id);
+}
 /** Price stepper: out-of-range or fractional entries clamp into the 0–1000 integer range before stepping. */
 export function stepPrice(value:string,delta:number):string {
   const number=Number(value);const base=value.trim()!=='' && Number.isFinite(number)?Math.round(number):0;
@@ -41,8 +47,8 @@ export const purchaseEnergy = (game:AppraisalView) => Math.max(0,(game.freeBuy?0
 export const effectsInspectionLabel=(game:AppraisalView)=>game.curseSight?'ตรวจคำสาป':'ตรวจผลของสินค้า';
 /** Nothing is left for the third inspection to teach. */
 export const effectsKnownFor=(game:AppraisalView,k:Knowledge)=>game.curseSight?k.cursed!==undefined:!!k.effectsKnown && (!hasStatus(game,'B02') || k.cursed!==undefined);
-export const needShort=(game:AppraisalView,need:{credits:number;energy:number}):string|null=>
-  game.self.credits<need.credits?`เครดิตไม่พอ ต้องใช้ ${need.credits} มี ${game.self.credits}`:game.self.energy<need.energy?`พลังไม่พอ ต้องใช้ ${need.energy} มี ${game.self.energy}`:null;
+export const needShort=(game:AppraisalView,need:{credits:number;energy:number;life?:number}):string|null=>
+  game.self.credits<need.credits?`เครดิตไม่พอ ต้องใช้ ${need.credits} มี ${game.self.credits}`:game.self.energy<need.energy?`พลังไม่พอ ต้องใช้ ${need.energy} มี ${game.self.energy}`:need.life && (game.self.life??0)<=need.life?`ต้องมีชีวิตมากกว่า ${need.life} เพื่อเหลืออย่างน้อย 1`:null;
 /** Why an inspection button is locked for every item, or null. `quiet` suppresses the note while offline or after the seat is done. */
 export function inspectionBlock(game:AppraisalView,quiet:boolean):string|null {
   if(quiet) return null;
@@ -77,7 +83,8 @@ export function riskRange(game:AppraisalView,item:ItemView,value:number):[number
   return [Math.floor(Math.min(...risks)),Math.ceil(Math.max(...risks))];
 }
 export function purchasePrice(game:AppraisalView,items:ItemView[],condition:boolean,extraDiscount=0):number {
-  return (game.fee??0)+Math.max(0,items.reduce((sum,item)=>sum+item.price,0)-(hasStatus(game,'B03')?2:0)+(hasStatus(game,'D12')?2:0)-(condition?(items[0]?.condition.discount??0):0)-extraDiscount-playerPassives(game).discount);
+  const bloodDiscount=game.self.vampireDiscount?.encounter===game.encounter && items.length>0 && items.every(item=>item.npc==='vampire' && item.owner===`npc:${game.self.id}:${game.encounter}`);
+  return (game.fee??0)+Math.floor(Math.max(0,items.reduce((sum,item)=>sum+item.price,0)-(hasStatus(game,'B03')?2:0)+(hasStatus(game,'D12')?2:0)-(condition?(items[0]?.condition.discount??0):0)-extraDiscount-playerPassives(game).discount)*(bloodDiscount?.5:1));
 }
 /** A sale of something the seat owns, after statuses and the omen (Dark Market, wishes, bond buyers). */
 export const saleAdjusted=(game:AppraisalView,base:number)=>Math.max(0,Math.floor(base*(100+(game.salePct??0))/100));
@@ -86,9 +93,10 @@ export function marketOptions(game:AppraisalView,item:ItemView) {
   return game.market.orders.filter(o=>game.market.open && o.kind===item.kind && (o.quota[game.self.id]??0)>0 && game.market.budget>=marketOrderReserve(o) && item.lockedUntil===null);
 }
 /** What an event choice charges up front, mirroring events.ts. Hidden facts never enter this. */
-export function eventNeeds(game:AppraisalView,offer:EventOffer,choice:string,itemId:string):{credits:number;energy:number} {
+export function eventNeeds(game:AppraisalView,offer:EventOffer,choice:string,itemId:string):{credits:number;energy:number;life?:number} {
   const none={credits:0,energy:0};
   if(choice==='decline') return none;
+  if(offer.npcTerms)return {credits:offer.npcTerms.credits,energy:offer.npcTerms.energy+(choice==='give-energy'?2:0),life:offer.npcTerms.life};
   const mod=(n:number)=>Math.max(0,n+Number(hasStatus(game,'D01'))-Number(hasStatus(game,'B05')));
   const item=game.self.stock.find(i=>i.id===itemId);
   const deal=game.self.dealMode==='condition';
@@ -142,7 +150,7 @@ export function itemScoreRange(k:Knowledge):[number,number]|null {
 /** What the Collector would pay for the pack right now, from known facts only; unpriced items count 0. */
 export function collectorEstimate(game:AppraisalView):{min:number;max:number;unpriced:number;modifier:number} {
   let low=0,high=0,unpriced=0;
-  for(const item of game.self.inventory) {const r=itemScoreRange(item.knowledge);if(r){low+=r[0];high+=r[1];}else unpriced++;}
+  for(const item of [...game.self.inventory,...(game.self.loanItems??[])]) {const r=itemScoreRange(item.knowledge);if(r){low+=r[0];high+=r[1];}else unpriced++;}
   const has=(id:StatusId)=>game.self.statuses.some(s=>s.id===id && s.charges>0);
   const modifier=(has('B10')?20:0)-(has('D10')?20:0);
   return {min:collectorTotal(game.self.credits,low,modifier),max:collectorTotal(game.self.credits,high,modifier),unpriced,modifier};
@@ -161,6 +169,7 @@ const itemEvents=new Set(['E07','E09','E11','E12','E16','E17','E19','E20','E24',
 export const isConsequence=(id:string)=>['E48','E49','E50'].includes(id);
 export const bondOf=(offer:EventOffer)=>BOND_SPECS.find(spec=>spec.id===offer.id);
 export function eventNeedsItem(offer:EventOffer,choice:string):boolean {
+  if(offer.npcTerms)return choice!=='decline' && (offer.npcTerms.items>0 || choice==='give-item');
   const bond=bondOf(offer);if(bond) return choice!=='decline' && bond.mode!=='show';
   return choice!=='decline' && (itemEvents.has(offer.id) || (offer.id==='E48' && choice==='item') || (offer.id==='E50' && choice==='surrender'));
 }
@@ -170,18 +179,22 @@ export function eventStatusOptions(offer:EventOffer,choice:string):StatusId[] {
   if(offer.id==='E34') return offer.statusIds.filter(id=>id.startsWith('B') && id!=='B10');
   if(offer.id==='E35') return offer.statusIds.filter(id=>id==='D01' || id==='D05');
   if(offer.id==='E41') return offer.statusIds.filter(id=>id.startsWith('D'));
+  if(offer.id==='E111' && choice==='purge')return offer.statusIds.filter(id=>id.startsWith('D'));
   if(offer.id==='E108') return offer.boons??[];
   if(offer.id==='E88') return offer.statusIds.filter(id=>['D11','D12','D13','D14','D15','D16'].includes(id));
   return [];
 }
-export function eventNeedsStatus(offer:EventOffer,choice:string):boolean {return choice!=='decline' && ['E06','E34','E35','E41','E88','E108'].includes(offer.id);}
+export function eventNeedsStatus(offer:EventOffer,choice:string):boolean {return choice!=='decline' && (['E06','E34','E35','E41','E88','E108'].includes(offer.id) || offer.id==='E111' && choice==='purge');}
+export const loanItemCount=(choice:string)=>/^lend-[1-3]$/.test(choice)?Number(choice.slice(5)):0;
 export const factName={base:'มูลค่าจริง',genuine:'ความแท้',cursed:'คำสาป'};
 export function eventFacts(offer:EventOffer,itemId:string):Array<keyof typeof factName> {
   return (['base','genuine','cursed'] as const).filter(fact=>offer.facts[itemId]?.[fact]!==undefined);
 }
-export function eventDecision(offer:EventOffer,choice:string,selection:{itemId:string;statusId:string;fact:string;guess:boolean}):Decision|null {
+export function eventDecision(offer:EventOffer,choice:string,selection:{itemId:string;statusId:string;fact:string;guess:boolean;itemIds?:string[];otherPlayerId?:string}):Decision|null {
   if(!offer.choices.includes(choice)) return null;
   const action:Extract<Decision,{type:'event'}>={type:'event',key:offer.key,choice};
+  if(offer.id==='E110' && choice!=='decline'){const ids=selection.itemIds;if(!ids || ids.length!==loanItemCount(choice) || new Set(ids).size!==ids.length || !ids.every(id=>offer.itemIds.includes(id)))return null;action.itemIds=ids;}
+  if(offer.id==='E111' && choice==='send-debuff'){if(!selection.otherPlayerId || !offer.otherPlayerIds.includes(selection.otherPlayerId))return null;action.otherPlayerId=selection.otherPlayerId;}
   if(eventNeedsItem(offer,choice)) {if(!offer.itemIds.includes(selection.itemId)) return null;action.itemId=selection.itemId;}
   if(eventNeedsStatus(offer,choice)) {if(!eventStatusOptions(offer,choice).includes(selection.statusId as StatusId)) return null;action.statusId=selection.statusId as StatusId;}
   if(choice!=='decline' && offer.id==='E45') {if(!eventFacts(offer,selection.itemId).includes(selection.fact as keyof typeof factName)) return null;action.fact=selection.fact as keyof typeof factName;}
@@ -193,8 +206,13 @@ const choiceNames:Record<string,string>={pick:'เลือกพรหนึ่
 export const choiceName=(choice:string,survival=false)=>replaceChoice(choice)?`แทนคำขอของ ${NPC_SPECS[replaceChoice(choice) as NpcId]?.name??replaceChoice(choice)}`:survival && choice==='die'?'รับผลตายและเป็นผู้ชมจนจบ run':choiceNames[choice]??choice;
 const eventChoiceNames:Partial<Record<string,Record<string,string>>>={E42:{energy:'ฟื้นพลัง 2'},E48:{energy:'เสียพลัง 2',pay:'จ่ายค่าปรับ 2 เครดิต'},E49:{pay:'จ่าย 2 เครดิตให้ลืม'},E03:{pay:'จ่าย 2 เครดิต',debt:'จ่ายด้วยเลือด'},E37:{pay:'จ้างคนแบก',burden:'แบกเอง'},E10:{pay:'จ่ายค่าผ่าน',fog:'ผ่านฟรีในหมอก',switch:'เลี่ยงไปประตูอื่น'}};
 /** Button and card title for one event choice; a few events name the same choice key differently. */
-export const choiceTitle=(offer:EventOffer,choice:string,survival=false)=>eventChoiceNames[offer.id]?.[choice]??choiceName(choice,survival);
+export const choiceTitle=(offer:EventOffer,choice:string,survival=false)=>loanItemCount(choice)?`ให้ยืม ${loanItemCount(choice)} ชิ้น`:({purge:'ล้างผลเสียของฉัน','send-debuff':'ส่งผลเสียสุ่มให้ผู้เล่นอื่น','give-item':'ส่งสินค้าหนึ่งชิ้น','give-energy':'จ่ายพลัง 2'} as Record<string,string>)[choice]??eventChoiceNames[offer.id]?.[choice]??choiceName(choice,survival);
 export function eventCost(game:AppraisalView,offer:EventOffer,choice:string,itemId:string):string {
+  if(offer.npcTerms && choice!=='decline'){
+    const t=offer.npcTerms,n=loanItemCount(choice);
+    if(n)return `ของที่เลือก ${n} ชิ้นออกจากคลังชั่วคราว · พบ Alien ตั้งแต่ช่วง ${game.encounter+2} รับของคืน + ${4*n}–${8*n} เครดิต และฟื้นพลังสูงสุด ${n}–${2*n}`;
+    return [t.credits?`${t.credits} เครดิต`:'',t.energy || choice==='give-energy'?`${t.energy+(choice==='give-energy'?2:0)} พลัง`:'',t.life?`${t.life} ชีวิต (เหลืออย่างน้อย 1)`:'',t.items || choice==='give-item'?'เสียสินค้าที่เลือก 1 ชิ้น':''].filter(Boolean).join(' · ');
+  }
   if(game.phase==='PORTALS' && ['E01','E08','E10'].includes(offer.id)) {
     const first=NPC_SPECS[game.self.portals[0]!.npc].name;
     if(offer.id==='E08') {
@@ -298,9 +316,9 @@ export function outcomeBetween(prev:AppraisalView,next:AppraisalView):Outcome|nu
   if(!p.caught && n.caught){lines.push('พ่อค้าจับได้ว่าคุณกดราคา');bad+=2;}
   const gained=n.inventory.filter(i=>!p.inventory.some(x=>x.id===i.id));
   const lost=p.inventory.filter(i=>!n.inventory.some(x=>x.id===i.id));
-  for(const item of gained){lines.push(`ได้ ${item.name}`);good++;}
+  for(const item of gained){lines.push(p.npcContracts?.alien?.itemIds.includes(item.id)?`Alien คืน ${item.name}`:`ได้ ${item.name}`);good++;}
   const credits=n.credits-p.credits,energy=n.energy-p.energy,life=(n.life??0)-(p.life??0);
-  for(const item of lost){lines.push(`เสีย ${item.name}`);if(credits<=0)bad++;}
+  for(const item of lost){const lent=!!n.npcContracts?.alien?.itemIds.includes(item.id);lines.push(lent?`ให้ Alien ยืม ${item.name}`:`เสีย ${item.name}`);if(!lent && credits<=0)bad++;}
   const had=new Set(p.statuses.map(s=>s.id)),has=new Set(n.statuses.map(s=>s.id));
   for(const s of n.statuses) if(!had.has(s.id)){lines.push(`ได้รับ ${statusName(s.id)}`);if(s.id.startsWith('D'))bad++;else good++;}
   for(const s of p.statuses) if(!has.has(s.id)){lines.push(`หมดผล ${statusName(s.id)}`);if(s.id.startsWith('D'))good++;}

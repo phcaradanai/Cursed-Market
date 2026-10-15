@@ -1,4 +1,6 @@
 import { HeldEffects } from './HeldEffects.js';
+import { NpcContracts } from './NpcContracts.js';
+import { playerNote } from './model.js';
 import { useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import { ITEM_SPECS, NPC_SPECS, npcImage } from '../game/appraisal/content.js';
@@ -138,6 +140,7 @@ function Results({room,send,disabled}:{room:AppraisalRoomView;send:Send;disabled
 }
 export function GameTable({room,submit,send,disabled}:{room:AppraisalRoomView;submit:(action:Decision)=>void;send:Send;disabled:boolean}) {
   const game=room.game!;const self=game.self;
+  const playerNames=Object.fromEntries(room.matchSeats.map(seat=>[seat.id,seat.name]));
   const [selected,setSelected]=useState('');
   const [coinTossing,setCoinTossing]=useState(false);
   const item=self.stock.find(i=>i.id===selected)??self.stock[0];
@@ -156,6 +159,7 @@ export function GameTable({room,submit,send,disabled}:{room:AppraisalRoomView;su
     <header className="phase-header"><div className="phase-title"><h1>{phaseName[game.phase]}</h1><p className="phase-hint">{phaseHint[game.phase]}</p><p>ช่วงพบพ่อค้า {game.encounter}{game.encounterCount===null?' · จนทุกคนชีวิตหมด':` / ${game.encounterCount}`} · ห้อง <span className="room-code">{room.code}</span></p></div><Countdown room={room}/>
       <dl className="resources"><div className="resource credit"><dt><CoinIcon/>เครดิต</dt><dd>{self.credits}</dd></div><div className={`resource energy${self.energy===0?' empty':''}`}><dt><EnergyIcon/>พลัง</dt><dd>{self.energy}<small> / {self.maxEnergy??game.maxEnergy??10}</small></dd></div>{self.life!==undefined && <div className={`resource life${self.life<=2?' low':''}`}><dt><LifeIcon/>ชีวิต</dt><dd>{self.life}<small> / {self.maxLife??game.survival?.maxLife}</small></dd></div>}<div className="resource score"><dt><ScoreIcon/>คะแนน</dt><dd className={estimate?'pending':''} title={estimate?`ประมาณจากเครดิต + สินค้าที่รู้มูลค่า${estimate.unpriced?` (ยังไม่รู้มูลค่า ${estimate.unpriced} ชิ้น นับเป็น 0)`:''}${estimate.modifier?` · ปรับ ${estimate.modifier>0?'+':''}${estimate.modifier}%`:''} · คะแนนจริงรอ Collector`:undefined}>{estimate?<>~{estimate.min===estimate.max?estimate.min:`${estimate.min}–${estimate.max}`}<small> รอ Collector</small></>:self.score}</dd></div></dl>
       <Roster room={room}/></header>
+    <NpcContracts game={game}/>
     {game.omen && playable && <p className="omen" role="note"><strong>ลางของช่วงนี้ · {game.omen.name}</strong> {game.omen.text}</p>}
     <p className="sr-only" role="status" key={`${game.encounter}-${game.phase}`}>{phaseName[game.phase]} ช่วง {game.encounter}{game.encounterCount!==null?` จาก ${game.encounterCount}`:' เล่นจนทุกคนชีวิตหมด'}</p>
     {self.paused && playable && !game.survival && <div className="notice" role="status"><h2>{self.paused==='dead'?'สัญญาคร่าชีวิตคุณในช่วงนี้':'พลังหมดในช่วงนี้'}</h2><p>{self.paused==='dead'?'คะแนนช่วงนี้เป็น 0 คะแนนที่ได้ก่อนหน้ายังอยู่':'คะแนนที่ทำได้ในช่วงนี้ยังอยู่'} พักดูเพื่อนจนจบช่วงนี้ แล้วกลับมาเล่นช่วงถัดไป</p></div>}
@@ -177,13 +181,13 @@ export function GameTable({room,submit,send,disabled}:{room:AppraisalRoomView;su
       {phase==='REVEAL' && self.roundReward && <RoundReward key={game.encounter} reward={self.roundReward} submit={submit} disabled={disabled || room.revealReady.includes(room.yourSeatId)} onTossing={setCoinTossing}/>}
       {reveal && <Results room={room} send={send} disabled={disabled || coinTossing}/>}
       {playable && !self.paused && !self.done && <div className="end-phase">{consequence && <p className="danger-text">{consequence}</p>}{phase==='TRADE' && game.roundRewardBase!==undefined && <p>เมื่อทุกคนจบซื้อขาย รับเครดิตเติมช่วงนี้ {game.roundRewardBase} เครดิต หรือเสี่ยงหัวก้อย ก่อนเลือกประตูครั้งถัดไป</p>}{phase==='TRADE' && unsoldItems(game).length>0 && <p className="danger-text">จบช่วงตอนนี้ ของค้าง {unsoldItems(game).length} ชิ้นจะรับโทษจากพ่อค้า</p>}{phase==='APPRAISAL' && unsoldItems(game).length>0 && <p className="supporting">ของที่ตีราคาแล้ว {unsoldItems(game).length} ชิ้นยังไม่มีคนซื้อ จัดการได้ในช่วงต่อรอง</p>}<button className="pass" disabled={disabled} onClick={()=>submit({type:'done'})}><PassIcon/>{phase==='PORTALS'?'ข้ามพ่อค้าช่วงนี้':phase==='APPRAISAL'?'จบการประเมิน ไปต่อรอง':game.roundRewardBase!==undefined?'จบซื้อขาย ไปรับเครดิต':'จบการต่อรอง คิดผลช่วง'}</button></div>}
-    </div>{!reveal && <div className="side-play">{phase==='APPRAISAL'?<><Statuses game={game}/><DarkMarket compact game={game} submit={submit} disabled={inactive || !playable}/></>:<><DarkMarket game={game} submit={submit} disabled={inactive || !playable}/><Statuses game={game}/></>}{self.notes.length>0 && <details className="notes"><summary>ประวัติผลล่าสุด</summary><ul>{self.notes.slice(-6).reverse().map((note,index)=><li key={`${index}-${note}`}><Rich text={note} survival={!!game.survival}/></li>)}</ul></details>}</div>}</div>
+    </div>{!reveal && <div className="side-play">{phase==='APPRAISAL'?<><Statuses game={game}/><DarkMarket compact game={game} submit={submit} disabled={inactive || !playable}/></>:<><DarkMarket game={game} submit={submit} disabled={inactive || !playable}/><Statuses game={game}/></>}{self.notes.length>0 && <details className="notes"><summary>ประวัติผลล่าสุด</summary><ul>{self.notes.slice(-6).reverse().map((note,index)=><li key={`${index}-${note}`}><Rich text={playerNote(note,playerNames)} survival={!!game.survival}/></li>)}</ul></details>}</div>}</div>
     {phase==='TRADE'?<><Inventory game={game} submit={submit} disabled={inactive}/><Players room={room}/></>:!reveal && <Inventory drawer game={game} submit={submit} disabled={inactive}/>}
     <HeldEffects game={game}/>
     <Rules timers={room.timerSettings} survival={room.rulesVersion==='0.5'}/>
     </div>
-    {eventOpen && <EventModal key={self.eventOffer!.key} game={game} offer={self.eventOffer!} submit={submit} disabled={inactive} tucked={tucked} setTucked={value=>setTuckedKey(value?self.eventOffer!.key:null)}/>}
-    <Toasts toasts={toasts} dismiss={dismiss} survival={!!game.survival}/>
+    {eventOpen && <EventModal key={self.eventOffer!.key} game={game} offer={self.eventOffer!} submit={submit} disabled={inactive} tucked={tucked} setTucked={value=>setTuckedKey(value?self.eventOffer!.key:null)} playerNames={playerNames}/>}
+    <Toasts toasts={toasts} dismiss={dismiss} survival={!!game.survival} playerNames={playerNames}/>
   </>;
 }
 function useSound(room:AppraisalRoomView|null) {

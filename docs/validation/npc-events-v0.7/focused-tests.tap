@@ -1,0 +1,178 @@
+TAP version 13
+# Subtest: all eight merchants have an exclusive optional personal event; historical rooms keep them out
+ok 1 - all eight merchants have an exclusive optional personal event; historical rooms keep them out
+  ---
+  duration_ms: 51.963416
+  type: 'test'
+  ...
+# Subtest: Vampire charges exactly two life, leaves shields unchanged, and refuses a second pending pact or last two life
+ok 2 - Vampire charges exactly two life, leaves shields unchanged, and refuses a second pending pact or last two life
+  ---
+  duration_ms: 8.641667
+  type: 'test'
+  ...
+# Subtest: Vampire reward waits for actual later entry, pays once, and reaches all five seeded outcomes
+ok 3 - Vampire reward waits for actual later entry, pays once, and reaches all five seeded outcomes
+  ---
+  duration_ms: 697.776
+  type: 'test'
+  ...
+# Subtest: actual portal action redeems a Vampire pact rather than just exposing the merchant in choices
+ok 4 - actual portal action redeems a Vampire pact rather than just exposing the merchant in choices
+  ---
+  duration_ms: 5.202541
+  type: 'test'
+  ...
+# Subtest: 50% Vampire discount matches the displayed final price, excludes fees, supports a bundle, and spends once
+ok 5 - 50% Vampire discount matches the displayed final price, excludes fees, supports a bundle, and spends once
+  ---
+  duration_ms: 32.861
+  type: 'test'
+  ...
+# Subtest: Vampire discount is not applied to another merchant or another appraiser shop and expires on advance
+ok 6 - Vampire discount is not applied to another merchant or another appraiser shop and expires on advance
+  ---
+  duration_ms: 13.980583
+  type: 'test'
+  ...
+# Subtest: Alien escrows one to three chosen unique items, preserves truths/knowledge, and reserves repayment
+ok 7 - Alien escrows one to three chosen unique items, preserves truths/knowledge, and reserves repayment
+  ---
+  duration_ms: 48.536083
+  type: 'test'
+  ...
+# Subtest: Alien pays only after two intervals and the next chosen Alien, returning exact items once with proportional rewards
+ok 8 - Alien pays only after two intervals and the next chosen Alien, returning exact items once with proportional rewards
+  ---
+  duration_ms: 44.861417
+  type: 'test'
+  ...
+# Subtest: Alien rejects duplicated, foreign, missing, locked and over-limit selections atomically
+ok 9 - Alien rejects duplicated, foreign, missing, locked and over-limit selections atomically
+  ---
+  duration_ms: 20.077209
+  type: 'test'
+  ...
+# Subtest: run end returns Alien principal for Collector scoring without paying a bonus, even to dead spectators
+ok 10 - run end returns Alien principal for Collector scoring without paying a bonus, even to dead spectators
+  ---
+  duration_ms: 18.179333
+  type: 'test'
+  ...
+# Subtest: loan items remove held capacity immediately and the private projection reveals no hidden truths
+ok 11 - loan items remove held capacity immediately and the private projection reveals no hidden truths
+  ---
+  duration_ms: 15.406083
+  type: 'test'
+  ...
+# Subtest: Dark One cost RNG reaches one, two and three distinct payable resource types
+ok 12 - Dark One cost RNG reaches one, two and three distinct payable resource types
+  ---
+  duration_ms: 282.379125
+  type: 'test'
+  ...
+# Subtest: Dark One cleanses only the selected owned debuff and charges the disclosed cost
+ok 13 - Dark One cleanses only the selected owned debuff and charges the disclosed cost
+  ---
+  duration_ms: 7.748208
+  type: 'test'
+  ...
+# Subtest: Dark One sends RNG debuffs to the chosen living opponent and rejects self/dead/unknown targets
+ok 14 - Dark One sends RNG debuffs to the chosen living opponent and rejects self/dead/unknown targets
+  ---
+  duration_ms: 394.5255
+  type: 'test'
+  ...
+# Subtest: Autometa accepts either a chosen item or two energy and grants a seeded buff
+ok 15 - Autometa accepts either a chosen item or two energy and grants a seeded buff
+  ---
+  duration_ms: 104.388125
+  type: 'test'
+  ...
+# Subtest: Dark One excludes dead spectators in historical encounter mode too
+ok 16 - Dark One excludes dead spectators in historical encounter mode too
+  ---
+  duration_ms: 3.033
+  type: 'test'
+  ...
+# Subtest: orc unique event settles its own cost and reward
+ok 17 - orc unique event settles its own cost and reward
+  ---
+  duration_ms: 3.285083
+  type: 'test'
+  ...
+# Subtest: beast unique event settles its own cost and reward
+ok 18 - beast unique event settles its own cost and reward
+  ---
+  duration_ms: 2.97675
+  type: 'test'
+  ...
+# Subtest: deepsea unique event settles its own cost and reward
+ok 19 - deepsea unique event settles its own cost and reward
+  ---
+  duration_ms: 2.879667
+  type: 'test'
+  ...
+# Subtest: swarm unique event settles its own cost and reward
+ok 20 - swarm unique event settles its own cost and reward
+  ---
+  duration_ms: 2.909417
+  type: 'test'
+  ...
+# Subtest: event command parser validates one to three distinct string item IDs
+ok 21 - event command parser validates one to three distinct string item IDs
+  ---
+  duration_ms: 2.065875
+  type: 'test'
+  ...
+# Subtest: loan request retry is idempotent and conflicting payload cannot replace an accepted request
+ok 22 - loan request retry is idempotent and conflicting payload cannot replace an accepted request
+  ---
+  duration_ms: 6.697125
+  type: 'test'
+  ...
+# Subtest: loan feedback names a temporary loan and a later return rather than a permanent loss
+ok 23 - loan feedback names a temporary loan and a later return rather than a permanent loss
+  ---
+  duration_ms: 19.411084
+  type: 'test'
+  ...
+# Subtest: Collector estimate keeps known loan principal and unknown-item counts until items return
+ok 24 - Collector estimate keeps known loan principal and unknown-item counts until items return
+  ---
+  duration_ms: 15.003125
+  type: 'test'
+  ...
+# Subtest: client decisions require exact loan selection, own cleanse or chosen opponent, and disclose all costs
+ok 25 - client decisions require exact loan selection, own cleanse or chosen opponent, and disclose all costs
+  ---
+  duration_ms: 11.084125
+  type: 'test'
+  ...
+# Subtest: UI renders loan checkbox identities, known opponent names and the pending contract ledger
+ok 26 - UI renders loan checkbox identities, known opponent names and the pending contract ledger
+  ---
+  duration_ms: 74.035667
+  type: 'test'
+  ...
+# Subtest: Dark One sender and victim see room display names in both result feedback and history
+ok 27 - Dark One sender and victim see room display names in both result feedback and history
+  ---
+  duration_ms: 275.877292
+  type: 'test'
+  ...
+# Subtest: new and historical rule sets finish and strictly replay in seeded simulations
+ok 28 - new and historical rule sets finish and strictly replay in seeded simulations
+  ---
+  duration_ms: 13477.445875
+  type: 'test'
+  ...
+1..28
+# tests 28
+# suites 0
+# pass 28
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 15878.313292

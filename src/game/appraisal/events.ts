@@ -4,6 +4,7 @@ import { ITEM_SPECS, NPC_SPECS, expansionActive, itemFamily, priceRange } from '
 import { check, consumeStatus, counterLimit, damageLife, grant, kill, known, learn, ownedItem, penaltyItem, maxEnergyOf, purchase, recover, removeStatus, retire, reward, saleApply, salePreview, spend, status, stockItem, trace, unlocked, wishSlotsOf } from './mechanics.js';
 import { BOND_EVENT_IDS, BOON_EVENT_ID, EVENT_IDS, EXPANSION_EVENT_IDS, POLISH_EVENT_IDS, STATUS_IDS } from './types.js';
 import { POLISH_EVENTS } from './polish-events.js';
+import { isNpcEvent, NPC_PERSONAL_EVENT, npcEventEligible, personalNpcOffer, resolvePersonalNpcEvent } from './npc-events.js';
 import { applyWish, drawWishEvent as drawWish, shopNpcOf, wishEligible, wishPick } from './wishlist.js';
 import { bondEligible, bondQuotes, bondSpec, bondTargets, resolveBond } from './brokerage.js';
 import { wishFloor } from './wishlist-rules.js';
@@ -61,6 +62,7 @@ function expansionEligible(state:AppraisalState,p:Appraiser,id:EventId):boolean 
 }
 export function eventEligible(state:AppraisalState,p:Appraiser,id:EventId):boolean {
   if (p.paused || p.done || ['RESULTS','REVEAL'].includes(state.phase)) return false;
+  if(isNpcEvent(id))return npcEventEligible(state,p,id);
   if (bondSpec(id)) return bondEligible(state,p,id);
   if (id==='E73') return wishEligible(state,p);
   if ((EXPANSION_EVENT_IDS as readonly string[]).includes(id)) return expansionEligible(state,p,id);
@@ -178,6 +180,7 @@ export function offerEvent(state:AppraisalState,p:Appraiser,id:EventId):void {
   if(bondSpec(id)) {const targets=bondTargets(state,p,id);itemIds=targets.itemIds;giveItemId=targets.giveItemId;quotes=bondQuotes(state,p,id);}
   const targetKinds=Object.fromEntries([...itemIds,...(giveItemId?[giveItemId]:[])].map(itemId=>[itemId,state.items[itemId]!.kind]));
   p.eventOffer={id,key,choices:eventChoices(state,p,id),itemIds:[...itemIds],statusIds:p.statuses.map(s=>s.id),otherPlayerIds:state.listings.filter(l=>l.ownerId!==p.id).map(l=>l.ownerId),quotedPrices:quotes,facts,targetKinds,...(giveItemId?{giveItemId}:{}),...(wish?{wish}:{}),...(boons?{boons}:{})};
+  if(isNpcEvent(id))Object.assign(p.eventOffer,personalNpcOffer(state,p,id,key));
   if(reaction) p.consequenceSlots++; else p.offerSlots++;
   p.seenEvents.push(id); trace(state,p,'event-offered',{id,key,choices:p.eventOffer.choices});
 }
@@ -201,6 +204,12 @@ export function drawPolishEvent(state:AppraisalState,p:Appraiser):boolean {
   const pool=preferUnseen(state,p,[...POLISH_EVENT_IDS,BOON_EVENT_ID].filter(id=>eventEligible(state,p,id)));
   if(!pool.length || randomAt(state.seed,`${state.encounter}:${p.id}:${state.phase}:polish`)>=(state.phase==='TRADE'?.3:.45)) return false;
   offerEvent(state,p,pool[Math.floor(randomAt(state.seed,`${state.encounter}:${p.id}:${state.phase}:polish:pick`)*pool.length)]!);return true;
+}
+export function drawPersonalNpcEvent(state:AppraisalState,p:Appraiser):boolean {
+  if(!state.config.npcEvents || p.eventOffer || p.offerSlots>=2)return false;
+  const npc=shopNpcOf(p);const id=npc?NPC_PERSONAL_EVENT[npc]:undefined;
+  if(!id || !eventEligible(state,p,id) || randomAt(state.seed,`${state.encounter}:${p.id}:personal-npc`)>=.65)return false;
+  offerEvent(state,p,id);return true;
 }
 /** Expansion rules: a seeded chance to offer one of the ten new events that fits the table. */
 export function drawExpansionEvent(state:AppraisalState,p:Appraiser):boolean {
@@ -232,6 +241,7 @@ export function resolveEvent(state:AppraisalState,p:Appraiser,command:Extract<Ap
   const offer=p.eventOffer; check(offer && offer.key===command.key && offer.choices.includes(command.choice),'event-choice','ข้อเสนอเก่าหรือไม่มีตัวเลือกนี้');
   const id=offer.id; const choice=command.choice;
   if(choice==='decline') { check(!consequences.includes(id),'consequence','ปฏิเสธผลที่รับความเสี่ยงไว้ไม่ได้'); if(['E01','E10'].includes(id)) p.portals[0]!.disabled=true; p.eventOffer=null; p.resolvedEvents.push(id); trace(state,p,'event-declined',{id}); return; }
+  if(isNpcEvent(id)){resolvePersonalNpcEvent(state,p,offer,command);p.eventOffer=null;p.resolvedEvents.push(id);trace(state,p,'event-resolved',{id,choice});return;}
   // The offer's captured targets are fixed. Resource/ownership conditions are rechecked at settlement.
   const item=()=>chooseItem(offer,command);
   const ownKind=(kind:ItemKind)=>{const itemId=item(); check(kindOwned(state,p,kind).includes(itemId),'event-target','สินค้าไม่เข้าเงื่อนไข'); ownedItem(state,p,itemId); return itemId;};

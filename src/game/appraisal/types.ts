@@ -8,10 +8,12 @@ export const BOND_EVENT_IDS = ['E51','E52','E53','E54','E55','E56','E57','E58','
 export const POLISH_EVENT_IDS = ['E94','E95','E96','E97','E98','E99','E100','E101'] as const;
 /** Boon draft: pick one of three seeded buffs, like a roguelike reward choice. */
 export const BOON_EVENT_ID = 'E108' as const;
+/** Personal merchant contracts, separately gated to preserve historical seeded runs. */
+export const NPC_EVENT_IDS = ['E109','E110','E111','E112','E113','E114','E115','E116'] as const;
 export const EXPANSION_EVENT_IDS = ['E84','E85','E86','E87','E88','E89','E90','E91','E92','E93'] as const;
 /** Merchant wish announcement; kept outside both pools so neither changes. */
 export const WISH_EVENT_ID = 'E73' as const;
-export type EventId = typeof EVENT_IDS[number] | typeof BOND_EVENT_IDS[number] | typeof WISH_EVENT_ID | typeof EXPANSION_EVENT_IDS[number] | typeof POLISH_EVENT_IDS[number] | typeof BOON_EVENT_ID;
+export type EventId = typeof EVENT_IDS[number] | typeof BOND_EVENT_IDS[number] | typeof WISH_EVENT_ID | typeof EXPANSION_EVENT_IDS[number] | typeof POLISH_EVENT_IDS[number] | typeof BOON_EVENT_ID | typeof NPC_EVENT_IDS[number];
 export type NpcId = 'orc' | 'vampire' | 'autometa' | 'alien' | 'darkone' | 'beast' | 'deepsea' | 'swarm';
 export type ItemFamily = 'mirror' | 'orb' | 'key' | 'mask' | 'potion' | 'battery' | 'amulet' | 'blade' | 'scanner' | 'food';
 export const PASSIVE_ITEM_IDS=['inspection-warrant','tax-order','noble-seal','gambler-hat','lucky-die','merchant-ledger','friendship-ring','negotiator-gloves','guild-badge','light-satchel','surveyor-lens','curse-compass','market-pass','authenticity-seal','smuggler-cloak','merchant-canteen','healing-brooch','inspector-notebook','vital-flask','life-relic','wish-ledger'] as const;
@@ -48,6 +50,8 @@ export interface AppraisalConfig {
   expansion?: boolean;
   /** Absent in saved runs: no omens, sale/fee/life modifiers beyond the original market rules, capacity relics or polish events. */
   polish?: boolean;
+  /** Absent in saved runs: no personal merchant contracts or delayed repayments. */
+  npcEvents?: boolean;
   encounters: number; startingCredits: number; maxEnergy: number; recoveryEnergy: number;
   bankReserve: number; marketProbability: number; marketMaxOrders: number; marketQuota: number;
   /** Absent in v0.4: retain encounter recovery and historical scoring exactly. */
@@ -86,6 +90,11 @@ export interface EventOffer {
   boons?: StatusId[];
   /** What a merchant announces in E73. */
   wish?: {kind:ItemKind;price:number};
+  npcTerms?: {credits:number;energy:number;life:number;items:number;loanMax?:number};
+}
+export interface NpcContracts {
+  vampire?: {signedAt:number};
+  alien?: {lentAt:number;dueAt:number;itemIds:string[];key:string;reservedCredits:number};
 }
 export type CoinSide = 'heads' | 'tails';
 export interface RoundReward {
@@ -94,6 +103,8 @@ export interface RoundReward {
   lastFlip?:{guess:CoinSide; side:CoinSide; correct:boolean};
 }
 export interface Appraiser {
+  npcContracts?: NpcContracts;
+  vampireDiscount?: {encounter:number};
   passiveUses?:Partial<Record<InspectionProperty,number>>;
   roundReward?:RoundReward;
   npcTrust?:Partial<Record<NpcId,number>>;
@@ -143,7 +154,7 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
   | { type: 'appraise'|'counter'; itemId: string; value: number; acceptDanger?: boolean }
   | { type: 'buy'; itemIds: string[]; condition: boolean }
   | { type: 'activate'; itemId: string }
-  | { type: 'event'; key: string; choice: string; itemId?: string; statusId?: StatusId; otherPlayerId?: string; fact?: 'base'|'genuine'|'cursed'; guess?: boolean }
+  | { type: 'event'; key: string; choice: string; itemId?: string; itemIds?:string[]; statusId?: StatusId; otherPlayerId?: string; fact?: 'base'|'genuine'|'cursed'; guess?: boolean }
   | { type: 'market-sell'; itemId: string; orderId: string; resolution?:'discount'|'sacrifice' }
   | { type: 'share'; itemId: string; allow: boolean; purchase: boolean; claims?: { genuine?: boolean; cursed?: boolean } }
   | { type: 'propose'; sellerId: string; itemId: string; credits: number; swapItemId?: string; condition?: boolean; challenge?: 'genuine'|'cursed'; sealId?: string }
@@ -184,6 +195,7 @@ export interface AppraisalView {
   version: 4 | 5; phase: AppraisalPhase; encounter: number; encounterCount: number | null; revision: number;
   survival?:NonNullable<AppraisalConfig['survival']>; curseSight?:boolean; freeBuy?:boolean; fakeEffect?:boolean; cleanse?:boolean; wishlist?:boolean; wishContract?:boolean; challenge?:boolean; polish?:boolean; omen?:{id:string;name:string;text:string}; salePct?:number; fee?:number; maxEnergy?:number; collector?:CollectorResult[]; brokerage?:boolean; roundRewardBase?:number; passives?:boolean;
   self: Omit<Appraiser,'knowledge'|'portals'|'stock'|'inventory'|'valuations'|'startWealth'|'acceptedDanger'|'seenEvents'|'resolvedEvents'> & {
+    loanItems?:ItemView[];
     inventory: ItemView[]; stock: ItemView[]; portals: Array<{id:string; npc:NpcId; hint:ItemKind; disabled:boolean}>;
     counterLimit: number;
     /** Per-seat caps once held relics apply (polish rules). */

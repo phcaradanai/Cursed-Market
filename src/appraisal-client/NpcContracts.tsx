@@ -1,0 +1,15 @@
+import type { AppraisalView } from '../game/appraisal/types.js';
+
+/** Keep deferred commitments visible while choosing the next merchant. */
+export function NpcContracts({game}:{game:AppraisalView}) {
+  const {npcContracts,vampireDiscount,loanItems}=game.self;
+  if(!npcContracts?.alien && !npcContracts?.vampire && !vampireDiscount)return null;
+  return <section className="npc-contracts" aria-labelledby="npc-contract-title"><h2 id="npc-contract-title">สัญญากับพ่อค้า</h2>
+    {npcContracts?.vampire && <p><strong>Vampire · จ่ายชีวิต 2 แล้ว</strong> เลือกพบ Vampire ครั้งหน้าเพื่อรับของฟรี ส่วนลด 50% ฟื้นพลัง ฟื้นชีวิต หรือพรอย่างใดอย่างหนึ่งแบบสุ่ม</p>}
+    {vampireDiscount && <p><strong>Vampire · ลดราคาสินค้า 50%</strong> ใช้กับการซื้อจากร้าน Vampire นี้ครั้งแรกในช่วงนี้ รวมซื้อสองชิ้นได้ คิดหลังส่วนลดคงที่ ไม่รวมค่าธรรมเนียม</p>}
+    {npcContracts?.alien && <div><p><strong>Alien · ยืมของ {npcContracts.alien.itemIds.length} ชิ้น</strong> {game.self.life===0?'จบรันแล้วจะคืนของเพื่อคิดคะแนน โดยไม่มีโบนัส':game.encounter>=npcContracts.alien.dueAt?'ครบกำหนดแล้ว เลือกพบ Alien เพื่อรับของคืนพร้อมโบนัส':`พบ Alien ตั้งแต่ช่วง ${npcContracts.alien.dueAt} เพื่อรับของคืนพร้อมโบนัส`}</p>
+      <ul>{loanItems?.map((item,index)=><li key={item.id}>#{index+1} {item.name}</li>)}</ul>
+      <p className="supporting">ของที่ยืมหยุดให้ผลติดตัว · โบนัส 4–8 เครดิตและฟื้นพลังสูงสุด 1–2 ต่อชิ้น · หากจบรันก่อนรับคืน จะคืนของเดิมเพื่อคิดคะแนน แต่ไม่ได้โบนัส</p>
+    </div>}
+  </section>;
+}

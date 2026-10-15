@@ -1,6 +1,7 @@
 import { marketBonus, marketCost, marketRequirements, MarketSale } from './MarketSale.js';
 import { PortalEventPreview, portalChoiceTitle } from './PortalEventPreview.js';
 import { commissionRate, passiveSpec } from '../game/appraisal/passives.js';
+import { loanItemCount } from './model.js';
 import { freeInspectionRemaining, inspectionQuota, npcAcceptanceChance, playerPassives } from './model.js';
 import { CHALLENGE_PCT, challengeDiscount, challengePenalty, claimText, winPct } from '../game/appraisal/challenge-rules.js';
 import type { ClaimKey } from '../game/appraisal/challenge-rules.js';
@@ -202,7 +203,7 @@ export function AppraisalDesk({game,item,submit,disabled}:Actions&{item:ItemView
   </section>;
 }
 const dangerChoices=new Set(['die','item','surrender']);
-export function EventDecision({game,offer,submit,disabled}:Actions&{offer:EventOffer}) {
+export function EventDecision({game,offer,submit,disabled,playerNames={}}:Actions&{offer:EventOffer;playerNames?:Record<string,string>}) {
   const consequence=isConsequence(offer.id);
   const usableIds=(c:string)=>c==='decline'||!eventNeedsItem(offer,c)?offer.itemIds:offer.itemIds.filter(id=>eventItemUsable(game,offer,id));
   /** Why a choice cannot be taken right now: unaffordable costs or no item left that it could teach. Consequences are never blocked. */
@@ -224,7 +225,9 @@ export function EventDecision({game,offer,submit,disabled}:Actions&{offer:EventO
   const [fact,setFact]=useState<string>(facts[0]??'');
   const effectiveFact=facts.includes(fact as typeof facts[number])?fact:facts[0]??'';
   const [guess,setGuess]=useState(true);
-  const action=eventDecision(offer,choice,{itemId,statusId:effectiveStatus,fact:effectiveFact,guess});
+  const [loanIds,setLoanIds]=useState(offer.itemIds.slice(0,1));
+  const [otherPlayerId,setOtherPlayerId]=useState(offer.otherPlayerIds[0]??'');
+  const action=eventDecision(offer,choice,{itemId,statusId:effectiveStatus,fact:effectiveFact,guess,itemIds:loanIds,otherPlayerId});
   const catalog=eventCatalog(offer);const survival=!!game.survival;
   const visible=[...game.self.stock,...game.self.inventory,...game.listings.map(l=>l.item)];
   const priced=offer.id==='E44' || bondOf(offer)?.mode==='sell';
@@ -246,14 +249,19 @@ export function EventDecision({game,offer,submit,disabled}:Actions&{offer:EventO
       })}</dl>}
     </div>
     <form className="event-form" onSubmit={e=>{e.preventDefault();if(action)submit(action);}}>
-      <ChoiceCards legend="คุณจะเลือกทางไหน" value={choice} onChange={setChoice} disabled={disabled} options={choices.map(c=>{const why=blockedReason(c,itemId);return {value:c,title:title(c),disabled:!!why,
+      <ChoiceCards legend="คุณจะเลือกทางไหน" value={choice} onChange={c=>{setChoice(c);const count=loanItemCount(c);if(count)setLoanIds(ids=>ids.slice(0,count));}} disabled={disabled} options={choices.map(c=>{const why=blockedReason(c,itemId);return {value:c,title:title(c),disabled:!!why,
         detail:<><Rich passive survival={survival} text={`${eventCost(game,offer,c,itemId)}${eventScoreText(game,offer,c,effectiveStatus)}`}/>{why && <span className="why"> {why}</span>}</>,
         tone:c==='decline'?'quiet':consequence && dangerChoices.has(c)?'danger':undefined};})}/>
       {eventNeedsItem(offer,choice) && <ChoiceCards legend={offer.giveItemId?'เลือกของในร้านที่จะได้':'เลือกสินค้า'} value={itemId} onChange={setItemId} disabled={disabled} options={choiceItems.map((id,index)=>{
         const seen=visible.find(i=>i.id===id);const kind=offer.targetKinds[id];
-        return {value:id,title:eventItemName(offer,id),...(kind?{art:itemImage(kind)}:{}),
+        return {value:id,title:offer.npcTerms && seen?.owner===game.self.id?inventoryLabel(game,seen):eventItemName(offer,id),...(kind?{art:itemImage(kind)}:{}),
           detail:priced?`รับ ${offer.quotedPrices[id]} เครดิต`:seen?(seen.owner===game.self.id?inventoryLabel(game,seen):`ราคาร้าน ${seen.price} เครดิต`):`รายการ ${index+1}`};
       })}/>}
+      {offer.id==='E110' && loanItemCount(choice)>0 && <fieldset className="loan-selection" disabled={disabled}><legend>เลือกของให้ยืม · {loanIds.length}/{loanItemCount(choice)} ชิ้น</legend>
+        {offer.itemIds.map(id=>{const item=game.self.inventory.find(i=>i.id===id);return <label className="check" key={id}><input type="checkbox" checked={loanIds.includes(id)} disabled={!loanIds.includes(id) && loanIds.length>=loanItemCount(choice)} onChange={e=>setLoanIds(ids=>e.target.checked?[...ids,id]:ids.filter(value=>value!==id))}/><span>{item?inventoryLabel(game,item):eventItemName(offer,id)}</span></label>;})}
+        <p className="supporting">เลือกให้ครบจำนวน · ของที่ให้ยืมจะใช้ ขาย หรือรับผลติดตัวไม่ได้จนกว่าจะคืน</p>
+      </fieldset>}
+      {offer.id==='E111' && choice==='send-debuff' && <ChoiceCards compact legend="ส่งผลเสียสุ่มให้ใคร" value={otherPlayerId} onChange={setOtherPlayerId} disabled={disabled} options={offer.otherPlayerIds.map((id,index)=>({value:id,title:playerNames[id]??`ผู้เล่นคนที่ ${index+1}`}))}/>}
       {eventNeedsStatus(offer,choice) && <ChoiceCards compact legend="เลือกสถานะ" value={effectiveStatus} onChange={setStatusId} disabled={disabled} options={statusOptions.map(id=>({value:id,title:<><span className={id.startsWith('D')?'danger-text':'positive-text'}>{id.startsWith('D')?<DebuffIcon/>:<BuffIcon/>}</span>{statusName(id)}</>,...(offer.id==='E108'?{detail:readable(STATUS_CATALOG.find(s=>s.id===id)!.description)}:{})}))}/>}
       {offer.id==='E45' && choice!=='decline' && <ChoiceCards compact legend="ผลตรวจที่จะเปิดให้ทุกคน" value={effectiveFact} onChange={setFact} disabled={disabled} options={facts.map(f=>{const v=offer.facts[itemId]?.[f];return {value:f,title:`${factName[f]}: ${typeof v==='boolean'?v?'ใช่':'ไม่ใช่':String(v)}`};})}/>}
       {offer.id==='E46' && choice!=='decline' && <ChoiceCards compact legend="คุณทายว่า" value={String(guess)} onChange={v=>setGuess(v==='true')} disabled={disabled} options={[{value:'true',title:'ของแท้'},{value:'false',title:'ของปลอม'}]}/>}

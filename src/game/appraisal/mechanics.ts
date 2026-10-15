@@ -138,7 +138,7 @@ export function retire(state: AppraisalState, p: Appraiser, itemId: string, reas
   trace(state,p,'item-removed',{itemId,reason});
 }
 export function wealth(state: AppraisalState, p: Appraiser): number {
-  return p.credits + p.inventory.reduce((sum,id) => {
+  return p.credits + [...p.inventory,...(p.npcContracts?.alien?.itemIds??[])].reduce((sum,id) => {
     const item = state.items[id]!; return sum + itemScoreValue(item.base,item.genuine,item.cursed);
   },0);
 }
@@ -245,11 +245,13 @@ export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraise
   const basePrice = items.reduce((sum,item) => sum + npcQuote(shop,item),0);
   const b=passiveBonuses(state,buyer);const commissionBonuses=new Map(state.players.map(p=>[p.id,passiveBonuses(state,p)]));
   const discount = (options.discount ?? 0) + (status(buyer,'B03') ? 2 : 0) - (status(buyer,'D12') ? 2 : 0) + (options.condition ? profile.discount : 0)+b.discount;
-  const price = options.barterItemId ? 0 : Math.max(0,basePrice-discount);
+  const bloodDiscount=!!state.config.npcEvents && buyer.id===shop.id && items[0]!.npc==='vampire' && buyer.vampireDiscount?.encounter===state.encounter && !options.barterItemId;
+  const price = options.barterItemId ? 0 : Math.floor(Math.max(0,basePrice-discount)*(bloodDiscount?.5:1));
   const fee = options.barterItemId ? 0 : feeSurcharge(state,buyer);
   const energy = Math.max(0,(state.config.freeBuy ? 0 : 1) + (status(buyer,'D06') ? 1 : 0)-b.buyEnergy);
   if (options.barterItemId) ownedItem(state,buyer,options.barterItemId,true);
   spend(state,buyer,price+fee,energy,'npc-purchase');
+  if(bloodDiscount)delete buyer.vampireDiscount;
   if (options.barterItemId) retire(state,buyer,options.barterItemId,'npc-barter');
   consumeStatus(buyer,'B03'); consumeStatus(buyer,'D06'); consumeStatus(buyer,'D12');
   let allocated=0;

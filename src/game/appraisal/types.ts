@@ -68,7 +68,7 @@ export interface WishOffer { npc:NpcId; kind:ItemKind; price:number; initial:num
 export interface RecoveryOffer { target:'energy'|'life'; credits:number; amount:number; min?:number }
 export interface CollectorResult {
   playerId:string; credits:number; itemValue:number; modifierPercent:number; statusIds:StatusId[]; score:number;
-  items:Array<{id:string;kind:ItemKind;base:number;genuine:boolean;cursed:boolean;value:number}>;
+  items:Array<{id:string;kind:ItemKind;base:number;genuine:boolean;cursed:boolean;value:number;certified?:boolean}>;
 }
 export interface Status { id: StatusId; expires: number; charges: number; targetItemId?: string; starts: number }
 export interface Knowledge { range?: [number,number]; base?: number; genuine?: boolean; cursed?: boolean; effectsKnown?: boolean; activationKnown?: boolean; certificate?: boolean; comparison?: string }
@@ -165,7 +165,7 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
   | { type: 'activate'; itemId: string }
   | { type: 'event'; key: string; choice: string; itemId?: string; itemIds?:string[]; statusId?: StatusId; otherPlayerId?: string; fact?: 'base'|'genuine'|'cursed'; guess?: boolean }
   | { type: 'market-sell'; itemId: string; orderId: string; resolution?:'discount'|'sacrifice' }
-  | { type: 'share'; itemId: string; allow: boolean; purchase: boolean; claims?: { genuine?: boolean; cursed?: boolean } }
+  | { type: 'share'; itemId: string; allow: boolean; purchase: boolean; claims?: { genuine?: boolean; cursed?: boolean }; rebate?: number }
   | { type: 'force-buy'; sellerId: string; itemId: string }
   | { type: 'propose'; sellerId: string; itemId: string; credits: number; swapItemId?: string; condition?: boolean; challenge?: 'genuine'|'cursed'; sealId?: string }
   | { type: 'respond'; offerId: string; accept: boolean }
@@ -179,7 +179,8 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
   | { type:'unsold'; itemId:string; choice:UnsoldChoice }
   | { type:'bid'; lotId:string; credits:number }
 );
-export interface SharedListing { ownerId: string; itemId: string; purchase: boolean; claims?: { genuine?: boolean; cursed?: boolean } }
+/** `rebate` is credits the owner pays the buyer when the sale completes, so a poor item can still find a price. */
+export interface SharedListing { ownerId: string; itemId: string; purchase: boolean; claims?: { genuine?: boolean; cursed?: boolean }; rebate?: number }
 export interface AppraisalState {
   version: 4 | 5; seed: string; config: AppraisalConfig; encounter: number; phase: AppraisalPhase;
   revision: number; players: Appraiser[]; items: Record<string,AppraisalItem>;

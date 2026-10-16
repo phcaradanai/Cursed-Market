@@ -12,7 +12,7 @@ export function collectRun(state:AppraisalState):void {
   check(!state.collector,'collector','Collector คิดคะแนนแล้ว');
   closeNpcContracts(state);
   const results:CollectorResult[]=state.players.map(p=>{
-    const items=p.inventory.map(id=>{const item=state.items[id]!;return {id,kind:item.kind,base:item.base,genuine:item.genuine,cursed:item.cursed,value:itemScoreValue(item.base,item.genuine,item.cursed)};});
+    const items=p.inventory.map(id=>{const item=state.items[id]!;const certified=!!item.appraisedBy && item.appraisedBy!==p.id;return {id,kind:item.kind,base:item.base,genuine:item.genuine,cursed:item.cursed,value:itemScoreValue(item.base,item.genuine,item.cursed,certified),...(certified?{certified}:{})};});
     const itemValue=items.reduce((sum,item)=>sum+item.value,0);
     const statusIds=(['B10','D10'] as const).filter(id=>!!status(p,id));
     const modifierPercent=(statusIds.includes('B10')?20:0)-(statusIds.includes('D10')?20:0);

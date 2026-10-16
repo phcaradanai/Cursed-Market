@@ -54,8 +54,8 @@ function action(value: unknown): AppraisalSeatAction {
       keys(body,[...fields,'itemId','orderId','resolution']);
       if(body.resolution!==undefined && body.resolution!=='discount' && body.resolution!=='sacrifice')throw new MessageError();
       return {type:'market-sell',...base,itemId:string(body.itemId),orderId:string(body.orderId),...(body.resolution===undefined?{}:{resolution:body.resolution})};
-    case 'share': keys(body, [...fields, 'itemId', 'allow', 'purchase', 'claims']); return { type: 'share', ...base, itemId: string(body.itemId), allow: boolean(body.allow), purchase: boolean(body.purchase),
-      ...(body.claims === undefined ? {} : { claims: claims(body.claims) }) };
+    case 'share': keys(body, [...fields, 'itemId', 'allow', 'purchase', 'claims', 'rebate']); return { type: 'share', ...base, itemId: string(body.itemId), allow: boolean(body.allow), purchase: boolean(body.purchase),
+      ...(body.claims === undefined ? {} : { claims: claims(body.claims) }), ...(body.rebate === undefined ? {} : { rebate: integer(body.rebate) }) };
     case 'force-buy': keys(body, [...fields, 'sellerId', 'itemId']); return { type: 'force-buy', ...base, sellerId: string(body.sellerId, 32), itemId: string(body.itemId) };
     case 'propose':
       keys(body, [...fields, 'sellerId', 'itemId', 'credits', 'swapItemId', 'condition', 'challenge', 'sealId']);

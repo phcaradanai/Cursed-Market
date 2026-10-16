@@ -4,7 +4,7 @@ import { EXPANSION_NPCS, ITEM_SPECS, NPC_SPECS, expansionActive, merchantKinds, 
 import { defaultEvent, drawBondEvent, drawExpansionEvent, drawPolishEvent, drawWishEvent, drawEvent, drawPersonalNpcEvent, resolveEvent } from './events.js';
 import { closeNpcContracts, redeemNpcContracts } from './npc-events.js';
 import { auctionLots, placeBid, settleAuction, settleRemainingUnsold, settleUnsold } from './brokerage.js';
-import { activate, appraise, check, enforceCaps, maxEnergyOf, maxLifeOf, npcQuote, omenNow, consumeStatus, damageLife, healLife, inspect, marketSell, ownedItem, player, purchase, recover, recoveryAmount, recoveryOffer, mendWithShards, reward, spend, status, stockItem, trace, transfer, unlocked, wealth } from './mechanics.js';
+import { activate, appraise, check, enforceCaps, maxEnergyOf, maxLifeOf, npcQuote, omenNow, consumeStatus, damageLife, healLife, inspect, marketSell, ownedItem, player, purchase, payRebate, recover, recoveryAmount, recoveryOffer, mendWithShards, reward, spend, status, stockItem, trace, transfer, unlocked, wealth } from './mechanics.js';
 import { cleanseItem } from './cleanse.js';
 import { wishNew, wishSell } from './wishlist.js';
 import { settleChallenge } from './challenge.js';
@@ -163,16 +163,17 @@ function progress(state:AppraisalState):void {
 function npcActionAllowed(state:AppraisalState,p:Appraiser):void {
   check(state.phase==='APPRAISAL','phase','ยังไม่ใช่ช่วงประเมิน'); check(!p.eventOffer,'event-pending','เลือกผล event ก่อน');
 }
-function share(state:AppraisalState,p:Appraiser,itemId:string,allow:boolean,purchaseAllowed:boolean,claims?:Claims):void {
+function share(state:AppraisalState,p:Appraiser,itemId:string,allow:boolean,purchaseAllowed:boolean,claims?:Claims,rebate=0):void {
   const item=state.items[itemId];
   check(item && (item.owner===p.id || p.stock.includes(itemId)),'owner','เปิดได้เฉพาะรายการของตน');
   check(!purchaseAllowed || (item.owner===p.id ? unlocked(p,itemId) : !!p.valuations[itemId]),'listing','ต้องประเมินสินค้าหรือปลดล็อกก่อนเปิดให้ซื้อ');
   const stated=claims && Object.keys(claims).length?{...(claims.genuine!==undefined?{genuine:claims.genuine}:{}),...(claims.cursed!==undefined?{cursed:claims.cursed}:{})}:undefined;
   // An appraiser may state facts they never checked: that is exactly what a buyer can challenge.
   check(!stated || (state.config.challenge && item.owner.startsWith('npc:') && allow && purchaseAllowed),'claims','ระบุข้อมูลได้เฉพาะสินค้าร้านที่ประกาศขายและประเมินแล้ว');
+  check(Number.isSafeInteger(rebate) && rebate>=0 && rebate<=1000 && (rebate===0 || allow && purchaseAllowed && p.credits>=rebate),'rebate','ค่าแถมต้องเป็นจำนวนเต็ม 0–1000 เปิดขายอยู่ และเจ้าของต้องมีเครดิตพอ');
   state.listings=state.listings.filter(l=>l.itemId!==itemId);
-  if(allow) state.listings.push({ownerId:p.id,itemId,purchase:purchaseAllowed,...(stated?{claims:stated}:{})});
-  trace(state,p,'listing-shared',{itemId,allow,purchase:purchaseAllowed,...(stated?{claims:stated}:{})});
+  if(allow) state.listings.push({ownerId:p.id,itemId,purchase:purchaseAllowed,...(stated?{claims:stated}:{}),...(rebate?{rebate}:{})});
+  trace(state,p,'listing-shared',{itemId,allow,purchase:purchaseAllowed,...(stated?{claims:stated}:{}),...(rebate?{rebate}:{})});
 }
 function propose(state:AppraisalState,p:Appraiser,action:Extract<AppraisalAction,{type:'propose'}>):void {
   const seller=player(state,action.sellerId);
@@ -200,10 +201,12 @@ function forceBuy(state:AppraisalState,p:Appraiser,action:Extract<AppraisalActio
   check(seller.id!==p.id && seller.paused!=='dead','seller','บังคับซื้อจากเจ้าของนี้ไม่ได้');
   check(state.listings.some(l=>l.ownerId===seller.id && l.itemId===action.itemId),'listing','เจ้าของยังไม่เปิดรายการนี้');
   const item=stockItem(state,seller,action.itemId);
+  const rebate=state.listings.find(l=>l.itemId===action.itemId)?.rebate;
   check(!!seller.valuations[item.id],'appraisal','บังคับซื้อได้เฉพาะของที่ประเมินแล้ว');
   if(state.config.survival){linkTrade(p,seller.id,state.encounter);linkTrade(seller,p.id,state.encounter);}
   p.darkTickets=p.darkTickets!-TRUST_RULES.ticketsToForce;
   purchase(state,p,seller,[item.id],{condition:seller.dealMode==='condition'});
+  payRebate(state,seller,p,rebate,false);
   state.listings=state.listings.filter(l=>l.itemId!==item.id);
   const note=`ใช้ตั๋วคำสั่งมืดบังคับซื้อ ${ITEM_SPECS[item.kind].name} ตามราคาประเมิน`;
   p.notes.push(note);p.notes=p.notes.slice(-30);
@@ -215,7 +218,9 @@ function respond(state:AppraisalState,p:Appraiser,offerId:string,accept:boolean)
   check(offer && offer.encounter===state.encounter && offer.status==='open' && offer.sellerId===p.id,'offer','ข้อเสนอหมดอายุหรือไม่ใช่ของคุณ');
   if(!accept) {offer.status='rejected';return;}
   const buyer=player(state,offer.buyerId); check(!buyer.paused && !buyer.done,'buyer','ผู้ซื้อยังไม่พร้อม');
-  check(state.listings.some(l=>l.itemId===offer.itemId && l.ownerId===p.id && l.purchase),'listing','รายการไม่เปิดแล้ว');
+  const listing=state.listings.find(l=>l.itemId===offer.itemId && l.ownerId===p.id && l.purchase);
+  check(listing,'listing','รายการไม่เปิดแล้ว');
+  check(p.credits+offer.credits>=(listing.rebate??0),'rebate','เครดิตเจ้าของไม่พอจ่ายค่าแถม');
   if(state.config.survival){linkTrade(p,buyer.id,state.encounter);linkTrade(buyer,p.id,state.encounter);}
   let penalty=0;
   if(offer.source==='npc') {
@@ -231,6 +236,7 @@ function respond(state:AppraisalState,p:Appraiser,offerId:string,accept:boolean)
   }
   transfer(state,buyer,p,offer.credits,offer.source==='npc'?'cross-shop-fee':'p2p');
   if(penalty) transfer(state,buyer,p,penalty,'challenge-penalty');
+  payRebate(state,p,buyer,listing.rebate,true);
   state.listings=state.listings.filter(l=>l.itemId!==offer.itemId && l.itemId!==offer.swapItemId);
   offer.status='accepted';
   for(const party of [p,buyer]) if(party.subsidy) {party.subsidy=false;state.reservedRewards--;reward(state,party,1,'E43');}
@@ -294,7 +300,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
     case 'unsold': check(state.config.brokerage && ['APPRAISAL','TRADE'].includes(state.phase) && !p.eventOffer,'phase','resolve event ก่อนจัดการของค้าง');settleUnsold(state,p,action.itemId,action.choice);break;
     case 'bid': check(state.config.brokerage,'action-type','ห้องนี้ไม่มีการประมูล');placeBid(state,p,action.lotId,action.credits);break;
     case 'market-sell': marketSell(state,p,action.itemId,action.orderId,action.resolution);break;
-    case 'share': check(['APPRAISAL','TRADE'].includes(state.phase),'phase','ยังเปิดรายการไม่ได้');share(state,p,action.itemId,action.allow,action.purchase,action.claims);break;
+    case 'share': check(['APPRAISAL','TRADE'].includes(state.phase),'phase','ยังเปิดรายการไม่ได้');share(state,p,action.itemId,action.allow,action.purchase,action.claims,action.rebate);break;
     case 'force-buy': check(state.phase==='TRADE','phase','ยังไม่ใช่ช่วงต่อรอง');forceBuy(state,p,action);break;
     case 'propose': check(state.phase==='TRADE','phase','ยังไม่ใช่ช่วงต่อรอง');propose(state,p,action);break;
     case 'respond': check(state.phase==='TRADE','phase','ยังไม่ใช่ช่วงต่อรอง');respond(state,p,action.offerId,action.accept);break;

@@ -50,7 +50,9 @@ export const npcAcceptanceChance=(game:AppraisalView,npc:NpcId)=>Math.min(95,(ga
 export const inspectionQuota=(game:AppraisalView)=>2+playerPassives(game).inspections;
 export const freeInspectionRemaining=(game:AppraisalView,property:InspectionProperty)=>freeInspectionCount(playerPassives(game),game.self,property);
 export const inspectionCost = (game:AppraisalView,property:InspectionProperty='price') => freeInspectionRemaining(game,property)>0?0:Math.max(0,1+Number(hasStatus(game,'D01'))-Number(hasStatus(game,'B05')))*Number(!hasStatus(game,'B11'));
-export const purchaseEnergy = (game:AppraisalView) => Math.max(0,(game.freeBuy?0:1)+Number(hasStatus(game,'D06'))-playerPassives(game).buyEnergy);
+/** Survival: goods a friend appraised and the merchant accepted cost no energy to buy. Mirrors friendAppraised in the engine. */
+export const friendGoods = (game:AppraisalView, items:ItemView[]) => !!game.survival && items.length>0 && items.every(i=>i.appraisedBy!==undefined && i.appraisedBy!==game.self.id && i.appraisalAccepted===true && i.owner.startsWith(`npc:${i.appraisedBy}:`));
+export const purchaseEnergy = (game:AppraisalView, items:ItemView[]=[]) => Math.max(0,(game.freeBuy || friendGoods(game,items)?0:1)+Number(hasStatus(game,'D06'))-playerPassives(game).buyEnergy);
 export const effectsInspectionLabel=(game:AppraisalView)=>game.curseSight?t('ตรวจคำสาป'):t('ตรวจผลของสินค้า');
 /** Nothing is left for the third inspection to teach. */
 export const effectsKnownFor=(game:AppraisalView,k:Knowledge)=>game.curseSight?k.cursed!==undefined:!!k.effectsKnown && (!hasStatus(game,'B02') || k.cursed!==undefined);
@@ -163,16 +165,16 @@ export function eventItemUsable(game:AppraisalView,offer:EventOffer,id:string):b
   }
 }
 /** Score range for one item from what this seat knows. Same formula the Collector uses. */
-export function itemScoreRange(k:Knowledge):[number,number]|null {
+export function itemScoreRange(k:Knowledge,certified=false):[number,number]|null {
   const range=k.base!==undefined?[k.base,k.base]:k.range;if(!range) return null;
   const genuine=k.genuine===undefined?[true,false]:[k.genuine],cursed=k.cursed===undefined?[false,true]:[k.cursed];
-  const values=range.flatMap(base=>genuine.flatMap(g=>cursed.map(c=>itemScoreValue(base,g,c))));
+  const values=range.flatMap(base=>genuine.flatMap(g=>cursed.map(c=>itemScoreValue(base,g,c,certified))));
   return [Math.min(...values),Math.max(...values)];
 }
 /** What the Collector would pay for the pack right now, from known facts only; unpriced items count 0. */
 export function collectorEstimate(game:AppraisalView):{min:number;max:number;unpriced:number;modifier:number} {
   let low=0,high=0,unpriced=0;
-  for(const item of [...game.self.inventory,...(game.self.loanItems??[])]) {const r=itemScoreRange(item.knowledge);if(r){low+=r[0];high+=r[1];}else unpriced++;}
+  for(const item of [...game.self.inventory,...(game.self.loanItems??[])]) {const r=itemScoreRange(item.knowledge,item.appraisedBy!==undefined && item.appraisedBy!==game.self.id);if(r){low+=r[0];high+=r[1];}else unpriced++;}
   const has=(id:StatusId)=>game.self.statuses.some(s=>s.id===id && s.charges>0);
   const modifier=(has('B10')?20:0)-(has('D10')?20:0);
   return {min:collectorTotal(game.self.credits,low,modifier),max:collectorTotal(game.self.credits,high,modifier),unpriced,modifier};

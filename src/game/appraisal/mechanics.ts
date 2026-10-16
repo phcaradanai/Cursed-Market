@@ -262,6 +262,28 @@ export function completeAppraisedSale(state:AppraisalState,item:AppraisalItem,sa
   appraiser.notes.push(`ขาย ${ITEM_SPECS[item.kind].name} ได้ ${salePrice} เครดิต · ค่านายหน้า +${commission} เครดิต · ความไว้ใจ ${NPC_SPECS[item.npc].name} ${trust[item.npc]}/${TRUST_CAP}`);appraiser.notes=appraiser.notes.slice(-30);
   trace(state,appraiser,'appraisal-commission',{itemId:item.id,npc:item.npc,salePrice,commission,trust:trust[item.npc]});
 }
+/** The owner's listing rebate goes to the buyer; `exact` sales (the owner agreed) fail if the owner cannot pay, forced ones pay what the owner has. */
+export function payRebate(state:AppraisalState,seller:Appraiser,buyer:Appraiser,rebate:number|undefined,exact:boolean):void {
+  if(!rebate)return;
+  const paid=exact?rebate:Math.min(rebate,seller.credits);
+  transfer(state,seller,buyer,paid,'seller-rebate');
+  if(paid){buyer.notes.push(`ผู้ขายแถมเครดิตให้ ${paid} เครดิต`);buyer.notes=buyer.notes.slice(-30);trace(state,seller,'rebate-paid',{buyerId:buyer.id,paid,promised:rebate});}
+}
+/** Survival: goods another seat appraised and the merchant accepted cost no energy to buy. */
+export function friendAppraised(state:AppraisalState,buyer:Appraiser,shop:Appraiser,items:AppraisalItem[]):boolean {
+  return !!state.config.survival && shop.id!==buyer.id && items.every(item=>item.appraisedBy===shop.id && !!shop.valuations[item.id]?.accepted);
+}
+/** What the appraiser verified travels with the goods; facts the buyer already knows stay as they are. */
+function inheritKnowledge(state:AppraisalState,buyer:Appraiser,shop:Appraiser,item:AppraisalItem):void {
+  if(!state.config.commerce || shop.id===buyer.id || item.appraisedBy!==shop.id)return;
+  const known=shop.knowledge[item.id];if(!known)return;
+  const facts:Knowledge={};
+  for(const key of ['base','range','genuine','cursed','effectsKnown','activationKnown'] as const)if(known[key]!==undefined && buyer.knowledge[item.id]?.[key]===undefined)Object.assign(facts,{[key]:known[key]});
+  if(!Object.keys(facts).length)return;
+  learn(buyer,item.id,facts);
+  buyer.notes.push(`ได้ข้อมูลที่ผู้ประเมินตรวจไว้จริงของ ${ITEM_SPECS[item.kind].name}`);buyer.notes=buyer.notes.slice(-30);
+  trace(state,buyer,'knowledge-inherited',{itemId:item.id,from:shop.id,facts:Object.keys(facts)});
+}
 /** Buying one merchant's goods that other seats appraised, three times running, earns trust with that merchant. */
 function noteRepeatBuy(state:AppraisalState,buyer:Appraiser,items:AppraisalItem[],appraisers:Array<string|undefined>):void {
   const trust=buyer.npcTrust;
@@ -288,7 +310,7 @@ export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraise
   const bloodDiscount=!!state.config.npcEvents && buyer.id===shop.id && items[0]!.npc==='vampire' && buyer.vampireDiscount?.encounter===state.encounter && !options.barterItemId;
   const price = options.barterItemId ? 0 : Math.floor(Math.max(0,basePrice-discount)*(bloodDiscount?.5:1));
   const fee = options.barterItemId ? 0 : feeSurcharge(state,buyer);
-  const energy = Math.max(0,(state.config.freeBuy ? 0 : 1) + (status(buyer,'D06') ? 1 : 0)-b.buyEnergy);
+  const energy = Math.max(0,(state.config.freeBuy || friendAppraised(state,buyer,shop,items) ? 0 : 1) + (status(buyer,'D06') ? 1 : 0)-b.buyEnergy);
   if (options.barterItemId) ownedItem(state,buyer,options.barterItemId,true);
   spend(state,buyer,price+fee,energy,'npc-purchase');
   if(bloodDiscount)delete buyer.vampireDiscount;
@@ -299,6 +321,7 @@ export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraise
   for (const [index,item] of items.entries()) {
     const share=index===items.length-1?price-allocated:basePrice?Math.floor(price*npcQuote(shop,item)/basePrice):0;allocated+=share;
     completeAppraisedSale(state,item,share,commissionBonuses.get(item.appraisedBy??''));
+    inheritKnowledge(state,buyer,shop,item);
     item.owner = buyer.id; buyer.inventory.push(item.id); shop.stock = shop.stock.filter(id => id !== item.id);
     state.listings = state.listings.filter(l => l.itemId !== item.id);
   }

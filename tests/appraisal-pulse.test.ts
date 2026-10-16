@@ -31,14 +31,17 @@ function sell(s:AppraisalState,itemId:string,buyer:string):AppraisalState {
   return act(s,{type:'respond',offerId:s.trades.at(-1)!.id,accept:true});
 }
 
-test('a sale to another seat pays 1 pulse shard, and 3 shards mend 1 life',()=>{
-  let s=market();const alice=()=>s.players[0]!;
+test('buying goods another seat appraised pays the buyer 1 pulse shard, and 3 shards mend 1 life',()=>{
+  let s=market();const alice=()=>s.players[0]!,bob=()=>s.players[1]!,cara=()=>s.players[2]!;
   s=sell(s,alice().stock[0]!,'bob');
-  assert.equal(alice().pulseShards,1);assert.equal(alice().life,3,'one shard is not enough');
-  assert(alice().notes.some(n=>n.includes('เศษชีพจร +1')));
-  assert(s.trace.some(t=>t.type==='pulse-shards' && t.playerId==='alice' && t.details.gained===1));
-  alice().pulseShards=2;s=sell(s,alice().stock[0]!,'cara');
-  assert.equal(alice().life,4);assert.equal(alice().pulseShards,0,'the third shard mends 1 life');
+  assert.equal(bob().pulseShards,1);assert.equal(bob().life,3,'one shard is not enough');
+  assert.equal(alice().pulseShards,undefined,'the seller earns no shards');assert.equal(alice().life,3);
+  assert(bob().notes.some(n=>n.includes('เศษชีพจร +1')));
+  assert(s.trace.some(t=>t.type==='pulse-shards' && t.playerId==='bob' && t.details.gained===1));
+  assert(!s.trace.some(t=>t.type==='pulse-shards' && t.playerId==='alice'));
+  s=sell(s,alice().stock[0]!,'cara');
+  assert.equal(cara().pulseShards,1,'every buyer is paid on their own purchase');
+  assert.equal(alice().pulseShards,undefined);
   assertAppraisalInvariants(s);
 });
 
@@ -65,19 +68,19 @@ test('merchants grow wary after more than 3 encounters of trading with one partn
   assert.equal(shardsPerSale(p,3),1);assert.equal(shardsPerSale(p,4),0);
 });
 
-test('a wary appraiser earns no shard and the merchant says so; a new partner restores it',()=>{
-  const wary=market();wary.players[0]!.tradeLink={partner:'bob',since:1};later(wary,4);
+test('a wary buyer earns no shard and is told so; buying from someone new restores it',()=>{
+  const wary=market();wary.players[1]!.tradeLink={partner:'alice',since:1};later(wary,4);
   const same=sell(wary,wary.players[0]!.stock[0]!,'bob');
-  assert.equal(same.players[0]!.pulseShards,0);assert.equal(same.players[0]!.life,3);
-  assert(same.players[0]!.notes.some(n=>n.includes('พ่อค้าเริ่มสงสัย')));
-  assert.deepEqual(same.players[0]!.tradeLink,{partner:'bob',since:1});
+  assert.equal(same.players[1]!.pulseShards,0);assert.equal(same.players[1]!.life,3);
+  assert(same.players[1]!.notes.some(n=>n.includes('พ่อค้าเริ่มสงสัย')));
+  assert.deepEqual(same.players[1]!.tradeLink,{partner:'alice',since:1});
 
-  const fresh=market();fresh.players[0]!.tradeLink={partner:'bob',since:1};later(fresh,4);
-  fresh.players[0]!.pulseShards=2;
-  const other=sell(fresh,fresh.players[0]!.stock[0]!,'cara');
-  assert.equal(other.players[0]!.life,4,'selling to someone new pays a shard again');
-  assert.deepEqual(other.players[0]!.tradeLink,{partner:'cara',since:4});
-  assert(!other.players[0]!.notes.some(n=>n.includes('พ่อค้าเริ่มสงสัย')));
+  const fresh=market();fresh.players[1]!.tradeLink={partner:'cara',since:1};later(fresh,4);
+  fresh.players[1]!.pulseShards=2;
+  const other=sell(fresh,fresh.players[0]!.stock[0]!,'bob');
+  assert.equal(other.players[1]!.life,4,'buying from someone new pays a shard again');
+  assert.deepEqual(other.players[1]!.tradeLink,{partner:'alice',since:4});
+  assert(!other.players[1]!.notes.some(n=>n.includes('พ่อค้าเริ่มสงสัย')));
 });
 
 test('life deals follow trust: none at 0, then 3/5/7 credits for 0-1, 1-2 and 2-3 life',()=>{

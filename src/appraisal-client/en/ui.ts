@@ -468,7 +468,7 @@ export const EN_UI_TEXT: Record<string, string> = {
   "ตั๋วคำสั่งมืด {n}/{need} · ชนะประมูล Dark Market ได้ครั้งละ 1 ใบ ครบแล้วบังคับซื้อของในร้านที่เพื่อนเปิดไว้ตามราคาประเมิน": "Dark order tickets {n}/{need} · each Dark Market auction win earns 1 · with enough, force a purchase of a friend's shared shop goods at the appraised price",
   "ช่วงละครั้ง · จ่าย {credits} เครดิต ฟื้นชีวิต {min}–{max} สุ่ม · ไม่ใช้พลัง": "Once per encounter · pay {credits} credits to recover {min}–{max} life (random) · no energy used",
   "{name} ยังไม่ไว้ใจคุณ จึงไม่เปิดดีลฟื้นชีวิต · ขายของที่ประเมินให้เพื่อนเพื่อสร้างความไว้ใจ": "{name} doesn't trust you yet and offers no life deal · sell goods you've appraised to friends to earn trust",
-  "เศษชีพจร {n}/{per} · เพื่อนซื้อของที่คุณประเมิน ได้ {gain} เศษ · ครบ {per} เศษฟื้นชีวิต 1": "Pulse shards {n}/{per} · a friend buying goods you appraised pays {gain} shards · every {per} shards mend 1 life",
+  "เศษชีพจร {n}/{per} · คุณซื้อของที่เพื่อนประเมิน ได้ {gain} เศษ · ครบ {per} เศษฟื้นชีวิต 1": "Pulse shards {n}/{per} · buying goods a friend appraised pays you {gain} shards · every {per} shards mend 1 life",
   "พ่อค้าเริ่มสงสัย: คุณซื้อขายกับคนเดิมมานานเกินไป จึงไม่ได้เศษชีพจร จนกว่าจะค้ากับคนใหม่": "The merchants grow suspicious: you've traded with the same person for too long, so you earn no pulse shards until you trade with someone new",
   "ช่วงละครั้ง · จ่าย {credits} เครดิต ฟื้น{target}สูงสุด {amount} · ไม่ใช้พลัง": "Once per encounter · pay {credits} credits to recover up to {amount} {target} · no energy used",
   "ตอบเหตุการณ์ก่อน จึงแลกได้": "Answer the event first to trade",

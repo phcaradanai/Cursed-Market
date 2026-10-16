@@ -1,6 +1,6 @@
 import type { Appraiser, NpcId } from './types.js';
 
-/** Pulse shards: another seat buying goods you appraised pays 1 shard; `shardsPerLife` of them mend 1 life. A wary merchant pays none. */
+/** Pulse shards: buying goods another seat appraised pays the buyer 1 shard; `shardsPerLife` of them mend 1 life. A wary merchant pays none. */
 export const PULSE_RULES={shardsPerLife:3,shardsPerSale:1,shardsWhenWary:0,waryAfter:3,bankCap:5} as const;
 /** Trust rules: being caught lowballing costs trust, buying a merchant's goods from other appraisers earns it, auction wins pay tickets. */
 export const TRUST_RULES={caughtLoss:1,repeatBuys:3,repeatBuyTrust:1,ticketsToForce:3} as const;

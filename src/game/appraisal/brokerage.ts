@@ -192,7 +192,7 @@ export function settleAuction(state:AppraisalState):void {
     const edge=!!state.config.polish && !!status(winner.p,'B20');const paid=edge?winner.amount-Math.floor(winner.amount*20/100):winner.amount;
     if(edge) consumeStatus(winner.p,'B20');
     spend(state,winner.p,paid,0,'dark-auction');
-    completeAppraisedSale(state,item,paid,undefined,winner.p.id);
+    completeAppraisedSale(state,item,paid);
     item.owner=winner.p.id;winner.p.inventory.push(item.id);state.vault=state.vault!.filter(id=>id!==item.id);
     lot.winnerId=winner.p.id;lot.price=paid;
     winner.p.darkTickets=(winner.p.darkTickets??0)+1;winner.p.notes.push(`ชนะประมูล ได้ตั๋วคำสั่งมืด ${winner.p.darkTickets}/${TRUST_RULES.ticketsToForce}`);winner.p.notes=winner.p.notes.slice(-30);

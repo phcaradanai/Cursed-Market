@@ -132,7 +132,7 @@ export function recoveryAmount(state:AppraisalState,p:Appraiser,offer:RecoveryOf
   if(offer.min===undefined || offer.min>=offer.amount)return offer.amount;
   return offer.min+Math.floor(randomAt(state.seed,`${state.encounter}:${p.id}:recovery-roll`)*(offer.amount-offer.min+1));
 }
-/** Every `shardsPerLife` banked shards mend 1 life while below the cap; the bank holds at most `bankCap`. */
+/** Buyers of another seat's appraised goods earn the shards (the seller earns commission and trust). Every `shardsPerLife` banked shards mend 1 life while below the cap; the bank holds at most `bankCap`. */
 export function mendWithShards(state:AppraisalState,p:Appraiser):void {
   while((p.pulseShards??0)>=PULSE_RULES.shardsPerLife && p.life!==undefined && p.life>0 && p.life<maxLifeOf(state,p)!) {
     p.pulseShards!-=PULSE_RULES.shardsPerLife;healLife(state,p,1,'pulse-shards');
@@ -249,7 +249,7 @@ export function npcQuote(shop:Appraiser,item:AppraisalItem):number {
   const valuation=shop.valuations[item.id];return valuation?.accepted?valuation.value:item.ask;
 }
 /** The original NPC sale pays once; reselling an owned item cannot farm commission or trust. */
-export function completeAppraisedSale(state:AppraisalState,item:AppraisalItem,salePrice:number,bonuses?:PassiveBonuses,buyerId?:string):void {
+export function completeAppraisedSale(state:AppraisalState,item:AppraisalItem,salePrice:number,bonuses?:PassiveBonuses):void {
   if(!state.config.commerce || !item.appraisedBy || item.commissionPaid || salePrice<=0)return;
   item.commissionPaid=true;const appraiser=player(state,item.appraisedBy);
   if(state.config.survival && appraiser.life===0)return;
@@ -261,7 +261,6 @@ export function completeAppraisedSale(state:AppraisalState,item:AppraisalItem,sa
   const trust=appraiser.npcTrust!;trust[item.npc]=Math.min(TRUST_CAP,(trust[item.npc]??0)+1+b.trust+(status(appraiser,'B15')?1:0));consumeStatus(appraiser,'D15');consumeStatus(appraiser,'B15');
   appraiser.notes.push(`ขาย ${ITEM_SPECS[item.kind].name} ได้ ${salePrice} เครดิต · ค่านายหน้า +${commission} เครดิต · ความไว้ใจ ${NPC_SPECS[item.npc].name} ${trust[item.npc]}/${TRUST_CAP}`);appraiser.notes=appraiser.notes.slice(-30);
   trace(state,appraiser,'appraisal-commission',{itemId:item.id,npc:item.npc,salePrice,commission,trust:trust[item.npc]});
-  if(state.config.survival && buyerId!==undefined && buyerId!==appraiser.id)gainShards(state,appraiser);
 }
 /** Buying one merchant's goods that other seats appraised, three times running, earns trust with that merchant. */
 function noteRepeatBuy(state:AppraisalState,buyer:Appraiser,items:AppraisalItem[],appraisers:Array<string|undefined>):void {
@@ -299,11 +298,12 @@ export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraise
   let allocated=0;
   for (const [index,item] of items.entries()) {
     const share=index===items.length-1?price-allocated:basePrice?Math.floor(price*npcQuote(shop,item)/basePrice):0;allocated+=share;
-    completeAppraisedSale(state,item,share,commissionBonuses.get(item.appraisedBy??''),buyer.id);
+    completeAppraisedSale(state,item,share,commissionBonuses.get(item.appraisedBy??''));
     item.owner = buyer.id; buyer.inventory.push(item.id); shop.stock = shop.stock.filter(id => id !== item.id);
     state.listings = state.listings.filter(l => l.itemId !== item.id);
   }
   noteRepeatBuy(state,buyer,items,appraisers);
+  if(state.config.survival && appraisers.some(id=>id!==undefined && id!==buyer.id))gainShards(state,buyer);
   if (options.grantStatus) grant(state,buyer,options.grantStatus);
   if (options.condition) grant(state,buyer,profile.condition);
   if (options.lock) grant(state,buyer,'D09',items[0]!.id);

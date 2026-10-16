@@ -8,6 +8,7 @@ import type { ClaimKey } from '../game/appraisal/challenge-rules.js';
 import { WISH_CAP, WISH_FLOOR } from '../game/appraisal/wishlist-rules.js';
 import { CLEANSE_CAP, CLEANSE_TOOLS, CLEANSE_TRUST_CHANCE, CLEANSE_TRUST_PRICE } from '../game/appraisal/cleanse-rules.js';
 import { TRUST_CAP } from '../game/appraisal/market-contracts.js';
+import { TRUST_RULES } from '../game/appraisal/pulse.js';
 import { useEffect, useId, useState } from 'react';
 import { ITEM_SPECS, itemImage, NPC_SPECS } from '../game/appraisal/content.js';
 import type { AppraisalView, EventOffer, ItemView } from '../game/appraisal/types.js';
@@ -416,13 +417,18 @@ export function TradeListing({game,listing,room,submit,disabled}:Actions&{listin
       {seller?.paused || seller?.done?<p className="why" role="status">{t('เจ้าของพักหรือจบช่วงแล้ว ยื่นข้อเสนอไม่ได้')}</p>:<>{(()=>{const why=!valid?t('ใส่จำนวนเต็ม 0–1000'):pending>=8?t('มีข้อเสนอค้างครบ 8 รายการแล้ว'):price+npcPrice+(disputed?lossFee:0)>game.self.credits?t('เครดิตไม่พอ ต้องใช้ {need}{extra} มี {have}',{need:price+npcPrice+(disputed?lossFee:0),extra:disputed?t(' (รวมค่าปรับสำรองถ้าท้าทายผิด)'):'',have:game.self.credits}):source==='npc' && game.self.energy<purchaseEnergy(game)?t('พลังไม่พอ ต้องใช้ {need} มี {have}',{need:purchaseEnergy(game),have:game.self.energy}):null;
         return <><button disabled={disabled || !!why} title={tip(disabled&&locked,why)}>{t('ยื่นข้อเสนอให้ {name}',{name})}</button>{why && !disabled && <p className="why" role="status">{why}</p>}</>;})()}</>}
     </form>:<p>{t('เจ้าของเปิดให้ชมอย่างเดียว ยังซื้อไม่ได้')}</p>}
+    {source==='npc' && game.brokerage && (game.self.darkTickets??0)>=TRUST_RULES.ticketsToForce && (()=>{
+      const cost=purchasePrice(game,[item],item.condition.required);const short=needShort(game,{credits:cost,energy:purchaseEnergy(game)});
+      const why=seller?.paused==='dead'?t('เจ้าของไม่อยู่แล้ว'):short;
+      return <div className="force-buy"><p>{t('ตั๋วคำสั่งมืดครบ {n} ใบ · บังคับซื้อตามราคาประเมิน {price} เครดิต เจ้าของปฏิเสธหรือต่อรองไม่ได้',{n:TRUST_RULES.ticketsToForce,price:cost})}</p>
+        <button type="button" disabled={disabled || !!why} title={tip(disabled&&locked,why)} onClick={()=>submit({type:'force-buy',sellerId:listing.ownerId,itemId:item.id})}>{t('บังคับซื้อ · ใช้ตั๋ว {n} ใบ',{n:TRUST_RULES.ticketsToForce})}</button>{why && !disabled && <p className="why" role="status">{why}</p>}</div>;})()}
   </div></article>;
 }
 export function Trades({game,room,submit,disabled}:Actions&{room:AppraisalRoomView}) {
   const locked=useLock();
   const listings=game.listings.filter(l=>l.ownerId!==game.self.id);
   const name=(id:string)=>room.matchSeats.find(s=>s.id===id)?.name??t('ผู้เล่น');
-  return <section className="trades"><h2>{t('ต่อรองกับนักประเมินคนอื่น')}</h2><p>{t('เจ้าของต้องเปิดรายการและตอบรับก่อนโอนของกับเงิน ราคาต่ำหรือ 0 เครดิตไม่มีผลจับผิดจาก NPC')}</p>
+  return <section className="trades"><h2>{t('ต่อรองกับนักประเมินคนอื่น')}</h2>{game.brokerage && <p className="trust-note">{t('ตั๋วคำสั่งมืด {n}/{need} · ชนะประมูล Dark Market ได้ครั้งละ 1 ใบ ครบแล้วบังคับซื้อของในร้านที่เพื่อนเปิดไว้ตามราคาประเมิน',{n:game.self.darkTickets??0,need:TRUST_RULES.ticketsToForce})}</p>}<p>{t('เจ้าของต้องเปิดรายการและตอบรับก่อนโอนของกับเงิน ราคาต่ำหรือ 0 เครดิตไม่มีผลจับผิดจาก NPC')}</p>
     {!listings.length?<p>{t('ยังไม่มีใครเปิดรายการ เปิดของจากคลังหรือร้านที่ประเมินแล้วให้เพื่อนยื่นข้อเสนอ')}</p>:listings.map(listing=><TradeListing key={listing.itemId} game={game} listing={listing} room={room} submit={submit} disabled={disabled}/>)}
     <h3>{t('ข้อเสนอซื้อขายของคุณ')}</h3>{!game.trades.length?<p>{t('ยังไม่มีข้อเสนอ')}</p>:<ul className="offers">{game.trades.map(tr=><li key={tr.id}><p><strong>{itemName(tr.item.kind)}</strong> · {t('{buyer} เสนอ {n} เครดิต',{buyer:name(tr.buyerId),n:tr.credits})}{tr.source==='npc'?t(' เป็นค่าแนะนำ นอกเหนือจากราคาพ่อค้า'):''}{tr.swapItem?t(' + แลก {name}',{name:itemName(tr.swapItem.kind)}):''} {t('ให้ {seller}',{seller:name(tr.sellerId)})}</p><AppraisalPrice item={tr.item}/>{tr.swapItem && <div className="swap-details"><h3>{t('ของแลกจาก {buyer}: {name}',{buyer:name(tr.buyerId),name:itemName(tr.swapItem.kind)})}</h3><img src={tr.swapItem.image} width="1254" height="1254" alt={itemName(tr.swapItem.kind)}/><AppraisalPrice item={tr.swapItem}/><ItemFacts item={tr.swapItem}/><p>{t('ผลที่เป็นไปได้:')} <Rich text={tr.swapItem.possibleBenefit} survival={!!game.survival}/> · <Rich text={tr.swapItem.possibleDrawback} survival={!!game.survival}/></p></div>}<p>{tr.challenge?t('ผู้ซื้อท้าทายคำระบุ "{v}"{seal} · ',{v:claimText(tr.challenge,(game.listings.find(l=>l.itemId===tr.itemId)?.claims?.[tr.challenge])??true),seal:tr.sealId?t(' แนบตราโมฆะ'):''}):''}{tr.condition?t('ผู้ซื้อยอมรับเงื่อนไข NPC · '):''}{tr.status==='open'?t('รอผู้ขายตอบรับ'):tr.status==='accepted'?t('ตกลงและโอนสำเร็จแล้ว'):t('ปฏิเสธหรือหมดอายุแล้ว')}</p>{tr.sellerId===game.self.id && tr.status==='open' && <div className="actions"><button className="primary" disabled={disabled || !!game.self.eventOffer && isConsequence(game.self.eventOffer.id)} title={tip(disabled&&locked,t('ตอบเหตุการณ์ก่อน'))} onClick={()=>submit({type:'respond',offerId:tr.id,accept:true})}>{t('ตกลงและโอนทันที')}</button><button disabled={disabled || !!game.self.eventOffer && isConsequence(game.self.eventOffer.id)} title={tip(disabled&&locked,t('ตอบเหตุการณ์ก่อน'))} onClick={()=>submit({type:'respond',offerId:tr.id,accept:false})}>{t('ปฏิเสธ')}</button></div>}</li>)}</ul>}
   </section>;

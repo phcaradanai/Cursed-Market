@@ -113,6 +113,10 @@ export interface Appraiser {
   life?:number; recoveryUsed?:boolean;
   /** Survival commerce: pulse shards earned when another seat buys goods this seat appraised; 3 mend 1 life. */
   pulseShards?:number;
+  /** Dark order tickets won at the Dark Market auction; enough of them force a sale (see TRUST_RULES). */
+  darkTickets?:number;
+  /** Consecutive purchases of other seats' appraised goods from one merchant; the run pays trust. */
+  buyStreak?:{npc:NpcId;count:number};
   /** The only seat this one has traded with since `since`; a long exclusive run makes merchants wary. */
   tradeLink?:{partner:string;since:number};
   paused: 'dead' | 'exhausted' | null; done: boolean; portals: Portal[]; selectedPortalId: string | null;
@@ -162,6 +166,7 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
   | { type: 'event'; key: string; choice: string; itemId?: string; itemIds?:string[]; statusId?: StatusId; otherPlayerId?: string; fact?: 'base'|'genuine'|'cursed'; guess?: boolean }
   | { type: 'market-sell'; itemId: string; orderId: string; resolution?:'discount'|'sacrifice' }
   | { type: 'share'; itemId: string; allow: boolean; purchase: boolean; claims?: { genuine?: boolean; cursed?: boolean } }
+  | { type: 'force-buy'; sellerId: string; itemId: string }
   | { type: 'propose'; sellerId: string; itemId: string; credits: number; swapItemId?: string; condition?: boolean; challenge?: 'genuine'|'cursed'; sealId?: string }
   | { type: 'respond'; offerId: string; accept: boolean }
   | { type: 'round-flip'; guess:CoinSide; attempt:number }

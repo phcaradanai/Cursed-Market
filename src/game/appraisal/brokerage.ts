@@ -1,4 +1,5 @@
 import { randomAt } from '../random.js';
+import { TRUST_RULES } from './pulse.js';
 import { BOND_SPECS, CONSIGN_RULES, ITEM_SPECS, UNSOLD_PENALTIES, itemFamily } from './content.js';
 import type { BondSpec } from './content.js';
 import { check, completeAppraisedSale, consumeStatus, damageLife, grant, healLife, known, learn, ownedItem, player, purchase, recover, removeStatus, retire, reward, saleApply, salePreview, spend, status, stockItem, trace, unlocked } from './mechanics.js';
@@ -194,6 +195,7 @@ export function settleAuction(state:AppraisalState):void {
     completeAppraisedSale(state,item,paid,undefined,winner.p.id);
     item.owner=winner.p.id;winner.p.inventory.push(item.id);state.vault=state.vault!.filter(id=>id!==item.id);
     lot.winnerId=winner.p.id;lot.price=paid;
+    winner.p.darkTickets=(winner.p.darkTickets??0)+1;winner.p.notes.push(`ชนะประมูล ได้ตั๋วคำสั่งมืด ${winner.p.darkTickets}/${TRUST_RULES.ticketsToForce}`);winner.p.notes=winner.p.notes.slice(-30);
     trace(state,winner.p,'auction-won',{lotId:lot.id,itemId:item.id,price:paid,...(edge?{bid:winner.amount}:{})});
   }
 }

@@ -12,7 +12,7 @@ import { challengePenalty } from './challenge-rules.js';
 import type { Claims } from './challenge-rules.js';
 import { makeMarketContract, marketOrderReserve, TRUST_CAP } from './market-contracts.js';
 import { collectRun } from './survival.js';
-import { PULSE_RULES, linkTrade } from './pulse.js';
+import { PULSE_RULES, TRUST_RULES, linkTrade } from './pulse.js';
 import { bankRoundReward, flipRoundReward, openRoundRewards } from './round-rewards.js';
 import type { AppraisalAction, AppraisalConfig, AppraisalState, Appraiser, DarkMarket, NpcId, Portal } from './types.js';
 
@@ -193,6 +193,23 @@ function propose(state:AppraisalState,p:Appraiser,action:Extract<AppraisalAction
   check(state.trades.filter(o=>o.status==='open' && o.buyerId===p.id).length<8,'offers','มีข้อเสนอค้างมากเกินไป');
   state.trades.push({id:`trade-${state.encounter}-${p.id}-${action.requestId}`,buyerId:p.id,sellerId:seller.id,itemId:item.id,swapItemId:action.swapItemId??null,credits:action.credits,source,encounter:state.encounter,status:'open',condition:action.condition===true,...(action.challenge!==undefined?{challenge:action.challenge}:{}),...(action.sealId!==undefined?{sealId:action.sealId}:{})});
 }
+/** Dark order tickets: enough of them force a shared shop item to sell at the appraised price, with no answer or haggling. */
+function forceBuy(state:AppraisalState,p:Appraiser,action:Extract<AppraisalAction,{type:'force-buy'}>):void {
+  const seller=player(state,action.sellerId);
+  check((p.darkTickets??0)>=TRUST_RULES.ticketsToForce,'tickets',`ต้องมีตั๋วคำสั่งมืด ${TRUST_RULES.ticketsToForce} ใบ`);
+  check(seller.id!==p.id && seller.paused!=='dead','seller','บังคับซื้อจากเจ้าของนี้ไม่ได้');
+  check(state.listings.some(l=>l.ownerId===seller.id && l.itemId===action.itemId),'listing','เจ้าของยังไม่เปิดรายการนี้');
+  const item=stockItem(state,seller,action.itemId);
+  check(!!seller.valuations[item.id],'appraisal','บังคับซื้อได้เฉพาะของที่ประเมินแล้ว');
+  if(state.config.survival){linkTrade(p,seller.id,state.encounter);linkTrade(seller,p.id,state.encounter);}
+  p.darkTickets=p.darkTickets!-TRUST_RULES.ticketsToForce;
+  purchase(state,p,seller,[item.id],{condition:seller.dealMode==='condition'});
+  state.listings=state.listings.filter(l=>l.itemId!==item.id);
+  const note=`ใช้ตั๋วคำสั่งมืดบังคับซื้อ ${ITEM_SPECS[item.kind].name} ตามราคาประเมิน`;
+  p.notes.push(note);p.notes=p.notes.slice(-30);
+  seller.notes.push(`${ITEM_SPECS[item.kind].name}ถูกบังคับซื้อด้วยตั๋วคำสั่งมืด ตามราคาประเมิน`);seller.notes=seller.notes.slice(-30);
+  trace(state,p,'forced-purchase',{itemId:item.id,sellerId:seller.id,tickets:p.darkTickets});
+}
 function respond(state:AppraisalState,p:Appraiser,offerId:string,accept:boolean):void {
   const offer=state.trades.find(o=>o.id===offerId);
   check(offer && offer.encounter===state.encounter && offer.status==='open' && offer.sellerId===p.id,'offer','ข้อเสนอหมดอายุหรือไม่ใช่ของคุณ');
@@ -278,6 +295,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
     case 'bid': check(state.config.brokerage,'action-type','ห้องนี้ไม่มีการประมูล');placeBid(state,p,action.lotId,action.credits);break;
     case 'market-sell': marketSell(state,p,action.itemId,action.orderId,action.resolution);break;
     case 'share': check(['APPRAISAL','TRADE'].includes(state.phase),'phase','ยังเปิดรายการไม่ได้');share(state,p,action.itemId,action.allow,action.purchase,action.claims);break;
+    case 'force-buy': check(state.phase==='TRADE','phase','ยังไม่ใช่ช่วงต่อรอง');forceBuy(state,p,action);break;
     case 'propose': check(state.phase==='TRADE','phase','ยังไม่ใช่ช่วงต่อรอง');propose(state,p,action);break;
     case 'respond': check(state.phase==='TRADE','phase','ยังไม่ใช่ช่วงต่อรอง');respond(state,p,action.offerId,action.accept);break;
     case 'done': defaultEvent(state,p);p.done=true;for(const offer of state.trades) if(offer.status==='open' && [offer.buyerId,offer.sellerId].includes(p.id)) offer.status='rejected';break;
@@ -334,6 +352,7 @@ export function assertAppraisalInvariants(state:AppraisalState):void {
     if(r)check(state.config.roundRewards && r.encounter===state.encounter && r.base===(state.encounter%2?10:15) && Number.isSafeInteger(r.flips) && r.flips>=0 && Number.isSafeInteger(r.amount) && (r.amount===r.base+(r.incomeBonus??0)+(r.winBonus??5)*r.flips || r.amount===0 && r.settled && r.lastFlip?.correct===false),'round-reward','ยอดรางวัลจบรอบไม่ถูกต้อง');
     check(Number.isSafeInteger(p.credits) && p.credits>=0 && Number.isSafeInteger(p.energy) && p.energy>=0 && p.energy<=maxEnergyOf(state,p),'resources','ทรัพยากรไม่ถูกต้อง');
     if(state.config.survival)check(Number.isSafeInteger(p.life) && p.life!>=0 && p.life!<=maxLifeOf(state,p)! && (p.life===0)===(p.paused==='dead') && p.paused!=='exhausted','life','ชีวิตหรือสิทธิ์เล่นไม่ตรงกัน');
+    check(p.darkTickets===undefined || Number.isSafeInteger(p.darkTickets) && p.darkTickets>=0,'tickets','ตั๋วคำสั่งมืดไม่ถูกต้อง');
     check(p.pulseShards===undefined || state.config.survival && Number.isSafeInteger(p.pulseShards) && p.pulseShards>=0 && p.pulseShards<=PULSE_RULES.bankCap,'pulse','เศษชีพจรไม่ถูกต้อง');
     check(p.inventory.every(id=>!owned.has(id) && !!owned.add(id) && state.items[id]?.owner===p.id),'owner','สินค้าซ้ำหรือเจ้าของไม่ตรง');
     const loan=p.npcContracts?.alien;

@@ -6,7 +6,7 @@ import { randomAt } from '../random.js';
 import { ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, itemFamily, priceRange } from './content.js';
 import { FAKE_EFFECT_CHANCE, itemScoreValue } from './scoring.js';
 import { omenOf } from './omens.js';
-import { ENERGY_DEAL_NPCS, PULSE_RULES, lifeDealTerms, merchantWary, shardsPerSale } from './pulse.js';
+import { ENERGY_DEAL_NPCS, PULSE_RULES, TRUST_RULES, lifeDealTerms, merchantWary, shardsPerSale } from './pulse.js';
 import type { AppraisalItem, AppraisalState, Appraiser, Knowledge, RecoveryOffer, Status, StatusId } from './types.js';
 
 export function check(condition: unknown, code: string, message: string): asserts condition {
@@ -234,7 +234,11 @@ export function appraise(state: AppraisalState, p: Appraiser, itemId: string, va
   item.lastAppraisal = value; item.lastAccepted = accepted;
   if(state.config.commerce)item.appraisedBy=p.id;
   p.notes.push(accepted?`NPC ยอมรับราคา ${value} credit`:`NPC ปฏิเสธราคา ${value}; ยังซื้อราคาหน้าร้าน ${item.ask} credit ได้`);
-  if (caught) p.notes.push('พ่อค้าจับได้ว่าคุณกดราคา!');
+  if (caught) {
+    p.notes.push('พ่อค้าจับได้ว่าคุณกดราคา!');
+    const trust=p.npcTrust;
+    if(trust && (trust[item.npc]??0)>0){const lost=Math.min(trust[item.npc]!,TRUST_RULES.caughtLoss);trust[item.npc]=trust[item.npc]!-lost;p.notes.push(`ความไว้ใจ ${NPC_SPECS[item.npc].name} ลด ${lost} เหลือ ${trust[item.npc]}/${TRUST_CAP}`);trace(state,p,'trust-lost',{npc:item.npc,lost,trust:trust[item.npc]});}
+  }
   p.notes = p.notes.slice(-30);
   consumeStatus(p,'B04'); consumeStatus(p,'D03'); consumeStatus(p,'B12');
   if (p.honorJob && accuracy) grant(state,p,'B07'); p.honorJob = false;
@@ -259,6 +263,18 @@ export function completeAppraisedSale(state:AppraisalState,item:AppraisalItem,sa
   trace(state,appraiser,'appraisal-commission',{itemId:item.id,npc:item.npc,salePrice,commission,trust:trust[item.npc]});
   if(state.config.survival && buyerId!==undefined && buyerId!==appraiser.id)gainShards(state,appraiser);
 }
+/** Buying one merchant's goods that other seats appraised, three times running, earns trust with that merchant. */
+function noteRepeatBuy(state:AppraisalState,buyer:Appraiser,items:AppraisalItem[],appraisers:Array<string|undefined>):void {
+  const trust=buyer.npcTrust;
+  if(!trust || !state.config.commerce || !appraisers.some(id=>id!==undefined && id!==buyer.id))return;
+  const npc=items[0]!.npc;
+  const count=buyer.buyStreak?.npc===npc?buyer.buyStreak.count+1:1;
+  if(count<TRUST_RULES.repeatBuys){buyer.buyStreak={npc,count};return;}
+  delete buyer.buyStreak;
+  const before=trust[npc]??0;trust[npc]=Math.min(TRUST_CAP,before+TRUST_RULES.repeatBuyTrust);
+  buyer.notes.push(`ซื้อของ ${NPC_SPECS[npc].name} ที่เพื่อนประเมินครบ ${TRUST_RULES.repeatBuys} ครั้งติด ความไว้ใจ ${trust[npc]}/${TRUST_CAP}`);buyer.notes=buyer.notes.slice(-30);
+  trace(state,buyer,'repeat-buy-trust',{npc,trust:trust[npc]});
+}
 export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraiser, itemIds: string[], options: {discount?:number;condition?:boolean;grantStatus?:StatusId;lock?:boolean;barterItemId?:string} = {}): void {
   check(Array.isArray(itemIds) && itemIds.length > 0 && itemIds.length<=2 && itemIds.every(id=>typeof id==='string') && new Set(itemIds).size === itemIds.length,'bundle','ชุดสินค้าไม่ถูกต้อง');
   const items = itemIds.map(id => stockItem(state,shop,id));
@@ -279,6 +295,7 @@ export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraise
   if(bloodDiscount)delete buyer.vampireDiscount;
   if (options.barterItemId) retire(state,buyer,options.barterItemId,'npc-barter');
   consumeStatus(buyer,'B03'); consumeStatus(buyer,'D06'); consumeStatus(buyer,'D12');
+  const appraisers=items.map(item=>item.appraisedBy);
   let allocated=0;
   for (const [index,item] of items.entries()) {
     const share=index===items.length-1?price-allocated:basePrice?Math.floor(price*npcQuote(shop,item)/basePrice):0;allocated+=share;
@@ -286,6 +303,7 @@ export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraise
     item.owner = buyer.id; buyer.inventory.push(item.id); shop.stock = shop.stock.filter(id => id !== item.id);
     state.listings = state.listings.filter(l => l.itemId !== item.id);
   }
+  noteRepeatBuy(state,buyer,items,appraisers);
   if (options.grantStatus) grant(state,buyer,options.grantStatus);
   if (options.condition) grant(state,buyer,profile.condition);
   if (options.lock) grant(state,buyer,'D09',items[0]!.id);

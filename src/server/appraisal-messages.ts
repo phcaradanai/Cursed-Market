@@ -56,6 +56,7 @@ function action(value: unknown): AppraisalSeatAction {
       return {type:'market-sell',...base,itemId:string(body.itemId),orderId:string(body.orderId),...(body.resolution===undefined?{}:{resolution:body.resolution})};
     case 'share': keys(body, [...fields, 'itemId', 'allow', 'purchase', 'claims']); return { type: 'share', ...base, itemId: string(body.itemId), allow: boolean(body.allow), purchase: boolean(body.purchase),
       ...(body.claims === undefined ? {} : { claims: claims(body.claims) }) };
+    case 'force-buy': keys(body, [...fields, 'sellerId', 'itemId']); return { type: 'force-buy', ...base, sellerId: string(body.sellerId, 32), itemId: string(body.itemId) };
     case 'propose':
       keys(body, [...fields, 'sellerId', 'itemId', 'credits', 'swapItemId', 'condition', 'challenge', 'sealId']);
       if (body.challenge !== undefined && body.challenge !== 'genuine' && body.challenge !== 'cursed') throw new MessageError();

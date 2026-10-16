@@ -1,10 +1,10 @@
 import { passivesEnabled } from './passives.js';
 import { randomAt } from '../random.js';
-import { EXPANSION_NPCS, ITEM_SPECS, NPC_SPECS, expansionActive, merchantKinds, priceRange } from './content.js';
+import { ITEM_SPECS, NPC_SPECS, expansionActive, merchantKinds, priceRange } from './content.js';
 import { defaultEvent, drawBondEvent, drawExpansionEvent, drawPolishEvent, drawWishEvent, drawEvent, drawPersonalNpcEvent, resolveEvent } from './events.js';
 import { closeNpcContracts, redeemNpcContracts } from './npc-events.js';
 import { auctionLots, placeBid, settleAuction, settleRemainingUnsold, settleUnsold } from './brokerage.js';
-import { activate, appraise, check, enforceCaps, maxEnergyOf, maxLifeOf, npcQuote, omenNow, consumeStatus, damageLife, healLife, inspect, marketSell, ownedItem, player, purchase, payRebate, recover, recoveryAmount, recoveryOffer, mendWithShards, reward, spend, status, stockItem, trace, transfer, unlocked, wealth } from './mechanics.js';
+import { activate, appraise, check, enforceCaps, maxEnergyOf, maxLifeOf, npcQuote, omenNow, consumeStatus, damageLife, healLife, inspect, marketSell, ownedItem, player, purchase, payRebate, stockBonus, recover, recoveryAmount, recoveryOffer, mendWithShards, reward, spend, status, stockItem, trace, transfer, unlocked, wealth } from './mechanics.js';
 import { cleanseItem } from './cleanse.js';
 import { wishNew, wishSell } from './wishlist.js';
 import { settleChallenge } from './challenge.js';
@@ -12,7 +12,7 @@ import { challengePenalty } from './challenge-rules.js';
 import type { Claims } from './challenge-rules.js';
 import { makeMarketContract, marketOrderReserve, TRUST_CAP } from './market-contracts.js';
 import { collectRun } from './survival.js';
-import { PULSE_RULES, TRUST_RULES, linkTrade } from './pulse.js';
+import { PULSE_RULES, TRUST_RULES, activeNpcs, linkTrade } from './pulse.js';
 import { bankRoundReward, flipRoundReward, openRoundRewards } from './round-rewards.js';
 import type { AppraisalAction, AppraisalConfig, AppraisalState, Appraiser, DarkMarket, NpcId, Portal } from './types.js';
 
@@ -77,26 +77,29 @@ function initialiseAppraisalRun(playerIds:string[],seed:string,config:AppraisalC
   for(const p of state.players) if(randomAt(seed,`${state.encounter}:${p.id}:entry-event`)<.55) drawEvent(state,p);
   assertAppraisalInvariants(state); return state;
 }
+/** One merchant item; the same recipe fills the portals up front and the extra slots earned through trust. */
+function spawnStockItem(state:AppraisalState,id:string,seat:number,encounter:number,index:number,slot:number,npc:NpcId):string {
+  const {seed,config}=state;const favorites=merchantKinds(npc,config.catalogVersion??1,!!config.cleanse,!!config.challenge,expansionActive(config),!!config.polish);
+  const itemId=`item-${encounter}-${seat}-${index}-${slot}`;
+  const kind=favorites[Math.floor(randomAt(seed,`${itemId}:kind`)*favorites.length)]!;
+  const range=priceRange(kind); const base=range[0]+Math.floor(randomAt(seed,`${itemId}:base`)*(range[1]-range[0]+1));
+  const reservation=NPC_SPECS[npc].reservation;
+  const ask=Math.max(1,ITEM_SPECS[kind].anchor-2+Math.floor(randomAt(seed,`${itemId}:ask`)*6));
+  const minimum=Math.ceil(base*(reservation[0]+(reservation[1]-reservation[0])*randomAt(seed,`${itemId}:reservation`)));
+  state.items[itemId]={
+    id:itemId,kind,base,ask,genuine:randomAt(seed,`${itemId}:genuine`)<.75,
+    cursed:randomAt(seed,`${itemId}:curse`)<.35,owner:`npc:${id}:${encounter}`,
+    npcOwnerId:id,npc,encounter,certificate:randomAt(seed,`${itemId}:certificate`)<.65,
+    lastAppraisal:null,lastAccepted:null,reservation:Math.min(ask,Math.max(1,minimum)),
+  };
+  return itemId;
+}
 function generatePortals(state:AppraisalState,id:string,seat:number,encounter:number):Portal[] {
-      const {seed,config}=state;const npcIds=(Object.keys(NPC_SPECS) as NpcId[]).filter(npc=>expansionActive(config) || !EXPANSION_NPCS.includes(npc));
+      const {seed,config}=state;const npcIds=activeNpcs(config);
       const npcs=npcIds.map(npc=>({npc,rank:randomAt(seed,`${encounter}:${seat}:${npc}:portal`)})).sort((a,b)=>a.rank-b.rank).slice(0,3);
       const portals=npcs.map(({npc},index)=>{
-        const stock:string[]=[]; const favorites=merchantKinds(npc,config.catalogVersion??1,!!config.cleanse,!!config.challenge,expansionActive(config),!!config.polish);
-        for(let slot=0;slot<2;slot++) {
-          const itemId=`item-${encounter}-${seat}-${index}-${slot}`;
-          const kind=favorites[Math.floor(randomAt(seed,`${itemId}:kind`)*favorites.length)]!;
-          const range=priceRange(kind); const base=range[0]+Math.floor(randomAt(seed,`${itemId}:base`)*(range[1]-range[0]+1));
-          const reservation=NPC_SPECS[npc].reservation;
-          const ask=Math.max(1,ITEM_SPECS[kind].anchor-2+Math.floor(randomAt(seed,`${itemId}:ask`)*6));
-          const minimum=Math.ceil(base*(reservation[0]+(reservation[1]-reservation[0])*randomAt(seed,`${itemId}:reservation`)));
-          state.items[itemId]={
-            id:itemId,kind,base,ask,genuine:randomAt(seed,`${itemId}:genuine`)<.75,
-            cursed:randomAt(seed,`${itemId}:curse`)<.35,owner:`npc:${id}:${encounter}`,
-            npcOwnerId:id,npc,encounter,certificate:randomAt(seed,`${itemId}:certificate`)<.65,
-            lastAppraisal:null,lastAccepted:null,reservation:Math.min(ask,Math.max(1,minimum)),
-          };
-          stock.push(itemId);
-        }
+        const stock:string[]=[];
+        for(let slot=0;slot<2;slot++) stock.push(spawnStockItem(state,id,seat,encounter,index,slot,npc));
         return {id:`portal-${encounter}-${seat}-${index}`,npc,stock,disabled:false};
       });return portals;
 }
@@ -274,7 +277,9 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
     case 'enter': {
       check(state.phase==='PORTALS' && !p.eventOffer,'phase','เลือก event ก่อนเข้าประตู');
       const portal=p.portals.find(v=>v.id===action.portalId && !v.disabled); check(portal,'portal','ประตูนี้เข้าไม่ได้');
-      p.selectedPortalId=portal.id;p.stock=[...portal.stock];redeemNpcContracts(state,p,portal.npc);p.done=true;trace(state,p,'portal-entered',{portalId:portal.id,npc:portal.npc});break;
+      p.selectedPortalId=portal.id;p.stock=[...portal.stock];
+      for(let slot=2;slot<2+stockBonus(state,p).extra;slot++)p.stock.push(spawnStockItem(state,p.id,state.players.indexOf(p),state.encounter,p.portals.indexOf(portal),slot,portal.npc));
+      redeemNpcContracts(state,p,portal.npc);p.done=true;trace(state,p,'portal-entered',{portalId:portal.id,npc:portal.npc});break;
     }
     case 'inspect': npcActionAllowed(state,p);inspect(state,p,action.itemId,action.property);break;
     case 'appraise': case 'counter': {

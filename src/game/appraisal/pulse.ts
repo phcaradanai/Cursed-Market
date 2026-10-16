@@ -1,4 +1,5 @@
-import type { Appraiser, NpcId } from './types.js';
+import { EXPANSION_NPCS, NPC_SPECS, expansionActive } from './content.js';
+import type { AppraisalConfig, Appraiser, NpcId } from './types.js';
 
 /** Pulse shards: buying goods another seat appraised pays the buyer 1 shard; `shardsPerLife` of them mend 1 life. A wary merchant pays none. */
 export const PULSE_RULES={shardsPerLife:3,shardsPerSale:1,shardsWhenWary:0,waryAfter:3,bankCap:5} as const;
@@ -17,3 +18,9 @@ export function linkTrade(p:Appraiser,partnerId:string,encounter:number):void {
 /** Merchants grow wary after more than `waryAfter` encounters of trading with the same single partner. */
 export const merchantWary=(p:Appraiser,encounter:number)=>!!p.tradeLink && encounter-p.tradeLink.since>=PULSE_RULES.waryAfter;
 export const shardsPerSale=(p:Appraiser,encounter:number)=>merchantWary(p,encounter)?PULSE_RULES.shardsWhenWary:PULSE_RULES.shardsPerSale;
+
+/** Close ties with every merchant in play stock each shop with more goods: 1 extra item per `trustPerExtra` levels of the lowest trust. */
+export const STOCK_RULES={trustPerExtra:2} as const;
+export const activeNpcs=(config:AppraisalConfig):NpcId[]=>(Object.keys(NPC_SPECS) as NpcId[]).filter(npc=>expansionActive(config) || !EXPANSION_NPCS.includes(npc));
+export const trustTier=(trust:Appraiser['npcTrust'],npcs:NpcId[])=>trust?Math.min(...npcs.map(npc=>trust[npc]??0)):0;
+export const extraStock=(tier:number)=>Math.floor(tier/STOCK_RULES.trustPerExtra);

@@ -462,6 +462,7 @@ export const EN_UI_TEXT: Record<string, string> = {
   "“เลือกของที่ต้องการ แล้วบอกข้าวว่ามันมีราคาเท่าไร”": "“Pick what you want, then tell me what it's worth.”",
   "ดีลฟื้นชีวิต": "Life recovery deal",
   "ดีลฟื้นพลัง": "Energy recovery deal",
+  "ความไว้ใจต่ำสุดกับพ่อค้าทุกคน {tier} · ร้านทุกเจ้าเพิ่มของให้ {extra} ชิ้น · ทุก {per} ระดับเพิ่มอีก 1 ชิ้น": "Lowest trust across every merchant: {tier} · each shop lays out {extra} extra goods · +1 more for every {per} levels",
   "ค่าแถมให้ผู้ซื้อ (เครดิต)": "Rebate for the buyer (credits)",
   "จ่ายให้ผู้ซื้อเมื่อขายสำเร็จ ใช้ช่วยขายของที่ขายยาก": "Paid to the buyer when the sale completes; use it to move hard-to-sell goods",
   "ใส่จำนวนเต็ม 0–1000 และไม่เกินเครดิตที่มี": "Enter a whole number from 0 to 1000, no more than your credits",

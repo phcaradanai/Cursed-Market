@@ -213,6 +213,8 @@ export interface AppraisalView {
     maxEnergy?: number; maxLife?: number;
     recoveryOffer?:RecoveryOffer;
     pulse?:{shards:number;perLife:number;perSale:number;wary:boolean};
+    /** Lowest trust across every merchant in play and the extra shop goods it earns. */
+    stockBonus?:{tier:number;extra:number;perExtra:number};
     cleanseOffer?:CleanseOffer;
     wishOffer?:WishOffer;
     wishDesk?:WishDesk;

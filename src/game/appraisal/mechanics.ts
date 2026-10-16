@@ -6,7 +6,7 @@ import { randomAt } from '../random.js';
 import { ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, itemFamily, priceRange } from './content.js';
 import { FAKE_EFFECT_CHANCE, itemScoreValue } from './scoring.js';
 import { omenOf } from './omens.js';
-import { ENERGY_DEAL_NPCS, PULSE_RULES, TRUST_RULES, lifeDealTerms, merchantWary, shardsPerSale } from './pulse.js';
+import { ENERGY_DEAL_NPCS, PULSE_RULES, TRUST_RULES, activeNpcs, extraStock, lifeDealTerms, merchantWary, shardsPerSale, trustTier } from './pulse.js';
 import type { AppraisalItem, AppraisalState, Appraiser, Knowledge, RecoveryOffer, Status, StatusId } from './types.js';
 
 export function check(condition: unknown, code: string, message: string): asserts condition {
@@ -38,6 +38,11 @@ export function enforceCaps(state:AppraisalState):void {
     p.energy=Math.min(p.energy,maxEnergyOf(state,p));
     if(p.life!==undefined && p.life>0) p.life=Math.min(p.life,maxLifeOf(state,p)!);
   }
+}
+/** Extra goods a seat's chosen merchant lays out, from its lowest trust across every merchant in play. */
+export function stockBonus(state:AppraisalState,p:Appraiser):{tier:number;extra:number} {
+  const tier=state.config.commerce?trustTier(p.npcTrust,activeNpcs(state.config)):0;
+  return {tier,extra:extraStock(tier)};
 }
 /** The omen of the current encounter (polish rules only). */
 export const omenNow=(state:AppraisalState)=>omenOf(state.config,state.seed,state.encounter);

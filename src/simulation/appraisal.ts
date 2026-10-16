@@ -3,7 +3,8 @@ import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { advanceAppraisalEncounter, applyAppraisalAction, appraisalViewFor, createAppraisalRun, exportAppraisalAudit, replayAppraisalAudit } from '../game/appraisal/index.js';
 import { ITEM_SPECS } from '../game/appraisal/content.js';
-import type { AppraisalAction, AppraisalAudit, AppraisalConfig, AppraisalView, ItemView } from '../game/appraisal/index.js';
+import { TRUST_RULES } from '../game/appraisal/pulse.js';
+import type { AppraisalAction, AppraisalAudit, AppraisalConfig, AppraisalState, AppraisalView, ItemView } from '../game/appraisal/index.js';
 
 export const APPRAISAL_POLICIES=['cautious','aggressive','collector','trader'] as const;
 export type AppraisalPolicy=typeof APPRAISAL_POLICIES[number];
@@ -46,6 +47,86 @@ function eventAction(v:AppraisalView,policy:AppraisalPolicy):Body {
   return {type:'event',key:offer.key,choice,...(itemId?{itemId}:{}),...(statusId?{statusId}:{}),...(fact?{fact}:{}),...(offer.id==='E46'?{guess:true}:{})};
 }
 /** Policies read only the same private DTO a player receives, never seed or hidden truths. */
+const TICKETS_TO_FORCE=TRUST_RULES.ticketsToForce;
+const BUY_MARGIN:Record<AppraisalPolicy,number>={aggressive:-3,trader:0,collector:2,cautious:5};
+const SELL_FLOOR:Record<AppraisalPolicy,number>={trader:.45,aggressive:.5,cautious:.6,collector:.8};
+const BUY_RATIO:Record<AppraisalPolicy,number>={aggressive:.6,trader:.7,collector:.72,cautious:.74};
+const has=(v:AppraisalView,id:string)=>v.self.statuses.some(s=>s.id===id && s.charges>0);
+/** Expected score value of an item from what this seat knows; the seal of another appraiser adds 15%. */
+function worth(v:AppraisalView,item:ItemView):number {
+  const k=item.knowledge;
+  const base=k.base!==undefined?k.base:k.range?(k.range[0]+k.range[1])/2:ITEM_SPECS[item.kind].anchor;
+  const genuine=k.genuine===undefined?.75+.25*.25:k.genuine?1:.25;
+  const clean=k.cursed===undefined?1-.35*.25:k.cursed?.75:1;
+  const sealed=v.survival && item.appraisedBy!==undefined && item.appraisedBy!==v.self.id?1.15:1;
+  return base*genuine*clean*sealed;
+}
+const knownBad=(item:ItemView)=>item.knowledge.cursed===true || item.knowledge.genuine===false;
+/** Survival: goods a friend appraised and the merchant accepted cost no energy to buy (mirrors the engine). */
+const friendGoods=(v:AppraisalView,item:ItemView)=>!!v.survival && item.appraisedBy!==undefined && item.appraisedBy!==v.self.id && item.appraisalAccepted===true && item.owner.startsWith(`npc:${item.appraisedBy}:`);
+/** Credits an owner can spare to move a poor item: more when it is known bad, a little when life is at stake. */
+function rebateFor(v:AppraisalView,item:ItemView):number {
+  const p=v.self;let rebate=0;
+  if(knownBad(item)) rebate=Math.min(8,Math.max(2,Math.floor(item.price*.3)));
+  else if(v.survival && (p.life??9)<=3 && v.brokerage) rebate=2;
+  return Math.max(0,Math.min(rebate,p.credits-8));
+}
+interface Deal {listing:AppraisalView['listings'][number];net:number;ok:boolean;npcSource:boolean;fee:number}
+/** What buying a friend's listing is worth to this seat: the item, plus the shards, trust stack and saved energy the new rules pay. */
+function dealFor(v:AppraisalView,listing:AppraisalView['listings'][number],policy:AppraisalPolicy):Deal {
+  const p=v.self,item=listing.item,npcSource=item.owner.startsWith('npc:'),lowLife=!!v.survival && (p.life??9)<=3;
+  const value=worth(v,item),friend=npcSource && friendGoods(v,item);
+  const energy=npcSource?(v.freeBuy||friend?0:1)+(has(v,'D06')?1:0):0;
+  const rebate=listing.rebate??0;
+  const fee=npcSource?(rebate?0:1):Math.max(1,Math.floor(value*.5));
+  const cost=(npcSource?buyPrice(v,item):0)+fee;
+  let bonus=0;
+  if(npcSource && v.survival && p.pulse && !p.pulse.wary && item.appraisedBy!==undefined && item.appraisedBy!==p.id) bonus+=(lowLife?9:4);
+  const log=p.buyLog??[];
+  if(npcSource && item.appraisedBy!==undefined && item.appraisedBy!==p.id && log.length>0 && log.every(npc=>npc===item.npc)) bonus+=log.length>=2?7:2;
+  if(policy==='collector' && !p.inventory.some(i=>i.kind===item.kind)) bonus+=3;
+  if(policy==='trader') {const order=v.market.orders.find(o=>o.kind===item.kind && (o.quota[p.id]??0)>0);if(order) bonus+=order.price*.8;}
+  const net=value+bonus+rebate-cost-energy*3;
+  const ok=p.credits>=cost+4 && p.energy>=energy && net>=BUY_MARGIN[policy] && (!knownBad(item) || rebate>=Math.floor(value*.3) || policy==='aggressive');
+  return {listing,net,ok,npcSource,fee};
+}
+const seatOpen=(v:AppraisalView,id:string)=>{const o=v.players.find(x=>x.id===id);return !!o && !o.done && !o.paused && o.life!==0;};
+function tradeDecision(v:AppraisalView,policy:AppraisalPolicy):Body {
+  const p=v.self;
+  const othersActive=v.players.some(o=>o.id!==p.id && seatOpen(v,o.id));
+  const incoming=v.trades.find(o=>o.sellerId===p.id && o.status==='open');
+  if(incoming) {
+    const buyer=v.players.find(other=>other.id===incoming.buyerId)!;
+    const listing=v.listings.find(l=>l.itemId===incoming.itemId && l.ownerId===p.id);
+    const shopPrice=incoming.source==='npc'?incoming.item.price:0;
+    const canPay=!buyer.paused && !buyer.done && buyer.credits>=incoming.credits+shopPrice+(v.fee??0) && (incoming.source!=='npc' || v.freeBuy || buyer.energy>=2) && p.credits+incoming.credits>=(listing?.rebate??0);
+    const fair=incoming.source==='npc' || incoming.credits>=Math.floor(worth(v,incoming.item)*SELL_FLOOR[policy]);
+    return {type:'respond',offerId:incoming.id,accept:canPay && fair};
+  }
+  // List what this seat does not want to keep, with a rebate when the goods are poor.
+  const listedIds=new Set(v.listings.filter(l=>l.ownerId===p.id).map(l=>l.itemId));
+  const shopItem=p.stock.find(i=>i.appraisal!==null && i.owner.startsWith('npc:') && !listedIds.has(i.id));
+  if(shopItem) return {type:'share',itemId:shopItem.id,allow:true,purchase:true,...(rebateFor(v,shopItem)?{rebate:rebateFor(v,shopItem)}:{})};
+  const surplus=p.inventory.find(i=>i.lockedUntil===null && !listedIds.has(i.id) && (policy==='trader' || policy==='aggressive' || knownBad(i)));
+  if(surplus) return {type:'share',itemId:surplus.id,allow:true,purchase:true,...(knownBad(surplus) && rebateFor(v,surplus)?{rebate:rebateFor(v,surplus)}:{})};
+  // Buy from friends when the item and the new rewards beat the price; tickets force the best shop item.
+  const openOffers=v.trades.filter(o=>o.buyerId===p.id && o.status==='open').length;
+  const deals=v.listings.filter(l=>l.ownerId!==p.id && l.purchase && seatOpen(v,l.ownerId) && !l.item.owner.startsWith('alien-loan:') && !v.trades.some(o=>o.buyerId===p.id && o.itemId===l.itemId))
+    .map(l=>dealFor(v,l,policy)).filter(d=>d.ok).sort((a,b)=>b.net-a.net);
+  if(openOffers<2 && deals.length) {
+    const best=deals[0]!,item=best.listing.item;
+    if(best.npcSource && (p.darkTickets??0)>=TICKETS_TO_FORCE) return {type:'force-buy',sellerId:best.listing.ownerId,itemId:item.id};
+    return {type:'propose',sellerId:best.listing.ownerId,itemId:item.id,credits:best.fee,...(best.npcSource?{condition:item.condition.required}:{})};
+  }
+  // Stay in the phase while a friend could still answer an offer on a listing; settle unsold goods last.
+  const waiting=othersActive && (listedIds.size>0 || openOffers>0);
+  const unsold=v.brokerage && !waiting?p.stock.find(i=>i.appraisal!==null && i.owner.startsWith('npc:')):undefined;
+  if(unsold) {
+    const affordable=p.credits>=buyPrice(v,unsold) && p.energy>=npcEnergy(v) && p.dealMode!=='condition';
+    return {type:'unsold',itemId:unsold.id,choice:affordable && policy!=='trader' && !knownBad(unsold)?'buy':policy==='cautious' || knownBad(unsold)?'penalty':'consign'};
+  }
+  return {type:'done'};
+}
 export function appraisalBotDecision(v:AppraisalView,policy:AppraisalPolicy):Body {
   const p=v.self;if(p.eventOffer) return eventAction(v,policy);
   if(v.market.open && policy==='trader') {
@@ -53,7 +134,8 @@ export function appraisalBotDecision(v:AppraisalView,policy:AppraisalPolicy):Bod
     if(item) return {type:'market-sell',itemId:item.id,orderId:v.market.orders.find(o=>o.kind===item.kind && (o.quota[p.id]??0)>0)!.id};
   }
   const lot=v.market.lots?.find(l=>l.winnerId===undefined && l.yourBid===null && p.credits>=l.minimum+10);
-  if(lot && (policy==='collector' || policy==='trader') && v.phase!=='PORTALS') return {type:'bid',lotId:lot.id,credits:lot.minimum+(policy==='collector'?2:0)};
+  const chasing=(p.darkTickets??0)>=1 && (p.darkTickets??0)<TICKETS_TO_FORCE && !!lot && p.credits>=lot.minimum+20;
+  if(lot && (policy==='collector' || policy==='trader' || chasing) && v.phase!=='PORTALS') return {type:'bid',lotId:lot.id,credits:lot.minimum+(policy==='collector'?2:chasing?1:0)};
   if(v.phase==='PORTALS') {
     const portals=p.portals.filter(portal=>!portal.disabled);
     const chosen=policy==='trader'?portals.find(portal=>v.market.orders.some(o=>o.kind===portal.hint)):
@@ -73,46 +155,44 @@ export function appraisalBotDecision(v:AppraisalView,policy:AppraisalPolicy):Bod
       const value=Math.round(policy==='aggressive'?low*.65:policy==='trader'?low:policy==='collector'?(low+high)*.4:(low+high)/2);
       return {type:'appraise',itemId:toAppraise.id,value,acceptDanger:true};
     }
-    const toBuy=p.stock.find(i=>p.credits>=buyPrice(v,i) && (policy==='aggressive' || policy==='trader' || i.knowledge.genuine!==false));
+    const toBuy=p.stock.find(i=>p.credits>=buyPrice(v,i) && !(knownBad(i) && policy!=='aggressive') && worth(v,i)>=buyPrice(v,i)*BUY_RATIO[policy]);
     if(toBuy && p.energy>=npcEnergy(v)) return {type:'buy',itemIds:[toBuy.id],condition:false};
     if(policy==='collector' && p.energy>=4) {
       const item=p.inventory.find(i=>!p.activated.includes(i.id));if(item) return {type:'activate',itemId:item.id};
     }
     return {type:'done'};
   }
-  if(v.phase==='TRADE') {
-    const incoming=v.trades.find(o=>o.sellerId===p.id && o.status==='open');
-    if(incoming) {
-      const buyer=v.players.find(other=>other.id===incoming.buyerId)!;
-      return {type:'respond',offerId:incoming.id,accept:incoming.source==='inventory' && !buyer.paused && !buyer.done && buyer.credits>=incoming.credits};
-    }
-    const unlisted=p.inventory.find(i=>i.lockedUntil===null && !v.listings.some(l=>l.itemId===i.id));
-    if(unlisted) return {type:'share',itemId:unlisted.id,allow:true,purchase:true};
-    if(policy==='trader') {
-      const listing=v.listings.find(l=>l.ownerId!==p.id && l.purchase && !l.item.owner.startsWith('npc:') && v.market.orders.some(o=>o.kind===l.item.kind && (o.quota[p.id]??0)>0) && !v.trades.some(o=>o.buyerId===p.id && o.itemId===l.itemId) && !v.players.find(other=>other.id===l.ownerId)!.done);
-      if(listing) {const credits=Math.floor(ITEM_SPECS[listing.item.kind].anchor*.75);if(p.credits>=credits) return {type:'propose',sellerId:listing.ownerId,itemId:listing.itemId,credits};}
-    }
-    const unsold=v.brokerage?p.stock.find(i=>i.appraisal!==null && i.owner.startsWith('npc:')):undefined;
-    if(unsold) {
-      const affordable=p.credits>=buyPrice(v,unsold) && p.energy>=npcEnergy(v) && p.dealMode!=='condition';
-      return {type:'unsold',itemId:unsold.id,choice:affordable && policy!=='trader'?'buy':policy==='cautious'?'penalty':'consign'};
-    }
-    return {type:'done'};
-  }
+  if(v.phase==='TRADE') return tradeDecision(v,policy);
   return {type:'done'};
+}
+/**
+ * One bot move for a table of bots. A bot with something to do always goes before a bot that only wants to end its phase,
+ * so bots can answer each other's offers; a bot that listed goods also stays while a human could still make an offer.
+ */
+export function appraisalBotTurn(state:AppraisalState,bots:Array<{id:string;policy:AppraisalPolicy}>,options:{humansActive?:boolean;retired?:boolean}={}):{id:string;body:Body}|null {
+  const doneBody:Body={type:'done'};
+  const decisions=bots.map(bot=>{
+    let body:Body=doneBody;
+    if(!options.retired) {try {body=appraisalBotDecision(appraisalViewFor(state,bot.id),bot.policy);} catch {body=doneBody;}}
+    return {id:bot.id,body};
+  });
+  const busy=decisions.find(d=>d.body.type!=='done');
+  if(busy) return busy;
+  const holds=(id:string)=>!!options.humansActive && state.phase==='TRADE' && state.listings.some(l=>l.ownerId===id);
+  return decisions.find(d=>!holds(d.id))??null;
 }
 export function simulateAppraisalRun(count:number,policy:AppraisalPolicy,seed:string,overrides:Partial<AppraisalConfig>={}):AppraisalAudit {
   let state=createAppraisalRun(Array.from({length:count},(_,i)=>`seat${i}`),seed,overrides);
   let cursor=0;
   for(let turn=0;turn<1500 && state.phase!=='RESULTS';turn++) {
     if(state.phase==='REVEAL') {state=advanceAppraisalEncounter(state);continue;}
-    let selected=-1;
-    for(let offset=0;offset<count;offset++) {const index=(cursor+offset)%count;if(!state.players[index]!.paused && !state.players[index]!.done) {selected=index;break;}}
-    if(selected<0) throw new Error('No active seat before automatic phase completion');
-    cursor=(selected+1)%count;const p=state.players[selected]!;
+    const active=state.players.map((player,index)=>({player,index})).filter(({player})=>!player.paused && !player.done)
+      .sort((x,y)=>((x.index-cursor+count)%count)-((y.index-cursor+count)%count));
+    if(!active.length) throw new Error('No active seat before automatic phase completion');
     // Replenished income can sustain life indefinitely. Retire synthetic seats after
     // twelve encounters so a replay test remains bounded; live play has no such cap.
-    const body=state.config.survival && state.encounter>12?{type:'done'} as const:appraisalBotDecision(appraisalViewFor(state,p.id),policy);
+    const turnChoice=appraisalBotTurn(state,active.map(({player})=>({id:player.id,policy})),{retired:!!state.config.survival && state.encounter>12})??{id:active[0]!.player.id,body:{type:'done'} as Body};
+    const chosen=active.find(({player})=>player.id===turnChoice.id)!;cursor=(chosen.index+1)%count;const p=chosen.player;const body=turnChoice.body;
     state=applyAppraisalAction(state,{...body,playerId:p.id,requestId:`sim-${turn}`,encounter:state.encounter} as AppraisalAction);
   }
   if(state.phase!=='RESULTS') throw new Error('Appraisal simulation exceeded action bound');

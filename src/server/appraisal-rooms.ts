@@ -2,7 +2,8 @@ import { SURVIVAL_RULES, advanceAppraisalEncounter, applyAppraisalAction, apprai
 import type { AppraisalConfig, AppraisalPhase, AppraisalState } from '../game/appraisal/types.js';
 import type { AppraisalBotPolicy, AppraisalMode, AppraisalClientMessage, AppraisalServerMessage, AppraisalRoomView, AppraisalTimerSettings } from '../shared/appraisal-protocol.js';
 import { APPRAISAL_TIMER_PHASES } from '../shared/appraisal-protocol.js';
-import { appraisalBotDecision } from '../simulation/appraisal.js';
+import { appraisalBotTurn } from '../simulation/appraisal.js';
+import type { AppraisalPolicy } from '../simulation/appraisal.js';
 import type { AppraisalAction } from '../game/appraisal/types.js';
 import { parseAppraisalMessage } from './appraisal-messages.js';
 import { insist, RoomLifecycle } from './room-lifecycle.js';
@@ -93,7 +94,8 @@ export class AppraisalRoomService extends RoomLifecycle<AppraisalState, Appraisa
   }
   /** Bot seats play through the same actions and DTOs as a human; a rejected move falls back to ending their turn. */
   protected override afterChange(room: Room): void {
-    for (let guard = 0; room.game && guard < 600; guard++) {
+    const skipped = new Set<string>();
+    for (let guard = 0; room.game && guard < 2000; guard++) {
       const game = room.game;
       if (game.phase === 'RESULTS') return;
       let acted = false;
@@ -103,19 +105,22 @@ export class AppraisalRoomService extends RoomLifecycle<AppraisalState, Appraisa
         if (!acted) return;
         continue;
       }
-      for (const seat of room.seats) {
-        const current: AppraisalState = room.game!;const player = seat.bot && current.phase===game.phase ? current.players.find(p=>p.id===seat.id) : undefined;
-        if (!player || player.paused || player.done) continue;
-        const previous: AppraisalState = current;
-        const attempt = (body: object): AppraisalState => applyAppraisalAction(previous, { ...body, playerId: seat.id, requestId: `bot-${++this.botSeq}`, encounter: previous.encounter } as AppraisalAction);
-        try {
-          try { room.game = attempt(previous.config.survival && previous.encounter > BOT_RETIRE_ENCOUNTER ? { type: 'done' } : appraisalBotDecision(appraisalViewFor(previous, seat.id), seat.bot as never)); }
-          catch { room.game = attempt({ type: 'done' }); }
-          this.phaseChanged(room, previous); acted = true;
-        } catch { /* leave this seat to the phase timer */ }
-        if (room.game!.phase !== game.phase) break;
-      }
-      if (!acted) return;
+      const current: AppraisalState = room.game!;
+      const bots = room.seats.filter(s => s.bot && !skipped.has(s.id)).flatMap(seat => {
+        const player = current.players.find(p => p.id === seat.id);
+        return player && !player.paused && !player.done ? [{ id: seat.id, policy: seat.bot as AppraisalPolicy }] : [];
+      });
+      if (!bots.length) return;
+      const humansActive = current.players.some(p => !p.paused && !p.done && (!current.config.survival || p.life !== 0) && !room.seats.find(s => s.id === p.id)?.bot);
+      const turn = appraisalBotTurn(current, bots, { humansActive, retired: !!current.config.survival && current.encounter > BOT_RETIRE_ENCOUNTER });
+      if (!turn) return;
+      const previous: AppraisalState = current;
+      const attempt = (body: object): AppraisalState => applyAppraisalAction(previous, { ...body, playerId: turn.id, requestId: `bot-${++this.botSeq}`, encounter: previous.encounter } as AppraisalAction);
+      try {
+        try { room.game = attempt(turn.body); }
+        catch { room.game = attempt({ type: 'done' }); }
+        this.phaseChanged(room, previous);
+      } catch { skipped.add(turn.id); /* leave this seat to the phase timer */ }
     }
   }
   protected timeout(room: Room, now: number): void {

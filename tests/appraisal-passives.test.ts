@@ -62,7 +62,7 @@ test('gloves increase low-price acceptance without eliminating detection or allo
  appraise(s,p,item.id,1,false,true);assert(item.lastAccepted);const other=s.items[p.stock[1]!]!;appraise(s,p,other.id,0,false,true);assert.equal(other.lastAccepted,false);
 });
 test('canteens and brooches stack in paid recovery offers while resource caps still apply',()=>{
- for(const target of ['energy','life'] as const){let s=fixture();const p=s.players[0]!;p.energy=1;p.life=1;p.portals[0]!.npc=target==='energy'?'autometa':'orc';equip(s,target==='energy'?'merchant-canteen':'healing-brooch',2);const offer=recoveryOffer(s,p)!;assert.equal(offer.amount,target==='energy'?5:4);s=act(s,{type:'recover-resource',target});assert.equal(target==='energy'?s.players[0]!.energy:s.players[0]!.life,target==='energy'?6:5);assertAppraisalInvariants(s);}
+ for(const target of ['energy','life'] as const){let s=fixture();const p=s.players[0]!;p.energy=1;p.life=1;p.npcTrust={orc:3};p.portals[0]!.npc=target==='energy'?'autometa':'orc';equip(s,target==='energy'?'merchant-canteen':'healing-brooch',2);const offer=recoveryOffer(s,p)!;assert.equal(offer.amount,5);if(target==='life')assert.equal(offer.min,4);s=act(s,{type:'recover-resource',target});if(target==='energy')assert.equal(s.players[0]!.energy,6);else assert([5,6].includes(s.players[0]!.life!),'trust 3 deal restores 2-3 plus 2 from brooches, capped at max life');assertAppraisalInvariants(s);}
 });
 test('noble seals, hats and dice snapshot stackable income, seeded odds and win bonuses; loss forfeits the whole pending stake',()=>{
  let s=fixture();equip(s,'noble-seal',2);equip(s,'gambler-hat',2);equip(s,'lucky-die',2);s.phase='REVEAL';

@@ -4,7 +4,7 @@ import { EXPANSION_NPCS, ITEM_SPECS, NPC_SPECS, expansionActive, merchantKinds, 
 import { defaultEvent, drawBondEvent, drawExpansionEvent, drawPolishEvent, drawWishEvent, drawEvent, drawPersonalNpcEvent, resolveEvent } from './events.js';
 import { closeNpcContracts, redeemNpcContracts } from './npc-events.js';
 import { auctionLots, placeBid, settleAuction, settleRemainingUnsold, settleUnsold } from './brokerage.js';
-import { activate, appraise, check, enforceCaps, maxEnergyOf, maxLifeOf, npcQuote, omenNow, consumeStatus, damageLife, healLife, inspect, marketSell, ownedItem, player, purchase, recover, recoveryOffer, reward, spend, status, stockItem, trace, transfer, unlocked, wealth } from './mechanics.js';
+import { activate, appraise, check, enforceCaps, maxEnergyOf, maxLifeOf, npcQuote, omenNow, consumeStatus, damageLife, healLife, inspect, marketSell, ownedItem, player, purchase, recover, recoveryAmount, recoveryOffer, mendWithShards, reward, spend, status, stockItem, trace, transfer, unlocked, wealth } from './mechanics.js';
 import { cleanseItem } from './cleanse.js';
 import { wishNew, wishSell } from './wishlist.js';
 import { settleChallenge } from './challenge.js';
@@ -12,6 +12,7 @@ import { challengePenalty } from './challenge-rules.js';
 import type { Claims } from './challenge-rules.js';
 import { makeMarketContract, marketOrderReserve, TRUST_CAP } from './market-contracts.js';
 import { collectRun } from './survival.js';
+import { PULSE_RULES, linkTrade } from './pulse.js';
 import { bankRoundReward, flipRoundReward, openRoundRewards } from './round-rewards.js';
 import type { AppraisalAction, AppraisalConfig, AppraisalState, Appraiser, DarkMarket, NpcId, Portal } from './types.js';
 
@@ -139,7 +140,7 @@ function settleEncounter(state:AppraisalState):void {
     const score=state.config.survival?0:p.paused==='dead'?0:gain+p.accuracyBonus;
     p.score+=score; state.history.push({encounter:state.encounter,playerId:p.id,gain,accuracy:p.accuracyBonus,score,paused:p.paused});
     if(p.subsidy) {p.subsidy=false;state.reservedRewards--;}
-    if(state.config.survival && p.life!>0)damageLife(state,p,state.config.survival.encounterLifeCost,'dimensional-decay');
+    if(state.config.survival && p.life!>0){damageLife(state,p,state.config.survival.encounterLifeCost,'dimensional-decay');if(p.life!>0)mendWithShards(state,p);}
   }
   state.market.open=false; state.market.budget=0;
   for(const offer of state.trades) if(offer.status==='open') offer.status='rejected';
@@ -198,6 +199,7 @@ function respond(state:AppraisalState,p:Appraiser,offerId:string,accept:boolean)
   if(!accept) {offer.status='rejected';return;}
   const buyer=player(state,offer.buyerId); check(!buyer.paused && !buyer.done,'buyer','ผู้ซื้อยังไม่พร้อม');
   check(state.listings.some(l=>l.itemId===offer.itemId && l.ownerId===p.id && l.purchase),'listing','รายการไม่เปิดแล้ว');
+  if(state.config.survival){linkTrade(p,buyer.id,state.encounter);linkTrade(buyer,p.id,state.encounter);}
   let penalty=0;
   if(offer.source==='npc') {
     const settled=offer.challenge?settleChallenge(state,buyer,p,offer):{discount:0,penalty:0};penalty=settled.penalty;
@@ -263,7 +265,9 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
       check(offer && offer.target===action.target,'recovery','พ่อค้านี้ไม่มีดีลฟื้นที่เลือกหรือใช้สิทธิ์แล้ว');
       check(offer.target==='life'?p.life!<maxLifeOf(state,p)!:p.energy<maxEnergyOf(state,p),'recovery','ทรัพยากรนี้เต็มแล้ว');
       spend(state,p,offer.credits,0,'recovery-deal');p.recoveryUsed=true;
-      if(offer.target==='life')healLife(state,p,offer.amount,'recovery-deal');else recover(state,p,offer.amount,'recovery-deal');
+      const amount=recoveryAmount(state,p,offer);
+      if(offer.target==='life'){if(amount)healLife(state,p,amount,'recovery-deal');p.notes.push(`ดีลฟื้นชีวิต: จ่าย ${offer.credits} เครดิต ได้ฟื้น ${amount}`);p.notes=p.notes.slice(-30);}
+      else recover(state,p,amount,'recovery-deal');
       break;
     }
     case 'wish-new': npcActionAllowed(state,p);wishNew(state,p,action.replaceNpc);break;
@@ -330,6 +334,7 @@ export function assertAppraisalInvariants(state:AppraisalState):void {
     if(r)check(state.config.roundRewards && r.encounter===state.encounter && r.base===(state.encounter%2?10:15) && Number.isSafeInteger(r.flips) && r.flips>=0 && Number.isSafeInteger(r.amount) && (r.amount===r.base+(r.incomeBonus??0)+(r.winBonus??5)*r.flips || r.amount===0 && r.settled && r.lastFlip?.correct===false),'round-reward','ยอดรางวัลจบรอบไม่ถูกต้อง');
     check(Number.isSafeInteger(p.credits) && p.credits>=0 && Number.isSafeInteger(p.energy) && p.energy>=0 && p.energy<=maxEnergyOf(state,p),'resources','ทรัพยากรไม่ถูกต้อง');
     if(state.config.survival)check(Number.isSafeInteger(p.life) && p.life!>=0 && p.life!<=maxLifeOf(state,p)! && (p.life===0)===(p.paused==='dead') && p.paused!=='exhausted','life','ชีวิตหรือสิทธิ์เล่นไม่ตรงกัน');
+    check(p.pulseShards===undefined || state.config.survival && Number.isSafeInteger(p.pulseShards) && p.pulseShards>=0 && p.pulseShards<=PULSE_RULES.bankCap,'pulse','เศษชีพจรไม่ถูกต้อง');
     check(p.inventory.every(id=>!owned.has(id) && !!owned.add(id) && state.items[id]?.owner===p.id),'owner','สินค้าซ้ำหรือเจ้าของไม่ตรง');
     const loan=p.npcContracts?.alien;
     if(loan){check(state.config.npcEvents && loan.itemIds.length>=1 && loan.itemIds.length<=3 && loan.reservedCredits===8*loan.itemIds.length && loan.dueAt===loan.lentAt+2 && loan.lentAt<=state.encounter,'alien-loan','สัญญายืมไม่ถูกต้อง');check(loan.itemIds.every(id=>!owned.has(id) && !!owned.add(id) && state.items[id]?.owner===`alien-loan:${p.id}`),'loan-owner','ของที่ให้ยืมซ้ำหรือเจ้าของไม่ตรง');}

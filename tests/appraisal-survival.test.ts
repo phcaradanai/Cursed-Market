@@ -67,9 +67,9 @@ test('spending last energy does not pause, zero-energy actions fail atomically a
 for(const target of ['energy','life'] as const)test(`NPC ${target} recovery is available at zero energy, costs credits once and retry is idempotent`,()=>{
   let s=fixture();const p=s.players[0]!;const chosen=p.portals.find(portal=>['vampire','autometa','alien'].includes(portal.npc)===(target==='energy'))!;assert(chosen);
   s=act(s,'alice',{type:'enter',portalId:chosen.id});s=act(s,'bob',{type:'enter',portalId:s.players[1]!.portals[0]!.id});
-  s.players[0]!.energy=0;s.players[0]!.life=3;const offer=appraisalViewFor(s,'alice').self.recoveryOffer!;assert.equal(offer.target,target);
+  s.players[0]!.energy=0;s.players[0]!.life=3;s.players[0]!.npcTrust={...s.players[0]!.npcTrust,[chosen.npc]:3};const offer=appraisalViewFor(s,'alice').self.recoveryOffer!;assert.equal(offer.target,target);
   const command={type:'recover-resource',target,playerId:'alice',requestId:'recover-once',encounter:1} as const;
-  const before=s.players[0]!.credits;s=applyAppraisalAction(s,command);assert.equal(s.players[0]!.credits,before-offer.credits);assert.equal(target==='life'?s.players[0]!.life:s.players[0]!.energy,target==='life'?5:3);
+  const before=s.players[0]!.credits;s=applyAppraisalAction(s,command);assert.equal(s.players[0]!.credits,before-offer.credits);assert.equal(target==='life'?s.players[0]!.life:s.players[0]!.energy,target==='life'?s.players[0]!.life:3);if(target==='life')assert([5,6].includes(s.players[0]!.life!),'trust 3 deal restores 2-3');
   assert.equal(applyAppraisalAction(s,command),s);assert.throws(()=>act(s,'alice',{type:'recover-resource',target}));
   const wrong=structuredClone(s);wrong.players[0]!.recoveryUsed=false;assert.throws(()=>act(wrong,'alice',{type:'recover-resource',target:target==='life'?'energy':'life'}));
 });

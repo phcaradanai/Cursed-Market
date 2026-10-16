@@ -6,6 +6,7 @@ import { randomAt } from '../random.js';
 import { ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, itemFamily, priceRange } from './content.js';
 import { FAKE_EFFECT_CHANCE, itemScoreValue } from './scoring.js';
 import { omenOf } from './omens.js';
+import { ENERGY_DEAL_NPCS, PULSE_RULES, lifeDealTerms, merchantWary, shardsPerSale } from './pulse.js';
 import type { AppraisalItem, AppraisalState, Appraiser, Knowledge, RecoveryOffer, Status, StatusId } from './types.js';
 
 export function check(condition: unknown, code: string, message: string): asserts condition {
@@ -121,7 +122,30 @@ export function recoveryOffer(state:AppraisalState,p:Appraiser):RecoveryOffer|un
   if(!npc)return;
   const b=passiveBonuses(state,p);
   const salt=(status(p,'D16')?2:0)+feeSurcharge(state,p);
-  return ['vampire','autometa','alien','swarm'].includes(npc)?{target:'energy',credits:2+salt,amount:3+b.energyRecovery}:{target:'life',credits:4+salt,amount:2+b.lifeRecovery};
+  if(ENERGY_DEAL_NPCS.includes(npc))return {target:'energy',credits:2+salt,amount:3+b.energyRecovery};
+  // Life deals follow trust: none at 0, then 3/5/7 credits for 0-1, 1-2, 2-3 life. Held gear adds to both ends.
+  const terms=lifeDealTerms(p.npcTrust?.[npc]??0);
+  return terms?{target:'life',credits:terms.credits+salt,min:terms.min+b.lifeRecovery,amount:terms.max+b.lifeRecovery}:undefined;
+}
+/** What a deal restores this time; a ranged life deal rolls once per encounter from the run seed. */
+export function recoveryAmount(state:AppraisalState,p:Appraiser,offer:RecoveryOffer):number {
+  if(offer.min===undefined || offer.min>=offer.amount)return offer.amount;
+  return offer.min+Math.floor(randomAt(state.seed,`${state.encounter}:${p.id}:recovery-roll`)*(offer.amount-offer.min+1));
+}
+/** Every `shardsPerLife` banked shards mend 1 life while below the cap; the bank holds at most `bankCap`. */
+export function mendWithShards(state:AppraisalState,p:Appraiser):void {
+  while((p.pulseShards??0)>=PULSE_RULES.shardsPerLife && p.life!==undefined && p.life>0 && p.life<maxLifeOf(state,p)!) {
+    p.pulseShards!-=PULSE_RULES.shardsPerLife;healLife(state,p,1,'pulse-shards');
+  }
+  if(p.pulseShards!==undefined)p.pulseShards=Math.min(p.pulseShards,PULSE_RULES.bankCap);
+}
+function gainShards(state:AppraisalState,p:Appraiser):void {
+  const wary=merchantWary(p,state.encounter),gained=shardsPerSale(p,state.encounter);
+  p.pulseShards=(p.pulseShards??0)+gained;
+  p.notes.push(wary?'พ่อค้าเริ่มสงสัย: คุณซื้อขายกับคนเดิมมานานเกินไป จึงไม่ได้เศษชีพจร':`ได้เศษชีพจร +${gained}`);
+  trace(state,p,'pulse-shards',{gained,wary});
+  mendWithShards(state,p);
+  p.notes=p.notes.slice(-30);
 }
 export function unlocked(p: Appraiser, itemId: string): boolean {
   return !p.statuses.some(s => s.id === 'D09' && s.targetItemId === itemId && s.charges > 0);
@@ -221,7 +245,7 @@ export function npcQuote(shop:Appraiser,item:AppraisalItem):number {
   const valuation=shop.valuations[item.id];return valuation?.accepted?valuation.value:item.ask;
 }
 /** The original NPC sale pays once; reselling an owned item cannot farm commission or trust. */
-export function completeAppraisedSale(state:AppraisalState,item:AppraisalItem,salePrice:number,bonuses?:PassiveBonuses):void {
+export function completeAppraisedSale(state:AppraisalState,item:AppraisalItem,salePrice:number,bonuses?:PassiveBonuses,buyerId?:string):void {
   if(!state.config.commerce || !item.appraisedBy || item.commissionPaid || salePrice<=0)return;
   item.commissionPaid=true;const appraiser=player(state,item.appraisedBy);
   if(state.config.survival && appraiser.life===0)return;
@@ -233,6 +257,7 @@ export function completeAppraisedSale(state:AppraisalState,item:AppraisalItem,sa
   const trust=appraiser.npcTrust!;trust[item.npc]=Math.min(TRUST_CAP,(trust[item.npc]??0)+1+b.trust+(status(appraiser,'B15')?1:0));consumeStatus(appraiser,'D15');consumeStatus(appraiser,'B15');
   appraiser.notes.push(`ขาย ${ITEM_SPECS[item.kind].name} ได้ ${salePrice} เครดิต · ค่านายหน้า +${commission} เครดิต · ความไว้ใจ ${NPC_SPECS[item.npc].name} ${trust[item.npc]}/${TRUST_CAP}`);appraiser.notes=appraiser.notes.slice(-30);
   trace(state,appraiser,'appraisal-commission',{itemId:item.id,npc:item.npc,salePrice,commission,trust:trust[item.npc]});
+  if(state.config.survival && buyerId!==undefined && buyerId!==appraiser.id)gainShards(state,appraiser);
 }
 export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraiser, itemIds: string[], options: {discount?:number;condition?:boolean;grantStatus?:StatusId;lock?:boolean;barterItemId?:string} = {}): void {
   check(Array.isArray(itemIds) && itemIds.length > 0 && itemIds.length<=2 && itemIds.every(id=>typeof id==='string') && new Set(itemIds).size === itemIds.length,'bundle','ชุดสินค้าไม่ถูกต้อง');
@@ -257,7 +282,7 @@ export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraise
   let allocated=0;
   for (const [index,item] of items.entries()) {
     const share=index===items.length-1?price-allocated:basePrice?Math.floor(price*npcQuote(shop,item)/basePrice):0;allocated+=share;
-    completeAppraisedSale(state,item,share,commissionBonuses.get(item.appraisedBy??''));
+    completeAppraisedSale(state,item,share,commissionBonuses.get(item.appraisedBy??''),buyer.id);
     item.owner = buyer.id; buyer.inventory.push(item.id); shop.stock = shop.stock.filter(id => id !== item.id);
     state.listings = state.listings.filter(l => l.itemId !== item.id);
   }

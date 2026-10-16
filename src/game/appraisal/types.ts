@@ -64,7 +64,8 @@ export interface CleanseOffer { npc:NpcId; items:Array<{itemId:string;price:numb
 export interface WishBookRow { npc:NpcId; kind:ItemKind; price:number; initial:number; floor:number; next:number; age:number }
 export interface WishDesk { npc:NpcId; cost:number; cap:number; book:WishBookRow[]; replaces:NpcId|null; replaceable:NpcId[] }
 export interface WishOffer { npc:NpcId; kind:ItemKind; price:number; initial:number; floor:number; next:number; age:number; trust:number; buffs:number; debuffs:number; tried:boolean; options:Array<{markup:number;price:number;chance:number}>; itemIds:string[] }
-export interface RecoveryOffer { target:'energy'|'life'; credits:number; amount:number }
+/** `amount` is the most the deal can restore; `min` (life deals) is the least, rolled per encounter. */
+export interface RecoveryOffer { target:'energy'|'life'; credits:number; amount:number; min?:number }
 export interface CollectorResult {
   playerId:string; credits:number; itemValue:number; modifierPercent:number; statusIds:StatusId[]; score:number;
   items:Array<{id:string;kind:ItemKind;base:number;genuine:boolean;cursed:boolean;value:number}>;
@@ -110,6 +111,10 @@ export interface Appraiser {
   npcTrust?:Partial<Record<NpcId,number>>;
   id: string; credits: number; energy: number; inventory: string[]; statuses: Status[];
   life?:number; recoveryUsed?:boolean;
+  /** Survival commerce: pulse shards earned when another seat buys goods this seat appraised; 3 mend 1 life. */
+  pulseShards?:number;
+  /** The only seat this one has traded with since `since`; a long exclusive run makes merchants wary. */
+  tradeLink?:{partner:string;since:number};
   paused: 'dead' | 'exhausted' | null; done: boolean; portals: Portal[]; selectedPortalId: string | null;
   stock: string[]; knowledge: Record<string,Knowledge>; valuations: Record<string,Valuation>;
   inspections: number; counters: number; activated: string[]; score: number;
@@ -201,6 +206,7 @@ export interface AppraisalView {
     /** Per-seat caps once held relics apply (polish rules). */
     maxEnergy?: number; maxLife?: number;
     recoveryOffer?:RecoveryOffer;
+    pulse?:{shards:number;perLife:number;perSale:number;wary:boolean};
     cleanseOffer?:CleanseOffer;
     wishOffer?:WishOffer;
     wishDesk?:WishDesk;

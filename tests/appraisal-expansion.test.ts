@@ -62,7 +62,8 @@ test('B14 adds 2 to the next recovery; D16 makes deals dearer and cleansing less
   const state=createAppraisalRun(['a','b'],'recover',{survival:SURVIVAL_RULES});const p=state.players[0]!;p.selectedPortalId=p.portals[0]!.id;p.portals[0]!.npc='swarm';
   assert.deepEqual(recoveryOffer(state,p),{target:'energy',credits:2,amount:3});grant(state,p,'D16');assert.equal(recoveryOffer(state,p)!.credits,4);
   const swamp=createAppraisalRun(['a','b'],'recover2',{survival:SURVIVAL_RULES});swamp.players[0]!.selectedPortalId=swamp.players[0]!.portals[0]!.id;swamp.players[0]!.portals[0]!.npc='deepsea';
-  assert.equal(recoveryOffer(swamp,swamp.players[0]!)!.target,'life');
+  assert.equal(recoveryOffer(swamp,swamp.players[0]!),undefined,'no trust, no life deal');
+  swamp.players[0]!.npcTrust={deepsea:1};assert.equal(recoveryOffer(swamp,swamp.players[0]!)!.target,'life');
   assert.equal(cleanseChance('orc',0,[],undefined,20),70);assert.equal(cleanseChance('orc',0,[],undefined,-15),35);assert.equal(cleanseChance('orc',0,[],undefined,-90),5);
   const t=table('orc');t.players[0]!.energy=2;grant(t,t.players[0]!,'B14');const before=t.players[0]!.energy;
   const healed=act(t,'alice',{type:'activate',itemId:'owned-orb'}).players[0]!;

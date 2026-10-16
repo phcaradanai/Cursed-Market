@@ -191,7 +191,7 @@ export function settleAuction(state:AppraisalState):void {
     const edge=!!state.config.polish && !!status(winner.p,'B20');const paid=edge?winner.amount-Math.floor(winner.amount*20/100):winner.amount;
     if(edge) consumeStatus(winner.p,'B20');
     spend(state,winner.p,paid,0,'dark-auction');
-    completeAppraisedSale(state,item,paid);
+    completeAppraisedSale(state,item,paid,undefined,winner.p.id);
     item.owner=winner.p.id;winner.p.inventory.push(item.id);state.vault=state.vault!.filter(id=>id!==item.id);
     lot.winnerId=winner.p.id;lot.price=paid;
     trace(state,winner.p,'auction-won',{lotId:lot.id,itemId:item.id,price:paid,...(edge?{bid:winner.amount}:{})});

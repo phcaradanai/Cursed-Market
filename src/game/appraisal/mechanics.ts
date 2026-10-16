@@ -268,11 +268,12 @@ export function completeAppraisedSale(state:AppraisalState,item:AppraisalItem,sa
   trace(state,appraiser,'appraisal-commission',{itemId:item.id,npc:item.npc,salePrice,commission,trust:trust[item.npc]});
 }
 /** The owner's listing rebate goes to the buyer; `exact` sales (the owner agreed) fail if the owner cannot pay, forced ones pay what the owner has. */
-export function payRebate(state:AppraisalState,seller:Appraiser,buyer:Appraiser,rebate:number|undefined,exact:boolean):void {
-  if(!rebate)return;
+export function payRebate(state:AppraisalState,seller:Appraiser,buyer:Appraiser,rebate:number|undefined,exact:boolean):number {
+  if(!rebate)return 0;
   const paid=exact?rebate:Math.min(rebate,seller.credits);
   transfer(state,seller,buyer,paid,'seller-rebate');
   if(paid){buyer.notes.push(`ผู้ขายแถมเครดิตให้ ${paid} เครดิต`);buyer.notes=buyer.notes.slice(-30);trace(state,seller,'rebate-paid',{buyerId:buyer.id,paid,promised:rebate});}
+  return paid;
 }
 /** Survival: goods another seat appraised and the merchant accepted cost no energy to buy. */
 export function friendAppraised(state:AppraisalState,buyer:Appraiser,shop:Appraiser,items:AppraisalItem[]):boolean {
@@ -294,9 +295,9 @@ function noteRepeatBuy(state:AppraisalState,buyer:Appraiser,items:AppraisalItem[
   const trust=buyer.npcTrust;
   if(!trust || !state.config.commerce || !appraisers.some(id=>id!==undefined && id!==buyer.id))return;
   const npc=items[0]!.npc;
-  const count=buyer.buyStreak?.npc===npc?buyer.buyStreak.count+1:1;
-  if(count<TRUST_RULES.repeatBuys){buyer.buyStreak={npc,count};return;}
-  delete buyer.buyStreak;
+  const log=[...(buyer.buyLog??[]),npc].slice(-TRUST_RULES.repeatBuys);
+  if(log.length<TRUST_RULES.repeatBuys || log.some(entry=>entry!==npc)){buyer.buyLog=log;return;}
+  delete buyer.buyLog;
   const before=trust[npc]??0;trust[npc]=Math.min(TRUST_CAP,before+TRUST_RULES.repeatBuyTrust);
   buyer.notes.push(`ซื้อของ ${NPC_SPECS[npc].name} ที่เพื่อนประเมินครบ ${TRUST_RULES.repeatBuys} ครั้งติด ความไว้ใจ ${trust[npc]}/${TRUST_CAP}`);buyer.notes=buyer.notes.slice(-30);
   trace(state,buyer,'repeat-buy-trust',{npc,trust:trust[npc]});
@@ -326,7 +327,7 @@ export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraise
   for (const [index,item] of items.entries()) {
     const share=index===items.length-1?price-allocated:basePrice?Math.floor(price*npcQuote(shop,item)/basePrice):0;allocated+=share;
     completeAppraisedSale(state,item,share,commissionBonuses.get(item.appraisedBy??''));
-    inheritKnowledge(state,buyer,shop,item);
+    inheritKnowledge(state,buyer,shop,item);buyer.paid={...buyer.paid,[item.id]:share};
     item.owner = buyer.id; buyer.inventory.push(item.id); shop.stock = shop.stock.filter(id => id !== item.id);
     state.listings = state.listings.filter(l => l.itemId !== item.id);
   }

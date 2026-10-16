@@ -43,21 +43,21 @@ const buy=(s:AppraisalState,shop:number,id:string)=>{purchase(s,s.players[1]!,s.
 
 test('three purchases in a row of one merchant\'s goods appraised by others earn trust with it',()=>{
   const {s,ids}=shops(['orc','orc','orc']);const bob=s.players[1]!;const trust0=bob.npcTrust!.orc??0;
-  buy(s,ids[0]!.shop,ids[0]!.id);assert.equal(bob.buyStreak!.count,1);buy(s,ids[1]!.shop,ids[1]!.id);assert.equal(bob.buyStreak!.count,2);
+  buy(s,ids[0]!.shop,ids[0]!.id);assert.deepEqual(bob.buyLog,['orc']);buy(s,ids[1]!.shop,ids[1]!.id);assert.deepEqual(bob.buyLog,['orc','orc']);
   assert.equal(bob.npcTrust!.orc??0,trust0);
   buy(s,ids[2]!.shop,ids[2]!.id);
-  assert.equal(bob.npcTrust!.orc,trust0+TRUST_RULES.repeatBuyTrust);assert.equal(bob.buyStreak,undefined,'the run restarts after paying');
+  assert.equal(bob.npcTrust!.orc,trust0+TRUST_RULES.repeatBuyTrust);assert.equal(bob.buyLog,undefined,'the stack clears after paying');
   assert(bob.notes.some(note=>note.includes('ครบ 3 ครั้งติด')));assertAppraisalInvariants(s);
 });
 
 test('buying a different merchant\'s goods breaks the run, and buying your own appraised goods does not count',()=>{
   const {s,ids}=shops(['orc','vampire','orc']);const bob=s.players[1]!;
   buy(s,ids[0]!.shop,ids[0]!.id);buy(s,ids[1]!.shop,ids[1]!.id);
-  assert.deepEqual(bob.buyStreak,{npc:'vampire',count:1});
-  buy(s,ids[2]!.shop,ids[2]!.id);assert.deepEqual(bob.buyStreak,{npc:'orc',count:1});assert.equal(bob.npcTrust!.orc??0,0);
+  assert.deepEqual(bob.buyLog,['orc','vampire']);
+  buy(s,ids[2]!.shop,ids[2]!.id);assert.deepEqual(bob.buyLog,['orc','vampire','orc'],'the stack shows the last three merchants');assert.equal(bob.npcTrust!.orc??0,0);
 
   const own=shops(['orc','orc','orc']);const alice=own.s.players[0]!;
-  purchase(own.s,alice,alice,[own.ids[0]!.id]);assert.equal(alice.buyStreak,undefined,'appraising and buying your own goods earns no run');
+  purchase(own.s,alice,alice,[own.ids[0]!.id]);assert.equal(alice.buyLog,undefined,'appraising and buying your own goods earns no run');
 });
 
 function withVault():AppraisalState {

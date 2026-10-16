@@ -47,6 +47,17 @@ test('extra goods are real shop goods of the chosen merchant, deterministic, and
 });
 
 test('the view tells the seat its tier and the trust the bonus needs',()=>{
-  assert.deepEqual(appraisalViewFor(arrival('all-4'),'alice').self.stockBonus,{tier:4,extra:1,need:1});
-  assert.deepEqual(appraisalViewFor(arrival({}),'alice').self.stockBonus,{tier:0,extra:0,need:1});
+  const npcs=activeNpcs(arrival({}).config);
+  assert.deepEqual(appraisalViewFor(arrival('all-4'),'alice').self.stockBonus,{tier:4,extra:1,need:1,npcs});
+  assert.deepEqual(appraisalViewFor(arrival({}),'alice').self.stockBonus,{tier:0,extra:0,need:1,npcs});
+});
+
+test('bonus goods are flagged, and the owner alone sees what they paid',()=>{
+  const s=enter(arrival('all-1'));const p=s.players[0]!;
+  const flags=p.stock.map(id=>Boolean(appraisalViewFor(s,'alice').self.stock.find(i=>i.id===id)?.bonus));
+  assert.deepEqual(flags,[false,false,true],'only the third, trust-earned item carries the flag');
+  const id=p.stock[0]!;p.paid={[id]:17};s.items[id]!.owner='alice';p.inventory.push(id);p.stock=p.stock.filter(x=>x!==id);
+  assert.equal(appraisalViewFor(s,'alice').self.inventory.find(i=>i.id===id)!.paid,17);
+  s.items[id]!.owner='bob';s.players[1]!.inventory.push(id);p.inventory=p.inventory.filter(x=>x!==id);
+  assert.equal(appraisalViewFor(s,'bob').self.inventory.find(i=>i.id===id)!.paid,undefined,'the new owner never sees the old price');
 });

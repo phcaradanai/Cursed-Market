@@ -77,6 +77,8 @@ export interface AppraisalItem {
   owner: string; npcOwnerId: string; npc: NpcId; encounter: number; certificate: boolean;
   lastAppraisal: number | null;
   appraisedBy?:string; commissionPaid?:boolean;
+  /** Laid out by the trust bonus rather than the merchant's usual two goods. */
+  bonus?:boolean;
   reservation: number; lastAccepted: boolean | null;
 }
 export interface Portal { id: string; npc: NpcId; stock: string[]; disabled: boolean }
@@ -115,8 +117,10 @@ export interface Appraiser {
   pulseShards?:number;
   /** Dark order tickets won at the Dark Market auction; enough of them force a sale (see TRUST_RULES). */
   darkTickets?:number;
-  /** Consecutive purchases of other seats' appraised goods from one merchant; the run pays trust. */
-  buyStreak?:{npc:NpcId;count:number};
+  /** The merchants of this seat's last purchases of goods other seats appraised; three of one merchant in a row pay trust, then the log clears. */
+  buyLog?:NpcId[];
+  /** Net credits this seat paid for each item it holds (price, fee, minus any rebate); kept off the item so audits keep their shape. */
+  paid?:Record<string,number>;
   /** The only seat this one has traded with since `since`; a long exclusive run makes merchants wary. */
   tradeLink?:{partner:string;since:number};
   paused: 'dead' | 'exhausted' | null; done: boolean; portals: Portal[]; selectedPortalId: string | null;
@@ -199,6 +203,8 @@ export interface ItemView {
   range?: [number,number]; ask: number; appraisal: number | null; lockedUntil: number | null;
   price: number; appraisalAccepted: boolean | null;
   appraisedBy?:string; commissionPaid?:boolean;
+  /** Only the owner sees what they paid. */
+  paid?:number; bonus?:boolean;
   knowledge: Knowledge; certificate: boolean; possibleBenefit: string; possibleDrawback: string;
   condition: {statusId:StatusId;discount:number;available:boolean;required:boolean};
 }
@@ -214,7 +220,7 @@ export interface AppraisalView {
     recoveryOffer?:RecoveryOffer;
     pulse?:{shards:number;perLife:number;perSale:number;wary:boolean};
     /** Lowest trust across every merchant in play, the trust that earns extra shop goods, and how many. */
-    stockBonus?:{tier:number;extra:number;need:number};
+    stockBonus?:{tier:number;extra:number;need:number;npcs:NpcId[]};
     cleanseOffer?:CleanseOffer;
     wishOffer?:WishOffer;
     wishDesk?:WishDesk;

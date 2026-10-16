@@ -11,7 +11,7 @@ import type { ItemKind, ItemView, NpcId, StatusId } from '../game/appraisal/type
 import { readable, scoreStatusText } from './model.js';
 import { BuffIcon, DebuffIcon } from './icons.js';
 
-type Tone = 'buff'|'debuff'|'item'|'npc';
+type Tone = 'buff'|'debuff'|'item'|'npc'|'rule';
 
 /**
  * A highlighted name that opens a short card on hover, keyboard focus or tap.
@@ -79,7 +79,7 @@ export function ItemCard({kind,item}:{kind:ItemKind;item?:ItemView|undefined}) {
 export function ItemTerm({kind,item,label,passive=false}:{kind:ItemKind;item?:ItemView|undefined;label?:ReactNode;passive?:boolean}) {
   return <Peek tone="item" passive={passive} label={label??itemName(kind)} card={<ItemCard kind={kind} item={item}/>}/>;
 }
-export function NpcTerm({npc,label,passive=false}:{npc:NpcId;label?:string;passive?:boolean}) {
+export function NpcTerm({npc,label,passive=false}:{npc:NpcId;label?:ReactNode;passive?:boolean}) {
   return <Peek tone="npc" passive={passive} label={label??npcName(npc)} card={<><img src={npcImage(npc)} alt="" width="72" height="90"/><span className="peek-text"><strong>{npcName(npc)}</strong><span>{npcHint(npc)}</span></span></>}/>;
 }
 

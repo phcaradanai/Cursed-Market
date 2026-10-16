@@ -531,3 +531,76 @@ tr.leader>*{color:var(--amber);font-weight:700}
 .mode-guide th.current,.mode-guide td.current{background:color-mix(in srgb,var(--accent,#c9a46a) 16%,transparent)}
 
 .wishlist-panel{margin:8px 0}.wishlist-panel summary{cursor:pointer;min-height:44px;display:list-item;font-weight:600}.wishlist-panel li{margin:8px 0;list-style:none}.wishlist-panel ul{padding:0}
+
+/* Trade rules as pictures: tickets, shards, the purchase stack, the trust ring and item provenance. Conditions open in the shared peek card. */
+.term.term.rule{display:inline-flex;align-items:center;max-width:100%;padding:0;border-radius:var(--control-radius);background:none;color:inherit;font-weight:inherit;text-decoration:none;cursor:help}
+.term.term.rule:hover,.term.rule[aria-expanded=true]{background:none}
+.peek.rule{flex-direction:column;gap:0}
+.peek.rule .peek-head{color:var(--amber)}
+.peek.rule .peek-body+.peek-body{margin-top:2px}
+.fortune{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 16px}
+.fortune-item{display:flex;min-width:0}
+.meter{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:6px 14px 6px 10px;border:1px solid var(--frame-line);border-radius:var(--control-radius);background:var(--panel);color:var(--cream);transition:border-color 160ms var(--ease),background-color 160ms var(--ease)}
+.term.rule:hover .meter,.term.rule:focus-visible .meter,.term.rule[aria-expanded=true] .meter{border-color:var(--bronze-bright);background:var(--panel-raised)}
+.meter>.icon{color:var(--amber)}
+.meter-name{font-size:13px;line-height:1.3;color:var(--muted);white-space:nowrap}
+.meter-count{font-size:15px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.slots{display:inline-flex;gap:4px}
+.slot{display:grid;place-items:center;width:30px;height:30px;border:1px dashed var(--line);border-radius:6px;color:var(--line);transition:border-color 160ms var(--ease),color 160ms var(--ease),background-color 160ms var(--ease)}
+.slot .icon{width:18px;height:18px}
+.slot.on{border-style:solid;border-color:var(--amber);color:var(--amber);background:rgb(233 183 101 / .14)}
+.meter.tickets.ready{border-color:var(--amber)}
+.meter.shards>.icon{color:var(--life)}
+.meter.shards .slot.on{border-color:var(--life);color:var(--life);background:rgb(228 143 132 / .14)}
+.meter.shards.wary{border-color:var(--danger);background:var(--danger-wash)}
+.meter.shards.wary>.icon,.meter.shards.wary .meter-count{color:var(--danger)}
+.chips{display:inline-flex;padding-left:6px}
+.chip{display:block;width:32px;height:32px;margin-left:-6px;border:2px solid var(--bronze);border-radius:50%;overflow:hidden;background:var(--panel-raised)}
+.chip img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 16%}
+.chip.empty{border:2px dashed var(--line);background:none}
+.meter.stack.streak .chip:not(.empty){border-color:var(--amber)}
+.meter.stack.streak{border-color:var(--amber)}
+.trust-ring{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin:12px 0 4px;padding:12px 16px;border:1px solid var(--frame-line);border-radius:var(--frame-radius);background:var(--panel)}
+.discs{display:flex;flex-wrap:wrap;gap:12px;list-style:none;margin:0;padding:0}
+.discs li{margin:0}
+.disc{position:relative;display:block;width:50px;height:50px;border:2px dashed var(--line);border-radius:50%;transition:border-color 160ms var(--ease)}
+.disc img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 16%;filter:grayscale(.75) brightness(.7);transition:filter 160ms var(--ease)}
+.disc.met{border:2px solid var(--amber)}
+.disc.met img{filter:none}
+.term.rule:hover .disc,.term.rule:focus-visible .disc{border-color:var(--bronze-bright)}
+.disc .level{position:absolute;right:-5px;bottom:-5px;min-width:22px;height:22px;padding:0 5px;border:1px solid var(--frame-line);border-radius:999px;background:var(--table);color:var(--muted);font-size:13px;font-weight:700;line-height:20px;text-align:center;font-variant-numeric:tabular-nums}
+.disc.met .level{color:var(--amber);border-color:var(--amber)}
+.reward{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:6px 14px;border:1px dashed var(--bronze);border-radius:var(--control-radius);color:var(--muted);font-weight:600}
+.reward.on{border-style:solid;border-color:var(--amber);color:var(--amber);background:rgb(233 183 101 / .12)}
+.prov{display:flex;flex-wrap:wrap;gap:8px 10px;list-style:none;margin:8px 0 12px;padding:0}
+.prov>li{display:inline-flex;align-items:center;gap:6px;min-height:36px;margin:0;padding:3px 12px 3px 5px;border:1px solid var(--line);border-radius:999px;background:var(--panel);font-size:14px}
+.prov>li:has(.term.rule),.prov>li:has(.term.npc){padding-right:5px}
+.prov .term-wrap{display:inline-flex}
+.prov .term.term.npc{display:inline-flex;align-items:center;gap:6px;padding:0 6px 0 0;background:none;text-decoration:none}
+.prov .term.npc img{width:28px;height:28px;margin:0;border-radius:50%;object-fit:cover;object-position:50% 16%}
+.prov .term.rule>span,.prov li.mine{display:inline-flex;align-items:center;gap:6px}
+.prov .price .icon{width:16px;height:16px;color:var(--muted)}
+.price-name{color:var(--muted);font-size:13px}
+.price strong{font-variant-numeric:tabular-nums}
+.price.paid strong{color:var(--amber)}
+.price.appraised .icon{color:var(--amber)}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:0 6px;font-size:13px;font-weight:600;line-height:1.5}
+.badge .icon{width:16px;height:16px}
+.badge.seal{color:var(--amber-hover)}
+.badge.rebate{color:var(--positive)}
+.badge.bonus{color:var(--energy)}
+.item-thumb{position:relative}
+.thumb-marks{position:absolute;top:6px;right:6px;display:flex;gap:4px}
+.badge.seal.compact{display:grid;place-items:center;width:28px;height:28px;padding:0;border:1px solid var(--amber);border-radius:50%;background:var(--table)}
+.stock-tabs .term.rule{margin-left:8px}
+.lot-prize{display:flex;align-items:center;gap:6px;margin:0 0 4px;color:var(--amber);font-size:14px}
+.lot-prize .icon{width:18px;height:18px}
+.force-buy{display:grid;gap:8px;margin-top:14px;padding:12px 14px;border:1px solid var(--amber);border-radius:var(--control-radius);background:rgb(233 183 101 / .08)}
+.force-buy p{margin:0;font-size:15px}
+.force-buy button{justify-self:start}
+.ticket-cost{display:inline-flex;gap:2px}
+.ticket-cost .icon{width:16px;height:16px}
+.sharing .field label{display:flex;align-items:center;gap:6px}
+.sharing .field label .icon{width:18px;height:18px;color:var(--positive)}
+@media(max-width:640px){.trade-listing .prov,.trade-listing .force-buy{grid-column:1/-1}.fortune{gap:8px}.meter{gap:8px;padding:6px 10px 6px 8px}.slot{width:28px;height:28px}.trust-ring{padding:12px}.discs{gap:10px}.disc{width:46px;height:46px}.force-buy button{justify-self:stretch}}
+@media(prefers-reduced-motion:reduce){.meter,.slot,.disc,.disc img{transition:none}}

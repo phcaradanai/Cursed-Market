@@ -22,3 +22,12 @@ export const MinusIcon=()=> <Icon><path d="M6 12h12"/></Icon>;
 export const PlusIcon=()=> <Icon><path d="M12 6v12M6 12h12"/></Icon>;
 export const SoundIcon=({on}:{on:boolean})=> <Icon><path d="M4.5 9.5h3l4.5-4v13l-4.5-4h-3v-5Z"/>{on?<path d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a7.8 7.8 0 0 1 0 11"/>:<path d="m15.5 9.5 5 5M20.5 9.5l-5 5"/>}</Icon>;
 export const CloseIcon=()=> <Icon><path d="m7 7 10 10M17 7 7 17"/></Icon>;
+// Trade-rule icons: same grid and stroke as the family above.
+export const TicketIcon=()=> <Icon className="icon-ticket"><path d="M4.5 7h15a1 1 0 0 1 1 1v2.1a1.9 1.9 0 0 0 0 3.8V16a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1v-2.1a1.9 1.9 0 0 0 0-3.8V8a1 1 0 0 1 1-1Z"/><path d="M15 8.5v1.2M15 11.4v1.2M15 14.3v1.2"/><path d="m9.2 9.8 1.5 2.2-1.5 2.2-1.5-2.2 1.5-2.2Z"/></Icon>;
+export const ShardIcon=()=> <Icon className="icon-shard"><path d="M12 3.5 17.5 9 12 20.5 6.5 9 12 3.5Z"/><path d="M6.5 9h11M12 3.5 10 9l2 11.5L14 9l-2-5.5"/></Icon>;
+export const SealIcon=()=> <Icon className="icon-seal"><circle cx="12" cy="10.5" r="6"/><path d="m9.4 10.6 1.8 1.8 3.4-3.6"/><path d="M9 15.6 8 21l4-2 4 2-1-5.4"/></Icon>;
+export const RebateIcon=()=> <Icon className="icon-rebate"><circle cx="9.5" cy="9.5" r="5.5"/><path d="M9.5 7.2v4.6M8 9.5h3"/><path d="M14.5 17.5H21M18.3 14.8l2.7 2.7-2.7 2.7"/></Icon>;
+export const TrustIcon=()=> <Icon className="icon-trust"><circle cx="9" cy="12" r="4.6"/><circle cx="15" cy="12" r="4.6"/></Icon>;
+export const StackIcon=()=> <Icon><path d="m5 9.5 7-3.5 7 3.5-7 3.5-7-3.5Z"/><path d="m5 13 7 3.5 7-3.5M5 16.5 12 20l7-3.5"/></Icon>;
+export const BonusIcon=()=> <Icon className="icon-bonus"><rect x="5.5" y="5" width="13" height="14" rx="2"/><path d="M12 9v6M9 12h6"/></Icon>;
+export const EyeIcon=()=> <Icon><path d="M3 12s3.4-6 9-6 9 6 9 6-3.4 6-9 6-9-6-9-6Z"/><circle cx="12" cy="12" r="2.6"/></Icon>;

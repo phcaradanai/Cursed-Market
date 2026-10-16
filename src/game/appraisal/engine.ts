@@ -91,6 +91,7 @@ function spawnStockItem(state:AppraisalState,id:string,seat:number,encounter:num
     cursed:randomAt(seed,`${itemId}:curse`)<.35,owner:`npc:${id}:${encounter}`,
     npcOwnerId:id,npc,encounter,certificate:randomAt(seed,`${itemId}:certificate`)<.65,
     lastAppraisal:null,lastAccepted:null,reservation:Math.min(ask,Math.max(1,minimum)),
+    ...(slot>=2?{bonus:true}:{}),
   };
   return itemId;
 }
@@ -209,7 +210,7 @@ function forceBuy(state:AppraisalState,p:Appraiser,action:Extract<AppraisalActio
   if(state.config.survival){linkTrade(p,seller.id,state.encounter);linkTrade(seller,p.id,state.encounter);}
   p.darkTickets=p.darkTickets!-TRUST_RULES.ticketsToForce;
   purchase(state,p,seller,[item.id],{condition:seller.dealMode==='condition'});
-  payRebate(state,seller,p,rebate,false);
+  const rebated=payRebate(state,seller,p,rebate,false);p.paid={...p.paid,[item.id]:Math.max(0,(p.paid?.[item.id]??0)-rebated)};
   state.listings=state.listings.filter(l=>l.itemId!==item.id);
   const note=`ใช้ตั๋วคำสั่งมืดบังคับซื้อ ${ITEM_SPECS[item.kind].name} ตามราคาประเมิน`;
   p.notes.push(note);p.notes=p.notes.slice(-30);
@@ -239,7 +240,8 @@ function respond(state:AppraisalState,p:Appraiser,offerId:string,accept:boolean)
   }
   transfer(state,buyer,p,offer.credits,offer.source==='npc'?'cross-shop-fee':'p2p');
   if(penalty) transfer(state,buyer,p,penalty,'challenge-penalty');
-  payRebate(state,p,buyer,listing.rebate,true);
+  const rebated=payRebate(state,p,buyer,listing.rebate,true);
+  buyer.paid={...buyer.paid,[offer.itemId]:Math.max(0,(offer.source==='npc'?(buyer.paid?.[offer.itemId]??0):0)+offer.credits+penalty-rebated)};
   state.listings=state.listings.filter(l=>l.itemId!==offer.itemId && l.itemId!==offer.swapItemId);
   offer.status='accepted';
   for(const party of [p,buyer]) if(party.subsidy) {party.subsidy=false;state.reservedRewards--;reward(state,party,1,'E43');}

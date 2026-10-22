@@ -4,7 +4,7 @@ import { closeNpcContracts } from './npc-events.js';
 import type { AppraisalConfig, AppraisalState, CollectorResult } from './types.js';
 
 /** Experimental numbers; the life/energy/end condition was confirmed by the user. */
-export const SURVIVAL_RULES:NonNullable<AppraisalConfig['survival']>={maxLife:6,encounterLifeCost:1,entryEnergyCost:1};
+export const SURVIVAL_RULES:NonNullable<AppraisalConfig['survival']>={maxLife:6,encounterLifeCost:1,entryEnergyCost:0};
 /** Experimental numbers for unsold-appraisal duty, vault auctions and NPC × held-item events. */
 export const BROKERAGE_RULES:NonNullable<AppraisalConfig['brokerage']>={auctionProbability:.5,maxLots:2,bondProbability:.65};
 export function collectRun(state:AppraisalState):void {

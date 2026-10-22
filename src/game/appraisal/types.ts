@@ -45,6 +45,8 @@ export interface AppraisalConfig {
   curseSight?: boolean;
   /** Absent in saved runs: buying from an NPC still costs energy there. */
   freeBuy?: boolean;
+  /** Absent in saved audits: inspections and appraisals keep their original costs. */
+  freeMerchantAction?: boolean;
   /** Absent in saved runs: fake items never produce their good effect there. */
   fakeEffect?: boolean;
   /** Absent in saved runs: merchants do not clean curses and the smith tools are never stocked. */
@@ -127,6 +129,8 @@ export interface Appraiser {
   npcContracts?: NpcContracts;
   vampireDiscount?: {encounter:number};
   passiveUses?:Partial<Record<InspectionProperty,number>>;
+  /** Merchant items whose shared free inspection/appraisal was spent this encounter. */
+  merchantActionsUsed?:string[];
   roundReward?:RoundReward;
   npcTrust?:Partial<Record<NpcId,number>>;
   id: string; credits: number; energy: number; inventory: string[]; statuses: Status[];
@@ -236,6 +240,8 @@ export interface AppraisalState {
   vault?: string[];
 }
 export interface ItemView {
+  /** This seat can inspect or appraise this merchant item once without energy. */
+  freeMerchantAction?:boolean;
   itemEffects?:boolean;
   id: string; kind: ItemKind; name: string; image: string; owner: string;
   npc: NpcId;

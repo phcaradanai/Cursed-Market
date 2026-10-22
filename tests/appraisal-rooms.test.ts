@@ -138,7 +138,7 @@ for (const count of [2, 3, 4]) test(`v0.4 ${count} absent seats safely timeout t
   assert.equal(resume.error?.type === 'error' && resume.error.code, 'stale-match');
 });
 test('v0.4 all exhausted seats auto-settle and return next encounter without timeout deadlock', () => {
-  const s = setup(3, { maxEnergy: 1, recoveryEnergy: 1 }); s.portals();
+  const s = setup(3, { maxEnergy: 1, recoveryEnergy: 1, freeMerchantAction:false }); s.portals();
   for (const c of s.clients) s.act(c, { type: 'inspect', itemId: c.room.game!.self.stock[0]!.id, property: 'price' });
   assert.equal(s.clients[0]!.room.game!.phase, 'REVEAL'); assert(s.clients[0]!.room.game!.players.every(p => p.paused === 'exhausted'));
   s.tick(); assert.equal(s.clients[0]!.room.game!.phase, 'PORTALS'); assert(s.clients[0]!.room.game!.players.every(p => !p.paused && p.energy === 1));

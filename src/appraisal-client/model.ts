@@ -51,7 +51,8 @@ export const playerPassives=(game:AppraisalView,exclude?:string)=>game.self.life
 export const npcAcceptanceChance=(game:AppraisalView,npc:NpcId)=>Math.min(95,(game.self.npcTrust?.[npc]??0)*5+playerPassives(game).acceptance);
 export const inspectionQuota=(game:AppraisalView)=>2+playerPassives(game).inspections;
 export const freeInspectionRemaining=(game:AppraisalView,property:InspectionProperty)=>freeInspectionCount(playerPassives(game),game.self,property);
-export const inspectionCost = (game:AppraisalView,property:InspectionProperty='price') => freeInspectionRemaining(game,property)>0?0:Math.max(0,1+Number(hasStatus(game,'D01'))-Number(hasStatus(game,'B05')))*Number(!hasStatus(game,'B11'));
+export const appraisalCost=(item:ItemView)=>item.appraisal===null && item.freeMerchantAction?0:1;
+export const inspectionCost = (game:AppraisalView,property:InspectionProperty='price',item?:ItemView) => item?.freeMerchantAction || freeInspectionRemaining(game,property)>0?0:Math.max(0,1+Number(hasStatus(game,'D01'))-Number(hasStatus(game,'B05')))*Number(!hasStatus(game,'B11'));
 /** Survival: goods a friend appraised and the merchant accepted cost no energy to buy. Mirrors friendAppraised in the engine. */
 export const friendGoods = (game:AppraisalView, items:ItemView[]) => !!game.survival && items.length>0 && items.every(i=>i.appraisedBy!==undefined && i.appraisedBy!==game.self.id && i.appraisalAccepted===true && i.owner.startsWith(`npc:${i.appraisedBy}:`));
 export const purchaseEnergy = (game:AppraisalView, items:ItemView[]=[]) => Math.max(0,(game.freeBuy || friendGoods(game,items)?0:1)+Number(hasStatus(game,'D06'))-playerPassives(game).buyEnergy);
@@ -61,11 +62,11 @@ export const effectsKnownFor=(game:AppraisalView,k:Knowledge)=>game.curseSight?k
 export const needShort=(game:AppraisalView,need:{credits:number;energy:number;life?:number}):string|null=>
   game.self.credits<need.credits?t('เครดิตไม่พอ ต้องใช้ {need} มี {have}',{need:need.credits,have:game.self.credits}):game.self.energy<need.energy?t('พลังไม่พอ ต้องใช้ {need} มี {have}',{need:need.energy,have:game.self.energy}):need.life && (game.self.life??0)<=need.life?t('ต้องมีชีวิตมากกว่า {n} เพื่อเหลืออย่างน้อย 1',{n:need.life}):null;
 /** Why an inspection button is locked for every item, or null. `quiet` suppresses the note while offline or after the seat is done. */
-export function inspectionBlock(game:AppraisalView,quiet:boolean):string|null {
+export function inspectionBlock(game:AppraisalView,quiet:boolean,item?:ItemView):string|null {
   if(quiet) return null;
   if(game.self.eventOffer) return t('ตอบเหตุการณ์ก่อน จึงตรวจได้');
   if(game.phase!=='APPRAISAL') return t('ตรวจได้เฉพาะช่วงประเมินและซื้อ');
-  if(game.self.inspections>=inspectionQuota(game)) return t('ใช้สิทธิ์ตรวจครบแล้วในช่วงนี้');
+  if(!item?.freeMerchantAction && game.self.inspections>=inspectionQuota(game)) return t('ใช้สิทธิ์ตรวจครบแล้วในช่วงนี้');
   return null;
 }
 /** Why a purchase is locked, or null. The numbers shown on the button are the same ones checked here. */

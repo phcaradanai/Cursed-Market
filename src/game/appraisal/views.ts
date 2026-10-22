@@ -6,7 +6,7 @@ import { ITEM_USE_EFFECTS } from './item-effects.js';
 import { dreadChance } from './core2.js';
 import { core2ActionsOf } from './core2-actions.js';
 import { ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, itemFamily, itemImage } from './content.js';
-import { counterLimit, feeSurcharge, known, maxEnergyOf, maxLifeOf, npcQuote, omenNow, player, recoveryOffer, salePercent, stockBonus } from './mechanics.js';
+import { merchantActionFree, counterLimit, feeSurcharge, known, maxEnergyOf, maxLifeOf, npcQuote, omenNow, player, recoveryOffer, salePercent, stockBonus } from './mechanics.js';
 import type { AppraisalState, AppraisalView, ItemView } from './types.js';
 
 /** Sealed bids: a seat sees only its own bid and how many bids exist. */
@@ -24,7 +24,7 @@ export function appraisalItemView(state:AppraisalState,playerId:string,itemId:st
     itemFamily(item.kind)==='key' && p.statuses.some(s=>s.id==='D07' && s.charges>0)?'อาจล้างสถานะปิดประตูที่มีอยู่ การใช้ครั้งนี้เป็นการปลดประตู':
     k.effectsKnown?buff.description:`อาจได้รับ ${buff.name}`;
   const profile=NPC_SPECS[item.npc]; const shop=state.players.find(s=>s.id===item.npcOwnerId);
-  return {id:item.id,kind:item.kind,npc:item.npc,name:spec.name,image:itemImage(item.kind),owner:item.owner,...(state.config.itemEffects?{itemEffects:true}:{}),
+  return {...(state.config.freeMerchantAction?{freeMerchantAction:merchantActionFree(state,p,itemId)}:{}),id:item.id,kind:item.kind,npc:item.npc,name:spec.name,image:itemImage(item.kind),owner:item.owner,...(state.config.itemEffects?{itemEffects:true}:{}),
     ...(k.base!==undefined?{range:[k.base,k.base] as [number,number]}:k.range?{range:k.range}:{}),ask:item.ask,appraisal:item.lastAppraisal,
     price:shop?npcQuote(shop,item):item.ask,appraisalAccepted:item.lastAccepted,
     ...(item.appraisedBy?{appraisedBy:item.appraisedBy,commissionPaid:!!item.commissionPaid}:{}),

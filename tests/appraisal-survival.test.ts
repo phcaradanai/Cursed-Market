@@ -21,7 +21,7 @@ type Body=AppraisalAction extends infer A?A extends AppraisalAction?Omit<A,'play
 let request=0;
 function act(s:AppraisalState,id:string,body:Body):AppraisalState{return applyAppraisalAction(s,{...body,playerId:id,requestId:`survival-${++request}`,encounter:s.encounter} as AppraisalAction);}
 function fixture(life=6):AppraisalState {
-  const s=createAppraisalRun(['alice','bob'],'survival-fixture',{survival:{...SURVIVAL_RULES,maxLife:life},marketProbability:0});
+  const s=createAppraisalRun(['alice','bob'],'survival-fixture',{survival:{...SURVIVAL_RULES,maxLife:life},marketProbability:0,freeMerchantAction:false});
   for(const p of s.players){p.eventOffer=null;p.offerSlots=2;}
   return s;
 }
@@ -48,9 +48,9 @@ function view(s:AppraisalState,id='alice'):AppraisalRoomView {
 }
 class Peer {close(){} messages:AppraisalServerMessage[]=[];send(m:AppraisalServerMessage){this.messages.push(m);}get room(){const m=this.messages.findLast(m=>m.type==='state');assert(m?.type==='state');return m.room;}get joined(){const m=this.messages.findLast(m=>m.type==='joined');assert(m?.type==='joined');return m;}}
 
-test('v0.5 keeps life separate, spends entry energy and validates survival config while v0.4 is unchanged',()=>{
+test('v0.5 keeps life separate, starts without entry energy and validates survival config while v0.4 is unchanged',()=>{
   const old=createAppraisalRun(['alice','bob'],'old');assert.equal(old.version,4);assert.equal(old.players[0]!.life,undefined);
-  const s=fixture();assert.equal(s.version,5);assert.equal(s.players[0]!.life,6);assert.equal(s.players[0]!.energy,9);assert.equal(appraisalViewFor(s,'alice').encounterCount,null);
+  const s=fixture();assert.equal(s.version,5);assert.equal(s.players[0]!.life,6);assert.equal(s.players[0]!.energy,10);assert.equal(appraisalViewFor(s,'alice').encounterCount,null);
   for(const survival of [null,false,{...SURVIVAL_RULES,maxLife:0},{...SURVIVAL_RULES,encounterLifeCost:0},{...SURVIVAL_RULES,extra:1},{...SURVIVAL_RULES,entryEnergyCost:11}])assert.throws(()=>createAppraisalRun(['a','b'],'bad',{survival:survival as never}));
 });
 test('spending last energy does not pause, zero-energy actions fail atomically and free decisions remain legal',()=>{
@@ -103,7 +103,7 @@ test('score buff and debuff cancel and Collector handles zero inventory and tied
 });
 test('a complete command-only survival run exceeds three encounters, drains life and strictly replays',()=>{
   const s=finish(createAppraisalRun(['alice','bob'],'survival-full',{survival:SURVIVAL_RULES}));
-  assert.equal(s.encounter,6);assert(s.players.every(p=>p.life===0));assert(s.trace.some(t=>t.type==='energy-spent' && t.details.reason==='encounter-entry'));
+  assert.equal(s.encounter,6);assert(s.players.every(p=>p.life===0));assert(!s.trace.some(t=>t.type==='energy-spent' && t.details.reason==='encounter-entry'));
   const audit=exportAppraisalAudit(s);assert.equal(audit.schemaVersion,5);assert.deepEqual(replayAppraisalAudit(audit),s);
   for(const mutate of [(a:typeof audit)=>{a.schemaVersion=4;},(a:typeof audit)=>{a.collector![0]!.score++;},(a:typeof audit)=>{a.final[0]!.life=1;},(a:typeof audit)=>{a.items[a.collector![0]!.items[0]?.id??Object.keys(a.items)[0]!]!.base++;}]){const bad=structuredClone(audit);mutate(bad);assert.throws(()=>replayAppraisalAudit(bad));}
 });

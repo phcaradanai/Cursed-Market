@@ -7,7 +7,7 @@ import { barter, pickpocket, stealShop, useSkill } from './core2-actions.js';
 import { defaultEvent, drawBacklashEvent, drawTheftEvent, isConsequence, drawBondEvent, drawExpansionEvent, drawPolishEvent, drawWishEvent, drawEvent, drawPersonalNpcEvent, resolveEvent } from './events.js';
 import { closeNpcContracts, redeemNpcContracts } from './npc-events.js';
 import { auctionLots, placeBid, settleAuction, settleRemainingUnsold, settleUnsold } from './brokerage.js';
-import { activate, appraise, check, enforceCaps, maxEnergyOf, maxLifeOf, npcQuote, omenNow, consumeStatus, damageLife, healLife, inspect, marketSell, ownedItem, player, purchase, payRebate, stockBonus, recover, recoveryAmount, recoveryOffer, mendWithShards, reward, spend, status, stockItem, trace, transfer, unlocked, wealth } from './mechanics.js';
+import { merchantActionFree, activate, appraise, check, enforceCaps, maxEnergyOf, maxLifeOf, npcQuote, omenNow, consumeStatus, damageLife, healLife, inspect, marketSell, ownedItem, player, purchase, payRebate, stockBonus, recover, recoveryAmount, recoveryOffer, mendWithShards, reward, spend, status, stockItem, trace, transfer, unlocked, wealth } from './mechanics.js';
 import { cleanseItem } from './cleanse.js';
 import { wishNew, wishSell } from './wishlist.js';
 import { settleChallenge } from './challenge.js';
@@ -20,7 +20,7 @@ import { bankRoundReward, flipRoundReward, openRoundRewards, raiseRoundReward } 
 import type { AppraisalAction, AppraisalConfig, AppraisalState, Appraiser, DarkMarket, NpcId, Portal } from './types.js';
 
 export const DEFAULT_APPRAISAL_CONFIG: AppraisalConfig = {
-  catalogVersion:3, itemEffects:true, roundRewards:true, multiCoinRewards:true, commerce:true, curseSight:true, freeBuy:true, fakeEffect:true, cleanse:true, wishlist:true, wishContract:true, challenge:true, expansion:true,
+  catalogVersion:3, itemEffects:true, roundRewards:true, multiCoinRewards:true, commerce:true, curseSight:true, freeBuy:true, freeMerchantAction:true, fakeEffect:true, cleanse:true, wishlist:true, wishContract:true, challenge:true, expansion:true,
   encounters:3, startingCredits:40, maxEnergy:10, recoveryEnergy:4,
   bankReserve:2000, marketProbability:.5, marketMaxOrders:3, marketQuota:1,
 };
@@ -36,6 +36,7 @@ function validateConfig(config:AppraisalConfig):void {
   check(config.wishlist===undefined || typeof config.wishlist==='boolean','config','กติกาของที่พ่อค้าตามหาไม่ถูกต้อง');
   check(config.cleanse===undefined || typeof config.cleanse==='boolean','config','กติกาล้างคำสาปไม่ถูกต้อง');
   check(config.fakeEffect===undefined || typeof config.fakeEffect==='boolean','config','กติกาผลของปลอมไม่ถูกต้อง');
+  check(config.freeMerchantAction===undefined || typeof config.freeMerchantAction==='boolean','config','กติกาสิทธิ์ฟรีประจำสินค้าไม่ถูกต้อง');
   check(config.freeBuy===undefined || typeof config.freeBuy==='boolean','config','กติกาซื้อฟรีพลังไม่ถูกต้อง');
   check(config.curseSight===undefined || typeof config.curseSight==='boolean','config','กติกาตรวจคำสาปไม่ถูกต้อง');
   check(config.multiCoinRewards===undefined || typeof config.multiCoinRewards==='boolean','config','กติกาทบเหรียญไม่ถูกต้อง');
@@ -144,7 +145,7 @@ function makeMarket(state:AppraisalState):DarkMarket {
   market.open=market.orders.length>0; return market;
 }
 function pauseIfNeeded(state:AppraisalState,p:Appraiser):void {
-  if(!state.config.survival && p.energy===0 && !p.paused) {
+  if(!state.config.survival && p.energy===0 && !p.paused && !(state.config.freeMerchantAction && (p.selectedPortalId===null || p.stock.some(id=>merchantActionFree(state,p,id))))) {
     // Settle a previously accepted risk before energy exhaustion removes action rights.
     if(p.eventOffer && isConsequence(p.eventOffer.id)) defaultEvent(state,p);
     if(!p.paused) { p.paused='exhausted'; p.done=true; p.eventOffer=null; trace(state,p,'exhausted'); }
@@ -355,6 +356,7 @@ export function advanceAppraisalEncounter(previous:AppraisalState):AppraisalStat
   state.encounter++;state.phase='PORTALS';state.listings=[];state.market={encounter:state.encounter,open:false,budget:0,orders:[]};
   for(const p of state.players) {
     delete p.roundReward;
+    delete p.merchantActionsUsed;
     delete p.itemUseBonuses;
     delete p.itemUseKinds;
     delete p.vampireDiscount;resetCore2Encounter(p);

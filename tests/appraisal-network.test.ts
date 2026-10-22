@@ -61,7 +61,7 @@ async function setup(count: number, rooms: AppraisalRoomService = new AppraisalR
   return { app, http, url, clients, act, decline, enter, endPhase };
 }
 test('actual sockets apply stacked free inspections, 20% commission, noble income and hat odds then reset free uses',async t=>{
-  const rooms=new TestRooms(Date.now,{catalogVersion:3,survival:SURVIVAL_RULES,startingCredits:200,marketProbability:0});const s=await setup(2,rooms);t.after(()=>s.app.close());await s.enter();
+  const rooms=new TestRooms(Date.now,{catalogVersion:3,survival:SURVIVAL_RULES,startingCredits:200,marketProbability:0,freeMerchantAction:false});const s=await setup(2,rooms);t.after(()=>s.app.close());await s.enter();
   const a=s.clients[0]!,state=rooms.state(a.room!.code),p=state.players.find(p=>p.id===a.room!.yourSeatId)!;
   for(const kind of ['inspection-warrant','tax-order','noble-seal','gambler-hat'] as const)for(let n=0;n<2;n++){const source=state.items[p.stock[0]!]!,id=`socket-${kind}-${n}`;state.items[id]={...source,id,kind,owner:p.id,genuine:false,cursed:true};p.inventory.push(id);}
   const target=state.items[p.stock[0]!]!;Object.assign(target,{npc:'orc',kind:'eclipse-blade',base:40,ask:40,reservation:1});p.energy=0;rooms.publish(a.room!.code);await a.until(()=>a.room!.game!.self.inventory.length===8?true:undefined);
@@ -187,7 +187,7 @@ test('v0.4 actual zero-price player trade is private, atomic and repeat approval
   assert.deepEqual(state.players.map(p => p.credits), before.players.map(p => p.credits)); assert.equal(state.trace.filter(t => t.type === 'npc-caught').length, 0);
 });
 test('v0.4 actual all-exhausted seats show rest then return next encounter', async t => {
-  let now = 1000; const rooms = new TestRooms(() => now, { maxEnergy: 1, recoveryEnergy: 1 }, { REVEAL: 10 });
+  let now = 1000; const rooms = new TestRooms(() => now, { maxEnergy: 1, recoveryEnergy: 1, freeMerchantAction:false }, { REVEAL: 10 });
   const s = await setup(3, rooms); t.after(() => s.app.close()); await s.enter();
   for (const c of s.clients) await s.act(c, { type: 'inspect', itemId: c.room!.game!.self.stock[0]!.id, property: 'price' });
   await Promise.all(s.clients.map(c => c.phase('REVEAL', 1))); assert(s.clients[0]!.room!.game!.players.every(p => p.paused === 'exhausted'));

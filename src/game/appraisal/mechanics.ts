@@ -185,23 +185,30 @@ export function known(state: AppraisalState, p: Appraiser, itemId: string): Know
 export function learn(p: Appraiser, itemId: string, knowledge: Knowledge): void {
   p.knowledge[itemId] = {...p.knowledge[itemId],...knowledge};
 }
+/** One shared free action per item in this seat's current merchant stock. */
+export function merchantActionFree(state:AppraisalState,p:Appraiser,itemId:string):boolean {
+  const item=state.items[itemId];
+  return !!state.config.freeMerchantAction && !!item && item.encounter===state.encounter && item.owner===`npc:${p.id}:${state.encounter}` && p.stock.includes(itemId) && !p.merchantActionsUsed?.includes(itemId);
+}
 export function inspect(state: AppraisalState, p: Appraiser, itemId: string, property: 'price'|'authenticity'|'effects'): void {
   check(['price','authenticity','effects'].includes(property),'property','ข้อมูลที่จะตรวจไม่ถูกต้อง');
   const item = state.items[itemId];
   check(item && (item.owner === p.id || p.stock.includes(itemId)),'inspect','ตรวจได้เฉพาะของตนหรือร้านปัจจุบัน');
-  check(p.inspections < inspectionLimit(state,p),'inspections','ใช้สิทธิ์ตรวจครบแล้ว');
+  const merchantFree=merchantActionFree(state,p,itemId);
+  check(merchantFree || p.inspections < inspectionLimit(state,p),'inspections','ใช้สิทธิ์ตรวจครบแล้ว');
   const k = known(state,p,itemId);
   check(property === 'price' ? k.base === undefined : property === 'authenticity' ? k.genuine === undefined : state.config.curseSight ? k.cursed === undefined : !k.effectsKnown || (status(p,'B02') && k.cursed === undefined),'known','รู้ข้อมูลนี้แล้ว');
   const cost = Math.max(0,1 + (status(p,'D01') ? 1 : 0) - (status(p,'B05') ? 1 : 0));
-  const free=cost>0 && freeInspectionCount(passiveBonuses(state,p),p,property)>0;
-  const insight=cost>0 && !free && p.inspections===0 && !!omenNow(state)?.firstInspectFree;
-  const compoundEyes=cost>0 && !free && !insight && !!status(p,'B11');
-  spend(state,p,0,free||compoundEyes||insight?0:cost,'inspect');
-  if(free){p.passiveUses??={};p.passiveUses[property]=(p.passiveUses[property]??0)+1;}
+  const free=!merchantFree && cost>0 && freeInspectionCount(passiveBonuses(state,p),p,property)>0;
+  const insight=!merchantFree && cost>0 && !free && p.inspections===0 && !!omenNow(state)?.firstInspectFree;
+  const compoundEyes=!merchantFree && cost>0 && !free && !insight && !!status(p,'B11');
+  spend(state,p,0,merchantFree||free||compoundEyes||insight?0:cost,'inspect');
+  if(merchantFree)(p.merchantActionsUsed??=[]).push(itemId);
+  else if(free){p.passiveUses??={};p.passiveUses[property]=(p.passiveUses[property]??0)+1;}
   else if(insight) {/* the omen pays for it */}
   else if(compoundEyes) consumeStatus(p,'B11');
   else {consumeStatus(p,'B05');consumeStatus(p,'D01');}
-  p.inspections++;
+  if(!merchantFree)p.inspections++;
   if (property === 'price') {
     if (status(p,'B01') && !status(p,'D02')) { learn(p,itemId,{base:item.base}); consumeStatus(p,'B01'); }
     else {
@@ -229,7 +236,10 @@ export function appraise(state: AppraisalState, p: Appraiser, itemId: string, va
   check(Number.isSafeInteger(value) && value >= 0 && value <= 1000,'price','ราคาประเมินไม่ถูกต้อง');
   check(counter ? p.valuations[itemId] && p.counters < counterLimit(p) : !p.valuations[itemId],'appraisal','ไม่มีสิทธิ์ประเมินหรือต่อรองเพิ่ม');
   check(item.npc !== 'darkone' || acceptDanger,'danger','ต้องยอมรับขอบเขตผลเสียของ Dark One ก่อน');
-  spend(state,p,0,1,counter ? 'counter' : 'appraise'); if (counter) p.counters++;
+  const merchantFree=!counter && merchantActionFree(state,p,itemId);
+  spend(state,p,0,merchantFree?0:1,counter ? 'counter' : 'appraise');
+  if(merchantFree)(p.merchantActionsUsed??=[]).push(itemId);
+  if (counter) p.counters++;
   p.acceptedDanger ||= item.npc === 'darkone' && acceptDanger;
   const risk = detectionRisk(p,item,value);
   const caught = randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:detection`) < risk;

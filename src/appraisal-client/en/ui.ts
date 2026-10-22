@@ -607,7 +607,6 @@ export const EN_UI_TEXT: Record<string, string> = {
   "เมื่อทุกคนจบซื้อขาย รับเครดิตเติมช่วงนี้ {n} เครดิต หรือเสี่ยงหัวก้อย ก่อนเลือกประตูครั้งถัดไป": "When everyone finishes trading, top-up credits this encounter are {n} credits, or risk a coin call before picking the next portal",
   "จบช่วงตอนนี้ ของค้าง {n} ชิ้นจะรับโทษจากพ่อค้า": "{n} unsold appraised items will take the merchant's penalty at the end of this phase",
   "ของที่ตีราคาแล้ว {n} ชิ้นยังไม่มีคนซื้อ จัดการได้ในช่วงต่อรอง": "{n} appraised goods still have no buyer; you can settle them during trade",
-  "ข้ามพ่อค้าช่วงนี้": "Skip this merchant this encounter",
   "จบการประเมิน ไปต่อรอง": "End appraisal, go to trade",
   "จบซื้อขาย ไปรับเครดิต": "End trade, collect credits",
   "จบการต่อรอง คิดผลช่วง": "End trading, score the encounter",

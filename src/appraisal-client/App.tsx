@@ -3,6 +3,7 @@ import { NpcContracts } from './NpcContracts.js';
 import { WishlistPanel } from './WishlistPanel.js';
 import { playerNote, phaseHint, phaseLabel, readable, unsoldItems, defaultConsequence, needShort, npcAcceptanceChance, collectorEstimate } from './model.js';
 import { useEffect, useRef, useState } from 'react';
+import { useFitViewport } from './useFitViewport.js';
 import type { FormEvent, ReactElement } from 'react';
 import { ITEM_SPECS, npcImage } from '../game/appraisal/content.js';
 import type { AppraisalBotPolicy, AppraisalRoomView, AppraisalClientMessage, AppraisalMode, AppraisalTimerSettings } from '../shared/appraisal-protocol.js';
@@ -293,10 +294,20 @@ function useSound(room:AppraisalRoomView|null) {
   useEffect(()=>()=>{void context.current?.close();},[]);
   return {enabled,toggle};
 }
+/** The server only lets a seat leave in the lobby or at the results, so mid-match this drops the saved seat and returns to the start screen. */
+function LeaveMatchButton() {
+  const leave=()=>{
+    if(!window.confirm(t('ออกจากห้องตอนนี้? ที่นั่งนี้จะหลุดจากแมตช์และกลับเข้ามาเล่นต่อไม่ได้')))return;
+    try {sessionStorage.removeItem('cursed-market-appraisal-seat');} catch { /* Nothing saved to clear. */ }
+    location.reload();
+  };
+  return <button type="button" className="leave-match" onClick={leave}>{t('ออกจากห้อง')}</button>;
+}
 export function App() {
   const connection=useConnection();const sound=useSound(connection.room);
   useLang(); // subscribe the whole table so every label re-renders on a language switch
   useTilt();
+  useFitViewport();
   const game=connection.room?.game;
   const chapterKey=game?`${connection.room!.matchId}:${game.encounter}:${game.phase}`:null;
   // A reload or reconnect lands mid-phase: no chapter for the phase the first room state arrives in (a lobby records null).
@@ -304,7 +315,7 @@ export function App() {
   if(firstChapter.current===undefined && connection.room) firstChapter.current=chapterKey;
   const offline=connection.connection!=='online';const disabled=offline || connection.busy;
   const netLock=offline?(connection.connection==='replaced'?t('ที่นั่งนี้เปิดในแท็บอื่น'):t('ยังไม่ได้เชื่อมต่อ รอกลับมาออนไลน์')):connection.busy?t('กำลังส่งการตัดสินใจ รอผลจากพ่อค้า'):null;
-  return <><World state={worldStateFor(connection.room)}/>{game && firstChapter.current!==undefined && chapterKey!==firstChapter.current && <Chapter key={chapterKey!} phase={game.phase} encounter={game.encounter}/>}<a className="skip-link" href="#game-main">{t('ข้ามไปพื้นที่เล่น')}</a><div className="app-shell"><header className="masthead"><span className="brand">Cursed Market</span><div><span role="status" className={`connection ${connection.connection}`}><span className="connection-label">{connection.connection==='online'?t('เชื่อมต่อแล้ว'):connection.connection==='replaced'?t('ที่นั่งนี้เปิดในแท็บอื่น'):t('กำลังเชื่อมต่อกลับห้อง')}</span></span><LangToggle/><button className="sound-toggle" aria-pressed={sound.enabled} onClick={sound.toggle}><SoundIcon on={sound.enabled}/><span className="sound-label">{sound.enabled?t('ปิดเสียง'):t('เปิดเสียง')}</span></button></div></header>
+  return <><World state={worldStateFor(connection.room)}/>{game && firstChapter.current!==undefined && chapterKey!==firstChapter.current && <Chapter key={chapterKey!} phase={game.phase} encounter={game.encounter}/>}<a className="skip-link" href="#game-main">{t('ข้ามไปพื้นที่เล่น')}</a><div className="app-shell"><header className="masthead"><span className="brand">Cursed Market</span><div><span role="status" className={`connection ${connection.connection}`}><span className="connection-label">{connection.connection==='online'?t('เชื่อมต่อแล้ว'):connection.connection==='replaced'?t('ที่นั่งนี้เปิดในแท็บอื่น'):t('กำลังเชื่อมต่อกลับห้อง')}</span></span><LangToggle/>{connection.room?.game && connection.room.game.phase!=='RESULTS' && <LeaveMatchButton/>}<button className="sound-toggle" aria-pressed={sound.enabled} onClick={sound.toggle}><SoundIcon on={sound.enabled}/><span className="sound-label">{sound.enabled?t('ปิดเสียง'):t('เปิดเสียง')}</span></button></div></header>
     {connection.connection==='replaced' && <div className="notice"><p>{t('แท็บอื่นรับช่วงที่นั่งนี้แล้ว โหลดแท็บนี้ใหม่เพื่อกลับมาเล่นที่นี่')}</p><button onClick={()=>location.reload()}>{t('กลับมาเล่นในแท็บนี้')}</button></div>}
     {connection.error && <div className="error" role="alert"><p>{connection.error}</p><button onClick={connection.clearError}>{t('ปิดข้อความ')}</button></div>}
     {connection.busy && <p className="network-status" role="status">{t('กำลังส่งการตัดสินใจ รอผลจากพ่อค้า')}</p>}

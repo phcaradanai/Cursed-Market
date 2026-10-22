@@ -1284,3 +1284,46 @@ html[lang=en] .phase-RESULTS .results>h2{font-family:var(--latin-display)}
 .entry-layout .entry-console form>button:not(.primary),.lobby .lobby-actions button:not(.primary){border-image:url("/art/ui/button.webp") 50 120 / 12px 28px stretch;background:linear-gradient(180deg,#1d2223,#0c0f10) padding-box;color:var(--cream);text-shadow:0 1px 2px rgb(0 0 0 / .9)}
 .lobby .lobby-actions button.start{border-image:url("/art/ui/button.webp") 50 120 / 12px 28px stretch;background:linear-gradient(180deg,#1f5a52,#0e2f2a) padding-box;color:#eafff8;text-shadow:0 1px 2px rgb(0 0 0 / .9)}
 .mode-guide-fold>summary{cursor:pointer;color:var(--bronze-bright);font-weight:600;font-size:14px;margin:6px 0}
+
+/* ── No page scroll (2026-10-22): useFitViewport sets --fit so each screen shrinks to the window height. ── */
+.screen .phase-banner,.screen .table-stage,.lobby,.entry-layout{zoom:var(--fit,1)}
+@supports (animation-timeline: scroll()){
+  .phase-banner{animation:none}
+  .stage-back img,.stage-fore img{animation:none}
+}
+/* Trade: shop goods on the left, friends' offers on the right, so the phase is half as tall. */
+@media(min-width:1100px){
+  .phase-TRADE .scene-play{width:min(1500px,100%);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:0 24px;align-items:start}
+  .phase-TRADE .scene-play>*{grid-column:1/-1;min-width:0}
+  .phase-TRADE .scene-play>.shop-sharing{grid-column:1}
+  .phase-TRADE .scene-play>.shop-sharing~.trades{grid-column:2;grid-row:auto}
+  .phase-TRADE .trades,.phase-TRADE .shop-sharing{margin-top:8px}
+}
+/* Reveal: the coin toss and the round result sit side by side instead of stacking. */
+@media(min-width:1100px){
+  .phase-REVEAL .scene-play{width:min(1240px,100%);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 24px;align-items:start}
+  .phase-REVEAL .scene-play>:only-child{grid-column:1/-1;width:min(620px,100%);margin:0 auto}
+}
+.leave-match{padding:6px 14px;font-size:14px}
+/* Lobby: seats on the left, game settings and the start button on the right. */
+@media(min-width:1100px){
+  .lobby{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:14px 24px;align-items:start}
+  .lobby>.lobby-head{grid-column:1/-1}
+  .lobby>.seat-list{grid-column:1;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+  .lobby>.lobby-foot{grid-column:2;grid-row:2/span 2;grid-template-columns:minmax(0,1fr);align-items:stretch}
+  .lobby>.lobby-foot .lobby-actions{flex-direction:row;flex-wrap:wrap;justify-content:flex-end}
+}
+@media(min-width:1100px){
+  .lobby-settings{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 20px;align-items:start}
+  .lobby-settings>h2,.lobby-settings>.lobby-more{grid-column:1/-1}
+  .lobby .bot-controls .choice-cards,.lobby .mode-picker .choice-cards{grid-template-columns:1fr 1fr}
+}
+.modal{zoom:var(--fit-modal,1)}
+/* Trade cards: slimmer frames and pedestals so a few offers fit without scrolling. */
+@media(min-width:1100px){
+  .phase-TRADE .screen :is(.trade-listing,.sell-card),.screen.phase-TRADE :is(.trade-listing,.sell-card){border-width:14px;border-image-width:14px;margin-bottom:8px}
+  .screen.phase-TRADE :is(.trade-listing,.sell-card){grid-template-columns:120px minmax(0,1fr);gap:12px;padding:0 6px}
+  .screen.phase-TRADE :is(.trade-listing,.sell-card)>.pedestal{width:120px}
+  .screen.phase-TRADE :is(.trade-listing,.sell-card)>.pedestal .pedestal-item{width:100px;height:100px}
+  .screen.phase-TRADE :is(.trade-listing form,.sell-card .sharing){gap:8px}
+}

@@ -171,5 +171,6 @@ export const EN_MODEL: Record<string, string> = {
   'ปิดประตูที่สอง': 'Closes the second door',
   'ปิดประตูแรก': 'Closes the first door',
   'ซื้อด้วยเครดิตเต็มราคา': 'Buy with credits at full price',
-  'ซื้อแบบมีเงื่อนไขของพ่อค้า': 'Buy on the merchant terms'
+  'ซื้อแบบมีเงื่อนไขของพ่อค้า': 'Buy on the merchant terms',
+  'ออกจากห้องตอนนี้? ที่นั่งนี้จะหลุดจากแมตช์และกลับเข้ามาเล่นต่อไม่ได้': 'Leave the room now? Your seat drops out of the match and you cannot rejoin it.'
 };

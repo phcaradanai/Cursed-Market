@@ -1,7 +1,7 @@
 import { passivesEnabled } from './passives.js';
 import { randomAt } from '../random.js';
 import { ITEM_SPECS, NPC_SPECS, expansionActive, merchantKinds, priceRange } from './content.js';
-import { CORE2, anchorOf, decayFor } from './core2.js';
+import { anchorOf, decayFor } from './core2.js';
 import { applyCore2Settlement, applyDread, resetCore2Encounter } from './core2-rules.js';
 import { barter, pickpocket, stealShop, useSkill } from './core2-actions.js';
 import { defaultEvent, drawBacklashEvent, drawTheftEvent, isConsequence, drawBondEvent, drawExpansionEvent, drawPolishEvent, drawWishEvent, drawEvent, drawPersonalNpcEvent, resolveEvent } from './events.js';
@@ -154,7 +154,7 @@ function settleEncounter(state:AppraisalState):void {
   }
   state.market.open=false; state.market.budget=0;
   for(const offer of state.trades) if(offer.status==='open') offer.status='rejected';
-  if(state.config.survival && (state.players.every(p=>p.life===0) || state.config.core2 && state.encounter>=CORE2.collectorEncounter))collectRun(state);
+  if(state.config.survival && (state.players.every(p=>p.life===0) ))collectRun(state);
   else {state.phase='REVEAL';openRoundRewards(state);}
 }
 function progress(state:AppraisalState):void {
@@ -386,5 +386,5 @@ export function assertAppraisalInvariants(state:AppraisalState):void {
   for(const item of Object.values(state.items))if(item.owner.startsWith('alien-loan:'))check(owned.has(item.id),'loan-owner','ของที่ให้ยืมไม่มีสัญญา');
   check(!!state.config.brokerage===Array.isArray(state.vault),'vault','คลัง Dark Market ไม่ตรงกติกา');
   if(state.vault) check(new Set(state.vault).size===state.vault.length && state.vault.every(id=>state.items[id]?.owner==='dark-market') && Object.values(state.items).filter(i=>i.owner==='dark-market').length===state.vault.length,'vault','คลัง Dark Market ไม่ตรงเจ้าของ');
-  if(state.config.survival){check(state.version===5,'version','กติกาชีวิตต้องเป็น v0.5');if(state.phase==='RESULTS')check((state.players.every(p=>p.life===0) || !!state.config.core2 && state.encounter>=CORE2.collectorEncounter) && state.collector?.length===state.players.length,'collector','จบได้เมื่อทุกคนตาย (หรือถึงเส้นตาย Collector) และ Collector คิดผลแล้ว');else check(!state.collector,'collector','เปิดผล Collector ก่อนจบไม่ได้');}
+  if(state.config.survival){check(state.version===5,'version','กติกาชีวิตต้องเป็น v0.5');if(state.phase==='RESULTS')check(state.players.every(p=>p.life===0) && state.collector?.length===state.players.length,'collector','จบได้เมื่อทุกคนตายและ Collector คิดผลแล้ว');else check(!state.collector,'collector','เปิดผล Collector ก่อนจบไม่ได้');}
 }

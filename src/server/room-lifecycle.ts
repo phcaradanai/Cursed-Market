@@ -92,7 +92,7 @@ export abstract class RoomLifecycle<G extends { phase: string }, C extends { typ
           this.hostOnly(room, seat); insist(!room.game, 'match-started', 'เลือกรูปแบบทดสอบก่อนเริ่มเกม'); room.playtestMode = control.mode; break;
         case 'start':
           this.hostOnly(room, seat); insist(!room.game, 'match-started', 'แมตช์เริ่มแล้ว');
-          insist(room.seats.length >= 2 && room.seats.every(s => s.ready && s.connected), 'not-ready', 'ต้องมี 2–4 คน และทุกคนพร้อมและเชื่อมต่ออยู่');
+          insist(room.seats.length >= 2 && room.seats.every(s => (s.ready || s.id === room.hostId) && s.connected), 'not-ready', 'ต้องมี 2–4 คน และทุกคนพร้อมและเชื่อมต่ออยู่');
           room.matchId = randomBytes(8).toString('hex'); room.matchSeats = room.seats.map(s => ({ id: s.id, name: s.name }));
           room.game = this.createGame(room.seats.map(s => s.id), randomBytes(32).toString('hex'), room);
           room.startedAt = this.now(); room.endedAt = null; room.phaseTimes = []; room.timeouts = []; this.beginPhase(room); break;

@@ -112,7 +112,6 @@ function Entry({send,disabled}:{send:Send;disabled:boolean}) {
   </div>;
 }
 export function RoomTimers({room,send,disabled}:{room:AppraisalRoomView;send:Send;disabled:boolean}) {
-  const locked=useLock();
   const stored=room.timerSettings;const host=room.hostId===room.yourSeatId;
   const key=JSON.stringify(stored);
   const [enabled,setEnabled]=useState(stored?.enabled??true);
@@ -121,15 +120,18 @@ export function RoomTimers({room,send,disabled}:{room:AppraisalRoomView;send:Sen
   if(!stored)return <p>{t('ห้องนี้ใช้เวลาเริ่มต้นของเซิร์ฟเวอร์')}</p>;
   if(!host)return <p>{stored.enabled?t('จับเวลา: {times}',{times:APPRAISAL_TIMER_PHASES.map(phase=>`${phaseLabel(phase)} ${stored.durationsMs[phase]/1000} ${t('วินาที')}`).join(' · ')}):t('ไม่จับเวลา · รอทุกคนจบช่วงหรือยืนยันไปต่อ')}</p>;
   const valid=APPRAISAL_TIMER_PHASES.every(phase=>Number.isInteger(Number(seconds[phase])) && Number(seconds[phase])>=1 && Number(seconds[phase])<=900);
-  const save=(event:FormEvent)=>{event.preventDefault();if(enabled&&!valid)return;
-    const durationsMs=valid?Object.fromEntries(APPRAISAL_TIMER_PHASES.map(phase=>[phase,Number(seconds[phase])*1000])) as AppraisalTimerSettings['durationsMs']:stored.durationsMs;
-    send({type:'timer-settings',settings:{enabled,durationsMs}});
+  const apply=(nextEnabled:boolean,nextSeconds:Record<string,string>)=>{
+    const ok=APPRAISAL_TIMER_PHASES.every(phase=>Number.isInteger(Number(nextSeconds[phase])) && Number(nextSeconds[phase])>=1 && Number(nextSeconds[phase])<=900);
+    if(nextEnabled&&!ok)return;
+    const durationsMs=ok?Object.fromEntries(APPRAISAL_TIMER_PHASES.map(phase=>[phase,Number(nextSeconds[phase])*1000])) as AppraisalTimerSettings['durationsMs']:stored.durationsMs;
+    if(nextEnabled===stored.enabled && APPRAISAL_TIMER_PHASES.every(phase=>durationsMs[phase]===stored.durationsMs[phase]))return;
+    send({type:'timer-settings',settings:{enabled:nextEnabled,durationsMs}});
   };
-  return <form onSubmit={save}><fieldset className="timer-settings"><legend>{t('เวลาในห้อง')}</legend>
-    <ChoiceCards compact legend={t('รูปแบบเวลา')} value={enabled?'timed':'untimed'} onChange={v=>setEnabled(v==='timed')} disabled={disabled} options={[{value:'timed',title:t('จับเวลา'),detail:t('หมดเวลาแล้วเกมเดินต่อเอง')},{value:'untimed',title:t('ไม่จับเวลา'),detail:t('รอทุกคนกดจบช่วง')}]}/>
-    <div className="timer-fields">{APPRAISAL_TIMER_PHASES.map(phase=><label key={phase} htmlFor={`timer-${phase}`}>{t('{phase} (วินาที)',{phase:phaseLabel(phase)})}<input id={`timer-${phase}`} type="number" min="1" max="900" step="1" value={seconds[phase]} onChange={e=>setSeconds({...seconds,[phase]:e.target.value})} disabled={disabled||!enabled} required/></label>)}</div>
-    <p>{enabled?t('ตั้งได้ช่วงละ 1–900 วินาที ทุกคนจบช่วงแล้วไปต่อทันที'):t('ไม่มีการข้ามอัตโนมัติเมื่อรอ คนที่หลุดต้องกลับมาเพื่อจบช่วงหรือยืนยันไปต่อ')}</p>
-    <button disabled={disabled || enabled&&!valid} title={tip(disabled&&locked,enabled&&!valid&&t('ใส่เวลาเป็นจำนวนเต็ม 1–900 วินาทีให้ครบทุกช่วง'))}>{t('บันทึกเวลาของห้อง')}</button><p className="supporting">{t('เปลี่ยนเวลาแล้วทุกคนต้องกดพร้อมใหม่')}</p>
+  return <form onSubmit={e=>e.preventDefault()}><fieldset className="timer-settings"><legend>{t('เวลาในห้อง')}</legend>
+    <ChoiceCards compact legend={t('รูปแบบเวลา')} value={enabled?'timed':'untimed'} onChange={v=>{const next=v==='timed';setEnabled(next);apply(next,seconds);}} disabled={disabled} options={[{value:'timed',title:t('จับเวลา'),detail:t('หมดเวลาแล้วเกมเดินต่อเอง')},{value:'untimed',title:t('ไม่จับเวลา'),detail:t('รอทุกคนกดจบช่วง')}]}/>
+    <div className="timer-fields">{APPRAISAL_TIMER_PHASES.map(phase=><label key={phase} htmlFor={`timer-${phase}`}>{t('{phase} (วินาที)',{phase:phaseLabel(phase)})}<input id={`timer-${phase}`} type="number" min="1" max="900" step="1" value={seconds[phase]} onChange={e=>setSeconds({...seconds,[phase]:e.target.value})} onBlur={()=>apply(enabled,seconds)} onKeyDown={e=>{if(e.key==='Enter')apply(enabled,seconds);}} disabled={disabled||!enabled} required/></label>)}</div>
+    <p>{enabled?(valid?t('ตั้งได้ช่วงละ 1–900 วินาที ทุกคนจบช่วงแล้วไปต่อทันที'):t('ใส่เวลาเป็นจำนวนเต็ม 1–900 วินาทีให้ครบทุกช่วง')):t('ไม่มีการข้ามอัตโนมัติเมื่อรอ คนที่หลุดต้องกลับมาเพื่อจบช่วงหรือยืนยันไปต่อ')}</p>
+    <p className="supporting">{t('เปลี่ยนเวลาแล้วทุกคนต้องกดพร้อมใหม่')}</p>
   </fieldset></form>;
 }
 function Lobby({room,send,disabled}:{room:AppraisalRoomView;send:Send;disabled:boolean}) {
@@ -137,17 +139,17 @@ function Lobby({room,send,disabled}:{room:AppraisalRoomView;send:Send;disabled:b
   const self=room.seats.find(s=>s.id===room.yourSeatId);const host=room.hostId===room.yourSeatId;
   const [copied,setCopied]=useState('');const codeRef=useRef<HTMLInputElement>(null);
   const copy=async()=>{try {await navigator.clipboard.writeText(room.code);setCopied(t('คัดลอกรหัสแล้ว'));}catch {codeRef.current?.select();setCopied(t('เลือกรหัสไว้แล้ว กดคัดลอกด้วยตัวเอง'));}};
-  const ready=room.seats.length>=2 && room.seats.every(s=>s.ready && s.connected);
+  const ready=room.seats.length>=2 && room.seats.every(s=>(s.ready||s.id===room.hostId) && s.connected);
   return <section className="lobby">
     <header className="lobby-head"><div><h1>{t('โต๊ะนักประเมิน')}</h1><p>{t('แชร์ที่อยู่เกมกับรหัสนี้ให้เพื่อน ทุกคนพร้อมแล้วเจ้าของห้องเริ่มได้')}</p></div><div className="code-plaque"><div className="code-copy"><label htmlFor="room-code-display">{t('รหัสห้อง')}</label><input ref={codeRef} id="room-code-display" className="room-code" value={room.code} readOnly/><button onClick={()=>void copy()}>{t('คัดลอกรหัส')}</button></div><p role="status">{copied}</p></div></header>
-    <ul className="seat-list">{room.seats.map((s,index)=><li key={s.id}><SeatDisc name={s.name} index={index}/><strong>{s.name}{s.id===room.yourSeatId?t(' (คุณ)'):''}</strong><span>{s.bot?t('บอท · {style}',{style:botStyleName(s.bot)}):`${s.id===room.hostId?t('เจ้าของห้อง · '):''}${!s.connected?t('หลุดจากห้อง'):s.ready?t('พร้อมแล้ว'):t('ยังไม่พร้อม')}`}</span>{host && s.bot && <button disabled={disabled} title={tip(disabled&&locked)} onClick={()=>send({type:'remove-bot',seatId:s.id})}>{t('นำ {name} ออก',{name:s.name})}</button>}{host && !s.bot && !s.connected && <button disabled={disabled} title={tip(disabled&&locked)} onClick={()=>send({type:'remove-seat',seatId:s.id})}>{t('นำ {name} ออก',{name:s.name})}</button>}</li>)}</ul>
+    <ul className="seat-list">{room.seats.map((s,index)=><li key={s.id}><SeatDisc name={s.name} index={index}/><strong>{s.name}{s.id===room.yourSeatId?t(' (คุณ)'):''}</strong><span>{s.bot?t('บอท · {style}',{style:botStyleName(s.bot)}):`${s.id===room.hostId?t('เจ้าของห้อง · '):''}${!s.connected?t('หลุดจากห้อง'):s.id===room.hostId||s.ready?t('พร้อมแล้ว'):t('ยังไม่พร้อม')}`}</span>{host && s.bot && <button disabled={disabled} title={tip(disabled&&locked)} onClick={()=>send({type:'remove-bot',seatId:s.id})}>{t('นำ {name} ออก',{name:s.name})}</button>}{host && !s.bot && !s.connected && <button disabled={disabled} title={tip(disabled&&locked)} onClick={()=>send({type:'remove-seat',seatId:s.id})}>{t('นำ {name} ออก',{name:s.name})}</button>}</li>)}</ul>
     <div className="lobby-foot">
       <div className="lobby-settings"><h2>{t('ตั้งค่าเกม')}</h2>
         <BotControls room={room} send={send} disabled={disabled}/>
         <ModePicker room={room} send={send} disabled={disabled}/>
-        <details className="lobby-more"><summary>{t('เวลาและการคุย')}</summary>{host?<ChoiceCards compact legend={t('คุยกันระหว่างเล่นไหม')} value={room.playtestMode} onChange={v=>send({type:'playtest-mode',mode:v as 'voice'|'no-voice'})} disabled={disabled} options={[{value:'no-voice',title:t('เล่นเงียบ'),detail:t('ไม่ใช้ Voice')},{value:'voice',title:t('คุยผ่าน Voice'),detail:t('คุยกันระหว่างเล่น')}]}/>:<p>{room.playtestMode==='voice'?t('รอบนี้เล่นพร้อมคุย Voice'):t('รอบนี้เล่นโดยไม่ใช้ Voice')}</p>}<RoomTimers room={room} send={send} disabled={disabled}/></details>
+        <details className="lobby-more"><summary>{t('เวลาในห้อง')}</summary><RoomTimers room={room} send={send} disabled={disabled}/></details>
       </div>
-      <div className="actions lobby-actions"><button className={self?.ready?'':'primary'} disabled={disabled} title={tip(disabled&&locked)} onClick={()=>send({type:'ready',ready:!self?.ready})}>{self?.ready?t('ยังไม่พร้อม'):t('ฉันพร้อมแล้ว')}</button>{host && <button className="primary start" disabled={disabled || !ready} title={tip(disabled&&locked,!ready&&(room.seats.length<2?t('ต้องมีอย่างน้อย 2 ที่นั่ง เพิ่มบอทหรือรอเพื่อน'):t('ทุกคนต้องออนไลน์และกดพร้อมก่อน')))} onClick={()=>send({type:'start'})}>{t('เริ่มการเดินทาง')}</button>}<button disabled={disabled} title={tip(disabled&&locked)} onClick={()=>send({type:'leave'})}>{t('ออกจากห้อง')}</button></div>
+      <div className="actions lobby-actions">{!host && <button className={self?.ready?'':'primary'} disabled={disabled} title={tip(disabled&&locked)} onClick={()=>send({type:'ready',ready:!self?.ready})}>{self?.ready?t('ยังไม่พร้อม'):t('ฉันพร้อมแล้ว')}</button>}{host && <button className="primary start" disabled={disabled || !ready} title={tip(disabled&&locked,!ready&&(room.seats.length<2?t('ต้องมีอย่างน้อย 2 ที่นั่ง เพิ่มบอทหรือรอเพื่อน'):t('ทุกคนต้องออนไลน์และกดพร้อมก่อน')))} onClick={()=>send({type:'start'})}>{t('เริ่มการเดินทาง')}</button>}<button disabled={disabled} title={tip(disabled&&locked)} onClick={()=>send({type:'leave'})}>{t('ออกจากห้อง')}</button></div>
     </div>
   </section>;
 }

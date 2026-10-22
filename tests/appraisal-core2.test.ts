@@ -55,12 +55,12 @@ test('overvaluing only draws a backlash from twice the asking price and caps bel
   assert.equal(overvalueChance(900,10),CORE2.overvalue.cap);
 });
 
-test('survival pressure grows but is capped, and the Collector is a hard deadline',()=>{
+test('survival pressure grows but is capped, and the run is only over when every life is gone',()=>{
   assert.equal(decayFor(1),1);assert.ok(decayFor(14)>decayFor(1));assert.ok(decayFor(99)<=CORE2.decayCap);
   assert.ok(dreadChance(10)>dreadChance(1));assert.ok(dreadChance(99)<=CORE2.dread.cap);
   for(let i=0;i<4;i++){
     const run=runBalanced(3,['aggressive','trader','collector'],`core2-cap:${i}`,liveRules({core2:true}));
-    assert.ok(run.encounters<=CORE2.collectorEncounter,`run ${i} lasted ${run.encounters}`);assert.notEqual(run.ended,'stuck');
+    assert.notEqual(run.ended,'stuck');
   }
 });
 

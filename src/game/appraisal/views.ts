@@ -2,7 +2,7 @@ import { cleanseOffer } from './cleanse.js';
 import { PULSE_RULES, STOCK_RULES, activeNpcs, merchantWary, shardsPerSale } from './pulse.js';
 import { wishBook, wishDesk, wishOffer } from './wishlist.js';
 import { passiveBonuses, passivesEnabled } from './passives.js';
-import { CORE2, dreadChance } from './core2.js';
+import { dreadChance } from './core2.js';
 import { core2ActionsOf } from './core2-actions.js';
 import { ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, itemFamily, itemImage } from './content.js';
 import { counterLimit, feeSurcharge, known, maxEnergyOf, maxLifeOf, npcQuote, omenNow, player, recoveryOffer, salePercent, stockBonus } from './mechanics.js';
@@ -38,7 +38,7 @@ export function appraisalViewFor(state:AppraisalState,playerId:string):Appraisal
   const p=player(state,playerId);
   const {knowledge:_knowledge,portals:_portals,stock:_stock,inventory:_inventory,valuations:_valuations,startWealth:_startWealth,acceptedDanger:_acceptedDanger,seenEvents:_seenEvents,resolvedEvents:_resolvedEvents,...self}=structuredClone(p);
   return {
-    ...(state.config.core2?{core2:true,...(state.config.survival?{collectorAt:CORE2.collectorEncounter,dread:dreadChance(state.encounter,omenNow(state)?.dread??1)}:{})}:{}),...(passivesEnabled(state.config)?{passives:true}:{}),...(state.config.curseSight?{curseSight:true}:{}),...(state.config.freeBuy?{freeBuy:true}:{}),...(state.config.fakeEffect?{fakeEffect:true}:{}),...(state.config.cleanse?{cleanse:true}:{}),...(state.config.wishlist?{wishlist:true}:{}),...(state.config.wishlist && state.config.wishContract?{wishContract:true}:{}),...(state.config.challenge?{challenge:true}:{}),...(salePercent(state,p,true)!==0 || state.config.polish?{salePct:salePercent(state,p,true)}:{}),...(state.config.polish?{polish:true,...(omenNow(state)?{omen:{id:omenNow(state)!.id,name:omenNow(state)!.name,text:omenNow(state)!.text}}:{}),fee:feeSurcharge(state,p)}:{}),
+    ...(state.config.core2?{core2:true,...(state.config.survival?{dread:dreadChance(state.encounter,omenNow(state)?.dread??1)}:{})}:{}),...(passivesEnabled(state.config)?{passives:true}:{}),...(state.config.curseSight?{curseSight:true}:{}),...(state.config.freeBuy?{freeBuy:true}:{}),...(state.config.fakeEffect?{fakeEffect:true}:{}),...(state.config.cleanse?{cleanse:true}:{}),...(state.config.wishlist?{wishlist:true}:{}),...(state.config.wishlist && state.config.wishContract?{wishContract:true}:{}),...(state.config.challenge?{challenge:true}:{}),...(salePercent(state,p,true)!==0 || state.config.polish?{salePct:salePercent(state,p,true)}:{}),...(state.config.polish?{polish:true,...(omenNow(state)?{omen:{id:omenNow(state)!.id,name:omenNow(state)!.name,text:omenNow(state)!.text}}:{}),fee:feeSurcharge(state,p)}:{}),
     version:state.version,phase:state.phase,encounter:state.encounter,encounterCount:state.config.survival?null:state.config.encounters,revision:state.revision,
     ...(state.config.roundRewards?{roundRewardBase:(state.encounter%2?10:15)+passiveBonuses(state,p).income}:{}),
     ...(state.config.survival?{survival:structuredClone(state.config.survival),maxEnergy:state.config.maxEnergy}:{}),...(state.collector?{collector:structuredClone(state.collector)}:{}),...(state.config.brokerage?{brokerage:true}:{}),

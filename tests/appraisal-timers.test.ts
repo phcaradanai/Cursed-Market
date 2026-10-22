@@ -75,7 +75,7 @@ test('untimed disconnect retains pending seat and safe resume without inventing 
 });
 test('settings controls disclose units and untimed waits, are host-only, and preserve old server compatibility',()=>{
   const s=setup();s.send(s.host,{type:'timer-settings',settings:settings(false)});
-  const host=renderToStaticMarkup(createElement(RoomTimers,{room:s.host.room,send:()=>true,disabled:false}));assert(host.includes('ไม่จับเวลา'));assert(host.includes('บันทึกเวลาของห้อง'));assert(host.includes('คนที่หลุดต้องกลับมา'));assert(host.includes('min="1" max="900"'));assert.equal((host.match(/type="number"/g)??[]).length,4);
+  const host=renderToStaticMarkup(createElement(RoomTimers,{room:s.host.room,send:()=>true,disabled:false}));assert(host.includes('ไม่จับเวลา'));assert(!host.includes('บันทึกเวลาของห้อง'));assert(!host.includes('<button'));assert(host.includes('คนที่หลุดต้องกลับมา'));assert(host.includes('min="1" max="900"'));assert.equal((host.match(/type="number"/g)??[]).length,4);
   const guest=renderToStaticMarkup(createElement(RoomTimers,{room:s.clients[1]!.room,send:()=>true,disabled:false}));assert(guest.includes('ไม่จับเวลา'));assert(!guest.includes('<input'));
   const older={...s.host.room};delete older.timerSettings;assert(!renderToStaticMarkup(createElement(RoomTimers,{room:older,send:()=>true,disabled:false})).includes('บันทึกเวลาของห้อง'));
 });

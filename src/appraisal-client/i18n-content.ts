@@ -133,6 +133,19 @@ export const EN_OMEN: Record<string, { name: string; text: string }> = {
 };
 
 export const EN_EVENT: Partial<Record<EventId, { name: string; when: string; description: string }>> = {
+  E117: { name: 'Toll Gate', when: 'Before choosing a portal', description: 'The gatekeeper charges a toll before opening the doors. Every way has a price; none is free.' },
+  E118: { name: 'Contract at the Door', when: 'Before choosing a portal', description: 'The first door takes cash. The second gives a discount but binds you to terms.' },
+  E119: { name: 'Gatekeeper Collects a Debt', when: 'Before choosing a portal', description: 'The gatekeeper wants an old debt. Pay cash now, take on interest, or spend energy to switch doors.' },
+  E120: { name: 'Suspicious Inspector', when: 'After an overpriced appraisal', description: 'Your price is far above the shop price. The inspector wants an explanation, payable with anything you have.' },
+  E121: { name: 'Merchant Shouts', when: 'After an overpriced appraisal', description: 'The merchant knows you lied about the price. They demand a fine or force a hidden tax on you.' },
+  E122: { name: 'Shadow Court Rules', when: 'After an overpriced appraisal', description: 'The shadow court judges your greed. The fine is heaviest, but you choose what to pay with.' },
+  E123: { name: 'Caught Stealing', when: 'After a failed theft or swap', description: 'A shadow guard grabs your hand. Heavy fine: pay what you have or accept the thief brand.' },
+  E124: { name: 'Pickpocket Caught', when: 'After a failed pickpocket', description: 'The victim catches your wrist. The compensation goes straight to them.' },
+  E125: { name: 'Rumor From a Peddler', when: 'During appraisal', description: 'A peddler sells price rumors. Buy with credits or earn them with a long walk.' },
+  E126: { name: 'Back-Alley Brew', when: 'During appraisal', description: 'The roadside brew really restores you, but the side effect follows you into the next phase.' },
+  E127: { name: 'Shadow Lender', when: 'During appraisal', description: 'The shadow lender hands you credits at once, in exchange for interest and a hidden tax later.' },
+  E128: { name: 'Rite of Offering', when: 'During appraisal', description: 'The celebrant takes one offering and gives protective wards in return.' },
+  E129: { name: 'Appraiser Reflection', when: 'During appraisal', description: 'Your shadow offers a safer appraisal, or the cheat mark in exchange for a whisper.' },
   E01: { name: 'Portal Slips Away', when: 'Before entering a portal; a fallback option exists', description: 'The portal is sliding away. Spend 1 energy to hold the first portal, or let it go and pick from the rest.' },
   E02: { name: 'Honor Greeting', when: 'Meeting the Orc; before appraising', description: 'The Orc asks for an honorable appraisal. If your price is within 10% of the true value, you get Asset Insurance. Otherwise, detection risk rises by 10%.' },
   E03: { name: 'Pulse Check', when: 'Meeting the Vampire; energy not full', description: 'The Vampire offers +3 energy for 2 credits, or a blood payment that gives Blood Thirst instead.' },

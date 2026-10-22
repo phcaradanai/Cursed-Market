@@ -5,6 +5,7 @@ import type { InspectionProperty, Knowledge } from '../game/appraisal/types.js';
 import { FAKE_EFFECT_CHANCE, collectorTotal, itemScoreValue } from '../game/appraisal/scoring.js';
 import { BOND_SPECS, CONSIGN_RULES, NPC_SPECS } from '../game/appraisal/content.js';
 import { t, getLang } from './i18n.js';
+import { core2Cost, core2Needs, core2NeedsItem, core2Title, isCore2Consequence, isCore2Event } from './core2-text.js';
 import { eventText, itemName, npcName, npcUnsoldText, statusName, statusDescription } from './catalog-text.js';
 import { ITEM_SPECS, itemFamily } from '../game/appraisal/content.js';
 export { statusName } from './catalog-text.js';
@@ -120,6 +121,7 @@ export function marketOptions(game:AppraisalView,item:ItemView) {
 export function eventNeeds(game:AppraisalView,offer:EventOffer,choice:string,itemId:string):{credits:number;energy:number;life?:number} {
   const none={credits:0,energy:0};
   if(choice==='decline') return none;
+  if(isCore2Event(offer.id))return core2Needs(offer.id,choice);
   if(offer.npcTerms)return {credits:offer.npcTerms.credits,energy:offer.npcTerms.energy+(choice==='give-energy'?2:0),life:offer.npcTerms.life};
   const mod=(n:number)=>Math.max(0,n+Number(hasStatus(game,'D01'))-Number(hasStatus(game,'B05')));
   const item=game.self.stock.find(i=>i.id===itemId);
@@ -191,9 +193,10 @@ export function activationOutcome(k:Knowledge):string {
 export function eventCatalog(offer:EventOffer) { return eventText(offer.id); }
 const itemEvents=new Set(['E07','E09','E11','E12','E16','E17','E19','E20','E24','E25','E27','E29','E30','E31','E32','E33','E34','E35','E36','E38','E39','E44','E45','E46','E47']);
 /** E48–E50 settle an accepted NPC risk; they cannot be declined. Never compare event IDs as strings. */
-export const isConsequence=(id:string)=>['E48','E49','E50'].includes(id);
+export const isConsequence=(id:string)=>['E48','E49','E50'].includes(id) || isCore2Consequence(id);
 export const bondOf=(offer:EventOffer)=>BOND_SPECS.find(spec=>spec.id===offer.id);
 export function eventNeedsItem(offer:EventOffer,choice:string):boolean {
+  if(isCore2Event(offer.id))return core2NeedsItem(offer.id,choice);
   if(offer.npcTerms)return choice!=='decline' && (offer.npcTerms.items>0 || choice==='give-item');
   const bond=bondOf(offer);if(bond) return choice!=='decline' && bond.mode!=='show';
   return choice!=='decline' && (itemEvents.has(offer.id) || (offer.id==='E48' && choice==='item') || (offer.id==='E50' && choice==='surrender'));
@@ -232,8 +235,9 @@ const choiceNames:Record<string,string>={pick:'เลือกพรหนึ่
 export const choiceName=(choice:string,survival=false)=>replaceChoice(choice)?t('แทนคำขอของ {name}',{name:npcName(replaceChoice(choice) as NpcId)??replaceChoice(choice)}):survival && choice==='die'?t('รับผลตายและเป็นผู้ชมจนจบ run'):t(choiceNames[choice]??choice);
 const eventChoiceNames:Partial<Record<string,Record<string,string>>>={E42:{energy:'ฟื้นพลัง 2'},E48:{energy:'เสียพลัง 2',pay:'จ่ายค่าปรับ 2 เครดิต'},E49:{pay:'จ่าย 2 เครดิตให้ลืม'},E03:{pay:'จ่าย 2 เครดิต',debt:'จ่ายด้วยเลือด'},E37:{pay:'จ้างคนแบก',burden:'แบกเอง'},E10:{pay:'จ่ายค่าผ่าน',fog:'ผ่านฟรีในหมอก',switch:'เลี่ยงไปประตูอื่น'}};
 /** Button and card title for one event choice; a few events name the same choice key differently. */
-export const choiceTitle=(offer:EventOffer,choice:string,survival=false)=>loanItemCount(choice)?t('ให้ยืม {n} ชิ้น',{n:loanItemCount(choice)}):t(({purge:'ล้างผลเสียของฉัน','send-debuff':'ส่งผลเสียสุ่มให้ผู้เล่นอื่น','give-item':'ส่งสินค้าหนึ่งชิ้น','give-energy':'จ่ายพลัง 2'} as Record<string,string>)[choice]??eventChoiceNames[offer.id]?.[choice]??choiceName(choice,survival));
+export const choiceTitle=(offer:EventOffer,choice:string,survival=false)=>isCore2Event(offer.id)?core2Title(offer.id,choice):loanItemCount(choice)?t('ให้ยืม {n} ชิ้น',{n:loanItemCount(choice)}):t(({purge:'ล้างผลเสียของฉัน','send-debuff':'ส่งผลเสียสุ่มให้ผู้เล่นอื่น','give-item':'ส่งสินค้าหนึ่งชิ้น','give-energy':'จ่ายพลัง 2'} as Record<string,string>)[choice]??eventChoiceNames[offer.id]?.[choice]??choiceName(choice,survival));
 export function eventCost(game:AppraisalView,offer:EventOffer,choice:string,itemId:string):string {
+  if(isCore2Event(offer.id))return choice==='decline'?t('ไม่เสียอะไร'):core2Cost(offer.id,choice,!!game.survival);
   if(offer.npcTerms && choice!=='decline'){
     const term=offer.npcTerms,n=loanItemCount(choice);
     if(n)return t('ของที่เลือก {n} ชิ้นออกจากคลังชั่วคราว · พบ Alien ตั้งแต่ช่วง {next} รับของคืน + {lo}–{hi} เครดิต และฟื้นพลังสูงสุด {rlo}–{rhi}',{n,next:game.encounter+2,lo:4*n,hi:8*n,rlo:n,rhi:2*n});
@@ -303,6 +307,7 @@ export function eventItemName(offer:EventOffer,id:string):string { const kind=of
 export function inventoryLabel(game:AppraisalView,item:ItemView):string {return t('คลัง #{n} {name}',{n:game.self.inventory.findIndex(i=>i.id===item.id)+1,name:itemName(item.kind)});}
 export function defaultConsequence(offer:EventOffer|null):string|null {
   if(!offer || offer.choices.includes('decline')) return null;
+  if(isCore2Event(offer.id))return t('หากจบช่วงหรือหมดเวลา จะเลือก: {title}',{title:core2Title(offer.id,offer.choices[0]!)});
   return offer.choices.includes('pay')?t('หากจบช่วงหรือหมดเวลา จะจ่ายค่าปรับ 2 เครดิต'):offer.choices.includes('oath')?t('หากจบช่วงหรือหมดเวลา จะรับสาบานห้ามต่อรอง'):offer.choices.includes('die')?t('หากจบช่วงหรือหมดเวลา จะรับผลตายตามสัญญา Dark One'):offer.choices.includes('energy')?t('หากจบช่วงหรือหมดเวลา จะเสียพลังไม่เกิน 2'):t('หากจบช่วงหรือหมดเวลา จะเสียสินค้าชิ้นแรก');
 }
 

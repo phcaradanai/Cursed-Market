@@ -1,3 +1,4 @@
+import { core2Spec } from '../game/appraisal/core2-specs.js';
 import { EVENT_CATALOG, ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, UNSOLD_PENALTIES } from '../game/appraisal/content.js';
 import { PASSIVE_ITEMS } from '../game/appraisal/passives.js';
 import { OMENS, type Omen } from '../game/appraisal/omen-table.js';
@@ -17,7 +18,7 @@ export const statusDescription = (id: StatusId): string => pick(STATUS_CATALOG.f
 export const statusDuration = (id: StatusId): string => pick(STATUS_CATALOG.find(s => s.id === id)!.duration, EN_STATUS[id]?.duration);
 
 export function eventText(id: EventId): { name: string; when: string; description: string } {
-  const th = EVENT_CATALOG.find(e => e.id === id);
+  const th = EVENT_CATALOG.find(e => e.id === id) ?? core2Spec(id);
   const en = EN_EVENT[id];
   return {
     name: pick(th?.name ?? id, en?.name),

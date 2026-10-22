@@ -31,3 +31,5 @@ export const TrustIcon=()=> <Icon className="icon-trust"><circle cx="9" cy="12" 
 export const StackIcon=()=> <Icon><path d="m5 9.5 7-3.5 7 3.5-7 3.5-7-3.5Z"/><path d="m5 13 7 3.5 7-3.5M5 16.5 12 20l7-3.5"/></Icon>;
 export const BonusIcon=()=> <Icon className="icon-bonus"><rect x="5.5" y="5" width="13" height="14" rx="2"/><path d="M12 9v6M9 12h6"/></Icon>;
 export const EyeIcon=()=> <Icon><path d="M3 12s3.4-6 9-6 9 6 9 6-3.4 6-9 6-9-6-9-6Z"/><circle cx="12" cy="12" r="2.6"/></Icon>;
+export const BagIcon=()=> <Icon><path d="M8.5 8V6.5a3.5 3.5 0 0 1 7 0V8"/><path d="M5.5 8h13l-1 11.5h-11Z"/><path d="M9.5 12h5"/></Icon>;
+export const BookIcon=()=> <Icon><path d="M5 4.5h10.5a2 2 0 0 1 2 2V19.5H7a2 2 0 0 1-2-2Z"/><path d="M5 17.5a2 2 0 0 1 2-2h10.5"/><path d="M9 8.5h5M9 11h3.5"/></Icon>;

@@ -12,7 +12,7 @@ import type { AppraisalRoomView } from '../src/shared/appraisal-protocol.js';
 import type { AppraisalState } from '../src/game/appraisal/types.js';
 
 const THAI = /[฀-๿]/;
-const CLIENT_FILES = ['components.tsx', 'App.tsx', 'MarketSale.tsx', 'PortalEventPreview.tsx', 'RoundReward.tsx', 'HeldEffects.tsx', 'NpcContracts.tsx', 'feedback.tsx', 'connection.ts', 'lore.tsx', 'model.ts', 'catalog-text.ts', 'meters.tsx'];
+const CLIENT_FILES = ['components.tsx', 'App.tsx', 'MarketSale.tsx', 'PortalEventPreview.tsx', 'RoundReward.tsx', 'HeldEffects.tsx', 'NpcContracts.tsx', 'feedback.tsx', 'connection.ts', 'lore.tsx', 'model.ts', 'catalog-text.ts', 'meters.tsx', 'world/Chapter.tsx'];
 /** Every literal passed to t() in the client, with its escapes resolved. */
 function translatedKeys(): Set<string> {
   const keys = new Set<string>();

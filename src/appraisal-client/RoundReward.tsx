@@ -32,13 +32,15 @@ export function RoundReward({reward,submit,disabled,onTossing}:{reward:Reward;su
       </div></div></div>
     </div>
     <div className="round-reward-copy"><h2 id="round-reward-title">{t('เครดิตหลังจบช่วงซื้อขาย {n}',{n:reward.encounter})}</h2>
-      <p>{t('ช่วง{kind} รับ {base} เครดิต · เติมหลังซื้อขายทุกช่วง ก่อนเลือกประตูครั้งถัดไป',{kind:reward.encounter%2?t('คี่'):t('คู่'),base:reward.base})}</p>
-      {reward.incomeBonus!==undefined && <p>{t('ของสะสมเพิ่ม {income} เครดิต · รวมเริ่มต้น {total} เครดิต · โอกาสทายถูก {chance}% · ถูกได้ครั้งละ {bonus} เครดิต',{income:reward.incomeBonus,total:totalBase,chance:reward.winChance??50,bonus:winBonus})}</p>}
       <p className="reward-amount">{active?t('กำลังโยนเหรียญ…'):<>{reward.settled?(reward.amount?t('รับแล้ว'):t('รับรอบนี้')):t('ยอดที่รับได้')} <strong>{reward.amount}</strong> {t('เครดิต')}</>}</p>
       <p className="coin-outcome" role="status" aria-live="polite">{active?(tossing?t('เหรียญกำลังลอยขึ้นและตกลงมา'):t('รอผลเหรียญ…')):flip?(flip.correct?t('ออก{side} · คุณทาย{guess} · ทายถูก! เพิ่ม {bonus} เครดิต',{side:names[flip.side],guess:names[flip.guess],bonus:winBonus}):t('ออก{side} · คุณทาย{guess} · ทายผิด! รางวัลช่วงนี้เหลือ 0 เครดิต',{side:names[flip.side],guess:names[flip.guess]})):t('เลือกรับเลย หรือทายหัวก้อย ถูกเพิ่มครั้งละ {bonus} เครดิต และเลือกเสี่ยงต่อได้',{bonus:winBonus})}</p>
       {(!reward.settled || active) && <><p className="danger-text">{t('ทายผิดเสียยอดช่วงนี้ทั้งหมด รวม {n} เครดิตเติมหลังซื้อขายและโบนัสที่สะสม เงินเดิมในกระเป๋ายังอยู่',{n:totalBase})}</p>
         <div className="actions"><button className="primary" disabled={disabled || active} title={why} onClick={()=>submit({type:'round-bank'})}>{active?t('กำลังโยนเหรียญ…'):`${reward.flips?t('หยุดและรับ'):t('รับเลย')} ${reward.amount} ${t('เครดิต')}`}</button><button disabled={disabled || active} title={why} onClick={()=>play('heads')}>{!active && reward.flips?t('เล่นต่อ · '):''}{t('ทายหัว')}</button><button disabled={disabled || active} title={why} onClick={()=>play('tails')}>{!active && reward.flips?t('เล่นต่อ · '):''}{t('ทายก้อย')}</button></div>
         <p className="supporting reward-timeout">{t('เมื่อหมดเวลาหรือกดพร้อมไปต่อ จะรับยอดที่เหลืออัตโนมัติ')}</p></>}
+      <details className="info-fold"><summary>{t('วิธีการ')}</summary>
+        <p>{t('ช่วง{kind} รับ {base} เครดิต · เติมหลังซื้อขายทุกช่วง ก่อนเลือกประตูครั้งถัดไป',{kind:reward.encounter%2?t('คี่'):t('คู่'),base:reward.base})}</p>
+        {reward.incomeBonus!==undefined && <p>{t('ของสะสมเพิ่ม {income} เครดิต · รวมเริ่มต้น {total} เครดิต · โอกาสทายถูก {chance}% · ถูกได้ครั้งละ {bonus} เครดิต',{income:reward.incomeBonus,total:totalBase,chance:reward.winChance??50,bonus:winBonus})}</p>}
+      </details>
     </div>
   </section>;
 }

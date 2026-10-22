@@ -1,78 +1,106 @@
 ---
 name: Cursed Market
-description: Working v0.4/v0.5 realistic-card game polished toward the realistic-card concept; legacy auction tokens retained for independent LAN builds.
+description: The Threshold. The appraisal ledger floats over a drowned Three.js void in black, orpiment gold and verdigris. Legacy auction tokens are kept for the independent LAN client.
 colors:
-  table: "#211b18"
-  panel: "#302721"
-  cream: "#f2e4cc"
-  bronze: "#a48251"
-  table-muted: "#c7b79c"
-  table-line: "#5e4e3a"
-  paper-ink: "#30271f"
-  paper-muted: "#67533e"
-  amber: "#e9b765"
-  amber-hover: "#f2ce8a"
-  focus: "#f2ca83"
-  danger: "#e4a99a"
-  danger-wash: "#422a27"
-  positive: "#a5c6a0"
-  panel-raised: "#3a2f27"
-  bronze-bright: "#c9a46a"
-  frame-line: "#7d6342"
-  parchment-light: "#f6ebd6"
-  parchment-edge: "#e8d6b6"
-  steel: "#2f3d4d"
-  steel-line: "#6683a2"
-  oxblood: "#4f1b17"
-  oxblood-line: "#9b4436"
-  energy: "#8fb8e6"
-  life: "#e48f84"
+  void: "#05090a"
+  table: "#080c0d"
+  field: "#0a0f10"
+  panel: "rgb(13 18 19 / .9)"
+  panel-solid: "#0f1415"
+  panel-raised: "#182021"
+  panel-gap: "#0b1011"
+  cream: "#ece3cc"
+  table-muted: "#b8b39f"
+  table-line: "#2c3a37"
+  bronze: "#a8874a"
+  bronze-bright: "#d8b25f"
+  frame-line: "#6c5730"
+  frame-inner: "rgb(216 178 95 / .3)"
+  orpiment: "#d4ad55"
+  orpiment-hover: "#e3c06c"
+  orpiment-ink: "#17120a"
+  amber: "#d9b45a"
+  amber-hover: "#ecd08a"
+  verdigris: "#5fb8a0"
+  focus: "#8fe0c6"
+  ichor: "#9a7cc4"
+  danger: "#e8a091"
+  danger-wash: "#2a1411"
+  oxblood: "#4a1410"
+  oxblood-line: "#a3402f"
+  positive: "#9fd0b0"
+  energy: "#8fc3e8"
+  life: "#e2867a"
+  steel: "#163330"
+  steel-line: "#4f9484"
   seat-1: "#7aa6d6"
   seat-2: "#d4806f"
   seat-3: "#8fbf8a"
   seat-4: "#b596d6"
+  parchment-light: "#eee5cf"
+  parchment-edge: "#d9caa8"
+  paper-ink: "#30271f"
+  paper-muted: "#67533e"
   paper-line: "#97836a"
   paper-field-line: "#80694f"
-  risk-medium: "#7d4a10"
+  paper: "#fffaf0"
   accent: "#8b3925"
   accent-hover: "#6d2b1c"
+  error-ink: "#772d1e"
+  hover-wash: "#e7decd"
   ink: "#29251f"
   muted: "#655c50"
   ground: "#f3eee3"
-  paper: "#fffaf0"
   line: "#c6bcaa"
   field-line: "#877b69"
-  hover-wash: "#e7decd"
   notice-wash: "#e7ddca"
-  error-ink: "#772d1e"
   error-wash: "#f1ddd1"
   finding-ink: "#34432a"
   finding-wash: "#e5ead9"
   symbol-ink: "#65533b"
 typography:
+  chapter:
+    fontFamily: '"IM Fell English", "Srisakdi", "Noto Serif Thai", serif'
+    fontSize: "clamp(32px, 5.4vw, 72px)"
+    fontWeight: 700
+    lineHeight: 1.3
+  phase-display:
+    fontFamily: '"IM Fell English", "Srisakdi", "Noto Serif Thai", serif'
+    fontSize: "clamp(30px, 2.9vw, 42px)"
+    fontWeight: 700
+    lineHeight: 1.25
+    letterSpacing: "0.01em"
+  entry-display:
+    fontFamily: '"IM Fell English", "Srisakdi", "Noto Serif Thai", serif'
+    fontSize: "clamp(32px, 4vw, 52px)"
+    fontWeight: 700
+    lineHeight: 1.4
+  merchant-name:
+    fontFamily: '"IM Fell English", "Srisakdi", "Noto Serif Thai", serif'
+    fontSize: "23px"
+    fontWeight: 700
+    lineHeight: 1.5
+    letterSpacing: "0.01em"
   brand:
-    fontFamily: '"Cormorant Garamond", "Noto Serif Thai", serif'
-    fontSize: "clamp(30px, 4vw, 40px)"
-    fontWeight: 600
+    fontFamily: '"IM Fell English", "Srisakdi", serif'
+    fontSize: "clamp(24px, 2.6vw, 32px)"
+    fontWeight: 400
     lineHeight: 1.1
-  appraisal-headline:
-    fontFamily: '"Noto Serif Thai", serif'
-    fontSize: "clamp(28px, 3vw, 40px)"
-    fontWeight: 600
-    lineHeight: 1.55
-  appraisal-title:
-    fontFamily: '"Noto Serif Thai", serif'
-    fontSize: "21px"
-    fontWeight: 600
-    lineHeight: 1.55
+    letterSpacing: "0.1em"
   appraisal-section:
     fontFamily: '"Noto Serif Thai", serif'
-    fontSize: "26px"
+    fontSize: "24px"
     fontWeight: 600
-    lineHeight: 1.55
+    lineHeight: 1.5
+  appraisal-title:
+    fontFamily: '"Noto Serif Thai", serif'
+    fontSize: "20px"
+    fontWeight: 600
+    lineHeight: 1.5
   appraisal-body:
     fontFamily: '"Noto Sans Thai", sans-serif'
     fontSize: "16px"
+    fontWeight: 400
     lineHeight: 1.7
   appraisal-label:
     fontFamily: '"Noto Sans Thai", sans-serif'
@@ -83,6 +111,11 @@ typography:
     fontFamily: '"Noto Sans Thai", sans-serif'
     fontSize: "15px"
     lineHeight: 1.7
+  appraisal-peek:
+    fontFamily: '"Noto Sans Thai", sans-serif'
+    fontSize: "14px"
+    fontWeight: 400
+    lineHeight: 1.55
   appraisal-caption:
     fontFamily: '"Noto Sans Thai", sans-serif'
     fontSize: "13px"
@@ -117,8 +150,9 @@ rounded:
   appraisal-control: "6px"
   appraisal-inset: "8px"
   appraisal-frame: "10px"
-  appraisal-pill: "999px"
   art-card: "12px"
+  portal: "16px"
+  appraisal-pill: "999px"
   control: "4px"
   container: "0px"
 spacing:
@@ -132,69 +166,36 @@ spacing:
   appraisal-wide: "32px"
 components:
   appraisal-button-primary:
-    backgroundColor: "{colors.amber}"
-    textColor: "{colors.paper-ink}"
+    backgroundColor: "{colors.orpiment}"
+    textColor: "{colors.orpiment-ink}"
     rounded: "{rounded.appraisal-control}"
     padding: "8px 16px"
+    height: "44px"
   appraisal-button-primary-hover:
-    backgroundColor: "{colors.amber-hover}"
-    textColor: "{colors.paper-ink}"
+    backgroundColor: "{colors.orpiment-hover}"
+    textColor: "{colors.orpiment-ink}"
   appraisal-button-secondary:
     backgroundColor: "transparent"
     textColor: "{colors.cream}"
     rounded: "{rounded.appraisal-control}"
     padding: "8px 16px"
-  appraisal-button-secondary-hover:
-    backgroundColor: "{colors.panel}"
-  appraisal-button-danger:
-    backgroundColor: "{colors.oxblood}"
-    textColor: "{colors.cream}"
-    rounded: "{rounded.appraisal-control}"
-    padding: "8px 16px"
+    height: "44px"
   appraisal-button-inspect:
     backgroundColor: "{colors.steel}"
     textColor: "{colors.cream}"
     rounded: "{rounded.appraisal-control}"
     padding: "8px 16px"
-  appraisal-button-appraise:
-    backgroundColor: "{colors.amber}"
-    textColor: "{colors.paper-ink}"
+  appraisal-button-danger:
+    backgroundColor: "{colors.oxblood}"
+    textColor: "{colors.cream}"
     rounded: "{rounded.appraisal-control}"
     padding: "8px 16px"
-  appraisal-frame:
-    backgroundColor: "{colors.panel}"
-    textColor: "{colors.cream}"
-    rounded: "{rounded.appraisal-frame}"
-  appraisal-hud:
-    backgroundColor: "{colors.panel}"
-    textColor: "{colors.cream}"
-    rounded: "{rounded.appraisal-frame}"
-    padding: "16px 24px"
-  appraisal-seat-disc:
-    backgroundColor: "{colors.panel}"
-    textColor: "{colors.cream}"
-    rounded: "{rounded.appraisal-pill}"
-    width: "40px"
-    height: "40px"
-  appraisal-button-paper-primary:
-    backgroundColor: "{colors.accent}"
-    textColor: "{colors.paper}"
-    rounded: "{rounded.appraisal-control}"
-    padding: "8px 16px"
-  appraisal-button-paper-primary-hover:
-    backgroundColor: "{colors.accent-hover}"
-  appraisal-button-paper-secondary:
-    backgroundColor: "transparent"
-    textColor: "{colors.paper-ink}"
-    rounded: "{rounded.appraisal-control}"
-    padding: "8px 16px"
-  appraisal-button-paper-secondary-hover:
-    backgroundColor: "{colors.hover-wash}"
   appraisal-input:
-    backgroundColor: "{colors.panel}"
+    backgroundColor: "{colors.field}"
     textColor: "{colors.cream}"
     rounded: "{rounded.appraisal-control}"
     padding: "8px 12px"
+    height: "46px"
     width: "100%"
   appraisal-input-paper:
     backgroundColor: "{colors.paper}"
@@ -202,29 +203,42 @@ components:
     rounded: "{rounded.appraisal-control}"
     padding: "8px 12px"
     width: "100%"
+  appraisal-leaf:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.cream}"
+    rounded: "{rounded.appraisal-frame}"
+    padding: "16px 24px"
   appraisal-reading:
-    backgroundColor: "{colors.cream}"
+    backgroundColor: "{colors.parchment-light}"
     textColor: "{colors.paper-ink}"
-    rounded: "{rounded.art-card}"
-    padding: "{spacing.section}"
+    rounded: "{rounded.appraisal-inset}"
+    padding: "22px"
   appraisal-portal:
     backgroundColor: "{colors.panel}"
     textColor: "{colors.cream}"
-    rounded: "{rounded.art-card}"
-  appraisal-item-thumb:
+    rounded: "{rounded.portal}"
+    padding: "12px 12px 0"
+  appraisal-floating:
+    backgroundColor: "{colors.panel-raised}"
+    textColor: "{colors.cream}"
+    rounded: "{rounded.appraisal-frame}"
+    padding: "12px 14px"
+  appraisal-choice-card:
+    backgroundColor: "rgb(0 0 0 / .2)"
+    textColor: "{colors.cream}"
+    rounded: "{rounded.appraisal-inset}"
+    padding: "10px 12px 10px 38px"
+    height: "44px"
+  appraisal-trust-ring:
     backgroundColor: "{colors.panel}"
     textColor: "{colors.cream}"
-    rounded: "{rounded.art-card}"
-    padding: "0 0 10px"
-  appraisal-stock-selection:
-    backgroundColor: "transparent"
+    rounded: "{rounded.appraisal-frame}"
+    padding: "12px 16px"
+  appraisal-seat-disc:
     textColor: "{colors.cream}"
-    rounded: "{rounded.appraisal-control}"
-    padding: "8px 16px"
-  appraisal-event:
-    backgroundColor: "{colors.panel}"
-    textColor: "{colors.cream}"
-    padding: "{spacing.section}"
+    rounded: "{rounded.appraisal-pill}"
+    width: "40px"
+    height: "40px"
   button-primary:
     backgroundColor: "{colors.accent}"
     textColor: "{colors.paper}"
@@ -238,13 +252,6 @@ components:
     textColor: "{colors.ink}"
     rounded: "{rounded.control}"
     padding: "9px 18px"
-  button-secondary-hover:
-    backgroundColor: "{colors.hover-wash}"
-  button-text:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.control}"
-    padding: "9px 5px"
   input:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
@@ -256,9 +263,6 @@ components:
     textColor: "{colors.ink}"
     rounded: "{rounded.container}"
     padding: "{spacing.roomy}"
-  phase-navigation:
-    textColor: "{colors.muted}"
-    typography: "{typography.supporting}"
   private-finding:
     backgroundColor: "{colors.finding-wash}"
     textColor: "{colors.finding-ink}"
@@ -269,188 +273,212 @@ components:
 
 ## Overview
 
-**Creative North Star: "Dimensional appraisal table"**
+**Creative North Star: "The Threshold"**
 
-The implemented table pairs realistic merchant portraits and artifact art with a lamp-lit charcoal ground, ornamented bronze frames and a parchment decision panel. The 2026-10-14 polish moved the runtime toward the realistic-card concept: a framed HUD bar, the merchant beside the item, colour-coded inspect/appraise/buy actions, an oxblood Dark Market band and a card-tray inventory. Thai labels keep inspection, appraisal, accepted NPC quote, contract and purchase distinct. This descriptive north star records the active goal's working card direction; it is not a user-approved production identity.
+The appraiser's ledger floats at the edge of a drowned void, and an eclipse that is really a closed eye watches every bargain. The world is a Thai black samut khoi manuscript fused with cosmic dread: lacquer-black leaves ruled in orpiment gold, chalk-bone text, an abyss teal-black ground, verdigris glow, ichor violet for omens and clotted oxblood for danger. The table UI stays in front, fully operable; the Three.js world sits behind it on a fixed canvas and moves the camera when the phase changes. This replaced the 2026-10-14 warm brown realistic-card table on 2026-10-21.
 
-The appraisal source authority is `src/appraisal-client/styles.css`, `App.tsx` and `components.tsx`. The independent legacy auction UI in `src/client` keeps its pale ground, dark ink, rust controls and neutral SVG relic symbols. All existing legacy frontmatter tokens remain available; the complete prior documents in `docs/art/appraisal-v0.4/legacy-design/` are unchanged. Layout direction belongs to `docs/art/appraisal-v0.4/direction.md`, and product scope belongs to `PRODUCT.md`.
+The world lives in `src/appraisal-client/world/`. `scene.ts` builds a black sea, leaning monoliths and far spires in exponential fog. It adds tentacles, folded black manuscripts with invented orpiment glyph rows, drifting embers and an eclipse-eye that tracks the pointer. Portal choice raises one gate per offered door, each veil holding that merchant's portrait. During appraisal the chosen merchant looms faint in the fog. Lobby and trade light one lantern per seat in the seat colors. Reveal and results open the eye. A post pass adds bloom, a cool-shadow/warm-highlight grade, a chromatic fringe, a heavy vignette and film grain. Scene materials are not CSS tokens. They use fog `#030607`, a teal hemisphere light `#2b4a45`, a verdigris rim `#8fd6c2`, a candle point light `#ffb35c`, stone `#0d1415`, manuscript ground `#0b0a08` and manuscript ink `rgba(214,176,92,.9)`. The sidecar lists the per-phase camera rigs.
 
-On 2026-10-14 the user requested UI/UX polish and authorized any useful tools, superseding the earlier **“หยุดตรวจภาพ ใช้ผลตรวจเดิม”** restriction. Dev-server review with live bot seats covered entry, lobby, portals, appraisal, inventory, trade, statuses and reveal at 1440×900; reveal, portals, appraisal and Collector results at 375×812; and results at 1280×800. The production bundle was then smoke-tested at 375×812 (lobby, portals, appraisal, trade, reconnecting masthead, no horizontal overflow) and 1000×800 (appraisal). Not seen in a browser: a mid-run spectator, a sellable Dark Market row, E48+ consequence events, the urgent countdown and a v0.4 room. It does not certify screen-reader output, final art quality, brand approval or human enjoyment.
+The direction contract described every page as a near-opaque black leaf. The build keeps one light leaf: the appraisal desk's reading panel stays a cream parchment set inside a black gold-ruled frame, so dense item facts read dark-on-light. Every other surface is black. The source authority is `src/appraisal-client/styles.css`: the `:root` token line plus the "The Threshold (2026-10-21)" block and the rules appended after it, which override earlier declarations. The independent legacy auction UI in `src/client` keeps its own pale tokens (see Colors, Legacy).
 
 **Key Characteristics:**
 
-- Realistic merchant and single-item art identifies the subject without revealing hidden truth.
-- Charcoal information regions and cream appraisal panels use separate foreground and action colors.
-- Thai reading text, visible native controls and explicit unknown facts support timed decisions.
-- Ornamented bronze frames (double rule plus SVG corner brackets) mark the key surfaces: HUD, item desk, Dark Market, event, results and the entry portrait. Supporting panels use a single bronze rule.
-- One bounded artifact arrival effect and short state transitions define the implemented motion.
-- Legacy auction primitives remain scoped to their independent interface.
+- A fixed WebGL void behind an operable table; the phase is a camera move, not a page swap.
+- Black, near-opaque leaves (about 0.9 alpha) with a double gold rule and SVG corner brackets.
+- Orpiment gold for action and emphasis, verdigris for hover and focus light, ichor for omens, oxblood for danger.
+- Srisakdi and IM Fell English for chapter, phase and merchant display; Noto Sans Thai carries everything read under time pressure.
+- Leaf cards tilt toward the pointer in true perspective; a chapter card passes over each phase change without taking input.
+- The scene reacts only to facts the player can already see.
 
 ## Colors
 
-The frontmatter owns exact values. Appraisal colors describe warm table, paper and economic-action roles; legacy tokens retain their original names and values. The sidecar's synthesized tonal ramps are panel previews, not implemented color scales.
+The frontmatter owns exact values. The palette is ink-black and teal-black ground, gold rule and gold action, with three narrow signal hues. The sidecar's tonal ramps are panel previews, not implemented scales.
 
 ### Primary
 
-- **Amber / Hover Amber** (`amber`, `amber-hover`): filled primary actions on the charcoal table, decision-cost emphasis, selected item outlines and countdown numerals.
-- **Rust / Deep Rust** (`accent`, `accent-hover`): primary actions, carets, checkboxes, focus and selection inside the cream appraisal panel. The legacy interface also uses this pair for primary actions and commitment emphasis.
-- **Focus Amber** (`focus`): keyboard focus on appraisal table controls; the paper panel overrides it with Rust.
+- **Orpiment** (`orpiment`, `orpiment-hover`, on `orpiment-ink`): the filled primary action everywhere, including the buy button on the parchment. On hover the fill lifts and a gold under-glow appears.
+- **Gold Ink** (`amber`, `amber-hover`): highlighted terms for items, met trust discs, selected outlines, countdown and price emphasis, phase hints. It is the gold of the writing; Orpiment is the gold of the seal you press.
+- **Frame Gold** (`bronze`, `bronze-bright`, `frame-line`, `frame-inner`): control outlines, the double rule inside leaves, corner brackets, the brand and chapter numerals, and scrollbar thumbs.
 
 ### Secondary
 
-- **Worn Bronze** (`bronze`): outlined table controls and scrollbar thumbs.
-- **Penalty Text / Penalty Wash** (`danger`, `danger-wash`): named consequences, danger actions and alerts on the table.
-- **Positive Text** (`positive`): named beneficial statuses on the table.
+- **Verdigris** (`verdigris`): light from the void. It appears as the hover wash on buttons, the border and under-glow of a hovered or focused portal, the inspect hover glow and the top radial of the CSS ground.
+- **Verdigris Focus** (`focus`): the 3px keyboard focus ring on dark surfaces.
+- **Tarnished Steel** (`steel`, `steel-line`): inspect buttons, a teal-green gradient.
+
+### Tertiary
+
+- **Ichor** (`ichor`): omens and events. It covers the omen note border and wash, and the event heading icon.
+- **Oxblood** (`oxblood`, `oxblood-line`, `danger`, `danger-wash`): danger buttons, consequence choices, bad toasts and penalty text.
+- **Signal hues** (`positive`, `energy`, `life`): buff terms and good toasts, the energy and life resources.
+- **Seat lights** (`seat-1` to `seat-4`): seat disc halos in the table, and the same four colors for the seat lanterns in the scene.
 
 ### Neutral
 
-- **Warm Charcoal / Raised Charcoal** (`table`, `panel`): appraisal page ground, portraits' card bodies, fields, events and notices.
-- **Cream / Table Muted** (`cream`, `table-muted`): table foreground and supporting text.
-- **Table Divider** (`table-line`): fine regional separation.
-- **Paper Ink / Paper Muted / Paper Divider** (`paper-ink`, `paper-muted`, `paper-line`): foreground, supporting text and strokes inside the appraisal reading panel.
-- **Pale Paper / Hover Wash** (`paper`, `hover-wash`): paper fields and secondary hover fill, shared with the legacy palette.
-- **Legacy Dark Ink / Muted Ink / Warm Ground** (`ink`, `muted`, `ground`): legacy text, supporting text and page ground only.
-- **Legacy Divider / Field Stroke / Notice Wash** (`line`, `field-line`, `notice-wash`): legacy separation, fields and messages or demand.
-- **Legacy Symbol Ink** (`symbol-ink`): neutral SVG family drawings.
+- **Void / Ink Black / Field Black** (`void`, `table`, `field`): the CSS ground under the canvas, badges sunk into leaves, and dark text fields.
+- **Leaf** (`panel`, `panel-solid`, `panel-raised`, `panel-gap`): `panel` is the 0.9-alpha leaf, and leaves also use a 0.9 to 0.92 vertical gradient of the same blacks. `panel-raised` is the solid fill of everything that floats. `panel-gap` is the dark channel between the outer border and the inner gold rule.
+- **Chalk Bone** (`cream`, `table-muted`, `table-line`): text, supporting text and fine dividers on black. In CSS, `table-muted` is `--muted` and `table-line` is `--line`.
+- **Parchment** (`parchment-light` to `parchment-edge` radial, `paper`, `paper-ink`, `paper-muted`, `paper-line`, `paper-field-line`, `hover-wash`): the desk reading panel only. In CSS, `paper-ink` is `--ink`. The paper field line stays at least 3.6:1 against the parchment.
+- **Rust on paper** (`accent`, `accent-hover`, `error-ink`): focus outline, caret, checkbox accent, text selection and blocked notes inside the parchment, plus error text there. It is no longer an action fill.
 
-Error Ink/Wash and Finding Ink/Wash (`error-ink`, `error-wash`, `finding-ink`, `finding-wash`) preserve the legacy semantic pairs. Appraisal paper danger text also uses Error Ink. These are semantic treatments, not extra brand accents.
+### Legacy (independent `src/client` only)
 
-Appraisal CSS reuses short custom-property names: `table-muted` maps to its `--muted`, `table-line` to its `--line`, and `paper-ink` to its `--ink`. The frontmatter's `muted`, `line` and `ink` keep legacy values. Do not treat the two entries' root properties as a shared theme.
+`ink`, `muted`, `ground`, `line`, `field-line`, `notice-wash`, `error-wash`, `finding-ink`, `finding-wash`, `symbol-ink`, together with the shared `paper`, `accent`, `accent-hover` and `hover-wash`, are the pale-ground, dark-ink, rust-action palette of the legacy auction client (`src/client/styles.css`). They never appear in the appraisal client. Do not treat same-named CSS properties in the two clients as a shared theme.
 
-**The Surface Pair Rule.** Use the foreground, action and focus colors of the current table or paper surface together; do not mix their text treatments.
+**The Surface Pair Rule.** Use the foreground, action and focus colors of the current surface together: chalk, orpiment and verdigris focus on black leaves; paper ink, orpiment and rust focus on the parchment.
+
+**The Visible Facts Rule.** Scene color reacts only to what the player can already see on screen: the phase, their own life, being caught, an open event, the doors on offer and the merchant they chose. Hidden item truth (genuine or fake, cursed or safe, value) never becomes a glow, tint or motion. `worldStateFor` in `world/state.ts` is the only input to the scene.
 
 ## Typography
 
-**Appraisal Body and UI Font:** self-hosted Noto Sans Thai with sans-serif fallback. **Appraisal Heading Font:** self-hosted Noto Serif Thai with serif fallback. **Latin Brand Font:** self-hosted Cormorant Garamond with Noto Serif Thai and serif fallbacks. Font files use `font-display: swap`; exact Google Fonts origins and OFL license files are recorded in `docs/art/appraisal-v0.4/fonts.json`. No runtime font service is required.
+**Display Fonts:** Srisakdi 700 (Thai and Latin subsets) and IM Fell English 400 (Latin), self-hosted from `@fontsource/srisakdi` and `@fontsource/im-fell-english` 5.3.0 (OFL-1.1), imported in `main.tsx`. Fallbacks are Noto Serif Thai, then serif.
+**Body and UI Font:** self-hosted Noto Sans Thai, with sans-serif fallback.
+**Section Heading Font:** self-hosted Noto Serif Thai, with serif fallback.
 
-**Legacy Body and UI Font:** Tahoma, with Noto Sans Thai and sans-serif fallbacks. The legacy bundle does not define webfont faces; its typography remains independent.
+**Character:** Srisakdi is a looped Thai manuscript hand, and IM Fell English is a worn letterpress Roman. Together they make the headings feel copied into an old book. Noto Sans Thai keeps timed reading plain and steady.
+
+The display stack lists IM Fell English first. It has no Thai glyphs, so Thai text renders in Srisakdi at 700 and Latin text renders in IM Fell. Under `html[lang=en]` the display roles switch to the Latin stack at weight 400, with slightly wider tracking on phase headings.
 
 ### Hierarchy
 
-- **Brand:** the Latin masthead token; on narrow screens its size becomes 30px.
-- **Appraisal Headline:** normal phase heading; entry copy has its own observed clamp of 32–52px and becomes 34px on narrow screens.
-- **Appraisal Section:** section heading; the narrow-screen default becomes 24px.
-- **Appraisal Title:** default task/item heading. Portal headings use 20px, Dark Market headings 18px and the narrow merchant heading 22px.
-- **Appraisal Body / Label:** reading and controls use body rhythm; labels add semibold weight. Paragraphs have a maximum measure of 70ch.
-- **Legacy Headline / Title / Body / Label / Supporting:** retain the original auction hierarchy and line spacing, including browser bold heading defaults.
+- **Chapter** (700, clamp 32 to 72px, 1.3): the passing chapter card only. "บทที่" plus Thai digits, or "Chapter" plus Roman numerals in English. The numeral is in bronze-bright, followed by a frame-line middle dot, with gold hairlines either side.
+- **Phase Display** (700, clamp 30 to 42px, 1.25): the phase header title and the results heading.
+- **Entry Display** (700, clamp 32 to 52px, 1.4; 34px at 640px and below): the entry headline.
+- **Merchant Name** (700, 23px): portal card and appraisal merchant headings.
+- **Brand** (IM Fell 400, clamp 24 to 32px, 0.1em tracking, uppercase, bronze-bright with a soft gold glow): the masthead, led by a 30×18 SVG eye mark.
+- **Section / Title** (Noto Serif Thai 600, 24px / 20px, 1.5): everything else that is a heading. The desk reading heading is 19px.
+- **Body / Label / Small / Caption** (Noto Sans Thai 16 / 16 semibold / 15 / 13px): reading and controls. Paragraphs cap at 70ch.
+- **Resource** (26px 700, tabular): credit, energy, life and score readouts.
+- **Peek** (14px, 1.55): every floating peek card.
+- **Legacy headline, title, body, label, supporting** (Tahoma stack): `src/client` only.
 
-Appraisal headings use balanced wrapping. Prices, resources, timers and score tables use tabular numerals; participant names and trade headings wrap where required. The source declaration of the appraisal title is 21px; the earlier 22px documentation referred only to the narrow merchant override.
+Prices, resources, timers and score tables use tabular numerals. Headings use balanced wrapping. Text that sits directly on the void (masthead, footer, section headings and intros outside leaves, entry copy) carries a two-layer black text shadow so it reads against the scene.
 
-**The Legibility Rule.** Preserve Thai line spacing and wrap user names before narrowing or clipping meaningful text.
+**The Manuscript Hand Rule.** Srisakdi and IM Fell are for chapter headings (including the chapter numeral), phase, entry and merchant names only. Never set body text, controls, facts or game values (prices, resources, timers, scores) in them.
+
+**The Legibility Rule.** Preserve Thai line spacing, and wrap user names before narrowing or clipping meaningful text.
 
 ## Layout
 
-The game screen opens with a framed HUD bar: phase title and room code, countdown pill, credit/energy/life/score readouts with icons, and a roster of seat discs whose badges show done, paused or spectator state (with hidden text, never colour alone). During appraisal the main column is a stage: a 232px merchant portrait card (quote, hint, recovery deal) beside stock tabs with thumbnails and the item desk. The desk has a centred title band, square art that stays in view while the parchment column scrolls, and the parchment facts/actions panel. Portal cards crop portraits to 4:3 so, when no event is pending, every enter button sits in the first 1440×900 viewport. Inventory is a horizontally scrolling card tray under a centred title band.
+The world canvas is `position: fixed; inset: 0; z-index: 0` with no pointer events. It fades in over 1.8s once the scene is ready. The app shell sits above it at `z-index: 1`. The shell is centred, 1440px wide at most, with 16px 32px 20px padding. The first viewport shows the masthead, then the phase header leaf with the title, hint, encounter line and room code on the left, and countdown, resources and seat discs on the right. The phase task (portals, desk, trade) sits below. The play table has a flexible main region and a 312px side column (Dark Market, statuses, notes) with a 28px gap.
 
-The appraisal shell is centered with a maximum width of 1440px and padding of 16px 32px 20px. The entry uses two columns and an 1100px content limit. The play table has a flexible main region and a 312px side column (Dark Market, statuses, notes) with a 28px gap. The desk pairs artifact art with the cream reading panel. Portal choices use three columns; inventory uses a horizontally scrollable row, and result tables scroll within their own container.
+Each phase shows only what its decision needs. Portal choice shows portals, the full Dark Market and statuses. Appraisal shows the merchant beside a three-step desk (inspect, appraise, buy) with one step panel visible, statuses, and a one-line market summary. The inventory is a closed drawer. Trade shows unsold duty, trades, the full market, the inventory and other players. Reveal and results use a single column. The rules disclosure stays at the bottom in every phase.
 
-At 1100px the side column becomes 272px, the merchant card turns into a 104px-portrait row above the desk and events stack to one column. At 900px the table becomes one column; during portal choice the market is placed first, and the side panels sit in an auto-fit row. At 640px the shell uses 16px padding, the masthead keeps one line (online dot and icon-only sound toggle keep their accessible names), resources share one row, the roster scrolls, portals become 104px-portrait rows, the desk stacks with art capped at 260px, the appraise button takes a full row and inventory cards narrow to 136px. Only 1440, 1280 (results), 1000 and 375 widths were viewed; the 900px breakpoint remains a source rule, not proof of rendered fit.
+Breakpoints: at 1100px the side column becomes 272px, the merchant becomes a 104px-portrait row above the desk, and events stack. At 900px the table becomes one column and the side panels sit in an auto-fit row. At 640px the shell pads 12px 16px 16px and the masthead keeps one line. The phase header stacks with resources in four columns, portals become 104px-portrait rows, the desk stacks with art capped at 260px, toasts move to the top, and the trust ring and lobby tighten. Under 720px the scene lowers its sea mesh detail (64 instead of 120 segments) and ember count (280 instead of 650).
 
-The legacy shell retains a 1216px maximum width and 32px horizontal padding. Its 760px breakpoint changes padding to 20px and stacks entry, lobby, market and phase headers. Legacy relic choices remain two columns, actions wrap and score tables scroll. Its marketplace keeps the flexible work area, 265px participant column and 48px gap above that breakpoint.
+The legacy `src/client` shell keeps a 1216px maximum width, 32px horizontal padding, a 265px participant column with a 48px gap, and a 760px breakpoint that pads 20px and stacks entry, lobby, market and phase headers.
 
-Spacing is practical rather than a strict modular scale. Reused spacing steps are in frontmatter; the sidecar names the separate appraisal and legacy breakpoints.
+Spacing is practical rather than modular. Reused steps are in the frontmatter.
 
 ## Elevation & Depth
 
-Key appraisal surfaces use a bronze frame: a 1px frame-line border, an inset double rule (4px panel gap, 1px translucent bronze) and 16px SVG corner brackets drawn as crisp geometry. Supporting panels (merchant, portals, statuses, trade listings, inventory cards) use only the 1px frame line. The page ground is the table colour lit by a soft warm radial from the top and darkened toward the bottom; no stripe or grain textures. Portrait/art frames add a soft offset shadow (`0 12px 28px rgb(0 0 0 / .3)`); the cream reading panel is a tonal surface without that shadow. New desk art has one arrival animation, from brightness 0.82 and a lower shadow (`0 4px 12px rgb(0 0 0 / .2)`) to its visible resting state, lasting 320ms with `cubic-bezier(.16,1,.3,1)`. Reduced-motion disables the animation. Buttons and portal cards transition fill, border and colour over 160–220ms with the same ease-out curve; hover-capable pointers also lift portal cards 3px. Reduced-motion removes transitions and the lift.
+Depth comes from the world, not from shadow stacks. The void gives distance: fog, a pointer parallax on the camera, and the camera dollying to a new rig at each phase. Leaves sit on it as dark, near-opaque planes. A key leaf (phase header, desk, Dark Market, event, entry portrait, results, lobby, round reward) has a 1px frame-line border, an inset 4px panel-gap channel, then a 1px inset gold rule (`frame-inner`). It adds two 1px gold hairlines inset 14px from the top and bottom, and 16px SVG corner brackets. Supporting panels (portals, statuses, trades, inventory cards, trust ring) use the single frame line. Without WebGL, the body ground is the fallback: a verdigris radial from the top, black toward the bottom, over the void.
 
-The legacy interface remains flat, with pale fields, message washes and thin rules. It has no authored shadows or animated transitions.
+### Shadow Vocabulary
 
-**The Artifact Depth Rule.** Keep the offset shadow on the artifact frame and entry portrait, and the arrival effect on the artifact frame; general information regions use their existing tonal separation and dividers.
+- **Art** (`0 18px 36px -8px rgb(0 0 0 / .7)`): artifact art and the entry portrait. New desk art arrives once over 320ms, from brightness 0.82 and a low shadow.
+- **Gold under-glow** (`0 8px 22px -10px rgb(217 180 90 / .7)`): primary button hover.
+- **Verdigris under-glow** (`0 8px 22px -10px rgb(95 184 160 / .65)`; portals `0 22px 44px -18px rgb(95 184 160 / .5)`): inspect hover and portal hover.
+- **Seat halo** (`0 0 14px -2px` in the seat color): seat discs.
+- **Floating** (toast `0 14px 32px rgb(0 0 0 / .5)`, peek `0 12px 28px rgb(0 0 0 / .45)`, modal event `0 24px 60px rgb(0 0 0 / .55)`): only layers that float over the table.
+
+**The Solid Float Rule.** Anything that floats over the table (event modal leaf, toasts, peeks) is fully opaque, so table text never shows through. Only in-flow leaves use the 0.9-alpha panel.
+
+**The Fixed Layer Rule.** Never put `transform`, `filter` or `backdrop-filter` on an ancestor of a fixed layer (modal, toasts, peeks, chapter card). Only leaf cards tilt, and a tilted card holding an open peek drops its transform.
+
+**The Still Frame Rule.** Under `prefers-reduced-motion: reduce` the scene renders one still frame: no time, parallax, gaze, blink, heartbeat or flicker. Card tilt is off, the chapter card is not shown, and the canvas fade, toast motion and arrival animation are removed.
+
+**The CSS Ground Rule.** WebGL failure is silent. If the scene chunk fails to load, the context fails, or the context is lost, the canvas stays hidden and the CSS ground carries the page.
 
 ## Shapes
 
-Appraisal controls use the appraisal control radius; art frames, portals, the reading panel and inventory thumbnails use the art-card radius. Artifact illustrations are square, and portal portraits have a 4:5 aspect ratio above the compact mobile layout. Art clips within its frame. Fine borders are 1px; selected stock/inventory controls use a 2px amber outline with a 2px offset. Keyboard focus is a separate 3px outline with a 3px offset.
-
-Legacy controls retain their control radius, while relic choices and message surfaces have square corners. Selected relics add a 1px rust outline; focus uses a 3px rust outline with a 4px offset. Legacy family symbols remain 64px inline SVGs with a 2px rounded stroke.
+Controls have a 6px radius, insets and the parchment 8px, framed leaves 10px, art cards and inventory thumbnails 12px. Portal cards have a 16px radius. Their portrait is cut as an arch: `50% 50% 6px 6px / 34% 34% 6px 6px`, with a 1:1.05 aspect, echoing the gates that rise in the scene. Seat discs, trust discs and pills are round. Fine borders are 1px. Selected stock and inventory use a 2px amber outline with a 2px offset. Keyboard focus is a separate 3px outline with a 3px offset. Trust discs not yet met use a 2px dashed line. Corner brackets are thin L-strokes with an inner echo and a diagonal tick. Legacy `src/client` controls keep a 4px radius. Relic choices are square, focus is a 3px rust outline at a 4px offset, and family symbols are 64px inline SVGs with a 2px rounded stroke.
 
 ## Components
 
 ### Buttons
 
-Appraisal table buttons have a 44px minimum height, bronze outline, transparent fill, inherited cream text and an optional leading 20px icon. Primary buttons use a short amber metal gradient with Paper Ink and bold weight. Danger buttons use Oxblood with cream text. Inspect buttons on every surface use Steel with a steel line; the desk's appraise button uses a gold gradient with Paper Ink and the buy button keeps Rust. The price field is a stepper: −/+ 44px buttons around a centred 22px numeral, with the native spinner hidden. Paper-panel primary buttons use Rust with Pale Paper; paper secondary buttons use Paper Ink, Paper Divider and Hover Wash. Disabled buttons, fields and selects use 0.55 opacity and a blocked cursor. Focus follows the active surface's palette.
-
-Legacy outlined secondary, filled rust primary and underlined text variants keep the 44px minimum height, immediate hover and original padding. Their focus and disabled treatments remain separate from the appraisal surface.
+Buttons are at least 44px tall, with a 1px bronze outline, transparent fill, chalk text and an optional leading 20px icon. Hover adds a faint verdigris wash and a bronze-bright border. Primary is a flat Orpiment fill with Orpiment Ink, in bold. On the parchment, primary and buy are Orpiment too. The appraise button keeps its own warm gold gradient. Inspect uses a Tarnished Steel gradient with a verdigris under-glow on hover. Danger uses an oxblood gradient. Disabled buttons, fields and selects drop to 0.5 opacity with a blocked cursor. The price field is a stepper: −/+ 44px buttons around a centred 22px numeral, with the native spinner hidden.
 
 ### Inputs / Fields
 
-Appraisal text, number and select controls have a 46px minimum height and visible labels. Table fields use Raised Charcoal, Cream and Worn Bronze; paper fields and the price stepper use Pale Paper, Paper Ink and Paper Field Line (`paper-field-line`, at least 3.6:1 against the parchment so the field boundary stays visible). Carets, native checkbox accents and selection change with the surface. The native checkbox is 20px within a label row with a 44px minimum height. Read-only room-code copying announces success or selects the field with manual-copy guidance.
-
-Legacy fields retain pale fill, original field stroke and native rust radio accents. The sidecar supplies independent field snippets with declared font and palette fallbacks.
+Fields are at least 46px tall, with visible labels. Dark fields use Field Black, chalk text, a bronze outline and an amber caret. Parchment fields use Pale Paper, Paper Ink, the Paper Field Line and a rust caret. The native checkbox is 20px within a label row at least 44px tall. Read-only room-code copying announces success, or selects the field with manual-copy guidance.
 
 ### Cards / Containers
 
-Portal cards pair portrait, actual merchant identity, hinted item type, contract hint and a native enter button. A closed portal dims and grays the portrait and includes disabled-action wording. The desk separates square artifact art from cream facts and price controls. Inventory cards use a shared current `คลัง #n` identity; Dark Market sale rows use that same identity and viewer-known facts before immediate transfer.
+**Portal card:** a 0.9-alpha black card with an arched portrait, the actual merchant name in the merchant display face, the hinted item type, the contract hint, trust and a native enter button. On hover or focus it gains a verdigris border and glow. A closed portal is near-solid black with a dimmed, grayed portrait and disabled-action wording.
 
-General sections use fine rules. Event decisions use a charcoal fill; mandatory consequences use the penalty wash. Notices, loading, errors, empty stock/inventory, paused/done seats, reconnect and replaced-tab guidance have explicit text. The source blocks duplicate decisions while awaiting acknowledgment; the server owns final action validation. The sidecar's reading-panel example uses unknown facts from source and omits raster art rather than inventing a replacement asset.
+**Desk:** square artifact art, sticky on desktop, beside the parchment reading panel with facts and price controls. Only one desk step is visible at a time.
 
-Legacy relic choices retain paper fill, a thin divider border, native radio and selected outline. Private findings and errors keep their separate semantic washes.
+**Omen:** the ichor-bordered note for the current open omen.
 
-### Icons
-
-`src/appraisal-client/icons.tsx` holds one authored family on a 24px grid with a 1.6 stroke and round joins: coin, energy, life, score, timer, inspect, appraise, buy, portal, pass, buff, debuff, event, market, minus, plus and sound. Icons are always `aria-hidden`; the adjacent text names the meaning. Buff and debuff differ by shape (solid ring with up chevron vs dashed ring with down chevron) as well as colour.
+**Inventory:** items use a shared `คลัง #n` identity. Dark Market rows reuse that identity and viewer-known facts. The Dark Market band heading sits on an oxblood gradient.
 
 ### Navigation
 
-The appraisal phase header reports the current phase, encounter, resources and deadline; it is not a clickable stepper. Stock choices and inventory thumbnails are native buttons with `aria-pressed`, a selected outline and explicit item labels. Phase changes have a concise status message; countdown ticks have `aria-live="off"`. Native disclosure summaries expose rules, notes and sharing; statuses are a badge list whose names open peek cards.
+The phase header reports phase, encounter, resources and deadline. It is not a clickable stepper. A one-line amber hint sits under the phase title. Stock choices and inventory thumbnails are native buttons with `aria-pressed`, a selected outline and explicit labels. Phase changes have a concise status message. Countdown ticks use `aria-live="off"`. Native disclosure summaries expose rules, notes and sharing, with bronze-bright markers.
 
-The legacy phase row remains informational, with current phase shown through rust, bold weight, underline and `aria-current="step"`. It wraps at its own breakpoint.
+### Chapter card (signature)
 
-### Choice cards and game terms (2026-10-14)
+When the phase or encounter changes, `world/Chapter.tsx` passes a chapter heading over the table, like turning a page. It is fixed, `z-index: 45`, with no pointer events, and `aria-hidden`. Screen readers hear the phase through the status line, and timed phases keep counting underneath. The card sits on a black radial pool and runs once for 1000ms: in from blur 10px and scale 1.04, held, then out with a light blur.
 
-The appraisal client has no `<select>`. Every pick (event choice, target item, status, fact, guess, trade swap, lobby timing and voice mode) is a `ChoiceCards` group in `src/appraisal-client/lore.tsx`: native radios inside label cards, a ring indicator plus amber border for the selected card, a danger variant for consequence choices, item art at 48px when the option is an item, and a compact chip grid for short options. Each event choice card states its own cost and outcome, so the player compares options before confirming.
+### Card tilt (signature)
 
-Status, item and merchant names inside game text are highlighted terms (`Rich`, `StatusTerm`, `ItemTerm`, `NpcTerm`): buff green, debuff red, item amber and merchant bronze, each with an icon or dotted underline so colour is never the only signal, and paper-panel variants on the parchment desk. Hover, keyboard focus or tap opens a fixed peek card clamped to the viewport: status name, good/bad tag, plain effect and duration; or item art, value range, viewer-known facts and possible effects; or merchant portrait and hint. Inside labels and buttons the term is a passive span with hover-only peek, because nested controls are invalid. Peek cards fade in over 140ms and reduced motion removes it.
+`world/tilt.ts` leans leaf cards toward the pointer by up to 7°, using `perspective(900px)` and a 3px lift (4px for portals). A screen-blended warm glint follows the pointer. Tiltable cards are open portals, inventory thumbnails, stock tabs, artifact art, wanted rows and event portals. Tilt only runs with a fine hover pointer and without reduced motion, and never on a disabled card.
 
-### Phase focus, event dialog and result cards (2026-10-14)
+### Icons
 
-Each phase shows only what its decision needs. The HUD adds a one-line amber hint under the phase title. Portal choice shows portals, the full Dark Market and statuses. Appraisal shows the merchant and a three-step desk: inspect, appraise, buy. Only one step panel is visible; each step tab shows its state, a judged item opens on Buy, and spent inspections move the desk to Appraise. Statuses and a one-line Dark Market summary sit beside it, and the inventory is a closed drawer. Trade shows unsold duty, trades, the full market, the inventory and other players. Reveal and results use a single column. The rules disclosure stays at the bottom in every phase.
+`src/appraisal-client/icons.tsx` holds one authored SVG family on a 24px grid with a 1.6 stroke and round joins. Icons are always `aria-hidden`, and the adjacent text names the meaning. Buff and debuff differ by shape (a solid ring with an up chevron, a dashed ring with a down chevron) as well as by color.
 
-An offered event blocks table actions, so it opens as a modal dialog (`EventModal` in `feedback.tsx`) over a dimmed, inert table. The player can tuck it away to study the table; a bottom pill brings it back. Results arrive as toast cards in the top corner (top on phones). `outcomeBetween` diffs consecutive private views and reports inspection reveals, items gained or lost, statuses, credits, energy and life, merchant detection, incoming offers, trade replies and auction results. Engine notes such as "ทายถูก! … ได้ 2 เครดิต" become the card title, and a phase change becomes the title with its hint. Tone is good (green), bad (oxblood wash) or info. Cards pause on hover or focus and dismiss after 6.5s with a thin timer bar. Reduced motion removes the motion and the timer bar. The collapsed "ประวัติผลล่าสุด" keeps the last six notes.
+### Choice cards and game terms
 
-Event and status descriptions in `content.ts` are player-facing plain Thai: one or two sentences naming the cost and result, without implementation notes.
+The appraisal client has no `<select>`. Every pick is a `ChoiceCards` group (`lore.tsx`). Each card is a native radio inside a label card, at least 44px tall, with a ring indicator and an amber border when selected. Consequence choices use a danger variant. Item options show 48px art, and short options use a compact chip grid. Each event choice states its own cost and outcome.
 
-### Round credits and the isometric coin (2026-10-14)
+Status, item and merchant names in game text are highlighted terms with a dotted underline or icon, so color is never the only signal. Buff terms are positive green, debuffs oxblood-pink, items gold and merchants bronze, with darker variants on the parchment. Hover, focus or tap opens a solid peek card, fixed and clamped to the viewport. It shows a status effect and duration, or item art, value knowledge and possible effects, or a merchant portrait and hint. Inside labels and buttons the term is a passive span with a hover-only peek. Peeks fade in over 140ms.
 
-During REVEAL, `RoundReward.tsx` puts a minted coin beside the round income decision: odd rounds 10 credits, even rounds 15. Banking is primary; heads and tails are secondary buttons. Each win adds 5 to the pending amount. The risk copy names the entire amount at stake and preserves the existing wallet. A loss explicitly says zero; a banked reward says it was received. Server-confirmed flips trigger a single 1.3s rise, spin, fall and small settling bounce over an isometric base. Both faces carry Thai text, with layered circular edges providing thickness. Coin metal uses the existing amber, amber-hover, bronze and ink tokens; the engraved face glyph is 44px. A shrinking shadow communicates height. Controls and next-round confirmation are disabled during the toss, and the outcome is announced after landing. Reconnect restores a stationary result. Reduced motion removes the spatial sequence and reveals the outcome in 100ms. At 640px and below the coin sits above the controls, which wrap with 44px minimum targets. The default REVEAL timer is 30s; expiry banks the remaining pending reward.
+### Event dialog, toasts and portal previews
 
-### NPC trust and Dark Market contracts (2026-10-14)
+An offered event blocks table actions. It opens as a modal (`EventModal`, `feedback.tsx`) over a dark radial backdrop, on a solid event leaf. The player can tuck it away, and a bottom pill brings it back. Portal decisions show all three merchant portraits, hints and trust inside the dialog, with a live preview of which doors remain open. Oversized dialogs align at the top and scroll. Results arrive as solid toast cards: bottom-right from 1100px (newest last, clear of the HUD), top-right below that, and at 12px from the top at 640px and below. Tone is good, bad (danger wash) or info. A toast pauses on hover or focus and dismisses after 6.5s with a 2px timer bar. The collapsed history keeps the last six notes.
 
-Portal and appraisal text now shows the current NPC's trust as a named level out of ten and the added low-offer acceptance chance in percentage points. The desk names the one-time 10% commission, rounding rule and +1 trust before the player commits. It explicitly preserves the detection risk. These notes reuse amber on the table and ink on parchment.
+### Round coin
 
-Each Dark Market order states the required authenticity/curse properties, the exact matched bonus, and the two mismatch outcomes separated by fine horizontal rules. `MarketSale.tsx` compares only viewer-known facts, so a known match, known mismatch and unknown item have different explanatory text without exposing hidden values. Primary sale buttons name the credit payout; secondary full-price choices name the energy, life or status sacrifice. Unknown items show both possible payouts and conditional cost before sale. Status terms inside buttons are passive spans to avoid nested controls; adjacent descriptions retain the existing peek-card behavior. Choice buttons use a single column, wrap their Thai text, and keep the existing 44px targets. Unaffordable sacrifices stay visible and disabled with a reason. No new art, palette, modal or motion is introduced for these rules.
+During REVEAL, `RoundReward.tsx` puts an isometric minted coin, inside a framed leaf, beside the income decision. Banking is primary; heads and tails are secondary. A server-confirmed flip triggers one 1.3s rise, spin, fall and settle, with a shrinking shadow for height. The coin face is a 44px engraved glyph, and coin metal uses the gold and bronze tokens. Controls are disabled during the toss, and the outcome is announced after landing. Reduced motion reveals the outcome in 100ms. At 640px and below the coin sits above the wrapping controls.
 
-### Art, knowledge and commitments
+### Trust ring
 
-The original manifest in `docs/art/appraisal-v0.4/generation-prompts.json` records six independently generated NPC portraits and ten item images. The 2026-10-14 consistency pass in `docs/art/consistent-catalog-v0.5/generation-prompts.json` records all 68 current paintings: 50 newly generated item paintings, new Deep Sea Monster and The Swarm portraits, and the 16 retained originals. Every one of the 60 public product names has a unique composition; shared gameplay families never select shared art. All eight merchants use realistic painted portraits. Worn materials, quiet charcoal-brown backgrounds, bronze and restrained amber lighting keep the set coherent. Runtime JPEGs are 768 pixels wide, preserve source aspect ratios and total 12.95 MB. Both source and delivery hashes and exact prompts are recorded. The entry portrait and every game surface use the shared image selectors; hidden genuine/fake and cursed/safe states never affect image selection. The concept image in `docs/art/concepts/v0.4/realistic-card.png` remains a critique reference. Font provenance is separate from generated-art provenance.
+The trust ring is a 0.9-alpha framed panel holding one 50px round disc per merchant. A merchant not yet met has a 2px dashed line and a grayed, darkened portrait. A met merchant has a solid 2px amber ring and a full-color portrait, with a level badge in amber. Rewards are dashed bronze pills that turn solid amber with a gold wash when earned. Discs shrink to 46px at 640px and below.
 
-Item facts come only from the current viewer's DTO and name unknown attributes explicitly. Appraisal risk is a visible-data range until the real base is known. Offered appraisal, NPC acceptance and purchase quote have distinct labels. Contracts state discount, status, duration and forced conditions before commitment; E08 associates the terms with each actual offered merchant. Incoming trade swaps disclose item identity and viewer-known facts before acceptance, without carrying another viewer's private inspection facts.
+### Held effects and price knowledge
 
-Optional synthesized sound starts off and is enabled by a player's gesture. Source feedback uses a 120ms gain decay and stops the oscillator at 130ms; it does not provide ambient loops or character animation.
+`HeldEffects.tsx` is one expandable ledger below the play surface, grouped by named item and held count. It is a raised panel with a fine line, and its columns collapse on phones. The summary states effective commission, extra income, coin odds and reward, and inspection quota. Price knowledge is gated per item. Before a price clue exists, facts say “ยังไม่รู้ · ใช้ตรวจราคาเพื่อหาเบาะแส”. After inspection the known range or exact value shows.
 
-**The Property Scope Rule.** An inspection of one attribute never visually implies knowledge of another attribute; illustrations identify item kind without exposing hidden facts.
+### Art and provenance
+
+`docs/art/consistent-catalog-v0.5/generation-prompts.json` records all 68 runtime paintings, and the original v0.4 manifest records the earlier set. Every public product name has a unique composition, and all eight merchants use realistic painted portraits. Runtime JPEGs are 768px wide. The same image selectors feed the table, the gates and the apparition in the scene. Hidden genuine/fake and cursed/safe states never affect image selection. The scene's manuscripts, glow and geometry are generated in code at runtime (seeded canvas textures and shaders), with no shipping raster. Font provenance is in `package.json` (`@fontsource`) and `docs/art/appraisal-v0.4/fonts.json`.
+
+Optional synthesized sound starts off and turns on only from the player's own gesture. Each cue is one short oscillator tone with a 120ms gain decay, and there are no ambient loops.
+
+**The Property Scope Rule.** Inspecting one attribute never visually implies knowledge of another; illustrations identify the item kind without exposing hidden facts.
 
 ## Do's and Don'ts
 
 ### Do:
 
+- **Do** keep the world behind the table: a fixed, pointer-transparent canvas at `z-index: 0`, with the operable UI above.
+- **Do** feed the scene only through `worldStateFor`: phase, own life, caught, open event, offered doors, chosen merchant, seat count.
+- **Do** keep in-flow leaves near-opaque (0.9 to 0.92 alpha) and floating layers fully solid.
+- **Do** keep the reduced-motion still frame and the CSS ground fallback working whenever the scene changes.
+- **Do** use Orpiment for the one primary action, verdigris for hover and focus light, ichor for omens and oxblood for danger.
 - **Do** preserve visible Thai labels, explicit focus and wrapping names.
 - **Do** keep appraisal and legacy token scopes separate when adding a screen.
-- **Do** show item identity, viewer-known facts, cost, accepted quote and exact contract before commitment.
 - **Do** use the same item art across hidden attribute combinations and keep its prompt provenance.
-- **Do** preserve the reduced-motion override and opt-in sound default.
-- **Do** describe source/test evidence separately from rendered quality and human fun.
+- **Do** keep sound opt-in, off by default.
 
 ### Don't:
 
+- **Don't** let any scene element (glow, tint, gate, eye, fog) react to hidden item truth or another viewer's private facts.
+- **Don't** put `transform`, `filter` or `backdrop-filter` on an ancestor of the modal, toasts, peeks or chapter card; tilt leaf cards only.
+- **Don't** let the chapter card block input, take focus or speak to screen readers.
+- **Don't** set body text, facts, controls or game values (prices, resources, timers, scores) in Srisakdi or IM Fell English.
 - **Don't** communicate authenticity, curse, readiness or errors through color alone.
 - **Don't** expose another viewer's private inspection facts through text, image variants or preview data.
-- **Don't** slice the critique concept into functional UI assets or call it an approved comp.
-- **Don't** treat the working realistic-card direction as final brand approval.
-- **Don't** treat the 2026-10-14 viewport review as screen-reader, art-quality or brand validation.
-
-Portal decisions E01/E08/E10 include `PortalEventPreview.tsx` inside the dialog above the choices: all three merchant portraits, visible hints and personal trust remain available during the decision. Choice labels name the affected NPC; a live text preview shows exactly which doors remain open, including previously closed doors. Three desktop columns become compact portrait rows below 640px. Oversized dialogs align safely at the top and scroll without losing the heading. Trade completion names the upcoming 10/15 refill, and REVEAL is labelled as credit collection after the current trading interval, before the next doors. The server advertises `roundRewardBase` only when round income is enabled.
-
-Price knowledge is gated per item: before a price clue exists, ItemFacts says “ยังไม่รู้ · ใช้ตรวจราคาเพื่อหาเบาะแส” and ItemCard gives a matching inspection prompt. After inspection, show the known range or exact value. The appraisal risk line explains that price inspection is needed before a numeric estimate; the price field begins from the visible selling price when no price knowledge exists. A generic item tooltip never shows a catalog-anchor range.
-
-Held item effects use `HeldEffects.tsx`, a single expandable ledger below the play surface, grouped by named item and held count. Its summary reports effective commission, extra encounter income, coin win chance/reward and inspection quota. The detail list states each per-copy effect and its cap; it uses existing amber, table-muted, divider and panel-raised tokens, with columns that collapse on phones. Inspection actions name free cost when available and show remaining free uses separately by property. Merchant and market decisions use the actual post-stack rates/costs. Coin decisions show the snapshotted income/odds/win bonus and explicitly risk the whole pending stake. Generic item cards describe the held effect alongside activation behavior without disclosing hidden price, authenticity or curse.

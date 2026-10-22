@@ -1,0 +1,598 @@
+{
+  "created": "2026-10-21",
+  "tool": "Codex CLI 0.163.0 built-in image_gen, run non-interactively (codex exec, read-only sandbox, ephemeral)",
+  "wrapper": "Use your built-in image_gen tool exactly once to create ONE image, then reply with only the word DONE. Do not run shell commands, do not write files. Image request: <prompt> <sharedStyle>",
+  "sharedStyle": "Style: polished real-time 3D dark fantasy game art, sophisticated semi-realistic physically based rendering, tangible volume and material depth. Materials: ancient stone, tarnished bronze, worn black wood, aged parchment, oxblood wax and velvet. Lighting rule shared by every asset in this set: warm amber candlelight from the lower front, restrained cold teal portal light from behind as a rim light, camera at seated eye height. Eerie and inviting, cohesive with the attached concept screenshot, which is a STYLE AND LIGHTING reference only. Absolutely no text, no letters, no numbers, no UI, no buttons, no frames, no logos, no watermark.",
+  "processing": "PNG from ~/.codex/generated_images, resized with Pillow LANCZOS (plates 1536 px wide, arch and merchants 640 px wide), saved as WebP q82-85 method 6; alpha preserved and checked.",
+  "note": "Concept images are style and lighting references only. Merchant identity comes from the existing portrait of the same merchant.",
+  "assets": [
+    {
+      "id": "hall-backdrop",
+      "file": "src/appraisal-client/public/art/scenes/hall/backdrop.webp",
+      "prompt": "Landscape 3:2 environment plate, the BACKGROUND layer of a 2.5D parallax game screen. A vast candle-lit underground dimensional market hall seen from the appraiser's seat: deep gothic stone arcades receding into haze, hanging bronze lanterns, tattered oxblood banners with no symbols, distant stalls with cloth awnings, a few hooded silhouette shoppers far away, a faint cold teal glow from distant portals. The lower half of the frame is a calm, dark stone floor with a worn patterned rug leading inward, so interface panels can sit over it. Keep the foreground empty: no characters, no furniture, no arches close to the camera. Gentle depth of field, the distance softly blurred.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/01-entry.png"
+      ],
+      "sourceSha256": "6c65cf2ba677bc7e9b82596d39fd12b0bd6a956c9b5221460243de31f88fd07f",
+      "deliverySha256": "af31f81611c37dcb9d2627ad6b4f9c7347ac148e587aac86cd31df3af1d5a982",
+      "deliveryBytes": 225896
+    },
+    {
+      "id": "foreground",
+      "file": "src/appraisal-client/public/art/scenes/hall/foreground.webp",
+      "prompt": "Landscape 3:2 isolated FOREGROUND layer on a fully transparent background for a parallax game scene: clusters of dripping candles, one old bronze lantern, small iron-bound chests, stacked old books and a clay jar, placed ONLY in the bottom-left and bottom-right corners, slightly out of focus as if very close to the camera. The whole centre and the upper two thirds must be fully transparent and empty.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png"
+      ],
+      "sourceSha256": "b45811ad805be6fa7870b0569302d5c591bc171830b238e9ffa4cfa2013270d0",
+      "deliverySha256": "5d610fb115ca55ec744ce35fb31b2d130746231dc85bdc13e90a9168d0aba3f4",
+      "deliveryBytes": 125482
+    },
+    {
+      "id": "arch-frame",
+      "file": "src/appraisal-client/public/art/scenes/hall/arch.webp",
+      "prompt": "Portrait 2:3 single isolated game asset on a fully transparent background: one ornate ancient stone archway (a gate) seen straight on, carved weathered stone with tarnished bronze fittings, two small lit candles at its base, one short tattered oxblood banner hanging from the left side. The opening inside the arch must be completely EMPTY and fully transparent: no doors, no curtain, no background, nothing inside. Everything outside the stonework is fully transparent too. The arch fills the frame edge to edge; the opening takes the central 70% of the width and reaches from the bottom to the top quarter.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png"
+      ],
+      "sourceSha256": "b1ebdc8c99de12c9a52f86732535d11325fba11b8f884a86dec3d863a218b46c",
+      "deliverySha256": "4b29416e4b05c192ae2f02f58940ced1d46254340c6eadaf3dba03a714b28390",
+      "deliveryBytes": 162126
+    },
+    {
+      "id": "merchant-orc",
+      "file": "src/appraisal-client/public/art/merchants/orc.webp",
+      "prompt": "Portrait 2:3 isolated character cut-out on a fully transparent background: an honourable orc merchant. It is the SAME character as in the attached portrait painting: keep the identity, face, species, costume, colours and props recognisable. Shown waist-up, as if seated behind a counter that is not drawn, leaning slightly toward the viewer with an inviting merchant's gesture, facing the camera. Re-rendered in the shared 3D dark fantasy style and lighting. Clean edges; no background, no floor, no counter, nothing else in the frame.",
+      "references": [
+        "src/appraisal-client/public/art/npc-orc.jpg",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png"
+      ],
+      "sourceSha256": "36a9b95120f4933af30414fb4bfb7dd6ccf8d974309355b27c23014598740f2d",
+      "deliverySha256": "fd4d17c21d84a7d352a964790198ba8da33aeb18150f024947296007885a1325",
+      "deliveryBytes": 221866
+    },
+    {
+      "id": "merchant-vampire",
+      "file": "src/appraisal-client/public/art/merchants/vampire.webp",
+      "prompt": "Portrait 2:3 isolated character cut-out on a fully transparent background: an elegant vampire merchant. It is the SAME character as in the attached portrait painting: keep the identity, face, species, costume, colours and props recognisable. Shown waist-up, as if seated behind a counter that is not drawn, leaning slightly toward the viewer with an inviting merchant's gesture, facing the camera. Re-rendered in the shared 3D dark fantasy style and lighting. Clean edges; no background, no floor, no counter, nothing else in the frame.",
+      "references": [
+        "src/appraisal-client/public/art/npc-vampire.jpg",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png"
+      ],
+      "sourceSha256": "c9c2bdb49bc2d7ba73aae0f662371c37518385dd835f20d5a6ed0660b40685b2",
+      "deliverySha256": "03ec7857f7679d7affa1b318052000de05bf60ef689b4266c19a96e97ce7aab4",
+      "deliveryBytes": 180720
+    },
+    {
+      "id": "merchant-autometa",
+      "file": "src/appraisal-client/public/art/merchants/autometa.webp",
+      "prompt": "Portrait 2:3 isolated character cut-out on a fully transparent background: an Autometa clockwork android trader. It is the SAME character as in the attached portrait painting: keep the identity, face, species, costume, colours and props recognisable. Shown waist-up, as if seated behind a counter that is not drawn, leaning slightly toward the viewer with an inviting merchant's gesture, facing the camera. Re-rendered in the shared 3D dark fantasy style and lighting. Clean edges; no background, no floor, no counter, nothing else in the frame.",
+      "references": [
+        "src/appraisal-client/public/art/npc-autometa.jpg",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png"
+      ],
+      "sourceSha256": "ceada41fa1fb7d4938bea65c3f1b1e5d451f53b6c8ab7a9054ac6e549940fbd9",
+      "deliverySha256": "c3d07dc8f0042b005297897e606f946783418b8ee4783e636ed735de474ca23a",
+      "deliveryBytes": 176620
+    },
+    {
+      "id": "merchant-alien",
+      "file": "src/appraisal-client/public/art/merchants/alien.webp",
+      "prompt": "Portrait 2:3 isolated character cut-out on a fully transparent background: an alien money-changer. It is the SAME character as in the attached portrait painting: keep the identity, face, species, costume, colours and props recognisable. Shown waist-up, as if seated behind a counter that is not drawn, leaning slightly toward the viewer with an inviting merchant's gesture, facing the camera. Re-rendered in the shared 3D dark fantasy style and lighting. Clean edges; no background, no floor, no counter, nothing else in the frame.",
+      "references": [
+        "src/appraisal-client/public/art/npc-alien.jpg",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png"
+      ],
+      "sourceSha256": "fcea538df56921e37fe13e10ea00a0ee7b2c4db044bc280e6e06163674a85e22",
+      "deliverySha256": "a09ef5c1941d0b173f7bef62441abc20f1b118025ea4c8adc786e91b0ce7c2c1",
+      "deliveryBytes": 191656
+    },
+    {
+      "id": "merchant-darkone",
+      "file": "src/appraisal-client/public/art/merchants/darkone.webp",
+      "prompt": "Portrait 2:3 isolated character cut-out on a fully transparent background: the Dark One, a hooded dark merchant with glowing eyes. It is the SAME character as in the attached portrait painting: keep the identity, face, species, costume, colours and props recognisable. Shown waist-up, as if seated behind a counter that is not drawn, leaning slightly toward the viewer with an inviting merchant's gesture, facing the camera. Re-rendered in the shared 3D dark fantasy style and lighting. Clean edges; no background, no floor, no counter, nothing else in the frame.",
+      "references": [
+        "src/appraisal-client/public/art/npc-darkone.jpg",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png"
+      ],
+      "sourceSha256": "d52ec1653bea21cdce541a79c4449aa3c5cee938c563c47b88787b918d9a6038",
+      "deliverySha256": "f824289e4726836a87b34e30b96ef67dd1536b7b10d54b219cc5e6f456124e56",
+      "deliveryBytes": 182942
+    },
+    {
+      "id": "merchant-beast",
+      "file": "src/appraisal-client/public/art/merchants/beast.webp",
+      "prompt": "Portrait 2:3 isolated character cut-out on a fully transparent background: an otherworld guide beast, an anthropomorphic travelling fox merchant. It is the SAME character as in the attached portrait painting: keep the identity, face, species, costume, colours and props recognisable. Shown waist-up, as if seated behind a counter that is not drawn, leaning slightly toward the viewer with an inviting merchant's gesture, facing the camera. Re-rendered in the shared 3D dark fantasy style and lighting. Clean edges; no background, no floor, no counter, nothing else in the frame.",
+      "references": [
+        "src/appraisal-client/public/art/npc-beast.jpg",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png"
+      ],
+      "sourceSha256": "213c0329a28038cb115d0f001631d95cf172f62ec9faddb94b01dfab302155c2",
+      "deliverySha256": "1fddaf6aa35d88a6d4dbcf9d0304b3e7558301ec9856493be8273b56aa305ebd",
+      "deliveryBytes": 228390
+    },
+    {
+      "id": "merchant-deepsea",
+      "file": "src/appraisal-client/public/art/merchants/deepsea.webp",
+      "prompt": "Portrait 2:3 isolated character cut-out on a fully transparent background: a deep sea monster merchant. It is the SAME character as in the attached portrait painting: keep the identity, face, species, costume, colours and props recognisable. Shown waist-up, as if seated behind a counter that is not drawn, leaning slightly toward the viewer with an inviting merchant's gesture, facing the camera. Re-rendered in the shared 3D dark fantasy style and lighting. Clean edges; no background, no floor, no counter, nothing else in the frame.",
+      "references": [
+        "src/appraisal-client/public/art/npc-deepsea.jpg",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png"
+      ],
+      "sourceSha256": "05c703067edcae911cfd6889b52f97a7780503aac79868b00af5e89199d5077d",
+      "deliverySha256": "734440afb26c197942e3474d0566f84a6abf06ac0fd1e7a651c2f305d5fd1062",
+      "deliveryBytes": 214100
+    },
+    {
+      "id": "merchant-swarm",
+      "file": "src/appraisal-client/public/art/merchants/swarm.webp",
+      "prompt": "Portrait 2:3 isolated character cut-out on a fully transparent background: The Swarm, a human-insect hive merchant. It is the SAME character as in the attached portrait painting: keep the identity, face, species, costume, colours and props recognisable. Shown waist-up, as if seated behind a counter that is not drawn, leaning slightly toward the viewer with an inviting merchant's gesture, facing the camera. Re-rendered in the shared 3D dark fantasy style and lighting. Clean edges; no background, no floor, no counter, nothing else in the frame.",
+      "references": [
+        "src/appraisal-client/public/art/npc-swarm.jpg",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png"
+      ],
+      "sourceSha256": "a5a34e575750002fe747c48399c78b021571addddd9ef42fa8fee28f0a937906",
+      "deliverySha256": "4b4471f42926684f7b47fba65cc7fd6aa396a23deb1c1c4f422ac7d339047e92",
+      "deliveryBytes": 221278
+    },
+    {
+      "id": "gate-room",
+      "file": "src/appraisal-client/public/art/scenes/hall/gate-room.webp",
+      "prompt": "Portrait 2:3 opaque background plate: the view INTO a merchant's alcove as seen through a doorway, used behind a character standing in a stone arch. A dim otherworld merchant stall interior: dark velvet drapes on both sides, shelves of small curios and bottles fading into shadow, two hanging lanterns giving low amber light, a cold teal portal mist glowing softly at the back centre behind where a person would stand. No characters, no people, no doorway or arch drawn, no floor in the foreground. The centre is calm and slightly lighter so a figure reads in front of it; edges fall off into darkness. Gentle depth of field.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png"
+      ],
+      "sourceSha256": "522d9781093117a3dceab0892cdd10b22410e0b71e3dc581fe3c789d0bf1c229",
+      "deliverySha256": "75a974e1283ae54bf64d1ddcfb179d913cc7528f1d3a52924909e16856fee335",
+      "deliveryBytes": 46110,
+      "processing": "resized to 512 px wide, WebP q80"
+    },
+    {
+      "id": "arch-opening",
+      "file": "src/appraisal-client/public/art/scenes/hall/arch-opening.webp",
+      "derivedFrom": "arch-frame",
+      "processing": "Not generated. Traced from the arch-frame source alpha: pixels with alpha >= 96 are stone; the bottom edge is sealed; flood fill from (512, 922) marks the opening; dilated 9 px under the stone and blurred 2 px; saved as lossless WebP alpha mask at 512x768.",
+      "deliverySha256": "d01f42b72a86e7f973ca2684acf8bead066a00e9074328f3e79874589a6b9877",
+      "deliveryBytes": 5724
+    },
+    {
+      "id": "appraisal-backdrop",
+      "file": "src/appraisal-client/public/art/scenes/appraisal/backdrop.webp",
+      "prompt": "Landscape 3:2 environment plate, the BACKGROUND layer of a 2.5D parallax game screen: a merchant's private appraisal chamber seen from the customer's seat. Dark gothic stone walls with tall candelabras and dark heraldic banners without symbols on the left, a great pointed arch window on the right opening onto a cold teal night sky with impossible floating towers and a distant candle-lit market far below. The centre of the frame is a calm, darker stone wall area where a merchant will stand later. Absolutely no characters, no furniture or counter in the foreground; the lower third is dim floor in shadow. Gentle depth of field.",
+      "sharedStyle": "Style: polished real-time 3D dark fantasy game art, sophisticated semi-realistic physically based rendering, tangible volume and material depth. Materials: ancient stone, tarnished bronze, worn black wood, aged parchment, oxblood wax and velvet. Lighting rule shared by every asset in this set: warm amber candlelight from the lower front, restrained cold teal portal light from behind as a rim light, camera at seated eye height. Eerie and inviting, cohesive with the attached concept screenshot, which is a STYLE AND LIGHTING reference only. Absolutely no text, no letters, no numbers, no UI, no buttons, no frames, no logos, no watermark.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/05-appraisal.png"
+      ],
+      "sourceSha256": "2e3de01f99ac3d22d4ba9d8498032ce484108f22d3cb8ce265cccaf938ea602b",
+      "deliverySha256": "f310d1d3669bc2f48b9d53b6e27aa7775041c89e56d7be96bde2540effa9be20",
+      "deliveryBytes": 291140
+    },
+    {
+      "id": "appraisal-foreground",
+      "file": "src/appraisal-client/public/art/scenes/appraisal/foreground.webp",
+      "prompt": "Landscape 3:2 isolated FOREGROUND layer on a fully transparent background: the front edge of a heavy black-wood appraisal counter seen from the customer's side, running across the very bottom of the frame (only the top 20% of the counter visible), with props only near the two ends: on the left a brass hourglass, a lit dripping candle and stacked old books; on the right a brass balance scale, a small armillary globe and rolled scrolls with an oxblood wax seal. Close to the camera, slightly out of focus at the edges. Everything above the counter and the middle of the counter top is empty and fully transparent above the counter edge.",
+      "sharedStyle": "Style: polished real-time 3D dark fantasy game art, sophisticated semi-realistic physically based rendering, tangible volume and material depth. Materials: ancient stone, tarnished bronze, worn black wood, aged parchment, oxblood wax and velvet. Lighting rule shared by every asset in this set: warm amber candlelight from the lower front, restrained cold teal portal light from behind as a rim light, camera at seated eye height. Eerie and inviting, cohesive with the attached concept screenshot, which is a STYLE AND LIGHTING reference only. Absolutely no text, no letters, no numbers, no UI, no buttons, no frames, no logos, no watermark.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/05-appraisal.png"
+      ],
+      "sourceSha256": "836dbc690924e3409796dcd90afba7267ec91fb42def7655c8ce053a77ff3ee1",
+      "deliverySha256": "c454f1391b75661ec1c2b8b6f54ab8307157cc0e37499c4e9b39b87f18f69f94",
+      "deliveryBytes": 246550
+    },
+    {
+      "id": "market-backdrop",
+      "file": "src/appraisal-client/public/art/scenes/market/backdrop.webp",
+      "prompt": "Landscape 3:2 environment plate, the BACKGROUND layer of a 2.5D parallax game screen: the Dark Market, a shadow broker's caged counter in a gothic underground bazaar. Heavy black iron bars span the upper middle of the frame; behind the bars a hooded broker with faint glowing eyes, mostly in shadow, reaches one gloved hand forward between the bars. Hanging chains, brass lanterns, a dark red banner with a compass-star emblem, candles on ledges, and a distant blurred crowd of hooded shoppers in teal mist on the right. The lower half of the frame is a dark stone counter area in shadow, calm, so interface panels can sit over it. No text, no posters, no signs.",
+      "sharedStyle": "Style: polished real-time 3D dark fantasy game art, sophisticated semi-realistic physically based rendering, tangible volume and material depth. Materials: ancient stone, tarnished bronze, worn black wood, aged parchment, oxblood wax and velvet. Lighting rule shared by every asset in this set: warm amber candlelight from the lower front, restrained cold teal portal light from behind as a rim light, camera at seated eye height. Eerie and inviting, cohesive with the attached concept screenshot, which is a STYLE AND LIGHTING reference only. Absolutely no text, no letters, no numbers, no UI, no buttons, no frames, no logos, no watermark.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/10-dark-market.png"
+      ],
+      "sourceSha256": "8dce81a4e6b45b536cf4db90afff7b41456a58aa6229fba25ddd1871a04ad3aa",
+      "deliverySha256": "b14c9a7b810e630cee028cfe37dbe15198eefc4c97048b2a9438289def420858",
+      "deliveryBytes": 195772
+    },
+    {
+      "id": "market-foreground",
+      "file": "src/appraisal-client/public/art/scenes/market/foreground.webp",
+      "prompt": "Landscape 3:2 isolated FOREGROUND layer on a fully transparent background for a parallax game scene: in the bottom-left corner a cluster of dripping candles, a hanging iron chain and a small brass bell on dark wood; in the bottom-right corner a brass hourglass, scattered old coins and a fold of dark red velvet. Close to the camera, slightly out of focus. The whole centre and the upper two thirds are fully transparent and empty.",
+      "sharedStyle": "Style: polished real-time 3D dark fantasy game art, sophisticated semi-realistic physically based rendering, tangible volume and material depth. Materials: ancient stone, tarnished bronze, worn black wood, aged parchment, oxblood wax and velvet. Lighting rule shared by every asset in this set: warm amber candlelight from the lower front, restrained cold teal portal light from behind as a rim light, camera at seated eye height. Eerie and inviting, cohesive with the attached concept screenshot, which is a STYLE AND LIGHTING reference only. Absolutely no text, no letters, no numbers, no UI, no buttons, no frames, no logos, no watermark.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/10-dark-market.png"
+      ],
+      "sourceSha256": "bc639836064d8b67497e7943b6e93041d79d4386c244ea92187fc2a92bc90764",
+      "deliverySha256": "a0ede14ce830d6b7dc8133e662819521fa472dfe4c84eead4870248fd9ca8ff4",
+      "deliveryBytes": 130812
+    },
+    {
+      "id": "wanted-poster",
+      "file": "src/appraisal-client/public/art/ui/wanted-poster.webp",
+      "prompt": "Portrait 3:4 single isolated game asset on a fully transparent background: a blank aged parchment bounty poster pinned flat, torn and slightly burnt irregular edges, faint stains, a thin printed double border line inside the edge, and one dark red wax seal pressed near the lower right corner with a little wax drip. The parchment surface is completely blank: absolutely no writing, no letters, no pictures. Lit by warm candlelight from below, seen straight on, filling the frame.",
+      "sharedStyle": "Style: polished real-time 3D dark fantasy game art, sophisticated semi-realistic physically based rendering, tangible volume and material depth. Materials: ancient stone, tarnished bronze, worn black wood, aged parchment, oxblood wax and velvet. Lighting rule shared by every asset in this set: warm amber candlelight from the lower front, restrained cold teal portal light from behind as a rim light, camera at seated eye height. Eerie and inviting, cohesive with the attached concept screenshot, which is a STYLE AND LIGHTING reference only. Absolutely no text, no letters, no numbers, no UI, no buttons, no frames, no logos, no watermark.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/10-dark-market.png"
+      ],
+      "sourceSha256": "895d3542a3d2d4dd7e7c1613007862dfee08c1a11fa7b5af2810123954893d0b",
+      "deliverySha256": "49a6b7d7ca8a1ec967a20abb7c8f5b5b2ff96a7cb04e1a94cc805227edc2ea54",
+      "deliveryBytes": 78998
+    },
+    {
+      "id": "entry-backdrop",
+      "file": "src/appraisal-client/public/art/scenes/entry/backdrop.webp",
+      "prompt": "Landscape 3:2 environment plate, the BACKGROUND layer of a 2.5D parallax game title screen: the threshold of a dimensional market at night. A colossal carved stone gate stands at the far end of a fog-covered causeway, its opening filled with a soft cold teal portal glow; rows of iron lanterns line the causeway, tattered oxblood banners hang from the gate towers, impossible spires float faintly in the mist above. The left third of the frame is darker and calm (title text will sit there). No characters close to the camera, no text, no logo.",
+      "sharedStyle": "Style: polished real-time 3D dark fantasy game art, sophisticated semi-realistic physically based rendering, tangible volume and material depth. Materials: ancient stone, tarnished bronze, worn black wood, aged parchment, oxblood wax and velvet. Lighting rule shared by every asset in this set: warm amber candlelight from the lower front, restrained cold teal portal light from behind as a rim light, camera at seated eye height. Eerie and inviting, cohesive with the attached concept screenshot, which is a STYLE AND LIGHTING reference only. Absolutely no text, no letters, no numbers, no UI, no buttons, no frames, no logos, no watermark.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/01-entry.png"
+      ],
+      "sourceSha256": "533fc88c5d41f3f9debcb6343c7556553c388d7ffe6ebce1d5ab10f590aa9908",
+      "deliverySha256": "b41ebbe491acf0f982b53ed690dabf04eeb99e5d12c17d1d103e6000f6c8b7f7",
+      "deliveryBytes": 169298
+    },
+    {
+      "id": "lobby-backdrop",
+      "file": "src/appraisal-client/public/art/scenes/lobby/backdrop.webp",
+      "prompt": "Landscape 3:2 environment plate, the BACKGROUND layer of a 2.5D parallax game screen: a private back room where appraisers gather before a journey. A round black-wood table in the middle distance with candles, old maps, a brass compass and a few coins; high-backed chairs around it; a tall cabinet of curios and a small mirror glowing with cold teal portal light on the back wall; warm amber light, deep shadows at the edges. The centre of the frame is calm so a panel can sit over it. No characters, no text.",
+      "sharedStyle": "Style: polished real-time 3D dark fantasy game art, sophisticated semi-realistic physically based rendering, tangible volume and material depth. Materials: ancient stone, tarnished bronze, worn black wood, aged parchment, oxblood wax and velvet. Lighting rule shared by every asset in this set: warm amber candlelight from the lower front, restrained cold teal portal light from behind as a rim light, camera at seated eye height. Eerie and inviting, cohesive with the attached concept screenshot, which is a STYLE AND LIGHTING reference only. Absolutely no text, no letters, no numbers, no UI, no buttons, no frames, no logos, no watermark.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/02-lobby.png"
+      ],
+      "sourceSha256": "0e5b8c3c77a6897ba831fe10afb572c0f1fa63fcf4d51e747be602b1e6ed7c72",
+      "deliverySha256": "fef66847c3e357775844b0330477fb33a2cbbbba1de104137259ed9c51c1690d",
+      "deliveryBytes": 194904
+    },
+    {
+      "id": "reveal-backdrop",
+      "file": "src/appraisal-client/public/art/scenes/reveal/backdrop.webp",
+      "prompt": "Landscape 3:2 environment plate, the BACKGROUND layer of a 2.5D parallax game screen: a counting room at the end of a trading interval. A heavy table in the middle distance with stacks of old coins, a brass balance scale, an open ledger, a quill and candles; behind it a tall arched window with cold teal mist and the silhouette of the market far below; warm amber light on the table, darkness at the edges. The centre is calm so a panel can sit over it. No characters, no text.",
+      "sharedStyle": "Style: polished real-time 3D dark fantasy game art, sophisticated semi-realistic physically based rendering, tangible volume and material depth. Materials: ancient stone, tarnished bronze, worn black wood, aged parchment, oxblood wax and velvet. Lighting rule shared by every asset in this set: warm amber candlelight from the lower front, restrained cold teal portal light from behind as a rim light, camera at seated eye height. Eerie and inviting, cohesive with the attached concept screenshot, which is a STYLE AND LIGHTING reference only. Absolutely no text, no letters, no numbers, no UI, no buttons, no frames, no logos, no watermark.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/15-round-reward.png"
+      ],
+      "sourceSha256": "446da6cb296e7e14242948da8c3ff56d9b42b5f368d5f16ebb9aa44ec7b1ce4f",
+      "deliverySha256": "a853106afe5ec20398716cae048908d65df2fd47bf4c7c68ad95947e29a920c8",
+      "deliveryBytes": 195930
+    },
+    {
+      "id": "collector-backdrop",
+      "file": "src/appraisal-client/public/art/scenes/collector/backdrop.webp",
+      "prompt": "Landscape 3:2 environment plate, the BACKGROUND layer of a 2.5D parallax game screen: the Collector's vault where every appraiser's goods are finally tallied. A vast dark vault with towering shelves of collected artifacts and glinting gold, a long aisle leading to a towering hooded silhouette, the Collector, standing far away under a cold teal light, faceless, holding an open ledger. Candles along the aisle. The centre and lower half are calm and darker so a results panel can sit over them. No text.",
+      "sharedStyle": "Style: polished real-time 3D dark fantasy game art, sophisticated semi-realistic physically based rendering, tangible volume and material depth. Materials: ancient stone, tarnished bronze, worn black wood, aged parchment, oxblood wax and velvet. Lighting rule shared by every asset in this set: warm amber candlelight from the lower front, restrained cold teal portal light from behind as a rim light, camera at seated eye height. Eerie and inviting, cohesive with the attached concept screenshot, which is a STYLE AND LIGHTING reference only. Absolutely no text, no letters, no numbers, no UI, no buttons, no frames, no logos, no watermark.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/16-collector-results.png"
+      ],
+      "sourceSha256": "f323b100175b79a1bad9c7b4d132868bac8527ffcd16e92f727ca840601ab41f",
+      "deliverySha256": "4ed4ee57e26575d779c04973df46fe0a4455591ae94ad284b4ba6b58f714da33",
+      "deliveryBytes": 214038
+    },
+    {
+      "id": "ui-panel",
+      "file": "src/appraisal-client/public/art/ui/panel.webp",
+      "prompt": "Landscape 3:2 single isolated UI panel on a fully transparent background: a dark plaque made of black lacquered wood with a slightly lighter worn centre, framed by a thin ornate tarnished-gold filigree border with small decorative corner flourishes. The border is uniform along each edge so the panel can be stretched as a nine-slice; the centre is plain dark and empty. Panel fills the frame edge to edge.",
+      "sharedStyle": "UI kit asset for a premium 3D dark fantasy game interface, matching the attached concept screenshot exactly in material and finish: dark lacquered wood and black stone surfaces, fine engraved tarnished-gold and bronze filigree borders, subtle wear, warm candlelight from below. Seen perfectly straight on, flat front view, symmetrical, centered, crisp edges. Absolutely no text, no letters, no numbers, no symbols in the middle.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/09-player-trade.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "e005b80de1020bdb35f0c376c1f44c3586a26fdf369438a59f59748edaee6559",
+      "deliverySha256": "f27eb831908f76968f1711eb5da67805fd43966006c25ec58b96051b31722148",
+      "deliveryBytes": 136172,
+      "processing": "resized, WebP q88, then cropped to the alpha bounding box (alpha > 24) so nine-slice edges sit on the frame"
+    },
+    {
+      "id": "ui-button",
+      "file": "src/appraisal-client/public/art/ui/button.webp",
+      "prompt": "Wide 3:1 single isolated UI button plaque on a fully transparent background: an ornate bronze-gold metal button with a raised beveled engraved frame, small pointed decorative ends on left and right, and a smooth brushed antique-gold flat centre that is completely empty. Uniform border so it can be stretched as a nine-slice. Fills the frame edge to edge.",
+      "sharedStyle": "UI kit asset for a premium 3D dark fantasy game interface, matching the attached concept screenshot exactly in material and finish: dark lacquered wood and black stone surfaces, fine engraved tarnished-gold and bronze filigree borders, subtle wear, warm candlelight from below. Seen perfectly straight on, flat front view, symmetrical, centered, crisp edges. Absolutely no text, no letters, no numbers, no symbols in the middle.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/09-player-trade.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "f9509189f361770f9abf6485881d90462e516eb0526a1dda2f08de2a2f04bdd0",
+      "deliverySha256": "6701580d4f9a8cd38b3240edc2bc6a22d6a8758a4238aab94ab0cb04a0077bea",
+      "deliveryBytes": 41748,
+      "processing": "resized, WebP q88, then cropped to the alpha bounding box (alpha > 24) so nine-slice edges sit on the frame"
+    },
+    {
+      "id": "ui-slot",
+      "file": "src/appraisal-client/public/art/ui/slot.webp",
+      "prompt": "Square 1:1 single isolated UI item slot on a fully transparent background: a square inventory slot with a dark recessed black-velvet interior and a thin engraved tarnished-gold frame with tiny corner ornaments. The interior is completely empty. Fills the frame edge to edge.",
+      "sharedStyle": "UI kit asset for a premium 3D dark fantasy game interface, matching the attached concept screenshot exactly in material and finish: dark lacquered wood and black stone surfaces, fine engraved tarnished-gold and bronze filigree borders, subtle wear, warm candlelight from below. Seen perfectly straight on, flat front view, symmetrical, centered, crisp edges. Absolutely no text, no letters, no numbers, no symbols in the middle.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/09-player-trade.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "a67ee6461c0e905393c191449be06b60b7be12466d18f2cb1e24d224e88f517e",
+      "deliverySha256": "eb76ddd31c551b1ae12fc913525e9d111a75138554800e97fb520b8a638f6274",
+      "deliveryBytes": 15338,
+      "processing": "resized, WebP q88, then cropped to the alpha bounding box (alpha > 24) so nine-slice edges sit on the frame"
+    },
+    {
+      "id": "ui-ornament",
+      "file": "src/appraisal-client/public/art/ui/ornament.webp",
+      "prompt": "Wide 6:1 single isolated decorative divider on a fully transparent background: a symmetrical engraved gold filigree flourish line with a small compass-star ornament in the exact centre and thin tapering scrolls to both sides, used under a game title. Gold only, glinting in warm light.",
+      "sharedStyle": "UI kit asset for a premium 3D dark fantasy game interface, matching the attached concept screenshot exactly in material and finish: dark lacquered wood and black stone surfaces, fine engraved tarnished-gold and bronze filigree borders, subtle wear, warm candlelight from below. Seen perfectly straight on, flat front view, symmetrical, centered, crisp edges. Absolutely no text, no letters, no numbers, no symbols in the middle.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/09-player-trade.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "934e9e1f498d2aa0f60bf195492da28fbc3ab0e7a94fbdbc7907f68903da21a9",
+      "deliverySha256": "9f5d10c11da44a28030cb25fd77341b45c37e1442a72ea6d1c79a6925c5c8a91",
+      "deliveryBytes": 32430,
+      "processing": "resized, WebP q88, then cropped to the alpha bounding box (alpha > 24) so nine-slice edges sit on the frame"
+    },
+    {
+      "id": "ui-medallion",
+      "file": "src/appraisal-client/public/art/ui/medallion.webp",
+      "prompt": "Square 1:1 single isolated UI portrait medallion frame on a fully transparent background: an ornate circular tarnished-gold ring frame with fine engraving and four small pointed decorations at top, bottom, left and right. The inside of the ring is completely empty and fully transparent. Fills the frame.",
+      "sharedStyle": "UI kit asset for a premium 3D dark fantasy game interface, matching the attached concept screenshot exactly in material and finish: dark lacquered wood and black stone surfaces, fine engraved tarnished-gold and bronze filigree borders, subtle wear, warm candlelight from below. Seen perfectly straight on, flat front view, symmetrical, centered, crisp edges. Absolutely no text, no letters, no numbers, no symbols in the middle.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/09-player-trade.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "2b12dfaafde059cd1a57fd18326a1c9e09fc0f24bc2fb9b2dbcb1c113cdeb831",
+      "deliverySha256": "3b8c6ed1532315115cc8f330af323989d1767762755b7b1cb349e0f85c9f301f",
+      "deliveryBytes": 18860,
+      "processing": "resized, WebP q88, then cropped to the alpha bounding box (alpha > 24) so nine-slice edges sit on the frame"
+    },
+    {
+      "id": "ui-pedestal",
+      "file": "src/appraisal-client/public/art/ui/pedestal.webp",
+      "prompt": "Landscape 3:2 single isolated game prop on a fully transparent background: a low display pedestal made of an oxblood velvet cushion on a dark wooden base with bronze corner fittings, seen from slightly above the front, empty on top (nothing placed on it), warm candlelight. Fills the frame.",
+      "sharedStyle": "UI kit asset for a premium 3D dark fantasy game interface, matching the attached concept screenshot exactly in material and finish: dark lacquered wood and black stone surfaces, fine engraved tarnished-gold and bronze filigree borders, subtle wear, warm candlelight from below. Seen perfectly straight on, flat front view, symmetrical, centered, crisp edges. Absolutely no text, no letters, no numbers, no symbols in the middle.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/09-player-trade.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "b57d3d2e12cee434a48ff9727bdf9844dfaad062b7c6e134c543a4a2388bba30",
+      "deliverySha256": "ca962653744654accae361e5de549ee74ce1c90d5b3c2384dffab97cd09a3e80",
+      "deliveryBytes": 27404,
+      "processing": "resized, WebP q88, then cropped to the alpha bounding box (alpha > 24) so nine-slice edges sit on the frame"
+    },
+    {
+      "id": "icon-coins",
+      "file": "src/appraisal-client/public/art/ui/icon-coins.webp",
+      "prompt": "Square 1:1 single isolated game icon illustration on a fully transparent background: a small stack of three piles of old gold coins, warm glint, painted 3D style. Nothing else.",
+      "sharedStyle": "UI kit asset for a premium 3D dark fantasy game interface, matching the attached concept screenshot exactly in material and finish: dark lacquered wood and black stone surfaces, fine engraved tarnished-gold and bronze filigree borders, subtle wear, warm candlelight from below. Seen perfectly straight on, flat front view, symmetrical, centered, crisp edges. Absolutely no text, no letters, no numbers, no symbols in the middle.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "8bd1dae8a907e6a530400d29ed662dad5d142de5a591519618ef307249babafe",
+      "deliverySha256": "9b3804a350426e56b83a34bfc08670648eb013df07124851ec882f09a1a6c097",
+      "deliveryBytes": 15386
+    },
+    {
+      "id": "icon-chest",
+      "file": "src/appraisal-client/public/art/ui/icon-chest.webp",
+      "prompt": "Square 1:1 single isolated game icon illustration on a fully transparent background: a small closed iron-bound wooden treasure chest, front three-quarter view, painted 3D style. Nothing else.",
+      "sharedStyle": "UI kit asset for a premium 3D dark fantasy game interface, matching the attached concept screenshot exactly in material and finish: dark lacquered wood and black stone surfaces, fine engraved tarnished-gold and bronze filigree borders, subtle wear, warm candlelight from below. Seen perfectly straight on, flat front view, symmetrical, centered, crisp edges. Absolutely no text, no letters, no numbers, no symbols in the middle.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "df08666d70d8e10b80394d4d38444114d3d9f07c5697c9bdb2b28b6698c2e379",
+      "deliverySha256": "3ac803a42adc16d42918bb605919671cd0a4460b928ab8855257b797a5f1f67e",
+      "deliveryBytes": 21418
+    },
+    {
+      "id": "icon-skull",
+      "file": "src/appraisal-client/public/art/ui/icon-skull.webp",
+      "prompt": "Square 1:1 single isolated game icon illustration on a fully transparent background: an old cracked skull with a faint dark red glow behind it, painted 3D style, ominous. Nothing else.",
+      "sharedStyle": "UI kit asset for a premium 3D dark fantasy game interface, matching the attached concept screenshot exactly in material and finish: dark lacquered wood and black stone surfaces, fine engraved tarnished-gold and bronze filigree borders, subtle wear, warm candlelight from below. Seen perfectly straight on, flat front view, symmetrical, centered, crisp edges. Absolutely no text, no letters, no numbers, no symbols in the middle.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "309983f40fea03128b58a94b6336c2f7adad2986e3cb809a0c26a288f5b8a2af",
+      "deliverySha256": "6bd3011c2d4786daf669c7dee00c5b05c9c9551e9b581b864d69ae12aad34a84",
+      "deliveryBytes": 21092
+    },
+    {
+      "id": "icon-credit",
+      "file": "src/appraisal-client/public/art/ui/icon-credit.webp",
+      "prompt": "Square 1:1 single isolated game icon on a fully transparent background: a small stack of three ancient gold coins.",
+      "sharedStyle": "Game UI icon for a premium 3D dark fantasy interface, matching the attached concept screenshot's painted icons: painted semi-realistic 3D object, bold readable silhouette at 32 pixels, warm candle rim light, rich material detail, centered, filling most of the frame. Absolutely no text, no letters, no numbers, no frame, no background.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "429d0ea7e279af737da982780d18fe15a06ba3d6b811ce09cfef919962ed5c97",
+      "deliverySha256": "9bf9074159a0b3243b39393605c8c4bafaf61cf228e5bd3da051d6c96d13862f",
+      "deliveryBytes": 10576,
+      "processing": "cropped to the alpha bounding box, centred on a square, 128 px, WebP q88"
+    },
+    {
+      "id": "icon-energy",
+      "file": "src/appraisal-client/public/art/ui/icon-energy.webp",
+      "prompt": "Square 1:1 single isolated game icon on a fully transparent background: a glowing blue lightning crystal shard.",
+      "sharedStyle": "Game UI icon for a premium 3D dark fantasy interface, matching the attached concept screenshot's painted icons: painted semi-realistic 3D object, bold readable silhouette at 32 pixels, warm candle rim light, rich material detail, centered, filling most of the frame. Absolutely no text, no letters, no numbers, no frame, no background.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "ecb65428a02eb6127b98d189ba0df1a1742c157e7bef1439cf53d5be9e7884ad",
+      "deliverySha256": "5febf90cde1c6341ff51dfd751a65190fe52c91341050e701fff6e21d968368c",
+      "deliveryBytes": 6706,
+      "processing": "cropped to the alpha bounding box, centred on a square, 128 px, WebP q88"
+    },
+    {
+      "id": "icon-life",
+      "file": "src/appraisal-client/public/art/ui/icon-life.webp",
+      "prompt": "Square 1:1 single isolated game icon on a fully transparent background: a glossy deep red heart gem with a gold rim.",
+      "sharedStyle": "Game UI icon for a premium 3D dark fantasy interface, matching the attached concept screenshot's painted icons: painted semi-realistic 3D object, bold readable silhouette at 32 pixels, warm candle rim light, rich material detail, centered, filling most of the frame. Absolutely no text, no letters, no numbers, no frame, no background.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "4213d0f5becc2f5dfbfea0c782dec049ebf25409ed3ff3a1a5eb6a6945f52151",
+      "deliverySha256": "5caa34fd578864550a5e9d13b24bbf36d1535a35be7e1a31cd8ae646796a188b",
+      "deliveryBytes": 8760,
+      "processing": "cropped to the alpha bounding box, centred on a square, 128 px, WebP q88"
+    },
+    {
+      "id": "icon-score",
+      "file": "src/appraisal-client/public/art/ui/icon-score.webp",
+      "prompt": "Square 1:1 single isolated game icon on a fully transparent background: a small ornate gold crown.",
+      "sharedStyle": "Game UI icon for a premium 3D dark fantasy interface, matching the attached concept screenshot's painted icons: painted semi-realistic 3D object, bold readable silhouette at 32 pixels, warm candle rim light, rich material detail, centered, filling most of the frame. Absolutely no text, no letters, no numbers, no frame, no background.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "b1ab01b5dced00496435e932ea01a579fab363df58a52ff0ec9fbd5c24ebfefc",
+      "deliverySha256": "b5fcf4cd6f6489e0214bba8e21a7ffa874cb28ebd632fb2d3c124499de67b54d",
+      "deliveryBytes": 10666,
+      "processing": "cropped to the alpha bounding box, centred on a square, 128 px, WebP q88"
+    },
+    {
+      "id": "icon-time",
+      "file": "src/appraisal-client/public/art/ui/icon-time.webp",
+      "prompt": "Square 1:1 single isolated game icon on a fully transparent background: a small brass hourglass with glowing sand.",
+      "sharedStyle": "Game UI icon for a premium 3D dark fantasy interface, matching the attached concept screenshot's painted icons: painted semi-realistic 3D object, bold readable silhouette at 32 pixels, warm candle rim light, rich material detail, centered, filling most of the frame. Absolutely no text, no letters, no numbers, no frame, no background.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "0206262eb22a5dfa8ed66fac5c0c97cfee86884bc2b58276b86ebf160db25f20",
+      "deliverySha256": "23d37f47faee3cc153c340189ab3f5ffdae524129e342ce7160c6260b6cc5ce8",
+      "deliveryBytes": 8596,
+      "processing": "cropped to the alpha bounding box, centred on a square, 128 px, WebP q88"
+    },
+    {
+      "id": "icon-trust",
+      "file": "src/appraisal-client/public/art/ui/icon-trust.webp",
+      "prompt": "Square 1:1 single isolated game icon on a fully transparent background: a small brass balance scale.",
+      "sharedStyle": "Game UI icon for a premium 3D dark fantasy interface, matching the attached concept screenshot's painted icons: painted semi-realistic 3D object, bold readable silhouette at 32 pixels, warm candle rim light, rich material detail, centered, filling most of the frame. Absolutely no text, no letters, no numbers, no frame, no background.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "958db5db38838d336a996ab13c115a6c30c298ff4d2e79d98bc5f09650f6db08",
+      "deliverySha256": "012d17153a67366110b090b622c9670252dd1d273f655d4be53e642463bfd608",
+      "deliveryBytes": 11248,
+      "processing": "cropped to the alpha bounding box, centred on a square, 128 px, WebP q88"
+    },
+    {
+      "id": "icon-bag",
+      "file": "src/appraisal-client/public/art/ui/icon-bag.webp",
+      "prompt": "Square 1:1 single isolated game icon on a fully transparent background: a worn leather satchel bag with a brass buckle.",
+      "sharedStyle": "Game UI icon for a premium 3D dark fantasy interface, matching the attached concept screenshot's painted icons: painted semi-realistic 3D object, bold readable silhouette at 32 pixels, warm candle rim light, rich material detail, centered, filling most of the frame. Absolutely no text, no letters, no numbers, no frame, no background.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "0b43cb94cb79734201c6c66248fca8ae23b9aff31b573f26ab940603805fe078",
+      "deliverySha256": "af5134f0bd0601675f5bb6293867f9403bb7dabd787948d6517980c8428ec929",
+      "deliveryBytes": 9802,
+      "processing": "cropped to the alpha bounding box, centred on a square, 128 px, WebP q88"
+    },
+    {
+      "id": "icon-effects",
+      "file": "src/appraisal-client/public/art/ui/icon-effects.webp",
+      "prompt": "Square 1:1 single isolated game icon on a fully transparent background: a small corked potion bottle with a swirling violet and teal liquid.",
+      "sharedStyle": "Game UI icon for a premium 3D dark fantasy interface, matching the attached concept screenshot's painted icons: painted semi-realistic 3D object, bold readable silhouette at 32 pixels, warm candle rim light, rich material detail, centered, filling most of the frame. Absolutely no text, no letters, no numbers, no frame, no background.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "ca3796da548ba862107c9c72d604d3adc7aa470455393e9e52d4a2923e4cc8fa",
+      "deliverySha256": "2a3d6a62baa58af17c72a895ff10ec2e820a8d3680e030d2a9a82adaaa0ff544",
+      "deliveryBytes": 8104,
+      "processing": "cropped to the alpha bounding box, centred on a square, 128 px, WebP q88"
+    },
+    {
+      "id": "icon-market",
+      "file": "src/appraisal-client/public/art/ui/icon-market.webp",
+      "prompt": "Square 1:1 single isolated game icon on a fully transparent background: an iron hanging lantern with a dim red flame inside.",
+      "sharedStyle": "Game UI icon for a premium 3D dark fantasy interface, matching the attached concept screenshot's painted icons: painted semi-realistic 3D object, bold readable silhouette at 32 pixels, warm candle rim light, rich material detail, centered, filling most of the frame. Absolutely no text, no letters, no numbers, no frame, no background.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "1b81b00996071cdcfa4d969208b1903b99967540a8aba5376d3fe02c5c6cfea9",
+      "deliverySha256": "520ce9eeaa67f860f347cafd61cb24853fac14e32c9c807f17c1020505e7ac9d",
+      "deliveryBytes": 5164,
+      "processing": "cropped to the alpha bounding box, centred on a square, 128 px, WebP q88"
+    },
+    {
+      "id": "icon-ledger",
+      "file": "src/appraisal-client/public/art/ui/icon-ledger.webp",
+      "prompt": "Square 1:1 single isolated game icon on a fully transparent background: a closed thick leather-bound ledger book with a gold clasp.",
+      "sharedStyle": "Game UI icon for a premium 3D dark fantasy interface, matching the attached concept screenshot's painted icons: painted semi-realistic 3D object, bold readable silhouette at 32 pixels, warm candle rim light, rich material detail, centered, filling most of the frame. Absolutely no text, no letters, no numbers, no frame, no background.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "f20b86e2aecc13561e2befc7e226368befa9897ecb2cf522f50f83fa197fd921",
+      "deliverySha256": "9a5387f8c98bdbab81bc2e9f477b375376d424e7df91d0f1e6dec10f5dcd3cce",
+      "deliveryBytes": 9436,
+      "processing": "cropped to the alpha bounding box, centred on a square, 128 px, WebP q88"
+    },
+    {
+      "id": "icon-rules",
+      "file": "src/appraisal-client/public/art/ui/icon-rules.webp",
+      "prompt": "Square 1:1 single isolated game icon on a fully transparent background: a rolled parchment scroll tied with a red ribbon.",
+      "sharedStyle": "Game UI icon for a premium 3D dark fantasy interface, matching the attached concept screenshot's painted icons: painted semi-realistic 3D object, bold readable silhouette at 32 pixels, warm candle rim light, rich material detail, centered, filling most of the frame. Absolutely no text, no letters, no numbers, no frame, no background.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "b8d40764f59631ac27361e185021427b382e713c7dea1138f76d554723a0095e",
+      "deliverySha256": "995eaeb9373567d4071ea7d22d73500596dee0333450a7994fd727174e6118c2",
+      "deliveryBytes": 7576,
+      "processing": "cropped to the alpha bounding box, centred on a square, 128 px, WebP q88"
+    },
+    {
+      "id": "icon-genuine",
+      "file": "src/appraisal-client/public/art/ui/icon-genuine.webp",
+      "prompt": "Square 1:1 single isolated game icon on a fully transparent background: a gold appraiser's seal stamp with an engraved star.",
+      "sharedStyle": "Game UI icon for a premium 3D dark fantasy interface, matching the attached concept screenshot's painted icons: painted semi-realistic 3D object, bold readable silhouette at 32 pixels, warm candle rim light, rich material detail, centered, filling most of the frame. Absolutely no text, no letters, no numbers, no frame, no background.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "12d3bbeb9f933e461a281867344e88a8f1ea67a32772eeeb7c92c83d628c43fd",
+      "deliverySha256": "6d47f1b1cfdb1585d96abc9c0cf0856034b9956740d4665a96f73e5d384347c7",
+      "deliveryBytes": 8054,
+      "processing": "cropped to the alpha bounding box, centred on a square, 128 px, WebP q88"
+    },
+    {
+      "id": "icon-certificate",
+      "file": "src/appraisal-client/public/art/ui/icon-certificate.webp",
+      "prompt": "Square 1:1 single isolated game icon on a fully transparent background: a small folded parchment certificate with a red wax seal.",
+      "sharedStyle": "Game UI icon for a premium 3D dark fantasy interface, matching the attached concept screenshot's painted icons: painted semi-realistic 3D object, bold readable silhouette at 32 pixels, warm candle rim light, rich material detail, centered, filling most of the frame. Absolutely no text, no letters, no numbers, no frame, no background.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "04224015d29acc3c878a7a09836c07b4ee8b85b6a6c30b740f41a3bf11da4bea",
+      "deliverySha256": "93656e0e65ff40f6479508e49d1f62db988388dd57d99db93e25c44879843770",
+      "deliveryBytes": 8586,
+      "processing": "cropped to the alpha bounding box, centred on a square, 128 px, WebP q88"
+    },
+    {
+      "id": "icon-ticket",
+      "file": "src/appraisal-client/public/art/ui/icon-ticket.webp",
+      "prompt": "Square 1:1 single isolated game icon on a fully transparent background: a black shadow-market ticket token of tarnished metal with a teal glint.",
+      "sharedStyle": "Game UI icon for a premium 3D dark fantasy interface, matching the attached concept screenshot's painted icons: painted semi-realistic 3D object, bold readable silhouette at 32 pixels, warm candle rim light, rich material detail, centered, filling most of the frame. Absolutely no text, no letters, no numbers, no frame, no background.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "cf8a879f328db921be63a84769aa51a6722a0c31c6a0043ad33d83449d989844",
+      "deliverySha256": "ea95dc80da0b5d297db7e4df6bf9d50327d7f53dbf17385fcbdc590e79be81ac",
+      "deliveryBytes": 7682,
+      "processing": "cropped to the alpha bounding box, centred on a square, 128 px, WebP q88"
+    },
+    {
+      "id": "icon-shard",
+      "file": "src/appraisal-client/public/art/ui/icon-shard.webp",
+      "prompt": "Square 1:1 single isolated game icon on a fully transparent background: a small glowing red pulse crystal fragment.",
+      "sharedStyle": "Game UI icon for a premium 3D dark fantasy interface, matching the attached concept screenshot's painted icons: painted semi-realistic 3D object, bold readable silhouette at 32 pixels, warm candle rim light, rich material detail, centered, filling most of the frame. Absolutely no text, no letters, no numbers, no frame, no background.",
+      "references": [
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/03-portals.png",
+        "docs/art/concepts/3d-dark-fantasy-2026-10-21/12-unsold.png"
+      ],
+      "sourceSha256": "5a0c0ba4040b3d3513b8be447f906d2533b79d298007472ef52266d8a682a0e8",
+      "deliverySha256": "91f726af4427c0b7ff80977c1fb740befa1a1ceb65795cc615e2095e783724ea",
+      "deliveryBytes": 7004,
+      "processing": "cropped to the alpha bounding box, centred on a square, 128 px, WebP q88"
+    }
+  ]
+}

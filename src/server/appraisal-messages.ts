@@ -71,6 +71,7 @@ function action(value: unknown): AppraisalSeatAction {
       if (body.choice !== 'buy' && body.choice !== 'penalty' && body.choice !== 'consign') throw new MessageError();
       return { type: 'unsold', ...base, itemId: string(body.itemId), choice: body.choice };
     case 'bid': keys(body, [...fields, 'lotId', 'credits']); return { type: 'bid', ...base, lotId: string(body.lotId), credits: integer(body.credits) };
+    case 'reroll-portal': keys(body, [...fields, 'portalId']); return { type: 'reroll-portal', ...base, portalId: string(body.portalId) };
     case 'steal': keys(body, [...fields, 'itemId']); return { type: 'steal', ...base, itemId: string(body.itemId) };
     case 'pickpocket': keys(body, [...fields, 'victimId']); return { type: 'pickpocket', ...base, victimId: string(body.victimId, 32) };
     case 'barter': keys(body, [...fields, 'itemId', 'targetItemId']); return { type: 'barter', ...base, itemId: string(body.itemId), targetItemId: string(body.targetItemId) };

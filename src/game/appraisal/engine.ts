@@ -1,7 +1,7 @@
 import { passivesEnabled } from './passives.js';
 import { randomAt } from '../random.js';
 import { ITEM_SPECS, NPC_SPECS, expansionActive, merchantKinds, priceRange } from './content.js';
-import { anchorOf, decayFor } from './core2.js';
+import { anchorOf, decayFor, rerollCost } from './core2.js';
 import { applyCore2Settlement, applyDread, resetCore2Encounter } from './core2-rules.js';
 import { barter, pickpocket, stealShop, useSkill } from './core2-actions.js';
 import { defaultEvent, drawBacklashEvent, drawTheftEvent, isConsequence, drawBondEvent, drawExpansionEvent, drawPolishEvent, drawWishEvent, drawEvent, drawPersonalNpcEvent, resolveEvent } from './events.js';
@@ -82,7 +82,7 @@ function initialiseAppraisalRun(playerIds:string[],seed:string,config:AppraisalC
   assertAppraisalInvariants(state); return state;
 }
 /** One merchant item; the same recipe fills the portals up front and the extra slots earned through trust. */
-function spawnStockItem(state:AppraisalState,id:string,seat:number,encounter:number,index:number,slot:number,npc:NpcId):string {
+function spawnStockItem(state:AppraisalState,id:string,seat:number,encounter:number,index:number|string,slot:number,npc:NpcId):string {
   const {seed,config}=state;const favorites=merchantKinds(npc,config.catalogVersion??1,!!config.cleanse,!!config.challenge,expansionActive(config),!!config.polish);
   const itemId=`item-${encounter}-${seat}-${index}-${slot}`;
   const kind=favorites[Math.floor(randomAt(seed,`${itemId}:kind`)*favorites.length)]!;
@@ -107,6 +107,22 @@ function generatePortals(state:AppraisalState,id:string,seat:number,encounter:nu
         for(let slot=0;slot<2;slot++) stock.push(spawnStockItem(state,id,seat,encounter,index,slot,npc));
         return {id:`portal-${encounter}-${seat}-${index}`,npc,stock,disabled:false};
       });return portals;
+}
+/** Core v0.6: swap one unopened door for a different merchant with fresh goods. The price climbs with every reroll until the encounter ends. */
+function rerollPortal(state:AppraisalState,p:Appraiser,portalId:string):void {
+  check(state.config.core2 && state.phase==='PORTALS' && !p.eventOffer && !p.selectedPortalId,'reroll','รีประตูได้เฉพาะตอนเลือกประตู');
+  const index=p.portals.findIndex(v=>v.id===portalId);const old=p.portals[index];
+  check(old && !old.disabled,'portal','ประตูนี้รีไม่ได้');
+  const shown=new Set(p.portals.map(v=>v.npc));
+  const unseen=activeNpcs(state.config).filter(npc=>!shown.has(npc));
+  const pool=unseen.length?unseen:activeNpcs(state.config).filter(npc=>npc!==old.npc);
+  check(pool.length,'reroll','ไม่มีพ่อค้าให้เปลี่ยน');
+  const done=p.portalRerolls??0;spend(state,p,0,rerollCost(done),'portal-reroll');
+  const seat=state.players.indexOf(p);const tag=`${index}r${done+1}`;
+  const npc=pool.map(npc=>({npc,rank:randomAt(state.seed,`${state.encounter}:${seat}:${npc}:portal:reroll${done+1}`)})).sort((a,b)=>a.rank-b.rank)[0]!.npc;
+  const stock=[0,1].map(slot=>spawnStockItem(state,p.id,seat,state.encounter,tag,slot,npc));
+  p.portals[index]={id:`portal-${state.encounter}-${seat}-${tag}`,npc,stock,disabled:false};
+  p.portalRerolls=done+1;trace(state,p,'portal-rerolled',{from:old.npc,to:npc,energy:rerollCost(done)});
 }
 function makeMarket(state:AppraisalState):DarkMarket {
   const market:DarkMarket={encounter:state.encounter,open:false,budget:0,orders:[]};
@@ -289,6 +305,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
       for(let slot=2;slot<2+stockBonus(state,p).extra;slot++)p.stock.push(spawnStockItem(state,p.id,state.players.indexOf(p),state.encounter,p.portals.indexOf(portal),slot,portal.npc));
       redeemNpcContracts(state,p,portal.npc);p.done=true;trace(state,p,'portal-entered',{portalId:portal.id,npc:portal.npc});break;
     }
+    case 'reroll-portal': rerollPortal(state,p,action.portalId);break;
     case 'inspect': npcActionAllowed(state,p);inspect(state,p,action.itemId,action.property);break;
     case 'appraise': case 'counter': {
       npcActionAllowed(state,p);check(!p.caught,'npc-closed','NPC ที่จับได้แล้วไม่รับการประเมินใหม่');

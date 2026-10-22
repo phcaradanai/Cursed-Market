@@ -61,6 +61,6 @@ export function applyCore2Settlement(state:AppraisalState,p:Appraiser):void {
   }
 }
 
-export const resetCore2Encounter=(p:Appraiser)=>{delete p.scrapPaid;delete p.inflated;delete p.stealTried;delete p.skillUsed;delete p.theft;};
+export const resetCore2Encounter=(p:Appraiser)=>{delete p.scrapPaid;delete p.inflated;delete p.stealTried;delete p.portalRerolls;delete p.skillUsed;delete p.theft;};
 
 export {consignPayout,overvalueChance};

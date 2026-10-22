@@ -172,5 +172,9 @@ export const EN_MODEL: Record<string, string> = {
   'ปิดประตูแรก': 'Closes the first door',
   'ซื้อด้วยเครดิตเต็มราคา': 'Buy with credits at full price',
   'ซื้อแบบมีเงื่อนไขของพ่อค้า': 'Buy on the merchant terms',
-  'ออกจากห้องตอนนี้? ที่นั่งนี้จะหลุดจากแมตช์และกลับเข้ามาเล่นต่อไม่ได้': 'Leave the room now? Your seat drops out of the match and you cannot rejoin it.'
+  'ออกจากห้องตอนนี้? ที่นั่งนี้จะหลุดจากแมตช์และกลับเข้ามาเล่นต่อไม่ได้': 'Leave the room now? Your seat drops out of the match and you cannot rejoin it.',
+  'ตอบเหตุการณ์ก่อน จึงรีประตูได้': 'Answer the event first to reroll doors',
+  'พลังไม่พอรีประตู': 'Not enough energy to reroll',
+  'เปลี่ยนเป็นพ่อค้ารายใหม่พร้อมของใหม่ · รีครั้งต่อไปในช่วงนี้แพงขึ้น 1 พลัง': 'Swap for a new merchant with new goods · each further reroll this encounter costs 1 more energy',
+  'รีประตู · {n} พลัง': 'Reroll door · {n} energy'
 };

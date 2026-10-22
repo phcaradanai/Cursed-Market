@@ -25,12 +25,17 @@ export const CORE2={
   restorativePremium:7,
   /** Credits added to a recovery deal for every `step` encounters past the first. */
   recoveryStep:4,
+  /** Rerolling a merchant door costs `energy` for the first reroll of an encounter and `step` more for every reroll after it. */
+  reroll:{energy:2,step:1},
   /** Theft and barter. */
   steal:{energy:1,base:.5,perTrust:.03,friend:-.15},
   barter:{energy:1,detect:.35},
   /** Merchant skills unlock at this trust and are stronger from `strong`. */
   skill:{trust:3,strong:6},
 } as const;
+
+/** Energy the next door reroll costs after `done` rerolls this encounter. */
+export const rerollCost=(done:number)=>CORE2.reroll.energy+CORE2.reroll.step*done;
 
 const WEAK_BUFFS:readonly StatusId[]=['B01','B03','B05'];
 const STRONG_BUFFS:readonly StatusId[]=['B06','B07','B08','B19'];

@@ -1327,3 +1327,6 @@ html[lang=en] .phase-RESULTS .results>h2{font-family:var(--latin-display)}
   .screen.phase-TRADE :is(.trade-listing,.sell-card)>.pedestal .pedestal-item{width:100px;height:100px}
   .screen.phase-TRADE :is(.trade-listing form,.sell-card .sharing){gap:8px}
 }
+/* Door reroll: a small secondary action under "open this door". */
+.portal .reroll-portal{margin-top:6px;min-height:36px;padding:2px 12px;font-size:14px;gap:6px;background:rgb(10 14 15 / .8)}
+.portal .reroll-portal .icon{width:16px;height:16px}

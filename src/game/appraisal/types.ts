@@ -132,6 +132,8 @@ export interface Appraiser {
   inflated?:boolean;
   /** Core v0.6: items and seats this seat already tried to steal from this encounter. */
   stealTried?:string[];
+  /** Core v0.6: merchant doors this seat rerolled this encounter; each reroll costs one more energy than the last. */
+  portalRerolls?:number;
   /** Core v0.6: the merchant skill was used this encounter. */
   skillUsed?:boolean;
   /** Core v0.6: a failed theft waiting for its penalty event; `victim` is the seat that was robbed. */
@@ -184,6 +186,7 @@ export interface TraceEntry { type: string; encounter: number; playerId: string;
 export interface EncounterResult { encounter: number; playerId: string; gain: number; accuracy: number; score: number; paused: Appraiser['paused'] }
 export type AppraisalAction = { playerId: string; requestId: string; encounter: number } & (
   | { type: 'enter'; portalId: string }
+  | { type: 'reroll-portal'; portalId: string }
   | { type: 'inspect'; itemId: string; property: 'price'|'authenticity'|'effects' }
   | { type: 'appraise'|'counter'; itemId: string; value: number; acceptDanger?: boolean }
   | { type: 'buy'; itemIds: string[]; condition: boolean }

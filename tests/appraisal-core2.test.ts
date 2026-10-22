@@ -190,3 +190,31 @@ test('a core2 run replays from its audit, and every new event has a choice for e
     assert.ok(spec.choices.every(c=>c.id!==''));
   }
 });
+
+test('rerolling a merchant door costs 2 energy, then 1 more each time, and resets next encounter',()=>{
+  let s=fixture('reroll-cost');const alice=()=>s.players.find(v=>v.id==='alice')!;
+  const first=alice().portals[0]!;const others=alice().portals.slice(1).map(v=>v.id);const energy=alice().energy;
+  s=act(s,'alice',{type:'reroll-portal',portalId:first.id});
+  assert.equal(alice().energy,energy-CORE2.reroll.energy);assert.equal(alice().portalRerolls,1);
+  assert.notEqual(alice().portals[0]!.id,first.id);assert.notEqual(alice().portals[0]!.npc,first.npc);assert.deepEqual(alice().portals.slice(1).map(v=>v.id),others);
+  assert.equal(new Set(alice().portals.map(v=>v.npc)).size,3);
+  assert.equal(alice().portals[0]!.stock.length,2);assert.ok(alice().portals[0]!.stock.every(id=>!!s.items[id]));
+  s=act(s,'alice',{type:'reroll-portal',portalId:alice().portals[1]!.id});
+  assert.equal(alice().energy,energy-CORE2.reroll.energy-(CORE2.reroll.energy+CORE2.reroll.step));
+  assert.equal(appraisalViewFor(s,'alice').self.portalRerolls,2);
+  assert.doesNotThrow(()=>assertAppraisalInvariants(s));
+  s=act(s,'bob',{type:'enter',portalId:s.players[1]!.portals[0]!.id});s=act(s,'alice',{type:'enter',portalId:alice().portals[0]!.id});
+  assert.equal(s.phase,'APPRAISAL');
+  s=act(s,'alice',{type:'done'});s=act(s,'bob',{type:'done'});
+  assert.equal(s.phase==='REVEAL'||s.phase==='TRADE',true);
+});
+
+test('a door reroll needs enough energy, an open door and the core v0.6 rules',()=>{
+  let s=fixture('reroll-limits');const p=s.players[0]!;
+  p.energy=1;assert.throws(()=>act(s,'alice',{type:'reroll-portal',portalId:p.portals[0]!.id}),/พลัง/);
+  assert.throws(()=>act(s,'alice',{type:'reroll-portal',portalId:'no-such-door'}));
+  p.energy=9;p.portals[0]!.disabled=true;assert.throws(()=>act(s,'alice',{type:'reroll-portal',portalId:p.portals[0]!.id}));
+  p.portals[0]!.disabled=false;s=act(s,'alice',{type:'enter',portalId:p.portals[0]!.id});
+  assert.throws(()=>act(s,'alice',{type:'reroll-portal',portalId:s.players[0]!.portals[1]!.id}));
+  const old=fixture('reroll-old',false);assert.throws(()=>act(old,'alice',{type:'reroll-portal',portalId:old.players[0]!.portals[0]!.id}));
+});

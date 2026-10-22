@@ -77,9 +77,11 @@ function action(value: unknown): AppraisalSeatAction {
     case 'barter': keys(body, [...fields, 'itemId', 'targetItemId']); return { type: 'barter', ...base, itemId: string(body.itemId), targetItemId: string(body.targetItemId) };
     case 'skill': keys(body, [...fields, 'itemId']); return { type: 'skill', ...base, ...(body.itemId === undefined ? {} : { itemId: string(body.itemId) }) };
     case 'round-flip':
-      keys(body,[...fields,'guess','attempt']);
+      keys(body,[...fields,'guess','guesses','attempt']);
+      if(body.guesses!==undefined && (!Array.isArray(body.guesses) || !body.guesses.length || !body.guesses.every(guess=>guess==='heads' || guess==='tails')))throw new MessageError();
       if(body.guess!=='heads' && body.guess!=='tails')throw new MessageError();
-      return {type:'round-flip',...base,guess:body.guess,attempt:integer(body.attempt)};
+      return {type:'round-flip',...base,guess:body.guess,attempt:integer(body.attempt),...(body.guesses===undefined?{}:{guesses:[...body.guesses as Array<'heads'|'tails'>]})};
+    case 'round-raise': keys(body,[...fields,'coinCount','attempt']);return {type:'round-raise',...base,coinCount:integer(body.coinCount),attempt:integer(body.attempt)};
     case 'round-bank': keys(body,fields);return {type:'round-bank',...base};
     case 'done': keys(body, fields); return { type: 'done', ...base };
     default: throw new MessageError();

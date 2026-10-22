@@ -35,6 +35,8 @@ export interface AppraisalConfig {
   catalogVersion?: 1 | 2 | 3;
   /** Absent in historical audits: preserve their original economy. */
   roundRewards?: boolean;
+  /** Absent in saved runs: retain the original single-coin, lose-all wager. */
+  multiCoinRewards?: boolean;
   /** Absent in saved runs: retain the pre-commission/trust/market-contract rules. */
   commerce?: boolean;
   /** Absent in saved runs: retain the old effects check where only B02 could reveal a curse. */
@@ -112,7 +114,8 @@ export type CoinSide = 'heads' | 'tails';
 export interface RoundReward {
   encounter:number; base:number; amount:number; flips:number; settled:boolean;
   incomeBonus?:number; winBonus?:number; winChance?:number;
-  lastFlip?:{guess:CoinSide; side:CoinSide; correct:boolean};
+  coinCount?:number; staked?:number; net?:number;
+  lastFlip?:{guess:CoinSide; side:CoinSide; correct:boolean; coins?:Array<{guess:CoinSide;side:CoinSide;correct:boolean}>; delta?:number};
 }
 export interface Appraiser {
   npcContracts?: NpcContracts;
@@ -197,7 +200,8 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
   | { type: 'force-buy'; sellerId: string; itemId: string }
   | { type: 'propose'; sellerId: string; itemId: string; credits: number; swapItemId?: string; condition?: boolean; challenge?: 'genuine'|'cursed'; sealId?: string }
   | { type: 'respond'; offerId: string; accept: boolean }
-  | { type: 'round-flip'; guess:CoinSide; attempt:number }
+  | { type: 'round-flip'; guess:CoinSide; guesses?:CoinSide[]; attempt:number }
+  | { type: 'round-raise'; coinCount:number; attempt:number }
   | { type: 'round-bank' }
   | { type: 'done' }
   | { type:'recover-resource'; target:'energy'|'life' }

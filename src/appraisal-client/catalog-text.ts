@@ -34,5 +34,5 @@ export const omenText = (omen: { id: string; name: string; text: string }): { na
 export const omenById = (id: string): Omen | undefined => OMENS.find(omen => omen.id === id);
 
 /** Held-item effect text for a passive relic or charm; empty for kinds that have no passive. */
-export const passiveText = (kind: ItemKind): string => pick((PASSIVE_ITEMS as Partial<Record<string, { passive: { text: string } }>>)[kind]?.passive.text ?? '', EN_PASSIVE_TEXT[kind]);
+export const passiveText = (kind: ItemKind): string => pick(kind==='lucky-die'?'ยอดได้หรือเสียต่อเหรียญเพิ่ม 1 เครดิตต่อชิ้นที่ถือ ต้องทายถูกครบทุกเหรียญจึงได้เพิ่ม':(PASSIVE_ITEMS as Partial<Record<string, { passive: { text: string } }>>)[kind]?.passive.text ?? '', EN_PASSIVE_TEXT[kind]);
 export const toolText = (kind: ItemKind, thai: string): string => pick(thai, EN_TOOL_TEXT[kind]);

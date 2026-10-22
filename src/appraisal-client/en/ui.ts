@@ -1,5 +1,23 @@
 /** English for the component, app and feedback text. Keys are the Thai source strings, placeholders included. */
 export const EN_UI_TEXT: Record<string, string> = {
+  "ของสะสมเพิ่ม {income} เครดิต · รวมเริ่มต้น {total} เครดิต · โอกาสถูกต่อเหรียญ {chance}% · ได้หรือเสียต่อเหรียญ {bonus} เครดิต": "Held-item income: {income} credits · Starting pool: {total} credits · Correct chance per coin: {chance}% · Gain or loss per coin: {bonus} credits",
+  "เลือกรับเลย หรือทายให้ถูกครบทุกเหรียญ เพิ่ม {bonus} เครดิต แล้วเลือกเสี่ยงต่อได้": "Collect now, or call every coin correctly to gain {bonus} credits, then choose whether to continue",
+  "ถูก": "Correct",
+  "ผิด": "Wrong",
+  "ถูกครบทุกเหรียญ! เพิ่ม {n} เครดิต": "Every coin correct! Gain {n} credits",
+  "ทายผิด หัก {n} เครดิต · เหลือ {amount} เครดิต": "Wrong call: lose {n} credits · {amount} credits left",
+  "เหรียญ {n}": "Coin {n}",
+  "ทาย {guess} · ออก {side} · {result}": "Called {guess} · Landed {side} · {result}",
+  "ทายให้ถูกครบ {n} เหรียญ: ได้ {step} · ผิดหัก {step} เครดิต (ต่ำสุด 0)": "Call all {n} coins correctly: gain {step} · Any wrong call loses {step} credits (minimum 0)",
+  "ในกระเป๋า {wallet} เครดิต · ทบแล้ว {staked} เครดิต": "Wallet: {wallet} credits · Added stake: {staked} credits",
+  "เครดิตในกระเป๋าไม่พอเพิ่มเหรียญ": "Not enough wallet credits to add a coin",
+  "เพิ่ม 1 เหรียญ · จ่าย {n} เครดิต": "Add 1 coin · Pay {n} credits",
+  "เลือกหัวหรือก้อยให้ครบทุกเหรียญ": "Choose heads or tails for every coin",
+  "เหรียญ {n} · ทาย {side}": "Coin {n} · Call {side}",
+  "โยน {n} เหรียญ": "Flip {n} coins",
+  "เพิ่มเหรียญโดยจ่ายจากกระเป๋า ตามทุนเริ่มช่วงต่อเหรียญ เงินทบรวมในยอดที่รับได้ เล่นต่อจนยอดเป็น 0 หรือหยุดรับได้ทุกครั้ง": "Add coins using wallet credits: 10 per coin in odd encounters, 15 in even ones. Added stakes join your cash-out pool. Keep playing until zero or collect after any flip.",
+  "ช่วงคี่รับ 10 ช่วงคู่รับ 15 เครดิต รับเลยหรือทายหัวก้อยได้ เพิ่มเหรียญโดยจ่ายจากกระเป๋าเหรียญละ 10 ในช่วงคี่ / 15 ในช่วงคู่ เงินทบรวมในยอดเดิมพัน ต้องถูกครบทุกเหรียญจึงได้เพิ่ม เริ่มต้นได้หรือเสีย 5 เครดิตต่อเหรียญ ของสะสมปรับยอดต่อเหรียญและโอกาสถูก เล่นต่อจนยอดเป็น 0 หรือหยุดรับได้ เมื่อหมดเวลารับยอดที่เหลืออัตโนมัติ": "Odd encounters give 10 credits, even encounters 15. Collect immediately or call coins. Add coins from your wallet: 10 per coin in odd encounters, 15 in even ones. Added stakes join the pool. Every coin must be correct to win. Start at a gain or loss of 5 credits per coin; held items adjust this and the odds. Continue until zero or collect whenever satisfied. Timeouts collect the remaining pool automatically.",
+
   "ราคาประเมินล่าสุด": "Last appraisal",
   "ราคาขายของพ่อค้า": "Merchant asking price",
   "พ่อค้าไม่รับราคาประเมิน ใช้ราคาหน้าร้าน": "Appraisal declined; using the shelf price",

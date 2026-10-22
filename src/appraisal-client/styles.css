@@ -1330,3 +1330,17 @@ html[lang=en] .phase-RESULTS .results>h2{font-family:var(--latin-display)}
 /* Door reroll: a small secondary action under "open this door". */
 .portal .reroll-portal{margin-top:6px;min-height:36px;padding:2px 12px;font-size:14px;gap:6px;background:rgb(10 14 15 / .8)}
 .portal .reroll-portal .icon{width:16px;height:16px}
+
+/* Coins stay separate so each call and landing can be read at the table. */
+.coin-table{width:240px;max-width:100%}
+.coin-table.multi-coin{display:grid;width:min(100%,640px);grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:0 12px}
+.coin-stake{margin:16px 0 20px}
+.coin-stake p{margin-bottom:8px}
+.coin-stake button{min-height:calc(44px / var(--fit,1))}
+.coin-guesses{border:0;padding:0;margin:0 0 20px;min-width:0;display:flex;flex-wrap:wrap;justify-content:center;gap:12px 24px}
+.coin-guesses legend{margin-bottom:12px}
+.coin-guess{display:flex;align-items:center;gap:8px}
+.coin-guess button{min-width:calc(48px / var(--fit,1));min-height:calc(44px / var(--fit,1))}
+.coin-guess button[aria-pressed=true]{background:var(--amber);color:var(--ink);box-shadow:inset 0 0 0 2px var(--bronze)}
+.coin-results{list-style:none;padding:0;margin:12px 0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 24px}
+@media(max-width:640px){.coin-table.multi-coin{grid-template-columns:repeat(2,minmax(0,1fr));gap:0}.multi-coin .coin-scene{transform:scale(.8);transform-origin:center}.coin-guesses{gap:12px}.coin-guess{flex-wrap:wrap;justify-content:center}.coin-guess>span{flex-basis:100%}}

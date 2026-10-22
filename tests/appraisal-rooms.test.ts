@@ -38,7 +38,7 @@ function setup(count = 3, config: Partial<AppraisalConfig> = {}) {
   return { rooms, clients, act, decline, portals, endPhase, tick: () => { now += 11; rooms.tick(); }, late: () => { now += 11; }, now: () => now };
 }
 const actionBodies = [
-  {type:'round-flip',guess:'heads',attempt:1},{type:'round-bank'},
+  {type:'round-flip',guess:'heads',attempt:1},{type:'round-flip',guess:'heads',guesses:['heads','tails'],attempt:1},{type:'round-raise',coinCount:2,attempt:1},{type:'round-bank'},
   { type: 'enter', portalId: 'p' }, { type: 'inspect', itemId: 'i', property: 'price' },
   { type: 'appraise', itemId: 'i', value: 0, acceptDanger: true }, { type: 'counter', itemId: 'i', value: 20 },
   { type: 'buy', itemIds: ['i', 'j'], condition: true }, { type: 'activate', itemId: 'i' },
@@ -60,6 +60,7 @@ test('v0.4 parser reconstructs every action and rejects actor/seed/event injecti
     { type: 'event', key: 'x', choice: 'accept', statusId: 'D99' }, { type: 'event', key: 'x', choice: 'accept', fact: 'seed' },
     { type: 'appraise', itemId: 'i', value: -1 }, { type: 'counter', itemId: 'i', value: 2, acceptDanger: 1 },
     { type: 'propose', sellerId: 'x', itemId: 'i', credits: Number.MAX_SAFE_INTEGER + 1 }, { type: 'inspect', itemId: 'i', property: 'all' },
+    {type:'round-flip',guess:'heads',guesses:[],attempt:1},{type:'round-flip',guess:'heads',guesses:['edge'],attempt:1},{type:'round-raise',coinCount:2.5,attempt:1},
     {type:'round-flip',guess:'edge',attempt:1},{type:'round-flip',guess:'heads',attempt:1.5},
     {type:'round-flip',guess:'tails',attempt:1,side:'tails'},{type:'round-bank',amount:100},
   ]) assert.throws(() => parseAppraisalMessage({ type: 'action', matchId: 'm', action: { ...body, requestId: 'x', encounter: 1 } }), MessageError);
@@ -73,14 +74,17 @@ test('round wagers freeze after ready, reconnect preserves pending winnings, and
   assert.equal(a.room.game!.phase,'REVEAL');
   const state=s.rooms.state(a.room.code);const id=a.room.yourSeatId;
   const guess=randomAt(state.seed,`1:${id}:round-coin:1`)<.5?'heads':'tails';
-  s.act(a,{type:'round-flip',guess,attempt:1},'coin-once');assert.equal(a.room.game!.self.roundReward!.amount,15);
-  s.act(a,{type:'round-flip',guess,attempt:1},'coin-once');assert.equal(a.room.game!.self.roundReward!.flips,1);
+  const extra=randomAt(state.seed,`1:${id}:round-coin:1:coin:2`)<.5?'heads':'tails';
+  s.act(a,{type:'round-raise',coinCount:2,attempt:1},'raise-once');
+  s.act(a,{type:'round-raise',coinCount:2,attempt:1},'raise-once');assert.equal(a.room.game!.self.credits,30);
+  s.act(a,{type:'round-flip',guess,guesses:[guess,extra],attempt:1},'coin-once');assert.equal(a.room.game!.self.roundReward!.amount,30);
+  s.act(a,{type:'round-flip',guess,guesses:[guess,extra],attempt:1},'coin-once');assert.equal(a.room.game!.self.roundReward!.flips,1);
   const resumed=new Client();s.rooms.disconnect(a);s.rooms.receive(resumed,{type:'resume',roomCode:a.room.code,token:a.joined.token});
   assert.deepEqual(resumed.room.game!.self.roundReward,a.room.game!.self.roundReward);
   const before=resumed.room.game!.self.credits;
   s.rooms.receive(resumed,{type:'reveal-ready',matchId:resumed.room.matchId!,encounter:1});
   s.act(resumed,{type:'round-flip',guess:'heads',attempt:2});assert.equal(resumed.error?.type==='error' && resumed.error.code,'already-ready');
-  s.tick();assert.equal(resumed.room.game!.encounter,2);assert.equal(resumed.room.game!.self.credits,before+15);
+  s.tick();assert.equal(resumed.room.game!.encounter,2);assert.equal(resumed.room.game!.self.credits,before+30);
   assert.equal(b.room.game!.self.credits,50);const ledger=structuredClone(s.rooms.state(a.room.code).ledger);s.rooms.tick();assert.deepEqual(s.rooms.state(a.room.code).ledger,ledger);
 });
 

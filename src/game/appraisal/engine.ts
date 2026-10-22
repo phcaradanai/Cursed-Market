@@ -16,11 +16,11 @@ import type { Claims } from './challenge-rules.js';
 import { makeMarketContract, marketOrderReserve, TRUST_CAP } from './market-contracts.js';
 import { collectRun } from './survival.js';
 import { PULSE_RULES, TRUST_RULES, activeNpcs, linkTrade } from './pulse.js';
-import { bankRoundReward, flipRoundReward, openRoundRewards } from './round-rewards.js';
+import { bankRoundReward, flipRoundReward, openRoundRewards, raiseRoundReward } from './round-rewards.js';
 import type { AppraisalAction, AppraisalConfig, AppraisalState, Appraiser, DarkMarket, NpcId, Portal } from './types.js';
 
 export const DEFAULT_APPRAISAL_CONFIG: AppraisalConfig = {
-  catalogVersion:3, roundRewards:true, commerce:true, curseSight:true, freeBuy:true, fakeEffect:true, cleanse:true, wishlist:true, wishContract:true, challenge:true, expansion:true,
+  catalogVersion:3, roundRewards:true, multiCoinRewards:true, commerce:true, curseSight:true, freeBuy:true, fakeEffect:true, cleanse:true, wishlist:true, wishContract:true, challenge:true, expansion:true,
   encounters:3, startingCredits:40, maxEnergy:10, recoveryEnergy:4,
   bankReserve:2000, marketProbability:.5, marketMaxOrders:3, marketQuota:1,
 };
@@ -37,6 +37,7 @@ function validateConfig(config:AppraisalConfig):void {
   check(config.fakeEffect===undefined || typeof config.fakeEffect==='boolean','config','กติกาผลของปลอมไม่ถูกต้อง');
   check(config.freeBuy===undefined || typeof config.freeBuy==='boolean','config','กติกาซื้อฟรีพลังไม่ถูกต้อง');
   check(config.curseSight===undefined || typeof config.curseSight==='boolean','config','กติกาตรวจคำสาปไม่ถูกต้อง');
+  check(config.multiCoinRewards===undefined || typeof config.multiCoinRewards==='boolean','config','กติกาทบเหรียญไม่ถูกต้อง');
   check(config.roundRewards===undefined || typeof config.roundRewards==='boolean','config','กติการางวัลจบรอบไม่ถูกต้อง');
   check(config.catalogVersion===undefined || config.catalogVersion===1 || config.catalogVersion===2 || config.catalogVersion===3,'config','เวอร์ชันคลังสินค้าไม่ถูกต้อง');
   for(const key of ['encounters','startingCredits','maxEnergy','recoveryEnergy','bankReserve','marketMaxOrders','marketQuota'] as const)
@@ -287,11 +288,12 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
   const key=`${action.playerId}:${action.requestId}`; const signature=JSON.stringify(action);
   if(previous.accepted[key]) {check(previous.accepted[key]===signature,'request-conflict','request ID ถูกใช้กับคำสั่งอื่น');return previous;}
   check(action.encounter===previous.encounter,'stale-encounter','คำสั่งมาจาก encounter เก่า');
-  const roundAction=action.type==='round-flip' || action.type==='round-bank';
+  const roundAction=action.type==='round-flip' || action.type==='round-bank' || action.type==='round-raise';
   check(roundAction?previous.phase==='REVEAL':!['REVEAL','RESULTS'].includes(previous.phase),'phase','ช่วงนี้ไม่รับ action');
   const state=structuredClone(previous); const p=player(state,action.playerId);
   if(roundAction) {
-    if(action.type==='round-flip')flipRoundReward(state,p,action.guess,action.attempt);
+    if(action.type==='round-flip')flipRoundReward(state,p,action.guess,action.attempt,action.guesses);
+    else if(action.type==='round-raise')raiseRoundReward(state,p,action.coinCount,action.attempt);
     else bankRoundReward(state,p);
     state.revision++;state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);assertAppraisalInvariants(state);return state;
   }
@@ -377,9 +379,11 @@ export function assertAppraisalInvariants(state:AppraisalState):void {
   check(Number.isSafeInteger(state.bank) && state.bank>=0 && state.market.budget>=0 && state.bank>=state.market.budget+state.reservedRewards,'economy','bank reserve ไม่ถูกต้อง');
   const roundFunding=state.ledger.filter(e=>e.from==='@round-fund');
   check(roundFunding.every(e=>state.config.roundRewards && e.reason==='round-reward' && state.players.some(p=>p.id===e.to)),'ledger','เงินรางวัลจบรอบไม่ถูกต้อง');
+  const roundStakes=state.ledger.filter(e=>e.to==='@round-fund');
+  check(roundStakes.every(e=>state.config.multiCoinRewards && e.reason==='round-stake' && state.players.some(p=>p.id===e.from)),'ledger','เงินทบเหรียญไม่ถูกต้อง');
   const itemFunding=state.ledger.filter(e=>e.from==='@item-fund');
   check(itemFunding.every(e=>passivesEnabled(state.config) && ['gear-commission','gear-market'].includes(e.reason) && state.players.some(p=>p.id===e.to)),'ledger','โบนัสสินค้าผิดกติกา');
-  const expected=state.config.bankReserve+state.config.startingCredits*state.players.length+roundFunding.reduce((sum,e)=>sum+e.amount,0)+itemFunding.reduce((sum,e)=>sum+e.amount,0);
+  const expected=state.config.bankReserve+state.config.startingCredits*state.players.length+roundFunding.reduce((sum,e)=>sum+e.amount,0)-roundStakes.reduce((sum,e)=>sum+e.amount,0)+itemFunding.reduce((sum,e)=>sum+e.amount,0);
   check(state.bank+state.players.reduce((sum,p)=>sum+p.credits,0)===expected,'economy','credit รวมเปลี่ยนโดยไม่มี ledger');
   const initial:Record<string,number>={bank:state.config.bankReserve,'@round-fund':0,'@item-fund':0,...Object.fromEntries(state.players.map(p=>[p.id,state.config.startingCredits]))};
   for(const entry of state.ledger) {check(Number.isSafeInteger(entry.amount) && entry.amount>0 && initial[entry.from]!==undefined && initial[entry.to]!==undefined,'ledger','ledger ไม่ถูกต้อง');initial[entry.from]!-=entry.amount;initial[entry.to]!+=entry.amount;}
@@ -389,7 +393,14 @@ export function assertAppraisalInvariants(state:AppraisalState):void {
     check(!!p.npcTrust===!!state.config.commerce && Object.entries(p.npcTrust??{}).every(([npc,n])=>npc in NPC_SPECS && Number.isSafeInteger(n) && n>=0 && n<=TRUST_CAP),'npc-trust','ความไว้ใจ NPC ไม่ถูกต้อง');
     check(Object.values(p.passiveUses??{}).every(n=>Number.isSafeInteger(n) && n>=0),'passive-use','สิทธิ์ตรวจฟรีไม่ถูกต้อง');
     const r=p.roundReward;
-    if(r)check(state.config.roundRewards && r.encounter===state.encounter && r.base===(state.encounter%2?10:15) && Number.isSafeInteger(r.flips) && r.flips>=0 && Number.isSafeInteger(r.amount) && (r.amount===r.base+(r.incomeBonus??0)+(r.winBonus??5)*r.flips || r.amount===0 && r.settled && r.lastFlip?.correct===false),'round-reward','ยอดรางวัลจบรอบไม่ถูกต้อง');
+    if(r) {
+      const validAmount=state.config.multiCoinRewards
+        ? Number.isSafeInteger(r.coinCount) && r.coinCount!>=1 && Number.isSafeInteger(r.staked) && r.staked===(r.coinCount!-1)*r.base && Number.isSafeInteger(r.net)
+          && r.amount===r.base+(r.incomeBonus??0)+r.staked!+r.net! && r.amount>=0 && (r.amount>0 || r.settled)
+          && r.staked===roundStakes.filter(e=>e.from===p.id && e.encounter===state.encounter).reduce((sum,e)=>sum+e.amount,0)
+        : r.amount===r.base+(r.incomeBonus??0)+(r.winBonus??5)*r.flips || r.amount===0 && r.settled && r.lastFlip?.correct===false;
+      check(state.config.roundRewards && r.encounter===state.encounter && r.base===(state.encounter%2?10:15) && Number.isSafeInteger(r.flips) && r.flips>=0 && Number.isSafeInteger(r.amount) && validAmount,'round-reward','ยอดรางวัลจบรอบไม่ถูกต้อง');
+    }
     check(Number.isSafeInteger(p.credits) && p.credits>=0 && Number.isSafeInteger(p.energy) && p.energy>=0 && p.energy<=maxEnergyOf(state,p),'resources','ทรัพยากรไม่ถูกต้อง');
     if(state.config.survival)check(Number.isSafeInteger(p.life) && p.life!>=0 && p.life!<=maxLifeOf(state,p)! && (p.life===0)===(p.paused==='dead') && p.paused!=='exhausted','life','ชีวิตหรือสิทธิ์เล่นไม่ตรงกัน');
     check(p.darkTickets===undefined || Number.isSafeInteger(p.darkTickets) && p.darkTickets>=0,'tickets','ตั๋วคำสั่งมืดไม่ถูกต้อง');

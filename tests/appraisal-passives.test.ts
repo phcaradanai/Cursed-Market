@@ -64,12 +64,12 @@ test('gloves increase low-price acceptance without eliminating detection or allo
 test('canteens and brooches stack in paid recovery offers while resource caps still apply',()=>{
  for(const target of ['energy','life'] as const){let s=fixture();const p=s.players[0]!;p.energy=1;p.life=1;p.npcTrust={orc:3};p.portals[0]!.npc=target==='energy'?'autometa':'orc';equip(s,target==='energy'?'merchant-canteen':'healing-brooch',2);const offer=recoveryOffer(s,p)!;assert.equal(offer.amount,5);if(target==='life')assert.equal(offer.min,4);s=act(s,{type:'recover-resource',target});if(target==='energy')assert.equal(s.players[0]!.energy,6);else assert([5,6].includes(s.players[0]!.life!),'trust 3 deal restores 2-3 plus 2 from brooches, capped at max life');assertAppraisalInvariants(s);}
 });
-test('noble seals, hats and dice snapshot stackable income, seeded odds and win bonuses; loss forfeits the whole pending stake',()=>{
+test('noble seals, hats and dice snapshot stackable income, seeded odds and win bonuses; loss subtracts the same per-coin bonus',()=>{
  let s=fixture();equip(s,'noble-seal',2);equip(s,'gambler-hat',2);equip(s,'lucky-die',2);s.phase='REVEAL';
  for(let n=0;n<1000;n++){s.seed=`lucky-${n}`;if(randomAt(s.seed,'1:alice:round-coin:1')<.5 && randomAt(s.seed,'1:alice:round-coin-luck:1')<.2 && randomAt(s.seed,'1:alice:round-coin-luck:2')>=.2)break;}
  openRoundRewards(s);const r=s.players[0]!.roundReward!;assert.equal(r.amount,14);assert.equal(r.winChance,60);assert.equal(r.winBonus,7);s=act(s,{type:'round-flip',guess:'tails',attempt:1});assert.equal(s.players[0]!.roundReward!.amount,21);
  const winning=s;s=act(s,{type:'round-bank'});assert.equal(s.players[0]!.credits,221);assert.throws(()=>act(s,{type:'round-bank'}));assertAppraisalInvariants(s);
- const wrong=randomAt(winning.seed,'1:alice:round-coin:2')<.5?'tails':'heads';s=act(winning,{type:'round-flip',guess:wrong,attempt:2});assert.equal(s.players[0]!.roundReward!.amount,0);assert.equal(s.players[0]!.credits,200);assertAppraisalInvariants(s);
+ const wrong=randomAt(winning.seed,'1:alice:round-coin:2')<.5?'tails':'heads';s=act(winning,{type:'round-flip',guess:wrong,attempt:2});assert.equal(s.players[0]!.roundReward!.amount,14);assert.equal(s.players[0]!.credits,200);assertAppraisalInvariants(s);
  assert.equal(coinWinChance(heldPassives(Array.from({length:30},()=>({kind:'gambler-hat' as const})))),85);
  const dead=fixture();equip(dead,'noble-seal',2);dead.players[0]!.life=0;assert.equal(passiveBonuses(dead,dead.players[0]!).income,0);
 });

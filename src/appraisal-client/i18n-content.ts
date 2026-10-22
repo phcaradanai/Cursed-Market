@@ -103,7 +103,7 @@ export const EN_PASSIVE_TEXT: Partial<Record<ItemKind, string>> = {
   'tax-order': '+5 percentage points of commission per item on appraised goods you sell. Total rate max 100%.',
   'noble-seal': '+2 credits per item after each trade, included in the coin-call pool.',
   'gambler-hat': '+5 percentage points to win a coin call per item, max 85%.',
-  'lucky-die': '+1 bonus credit per item for each correct coin call. Still lose everything on a wrong call.',
+  'lucky-die': 'Each held item increases the gain or loss by 1 credit per coin. Every coin must be called correctly to win.',
   'merchant-ledger': 'The first successful sale of an appraised item pays +1 sale fee per held item.',
   'friendship-ring': '+1 trust per held item from selling appraised goods. Trust max 10.',
   'negotiator-gloves': '+3 percentage points per item for the merchant to accept a low price, total max 95%. Does not lower the risk of being caught.',

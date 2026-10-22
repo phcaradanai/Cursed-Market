@@ -95,24 +95,25 @@ test('actual survival sockets receive 10 then 15 after trading, and enter the ne
     const wallet=a.room!.game!.self.credits;
     await s.endPhase();assert.equal(a.room!.game!.phase,'TRADE');assert.equal(a.room!.game!.self.roundReward,undefined);
     await s.endPhase();assert.equal(a.room!.game!.phase,'REVEAL');assert.equal(a.room!.game!.encounter,encounter);
-    const base=encounter%2?10:15;assert.equal(a.room!.game!.self.roundReward!.amount,base);assert.equal(a.room!.game!.self.credits,wallet);
-    await s.act(a,{type:'round-bank'});assert.equal(a.room!.game!.self.credits,wallet+base);
+    const base=encounter%2?10:15;const reward=a.room!.game!.self.roundReward!;const income=base+(reward.incomeBonus??0);assert.equal(reward.base,base);assert.equal(reward.amount,income);assert.equal(a.room!.game!.self.credits,wallet);
+    await s.act(a,{type:'round-bank'});assert.equal(a.room!.game!.self.credits,wallet+income);
     for(const c of s.clients)c.send({type:'reveal-ready',matchId:c.room!.matchId!,encounter});
     await Promise.all(s.clients.map(c=>c.phase('PORTALS',encounter+1)));
-    assert.equal(a.room!.game!.self.credits,wallet+base);assert(a.room!.game!.self.life!>0);assert.equal(a.room!.game!.collector,undefined);
+    assert.equal(a.room!.game!.self.credits,wallet+income);assert(a.room!.game!.self.life!>0);assert.equal(a.room!.game!.collector,undefined);
   }
 });
 test('actual sockets deliver round credits and authoritative coin results, then reconnect without rerolling',async t=>{
   const s=await setup(2);t.after(()=>s.app.close());await s.enter();await s.endPhase();await s.endPhase();
   const [a,b]=s.clients as [SocketClient,SocketClient];assert.equal(a.room!.game!.phase,'REVEAL');
-  const before=a.room!.game!.self.credits;await s.act(a,{type:'round-flip',guess:'heads',attempt:1});
-  const reward=a.room!.game!.self.roundReward!;assert.equal(reward.flips,1);assert.equal(reward.amount,reward.lastFlip!.correct?15:0);assert.equal(a.room!.game!.self.credits,before);
+  const before=a.room!.game!.self.credits;await s.act(a,{type:'round-raise',coinCount:2,attempt:1});
+  assert.equal(a.room!.game!.self.credits,before-10);await s.act(a,{type:'round-flip',guess:'heads',guesses:['heads','tails'],attempt:1});
+  const reward=a.room!.game!.self.roundReward!;assert.equal(reward.flips,1);assert.equal(reward.amount,reward.lastFlip!.correct?30:10);assert.equal(a.room!.game!.self.credits,before-10);
   await s.act(b,{type:'round-bank'});assert.equal(b.room!.game!.self.credits,50);
   const joined=a.messages.find(m=>m.type==='joined');assert(joined?.type==='joined');
   a.socket.close();const resumed=await SocketClient.open(s.url);resumed.send({type:'resume',roomCode:joined.roomCode,token:joined.token});
   await resumed.until(()=>resumed.room);assert.deepEqual(resumed.room!.game!.self.roundReward,reward);
   for(const c of [resumed,b])c.send({type:'reveal-ready',matchId:c.room!.matchId!,encounter:1});
-  await Promise.all([resumed.phase('PORTALS',2),b.phase('PORTALS',2)]);assert.equal(resumed.room!.game!.self.credits,before+reward.amount);assert.equal(b.room!.game!.self.credits,50);
+  await Promise.all([resumed.phase('PORTALS',2),b.phase('PORTALS',2)]);assert.equal(resumed.room!.game!.self.credits,before-10+reward.amount);assert.equal(b.room!.game!.self.credits,50);
 });
 for (const count of [2, 3, 4]) test(`v0.4 HTTP/WebSocket ${count}-player appraisal run, replayable room audit, rematch and stale match rejection`, async t => {
   const s = await setup(count); t.after(() => s.app.close()); const host = s.clients[0]!, matchId = host.room!.matchId!;

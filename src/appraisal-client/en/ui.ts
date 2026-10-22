@@ -1,5 +1,16 @@
 /** English for the component, app and feedback text. Keys are the Thai source strings, placeholders included. */
 export const EN_UI_TEXT: Record<string, string> = {
+  "เมื่อเปิดใช้สำเร็จ เพิ่มเติม: {text}": "Extra benefit on successful activation: {text}",
+  "ของใช้แล้วหมด · เปิดใช้ฟรี ไม่เสียพลัง": "Consumed on use · No energy cost",
+  "เปิดใช้ {name} · ฟรีพลัง": "Activate {name} · No energy cost",
+  "ผลกดใช้ถึงจบรอบนี้ · ชนิดเดิมไม่บวกซ้ำ ต่างชนิดบวกกันได้: {text}": "Activated bonuses until this encounter ends · Same kind does not stack; different kinds add together: {text}",
+  " · คิดโบนัสถือสูงสุด 5 ชิ้นต่อชนิด": " · Held bonuses count at most 5 copies per kind",
+  "โอกาสหัวก้อย +{n} จุดเปอร์เซ็นต์": "Coin-call chance +{n} percentage points",
+  "รางวัลจบรอบ +{n} เครดิต": "Round income +{n} credits",
+  "ยอดได้หรือเสียต่อเหรียญ +{n} เครดิต": "Gain or loss per coin +{n} credits",
+  "ลดราคาซื้อ +{n} เครดิตต่อดีล": "Purchase discount +{n} credits per deal",
+  "โอกาสยอมรับราคาต่ำ +{n} จุดเปอร์เซ็นต์": "Low-price acceptance +{n} percentage points",
+  "โควตาตรวจ +{n} ครั้ง": "Inspection quota +{n}",
   "ของสะสมเพิ่ม {income} เครดิต · รวมเริ่มต้น {total} เครดิต · โอกาสถูกต่อเหรียญ {chance}% · ได้หรือเสียต่อเหรียญ {bonus} เครดิต": "Held-item income: {income} credits · Starting pool: {total} credits · Correct chance per coin: {chance}% · Gain or loss per coin: {bonus} credits",
   "เลือกรับเลย หรือทายให้ถูกครบทุกเหรียญ เพิ่ม {bonus} เครดิต แล้วเลือกเสี่ยงต่อได้": "Collect now, or call every coin correctly to gain {bonus} credits, then choose whether to continue",
   "ถูก": "Correct",

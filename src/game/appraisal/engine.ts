@@ -20,11 +20,12 @@ import { bankRoundReward, flipRoundReward, openRoundRewards, raiseRoundReward } 
 import type { AppraisalAction, AppraisalConfig, AppraisalState, Appraiser, DarkMarket, NpcId, Portal } from './types.js';
 
 export const DEFAULT_APPRAISAL_CONFIG: AppraisalConfig = {
-  catalogVersion:3, roundRewards:true, multiCoinRewards:true, commerce:true, curseSight:true, freeBuy:true, fakeEffect:true, cleanse:true, wishlist:true, wishContract:true, challenge:true, expansion:true,
+  catalogVersion:3, itemEffects:true, roundRewards:true, multiCoinRewards:true, commerce:true, curseSight:true, freeBuy:true, fakeEffect:true, cleanse:true, wishlist:true, wishContract:true, challenge:true, expansion:true,
   encounters:3, startingCredits:40, maxEnergy:10, recoveryEnergy:4,
   bankReserve:2000, marketProbability:.5, marketMaxOrders:3, marketQuota:1,
 };
 function validateConfig(config:AppraisalConfig):void {
+  check(config.itemEffects===undefined || typeof config.itemEffects==='boolean','config','กติกาผลสินค้าไม่ถูกต้อง');
   check(config.npcEvents===undefined || typeof config.npcEvents==='boolean','config','กติกาอีเวนต์เฉพาะพ่อค้าไม่ถูกต้อง');
   check(config.core2===undefined || typeof config.core2==='boolean','config','กติกาแกนเกมใหม่ไม่ถูกต้อง');
   check(config.commerce===undefined || typeof config.commerce==='boolean','config','กติกาการค้าไม่ถูกต้อง');
@@ -354,6 +355,8 @@ export function advanceAppraisalEncounter(previous:AppraisalState):AppraisalStat
   state.encounter++;state.phase='PORTALS';state.listings=[];state.market={encounter:state.encounter,open:false,budget:0,orders:[]};
   for(const p of state.players) {
     delete p.roundReward;
+    delete p.itemUseBonuses;
+    delete p.itemUseKinds;
     delete p.vampireDiscount;resetCore2Encounter(p);
     if(state.config.survival && p.life===0)continue;
     if(passivesEnabled(state.config))p.passiveUses={};

@@ -1,10 +1,11 @@
 import { core2Spec } from '../game/appraisal/core2-specs.js';
 import { EVENT_CATALOG, ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, UNSOLD_PENALTIES } from '../game/appraisal/content.js';
 import { PASSIVE_ITEMS } from '../game/appraisal/passives.js';
+import { EXTRA_HELD_EFFECTS, ITEM_USE_EFFECTS, type UseBonuses } from '../game/appraisal/item-effects.js';
 import { OMENS, type Omen } from '../game/appraisal/omen-table.js';
 import type { EventId, ItemKind, NpcId, StatusId } from '../game/appraisal/types.js';
 import { EN_EVENT, EN_ITEM, EN_NPC, EN_NPC_UNSOLD, EN_OMEN, EN_PASSIVE_TEXT, EN_STATUS, EN_TOOL_TEXT } from './i18n-content.js';
-import { pick } from './i18n.js';
+import { pick, t } from './i18n.js';
 
 /** Display text for catalog entries. Thai comes from src/game; English comes from i18n-content.ts. */
 
@@ -34,5 +35,13 @@ export const omenText = (omen: { id: string; name: string; text: string }): { na
 export const omenById = (id: string): Omen | undefined => OMENS.find(omen => omen.id === id);
 
 /** Held-item effect text for a passive relic or charm; empty for kinds that have no passive. */
-export const passiveText = (kind: ItemKind): string => pick(kind==='lucky-die'?'ยอดได้หรือเสียต่อเหรียญเพิ่ม 1 เครดิตต่อชิ้นที่ถือ ต้องทายถูกครบทุกเหรียญจึงได้เพิ่ม':(PASSIVE_ITEMS as Partial<Record<string, { passive: { text: string } }>>)[kind]?.passive.text ?? '', EN_PASSIVE_TEXT[kind]);
+export const passiveText = (kind: ItemKind,itemEffects=false): string => {
+  const extra=itemEffects?EXTRA_HELD_EFFECTS[kind]:undefined;
+  const text=extra?pick(extra.text,extra.en):pick(kind==='lucky-die'?'ยอดได้หรือเสียต่อเหรียญเพิ่ม 1 เครดิตต่อชิ้นที่ถือ ต้องทายถูกครบทุกเหรียญจึงได้เพิ่ม':(PASSIVE_ITEMS as Partial<Record<string, { passive: { text: string } }>>)[kind]?.passive.text ?? '', EN_PASSIVE_TEXT[kind]);
+  return text+(text && itemEffects?t(' · คิดโบนัสถือสูงสุด 5 ชิ้นต่อชนิด'):'');
+};
+export const activationBonusText=(kind:ItemKind):string=>{const effect=ITEM_USE_EFFECTS[kind];return effect?pick(effect.text,effect.en):'';};
+export function usedBonusesText(b:UseBonuses):string {
+  return [b.luck?t('โอกาสหัวก้อย +{n} จุดเปอร์เซ็นต์',{n:b.luck}):'',b.income?t('รางวัลจบรอบ +{n} เครดิต',{n:b.income}):'',b.coinWin?t('ยอดได้หรือเสียต่อเหรียญ +{n} เครดิต',{n:b.coinWin}):'',b.discount?t('ลดราคาซื้อ +{n} เครดิตต่อดีล',{n:b.discount}):'',b.acceptance?t('โอกาสยอมรับราคาต่ำ +{n} จุดเปอร์เซ็นต์',{n:b.acceptance}):'',b.inspections?t('โควตาตรวจ +{n} ครั้ง',{n:b.inspections}):''].filter(Boolean).join(' · ');
+}
 export const toolText = (kind: ItemKind, thai: string): string => pick(thai, EN_TOOL_TEXT[kind]);

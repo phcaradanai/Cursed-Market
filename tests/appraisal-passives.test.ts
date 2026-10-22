@@ -57,8 +57,8 @@ test('purchase discounts and energy reductions match client quotes and do not se
  const t=fixture(),q=t.players[0]!,item=t.items[q.stock[0]!]!;item.kind='tax-order';item.appraisedBy=q.id;purchase(t,q,q,[item.id]);assert.equal(q.credits,182,'20-credit tax order itself earns only base 10%');
 });
 test('gloves increase low-price acceptance without eliminating detection or allowing free goods',()=>{
- const s=fixture(),p=s.players[0]!,item=s.items[p.stock[0]!]!;item.reservation=20;const risk=detectionRisk(p,item,1);equip(s,'negotiator-gloves',40);assert.equal(npcAcceptanceChance(appraisalViewFor(s,p.id),'orc'),95);assert.equal(detectionRisk(p,item,1),risk);
- for(let n=0;n<100;n++){s.seed=`gloves-${n}`;if(randomAt(s.seed,`${s.encounter}:${p.id}:${item.id}:trust-accept:0`)<.95)break;}
+ const s=fixture(),p=s.players[0]!,item=s.items[p.stock[0]!]!;item.reservation=20;const risk=detectionRisk(p,item,1);equip(s,'negotiator-gloves',40);assert.equal(npcAcceptanceChance(appraisalViewFor(s,p.id),'orc'),15,'only five held gloves contribute');assert.equal(detectionRisk(p,item,1),risk);
+ for(let n=0;n<100;n++){s.seed=`gloves-${n}`;if(randomAt(s.seed,`${s.encounter}:${p.id}:${item.id}:trust-accept:0`)<.15)break;}
  appraise(s,p,item.id,1,false,true);assert(item.lastAccepted);const other=s.items[p.stock[1]!]!;appraise(s,p,other.id,0,false,true);assert.equal(other.lastAccepted,false);
 });
 test('canteens and brooches stack in paid recovery offers while resource caps still apply',()=>{
@@ -89,6 +89,6 @@ for(const kind of PASSIVE_ITEM_IDS)test(`${kind}: naturally generated, purchased
  while(s.phase!=='RESULTS')s=s.phase==='REVEAL'?advanceAppraisalEncounter(s):end(s);assert.deepEqual(replayAppraisalAudit(exportAppraisalAudit(s)),s);assertAppraisalInvariants(s);
 });
 
-test('seeded sampling verifies 60% stacked hat odds and the 85% cap for either guess',()=>{
- for(const count of [2,30])for(const guess of ['heads','tails'] as const){const s=fixture();equip(s,'gambler-hat',count);s.phase='REVEAL';openRoundRewards(s);const template=structuredClone(s.players[0]!.roundReward!);let wins=0;for(let n=0;n<3000;n++){s.seed=`hat-odds-${n}`;s.players[0]!.roundReward=structuredClone(template);flipRoundReward(s,s.players[0]!,guess,1);if(s.players[0]!.roundReward!.lastFlip!.correct)wins++;}const actual=wins/3000,expected=count===2?.6:.85;assert(Math.abs(actual-expected)<.04,`${count}/${guess}: ${actual}`);}
+test('seeded sampling verifies 60% stacked hat odds and the five-copy 75% cap for either guess',()=>{
+ for(const count of [2,30])for(const guess of ['heads','tails'] as const){const s=fixture();equip(s,'gambler-hat',count);s.phase='REVEAL';openRoundRewards(s);const template=structuredClone(s.players[0]!.roundReward!);let wins=0;for(let n=0;n<3000;n++){s.seed=`hat-odds-${n}`;s.players[0]!.roundReward=structuredClone(template);flipRoundReward(s,s.players[0]!,guess,1);if(s.players[0]!.roundReward!.lastFlip!.correct)wins++;}const actual=wins/3000,expected=count===2?.6:.75;assert(Math.abs(actual-expected)<.04,`${count}/${guess}: ${actual}`);}
 });

@@ -31,6 +31,8 @@ export type ItemKind = ItemFamily | 'memory-mirror' | 'rift-mirror' | 'blood-orb
   'abyss-pearl' | 'tide-lantern' | 'kraken-ink' | 'siren-conch' | 'hive-comb' | 'chitin-blade' | 'larva-cell' | 'compound-mirror' | PassiveKind;
 export type AppraisalPhase = 'PORTALS' | 'APPRAISAL' | 'TRADE' | 'REVEAL' | 'RESULTS';
 export interface AppraisalConfig {
+  /** Absent in saved audits: preserve historical item effects and activation costs. */
+  itemEffects?: boolean;
   /** Absent in original v0.4 audits: retain the original 10-item generation pool. */
   catalogVersion?: 1 | 2 | 3;
   /** Absent in historical audits: preserve their original economy. */
@@ -118,6 +120,10 @@ export interface RoundReward {
   lastFlip?:{guess:CoinSide; side:CoinSide; correct:boolean; coins?:Array<{guess:CoinSide;side:CoinSide;correct:boolean}>; delta?:number};
 }
 export interface Appraiser {
+  /** Extra activated-item bonuses; reset after the round reward is banked. */
+  itemUseBonuses?:import('./item-effects.js').UseBonuses;
+  /** Successful activation bonus sources this encounter: same kind never adds twice. */
+  itemUseKinds?:ItemKind[];
   npcContracts?: NpcContracts;
   vampireDiscount?: {encounter:number};
   passiveUses?:Partial<Record<InspectionProperty,number>>;
@@ -230,6 +236,7 @@ export interface AppraisalState {
   vault?: string[];
 }
 export interface ItemView {
+  itemEffects?:boolean;
   id: string; kind: ItemKind; name: string; image: string; owner: string;
   npc: NpcId;
   range?: [number,number]; ask: number; appraisal: number | null; lockedUntil: number | null;
@@ -242,6 +249,7 @@ export interface ItemView {
 }
 export interface Core2Actions { skill?:{npc:NpcId;name:string;needsItem:boolean;strong:boolean}; stealChance?:number; pickpocketChance?:number; theftUsed:boolean; trustForSkill:number }
 export interface AppraisalView {
+  itemEffects?:boolean;
   version: 4 | 5; phase: AppraisalPhase; encounter: number; encounterCount: number | null; revision: number;
   survival?:NonNullable<AppraisalConfig['survival']>; core2?:boolean; collectorAt?:number; dread?:number; curseSight?:boolean; freeBuy?:boolean; fakeEffect?:boolean; cleanse?:boolean; wishlist?:boolean; wishContract?:boolean; challenge?:boolean; polish?:boolean; omen?:{id:string;name:string;text:string}; salePct?:number; fee?:number; maxEnergy?:number; collector?:CollectorResult[]; brokerage?:boolean; roundRewardBase?:number; passives?:boolean;
   self: Omit<Appraiser,'knowledge'|'portals'|'stock'|'inventory'|'valuations'|'startWealth'|'acceptedDanger'|'seenEvents'|'resolvedEvents'> & {

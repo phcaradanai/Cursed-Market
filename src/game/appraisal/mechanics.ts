@@ -1,6 +1,7 @@
 import { marketConditionMatch, marketOrderReserve, trustAcceptanceBonus, TRUST_CAP } from './market-contracts.js';
 import { commissionRate, freeInspectionCount, inspectionLimit, MAX_ENERGY_CAP, MAX_LIFE_BONUS_CAP, passiveBonuses, passiveMarketBonus, passivesEnabled, WISH_SLOT_CAP } from './passives.js';
 import type { PassiveBonuses } from './passives.js';
+import { ITEM_USE_EFFECTS } from './item-effects.js';
 import { RuleError } from '../engine.js';
 import { randomAt } from '../random.js';
 import { ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, itemFamily, priceRange } from './content.js';
@@ -364,8 +365,8 @@ export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraise
 }
 export function activate(state: AppraisalState, p: Appraiser, itemId: string): void {
   const item = ownedItem(state,p,itemId); check(!p.activated.includes(itemId),'activated','เปิดใช้ชิ้นนี้ใน encounter แล้ว');
-  spend(state,p,0,1,'activate'); p.activated.push(itemId);
   const spec = ITEM_SPECS[item.kind];
+  spend(state,p,0,state.config.itemEffects && spec.consumable?0:1,'activate'); p.activated.push(itemId);
   const shielded = !!status(p,'B06') && spec.drawback.startsWith('D');
   if (item.cursed) grant(state,p,spec.drawback);
   const fogged = !!status(p,'D14'); consumeStatus(p,'D14');
@@ -375,6 +376,11 @@ export function activate(state: AppraisalState, p: Appraiser, itemId: string): v
     else if (itemFamily(item.kind) === 'key' && status(p,'D07')) removeStatus(p,'D07');
     else grant(state,p,spec.buff);
     if(state.config.survival && ['food','potion'].includes(itemFamily(item.kind)))healLife(state,p,2,'restorative-item');
+    const bonus=state.config.itemEffects?ITEM_USE_EFFECTS[item.kind]:undefined;
+    if(bonus && !p.itemUseKinds?.includes(item.kind)) {
+      p.itemUseKinds??=[];p.itemUseKinds.push(item.kind);
+      const key=bonus.effect;p.itemUseBonuses??={};p.itemUseBonuses[key]=(p.itemUseBonuses[key]??0)+bonus.amount;
+    }
   }
   if(state.config.survival && item.cursed)damageLife(state,p,1,'cursed-activation');
   if (spec.consumable) retire(state,p,itemId,'consumed',false);
@@ -389,13 +395,14 @@ export function activate(state: AppraisalState, p: Appraiser, itemId: string): v
 /** The four authentic/fake × cursed/clean results, spelled out for the player. */
 export function activationNote(state:AppraisalState,item:AppraisalItem,shielded:boolean,worked=item.genuine,fogged=false):string {
   const spec = ITEM_SPECS[item.kind]; const name = spec.name;
-  const buff = itemFamily(item.kind) === 'orb' ? `ฟื้นพลัง ${spec.energyRecovery ?? 3}` : STATUS_CATALOG.find(s => s.id === spec.buff)!.name;
+  const extra=state.config.itemEffects?ITEM_USE_EFFECTS[item.kind]?.text:undefined;
+  const buff = (itemFamily(item.kind) === 'orb' ? `ฟื้นพลัง ${spec.energyRecovery ?? 3}` : STATUS_CATALOG.find(s => s.id === spec.buff)!.name)+(extra?` · ${extra}`:'');
   const drawback = STATUS_CATALOG.find(s => s.id === spec.drawback)!.name;
   const curse = `คำสาปทำงาน ${shielded ? `${drawback}ถูก${STATUS_CATALOG.find(s => s.id === 'B06')!.name}กันไว้` : `รับ ${drawback}`}${state.config.survival ? ' และเสียชีวิต 1' : ''}`;
   if (fogged) return `เปิดใช้ ${name}: ${item.genuine ? 'ของแท้' : 'ของปลอม'}แต่หมอกวิกลจริตทำให้ผลดีไม่ออกฤทธิ์${item.cursed ? ` · ${curse}` : ''}`;
   if (item.genuine) return item.cursed ? `เปิดใช้ ${name}: ของแท้แต่มีคำสาป ได้ ${buff} · ${curse}` : `เปิดใช้ ${name}: ของแท้ ไม่มีคำสาป ได้ ${buff}`;
   const fake = worked ? `ของปลอมแต่ยังออกฤทธิ์ได้ ได้ ${buff}` : 'ของปลอม ผลดีไม่ออกฤทธิ์';
-  return item.cursed ? `เปิดใช้ ${name}: ${fake} · ${curse}` : worked ? `เปิดใช้ ${name}: ${fake} ไม่มีคำสาป` : `เปิดใช้ ${name}: ของปลอม ไม่มีคำสาป ผลดีไม่ออกฤทธิ์ เสียพลังเปล่า`;
+  return item.cursed ? `เปิดใช้ ${name}: ${fake} · ${curse}` : worked ? `เปิดใช้ ${name}: ${fake} ไม่มีคำสาป` : `เปิดใช้ ${name}: ของปลอม ไม่มีคำสาป ผลดีไม่ออกฤทธิ์${state.config.itemEffects && spec.consumable?' ใช้แล้วหมด ไม่เสียพลัง':' เสียพลังเปล่า'}`;
 }
 export function penaltyItem(state: AppraisalState, p: Appraiser, itemId: string): void {
   ownedItem(state,p,itemId);

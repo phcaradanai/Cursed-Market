@@ -1,12 +1,13 @@
 import { POLISH_EVENTS } from '../game/appraisal/polish-events.js';
 import { marketOrderReserve } from '../game/appraisal/market-contracts.js';
 import { emptyPassives, freeInspectionCount, heldPassives } from '../game/appraisal/passives.js';
+import { addUseBonuses } from '../game/appraisal/item-effects.js';
 import type { InspectionProperty, Knowledge } from '../game/appraisal/types.js';
 import { FAKE_EFFECT_CHANCE, collectorTotal, itemScoreValue } from '../game/appraisal/scoring.js';
 import { BOND_SPECS, CONSIGN_RULES, NPC_SPECS } from '../game/appraisal/content.js';
 import { t, getLang } from './i18n.js';
 import { core2Cost, core2Needs, core2NeedsItem, core2Title, isCore2Consequence, isCore2Event } from './core2-text.js';
-import { eventText, itemName, npcName, npcUnsoldText, statusName, statusDescription } from './catalog-text.js';
+import { activationBonusText, eventText, itemName, npcName, npcUnsoldText, statusName, statusDescription } from './catalog-text.js';
 import { ITEM_SPECS, itemFamily } from '../game/appraisal/content.js';
 export { statusName } from './catalog-text.js';
 import type { AppraisalView, EventOffer, ItemView, NpcId, StatusId } from '../game/appraisal/types.js';
@@ -46,7 +47,7 @@ export function stepPrice(value:string,delta:number):string {
 export function hasStatus(game:AppraisalView,id:StatusId):boolean {
   return game.self.statuses.some(s=>s.id===id && s.starts<=game.encounter && s.expires>=game.encounter && s.charges>0);
 }
-export const playerPassives=(game:AppraisalView,exclude?:string)=>game.passives && game.self.life!==0?heldPassives(game.self.inventory.filter(i=>i.id!==exclude)):emptyPassives();
+export const playerPassives=(game:AppraisalView,exclude?:string)=>game.self.life===0?emptyPassives():addUseBonuses(game.passives?heldPassives(game.self.inventory.filter(i=>i.id!==exclude),!!game.itemEffects):emptyPassives(),game.itemEffects?game.self.itemUseBonuses:undefined);
 export const npcAcceptanceChance=(game:AppraisalView,npc:NpcId)=>Math.min(95,(game.self.npcTrust?.[npc]??0)*5+playerPassives(game).acceptance);
 export const inspectionQuota=(game:AppraisalView)=>2+playerPassives(game).inspections;
 export const freeInspectionRemaining=(game:AppraisalView,property:InspectionProperty)=>freeInspectionCount(playerPassives(game),game.self,property);
@@ -74,11 +75,13 @@ export function purchaseBlock(game:AppraisalView,total:number,quiet:boolean):str
   return needShort(game,{credits:total,energy:purchaseEnergy(game)});
 }
 /** Mirror of the server's activation cost and preconditions. */
+export const activationEnergy=(game:AppraisalView,item:ItemView)=>game.itemEffects && ITEM_SPECS[item.kind].consumable?0:1;
 export function activationBlock(game:AppraisalView,itemId:string,quiet:boolean):string|null {
   if(game.self.eventOffer) return t('ตอบเหตุการณ์ก่อน จึงเปิดใช้ได้');
   if(quiet) return null;
   if(game.self.activated.includes(itemId)) return t('ชิ้นนี้เปิดใช้ในช่วงนี้แล้ว');
-  return needShort(game,{credits:0,energy:1});
+  const item=game.self.inventory.find(i=>i.id===itemId);
+  return needShort(game,{credits:0,energy:item?activationEnergy(game,item):1});
 }
 /**
  * What activating an item may give and what it may cost, composed on the client from the seat's own knowledge.
@@ -89,7 +92,8 @@ export function possibleBenefitText(game:AppraisalView,item:ItemView):string {
   const base=itemFamily(item.kind)==='orb'?t('อาจฟื้นพลัง {n} เมื่อเปิดใช้',{n:spec.energyRecovery??3}):
     itemFamily(item.kind)==='key' && hasStatus(game,'D07')?t('อาจล้างสถานะปิดประตูที่มีอยู่ การใช้ครั้งนี้เป็นการปลดประตู'):
     k.effectsKnown?statusDescription(spec.buff):t('อาจได้รับ {name}',{name:statusName(spec.buff)});
-  return base+(game.survival && ['food','potion'].includes(itemFamily(item.kind))?t(' · ของแท้ฟื้นชีวิต 2'):'')+(game.survival && spec.buff==='B10'?t(' · ขณะมีสิทธิ์เหลือ Collector เพิ่มคะแนน 20%'):'');
+  const extra=game.itemEffects?activationBonusText(item.kind):'';
+  return base+(extra?` · ${extra}`:'')+(game.survival && ['food','potion'].includes(itemFamily(item.kind))?t(' · ของแท้ฟื้นชีวิต 2'):'')+(game.survival && spec.buff==='B10'?t(' · ขณะมีสิทธิ์เหลือ Collector เพิ่มคะแนน 20%'):'');
 }
 export function possibleDrawbackText(game:AppraisalView,item:ItemView):string {
   const spec=ITEM_SPECS[item.kind];const k=item.knowledge;

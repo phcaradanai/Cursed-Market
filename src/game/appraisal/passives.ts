@@ -1,4 +1,5 @@
 import type { ItemSpec } from './content.js';
+import { addUseBonuses, EXTRA_HELD_EFFECTS } from './item-effects.js';
 import type { AppraisalConfig, AppraisalState, Appraiser, InspectionProperty, ItemKind, MarketOrder, PassiveKind } from './types.js';
 
 export interface PassiveBonuses {
@@ -35,11 +36,21 @@ export const PASSIVE_ITEMS={
 export const passivesEnabled=(config:Pick<AppraisalConfig,'catalogVersion'>)=>config.catalogVersion===3;
 export function passiveSpec(kind:ItemKind):PassiveSpec|undefined {return PASSIVE_ITEMS[kind as PassiveKind];}
 /** Effects depend on the known kind and ownership, never hidden authenticity or curse. */
-export function heldPassives(items:ReadonlyArray<{kind:ItemKind}>):PassiveBonuses {
-  const result=emptyPassives();for(const item of items){const effect=passiveSpec(item.kind)?.passive;if(effect)result[effect.effect]+=effect.amount;}return result;
+export const HELD_STACK_CAP=5;
+export function heldPassives(items:ReadonlyArray<{kind:ItemKind}>,itemEffects=false):PassiveBonuses {
+  const result=emptyPassives(),counts=new Map<ItemKind,number>();
+  for(const item of items){
+    const count=counts.get(item.kind)??0;if(itemEffects && count>=HELD_STACK_CAP)continue;
+    counts.set(item.kind,count+1);
+    const effect=passiveSpec(item.kind)?.passive??(itemEffects?EXTRA_HELD_EFFECTS[item.kind]:undefined);
+    if(effect)result[effect.effect]+=effect.amount;
+  }
+  return result;
 }
 export function passiveBonuses(state:AppraisalState,p:Appraiser,exclude:readonly string[]=[]):PassiveBonuses {
-  return !passivesEnabled(state.config) || p.life===0?emptyPassives():heldPassives(p.inventory.filter(id=>!exclude.includes(id) && state.items[id]?.owner===p.id).map(id=>state.items[id]!));
+  if(p.life===0)return emptyPassives();
+  const held=heldPassives(p.inventory.filter(id=>!exclude.includes(id) && state.items[id]?.owner===p.id).map(id=>state.items[id]!),!!state.config.itemEffects);
+  return addUseBonuses(passivesEnabled(state.config)?held:emptyPassives(),state.config.itemEffects?p.itemUseBonuses:undefined);
 }
 export function freeInspectionCount(b:PassiveBonuses,p:Pick<Appraiser,'passiveUses'>,property:InspectionProperty):number {
   return Math.max(0,b[property==='price'?'freePrice':property==='authenticity'?'freeAuth':'freeEffects']-(p.passiveUses?.[property]??0));

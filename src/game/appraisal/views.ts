@@ -2,6 +2,7 @@ import { cleanseOffer } from './cleanse.js';
 import { PULSE_RULES, STOCK_RULES, activeNpcs, merchantWary, shardsPerSale } from './pulse.js';
 import { wishBook, wishDesk, wishOffer } from './wishlist.js';
 import { passiveBonuses, passivesEnabled } from './passives.js';
+import { ITEM_USE_EFFECTS } from './item-effects.js';
 import { dreadChance } from './core2.js';
 import { core2ActionsOf } from './core2-actions.js';
 import { ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, itemFamily, itemImage } from './content.js';
@@ -23,13 +24,13 @@ export function appraisalItemView(state:AppraisalState,playerId:string,itemId:st
     itemFamily(item.kind)==='key' && p.statuses.some(s=>s.id==='D07' && s.charges>0)?'อาจล้างสถานะปิดประตูที่มีอยู่ การใช้ครั้งนี้เป็นการปลดประตู':
     k.effectsKnown?buff.description:`อาจได้รับ ${buff.name}`;
   const profile=NPC_SPECS[item.npc]; const shop=state.players.find(s=>s.id===item.npcOwnerId);
-  return {id:item.id,kind:item.kind,npc:item.npc,name:spec.name,image:itemImage(item.kind),owner:item.owner,
+  return {id:item.id,kind:item.kind,npc:item.npc,name:spec.name,image:itemImage(item.kind),owner:item.owner,...(state.config.itemEffects?{itemEffects:true}:{}),
     ...(k.base!==undefined?{range:[k.base,k.base] as [number,number]}:k.range?{range:k.range}:{}),ask:item.ask,appraisal:item.lastAppraisal,
     price:shop?npcQuote(shop,item):item.ask,appraisalAccepted:item.lastAccepted,
     ...(item.appraisedBy?{appraisedBy:item.appraisedBy,commissionPaid:!!item.commissionPaid}:{}),
     ...(item.owner===playerId && p.paid?.[item.id]!==undefined?{paid:p.paid[item.id]!}:{}),...(item.bonus?{bonus:true}:{}),...(item.stolen?{stolen:true}:{}),
     lockedUntil:lock?.expires??null,knowledge:k,certificate:item.certificate,
-    possibleBenefit:benefit+(state.config.survival && ['food','potion'].includes(itemFamily(item.kind))?' · ของแท้ฟื้นชีวิต 2': '')+(state.config.survival && spec.buff==='B10'?' · ขณะมีสิทธิ์เหลือ Collector เพิ่มคะแนน 20%':'') ,
+    possibleBenefit:benefit+(state.config.itemEffects && ITEM_USE_EFFECTS[item.kind]?` · ${ITEM_USE_EFFECTS[item.kind]!.text}`:'')+(state.config.survival && ['food','potion'].includes(itemFamily(item.kind))?' · ของแท้ฟื้นชีวิต 2': '')+(state.config.survival && spec.buff==='B10'?' · ขณะมีสิทธิ์เหลือ Collector เพิ่มคะแนน 20%':'') ,
     possibleDrawback:(k.effectsKnown?drawback.description:`อาจได้รับ ${drawback.name}`)+(state.config.survival?' · หากมีคำสาป เปิดใช้เสียชีวิต 1':'')+(state.config.survival && spec.drawback==='D10'?' · ขณะสถานะยังอยู่ Collector ลดคะแนน 20%':''),
     condition:{statusId:profile.condition,discount:profile.discount,available:shop?.dealMode!=='cash' && (!!state.config.survival || profile.condition!=='D04' || state.encounter<state.config.encounters),required:shop?.dealMode==='condition'}};
 }
@@ -38,6 +39,7 @@ export function appraisalViewFor(state:AppraisalState,playerId:string):Appraisal
   const p=player(state,playerId);
   const {knowledge:_knowledge,portals:_portals,stock:_stock,inventory:_inventory,valuations:_valuations,startWealth:_startWealth,acceptedDanger:_acceptedDanger,seenEvents:_seenEvents,resolvedEvents:_resolvedEvents,...self}=structuredClone(p);
   return {
+    ...(state.config.itemEffects?{itemEffects:true}:{}),
     ...(state.config.core2?{core2:true,...(state.config.survival?{dread:dreadChance(state.encounter,omenNow(state)?.dread??1)}:{})}:{}),...(passivesEnabled(state.config)?{passives:true}:{}),...(state.config.curseSight?{curseSight:true}:{}),...(state.config.freeBuy?{freeBuy:true}:{}),...(state.config.fakeEffect?{fakeEffect:true}:{}),...(state.config.cleanse?{cleanse:true}:{}),...(state.config.wishlist?{wishlist:true}:{}),...(state.config.wishlist && state.config.wishContract?{wishContract:true}:{}),...(state.config.challenge?{challenge:true}:{}),...(salePercent(state,p,true)!==0 || state.config.polish?{salePct:salePercent(state,p,true)}:{}),...(state.config.polish?{polish:true,...(omenNow(state)?{omen:{id:omenNow(state)!.id,name:omenNow(state)!.name,text:omenNow(state)!.text}}:{}),fee:feeSurcharge(state,p)}:{}),
     version:state.version,phase:state.phase,encounter:state.encounter,encounterCount:state.config.survival?null:state.config.encounters,revision:state.revision,
     ...(state.config.roundRewards?{roundRewardBase:(state.encounter%2?10:15)+passiveBonuses(state,p).income}:{}),

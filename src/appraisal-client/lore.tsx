@@ -2,11 +2,10 @@ import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import { ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, itemFamily, itemImage, npcImage } from '../game/appraisal/content.js';
 import { getLang, t, type Lang } from './i18n.js';
-import { itemName, npcHint, npcName, passiveText, statusDescription, statusDuration, statusName, toolText } from './catalog-text.js';
+import { activationBonusText, itemName, npcHint, npcName, passiveText, statusDescription, statusDuration, statusName, toolText } from './catalog-text.js';
 import { EN_NPC } from './i18n-content.js';
 import { CHALLENGE_TOOLS } from '../game/appraisal/challenge-rules.js';
 import { CLEANSE_TOOLS } from '../game/appraisal/cleanse-rules.js';
-import { passiveSpec } from '../game/appraisal/passives.js';
 import type { ItemKind, ItemView, NpcId, StatusId } from '../game/appraisal/types.js';
 import { readable, scoreStatusText } from './model.js';
 import { BuffIcon, DebuffIcon } from './icons.js';
@@ -71,8 +70,10 @@ export function ItemCard({kind,item}:{kind:ItemKind;item?:ItemView|undefined}) {
       <span>{k?.base!==undefined?t('มูลค่าจริง {n} เครดิต',{n:k.base}):k?.range?t('เบาะแสมูลค่า {a}–{b} เครดิต',{a:k.range[0],b:k.range[1]}):t('ยังไม่มีข้อมูลมูลค่า · ต้องตรวจราคาสินค้าชิ้นนี้')}</span>
       {item && <span>{knownText(item)}</span>}
       {tool && <span>{kind in CHALLENGE_TOOLS?t('ท้าทายคำระบุ · {text}',{text:tool}):t('ล้างคำสาป · {text}',{text:tool})}</span>}
-      {passiveSpec(kind) && <span>{t('ขณะถือ · สะสมได้: {text}',{text:passiveText(kind)})}</span>}
+      {passiveText(kind,item?.itemEffects) && <span>{t('ขณะถือ · สะสมได้: {text}',{text:passiveText(kind,item?.itemEffects)})}</span>}
       <span>{t('เปิดใช้อาจได้ {benefit} · เสี่ยง {drawback}',{benefit,drawback:statusName(spec.drawback)})}{spec.consumable?t(' · ใช้แล้วหมด'):''}</span>
+      {item?.itemEffects && activationBonusText(kind) && <span>{t('เมื่อเปิดใช้สำเร็จ เพิ่มเติม: {text}',{text:activationBonusText(kind)})}</span>}
+      {item?.itemEffects && spec.consumable && <span>{t('ของใช้แล้วหมด · เปิดใช้ฟรี ไม่เสียพลัง')}</span>}
     </span>
   </>;
 }

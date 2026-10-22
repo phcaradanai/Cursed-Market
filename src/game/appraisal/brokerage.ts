@@ -1,5 +1,6 @@
 import { randomAt } from '../random.js';
 import { TRUST_RULES } from './pulse.js';
+import { CORE2, anchorOf, consignPayout } from './core2.js';
 import { BOND_SPECS, CONSIGN_RULES, ITEM_SPECS, UNSOLD_PENALTIES, itemFamily } from './content.js';
 import type { BondSpec } from './content.js';
 import { check, completeAppraisedSale, consumeStatus, damageLife, grant, healLife, known, learn, ownedItem, player, purchase, recover, removeStatus, retire, reward, saleApply, salePreview, spend, status, stockItem, trace, unlocked } from './mechanics.js';
@@ -14,7 +15,7 @@ function shopStock(state:AppraisalState,p:Appraiser):string[] {
 }
 function freeBank(state:AppraisalState):number { return state.bank-state.market.budget-state.reservedRewards; }
 function bondPrice(state:AppraisalState,spec:BondSpec,itemId:string):number {
-  return Math.floor(ITEM_SPECS[state.items[itemId]!.kind].anchor*(spec.price??1));
+  return Math.floor(anchorOf(state.config,state.items[itemId]!.kind)*(spec.price??1));
 }
 /** What the seat would really receive: the shared sale pipeline applies to everything it owns. */
 function bondQuote(state:AppraisalState,p:Appraiser,spec:BondSpec,itemId:string):number {return salePreview(state,p,bondPrice(state,spec,itemId));}
@@ -131,6 +132,22 @@ function consign(state:AppraisalState,p:Appraiser,item:AppraisalItem):void {
   const roll=randomAt(state.seed,`${state.encounter}:${p.id}:${item.id}:consign`);
   leaveShop(state,p,item);item.owner='dark-market';state.vault!.push(item.id);
   let outcome='clean';
+  if(state.config.core2) {
+    // v0.6: the Dark Market pays a share of the item's real value (fake and cursed goods are worth less), minus its cut.
+    const owed=consignPayout(item.base,item.genuine,item.cursed);
+    const free=state.bank-state.market.budget-state.reservedRewards;const paid=Math.max(0,Math.min(owed,free));
+    if(paid>0) reward(state,p,paid,'consign-payout');
+    p.notes.push(`Dark Market รับฝากของและจ่ายให้ ${paid} เครดิต (หลังหักค่าธรรมเนียม ${CORE2.consign.fee})`);
+    if(roll>=CORE2.consign.debuffBelow) {const fee=payUpTo(state,p,CORE2.consign.extraFee,'consign-fee');outcome=`fee:${fee}`;p.notes.push(`แต่ถูกเก็บค่าผ่านทางเพิ่ม ${fee} เครดิต`);}
+    else if(roll>=CORE2.consign.cleanBelow) {
+      const pool=state.config.polish?[...CONSIGN_RULES.debuffs,'D17' as const,'D18' as const]:CONSIGN_RULES.debuffs;
+      const debuff=pool[Math.floor(randomAt(state.seed,`${state.encounter}:${p.id}:${item.id}:consign-debuff`)*pool.length)]!;
+      grant(state,p,debuff);outcome=`debuff:${debuff}`;p.notes.push(`และทิ้ง ${debuff} ไว้กับคุณ`);
+    } else p.notes.push('ไม่มีผลติดตัว');
+    p.notes=p.notes.slice(-30);
+    trace(state,p,'unsold-consigned',{itemId:item.id,outcome,paid});
+    return;
+  }
   if(roll>=CONSIGN_RULES.debuffBelow) {const paid=payUpTo(state,p,CONSIGN_RULES.fee,'consign-fee');outcome=`fee:${paid}`;p.notes.push(`Dark Market รับฝากของ เก็บค่าผ่านทาง ${paid} เครดิต`);}
   else if(roll>=CONSIGN_RULES.cleanBelow) {
     // Polish rules add market inflation and hidden taxes to the debuffs a consignment can leave behind.
@@ -169,7 +186,7 @@ export function auctionLots(state:AppraisalState):AuctionLot[] {
   if(!rules || !vault.length || randomAt(state.seed,`${state.encounter}:auction:open`)>=rules.auctionProbability) return [];
   return vault.map(itemId=>({itemId,rank:randomAt(state.seed,`${state.encounter}:auction:${itemId}:rank`)}))
     .sort((a,b)=>a.rank-b.rank).slice(0,rules.maxLots)
-    .map(({itemId})=>({id:`lot-${state.encounter}-${itemId}`,itemId,minimum:Math.max(1,Math.floor(ITEM_SPECS[state.items[itemId]!.kind].anchor*.6)),bids:{}}));
+    .map(({itemId})=>({id:`lot-${state.encounter}-${itemId}`,itemId,minimum:Math.max(1,Math.floor(anchorOf(state.config,state.items[itemId]!.kind)*.6)),bids:{}}));
 }
 export function placeBid(state:AppraisalState,p:Appraiser,lotId:string,credits:number):void {
   const lot=state.market.lots?.find(l=>l.id===lotId);

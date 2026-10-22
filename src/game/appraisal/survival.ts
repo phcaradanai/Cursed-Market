@@ -1,4 +1,5 @@
 import { check, status, trace } from './mechanics.js';
+import { CORE2 } from './core2.js';
 import { collectorTotal, itemScoreValue } from './scoring.js';
 import { closeNpcContracts } from './npc-events.js';
 import type { AppraisalConfig, AppraisalState, CollectorResult } from './types.js';
@@ -8,7 +9,7 @@ export const SURVIVAL_RULES:NonNullable<AppraisalConfig['survival']>={maxLife:6,
 /** Experimental numbers for unsold-appraisal duty, vault auctions and NPC × held-item events. */
 export const BROKERAGE_RULES:NonNullable<AppraisalConfig['brokerage']>={auctionProbability:.5,maxLots:2,bondProbability:.65};
 export function collectRun(state:AppraisalState):void {
-  check(state.config.survival && state.players.every(p=>p.life===0),'collector','Collector รับของเมื่อทุกคนชีวิตหมดเท่านั้น');
+  check(state.config.survival && (state.players.every(p=>p.life===0) || state.config.core2 && state.encounter>=CORE2.collectorEncounter),'collector','Collector รับของเมื่อทุกคนชีวิตหมด หรือถึงเส้นตายเท่านั้น');
   check(!state.collector,'collector','Collector คิดคะแนนแล้ว');
   closeNpcContracts(state);
   const results:CollectorResult[]=state.players.map(p=>{

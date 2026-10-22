@@ -1,6 +1,6 @@
 
 /** A seeded omen colours every encounter of a run, so no two runs weigh the same choices. Applies to every seat alike. */
-export type OmenId='boom'|'inflation'|'tax'|'festival'|'insight'|'plague'|'generous';
+export type OmenId='boom'|'inflation'|'tax'|'festival'|'insight'|'plague'|'generous'|'bloodmoon'|'collector-tax'|'famine'|'thieves-night'|'calm'|'black-night'|'pilgrims'|'pestilence';
 export interface Omen {
   id:OmenId; name:string; text:string;
   /** Percentage points added to every sale of an item the seat owns. */
@@ -15,6 +15,20 @@ export interface Omen {
   settleEnergy?:number;
   /** Credits added to the post-trade round reward. */
   roundBonus?:number;
+  /** Core v0.6: multiplier on the dread chance this encounter. */
+  dread?:number;
+  /** Core v0.6: extra credits on recovery deals. */
+  healCost?:number;
+  /** Core v0.6: percentage points added to every theft attempt. */
+  steal?:number;
+  /** Core v0.6: trust a sold appraisal earns on top of the usual. */
+  trust?:number;
+  /** Core v0.6: percent of credits the Collector's tax takes at settlement. */
+  taxPct?:number;
+  /** Core v0.6: the Dark Market is always open this encounter. */
+  marketOpen?:boolean;
+  /** Core v0.6: life every living seat loses at settlement. */
+  settleLife?:number;
 }
 export const OMENS:ReadonlyArray<Omen>=[
   {id:'boom',name:'ตลาดคึกคัก',text:'ทุกคนขายของที่ตัวเองเป็นเจ้าของได้ราคาเพิ่ม 15% ในช่วงนี้ รวม Dark Market ผู้ซื้อตามหา และผู้ซื้อพิเศษ ไม่รวมของที่ประเมินให้พ่อค้า',salePct:15},

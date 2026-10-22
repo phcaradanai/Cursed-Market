@@ -2,7 +2,6 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { advanceAppraisalEncounter, applyAppraisalAction, appraisalViewFor, createAppraisalRun, exportAppraisalAudit, replayAppraisalAudit } from '../game/appraisal/index.js';
-import { ITEM_SPECS } from '../game/appraisal/content.js';
 import { TRUST_RULES } from '../game/appraisal/pulse.js';
 import type { AppraisalAction, AppraisalAudit, AppraisalConfig, AppraisalState, AppraisalView, ItemView } from '../game/appraisal/index.js';
 
@@ -13,6 +12,13 @@ function npcEnergy(v:AppraisalView):number {return (v.freeBuy?0:1)+(v.self.statu
 function buyPrice(v:AppraisalView,item:ItemView):number {return Math.max(0,item.price-(v.self.statuses.some(s=>s.id==='B03')?2:0)+(v.self.statuses.some(s=>s.id==='D12')?2:0)+(v.fee??0));}
 function eventAction(v:AppraisalView,policy:AppraisalPolicy):Body {
   const offer=v.self.eventOffer!;const p=v.self;
+  if(/^E1(1[7-9]|2\d)$/.test(offer.id)) {
+    // v0.6 events: penalties are paid in the cheapest listed currency, optional ones only when the bot has spare resources.
+    const penalty=['E120','E121','E122','E123','E124'].includes(offer.id);
+    const choice=penalty || policy!=='cautious' && p.energy>=3?offer.choices.find(c=>c!=='decline')??'decline':offer.choices.includes('decline')?'decline':offer.choices[0]!;
+    const itemId=['item','offer'].includes(choice)?offer.itemIds[0]:undefined;
+    return {type:'event',key:offer.key,choice,...(itemId?{itemId}:{})};
+  }
   let choice=offer.choices.includes('decline')?'decline':offer.choices.includes('pay')?'pay':offer.choices.includes('oath')?'oath':offer.choices.includes('surrender')?'surrender':offer.choices.includes('die')?'die':offer.choices.includes('energy')?'energy':'item';
   const useful=policy==='aggressive'?['E09','E21','E22','E24','E27','E28','E46']:policy==='collector'?['E02','E04','E05','E07','E15','E18','E26','E29','E31','E33','E34','E35','E36','E38','E39','E41','E42']:policy==='trader'?['E04','E15','E19','E21','E25','E43','E44','E45','E47']:['E03','E04','E12','E15','E16','E17','E18','E22','E28','E30','E35','E41','E42'];
   if(useful.includes(offer.id) && p.credits>=5 && p.energy>=4) choice=offer.choices.find(c=>c!=='decline')!;
@@ -55,7 +61,7 @@ const has=(v:AppraisalView,id:string)=>v.self.statuses.some(s=>s.id===id && s.ch
 /** Expected score value of an item from what this seat knows; the seal of another appraiser adds 15%. */
 function worth(v:AppraisalView,item:ItemView):number {
   const k=item.knowledge;
-  const base=k.base!==undefined?k.base:k.range?(k.range[0]+k.range[1])/2:ITEM_SPECS[item.kind].anchor;
+  const base=k.base!==undefined?k.base:k.range?(k.range[0]+k.range[1])/2:item.ask;
   const genuine=k.genuine===undefined?.75+.25*.25:k.genuine?1:.25;
   const clean=k.cursed===undefined?1-.35*.25:k.cursed?.75:1;
   const sealed=v.survival && item.appraisedBy!==undefined && item.appraisedBy!==v.self.id?1.15:1;
@@ -130,7 +136,7 @@ function tradeDecision(v:AppraisalView,policy:AppraisalPolicy):Body {
 export function appraisalBotDecision(v:AppraisalView,policy:AppraisalPolicy):Body {
   const p=v.self;if(p.eventOffer) return eventAction(v,policy);
   if(v.market.open && policy==='trader') {
-    const item=p.inventory.find(i=>i.lockedUntil===null && v.market.orders.some(o=>o.kind===i.kind && (o.quota[p.id]??0)>0));
+    const item=p.inventory.find(i=>i.lockedUntil===null && !i.stolen && v.market.orders.some(o=>o.kind===i.kind && (o.quota[p.id]??0)>0));
     if(item) return {type:'market-sell',itemId:item.id,orderId:v.market.orders.find(o=>o.kind===item.kind && (o.quota[p.id]??0)>0)!.id};
   }
   const lot=v.market.lots?.find(l=>l.winnerId===undefined && l.yourBid===null && p.credits>=l.minimum+10);
@@ -148,6 +154,17 @@ export function appraisalBotDecision(v:AppraisalView,policy:AppraisalPolicy):Bod
     if(recovery && p.credits>=recovery.credits && (recovery.target==='life'?p.life!<=v.survival!.maxLife-recovery.amount:p.energy<3))return {type:'recover-resource',target:recovery.target};
     if(policy==='cautious' && p.inspections<1 && p.energy>=3) {
       const item=p.stock.find(i=>i.knowledge.genuine===undefined);if(item) return {type:'inspect',itemId:item.id,property:'authenticity'};
+    }
+    const c2=p.core2Actions;
+    if(c2?.skill && p.energy>=3) {
+      const itemId=c2.skill.needsItem?p.stock.find(i=>i.knowledge.base===undefined || i.knowledge.genuine===undefined)?.id:undefined;
+      if(!c2.skill.needsItem || itemId) return {type:'skill',...(itemId?{itemId}:{})};
+    }
+    if(c2 && !c2.theftUsed && policy==='aggressive' && p.energy>=5) {
+      const victim=v.players.find(o=>o.id!==p.id && !o.paused && o.credits>0);
+      if(c2.pickpocketChance && c2.pickpocketChance>=.3 && victim && v.encounter%2===0) return {type:'pickpocket',victimId:victim.id};
+      const loot=p.stock.find(i=>i.appraisal===null);
+      if(c2.stealChance && c2.stealChance>=.4 && loot && v.encounter%2===1) return {type:'steal',itemId:loot.id};
     }
     const toAppraise=p.stock.find(i=>i.appraisal===null);
     if(toAppraise && !p.caught && p.energy>=3) {

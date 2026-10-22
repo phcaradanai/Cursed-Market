@@ -1,4 +1,5 @@
 import { PASSIVE_ITEMS, passiveSpec } from './passives.js';
+import { CORE2_STATUS_CATALOG } from './core2-content.js';
 import type { EventId, StatusId, ItemFamily, ItemKind, NpcId } from './types.js';
 
 const BASE_EVENT_CATALOG: ReadonlyArray<{id:EventId;name:string;when:string;description:string}> = [
@@ -679,6 +680,8 @@ export const STATUS_CATALOG: ReadonlyArray<{id:StatusId;name:string;description:
   }
 ];
 
+/** Every status, original and v0.6. STATUS_CATALOG alone stays the original forty so saved runs and their tests are unchanged. */
+export const ALL_STATUS_CATALOG: ReadonlyArray<{id:StatusId;name:string;description:string;duration:string;source:string}> = [...STATUS_CATALOG, ...CORE2_STATUS_CATALOG];
 export interface ItemSpec { name:string;anchor:number;buff:StatusId;drawback:StatusId;consumable:boolean;family?:ItemFamily;energyRecovery?:number }
 export const ITEM_SPECS: Record<ItemKind,ItemSpec> = {
   mirror:{name:'กระจกจันทรา',anchor:24,buff:'B01',drawback:'D05',consumable:false},
@@ -750,7 +753,6 @@ export const NPC_SPECS: Record<NpcId,{name:string;sensitivity:number;condition:S
   swarm:{name:'The Swarm ฝูงมนุษย์แมลง',sensitivity:.8,condition:'D11',discount:3,reservation:[.4,.8],favorite:['food','blade','battery'],hint:'ทุกตัวในฝูงฟังการต่อรองพร้อมกัน ส่วนลดแลกพิษที่กัดพลังท้ายช่วง'},
   beast:{name:'สัตว์นำทางข้ามมิติ',sensitivity:.6,condition:'D01',discount:1,reservation:[.35,.6],favorite:['food','potion','battery'],hint:'อาหารแลกการตรวจที่ประหยัดแรง'},
 };
-export function priceRange(kind:ItemKind):[number,number] {
-  const anchor=ITEM_SPECS[kind].anchor;
+export function priceRange(kind:ItemKind,anchor:number=ITEM_SPECS[kind].anchor):[number,number] {
   return [Math.floor(anchor*.7),Math.ceil(anchor*1.3)];
 }

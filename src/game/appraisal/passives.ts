@@ -44,7 +44,7 @@ export function passiveBonuses(state:AppraisalState,p:Appraiser,exclude:readonly
 export function freeInspectionCount(b:PassiveBonuses,p:Pick<Appraiser,'passiveUses'>,property:InspectionProperty):number {
   return Math.max(0,b[property==='price'?'freePrice':property==='authenticity'?'freeAuth':'freeEffects']-(p.passiveUses?.[property]??0));
 }
-export const inspectionLimit=(state:AppraisalState,p:Appraiser)=>2+passiveBonuses(state,p).inspections;
+export const inspectionLimit=(state:AppraisalState,p:Appraiser)=>Math.max(0,2+passiveBonuses(state,p).inspections-(state.config.core2 && p.statuses.some(s=>s.id==='D24' && s.charges>0)?1:0));
 export const commissionRate=(b:PassiveBonuses)=>Math.min(100,10+b.commission);
 export const coinWinChance=(b:PassiveBonuses)=>Math.min(85,50+b.luck);
 /** Only artifact credits are extra; the existing market reservation stays unchanged. */

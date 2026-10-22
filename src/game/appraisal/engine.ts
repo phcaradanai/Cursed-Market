@@ -1,7 +1,10 @@
 import { passivesEnabled } from './passives.js';
 import { randomAt } from '../random.js';
 import { ITEM_SPECS, NPC_SPECS, expansionActive, merchantKinds, priceRange } from './content.js';
-import { defaultEvent, drawBondEvent, drawExpansionEvent, drawPolishEvent, drawWishEvent, drawEvent, drawPersonalNpcEvent, resolveEvent } from './events.js';
+import { CORE2, anchorOf, decayFor } from './core2.js';
+import { applyCore2Settlement, applyDread, resetCore2Encounter } from './core2-rules.js';
+import { barter, pickpocket, stealShop, useSkill } from './core2-actions.js';
+import { defaultEvent, drawBacklashEvent, drawTheftEvent, isConsequence, drawBondEvent, drawExpansionEvent, drawPolishEvent, drawWishEvent, drawEvent, drawPersonalNpcEvent, resolveEvent } from './events.js';
 import { closeNpcContracts, redeemNpcContracts } from './npc-events.js';
 import { auctionLots, placeBid, settleAuction, settleRemainingUnsold, settleUnsold } from './brokerage.js';
 import { activate, appraise, check, enforceCaps, maxEnergyOf, maxLifeOf, npcQuote, omenNow, consumeStatus, damageLife, healLife, inspect, marketSell, ownedItem, player, purchase, payRebate, stockBonus, recover, recoveryAmount, recoveryOffer, mendWithShards, reward, spend, status, stockItem, trace, transfer, unlocked, wealth } from './mechanics.js';
@@ -23,6 +26,7 @@ export const DEFAULT_APPRAISAL_CONFIG: AppraisalConfig = {
 };
 function validateConfig(config:AppraisalConfig):void {
   check(config.npcEvents===undefined || typeof config.npcEvents==='boolean','config','กติกาอีเวนต์เฉพาะพ่อค้าไม่ถูกต้อง');
+  check(config.core2===undefined || typeof config.core2==='boolean','config','กติกาแกนเกมใหม่ไม่ถูกต้อง');
   check(config.commerce===undefined || typeof config.commerce==='boolean','config','กติกาการค้าไม่ถูกต้อง');
   check(config.polish===undefined || typeof config.polish==='boolean','config','กติกาขัดเกลาไม่ถูกต้อง');
   check(config.expansion===undefined || typeof config.expansion==='boolean','config','กติกาส่วนขยายไม่ถูกต้อง');
@@ -82,9 +86,9 @@ function spawnStockItem(state:AppraisalState,id:string,seat:number,encounter:num
   const {seed,config}=state;const favorites=merchantKinds(npc,config.catalogVersion??1,!!config.cleanse,!!config.challenge,expansionActive(config),!!config.polish);
   const itemId=`item-${encounter}-${seat}-${index}-${slot}`;
   const kind=favorites[Math.floor(randomAt(seed,`${itemId}:kind`)*favorites.length)]!;
-  const range=priceRange(kind); const base=range[0]+Math.floor(randomAt(seed,`${itemId}:base`)*(range[1]-range[0]+1));
+  const anchor=anchorOf(config,kind);const range=priceRange(kind,anchor); const base=range[0]+Math.floor(randomAt(seed,`${itemId}:base`)*(range[1]-range[0]+1));
   const reservation=NPC_SPECS[npc].reservation;
-  const ask=Math.max(1,ITEM_SPECS[kind].anchor-2+Math.floor(randomAt(seed,`${itemId}:ask`)*6));
+  const ask=Math.max(1,anchor-2+Math.floor(randomAt(seed,`${itemId}:ask`)*6));
   const minimum=Math.ceil(base*(reservation[0]+(reservation[1]-reservation[0])*randomAt(seed,`${itemId}:reservation`)));
   state.items[itemId]={
     id:itemId,kind,base,ask,genuine:randomAt(seed,`${itemId}:genuine`)<.75,
@@ -108,12 +112,12 @@ function makeMarket(state:AppraisalState):DarkMarket {
   const market:DarkMarket={encounter:state.encounter,open:false,budget:0,orders:[]};
   // Vault auctions roll independently of the sell-order market.
   if(state.config.brokerage) market.lots=auctionLots(state);
-  if(randomAt(state.seed,`${state.encounter}:market:open`)>=state.config.marketProbability) return market;
+  if(!(state.config.core2 && omenNow(state)?.marketOpen) && randomAt(state.seed,`${state.encounter}:market:open`)>=state.config.marketProbability) return market;
   const pool=[...new Set(Object.values(state.items).map(item=>item.kind))];
   const count=1+Math.floor(randomAt(state.seed,`${state.encounter}:market:count`)*Math.min(pool.length,state.config.marketMaxOrders));
   const selected=pool.map(kind=>({kind,rank:randomAt(state.seed,`${state.encounter}:market:${kind}:rank`)})).sort((a,b)=>a.rank-b.rank).slice(0,count);
   for(const {kind} of selected) {
-    const price=Math.round(ITEM_SPECS[kind].anchor*(1.25+.5*randomAt(state.seed,`${state.encounter}:market:${kind}:price`)));
+    const price=Math.round(anchorOf(state.config,kind)*(1.25+.5*randomAt(state.seed,`${state.encounter}:market:${kind}:price`)));
     const order={id:`quote-${state.encounter}-${kind}`,kind,price,quota:Object.fromEntries(state.players.map(p=>[p.id,state.config.marketQuota])),...(state.config.commerce?{contract:makeMarketContract(key=>randomAt(state.seed,`${state.encounter}:market:${kind}:contract:${key}`),!!state.config.survival)}:{})};
     const reserved=marketOrderReserve(order)*state.config.marketQuota*state.players.length;
     if(market.budget+reserved>state.bank-state.reservedRewards) continue;
@@ -124,7 +128,7 @@ function makeMarket(state:AppraisalState):DarkMarket {
 function pauseIfNeeded(state:AppraisalState,p:Appraiser):void {
   if(!state.config.survival && p.energy===0 && !p.paused) {
     // Settle a previously accepted risk before energy exhaustion removes action rights.
-    if(p.eventOffer && ['E48','E49','E50'].includes(p.eventOffer.id)) defaultEvent(state,p);
+    if(p.eventOffer && isConsequence(p.eventOffer.id)) defaultEvent(state,p);
     if(!p.paused) { p.paused='exhausted'; p.done=true; p.eventOffer=null; trace(state,p,'exhausted'); }
   }
   if(p.paused) {p.done=true;p.eventOffer=null;}
@@ -139,16 +143,18 @@ function settleEncounter(state:AppraisalState):void {
     if(status(p,'D05')) {p.energy=Math.max(0,p.energy-2);consumeStatus(p,'D05');trace(state,p,'breath-drain');}
     if(status(p,'D11')) {p.energy=Math.max(0,p.energy-1);consumeStatus(p,'D11');trace(state,p,'swarm-venom');}
     if(omenNow(state)?.settleEnergy) {p.energy=Math.max(0,p.energy-omenNow(state)!.settleEnergy!);trace(state,p,'omen-plague');}
+    if(state.config.core2) applyCore2Settlement(state,p);
     pauseIfNeeded(state,p);
     const gain=Math.max(0,wealth(state,p)-p.startWealth);
     const score=state.config.survival?0:p.paused==='dead'?0:gain+p.accuracyBonus;
     p.score+=score; state.history.push({encounter:state.encounter,playerId:p.id,gain,accuracy:p.accuracyBonus,score,paused:p.paused});
     if(p.subsidy) {p.subsidy=false;state.reservedRewards--;}
-    if(state.config.survival && p.life!>0){damageLife(state,p,state.config.survival.encounterLifeCost,'dimensional-decay');if(p.life!>0)mendWithShards(state,p);}
+    if(state.config.survival && p.life!>0 && state.config.core2) applyDread(state,p);
+    if(state.config.survival && p.life!>0){damageLife(state,p,state.config.core2?decayFor(state.encounter):state.config.survival.encounterLifeCost,'dimensional-decay');if(p.life!>0)mendWithShards(state,p);}
   }
   state.market.open=false; state.market.budget=0;
   for(const offer of state.trades) if(offer.status==='open') offer.status='rejected';
-  if(state.config.survival && state.players.every(p=>p.life===0))collectRun(state);
+  if(state.config.survival && (state.players.every(p=>p.life===0) || state.config.core2 && state.encounter>=CORE2.collectorEncounter))collectRun(state);
   else {state.phase='REVEAL';openRoundRewards(state);}
 }
 function progress(state:AppraisalState):void {
@@ -274,7 +280,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
     state.revision++;state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);assertAppraisalInvariants(state);return state;
   }
   check(!p.paused && !p.done,'inactive','ผู้เล่นพักหรือจบช่วงแล้ว');
-  check(!p.eventOffer || !['E48','E49','E50'].includes(p.eventOffer.id) || action.type==='event' || action.type==='done','consequence','resolve ผล NPC ก่อน');
+  check(!p.eventOffer || !isConsequence(p.eventOffer.id) || action.type==='event' || action.type==='done','consequence','resolve ผล NPC ก่อน');
   switch(action.type) {
     case 'enter': {
       check(state.phase==='PORTALS' && !p.eventOffer,'phase','เลือก event ก่อนเข้าประตู');
@@ -286,7 +292,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
     case 'inspect': npcActionAllowed(state,p);inspect(state,p,action.itemId,action.property);break;
     case 'appraise': case 'counter': {
       npcActionAllowed(state,p);check(!p.caught,'npc-closed','NPC ที่จับได้แล้วไม่รับการประเมินใหม่');
-      const caught=appraise(state,p,action.itemId,action.value,action.type==='counter',action.acceptDanger===true); if(caught) drawEvent(state,p,true);break;
+      const caught=appraise(state,p,action.itemId,action.value,action.type==='counter',action.acceptDanger===true); drawBacklashEvent(state,p);if(caught && !p.eventOffer) drawEvent(state,p,true);break;
     }
     case 'buy': npcActionAllowed(state,p);purchase(state,p,p,action.itemIds,{condition:action.condition});break;
     case 'activate': check(['APPRAISAL','TRADE'].includes(state.phase) && !p.eventOffer,'phase','resolve event ก่อนเปิดใช้');activate(state,p,action.itemId);break;
@@ -300,6 +306,10 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
       else recover(state,p,amount,'recovery-deal');
       break;
     }
+    case 'steal': npcActionAllowed(state,p);stealShop(state,p,action.itemId);drawTheftEvent(state,p);break;
+    case 'pickpocket': check(['APPRAISAL','TRADE'].includes(state.phase) && !p.eventOffer,'phase','resolve event ก่อน');pickpocket(state,p,action.victimId);drawTheftEvent(state,p);break;
+    case 'barter': npcActionAllowed(state,p);check(state.config.core2,'action-type','ห้องนี้ไม่มีการแลกของ');barter(state,p,action.itemId,action.targetItemId);drawTheftEvent(state,p);break;
+    case 'skill': npcActionAllowed(state,p);useSkill(state,p,action.itemId);break;
     case 'wish-new': npcActionAllowed(state,p);wishNew(state,p,action.replaceNpc);break;
     case 'wish-sell': npcActionAllowed(state,p);wishSell(state,p,action.itemId,action.markup);break;
     case 'cleanse': npcActionAllowed(state,p);cleanseItem(state,p,action.itemId,action.stoneId);break;
@@ -325,7 +335,7 @@ export function advanceAppraisalEncounter(previous:AppraisalState):AppraisalStat
   state.encounter++;state.phase='PORTALS';state.listings=[];state.market={encounter:state.encounter,open:false,budget:0,orders:[]};
   for(const p of state.players) {
     delete p.roundReward;
-    delete p.vampireDiscount;
+    delete p.vampireDiscount;resetCore2Encounter(p);
     if(state.config.survival && p.life===0)continue;
     if(passivesEnabled(state.config))p.passiveUses={};
     if(state.config.survival){state.schedule[p.id]!.push(generatePortals(state,p.id,state.players.indexOf(p),state.encounter));p.recoveryUsed=false;}
@@ -376,5 +386,5 @@ export function assertAppraisalInvariants(state:AppraisalState):void {
   for(const item of Object.values(state.items))if(item.owner.startsWith('alien-loan:'))check(owned.has(item.id),'loan-owner','ของที่ให้ยืมไม่มีสัญญา');
   check(!!state.config.brokerage===Array.isArray(state.vault),'vault','คลัง Dark Market ไม่ตรงกติกา');
   if(state.vault) check(new Set(state.vault).size===state.vault.length && state.vault.every(id=>state.items[id]?.owner==='dark-market') && Object.values(state.items).filter(i=>i.owner==='dark-market').length===state.vault.length,'vault','คลัง Dark Market ไม่ตรงเจ้าของ');
-  if(state.config.survival){check(state.version===5,'version','กติกาชีวิตต้องเป็น v0.5');if(state.phase==='RESULTS')check(state.players.every(p=>p.life===0) && state.collector?.length===state.players.length,'collector','จบได้เมื่อทุกคนตายและ Collector คิดผลแล้ว');else check(!state.collector,'collector','เปิดผล Collector ก่อนจบไม่ได้');}
+  if(state.config.survival){check(state.version===5,'version','กติกาชีวิตต้องเป็น v0.5');if(state.phase==='RESULTS')check((state.players.every(p=>p.life===0) || !!state.config.core2 && state.encounter>=CORE2.collectorEncounter) && state.collector?.length===state.players.length,'collector','จบได้เมื่อทุกคนตาย (หรือถึงเส้นตาย Collector) และ Collector คิดผลแล้ว');else check(!state.collector,'collector','เปิดผล Collector ก่อนจบไม่ได้');}
 }

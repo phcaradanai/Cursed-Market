@@ -1,4 +1,4 @@
-import { STATUS_IDS } from '../game/appraisal/types.js';
+import { ALL_STATUS_IDS } from '../game/appraisal/types.js';
 import type { StatusId } from '../game/appraisal/types.js';
 import type { AppraisalBotPolicy, AppraisalClientMessage, AppraisalSeatAction } from '../shared/appraisal-protocol.js';
 import { APPRAISAL_BOT_POLICIES, validTimerSettings } from '../shared/appraisal-protocol.js';
@@ -40,7 +40,7 @@ function action(value: unknown): AppraisalSeatAction {
     case 'event': {
       keys(body, [...fields, 'key', 'choice', 'itemId', 'itemIds', 'statusId', 'otherPlayerId', 'fact', 'guess']);
       if(body.itemIds!==undefined && (!Array.isArray(body.itemIds) || body.itemIds.length<1 || body.itemIds.length>3 || new Set(body.itemIds).size!==body.itemIds.length))throw new MessageError();
-      if (body.statusId !== undefined && !STATUS_IDS.includes(body.statusId as StatusId)) throw new MessageError();
+      if (body.statusId !== undefined && !(ALL_STATUS_IDS as readonly string[]).includes(body.statusId as string)) throw new MessageError();
       if (body.fact !== undefined && body.fact !== 'base' && body.fact !== 'genuine' && body.fact !== 'cursed') throw new MessageError();
       return { type: 'event', ...base, key: string(body.key, 256), choice: string(body.choice, 64),
         ...(body.itemId === undefined ? {} : { itemId: string(body.itemId) }),
@@ -71,6 +71,10 @@ function action(value: unknown): AppraisalSeatAction {
       if (body.choice !== 'buy' && body.choice !== 'penalty' && body.choice !== 'consign') throw new MessageError();
       return { type: 'unsold', ...base, itemId: string(body.itemId), choice: body.choice };
     case 'bid': keys(body, [...fields, 'lotId', 'credits']); return { type: 'bid', ...base, lotId: string(body.lotId), credits: integer(body.credits) };
+    case 'steal': keys(body, [...fields, 'itemId']); return { type: 'steal', ...base, itemId: string(body.itemId) };
+    case 'pickpocket': keys(body, [...fields, 'victimId']); return { type: 'pickpocket', ...base, victimId: string(body.victimId, 32) };
+    case 'barter': keys(body, [...fields, 'itemId', 'targetItemId']); return { type: 'barter', ...base, itemId: string(body.itemId), targetItemId: string(body.targetItemId) };
+    case 'skill': keys(body, [...fields, 'itemId']); return { type: 'skill', ...base, ...(body.itemId === undefined ? {} : { itemId: string(body.itemId) }) };
     case 'round-flip':
       keys(body,[...fields,'guess','attempt']);
       if(body.guess!=='heads' && body.guess!=='tails')throw new MessageError();

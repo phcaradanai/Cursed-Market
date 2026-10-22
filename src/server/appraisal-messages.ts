@@ -1,3 +1,4 @@
+import { NPC_SPECS } from '../game/appraisal/content.js';
 import { ALL_STATUS_IDS } from '../game/appraisal/types.js';
 import type { StatusId } from '../game/appraisal/types.js';
 import type { AppraisalBotPolicy, AppraisalClientMessage, AppraisalSeatAction } from '../shared/appraisal-protocol.js';
@@ -32,7 +33,16 @@ function action(value: unknown): AppraisalSeatAction {
       if (new Set(itemIds).size !== itemIds.length) throw new MessageError();
       return { type: 'buy', ...base, itemIds, condition: boolean(body.condition) };
     }
-    case 'activate': keys(body, [...fields, 'itemId']); return { type: 'activate', ...base, itemId: string(body.itemId) };
+    case 'activate': {
+      keys(body,[...fields,'itemId','npc','otherNpc']);
+      for(const key of ['npc','otherNpc'] as const)if(body[key]!==undefined && (typeof body[key]!=='string'||!Object.hasOwn(NPC_SPECS,body[key])))throw new MessageError();
+      return {type:'activate',...base,itemId:string(body.itemId),...(body.npc===undefined?{}:{npc:body.npc as keyof typeof NPC_SPECS}),...(body.otherNpc===undefined?{}:{otherNpc:body.otherNpc as keyof typeof NPC_SPECS})};
+    }
+    case 'merchant-ability': {
+      keys(body,[...fields,'npc','itemId','statusId','choiceId']);
+      if(typeof body.npc!=='string'||!Object.hasOwn(NPC_SPECS,body.npc)||body.statusId!==undefined&&!(ALL_STATUS_IDS as readonly unknown[]).includes(body.statusId))throw new MessageError();
+      return {type:'merchant-ability',...base,npc:body.npc as keyof typeof NPC_SPECS,...(body.itemId===undefined?{}:{itemId:string(body.itemId)}),...(body.statusId===undefined?{}:{statusId:body.statusId as StatusId}),...(body.choiceId===undefined?{}:{choiceId:string(body.choiceId)})};
+    }
     case 'recover-resource': keys(body,[...fields,'target']);if(body.target!=='energy' && body.target!=='life')throw new MessageError();return {type:'recover-resource',...base,target:body.target};
     case 'wish-new': keys(body,[...fields,'replaceNpc']);return {type:'wish-new',...base,...(body.replaceNpc===undefined?{}:{replaceNpc:string(body.replaceNpc,16) as never})};
     case 'wish-sell': keys(body,[...fields,'itemId','markup']);return {type:'wish-sell',...base,itemId:string(body.itemId),markup:integer(body.markup)};

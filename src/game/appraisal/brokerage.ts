@@ -1,3 +1,4 @@
+import { copySaleQuote } from './copy-effects.js';
 import { randomAt } from '../random.js';
 import { TRUST_RULES } from './pulse.js';
 import { CORE2, anchorOf, consignPayout } from './core2.js';
@@ -15,7 +16,7 @@ function shopStock(state:AppraisalState,p:Appraiser):string[] {
 }
 function freeBank(state:AppraisalState):number { return state.bank-state.market.budget-state.reservedRewards; }
 function bondPrice(state:AppraisalState,spec:BondSpec,itemId:string):number {
-  return Math.floor(anchorOf(state.config,state.items[itemId]!.kind)*(spec.price??1));
+  return copySaleQuote(state.items[itemId]!,Math.floor(anchorOf(state.config,state.items[itemId]!.kind)*(spec.price??1)));
 }
 /** What the seat would really receive: the shared sale pipeline applies to everything it owns. */
 function bondQuote(state:AppraisalState,p:Appraiser,spec:BondSpec,itemId:string):number {return salePreview(state,p,bondPrice(state,spec,itemId));}
@@ -24,6 +25,7 @@ export function bondItems(state:AppraisalState,p:Appraiser,spec:BondSpec):string
   const gives=['swap','sell','tribute'].includes(spec.mode);
   return p.inventory.filter(id=>{
     const item=state.items[id]!;const k=known(state,p,id);
+    if(spec.mode==='swap' && item.copy)return false;
     if(spec.kinds && !spec.kinds.includes(item.kind)) return false;
     if(spec.families && !spec.families.includes(itemFamily(item.kind))) return false;
     if(spec.exclude?.includes(item.kind)) return false;

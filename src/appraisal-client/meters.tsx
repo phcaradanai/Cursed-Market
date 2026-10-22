@@ -83,15 +83,16 @@ function trustLines(game:AppraisalView,npc:NpcId,level:number):string[] {
 /** One disc per merchant in play: trusting them all lays extra goods in every shop you enter. */
 export function TrustRing({game}:{game:AppraisalView}) {
   const bonus=game.self.stockBonus,trust=game.self.npcTrust;if(!bonus || !trust) return null;
+  const pooled=bonus.total!==undefined;
   const met=bonus.npcs.filter(npc=>(trust[npc]??0)>=bonus.need).length;
   return <section className="trust-ring" aria-label={t('ความไว้ใจพ่อค้า')}>
-    <ul className="discs">{bonus.npcs.map(npc=>{const level=trust[npc]??0,ok=level>=bonus.need;
-      return <li key={npc}><RuleHint icon={<TrustIcon/>} title={`${npcName(npc)} · ${t('ไว้ใจ {n}/{cap}',{n:level,cap:TRUST_CAP})}`} lines={trustLines(game,npc,level)} foot={ok?t('ไว้ใจพอสำหรับโบนัสของในร้านแล้ว'):t('ต้องไว้ใจอย่างน้อย {need} เพื่อรับโบนัสของในร้าน',{need:bonus.need})}
+    <ul className="discs">{bonus.npcs.map(npc=>{const level=trust[npc]??0,ok=level>=(pooled?1:bonus.need);
+      return <li key={npc}><RuleHint icon={<TrustIcon/>} title={`${npcName(npc)} · ${t('ไว้ใจ {n}/{cap}',{n:level,cap:TRUST_CAP})}`} lines={trustLines(game,npc,level)} foot={pooled?t('ช่วยเพิ่มความไว้ใจรวม {n} แต้ม',{n:level}):ok?t('ไว้ใจพอสำหรับโบนัสของในร้านแล้ว'):t('ต้องไว้ใจอย่างน้อย {need} เพื่อรับโบนัสของในร้าน',{need:bonus.need})}
         label={<span className={`disc${ok?' met':''}`}><img src={npcImage(npc)} alt="" width="44" height="44"/><span className="level">{level}</span><span className="sr-only">{`${npcName(npc)} ${level}/${TRUST_CAP}`}</span></span>}/></li>;})}
     </ul>
-    <RuleHint icon={<BonusIcon/>} title={t('โบนัสของในร้าน')} lines={[t('ไว้ใจพ่อค้าทุกคนอย่างน้อย {need} ร้านที่คุณเข้าจะเพิ่มของให้ {extra} ชิ้น',{need:bonus.need,extra:1}),t('ได้ไม่เพิ่มอีกแม้ไว้ใจสูงขึ้น')]}
-      foot={bonus.extra>0?t('ได้รับแล้ว'):t('ไว้ใจครบแล้ว {met}/{total}',{met,total:bonus.npcs.length})}
-      label={<span className={`reward${bonus.extra>0?' on':''}`}><BonusIcon/><span>{bonus.extra>0?t('ของเพิ่ม +{n}',{n:bonus.extra}):t('ไว้ใจครบ {met}/{total}',{met,total:bonus.npcs.length})}</span></span>}/>
+    <RuleHint icon={<BonusIcon/>} title={t('โบนัสของในร้าน')} lines={pooled?[t('ทุก {need} แต้มความไว้ใจรวมจากพ่อค้าคนไหนก็ได้ ร้านที่คุณเข้าจะเพิ่มของให้ 1 ชิ้น',{need:bonus.need}),t('ความไว้ใจรวม {n} แต้ม',{n:bonus.total!})]:[t('ไว้ใจพ่อค้าทุกคนอย่างน้อย {need} ร้านที่คุณเข้าจะเพิ่มของให้ {extra} ชิ้น',{need:bonus.need,extra:1}),t('ได้ไม่เพิ่มอีกแม้ไว้ใจสูงขึ้น')]}
+      foot={pooled?t('อีก {n} แต้ม ได้ของเพิ่มอีก 1 ชิ้น',{n:bonus.need-bonus.total!%bonus.need}):bonus.extra>0?t('ได้รับแล้ว'):t('ไว้ใจครบแล้ว {met}/{total}',{met,total:bonus.npcs.length})}
+      label={<span className={`reward${bonus.extra>0?' on':''}`}><BonusIcon/><span>{bonus.extra>0?t('ของเพิ่ม +{n}',{n:bonus.extra}):pooled?t('ความไว้ใจรวม {n}/{need}',{n:bonus.total!,need:bonus.need}):t('ไว้ใจครบ {met}/{total}',{met,total:bonus.npcs.length})}</span></span>}/>
   </section>;
 }
 
@@ -109,7 +110,7 @@ export function RebateBadge({rebate,passive=false}:{rebate:number;passive?:boole
 }
 export function BonusBadge({passive=false}:{passive?:boolean}) {
   return <RuleHint passive={passive} icon={<BonusIcon/>} title={t('ของโบนัสความไว้ใจ')}
-    lines={[t('พ่อค้าเพิ่มของชิ้นนี้ให้ เพราะคุณไว้ใจพ่อค้าทุกคน')]}
+    lines={[t('พ่อค้าเพิ่มของชิ้นนี้ให้ จากโบนัสความไว้ใจของคุณ')]}
     label={<span className="badge bonus"><BonusIcon/>{t('โบนัส')}</span>}/>;
 }
 

@@ -1,3 +1,4 @@
+import { itemEffectScale, integerEffect } from './copy-effects.js';
 import type { ItemSpec } from './content.js';
 import { addUseBonuses, EXTRA_HELD_EFFECTS } from './item-effects.js';
 import type { AppraisalConfig, AppraisalState, Appraiser, InspectionProperty, ItemKind, MarketOrder, PassiveKind } from './types.js';
@@ -37,14 +38,15 @@ export const passivesEnabled=(config:Pick<AppraisalConfig,'catalogVersion'>)=>co
 export function passiveSpec(kind:ItemKind):PassiveSpec|undefined {return PASSIVE_ITEMS[kind as PassiveKind];}
 /** Effects depend on the known kind and ownership, never hidden authenticity or curse. */
 export const HELD_STACK_CAP=5;
-export function heldPassives(items:ReadonlyArray<{kind:ItemKind}>,itemEffects=false):PassiveBonuses {
+export function heldPassives(items:ReadonlyArray<{kind:ItemKind;copy?:unknown}>,itemEffects=false):PassiveBonuses {
   const result=emptyPassives(),counts=new Map<ItemKind,number>();
-  for(const item of items){
+  for(const item of itemEffects?[...items].sort((a,b)=>itemEffectScale(b)-itemEffectScale(a)):items){
     const count=counts.get(item.kind)??0;if(itemEffects && count>=HELD_STACK_CAP)continue;
     counts.set(item.kind,count+1);
     const effect=passiveSpec(item.kind)?.passive??(itemEffects?EXTRA_HELD_EFFECTS[item.kind]:undefined);
-    if(effect)result[effect.effect]+=effect.amount;
+    if(effect)result[effect.effect]+=effect.amount*(itemEffects?itemEffectScale(item):1);
   }
+  for(const key of Object.keys(result) as Array<keyof PassiveBonuses>)if(!['commission','luck','acceptance','mitigation'].includes(key))result[key]=integerEffect(result[key]);
   return result;
 }
 export function passiveBonuses(state:AppraisalState,p:Appraiser,exclude:readonly string[]=[]):PassiveBonuses {

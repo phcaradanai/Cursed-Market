@@ -13,7 +13,7 @@ type Body=AppraisalAction extends infer A?A extends AppraisalAction?Omit<A,'play
 let request=0;
 const act=(s:AppraisalState,id:string,body:Body)=>applyAppraisalAction(s,{...body,playerId:id,requestId:`core2-${++request}`,encounter:s.encounter} as AppraisalAction);
 function fixture(seed='core2-fixture',core2=true):AppraisalState {
-  const s=createAppraisalRun(['alice','bob'],seed,{survival:SURVIVAL_RULES,marketProbability:0,...(core2?{core2:true}:{})});
+  const s=createAppraisalRun(['alice','bob'],seed,{survival:SURVIVAL_RULES,marketProbability:0,trustAbilities:false,...(core2?{core2:true}:{})});
   for(const p of s.players){p.eventOffer=null;p.offerSlots=2;p.consequenceSlots=0;}
   return s;
 }

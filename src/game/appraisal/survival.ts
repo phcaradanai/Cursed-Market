@@ -1,3 +1,4 @@
+import { statusMagnitude } from './copy-effects.js';
 import { check, status, trace } from './mechanics.js';
 import { collectorTotal, itemScoreValue } from './scoring.js';
 import { closeNpcContracts } from './npc-events.js';
@@ -15,7 +16,7 @@ export function collectRun(state:AppraisalState):void {
     const items=p.inventory.map(id=>{const item=state.items[id]!;const certified=!!item.appraisedBy && item.appraisedBy!==p.id;return {id,kind:item.kind,base:item.base,genuine:item.genuine,cursed:item.cursed,value:itemScoreValue(item.base,item.genuine,item.cursed,certified),...(certified?{certified}:{})};});
     const itemValue=items.reduce((sum,item)=>sum+item.value,0);
     const statusIds=(['B10','D10'] as const).filter(id=>!!status(p,id));
-    const modifierPercent=(statusIds.includes('B10')?20:0)-(statusIds.includes('D10')?20:0);
+    const modifierPercent=statusMagnitude(p,'B10',20)-statusMagnitude(p,'D10',20);
     const score=collectorTotal(p.credits,itemValue,modifierPercent);
     for(const item of items)state.items[item.id]!.owner='collector';
     p.inventory=[];p.score=score;

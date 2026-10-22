@@ -1,7 +1,8 @@
+import { copySaleQuote, statusMagnitude } from './copy-effects.js';
 import { randomAt } from '../random.js';
 import { ITEM_SPECS, NPC_SPECS, merchantKinds } from './content.js';
 import { TRUST_CAP } from './market-contracts.js';
-import { check, consumeStatus, learn, ownedItem, retire, reward, saleApply, salePreview, spend, status, trace, wishSlotsOf } from './mechanics.js';
+import { check, consumeStatus, learn, ownedItem, retire, reward, saleApply, salePreview, spend, trace, wishSlotsOf } from './mechanics.js';
 import { WISH_ENERGY, WISH_MARKUPS, WISH_MAX_ACTIVE, WISH_PROBABILITY, wishAsk, wishChance, wishDecayed, wishFloor, wishPrice } from './wishlist-rules.js';
 import type { AppraisalState, Appraiser, ItemKind, NpcId, WishBookRow, WishDesk, WishOffer } from './types.js';
 
@@ -11,7 +12,7 @@ export function shopNpcOf(p:Appraiser):NpcId|undefined {
 const freeBank=(state:AppraisalState)=>state.bank-state.market.budget-state.reservedRewards;
 /** The kind this merchant asks for, fixed by the seed so the offer and its resolution agree. `nonce` makes every re-roll different. */
 export function wishPick(state:AppraisalState,p:Appraiser,npc:NpcId,nonce=0,avoid?:ItemKind):{kind:ItemKind;price:number} {
-  const all=merchantKinds(npc,state.config.catalogVersion??1);const others=all.filter(kind=>kind!==avoid);const kinds=others.length?others:all;
+  const all=state.config.trustAbilities?merchantKinds(npc,state.config.catalogVersion??1,!!state.config.cleanse,!!state.config.challenge,!!state.config.expansion,!!state.config.polish,true):merchantKinds(npc,state.config.catalogVersion??1);const others=all.filter(kind=>kind!==avoid);const kinds=others.length?others:all;
   const kind=kinds[Math.floor(randomAt(state.seed,`${state.encounter}:${p.id}:${npc}:wish-kind${nonce?`:${nonce}`:''}`)*kinds.length)]!;
   return {kind,price:wishPrice(kind)};
 }
@@ -65,7 +66,7 @@ export function drawWishEvent(state:AppraisalState,p:Appraiser,offer:(id:'E73')=
   offer('E73');return true;
 }
 /** Pitch bonus: lucky pearl, a stronger or weaker bargaining stance. Statuses never touch the base price. */
-const wishBonus=(p:Appraiser)=>(status(p,'B16')?15:0)+(status(p,'B10')?10:0)-(status(p,'D08')?10:0);
+const wishBonus=(p:Appraiser)=>statusMagnitude(p,'B16',15)+statusMagnitude(p,'B10',10)-statusMagnitude(p,'D08',10);
 const counts=(p:Appraiser)=>({buffs:p.statuses.filter(s=>s.id.startsWith('B') && s.charges>0).length,debuffs:p.statuses.filter(s=>s.id.startsWith('D') && s.charges>0).length});
 /** The standing wish of the merchant at the table, with the odds for every asking tier. */
 export function wishOffer(state:AppraisalState,p:Appraiser):WishOffer|undefined {
@@ -83,14 +84,14 @@ export function wishSell(state:AppraisalState,p:Appraiser,itemId:string,markup:n
   check(!p.wishTried,'wish','ต่อรองกับพ่อค้านี้แล้วในช่วงนี้');
   check((WISH_MARKUPS as readonly number[]).includes(markup),'wish','ราคาที่เสนอไม่ถูกต้อง');
   const item=ownedItem(state,p,itemId,true);check(item.kind===wish.kind,'wish','พ่อค้าไม่ได้ต้องการสินค้าชนิดนี้');
-  const ask=wishAsk(wishNow(state,wish).price,markup);const price=salePreview(state,p,ask);check(freeBank(state)>=price,'bank','งบธนาคารไม่พอสำหรับราคานี้');
+  const ask=wishAsk(wishNow(state,wish).price,markup);const price=copySaleQuote(item,salePreview(state,p,ask));check(freeBank(state)>=price,'bank','งบธนาคารไม่พอสำหรับราคานี้');
   p.wishTried=true;const name=ITEM_SPECS[item.kind].name;const who=NPC_SPECS[npc].name;
-  if(!item.genuine && randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:wish-fake`)<Math.min(.9,Math.max(.05,.4*NPC_SPECS[npc].sensitivity+(state.config.polish?(status(p,'D03')?.1:0)-(status(p,'B04')?.1:0):0)))) {
+  if(!item.genuine && randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:wish-fake`)<Math.min(.9,Math.max(.05,.4*NPC_SPECS[npc].sensitivity+(state.config.polish?statusMagnitude(p,'D03',.1)-statusMagnitude(p,'B04',.1):0)))) {
     learn(p,itemId,{genuine:false});p.notes.push(`${who}จับได้ว่า${name}เป็นของปลอม ไม่ซื้อ`);trace(state,p,'wish-refused',{itemId,npc,reason:'fake'});
   } else {
     const trust=p.npcTrust?.[npc]??0;const {buffs,debuffs}=counts(p);const chance=wishChance(markup,trust,buffs,debuffs,wishBonus(p));consumeStatus(p,'B16');
     if(randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:wish-deal`)*100<chance) {
-      const paid=saleApply(state,p,ask);reward(state,p,paid,'npc-wish');retire(state,p,itemId,'npc-wish');delete p.wishes![npc];
+      const paid=copySaleQuote(item,saleApply(state,p,ask));reward(state,p,paid,'npc-wish');retire(state,p,itemId,'npc-wish');delete p.wishes![npc];
       if(p.npcTrust) p.npcTrust[npc]=Math.min(TRUST_CAP,trust+1);
       p.notes.push(`${who}ซื้อ${name}ตามที่ตามหา ${paid} เครดิต${paid!==ask?` (ราคาขอ ${ask} ปรับตามสถานะและลางแล้ว)`:''} (โอกาส ${chance}%)`);trace(state,p,'wish-sold',{itemId,npc,price:paid,ask,chance});
     } else {

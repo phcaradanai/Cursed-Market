@@ -6,6 +6,7 @@ import type { EventId, ItemKind, NpcId, StatusId } from '../game/appraisal/types
  */
 
 export const EN_ITEM: Partial<Record<ItemKind, string>> = {
+  'chrono-gear':'Rewinding Gear','burden-hourglass':'Burden-transfer Hourglass','shifting-compass':'Shifting Compass',
   mirror: 'Moon Mirror', orb: 'Energy Orb', key: 'Shadow Key', mask: 'Whispering Mask', potion: 'Cleansing Potion',
   battery: 'Otherworld Battery', amulet: 'Spirit-Guard Amulet', blade: 'Blood Blade', scanner: 'Price Scanner', food: 'Guide Beast Feed',
   'memory-mirror': 'Memory Mirror', 'rift-mirror': 'Rift Mirror', 'blood-orb': 'Pulse Blood Orb', 'storm-orb': 'Storm-Caged Orb',
@@ -48,6 +49,9 @@ export const EN_NPC_UNSOLD: Partial<Record<NpcId, string>> = {
 };
 
 export const EN_STATUS: Partial<Record<StatusId, { name: string; description: string; duration: string }>> = {
+  B25:{name:'Hastened rhythm',description:'Your next merchant ability starts with one fewer cooldown encounter, minimum one. Existing waits are unchanged.',duration:'Until the next ability or the end of the next encounter'},
+  B26:{name:'Shifting direction',description:'One extra choice on your next Beast replacement, up to five.',duration:'Until Beast use or the end of the next encounter'},
+  D25:{name:'Time shackles',description:'Your next merchant ability starts with two extra cooldown encounters. Existing waits are unchanged.',duration:'Until the next ability or the end of the next encounter'},
   B01: { name: 'Price Sight', description: 'Your next price check shows the exact true value.', duration: '1 use · expires at the end of the next encounter' },
   B02: { name: 'Curse Reader', description: 'Your next price or authenticity check also reveals whether the item is cursed.', duration: '1 use · expires at the end of the next encounter' },
   B03: { name: 'Golden Tongue', description: 'Your next purchase from a merchant costs 2 credits less.', duration: '1 purchase · expires at the end of the next encounter' },
@@ -133,6 +137,9 @@ export const EN_OMEN: Record<string, { name: string; text: string }> = {
 };
 
 export const EN_EVENT: Partial<Record<EventId, { name: string; when: string; description: string }>> = {
+  E130:{name:'The lost clocksmith',when:'An ability is cooling down',description:'Pay 3 credits to remove one encounter from your longest reducible cooldown, or pass.'},
+  E131:{name:'The time exchange',when:'At least one merchant trusts you',description:'Reduce your next ability cooldown by one, or gain 5 credits in exchange for two extra cooldown encounters next time, or pass.'},
+  E132:{name:'A fork in the swarm',when:'A trusted merchant offers goods',description:'Gain an extra choice on your next Beast replacement, or spend one energy to reveal a selected shop item’s authenticity, or pass.'},
   E117: { name: 'Toll Gate', when: 'Before choosing a portal', description: 'The gatekeeper charges a toll before opening the doors. Every way has a price; none is free.' },
   E118: { name: 'Contract at the Door', when: 'Before choosing a portal', description: 'The first door takes cash. The second gives a discount but binds you to terms.' },
   E119: { name: 'Gatekeeper Collects a Debt', when: 'Before choosing a portal', description: 'The gatekeeper wants an old debt. Pay cash now, take on interest, or spend energy to switch doors.' },

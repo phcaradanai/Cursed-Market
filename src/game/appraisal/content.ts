@@ -1,3 +1,5 @@
+import { ABILITY_ITEMS, ABILITY_EVENT_CATALOG, ABILITY_STATUS_CATALOG } from './ability-content.js';
+import { ABILITY_ITEM_IDS } from './types.js';
 import { PASSIVE_ITEMS, passiveSpec } from './passives.js';
 import { CORE2_STATUS_CATALOG } from './core2-content.js';
 import type { EventId, StatusId, ItemFamily, ItemKind, NpcId } from './types.js';
@@ -363,7 +365,7 @@ export const EVENT_CATALOG: ReadonlyArray<{id:EventId;name:string;when:string;de
   {id:'E114',name:'เสบียงให้ผู้นำทาง',when:'พบ Beast; มีสินค้าที่ส่งให้ได้',description:'ส่งสินค้าหนึ่งชิ้นให้ Beast รับการฟื้นพลังสูงสุด 4 และชีวิตสูงสุด 2 พร้อมพรนำทางสุ่มหนึ่งอย่าง การฟื้นขึ้นกับเพดานและผลติดตัว'},
   {id:'E115',name:'ความลับในเสียงคลื่น',when:'พบ Deep Sea Monster; มีเครดิต 3 และยังมีข้อมูลสินค้าไม่รู้',description:'จ่าย 3 เครดิตฟังความลับจากก้นบึ้ง เปิดผลตรวจที่ยังไม่รู้หนึ่งด้านของสินค้าในร้านหนึ่งชิ้นแบบสุ่ม พร้อมรับพรแห่งห้วงลึกสุ่มหนึ่งอย่าง'},
   {id:'E116',name:'แบ่งปันแก่รังใหญ่',when:'พบ The Swarm; มีสินค้าที่ส่งให้ได้',description:'ส่งสินค้าหนึ่งชิ้นให้รัง สุ่มรับพรจากฝูงสองอย่างที่ต่างกัน ผลแต่ละอย่างใช้จำนวนครั้งและระยะเวลาของสถานะนั้น'},
-  ...BASE_EVENT_CATALOG,{id:'E108',name:'เลือกหนึ่งพร',when:'ช่วงประเมิน; มีผลดีที่ยังไม่ติดตัวอย่างน้อย 3 อย่าง',description:'ลางดีเปิดทางให้เลือกผลดีหนึ่งอย่างจากสามตัวเลือกที่สุ่มจากเส้นทางของห้อง ไม่เสียอะไร แต่ผลดีเหล่านี้หมดเมื่อจบช่วงหน้า'},{id:'E94',name:'ข่าวตลาดจากคนรู้จัก',when:'ยังไม่มี B17 หรือ D17; มีเครดิต 2',description:'จ่าย 2 เครดิตซื้อข่าววงใน รับ B17 ช่วงนี้ขายของที่คุณเป็นเจ้าของได้ราคาเพิ่ม 15%'},
+  ...ABILITY_EVENT_CATALOG, ...BASE_EVENT_CATALOG,{id:'E108',name:'เลือกหนึ่งพร',when:'ช่วงประเมิน; มีผลดีที่ยังไม่ติดตัวอย่างน้อย 3 อย่าง',description:'ลางดีเปิดทางให้เลือกผลดีหนึ่งอย่างจากสามตัวเลือกที่สุ่มจากเส้นทางของห้อง ไม่เสียอะไร แต่ผลดีเหล่านี้หมดเมื่อจบช่วงหน้า'},{id:'E94',name:'ข่าวตลาดจากคนรู้จัก',when:'ยังไม่มี B17 หรือ D17; มีเครดิต 2',description:'จ่าย 2 เครดิตซื้อข่าววงใน รับ B17 ช่วงนี้ขายของที่คุณเป็นเจ้าของได้ราคาเพิ่ม 15%'},
   {id:'E95',name:'ขายข่าวลือเฟ้อ',when:'ยังไม่มี B17 หรือ D17; ธนาคารมีงบ 3 เครดิต',description:'ขายข่าวลือให้นักปั่นราคา รับ 3 เครดิตทันที แต่ราคาตลาดเฟ้อ รับ D17 ช่วงนี้ขายของที่คุณเป็นเจ้าของได้ลด 20%'},
   {id:'E96',name:'เหรียญริมทาง',when:'ยังไม่มี B18 หรือ D19; มีพลัง 1',description:'เก็บเหรียญแปลกตาข้างโต๊ะ ใช้พลัง 1 รับ B18 เครดิตหลังซื้อขายเพิ่ม 3 และหัวก้อยถูกง่ายขึ้น'},
   {id:'E97',name:'ผู้ประมูลเก่าแก่',when:'ห้องมีระบบประมูลตลาดเงา; มีเครดิต 2',description:'จ่าย 2 เครดิตให้ผู้ประมูลเก่าแก่สอนเคล็ดลับ รับ B20 ถ้าชนะประมูลครั้งถัดไปจ่ายน้อยลง 20%'},
@@ -681,7 +683,7 @@ export const STATUS_CATALOG: ReadonlyArray<{id:StatusId;name:string;description:
 ];
 
 /** Every status, original and v0.6. STATUS_CATALOG alone stays the original forty so saved runs and their tests are unchanged. */
-export const ALL_STATUS_CATALOG: ReadonlyArray<{id:StatusId;name:string;description:string;duration:string;source:string}> = [...STATUS_CATALOG, ...CORE2_STATUS_CATALOG];
+export const ALL_STATUS_CATALOG: ReadonlyArray<{id:StatusId;name:string;description:string;duration:string;source:string}> = [...STATUS_CATALOG, ...CORE2_STATUS_CATALOG, ...ABILITY_STATUS_CATALOG];
 export interface ItemSpec { name:string;anchor:number;buff:StatusId;drawback:StatusId;consumable:boolean;family?:ItemFamily;energyRecovery?:number }
 export const ITEM_SPECS: Record<ItemKind,ItemSpec> = {
   mirror:{name:'กระจกจันทรา',anchor:24,buff:'B01',drawback:'D05',consumable:false},
@@ -727,6 +729,7 @@ export const ITEM_SPECS: Record<ItemKind,ItemSpec> = {
   'larva-cell':{name:'เซลล์ตัวอ่อนเรืองแสง',family:'battery',anchor:19,buff:'B14',drawback:'D11',consumable:false},
   'compound-mirror':{name:'กระจกตารวม',family:'mirror',anchor:22,buff:'B11',drawback:'D15',consumable:false},
   ...PASSIVE_ITEMS,
+  ...ABILITY_ITEMS,
 };
 export function itemFamily(kind:ItemKind):ItemFamily { return ITEM_SPECS[kind].family ?? kind as ItemFamily; }
 /** One realistic painting per public kind, invariant across hidden authenticity and curses. */
@@ -739,9 +742,9 @@ export const EXPANSION_NPCS:NpcId[]=['deepsea','swarm'];
 export const expansionActive=(config:{catalogVersion?:1|2|3;expansion?:boolean})=>config.catalogVersion===3 && !!config.expansion;
 export const POLISH_KINDS:ItemKind[]=['vital-flask','life-relic','wish-ledger'];
 export const EXPANSION_KINDS:ItemKind[]=['abyss-pearl','tide-lantern','kraken-ink','siren-conch','hive-comb','chitin-blade','larva-cell','compound-mirror'];
-export function merchantKinds(npc:NpcId,catalogVersion:1|2|3=1,cleanse=false,challenge=false,expansion=false,polish=false):ItemKind[] {
+export function merchantKinds(npc:NpcId,catalogVersion:1|2|3=1,cleanse=false,challenge=false,expansion=false,polish=false,trustAbilities=false):ItemKind[] {
   const favorites=NPC_SPECS[npc].favorite;
-  return catalogVersion===1 ? favorites : (Object.keys(ITEM_SPECS) as ItemKind[]).filter(kind=>(catalogVersion===3 && cleanse || !CLEANSE_KINDS.includes(kind)) && (catalogVersion===3 && challenge || !CHALLENGE_KINDS.includes(kind)) && (catalogVersion===3 && expansion || !EXPANSION_KINDS.includes(kind)) && (catalogVersion===3 && polish || !POLISH_KINDS.includes(kind)) && (catalogVersion===3 || !passiveSpec(kind)) && favorites.includes(itemFamily(kind)));
+  return catalogVersion===1 ? favorites : (Object.keys(ITEM_SPECS) as ItemKind[]).filter(kind=>(trustAbilities && catalogVersion===3 || !(ABILITY_ITEM_IDS as readonly string[]).includes(kind)) && (catalogVersion===3 && cleanse || !CLEANSE_KINDS.includes(kind)) && (catalogVersion===3 && challenge || !CHALLENGE_KINDS.includes(kind)) && (catalogVersion===3 && expansion || !EXPANSION_KINDS.includes(kind)) && (catalogVersion===3 && polish || !POLISH_KINDS.includes(kind)) && (catalogVersion===3 || !passiveSpec(kind)) && favorites.includes(itemFamily(kind)));
 }
 export const NPC_SPECS: Record<NpcId,{name:string;sensitivity:number;condition:StatusId;discount:number;reservation:[number,number];favorite:ItemKind[];hint:string}> = {
   orc:{name:'ออร์กผู้รักษาเกียรติ',sensitivity:1,condition:'D03',discount:2,reservation:[.45,.8],favorite:['blade','amulet','food'],hint:'ราคาที่ดูถูกอาจทำให้เสียทรัพย์'},

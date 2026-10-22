@@ -1,3 +1,5 @@
+import { integerEffect, statusMagnitude } from './copy-effects.js';
+import { finishAbilityChoice, useMerchantAbility } from './merchant-abilities.js';
 import { passivesEnabled } from './passives.js';
 import { randomAt } from '../random.js';
 import { ITEM_SPECS, NPC_SPECS, expansionActive, merchantKinds, priceRange } from './content.js';
@@ -20,15 +22,17 @@ import { bankRoundReward, flipRoundReward, openRoundRewards, raiseRoundReward } 
 import type { AppraisalAction, AppraisalConfig, AppraisalState, Appraiser, DarkMarket, NpcId, Portal } from './types.js';
 
 export const DEFAULT_APPRAISAL_CONFIG: AppraisalConfig = {
-  catalogVersion:3, itemEffects:true, roundRewards:true, multiCoinRewards:true, commerce:true, curseSight:true, freeBuy:true, freeMerchantAction:true, fakeEffect:true, cleanse:true, wishlist:true, wishContract:true, challenge:true, expansion:true,
+  trustAbilities:true, catalogVersion:3, itemEffects:true, roundRewards:true, multiCoinRewards:true, commerce:true, totalTrustStock:true, curseSight:true, freeBuy:true, freeMerchantAction:true, fakeEffect:true, cleanse:true, wishlist:true, wishContract:true, challenge:true, expansion:true,
   encounters:3, startingCredits:40, maxEnergy:10, recoveryEnergy:4,
   bankReserve:2000, marketProbability:.5, marketMaxOrders:3, marketQuota:1,
 };
 function validateConfig(config:AppraisalConfig):void {
+  check(config.trustAbilities===undefined || typeof config.trustAbilities==='boolean','config','กติกาความสามารถพ่อค้าไม่ถูกต้อง');
   check(config.itemEffects===undefined || typeof config.itemEffects==='boolean','config','กติกาผลสินค้าไม่ถูกต้อง');
   check(config.npcEvents===undefined || typeof config.npcEvents==='boolean','config','กติกาอีเวนต์เฉพาะพ่อค้าไม่ถูกต้อง');
   check(config.core2===undefined || typeof config.core2==='boolean','config','กติกาแกนเกมใหม่ไม่ถูกต้อง');
   check(config.commerce===undefined || typeof config.commerce==='boolean','config','กติกาการค้าไม่ถูกต้อง');
+  check(config.totalTrustStock===undefined || typeof config.totalTrustStock==='boolean','config','กติกาโบนัสความไว้ใจรวมไม่ถูกต้อง');
   check(config.polish===undefined || typeof config.polish==='boolean','config','กติกาขัดเกลาไม่ถูกต้อง');
   check(config.expansion===undefined || typeof config.expansion==='boolean','config','กติกาส่วนขยายไม่ถูกต้อง');
   check(config.challenge===undefined || typeof config.challenge==='boolean','config','กติกาท้าทายคำระบุไม่ถูกต้อง');
@@ -59,7 +63,7 @@ function validateConfig(config:AppraisalConfig):void {
   }
 }
 export function createAppraisalRun(playerIds:string[],seed:string,overrides:Partial<AppraisalConfig>={}):AppraisalState {
-  return initialiseAppraisalRun(playerIds,seed,{...DEFAULT_APPRAISAL_CONFIG,...overrides});
+  return initialiseAppraisalRun(playerIds,seed,{...DEFAULT_APPRAISAL_CONFIG,...overrides,...(overrides.catalogVersion!==undefined&&overrides.catalogVersion<3&&overrides.trustAbilities===undefined?{trustAbilities:false}:{})});
 }
 /** Restore an exact saved config, including original audits without a catalog version. */
 export function restoreAppraisalRun(playerIds:string[],seed:string,config:AppraisalConfig):AppraisalState {
@@ -86,7 +90,8 @@ function initialiseAppraisalRun(playerIds:string[],seed:string,config:AppraisalC
 }
 /** One merchant item; the same recipe fills the portals up front and the extra slots earned through trust. */
 function spawnStockItem(state:AppraisalState,id:string,seat:number,encounter:number,index:number|string,slot:number,npc:NpcId):string {
-  const {seed,config}=state;const favorites=merchantKinds(npc,config.catalogVersion??1,!!config.cleanse,!!config.challenge,expansionActive(config),!!config.polish);
+  const {seed,config}=state;let favorites=merchantKinds(npc,config.catalogVersion??1,!!config.cleanse,!!config.challenge,expansionActive(config),!!config.polish,!!config.trustAbilities);
+  if(config.trustAbilities){const offered=new Set(Object.values(state.items).filter(i=>i.npcOwnerId===id&&i.encounter===encounter&&i.npc===npc&&i.owner.startsWith('npc:')).map(i=>i.kind));const fresh=favorites.filter(kind=>!offered.has(kind));if(fresh.length)favorites=fresh;}
   const itemId=`item-${encounter}-${seat}-${index}-${slot}`;
   const kind=favorites[Math.floor(randomAt(seed,`${itemId}:kind`)*favorites.length)]!;
   const anchor=anchorOf(config,kind);const range=priceRange(kind,anchor); const base=range[0]+Math.floor(randomAt(seed,`${itemId}:base`)*(range[1]-range[0]+1));
@@ -159,8 +164,8 @@ function settleEncounter(state:AppraisalState):void {
       if(p.subsidy){p.subsidy=false;state.reservedRewards--;}
       state.history.push({encounter:state.encounter,playerId:p.id,gain:0,accuracy:0,score:0,paused:'dead'});continue;
     }
-    if(status(p,'D05')) {p.energy=Math.max(0,p.energy-2);consumeStatus(p,'D05');trace(state,p,'breath-drain');}
-    if(status(p,'D11')) {p.energy=Math.max(0,p.energy-1);consumeStatus(p,'D11');trace(state,p,'swarm-venom');}
+    if(status(p,'D05')) {p.energy=Math.max(0,p.energy-integerEffect(statusMagnitude(p,'D05',2)));consumeStatus(p,'D05');trace(state,p,'breath-drain');}
+    if(status(p,'D11')) {p.energy=Math.max(0,p.energy-integerEffect(statusMagnitude(p,'D11',1)));consumeStatus(p,'D11');trace(state,p,'swarm-venom');}
     if(omenNow(state)?.settleEnergy) {p.energy=Math.max(0,p.energy-omenNow(state)!.settleEnergy!);trace(state,p,'omen-plague');}
     if(state.config.core2) applyCore2Settlement(state,p);
     pauseIfNeeded(state,p);
@@ -293,6 +298,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
   const roundAction=action.type==='round-flip' || action.type==='round-bank' || action.type==='round-raise';
   check(roundAction?previous.phase==='REVEAL':!['REVEAL','RESULTS'].includes(previous.phase),'phase','ช่วงนี้ไม่รับ action');
   const state=structuredClone(previous); const p=player(state,action.playerId);
+  check(!p.abilityChoice || action.type==='merchant-ability' && !!action.choiceId || action.type==='done','ability-choice','เลือกสินค้าที่พ่อค้าเสนอให้ก่อน');
   if(roundAction) {
     if(action.type==='round-flip')flipRoundReward(state,p,action.guess,action.attempt,action.guesses);
     else if(action.type==='round-raise')raiseRoundReward(state,p,action.coinCount,action.attempt);
@@ -316,7 +322,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
       const caught=appraise(state,p,action.itemId,action.value,action.type==='counter',action.acceptDanger===true); drawBacklashEvent(state,p);if(caught && !p.eventOffer) drawEvent(state,p,true);break;
     }
     case 'buy': npcActionAllowed(state,p);purchase(state,p,p,action.itemIds,{condition:action.condition});break;
-    case 'activate': check(['APPRAISAL','TRADE'].includes(state.phase) && !p.eventOffer,'phase','resolve event ก่อนเปิดใช้');activate(state,p,action.itemId);break;
+    case 'activate': check(['APPRAISAL','TRADE'].includes(state.phase) && !p.eventOffer,'phase','resolve event ก่อนเปิดใช้');activate(state,p,action.itemId,action.npc,action.otherNpc);break;
     case 'recover-resource': {
       npcActionAllowed(state,p);const offer=recoveryOffer(state,p);
       check(offer && offer.target===action.target,'recovery','พ่อค้านี้ไม่มีดีลฟื้นที่เลือกหรือใช้สิทธิ์แล้ว');
@@ -330,7 +336,8 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
     case 'steal': npcActionAllowed(state,p);stealShop(state,p,action.itemId);drawTheftEvent(state,p);break;
     case 'pickpocket': check(['APPRAISAL','TRADE'].includes(state.phase) && !p.eventOffer,'phase','resolve event ก่อน');pickpocket(state,p,action.victimId);drawTheftEvent(state,p);break;
     case 'barter': npcActionAllowed(state,p);check(state.config.core2,'action-type','ห้องนี้ไม่มีการแลกของ');barter(state,p,action.itemId,action.targetItemId);drawTheftEvent(state,p);break;
-    case 'skill': npcActionAllowed(state,p);useSkill(state,p,action.itemId);break;
+    case 'merchant-ability': useMerchantAbility(state,p,action);break;
+    case 'skill': check(!state.config.trustAbilities,'skill','ใช้ความสามารถพ่อค้าแบบใหม่');npcActionAllowed(state,p);useSkill(state,p,action.itemId);break;
     case 'wish-new': npcActionAllowed(state,p);wishNew(state,p,action.replaceNpc);break;
     case 'wish-sell': npcActionAllowed(state,p);wishSell(state,p,action.itemId,action.markup);break;
     case 'cleanse': npcActionAllowed(state,p);cleanseItem(state,p,action.itemId,action.stoneId);break;
@@ -342,7 +349,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
     case 'force-buy': check(state.phase==='TRADE','phase','ยังไม่ใช่ช่วงต่อรอง');forceBuy(state,p,action);break;
     case 'propose': check(state.phase==='TRADE','phase','ยังไม่ใช่ช่วงต่อรอง');propose(state,p,action);break;
     case 'respond': check(state.phase==='TRADE','phase','ยังไม่ใช่ช่วงต่อรอง');respond(state,p,action.offerId,action.accept);break;
-    case 'done': defaultEvent(state,p);p.done=true;for(const offer of state.trades) if(offer.status==='open' && [offer.buyerId,offer.sellerId].includes(p.id)) offer.status='rejected';break;
+    case 'done': finishAbilityChoice(state,p);defaultEvent(state,p);p.done=true;for(const offer of state.trades) if(offer.status==='open' && [offer.buyerId,offer.sellerId].includes(p.id)) offer.status='rejected';break;
     default: check(false,'action-type','ไม่รู้จักคำสั่ง');
   }
   pauseIfNeeded(state,p); progress(state); expireUnavailableOffers(state); state.revision++;
@@ -357,7 +364,9 @@ export function advanceAppraisalEncounter(previous:AppraisalState):AppraisalStat
   for(const p of state.players) {
     delete p.roundReward;
     delete p.merchantActionsUsed;
+    if(state.config.trustAbilities){p.skillUsed=false;delete p.abilityItemUsed;delete p.orcDeal;delete p.preserveItemId;}
     delete p.itemUseBonuses;
+    delete p.itemUseStrength;
     delete p.itemUseKinds;
     delete p.vampireDiscount;resetCore2Encounter(p);
     if(state.config.survival && p.life===0)continue;
@@ -367,8 +376,8 @@ export function advanceAppraisalEncounter(previous:AppraisalState):AppraisalStat
     p.statuses=p.statuses.filter(s=>s.expires>=state.encounter && s.charges>0);p.startWealth=wealth(state,p);
     if(state.config.survival)spend(state,p,0,Math.min(p.energy,state.config.survival.entryEnergyCost),'encounter-entry');
     else if(rested) recover(state,p,Math.max(0,state.config.recoveryEnergy-p.energy),'encounter-recovery',true);else recover(state,p,2,'encounter-rest',true);
-    if(status(p,'D04')?.starts===state.encounter) {spend(state,p,Math.min(2,p.credits),0,'D04');consumeStatus(p,'D04');}
-    if(status(p,'B09')?.starts===state.encounter) {consumeStatus(p,'B09');recover(state,p,2,'B09');}
+    if(status(p,'D04')?.starts===state.encounter) {spend(state,p,Math.min(integerEffect(statusMagnitude(p,'D04',2)),p.credits),0,'D04');consumeStatus(p,'D04');}
+    if(status(p,'B09')?.starts===state.encounter) {const amount=integerEffect(statusMagnitude(p,'B09',2));consumeStatus(p,'B09');recover(state,p,amount,'B09');}
     if(status(p,'D07')?.starts===state.encounter) {p.portals.at(-1)!.disabled=true;consumeStatus(p,'D07');}
   }
   state.market=makeMarket(state);
@@ -394,9 +403,11 @@ export function assertAppraisalInvariants(state:AppraisalState):void {
   for(const entry of state.ledger) {check(Number.isSafeInteger(entry.amount) && entry.amount>0 && initial[entry.from]!==undefined && initial[entry.to]!==undefined,'ledger','ledger ไม่ถูกต้อง');initial[entry.from]!-=entry.amount;initial[entry.to]!+=entry.amount;}
   check(initial.bank===state.bank && state.players.every(p=>initial[p.id]===p.credits),'ledger','ledger ไม่ตรง state');
   const owned=new Set<string>();
+  for(const item of Object.values(state.items))if(item.copy){const source=state.items[item.copy.sourceId];check(state.config.trustAbilities && source && !source.copy && source.kind===item.kind && Number.isSafeInteger(item.copy.number) && item.copy.number>=1 && [25,35,50].includes(item.copy.valuePercent),'copy','ที่มาสำเนาไม่ถูกต้อง');}
   for(const p of state.players) {
     check(!!p.npcTrust===!!state.config.commerce && Object.entries(p.npcTrust??{}).every(([npc,n])=>npc in NPC_SPECS && Number.isSafeInteger(n) && n>=0 && n<=TRUST_CAP),'npc-trust','ความไว้ใจ NPC ไม่ถูกต้อง');
     check(Object.values(p.passiveUses??{}).every(n=>Number.isSafeInteger(n) && n>=0),'passive-use','สิทธิ์ตรวจฟรีไม่ถูกต้อง');
+    check(Object.entries(p.abilityReady??{}).every(([npc,n])=>state.config.trustAbilities && Object.hasOwn(NPC_SPECS,npc) && Number.isFinite(n) && n>=0),'ability-cooldown','เวลารอความสามารถไม่ถูกต้อง');
     const r=p.roundReward;
     if(r) {
       const validAmount=state.config.multiCoinRewards
@@ -413,7 +424,7 @@ export function assertAppraisalInvariants(state:AppraisalState):void {
     check(p.inventory.every(id=>!owned.has(id) && !!owned.add(id) && state.items[id]?.owner===p.id),'owner','สินค้าซ้ำหรือเจ้าของไม่ตรง');
     const loan=p.npcContracts?.alien;
     if(loan){check(state.config.npcEvents && loan.itemIds.length>=1 && loan.itemIds.length<=3 && loan.reservedCredits===8*loan.itemIds.length && loan.dueAt===loan.lentAt+2 && loan.lentAt<=state.encounter,'alien-loan','สัญญายืมไม่ถูกต้อง');check(loan.itemIds.every(id=>!owned.has(id) && !!owned.add(id) && state.items[id]?.owner===`alien-loan:${p.id}`),'loan-owner','ของที่ให้ยืมซ้ำหรือเจ้าของไม่ตรง');}
-    check(p.statuses.every(s=>s.charges>0 && (s.expires>=state.encounter || !!state.config.survival && p.life===0)) && new Set(p.statuses.map(s=>s.id)).size===p.statuses.length,'status','สถานะไม่ถูกต้อง');
+    check(p.statuses.every(s=>s.charges>0 && (s.power===undefined||s.power>0&&s.power<=1) && (s.expires>=state.encounter || !!state.config.survival && p.life===0)) && new Set(p.statuses.map(s=>s.id)).size===p.statuses.length,'status','สถานะไม่ถูกต้อง');
   }
   for(const item of Object.values(state.items)) if(state.players.some(p=>p.id===item.owner)) check(owned.has(item.id),'owner','ของมีเจ้าของแต่ไม่มีใน inventory');
   for(const item of Object.values(state.items))if(item.owner.startsWith('alien-loan:'))check(owned.has(item.id),'loan-owner','ของที่ให้ยืมไม่มีสัญญา');

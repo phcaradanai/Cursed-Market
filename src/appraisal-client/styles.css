@@ -1344,3 +1344,28 @@ html[lang=en] .phase-RESULTS .results>h2{font-family:var(--latin-display)}
 .coin-guess button[aria-pressed=true]{background:var(--amber);color:var(--ink);box-shadow:inset 0 0 0 2px var(--bronze)}
 .coin-results{list-style:none;padding:0;margin:12px 0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 24px}
 @media(max-width:640px){.coin-table.multi-coin{grid-template-columns:repeat(2,minmax(0,1fr));gap:0}.multi-coin .coin-scene{transform:scale(.8);transform-origin:center}.coin-guesses{gap:12px}.coin-guess{flex-wrap:wrap;justify-content:center}.coin-guess>span{flex-basis:100%}}
+
+/* Merchant bonds extend the ledger without opening another overlay. */
+.merchant-abilities{position:relative;min-width:0;margin:20px 0;padding:16px;background:var(--panel);border:1px solid var(--bronze)}
+.merchant-abilities>summary{min-height:44px;cursor:pointer;color:var(--amber);list-style-position:inside}
+.merchant-abilities>summary h2{display:inline;font-size:22px;margin:0}
+.merchant-abilities>summary h2 span{font-family:inherit;font-size:15px;color:var(--cream);margin-inline-start:12px}
+.merchant-abilities[open]>summary{margin-bottom:16px}
+.merchant-abilities .choice-cards.compact .choice-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr))}
+.merchant-abilities .choice-card{min-width:0;overflow-wrap:anywhere}
+.merchant-abilities .choice-card img{width:48px;height:64px;object-fit:cover}
+.ability-focus{padding-top:16px;border-top:1px solid var(--bronze)}
+.ability-focus h3{color:var(--amber)}
+.ability-item-controls{margin:16px 0;padding-top:12px;border-top:1px solid var(--bronze)}
+.ability-item-controls .choice-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))}
+@media(max-width:640px){.merchant-abilities{padding:12px;margin:16px 0}.merchant-abilities>summary h2{font-size:20px}.merchant-abilities .choice-cards.compact .choice-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Keep the appraisal and its merchant controls readable on a narrow table. */
+@media(max-width:640px){
+  .app-shell:has(.phase-APPRAISAL) .masthead{position:relative;top:auto;right:auto;justify-content:flex-end;margin:8px 0 12px}
+  .phase-APPRAISAL .phase-banner,.phase-APPRAISAL .table-stage{zoom:1}
+  .phase-APPRAISAL .appraisal-stage{grid-template-columns:minmax(0,1fr);gap:16px}
+  .phase-APPRAISAL .appraisal-stage>*{min-width:0}
+  .phase-APPRAISAL .hud .resources{display:flex;flex-wrap:wrap;gap:6px;grid-auto-flow:initial}
+  .phase-APPRAISAL .hud .resource{flex:0 0 auto;min-width:0}
+  .phase-APPRAISAL .end-phase{margin-inline:-12px;padding-inline:12px}
+}

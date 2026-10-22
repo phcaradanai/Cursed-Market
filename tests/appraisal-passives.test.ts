@@ -23,7 +23,7 @@ function equip(s:AppraisalState,kind:ItemKind,count=1,seat=0){const p=s.players[
 function end(s:AppraisalState){for(let n=0;n<30&&!['REVEAL','RESULTS'].includes(s.phase);n++){const p=s.players.find(p=>!p.done&&!p.paused)!;s=act(s,{type:'done'},p.id);}return s;}
 
 test('18 unique passive effects extend the catalog to 48 and preserve all version-2 merchant pools',()=>{
- assert.equal(PASSIVE_ITEM_IDS.length,21);assert.equal(new Set(Object.values(PASSIVE_ITEMS).map(i=>i.passive.effect)).size,21);assert.equal(Object.keys(ITEM_SPECS).length,63,'48 + 4 cleanse/challenge tools + 8 expansion items + 3 capacity relics');
+ assert.equal(PASSIVE_ITEM_IDS.length,21);assert.equal(new Set(Object.values(PASSIVE_ITEMS).map(i=>i.passive.effect)).size,21);assert.equal(Object.keys(ITEM_SPECS).length,66,'48 + 4 cleanse/challenge tools + 8 expansion items + 3 capacity relics + 3 distinct ability tools');
  const old=new Set(Object.keys(NPC_SPECS).flatMap(n=>merchantKinds(n as NpcId,2)));assert.equal(old.size,30);assert(PASSIVE_ITEM_IDS.every(k=>!old.has(k)));
  assert.equal(new Set(Object.keys(NPC_SPECS).flatMap(n=>merchantKinds(n as NpcId,3))).size,48);
 });

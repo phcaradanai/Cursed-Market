@@ -1,3 +1,4 @@
+import { copySaleQuote } from './copy-effects.js';
 import { randomAt } from '../random.js';
 import { NPC_SPECS } from './content.js';
 import { CORE2, anchorOf } from './core2.js';
@@ -62,7 +63,7 @@ export function pickpocket(state:AppraisalState,p:Appraiser,victimId:string):voi
 export function barter(state:AppraisalState,p:Appraiser,itemId:string,targetItemId:string):void {
   const mine=ownedItem(state,p,itemId,true);const target=stockItem(state,p,targetItemId);
   const npc=NPC_SPECS[target.npc];
-  check(npc.favorite.includes(mine.kind) || anchorOf(state.config,mine.kind)>=target.ask,'barter','ของที่เสนอมูลค่าไม่พอสำหรับแลก');
+  check(!mine.copy && npc.favorite.includes(mine.kind) || copySaleQuote(mine,anchorOf(state.config,mine.kind))>=target.ask,'barter','ของที่เสนอมูลค่าไม่พอสำหรับแลก');
   check(!mine.stolen,'stolen','ของที่ฉกมาแลกไม่ได้');
   const suspicious=!mine.genuine || mine.cursed;
   if(suspicious && randomAt(state.seed,`${state.encounter}:${p.id}:barter:${itemId}`)<CORE2.barter.detect){
@@ -127,7 +128,7 @@ export function core2ActionsOf(state:AppraisalState,p:Appraiser):Core2Actions {
   const npc=skillNpc(state,p);const open=skillOpen(state,p);
   return {
     theftUsed:!!p.stealTried?.length,trustForSkill:CORE2.skill.trust,
-    ...(open && npc?{skill:{npc,name:SKILLS[npc].name,needsItem:!!SKILLS[npc].needsItem,strong:trustOf(p,npc)>=CORE2.skill.strong}}:{}),
+    ...(open && npc && !state.config.trustAbilities?{skill:{npc,name:SKILLS[npc].name,needsItem:!!SKILLS[npc].needsItem,strong:trustOf(p,npc)>=CORE2.skill.strong}}:{}),
     ...(npc?{stealChance:stealChance(state,p,npc)}:{}),pickpocketChance:stealChance(state,p,undefined,true),
   };
 }

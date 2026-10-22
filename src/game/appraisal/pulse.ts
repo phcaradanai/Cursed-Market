@@ -19,8 +19,8 @@ export function linkTrade(p:Appraiser,partnerId:string,encounter:number):void {
 export const merchantWary=(p:Appraiser,encounter:number)=>!!p.tradeLink && encounter-p.tradeLink.since>=PULSE_RULES.waryAfter;
 export const shardsPerSale=(p:Appraiser,encounter:number)=>merchantWary(p,encounter)?PULSE_RULES.shardsWhenWary:PULSE_RULES.shardsPerSale;
 
-/** Trusting every merchant in play (lowest trust at least `minTrust`) stocks each shop the seat enters with `extra` more goods; it does not scale. */
-export const STOCK_RULES={minTrust:1,extra:1} as const;
+/** New runs add a good per `trustPerItem` pooled trust; minTrust/extra preserve historical audits. */
+export const STOCK_RULES={trustPerItem:3,minTrust:1,extra:1} as const;
 export const activeNpcs=(config:AppraisalConfig):NpcId[]=>(Object.keys(NPC_SPECS) as NpcId[]).filter(npc=>expansionActive(config) || !EXPANSION_NPCS.includes(npc));
 export const trustTier=(trust:Appraiser['npcTrust'],npcs:NpcId[])=>trust?Math.min(...npcs.map(npc=>trust[npc]??0)):0;
 export const extraStock=(tier:number)=>tier>=STOCK_RULES.minTrust?STOCK_RULES.extra:0;

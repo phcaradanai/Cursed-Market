@@ -1,15 +1,16 @@
 import { core2Spec } from '../game/appraisal/core2-specs.js';
-import { EVENT_CATALOG, ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, UNSOLD_PENALTIES } from '../game/appraisal/content.js';
+import { EVENT_CATALOG, ITEM_SPECS, NPC_SPECS, ALL_STATUS_CATALOG as STATUS_CATALOG, UNSOLD_PENALTIES } from '../game/appraisal/content.js';
 import { PASSIVE_ITEMS } from '../game/appraisal/passives.js';
 import { EXTRA_HELD_EFFECTS, ITEM_USE_EFFECTS, type UseBonuses } from '../game/appraisal/item-effects.js';
 import { OMENS, type Omen } from '../game/appraisal/omen-table.js';
-import type { EventId, ItemKind, NpcId, StatusId } from '../game/appraisal/types.js';
+import type { EventId, ItemKind, ItemView, NpcId, StatusId } from '../game/appraisal/types.js';
 import { EN_EVENT, EN_ITEM, EN_NPC, EN_NPC_UNSOLD, EN_OMEN, EN_PASSIVE_TEXT, EN_STATUS, EN_TOOL_TEXT } from './i18n-content.js';
 import { pick, t } from './i18n.js';
 
 /** Display text for catalog entries. Thai comes from src/game; English comes from i18n-content.ts. */
 
 export const itemName = (kind: ItemKind): string => pick(ITEM_SPECS[kind].name, EN_ITEM[kind]);
+export const itemLabel=(item:ItemView):string=>item.copy?`${pick('สำเนา','Copy')} #${item.copy.number} ${pick('ของ','of')} ${itemName(item.kind)}`:itemName(item.kind);
 export const npcName = (npc: NpcId): string => pick(NPC_SPECS[npc].name, EN_NPC[npc]?.name);
 export const npcHint = (npc: NpcId): string => pick(NPC_SPECS[npc].hint, EN_NPC[npc]?.hint);
 export const npcUnsoldText = (npc: NpcId): string => pick(UNSOLD_PENALTIES[npc].text, EN_NPC_UNSOLD[npc]);

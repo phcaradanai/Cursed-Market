@@ -1,3 +1,6 @@
+import { ABILITY_ITEM_TEXT, MODERN_ACTIVATIONS } from '../game/appraisal/ability-content.js';
+import { pick } from './i18n.js';
+import { statusMagnitude, integerEffect } from '../game/appraisal/copy-effects.js';
 import { POLISH_EVENTS } from '../game/appraisal/polish-events.js';
 import { marketOrderReserve } from '../game/appraisal/market-contracts.js';
 import { emptyPassives, freeInspectionCount, heldPassives } from '../game/appraisal/passives.js';
@@ -7,7 +10,7 @@ import { FAKE_EFFECT_CHANCE, collectorTotal, itemScoreValue } from '../game/appr
 import { BOND_SPECS, CONSIGN_RULES, NPC_SPECS } from '../game/appraisal/content.js';
 import { t, getLang } from './i18n.js';
 import { core2Cost, core2Needs, core2NeedsItem, core2Title, isCore2Consequence, isCore2Event } from './core2-text.js';
-import { activationBonusText, eventText, itemName, npcName, npcUnsoldText, statusName, statusDescription } from './catalog-text.js';
+import { activationBonusText, eventText, itemName, itemLabel, npcName, npcUnsoldText, statusName, statusDescription } from './catalog-text.js';
 import { ITEM_SPECS, itemFamily } from '../game/appraisal/content.js';
 export { statusName } from './catalog-text.js';
 import type { AppraisalView, EventOffer, ItemView, NpcId, StatusId } from '../game/appraisal/types.js';
@@ -52,10 +55,10 @@ export const npcAcceptanceChance=(game:AppraisalView,npc:NpcId)=>Math.min(95,(ga
 export const inspectionQuota=(game:AppraisalView)=>2+playerPassives(game).inspections;
 export const freeInspectionRemaining=(game:AppraisalView,property:InspectionProperty)=>freeInspectionCount(playerPassives(game),game.self,property);
 export const appraisalCost=(item:ItemView)=>item.appraisal===null && item.freeMerchantAction?0:1;
-export const inspectionCost = (game:AppraisalView,property:InspectionProperty='price',item?:ItemView) => item?.freeMerchantAction || freeInspectionRemaining(game,property)>0?0:Math.max(0,1+Number(hasStatus(game,'D01'))-Number(hasStatus(game,'B05')))*Number(!hasStatus(game,'B11'));
+export const inspectionCost = (game:AppraisalView,property:InspectionProperty='price',item?:ItemView) => item?.freeMerchantAction || freeInspectionRemaining(game,property)>0?0:Math.max(0,1+integerEffect(statusMagnitude(game.self,'D01',1))-integerEffect(statusMagnitude(game.self,'B05',1)))*Number(!hasStatus(game,'B11'));
 /** Survival: goods a friend appraised and the merchant accepted cost no energy to buy. Mirrors friendAppraised in the engine. */
 export const friendGoods = (game:AppraisalView, items:ItemView[]) => !!game.survival && items.length>0 && items.every(i=>i.appraisedBy!==undefined && i.appraisedBy!==game.self.id && i.appraisalAccepted===true && i.owner.startsWith(`npc:${i.appraisedBy}:`));
-export const purchaseEnergy = (game:AppraisalView, items:ItemView[]=[]) => Math.max(0,(game.freeBuy || friendGoods(game,items)?0:1)+Number(hasStatus(game,'D06'))-playerPassives(game).buyEnergy);
+export const purchaseEnergy = (game:AppraisalView, items:ItemView[]=[]) => Math.max(0,(game.freeBuy || friendGoods(game,items)?0:1)+integerEffect(statusMagnitude(game.self,'D06',1))-playerPassives(game).buyEnergy);
 export const effectsInspectionLabel=(game:AppraisalView)=>game.curseSight?t('ตรวจคำสาป'):t('ตรวจผลของสินค้า');
 /** Nothing is left for the third inspection to teach. */
 export const effectsKnownFor=(game:AppraisalView,k:Knowledge)=>game.curseSight?k.cursed!==undefined:!!k.effectsKnown && (!hasStatus(game,'B02') || k.cursed!==undefined);
@@ -78,6 +81,8 @@ export function purchaseBlock(game:AppraisalView,total:number,quiet:boolean):str
 /** Mirror of the server's activation cost and preconditions. */
 export const activationEnergy=(game:AppraisalView,item:ItemView)=>game.itemEffects && ITEM_SPECS[item.kind].consumable?0:1;
 export function activationBlock(game:AppraisalView,itemId:string,quiet:boolean):string|null {
+  if(game.self.abilityChoice)return pick('เลือกสินค้าที่พ่อค้าเสนอให้ก่อน','Choose the pending merchant offer first');
+  if(game.self.abilityItemUsed?.includes(game.self.inventory.find(i=>i.id===itemId)?.kind as never))return pick('สินค้าชนิดนี้ใช้ในช่วงนี้แล้ว','This item kind was used this encounter');
   if(game.self.eventOffer) return t('ตอบเหตุการณ์ก่อน จึงเปิดใช้ได้');
   if(quiet) return null;
   if(game.self.activated.includes(itemId)) return t('ชิ้นนี้เปิดใช้ในช่วงนี้แล้ว');
@@ -90,6 +95,7 @@ export function activationBlock(game:AppraisalView,itemId:string,quiet:boolean):
  */
 export function possibleBenefitText(game:AppraisalView,item:ItemView):string {
   const spec=ITEM_SPECS[item.kind];const k=item.knowledge;
+  const custom=ABILITY_ITEM_TEXT[item.kind as keyof typeof ABILITY_ITEM_TEXT]??(game.trustAbilities?MODERN_ACTIVATIONS[item.kind as keyof typeof MODERN_ACTIVATIONS]:undefined);if(custom)return pick(custom.th,custom.en);
   const base=itemFamily(item.kind)==='orb'?t('อาจฟื้นพลัง {n} เมื่อเปิดใช้',{n:spec.energyRecovery??3}):
     itemFamily(item.kind)==='key' && hasStatus(game,'D07')?t('อาจล้างสถานะปิดประตูที่มีอยู่ การใช้ครั้งนี้เป็นการปลดประตู'):
     k.effectsKnown?statusDescription(spec.buff):t('อาจได้รับ {name}',{name:statusName(spec.buff)});
@@ -107,14 +113,18 @@ export function riskRange(game:AppraisalView,item:ItemView,value:number):[number
   const risks:number[]=[];
   for(let base=range[0]!;base<=range[1]!;base++) {
     const under=Math.max(0,1-value/base);
-    const modifier=(under>0?.1*(Number(hasStatus(game,'D03'))-Number(hasStatus(game,'B04'))):0)+(game.self.honorJob && Math.abs(value-base)>base*.1?.1:0);
+    const modifier=(under>0?(statusMagnitude(game.self,'D03',.1)-statusMagnitude(game.self,'B04',.1)):0)+(game.self.honorJob && Math.abs(value-base)>base*.1?.1:0);
     risks.push(Math.max(0,Math.min(1,.4*under*NPC_SPECS[item.npc].sensitivity+modifier))*100);
   }
   return [Math.floor(Math.min(...risks)),Math.ceil(Math.max(...risks))];
 }
 export function purchasePrice(game:AppraisalView,items:ItemView[],condition:boolean,extraDiscount=0):number {
   const bloodDiscount=game.self.vampireDiscount?.encounter===game.encounter && items.length>0 && items.every(item=>item.npc==='vampire' && item.owner===`npc:${game.self.id}:${game.encounter}`);
-  return (game.fee??0)+Math.floor(Math.max(0,items.reduce((sum,item)=>sum+item.price,0)-(hasStatus(game,'B03')?2:0)+(hasStatus(game,'D12')?2:0)-(condition?(items[0]?.condition.discount??0):0)-extraDiscount-playerPassives(game).discount)*(bloodDiscount?.5:1));
+  const orc=game.self.orcDeal?.encounter===game.encounter?game.self.orcDeal:undefined;
+  const target=orc?items.find(i=>i.id===orc.itemId):undefined;
+  const total=items.reduce((sum,i)=>sum+i.price,0)-integerEffect(statusMagnitude(game.self,'B03',2))+integerEffect(statusMagnitude(game.self,'D12',2))-(condition?(items[0]?.condition.discount??0):0)-extraDiscount-playerPassives(game).discount;
+  const reduction=target?Math.floor(Math.max(0,Math.min(target.price,total))*orc!.percent/100):0;
+  return (game.fee??0)+Math.max(0,Math.floor(Math.max(0,items.reduce((sum,item)=>sum+item.price,0)-integerEffect(statusMagnitude(game.self,'B03',2))+integerEffect(statusMagnitude(game.self,'D12',2))-(condition?(items[0]?.condition.discount??0):0)-extraDiscount-playerPassives(game).discount)*(bloodDiscount?.5:1))-reduction);
 }
 /** A sale of something the seat owns, after statuses and the omen (Dark Market, wishes, bond buyers). */
 export const saleAdjusted=(game:AppraisalView,base:number)=>Math.max(0,Math.floor(base*(100+(game.salePct??0))/100));
@@ -126,9 +136,11 @@ export function marketOptions(game:AppraisalView,item:ItemView) {
 export function eventNeeds(game:AppraisalView,offer:EventOffer,choice:string,itemId:string):{credits:number;energy:number;life?:number} {
   const none={credits:0,energy:0};
   if(choice==='decline') return none;
+  if(offer.id==='E130')return {credits:3,energy:0};
+  if(offer.id==='E132'&&choice==='survey')return {credits:0,energy:1};
   if(isCore2Event(offer.id))return core2Needs(offer.id,choice);
   if(offer.npcTerms)return {credits:offer.npcTerms.credits,energy:offer.npcTerms.energy+(choice==='give-energy'?2:0),life:offer.npcTerms.life};
-  const mod=(n:number)=>Math.max(0,n+Number(hasStatus(game,'D01'))-Number(hasStatus(game,'B05')));
+  const mod=(n:number)=>Math.max(0,n+integerEffect(statusMagnitude(game.self,'D01',1))-integerEffect(statusMagnitude(game.self,'B05',1)));
   const item=game.self.stock.find(i=>i.id===itemId);
   const deal=game.self.dealMode==='condition';
   const bond=bondOf(offer);
@@ -163,7 +175,7 @@ export function eventItemUsable(game:AppraisalView,offer:EventOffer,id:string):b
   const seen=[...game.self.stock,...game.self.inventory,...game.listings.map(l=>l.item)].find(i=>i.id===id);
   const k=seen?.knowledge;if(!k) return true;
   switch(offer.id) {
-    case 'E11': case 'E46': return k.genuine===undefined;
+    case 'E132': case 'E11': case 'E46': return k.genuine===undefined;
     case 'E12': return k.certificate===undefined;
     case 'E16': return game.curseSight?k.cursed===undefined:!k.effectsKnown;
     case 'E17': return k.base===undefined;
@@ -182,8 +194,7 @@ export function itemScoreRange(k:Knowledge,certified=false):[number,number]|null
 export function collectorEstimate(game:AppraisalView):{min:number;max:number;unpriced:number;modifier:number} {
   let low=0,high=0,unpriced=0;
   for(const item of [...game.self.inventory,...(game.self.loanItems??[])]) {const r=itemScoreRange(item.knowledge,item.appraisedBy!==undefined && item.appraisedBy!==game.self.id);if(r){low+=r[0];high+=r[1];}else unpriced++;}
-  const has=(id:StatusId)=>game.self.statuses.some(s=>s.id===id && s.charges>0);
-  const modifier=(has('B10')?20:0)-(has('D10')?20:0);
+  const modifier=statusMagnitude(game.self,'B10',20)-statusMagnitude(game.self,'D10',20);
   return {min:collectorTotal(game.self.credits,low,modifier),max:collectorTotal(game.self.credits,high,modifier),unpriced,modifier};
 }
 /** The four authentic/fake × cursed/clean results of opening an item, said only as far as the facts are known. */
@@ -201,6 +212,7 @@ const itemEvents=new Set(['E07','E09','E11','E12','E16','E17','E19','E20','E24',
 export const isConsequence=(id:string)=>['E48','E49','E50'].includes(id) || isCore2Consequence(id);
 export const bondOf=(offer:EventOffer)=>BOND_SPECS.find(spec=>spec.id===offer.id);
 export function eventNeedsItem(offer:EventOffer,choice:string):boolean {
+  if(offer.id==='E132')return choice==='survey';
   if(isCore2Event(offer.id))return core2NeedsItem(offer.id,choice);
   if(offer.npcTerms)return choice!=='decline' && (offer.npcTerms.items>0 || choice==='give-item');
   const bond=bondOf(offer);if(bond) return choice!=='decline' && bond.mode!=='show';
@@ -240,8 +252,9 @@ const choiceNames:Record<string,string>={pick:'เลือกพรหนึ่
 export const choiceName=(choice:string,survival=false)=>replaceChoice(choice)?t('แทนคำขอของ {name}',{name:npcName(replaceChoice(choice) as NpcId)??replaceChoice(choice)}):survival && choice==='die'?t('รับผลตายและเป็นผู้ชมจนจบ run'):t(choiceNames[choice]??choice);
 const eventChoiceNames:Partial<Record<string,Record<string,string>>>={E42:{energy:'ฟื้นพลัง 2'},E48:{energy:'เสียพลัง 2',pay:'จ่ายค่าปรับ 2 เครดิต'},E49:{pay:'จ่าย 2 เครดิตให้ลืม'},E03:{pay:'จ่าย 2 เครดิต',debt:'จ่ายด้วยเลือด'},E37:{pay:'จ้างคนแบก',burden:'แบกเอง'},E10:{pay:'จ่ายค่าผ่าน',fog:'ผ่านฟรีในหมอก',switch:'เลี่ยงไปประตูอื่น'}};
 /** Button and card title for one event choice; a few events name the same choice key differently. */
-export const choiceTitle=(offer:EventOffer,choice:string,survival=false)=>isCore2Event(offer.id)?core2Title(offer.id,choice):loanItemCount(choice)?t('ให้ยืม {n} ชิ้น',{n:loanItemCount(choice)}):t(({purge:'ล้างผลเสียของฉัน','send-debuff':'ส่งผลเสียสุ่มให้ผู้เล่นอื่น','give-item':'ส่งสินค้าหนึ่งชิ้น','give-energy':'จ่ายพลัง 2'} as Record<string,string>)[choice]??eventChoiceNames[offer.id]?.[choice]??choiceName(choice,survival));
+export const choiceTitle=(offer:EventOffer,choice:string,survival=false)=>offer.id==='E130'&&choice==='wind'?pick('จ่าย 3 เครดิต เร่งสกิลที่รอนานสุด 1 รอบ','Pay 3 credits to accelerate your longest wait by 1'):offer.id==='E131'&&choice==='haste'?pick('เร่งสกิลครั้งถัดไป 1 รอบ','Next ability cooldown −1'):offer.id==='E131'&&choice==='credits'?pick('รับ 5 เครดิต แลก cooldown ครั้งถัดไป +2','Gain 5 credits; next ability cooldown +2'):offer.id==='E132'&&choice==='compass'?pick('สัตว์นำทางเพิ่มตัวเลือกครั้งถัดไป','Extra choice on your next Beast replacement'):offer.id==='E132'&&choice==='survey'?pick('จ่ายพลัง 1 ตรวจความแท้ของสินค้า','Spend 1 energy to inspect authenticity'):isCore2Event(offer.id)?core2Title(offer.id,choice):loanItemCount(choice)?t('ให้ยืม {n} ชิ้น',{n:loanItemCount(choice)}):t(({purge:'ล้างผลเสียของฉัน','send-debuff':'ส่งผลเสียสุ่มให้ผู้เล่นอื่น','give-item':'ส่งสินค้าหนึ่งชิ้น','give-energy':'จ่ายพลัง 2'} as Record<string,string>)[choice]??eventChoiceNames[offer.id]?.[choice]??choiceName(choice,survival));
 export function eventCost(game:AppraisalView,offer:EventOffer,choice:string,itemId:string):string {
+  if(['E130','E131','E132'].includes(offer.id))return choice==='decline'?pick('ไม่เสียอะไร','No cost'):choice==='wind'?pick('จ่าย 3 เครดิต','Pay 3 credits'):choice==='survey'?pick('จ่ายพลัง 1','Spend 1 energy'):choice==='credits'?pick('รับ 5 เครดิต · ครั้งถัดไปรอนานขึ้น 2 รอบ','Gain 5 credits; next cooldown +2'):pick('ไม่จ่ายเครดิตหรือพลัง','No credit or energy cost');
   if(isCore2Event(offer.id))return choice==='decline'?t('ไม่เสียอะไร'):core2Cost(offer.id,choice,!!game.survival);
   if(offer.npcTerms && choice!=='decline'){
     const term=offer.npcTerms,n=loanItemCount(choice);
@@ -268,7 +281,7 @@ export function eventCost(game:AppraisalView,offer:EventOffer,choice:string,item
     if(bond.mode==='reveal') return bond.energyCost?t('{n} พลัง · ไม่ใช้สิทธิ์ตรวจ',{n:bond.energyCost}):t('ไม่ใช้พลังหรือสิทธิ์ตรวจ');
     return bond.mode==='tribute'?t('มอบของที่เลือกให้ NPC'):t('ไม่ต้องสละของ');
   }
-  const energy=(n:number)=>t('{n} พลัง · ใช้สิทธิ์ตรวจ 1 ครั้ง',{n:Math.max(0,n+Number(hasStatus(game,'D01'))-Number(hasStatus(game,'B05')))});
+  const energy=(n:number)=>t('{n} พลัง · ใช้สิทธิ์ตรวจ 1 ครั้ง',{n:Math.max(0,n+integerEffect(statusMagnitude(game.self,'D01',1))-integerEffect(statusMagnitude(game.self,'B05',1)))});
   const item=game.self.stock.find(i=>i.id===itemId);
   const buying=['E09','E24','E27','E29','E30'].includes(offer.id);
   if(buying && item) {
@@ -309,7 +322,7 @@ export function eventCost(game:AppraisalView,offer:EventOffer,choice:string,item
   return fixed[offer.id]??t('ดูเงื่อนไขข้อเสนอด้านบน');
 }
 export function eventItemName(offer:EventOffer,id:string):string { const kind=offer.targetKinds[id];return kind?itemName(kind):t('สินค้าในผลตรวจเดิม'); }
-export function inventoryLabel(game:AppraisalView,item:ItemView):string {return t('คลัง #{n} {name}',{n:game.self.inventory.findIndex(i=>i.id===item.id)+1,name:itemName(item.kind)});}
+export function inventoryLabel(game:AppraisalView,item:ItemView):string {return t('คลัง #{n} {name}',{n:game.self.inventory.findIndex(i=>i.id===item.id)+1,name:item.copy?`${getLang()==='th'?'สำเนา':'Copy'} #${item.copy.number} ${getLang()==='th'?'ของ':'of'} ${itemName(item.kind)}`:itemName(item.kind)});}
 export function defaultConsequence(offer:EventOffer|null):string|null {
   if(!offer || offer.choices.includes('decline')) return null;
   if(isCore2Event(offer.id))return t('หากจบช่วงหรือหมดเวลา จะเลือก: {title}',{title:core2Title(offer.id,offer.choices[0]!)});
@@ -354,7 +367,7 @@ export function outcomeBetween(prev:AppraisalView,next:AppraisalView):Outcome|nu
   const index=(g:AppraisalView)=>new Map([...g.self.stock,...g.self.inventory,...g.listings.map(l=>l.item)].map(i=>[i.id,i]));
   const before=index(prev),after=index(next);
   for(const [id,item] of after) {
-    const a=before.get(id)?.knowledge;const b=item.knowledge;const name=itemName(item.kind);if(!a) continue;
+    const a=before.get(id)?.knowledge;const b=item.knowledge;const name=itemLabel(item);if(!a) continue;
     if(a.genuine===undefined && b.genuine!==undefined){lines.push(`${name}: ${b.genuine?t('ของแท้'):t('ของปลอม')}`);if(b.genuine)good++;else bad++;}
     if(a.cursed===undefined && b.cursed!==undefined){lines.push(`${name}: ${b.cursed?t('มีคำสาป'):t('ไม่มีคำสาป')}`);if(b.cursed)bad++;else good++;}
     if(a.base===undefined && b.base!==undefined) lines.push(t('{name}: มูลค่าจริง {n} เครดิต',{name,n:b.base}));
@@ -368,9 +381,9 @@ export function outcomeBetween(prev:AppraisalView,next:AppraisalView):Outcome|nu
   if(!p.caught && n.caught){lines.push(t('พ่อค้าจับได้ว่าคุณกดราคา'));bad+=2;}
   const gained=n.inventory.filter(i=>!p.inventory.some(x=>x.id===i.id));
   const lost=p.inventory.filter(i=>!n.inventory.some(x=>x.id===i.id));
-  for(const item of gained){lines.push(p.npcContracts?.alien?.itemIds.includes(item.id)?t('Alien คืน {name}',{name:itemName(item.kind)}):t('ได้ {name}',{name:itemName(item.kind)}));good++;}
+  for(const item of gained){lines.push(p.npcContracts?.alien?.itemIds.includes(item.id)?t('Alien คืน {name}',{name:itemLabel(item)}):t('ได้ {name}',{name:itemLabel(item)}));good++;}
   const credits=n.credits-p.credits,energy=n.energy-p.energy,life=(n.life??0)-(p.life??0);
-  for(const item of lost){const lent=!!n.npcContracts?.alien?.itemIds.includes(item.id);lines.push(lent?t('ให้ Alien ยืม {name}',{name:itemName(item.kind)}):t('เสีย {name}',{name:itemName(item.kind)}));if(!lent && credits<=0)bad++;}
+  for(const item of lost){const lent=!!n.npcContracts?.alien?.itemIds.includes(item.id);lines.push(lent?t('ให้ Alien ยืม {name}',{name:itemLabel(item)}):t('เสีย {name}',{name:itemLabel(item)}));if(!lent && credits<=0)bad++;}
   const had=new Set(p.statuses.map(s=>s.id)),has=new Set(n.statuses.map(s=>s.id));
   for(const st of n.statuses) if(!had.has(st.id)){lines.push(t('ได้รับ {name}',{name:statusName(st.id)}));if(st.id.startsWith('D'))bad++;else good++;}
   for(const st of p.statuses) if(!has.has(st.id)){lines.push(t('หมดผล {name}',{name:statusName(st.id)}));if(st.id.startsWith('D'))good++;}
@@ -394,6 +407,6 @@ export function outcomeBetween(prev:AppraisalView,next:AppraisalView):Outcome|nu
   const activated=n.activated.find(id=>!p.activated.includes(id));
   const resolved=p.eventOffer && n.eventOffer?.key!==p.eventOffer.key?eventText(p.eventOffer.id).name:undefined;
   const activatedName=activated?(after.get(activated)??before.get(activated)):undefined;
-  const title=notes[0]??(resolved?resolved:activated?t('เปิดใช้ {name}',{name:activatedName?itemName(activatedName.kind):t('สินค้า')}):gained[0]?t('ได้ {name}',{name:itemName(gained[0].kind)}):lost[0]?(credits>0?t('ขาย {name}',{name:itemName(lost[0].kind)}):t('เสีย {name}',{name:itemName(lost[0].kind)})):reveals?t('ผลการตรวจ'):t('ผลการกระทำ'));
+  const title=notes[0]??(resolved?resolved:activated?t('เปิดใช้ {name}',{name:activatedName?itemLabel(activatedName):t('สินค้า')}):gained[0]?t('ได้ {name}',{name:itemLabel(gained[0])}):lost[0]?(credits>0?t('ขาย {name}',{name:itemLabel(lost[0])}):t('เสีย {name}',{name:itemLabel(lost[0])})):reveals?t('ผลการตรวจ'):t('ผลการกระทำ'));
   return {tone,title,lines:[...notes.slice(1),...lines.filter(line=>line!==title)]};
 }

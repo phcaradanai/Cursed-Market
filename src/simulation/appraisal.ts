@@ -1,3 +1,4 @@
+import { reducibleCooldown } from '../game/appraisal/ability-rules.js';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -12,6 +13,10 @@ function npcEnergy(v:AppraisalView):number {return (v.freeBuy?0:1)+(v.self.statu
 function buyPrice(v:AppraisalView,item:ItemView):number {return Math.max(0,item.price-(v.self.statuses.some(s=>s.id==='B03')?2:0)+(v.self.statuses.some(s=>s.id==='D12')?2:0)+(v.fee??0));}
 function eventAction(v:AppraisalView,policy:AppraisalPolicy):Body {
   const offer=v.self.eventOffer!;const p=v.self;
+  if(['E130','E131','E132'].includes(offer.id)){
+    const choice=policy==='cautious'?'decline':offer.id==='E130'?(p.credits>=3?'wind':'decline'):offer.id==='E131'?'haste':'compass';
+    return {type:'event',key:offer.key,choice};
+  }
   if(/^E1(1[7-9]|2\d)$/.test(offer.id)) {
     // v0.6 events: penalties are paid in the cheapest listed currency, optional ones only when the bot has spare resources.
     const penalty=['E120','E121','E122','E123','E124'].includes(offer.id);
@@ -149,6 +154,17 @@ export function appraisalBotDecision(v:AppraisalView,policy:AppraisalPolicy):Bod
       policy==='cautious'?portals.find(portal=>portal.npc==='autometa' || portal.npc==='orc'):portals.find(portal=>portal.npc==='darkone' || portal.npc==='alien');
     return {type:'enter',portalId:(chosen??portals[0])!.id};
   }
+  if(p.abilityChoice){const choiceId=p.abilityChoice.itemIds.find(id=>id!==p.abilityChoice!.sourceId)??p.abilityChoice.itemIds[0]!;return {type:'merchant-ability',npc:p.abilityChoice.npc,choiceId};}
+  if(v.trustAbilities && ['APPRAISAL','TRADE'].includes(v.phase) && !p.skillUsed){
+    const abilities=p.merchantAbilities??[];
+    const order=policy==='collector'?['swarm','deepsea','vampire','autometa','orc','darkone','beast','alien']:policy==='cautious'?['deepsea','darkone','autometa','orc','swarm','vampire','beast','alien']:['darkone','orc','autometa','swarm','vampire','beast','deepsea','alien'];
+    for(const npc of order){const a=abilities.find(a=>a.npc===npc&&a.ready);if(!a)continue;
+      if(a.target==='debuff')return {type:'merchant-ability',npc:a.npc,statusId:a.statusIds[0]!};
+      const targets=[...p.stock,...p.inventory].filter(i=>a.itemIds.includes(i.id));
+      const item=a.npc==='deepsea'?targets.find(i=>i.knowledge.cursed===true):a.npc==='autometa'?targets.find(i=>i.knowledge.base===undefined):a.npc==='orc'?targets.find(i=>buyPrice(v,i)<=p.credits):targets[0];
+      if(item)return {type:'merchant-ability',npc:a.npc,itemId:item.id};
+    }
+  }
   if(v.phase==='APPRAISAL') {
     const recovery=p.recoveryOffer;
     if(recovery && p.credits>=recovery.credits && (recovery.target==='life'?p.life!<=v.survival!.maxLife-recovery.amount:p.energy<3))return {type:'recover-resource',target:recovery.target};
@@ -175,7 +191,10 @@ export function appraisalBotDecision(v:AppraisalView,policy:AppraisalPolicy):Bod
     const toBuy=p.stock.find(i=>p.credits>=buyPrice(v,i) && !(knownBad(i) && policy!=='aggressive') && worth(v,i)>=buyPrice(v,i)*BUY_RATIO[policy]);
     if(toBuy && p.energy>=npcEnergy(v)) return {type:'buy',itemIds:[toBuy.id],condition:false};
     if(policy==='collector' && p.energy>=4) {
-      const item=p.inventory.find(i=>!p.activated.includes(i.id));if(item) return {type:'activate',itemId:item.id};
+      const item=p.inventory.find(i=>!p.activated.includes(i.id) && !p.abilityItemUsed?.includes(i.kind) && !['chrono-gear','burden-hourglass'].includes(i.kind));if(item) return {type:'activate',itemId:item.id};
+      const source=p.merchantAbilities?.find(a=>a.trust>=1&&reducibleCooldown(p,a.npc,v.encounter)>0);
+      const gear=p.inventory.find(i=>i.kind==='chrono-gear'&&!p.activated.includes(i.id)&&!p.abilityItemUsed?.includes(i.kind));
+      if(source&&gear)return {type:'activate',itemId:gear.id,npc:source.npc};
     }
     return {type:'done'};
   }

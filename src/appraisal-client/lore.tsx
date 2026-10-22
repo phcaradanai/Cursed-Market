@@ -1,7 +1,8 @@
+import { ABILITY_ITEM_TEXT, MODERN_ACTIVATIONS } from '../game/appraisal/ability-content.js';
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
-import { ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, itemFamily, itemImage, npcImage } from '../game/appraisal/content.js';
-import { getLang, t, type Lang } from './i18n.js';
+import { ITEM_SPECS, NPC_SPECS, ALL_STATUS_CATALOG as STATUS_CATALOG, itemFamily, itemImage, npcImage } from '../game/appraisal/content.js';
+import { getLang, pick, t, type Lang } from './i18n.js';
 import { activationBonusText, itemName, npcHint, npcName, passiveText, statusDescription, statusDuration, statusName, toolText } from './catalog-text.js';
 import { EN_NPC } from './i18n-content.js';
 import { CHALLENGE_TOOLS } from '../game/appraisal/challenge-rules.js';
@@ -61,24 +62,25 @@ const knownText=(item:ItemView)=>{
 /** Price clues are item-specific knowledge; the kind alone never reveals a value range. */
 export function ItemCard({kind,item}:{kind:ItemKind;item?:ItemView|undefined}) {
   const spec=ITEM_SPECS[kind];const k=item?.knowledge;
-  const benefit=itemFamily(kind)==='orb'?t('ฟื้นพลัง {n}',{n:spec.energyRecovery??3}):statusName(spec.buff);
+  const custom=ABILITY_ITEM_TEXT[kind as keyof typeof ABILITY_ITEM_TEXT]??(item?.trustAbilities?MODERN_ACTIVATIONS[kind as keyof typeof MODERN_ACTIVATIONS]:undefined);
+  const benefit=custom?pick(custom.th,custom.en):itemFamily(kind)==='orb'?t('ฟื้นพลัง {n}',{n:spec.energyRecovery??3}):statusName(spec.buff);
   const tool=kind in CHALLENGE_TOOLS?toolText(kind,CHALLENGE_TOOLS[kind as keyof typeof CHALLENGE_TOOLS].text):kind in CLEANSE_TOOLS?toolText(kind,CLEANSE_TOOLS[kind as keyof typeof CLEANSE_TOOLS].text):'';
   return <>
     <img src={itemImage(kind)} alt="" width="72" height="72"/>
     <span className="peek-text">
-      <strong>{itemName(kind)}</strong>
+      <strong>{item?.copy?`${getLang()==='th'?'สำเนา':'Copy'} #${item.copy.number} ${getLang()==='th'?'ของ':'of'} ${itemName(kind)}`:itemName(kind)}</strong>{item?.copy && <span>{pick('effect เหลือ 40% · มูลค่าตามขั้นความไว้ใจ','40% effects · Value follows trust tier')}</span>}
       <span>{k?.base!==undefined?t('มูลค่าจริง {n} เครดิต',{n:k.base}):k?.range?t('เบาะแสมูลค่า {a}–{b} เครดิต',{a:k.range[0],b:k.range[1]}):t('ยังไม่มีข้อมูลมูลค่า · ต้องตรวจราคาสินค้าชิ้นนี้')}</span>
       {item && <span>{knownText(item)}</span>}
       {tool && <span>{kind in CHALLENGE_TOOLS?t('ท้าทายคำระบุ · {text}',{text:tool}):t('ล้างคำสาป · {text}',{text:tool})}</span>}
-      {passiveText(kind,item?.itemEffects) && <span>{t('ขณะถือ · สะสมได้: {text}',{text:passiveText(kind,item?.itemEffects)})}</span>}
+      {passiveText(kind,item?.itemEffects) && <span>{item?.copy?pick('ค่าต้นฉบับขณะถือ: ','Original held effect: '):''}{t('ขณะถือ · สะสมได้: {text}',{text:passiveText(kind,item?.itemEffects)})}</span>}
       <span>{t('เปิดใช้อาจได้ {benefit} · เสี่ยง {drawback}',{benefit,drawback:statusName(spec.drawback)})}{spec.consumable?t(' · ใช้แล้วหมด'):''}</span>
-      {item?.itemEffects && activationBonusText(kind) && <span>{t('เมื่อเปิดใช้สำเร็จ เพิ่มเติม: {text}',{text:activationBonusText(kind)})}</span>}
+      {item?.itemEffects && activationBonusText(kind) && <span>{item?.copy?pick('ค่าต้นฉบับ: ','Original strength: '):''}{t('เมื่อเปิดใช้สำเร็จ เพิ่มเติม: {text}',{text:activationBonusText(kind)})}</span>}
       {item?.itemEffects && spec.consumable && <span>{t('ของใช้แล้วหมด · เปิดใช้ฟรี ไม่เสียพลัง')}</span>}
     </span>
   </>;
 }
 export function ItemTerm({kind,item,label,passive=false}:{kind:ItemKind;item?:ItemView|undefined;label?:ReactNode;passive?:boolean}) {
-  return <Peek tone="item" passive={passive} label={label??itemName(kind)} card={<ItemCard kind={kind} item={item}/>}/>;
+  return <Peek tone="item" passive={passive} label={label??(item?.copy?`${getLang()==='th'?'สำเนา':'Copy'} #${item.copy.number} ${getLang()==='th'?'ของ':'of'} ${itemName(kind)}`:itemName(kind))} card={<ItemCard kind={kind} item={item}/>}/>;
 }
 export function NpcTerm({npc,label,passive=false}:{npc:NpcId;label?:ReactNode;passive?:boolean}) {
   return <Peek tone="npc" passive={passive} label={label??npcName(npc)} card={<><img src={npcImage(npc)} alt="" width="72" height="90"/><span className="peek-text"><strong>{npcName(npc)}</strong><span>{npcHint(npc)}</span></span></>}/>;

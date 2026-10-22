@@ -1,3 +1,4 @@
+import { integerEffect } from './copy-effects.js';
 import type { PassiveBonuses } from './passives.js';
 import type { ItemKind } from './types.js';
 
@@ -41,5 +42,6 @@ export const ITEM_USE_EFFECTS:Partial<Record<ItemKind,ItemEffect & {effect:keyof
 };
 export function addUseBonuses(bonuses:PassiveBonuses,used:UseBonuses|undefined):PassiveBonuses {
   for(const key of Object.keys(used??{}) as Array<keyof UseBonuses>)bonuses[key]+=used![key]??0;
+  for(const key of Object.keys(bonuses) as Array<keyof PassiveBonuses>)if(!['commission','luck','acceptance','mitigation'].includes(key))bonuses[key]=integerEffect(bonuses[key]);
   return bonuses;
 }

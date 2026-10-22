@@ -1,3 +1,5 @@
+import { abilityText } from './ability-text.js';
+import { MerchantAbilities } from './MerchantAbilities.js';
 import { HeldEffects } from './HeldEffects.js';
 import { NpcContracts } from './NpcContracts.js';
 import { WishlistPanel } from './WishlistPanel.js';
@@ -83,9 +85,10 @@ function ModePicker({room,send,disabled}:{room:AppraisalRoomView;send:Send;disab
     <details className="mode-guide-fold"><summary>{t('โหมดเกมที่เลือกได้ · เปรียบเทียบ')}</summary><ModeGuide mode={room.mode}/></details>
   </div>;
 }
-function Rules({timers,survival}:{timers?:AppraisalTimerSettings|undefined;survival?:boolean|undefined}={}) {
+function Rules({timers,survival,trustAbilities}:{timers?:AppraisalTimerSettings|undefined;survival?:boolean|undefined;trustAbilities?:boolean|undefined}={}) {
   const phaseLabels=(phase:string)=>phaseLabel(phase as never);
   return <details className="rules"><summary>{t('กติกาก่อนเริ่ม · อ่านใน 2 นาที')}</summary><div>
+    {trustAbilities && <p>{abilityText('พันธะพ่อค้า: เชื่อใจ 1 เพื่อปลดล็อก เพิ่มขั้นที่ 3 และ 6 ใช้ได้รวมหนึ่งความสามารถต่อช่วง เวลารอนับเป็นช่วงพบพ่อค้า สำเนา Swarm มี effect 40% ค่าทรัพยากรปัดลง ผลแบบแบ่งขนาดไม่ได้มีโอกาสทำงาน 40% สำเนา #1 ใช้ภาพต้นฉบับและทำสำเนาต่อไม่ได้','Merchant bonds unlock at trust 1 and improve at 3 and 6. Use one ability per encounter; waits count encounters. Swarm copies have 40% effects; integer resources round down, indivisible effects have a 40% trigger chance. Copy #1 shares its original artwork and cannot be copied.')}</p>}
     <p>{t('คุณเป็นนักประเมิน 2–4 คน แต่ละคนเลือกประตูพบพ่อค้าของตนเอง ประเมิน ซื้อ เก็บ ใช้ และแลกสินค้า {mode} เส้นทางใหม่มีพ่อค้า เหตุการณ์ และรายการรับซื้อที่เปลี่ยนไป',{mode:survival===true?t('เล่นจนทุกคนชีวิตหมด แล้ว Collector รับของและคิดคะแนน'):survival===false?t('เล่น 3 ช่วงพบพ่อค้าต่อการเดินทาง'):t('ตรวจวงจรชีวิตและการคิดคะแนนของห้องก่อนเริ่ม')})}</p>
     <ol><li><strong>{t('เลือกประตู:')}</strong> {t('ดูรายการ Dark Market ก่อนเลือกพ่อค้า จัดการเหตุการณ์ที่เสนอให้ก่อนเข้าประตู')}</li><li><strong>{t('ประเมินและซื้อ:')}</strong> {t('สินค้าพ่อค้าแต่ละชิ้นเลือกตรวจสอบหรือประเมินฟรี 1 ครั้ง ตรวจฟรีนี้ไม่หักโควตา ตรวจเพิ่มเริ่มต้น 2 ครั้งต่อช่วง ของสะสมอาจเพิ่มสิทธิ์หรือให้ตรวจฟรี ตรวจได้สามอย่าง คือราคา ความแท้ และคำสาป รู้ความแท้ไม่ได้แปลว่าไร้คำสาป เปิดใช้ของแท้ได้ผลดี ของปลอมมีโอกาส 40% ที่ผลดียังออกฤทธิ์ ของมีคำสาปรับผลเสีย ราคาที่คุณประเมินต้องรอ NPC ยอมรับจึงเป็นราคาซื้อ กดราคาต่ำเพิ่มความเสี่ยงถูกจับผิดและเสียทรัพย์ Dark One มีสัญญาที่ถึงชีวิตได้')}</li><li><strong>{t('ต่อรอง:')}</strong> {t('เปิดของหรือสินค้าร้านที่คุณประเมินให้คนอื่นชมและยื่นข้อเสนอ ผู้ขายตอบรับก่อนโอน เสนอราคากับผู้เล่นไม่มีบทลงโทษจาก NPC')}</li><li><strong>{t('คิดผล:')}</strong> {survival===true?t('Collector รวมเครดิตกับมูลค่าของที่เหลือ แล้วปรับด้วย buff/debuff คะแนน ผู้ตายยังได้คะแนนจากทรัพย์ที่เก็บไว้ ไม่มีโบนัสประเมินหรือคะแนนสะสมรายช่วง'):survival===false?t('คะแนนจากทรัพย์สินที่เพิ่มขึ้นและประเมินตรงมูลค่าจริงในช่วง ±10% ได้ 5 คะแนนต่อชิ้น'):t('ดูสูตรคะแนนในกติกาของห้อง')} {t('ของปลอมและของต้องสาปมีมูลค่าคะแนนลดลง')}</li></ol>
     <p>{t('Dark Market สุ่มเปิดก่อนพบพ่อค้า รับซื้อจนจบช่วงนั้น สิทธิ์แยกต่อรายการและผู้เล่น ซื้อของใหม่มาขายได้ ขายแล้วอาจเสียดายเมื่อรอบหน้ารับซื้อแพงกว่า')}</p>
@@ -268,13 +271,14 @@ export function GameTable({room,submit,send,disabled}:{room:AppraisalRoomView;su
       {phase==='REVEAL' && self.roundReward && <RoundReward key={game.encounter} reward={self.roundReward} credits={self.credits} submit={submit} disabled={disabled || room.revealReady.includes(room.yourSeatId)} onTossing={setCoinTossing}/>}
       {reveal && <Results room={room} send={send} disabled={disabled || coinTossing}/>}
       </div>
+      <MerchantAbilities game={game} submit={submit} disabled={inactive}/>
       {(phase==='APPRAISAL' || phase==='TRADE') && !self.paused && !self.done && <div className="end-phase">{consequence && <p className="danger-text">{consequence}</p>}{phase==='TRADE' && game.roundRewardBase!==undefined && <p>{t('เมื่อทุกคนจบซื้อขาย รับเครดิตเติมช่วงนี้ {n} เครดิต หรือเสี่ยงหัวก้อย ก่อนเลือกประตูครั้งถัดไป',{n:game.roundRewardBase})}</p>}{phase==='TRADE' && unsoldItems(game).length>0 && <p className="danger-text">{t('จบช่วงตอนนี้ ของค้าง {n} ชิ้นจะรับโทษจากพ่อค้า',{n:unsoldItems(game).length})}</p>}{phase==='APPRAISAL' && unsoldItems(game).length>0 && <p className="supporting">{t('ของที่ตีราคาแล้ว {n} ชิ้นยังไม่มีคนซื้อ จัดการได้ในช่วงต่อรอง',{n:unsoldItems(game).length})}</p>}<button className="pass" disabled={disabled} title={tip(disabled&&lock)} onClick={()=>submit({type:'done'})}><PassIcon/>{phase==='APPRAISAL'?t('จบการประเมิน ไปต่อรอง'):game.roundRewardBase!==undefined?t('จบซื้อขาย ไปรับเครดิต'):t('จบการต่อรอง คิดผลช่วง')}</button></div>}
     </div>
     {!reveal && drawer('bag',t('กระเป๋า'),<><Inventory game={game} submit={submit} disabled={inactive}/><HeldEffects game={game}/></>)}
     {!reveal && drawer('effects',t('สถานะ'),<><Statuses game={game}/>{self.notes.length>0 && <details className="notes"><summary>{t('ประวัติผลล่าสุด')}</summary><ul>{self.notes.slice(-6).reverse().map((note,index)=><li key={`${index}-${note}`}><Rich text={playerNote(note,playerNames)} survival={!!game.survival}/></li>)}</ul></details>}</>)}
     {!reveal && drawer('market','Dark Market',<DarkMarket game={game} submit={submit} disabled={inactive || !playable}/>)}
     {drawer('ledger',t('สมุดบันทึก'),<><Players room={room}/><WishlistPanel game={game}/><NpcContracts game={game}/>{phase==='TRADE' && <HeldEffects game={game}/>}</>)}
-    {drawer('rules',t('กติกา'),<Rules timers={room.timerSettings} survival={room.mode==='survival'}/>)}
+    {drawer('rules',t('กติกา'),<Rules timers={room.timerSettings} survival={room.mode==='survival'} trustAbilities={game.trustAbilities}/>)}
     </div>
     {eventOpen && <EventModal key={self.eventOffer!.key} game={game} offer={self.eventOffer!} submit={submit} disabled={inactive} tucked={tucked} setTucked={value=>setTuckedKey(value?self.eventOffer!.key:null)} playerNames={playerNames}/>}
     <Toasts toasts={toasts} dismiss={dismiss} survival={!!game.survival} playerNames={playerNames}/>

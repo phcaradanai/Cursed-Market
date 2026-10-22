@@ -1,0 +1,33 @@
+{
+  "tool": "Built-in image_gen",
+  "date": "2026-10-22",
+  "assets": [
+    {
+      "kind": "chrono-gear",
+      "name": "เฟืองย้อนเวลา",
+      "prompt": "Use case: stylized-concept. Asset type: square standalone collectible item painting for Cursed Market, dark fantasy Lovecraftian merchant game. Primary request: a single circular ancient bronze chronal gear, five concentric toothed rings rotating backwards around a glowing teal hourglass-shaped crystal, unmistakably a GEAR not a key. Style/medium: polished semi-realistic 3D PBR painted realism matching the referenced antique bronze clockwork key: tactile aged bronze, blackened iron, subtle amber highlights, detailed realistic wear, moody chiaroscuro. Single item centered and completely visible with generous breathing room, three-quarter product view hovering just above dark textured umber charcoal stone, soft cast shadow. Subdued bronze, charcoal, oxblood and restrained verdigris glow. No people, no writing, no typography, no letters, no numerals, no logos, no borders, no collage. One unique item only. Square composition. This is a new artwork, never replicate the key silhouette.",
+      "path": "src/appraisal-client/public/art/item-chrono-gear.jpg",
+      "sha256": "7ae04f6d350c9de788a49e322fb9fc1c69570efcd4546522f41ab63387b2218c",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "kind": "burden-hourglass",
+      "name": "นาฬิกาทรายถ่ายภาระ",
+      "prompt": "Use case: stylized-concept. Asset type: square standalone collectible item painting for Cursed Market, dark fantasy Lovecraftian merchant game. Primary request: a single double-chamber antique hourglass with two offset intertwined glass bulbs connected by a bronze siphon, amber sand being transferred from one vessel into another, engraved bronze foot and top. Style/medium: polished semi-realistic 3D PBR painted realism matching the referenced antique bronze clockwork key: tactile aged bronze, blackened iron, subtle amber highlights, detailed realistic wear, moody chiaroscuro. Single item centered and completely visible with generous breathing room, three-quarter product view hovering just above dark textured umber charcoal stone, soft cast shadow. Subdued bronze, charcoal, oxblood and restrained verdigris glow. No people, no writing, no typography, no letters, no numerals, no logos, no borders, no collage. One unique item only. Square composition. This is a new artwork, never replicate the key silhouette.",
+      "path": "src/appraisal-client/public/art/item-burden-hourglass.jpg",
+      "sha256": "afbbd53636920bbf7370da9109af3002838ecccce77871d019007d199c232ffc",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "kind": "shifting-compass",
+      "name": "เข็มทิศแปรผัน",
+      "prompt": "Use case: stylized-concept. Asset type: square standalone collectible item painting for Cursed Market, dark fantasy Lovecraftian merchant game. Primary request: a single open octagonal bronze dimensional compass with a split ivory needle pointing toward three tiny holographic ghost silhouettes of merchant goods, inset teal glass, dark burgundy leather cord. Style/medium: polished semi-realistic 3D PBR painted realism matching the referenced antique bronze clockwork key: tactile aged bronze, blackened iron, subtle amber highlights, detailed realistic wear, moody chiaroscuro. Single item centered and completely visible with generous breathing room, three-quarter product view hovering just above dark textured umber charcoal stone, soft cast shadow. Subdued bronze, charcoal, oxblood and restrained verdigris glow. No people, no writing, no typography, no letters, no numerals, no logos, no borders, no collage. One unique item only. Square composition. This is a new artwork, never replicate the key silhouette.",
+      "path": "src/appraisal-client/public/art/item-shifting-compass.jpg",
+      "sha256": "496a5c47e575c61c017b433c3c5489ed903a4be93155b2e4126d857632113d76",
+      "width": 768,
+      "height": 768
+    }
+  ]
+}

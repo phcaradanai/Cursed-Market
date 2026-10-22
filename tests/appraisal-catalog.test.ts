@@ -10,7 +10,7 @@ import { appraisalFixture } from './support/appraisal-fixture.js';
 import type { AppraisalAction, AppraisalState, EventId, ItemKind, NpcId } from '../src/game/appraisal/types.js';
 import type { AppraisalMatchAudit } from '../src/shared/appraisal-protocol.js';
 
-const kinds=(Object.keys(ITEM_SPECS) as ItemKind[]).filter(kind=>!passiveSpec(kind) && !['smith-hammer','whetstone','doubt-lens','void-seal'].includes(kind) && !EXPANSION_KINDS.includes(kind));
+const kinds=(Object.keys(ITEM_SPECS) as ItemKind[]).filter(kind=>!passiveSpec(kind) && !['smith-hammer','whetstone','doubt-lens','void-seal','chrono-gear','burden-hourglass','shifting-compass'].includes(kind) && !EXPANSION_KINDS.includes(kind));
 type Body=AppraisalAction extends infer A ? A extends AppraisalAction ? Omit<A,'playerId'|'requestId'|'encounter'> : never : never;
 function driver(initial:AppraisalState) {
   let state=initial,request=0;

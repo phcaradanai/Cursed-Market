@@ -1,8 +1,9 @@
 export const STATUS_IDS = ['B01','B02','B03','B04','B05','B06','B07','B08','B09','B10','B11','B12','B13','B14','B15','B16','B17','B18','B19','B20','D01','D02','D03','D04','D05','D06','D07','D08','D09','D10','D11','D12','D13','D14','D15','D16','D17','D18','D19','D20'] as const;
 /** Core v0.6 statuses. Kept apart from STATUS_IDS so boon drafts and saved runs never see them. */
 export const CORE2_STATUS_IDS = ['B21','B22','B23','B24','D21','D22','D23','D24'] as const;
-export const ALL_STATUS_IDS = [...STATUS_IDS, ...CORE2_STATUS_IDS] as const;
-export type StatusId = typeof STATUS_IDS[number] | typeof CORE2_STATUS_IDS[number];
+export const ABILITY_STATUS_IDS = ['B25','B26','D25'] as const;
+export const ALL_STATUS_IDS = [...STATUS_IDS, ...CORE2_STATUS_IDS, ...ABILITY_STATUS_IDS] as const;
+export type StatusId = typeof ALL_STATUS_IDS[number];
 export const EVENT_IDS = ['E01','E02','E03','E04','E05','E06','E07','E08','E09','E10','E11','E12','E13','E14','E15','E16','E17','E18','E19','E20','E21','E22','E23','E24','E25','E26','E27','E28','E29','E30','E31','E32','E33','E34','E35','E36','E37','E38','E39','E40','E41','E42','E43','E44','E45','E46','E47','E48','E49','E50'] as const;
 /** NPC × held-item encounters. Kept outside EVENT_IDS so the original random pool never changes. */
 export const BOND_EVENT_IDS = ['E51','E52','E53','E54','E55','E56','E57','E58','E59','E60','E61','E62','E63','E64','E65','E66','E67','E68','E69','E70','E71','E72','E102','E103','E104','E105','E106','E107','E74','E75','E76','E77','E78','E79','E80','E81','E82','E83'] as const;
@@ -16,21 +17,25 @@ export const NPC_EVENT_IDS = ['E109','E110','E111','E112','E113','E114','E115','
 /** Core v0.6 events: doors with real tolls, merchant backlash, theft and a few random encounters. Kept outside EVENT_IDS so saved runs never draw them. */
 export const CORE2_EVENT_IDS = ['E117','E118','E119','E120','E121','E122','E123','E124','E125','E126','E127','E128','E129'] as const;
 export const EXPANSION_EVENT_IDS = ['E84','E85','E86','E87','E88','E89','E90','E91','E92','E93'] as const;
+export const ABILITY_EVENT_IDS = ['E130','E131','E132'] as const;
 /** Merchant wish announcement; kept outside both pools so neither changes. */
 export const WISH_EVENT_ID = 'E73' as const;
-export type EventId = typeof EVENT_IDS[number] | typeof BOND_EVENT_IDS[number] | typeof WISH_EVENT_ID | typeof EXPANSION_EVENT_IDS[number] | typeof POLISH_EVENT_IDS[number] | typeof BOON_EVENT_ID | typeof NPC_EVENT_IDS[number] | typeof CORE2_EVENT_IDS[number];
+export type EventId = typeof EVENT_IDS[number] | typeof BOND_EVENT_IDS[number] | typeof WISH_EVENT_ID | typeof EXPANSION_EVENT_IDS[number] | typeof POLISH_EVENT_IDS[number] | typeof BOON_EVENT_ID | typeof NPC_EVENT_IDS[number] | typeof CORE2_EVENT_IDS[number] | typeof ABILITY_EVENT_IDS[number];
 export type NpcId = 'orc' | 'vampire' | 'autometa' | 'alien' | 'darkone' | 'beast' | 'deepsea' | 'swarm';
 export type ItemFamily = 'mirror' | 'orb' | 'key' | 'mask' | 'potion' | 'battery' | 'amulet' | 'blade' | 'scanner' | 'food';
 export const PASSIVE_ITEM_IDS=['inspection-warrant','tax-order','noble-seal','gambler-hat','lucky-die','merchant-ledger','friendship-ring','negotiator-gloves','guild-badge','light-satchel','surveyor-lens','curse-compass','market-pass','authenticity-seal','smuggler-cloak','merchant-canteen','healing-brooch','inspector-notebook','vital-flask','life-relic','wish-ledger'] as const;
 export type PassiveKind=typeof PASSIVE_ITEM_IDS[number];
 export type InspectionProperty='price'|'authenticity'|'effects';
+export const ABILITY_ITEM_IDS=['chrono-gear','burden-hourglass','shifting-compass'] as const;
 export type ItemKind = ItemFamily | 'memory-mirror' | 'rift-mirror' | 'blood-orb' | 'storm-orb' |
   'bone-key' | 'clockwork-key' | 'bone-mask' | 'void-mask' | 'blood-tonic' | 'dream-tonic' |
   'sun-cell' | 'void-cell' | 'oath-charm' | 'echo-charm' | 'bone-blade' | 'eclipse-blade' |
   'truth-lens' | 'curse-meter' | 'ember-feed' | 'moon-feed' | 'smith-hammer' | 'whetstone' | 'doubt-lens' | 'void-seal' |
-  'abyss-pearl' | 'tide-lantern' | 'kraken-ink' | 'siren-conch' | 'hive-comb' | 'chitin-blade' | 'larva-cell' | 'compound-mirror' | PassiveKind;
+  'abyss-pearl' | 'tide-lantern' | 'kraken-ink' | 'siren-conch' | 'hive-comb' | 'chitin-blade' | 'larva-cell' | 'compound-mirror' | PassiveKind | typeof ABILITY_ITEM_IDS[number];
 export type AppraisalPhase = 'PORTALS' | 'APPRAISAL' | 'TRADE' | 'REVEAL' | 'RESULTS';
 export interface AppraisalConfig {
+  /** Absent in historical runs: keep original skills, catalogs and RNG pools exactly. */
+  trustAbilities?:boolean;
   /** Absent in saved audits: preserve historical item effects and activation costs. */
   itemEffects?: boolean;
   /** Absent in original v0.4 audits: retain the original 10-item generation pool. */
@@ -41,6 +46,8 @@ export interface AppraisalConfig {
   multiCoinRewards?: boolean;
   /** Absent in saved runs: retain the pre-commission/trust/market-contract rules. */
   commerce?: boolean;
+  /** Absent in saved runs: retain the one-item bonus for trusting every merchant. */
+  totalTrustStock?: boolean;
   /** Absent in saved runs: retain the old effects check where only B02 could reveal a curse. */
   curseSight?: boolean;
   /** Absent in saved runs: buying from an NPC still costs energy there. */
@@ -83,9 +90,13 @@ export interface CollectorResult {
   playerId:string; credits:number; itemValue:number; modifierPercent:number; statusIds:StatusId[]; score:number;
   items:Array<{id:string;kind:ItemKind;base:number;genuine:boolean;cursed:boolean;value:number;certified?:boolean}>;
 }
-export interface Status { id: StatusId; expires: number; charges: number; targetItemId?: string; starts: number }
+export interface Status { power?:number; id: StatusId; expires: number; charges: number; targetItemId?: string; starts: number }
 export interface Knowledge { range?: [number,number]; base?: number; genuine?: boolean; cursed?: boolean; effectsKnown?: boolean; activationKnown?: boolean; certificate?: boolean; comparison?: string }
 export interface AppraisalItem {
+  /** Public copy provenance; restrictions live on the source and survive ownership changes. */
+  copy?:{sourceId:string;number:number;valuePercent:number};
+  copyConsumed?:boolean;
+  preserved?:boolean;
   id: string; kind: ItemKind; base: number; genuine: boolean; cursed: boolean; ask: number;
   owner: string; npcOwnerId: string; npc: NpcId; encounter: number; certificate: boolean;
   lastAppraisal: number | null;
@@ -122,10 +133,18 @@ export interface RoundReward {
   lastFlip?:{guess:CoinSide; side:CoinSide; correct:boolean; coins?:Array<{guess:CoinSide;side:CoinSide;correct:boolean}>; delta?:number};
 }
 export interface Appraiser {
+  abilityReady?:Partial<Record<NpcId,number>>;
+  abilityLastUsed?:Partial<Record<NpcId,number>>;
+  abilityAdjusted?:Partial<Record<NpcId,number>>;
+  abilityChoice?:{npc:'alien'|'beast';sourceId:string;itemIds:string[]};
+  preserveItemId?:string;
+  orcDeal?:{itemId:string;percent:number;encounter:number};
+  abilityItemUsed?:ItemKind[];
   /** Extra activated-item bonuses; reset after the round reward is banked. */
   itemUseBonuses?:import('./item-effects.js').UseBonuses;
   /** Successful activation bonus sources this encounter: same kind never adds twice. */
   itemUseKinds?:ItemKind[];
+  itemUseStrength?:Partial<Record<ItemKind,number>>;
   npcContracts?: NpcContracts;
   vampireDiscount?: {encounter:number};
   passiveUses?:Partial<Record<InspectionProperty,number>>;
@@ -203,7 +222,7 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
   | { type: 'inspect'; itemId: string; property: 'price'|'authenticity'|'effects' }
   | { type: 'appraise'|'counter'; itemId: string; value: number; acceptDanger?: boolean }
   | { type: 'buy'; itemIds: string[]; condition: boolean }
-  | { type: 'activate'; itemId: string }
+  | { type: 'activate'; itemId: string; npc?:NpcId; otherNpc?:NpcId }
   | { type: 'event'; key: string; choice: string; itemId?: string; itemIds?:string[]; statusId?: StatusId; otherPlayerId?: string; fact?: 'base'|'genuine'|'cursed'; guess?: boolean }
   | { type: 'market-sell'; itemId: string; orderId: string; resolution?:'discount'|'sacrifice' }
   | { type: 'share'; itemId: string; allow: boolean; purchase: boolean; claims?: { genuine?: boolean; cursed?: boolean }; rebate?: number }
@@ -224,6 +243,7 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
   | { type:'pickpocket'; victimId:string }
   | { type:'barter'; itemId:string; targetItemId:string }
   | { type:'skill'; itemId?:string }
+  | { type:'merchant-ability'; npc:NpcId; itemId?:string; statusId?:StatusId; choiceId?:string }
 );
 /** `rebate` is credits the owner pays the buyer when the sale completes, so a poor item can still find a price. */
 export interface SharedListing { ownerId: string; itemId: string; purchase: boolean; claims?: { genuine?: boolean; cursed?: boolean }; rebate?: number }
@@ -240,9 +260,11 @@ export interface AppraisalState {
   vault?: string[];
 }
 export interface ItemView {
+  copy?:{sourceId:string;sourceName:string;number:number;valuePercent:number};
   /** This seat can inspect or appraise this merchant item once without energy. */
   freeMerchantAction?:boolean;
   itemEffects?:boolean;
+  trustAbilities?:boolean;
   id: string; kind: ItemKind; name: string; image: string; owner: string;
   npc: NpcId;
   range?: [number,number]; ask: number; appraisal: number | null; lockedUntil: number | null;
@@ -255,6 +277,7 @@ export interface ItemView {
 }
 export interface Core2Actions { skill?:{npc:NpcId;name:string;needsItem:boolean;strong:boolean}; stealChance?:number; pickpocketChance?:number; theftUsed:boolean; trustForSkill:number }
 export interface AppraisalView {
+  trustAbilities?:boolean;
   itemEffects?:boolean;
   version: 4 | 5; phase: AppraisalPhase; encounter: number; encounterCount: number | null; revision: number;
   survival?:NonNullable<AppraisalConfig['survival']>; core2?:boolean; collectorAt?:number; dread?:number; curseSight?:boolean; freeBuy?:boolean; fakeEffect?:boolean; cleanse?:boolean; wishlist?:boolean; wishContract?:boolean; challenge?:boolean; polish?:boolean; omen?:{id:string;name:string;text:string}; salePct?:number; fee?:number; maxEnergy?:number; collector?:CollectorResult[]; brokerage?:boolean; roundRewardBase?:number; passives?:boolean;
@@ -267,9 +290,11 @@ export interface AppraisalView {
     recoveryOffer?:RecoveryOffer;
     /** Core v0.6: what the seat can do beyond buying: the merchant's skill, theft odds and whether this encounter's one attempt is spent. */
     core2Actions?:Core2Actions;
+    merchantAbilities?:MerchantAbilityView[];
+    abilityChoices?:ItemView[];
     pulse?:{shards:number;perLife:number;perSale:number;wary:boolean};
-    /** Lowest trust across every merchant in play, the trust that earns extra shop goods, and how many. */
-    stockBonus?:{tier:number;extra:number;need:number;npcs:NpcId[]};
+    /** Shop bonus and its threshold. `total` selects pooled trust; absent keeps the historical all-merchant rule. */
+    stockBonus?:{tier:number;extra:number;need:number;npcs:NpcId[];total?:number};
     cleanseOffer?:CleanseOffer;
     wishOffer?:WishOffer;
     wishDesk?:WishDesk;
@@ -279,4 +304,8 @@ export interface AppraisalView {
   players: Array<{id:string;credits:number;energy:number;score:number;paused:Appraiser['paused'];done:boolean;itemCount:number;life?:number}>;
   market: Omit<DarkMarket,'lots'> & { lots?: AuctionLotView[] }; listings: Array<SharedListing & { item: ItemView }>;
   trades: Array<TradeOffer & {item:ItemView;swapItem:ItemView|null}>; history: EncounterResult[];
+}
+export interface MerchantAbilityView {
+  npc:NpcId; name:string; description:string; trust:number; tier:number; cooldown:number; remaining:number;
+  ready:boolean; reason:string|null; target:'stock'|'inventory'|'consumable'|'debuff'|'none'; itemIds:string[]; statusIds:StatusId[];
 }

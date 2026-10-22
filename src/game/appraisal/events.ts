@@ -1,3 +1,6 @@
+import { copySaleQuote, itemEffectScale, integerEffect } from './copy-effects.js';
+import { ABILITY_EVENT_IDS } from './types.js';
+import { MERCHANT_ABILITIES, reducibleCooldown, reduceAbilityCooldown } from './ability-rules.js';
 import { inspectionLimit } from './passives.js';
 import { randomAt } from '../random.js';
 import { ITEM_SPECS, NPC_SPECS, expansionActive, itemFamily, priceRange } from './content.js';
@@ -66,6 +69,13 @@ function expansionEligible(state:AppraisalState,p:Appraiser,id:EventId):boolean 
 }
 export function eventEligible(state:AppraisalState,p:Appraiser,id:EventId):boolean {
   if (p.paused || p.done || ['RESULTS','REVEAL'].includes(state.phase)) return false;
+  if((ABILITY_EVENT_IDS as readonly string[]).includes(id)){
+    if(!state.config.trustAbilities || p.abilityChoice)return false;
+    const trusted=Object.values(p.npcTrust??{}).some(v=>v>=1);
+    if(id==='E130')return p.credits>=3 && (Object.keys(MERCHANT_ABILITIES) as NpcId[]).some(n=>(p.npcTrust?.[n]??0)>=1&&reducibleCooldown(p,n,state.encounter)>0);
+    if(id==='E131')return trusted && !status(p,'B25') && !status(p,'D25') && freeBankOf(state)>=5;
+    return state.phase==='APPRAISAL' && trusted && !status(p,'B26') && p.stock.some(id=>state.items[id]?.owner===`npc:${p.id}:${state.encounter}`);
+  }
   if(core2Spec(id))return core2EventEligible(state,p,id);
   if(state.config.core2 && ['E01','E08','E10'].includes(id))return false;
   if(isNpcEvent(id))return npcEventEligible(state,p,id);
@@ -109,7 +119,7 @@ export function eventEligible(state:AppraisalState,p:Appraiser,id:EventId):boole
     case 'E22': return !status(p,'B07') && ['orc','darkone','beast'].includes(npc??'');
     case 'E23': return p.energy>=1 && stock.length>0;
     case 'E24': return npc==='vampire' && stock.length>0;
-    case 'E25': return stock.length>0 && movable(p).some(v=>NPC_SPECS[npc!].favorite.includes(state.items[v]!.kind));
+    case 'E25': return stock.length>0 && movable(p).some(v=>!state.items[v]!.copy && NPC_SPECS[npc!].favorite.includes(state.items[v]!.kind));
     case 'E26': return next;
     case 'E27': return next && stock.length>0;
     case 'E28': return npc==='darkone' && !status(p,'B08');
@@ -138,6 +148,9 @@ export function eventEligible(state:AppraisalState,p:Appraiser,id:EventId):boole
 export function eventChoices(state:AppraisalState,p:Appraiser,id:EventId):string[] {
   if(core2Spec(id))return core2EventChoices(state,p,id);
   switch(id) {
+    case 'E130': return ['wind','decline'];
+    case 'E131': return ['haste','credits','decline'];
+    case 'E132': return ['compass',...(p.energy>=1 && p.stock.some(id=>known(state,p,id).genuine===undefined)?['survey']:[]),'decline'];
     case 'E01': return ['stay','switch','decline'];
     case 'E03': return ['pay','debt','decline'];
     case 'E06': return [...(debuffs(p).some(v=>v!=='D04')?['interest']:[]),...(debuffs(p).some(v=>v!=='D07')?['seal']:[]),'decline'];
@@ -163,7 +176,8 @@ export function offerEvent(state:AppraisalState,p:Appraiser,id:EventId):void {
   const key=`${state.encounter}:${p.id}:${id}:${p.offerSlots}:${p.consequenceSlots}`;
   const ownKinds:Partial<Record<EventId,ItemKind>>={E07:'food',E31:'mirror',E32:'orb',E33:'key',E34:'mask',E35:'potion',E36:'battery',E38:'amulet',E39:'blade'};
   let itemIds=ownKinds[id]?kindOwned(state,p,ownKinds[id]!):p.stock;
-  if(id==='E25') itemIds=movable(p).filter(v=>NPC_SPECS[state.items[p.stock[0]!]!.npc].favorite.includes(state.items[v]!.kind));
+  if(id==='E132')itemIds=p.stock.filter(id=>known(state,p,id).genuine===undefined);
+  if(id==='E25') itemIds=movable(p).filter(v=>!state.items[v]!.copy && NPC_SPECS[state.items[p.stock[0]!]!.npc].favorite.includes(state.items[v]!.kind));
   if(['E44','E48','E50'].includes(id)) itemIds=id==='E44'?movable(p):p.inventory;
   if(core2Spec(id)) itemIds=core2EventItems(id,p);
   if(id==='E45') itemIds=Object.keys(p.knowledge);
@@ -172,7 +186,7 @@ export function offerEvent(state:AppraisalState,p:Appraiser,id:EventId):void {
   if(id==='E12') itemIds=itemIds.filter(v=>state.items[v]!.certificate && known(state,p,v).certificate===undefined);
   if(id==='E19') itemIds=itemIds.filter(v=>known(state,p,v).genuine===false && state.publicKnowledge[v]?.genuine===undefined);
   if(id==='E07') itemIds=itemIds.filter(v=>unlocked(p,v));
-  const quotedPrices=Object.fromEntries(p.inventory.map(itemId=>[itemId,salePreview(state,p,Math.floor(anchorOf(state.config,state.items[itemId]!.kind)*.75))]));
+  const quotedPrices=Object.fromEntries(p.inventory.map(itemId=>[itemId,copySaleQuote(state.items[itemId]!,salePreview(state,p,Math.floor(anchorOf(state.config,state.items[itemId]!.kind)*.75)))]));
   const facts:Record<string,Knowledge>={};
   if(id==='E45') {
     for(const itemId of itemIds) {
@@ -194,7 +208,7 @@ export function offerEvent(state:AppraisalState,p:Appraiser,id:EventId):void {
 }
 export function drawEvent(state:AppraisalState,p:Appraiser,reaction=false):void {
   if(p.eventOffer || p.paused || p.done || (!reaction && p.offerSlots>=2) || (reaction && p.consequenceSlots>=1)) return;
-  let pool=[...EVENT_IDS,...(state.config.core2 && !reaction?CORE2_DRAW_IDS:[])].filter(id=>consequences.includes(id)===reaction && eventEligible(state,p,id));
+  let pool=[...EVENT_IDS,...(state.config.trustAbilities && !reaction?ABILITY_EVENT_IDS:[]),...(state.config.core2 && !reaction?CORE2_DRAW_IDS:[])].filter(id=>consequences.includes(id)===reaction && eventEligible(state,p,id));
   const unseen=pool.filter(id=>!p.seenEvents.includes(id)); if(unseen.length) pool=unseen;
   if(!pool.length) return;
   const index=Math.floor(randomAt(state.seed,`${state.encounter}:${p.id}:${state.phase}:${p.offerSlots}:${p.consequenceSlots}:event`)*pool.length);
@@ -249,6 +263,7 @@ export function resolveEvent(state:AppraisalState,p:Appraiser,command:Extract<Ap
   const offer=p.eventOffer; check(offer && offer.key===command.key && offer.choices.includes(command.choice),'event-choice','ข้อเสนอเก่าหรือไม่มีตัวเลือกนี้');
   const id=offer.id; const choice=command.choice;
   if(choice==='decline') { check(!isConsequence(id),'consequence','ปฏิเสธผลที่รับความเสี่ยงไว้ไม่ได้'); if(['E01','E10'].includes(id)) p.portals[0]!.disabled=true; p.eventOffer=null; p.resolvedEvents.push(id); trace(state,p,'event-declined',{id}); return; }
+  if((ABILITY_EVENT_IDS as readonly string[]).includes(id))check(state.config.trustAbilities && eventEligible(state,p,id),'event-ineligible','เหตุการณ์เวลาไม่เข้าเงื่อนไขแล้ว');
   if(core2Spec(id)){resolveCore2Event(state,p,offer,command);p.eventOffer=null;p.resolvedEvents.push(id);trace(state,p,'event-resolved',{id,choice});return;}
   if(isNpcEvent(id)){resolvePersonalNpcEvent(state,p,offer,command);p.eventOffer=null;p.resolvedEvents.push(id);trace(state,p,'event-resolved',{id,choice});return;}
   // The offer's captured targets are fixed. Resource/ownership conditions are rechecked at settlement.
@@ -258,13 +273,16 @@ export function resolveEvent(state:AppraisalState,p:Appraiser,command:Extract<Ap
   if(id==='E73') {const npc=shopNpcOf(p);check(npc && offer.wish,'wish','ไม่มีคำขอ');applyWish(state,p,npc,offer.wish,choice.startsWith('replace:')?choice.slice(8) as NpcId:undefined);p.notes.push(`${NPC_SPECS[npc].name}อยากได้ ${ITEM_SPECS[offer.wish.kind].name} ให้ ${offer.wish.price} เครดิต${state.config.wishContract?` แต่ราคาลดลงทุกช่วง ไม่ต่ำกว่า ${wishFloor(offer.wish.kind)} เครดิต`:' ถ้ามีมาขายครั้งหน้า'}`);p.notes=p.notes.slice(-30);p.eventOffer=null;p.resolvedEvents.push(id);trace(state,p,'event-resolved',{id,choice});return;}
   const buy=(discount=0,extra?:StatusId,lock=false,barterItemId?:string)=>purchase(state,p,p,[item()],{discount,condition:p.dealMode==='condition',...(extra?{grantStatus:extra}:{}),lock,...(barterItemId?{barterItemId}:{})});
   switch(id) {
+    case 'E130': {const npc=(Object.keys(MERCHANT_ABILITIES) as NpcId[]).filter(n=>(p.npcTrust?.[n]??0)>=1&&reducibleCooldown(p,n,state.encounter)>0).sort((a,b)=>(p.abilityReady?.[b]??0)-(p.abilityReady?.[a]??0))[0];check(npc,'ability-cooldown','ไม่มีสกิลที่ลดเวลารอได้');spend(state,p,3,0,id);reduceAbilityCooldown(p,npc,state.encounter,1);break;}
+    case 'E131': if(choice==='haste')grant(state,p,'B25');else {reward(state,p,5,id);grant(state,p,'D25');}break;
+    case 'E132': if(choice==='compass')grant(state,p,'B26');else {const selected=item();stockItem(state,p,selected);check(known(state,p,selected).genuine===undefined,'known','รู้ความแท้แล้ว');spend(state,p,0,1,id);learn(p,selected,{genuine:state.items[selected]!.genuine});}break;
     case 'E01': if(choice==='stay') spend(state,p,0,1,id); else p.portals[0]!.disabled=true; break;
     case 'E02': p.honorJob=true; break;
     case 'E03': if(choice==='pay') spend(state,p,2,0,id); else grant(state,p,'D10'); recover(state,p,3,id); if(state.config.survival && choice==='debt')damageLife(state,p,1,'blood-pact'); break;
     case 'E04': spend(state,p,1,0,id); grant(state,p,'B01'); break;
     case 'E05': spend(state,p,0,1,id); grant(state,p,'B02'); break;
     case 'E06': {const selected=chooseStatus(offer,command); const next=choice==='interest'?'D04':'D07'; check(selected.startsWith('D') && selected!==next && status(p,selected),'event-target','ล้างสถานะที่เลือกไม่ได้'); removeStatus(p,selected); grant(state,p,next); break;}
-    case 'E07': retire(state,p,ownKind('food'),id); grant(state,p,'B05'); break;
+    case 'E07': {const v=ownKind('food'),power=itemEffectScale(state.items[v]!);retire(state,p,v,id); grant(state,p,'B05',undefined,power); break;}
     case 'E08': p.dealMode=choice==='cash'?'cash':'condition'; p.portals.forEach((portal,index)=>portal.disabled=index!==(choice==='cash'?0:1)); break;
     case 'E09': buy(2,'D08'); break;
     case 'E10': if(choice==='pay') spend(state,p,2,0,id); else if(choice==='fog') grant(state,p,'D02'); else p.portals[0]!.disabled=true; break;
@@ -282,26 +300,26 @@ export function resolveEvent(state:AppraisalState,p:Appraiser,command:Extract<Ap
     case 'E22': spend(state,p,1,0,id); grant(state,p,'B07'); break;
     case 'E23': spend(state,p,0,1,id); grant(state,p,'B10'); break;
     case 'E24': buy(2,'D05'); break;
-    case 'E25': {const v=item(); const npc=state.items[p.stock[0]!]!.npc; check(NPC_SPECS[npc].favorite.includes(ownedItem(state,p,v,true).kind),'barter','NPC ไม่ต้องการของนี้'); purchase(state,p,p,[p.stock[0]!],{barterItemId:v,condition:p.dealMode==='condition'}); break;}
+    case 'E25': {const v=item(); const npc=state.items[p.stock[0]!]!.npc; check(!state.items[v]!.copy && NPC_SPECS[npc].favorite.includes(ownedItem(state,p,v,true).kind),'barter','NPC ไม่ต้องการของนี้'); purchase(state,p,p,[p.stock[0]!],{barterItemId:v,condition:p.dealMode==='condition'}); break;}
     case 'E26': spend(state,p,2,0,id); grant(state,p,'B09'); break;
     case 'E27': buy(2,'D04'); break;
     case 'E28': spend(state,p,2,0,id); grant(state,p,'B08'); break;
     case 'E29': buy(3,undefined,true); break;
     case 'E30': buy(-2,'B06'); break;
-    case 'E31': {const v=ownKind('mirror'); spend(state,p,0,1,id); p.activated.push(v); grant(state,p,'D05'); grant(state,p,'B01'); break;}
-    case 'E32': retire(state,p,ownKind('orb'),id,false); spend(state,p,1,0,id); recover(state,p,3,id); break;
-    case 'E33': check(status(p,'D07'),'status','ไม่มี D07'); retire(state,p,ownKind('key'),id,false); removeStatus(p,'D07'); break;
-    case 'E34': {ownKind('mask'); const selected=chooseStatus(offer,command); check(selected.startsWith('B') && selected!=='B10' && status(p,selected),'status','เลือก buff ที่จะสละ'); removeStatus(p,selected); grant(state,p,'B10'); break;}
-    case 'E35': {const selected=chooseStatus(offer,command); check(['D01','D05'].includes(selected) && status(p,selected),'status','เลือก D01 หรือ D05'); retire(state,p,ownKind('potion'),id,false); removeStatus(p,selected); break;}
-    case 'E36': {const v=ownKind('battery'); spend(state,p,0,1,id); p.activated.push(v); grant(state,p,'B05'); break;}
+    case 'E31': {const v=ownKind('mirror'),power=itemEffectScale(state.items[v]!); spend(state,p,0,1,id); p.activated.push(v); grant(state,p,'D05',undefined,power); grant(state,p,'B01',undefined,power); break;}
+    case 'E32': {const v=ownKind('orb'),power=itemEffectScale(state.items[v]!);retire(state,p,v,id,false); spend(state,p,1,0,id); recover(state,p,integerEffect(3*power),id); break;}
+    case 'E33': {check(status(p,'D07'),'status','ไม่มี D07');const v=ownKind('key'),power=itemEffectScale(state.items[v]!);retire(state,p,v,id,false);if(power===1||randomAt(state.seed,`${offer.key}:${v}:copy-key`)<power)removeStatus(p,'D07');break;}
+    case 'E34': {const v=ownKind('mask'); const selected=chooseStatus(offer,command); check(selected.startsWith('B') && selected!=='B10' && status(p,selected),'status','เลือก buff ที่จะสละ'); removeStatus(p,selected); grant(state,p,'B10',undefined,itemEffectScale(state.items[v]!)); break;}
+    case 'E35': {const selected=chooseStatus(offer,command); check(['D01','D05'].includes(selected) && status(p,selected),'status','เลือก D01 หรือ D05'); const v=ownKind('potion'),power=itemEffectScale(state.items[v]!);retire(state,p,v,id,false);if(power===1||randomAt(state.seed,`${offer.key}:${v}:copy-potion`)<power)removeStatus(p,selected); break;}
+    case 'E36': {const v=ownKind('battery'); spend(state,p,0,1,id); p.activated.push(v); grant(state,p,'B05',undefined,itemEffectScale(state.items[v]!)); break;}
     case 'E37': if(choice==='pay') spend(state,p,2,0,id); else grant(state,p,'D06'); break;
-    case 'E38': {const v=ownKind('amulet'); spend(state,p,0,1,id); p.activated.push(v); grant(state,p,'D03'); grant(state,p,'B06'); break;}
-    case 'E39': {const v=ownKind('blade'); spend(state,p,0,1,id); p.activated.push(v); grant(state,p,'D10'); grant(state,p,'B04'); break;}
+    case 'E38': {const v=ownKind('amulet'); spend(state,p,0,1,id); p.activated.push(v); grant(state,p,'D03',undefined,itemEffectScale(state.items[v]!)); grant(state,p,'B06',undefined,itemEffectScale(state.items[v]!)); break;}
+    case 'E39': {const v=ownKind('blade'); spend(state,p,0,1,id); p.activated.push(v); grant(state,p,'D10',undefined,itemEffectScale(state.items[v]!)); grant(state,p,'B04',undefined,itemEffectScale(state.items[v]!)); break;}
     case 'E40': if(choice==='repair') {spend(state,p,0,2,id); removeStatus(p,'D02');} else grant(state,p,'D02'); break;
     case 'E41': {const selected=chooseStatus(offer,command); check(selected.startsWith('D') && status(p,selected),'status','เลือก debuff'); spend(state,p,2,0,id); removeStatus(p,selected); break;}
     case 'E42': if(choice==='energy') recover(state,p,2,id); else {check(status(p,'D10'),'status','ไม่มี D10'); removeStatus(p,'D10');} break;
     case 'E43': check(state.bank-state.market.budget-state.reservedRewards>=1,'bank','งบรางวัลไม่พอ'); p.subsidy=true; state.reservedRewards++; break;
-    case 'E44': {const v=item(); check(movable(p).length>=2 && offer.quotedPrices[v]!==undefined,'collector','ไม่มีข้อเสนอรับซื้อ'); reward(state,p,saleApply(state,p,Math.floor(anchorOf(state.config,state.items[v]!.kind)*.75)),id); retire(state,p,v,id); break;}
+    case 'E44': {const v=item(); check(movable(p).length>=2 && offer.quotedPrices[v]!==undefined,'collector','ไม่มีข้อเสนอรับซื้อ'); reward(state,p,copySaleQuote(state.items[v]!,saleApply(state,p,Math.floor(anchorOf(state.config,state.items[v]!.kind)*.75))),id); retire(state,p,v,id); break;}
     case 'E45': {const v=item(); const fact=command.fact; check(fact && ['base','genuine','cursed'].includes(fact),'fact','เลือกข้อมูลที่จะเปิด'); const value=p.knowledge[v]?.[fact]; check(value!==undefined && state.publicKnowledge[v]?.[fact]===undefined && !p.revealedInfo.includes(`${v}:${fact}`),'proof','ข้อมูลนี้ยังไม่เคยตรวจหรือเปิดแล้ว'); state.publicKnowledge[v]={...state.publicKnowledge[v],[fact]:value}; p.revealedInfo.push(`${v}:${fact}`); reward(state,p,1,id); break;}
     case 'E46': {const v=item(); const target=stockItem(state,p,v); check(typeof command.guess==='boolean' && known(state,p,v).genuine===undefined,'guess','ต้องทายแท้หรือปลอมที่ยังไม่รู้'); spend(state,p,0,1,id); const correct=command.guess===target.genuine; if(correct) reward(state,p,2,id); learn(p,v,{genuine:target.genuine}); p.notes.push(`${correct?'ทายถูก!':'ทายผิด'} ${ITEM_SPECS[target.kind].name}เป็น${target.genuine?'ของแท้':'ของปลอม'}${correct?' ได้ 2 เครดิต':''}`); p.notes=p.notes.slice(-30); trace(state,p,'guess',{itemId:v,correct}); break;}
     case 'E47': {const v=item(); check(state.listings.some(l=>l.itemId===v && l.ownerId!==p.id && state.items[v]!.owner.startsWith('npc:')),'listing','รายการข้ามร้านไม่ได้เปิด'); trace(state,p,'cross-shop-viewed',{itemId:v}); break;}

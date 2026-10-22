@@ -1,5 +1,6 @@
+import { statusMagnitude, integerEffect } from './copy-effects.js';
 import { randomAt } from '../random.js';
-import { check, omenNow, status, trace } from './mechanics.js';
+import { check, omenNow, trace } from './mechanics.js';
 import { coinWinChance, passiveBonuses, passivesEnabled } from './passives.js';
 import type { AppraisalState, Appraiser, CoinSide } from './types.js';
 
@@ -11,8 +12,8 @@ export function openRoundRewards(state:AppraisalState):void {
     const base=state.encounter%2?10:15;
     const b=passiveBonuses(state,p);
     // Polish: lucky/unlucky coins and the omen shift the post-trade reward and the coin odds.
-    const polish=state.config.polish;const income=b.income+(polish?(status(p,'B18')?3:0)-(status(p,'D19')?3:0)+(omenNow(state)?.roundBonus??0):0);
-    const luck=polish?(status(p,'B18')?10:0)-(status(p,'D19')?10:0):0;
+    const polish=state.config.polish;const income=b.income+(polish?integerEffect(statusMagnitude(p,'B18',3))-integerEffect(statusMagnitude(p,'D19',3))+(omenNow(state)?.roundBonus??0):0);
+    const luck=polish?statusMagnitude(p,'B18',10)-statusMagnitude(p,'D19',10):0;
     p.roundReward={encounter:state.encounter,base,amount:base+income,flips:0,settled:false,...(passivesEnabled(state.config) || income!==b.income || luck?{incomeBonus:income,winBonus:5+b.coinWin,winChance:Math.max(15,Math.min(85,coinWinChance(b)+luck))}:{})};
     if(state.config.multiCoinRewards)Object.assign(p.roundReward,{coinCount:1,staked:0,net:0});
   }

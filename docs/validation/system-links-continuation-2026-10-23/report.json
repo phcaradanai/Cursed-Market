@@ -1,0 +1,96 @@
+{
+  "purpose": "Pre/post-fix diagnostic plus positive controls. reproduced=true means a remaining defect; fixed=true verifies corrected behavior. --expect-fixed requires all four corrections.",
+  "head": "0f37012cf7bb79683eac0f7e2d6c88c45304bfbc",
+  "systemLinks": 1,
+  "findings": [
+    {
+      "id": "N1",
+      "reproduced": false,
+      "fixed": true,
+      "capturedChoices": [
+        "pay",
+        "energy",
+        "pouch"
+      ],
+      "currentChoices": [
+        "energy",
+        "item",
+        "pouch"
+      ],
+      "creditsAfterRepay": 0,
+      "doneError": null,
+      "timeoutError": null
+    },
+    {
+      "id": "N2",
+      "reproduced": false,
+      "fixed": true,
+      "life": 6,
+      "actualCap": 7,
+      "energy": 0,
+      "eligible": true,
+      "eligibleOneLifeLower": true
+    },
+    {
+      "id": "N3",
+      "reproduced": false,
+      "fixed": true,
+      "choices": [
+        "ward",
+        "decline"
+      ],
+      "credits": 40,
+      "emptyHandEligible": true,
+      "heldEligible": true,
+      "withB06Eligible": true
+    },
+    {
+      "id": "N4",
+      "reproduced": false,
+      "fixed": true,
+      "before": {
+        "actual": 0.08,
+        "view": 0.08
+      },
+      "after": {
+        "actual": 0.04,
+        "view": 0.04
+      }
+    }
+  ],
+  "controls": [
+    "vault deposit removes held cap; withdrawal restores it",
+    "orb activation restores energy and removes the consumed item",
+    "held copies cap at five; B06 blocks a newly granted D23"
+  ],
+  "coverage": [
+    {
+      "mode": "classic",
+      "seeds": 100,
+      "opened": 100,
+      "orders": 198,
+      "notInitiallyAvailable": 112,
+      "runsWithMissingKind": 75
+    },
+    {
+      "mode": "survival",
+      "seeds": 100,
+      "opened": 100,
+      "orders": 200,
+      "notInitiallyAvailable": 0,
+      "runsWithMissingKind": 0
+    }
+  ],
+  "sourceHashes": {
+    "src/server/appraisal-main.ts": "35a306cf157170eb00c124d8eddba064efa7b8e7fc1b7a74724b84d9c02da65d",
+    "src/game/appraisal/engine.ts": "5cb28d903fe6733465396a40768c34afb96a88c467f49ed80b3d2e407b5f8907",
+    "src/game/appraisal/events.ts": "05da0823b84b85cea769c06085cd56da6973fb238abf05b9cf3ff623724240f2",
+    "src/game/appraisal/core2-events.ts": "00cc312c9caa75c5000e805e96722a8a79909c9c21c96a2911f6d0e9fcef5979",
+    "src/game/appraisal/core2-rules.ts": "c512cac29fda1d586afcc82ece3ac15a0411650283d1226ae12787c76bfce0ea",
+    "src/game/appraisal/core2-specs.ts": "399d270a4c3c8d170ae2c9a995dfff13863aeba2ebce98b70b78a5f2a1ce5316",
+    "src/game/appraisal/mechanics.ts": "220548204a4be0efdde4dd8d839ad51b468f0867d2cb7174fd2cabbbf307f362",
+    "src/game/appraisal/views.ts": "f8dbb65384370226c329e6eee3b0c6af891c7fffe66d5b8e5cd720012605d592",
+    "src/game/appraisal/secure-storage.ts": "8809389abd9c149b961a08822979fcbfbebfb6042b6c826eed09dec126260e57",
+    "src/game/appraisal/passives.ts": "4c698f61577c48d58ff945546be159f49945e1e6279c85456ae8d7e1c0d8a2ab"
+  }
+}

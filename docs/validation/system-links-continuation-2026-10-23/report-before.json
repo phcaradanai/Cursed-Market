@@ -1,0 +1,97 @@
+{
+  "purpose": "Known-defect reproductions plus positive controls; reproduced=true is a failure of product behavior, not a passing regression test.",
+  "head": "0f37012cf7bb79683eac0f7e2d6c88c45304bfbc",
+  "findings": [
+    {
+      "id": "N1",
+      "reproduced": true,
+      "capturedChoices": [
+        "pay",
+        "energy",
+        "pouch"
+      ],
+      "currentChoices": [
+        "energy",
+        "item",
+        "pouch"
+      ],
+      "creditsAfterRepay": 0,
+      "doneError": {
+        "code": "event-cost",
+        "message": "จ่ายตัวเลือกนี้ไม่ไหวแล้ว"
+      },
+      "timeoutError": {
+        "code": "event-cost",
+        "message": "จ่ายตัวเลือกนี้ไม่ไหวแล้ว"
+      }
+    },
+    {
+      "id": "N2",
+      "reproduced": true,
+      "life": 6,
+      "actualCap": 7,
+      "energy": 0,
+      "eligible": false,
+      "eligibleOneLifeLower": true
+    },
+    {
+      "id": "N3",
+      "reproduced": true,
+      "choices": [
+        "ward",
+        "decline"
+      ],
+      "credits": 40,
+      "emptyHandEligible": false,
+      "heldEligible": true,
+      "withB06Eligible": false
+    },
+    {
+      "id": "N4",
+      "reproduced": true,
+      "before": {
+        "actual": 0.08,
+        "view": 0.08
+      },
+      "after": {
+        "actual": 0.04,
+        "view": 0.08
+      }
+    }
+  ],
+  "controls": [
+    "vault deposit removes held cap; withdrawal restores it",
+    "orb activation restores energy and removes the consumed item",
+    "held copies cap at five; B06 blocks a newly granted D23"
+  ],
+  "coverage": [
+    {
+      "mode": "classic",
+      "seeds": 100,
+      "opened": 100,
+      "orders": 198,
+      "notInitiallyAvailable": 112,
+      "runsWithMissingKind": 75
+    },
+    {
+      "mode": "survival",
+      "seeds": 100,
+      "opened": 100,
+      "orders": 200,
+      "notInitiallyAvailable": 0,
+      "runsWithMissingKind": 0
+    }
+  ],
+  "sourceHashes": {
+    "src/server/appraisal-main.ts": "35a306cf157170eb00c124d8eddba064efa7b8e7fc1b7a74724b84d9c02da65d",
+    "src/game/appraisal/engine.ts": "b9719ec4e2e912b9ae753442721f6c3625bad420774134ed7580f843fe8db15d",
+    "src/game/appraisal/events.ts": "cbd44a09d29c2cb064991e9f73676fce2a8eb44b5b50d307ef76f7c13eaff6ef",
+    "src/game/appraisal/core2-events.ts": "1a19c6736c8797a1939ca5a05106904782e4cdc5b5577780d4a2f929abc572a5",
+    "src/game/appraisal/core2-rules.ts": "c512cac29fda1d586afcc82ece3ac15a0411650283d1226ae12787c76bfce0ea",
+    "src/game/appraisal/core2-specs.ts": "399d270a4c3c8d170ae2c9a995dfff13863aeba2ebce98b70b78a5f2a1ce5316",
+    "src/game/appraisal/mechanics.ts": "220548204a4be0efdde4dd8d839ad51b468f0867d2cb7174fd2cabbbf307f362",
+    "src/game/appraisal/views.ts": "5aedc6d2a72f14eb7eef38d894beb1450c710de6d417ea90f18c5088554b3be0",
+    "src/game/appraisal/secure-storage.ts": "8809389abd9c149b961a08822979fcbfbebfb6042b6c826eed09dec126260e57",
+    "src/game/appraisal/passives.ts": "4c698f61577c48d58ff945546be159f49945e1e6279c85456ae8d7e1c0d8a2ab"
+  }
+}

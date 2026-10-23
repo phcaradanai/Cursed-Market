@@ -48,6 +48,8 @@ export interface AppraisalConfig {
   eventChoiceRules?:1;
   /** Absent in saved audits: v0.6 statuses B21–B24/D21–D24 stay unreachable and theft buffs keep their old chance-based meaning. 1 gives every status a source and makes B21/B22/D21 and the thieves' night omen settle tied theft duels. */
   statusLinks?:1;
+  /** Absent in saved audits: preserve historical event eligibility and defaults. 1 revalidates core2 defaults, links healing/guard choices to their requirements and excludes costless blood-pact debt. */
+  systemLinks?:1;
   /** Absent in historical runs: keep original skills, catalogs and RNG pools exactly. */
   trustAbilities?:boolean;
   /** Absent in saved audits: preserve historical item effects and activation costs. */

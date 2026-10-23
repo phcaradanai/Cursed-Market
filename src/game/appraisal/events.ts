@@ -12,7 +12,7 @@ import { check, consumeStatus, counterLimit, damageLife, grant, kill, known, lea
 import { BOND_EVENT_IDS, BOON_EVENT_ID, EVENT_IDS, EXPANSION_EVENT_IDS, POLISH_EVENT_IDS, STATUS_IDS } from './types.js';
 import { POLISH_EVENTS } from './polish-events.js';
 import { anchorOf, linkedStatuses } from './core2.js';
-import { CORE2_DRAW_IDS, core2EventChoices, core2EventEligible, core2EventItems, core2NeedsItem, core2Spec, isCore2Consequence, pickBacklash, resolveCore2Event } from './core2-events.js';
+import { CORE2_DRAW_IDS, FALLBACK_BRAND, core2EventChoices, core2EventEligible, core2EventItems, core2NeedsItem, core2Spec, isCore2Consequence, pickBacklash, resolveCore2Event } from './core2-events.js';
 import { isNpcEvent, NPC_PERSONAL_EVENT, npcEventEligible, personalNpcOffer, resolvePersonalNpcEvent } from './npc-events.js';
 import { applyWish, drawWishEvent as drawWish, shopNpcOf, wishEligible, wishPick } from './wishlist.js';
 import { bondEligible, bondQuotes, bondSpec, bondTargets, resolveBond } from './brokerage.js';
@@ -119,7 +119,7 @@ export function eventEligible(state:AppraisalState,p:Appraiser,id:EventId):boole
   const bank=state.bank-state.market.budget-state.reservedRewards;
   switch(id) {
     case 'E02': return npc==='orc' && stock.length>0 && !Object.keys(p.valuations).length;
-    case 'E03': return npc==='vampire' && p.energy<maxEnergyOf(state,p);
+    case 'E03': return npc==='vampire' && p.energy<maxEnergyOf(state,p) && (state.config.systemLinks!==1 || eventChoices(state,p,id).some(choice=>choice!=='decline'));
     case 'E04': return npc==='autometa' && unknownPrice;
     case 'E05': return npc==='alien' && inspectable && stock.some(v=>effectsUnknown(state,p,v));
     case 'E06': return npc==='darkone' && next && debuffs(p).some(v=>v!=='D04' || next);
@@ -187,7 +187,9 @@ export function eventChoices(state:AppraisalState,p:Appraiser,id:EventId):string
     case 'E131': return ['haste','credits','decline'];
     case 'E132': return ['compass',...(p.energy>=1 && p.stock.some(id=>known(state,p,id).genuine===undefined)?['survey']:[]),'decline'];
     case 'E01': return ['stay','switch','decline'];
-    case 'E03': return ['pay','debt','decline'];
+    case 'E03': return state.config.systemLinks===1
+      ?[...(p.credits>=2?['pay']:[]),...(state.config.survival || !status(p,'D10')?['debt']:[]),'decline']
+      :['pay','debt','decline'];
     case 'E06': return [...(debuffs(p).some(v=>v!=='D04')?['interest']:[]),...(debuffs(p).some(v=>v!=='D07')?['seal']:[]),'decline'];
     case 'E08': return ['cash','condition','decline'];
     case 'E10': return ['pay','fog','switch','decline'];
@@ -323,7 +325,7 @@ export function resolveEvent(state:AppraisalState,p:Appraiser,command:Extract<Ap
     case 'E132': if(choice==='compass')grant(state,p,'B26');else {const selected=item();stockItem(state,p,selected);check(known(state,p,selected).genuine===undefined,'known','รู้ความแท้แล้ว');spend(state,p,0,1,id);learn(p,selected,{genuine:state.items[selected]!.genuine});}break;
     case 'E01': if(choice==='stay') spend(state,p,0,1,id); else p.portals[0]!.disabled=true; break;
     case 'E02': p.honorJob=true; break;
-    case 'E03': if(choice==='pay') spend(state,p,2,0,id); else grant(state,p,'D10'); recover(state,p,3,id); if(state.config.survival && choice==='debt')damageLife(state,p,1,'blood-pact'); break;
+    case 'E03': check(state.config.systemLinks!==1 || eventChoices(state,p,id).includes(choice),'event-cost','ตัวเลือกนี้ไม่มีต้นทุนเพิ่มแล้ว'); if(choice==='pay') spend(state,p,2,0,id); else grant(state,p,'D10'); recover(state,p,3,id); if(state.config.survival && choice==='debt')damageLife(state,p,1,'blood-pact'); break;
     case 'E04': spend(state,p,1,0,id); grant(state,p,'B01'); break;
     case 'E05': spend(state,p,0,1,id); grant(state,p,'B02'); break;
     case 'E06': {const selected=chooseStatus(offer,command); const next=choice==='interest'?'D04':'D07'; check(selected.startsWith('D') && selected!==next && status(p,selected),'event-target','ล้างสถานะที่เลือกไม่ได้'); removeStatus(p,selected); grant(state,p,next); break;}
@@ -408,6 +410,18 @@ export function resolveEvent(state:AppraisalState,p:Appraiser,command:Extract<Ap
 export function defaultEvent(state:AppraisalState,p:Appraiser):void {
   const offer=p.eventOffer; if(!offer) return;
   if(core2Spec(offer.id)){
+    if(state.config.systemLinks===1){
+      // Finance and other seats can change resources while an offer is pending.
+      // Keep its captured choices/targets; never seize a newly acquired item instead.
+      const available=core2EventChoices(state,p,offer.id);
+      const itemId=offer.itemIds.find(id=>p.inventory.includes(id) && state.items[id]?.owner===p.id);
+      const choice=offer.choices.includes('decline')?'decline':offer.choices.find(c=>available.includes(c) && (!core2NeedsItem(offer.id,c,state.config) || !!itemId))??FALLBACK_BRAND.id;
+      if(!offer.choices.includes(choice)){
+        // Only the system default may add the existing mandatory-penalty fallback.
+        offer.choices.push(choice);trace(state,p,'event-default-fallback',{id:offer.id,choice});
+      }
+      resolveEvent(state,p,{type:'event',key:offer.key,playerId:p.id,requestId:'system-default',encounter:state.encounter,choice,...(core2NeedsItem(offer.id,choice,state.config)?{itemId:itemId!}:{})});return;
+    }
     const choice=offer.choices.includes('decline')?'decline':offer.choices[0]!;
     resolveEvent(state,p,{type:'event',key:offer.key,playerId:p.id,requestId:'system-default',encounter:state.encounter,choice,...(core2NeedsItem(offer.id,choice,state.config)?{itemId:p.inventory[0]!}:{})});return;
   }

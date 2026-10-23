@@ -1,6 +1,6 @@
 import { randomAt } from '../random.js';
 import { ITEM_SPECS } from './content.js';
-import { check, damageLife, grant, healLife, penaltyItem, recover, reward, spend, status, trace, transfer } from './mechanics.js';
+import { check, damageLife, grant, healLife, maxEnergyOf, maxLifeOf, penaltyItem, recover, reward, spend, status, trace, transfer } from './mechanics.js';
 import type { AppraisalAction, AppraisalState, Appraiser, EventId, EventOffer } from './types.js';
 
 export { CORE2_SPECS, core2Spec, isCore2Consequence } from './core2-specs.js';
@@ -25,12 +25,19 @@ function affordable(state:AppraisalState,p:Appraiser,c:Core2Choice):boolean {
   if(c.life && (!state.config.survival || p.life===undefined || p.life<=c.life))return false;
   if(c.lose && !p.inventory.length)return false;
   if(c.reward && state.bank-state.market.budget-state.reservedRewards<c.reward)return false;
-  if(c.heal && state.config.survival && p.life!==undefined && p.life>=(state.config.survival.maxLife))return false;
+  if(c.heal && state.config.survival && p.life!==undefined && p.life>=(state.config.systemLinks===1?maxLifeOf(state,p)!:state.config.survival.maxLife))return false;
   return true;
 }
 export function core2EventChoices(state:AppraisalState,p:Appraiser,id:EventId):string[] {
   const spec=CORE2_SPECS[id]!;
-  const open=core2Choices(id,state.config).filter(c=>c.id==='decline' || affordable(state,p,c) && !debtWithoutNext(state,c)).map(c=>c.id);
+  const open=core2Choices(id,state.config).filter(c=>{
+    if(c.id==='decline')return true;
+    if(state.config.systemLinks===1 && state.config.statusLinks===1 && id==='E128'){
+      if(c.id==='offer' && (status(p,'B06') || status(p,'B19')))return false;
+      if(c.id==='ward' && status(p,'B21'))return false;
+    }
+    return affordable(state,p,c) && !debtWithoutNext(state,c);
+  }).map(c=>c.id);
   if(spec.consequence){return open.length?open:[FALLBACK_BRAND.id];}
   if(spec.phase==='PORTALS' && !open.length)return [FALLBACK_BRAND.id];
   return open;
@@ -47,12 +54,14 @@ export function core2EventEligible(state:AppraisalState,p:Appraiser,id:EventId):
   if(spec.phase==='PORTALS')return p.portals.filter(v=>!v.disabled).length>1 && core2EventChoices(state,p,id).some(c=>c!==FALLBACK_BRAND.id);
   if(id==='E125')return p.stock.length>0 && !Object.keys(p.valuations).length && !status(p,'B01');
   if(id==='E126'){
-    const drink=(state.config.survival?p.life!==undefined && p.life<state.config.survival.maxLife:p.energy<state.config.maxEnergy) && p.credits>=3;
+    const drink=(state.config.survival?p.life!==undefined && p.life<(state.config.systemLinks===1?maxLifeOf(state,p)!:state.config.survival.maxLife):p.energy<(state.config.systemLinks===1?maxEnergyOf(state,p):state.config.maxEnergy)) && p.credits>=3;
     // Status links: the calming rite (B23) is open to any seat with the energy for it.
     return drink || state.config.statusLinks===1 && p.energy>=1 && !status(p,'B23');
   }
   if(id==='E127')return state.bank-state.market.budget-state.reservedRewards>=5 && !status(p,'D04') && (state.config.eventChoiceRules!==1 || !!state.config.survival || state.encounter<state.config.encounters);
-  if(id==='E128')return p.inventory.length>0 && !status(p,'B06') && !status(p,'B19');
+  if(id==='E128')return state.config.systemLinks===1 && state.config.statusLinks===1
+    ?core2EventChoices(state,p,id).some(choice=>choice!=='decline')
+    :p.inventory.length>0 && !status(p,'B06') && !status(p,'B19');
   // Status links: whisper's price is D24, so it is not offered while that is already on (it would come free).
   if(id==='E129')return p.stock.length>0 && !Object.keys(p.valuations).length && !status(p,'B04') && !status(p,'D03') && (state.config.statusLinks!==1 || !status(p,'D24'));
   return true;
@@ -71,7 +80,7 @@ export function resolveCore2Event(state:AppraisalState,p:Appraiser,offer:EventOf
   const spec=CORE2_SPECS[offer.id]!;const choice=command.choice;
   const picked:Core2Choice|undefined=choice===FALLBACK_BRAND.id?FALLBACK_BRAND:core2Choices(offer.id,state.config).find(c=>c.id===choice);
   check(picked,'event-choice','ไม่มีตัวเลือกนี้');
-  if(choice!=='decline' && choice!==FALLBACK_BRAND.id)check(affordable(state,p,picked),'event-cost','จ่ายตัวเลือกนี้ไม่ไหวแล้ว');
+  if(choice!=='decline' && choice!==FALLBACK_BRAND.id)check(state.config.systemLinks===1?core2EventChoices(state,p,offer.id).includes(choice):affordable(state,p,picked),'event-cost','จ่ายตัวเลือกนี้ไม่ไหวแล้ว');
   if(picked.lose){
     check(command.itemId && offer.itemIds.includes(command.itemId),'event-target','เลือกสินค้าที่จะสละ');
     penaltyItem(state,p,command.itemId);

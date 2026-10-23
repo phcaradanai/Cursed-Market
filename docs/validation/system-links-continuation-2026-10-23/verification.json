@@ -1,0 +1,40 @@
+{
+  "serverBuild": "passed",
+  "appraisalClientTypecheck": "passed",
+  "regression": {
+    "tests": 13,
+    "pass": 13,
+    "fail": 0
+  },
+  "affectedGate": {
+    "files": 11,
+    "tests": 140,
+    "pass": 140,
+    "fail": 0
+  },
+  "legacyReplay": {
+    "modes": [
+      "classic",
+      "survival"
+    ],
+    "preFixAuditHashesMatch": true
+  },
+  "diagnostic": {
+    "N1": "fixed",
+    "N2": "fixed",
+    "N3": "fixed",
+    "N4": "fixed",
+    "positiveControlGroups": 3,
+    "marketSeedSamples": 200
+  },
+  "trailCheck": {
+    "base": "HEAD",
+    "exitCode": 1,
+    "byFile": {
+      ".impeccable/design.json": 9,
+      ".impeccable/hook.cache.json": 9,
+      "src/game/appraisal/core2-events.ts": 2
+    },
+    "interpretation": "18 pre-existing .impeccable findings plus two import-line keyword matches in core2-events.ts. The patch imports cap helpers; it changes no theft probabilities, energy prices, vault timing or item-design permissions. No commit/push."
+  }
+}

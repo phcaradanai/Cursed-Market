@@ -22,7 +22,7 @@ class Client implements LifecyclePeer<AppraisalServerMessage> {
 }
 const settings=(enabled=true):AppraisalTimerSettings=>({enabled,durationsMs:{PORTALS:7000,APPRAISAL:11000,TRADE:13000,REVEAL:2000}});
 function setup(count=3) {
-  let now=1000;const rooms=new AppraisalRoomService(()=>now);const clients=Array.from({length:count},()=>new Client());const host=clients[0]!;
+  let now=1000;const rooms=new AppraisalRoomService(()=>now,{},undefined,{});const clients=Array.from({length:count},()=>new Client());const host=clients[0]!;
   rooms.receive(host,{type:'create',name:'host'});for(const c of clients.slice(1))rooms.receive(c,{type:'join',name:'guest',roomCode:host.room.code});
   let request=0;
   const send=(c:Client,m:AppraisalClientMessage)=>rooms.receive(c,m);

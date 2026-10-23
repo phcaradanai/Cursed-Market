@@ -12,7 +12,7 @@ import type {AppraisalAction,AppraisalState,ItemKind} from '../src/game/appraisa
 import type {AppraisalRoomView,AppraisalServerMessage,AppraisalTimerSettings} from '../src/shared/appraisal-protocol.js';
 import {AppraisalRoomService} from '../src/server/appraisal-rooms.js';
 import {parseAppraisalMessage} from '../src/server/appraisal-messages.js';
-import {GameTable,SurvivalResults} from '../src/appraisal-client/App.js';
+import {App,GameTable,SurvivalResults} from '../src/appraisal-client/App.js';
 import {AppraisalDesk,Contract,EventDecision,Statuses,TradeListing} from '../src/appraisal-client/components.js';
 import {eventScoreText} from '../src/appraisal-client/model.js';
 import {analyseAppraisalMatchAudit} from '../src/playtest/appraisal-report.js';
@@ -217,30 +217,35 @@ test('roster reports reveal confirmation, not the stale trade flag, and drops de
   assert(html.includes('จบการเดินทาง'));assert(!html.includes('ผู้ชม · ชีวิตหมด'));assert(!html.includes('undefined'));
 });
 
-test('the host picks classic or survival in the lobby; guests cannot, and the pick decides the rules',()=>{
+test('new rooms start in Survival without a mode choice and reject classic clients',()=>{
   const service=new AppraisalRoomService(()=>0);const host=new Peer(),guest=new Peer();
   service.handle(host,{type:'create',name:'Alice'});service.handle(guest,{type:'join',roomCode:host.room.code,name:'Bob'});
-  assert.equal(host.room.mode,'classic');assert.equal(host.room.rulesVersion,'0.5');
-  service.handle(guest,{type:'rules-mode',mode:'survival'});assert.equal(guest.messages.at(-1)!.type,'error');assert.equal(host.room.mode,'classic');
-  service.handle(host,{type:'ready',ready:true});service.handle(guest,{type:'ready',ready:true});
-  service.handle(host,{type:'rules-mode',mode:'survival'});assert.equal(host.room.mode,'survival');assert.equal(host.room.seats.some(s=>s.ready),false,'switching mode clears ready');
-  service.handle(host,{type:'ready',ready:true});service.handle(guest,{type:'ready',ready:true});service.handle(host,{type:'start'});
-  assert.equal(host.room.rulesVersion,'0.5');assert.notEqual(host.room.game!.self.life,undefined,'survival game has life');
+  assert.equal(host.room.mode,'survival');assert.equal(host.room.rulesVersion,'0.5');
+  service.handle(guest,{type:'rules-mode',mode:'classic'});assert.equal(guest.messages.at(-1)!.type,'error');
+  service.handle(guest,{type:'ready',ready:true});
+  service.handle(host,{type:'rules-mode',mode:'classic'});
+  assert.equal(host.messages.at(-1)!.type,'error');assert.equal(host.room.mode,'survival');
+  assert(host.room.seats.find(s=>s.id===guest.room.yourSeatId)!.ready,'a rejected legacy selector must not clear readiness');
+  service.handle(host,{type:'start'});
+  assert.equal(host.room.game!.self.life,SURVIVAL_RULES.maxLife);
   service.handle(host,{type:'rules-mode',mode:'classic'});assert.equal(host.messages.at(-1)!.type,'error');assert.equal(host.room.mode,'survival');
 });
-test('a classic room has no life, and the default mode follows the server setting',()=>{
-  const classic=new AppraisalRoomService(()=>0),surv=new AppraisalRoomService(()=>0,{},undefined,{survival:SURVIVAL_RULES});
-  for(const [service,mode] of [[classic,'classic'],[surv,'survival']] as const){
-    const host=new Peer(),guest=new Peer();service.handle(host,{type:'create',name:'A'});service.handle(guest,{type:'join',roomCode:host.room.code,name:'B'});assert.equal(host.room.mode,mode);
-    service.handle(host,{type:'rules-mode',mode:'classic'});service.handle(host,{type:'ready',ready:true});service.handle(guest,{type:'ready',ready:true});service.handle(host,{type:'start'});
-    assert.equal(host.room.game!.self.life,undefined);
-  }
+test('explicit legacy service configurations preserve classic games',()=>{
+  const service=new AppraisalRoomService(()=>0,{},undefined,{});const host=new Peer(),guest=new Peer();
+  service.handle(host,{type:'create',name:'A'});service.handle(guest,{type:'join',roomCode:host.room.code,name:'B'});
+  assert.equal(host.room.mode,'classic');service.handle(guest,{type:'ready',ready:true});service.handle(host,{type:'start'});
+  assert.equal(host.room.game!.self.life,undefined);
+});
+test('entry explains Survival directly without a mode selector or comparison',()=>{
+  const entry=renderToStaticMarkup(createElement(App));
+  for(const text of ['เลือกโหมดเกม','เปรียบเทียบกติกาสองโหมด','โหมดเกมที่เลือกได้','โหมดปกติ'])assert(!entry.includes(text),text);
+  assert(entry.includes('Collector'));assert(entry.includes('พลังไม่ใช่ชีวิต'));
 });
 for(const mode of ['classic','survival'] as const)test(`solo ${mode} room: a host plus bots plays a full replayable match`,()=>{
-  const service=new AppraisalRoomService(()=>0);const host=new Peer();
+  const service=new AppraisalRoomService(()=>0,{},undefined,mode==='survival'?{survival:SURVIVAL_RULES}:{});const host=new Peer();
   service.handle(host,{type:'create',name:'Solo'});
   service.handle(host,{type:'ready',ready:true});service.handle(host,{type:'start'});assert.equal(host.messages.at(-1)!.type,'error','one seat alone cannot start');
-  service.handle(host,{type:'rules-mode',mode});
+  assert.equal(host.room.mode,mode);
   service.handle(host,{type:'add-bot',policy:'cautious'});service.handle(host,{type:'add-bot',policy:'trader'});
   assert.deepEqual(host.room.seats.map(s=>s.bot??null),[null,'cautious','trader']);assert(host.room.seats.slice(1).every(s=>s.ready&&s.connected));
   service.handle(host,{type:'ready',ready:true});service.handle(host,{type:'start'});assert.equal(host.room.game!.players.length,3);

@@ -29,7 +29,7 @@ Card + realistic art เป็นแนวทำงานของ goal ไม�
 
 ## รัน v0.5
 
-Node.js 22.12+ เกมมีเวอร์ชันเดียวคือ v0.5 เจ้าของห้องเลือกโหมด **ปกติ** (3 ช่วง ไม่มีชีวิต) หรือ **เอาชีวิตรอด** (มีชีวิต Collector นับคะแนนตอนจบ) ในล็อบบี้ และสลับภาษาไทย/English ได้ที่ปุ่มบนสุด
+Node.js 22.12+ เกมหลักคือ v0.5 **เอาชีวิตรอด (Survival)** ทุกห้องใหม่มีชีวิตและให้ Collector นับคะแนนตอนจบ ไม่ต้องเลือกโหมด สลับภาษาไทย/English ได้ที่ปุ่มบนสุด
 
 ```sh
 npm ci
@@ -37,11 +37,11 @@ npm run build   # ลบ dist เดิมก่อนแล้วสร้า�
 PORT=3107 HOST=0.0.0.0 npm start
 ```
 
-เปิด `http://localhost:3107` บน server; คนละเครื่องใช้ LAN IP กับ port ที่เปิด สร้างห้อง ส่งรหัส เจ้าของเลือกโหมดและจับเวลา/ไม่จับเวลา แล้วทุกคนกดพร้อม เจ้าของเริ่ม ดู [LAN guide](docs/plan/Appraisal_LAN_v0.5.md) และ [ภาษา](docs/i18n.md)
+เปิด `http://localhost:3107` บน server; คนละเครื่องใช้ LAN IP กับ port ที่เปิด สร้างห้อง ส่งรหัส เจ้าของตั้งจับเวลา/ไม่จับเวลา แล้วทุกคนกดพร้อม เจ้าของเริ่ม ดู [LAN guide](docs/plan/Appraisal_LAN_v0.5.md) และ [ภาษา](docs/i18n.md)
 
 - เล่นคนเดียว: ในล็อบบี้เจ้าของห้องกด **เพิ่มบอท** (เลือกสไตล์ ระวังตัว/บุกเบิก/นักสะสม/พ่อค้า) ได้ถึง 4 ที่นั่ง บอทพร้อมเสมอและเล่นด้วยข้อมูลเท่าผู้เล่น
 - `npm run dev`: โหมดพัฒนา เปิด `http://localhost:5174` (server พอร์ต 3103, แก้โค้ดแล้ว reload เอง)
-- `APPRAISAL_RULES=survival npm start`: ตั้งโหมดเริ่มต้นของห้องใหม่เป็นเอาชีวิตรอด (เจ้าของห้องเปลี่ยนในล็อบบี้ได้)
+- `npm start`: เปิดเกม Survival โดยตรง ไม่ต้องตั้ง `APPRAISAL_RULES` หรือเลือกโหมดในล็อบบี้
 - ต้นแบบ auction เก่า (v0.3) แยกไว้: `npm run start:legacy` และ `npm run dev:legacy`
 
 ## ตรวจและอ่าน audit
@@ -67,7 +67,7 @@ Survival ใช้ 10 seeds ต่อ 2/3/4 คน × 4 policies = 120 runs เ�
 | `src/server/room-lifecycle.ts` | Lifecycle ที่ appraisal และ legacy ใช้ร่วมกัน |
 | `src/shared/appraisal-protocol.ts` | Typed private DTO/actions และ downloaded schema-v4/v5 room audit |
 | `src/appraisal-client/` | React Thai card UI, reconnect/retry, generated art/self-hosted fonts |
-| `src/server/appraisal-main.ts` | Appraisal entry, default port 3103, explicit survival rule flag, independent bundle |
+| `src/server/appraisal-main.ts` | Appraisal entry, default port 3103, Survival game, independent bundle |
 | `src/simulation/appraisal.ts` และ `replay.ts` | Multi-policy seeded runs และ versioned replay CLI |
 | `src/playtest/` | Downloaded legacy/v4 audit validation และ factual metrics |
 | `src/game/`, `src/client/`, `src/server/main.ts` | Preserved legacy auction/roguelike kernel, UI and entry |

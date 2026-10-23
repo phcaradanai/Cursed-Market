@@ -10,7 +10,7 @@ import { randomAt } from '../src/game/random.js';
 import type { AppraisalAction, AppraisalState, MarketContract } from '../src/game/appraisal/types.js';
 import { parseAppraisalMessage } from '../src/server/appraisal-messages.js';
 import { MarketSale } from '../src/appraisal-client/MarketSale.js';
-import { AppraisalDesk, DarkMarket } from '../src/appraisal-client/components.js';
+import { AppraisalDesk, MarketOrderDetail } from '../src/appraisal-client/components.js';
 import { appraisalFixture } from './support/appraisal-fixture.js';
 import { simulateAppraisalRun } from '../src/simulation/appraisal.js';
 
@@ -104,7 +104,7 @@ test('private market preview is identical for opposite hidden qualities and labe
   assert.equal(marketConditionMatch(order.contract!,item.knowledge),'unknown');
   const html=renderToStaticMarkup(createElement(MarketSale,{game,item,order,submit:()=>{},disabled:false}));
   for(const text of ['ยังตรวจไม่ครบ','ตรงรับ 28 / ผิดรับ 20','สละ 2 พลัง','ไม่ได้โบนัส'])assert(html.includes(text),text);
-  const marketHtml=renderToStaticMarkup(createElement(DarkMarket,{game,submit:()=>{},disabled:false}));for(const text of ['ต้องการ: ของแท้ และ ไม่มีคำสาป','เครดิตเพิ่ม 3','ลด 20%','ราคาเต็ม 25'])assert(marketHtml.includes(text),text);
+  const marketHtml=renderToStaticMarkup(createElement(MarketOrderDetail,{game,order,submit:()=>{},disabled:false}));for(const text of ['ต้องการ: ของแท้ และ ไม่มีคำสาป','เครดิตเพิ่ม 3','ลด 20%','ราคาเต็ม 25'])assert(marketHtml.includes(text),text);
   const shop=appraised(),view=appraisalViewFor(shop,'alice');const desk=renderToStaticMarkup(createElement(AppraisalDesk,{game:view,item:view.self.stock[0]!,submit:()=>{},disabled:false}));assert(desk.includes('ค่านายหน้า 10%'));assert(desk.includes('จุดเปอร์เซ็นต์'));
 });
 test('generated contracts vary requirements, bonuses and costs; their budget is fully reserved and old audits replay',()=>{

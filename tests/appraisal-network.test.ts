@@ -37,7 +37,7 @@ class TestRooms extends AppraisalRoomService {
   publish(code: string): void { const room = this.rooms.get(code); assert(room); this.broadcast(room); }
 }
 async function listen(app: ReturnType<typeof createApp>) { app.server.listen(0, '127.0.0.1'); await once(app.server, 'listening'); return `http://127.0.0.1:${(app.server.address() as AddressInfo).port}`; }
-async function setup(count: number, rooms: AppraisalRoomService = new AppraisalRoomService()) {
+async function setup(count: number, rooms: AppraisalRoomService = new AppraisalRoomService(undefined,{},undefined,{})) {
   const app = createApp({ rooms }); const http = await listen(app), url = http.replace('http:', 'ws:') + '/socket';
   const clients: SocketClient[] = []; for (let i = 0; i < count; i++) clients.push(await SocketClient.open(url));
   clients[0]!.send({ type: 'create', name: 'เจ้าของ' }); const lobby = await clients[0]!.until(() => clients[0]!.room);

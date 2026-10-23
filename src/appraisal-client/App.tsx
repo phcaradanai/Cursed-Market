@@ -12,7 +12,7 @@ import { useFitViewport } from './useFitViewport.js';
 import { CORE2, rerollCost } from '../game/appraisal/core2.js';
 import type { FormEvent, ReactElement } from 'react';
 import { ITEM_SPECS, npcImage } from '../game/appraisal/content.js';
-import type { AppraisalBotPolicy, AppraisalRoomView, AppraisalClientMessage, AppraisalMode, AppraisalTimerSettings } from '../shared/appraisal-protocol.js';
+import type { AppraisalBotPolicy, AppraisalRoomView, AppraisalClientMessage, AppraisalTimerSettings } from '../shared/appraisal-protocol.js';
 import { APPRAISAL_BOT_POLICIES, APPRAISAL_TIMER_PHASES } from '../shared/appraisal-protocol.js';
 import { useConnection } from './connection.js';
 import { RoundReward } from './RoundReward.js';
@@ -48,18 +48,6 @@ export function LangToggle() {
   const lang=useLang();
   return <button type="button" className="lang-toggle" aria-label={lang==='th'?'Switch to English':'Switch to Thai'} onClick={()=>setLang(lang==='th'?'en':'th')}>{lang==='th'?'EN':'ไทย'}</button>;
 }
-/** The two rule sets side by side, so players can compare them before the host picks one. */
-export function ModeGuide({mode}:{mode?:AppraisalMode}) {
-  const rows:[string,string,string][]=[
-    [t('ความยาว'),t('3 ช่วงพบพ่อค้า แล้วจบการเดินทาง'),t('เล่นต่อจนผู้เล่นทุกคนชีวิตหมด หรือ Collector มาตอนจบช่วง {n}',{n:CORE2.collectorEncounter})],
-    [t('ชีวิต'),t('ไม่มีชีวิต ตายหรือพลังหมดคือพักช่วงนั้น แล้วกลับมาช่วงถัดไป'),t('เริ่ม 6 ชีวิต เสีย 1 ทุกช่วง หมดแล้วเป็นผู้ชมจนจบ')],
-    [t('คะแนน'),t('นับทุกช่วงจากทรัพย์ที่เพิ่มขึ้นและการประเมินที่ตรงมูลค่าจริง'),t('Collector รวมเครดิตกับมูลค่าของที่เก็บไว้ตอนจบ ครั้งเดียว')],
-    [t('พลัง'),t('ฟื้นท้ายช่วง ปกติ 2 สูงสุด 10'),t('ไม่ฟื้นฟรี ต้องแลกกับพ่อค้า')],
-    [t('เหมาะกับ'),t('รอบสั้น เรียนรู้เกม'),t('รอบยาว เสี่ยงสูง วางแผนทรัพยากร')],
-  ];
-  return <div className="mode-guide table-scroll"><table><caption>{t('เปรียบเทียบกติกาสองโหมด')}</caption><thead><tr><th scope="col"><span className="sr-only">{t('หัวข้อ')}</span></th><th scope="col" className={mode==='classic'?'current':''}>{t('โหมดปกติ')}</th><th scope="col" className={mode==='survival'?'current':''}>{t('โหมดเอาชีวิตรอด')}</th></tr></thead>
-    <tbody>{rows.map(([label,classic,survival])=><tr key={label}><th scope="row">{label}</th><td className={mode==='classic'?'current':''}>{classic}</td><td className={mode==='survival'?'current':''}>{survival}</td></tr>)}</tbody></table></div>;
-}
 const BOT_STYLE:Record<AppraisalBotPolicy,[string,string]>={
   cautious:['ระวังตัว','ประเมินสุภาพ เลี่ยงความเสี่ยง'],aggressive:['บุกเบิก','กดราคาต่ำและรับเหตุการณ์เสี่ยง'],
   collector:['นักสะสม','เก็บของมูลค่าสูงและของสะสม'],trader:['พ่อค้า','เน้นขายต่อและตลาดเงา'],
@@ -75,18 +63,6 @@ function BotControls({room,send,disabled}:{room:AppraisalRoomView;send:Send;disa
       options={APPRAISAL_BOT_POLICIES.map(p=>({value:p,title:t(BOT_STYLE[p][0]),detail:t(BOT_STYLE[p][1])}))}/>
     <div className="actions"><button disabled={disabled || full} title={tip(disabled&&locked,full&&t('โต๊ะเต็ม 4 ที่นั่งแล้ว'))} onClick={()=>send({type:'add-bot',policy})}>{t('เพิ่มบอท: {style}',{style:botStyleName(policy)})}</button></div>
     <p className="supporting">{full?t('โต๊ะเต็ม 4 ที่นั่งแล้ว'):t('บอทเล่นด้วยข้อมูลเท่าที่ผู้เล่นเห็น ไม่รู้คำตอบลับ และพร้อมเสมอ')}</p></div>;
-}
-/** Host picks the mode in the lobby; everyone else sees which one is chosen. */
-function ModePicker({room,send,disabled}:{room:AppraisalRoomView;send:Send;disabled:boolean}) {
-  const host=room.hostId===room.yourSeatId;
-  return <div className="mode-picker">
-    {host?<ChoiceCards legend={t('เลือกโหมดเกม')} value={room.mode} onChange={v=>send({type:'rules-mode',mode:v as AppraisalMode})} disabled={disabled} options={[
-      {value:'classic',title:t('โหมดปกติ'),detail:t('3 ช่วง ไม่มีชีวิต เหมาะกับรอบสั้น')},
-      {value:'survival',title:t('โหมดเอาชีวิตรอด'),detail:t('มีชีวิต เล่นจนทุกคนหมด Collector นับคะแนนตอนจบ')}]}/>
-    :<p><strong>{t('โหมดที่เจ้าของห้องเลือก:')}</strong> {room.mode==='survival'?t('โหมดเอาชีวิตรอด'):t('โหมดปกติ')}</p>}
-    {host && <p className="supporting">{t('เปลี่ยนโหมดแล้วทุกคนต้องกดพร้อมใหม่')}</p>}
-    <details className="mode-guide-fold"><summary>{t('โหมดเกมที่เลือกได้ · เปรียบเทียบ')}</summary><ModeGuide mode={room.mode}/></details>
-  </div>;
 }
 function Rules({timers,survival,trustAbilities}:{timers?:AppraisalTimerSettings|undefined;survival?:boolean|undefined;trustAbilities?:boolean|undefined}={}) {
   const phaseLabels=(phase:string)=>phaseLabel(phase as never);
@@ -116,7 +92,7 @@ function Entry({send,disabled}:{send:Send;disabled:boolean}) {
       <button type="button" className="primary" disabled={disabled || !name.trim()} title={tip(disabled&&locked,!name.trim()&&t('ใส่ชื่อที่ใช้ในเกมก่อน'))} onClick={()=>send({type:'create',name:name.trim()})}>{t('สร้างห้องใหม่')}</button>
       <label htmlFor="room-code-entry">{t('รหัสห้องของเพื่อน')}</label><input id="room-code-entry" className="room-code" value={code} onChange={e=>setCode(e.target.value.toUpperCase())} minLength={6} maxLength={6} pattern="[A-Z2-9]{6}" autoComplete="off" spellCheck={false} disabled={disabled}/><button disabled={disabled || !name.trim() || !/^[A-Z2-9]{6}$/.test(code.trim())} title={tip(disabled&&locked,!name.trim()&&t('ใส่ชื่อที่ใช้ในเกมก่อน'),!/^[A-Z2-9]{6}$/.test(code.trim())&&t('ใส่รหัสห้องของเพื่อน 6 ตัว'))}>{t('เข้าห้อง')}</button>
     </form><p className="entry-seats">{t('ห้องส่วนตัวสำหรับ 2–4 คน · เพื่อนทุกคนใช้ที่อยู่เกมเดียวกัน')}</p></div>
-    <div className="entry-more"><details className="rules"><summary>{t('โหมดเกมที่เลือกได้ · เปรียบเทียบ')}</summary><ModeGuide/></details><Rules/></div>
+    <div className="entry-more"><Rules survival trustAbilities/></div>
   </div>;
 }
 export function RoomTimers({room,send,disabled}:{room:AppraisalRoomView;send:Send;disabled:boolean}) {
@@ -154,7 +130,7 @@ function Lobby({room,send,disabled}:{room:AppraisalRoomView;send:Send;disabled:b
     <div className="lobby-foot">
       <div className="lobby-settings"><h2>{t('ตั้งค่าเกม')}</h2>
         <BotControls room={room} send={send} disabled={disabled}/>
-        <ModePicker room={room} send={send} disabled={disabled}/>
+        <Rules timers={room.timerSettings} survival={room.mode==='survival'} trustAbilities/>
         <details className="lobby-more"><summary>{t('เวลาในห้อง')}</summary><RoomTimers room={room} send={send} disabled={disabled}/></details>
       </div>
       <div className="actions lobby-actions">{!host && <button className={self?.ready?'':'primary'} disabled={disabled} title={tip(disabled&&locked)} onClick={()=>send({type:'ready',ready:!self?.ready})}>{self?.ready?t('ยังไม่พร้อม'):t('ฉันพร้อมแล้ว')}</button>}{host && <button className="primary start" disabled={disabled || !ready} title={tip(disabled&&locked,!ready&&(room.seats.length<2?t('ต้องมีอย่างน้อย 2 ที่นั่ง เพิ่มบอทหรือรอเพื่อน'):t('ทุกคนต้องออนไลน์และกดพร้อมก่อน')))} onClick={()=>send({type:'start'})}>{t('เริ่มการเดินทาง')}</button>}<button disabled={disabled} title={tip(disabled&&locked)} onClick={()=>send({type:'leave'})}>{t('ออกจากห้อง')}</button></div>

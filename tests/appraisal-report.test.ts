@@ -30,7 +30,7 @@ test('appraisal timing/timeout metadata must match phases and safe default comma
   const timeout=read(2);timeout.timeouts.push({encounter:1,phase:'PORTALS',playerId:timeout.seats[0]!.id,at:timeout.phaseTimes[0]!.endedAt});assert.throws(()=>analyseAppraisalMatchAudit(timeout),/safe default/);
 });
 test('deadline-driven audit with skipped empty appraisal phases validates recorded defaults',()=>{
-  let now=100;const rooms=new AppraisalRoomService(()=>now,{PORTALS:1,APPRAISAL:1,TRADE:1,REVEAL:1});
+  let now=100;const rooms=new AppraisalRoomService(()=>now,{PORTALS:1,APPRAISAL:1,TRADE:1,REVEAL:1},undefined,{});
   const received:AppraisalServerMessage[]=[];
   const host={send:(m:AppraisalServerMessage)=>received.push(m),close:()=>{}};
   const peer={send:(_m:AppraisalServerMessage)=>{},close:()=>{}};

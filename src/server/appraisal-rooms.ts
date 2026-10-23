@@ -22,7 +22,7 @@ export class AppraisalRoomService extends RoomLifecycle<AppraisalState, Appraisa
   private readonly durations: typeof APPRAISAL_PHASE_MS;
   /** Per room: `${duelId}:${round}` -> server time the round is cancelled. Server-only, never part of the replayable run. */
   private readonly duelClocks = new WeakMap<Room, Map<string, number>>();
-  constructor(now: () => number = Date.now, durations: Partial<typeof APPRAISAL_PHASE_MS> = {}, idleMs = 30 * 60 * 1000, private readonly runConfig:Partial<AppraisalConfig> = {}, private readonly duelMs = APPRAISAL_DUEL_MS) {
+  constructor(now: () => number = Date.now, durations: Partial<typeof APPRAISAL_PHASE_MS> = {}, idleMs = 30 * 60 * 1000, private readonly runConfig:Partial<AppraisalConfig> = {survival:SURVIVAL_RULES}, private readonly duelMs = APPRAISAL_DUEL_MS) {
     super(now, idleMs); this.durations = { ...APPRAISAL_PHASE_MS, ...durations };
   }
   /** Start a clock for every open duel round and forget closed ones; a draw starts a fresh round clock. */
@@ -48,8 +48,8 @@ export class AppraisalRoomService extends RoomLifecycle<AppraisalState, Appraisa
     return changed;
   }
   protected parse(value: unknown): AppraisalClientMessage { return parseAppraisalMessage(value); }
-  /** The server's configured mode is only the lobby default; the host can switch before the match starts. */
-  private modeOf(room: Room): AppraisalMode { return room.mode === 'survival' || room.mode === 'classic' ? room.mode : this.runConfig.survival ? 'survival' : 'classic'; }
+  /** New rooms use Survival; explicit legacy configurations retain their historical rules. */
+  private modeOf(room: Room): AppraisalMode { return room.game ? room.game.config.survival ? 'survival' : 'classic' : room.mode === 'survival' || room.mode === 'classic' ? room.mode : this.runConfig.survival ? 'survival' : 'classic'; }
   protected createGame(ids: string[], seed: string, room: Room): AppraisalState {
     const { survival, ...base } = this.runConfig;
     return createAppraisalRun(ids, seed, this.modeOf(room) === 'survival' ? { ...base, survival: survival ?? SURVIVAL_RULES } : base);
@@ -85,6 +85,7 @@ export class AppraisalRoomService extends RoomLifecycle<AppraisalState, Appraisa
       }
       case 'rules-mode': {
         this.hostOnly(room,seat);insist(!room.game,'match-started','เลือกโหมดได้ก่อนเริ่มเกมเท่านั้น');
+        insist(!this.runConfig.survival || message.mode==='survival','survival-only','เกมนี้ใช้กติกาเอาชีวิตรอด ไม่ต้องเลือกโหมด');
         if(this.modeOf(room)!==message.mode)this.unready(room);
         room.mode=message.mode;break;
       }

@@ -1,6 +1,5 @@
 @font-face{font-family:"Noto Sans Thai";src:url("/fonts/notosansthai.ttf") format("truetype");font-weight:100 900;font-style:normal;font-display:swap}
 @font-face{font-family:"Noto Serif Thai";src:url("/fonts/notoserifthai.ttf") format("truetype");font-weight:100 900;font-style:normal;font-display:swap}
-@font-face{font-family:"Cormorant Garamond";src:url("/fonts/cormorantgaramond.ttf") format("truetype");font-weight:300 700;font-style:normal;font-display:swap}
 :root{--table:#080c0d;--table-deep:#030506;--panel:rgb(13 18 19 / .9);--panel-solid:#0f1415;--panel-raised:#182021;--panel-fill:linear-gradient(180deg,rgb(18 24 25 / .9),rgb(8 12 13 / .92));--panel-gap:#0b1011;--cream:#ece3cc;--bronze:#a8874a;--bronze-bright:#d8b25f;--frame-line:#6c5730;--frame-inner:rgb(216 178 95 / .3);--muted:#b8b39f;--line:#2c3a37;--ink:#30271f;--paper-muted:#67533e;--amber:#d9b45a;--amber-hover:#ecd08a;--focus:#8fe0c6;--danger:#e8a091;--danger-wash:#2a1411;--oxblood:#4a1410;--oxblood-line:#a3402f;--positive:#9fd0b0;--energy:#8fc3e8;--life:#e2867a;--steel:#163330;--steel-line:#4f9484;--paper-line:#97836a;--paper-field-line:#80694f;--paper:#fffaf0;--parchment:radial-gradient(130% 100% at 50% 30%,#eee5cf 50%,#d9caa8);--accent:#8b3925;--accent-hover:#6d2b1c;--error-ink:#772d1e;--hover-wash:#e7decd;--control-radius:6px;--card-radius:12px;--frame-radius:10px;--art-shadow:0 18px 36px -8px rgb(0 0 0 / .7);--ease:cubic-bezier(.16,1,.3,1);--void:#05090a;--ichor:#9a7cc4;--verdigris:#5fb8a0;--orpiment:#d4ad55;--orpiment-hover:#e3c06c;--display:"IM Fell English","Srisakdi","Noto Serif Thai",serif;--latin-display:"IM Fell English","Srisakdi",serif;--code-font:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;--corner-tl:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23d8b25f' stroke-width='1.1' stroke-linecap='round'%3E%3Cg%3E%3Cpath d='M1 11V1h10'/%3E%3Cpath d='M4 7V4h3' opacity='.55'/%3E%3Cpath d='M1 1 3.2 3.2'/%3E%3C/g%3E%3C/svg%3E");--corner-tr:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23d8b25f' stroke-width='1.1' stroke-linecap='round'%3E%3Cg transform='matrix(-1 0 0 1 16 0)'%3E%3Cpath d='M1 11V1h10'/%3E%3Cpath d='M4 7V4h3' opacity='.55'/%3E%3Cpath d='M1 1 3.2 3.2'/%3E%3C/g%3E%3C/svg%3E");--corner-bl:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23d8b25f' stroke-width='1.1' stroke-linecap='round'%3E%3Cg transform='matrix(1 0 0 -1 0 16)'%3E%3Cpath d='M1 11V1h10'/%3E%3Cpath d='M4 7V4h3' opacity='.55'/%3E%3Cpath d='M1 1 3.2 3.2'/%3E%3C/g%3E%3C/svg%3E");--corner-br:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23d8b25f' stroke-width='1.1' stroke-linecap='round'%3E%3Cg transform='matrix(-1 0 0 -1 16 16)'%3E%3Cpath d='M1 11V1h10'/%3E%3Cpath d='M4 7V4h3' opacity='.55'/%3E%3Cpath d='M1 1 3.2 3.2'/%3E%3C/g%3E%3C/svg%3E");--badge-check:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%2330271f' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m3 6.2 2 2L9 4'/%3E%3C/svg%3E");--badge-cross:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23211b18' stroke-width='1.8' stroke-linecap='round'%3E%3Cpath d='m4 4 4 4M8 4 4 8'/%3E%3C/svg%3E");color-scheme:dark;font-family:"Noto Sans Thai",sans-serif;font-size:16px;line-height:1.7;color:var(--cream);background:var(--table);font-synthesis:none;scrollbar-color:var(--bronze) var(--table)}
 *{box-sizing:border-box}
 body{margin:0;min-height:100vh;background:radial-gradient(110% 60% at 50% -12%,rgb(217 180 90 / .11),transparent 62%),radial-gradient(120% 80% at 50% 115%,rgb(0 0 0 / .5),transparent 58%),var(--table);background-attachment:fixed}
@@ -40,7 +39,7 @@ dt{color:var(--muted)}
 dd{margin:0}
 .app-shell{max-width:1440px;margin:auto;padding:16px 32px 20px}
 .masthead{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:6px 0 14px;margin-bottom:20px;border-bottom:1px solid var(--line);box-shadow:0 3px 0 -2px rgb(168 135 74 / .2)}
-.brand{font-family:"Cormorant Garamond","Noto Serif Thai",serif;font-size:clamp(24px,2.6vw,32px);line-height:1.1;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--cream)}
+.brand{font-family:var(--display);font-size:clamp(24px,2.6vw,32px);line-height:1.1;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--cream)}
 .masthead>div{display:flex;align-items:center;gap:16px}
 .connection{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:15px}
 .connection::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--amber)}
@@ -249,7 +248,7 @@ input.room-code{letter-spacing:.24em;font-size:18px}
 .portal-contracts dt{font-weight:700;color:var(--cream)}
 .portal-contracts dd{margin-top:8px}
 .dark-market{padding:0 0 14px}
-.dark-market h2{position:relative;display:flex;align-items:center;justify-content:center;gap:10px;margin:5px 5px 0;padding:10px 16px;background:linear-gradient(180deg,#5e211c,#3f1512);border-bottom:1px solid var(--oxblood-line);border-radius:5px 5px 0 0;font-family:"Cormorant Garamond","Noto Serif Thai",serif;font-size:25px;letter-spacing:.12em;text-transform:uppercase;color:#f3dcc6}
+.dark-market h2{position:relative;display:flex;align-items:center;justify-content:center;gap:10px;margin:5px 5px 0;padding:10px 16px;background:linear-gradient(180deg,#5e211c,#3f1512);border-bottom:1px solid var(--oxblood-line);border-radius:5px 5px 0 0;font-family:var(--display);font-size:25px;letter-spacing:.12em;text-transform:uppercase;color:#f3dcc6}
 .dark-market h2 .icon{color:var(--danger)}
 .dark-market>p{padding:0 18px}
 .market-lede,.market-closed{margin:12px 0;text-align:center;color:var(--muted);font-size:14px}
@@ -1330,6 +1329,106 @@ html[lang=en] .phase-RESULTS .results>h2{font-family:var(--latin-display)}
 /* Door reroll: a small secondary action under "open this door". */
 .portal .reroll-portal{margin-top:6px;min-height:36px;padding:2px 12px;font-size:14px;gap:6px;background:rgb(10 14 15 / .8)}
 .portal .reroll-portal .icon{width:16px;height:16px}
+
+/* Noticeboards show summaries; the native top layer holds one complete decision at a time. */
+.game-dialog{width:min(1040px,calc(100vw - 32px));max-width:none;max-height:calc(100dvh - 32px);margin:auto;padding:0;border:1px solid var(--frame-line);border-radius:var(--frame-radius);background:var(--panel-solid);color:var(--cream);box-shadow:0 24px 60px rgb(0 0 0 / .55);overflow:auto;overscroll-behavior:contain;color-scheme:dark}
+.game-dialog::backdrop{background:rgb(2 4 5 / .86)}
+.game-dialog[open]{animation:modal-in 180ms var(--ease)}
+.game-dialog-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 20px;border-bottom:1px solid var(--frame-line)}
+.game-dialog-head h2{margin:0;font:700 26px var(--display);color:var(--amber-hover)}
+.game-dialog-head>button{flex-shrink:0;min-width:44px}
+.game-dialog-body{padding:20px}
+.market-notices{display:grid;gap:10px;list-style:none;margin:12px 0;padding:0 14px}
+.market-notice{display:grid;grid-template-columns:64px minmax(0,1fr);gap:6px 12px;width:100%;padding:12px;text-align:left;background:var(--parchment);border-color:var(--paper-line);color:var(--ink);box-shadow:0 6px 14px rgb(0 0 0 / .2)}
+.market-notice:hover:not(:disabled){background:var(--parchment);border-color:var(--amber-hover);box-shadow:0 0 0 2px var(--bronze)}
+.market-notice:active{transform:translateY(1px)}
+.market-notice>img{width:64px;height:64px;object-fit:contain;grid-row:1/3}
+.market-notice-copy{display:grid;min-width:0;gap:2px;font-size:14px;color:var(--paper-muted)}
+.market-notice-copy>strong{font-size:17px;color:var(--ink)}
+.market-notice-copy .order-quote{display:flex;align-items:center;gap:4px;color:var(--ink);font-weight:700}
+.market-notice-more{grid-column:2;font-size:13px;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.market-board>.supporting{padding-inline:16px}
+.drawer .market-board>h2{display:none}
+.market-pages{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:4px 14px}
+.market-pages>button{padding:4px 10px;min-height:44px;font-size:14px}
+.market-pages>[role=status]{font-size:14px;color:var(--muted)}
+.market-order-detail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
+.market-detail-nav,.market-sale-quote{display:none}
+.market-order-terms{padding:16px;background:var(--parchment);color:var(--ink);border:1px solid var(--paper-line);border-radius:var(--control-radius)}
+.market-order-art{display:block;width:clamp(100px,15vh,180px);height:clamp(100px,15vh,180px);object-fit:contain;margin:0 auto 12px}
+.market-order-terms .order-quote{font-size:17px;text-align:center}
+.market-order-terms .order-quote strong{color:var(--ink)}
+.market-order-terms .supporting{color:var(--paper-muted)}
+.market-order-terms .positive-text{color:var(--steel)}
+.market-order-terms .danger-text{color:var(--error-ink)}
+.market-order-terms .market-contract{padding-top:8px;border-top:1px solid var(--paper-line)}
+.market-order-terms .market-contract p{margin:0 0 12px;font-size:15px}
+.market-order-sale{min-width:0;align-self:center}
+.market-order-sale h3{margin:0 0 12px;font-size:21px}
+.market-order-sale h4{margin:12px 0;font-size:17px}
+.market-order-sale .market-pages{padding-inline:0}
+.market-order-sale .market-decision .actions{display:grid;gap:8px}
+.market-order-sale .market-decision button{width:100%;margin:0;min-height:48px}
+.game-dialog.modal{zoom:1}
+.event-dialog{width:min(1000px,calc(100vw - 32px));border:0;background:transparent;box-shadow:none}
+.event-dialog .game-dialog-body{padding:0}
+.portal-event-dialog{width:min(1160px,calc(100vw - 32px))}
+.portal-event-dialog .event-offer{gap:6px 16px;padding:4px 12px 12px;border-width:18px;border-image-width:18px}
+.portal-event-dialog .event-offer h2{margin:0 0 16px;font-size:28px}
+.portal-event-dialog .event-offer h2::after{bottom:-14px;height:18px}
+.event-heading-title{display:flex;align-items:center;justify-content:center;gap:10px;flex:1}
+.event-tuck{flex-shrink:0;min-width:44px;padding:6px}
+.portal-event-dialog .event-portal-context{margin:0}
+.portal-event-dialog .event-portal-context h3{font-size:17px;margin:0 0 8px;text-align:center}
+.portal-event-dialog .event-portal-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.portal-event-dialog .event-portal{grid-template-columns:76px minmax(0,1fr);gap:8px;padding:10px;border:1px solid var(--bronze);border-radius:var(--card-radius);background:var(--panel);transition:border-color 160ms var(--ease),background-color 160ms var(--ease)}
+.portal-event-dialog .event-portal.will-close{border-color:var(--oxblood-line);background:var(--danger-wash)}
+.portal-event-dialog .event-portal>img{width:76px;height:96px;object-fit:cover;grid-row:1/3}
+.portal-event-dialog .event-portal .portal-number{grid-column:1/-1;color:var(--amber-hover);font-weight:700;letter-spacing:.03em}
+.event-portal-portrait{position:relative;width:76px;height:96px;background:url('/art/scenes/hall/gate-room.webp') center/cover;align-self:start}
+.event-portal-portrait .event-portal-figure{position:absolute;inset:8% 12% 0;width:76%;height:88%;object-fit:cover;object-position:center top;border:0;border-radius:40% 40% 0 0}
+.event-portal-portrait .event-portal-arch{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:0;object-fit:fill}
+.portal-event-dialog .event-portal h4{font-size:18px;margin:0 0 4px}
+.portal-event-dialog .event-portal p{font-size:14px;line-height:1.5;margin:2px 0}
+.portal-event-dialog .event-portal .portal-projection{grid-column:1/-1;padding-top:8px;border-top:1px solid var(--line)}
+.portal-contract-summary{grid-column:1/-1;font-size:14px}
+.portal-event-dialog .event-portal-context .portal-preview-note{margin:8px 0 0;text-align:center;font-size:15px}
+.portal-event-dialog .portal-preview-help{margin:0;text-align:center;color:var(--muted);font-size:13px}
+.portal-event-dialog .event-copy{grid-row:2}
+.portal-event-dialog .event-say{font-size:15px;line-height:1.5;max-width:none;margin:0 0 4px;color:var(--muted)}
+.portal-event-dialog .event-form{padding:10px}
+.portal-event-dialog .choice-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:10px}
+.portal-event-dialog .choice-card{min-height:44px;padding:10px}
+.portal-event-dialog .choice-card::before{display:none}
+.portal-event-dialog .choice-title{font-size:16px}
+.portal-event-dialog .choice-detail{font-size:14px;line-height:1.5}
+.portal-event-dialog .event-form>button:last-child{position:static;box-shadow:none;margin-top:8px;min-height:48px}
+.portal-event-dialog .modal-tuck{margin-top:8px;padding:2px 20px;min-height:44px}
+@media(max-width:699px){
+  .game-dialog{width:calc(100vw - 16px);max-height:calc(100dvh - 16px)}
+  .game-dialog-head{padding:8px 12px}.game-dialog-head h2{font-size:22px}.game-dialog-body{padding:12px}
+  .market-order-detail{grid-template-columns:1fr;gap:14px}.market-order-art{width:88px;height:88px;margin-bottom:4px}
+  .market-detail-nav{display:flex;gap:8px;margin-bottom:12px}.market-detail-nav button{flex:1;min-height:44px;padding:6px;font-size:14px}
+  .market-detail-nav button[aria-pressed=true]{background:var(--amber);color:var(--ink);font-weight:700}
+  .market-order-detail[data-step=terms] .market-order-sale,.market-order-detail[data-step=sale] .market-order-terms{display:none}
+  .market-sale-quote{display:block;font-size:14px;color:var(--amber-hover)}
+  .market-order-terms{padding:10px}.market-order-terms .market-contract p{font-size:14px;margin-bottom:6px}
+  .market-order-terms .supporting{font-size:12px;margin:4px 0}.market-order-sale h3{font-size:18px;margin-bottom:4px}
+  .portal-event-dialog .event-offer{padding:4px 6px 8px;border-width:10px;border-image-width:10px;gap:4px}
+  .portal-event-dialog .event-offer h2{font-size:24px;margin-bottom:4px}
+  .portal-event-dialog .event-portal-context h3{display:none}
+  .portal-event-dialog .event-portal-grid{gap:6px}.portal-event-dialog .event-portal{grid-template-columns:minmax(0,1fr);padding:6px;gap:4px}
+  .portal-event-dialog .event-portal>img{width:100%;height:68px;grid-row:auto;object-position:center 28%}
+  .event-portal-portrait{width:52px;height:66px;margin-inline:auto}
+  .portal-event-dialog .event-portal h4{font-size:15px}.portal-event-dialog .event-portal p{font-size:12px;line-height:1.45}
+  .portal-event-dialog .event-portal .portal-personality{display:none}
+  .portal-event-dialog .event-say{font-size:14px}.portal-event-dialog .choice-grid{grid-template-columns:1fr;gap:6px}
+  .portal-event-dialog .choice-title{font-size:14px}.portal-event-dialog .choice-detail{font-size:13px}
+  .portal-event-dialog .choice-card:not(.selected):not(.unavailable) .choice-detail{display:none}
+  .portal-event-dialog .choice-card{padding:8px}
+  .portal-event-dialog .event-form{padding:8px}
+}
+@media(prefers-reduced-motion:reduce){.game-dialog[open],.game-dialog::backdrop{animation:none}.portal-event-dialog .event-portal{transition:none}.market-notice:active{transform:none}}
 
 /* Coins stay separate so each call and landing can be read at the table. */
 .coin-table{width:240px;max-width:100%}

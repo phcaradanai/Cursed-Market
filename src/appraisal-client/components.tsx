@@ -1,3 +1,4 @@
+import { GameDialog } from './GameDialog.js';
 import { rarityValue } from '../shared/rarity-power.js';
 import { ItemVisual, RarityLabel } from './ItemVisual.js';
 import { copySaleQuote, itemEffectScale } from '../game/appraisal/copy-effects.js';
@@ -7,6 +8,7 @@ import { abilityItemLabel, abilityCopyText } from './ability-text.js';
 import { ABILITY_ITEM_IDS } from '../game/appraisal/types.js';
 import { marketBonus, marketCost, marketRequirements, MarketSale } from './MarketSale.js';
 import { PortalEventPreview, portalChoiceTitle } from './PortalEventPreview.js';
+import { isCore2Event } from './core2-text.js';
 import { commissionRate, passiveSpec } from '../game/appraisal/passives.js';
 import { loanItemCount } from './model.js';
 import { appraisalCost, freeInspectionRemaining, inspectionQuota, npcAcceptanceChance, playerPassives } from './model.js';
@@ -19,13 +21,13 @@ import { TRUST_RULES } from '../game/appraisal/pulse.js';
 import { Provenance, SealBadge } from './meters.js';
 import { useEffect, useId, useState } from 'react';
 import type { ReactElement } from 'react';
-import { ITEM_SPECS, itemImage, NPC_SPECS } from '../game/appraisal/content.js';
-import type { AppraisalView, EventOffer, ItemView } from '../game/appraisal/types.js';
+import { ITEM_SPECS, itemImage } from '../game/appraisal/content.js';
+import type { AppraisalView, EventOffer, ItemView, MarketOrder } from '../game/appraisal/types.js';
 import type { AppraisalRoomView } from '../shared/appraisal-protocol.js';
 import { possibleBenefitText, possibleDrawbackText, salePctText, activationBlock, activationOutcome, choiceTitle, effectsInspectionLabel, effectsKnownFor, eventCatalog, eventItemUsable, eventNeeds, inspectionBlock, itemScoreRange, needShort, purchaseBlock, eventCost, eventDecision, eventFacts, eventItemName, eventNeedsItem, eventNeedsStatus, eventStatusOptions, factLabel, hasStatus, inspectionCost, inventoryLabel, marketOptions, purchaseEnergy, purchasePrice, readable, riskRange, stepPrice, scoreStatusText, eventScoreText, statusName, isConsequence, bondOf, unsoldItems, unsoldPenaltyText, consignText } from './model.js';
 import type { Decision } from './model.js';
-import { ChoiceCards, ItemCard, ItemTerm, NpcTerm, Peek, Rich, StatusTerm } from './lore.js';
-import { AppraiseIcon, BuffIcon, BuyIcon, CoinIcon, DebuffIcon, EventIcon, InspectIcon, MarketIcon, MinusIcon, PlusIcon, RebateIcon, SealIcon, TicketIcon, TrustIcon } from './icons.js';
+import { ChoiceCards, ItemCard, ItemTerm, Peek, Rich, StatusTerm } from './lore.js';
+import { AppraiseIcon, BuffIcon, BuyIcon, CloseIcon, CoinIcon, DebuffIcon, EventIcon, InspectIcon, MarketIcon, MinusIcon, PlusIcon, RebateIcon, SealIcon, TicketIcon, TrustIcon } from './icons.js';
 import { t } from './i18n.js';
 import { tip, useLock } from './reasons.js';
 import { itemName, npcName, passiveText, statusDescription, statusDuration, toolText } from './catalog-text.js';
@@ -263,7 +265,7 @@ export function AppraisalDesk({game,item,submit,disabled}:Actions&{item:ItemView
   </section>;
 }
 const dangerChoices=new Set(['die','item','surrender']);
-export function EventDecision({game,offer,submit,disabled,playerNames={}}:Actions&{offer:EventOffer;playerNames?:Record<string,string>}) {
+export function EventDecision({game,offer,submit,disabled,playerNames={},onTuck}:Actions&{offer:EventOffer;playerNames?:Record<string,string>;onTuck?:()=>void}) {
   const locked=useLock();
   const consequence=isConsequence(offer.id);
   const usableIds=(c:string)=>c==='decline'||!eventNeedsItem(offer,c)?offer.itemIds:offer.itemIds.filter(id=>eventItemUsable(game,offer,id));
@@ -293,21 +295,16 @@ export function EventDecision({game,offer,submit,disabled,playerNames={}}:Action
   const visible=[...game.self.stock,...game.self.inventory,...game.listings.map(l=>l.item)];
   const priced=offer.id==='E44' || bondOf(offer)?.mode==='sell';
   const title=(c:string)=>portalChoiceTitle(game,offer,c)??choiceTitle(offer,c,survival);
-  const portalEvent=game.phase==='PORTALS' && ['E01','E08','E10'].includes(offer.id);
+  const portalEvent=game.phase==='PORTALS';
   // E01/E10 decline closes the same door as switch; show that outcome once.
-  const choices=portalEvent && offer.id!=='E08'?offer.choices.filter(c=>c!=='decline'):offer.choices;
+  const choices=portalEvent && ['E01','E10'].includes(offer.id)?offer.choices.filter(c=>c!=='decline'):offer.choices;
   return <section className={`event-offer${consequence?' consequence':''}${portalEvent?' portal-event':''}`} aria-labelledby={`event-${offer.id}`}>
-    <h2 id={`event-${offer.id}`}><EventIcon/>{catalog.name}</h2>
+    <h2 id={`event-${offer.id}`}><span className="event-heading-title"><EventIcon/>{catalog.name}</span>{onTuck && <button type="button" className="event-tuck" aria-label={t('ซ่อนไว้ก่อน ขอดูโต๊ะ')} title={t('ซ่อนไว้ก่อน ขอดูโต๊ะ')} onClick={onTuck}><CloseIcon/></button>}</h2>
     <PortalEventPreview game={game} offer={offer} choice={choice}/>
     <div className="event-copy">
       <p className="event-say">{survival && offer.id==='E50'?t('คุณผิดสัญญา Dark One สละของหนึ่งชิ้นเพื่อรอด หรือชีวิตเป็น 0 แล้วเป็นผู้ชมจนจบ run ของและเครดิตที่เหลือยังรอ Collector'):<Rich text={catalog.description} survival={survival}/>}</p>
       {offer.wish && <p className="event-give">{t('{npc}อยากได้',{npc:npcName(game.self.portals.find(p=>p.id===game.self.selectedPortalId)?.npc ?? 'orc')})} <ItemTerm kind={offer.wish.kind}/> {t('ให้ {n} เครดิต ซึ่งสูงกว่าตลาด · ถ้าครั้งหน้าคุณเลือกพ่อค้านี้และถือของชนิดนี้อยู่ ขายให้ได้ ต่อรองราคาได้',{n:offer.wish.price})}</p>}
       {offer.giveItemId && <p className="event-give">{t('พ่อค้าขอ')} <ItemTerm kind={offer.targetKinds[offer.giveItemId]!} item={visible.find(i=>i.id===offer.giveItemId)}/> {t('จากคลังของคุณ')}</p>}
-      {offer.id==='E08' && <dl className="portal-contracts">{game.self.portals.slice(0,2).map((portal,index)=>{
-        const spec=NPC_SPECS[portal.npc];const status={id:spec.condition};
-        const available=spec.condition!=='D04' || (game.encounterCount===null || game.encounter<game.encounterCount);
-        return <div key={portal.id}><dt>{index===0?t('เลือกเครดิต'):t('เลือกเงื่อนไข')} · <NpcTerm npc={portal.npc}/></dt><dd>{index===0?t('จ่ายเครดิตอย่างเดียว ไม่มีส่วนลด'):<>{t('ลด {n} เครดิตต่อการซื้อ · ต้องรับ',{n:spec.discount})} <StatusTerm id={status.id} survival={survival}/><p>{readable(statusDescription(status.id))}{scoreStatusText(status.id,survival)} · {readable(statusDuration(status.id))}</p>{!available && <p className="danger-text">{t('ช่วงสุดท้ายรับเงื่อนไขนี้ไม่ได้ ร้านนี้จะซื้อไม่ได้ เลือกร้านรับเครดิตหรือไม่รับแทน')}</p>}</>}</dd><dd>{t('อาจมี')} <ItemTerm kind={portal.hint}/> {t('มาขาย')}</dd></div>;
-      })}</dl>}
     </div>
     <form className="event-form" onSubmit={e=>{e.preventDefault();if(action)submit(action);}}>
       <ChoiceCards legend={t('คุณจะเลือกทางไหน')} value={choice} onChange={c=>{setChoice(c);const count=loanItemCount(c);if(count)setLoanIds(ids=>ids.slice(0,count));}} disabled={disabled} options={choices.map(c=>{const why=blockedReason(c,itemId);return {value:c,title:title(c),disabled:!!why,
@@ -326,34 +323,67 @@ export function EventDecision({game,offer,submit,disabled,playerNames={}}:Action
       {eventNeedsStatus(offer,choice) && <ChoiceCards compact legend={t('เลือกสถานะ')} value={effectiveStatus} onChange={setStatusId} disabled={disabled} options={statusOptions.map(id=>({value:id,title:<><span className={id.startsWith('D')?'danger-text':'positive-text'}>{id.startsWith('D')?<DebuffIcon/>:<BuffIcon/>}</span>{statusName(id)}</>,...(offer.id==='E108'?{detail:readable(statusDescription(id))}:{})}))}/>}
       {offer.id==='E45' && choice!=='decline' && <ChoiceCards compact legend={t('ผลตรวจที่จะเปิดให้ทุกคน')} value={effectiveFact} onChange={setFact} disabled={disabled} options={facts.map(f=>{const v=offer.facts[itemId]?.[f];return {value:f,title:`${factLabel(f)}: ${typeof v==='boolean'?v?t('ใช่'):t('ไม่ใช่'):String(v)}`};})}/>}
       {offer.id==='E46' && choice!=='decline' && <ChoiceCards compact legend={t('คุณทายว่า')} value={String(guess)} onChange={v=>setGuess(v==='true')} disabled={disabled} options={[{value:'true',title:t('ของแท้')},{value:'false',title:t('ของปลอม')}]}/>}
-      <button className={consequence?'danger':'primary'} disabled={disabled || !action || !!blockedReason(choice,itemId)} title={tip(disabled&&locked,blockedReason(choice,itemId),!action&&t('ยังเลือกรายละเอียดไม่ครบ ตรวจตัวเลือกด้านบน'))}>{t('ยืนยัน: {title}',{title:title(choice)})}</button>
+      <button className={consequence?'danger':'primary'} disabled={disabled || !action || !!blockedReason(choice,itemId)} title={tip(disabled&&locked,blockedReason(choice,itemId),!action&&t('ยังเลือกรายละเอียดไม่ครบ ตรวจตัวเลือกด้านบน'))}>{t('ยืนยัน: {title}',{title:portalEvent && isCore2Event(offer.id)?choiceTitle(offer,choice,survival):title(choice)})}</button>
     </form>
   </section>;
 }
+/** A bounded noticeboard: only the focused order exposes its contract and sale controls. */
 export function DarkMarket({game,submit,disabled,compact=false}:Actions&{compact?:boolean}) {
-  const lots=game.market.lots??[];const [expanded,setExpanded]=useState(false);
+  const [page,setPage]=useState(0);
+  const [selected,setSelected]=useState<{kind:'order'|'lot';id:string;encounter:number}|null>(null);
+  const lots=game.market.lots??[];
+  const entries=[...(game.market.open?game.market.orders.map(order=>({kind:'order' as const,id:order.id,order})):[]),...lots.map(lot=>({kind:'lot' as const,id:lot.id,lot}))];
+  const pages=Math.max(1,Math.ceil(entries.length/3));const currentPage=Math.min(page,pages-1);
+  const order=selected?.encounter===game.encounter && selected.kind==='order' && game.market.open?game.market.orders.find(o=>o.id===selected.id):undefined;
+  const lot=selected?.encounter===game.encounter && selected.kind==='lot'?lots.find(l=>l.id===selected.id):undefined;
   const sellable=game.self.inventory.filter(item=>marketOptions(game,item).length>0).length;
-  if(compact && !expanded) return <aside className={`dark-market compact${game.market.open || lots.length?' open':' closed'}`} aria-labelledby="market-title">
+  return <aside className={`dark-market market-board${compact?' compact':''}${entries.length?' open':' closed'}`} aria-labelledby="market-title">
     <h2 id="market-title"><MarketIcon/>Dark Market</h2>
-    <p className="market-lede">{!game.market.open && !lots.length?t('ปิดในช่วงนี้'):[game.market.open?t('รับซื้อ {n} รายการ',{n:game.market.orders.length}):'',sellable?t('คุณขายได้ {n} ชิ้น',{n:sellable}):'',lots.length?t('ประมูล {n} ชิ้น',{n:lots.length}):''].filter(Boolean).join(' · ')}</p>
-    {(game.market.open || lots.length>0) && <button type="button" className="market-toggle" onClick={()=>setExpanded(true)}>{t('ดูรายการ')}</button>}
-  </aside>;
-  return <aside className={`dark-market${game.market.open || lots.length?' open':' closed'}`} aria-labelledby="market-title">
-    <h2 id="market-title"><MarketIcon/>Dark Market</h2>
-    {!game.market.open?<p className="market-closed">{t('ตลาดเงาปิดในช่วงนี้ เก็บของไว้ลุ้นรายการรับซื้อในช่วงถัดไป')}</p>:<>
-      <p className="market-lede">{t('รับซื้อถึงจบช่วงพบพ่อค้านี้ ซื้อของใหม่แล้วนำมาขายได้ · ป้ายเป็นราคาฐาน ปุ่มขายรวมผลของสะสม')}</p>
-      {salePctText(game) && <p className="supporting">{salePctText(game)}</p>}
-      <ul className="wanted">{game.market.orders.map(order=>{
-        const quota=order.quota[game.self.id]??0;
-        const owned=game.self.inventory.filter(item=>marketOptions(game,item).some(o=>o.id===order.id));
-        return <li key={order.id}><img src={itemImage(order.kind)} alt="" width="1254" height="1254" loading="lazy"/><div><h3><ItemTerm kind={order.kind}/></h3><p className="order-quote">{t('รับซื้อ')} <strong><CoinIcon/>{t('{n} เครดิต',{n:order.price})}</strong> · {t('สิทธิ์คุณ {n} ชิ้น',{n:quota})}</p>{order.contract && <div className="market-contract"><p><strong>{t('ต้องการ: {v}',{v:marketRequirements(order.contract)})}</strong></p><p className="positive-text">{t('ตรงเงื่อนไข: {n} เครดิต +',{n:order.price})} <Rich text={marketBonus(order.contract)} survival={!!game.survival}/></p><p className="danger-text">{t('ไม่ตรง: ลด 20% เหลือ {n} เครดิต หรือ',{n:Math.floor(order.price*80/100)})} <Rich text={marketCost(order.contract)} survival={!!game.survival}/> {t('เพื่อรับราคาเต็ม {n} เครดิต · ไม่ได้โบนัส',{n:order.price})}</p></div>}
-          {quota===0?<p>{t('ใช้สิทธิ์รายการนี้แล้ว')}</p>:owned.length?owned.map(item=><div key={item.id} className="market-held"><p><strong>{inventoryLabel(game,item)}</strong></p><FactSeals item={item}/><MarketSale game={game} item={item} order={order} submit={submit} disabled={disabled || !!game.self.eventOffer && isConsequence(game.self.eventOffer.id)}/></div>):<p>{t('ยังไม่มีของที่ขายได้ในรายการนี้')}</p>}
-        </div></li>;
+    <p className="market-lede">{!entries.length?t('ปิดในช่วงนี้'):[game.market.open?t('รับซื้อ {n} รายการ',{n:game.market.orders.length}):'',sellable?t('คุณขายได้ {n} ชิ้น',{n:sellable}):'',lots.length?t('ประมูล {n} ชิ้น',{n:lots.length}):''].filter(Boolean).join(' · ')}</p>
+    {!entries.length?<p className="market-closed">{t('ตลาดเงาปิดในช่วงนี้ เก็บของไว้ลุ้นรายการรับซื้อในช่วงถัดไป')}</p>:<>
+      <p className="supporting">{t('เลือกรายการเพื่อดูเงื่อนไขและขายสินค้า')}</p>
+      <ul className="market-notices">{entries.slice(currentPage*3,currentPage*3+3).map(entry=>{
+        const kind=entry.kind==='order'?entry.order.kind:entry.lot.item.kind;
+        const quota=entry.kind==='order'?entry.order.quota[game.self.id]??0:0;
+        const owned=entry.kind==='order'?game.self.inventory.filter(item=>marketOptions(game,item).some(o=>o.id===entry.id)).length:0;
+        return <li key={`${entry.kind}-${entry.id}`}><button type="button" className="market-notice" aria-haspopup="dialog" onClick={()=>setSelected({kind:entry.kind,id:entry.id,encounter:game.encounter})}>
+          <img src={entry.kind==='order'?itemImage(kind):entry.lot.item.image} alt="" width="64" height="64"/>
+          <span className="market-notice-copy"><strong>{entry.kind==='order'?itemName(kind):abilityItemLabel(entry.lot.item)}</strong><span className="order-quote"><CoinIcon/>{entry.kind==='order'?t('รับซื้อ {n} เครดิต',{n:entry.order.price}):t('ประมูลขั้นต่ำ {n} เครดิต',{n:entry.lot.minimum})}</span>
+            <span>{entry.kind==='order'?t('สิทธิ์คุณ {n} ชิ้น',{n:quota}):t('ซองประมูล {n} ซอง',{n:entry.lot.bidCount})}{owned>0?` · ${t('ขายได้ {n} ชิ้น',{n:owned})}`:''}</span>
+          </span><span className="market-notice-more">{t('รายละเอียด')}</span>
+        </button></li>;
       })}</ul>
-      <p className="supporting">{t('ขายแล้วโอนของทันที · ของที่ติดครอบครองอัปมงคลต้องปลดล็อกก่อน')}{game.brokerage?t(' · ของที่ขายเข้าคลังและอาจถูกนำมาประมูลภายหลัง'):''}</p>
+      {pages>1 && <nav className="market-pages" aria-label={t('หน้ารายการตลาดมืด')}><button type="button" disabled={currentPage===0} title={currentPage===0?t('อยู่หน้าแรกแล้ว'):undefined} onClick={()=>setPage(currentPage-1)}>{t('ก่อนหน้า')}</button><span role="status">{t('หน้า {n}/{total}',{n:currentPage+1,total:pages})}</span><button type="button" disabled={currentPage===pages-1} title={currentPage===pages-1?t('อยู่หน้าสุดท้ายแล้ว'):undefined} onClick={()=>setPage(currentPage+1)}>{t('ถัดไป')}</button></nav>}
     </>}
-    {lots.length>0 && <Auction game={game} submit={submit} disabled={disabled}/>}
+    {(order || lot) && <GameDialog title={order?itemName(order.kind):t('ประมูลของจากคลังตลาดเงา')} onClose={()=>setSelected(null)} className="market-dialog">
+      {order?<MarketOrderDetail key={order.id} game={game} order={order} submit={submit} disabled={disabled}/>:lot && <section className="auction"><p>{t('ไม่ได้เปิดทุกช่วง ราคาสูงสุดที่ยังจ่ายไหวชนะเมื่อคิดผลช่วง ราคาเท่ากันตัดสินด้วยเส้นทาง ไม่เห็นซองของคนอื่น')}</p><ul className="wanted"><AuctionLot key={lot.id} game={game} lot={lot} submit={submit} disabled={disabled}/></ul></section>}
+    </GameDialog>}
   </aside>;
+}
+
+export function MarketOrderDetail({game,order,submit,disabled}:Actions&{order:MarketOrder}) {
+  const [picked,setPicked]=useState('');
+  const [step,setStep]=useState<'terms'|'sale'>('terms');
+  const owned=game.self.inventory.filter(item=>marketOptions(game,item).some(o=>o.id===order.id));
+  const index=Math.max(0,owned.findIndex(item=>item.id===picked));const item=owned[index];
+  const quota=order.quota[game.self.id]??0;
+  return <><nav className="market-detail-nav" aria-label={t('รายละเอียดรายการรับซื้อ')}><button type="button" aria-pressed={step==='terms'} onClick={()=>setStep('terms')}>{t('เงื่อนไขรับซื้อ')}</button><button type="button" aria-pressed={step==='sale'} onClick={()=>setStep('sale')}>{t('เลือกสินค้าและขาย')}</button></nav><div className="market-order-detail" data-step={step}>
+    <section className="market-order-terms">
+      <img className="market-order-art" src={itemImage(order.kind)} alt="" width="240" height="240"/>
+      <p className="order-quote">{t('รับซื้อ')} <strong><CoinIcon/>{t('{n} เครดิต',{n:order.price})}</strong> · {t('สิทธิ์คุณ {n} ชิ้น',{n:quota})}</p>
+      {order.contract && <div className="market-contract"><p><strong>{t('ต้องการ: {v}',{v:marketRequirements(order.contract)})}</strong></p><p className="positive-text">{t('ตรงเงื่อนไข: {n} เครดิต +',{n:order.price})} <Rich text={marketBonus(order.contract)} survival={!!game.survival}/></p><p className="danger-text">{t('ไม่ตรง: ลด 20% เหลือ {n} เครดิต หรือ',{n:Math.floor(order.price*80/100)})} <Rich text={marketCost(order.contract)} survival={!!game.survival}/> {t('เพื่อรับราคาเต็ม {n} เครดิต · ไม่ได้โบนัส',{n:order.price})}</p></div>}
+      <p className="supporting">{t('รับซื้อถึงจบช่วงพบพ่อค้านี้ ซื้อของใหม่แล้วนำมาขายได้ · ป้ายเป็นราคาฐาน ปุ่มขายรวมผลของสะสม')}</p>
+    </section>
+    <section className="market-order-sale"><h3>{t('สินค้าของคุณ')}</h3>
+      <p className="market-sale-quote">{t('รับซื้อ {n} เครดิต',{n:order.price})} · {t('สิทธิ์คุณ {n} ชิ้น',{n:quota})}</p>
+      {quota===0?<p role="status">{t('ใช้สิทธิ์รายการนี้แล้ว')}</p>:item?<>
+        {owned.length>1 && <nav className="market-pages" aria-label={t('เลือกสินค้าที่จะขาย')}><button type="button" disabled={index===0} title={index===0?t('นี่คือชิ้นแรก'):undefined} onClick={()=>setPicked(owned[index-1]!.id)}>{t('ก่อนหน้า')}</button><span role="status">{t('ชิ้น {n}/{total}',{n:index+1,total:owned.length})}</span><button type="button" disabled={index===owned.length-1} title={index===owned.length-1?t('นี่คือชิ้นสุดท้าย'):undefined} onClick={()=>setPicked(owned[index+1]!.id)}>{t('ถัดไป')}</button></nav>}
+        <div className="market-held" key={item.id}><h4>{inventoryLabel(game,item)}</h4><FactSeals item={item}/><MarketSale game={game} item={item} order={order} submit={submit} disabled={disabled || !!game.self.eventOffer && isConsequence(game.self.eventOffer.id)}/></div>
+      </>:<p>{t('ยังไม่มีของที่ขายได้ในรายการนี้')}</p>}
+      {salePctText(game) && <p className="supporting">{salePctText(game)}</p>}
+      <p className="supporting">{t('ขายแล้วโอนของทันที · ของที่ติดครอบครองอัปมงคลต้องปลดล็อกก่อน')}{game.brokerage?t(' · ของที่ขายเข้าคลังและอาจถูกนำมาประมูลภายหลัง'):''}</p>
+    </section>
+  </div></>;
 }
 function AuctionLot({game,lot,submit,disabled}:Actions&{lot:NonNullable<AppraisalView['market']['lots']>[number]}) {
   const locked=useLock();
@@ -371,12 +401,6 @@ function AuctionLot({game,lot,submit,disabled}:Actions&{lot:NonNullable<Appraisa
     </form>}
   </div></li>;
 }
-function Auction({game,submit,disabled}:Actions) {
-  return <section className="auction" aria-labelledby="auction-title"><h3 id="auction-title">{t('ประมูลของจากคลังตลาดเงา')}</h3>
-    <p className="market-lede">{t('ไม่ได้เปิดทุกช่วง ราคาสูงสุดที่ยังจ่ายไหวชนะเมื่อคิดผลช่วง ราคาเท่ากันตัดสินด้วยเส้นทาง ไม่เห็นซองของคนอื่น')}</p>
-    <ul className="wanted">{game.market.lots!.map(lot=><AuctionLot key={lot.id} game={game} lot={lot} submit={submit} disabled={disabled}/>)}</ul></section>;
-}
-/** Brokerage duty: an appraised item nobody bought must be bought, penalised or consigned before the encounter settles. */
 export function Unsold({game,submit,disabled}:Actions) {
   const locked=useLock();
   const items=unsoldItems(game);if(!items.length) return null;

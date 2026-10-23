@@ -22,7 +22,8 @@ export function merchantAbilityViews(state:AppraisalState,p:Appraiser):MerchantA
   return activeNpcs(state).map(npc=>{
     const spec=MERCHANT_ABILITIES[npc],trust=p.npcTrust?.[npc]??0,remaining=abilityRemaining(p,npc,state.encounter),itemIds=abilityTargets(state,p,npc);
     const statusIds=p.statuses.filter(s=>s.id.startsWith('D')&&s.charges>0).map(s=>s.id);
-    const reason=trust<1?'ต้องมีความไว้ใจอย่างน้อย 1':p.skillUsed?'ใช้ความสามารถพ่อค้าในช่วงนี้แล้ว':remaining>0?'กำลังรอ cooldown':p.abilityChoice?'เลือกสินค้าที่เสนอให้ก่อน':p.caught?'ถูกจับผิดในช่วงนี้แล้ว':p.done||p.paused?'จบช่วงหรือพักแล้ว':p.eventOffer?'ตอบเหตุการณ์ก่อน':!['APPRAISAL','TRADE'].includes(state.phase)?'ใช้ในช่วงประเมินหรือต่อรอง':npc==='darkone'&&!statusIds.length?'ไม่มี debuff ให้ลบ':spec.target!=='debuff'&&!itemIds.length?'ไม่มีสินค้าที่ใช้ความสามารถนี้ได้':null;
+    // Status links: a seat merchants are watching (D21) gets no special service.
+    const reason=state.config.statusLinks===1 && status(p,'D21')?'พ่อค้าจับตาคุณอยู่ ไม่ยอมใช้ความสามารถพิเศษให้':trust<1?'ต้องมีความไว้ใจอย่างน้อย 1':p.skillUsed?'ใช้ความสามารถพ่อค้าในช่วงนี้แล้ว':remaining>0?'กำลังรอ cooldown':p.abilityChoice?'เลือกสินค้าที่เสนอให้ก่อน':p.caught?'ถูกจับผิดในช่วงนี้แล้ว':p.done||p.paused?'จบช่วงหรือพักแล้ว':p.eventOffer?'ตอบเหตุการณ์ก่อน':!['APPRAISAL','TRADE'].includes(state.phase)?'ใช้ในช่วงประเมินหรือต่อรอง':npc==='darkone'&&!statusIds.length?'ไม่มี debuff ให้ลบ':spec.target!=='debuff'&&!itemIds.length?'ไม่มีสินค้าที่ใช้ความสามารถนี้ได้':null;
     return {npc,...spec,trust,tier:abilityTier(trust),remaining,ready:reason===null,reason,itemIds,statusIds};
   });
 }

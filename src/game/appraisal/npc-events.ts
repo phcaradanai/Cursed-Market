@@ -1,5 +1,7 @@
 import { randomAt } from '../random.js';
-import { ITEM_SPECS, STATUS_CATALOG } from './content.js';
+import { linkedStatuses } from './core2.js';
+// The full catalog: status links can hand out the v0.6 statuses too.
+import { ITEM_SPECS, ALL_STATUS_CATALOG as STATUS_CATALOG } from './content.js';
 import { check, grant, healLife, known, learn, maxEnergyOf, maxLifeOf, ownedItem, recover, removeStatus, retire, reward, spend, status, trace, unlocked } from './mechanics.js';
 import { NPC_EVENT_IDS, STATUS_IDS } from './types.js';
 import type { AppraisalAction, AppraisalState, Appraiser, EventId, EventOffer, NpcId, StatusId } from './types.js';
@@ -58,7 +60,7 @@ export function personalNpcOffer(state:AppraisalState,p:Appraiser,id:EventId,key
 
 /** Buff/debuff pools respect the room's enabled mechanics and the remaining encounters. */
 function statusPool(state:AppraisalState,p:Appraiser,prefix:'B'|'D'):StatusId[] {
-  return STATUS_IDS.filter(id=>id.startsWith(prefix) && !status(p,id)
+  return [...STATUS_IDS,...linkedStatuses(state.config,prefix)].filter(id=>id.startsWith(prefix) && !status(p,id)
     && (state.config.expansion || Number(id.slice(1))<=10 || Number(id.slice(1))>=17) && (state.config.polish || Number(id.slice(1))<=16)
     && (state.config.brokerage || id!=='B20') && (id!=='D09')
     && (state.config.survival || state.encounter<state.config.encounters || !['B09','D04','D07'].includes(id)));

@@ -11,7 +11,7 @@ import { ITEM_SPECS, NPC_SPECS, expansionActive, itemFamily } from './content.js
 import { check, consumeStatus, counterLimit, damageLife, grant, kill, known, learn, ownedItem, penaltyItem, maxEnergyOf, purchase, recover, removeStatus, retire, reward, saleApply, salePreview, spend, status, stockItem, trace, unlocked, wishSlotsOf } from './mechanics.js';
 import { BOND_EVENT_IDS, BOON_EVENT_ID, EVENT_IDS, EXPANSION_EVENT_IDS, POLISH_EVENT_IDS, STATUS_IDS } from './types.js';
 import { POLISH_EVENTS } from './polish-events.js';
-import { anchorOf } from './core2.js';
+import { anchorOf, linkedStatuses } from './core2.js';
 import { CORE2_DRAW_IDS, core2EventChoices, core2EventEligible, core2EventItems, core2NeedsItem, core2Spec, isCore2Consequence, pickBacklash, resolveCore2Event } from './core2-events.js';
 import { isNpcEvent, NPC_PERSONAL_EVENT, npcEventEligible, personalNpcOffer, resolvePersonalNpcEvent } from './npc-events.js';
 import { applyWish, drawWishEvent as drawWish, shopNpcOf, wishEligible, wishPick } from './wishlist.js';
@@ -52,10 +52,10 @@ function ledgerFacts(state:AppraisalState,p:Appraiser,itemId:string):Array<typeo
 export const REWORKED_DEFAULT:Partial<Record<EventId,string>>={E01:'switch',E10:'switch',E37:'burden',E40:'endure',E43:'accept',E108:'pick',E131:'haste',E132:'compass'};
 const freeBankOf=(state:AppraisalState)=>state.bank-state.market.budget-state.reservedRewards;
 /** Buffs the seat could be offered: not already active, and not the one-use shields that would instantly vanish. */
-function boonPool(p:Appraiser):StatusId[] {return STATUS_IDS.filter(id=>id.startsWith('B') && !status(p,id));}
+function boonPool(state:AppraisalState,p:Appraiser):StatusId[] {return [...STATUS_IDS,...linkedStatuses(state.config,'B')].filter(id=>id.startsWith('B') && !status(p,id));}
 /** Three distinct boons, shuffled by the seed and the offer key so every draft differs. */
 function draftBoons(state:AppraisalState,p:Appraiser,key:string):StatusId[] {
-  return boonPool(p).map(id=>({id,rank:randomAt(state.seed,`${key}:boon:${id}`)})).sort((a,b)=>a.rank-b.rank).slice(0,3).map(row=>row.id);
+  return boonPool(state,p).map(id=>({id,rank:randomAt(state.seed,`${key}:boon:${id}`)})).sort((a,b)=>a.rank-b.rank).slice(0,3).map(row=>row.id);
 }
 /** Polish events: table-driven; each needs its cost, its reward from the bank, and a status it would actually change. */
 function polishEligible(state:AppraisalState,p:Appraiser,id:EventId):boolean {
@@ -103,7 +103,7 @@ export function eventEligible(state:AppraisalState,p:Appraiser,id:EventId):boole
   if (id==='E73') return wishEligible(state,p);
   if ((EXPANSION_EVENT_IDS as readonly string[]).includes(id)) return expansionEligible(state,p,id);
   if ((POLISH_EVENT_IDS as readonly string[]).includes(id)) return polishEligible(state,p,id);
-  if (id===BOON_EVENT_ID) return !!state.config.polish && state.phase==='APPRAISAL' && boonPool(p).length>=3;
+  if (id===BOON_EVENT_ID) return !!state.config.polish && state.phase==='APPRAISAL' && boonPool(state,p).length>=3;
   const npc=p.stock[0] ? state.items[p.stock[0]]!.npc : null;
   const stock=p.stock.filter(itemId => state.items[itemId]?.owner===`npc:${p.id}:${state.encounter}`);
   const unknownPrice=stock.some(itemId=>known(state,p,itemId).base===undefined);
@@ -409,7 +409,7 @@ export function defaultEvent(state:AppraisalState,p:Appraiser):void {
   const offer=p.eventOffer; if(!offer) return;
   if(core2Spec(offer.id)){
     const choice=offer.choices.includes('decline')?'decline':offer.choices[0]!;
-    resolveEvent(state,p,{type:'event',key:offer.key,playerId:p.id,requestId:'system-default',encounter:state.encounter,choice,...(core2NeedsItem(offer.id,choice,state.config.eventChoiceRules)?{itemId:p.inventory[0]!}:{})});return;
+    resolveEvent(state,p,{type:'event',key:offer.key,playerId:p.id,requestId:'system-default',encounter:state.encounter,choice,...(core2NeedsItem(offer.id,choice,state.config)?{itemId:p.inventory[0]!}:{})});return;
   }
   if(reworked(state) && !offer.choices.includes('decline') && !isConsequence(offer.id)) {
     // Rule 1: no decline to fall back on, so take the safe option: a gift, the first boon, or the mishap's mildest cost.

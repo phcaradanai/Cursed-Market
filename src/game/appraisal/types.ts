@@ -46,6 +46,8 @@ export interface AppraisalConfig {
   collectorDeadline?:number;
   /** Absent in saved audits: keep the original event choices. 1 removes pointless decline buttons, turns E37/E40 into mishaps you handle, reprices E119/E121/E127 and gives E47 an effect. */
   eventChoiceRules?:1;
+  /** Absent in saved audits: v0.6 statuses B21–B24/D21–D24 stay unreachable and theft buffs keep their old chance-based meaning. 1 gives every status a source and makes B21/B22/D21 and the thieves' night omen settle tied theft duels. */
+  statusLinks?:1;
   /** Absent in historical runs: keep original skills, catalogs and RNG pools exactly. */
   trustAbilities?:boolean;
   /** Absent in saved audits: preserve historical item effects and activation costs. */
@@ -324,6 +326,7 @@ export interface AppraisalView {
   itemEffects?:boolean;
   version: 4 | 5; phase: AppraisalPhase; encounter: number; encounterCount: number | null; revision: number;
   eventChoiceRules?:1;
+  statusLinks?:1;
   survival?:NonNullable<AppraisalConfig['survival']>; core2?:boolean; collectorAt?:number; dread?:number; curseSight?:boolean; freeBuy?:boolean; fakeEffect?:boolean; cleanse?:boolean; wishlist?:boolean; wishContract?:boolean; challenge?:boolean; polish?:boolean; omen?:{id:string;name:string;text:string}; salePct?:number; fee?:number; maxEnergy?:number; collector?:CollectorResult[]; brokerage?:boolean; roundRewardBase?:number; passives?:boolean;
   self: Omit<Appraiser,'personalVault'|'knowledge'|'portals'|'stock'|'inventory'|'valuations'|'startWealth'|'acceptedDanger'|'seenEvents'|'resolvedEvents'> & {
     personalVault?:{items:ItemView[];credits:number;slots:number;nextSlotPrice:number;nextInterest:number};

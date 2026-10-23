@@ -1,6 +1,6 @@
 import { randomAt } from '../random.js';
 import { CORE2 } from './core2.js';
-import { check, consumeStatus, spend, stockItem, trace, transfer, unlocked } from './mechanics.js';
+import { check, consumeStatus, grant, omenNow, spend, status, stockItem, trace, transfer, unlocked } from './mechanics.js';
 import type { AppraisalItem, AppraisalState, Appraiser, NpcId } from './types.js';
 
 export type RpsHand = 'rock' | 'paper' | 'scissors';
@@ -53,6 +53,8 @@ export interface TheftDuelView {
   status: TheftDuel['status'];
   needsChoice: boolean;
   submitted: boolean;
+  /** Status links: who a tied round goes to, from this seat's own statuses and the omen only. */
+  tieGoesTo?: 'you' | 'opponent';
   revealed: TheftDuel['revealed'];
 }
 export interface TheftView {
@@ -142,7 +144,8 @@ export function startTheftDuel(state: AppraisalState, p: Appraiser, target: {ite
   }
   spend(state,p,0,CORE2.steal.energy,'theft-duel');
   (p.stealTried ??= []).push(victim ? `p:${victim.id}` : item.id);
-  consumeStatus(p,'B22');
+  // Status links: B22 waits for a tied round to matter instead of being spent here for nothing.
+  if(state.config.statusLinks !== 1)consumeStatus(p,'B22');
   const duels = ((state as TheftState).theftDuels ??= []);
   const duel: TheftDuel = {
     id: `theft-${state.encounter}-${p.id}-${duels.length}`,
@@ -206,6 +209,20 @@ function playerFailure(state: AppraisalState, thief: Appraiser, duel: TheftDuel)
   note(victim,'จับขโมยได้: ได้ตราคนบาปของผู้ขโมยหนึ่งใบ');
 }
 
+/** Status links: B22 and the thieves' night tip a tied round to the thief, D21 against them, and the victim's B21 to the victim. */
+const linkedThiefEdge = (state: AppraisalState, thief: Appraiser) =>
+  (status(thief,'B22') ? 1 : 0) + (omenNow(state)?.steal ? 1 : 0) - (status(thief,'D21') ? 1 : 0);
+/** Settle a tied round under status links: positive goes to the thief, negative to the defender, zero plays on. Spends the statuses that took part. */
+function breakTie(state: AppraisalState, duel: TheftDuel, thief: Appraiser): number {
+  const victim = duel.victimId ? state.players.find(v => v.id === duel.victimId) : undefined;
+  const edge = linkedThiefEdge(state,thief) - (victim && status(victim,'B21') ? 1 : 0);
+  const used = [status(thief,'B22') && 'B22', status(thief,'D21') && 'D21'].filter(Boolean) as Array<'B22'|'D21'>;
+  for(const id of used)consumeStatus(thief,id);
+  if(victim && status(victim,'B21')) { consumeStatus(victim,'B21'); note(victim,'ผู้คุ้มกันยืนขวางตอนเสมอ'); }
+  if(edge !== 0)trace(state,thief,'theft-tie-broken',{duelId:duel.id,to:edge > 0 ? 'thief' : 'defender',used});
+  return edge;
+}
+
 function merchantFailure(state: AppraisalState, p: Appraiser, duel: TheftDuel): void {
   const npc = duel.npc!;
   (p.npcTrust ??= {})[npc] = Math.max(0,(p.npcTrust[npc] ?? 0)-2);
@@ -216,6 +233,8 @@ function merchantFailure(state: AppraisalState, p: Appraiser, duel: TheftDuel): 
     banUntilEncounter: Math.max(previous?.banUntilEncounter ?? state.encounter,state.encounter)+1,
     cases: [...(previous?.cases ?? []),{itemId:duel.itemId,ask:duel.ask,npc}],
   };
+  // Status links: a merchant who caught you keeps an eye on you (D21) until the end of next encounter.
+  if(state.config.statusLinks === 1)grant(state,p,'D21');
   note(p,'ขโมยพลาด: ความเชื่อใจพ่อค้าคนนี้ลด 2 และเพิ่มโทษห้ามค้าขายหนึ่งช่วง');
 }
 
@@ -231,14 +250,18 @@ export function chooseTheftHand(state: AppraisalState, p: Appraiser, duelId: str
   if(!thiefHand || !opponentHand)return;
   duel.revealed.push({thief:thiefHand,opponent:opponentHand});
   duel.hands = {};
-  if(thiefHand === opponentHand) {
-    duel.round++;
-    if(!duel.victimId)duel.hands.npc = npcHand(state,duel);
-    return;
-  }
-  const won = (thiefHand === 'rock' && opponentHand === 'scissors') || (thiefHand === 'scissors' && opponentHand === 'paper') || (thiefHand === 'paper' && opponentHand === 'rock');
-  duel.status = won ? 'won' : 'lost';
   const thief = state.players.find(v => v.id === duel.thiefId)!;
+  let won: boolean;
+  if(thiefHand === opponentHand) {
+    const edge = state.config.statusLinks === 1 ? breakTie(state,duel,thief) : 0;
+    if(edge === 0) {
+      duel.round++;
+      if(!duel.victimId)duel.hands.npc = npcHand(state,duel);
+      return;
+    }
+    won = edge > 0;
+  } else won = (thiefHand === 'rock' && opponentHand === 'scissors') || (thiefHand === 'scissors' && opponentHand === 'paper') || (thiefHand === 'paper' && opponentHand === 'rock');
+  duel.status = won ? 'won' : 'lost';
   if(won) {
     const item = state.items[duel.itemId]!;
     if(duel.victimId) {
@@ -291,6 +314,12 @@ export function clearCrime(state: AppraisalState, p: Appraiser): void {
   trace(state,p,'crime-cleared',{price,cases:crime.cases.length});
 }
 
+/** Only the viewer's own statuses (and the public omen) are counted, so a seat never learns the other side's guard. */
+function tieView(state: AppraisalState, d: TheftDuel, p: Appraiser): {tieGoesTo?: 'you' | 'opponent'} {
+  const edge = d.thiefId === p.id ? linkedThiefEdge(state,p) : (status(p,'B21') ? 1 : 0) - (omenNow(state)?.steal ? 1 : 0);
+  return edge > 0 ? {tieGoesTo:'you'} : edge < 0 ? {tieGoesTo:'opponent'} : {};
+}
+
 /** Never send an NPC hand, concealed target item, or submitted opposing hand to a client. */
 export function theftViewFor(state: AppraisalState, p: Appraiser): TheftView {
   const crime = (p as Thief).crime;
@@ -299,6 +328,7 @@ export function theftViewFor(state: AppraisalState, p: Appraiser): TheftView {
       id:d.id, thiefId:d.thiefId, ...(d.victimId ? {victimId:d.victimId} : d.npc ? {npc:d.npc} : {}),
       ...(d.npc ? {npcTell:npcTheftTell(d.npc)} : {}),
       round:d.round, status:d.status, needsChoice:d.status === 'open' && !d.hands[p.id], submitted:!!d.hands[p.id],
+      ...(state.config.statusLinks === 1 && d.status === 'open' ? tieView(state,d,p) : {}),
       revealed:d.revealed.map(r => ({...r})),
     })),
     targets: state.players.filter(v => v.id !== p.id && !v.paused && !v.done).map(v => {

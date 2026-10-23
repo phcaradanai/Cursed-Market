@@ -9,6 +9,8 @@ import type { EventId, StatusId } from './types.js';
 export interface Core2Choice {
   id:string;credits?:number;energy?:number;life?:number;reward?:number;heal?:number;
   grant?:StatusId[];lose?:boolean;door?:'first'|'second';deal?:'cash'|'condition';toVictim?:boolean;
+  /** A seeded roll after paying: `chance` of the `win` statuses, else the `lose` ones. */
+  gamble?:{chance:number;win:StatusId[];lose:StatusId[]};
 }
 export interface Core2EventSpec {
   id:EventId;name:string;when:string;phase:'PORTALS'|'APPRAISAL'|'TRADE';consequence?:boolean;description:string;choices:Core2Choice[];
@@ -51,8 +53,20 @@ export const CORE2_CHOICES_V2:Partial<Record<EventId,Core2Choice[]>>={
   E121:[{id:'pay',credits:3},{id:'tax',grant:['D18','D12']},{id:'blood',life:1}],
   E127:[{id:'borrow',reward:3,grant:['D04','D18']},{id:'decline'}],
 };
-/** The choices a run plays with: the reworked ones under event choice rules 1, else the original table. */
-export const core2Choices=(id:EventId,rules?:number):Core2Choice[]=>(rules===1?CORE2_CHOICES_V2[id]:undefined)??CORE2_SPECS[id]?.choices??[];
+/**
+ * Status links 1: the v0.6 statuses come from the events their catalog entries name.
+ * E120 adds a pay-later option (D22 at settlement plus D24 now), E126 becomes a seeded gamble between B24 and D23 or a calming rite (B23),
+ * E128 adds a hired guard (B21) and E129's whisper costs a sleepless inspection (D24) instead of the cheat's brand.
+ */
+export const CORE2_CHOICES_LINKED:Partial<Record<EventId,Core2Choice[]>>={
+  E120:[{id:'pay',credits:3},{id:'energy',energy:2},{id:'item',lose:true},{id:'pouch',grant:['D22','D24']}],
+  E126:[{id:'drink',credits:3,gamble:{chance:.6,win:['B24'],lose:['D23']}},{id:'calm',energy:1,grant:['B23']},{id:'decline'}],
+  E128:[{id:'offer',lose:true,grant:['B06','B19']},{id:'ward',credits:2,grant:['B21']},{id:'decline'}],
+  E129:[{id:'steady',energy:1,grant:['B04']},{id:'whisper',grant:['D24','B12']},{id:'decline'}],
+};
+export interface Core2Rules {eventChoiceRules?:number;statusLinks?:number}
+/** The choices a run plays with: status links first, then the reworked ones under event choice rules 1, else the original table. */
+export const core2Choices=(id:EventId,rules?:Core2Rules):Core2Choice[]=>(rules?.statusLinks===1?CORE2_CHOICES_LINKED[id]:undefined)??(rules?.eventChoiceRules===1?CORE2_CHOICES_V2[id]:undefined)??CORE2_SPECS[id]?.choices??[];
 /** Penalties always keep one way out: when nothing is affordable, the seat takes a brand. */
 export const FALLBACK_BRAND:Core2Choice={id:'brand',grant:['D03','D18']};
 export const core2Spec=(id:EventId)=>CORE2_SPECS[id];

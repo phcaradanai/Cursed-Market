@@ -1,4 +1,5 @@
 import { ITEM_SPECS, itemFamily } from './content.js';
+import { CORE2_STATUS_IDS } from './types.js';
 import type { AppraisalConfig, ItemKind, StatusId } from './types.js';
 
 /**
@@ -73,3 +74,6 @@ export const lifeDealTerms2=(trust:number)=>LIFE_DEALS2[Math.max(0,Math.min(3,tr
 export const ENERGY_DEAL_CREDITS2=3;
 /** Recovery deals cost more the deeper the run goes. */
 export const recoverySurcharge=(encounter:number)=>Math.floor((encounter-1)/CORE2.recoveryStep);
+
+/** Status links 1 (core v0.6 rooms): the v0.6 statuses join the random boon/blessing/hex pools, so every status has a source. */
+export const linkedStatuses=(config:Pick<AppraisalConfig,'core2'|'statusLinks'>,prefix:'B'|'D'):StatusId[]=>config.core2 && config.statusLinks===1?CORE2_STATUS_IDS.filter(id=>id.startsWith(prefix)):[];

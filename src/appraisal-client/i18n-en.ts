@@ -21,5 +21,8 @@ export const EN_UI: Record<string, string> = {
   'ของขวัญจากพ่อค้า · ไม่ต้องสละของ · ไม่นับเป็นเหตุการณ์ของช่วงนี้':'A gift from the merchant · nothing to give up · does not count as one of this encounter\'s events',
   'รับเงินอุดหนุน':'Take the subsidy','รับพรใบแรก':'Take the first boon','เร่งสกิลครั้งถัดไป':'Speed up your next ability','รับทิศทางแปรผัน':'Take Shifting Compass',
   'หากจบช่วงหรือหมดเวลา จะรับตัวเลือกแรกให้อัตโนมัติ':'If you end the phase or time runs out, the first option is taken for you',
+  'ทำพิธีสงบใจ':'Hold a calming rite','ค้างจ่ายท้ายช่วง':'Pay at the end of the encounter','จ้างยามเฝ้าโต๊ะ':'Hire a table guard',
+  'สุ่ม {p}%: {win} · ไม่งั้น {lose}':'{p}% chance: {win} · otherwise {lose}',
+  'พ่อค้าจับตาคุณอยู่ ไม่ยอมใช้ความสามารถพิเศษให้':'Merchants are watching you and refuse special services',
   'เป่ายิ้งฉุบหมดเวลา การขโมยครั้งนี้ถูกยกเลิก':'The rock, paper, scissors duel timed out. This theft was cancelled.',
 };

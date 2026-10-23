@@ -34,6 +34,7 @@ export function abilityReason(ability:MerchantAbilityView):string|null {
   if(ability.remaining>0)return abilityReadiness(ability);
   if(ability.trust<1)return 'Gain at least 1 trust with this merchant to unlock their ability.';
   const reasons:Record<string,string>={
+    'พ่อค้าจับตาคุณอยู่ ไม่ยอมใช้ความสามารถพิเศษให้':'Merchants are watching you after a failed theft and refuse special services.',
     'ใช้ความสามารถพ่อค้าในช่วงนี้แล้ว':'A merchant ability has already been used this encounter.',
     'เลือกสินค้าที่เสนอให้ก่อน':'Complete the pending item choice first.',
     'ถูกจับผิดในช่วงนี้แล้ว':'This merchant will not help after catching you this encounter.',

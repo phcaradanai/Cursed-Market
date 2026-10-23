@@ -52,6 +52,7 @@ export function TheftPanel({game,submit,disabled,playerNames={},deadlines={},ser
         <h3>{ownTheft?pick('ฉกของจาก ','Steal from '):pick('ป้องกันของจาก ','Defend against ')}{opponent}</h3>
         <p role="status">{result} · {pick(`ตาที่ ${duel.round}`,`Round ${duel.round}`)}</p>
         {duel.npcTell && <p className="supporting">{pick(duel.npcTell.text,`Merchant tell: favors ${handName(duel.npcTell.preferredHand).toLowerCase()}.`)}</p>}
+        {duel.tieGoesTo && <p className={duel.tieGoesTo==='you'?'positive-text':'danger-text'}>{duel.tieGoesTo==='you'?pick('ถ้าออกมือเสมอ ตานั้นนับเป็นของคุณ','A tied round goes to you'):pick('ถ้าออกมือเสมอ ตานั้นนับเป็นของอีกฝ่าย','A tied round goes to your opponent')}</p>}
         {duel.status==='open' && <>
           <p className="supporting">{duel.submitted?pick('ส่งมือแล้ว ล็อกคำตอบไว้ รออีกฝ่าย','Hand sealed. Waiting for your opponent.'):pick('เลือกมือของคุณ ทั้งสองฝ่ายจะเปิดพร้อมกัน','Choose your hand. Both hands are revealed together.')}</p>
           {deadlines[duel.id]!==undefined && <DuelClock deadline={deadlines[duel.id]!} serverTime={serverTime}/>}

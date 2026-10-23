@@ -141,7 +141,7 @@ export function eventNeeds(game:AppraisalView,offer:EventOffer,choice:string,ite
   if(choice==='decline') return none;
   if(offer.id==='E130')return {credits:3,energy:0};
   if(offer.id==='E132'&&choice==='survey')return {credits:0,energy:1};
-  if(isCore2Event(offer.id))return core2Needs(offer.id,choice,game.eventChoiceRules);
+  if(isCore2Event(offer.id))return core2Needs(offer.id,choice,game);
   if(offer.npcTerms)return {credits:offer.npcTerms.credits,energy:offer.npcTerms.energy+(choice==='give-energy'?2:0),life:offer.npcTerms.life};
   const mod=(n:number)=>Math.max(0,n+integerEffect(statusMagnitude(game.self,'D01',1))-integerEffect(statusMagnitude(game.self,'B05',1)));
   const item=game.self.stock.find(i=>i.id===itemId);
@@ -259,7 +259,7 @@ const eventChoiceNames:Partial<Record<string,Record<string,string>>>={E42:{energ
 export const choiceTitle=(offer:EventOffer,choice:string,survival=false)=>offer.id==='E130'&&choice==='wind'?pick('จ่าย 3 เครดิต เร่งสกิลที่รอนานสุด 1 รอบ','Pay 3 credits to accelerate your longest wait by 1'):offer.id==='E131'&&choice==='haste'?pick('เร่งสกิลครั้งถัดไป 1 รอบ','Next ability cooldown −1'):offer.id==='E131'&&choice==='credits'?pick('รับ 5 เครดิต แลก cooldown ครั้งถัดไป +2','Gain 5 credits; next ability cooldown +2'):offer.id==='E132'&&choice==='compass'?pick('สัตว์นำทางเพิ่มตัวเลือกครั้งถัดไป','Extra choice on your next Beast replacement'):offer.id==='E132'&&choice==='survey'?pick('จ่ายพลัง 1 ตรวจความแท้ของสินค้า','Spend 1 energy to inspect authenticity'):isCore2Event(offer.id)?core2Title(offer.id,choice):loanItemCount(choice)?t('ให้ยืม {n} ชิ้น',{n:loanItemCount(choice)}):t(({purge:'ล้างผลเสียของฉัน','send-debuff':'ส่งผลเสียสุ่มให้ผู้เล่นอื่น','give-item':'ส่งสินค้าหนึ่งชิ้น','give-energy':'จ่ายพลัง 2'} as Record<string,string>)[choice]??eventChoiceNames[offer.id]?.[choice]??choiceName(choice,survival));
 export function eventCost(game:AppraisalView,offer:EventOffer,choice:string,itemId:string):string {
   if(['E130','E131','E132'].includes(offer.id))return choice==='decline'?pick('ไม่เสียอะไร','No cost'):choice==='wind'?pick('จ่าย 3 เครดิต','Pay 3 credits'):choice==='survey'?pick('จ่ายพลัง 1','Spend 1 energy'):choice==='credits'?pick('รับ 5 เครดิต · ครั้งถัดไปรอนานขึ้น 2 รอบ','Gain 5 credits; next cooldown +2'):pick('ไม่จ่ายเครดิตหรือพลัง','No credit or energy cost');
-  if(isCore2Event(offer.id))return choice==='decline'?t('ไม่เสียอะไร'):core2Cost(offer.id,choice,!!game.survival,game.eventChoiceRules);
+  if(isCore2Event(offer.id))return choice==='decline'?t('ไม่เสียอะไร'):core2Cost(offer.id,choice,!!game.survival,game);
   if(offer.npcTerms && choice!=='decline'){
     const term=offer.npcTerms,n=loanItemCount(choice);
     if(n)return t('ของที่เลือก {n} ชิ้นออกจากคลังชั่วคราว · พบ Alien ตั้งแต่ช่วง {next} รับของคืน + {lo}–{hi} เครดิต และฟื้นพลังสูงสุด {rlo}–{rhi}',{n,next:game.encounter+2,lo:4*n,hi:8*n,rlo:n,rhi:2*n});

@@ -31,7 +31,7 @@ import type { AppraisalAction, AppraisalConfig, AppraisalState, Appraiser, DarkM
 export const DEFAULT_APPRAISAL_CONFIG: AppraisalConfig = {
   rarityEconomy:defaultRarityEconomy(),
   rarity:defaultRarityConfig(),
-  loanEndSettlement:true, collectorDeadline:CORE2.collectorEncounter, eventChoiceRules:1,
+  loanEndSettlement:true, collectorDeadline:CORE2.collectorEncounter, eventChoiceRules:1, statusLinks:1,
   trustAbilities:true, catalogVersion:3, itemEffects:true, roundRewards:true, multiCoinRewards:true, commerce:true, totalTrustStock:true, curseSight:true, freeBuy:true, freeMerchantAction:true, fakeEffect:true, cleanse:true, wishlist:true, wishContract:true, challenge:true, expansion:true,
   encounters:3, startingCredits:40, maxEnergy:10, recoveryEnergy:4,
   bankReserve:2000, marketProbability:.5, marketMaxOrders:3, marketQuota:1,
@@ -41,6 +41,7 @@ function validateConfig(config:AppraisalConfig):void {
   if(config.rarity!==undefined)validateRarityConfig(config.rarity);
   check(config.secureEconomy===undefined || typeof config.secureEconomy==='boolean','config','กติกาคลังและสัญญาไม่ถูกต้อง');
   check(config.eventChoiceRules===undefined || config.eventChoiceRules===1,'config','กติกาตัวเลือกเหตุการณ์ไม่ถูกต้อง');
+  check(config.statusLinks===undefined || config.statusLinks===1,'config','กติกาเชื่อมสถานะไม่ถูกต้อง');
   check(config.loanEndSettlement===undefined || typeof config.loanEndSettlement==='boolean','config','กติกาปิดสัญญากู้ตอนจบไม่ถูกต้อง');
   check(config.collectorDeadline===undefined || Number.isSafeInteger(config.collectorDeadline) && config.collectorDeadline>=1 && config.collectorDeadline<=100,'config','ช่วงที่ Collector มาไม่ถูกต้อง');
   check(config.trustAbilities===undefined || typeof config.trustAbilities==='boolean','config','กติกาความสามารถพ่อค้าไม่ถูกต้อง');

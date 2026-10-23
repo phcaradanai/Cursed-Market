@@ -134,6 +134,7 @@ export const EN_OMEN: Record<string, { name: string; text: string }> = {
   insight: { name: 'Clear Sight Over the Table', text: 'The first inspection of the encounter costs no energy (it still counts toward your quota).' },
   plague: { name: 'Plague of Swarms', text: 'Everyone still in play loses 1 energy at the end of the encounter.' },
   generous: { name: 'Year of Giving', text: 'Everyone gets 3 more credits from post-trade rewards.' },
+  'thieves-night': { name: 'Night of Ghost Thieves', text: 'Every theft this encounter has a 25-point better chance, including stealing from friends · In rooms that steal by rock, paper, scissors, a tied round goes to the thief.' },
 };
 
 export const EN_EVENT: Partial<Record<EventId, { name: string; when: string; description: string }>> = {

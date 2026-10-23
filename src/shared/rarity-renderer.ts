@@ -11,7 +11,8 @@ float fbm(vec2 p){return .55*noise(p)+.28*noise(p*2.03)+.14*noise(p*4.01);}
 vec3 spectrum(float x){return .55+.45*cos(6.28318*(x+vec3(0.,.33,.67)));}
 void main(){
  vec2 uv=vec2(v.x,1.-v.y),p=uv-.5;p.x*=resolution.x/resolution.y;
- vec2 q=p/.9+.5;float bounds=step(0.,q.x)*step(q.x,1.)*step(0.,q.y)*step(q.y,1.);
+ // Only a cutout needs inset room for its aura; opaque art fills the tile edge to edge.
+ vec2 q=p/(cutout>.5?.9:1.)+.5;float bounds=step(0.,q.x)*step(q.x,1.)*step(0.,q.y)*step(q.y,1.);
  vec4 src=texture2D(art,q)*bounds;float y=dot(src.rgb,vec3(.299,.587,.114));
  float t=time*speed+phase,r=length(p),a=atan(p.y,p.x);
  float drift=fbm(q*9.+vec2(t*.18,-t*.3));
@@ -42,7 +43,7 @@ void main(){
  if(level<.5){col=src.rgb;}
  vec3 result=mix(bg,col,src.a);
  if(level>.5){for(int i=0;i<40;i++){float n=float(i);if(n>=particles)break;float h=hash(vec2(n,phase));vec2 pt=vec2(hash(vec2(n+phase,7.))-.5,fract(h+t*(.02+.02*h))-.5);pt.x+=.02*sin(t*.5+n);vec2 d=p-pt;float spark=exp(-dot(d,d)*(18000.+h*18000.));float pulse=.3+.7*pow(.5+.5*sin(t*(1.+h)+n),3.);result+=mix(primary,accent,h)*spark*pulse*strength;}}
- gl_FragColor=vec4(result*(1.-.25*smoothstep(.3,.8,length(p))),1.);
+ gl_FragColor=vec4(result*(1.-.25*cutout*smoothstep(.3,.8,length(p))),1.);
 }`;
 
 export interface RarityVisualOptions {
@@ -54,7 +55,7 @@ interface TextureEntry { refs:number; texture:WebGLTexture|null; loading:Promise
 interface View {
   canvas:HTMLCanvasElement; context:CanvasRenderingContext2D; appearance:ItemAppearance;
   style:ReturnType<typeof resolveAppearance>; texture:TextureEntry; visible:boolean; paused:boolean;
-  disposed:boolean; cutout:boolean; ready:boolean; onReady:(()=>void)|undefined;
+  disposed:boolean; cutout:boolean; ready:boolean; onReady:(()=>void)|undefined; onError:((error:unknown)=>void)|undefined;
   frameTime:number;
 }
 const views=new Set<View>(),textures=new Map<string,TextureEntry>();
@@ -105,7 +106,7 @@ function frame(now:number){
 }
 function draw(view:View,time:number){
   const context=gl!,canvas=surface!,style=view.style;
-  if(context.isContextLost())return;
+  if(context.isContextLost()){view.onError?.(Error('WebGL context lost'));return;}
   const bounds=view.canvas.getBoundingClientRect(),ratio=Math.min(devicePixelRatio,1.5);
   const w=Math.min(768,Math.max(1,Math.round(bounds.width*ratio))),h=Math.min(768,Math.max(1,Math.round(bounds.height*ratio)));
   if(view.canvas.width!==w||view.canvas.height!==h){view.canvas.width=w;view.canvas.height=h;}
@@ -119,7 +120,7 @@ function draw(view:View,time:number){
 export function createRarityVisual(canvas:HTMLCanvasElement,options:RarityVisualOptions):RarityVisual {
   initialise();const context=canvas.getContext('2d');if(!context)throw Error('Canvas unavailable');
   const texture=acquire(options.imageUrl);
-  const view:View={canvas,context,texture,appearance:options.appearance,style:resolveAppearance(options.appearance),visible:false,paused:false,disposed:false,cutout:!!options.cutout,ready:false,onReady:options.onReady,frameTime:0};views.add(view);
+  const view:View={canvas,context,texture,appearance:options.appearance,style:resolveAppearance(options.appearance),visible:false,paused:false,disposed:false,cutout:!!options.cutout,ready:false,onReady:options.onReady,onError:options.onError,frameTime:0};views.add(view);
   const observer=new IntersectionObserver(entries=>{view.visible=entries[0]!.isIntersecting;schedule();});observer.observe(canvas);
   const resize=new ResizeObserver(schedule);resize.observe(canvas);
   texture.loading.then(()=>{if(!view.disposed)schedule();}).catch(error=>{if(!view.disposed)options.onError?.(error);});

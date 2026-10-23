@@ -1,8 +1,8 @@
-.item-visual{position:relative;display:inline-block;vertical-align:middle;width:100%;aspect-ratio:1;overflow:hidden;isolation:isolate}
+.item-visual{position:relative;display:inline-block;vertical-align:middle;width:100%;aspect-ratio:1;overflow:hidden;isolation:isolate;background:#0e0c09}
 .item-visual>img{display:block;width:100%;height:100%;object-fit:cover;margin:0}
-.item-visual>canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0}
+.item-visual>canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity 180ms ease-out}
 .item-visual.visual-ready>canvas{opacity:1}
-.item-visual.visual-ready>img{visibility:hidden}
+.item-visual:not(.visual-failed)>img{visibility:hidden}
 .rarity-label{display:inline-block;font:inherit;font-size:.85em;color:inherit;line-height:1.5;margin-block:4px}
 .peek.peek .item-visual{flex-shrink:0;width:64px;height:64px;aspect-ratio:1}
 .peek.peek .item-visual>img{width:100%;height:100%}

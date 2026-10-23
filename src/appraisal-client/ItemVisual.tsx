@@ -15,23 +15,25 @@ export function RarityLabel({item}:{item:Pick<ItemView,'appearance'|'rarityPower
 export function ItemVisual({item,alt='',className='',width=1254,height=1254,loading='lazy'}:{
   item:Pick<ItemView,'image'|'appearance'|'kind'|'rarityPower'>;alt?:string;className?:string;width?:number;height?:number;loading?:'lazy'|'eager';
 }) {
-  const ref=useRef<HTMLCanvasElement>(null);const [ready,setReady]=useState(false);
+  const ref=useRef<HTMLCanvasElement>(null);const [status,setStatus]=useState<'loading'|'ready'|'failed'>('loading');
   const appearance=item.appearance,lookKey=appearance?`${appearance.version}:${appearance.rarity}:${appearance.theme}:${appearance.visualSeed}`:'';
   const cutout=item.kind==='key';const imageUrl=cutout?'/art/rarity/key-cutout.png':item.image;
   useEffect(()=>{
-    setReady(false);if(!appearance||appearance.rarity==='common'||!ref.current)return;
+    setStatus('loading');if(!appearance||appearance.rarity==='common'||!ref.current)return;
     let cancelled=false,dispose:(()=>void)|undefined;
+    // The original art stays hidden while the effect loads; it only appears if the effect fails.
+    const settle=(next:'ready'|'failed')=>{if(!cancelled)setStatus(next);};
     void import('../shared/rarity-renderer.js').then(({createRarityVisual})=>{
       if(cancelled||!ref.current)return;
-      const visual=createRarityVisual(ref.current,{imageUrl,appearance,cutout,onReady:()=>{if(!cancelled)setReady(true);},onError:()=>{if(!cancelled)setReady(false);}});dispose=visual.dispose;
-    }).catch(()=>{if(!cancelled)setReady(false);});
+      const visual=createRarityVisual(ref.current,{imageUrl,appearance,cutout,onReady:()=>settle('ready'),onError:()=>settle('failed')});dispose=visual.dispose;
+    }).catch(()=>settle('failed'));
     return ()=>{cancelled=true;dispose?.();};
   // DTO objects are replaced on every room update; the versioned value key owns lifetime.
   },[lookKey,imageUrl,cutout]);
   if(!appearance||appearance.rarity==='common')return <img src={item.image} alt={alt} className={className||undefined} width={width} height={height} loading={loading}/>;
   const style=resolveAppearance(appearance);
   const css={'--rarity-color':`rgb(${style.primary.map(c=>Math.round(c*255)).join(' ')})`,...(width<200?{width,height}:{})} as CSSProperties;
-  return <span className={`item-visual ${className}${ready?' visual-ready':''}`} role={alt?'img':undefined} aria-label={alt?`${alt} · ${appearanceLabel(item)}`:undefined} aria-hidden={!alt||undefined} title={appearanceLabel(item)} style={css}>
+  return <span className={`item-visual ${className} visual-${status}`} role={alt?'img':undefined} aria-label={alt?`${alt} · ${appearanceLabel(item)}`:undefined} aria-hidden={!alt||undefined} title={appearanceLabel(item)} style={css}>
     <img src={item.image} alt="" width={width} height={height} loading={loading}/><canvas ref={ref} aria-hidden="true"/>
   </span>;
 }

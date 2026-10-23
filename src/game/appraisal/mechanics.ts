@@ -1,17 +1,22 @@
+import { itemPriceRange } from './rarity.js';
+import { rarityValue } from '../../shared/rarity-power.js';
+import { ownedAssetItemIds } from './secure-storage.js';
+import { merchantTradeBanned } from './theft.js';
+import { auditItemPrice, recordItemTrade, systemSaleQuote } from './price-integrity.js';
 import { ABILITY_ITEM_TEXT, MODERN_ACTIVATIONS } from './ability-content.js';
 import { ABILITY_ITEM_IDS } from './types.js';
 import { MERCHANT_ABILITIES, reduceAbilityCooldown, reducibleCooldown } from './ability-rules.js';
-import { copySaleQuote, itemEffectScale, statusMagnitude, integerEffect } from './copy-effects.js';
+import { copySaleQuote, itemEffectScale, itemDrawbackScale, statusMagnitude, integerEffect } from './copy-effects.js';
 import { marketConditionMatch, marketOrderReserve, trustAcceptanceBonus, TRUST_CAP } from './market-contracts.js';
 import { commissionRate, freeInspectionCount, inspectionLimit, MAX_ENERGY_CAP, MAX_LIFE_BONUS_CAP, passiveBonuses, passiveMarketBonus, passivesEnabled, WISH_SLOT_CAP } from './passives.js';
 import type { PassiveBonuses } from './passives.js';
 import { ITEM_USE_EFFECTS } from './item-effects.js';
 import { RuleError } from '../engine.js';
 import { randomAt } from '../random.js';
-import { ITEM_SPECS, NPC_SPECS, ALL_STATUS_CATALOG as STATUS_CATALOG, itemFamily, priceRange } from './content.js';
+import { ITEM_SPECS, NPC_SPECS, ALL_STATUS_CATALOG as STATUS_CATALOG, itemFamily } from './content.js';
 import { FAKE_EFFECT_CHANCE, itemScoreValue } from './scoring.js';
 import { omenOf } from './omens.js';
-import { CORE2, ENERGY_DEAL_CREDITS2, anchorOf, lifeDealTerms2, overvalueChance, recoverySurcharge } from './core2.js';
+import { CORE2, ENERGY_DEAL_CREDITS2, lifeDealTerms2, overvalueChance, recoverySurcharge } from './core2.js';
 import { ENERGY_DEAL_NPCS, PULSE_RULES, STOCK_RULES, TRUST_RULES, activeNpcs, extraStock, lifeDealTerms, merchantWary, shardsPerSale, trustTier } from './pulse.js';
 import type { AppraisalItem, AppraisalState, Appraiser, Knowledge, RecoveryOffer, Status, StatusId, NpcId } from './types.js';
 
@@ -86,8 +91,8 @@ export function grant(state: AppraisalState, p: Appraiser, id: StatusId, targetI
   const expires = state.encounter + (currentOnly ? 0 : 1);
   const starts = state.encounter + (['B09','D04','D07'].includes(id) ? 1 : 0);
   const old = status(p,id);
-  if (old) { old.charges = Math.max(old.charges,charges); old.expires = Math.max(old.expires,expires); if(power>=1)delete old.power;else if(old.power!==undefined)old.power=Math.max(old.power,power); }
-  else p.statuses.push({id,expires,charges,starts,...(power<1?{power}:{}),...(targetItemId ? {targetItemId} : {})});
+  if (old) { old.charges = Math.max(old.charges,charges); old.expires = Math.max(old.expires,expires); const merged=Math.max(old.power??1,power);if(merged===1)delete old.power;else old.power=merged; }
+  else p.statuses.push({id,expires,charges,starts,...(power!==1?{power}:{}),...(targetItemId ? {targetItemId} : {})});
   trace(state,p,'status-granted',{id,expires,charges,...(targetItemId ? {targetItemId} : {})});
 }
 export function spend(state: AppraisalState, p: Appraiser, credits: number, energy: number, reason: string): void {
@@ -182,7 +187,7 @@ export function retire(state: AppraisalState, p: Appraiser, itemId: string, reas
   trace(state,p,'item-removed',{itemId,reason});
 }
 export function wealth(state: AppraisalState, p: Appraiser): number {
-  return p.credits + [...p.inventory,...(p.npcContracts?.alien?.itemIds??[])].reduce((sum,id) => {
+  return p.credits + (p.personalVault?.credits??0) + ownedAssetItemIds(state,p).reduce((sum,id) => {
     const item = state.items[id]!; return sum + itemScoreValue(item.base,item.genuine,item.cursed);
   },0);
 }
@@ -224,7 +229,7 @@ export function inspect(state: AppraisalState, p: Appraiser, itemId: string, pro
   if (property === 'price') {
     if (status(p,'B01') && !status(p,'D02')) { learn(p,itemId,{base:item.base}); consumeStatus(p,'B01'); }
     else {
-      const bounds = priceRange(item.kind,anchorOf(state.config,item.kind)); const offset = Math.floor(randomAt(state.seed,`${item.id}:narrow`)*4);
+      const bounds = itemPriceRange(state.config,item); const offset = Math.floor(randomAt(state.seed,`${item.id}:narrow`)*4);
       learn(p,itemId,{range:[Math.max(bounds[0],item.base-offset-2),Math.min(bounds[1],item.base+5-offset)]});
     }
   } else if (property === 'authenticity') learn(p,itemId,{genuine:item.genuine});
@@ -280,6 +285,7 @@ export function appraise(state: AppraisalState, p: Appraiser, itemId: string, va
   consumeStatus(p,'B04'); consumeStatus(p,'D03'); consumeStatus(p,'B12');
   if (p.honorJob && accuracy) grant(state,p,'B07'); p.honorJob = false;
   if (p.honestyReward && accuracy) grant(state,p,p.honestyReward); p.honestyReward = null;
+  auditItemPrice(state,item,value,`appraisal:${counter?p.counters:0}`);
   p.caught ||= caught; trace(state,p,'appraised',{itemId,value,risk,caught,counter,accepted,...(backlash?{overvalued:true}:{})}); return caught;
 }
 export function npcQuote(shop:Appraiser,item:AppraisalItem):number {
@@ -350,6 +356,7 @@ export function noteScrap(state:AppraisalState,buyer:Appraiser,items:AppraisalIt
   else {buyer.notes.push(`เศษพลัง ${buyer.scraps}/${CORE2.scrap.need}`);buyer.notes=buyer.notes.slice(-30);}
 }
 export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraiser, itemIds: string[], options: {discount?:number;condition?:boolean;grantStatus?:StatusId;lock?:boolean;barterItemId?:string} = {}): void {
+  check(!state.config.secureEconomy || !merchantTradeBanned(state,buyer) && !merchantTradeBanned(state,shop),'merchant-banned','ยังถูกห้ามค้าขายกับพ่อค้า');
   check(Array.isArray(itemIds) && itemIds.length > 0 && itemIds.length<=2 && itemIds.every(id=>typeof id==='string') && new Set(itemIds).size === itemIds.length,'bundle','ชุดสินค้าไม่ถูกต้อง');
   const items = itemIds.map(id => stockItem(state,shop,id));
   const profile = NPC_SPECS[items[0]!.npc];
@@ -377,6 +384,7 @@ export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraise
   for (const [index,item] of items.entries()) {
     const share=index===items.length-1?price-allocated:basePrice?Math.floor(price*npcQuote(shop,item)/basePrice):0;allocated+=share;
     completeAppraisedSale(state,item,share,commissionBonuses.get(item.appraisedBy??''));
+    if(!options.barterItemId)recordItemTrade(state,item,share);
     inheritKnowledge(state,buyer,shop,item);buyer.paid={...buyer.paid,[item.id]:share};
     item.owner = buyer.id; buyer.inventory.push(item.id); shop.stock = shop.stock.filter(id => id !== item.id);
     state.listings = state.listings.filter(l => l.itemId !== item.id);
@@ -394,7 +402,7 @@ export function activate(state: AppraisalState, p: Appraiser, itemId: string, np
   spend(state,p,0,state.config.itemEffects && spec.consumable?0:1,'activate'); p.activated.push(itemId);
   const power=itemEffectScale(item);
   const shielded = !!status(p,'B06') && spec.drawback.startsWith('D');
-  if (item.cursed) grant(state,p,spec.drawback,undefined,power);
+  if (item.cursed) grant(state,p,spec.drawback,undefined,itemDrawbackScale(item));
   const fogged = !!status(p,'D14'); consumeStatus(p,'D14');
   const works = !fogged && item.genuine || !fogged && (!!state.config.fakeEffect && randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:fake-effect`) < FAKE_EFFECT_CHANCE);
   if (works) {
@@ -411,7 +419,7 @@ export function activate(state: AppraisalState, p: Appraiser, itemId: string, np
     }
     else if(state.config.trustAbilities && item.kind in MODERN_ACTIVATIONS){
       const operation=MODERN_ACTIVATIONS[item.kind as keyof typeof MODERN_ACTIVATIONS].operation;
-      if(operation==='energy-for-delay'){grant(state,p,'D25',undefined,power);recover(state,p,integerEffect(3*power),'void-cell');}
+      if(operation==='energy-for-delay'){grant(state,p,'D25',undefined,itemDrawbackScale(item));recover(state,p,integerEffect(3*power),'void-cell');}
       else if(power===1 || randomAt(state.seed,`${state.encounter}:${item.id}:copy-insight`)<power){
         if(operation==='scan-shop-price'){
           const shop=p.stock.filter(id=>state.items[id]?.owner===`npc:${p.id}:${state.encounter}` && known(state,p,id).base===undefined),held=p.inventory.filter(id=>state.items[id]?.owner===p.id && known(state,p,id).base===undefined);
@@ -429,15 +437,15 @@ export function activate(state: AppraisalState, p: Appraiser, itemId: string, np
     if(state.config.survival && ['food','potion'].includes(itemFamily(item.kind)))healLife(state,p,integerEffect(2*power),'restorative-item');
     const bonus=state.config.itemEffects?ITEM_USE_EFFECTS[item.kind]:undefined;
     if(bonus) {
-      const previous=state.config.trustAbilities?(p.itemUseStrength?.[item.kind]??(p.itemUseKinds?.includes(item.kind)?1:0)):(p.itemUseKinds?.includes(item.kind)?1:0);
+      const previous=(state.config.trustAbilities||state.config.rarityEconomy)?(p.itemUseStrength?.[item.kind]??(p.itemUseKinds?.includes(item.kind)?1:0)):(p.itemUseKinds?.includes(item.kind)?1:0);
       if(power>previous){
         p.itemUseKinds??=[];if(!p.itemUseKinds.includes(item.kind))p.itemUseKinds.push(item.kind);
-        if(state.config.trustAbilities){p.itemUseStrength??={};p.itemUseStrength[item.kind]=power;}
+        if(state.config.trustAbilities||state.config.rarityEconomy){p.itemUseStrength??={};p.itemUseStrength[item.kind]=power;}
         const key=bonus.effect;p.itemUseBonuses??={};p.itemUseBonuses[key]=(p.itemUseBonuses[key]??0)+bonus.amount*(power-previous);
       }
     }
   }
-  if(state.config.survival && item.cursed)damageLife(state,p,integerEffect(power),'cursed-activation');
+  if(state.config.survival && item.cursed)damageLife(state,p,integerEffect(itemDrawbackScale(item)),'cursed-activation');
   if (spec.consumable) {
     if(p.preserveItemId===item.id && !item.copy && !item.preserved){item.preserved=true;delete p.preserveItemId;}
     else {if(item.copy)state.items[item.copy.sourceId]!.copyConsumed=true;retire(state,p,itemId,'consumed',false);}
@@ -489,8 +497,11 @@ export function marketSell(state: AppraisalState, p: Appraiser, itemId: string, 
     if(cost.kind==='debuff')check(!status(p,cost.statusId) || status(p,'B06'),'market-cost','มีผลเสียนี้อยู่แล้ว รับซ้ำเพื่อแลกราคาเต็มไม่ได้');
     if(cost.kind==='life')check(state.config.survival && p.life!>cost.amount,'life','ต้องเหลือชีวิตอย่างน้อย 1 หลังจ่าย');
   }
+  const quotePrice=rarityValue(item,order.price);
+  const maximum=systemSaleQuote(state,item,copySaleQuote(item,salePreview(state,p,quotePrice,true))+(contract?.bonus.kind==='credits'?copySaleQuote(item,contract.bonus.amount):0));
+  if(state.config.rarityEconomy)check(maximum<=state.bank-(state.market.budget-reserved)-state.reservedRewards,'bank','งบรับซื้อไม่พอโดยไม่แตะสัญญาอื่น');
   const matched=!contract || marketConditionMatch(contract,item)==='match';
-  let price=order.price;
+  let price=quotePrice;
   if(contract && !matched) {
     if(resolution==='discount')price=Math.floor(price*80/100);
     else {
@@ -500,9 +511,9 @@ export function marketSell(state: AppraisalState, p: Appraiser, itemId: string, 
       else grant(state,p,cost.statusId);
     }
   }
-  price=copySaleQuote(item,saleApply(state,p,price,true));
-  const creditsBonus=matched && contract?.bonus.kind==='credits'?copySaleQuote(item,contract.bonus.amount):0;
-  const gearBonus=passiveMarketBonus(order,passiveBonuses(state,p,[itemId]),!!contract && matched,!!contract && !matched && resolution==='discount');
+  price=systemSaleQuote(state,item,copySaleQuote(item,saleApply(state,p,price,true)));
+  const creditsBonus=systemSaleQuote(state,item,matched && contract?.bonus.kind==='credits'?copySaleQuote(item,contract.bonus.amount):0);
+  const gearBonus=systemSaleQuote(state,item,passiveMarketBonus(order,passiveBonuses(state,p,[itemId]),!!contract && matched,!!contract && !matched && resolution==='discount',quotePrice));
   reward(state,p,price+creditsBonus,'dark-market',true);state.market.budget-=reserved;order.quota[p.id]!--;
   if(gearBonus)fundPassive(state,p,gearBonus,'gear-market');
   if(matched && contract) {
@@ -512,6 +523,7 @@ export function marketSell(state: AppraisalState, p: Appraiser, itemId: string, 
     else if(bonus.kind==='buff')grant(state,p,bonus.statusId);
   }
   if(contract || gearBonus) {p.notes.push(`Dark Market: ${matched?'ตรงเงื่อนไข รับโบนัส':resolution==='discount'?(gearBonus?'ไม่ตรงเงื่อนไข รับราคาลด':'ไม่ตรงเงื่อนไข ลดราคา 20%'):'ไม่ตรงเงื่อนไข สละตามข้อตกลงเพื่อรับราคาเต็ม'} · รับ ${price+creditsBonus+gearBonus} เครดิต${gearBonus?` รวมโบนัสของถือ ${gearBonus}`:''}`);p.notes=p.notes.slice(-30);}
+  recordItemTrade(state,item,price+creditsBonus+gearBonus);
   retire(state,p,itemId,'dark-market'); if (state.config.brokerage) { item.owner='dark-market'; state.vault!.push(itemId); }
   trace(state,p,'market-sale',{itemId,orderId,price:price+creditsBonus+gearBonus,...(contract?{matched,resolution,bonus:matched?contract.bonus:null}:{})});
 }

@@ -1,3 +1,6 @@
+import { rarityValue } from '../../shared/rarity-power.js';
+import { merchantTradeBanned } from './theft.js';
+import { recordItemTrade, systemSaleQuote } from './price-integrity.js';
 import { copySaleQuote, statusMagnitude } from './copy-effects.js';
 import { randomAt } from '../random.js';
 import { ITEM_SPECS, NPC_SPECS, merchantKinds } from './content.js';
@@ -75,23 +78,25 @@ export function wishOffer(state:AppraisalState,p:Appraiser):WishOffer|undefined 
   const trust=p.npcTrust?.[npc]??0;const {buffs,debuffs}=counts(p);
   const now=wishNow(state,wish);
   return {npc,kind:wish.kind,price:now.price,initial:wish.price,floor:now.floor,next:now.next,age:now.age,trust,buffs,debuffs,tried:!!p.wishTried,
+    ...(state.config.rarityEconomy?{itemQuotes:Object.fromEntries(p.inventory.filter(id=>state.items[id]!.kind===wish.kind).map(id=>{const item=state.items[id]!;return [id,WISH_MARKUPS.map(markup=>({markup,price:systemSaleQuote(state,item,copySaleQuote(item,salePreview(state,p,rarityValue(item,wishAsk(now.price,markup)))))}))];}))}:{}),
     options:WISH_MARKUPS.map(markup=>({markup,price:salePreview(state,p,wishAsk(now.price,markup)),chance:wishChance(markup,trust,buffs,debuffs,wishBonus(p))})),
     itemIds:p.inventory.filter(id=>state.items[id]!.kind===wish.kind)};
 }
 export function wishSell(state:AppraisalState,p:Appraiser,itemId:string,markup:number):void {
+  check(!state.config.secureEconomy || !merchantTradeBanned(state,p),'merchant-banned','ยังถูกห้ามค้าขายกับพ่อค้า');
   check(state.config.wishlist && state.phase==='APPRAISAL','wish','พ่อค้านี้ยังรับซื้อตามคำขอไม่ได้');
   const npc=shopNpcOf(p);const wish=npc && p.wishes?.[npc];check(wish,'wish','พ่อค้านี้ไม่ได้บอกของที่อยากได้');
   check(!p.wishTried,'wish','ต่อรองกับพ่อค้านี้แล้วในช่วงนี้');
   check((WISH_MARKUPS as readonly number[]).includes(markup),'wish','ราคาที่เสนอไม่ถูกต้อง');
   const item=ownedItem(state,p,itemId,true);check(item.kind===wish.kind,'wish','พ่อค้าไม่ได้ต้องการสินค้าชนิดนี้');
-  const ask=wishAsk(wishNow(state,wish).price,markup);const price=copySaleQuote(item,salePreview(state,p,ask));check(freeBank(state)>=price,'bank','งบธนาคารไม่พอสำหรับราคานี้');
+  const ask=rarityValue(item,wishAsk(wishNow(state,wish).price,markup));const price=systemSaleQuote(state,item,copySaleQuote(item,salePreview(state,p,ask)));check(freeBank(state)>=price,'bank','งบธนาคารไม่พอสำหรับราคานี้');
   p.wishTried=true;const name=ITEM_SPECS[item.kind].name;const who=NPC_SPECS[npc].name;
   if(!item.genuine && randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:wish-fake`)<Math.min(.9,Math.max(.05,.4*NPC_SPECS[npc].sensitivity+(state.config.polish?statusMagnitude(p,'D03',.1)-statusMagnitude(p,'B04',.1):0)))) {
     learn(p,itemId,{genuine:false});p.notes.push(`${who}จับได้ว่า${name}เป็นของปลอม ไม่ซื้อ`);trace(state,p,'wish-refused',{itemId,npc,reason:'fake'});
   } else {
     const trust=p.npcTrust?.[npc]??0;const {buffs,debuffs}=counts(p);const chance=wishChance(markup,trust,buffs,debuffs,wishBonus(p));consumeStatus(p,'B16');
     if(randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:wish-deal`)*100<chance) {
-      const paid=copySaleQuote(item,saleApply(state,p,ask));reward(state,p,paid,'npc-wish');retire(state,p,itemId,'npc-wish');delete p.wishes![npc];
+      const paid=systemSaleQuote(state,item,copySaleQuote(item,saleApply(state,p,ask)));reward(state,p,paid,'npc-wish');recordItemTrade(state,item,paid);retire(state,p,itemId,'npc-wish');delete p.wishes![npc];
       if(p.npcTrust) p.npcTrust[npc]=Math.min(TRUST_CAP,trust+1);
       p.notes.push(`${who}ซื้อ${name}ตามที่ตามหา ${paid} เครดิต${paid!==ask?` (ราคาขอ ${ask} ปรับตามสถานะและลางแล้ว)`:''} (โอกาส ${chance}%)`);trace(state,p,'wish-sold',{itemId,npc,price:paid,ask,chance});
     } else {

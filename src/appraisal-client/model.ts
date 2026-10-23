@@ -1,6 +1,6 @@
 import { ABILITY_ITEM_TEXT, MODERN_ACTIVATIONS } from '../game/appraisal/ability-content.js';
 import { pick } from './i18n.js';
-import { statusMagnitude, integerEffect } from '../game/appraisal/copy-effects.js';
+import { statusMagnitude, integerEffect, itemEffectScale, itemDrawbackScale } from '../game/appraisal/copy-effects.js';
 import { POLISH_EVENTS } from '../game/appraisal/polish-events.js';
 import { marketOrderReserve } from '../game/appraisal/market-contracts.js';
 import { emptyPassives, freeInspectionCount, heldPassives } from '../game/appraisal/passives.js';
@@ -74,6 +74,7 @@ export function inspectionBlock(game:AppraisalView,quiet:boolean,item?:ItemView)
 }
 /** Why a purchase is locked, or null. The numbers shown on the button are the same ones checked here. */
 export function purchaseBlock(game:AppraisalView,total:number,quiet:boolean):string|null {
+  if(game.theft?.crime?.active)return t('พ่อค้าทั้งหมดระงับการค้าชั่วคราว');
   if(game.self.eventOffer) return t('ตอบเหตุการณ์ก่อน จึงซื้อได้');
   if(quiet) return null;
   return needShort(game,{credits:total,energy:purchaseEnergy(game)});
@@ -95,16 +96,18 @@ export function activationBlock(game:AppraisalView,itemId:string,quiet:boolean):
  */
 export function possibleBenefitText(game:AppraisalView,item:ItemView):string {
   const spec=ITEM_SPECS[item.kind];const k=item.knowledge;
-  const custom=ABILITY_ITEM_TEXT[item.kind as keyof typeof ABILITY_ITEM_TEXT]??(game.trustAbilities?MODERN_ACTIVATIONS[item.kind as keyof typeof MODERN_ACTIVATIONS]:undefined);if(custom)return pick(custom.th,custom.en);
-  const base=itemFamily(item.kind)==='orb'?t('อาจฟื้นพลัง {n} เมื่อเปิดใช้',{n:spec.energyRecovery??3}):
+  const power=item.rarityPower?itemEffectScale(item):1;
+  const strength=power!==1?pick(` · ความแรงตัวเลข ×${power}`,` · Numerical strength ×${power}`):'';
+  const custom=ABILITY_ITEM_TEXT[item.kind as keyof typeof ABILITY_ITEM_TEXT]??(game.trustAbilities?MODERN_ACTIVATIONS[item.kind as keyof typeof MODERN_ACTIVATIONS]:undefined);if(custom)return pick(custom.th,custom.en)+strength;
+  const base=itemFamily(item.kind)==='orb'?t('อาจฟื้นพลัง {n} เมื่อเปิดใช้',{n:integerEffect((spec.energyRecovery??3)*power)}):
     itemFamily(item.kind)==='key' && hasStatus(game,'D07')?t('อาจล้างสถานะปิดประตูที่มีอยู่ การใช้ครั้งนี้เป็นการปลดประตู'):
     k.effectsKnown?statusDescription(spec.buff):t('อาจได้รับ {name}',{name:statusName(spec.buff)});
-  const extra=game.itemEffects?activationBonusText(item.kind):'';
-  return base+(extra?` · ${extra}`:'')+(game.survival && ['food','potion'].includes(itemFamily(item.kind))?t(' · ของแท้ฟื้นชีวิต 2'):'')+(game.survival && spec.buff==='B10'?t(' · ขณะมีสิทธิ์เหลือ Collector เพิ่มคะแนน 20%'):'');
+  const extra=game.itemEffects?activationBonusText(item.kind,item):'';
+  return base+strength+(extra?` · ${extra}`:'')+(game.survival && ['food','potion'].includes(itemFamily(item.kind))?t(' · ของแท้ฟื้นชีวิต {n}',{n:integerEffect(2*power)}):'')+(game.survival && spec.buff==='B10'?t(' · ขณะมีสิทธิ์เหลือ Collector เพิ่มคะแนน {n}%',{n:integerEffect(20*power)}):'');
 }
 export function possibleDrawbackText(game:AppraisalView,item:ItemView):string {
-  const spec=ITEM_SPECS[item.kind];const k=item.knowledge;
-  return (k.effectsKnown?statusDescription(spec.drawback):t('อาจได้รับ {name}',{name:statusName(spec.drawback)}))+(game.survival?t(' · หากมีคำสาป เปิดใช้เสียชีวิต 1'):'')+(game.survival && spec.drawback==='D10'?t(' · ขณะสถานะยังอยู่ Collector ลดคะแนน 20%'):'');
+  const spec=ITEM_SPECS[item.kind];const k=item.knowledge;const power=item.rarityPower?itemDrawbackScale(item):1;
+  return (k.effectsKnown?statusDescription(spec.drawback):t('อาจได้รับ {name}',{name:statusName(spec.drawback)}))+(game.survival?t(' · หากมีคำสาป เปิดใช้เสียชีวิต {n}',{n:integerEffect(power)}):'')+(game.survival && spec.drawback==='D10'?t(' · ขณะสถานะยังอยู่ Collector ลดคะแนน {n}%',{n:integerEffect(20*power)}):'');
 }
 /** A preview uses only the seat DTO. Hidden base/reservation and RNG never enter this module. */
 export function riskRange(game:AppraisalView,item:ItemView,value:number):[number,number] | null {
@@ -193,9 +196,9 @@ export function itemScoreRange(k:Knowledge,certified=false):[number,number]|null
 /** What the Collector would pay for the pack right now, from known facts only; unpriced items count 0. */
 export function collectorEstimate(game:AppraisalView):{min:number;max:number;unpriced:number;modifier:number} {
   let low=0,high=0,unpriced=0;
-  for(const item of [...game.self.inventory,...(game.self.loanItems??[])]) {const r=itemScoreRange(item.knowledge,item.appraisedBy!==undefined && item.appraisedBy!==game.self.id);if(r){low+=r[0];high+=r[1];}else unpriced++;}
+  for(const item of [...game.self.inventory,...(game.self.loanItems??[]),...(game.self.personalVault?.items??[]),...(game.loans??[]).filter(l=>l.status==='active' && l.borrowerId===game.self.id).map(l=>l.item)]) {const r=itemScoreRange(item.knowledge,item.appraisedBy!==undefined && item.appraisedBy!==game.self.id);if(r){low+=r[0];high+=r[1];}else unpriced++;}
   const modifier=statusMagnitude(game.self,'B10',20)-statusMagnitude(game.self,'D10',20);
-  return {min:collectorTotal(game.self.credits,low,modifier),max:collectorTotal(game.self.credits,high,modifier),unpriced,modifier};
+  return {min:collectorTotal(game.self.credits+(game.self.personalVault?.credits??0),low,modifier),max:collectorTotal(game.self.credits+(game.self.personalVault?.credits??0),high,modifier),unpriced,modifier};
 }
 /** The four authentic/fake × cursed/clean results of opening an item, said only as far as the facts are known. */
 export function activationOutcome(k:Knowledge):string {
@@ -379,10 +382,16 @@ export function outcomeBetween(prev:AppraisalView,next:AppraisalView):Outcome|nu
   }
   reveals=lines.length;
   if(!p.caught && n.caught){lines.push(t('พ่อค้าจับได้ว่าคุณกดราคา'));bad+=2;}
-  const gained=n.inventory.filter(i=>!p.inventory.some(x=>x.id===i.id));
-  const lost=p.inventory.filter(i=>!n.inventory.some(x=>x.id===i.id));
+  const custody=(g:AppraisalView)=>new Set([...(g.self.personalVault?.items??[]).map(i=>i.id),...(g.loans??[]).filter(l=>l.status==='active' && l.borrowerId===g.self.id).map(l=>l.itemId)]);
+  const previousCustody=custody(prev),nextCustody=custody(next);
+  const gained=n.inventory.filter(i=>!p.inventory.some(x=>x.id===i.id) && !previousCustody.has(i.id));
+  const lost=p.inventory.filter(i=>!n.inventory.some(x=>x.id===i.id) && !nextCustody.has(i.id));
+  for(const item of n.personalVault?.items??[])if(!p.personalVault?.items.some(i=>i.id===item.id))lines.push(pick(`ฝาก ${itemLabel(item)} เข้าคลังนิรภัย`,`Stored ${itemLabel(item)} in the vault`));
+  for(const item of n.inventory)if(p.personalVault?.items.some(i=>i.id===item.id))lines.push(pick(`ถอน ${itemLabel(item)} จากคลังนิรภัย`,`Withdrew ${itemLabel(item)} from the vault`));
+  const vaultCredits=(n.personalVault?.credits??0)-(p.personalVault?.credits??0);
+  if(vaultCredits)lines.push(vaultCredits>0?pick(`ฝากเงิน ${vaultCredits} เครดิตเข้าคลัง`,`Deposited ${vaultCredits} credits in the vault`):pick(`ถอนเงิน ${-vaultCredits} เครดิตจากคลัง`,`Withdrew ${-vaultCredits} credits from the vault`));
   for(const item of gained){lines.push(p.npcContracts?.alien?.itemIds.includes(item.id)?t('Alien คืน {name}',{name:itemLabel(item)}):t('ได้ {name}',{name:itemLabel(item)}));good++;}
-  const credits=n.credits-p.credits,energy=n.energy-p.energy,life=(n.life??0)-(p.life??0);
+  const credits=n.credits-p.credits+vaultCredits,energy=n.energy-p.energy,life=(n.life??0)-(p.life??0);
   for(const item of lost){const lent=!!n.npcContracts?.alien?.itemIds.includes(item.id);lines.push(lent?t('ให้ Alien ยืม {name}',{name:itemLabel(item)}):t('เสีย {name}',{name:itemLabel(item)}));if(!lent && credits<=0)bad++;}
   const had=new Set(p.statuses.map(s=>s.id)),has=new Set(n.statuses.map(s=>s.id));
   for(const st of n.statuses) if(!had.has(st.id)){lines.push(t('ได้รับ {name}',{name:statusName(st.id)}));if(st.id.startsWith('D'))bad++;else good++;}

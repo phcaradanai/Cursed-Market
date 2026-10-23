@@ -1,4 +1,6 @@
 import { core2Spec } from '../game/appraisal/core2-specs.js';
+import { itemEffectScale } from '../game/appraisal/copy-effects.js';
+import type { PoweredItem } from '../shared/rarity-power.js';
 import { EVENT_CATALOG, ITEM_SPECS, NPC_SPECS, ALL_STATUS_CATALOG as STATUS_CATALOG, UNSOLD_PENALTIES } from '../game/appraisal/content.js';
 import { PASSIVE_ITEMS } from '../game/appraisal/passives.js';
 import { EXTRA_HELD_EFFECTS, ITEM_USE_EFFECTS, type UseBonuses } from '../game/appraisal/item-effects.js';
@@ -36,12 +38,21 @@ export const omenText = (omen: { id: string; name: string; text: string }): { na
 export const omenById = (id: string): Omen | undefined => OMENS.find(omen => omen.id === id);
 
 /** Held-item effect text for a passive relic or charm; empty for kinds that have no passive. */
-export const passiveText = (kind: ItemKind,itemEffects=false): string => {
+function scaledAmountText(text:string,amount:number,scale:number):string {
+  if(scale===1)return text;
+  const value=String(Math.round(amount*scale*1000)/1000);
+  const pattern=new RegExp(`(^|[^\\d.])${amount}(?=$|[^\\d.])`);
+  if(pattern.test(text))return text.replace(pattern,(_match,prefix:string)=>prefix+value);
+  return amount===1?text.replace(/\bOne\b/i,value):text;
+}
+export const passiveText = (kind: ItemKind,itemEffects=false,item?:PoweredItem & {copy?:unknown}): string => {
   const extra=itemEffects?EXTRA_HELD_EFFECTS[kind]:undefined;
   const text=extra?pick(extra.text,extra.en):pick(kind==='lucky-die'?'ยอดได้หรือเสียต่อเหรียญเพิ่ม 1 เครดิตต่อชิ้นที่ถือ ต้องทายถูกครบทุกเหรียญจึงได้เพิ่ม':(PASSIVE_ITEMS as Partial<Record<string, { passive: { text: string } }>>)[kind]?.passive.text ?? '', EN_PASSIVE_TEXT[kind]);
-  return text+(text && itemEffects?t(' · คิดโบนัสถือสูงสุด 5 ชิ้นต่อชนิด'):'');
+  const amount=extra?.amount??(PASSIVE_ITEMS as Partial<Record<string,{passive:{amount:number}}>>)[kind]?.passive.amount;
+  const scaled=item?.rarityPower&&amount!==undefined?scaledAmountText(text,amount,itemEffectScale(item)):text;
+  return scaled+(text && itemEffects?t(' · คิดโบนัสถือสูงสุด 5 ชิ้นต่อชนิด'):'');
 };
-export const activationBonusText=(kind:ItemKind):string=>{const effect=ITEM_USE_EFFECTS[kind];return effect?pick(effect.text,effect.en):'';};
+export const activationBonusText=(kind:ItemKind,item?:PoweredItem & {copy?:unknown}):string=>{const effect=ITEM_USE_EFFECTS[kind];return effect?scaledAmountText(pick(effect.text,effect.en),effect.amount,item?.rarityPower?itemEffectScale(item):1):'';};
 export function usedBonusesText(b:UseBonuses):string {
   return [b.luck?t('โอกาสหัวก้อย +{n} จุดเปอร์เซ็นต์',{n:b.luck}):'',b.income?t('รางวัลจบรอบ +{n} เครดิต',{n:b.income}):'',b.coinWin?t('ยอดได้หรือเสียต่อเหรียญ +{n} เครดิต',{n:b.coinWin}):'',b.discount?t('ลดราคาซื้อ +{n} เครดิตต่อดีล',{n:b.discount}):'',b.acceptance?t('โอกาสยอมรับราคาต่ำ +{n} จุดเปอร์เซ็นต์',{n:b.acceptance}):'',b.inspections?t('โควตาตรวจ +{n} ครั้ง',{n:b.inspections}):''].filter(Boolean).join(' · ');
 }

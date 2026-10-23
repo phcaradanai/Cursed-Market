@@ -1,0 +1,9 @@
+{
+  "source": "src/appraisal-client/public/art/item-key.jpg",
+  "sourceSha256": "0e9e3585c2ee9104bee997a1b2616f70f81c88ff2b49c17252b73158e33e53a3",
+  "method": "GrabCut foreground matte; original RGB pixels preserved. No image generation. Runtime WebGL shader recoloring, sheen, noise, particles and rings.",
+  "derived": {
+    "key-cutout.png": "6273ff3c7021a0ab7daa808582b94393496640e0296f3151f81d46eff5fa3ccf",
+    "key-glow.png": "1b99d7353ede69ad6b476173aa946f1fcdfef2699812ce7fc6a708dcbc42e7d7"
+  }
+}

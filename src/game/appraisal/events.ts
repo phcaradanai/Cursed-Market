@@ -1,9 +1,13 @@
-import { copySaleQuote, itemEffectScale, integerEffect } from './copy-effects.js';
+import { rarityValue } from '../../shared/rarity-power.js';
+import { itemPriceRange } from './rarity.js';
+import { merchantTradeBanned } from './theft.js';
+import { recordItemTrade, systemSaleQuote } from './price-integrity.js';
+import { copySaleQuote, itemEffectScale, itemDrawbackScale, integerEffect } from './copy-effects.js';
 import { ABILITY_EVENT_IDS } from './types.js';
 import { MERCHANT_ABILITIES, reducibleCooldown, reduceAbilityCooldown } from './ability-rules.js';
 import { inspectionLimit } from './passives.js';
 import { randomAt } from '../random.js';
-import { ITEM_SPECS, NPC_SPECS, expansionActive, itemFamily, priceRange } from './content.js';
+import { ITEM_SPECS, NPC_SPECS, expansionActive, itemFamily } from './content.js';
 import { check, consumeStatus, counterLimit, damageLife, grant, kill, known, learn, ownedItem, penaltyItem, maxEnergyOf, purchase, recover, removeStatus, retire, reward, saleApply, salePreview, spend, status, stockItem, trace, unlocked, wishSlotsOf } from './mechanics.js';
 import { BOND_EVENT_IDS, BOON_EVENT_ID, EVENT_IDS, EXPANSION_EVENT_IDS, POLISH_EVENT_IDS, STATUS_IDS } from './types.js';
 import { POLISH_EVENTS } from './polish-events.js';
@@ -138,7 +142,7 @@ export function eventEligible(state:AppraisalState,p:Appraiser,id:EventId):boole
     case 'E41': return debuffs(p).length>0;
     case 'E42': return p.energy<maxEnergyOf(state,p) || !!status(p,'D10');
     case 'E43': return state.phase==='TRADE' && !p.subsidy && bank>=1;
-    case 'E44': return movable(p).length>=2 && bank>=Math.max(...movable(p).map(v=>salePreview(state,p,Math.floor(anchorOf(state.config,state.items[v]!.kind)*.75))));
+    case 'E44': return (!state.config.secureEconomy || !merchantTradeBanned(state,p)) && movable(p).length>=2 && bank>=Math.max(...movable(p).map(v=>systemSaleQuote(state,state.items[v]!,salePreview(state,p,rarityValue(state.items[v]!,Math.floor(anchorOf(state.config,state.items[v]!.kind)*.75))))));
     case 'E45': return Object.entries(p.knowledge).some(([item,k])=>['base','genuine','cursed'].some(f=>k[f as keyof Knowledge]!==undefined && state.publicKnowledge[item]?.[f as keyof Knowledge]===undefined && !p.revealedInfo.includes(`${item}:${f}`)));
     case 'E46': return p.energy>=1 && stock.some(v=>known(state,p,v).genuine===undefined) && bank>=2;
     case 'E47': return state.listings.some(l=>l.ownerId!==p.id && state.items[l.itemId]?.owner.startsWith('npc:') && !!state.players.find(other=>other.id===l.ownerId)?.valuations[l.itemId]);
@@ -186,7 +190,7 @@ export function offerEvent(state:AppraisalState,p:Appraiser,id:EventId):void {
   if(id==='E12') itemIds=itemIds.filter(v=>state.items[v]!.certificate && known(state,p,v).certificate===undefined);
   if(id==='E19') itemIds=itemIds.filter(v=>known(state,p,v).genuine===false && state.publicKnowledge[v]?.genuine===undefined);
   if(id==='E07') itemIds=itemIds.filter(v=>unlocked(p,v));
-  const quotedPrices=Object.fromEntries(p.inventory.map(itemId=>[itemId,copySaleQuote(state.items[itemId]!,salePreview(state,p,Math.floor(anchorOf(state.config,state.items[itemId]!.kind)*.75)))]));
+  const quotedPrices=Object.fromEntries(p.inventory.map(itemId=>{const item=state.items[itemId]!;const quote=copySaleQuote(item,salePreview(state,p,rarityValue(item,Math.floor(anchorOf(state.config,item.kind)*.75))));return [itemId,id==='E44'?systemSaleQuote(state,item,quote):quote];}));
   const facts:Record<string,Knowledge>={};
   if(id==='E45') {
     for(const itemId of itemIds) {
@@ -292,7 +296,7 @@ export function resolveEvent(state:AppraisalState,p:Appraiser,command:Extract<Ap
     case 'E14': {const price=historyPrice(state,p); check(price!==undefined,'history','ไม่มีประวัติราคา'); spend(state,p,1,0,id); p.notes.push(`ราคาซื้อขายจริงในอดีต ${price} credit ไม่ใช่ base ของชิ้นปัจจุบัน`); trace(state,p,'historical-price',{price}); break;}
     case 'E15': spend(state,p,0,1,id); grant(state,p,choice==='price'?'B01':'B02'); break;
     case 'E16': {const v=item();eventInspect(state,p,v,0,1,state.config.curseSight?{effectsKnown:true,cursed:state.items[v]!.cursed}:{effectsKnown:true}); break;}
-    case 'E17': {const v=item(); const target=stockItem(state,p,v); const bounds=priceRange(target.kind,anchorOf(state.config,target.kind)); const offset=Math.floor(randomAt(state.seed,`${offer.key}:narrow`)*3); eventInspect(state,p,v,2,0,{range:[Math.max(bounds[0],target.base-offset-1),Math.min(bounds[1],target.base+3-offset)]}); break;}
+    case 'E17': {const v=item(); const target=stockItem(state,p,v); const bounds=itemPriceRange(state.config,target); const offset=Math.floor(randomAt(state.seed,`${offer.key}:narrow`)*3); eventInspect(state,p,v,2,0,{range:[Math.max(bounds[0],target.base-offset-1),Math.min(bounds[1],target.base+3-offset)]}); break;}
     case 'E18': spend(state,p,0,1,id); p.honestyReward=choice==='discount'?'B03':'B04'; break;
     case 'E19': {const v=item(); check(known(state,p,v).genuine===false && state.publicKnowledge[v]?.genuine===undefined,'proof','ไม่มีผลตรวจใหม่ของปลอม'); state.publicKnowledge[v]={...state.publicKnowledge[v],genuine:false}; reward(state,p,1,id); break;}
     case 'E20': eventInspect(state,p,item(),0,2,{activationKnown:true}); break;
@@ -306,7 +310,7 @@ export function resolveEvent(state:AppraisalState,p:Appraiser,command:Extract<Ap
     case 'E28': spend(state,p,2,0,id); grant(state,p,'B08'); break;
     case 'E29': buy(3,undefined,true); break;
     case 'E30': buy(-2,'B06'); break;
-    case 'E31': {const v=ownKind('mirror'),power=itemEffectScale(state.items[v]!); spend(state,p,0,1,id); p.activated.push(v); grant(state,p,'D05',undefined,power); grant(state,p,'B01',undefined,power); break;}
+    case 'E31': {const v=ownKind('mirror'),power=itemEffectScale(state.items[v]!); spend(state,p,0,1,id); p.activated.push(v); grant(state,p,'D05',undefined,itemDrawbackScale(state.items[v]!)); grant(state,p,'B01',undefined,power); break;}
     case 'E32': {const v=ownKind('orb'),power=itemEffectScale(state.items[v]!);retire(state,p,v,id,false); spend(state,p,1,0,id); recover(state,p,integerEffect(3*power),id); break;}
     case 'E33': {check(status(p,'D07'),'status','ไม่มี D07');const v=ownKind('key'),power=itemEffectScale(state.items[v]!);retire(state,p,v,id,false);if(power===1||randomAt(state.seed,`${offer.key}:${v}:copy-key`)<power)removeStatus(p,'D07');break;}
     case 'E34': {const v=ownKind('mask'); const selected=chooseStatus(offer,command); check(selected.startsWith('B') && selected!=='B10' && status(p,selected),'status','เลือก buff ที่จะสละ'); removeStatus(p,selected); grant(state,p,'B10',undefined,itemEffectScale(state.items[v]!)); break;}
@@ -319,7 +323,7 @@ export function resolveEvent(state:AppraisalState,p:Appraiser,command:Extract<Ap
     case 'E41': {const selected=chooseStatus(offer,command); check(selected.startsWith('D') && status(p,selected),'status','เลือก debuff'); spend(state,p,2,0,id); removeStatus(p,selected); break;}
     case 'E42': if(choice==='energy') recover(state,p,2,id); else {check(status(p,'D10'),'status','ไม่มี D10'); removeStatus(p,'D10');} break;
     case 'E43': check(state.bank-state.market.budget-state.reservedRewards>=1,'bank','งบรางวัลไม่พอ'); p.subsidy=true; state.reservedRewards++; break;
-    case 'E44': {const v=item(); check(movable(p).length>=2 && offer.quotedPrices[v]!==undefined,'collector','ไม่มีข้อเสนอรับซื้อ'); reward(state,p,copySaleQuote(state.items[v]!,saleApply(state,p,Math.floor(anchorOf(state.config,state.items[v]!.kind)*.75))),id); retire(state,p,v,id); break;}
+    case 'E44': {const v=item(); check(!state.config.secureEconomy || !merchantTradeBanned(state,p),'merchant-banned','ยังถูกห้ามค้าขายกับพ่อค้า');check(movable(p).length>=2 && offer.quotedPrices[v]!==undefined,'collector','ไม่มีข้อเสนอรับซื้อ');const target=state.items[v]!;const paid=systemSaleQuote(state,target,copySaleQuote(target,saleApply(state,p,rarityValue(target,Math.floor(anchorOf(state.config,target.kind)*.75)))));reward(state,p,paid,id);recordItemTrade(state,target,paid);retire(state,p,v,id); break;}
     case 'E45': {const v=item(); const fact=command.fact; check(fact && ['base','genuine','cursed'].includes(fact),'fact','เลือกข้อมูลที่จะเปิด'); const value=p.knowledge[v]?.[fact]; check(value!==undefined && state.publicKnowledge[v]?.[fact]===undefined && !p.revealedInfo.includes(`${v}:${fact}`),'proof','ข้อมูลนี้ยังไม่เคยตรวจหรือเปิดแล้ว'); state.publicKnowledge[v]={...state.publicKnowledge[v],[fact]:value}; p.revealedInfo.push(`${v}:${fact}`); reward(state,p,1,id); break;}
     case 'E46': {const v=item(); const target=stockItem(state,p,v); check(typeof command.guess==='boolean' && known(state,p,v).genuine===undefined,'guess','ต้องทายแท้หรือปลอมที่ยังไม่รู้'); spend(state,p,0,1,id); const correct=command.guess===target.genuine; if(correct) reward(state,p,2,id); learn(p,v,{genuine:target.genuine}); p.notes.push(`${correct?'ทายถูก!':'ทายผิด'} ${ITEM_SPECS[target.kind].name}เป็น${target.genuine?'ของแท้':'ของปลอม'}${correct?' ได้ 2 เครดิต':''}`); p.notes=p.notes.slice(-30); trace(state,p,'guess',{itemId:v,correct}); break;}
     case 'E47': {const v=item(); check(state.listings.some(l=>l.itemId===v && l.ownerId!==p.id && state.items[v]!.owner.startsWith('npc:')),'listing','รายการข้ามร้านไม่ได้เปิด'); trace(state,p,'cross-shop-viewed',{itemId:v}); break;}

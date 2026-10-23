@@ -225,7 +225,7 @@ test('intermittent market draws are seeded, budgeted, reachable, and independent
     const a=createAppraisalRun(['a','b','c'],`market-${i}`);const b=createAppraisalRun(['a','b','c'],`market-${i}`);
     assert.deepEqual(a.market,b.market);if(!a.market.open) {closed++;continue;}opened++;counts.add(a.market.orders.length);
     const pool=new Set(Object.values(a.items).map(item=>item.kind));assert(a.market.orders.every(order=>pool.has(order.kind)));
-    assert.equal(a.market.budget,a.market.orders.reduce((sum,o)=>sum+(o.price+(o.contract?.bonus.kind==='credits'?o.contract.bonus.amount:0))*3,0));
+    assert.equal(a.market.budget,a.market.orders.reduce((sum,o)=>sum+(o.price*(o.rarityReserveMultiplier??1)+(o.contract?.bonus.kind==='credits'?o.contract.bonus.amount:0))*3,0));
     assert(a.market.orders.every(o=>o.price>=ITEM_SPECS[o.kind].anchor*1.25-1 && o.price<=ITEM_SPECS[o.kind].anchor*1.75+1));
   }
   assert(opened>40 && opened<160 && closed>0);assert.deepEqual([...counts].sort(),[1,2,3]);

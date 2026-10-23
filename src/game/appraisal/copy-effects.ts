@@ -1,5 +1,9 @@
 import type { Appraiser, StatusId } from './types.js';
-export const itemEffectScale=(item:{copy?:unknown})=>item.copy?.4:1;
+import { rarityEffect } from '../../shared/rarity-power.js';
+import type { PoweredItem } from '../../shared/rarity-power.js';
+export const itemEffectScale=(item:PoweredItem & {copy?:unknown})=>rarityEffect(item)*(item.copy?.4:1);
+/** Rarity improves bonuses; existing costs/curse penalties retain their copy-scaled strength. */
+export const itemDrawbackScale=(item:{copy?:unknown})=>item.copy?.4:1;
 export const statusMagnitude=(p:Pick<Appraiser,'statuses'>,id:StatusId,amount:number):number=>{
   const found=p.statuses.find(s=>s.id===id&&s.charges>0);return found?amount*(found.power??1):0;
 };

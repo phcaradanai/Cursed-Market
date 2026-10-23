@@ -34,6 +34,12 @@ export type ItemKind = ItemFamily | 'memory-mirror' | 'rift-mirror' | 'blood-orb
   'abyss-pearl' | 'tide-lantern' | 'kraken-ink' | 'siren-conch' | 'hive-comb' | 'chitin-blade' | 'larva-cell' | 'compound-mirror' | PassiveKind | typeof ABILITY_ITEM_IDS[number];
 export type AppraisalPhase = 'PORTALS' | 'APPRAISAL' | 'TRADE' | 'REVEAL' | 'RESULTS';
 export interface AppraisalConfig {
+  /** Absent in visual-only/old audits: no price or effect scaling. */
+  rarityEconomy?:import('../../shared/rarity-power.js').RarityEconomyConfig;
+  /** Optional in old audits. Appearance-only RNG; no hidden truths or economic multipliers. */
+  rarity?:import('../../shared/item-rarity.js').RarityConfig;
+  /** Absent in saved audits: preserve the original theft, custody and pricing rules. */
+  secureEconomy?:boolean;
   /** Absent in historical runs: keep original skills, catalogs and RNG pools exactly. */
   trustAbilities?:boolean;
   /** Absent in saved audits: preserve historical item effects and activation costs. */
@@ -83,7 +89,7 @@ export type UnsoldChoice = 'buy'|'penalty'|'consign';
 export interface CleanseOffer { npc:NpcId; items:Array<{itemId:string;price:number;chance:number;done:boolean}>; stoneBonus:number }
 export interface WishBookRow { npc:NpcId; kind:ItemKind; price:number; initial:number; floor:number; next:number; age:number }
 export interface WishDesk { npc:NpcId; cost:number; cap:number; book:WishBookRow[]; replaces:NpcId|null; replaceable:NpcId[] }
-export interface WishOffer { npc:NpcId; kind:ItemKind; price:number; initial:number; floor:number; next:number; age:number; trust:number; buffs:number; debuffs:number; tried:boolean; options:Array<{markup:number;price:number;chance:number}>; itemIds:string[] }
+export interface WishOffer { npc:NpcId; kind:ItemKind; price:number; initial:number; floor:number; next:number; age:number; trust:number; buffs:number; debuffs:number; tried:boolean; options:Array<{markup:number;price:number;chance:number}>; itemIds:string[]; itemQuotes?:Record<string,Array<{markup:number;price:number}>> }
 /** `amount` is the most the deal can restore; `min` (life deals) is the least, rolled per encounter. */
 export interface RecoveryOffer { target:'energy'|'life'; credits:number; amount:number; min?:number }
 export interface CollectorResult {
@@ -93,6 +99,10 @@ export interface CollectorResult {
 export interface Status { power?:number; id: StatusId; expires: number; charges: number; targetItemId?: string; starts: number }
 export interface Knowledge { range?: [number,number]; base?: number; genuine?: boolean; cursed?: boolean; effectsKnown?: boolean; activationKnown?: boolean; certificate?: boolean; comparison?: string }
 export interface AppraisalItem {
+  rarityPower?:import('../../shared/rarity-power.js').RarityPower;
+  appearance?:import('../../shared/item-rarity.js').ItemAppearance;
+  lastTradePrice?:number;
+  priceIntegrity?:{overpriced:boolean;audits:number;lastReappraisedEncounter?:number;certifiedPrice?:number};
   /** Public copy provenance; restrictions live on the source and survive ownership changes. */
   copy?:{sourceId:string;number:number;valuePercent:number};
   copyConsumed?:boolean;
@@ -133,6 +143,8 @@ export interface RoundReward {
   lastFlip?:{guess:CoinSide; side:CoinSide; correct:boolean; coins?:Array<{guess:CoinSide;side:CoinSide;correct:boolean}>; delta?:number};
 }
 export interface Appraiser {
+  personalVault?:import('./secure-storage.js').PersonalVault;
+  crime?:import('./theft.js').CrimeRecord;
   abilityReady?:Partial<Record<NpcId,number>>;
   abilityLastUsed?:Partial<Record<NpcId,number>>;
   abilityAdjusted?:Partial<Record<NpcId,number>>;
@@ -200,7 +212,7 @@ export interface MarketContract {
   bonus:{kind:'credits';amount:number}|{kind:'energy';amount:number}|{kind:'life';amount:number}|{kind:'buff';statusId:Extract<StatusId,`B${string}`>};
   fullPriceCost:{kind:'energy';amount:number}|{kind:'life';amount:number}|{kind:'debuff';statusId:Extract<StatusId,`D${string}`>};
 }
-export interface MarketOrder { id: string; kind: ItemKind; price: number; quota: Record<string,number>; contract?:MarketContract }
+export interface MarketOrder { rarityReserveMultiplier?:number; id: string; kind: ItemKind; price: number; quota: Record<string,number>; contract?:MarketContract }
 export interface AuctionLot { id: string; itemId: string; minimum: number; bids: Record<string,number>; winnerId?: string | null; price?: number }
 export interface DarkMarket { encounter: number; open: boolean; budget: number; orders: MarketOrder[]; lots?: AuctionLot[] }
 export interface AuctionLotView { id: string; itemId: string; minimum: number; item: ItemView; yourBid: number | null; bidCount: number; winnerId?: string | null; price?: number }
@@ -217,6 +229,15 @@ export interface LedgerEntry { from: string; to: string; amount: number; reason:
 export interface TraceEntry { type: string; encounter: number; playerId: string; details: Record<string,unknown> }
 export interface EncounterResult { encounter: number; playerId: string; gain: number; accuracy: number; score: number; paused: Appraiser['paused'] }
 export type AppraisalAction = { playerId: string; requestId: string; encounter: number } & (
+  | import('./secure-storage.js').StorageAction
+  | import('./secure-storage.js').LoanAction
+  | {type:'theft-start';itemId?:string;victimId?:string}
+  | {type:'theft-hand';duelId:string;hand:import('./theft.js').RpsHand}
+  /** Internal timer command; never accepted by the client message parser. */
+  | {type:'theft-timeout'}
+  | {type:'crime-clear'}
+  | {type:'reappraise-owned';itemId:string;value:number}
+  | {type:'liquidate';itemId:string}
   | { type: 'enter'; portalId: string }
   | { type: 'reroll-portal'; portalId: string }
   | { type: 'inspect'; itemId: string; property: 'price'|'authenticity'|'effects' }
@@ -248,6 +269,8 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
 /** `rebate` is credits the owner pays the buyer when the sale completes, so a poor item can still find a price. */
 export interface SharedListing { ownerId: string; itemId: string; purchase: boolean; claims?: { genuine?: boolean; cursed?: boolean }; rebate?: number }
 export interface AppraisalState {
+  theftDuels?:import('./theft.js').TheftDuel[];
+  loans?:import('./secure-storage.js').SecuredLoan[];
   version: 4 | 5; seed: string; config: AppraisalConfig; encounter: number; phase: AppraisalPhase;
   revision: number; players: Appraiser[]; items: Record<string,AppraisalItem>;
   reservedRewards: number;
@@ -260,6 +283,13 @@ export interface AppraisalState {
   vault?: string[];
 }
 export interface ItemView {
+  rarityPower?:import('../../shared/rarity-power.js').RarityPower;
+  appearance?:import('../../shared/item-rarity.js').ItemAppearance;
+  lastTradePrice?:number;
+  overpriced?:boolean;
+  lastReappraisedEncounter?:number;
+  reappraisalUsed?:boolean;
+  liquidationPrice?:number;
   copy?:{sourceId:string;sourceName:string;number:number;valuePercent:number};
   /** This seat can inspect or appraise this merchant item once without energy. */
   freeMerchantAction?:boolean;
@@ -277,11 +307,15 @@ export interface ItemView {
 }
 export interface Core2Actions { skill?:{npc:NpcId;name:string;needsItem:boolean;strong:boolean}; stealChance?:number; pickpocketChance?:number; theftUsed:boolean; trustForSkill:number }
 export interface AppraisalView {
+  secureEconomy?:boolean;
+  theft?:ReturnType<typeof import('./theft.js').theftViewFor>;
+  loans?:Array<import('./secure-storage.js').SecuredLoan & {item:ItemView}>;
   trustAbilities?:boolean;
   itemEffects?:boolean;
   version: 4 | 5; phase: AppraisalPhase; encounter: number; encounterCount: number | null; revision: number;
   survival?:NonNullable<AppraisalConfig['survival']>; core2?:boolean; collectorAt?:number; dread?:number; curseSight?:boolean; freeBuy?:boolean; fakeEffect?:boolean; cleanse?:boolean; wishlist?:boolean; wishContract?:boolean; challenge?:boolean; polish?:boolean; omen?:{id:string;name:string;text:string}; salePct?:number; fee?:number; maxEnergy?:number; collector?:CollectorResult[]; brokerage?:boolean; roundRewardBase?:number; passives?:boolean;
-  self: Omit<Appraiser,'knowledge'|'portals'|'stock'|'inventory'|'valuations'|'startWealth'|'acceptedDanger'|'seenEvents'|'resolvedEvents'> & {
+  self: Omit<Appraiser,'personalVault'|'knowledge'|'portals'|'stock'|'inventory'|'valuations'|'startWealth'|'acceptedDanger'|'seenEvents'|'resolvedEvents'> & {
+    personalVault?:{items:ItemView[];credits:number;slots:number;nextSlotPrice:number};
     loanItems?:ItemView[];
     inventory: ItemView[]; stock: ItemView[]; portals: Array<{id:string; npc:NpcId; hint:ItemKind; disabled:boolean}>;
     counterLimit: number;

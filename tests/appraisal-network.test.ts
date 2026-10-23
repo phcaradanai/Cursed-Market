@@ -61,7 +61,9 @@ async function setup(count: number, rooms: AppraisalRoomService = new AppraisalR
   return { app, http, url, clients, act, decline, enter, endPhase };
 }
 test('actual sockets apply stacked free inspections, 20% commission, noble income and hat odds then reset free uses',async t=>{
-  const rooms=new TestRooms(Date.now,{catalogVersion:3,survival:SURVIVAL_RULES,startingCredits:200,marketProbability:0,freeMerchantAction:false});const s=await setup(2,rooms);t.after(()=>s.app.close());await s.enter();
+  // This regression checks named baseline amounts, so generated sources must be Common.
+  const rarity=defaultRarityConfig();rarity.rates={common:1,uncommon:0,rare:0,epic:0,legendary:0,mythic:0};
+  const rooms=new TestRooms(Date.now,{rarity,catalogVersion:3,survival:SURVIVAL_RULES,startingCredits:200,marketProbability:0,freeMerchantAction:false});const s=await setup(2,rooms);t.after(()=>s.app.close());await s.enter();
   const a=s.clients[0]!,state=rooms.state(a.room!.code),p=state.players.find(p=>p.id===a.room!.yourSeatId)!;
   for(const kind of ['inspection-warrant','tax-order','noble-seal','gambler-hat'] as const)for(let n=0;n<2;n++){const source=state.items[p.stock[0]!]!,id=`socket-${kind}-${n}`;state.items[id]={...source,id,kind,owner:p.id,genuine:false,cursed:true};p.inventory.push(id);}
   const target=state.items[p.stock[0]!]!;Object.assign(target,{npc:'orc',kind:'eclipse-blade',base:40,ask:40,reservation:1});p.energy=0;rooms.publish(a.room!.code);await a.until(()=>a.room!.game!.self.inventory.length===8?true:undefined);
@@ -82,7 +84,7 @@ test('actual sockets pay appraisal commission, retain NPC trust and settle an ex
   rooms.publish(a.room!.code);await a.until(()=>a.room!.game!.market.orders[0]?.id==='socket-contract'?true:undefined);
   assert.equal(a.room!.game!.self.inventory[0]!.knowledge.cursed,undefined);const energy=a.room!.game!.self.energy;
   await s.act(a,{type:'market-sell',itemId:item.id,orderId:'socket-contract',resolution:'sacrifice'});
-  assert.equal(a.room!.game!.self.credits,29);assert.equal(a.room!.game!.self.energy,energy-2);assert.equal(a.room!.game!.self.npcTrust![item.npc],1);assert.equal(a.room!.game!.self.inventory.length,0);
+  assert.equal(a.room!.game!.self.credits,4+25*(item.rarityPower?.valueMultiplier??1));assert.equal(a.room!.game!.self.energy,energy-2);assert.equal(a.room!.game!.self.npcTrust![item.npc],1);assert.equal(a.room!.game!.self.inventory.length,0);
   assert(a.room!.game!.self.notes.at(-1)!.includes('ราคาเต็ม'));
 });
 test('actual survival sockets receive 10 then 15 after trading, and enter the next merchant with the credited wallet',async t=>{
@@ -210,7 +212,7 @@ test('v0.4 actual Dark Market buys new stock immediately once and stays open thr
   await s.act(a, { type: 'enter', portalId: portal.id }); await s.decline(b); await s.act(b, { type: 'enter', portalId: b.room!.game!.self.portals.find(p => !p.disabled)!.id });
   for (const c of s.clients) await s.decline(c); const item = a.room!.game!.self.stock[0]!, order = a.room!.game!.market.orders.find(o => o.kind === item.kind)!;
   await s.act(a, { type: 'buy', itemIds: [item.id], condition: false }); const before = a.room!.game!.self.credits;
-  await s.act(a, { type: 'market-sell', itemId: item.id, orderId: order.id }, 'market'); assert.equal(a.room!.game!.self.credits, before + order.price);
+  await s.act(a, { type: 'market-sell', itemId: item.id, orderId: order.id }, 'market'); assert.equal(a.room!.game!.self.credits, before + order.price*(item.rarityPower?.valueMultiplier??1));
   assert.equal(a.room!.game!.self.inventory.some(i => i.id === item.id), false); assert.equal(a.room!.game!.market.orders.find(o => o.id === order.id)!.quota[a.room!.yourSeatId], 0);
   const revision = a.room!.game!.revision;
   a.send({ type: 'action', matchId: a.room!.matchId!, action: { type: 'market-sell', itemId: item.id, orderId: order.id, requestId: 'market', encounter: 1 } });
@@ -249,3 +251,4 @@ test('v0.4 actual confirmed-death fixture settles all seats and restores play ne
   assert.equal(s.clients[0]!.room!.game!.phase, 'REVEAL'); assert(s.clients[0]!.room!.game!.players.every(p => p.paused === 'dead' && p.score === 0));
   now += 11; rooms.tick(); await Promise.all(s.clients.map(c => c.phase('PORTALS', 2))); assert(s.clients[0]!.room!.game!.players.every(p => !p.paused && p.energy >= 4));
 });
+import { defaultRarityConfig } from '../src/shared/item-rarity.js';

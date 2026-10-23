@@ -1,3 +1,4 @@
+import { rarityValue } from '../src/shared/rarity-power.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {applyAppraisalAction,appraisalViewFor,assertAppraisalInvariants,createAppraisalRun,exportAppraisalAudit,replayAppraisalAudit,SURVIVAL_RULES} from '../src/game/appraisal/index.js';
@@ -169,7 +170,7 @@ test('a merchant skill needs trust, works once per encounter, and its price is c
 test('barter swaps goods without credits and rejects goods that are too cheap',()=>{
   const s=toAppraisal(fixture('barter'));const a=s.players[0]!;
   const shopItem=s.items[a.stock[0]!]!;
-  const kind=(Object.keys(ITEM_SPECS) as Array<keyof typeof ITEM_SPECS>).find(k=>anchorOf(s.config,k)>=shopItem.ask)!;
+  const kind=(Object.keys(ITEM_SPECS) as Array<keyof typeof ITEM_SPECS>).find(k=>rarityValue(shopItem,anchorOf(s.config,k))>=shopItem.ask)!;
   const mine={...shopItem,id:'mine',kind,owner:'alice',npc:shopItem.npc,genuine:true,cursed:false,stolen:false,appraisedBy:undefined};
   s.items['mine']=mine as never;a.inventory.push('mine');
   const credits=a.credits;

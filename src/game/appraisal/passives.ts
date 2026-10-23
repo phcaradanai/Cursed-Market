@@ -1,4 +1,6 @@
 import { itemEffectScale, integerEffect } from './copy-effects.js';
+import { rarityEffect } from '../../shared/rarity-power.js';
+import type { PoweredItem } from '../../shared/rarity-power.js';
 import type { ItemSpec } from './content.js';
 import { addUseBonuses, EXTRA_HELD_EFFECTS } from './item-effects.js';
 import type { AppraisalConfig, AppraisalState, Appraiser, InspectionProperty, ItemKind, MarketOrder, PassiveKind } from './types.js';
@@ -38,13 +40,13 @@ export const passivesEnabled=(config:Pick<AppraisalConfig,'catalogVersion'>)=>co
 export function passiveSpec(kind:ItemKind):PassiveSpec|undefined {return PASSIVE_ITEMS[kind as PassiveKind];}
 /** Effects depend on the known kind and ownership, never hidden authenticity or curse. */
 export const HELD_STACK_CAP=5;
-export function heldPassives(items:ReadonlyArray<{kind:ItemKind;copy?:unknown}>,itemEffects=false):PassiveBonuses {
+export function heldPassives(items:ReadonlyArray<PoweredItem & {kind:ItemKind;copy?:unknown}>,itemEffects=false):PassiveBonuses {
   const result=emptyPassives(),counts=new Map<ItemKind,number>();
   for(const item of itemEffects?[...items].sort((a,b)=>itemEffectScale(b)-itemEffectScale(a)):items){
     const count=counts.get(item.kind)??0;if(itemEffects && count>=HELD_STACK_CAP)continue;
     counts.set(item.kind,count+1);
     const effect=passiveSpec(item.kind)?.passive??(itemEffects?EXTRA_HELD_EFFECTS[item.kind]:undefined);
-    if(effect)result[effect.effect]+=effect.amount*(itemEffects?itemEffectScale(item):1);
+    if(effect)result[effect.effect]+=effect.amount*(itemEffects?itemEffectScale(item):rarityEffect(item));
   }
   for(const key of Object.keys(result) as Array<keyof PassiveBonuses>)if(!['commission','luck','acceptance','mitigation'].includes(key))result[key]=integerEffect(result[key]);
   return result;
@@ -61,7 +63,7 @@ export const inspectionLimit=(state:AppraisalState,p:Appraiser)=>Math.max(0,2+pa
 export const commissionRate=(b:PassiveBonuses)=>Math.min(100,10+b.commission);
 export const coinWinChance=(b:PassiveBonuses)=>Math.min(85,50+b.luck);
 /** Only artifact credits are extra; the existing market reservation stays unchanged. */
-export function passiveMarketBonus(order:MarketOrder,b:PassiveBonuses,match:boolean,markdown:boolean):number {
-  return b.market+(match?b.match:0)+(markdown?Math.floor(order.price*(80+Math.min(20,b.mitigation))/100)-Math.floor(order.price*.8):0);
+export function passiveMarketBonus(order:MarketOrder,b:PassiveBonuses,match:boolean,markdown:boolean,quotePrice=order.price):number {
+  return b.market+(match?b.match:0)+(markdown?Math.floor(quotePrice*(80+Math.min(20,b.mitigation))/100)-Math.floor(quotePrice*.8):0);
 }
 export const MAX_ENERGY_CAP=20,MAX_LIFE_BONUS_CAP=6,WISH_SLOT_CAP=4;

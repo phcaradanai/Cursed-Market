@@ -2,7 +2,7 @@ import type { Appraiser, Knowledge, MarketContract, MarketOrder, NpcId } from '.
 
 export const TRUST_CAP=10;
 export function trustAcceptanceBonus(p:Pick<Appraiser,'npcTrust'>,npc:NpcId):number {return (p.npcTrust?.[npc]??0)*.05;}
-export function marketOrderReserve(order:MarketOrder):number {return order.price+(order.contract?.bonus.kind==='credits'?order.contract.bonus.amount:0);}
+export function marketOrderReserve(order:MarketOrder):number {return order.price*(order.rarityReserveMultiplier??1)+(order.contract?.bonus.kind==='credits'?order.contract.bonus.amount:0);}
 /** Accept only visible facts on the client; an unknown property must never become a quote oracle. */
 export function marketConditionMatch(contract:MarketContract,facts:Pick<Knowledge,'genuine'|'cursed'>):'match'|'mismatch'|'unknown' {
   if(contract.requirements.some(r=>facts[r.property]!==undefined && facts[r.property]!==r.value))return 'mismatch';

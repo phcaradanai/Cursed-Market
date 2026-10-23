@@ -5,6 +5,7 @@ import type { AppraisalBotPolicy, AppraisalClientMessage, AppraisalSeatAction } 
 import { APPRAISAL_BOT_POLICIES, validTimerSettings } from '../shared/appraisal-protocol.js';
 import { integer, keys, MessageError, object, parseMessage, string } from './messages.js';
 
+function loanTerms(value:unknown):string {if(typeof value!=='string' || value.length>500)throw new MessageError();return value;}
 function boolean(value: unknown): boolean { if (typeof value !== 'boolean') throw new MessageError(); return value; }
 function encounter(value: unknown): number { const n = integer(value); if (n < 1) throw new MessageError(); return n; }
 function claims(value: unknown): { genuine?: boolean; cursed?: boolean } {
@@ -17,6 +18,34 @@ function action(value: unknown): AppraisalSeatAction {
   const base = { requestId, encounter: encounter(body.encounter) };
   const fields = ['type', 'requestId', 'encounter'];
   switch (body.type) {
+    case 'vault-deposit-item': case 'vault-withdraw-item': case 'liquidate':
+      keys(body,[...fields,'itemId']);return {type:body.type,...base,itemId:string(body.itemId)};
+    case 'vault-deposit-credits': case 'vault-withdraw-credits':
+      keys(body,[...fields,'amount']);return {type:body.type,...base,amount:integer(body.amount)};
+    case 'vault-expand': case 'crime-clear':
+      keys(body,fields);return {type:body.type,...base};
+    case 'reappraise-owned':
+      keys(body,[...fields,'itemId','value']);return {type:body.type,...base,itemId:string(body.itemId),value:integer(body.value)};
+    case 'loan-propose':
+      keys(body,[...fields,'lenderId','itemId','principal','terms']);
+      return {type:'loan-propose',...base,lenderId:string(body.lenderId,32),itemId:string(body.itemId),principal:integer(body.principal),...(body.terms===undefined?{}:{terms:loanTerms(body.terms)})};
+    case 'loan-counter':
+      keys(body,[...fields,'loanId','principal','terms']);
+      return {type:'loan-counter',...base,loanId:string(body.loanId),principal:integer(body.principal),...(body.terms===undefined?{}:{terms:loanTerms(body.terms)})};
+    case 'loan-respond':
+      keys(body,[...fields,'loanId','accept']);return {type:'loan-respond',...base,loanId:string(body.loanId),accept:boolean(body.accept)};
+    case 'loan-cancel':
+      keys(body,[...fields,'loanId']);return {type:'loan-cancel',...base,loanId:string(body.loanId)};
+    case 'loan-repay':
+      keys(body,[...fields,'loanId','amount']);return {type:'loan-repay',...base,loanId:string(body.loanId),amount:integer(body.amount)};
+    case 'theft-start':
+      keys(body,[...fields,'itemId','victimId']);
+      if((body.itemId===undefined)===(body.victimId===undefined))throw new MessageError();
+      return {type:'theft-start',...base,...(body.itemId===undefined?{victimId:string(body.victimId,32)}:{itemId:string(body.itemId)})};
+    case 'theft-hand':
+      keys(body,[...fields,'duelId','hand']);
+      if(body.hand!=='rock' && body.hand!=='paper' && body.hand!=='scissors')throw new MessageError();
+      return {type:'theft-hand',...base,duelId:string(body.duelId),hand:body.hand};
     case 'enter': keys(body, [...fields, 'portalId']); return { type: 'enter', ...base, portalId: string(body.portalId) };
     case 'inspect':
       keys(body, [...fields, 'itemId', 'property']);

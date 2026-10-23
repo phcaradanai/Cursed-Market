@@ -1,3 +1,5 @@
+import { ItemVisual } from './ItemVisual.js';
+import { TheftPanel, VaultPanel, FinancePanel } from './SecureEconomy.js';
 import { abilityText } from './ability-text.js';
 import { MerchantAbilities } from './MerchantAbilities.js';
 import { HeldEffects } from './HeldEffects.js';
@@ -18,7 +20,7 @@ import { EventModal, Toasts, useOutcomes } from './feedback.js';
 import type { Decision } from './model.js';
 import { ChoiceCards, ItemTerm, Rich } from './lore.js';
 import { BagIcon, BookIcon, BuffIcon, CloseIcon, CoinIcon, EnergyIcon, EventIcon, EyeIcon, LifeIcon, MarketIcon, PassIcon, PortalIcon, ScoreIcon, SoundIcon, TimerIcon, TrustIcon } from './icons.js';
-import { setLang, t, useLang } from './i18n.js';
+import { setLang, t, useLang, pick } from './i18n.js';
 import { LockReason, tip, useLock } from './reasons.js';
 import { itemName, npcName, npcHint, statusName, omenText } from './catalog-text.js';
 import { ENERGY_DEAL_NPCS } from '../game/appraisal/pulse.js';
@@ -221,9 +223,10 @@ export function GameTable({room,submit,send,disabled}:{room:AppraisalRoomView;su
   const [selected,setSelected]=useState('');
   const [coinTossing,setCoinTossing]=useState(false);
   const item=self.stock.find(i=>i.id===selected)??self.stock[0];
-  const inactive=disabled || !!self.paused || self.done;
+  const duelling=!!game.theft?.duels.some(duel=>duel.status==='open');
+  const inactive=disabled || !!self.paused || self.done || duelling;
   const outer=useLock();
-  const lock=outer ?? (game.survival && self.life===0?t('ชีวิตหมดแล้ว คุณเป็นผู้ชม'):self.paused==='dead'?t('คุณตายและพักช่วงนี้'):self.paused?t('พลังหมด พักช่วงนี้'):self.done?t('คุณจบช่วงนี้แล้ว รอเพื่อนหรือหมดเวลา'):coinTossing?t('กำลังโยนเหรียญ รอผล'):disabled?t('รอการเชื่อมต่อหรือผลจากเซิร์ฟเวอร์'):null);
+  const lock=outer ?? (duelling?pick('เลือกมือเป่ายิ้งฉุบให้เสร็จก่อน','Finish the rock, paper, scissors duel first'):game.survival && self.life===0?t('ชีวิตหมดแล้ว คุณเป็นผู้ชม'):self.paused==='dead'?t('คุณตายและพักช่วงนี้'):self.paused?t('พลังหมด พักช่วงนี้'):self.done?t('คุณจบช่วงนี้แล้ว รอเพื่อนหรือหมดเวลา'):coinTossing?t('กำลังโยนเหรียญ รอผล'):disabled?t('รอการเชื่อมต่อหรือผลจากเซิร์ฟเวอร์'):null);
   const playable=['PORTALS','APPRAISAL','TRADE'].includes(game.phase);
   const npc=self.portals.find(p=>p.id===self.selectedPortalId)?.npc;
   const consequence=defaultConsequence(self.eventOffer);
@@ -240,7 +243,7 @@ export function GameTable({room,submit,send,disabled}:{room:AppraisalRoomView;su
   const drawers:{id:Drawer;label:string;icon:ReactElement;count?:number;hot?:boolean}[]=[
     ...(reveal?[]:[{id:'bag' as const,label:t('กระเป๋า'),icon:<BagIcon/>,count:self.inventory.length}]),
     ...(reveal?[]:[{id:'effects' as const,label:t('สถานะ'),icon:<BuffIcon/>,count:self.statuses.length},{id:'market' as const,label:'Dark Market',icon:<MarketIcon/>,count:markets,hot:markets>0}]),
-    {id:'ledger',label:t('สมุดบันทึก'),icon:<BookIcon/>},
+    {id:'ledger',label:game.secureEconomy?t('สมุดบันทึก · เงินกู้และใบประกาศ'):t('สมุดบันทึก'),icon:<BookIcon/>,count:game.loans?.filter(l=>['proposed','countered'].includes(l.status)).length??0},
     {id:'rules',label:t('กติกา'),icon:<EventIcon/>},
   ];
   const drawer=(id:Drawer,title:string,body:ReactElement)=><aside key={id} className={`drawer${openDrawer===id?' open':''}`} hidden={openDrawer!==id} aria-label={title}><header className="drawer-head"><h2>{title}</h2><button type="button" className="drawer-close" aria-label={t('ปิด {name}',{name:title})} onClick={()=>setOpenDrawer(null)}><CloseIcon/></button></header><div className="drawer-body">{body}</div></aside>;
@@ -263,21 +266,23 @@ export function GameTable({room,submit,send,disabled}:{room:AppraisalRoomView;su
             const why=inactive?null:self.eventOffer?t('ตอบเหตุการณ์ก่อน จึงแลกได้'):(offer.target==='life'?self.life!>=(self.maxLife??game.survival!.maxLife):self.energy>=(self.maxEnergy??game.maxEnergy??10))?t('{label}เต็มแล้ว ไม่ต้องแลก',{label}):needShort(game,{credits:offer.credits,energy:0});
             return <><button disabled={inactive || !!why} title={tip(inactive&&lock,why)} onClick={()=>submit({type:'recover-resource',target:offer.target})}>{t('แลกเครดิตเพื่อฟื้น{label}',{label})}</button>{why && <p className="why" role="status">{why}</p>}</>;})()}</section>}
           {game.survival && !self.recoveryOffer && !self.recoveryUsed && self.life!==0 && !!self.npcTrust && !ENERGY_DEAL_NPCS.includes(npc) && (self.npcTrust[npc]??0)===0 && <section className="recovery-deal"><h3>{t('ดีลฟื้นชีวิต')}</h3><p className="supporting">{t('{name} ยังไม่ไว้ใจคุณ จึงไม่เปิดดีลฟื้นชีวิต · ขายของที่ประเมินให้เพื่อนเพื่อสร้างความไว้ใจ',{name:npcName(npc)})}</p></section>}{(!!game.wishlist && (!!self.wishOffer || !!self.wishDesk) || !!game.cleanse && !!self.cleanseOffer) && <details className="merchant-offers"><summary>{t('ข้อเสนอพิเศษของพ่อค้า')}</summary><WishDeal game={game} submit={submit} disabled={inactive}/><CleanseDeal game={game} submit={submit} disabled={inactive}/></details>}</aside>}
-        <div className="stage-main">{!npc && <><WishDeal game={game} submit={submit} disabled={inactive}/><CleanseDeal game={game} submit={submit} disabled={inactive}/></>}{!item?<p className="notice">{t('ไม่มีของเหลือในร้าน เก็บของ เปิดใช้ หรือจบช่วงประเมินเพื่อไปต่อรองกับเพื่อน')}</p>:<><div className="stock-tabs" role="group" aria-label={t('สินค้าของพ่อค้า')}>{self.stock.map((i,index)=><button key={i.id} className={i.id===item.id?'selected':''} aria-pressed={i.id===item.id} onClick={()=>setSelected(i.id)}><img src={i.image} alt="" width="1254" height="1254"/><span>{index+1}. {itemName(i.kind)} · {t('{n} เครดิต',{n:i.price})}</span>{i.bonus && <BonusBadge passive/>}</button>)}</div><AppraisalDesk key={item.id} game={game} item={item} submit={submit} disabled={inactive}/></>}</div>
+        <div className="stage-main">{!npc && <><WishDeal game={game} submit={submit} disabled={inactive}/><CleanseDeal game={game} submit={submit} disabled={inactive}/></>}{!item?<p className="notice">{t('ไม่มีของเหลือในร้าน เก็บของ เปิดใช้ หรือจบช่วงประเมินเพื่อไปต่อรองกับเพื่อน')}</p>:<><div className="stock-tabs" role="group" aria-label={t('สินค้าของพ่อค้า')}>{self.stock.map((i,index)=><button key={i.id} className={i.id===item.id?'selected':''} aria-pressed={i.id===item.id} onClick={()=>setSelected(i.id)}><ItemVisual item={i} width={44} height={44}/><span>{index+1}. {itemName(i.kind)} · {t('{n} เครดิต',{n:i.price})}</span>{i.bonus && <BonusBadge passive/>}</button>)}</div><AppraisalDesk key={item.id} game={game} item={item} submit={submit} disabled={inactive}/></>}</div>
       </div>}
       {phase==='TRADE' && !self.paused && <Unsold game={game} submit={submit} disabled={inactive}/>}
       {phase==='TRADE' && <>{!self.paused && self.stock.length>0 && <section className="shop-sharing" aria-labelledby="shop-sharing-title"><h2 id="shop-sharing-title">{t('เปิดของในร้านที่คุณประเมินแล้วให้เพื่อนซื้อ')}</h2>{self.stock.map(i=><article key={i.id} className="sell-card"><figure className="pedestal"><img className="pedestal-item" src={i.image} alt={itemName(i.kind)} width="1254" height="1254" loading="lazy"/></figure><div><h3>{t('{name} · ราคาพ่อค้า {n} เครดิต',{name:itemName(i.kind),n:i.price})}</h3><FactSeals item={i}/><Share game={game} item={i} submit={submit} disabled={inactive}/></div></article>)}</section>}<Trades game={game} room={room} submit={submit} disabled={inactive}/></>}
       
       {phase==='REVEAL' && self.roundReward && <RoundReward key={game.encounter} reward={self.roundReward} credits={self.credits} submit={submit} disabled={disabled || room.revealReady.includes(room.yourSeatId)} onTossing={setCoinTossing}/>}
+      {phase==='REVEAL' && <VaultPanel game={game} submit={submit} disabled={disabled || room.revealReady.includes(room.yourSeatId)} playerNames={playerNames}/>}
       {reveal && <Results room={room} send={send} disabled={disabled || coinTossing}/>}
       </div>
+      <TheftPanel game={game} submit={submit} disabled={disabled || self.life===0} playerNames={playerNames}/>
       <MerchantAbilities game={game} submit={submit} disabled={inactive}/>
-      {(phase==='APPRAISAL' || phase==='TRADE') && !self.paused && !self.done && <div className="end-phase">{consequence && <p className="danger-text">{consequence}</p>}{phase==='TRADE' && game.roundRewardBase!==undefined && <p>{t('เมื่อทุกคนจบซื้อขาย รับเครดิตเติมช่วงนี้ {n} เครดิต หรือเสี่ยงหัวก้อย ก่อนเลือกประตูครั้งถัดไป',{n:game.roundRewardBase})}</p>}{phase==='TRADE' && unsoldItems(game).length>0 && <p className="danger-text">{t('จบช่วงตอนนี้ ของค้าง {n} ชิ้นจะรับโทษจากพ่อค้า',{n:unsoldItems(game).length})}</p>}{phase==='APPRAISAL' && unsoldItems(game).length>0 && <p className="supporting">{t('ของที่ตีราคาแล้ว {n} ชิ้นยังไม่มีคนซื้อ จัดการได้ในช่วงต่อรอง',{n:unsoldItems(game).length})}</p>}<button className="pass" disabled={disabled} title={tip(disabled&&lock)} onClick={()=>submit({type:'done'})}><PassIcon/>{phase==='APPRAISAL'?t('จบการประเมิน ไปต่อรอง'):game.roundRewardBase!==undefined?t('จบซื้อขาย ไปรับเครดิต'):t('จบการต่อรอง คิดผลช่วง')}</button></div>}
+      {(phase==='APPRAISAL' || phase==='TRADE') && !self.paused && !self.done && <div className="end-phase">{consequence && <p className="danger-text">{consequence}</p>}{phase==='TRADE' && game.roundRewardBase!==undefined && <p>{t('เมื่อทุกคนจบซื้อขาย รับเครดิตเติมช่วงนี้ {n} เครดิต หรือเสี่ยงหัวก้อย ก่อนเลือกประตูครั้งถัดไป',{n:game.roundRewardBase})}</p>}{phase==='TRADE' && unsoldItems(game).length>0 && <p className="danger-text">{t('จบช่วงตอนนี้ ของค้าง {n} ชิ้นจะรับโทษจากพ่อค้า',{n:unsoldItems(game).length})}</p>}{phase==='APPRAISAL' && unsoldItems(game).length>0 && <p className="supporting">{t('ของที่ตีราคาแล้ว {n} ชิ้นยังไม่มีคนซื้อ จัดการได้ในช่วงต่อรอง',{n:unsoldItems(game).length})}</p>}<button className="pass" disabled={disabled || duelling} title={tip((disabled || duelling)&&lock)} onClick={()=>submit({type:'done'})}><PassIcon/>{phase==='APPRAISAL'?t('จบการประเมิน ไปต่อรอง'):game.roundRewardBase!==undefined?t('จบซื้อขาย ไปรับเครดิต'):t('จบการต่อรอง คิดผลช่วง')}</button></div>}
     </div>
     {!reveal && drawer('bag',t('กระเป๋า'),<><Inventory game={game} submit={submit} disabled={inactive}/><HeldEffects game={game}/></>)}
     {!reveal && drawer('effects',t('สถานะ'),<><Statuses game={game}/>{self.notes.length>0 && <details className="notes"><summary>{t('ประวัติผลล่าสุด')}</summary><ul>{self.notes.slice(-6).reverse().map((note,index)=><li key={`${index}-${note}`}><Rich text={playerNote(note,playerNames)} survival={!!game.survival}/></li>)}</ul></details>}</>)}
     {!reveal && drawer('market','Dark Market',<DarkMarket game={game} submit={submit} disabled={inactive || !playable}/>)}
-    {drawer('ledger',t('สมุดบันทึก'),<><Players room={room}/><WishlistPanel game={game}/><NpcContracts game={game}/>{phase==='TRADE' && <HeldEffects game={game}/>}</>)}
+    {drawer('ledger',t('สมุดบันทึก'),<><Players room={room}/><FinancePanel game={game} submit={submit} disabled={disabled || duelling || self.life===0 || room.revealReady.includes(room.yourSeatId)} playerNames={playerNames}/><WishlistPanel game={game}/><NpcContracts game={game}/>{phase==='TRADE' && <HeldEffects game={game}/>}</>)}
     {drawer('rules',t('กติกา'),<Rules timers={room.timerSettings} survival={room.mode==='survival'} trustAbilities={game.trustAbilities}/>)}
     </div>
     {eventOpen && <EventModal key={self.eventOffer!.key} game={game} offer={self.eventOffer!} submit={submit} disabled={inactive} tucked={tucked} setTucked={value=>setTuckedKey(value?self.eventOffer!.key:null)} playerNames={playerNames}/>}

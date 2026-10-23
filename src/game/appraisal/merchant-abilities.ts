@@ -1,4 +1,5 @@
 import { statusMagnitude } from './copy-effects.js';
+import { ensureItemAppearance } from './rarity.js';
 import { randomAt } from '../random.js';
 import { ITEM_SPECS, NPC_SPECS, merchantKinds, expansionActive, priceRange } from './content.js';
 import { anchorOf } from './core2.js';
@@ -38,6 +39,7 @@ function makeCandidate(state:AppraisalState,p:Appraiser,npc:NpcId,key:string,slo
   const base=range[0]+Math.floor(randomAt(state.seed,`${id}:base`)*(range[1]-range[0]+1));
   const ask=Math.max(1,anchor-2+Math.floor(randomAt(state.seed,`${id}:ask`)*6));
   const item:AppraisalItem={id,kind,base,ask,genuine:randomAt(state.seed,`${id}:genuine`)<.75,cursed:randomAt(state.seed,`${id}:cursed`)<.35,owner:`ability-choice:${p.id}`,npcOwnerId:p.id,npc,encounter:state.encounter,certificate:false,lastAppraisal:null,lastAccepted:null,reservation:Math.max(1,Math.ceil(base*NPC_SPECS[npc].reservation[0]))};
+  ensureItemAppearance(state,item);
   if(source){
     // Preserve quality instead of laundering fakes/curses; the new item cannot create score value.
     item.genuine=source.genuine;item.cursed=source.cursed;

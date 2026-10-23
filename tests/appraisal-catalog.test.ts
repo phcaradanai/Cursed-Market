@@ -1,3 +1,4 @@
+import { rarityValue } from '../src/shared/rarity-power.js';
 import { passiveSpec } from '../src/game/appraisal/passives.js';
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
@@ -67,7 +68,7 @@ for(const kind of kinds)test(`catalog ${kind}: seeded NPC purchase, activation, 
 
   const sale=offered(kind,true);sale.run.act('alice',{type:'buy',itemIds:[sale.id],condition:false});const order=sale.run.state.market.orders.find(o=>o.kind===kind)!;
   const cash=sale.run.state.players[0]!.credits;sale.run.act('alice',{type:'market-sell',itemId:sale.id,orderId:order.id});
-  assert.equal(sale.run.state.players[0]!.credits,cash+order.price);assert(!sale.run.state.players[0]!.inventory.includes(sale.id));
+  assert.equal(sale.run.state.players[0]!.credits,cash+rarityValue(sale.run.state.items[sale.id]!,order.price));assert(!sale.run.state.players[0]!.inventory.includes(sale.id));
   assert.equal(sale.run.state.market.orders.find(o=>o.id===order.id)!.quota.alice,0);sale.run.finish();
 });
 

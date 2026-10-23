@@ -1,3 +1,4 @@
+import { rarityValue } from '../shared/rarity-power.js';
 import { copySaleQuote } from '../game/appraisal/copy-effects.js';
 import { marketConditionMatch } from '../game/appraisal/market-contracts.js';
 import { passiveMarketBonus } from '../game/appraisal/passives.js';
@@ -5,7 +6,7 @@ import { playerPassives, saleAdjusted } from './model.js';
 import type { AppraisalView, ItemView, MarketContract, MarketOrder } from '../game/appraisal/types.js';
 import type { Decision } from './model.js';
 import { Rich } from './lore.js';
-import { t } from './i18n.js';
+import { pick, t } from './i18n.js';
 import { tip, useLock } from './reasons.js';
 import { statusName } from './catalog-text.js';
 
@@ -18,11 +19,16 @@ export function marketCost(c:MarketContract):string {
 }
 export function MarketSale({game,item,order,submit,disabled}:{game:AppraisalView;item:ItemView;order:MarketOrder;submit:(action:Decision)=>void;disabled:boolean}) {
   const locked=useLock();const why=disabled?locked??t('ตอบเหตุการณ์ก่อน หรือยังไม่ถึงช่วงที่ขายได้'):undefined;
-  const b=playerPassives(game,item.id);const flat=passiveMarketBonus(order,b,false,false);
-  const c=order.contract;if(!c)return <button disabled={disabled} title={why} onClick={()=>submit({type:'market-sell',itemId:item.id,orderId:order.id})}>{t('ขายคลัง #{n} รับ {credits} เครดิต',{n:game.self.inventory.findIndex(i=>i.id===item.id)+1,credits:copySaleQuote(item,saleAdjusted(game,order.price))+flat})}</button>;
-  const match=marketConditionMatch(c,item.knowledge);const discounted=copySaleQuote(item,saleAdjusted(game,Math.floor(order.price*80/100)))+passiveMarketBonus(order,b,false,true);
-  const payout=copySaleQuote(item,saleAdjusted(game,order.price))+(c.bonus.kind==='credits'?copySaleQuote(item,c.bonus.amount):0)+passiveMarketBonus(order,b,true,false);
-  const fullPayout=copySaleQuote(item,saleAdjusted(game,order.price))+flat;
+  if(item.overpriced)return <div className="market-decision">
+    <p className="danger-text" role="status">{pick('ราคาเกินจริง · ขายให้ระบบ 0 เครดิต จนกว่าจะประเมินใหม่สำเร็จ','Overpriced · System sales pay 0 credits until successful reappraisal.')}</p>
+    <button disabled={disabled} title={why} onClick={()=>submit({type:'market-sell',itemId:item.id,orderId:order.id,resolution:'discount'})}>{t('ขายรับ {n} เครดิต',{n:0})}</button>
+  </div>;
+  const quotePrice=rarityValue(item,order.price);
+  const b=playerPassives(game,item.id);const flat=passiveMarketBonus(order,b,false,false,quotePrice);
+  const c=order.contract;if(!c)return <button disabled={disabled} title={why} onClick={()=>submit({type:'market-sell',itemId:item.id,orderId:order.id})}>{t('ขายคลัง #{n} รับ {credits} เครดิต',{n:game.self.inventory.findIndex(i=>i.id===item.id)+1,credits:copySaleQuote(item,saleAdjusted(game,quotePrice))+flat})}</button>;
+  const match=marketConditionMatch(c,item.knowledge);const discounted=copySaleQuote(item,saleAdjusted(game,Math.floor(quotePrice*80/100)))+passiveMarketBonus(order,b,false,true,quotePrice);
+  const payout=copySaleQuote(item,saleAdjusted(game,quotePrice))+(c.bonus.kind==='credits'?copySaleQuote(item,c.bonus.amount):0)+passiveMarketBonus(order,b,true,false,quotePrice);
+  const fullPayout=copySaleQuote(item,saleAdjusted(game,quotePrice))+flat;
   const cost=c.fullPriceCost;const payable=cost.kind==='energy'?game.self.energy>=cost.amount:cost.kind==='life'?game.self.life!==undefined && game.self.life>cost.amount:!game.self.statuses.some(s=>s.id===cost.statusId) || game.self.statuses.some(s=>s.id==='B06');
   return <div className="market-decision">
     <p className={match==='match'?'positive-text':match==='mismatch'?'danger-text':'supporting'}>{match==='match'?t('ข้อมูลที่ตรวจรู้ตรงเงื่อนไข'):match==='mismatch'?t('ข้อมูลที่ตรวจรู้ไม่ตรงเงื่อนไข'):t('ยังตรวจไม่ครบ ตลาดจะตรวจตอนขาย · เลือกความเสี่ยงก่อนยืนยัน')}</p>

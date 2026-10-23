@@ -1,3 +1,6 @@
+import { rarityValue } from '../../shared/rarity-power.js';
+import { merchantTradeBanned } from './theft.js';
+import { recordItemTrade, systemSaleQuote } from './price-integrity.js';
 import { copySaleQuote } from './copy-effects.js';
 import { randomAt } from '../random.js';
 import { TRUST_RULES } from './pulse.js';
@@ -16,10 +19,10 @@ function shopStock(state:AppraisalState,p:Appraiser):string[] {
 }
 function freeBank(state:AppraisalState):number { return state.bank-state.market.budget-state.reservedRewards; }
 function bondPrice(state:AppraisalState,spec:BondSpec,itemId:string):number {
-  return copySaleQuote(state.items[itemId]!,Math.floor(anchorOf(state.config,state.items[itemId]!.kind)*(spec.price??1)));
+  return copySaleQuote(state.items[itemId]!,rarityValue(state.items[itemId]!,Math.floor(anchorOf(state.config,state.items[itemId]!.kind)*(spec.price??1))));
 }
 /** What the seat would really receive: the shared sale pipeline applies to everything it owns. */
-function bondQuote(state:AppraisalState,p:Appraiser,spec:BondSpec,itemId:string):number {return salePreview(state,p,bondPrice(state,spec,itemId));}
+function bondQuote(state:AppraisalState,p:Appraiser,spec:BondSpec,itemId:string):number {return systemSaleQuote(state,state.items[itemId]!,salePreview(state,p,bondPrice(state,spec,itemId)));}
 /** Held items that satisfy the NPC. Items handed over must be unlocked and unused this encounter. */
 export function bondItems(state:AppraisalState,p:Appraiser,spec:BondSpec):string[] {
   const gives=['swap','sell','tribute'].includes(spec.mode);
@@ -75,6 +78,7 @@ function takeFromShop(state:AppraisalState,p:Appraiser,itemId:string):void {
 }
 export function resolveBond(state:AppraisalState,p:Appraiser,offer:EventOffer,command:Extract<AppraisalAction,{type:'event'}>):void {
   const spec=bondSpec(offer.id)!;
+  if(state.config.secureEconomy && (spec.mode==='sell' || spec.mode==='swap'))check(!merchantTradeBanned(state,p),'merchant-banned','ยังถูกห้ามค้าขายกับพ่อค้า');
   const chosen=()=>{check(command.itemId && offer.itemIds.includes(command.itemId),'event-target','เลือกสินค้าที่อยู่ใน event');return command.itemId;};
   const stillHeld=(itemId:string)=>{check(bondItems(state,p,spec).includes(itemId),'event-target','ไม่มีของที่ NPC ต้องการแล้ว');return ownedItem(state,p,itemId,true);};
   switch(spec.mode) {
@@ -88,7 +92,7 @@ export function resolveBond(state:AppraisalState,p:Appraiser,offer:EventOffer,co
     }
     case 'sell': case 'tribute': {
       const itemId=chosen();stillHeld(itemId);
-      if(spec.mode==='sell') reward(state,p,saleApply(state,p,bondPrice(state,spec,itemId)),spec.id);
+      if(spec.mode==='sell') {const item=state.items[itemId]!;const paid=systemSaleQuote(state,item,saleApply(state,p,bondPrice(state,spec,itemId)));reward(state,p,paid,spec.id);recordItemTrade(state,item,paid);}
       retire(state,p,itemId,spec.id);if(spec.mode==='tribute') applyGain(state,p,spec);break;
     }
     case 'swap': {
@@ -136,9 +140,10 @@ function consign(state:AppraisalState,p:Appraiser,item:AppraisalItem):void {
   let outcome='clean';
   if(state.config.core2) {
     // v0.6: the Dark Market pays a share of the item's real value (fake and cursed goods are worth less), minus its cut.
-    const owed=consignPayout(item.base,item.genuine,item.cursed);
+    const owed=systemSaleQuote(state,item,consignPayout(item.base,item.genuine,item.cursed));
     const free=state.bank-state.market.budget-state.reservedRewards;const paid=Math.max(0,Math.min(owed,free));
     if(paid>0) reward(state,p,paid,'consign-payout');
+    recordItemTrade(state,item,paid);
     p.notes.push(`Dark Market รับฝากของและจ่ายให้ ${paid} เครดิต (หลังหักค่าธรรมเนียม ${CORE2.consign.fee})`);
     if(roll>=CORE2.consign.debuffBelow) {const fee=payUpTo(state,p,CORE2.consign.extraFee,'consign-fee');outcome=`fee:${fee}`;p.notes.push(`แต่ถูกเก็บค่าผ่านทางเพิ่ม ${fee} เครดิต`);}
     else if(roll>=CORE2.consign.cleanBelow) {
@@ -188,7 +193,7 @@ export function auctionLots(state:AppraisalState):AuctionLot[] {
   if(!rules || !vault.length || randomAt(state.seed,`${state.encounter}:auction:open`)>=rules.auctionProbability) return [];
   return vault.map(itemId=>({itemId,rank:randomAt(state.seed,`${state.encounter}:auction:${itemId}:rank`)}))
     .sort((a,b)=>a.rank-b.rank).slice(0,rules.maxLots)
-    .map(({itemId})=>({id:`lot-${state.encounter}-${itemId}`,itemId,minimum:Math.max(1,Math.floor(anchorOf(state.config,state.items[itemId]!.kind)*.6)),bids:{}}));
+    .map(({itemId})=>({id:`lot-${state.encounter}-${itemId}`,itemId,minimum:Math.max(1,rarityValue(state.items[itemId]!,Math.floor(anchorOf(state.config,state.items[itemId]!.kind)*.6))),bids:{}}));
 }
 export function placeBid(state:AppraisalState,p:Appraiser,lotId:string,credits:number):void {
   const lot=state.market.lots?.find(l=>l.id===lotId);
@@ -212,6 +217,7 @@ export function settleAuction(state:AppraisalState):void {
     if(edge) consumeStatus(winner.p,'B20');
     spend(state,winner.p,paid,0,'dark-auction');
     completeAppraisedSale(state,item,paid);
+    recordItemTrade(state,item,paid);
     item.owner=winner.p.id;winner.p.inventory.push(item.id);state.vault=state.vault!.filter(id=>id!==item.id);
     lot.winnerId=winner.p.id;lot.price=paid;
     winner.p.darkTickets=(winner.p.darkTickets??0)+1;winner.p.notes.push(`ชนะประมูล ได้ตั๋วคำสั่งมืด ${winner.p.darkTickets}/${TRUST_RULES.ticketsToForce}`);winner.p.notes=winner.p.notes.slice(-30);

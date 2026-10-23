@@ -1,3 +1,5 @@
+import { rarityValue } from '../shared/rarity-power.js';
+import { ItemVisual, RarityLabel } from './ItemVisual.js';
 import { copySaleQuote, itemEffectScale } from '../game/appraisal/copy-effects.js';
 import { pick } from './i18n.js';
 import { AbilityItemControls } from './MerchantAbilities.js';
@@ -41,6 +43,7 @@ export function FactSeals({item}:{item:ItemView}) {
     {seal('genuine',<SealIcon/>,t('ความแท้'),k.genuine===undefined?'?':k.genuine?t('ของแท้'):t('ของปลอม'),k.genuine===undefined?'unknown':k.genuine?'good':'bad')}
     {seal('cursed',<DebuffIcon/>,t('คำสาป'),k.cursed===undefined?'?':k.cursed?t('มีคำสาป'):t('ไม่มีคำสาป'),k.cursed===undefined?'unknown':k.cursed?'bad':'good')}
     {item.certificate && seal('certificate',<TrustIcon/>,t('ใบรับรองพ่อค้า'),k.certificate===undefined?'?':k.certificate?t('ตรวจแล้วตรงความจริง'):t('ตรวจแล้วเป็นเท็จ'),k.certificate===undefined?'unknown':k.certificate?'good':'bad')}
+    {item.overpriced && seal('overpriced',<CoinIcon/>,pick('ราคาเกินจริง','Overpriced'),pick('ขายให้ระบบ 0 เครดิต จนกว่าจะประเมินใหม่สำเร็จ','System sales pay 0 credits until successful reappraisal.'),'bad')}
   </ul>;
 }
 export function ItemFacts({item}:{item:ItemView}) {
@@ -130,14 +133,18 @@ export function WishDeal({game,submit,disabled}:Actions) {
   if(!wish) return <section className="wish-deal" aria-labelledby="wish-title"><h3 id="wish-title">{t('พ่อค้านี้ยังไม่ได้บอกของที่อยากได้')}</h3><WishBook game={game} submit={submit} disabled={disabled}/></section>;
   const held=wish.itemIds.map(id=>game.self.inventory.find(i=>i.id===id)).filter((i):i is ItemView=>!!i);
   const itemId=held.some(i=>i.id===picked)?picked:held[0]?.id??'';
+  const selected=held.find(i=>i.id===itemId);const overpriced=!!selected?.overpriced;
   const option=wish.options.find(o=>o.markup===markup)??wish.options[0]!;
+  const quote=(o:typeof option)=>wish.itemQuotes?.[itemId]?.find(q=>q.markup===o.markup)?.price??copySaleQuote(selected??{},o.price);
+  const reference=(price:number)=>selected?copySaleQuote(selected,rarityValue(selected,price)):price;
   const why=disabled?null:game.self.eventOffer?t('ตอบเหตุการณ์ก่อน'):wish.tried?t('ต่อรองกับพ่อค้านี้แล้วในช่วงนี้ รอครั้งหน้า'):!held.length?t('ยังไม่มีของที่พ่อค้าต้องการ'):null;
   return <section className="wish-deal" aria-labelledby="wish-title"><h3 id="wish-title">{t('{npc}ตามหา',{npc:npcName(wish.npc)})} <ItemTerm kind={wish.kind}/></h3>
-    <p>{t('รับซื้อตอนนี้')} <strong>{t('{n} เครดิต',{n:wish.price})}</strong>{wish.price>wish.floor?t(' · ช่วงหน้า {next} · ต่ำสุด {floor} (ราคาฐาน ผลเสียไม่ลดราคาฐาน)',{next:wish.next,floor:wish.floor}):t(' · ถึงราคาฐานแล้ว {floor} เครดิต จะไม่ลดอีก',{floor:wish.floor})} · {t('เริ่มที่ {n}',{n:wish.initial})} · {t('ขอเพิ่มได้แต่โอกาสตกลงลดลง โอกาสคิดจากความไว้ใจ {trust}/{cap} (+{tb}) ผลดีที่ติดตัว {buffs} อย่าง (+{bb}) ผลเสีย {debuffs} อย่าง (−{db}) · อยู่ระหว่าง {lo}–{hi}% เสมอ',{trust:wish.trust,cap:TRUST_CAP,tb:wish.trust*3,buffs:wish.buffs,bb:wish.buffs*4,debuffs:wish.debuffs,db:wish.debuffs*4,lo:WISH_FLOOR,hi:WISH_CAP})}</p>
+    <p>{t('รับซื้อตอนนี้')} <strong>{t('{n} เครดิต',{n:overpriced?0:reference(wish.price)})}</strong>{!overpriced && <>{wish.price>wish.floor?t(' · ช่วงหน้า {next} · ต่ำสุด {floor} (ราคาฐาน ผลเสียไม่ลดราคาฐาน)',{next:reference(wish.next),floor:reference(wish.floor)}):t(' · ถึงราคาฐานแล้ว {floor} เครดิต จะไม่ลดอีก',{floor:reference(wish.floor)})} · {t('เริ่มที่ {n}',{n:reference(wish.initial)})}</>} · {t('ขอเพิ่มได้แต่โอกาสตกลงลดลง โอกาสคิดจากความไว้ใจ {trust}/{cap} (+{tb}) ผลดีที่ติดตัว {buffs} อย่าง (+{bb}) ผลเสีย {debuffs} อย่าง (−{db}) · อยู่ระหว่าง {lo}–{hi}% เสมอ',{trust:wish.trust,cap:TRUST_CAP,tb:wish.trust*3,buffs:wish.buffs,bb:wish.buffs*4,debuffs:wish.debuffs,db:wish.debuffs*4,lo:WISH_FLOOR,hi:WISH_CAP})}</p>
+    {overpriced && <p className="danger-text" role="status">{pick('ราคาเกินจริง · ขายให้ระบบ 0 เครดิต จนกว่าจะประเมินใหม่สำเร็จ','Overpriced · System sales pay 0 credits until successful reappraisal.')}</p>}
     <p className="supporting">{t('ต่อรองได้ครั้งเดียวต่อช่วง ถ้าไม่ตกลงยังรอของชิ้นนี้ในครั้งหน้า พ่อค้าอาจจับได้ถ้าเป็นของปลอม')}{salePctText(game)?` · ${salePctText(game)} ${t('ราคาที่แสดงปรับแล้ว')}`:''}</p>
-    {held.length>1 && <ChoiceCards compact legend={t('เลือกชิ้นที่จะขาย')} value={itemId} onChange={setPicked} disabled={disabled} options={held.map(i=>({value:i.id,title:inventoryLabel(game,i),art:i.image}))}/>}
-    {held.length>0 && <ChoiceCards compact legend={t('ราคาที่ขอ')} value={String(markup)} onChange={v=>setMarkup(Number(v))} disabled={disabled} options={wish.options.map(o=>({value:String(o.markup),title:`${t('{n} เครดิต',{n:o.price})}${o.markup?` (+${o.markup}%)`:''}`,detail:t('โอกาสตกลง {n}%',{n:o.chance})}))}/>}
-    <div className="actions"><button className="primary" disabled={disabled || !!why || !itemId} title={tip(disabled&&locked,why,!itemId&&t('ยังไม่มีสินค้าที่เลือกขายได้'))} onClick={()=>submit({type:'wish-sell',itemId,markup})}>{t('ขายให้พ่อค้า · {n} เครดิต · {chance}%',{n:copySaleQuote(game.self.inventory.find(i=>i.id===itemId)??{},option.price),chance:option.chance})}</button></div>
+    {held.length>1 && <ChoiceCards compact legend={t('เลือกชิ้นที่จะขาย')} value={itemId} onChange={setPicked} disabled={disabled} options={held.map(i=>({value:i.id,title:inventoryLabel(game,i),art:i.image,item:i}))}/>}
+    {held.length>0 && <ChoiceCards compact legend={t('ราคาที่ขอ')} value={String(markup)} onChange={v=>setMarkup(Number(v))} disabled={disabled} options={wish.options.map(o=>({value:String(o.markup),title:`${t('{n} เครดิต',{n:overpriced?0:quote(o)})}${o.markup && !overpriced?` (+${o.markup}%)`:''}`,detail:t('โอกาสตกลง {n}%',{n:o.chance})}))}/>}
+    <div className="actions"><button className="primary" disabled={disabled || !!why || !itemId} title={tip(disabled&&locked,why,!itemId&&t('ยังไม่มีสินค้าที่เลือกขายได้'))} onClick={()=>submit({type:'wish-sell',itemId,markup})}>{t('ขายให้พ่อค้า · {n} เครดิต · {chance}%',{n:overpriced?0:quote(option),chance:option.chance})}</button></div>
     {why && <p className="why" role="status">{why}</p>}
     <WishBook game={game} submit={submit} disabled={disabled}/></section>;
 }
@@ -213,8 +220,8 @@ export function AppraisalDesk({game,item,submit,disabled}:Actions&{item:ItemView
     {id:'buy',label:t('ซื้อ'),meta:t('{n} เครดิต',{n:item.price})},
   ];
   return <section className="desk" aria-label={t('ประเมิน {name}',{name})}>
-    <h2 className="desk-title">{name}</h2>
-    <div className="relic-art"><img src={item.image} alt={name} width="1254" height="1254"/></div>
+    <h2 className="desk-title">{name} <RarityLabel item={item}/></h2>
+    <div className="relic-art"><ItemVisual item={item} alt={name} loading="eager"/></div>
     <div className="desk-reading">
       {game.self.eventOffer && !disabled && <p className="blocked-note">{t('ตอบเหตุการณ์ก่อน ปุ่มบนโต๊ะนี้จึงจะกดได้')}</p>}
       <FactSeals item={item}/>
@@ -249,7 +256,7 @@ export function AppraisalDesk({game,item,submit,disabled}:Actions&{item:ItemView
       <ItemFacts item={item}/>
       {game.self.npcTrust && <p className="trust-note">{t('ความไว้ใจ {npc} {n}/{cap} · โอกาสยอมรับราคาต่ำกว่าปกติเพิ่ม {chance} จุดเปอร์เซ็นต์ · รวมผลของสะสมแล้ว · ความเสี่ยงจับผิดยังมีอยู่',{npc:npcName(item.npc),n:game.self.npcTrust[item.npc]??0,cap:TRUST_CAP,chance:npcAcceptanceChance(game,item.npc)})}</p>}
       {game.self.npcTrust && <p className="commission-note">{t('ของที่คุณประเมินขายได้: รับค่านายหน้า {rate}% ของราคาขายจริง (ปัดลง){fee} และความไว้ใจ +{trust} ต่อชิ้น · รับครั้งเดียว ไม่ซ้ำเมื่อขายต่อ',{rate:commissionRate(playerPassives(game)),fee:playerPassives(game).saleFee?t(' + ค่าดำเนินการ {n} เครดิต',{n:playerPassives(game).saleFee}):'',trust:1+playerPassives(game).trust})}</p>}
-      {game.passives && passiveSpec(item.kind) && <p className="trust-note">{t('ถือแล้วได้ผลสะสม: {text}',{text:passiveText(item.kind)})}</p>}
+      {game.passives && passiveSpec(item.kind) && <p className="trust-note">{t('ถือแล้วได้ผลสะสม: {text}',{text:passiveText(item.kind,game.itemEffects,item)})}</p>}
       <p className="item-effects">{t('เมื่อเปิดใช้:')} <Rich text={possibleBenefitText(game,item)} survival={!!game.survival}/><br/>{t('ความเสี่ยง:')} <Rich text={possibleDrawbackText(game,item)} survival={!!game.survival}/>{ITEM_SPECS[item.kind].consumable?t(' · ใช้แล้วหมดไป'):''}</p>
       </details>
     </div>
@@ -308,7 +315,7 @@ export function EventDecision({game,offer,submit,disabled,playerNames={}}:Action
         tone:c==='decline'?'quiet':consequence && dangerChoices.has(c)?'danger':undefined};})}/>
       {eventNeedsItem(offer,choice) && <ChoiceCards legend={offer.giveItemId?t('เลือกของในร้านที่จะได้'):t('เลือกสินค้า')} value={itemId} onChange={setItemId} disabled={disabled} options={choiceItems.map((id,index)=>{
         const seen=visible.find(i=>i.id===id);const kind=offer.targetKinds[id];
-        return {value:id,title:offer.npcTerms && seen?.owner===game.self.id?inventoryLabel(game,seen):eventItemName(offer,id),...(kind?{art:itemImage(kind)}:{}),
+        return {value:id,title:offer.npcTerms && seen?.owner===game.self.id?inventoryLabel(game,seen):eventItemName(offer,id),...(kind?{art:itemImage(kind),...(seen?{item:seen}:{})}:{}),
           detail:priced?t('รับ {n} เครดิต',{n:offer.quotedPrices[id]}):seen?(seen.owner===game.self.id?inventoryLabel(game,seen):t('ราคาร้าน {n} เครดิต',{n:seen.price})):t('รายการ {n}',{n:index+1})};
       })}/>}
       {offer.id==='E110' && loanItemCount(choice)>0 && <fieldset className="loan-selection" disabled={disabled}><legend>{t('เลือกของให้ยืม · {a}/{b} ชิ้น',{a:loanIds.length,b:loanItemCount(choice)})}</legend>
@@ -355,7 +362,7 @@ function AuctionLot({game,lot,submit,disabled}:Actions&{lot:NonNullable<Appraisa
   const settled=lot.winnerId!==undefined;
   const ceiling=Math.min(1000,game.self.credits);
   const step=(delta:number)=>setBid(String(Math.min(Math.max(lot.minimum,ceiling),Math.max(lot.minimum,(Number.isSafeInteger(amount)?amount:lot.minimum)+delta))));
-  return <li><img src={lot.item.image} alt="" width="1254" height="1254" loading="lazy"/><div><h3><ItemTerm kind={lot.item.kind} item={lot.item}/></h3><p className="lot-prize"><TicketIcon/>{t('ชนะรับตั๋วคำสั่งมืด 1 ใบ')}</p><p className="order-quote">{t('ขั้นต่ำ')} <strong><CoinIcon/>{t('{n} เครดิต',{n:lot.minimum})}</strong> · {t('ซองประมูล {n} ซอง',{n:lot.bidCount})}</p><FactSeals item={lot.item}/><details className="listing-more"><summary>{t('รายละเอียดของชิ้นนี้')}</summary><ItemFacts item={lot.item}/></details>
+  return <li><ItemVisual item={lot.item}/><div><h3><ItemTerm kind={lot.item.kind} item={lot.item}/></h3><p className="lot-prize"><TicketIcon/>{t('ชนะรับตั๋วคำสั่งมืด 1 ใบ')}</p><p className="order-quote">{t('ขั้นต่ำ')} <strong><CoinIcon/>{t('{n} เครดิต',{n:lot.minimum})}</strong> · {t('ซองประมูล {n} ซอง',{n:lot.bidCount})}</p><FactSeals item={lot.item}/><details className="listing-more"><summary>{t('รายละเอียดของชิ้นนี้')}</summary><ItemFacts item={lot.item}/></details>
     {settled?<p>{lot.winnerId===null?t('ไม่มีผู้ชนะ ของกลับเข้าคลัง'):lot.winnerId===game.self.id?t('คุณชนะประมูล จ่าย {n} เครดิต',{n:lot.price}):t('มีผู้ชนะประมูลที่ {n} เครดิต',{n:lot.price})}</p>:
     <form onSubmit={e=>{e.preventDefault();if(valid)submit({type:'bid',lotId:lot.id,credits:amount});}}>
       <label htmlFor={id}>{t('ราคาประมูลแบบปิดซอง (เครดิต)')}</label><div className="stepper"><button type="button" aria-label={t('ลดราคาประมูล 1 เครดิต')} disabled={disabled || valid && amount<=lot.minimum} title={tip(disabled&&locked,valid&&amount<=lot.minimum&&t('ราคาต้องไม่ต่ำกว่า {min} เครดิต และไม่เกิน {max} (เครดิตที่มี)',{min:lot.minimum,max:ceiling}))} onClick={()=>step(-1)}><MinusIcon/></button><input id={id} type="number" inputMode="numeric" min={lot.minimum} max="1000" step="1" value={bid} onChange={e=>setBid(e.target.value)} disabled={disabled}/><button type="button" aria-label={t('เพิ่มราคาประมูล 1 เครดิต')} disabled={disabled || valid && amount>=ceiling} title={tip(disabled&&locked,valid&&amount>=ceiling&&t('ราคาต้องไม่ต่ำกว่า {min} เครดิต และไม่เกิน {max} (เครดิตที่มี)',{min:lot.minimum,max:ceiling}))} onClick={()=>step(1)}><PlusIcon/></button></div>
@@ -377,7 +384,7 @@ export function Unsold({game,submit,disabled}:Actions) {
   return <section className="unsold" aria-labelledby="unsold-title"><h2 id="unsold-title">{t('ของที่คุณประเมินแล้วยังขายไม่ได้')} <span>{t('{n} ชิ้น',{n:items.length})}</span></h2>
     <details className="info-fold"><summary>{t('วิธีการ')}</summary><p>{t('พ่อค้าเชื่อราคาของคุณ ถ้าไม่มีใครซื้อ คุณต้องรับผิดชอบ จบช่วงต่อรองแล้วชิ้นที่ค้างจะรับบทลงโทษจากพ่อค้าโดยอัตโนมัติ')}{game.phase==='APPRAISAL'?t(' ยังเปิดให้ผู้เล่นอื่นซื้อในช่วงต่อรองได้'):''}</p></details>
     <ul>{items.map(item=>{const price=purchasePrice(game,[item],game.self.dealMode==='condition');const short=needShort(game,{credits:price,energy:purchaseEnergy(game)});return <li key={item.id}>
-      <figure className="pedestal"><img className="pedestal-item" src={item.image} alt="" width="1254" height="1254" loading="lazy"/><figcaption><ItemTerm kind={item.kind} item={item}/> · {t('คุณประเมินไว้ {n} เครดิต',{n:item.appraisal})}</figcaption></figure>
+      <figure className="pedestal"><ItemVisual className="pedestal-item" item={item}/><figcaption><ItemTerm kind={item.kind} item={item}/> · {t('คุณประเมินไว้ {n} เครดิต',{n:item.appraisal})}</figcaption></figure>
       <div className="option-cards">
         <div className="option-card"><img className="option-art" src="/art/ui/icon-coins.webp" alt="" width="256" height="256"/><div className="option-copy"><button disabled={blocked || !!needShort(game,{credits:price,energy:purchaseEnergy(game)})} title={tip(disabled&&locked,!!game.self.eventOffer&&t('ตอบเหตุการณ์ก่อน'),needShort(game,{credits:price,energy:purchaseEnergy(game)}))} onClick={()=>submit({type:'unsold',itemId:item.id,choice:'buy'})}><BuyIcon/>{t('ซื้อเอง · {n} เครดิต · {e}',{n:price,e:purchaseEnergy(game)===0?t('ไม่เสียพลัง'):t('{n} พลัง',{n:purchaseEnergy(game)})})}</button>{!blocked && short && <small className="why" role="status">{short}</small>}</div></div>
         <div className="option-card danger"><img className="option-art" src="/art/ui/icon-skull.webp" alt="" width="256" height="256"/><div className="option-copy"><button disabled={blocked} title={tip(disabled&&locked,t('ตอบเหตุการณ์ก่อน'))} onClick={()=>submit({type:'unsold',itemId:item.id,choice:'penalty'})}>{t('รับโทษจากพ่อค้า')}</button><small className="danger-text"><Rich text={unsoldPenaltyText(item)} survival={!!game.survival}/></small></div></div>
@@ -394,8 +401,8 @@ export function Inventory({game,submit,disabled,drawer=false}:Actions&{drawer?:b
   const Shell=drawer?'details':'section';
   return <Shell className={`inventory${drawer?' drawer':''}`} aria-labelledby="inventory-title">
     {drawer?<summary>{heading}</summary>:heading}
-    {!game.self.inventory.length?<p>{t('คลังยังว่าง ซื้อจากพ่อค้าหรือแลกกับเพื่อนเพื่อเริ่มสะสม')}</p>:<ul className="inventory-row">{game.self.inventory.map(i=><li key={i.id}><button className={`item-thumb ${i.id===selected?'selected':''}`} aria-pressed={i.id===selected} onClick={()=>setSelected(i.id===selected?null:i.id)}><Peek passive tone="item" label={<><img src={i.image} alt="" width="1254" height="1254" loading="lazy"/><span className="thumb-label">{inventoryLabel(game,i)}</span>{game.phase==='TRADE' && i.appraisal!==null && <span className="thumb-label">{t('ราคาประเมินล่าสุด')} · {t('{n} เครดิต',{n:i.appraisal})}</span>}</>} card={<ItemCard kind={i.kind} item={i}/>}/>{i.lockedUntil!==null && <span className="thumb-label">{t('ล็อกถึงจบช่วง {n}',{n:i.lockedUntil})}</span>}<span className="thumb-marks"><SealBadge game={game} item={i} passive compact/></span></button></li>)}</ul>}
-    {item && <div className="inventory-detail"><h3>{abilityItemLabel(item)}</h3>{item.copy && <p className="trust-note">{abilityCopyText(item)}</p>}{game.phase==='TRADE' && <AppraisalPrice item={item}/>}<ItemFacts item={item}/>{game.passives && passiveText(item.kind,game.itemEffects) && <p className="trust-note">{t('ขณะถือ · สะสมได้: {text}',{text:passiveText(item.kind,game.itemEffects)})}</p>}<p>{t('ผลที่เป็นไปได้:')} <Rich text={possibleBenefitText(game,item)} survival={!!game.survival}/> · <Rich text={possibleDrawbackText(game,item)} survival={!!game.survival}/></p>
+    {!game.self.inventory.length?<p>{t('คลังยังว่าง ซื้อจากพ่อค้าหรือแลกกับเพื่อนเพื่อเริ่มสะสม')}</p>:<ul className="inventory-row">{game.self.inventory.map(i=><li key={i.id}><button className={`item-thumb ${i.id===selected?'selected':''}`} aria-pressed={i.id===selected} onClick={()=>setSelected(i.id===selected?null:i.id)}><Peek passive tone="item" label={<><ItemVisual item={i}/><span className="thumb-label">{inventoryLabel(game,i)}</span>{game.phase==='TRADE' && i.appraisal!==null && <span className="thumb-label">{t('ราคาประเมินล่าสุด')} · {t('{n} เครดิต',{n:i.appraisal})}</span>}</>} card={<ItemCard kind={i.kind} item={i}/>}/>{i.lockedUntil!==null && <span className="thumb-label">{t('ล็อกถึงจบช่วง {n}',{n:i.lockedUntil})}</span>}<span className="thumb-marks"><SealBadge game={game} item={i} passive compact/></span></button></li>)}</ul>}
+    {item && <div className="inventory-detail"><h3>{abilityItemLabel(item)}</h3>{item.copy && <p className="trust-note">{abilityCopyText(item)}</p>}{game.phase==='TRADE' && <AppraisalPrice item={item}/>}<ItemFacts item={item}/>{game.passives && passiveText(item.kind,game.itemEffects,item) && <p className="trust-note">{t('ขณะถือ · สะสมได้: {text}',{text:passiveText(item.kind,game.itemEffects,item)})}</p>}<p>{t('ผลที่เป็นไปได้:')} <Rich text={possibleBenefitText(game,item)} survival={!!game.survival}/> · <Rich text={possibleDrawbackText(game,item)} survival={!!game.survival}/></p>
       {item.lockedUntil!==null && <p><StatusTerm id="D09" survival={!!game.survival}/>: {t('ขายหรือแลกไม่ได้จนจบช่วง {n} ยังเปิดใช้ได้',{n:item.lockedUntil})}</p>}
       {playing && <><Inspect game={game} item={item} submit={submit} disabled={disabled}/>
         <p>{ITEM_SPECS[item.kind].consumable?t('ใช้แล้วหมดไป'):t('เปิดใช้ได้ช่วงละครั้ง')} · {t('ถ้ายังไม่รู้ว่าแท้หรือมีคำสาป อาจโดนผลเสีย')}</p>
@@ -436,7 +443,7 @@ export function TradeListing({game,listing,room,submit,disabled}:Actions&{listin
   const name=room.matchSeats.find(s=>s.id===listing.ownerId)?.name??t('นักประเมิน');
   const itemTitle=abilityItemLabel(item);
   const sellerOff=!!(seller?.paused || seller?.done);const offerOff=disabled || sellerOff;
-  return <article className="trade-listing"><figure className="pedestal"><img className="pedestal-item" src={item.image} alt={itemTitle} width="1254" height="1254" loading="lazy"/></figure><div><h3>{itemTitle} · {name}</h3><p>{source==='npc'?t('ของในร้าน NPC · ต้องให้เจ้าของร้านอนุมัติ'):t('สินค้าของผู้เล่น · ราคาที่ต่ำไม่มีบทลงโทษจาก NPC')}</p><Provenance game={game} item={item} rebate={listing.rebate}/><FactSeals item={item}/><details className="listing-more"><summary>{t('รายละเอียดของชิ้นนี้')}</summary><AppraisalPrice item={item}/><ItemFacts item={item}/></details>
+  return <article className="trade-listing"><figure className="pedestal"><ItemVisual className="pedestal-item" item={item} alt={itemTitle}/></figure><div><h3>{itemTitle} · {name}</h3><p>{source==='npc'?t('ของในร้าน NPC · ต้องให้เจ้าของร้านอนุมัติ'):t('สินค้าของผู้เล่น · ราคาที่ต่ำไม่มีบทลงโทษจาก NPC')}</p><Provenance game={game} item={item} rebate={listing.rebate}/><FactSeals item={item}/><details className="listing-more"><summary>{t('รายละเอียดของชิ้นนี้')}</summary><AppraisalPrice item={item}/><ItemFacts item={item}/></details>
     {listing.purchase?<form onSubmit={e=>{e.preventDefault();if(valid)submit({type:'propose',sellerId:listing.ownerId,itemId:item.id,credits:price,...(swap?{swapItemId:swap}:{}),condition:useCondition,...(disputed?{challenge:disputed}:{}),...(seal?{sealId:seal.id}:{})});}}>
       {claimKeys.length>0 && <div className="claim-box"><h4>{t('ผู้ประเมินระบุว่า:')} {claimKeys.map(k=>claimText(k,claims![k]!)).join(' · ')}</h4>
         <ChoiceCards compact legend={t('ท้าทายคำระบุไหม')} value={disputed} onChange={setChallenge} disabled={disabled} options={[{value:'',title:t('เชื่อตามที่ระบุ'),tone:'quiet'},...claimKeys.map(k=>({value:k,title:t('ท้าทาย: {v}',{v:claimText(k,claims![k]!)})}))]}/>

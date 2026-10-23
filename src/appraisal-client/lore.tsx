@@ -1,3 +1,5 @@
+import { ItemVisual, RarityLabel } from './ItemVisual.js';
+import { itemEffectScale, integerEffect } from '../game/appraisal/copy-effects.js';
 import { ABILITY_ITEM_TEXT, MODERN_ACTIVATIONS } from '../game/appraisal/ability-content.js';
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
@@ -62,19 +64,21 @@ const knownText=(item:ItemView)=>{
 /** Price clues are item-specific knowledge; the kind alone never reveals a value range. */
 export function ItemCard({kind,item}:{kind:ItemKind;item?:ItemView|undefined}) {
   const spec=ITEM_SPECS[kind];const k=item?.knowledge;
+  const power=item?.rarityPower?itemEffectScale(item):1;
   const custom=ABILITY_ITEM_TEXT[kind as keyof typeof ABILITY_ITEM_TEXT]??(item?.trustAbilities?MODERN_ACTIVATIONS[kind as keyof typeof MODERN_ACTIVATIONS]:undefined);
-  const benefit=custom?pick(custom.th,custom.en):itemFamily(kind)==='orb'?t('ฟื้นพลัง {n}',{n:spec.energyRecovery??3}):statusName(spec.buff);
+  const benefit=custom?pick(custom.th,custom.en):itemFamily(kind)==='orb'?t('ฟื้นพลัง {n}',{n:integerEffect((spec.energyRecovery??3)*power)}):statusName(spec.buff);
   const tool=kind in CHALLENGE_TOOLS?toolText(kind,CHALLENGE_TOOLS[kind as keyof typeof CHALLENGE_TOOLS].text):kind in CLEANSE_TOOLS?toolText(kind,CLEANSE_TOOLS[kind as keyof typeof CLEANSE_TOOLS].text):'';
   return <>
-    <img src={itemImage(kind)} alt="" width="72" height="72"/>
+    {item?<ItemVisual item={item} width={72} height={72}/>:<img src={itemImage(kind)} alt="" width="72" height="72"/>}
     <span className="peek-text">
+      {item && <RarityLabel item={item}/>}
       <strong>{item?.copy?`${getLang()==='th'?'สำเนา':'Copy'} #${item.copy.number} ${getLang()==='th'?'ของ':'of'} ${itemName(kind)}`:itemName(kind)}</strong>{item?.copy && <span>{pick('effect เหลือ 40% · มูลค่าตามขั้นความไว้ใจ','40% effects · Value follows trust tier')}</span>}
       <span>{k?.base!==undefined?t('มูลค่าจริง {n} เครดิต',{n:k.base}):k?.range?t('เบาะแสมูลค่า {a}–{b} เครดิต',{a:k.range[0],b:k.range[1]}):t('ยังไม่มีข้อมูลมูลค่า · ต้องตรวจราคาสินค้าชิ้นนี้')}</span>
       {item && <span>{knownText(item)}</span>}
       {tool && <span>{kind in CHALLENGE_TOOLS?t('ท้าทายคำระบุ · {text}',{text:tool}):t('ล้างคำสาป · {text}',{text:tool})}</span>}
-      {passiveText(kind,item?.itemEffects) && <span>{item?.copy?pick('ค่าต้นฉบับขณะถือ: ','Original held effect: '):''}{t('ขณะถือ · สะสมได้: {text}',{text:passiveText(kind,item?.itemEffects)})}</span>}
+      {passiveText(kind,item?.itemEffects,item) && <span>{item?.copy&&!item.rarityPower?pick('ค่าต้นฉบับขณะถือ: ','Original held effect: '):''}{t('ขณะถือ · สะสมได้: {text}',{text:passiveText(kind,item?.itemEffects,item)})}</span>}
       <span>{t('เปิดใช้อาจได้ {benefit} · เสี่ยง {drawback}',{benefit,drawback:statusName(spec.drawback)})}{spec.consumable?t(' · ใช้แล้วหมด'):''}</span>
-      {item?.itemEffects && activationBonusText(kind) && <span>{item?.copy?pick('ค่าต้นฉบับ: ','Original strength: '):''}{t('เมื่อเปิดใช้สำเร็จ เพิ่มเติม: {text}',{text:activationBonusText(kind)})}</span>}
+      {item?.itemEffects && activationBonusText(kind,item) && <span>{item?.copy&&!item.rarityPower?pick('ค่าต้นฉบับ: ','Original strength: '):''}{t('เมื่อเปิดใช้สำเร็จ เพิ่มเติม: {text}',{text:activationBonusText(kind,item)})}</span>}
       {item?.itemEffects && spec.consumable && <span>{t('ของใช้แล้วหมด · เปิดใช้ฟรี ไม่เสียพลัง')}</span>}
     </span>
   </>;
@@ -118,7 +122,7 @@ export function Rich({text,survival=false,passive=false}:{text:string;survival?:
   return <>{parts}</>;
 }
 
-export interface ChoiceOption { value:string; title:ReactNode; detail?:ReactNode; art?:string; tone?:'quiet'|'danger'|undefined; disabled?:boolean|undefined }
+export interface ChoiceOption { value:string; title:ReactNode; detail?:ReactNode; art?:string; item?:ItemView; tone?:'quiet'|'danger'|undefined; disabled?:boolean|undefined }
 /** Selectable cards backed by native radios: keyboard arrows, labels and form semantics stay intact. */
 export function ChoiceCards({legend,options,value,onChange,disabled=false,compact=false,hideLegend=false}:{legend:string;options:ChoiceOption[];value:string;onChange:(value:string)=>void;disabled?:boolean;compact?:boolean;hideLegend?:boolean}) {
   const name=useId();
@@ -126,7 +130,7 @@ export function ChoiceCards({legend,options,value,onChange,disabled=false,compac
     <legend className={hideLegend?'sr-only':''}>{legend}</legend>
     <div className="choice-grid">{options.map(option=><label key={option.value} className={`choice-card${option.value===value?' selected':''}${option.tone?` ${option.tone}`:''}${option.art?' has-art':''}${option.disabled?' unavailable':''}`}>
       <input type="radio" name={name} value={option.value} checked={option.value===value} disabled={option.disabled} onChange={()=>onChange(option.value)}/>
-      {option.art && <img src={option.art} alt="" width="56" height="56"/>}
+      {option.item?<ItemVisual item={option.item} width={56} height={56}/>:option.art && <img src={option.art} alt="" width="56" height="56"/>}
       <span className="choice-text"><span className="choice-title">{option.title}</span>{option.detail && <span className="choice-detail">{option.detail}</span>}</span>
     </label>)}</div>
   </fieldset>;

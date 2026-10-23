@@ -13,7 +13,7 @@ function quote(state:AppraisalState,p:Appraiser,npc:NpcId,itemId:string,stoneKin
   const item=state.items[itemId]!;const trust=trustOf(p,npc);
   const heldItems=p.inventory.filter(id=>id!==itemId).map(id=>state.items[id]!);
   const held=heldItems.filter(i=>!i.copy).map(i=>i.kind);
-  const copyTools=heldItems.filter(i=>i.copy&&i.kind==='smith-hammer').reduce((sum,i)=>sum+10*itemEffectScale(i),0)+(stonePower-1)*(stoneKind==='whetstone'?20:0);
+  const copyTools=heldItems.filter(i=>i.kind==='smith-hammer').reduce((sum,i)=>sum+10*(itemEffectScale(i)-(i.copy?0:1)),0)+(stonePower-1)*(stoneKind==='whetstone'?20:0);
   // Polish: golden mouth takes 2 off the fee, hidden taxes add to it; the festival omen helps the odds.
   const fee=state.config.polish?feeSurcharge(state,p)-integerEffect(statusMagnitude(p,'B03',2)):0;
   const base=cleansePrice(item.kind,npc,trust,randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:cleanse-price`));

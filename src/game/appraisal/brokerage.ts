@@ -49,6 +49,8 @@ export function bondEligible(state:AppraisalState,p:Appraiser,id:EventId):boolea
   if(spec.mode==='sell' && freeBank(state)<Math.max(...held.map(itemId=>bondQuote(state,p,spec,itemId)))) return false;
   if(spec.energyCost && p.energy<spec.energyCost) return false;
   if(spec.cleanse==='debuffs' && !p.statuses.some(s=>s.id.startsWith('D'))) return false;
+  // Event choice rules 1: a showing that would change none of its statuses, or only half of a trade, is not offered.
+  if(state.config.eventChoiceRules===1 && spec.mode==='show' && [...(spec.buffs??[]),...(spec.debuffs??[])].some(s=>!!status(p,s))) return false;
   return true;
 }
 /** Item choices for the offer: shop items for swap/reveal, held items for sell/tribute, none for show. */

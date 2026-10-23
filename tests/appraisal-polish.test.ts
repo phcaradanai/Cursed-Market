@@ -160,12 +160,12 @@ test('E108 boon draft: three distinct buffs the seat does not hold, a different 
     assert.equal(offer.boons!.length,3);assert.equal(new Set(offer.boons).size,3);assert(offer.boons!.every(id=>id.startsWith('B') && id!=='B03'));drafts.add(offer.boons!.join());}
   assert(drafts.size>25,'drafts vary by seed');
   const s=table('boon-pick');const p=s.players[0]!;offerEvent(s,p,'E108');const offer=structuredClone(p.eventOffer!);const energy=p.energy,credits=p.credits;
-  assert.deepEqual(offer.choices,['pick','decline']);
+  assert.deepEqual(offer.choices,['pick'],'a free boon has no decline');
   assert.throws(()=>act(structuredClone(s),'alice',{type:'event',key:offer.key,choice:'pick',statusId:STATUS_IDS.find(id=>id.startsWith('B') && !offer.boons!.includes(id))!}),/พร/);
   assert.throws(()=>act(structuredClone(s),'alice',{type:'event',key:offer.key,choice:'pick'}),/พร/);
   const view=appraisalViewFor(s,'alice');const options=eventStatusOptions(view.self.eventOffer!,'pick');assert.deepEqual(options,offer.boons);
   const decision=eventDecision(view.self.eventOffer!,'pick',{itemId:'',statusId:options[1]!,fact:'',guess:true})!;
   const done=act(s,'alice',decision as Body).players[0]!;assert(status(done,options[1]!));assert.equal(done.credits,credits);assert.equal(done.energy,energy,'a boon is free');
-  const declined=act(structuredClone(s),'alice',{type:'event',key:offer.key,choice:'decline'}).players[0]!;assert.equal(declined.statuses.length,s.players[0]!.statuses.length);
+  assert.throws(()=>act(structuredClone(s),'alice',{type:'event',key:offer.key,choice:'decline'}),/ตัวเลือก/);
   const plain=table('boon-off');plain.config.polish=false;assert.equal(eventEligible(plain,plain.players[0]!,'E108'),false);
 });

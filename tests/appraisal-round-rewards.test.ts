@@ -1,4 +1,5 @@
 import test from 'node:test';
+import { dismissEvent } from './event-dismiss.js';
 import assert from 'node:assert/strict';
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -136,7 +137,7 @@ test('reward views show cashout, repeat play and explicit zero after loss with b
 });
 test('survival refills after each completed trading interval and can spend it at the next merchant before the match ends',()=>{
   let s=createAppraisalRun(['alice','bob'],'trade-interval-income',{survival:SURVIVAL_RULES,marketProbability:0,startingCredits:200});
-  const decline=(id:string)=>{while(s.players.find(p=>p.id===id)!.eventOffer){const offer=s.players.find(p=>p.id===id)!.eventOffer!;s=act(s,{type:'event',key:offer.key,choice:'decline'},id);}};
+  const decline=(id:string)=>{while(s.players.find(p=>p.id===id)!.eventOffer){const offer=s.players.find(p=>p.id===id)!.eventOffer!;s=act(s,{type:'event',key:offer.key,...dismissEvent(offer)},id);}};
   for(const encounter of [1,2]) {
     assert.equal(s.phase,'PORTALS');assert.equal(s.encounter,encounter);
     assert.equal(appraisalViewFor(s,'alice').roundRewardBase,encounter%2?10:15);

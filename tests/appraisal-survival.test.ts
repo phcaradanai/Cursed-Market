@@ -1,9 +1,11 @@
 import test from 'node:test';
+import { dismissEvent } from './event-dismiss.js';
 import assert from 'node:assert/strict';
 import {createElement} from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {readFileSync} from 'node:fs';
 import {advanceAppraisalEncounter,applyAppraisalAction,appraisalViewFor,assertAppraisalInvariants,createAppraisalRun,exportAppraisalAudit,replayAppraisalAudit,SURVIVAL_RULES} from '../src/game/appraisal/index.js';
+import {restoreAppraisalRun} from '../src/game/appraisal/engine.js';
 import {damageLife,grant,kill} from '../src/game/appraisal/mechanics.js';
 import {offerEvent} from '../src/game/appraisal/events.js';
 import type {AppraisalAction,AppraisalState,ItemKind} from '../src/game/appraisal/types.js';
@@ -170,7 +172,8 @@ test('F1 score effects are disclosed in D10 direct/cross-shop/E08 contracts and 
   html=renderToStaticMarkup(createElement(AppraisalDesk,{game,item,submit:()=>{},disabled:false}));assert(html.includes('ลดคะแนนรวม 20%'));
   s.phase='TRADE';s.listings=[{ownerId:peer.id,itemId:peer.stock[0]!,purchase:true}];peer.valuations[peer.stock[0]!]={value:20,accuracy:false,caught:false,accepted:true};
   game=appraisalViewFor(s,'alice');html=renderToStaticMarkup(createElement(TradeListing,{game,listing:game.listings[0]!,room:view(s),submit:()=>{},disabled:false}));assert(html.includes('ลดคะแนนรวม 20%'));
-  const portal=fixture();portal.players[0]!.offerSlots=0;portal.players[0]!.portals[1]!.npc='vampire';offerEvent(portal,portal.players[0]!,'E08');
+  // E08 only exists under the original event choices.
+  const portal=fixture();delete portal.config.eventChoiceRules;portal.players[0]!.offerSlots=0;portal.players[0]!.portals[1]!.npc='vampire';offerEvent(portal,portal.players[0]!,'E08');
   html=renderToStaticMarkup(createElement(EventDecision,{game:appraisalViewFor(portal,'alice'),offer:portal.players[0]!.eventOffer!,submit:()=>{},disabled:false}));assert(html.includes('ลดคะแนนรวม 20%'));
   for(const id of ['E23','E34','E39','E42','E41'] as const){
     const event=enter(fixture());const actor=event.players[0]!;actor.offerSlots=0;
@@ -184,14 +187,16 @@ test('F1 score effects are disclosed in D10 direct/cross-shop/E08 contracts and 
   html=renderToStaticMarkup(createElement(GameTable,{room:view(s),submit:()=>{},send:()=>true,disabled:false}));assert(html.includes('คนกลาง'));assert(!html.includes('เจรจาทวีคูณ'));
 });
 test('F2 command-only privacy: hidden wealth/accuracy stay private through appraisal, reveal, advance and spectator views',()=>{
-  const initial=createAppraisalRun(['a','b'],'history-review-7',{survival:SURVIVAL_RULES,catalogVersion:2});
+  // The seeded path below was recorded under the original event choices; this test is about privacy, not choices.
+  const legacy=structuredClone(createAppraisalRun(['a','b'],'history-review-7',{survival:SURVIVAL_RULES,catalogVersion:2}).config);delete legacy.eventChoiceRules;
+  const initial=restoreAppraisalRun(['a','b'],'history-review-7',legacy);
   let s=initial;
   for(const id of ['a','b']){
     const p=s.players.find(p=>p.id===id)!;
-    if(p.eventOffer)s=act(s,id,{type:'event',key:p.eventOffer.key,choice:'decline'});
+    if(p.eventOffer)s=act(s,id,{type:'event',key:p.eventOffer.key,...dismissEvent(p.eventOffer)});
     s=act(s,id,{type:'enter',portalId:s.players.find(p=>p.id===id)!.portals[0]!.id});
   }
-  for(const id of ['a','b']){const p=s.players.find(p=>p.id===id)!;if(p.eventOffer)s=act(s,id,{type:'event',key:p.eventOffer.key,choice:'decline'});}
+  for(const id of ['a','b']){const p=s.players.find(p=>p.id===id)!;if(p.eventOffer)s=act(s,id,{type:'event',key:p.eventOffer.key,...dismissEvent(p.eventOffer)});}
   const stock=s.players[0]!.stock[0]!;assert.equal(stock,'item-1-0-0-0');
   let accuracy=act(s,'a',{type:'appraise',itemId:stock,value:37,acceptDanger:true});assert.equal(accuracy.players[0]!.accuracyBonus,5);
   for(const id of ['a','b']){const projected=appraisalViewFor(accuracy,id);assert.equal(projected.self.accuracyBonus,0);assert.deepEqual(projected.history,[]);assert.equal(projected.collector,undefined);}

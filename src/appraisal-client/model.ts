@@ -141,7 +141,7 @@ export function eventNeeds(game:AppraisalView,offer:EventOffer,choice:string,ite
   if(choice==='decline') return none;
   if(offer.id==='E130')return {credits:3,energy:0};
   if(offer.id==='E132'&&choice==='survey')return {credits:0,energy:1};
-  if(isCore2Event(offer.id))return core2Needs(offer.id,choice);
+  if(isCore2Event(offer.id))return core2Needs(offer.id,choice,game.eventChoiceRules);
   if(offer.npcTerms)return {credits:offer.npcTerms.credits,energy:offer.npcTerms.energy+(choice==='give-energy'?2:0),life:offer.npcTerms.life};
   const mod=(n:number)=>Math.max(0,n+integerEffect(statusMagnitude(game.self,'D01',1))-integerEffect(statusMagnitude(game.self,'B05',1)));
   const item=game.self.stock.find(i=>i.id===itemId);
@@ -165,6 +165,7 @@ export function eventNeeds(game:AppraisalView,offer:EventOffer,choice:string,ite
     case 'E17': return {credits:2,energy:mod(0)};
     case 'E20': return {credits:0,energy:mod(2)};
     case 'E40': return choice==='repair'?{credits:0,energy:2}:none;
+    case 'E47': return game.eventChoiceRules===1?{credits:1,energy:0}:none;
     case 'E09': case 'E24': case 'E27': return item?{credits:purchasePrice(game,[item],deal,2),energy:purchaseEnergy(game)}:none;
     case 'E29': return item?{credits:purchasePrice(game,[item],deal,3),energy:purchaseEnergy(game)}:none;
     case 'E30': return item?{credits:purchasePrice(game,[item],deal,-2),energy:purchaseEnergy(game)}:none;
@@ -219,7 +220,7 @@ export function eventNeedsItem(offer:EventOffer,choice:string):boolean {
   if(isCore2Event(offer.id))return core2NeedsItem(offer.id,choice);
   if(offer.npcTerms)return choice!=='decline' && (offer.npcTerms.items>0 || choice==='give-item');
   const bond=bondOf(offer);if(bond) return choice!=='decline' && bond.mode!=='show';
-  return choice!=='decline' && (itemEvents.has(offer.id) || (offer.id==='E48' && choice==='item') || (offer.id==='E50' && choice==='surrender'));
+  return choice!=='decline' && (itemEvents.has(offer.id) || (offer.id==='E48' && choice==='item') || (offer.id==='E50' && choice==='surrender') || (offer.id==='E37' && choice==='drop') || (offer.id==='E40' && choice==='discard'));
 }
 export function eventStatusOptions(offer:EventOffer,choice:string):StatusId[] {
   if(choice==='decline') return [];
@@ -251,14 +252,14 @@ export function eventDecision(offer:EventOffer,choice:string,selection:{itemId:s
   return action;
 }
 export const replaceChoice=(choice:string)=>choice.startsWith('replace:')?choice.slice(8):null;
-const choiceNames:Record<string,string>={pick:'เลือกพรหนึ่งอย่าง',accept:'ตกลง',decline:'ไม่รับ',stay:'ยึดประตูเดิม',switch:'ใช้ประตูอื่น',pay:'จ่ายเครดิต',debt:'รับความกระหายโลหิต',interest:'รับดอกเบี้ยเงา',seal:'ยอมปิดประตูครั้งหน้า',cash:'เลือกพ่อค้ารับเครดิต',condition:'เลือกพ่อค้าลดราคาแลกเงื่อนไข',fog:'ยอมรับหมอกราคา',careful:'ตรวจอย่างระวัง',force:'ฝืนตรวจ',price:'เลือกตาเห็นราคา',curse:'เลือกอ่านคำสาป',discount:'รับรางวัลส่วนลด',risk:'รับรางวัลลดการจับผิด',burden:'ยอมรับอุปกรณ์หนัก',repair:'ซ่อมเครื่อง',energy:'เลือกผลต่อพลัง',cleanse:'ล้างความกระหายโลหิต',item:'ยอมเสียสินค้าที่เลือก',oath:'สาบานห้ามต่อรอง',surrender:'สละสินค้าเพื่อถอนสัญญา',die:'รับผลตายและพักช่วงนี้'};
+const choiceNames:Record<string,string>={drop:'ทิ้งของหนึ่งชิ้นให้พ่อค้า',discard:'ทิ้งเครื่องตรวจที่เสีย',endure:'ทนใช้เครื่องที่เพี้ยน',pick:'เลือกพรหนึ่งอย่าง',accept:'ตกลง',decline:'ไม่รับ',stay:'ยึดประตูเดิม',switch:'ใช้ประตูอื่น',pay:'จ่ายเครดิต',debt:'รับความกระหายโลหิต',interest:'รับดอกเบี้ยเงา',seal:'ยอมปิดประตูครั้งหน้า',cash:'เลือกพ่อค้ารับเครดิต',condition:'เลือกพ่อค้าลดราคาแลกเงื่อนไข',fog:'ยอมรับหมอกราคา',careful:'ตรวจอย่างระวัง',force:'ฝืนตรวจ',price:'เลือกตาเห็นราคา',curse:'เลือกอ่านคำสาป',discount:'รับรางวัลส่วนลด',risk:'รับรางวัลลดการจับผิด',burden:'ยอมรับอุปกรณ์หนัก',repair:'ซ่อมเครื่อง',energy:'เลือกผลต่อพลัง',cleanse:'ล้างความกระหายโลหิต',item:'ยอมเสียสินค้าที่เลือก',oath:'สาบานห้ามต่อรอง',surrender:'สละสินค้าเพื่อถอนสัญญา',die:'รับผลตายและพักช่วงนี้'};
 export const choiceName=(choice:string,survival=false)=>replaceChoice(choice)?t('แทนคำขอของ {name}',{name:npcName(replaceChoice(choice) as NpcId)??replaceChoice(choice)}):survival && choice==='die'?t('รับผลตายและเป็นผู้ชมจนจบ run'):t(choiceNames[choice]??choice);
 const eventChoiceNames:Partial<Record<string,Record<string,string>>>={E42:{energy:'ฟื้นพลัง 2'},E48:{energy:'เสียพลัง 2',pay:'จ่ายค่าปรับ 2 เครดิต'},E49:{pay:'จ่าย 2 เครดิตให้ลืม'},E03:{pay:'จ่าย 2 เครดิต',debt:'จ่ายด้วยเลือด'},E37:{pay:'จ้างคนแบก',burden:'แบกเอง'},E10:{pay:'จ่ายค่าผ่าน',fog:'ผ่านฟรีในหมอก',switch:'เลี่ยงไปประตูอื่น'}};
 /** Button and card title for one event choice; a few events name the same choice key differently. */
 export const choiceTitle=(offer:EventOffer,choice:string,survival=false)=>offer.id==='E130'&&choice==='wind'?pick('จ่าย 3 เครดิต เร่งสกิลที่รอนานสุด 1 รอบ','Pay 3 credits to accelerate your longest wait by 1'):offer.id==='E131'&&choice==='haste'?pick('เร่งสกิลครั้งถัดไป 1 รอบ','Next ability cooldown −1'):offer.id==='E131'&&choice==='credits'?pick('รับ 5 เครดิต แลก cooldown ครั้งถัดไป +2','Gain 5 credits; next ability cooldown +2'):offer.id==='E132'&&choice==='compass'?pick('สัตว์นำทางเพิ่มตัวเลือกครั้งถัดไป','Extra choice on your next Beast replacement'):offer.id==='E132'&&choice==='survey'?pick('จ่ายพลัง 1 ตรวจความแท้ของสินค้า','Spend 1 energy to inspect authenticity'):isCore2Event(offer.id)?core2Title(offer.id,choice):loanItemCount(choice)?t('ให้ยืม {n} ชิ้น',{n:loanItemCount(choice)}):t(({purge:'ล้างผลเสียของฉัน','send-debuff':'ส่งผลเสียสุ่มให้ผู้เล่นอื่น','give-item':'ส่งสินค้าหนึ่งชิ้น','give-energy':'จ่ายพลัง 2'} as Record<string,string>)[choice]??eventChoiceNames[offer.id]?.[choice]??choiceName(choice,survival));
 export function eventCost(game:AppraisalView,offer:EventOffer,choice:string,itemId:string):string {
   if(['E130','E131','E132'].includes(offer.id))return choice==='decline'?pick('ไม่เสียอะไร','No cost'):choice==='wind'?pick('จ่าย 3 เครดิต','Pay 3 credits'):choice==='survey'?pick('จ่ายพลัง 1','Spend 1 energy'):choice==='credits'?pick('รับ 5 เครดิต · ครั้งถัดไปรอนานขึ้น 2 รอบ','Gain 5 credits; next cooldown +2'):pick('ไม่จ่ายเครดิตหรือพลัง','No credit or energy cost');
-  if(isCore2Event(offer.id))return choice==='decline'?t('ไม่เสียอะไร'):core2Cost(offer.id,choice,!!game.survival);
+  if(isCore2Event(offer.id))return choice==='decline'?t('ไม่เสียอะไร'):core2Cost(offer.id,choice,!!game.survival,game.eventChoiceRules);
   if(offer.npcTerms && choice!=='decline'){
     const term=offer.npcTerms,n=loanItemCount(choice);
     if(n)return t('ของที่เลือก {n} ชิ้นออกจากคลังชั่วคราว · พบ Alien ตั้งแต่ช่วง {next} รับของคืน + {lo}–{hi} เครดิต และฟื้นพลังสูงสุด {rlo}–{rhi}',{n,next:game.encounter+2,lo:4*n,hi:8*n,rlo:n,rhi:2*n});
@@ -281,8 +282,8 @@ export function eventCost(game:AppraisalView,offer:EventOffer,choice:string,item
     const give=offer.giveItemId?eventItemName(offer,offer.giveItemId):'';
     if(bond.mode==='swap') return `${t('มอบ {give} · รับสินค้าที่เลือกฟรี · ไม่ใช้พลัง',{give})}${bond.genuineOnly?' · '+t('ของปลอมถูกปฏิเสธและรับ {s}',{s:statusName('D10')}):''}${bond.risk?` · ${t('เสี่ยง {p}% ถูกจับได้และรับ {s}',{p:bond.risk*100,s:statusName('D03')})}`:''}`;
     if(bond.mode==='sell') return t('ขายของที่เลือก รับ {n} เครดิต',{n:offer.quotedPrices[itemId]??0});
-    if(bond.mode==='reveal') return bond.energyCost?t('{n} พลัง · ไม่ใช้สิทธิ์ตรวจ',{n:bond.energyCost}):t('ไม่ใช้พลังหรือสิทธิ์ตรวจ');
-    return bond.mode==='tribute'?t('มอบของที่เลือกให้ NPC'):t('ไม่ต้องสละของ');
+    if(bond.mode==='reveal') return bond.energyCost?t('{n} พลัง · ไม่ใช้สิทธิ์ตรวจ',{n:bond.energyCost}):game.eventChoiceRules===1?t('ของขวัญจากพ่อค้า · ไม่ใช้พลังหรือสิทธิ์ตรวจ · ไม่นับเป็นเหตุการณ์ของช่วงนี้'):t('ไม่ใช้พลังหรือสิทธิ์ตรวจ');
+    return bond.mode==='tribute'?t('มอบของที่เลือกให้ NPC'):game.eventChoiceRules===1 && !bond.debuffs?.length?t('ของขวัญจากพ่อค้า · ไม่ต้องสละของ · ไม่นับเป็นเหตุการณ์ของช่วงนี้'):t('ไม่ต้องสละของ');
   }
   const energy=(n:number)=>t('{n} พลัง · ใช้สิทธิ์ตรวจ 1 ครั้ง',{n:Math.max(0,n+integerEffect(statusMagnitude(game.self,'D01',1))-integerEffect(statusMagnitude(game.self,'B05',1)))});
   const item=game.self.stock.find(i=>i.id===itemId);
@@ -315,8 +316,9 @@ export function eventCost(game:AppraisalView,offer:EventOffer,choice:string,item
   if(offer.id==='E11') return `${energy(choice==='careful'?2:1)}${choice==='force'?t(' · รับอ่อนล้า'):''}`;
   if(offer.id==='E12') return `${t('1 เครดิต')} · ${energy(0)}`;
   if(offer.id==='E21') return `${t('ซื้อทั้งคู่ {n} เครดิต · {e}',{n:purchasePrice(game,game.self.stock.slice(0,2),game.self.dealMode==='condition',2),e:purchaseEnergy(game)===0?t('ไม่เสียพลัง'):t('{n} พลัง',{n:purchaseEnergy(game)})})}${game.self.dealMode==='condition' && game.self.stock[0]?` · ${t('รับ {s}',{s:statusName(game.self.stock[0].condition.statusId)})}`:''}`;
-  if(offer.id==='E37') return choice==='pay'?t('2 เครดิต'):t('รับอุปกรณ์หนัก');
-  if(offer.id==='E40') return choice==='repair'?t('2 พลัง'):t('รับหมอกราคา');
+  if(offer.id==='E37') return choice==='pay'?t('2 เครดิต'):choice==='drop'?t('เสียสินค้าที่เลือก 1 ชิ้น'):t('รับอุปกรณ์หนัก');
+  if(offer.id==='E40') return game.eventChoiceRules===1?(choice==='repair'?t('2 พลัง · เครื่องกลับมาใช้ได้'):choice==='discard'?t('เสียเครื่องตรวจที่เลือก · ไม่ติดหมอกราคา'):t('รับหมอกราคา · เก็บเครื่องไว้')):choice==='repair'?t('2 พลัง'):t('รับหมอกราคา');
+  if(offer.id==='E47' && game.eventChoiceRules===1) return t('1 เครดิต · รู้ข้อมูลที่ผู้ประเมินคนนั้นตรวจไว้หนึ่งด้าน');
   if(offer.id==='E42') return choice==='energy'?t('ฟื้นพลังได้สูงสุด 2'):t('ล้างกระหายโลหิต');
   if(offer.id==='E44') return t('ขายของที่เลือก รับ {n} เครดิต',{n:offer.quotedPrices[itemId]??0});
   if(offer.id==='E48') return choice==='pay'?t('2 เครดิต'):choice==='item'?t('เสียสินค้าที่เลือก · ประกันทรัพย์อาจป้องกัน'):t('เสียพลังไม่เกิน 2');
@@ -326,8 +328,12 @@ export function eventCost(game:AppraisalView,offer:EventOffer,choice:string,item
 }
 export function eventItemName(offer:EventOffer,id:string):string { const kind=offer.targetKinds[id];return kind?itemName(kind):t('สินค้าในผลตรวจเดิม'); }
 export function inventoryLabel(game:AppraisalView,item:ItemView):string {return t('คลัง #{n} {name}',{n:game.self.inventory.findIndex(i=>i.id===item.id)+1,name:item.copy?`${getLang()==='th'?'สำเนา':'Copy'} #${item.copy.number} ${getLang()==='th'?'ของ':'of'} ${itemName(item.kind)}`:itemName(item.kind)});}
+/** What timing out picks for an event without a decline under event choice rules 1 (mirrors REWORKED_DEFAULT in events.ts). */
+const REWORKED_DEFAULT_TEXT:Record<string,string>={E01:'ประตูแรกจะถูกปิด',E10:'ประตูแรกจะถูกปิด',E37:'รับอุปกรณ์หนัก',E40:'รับหมอกราคา',E43:'รับเงินอุดหนุน',E108:'รับพรใบแรก',E131:'เร่งสกิลครั้งถัดไป',E132:'รับทิศทางแปรผัน'};
 export function defaultConsequence(offer:EventOffer|null):string|null {
   if(!offer || offer.choices.includes('decline')) return null;
+  if(REWORKED_DEFAULT_TEXT[offer.id] && !isConsequence(offer.id))return t('หากจบช่วงหรือหมดเวลา จะเลือก: {title}',{title:t(REWORKED_DEFAULT_TEXT[offer.id]!)});
+  if(bondOf(offer) || ['E42'].includes(offer.id))return t('หากจบช่วงหรือหมดเวลา จะรับตัวเลือกแรกให้อัตโนมัติ');
   if(isCore2Event(offer.id))return t('หากจบช่วงหรือหมดเวลา จะเลือก: {title}',{title:core2Title(offer.id,offer.choices[0]!)});
   return offer.choices.includes('pay')?t('หากจบช่วงหรือหมดเวลา จะจ่ายค่าปรับ 2 เครดิต'):offer.choices.includes('oath')?t('หากจบช่วงหรือหมดเวลา จะรับสาบานห้ามต่อรอง'):offer.choices.includes('die')?t('หากจบช่วงหรือหมดเวลา จะรับผลตายตามสัญญา Dark One'):offer.choices.includes('energy')?t('หากจบช่วงหรือหมดเวลา จะเสียพลังไม่เกิน 2'):t('หากจบช่วงหรือหมดเวลา จะเสียสินค้าชิ้นแรก');
 }

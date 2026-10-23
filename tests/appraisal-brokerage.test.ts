@@ -1,9 +1,10 @@
 import test from 'node:test';
+import { dismissEvent } from './event-dismiss.js';
 import assert from 'node:assert/strict';
 import { advanceAppraisalEncounter, applyAppraisalAction, appraisalViewFor, assertAppraisalInvariants, BROKERAGE_RULES, createAppraisalRun, SURVIVAL_RULES } from '../src/game/appraisal/index.js';
 import { BOND_SPECS, ITEM_SPECS, UNSOLD_PENALTIES } from '../src/game/appraisal/content.js';
 import { auctionLots, settleAuction } from '../src/game/appraisal/brokerage.js';
-import { eventEligible, offerEvent } from '../src/game/appraisal/events.js';
+import { isBondGift, eventEligible, offerEvent } from '../src/game/appraisal/events.js';
 import { grant, reward, spend, status } from '../src/game/appraisal/mechanics.js';
 import { BOND_EVENT_IDS, EVENT_IDS } from '../src/game/appraisal/types.js';
 import type { AppraisalAction, AppraisalConfig, AppraisalState, ItemKind, NpcId } from '../src/game/appraisal/types.js';
@@ -45,7 +46,7 @@ test('brokerage is opt-in: default runs keep 50 random events, no vault and the 
     assert.throws(()=>createAppraisalRun(['alice','bob'],'bad',{brokerage:bad as NonNullable<AppraisalConfig['brokerage']>}));
 });
 
-for(const spec of BOND_SPECS) test(`${spec.id} ${spec.npc}: held item opens the offer, accept applies its effect, decline is free`, () => {
+for(const spec of BOND_SPECS) test(`${spec.id} ${spec.npc}: held item opens the offer, accept applies its effect, decline is free (gifts have no decline)`, () => {
   const setup=()=>{
     const state=brokerFixture(spec.npc);const p=state.players[0]!;
     if(spec.known==='cursed') for(const id of p.inventory) p.knowledge[id]={cursed:true};
@@ -57,12 +58,16 @@ for(const spec of BOND_SPECS) test(`${spec.id} ${spec.npc}: held item opens the 
   const declined=setup();const before=structuredClone(declined.players[0]!);
   assert.equal(eventEligible(declined,declined.players[0]!,spec.id),true);
   offerEvent(declined,declined.players[0]!,spec.id);
-  const afterDecline=act(declined,'alice',{type:'event',key:declined.players[0]!.eventOffer!.key,choice:'decline'}).players[0]!;
-  assert.equal(afterDecline.credits,before.credits);assert.deepEqual(afterDecline.inventory,before.inventory);assert.equal(afterDecline.energy,before.energy);
+  // A gift only gives, so event choice rules 1 offer it as one button: there is nothing to decline.
+  if(isBondGift(spec.id)) assert.deepEqual(declined.players[0]!.eventOffer!.choices,['accept']);
+  else {
+    const afterDecline=act(declined,'alice',{type:'event',key:declined.players[0]!.eventOffer!.key,choice:'decline'}).players[0]!;
+    assert.equal(afterDecline.credits,before.credits);assert.deepEqual(afterDecline.inventory,before.inventory);assert.equal(afterDecline.energy,before.energy);
+  }
 
   let state=setup();const p0=structuredClone(state.players[0]!);
   offerEvent(state,state.players[0]!,spec.id);const offer=structuredClone(state.players[0]!.eventOffer!);
-  assert.equal(offer.choices.includes('decline'),true);
+  assert.equal(offer.choices.includes('decline'),!isBondGift(spec.id));
   if(spec.mode==='swap') assert(offer.giveItemId && p0.inventory.includes(offer.giveItemId));
   const itemId=offer.itemIds[0];
   state=act(state,'alice',{type:'event',key:offer.key,choice:'accept',...(itemId?{itemId}:{})});const p=state.players[0]!;
@@ -200,7 +205,7 @@ test('room service with brokerage: timeouts settle an unsold appraisal and the a
   rooms.receive(host,{type:'create',name:'host'});rooms.receive(peer,{type:'join',name:'peer',roomCode:room().code});
   rooms.receive(host,{type:'ready',ready:true});rooms.receive(peer,{type:'ready',ready:true});rooms.receive(host,{type:'start'});
   let n=0;const send=(action:Record<string,unknown>)=>rooms.receive(host,{type:'action',matchId:room().matchId!,action:{...action,requestId:`host-${++n}`,encounter:room().game!.encounter}} as never);
-  const clearEvent=()=>{const offer=room().game!.self.eventOffer;if(offer?.choices.includes('decline'))send({type:'event',key:offer.key,choice:'decline'});};
+  const clearEvent=()=>{const offer=room().game!.self.eventOffer;if(offer)send({type:'event',key:offer.key,...dismissEvent(offer)});};
   clearEvent();assert.equal(room().game!.brokerage,true);
   send({type:'enter',portalId:room().game!.self.portals.find(p=>!p.disabled)!.id});
   for(let i=0;i<3 && room().game!.phase!=='APPRAISAL';i++){now+=1000;rooms.tick();}

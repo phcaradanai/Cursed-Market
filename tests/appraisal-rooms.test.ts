@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { dismissEvent } from './event-dismiss.js';
 import test from 'node:test';
 import { createAppraisalRun, replayAppraisalAudit } from '../src/game/appraisal/index.js';
 import type { AppraisalConfig, AppraisalState } from '../src/game/appraisal/types.js';
@@ -32,7 +33,7 @@ function setup(count = 3, config: Partial<AppraisalConfig> = {}) {
   const act = (client: Client, body: Omit<AppraisalSeatAction, 'requestId' | 'encounter'> | Record<string, unknown>, requestId = `room-${++request}`) => {
     rooms.receive(client, { type: 'action', matchId: client.room.matchId, action: { ...body, requestId, encounter: client.room.game!.encounter } });
   };
-  const decline = (client: Client) => { const offer = client.room.game!.self.eventOffer; if (offer) act(client, { type: 'event', key: offer.key, choice: 'decline' }); };
+  const decline = (client: Client) => { const offer = client.room.game!.self.eventOffer; if (offer) act(client, { type: 'event', key: offer.key, ...dismissEvent(offer) }); };
   const portals = () => { for (const c of clients) { decline(c); act(c, { type: 'enter', portalId: c.room.game!.self.portals.find(p => !p.disabled)!.id }); } assert.equal(clients[0]!.room.game!.phase, 'APPRAISAL'); for (const c of clients) decline(c); };
   const endPhase = () => { const phase = clients[0]!.room.game!.phase; for (const c of clients) if (c.room.game!.phase === phase && !c.room.game!.self.done && !c.room.game!.self.paused) act(c, { type: 'done' }); };
   return { rooms, clients, act, decline, portals, endPhase, tick: () => { now += 11; rooms.tick(); }, late: () => { now += 11; }, now: () => now };
@@ -153,7 +154,8 @@ test('v0.4 P2P zero-price approval is atomic, has no NPC punishment and duplicat
   const before = structuredClone(s.rooms.state(seller.room.code)); s.act(seller, { type: 'respond', offerId: offer.id, accept: true }, 'approval');
   const revision = seller.room.game!.revision; s.act(seller, { type: 'respond', offerId: offer.id, accept: true }, 'approval'); assert.equal(seller.room.game!.revision, revision);
   const after = s.rooms.state(seller.room.code); assert.equal(after.items[item.id]!.owner, buyer.room.yourSeatId);
-  assert.deepEqual(after.players.map(p => p.credits), before.players.map(p => p.credits)); assert.equal(after.trace.filter(t => t.type === 'npc-caught').length, 0);
+  // A seat holding the middleman subsidy (E43, which can no longer be declined) earns its 1 credit from the bank.
+  assert.deepEqual(after.players.map(p => p.credits), before.players.map(p => p.credits + (p.subsidy && [offer.buyerId, offer.sellerId].includes(p.id) ? 1 : 0))); assert.equal(after.trace.filter(t => t.type === 'npc-caught').length, 0);
   assert.equal(after.players.reduce((n, p) => n + p.inventory.filter(id => id === item.id).length, 0), 1);
 });
 test('v0.4 stale event keys reject without mutation even inside the same encounter', () => {

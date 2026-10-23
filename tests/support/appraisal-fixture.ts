@@ -5,6 +5,8 @@ import type { AppraisalState, EventId, ItemKind, NpcId } from '../../src/game/ap
 
 export function appraisalFixture(id:EventId='E18',count=2):AppraisalState {
   const state=createAppraisalRun(['alice','bob','cara'].slice(0,count),'fixture',{marketProbability:0,catalogVersion:2,freeMerchantAction:false});
+  // E08 only exists under the original event choices (rule 1 never offers it), so its fixture keeps those rules.
+  if(id==='E08') delete state.config.eventChoiceRules;
   const p=state.players[0]!,peer=state.players[1]!;
   for(const seat of state.players) {seat.eventOffer=null;seat.done=false;seat.offerSlots=0;reward(state,seat,160,'test-fixture');}
   state.phase=['E01','E08','E10'].includes(id)?'PORTALS':['E43','E44','E45','E47'].includes(id)?'TRADE':'APPRAISAL';
@@ -27,6 +29,8 @@ export function appraisalFixture(id:EventId='E18',count=2):AppraisalState {
   if(id==='E14') state.trace.push({type:'market-sale',encounter:0,playerId:p.id,details:{itemId:p.stock[0]!,price:17}});
   if(['E48','E49','E50'].includes(id)) {p.caught=true;p.acceptedDanger=true;}
   peer.valuations[peer.stock[0]!]={value:12,accuracy:false,caught:false,accepted:true};state.items[peer.stock[0]!]!.lastAppraisal=12;
+  // What the peer checked is what E47 can sell from their ledger.
+  if(id==='E47') peer.knowledge[peer.stock[0]!]={cursed:state.items[peer.stock[0]!]!.cursed};
   state.listings.push({ownerId:peer.id,itemId:peer.stock[0]!,purchase:true});
   if(state.phase==='PORTALS') p.stock=[];
   assertAppraisalInvariants(state);return state;

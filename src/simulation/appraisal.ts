@@ -14,8 +14,8 @@ function buyPrice(v:AppraisalView,item:ItemView):number {return Math.max(0,item.
 function eventAction(v:AppraisalView,policy:AppraisalPolicy):Body {
   const offer=v.self.eventOffer!;const p=v.self;
   if(['E130','E131','E132'].includes(offer.id)){
-    const choice=policy==='cautious'?'decline':offer.id==='E130'?(p.credits>=3?'wind':'decline'):offer.id==='E131'?'haste':'compass';
-    return {type:'event',key:offer.key,choice};
+    const wanted=policy==='cautious'?'decline':offer.id==='E130'?(p.credits>=3?'wind':'decline'):offer.id==='E131'?'haste':'compass';
+    return {type:'event',key:offer.key,choice:offer.choices.includes(wanted)?wanted:offer.choices[0]!};
   }
   if(/^E1(1[7-9]|2\d)$/.test(offer.id)) {
     // v0.6 events: penalties are paid in the cheapest listed currency, optional ones only when the bot has spare resources.
@@ -53,6 +53,8 @@ function eventAction(v:AppraisalView,policy:AppraisalPolicy):Body {
     if(!target || p.credits<buyPrice(v,target)-discount || p.energy<npcEnergy(v)) choice='decline';
   }
   if(offer.id==='E21' && choice==='accept' && (p.stock.length<2 || p.credits<p.stock.reduce((sum,i)=>sum+i.price,0)-2 || p.energy<npcEnergy(v))) choice='decline';
+  // Events without a decline (gifts and mishaps under event choice rules 1) take the first listed option.
+  if(!offer.choices.includes(choice)) choice=offer.choices.find(c=>c!=='decline')??offer.choices[0]!;
   const proof=itemId?offer.facts[itemId]:undefined;
   const fact=proof?.base!==undefined?'base':proof?.genuine!==undefined?'genuine':proof?.cursed!==undefined?'cursed':undefined;
   return {type:'event',key:offer.key,choice,...(itemId?{itemId}:{}),...(statusId?{statusId}:{}),...(fact?{fact}:{}),...(offer.id==='E46'?{guess:true}:{})};

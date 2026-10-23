@@ -1,4 +1,5 @@
 import test from 'node:test';
+import { dismissEvent } from './event-dismiss.js';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
@@ -195,12 +196,12 @@ test('new seeded runs exercise abilities and events through DTO-only bots and re
 });
 
 
-test('offered time events remain freely declinable after shared funds change, including done default',()=>{
+test('offered time events never trap the seat after shared funds change: they lapse, including the done default',()=>{
   for(const done of [false,true]){
     let s=fixture();const p=s.players[0]!;p.offerSlots=0;offerEvent(s,p,'E131');
     reward(s,s.players[1]!,s.bank-s.market.budget-s.reservedRewards-4,'test-bank-drain');
     assert.equal(eventEligible(s,p,'E131'),false);
-    s=done?act(s,{type:'done'}):act(s,{type:'event',key:p.eventOffer!.key,choice:'decline'});
+    s=done?act(s,{type:'done'}):act(s,{type:'event',key:p.eventOffer!.key,...dismissEvent(p.eventOffer!)});
     assert.equal(s.players[0]!.eventOffer,null);assertAppraisalInvariants(s);
   }
 });

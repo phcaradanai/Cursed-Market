@@ -1,4 +1,5 @@
 import test from 'node:test';
+import { dismissEvent } from './event-dismiss.js';
 import assert from 'node:assert/strict';
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -131,9 +132,9 @@ test('a naturally acquired consumable can be used for free and replayed with ide
   }
   assert(s);
   const act=(id:string,body:Record<string,unknown>)=>{s=applyAppraisalAction(s!,{...body,playerId:id,requestId:`replay-effects-${++sequence}`,encounter:s!.encounter} as Parameters<typeof applyAppraisalAction>[1]);};
-  for(const id of ['alice','bob']){const offer=s.players.find(p=>p.id===id)!.eventOffer;if(offer)act(id,{type:'event',key:offer.key,choice:'decline'});}
+  for(const id of ['alice','bob']){const offer=s.players.find(p=>p.id===id)!.eventOffer;if(offer)act(id,{type:'event',key:offer.key,...dismissEvent(offer)});}
   for(const id of ['alice','bob']){const p=s.players.find(p=>p.id===id)!;const portal=p.portals.find(p=>!p.disabled && (id==='bob'||p.stock.includes(target)))!;act(id,{type:'enter',portalId:portal.id});}
-  for(const id of ['alice','bob']){const offer=s.players.find(p=>p.id===id)!.eventOffer;if(offer)act(id,{type:'event',key:offer.key,choice:'decline'});}
+  for(const id of ['alice','bob']){const offer=s.players.find(p=>p.id===id)!.eventOffer;if(offer)act(id,{type:'event',key:offer.key,...dismissEvent(offer)});}
   act('alice',{type:'buy',itemIds:[target],condition:false});const before=s.players[0]!.energy;act('alice',{type:'activate',itemId:target});
   assert.equal(s.players[0]!.energy,before);
   for(let n=0;n<50 && s.phase!=='RESULTS';n++) {

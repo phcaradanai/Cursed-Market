@@ -44,6 +44,8 @@ export interface AppraisalConfig {
   loanEndSettlement?:boolean;
   /** Survival only. Absent in saved audits: the run ends only when every life is gone. Otherwise the Collector arrives after this encounter settles, whoever is still alive. */
   collectorDeadline?:number;
+  /** Absent in saved audits: keep the original event choices. 1 removes pointless decline buttons, turns E37/E40 into mishaps you handle, reprices E119/E121/E127 and gives E47 an effect. */
+  eventChoiceRules?:1;
   /** Absent in historical runs: keep original skills, catalogs and RNG pools exactly. */
   trustAbilities?:boolean;
   /** Absent in saved audits: preserve historical item effects and activation costs. */
@@ -321,6 +323,7 @@ export interface AppraisalView {
   trustAbilities?:boolean;
   itemEffects?:boolean;
   version: 4 | 5; phase: AppraisalPhase; encounter: number; encounterCount: number | null; revision: number;
+  eventChoiceRules?:1;
   survival?:NonNullable<AppraisalConfig['survival']>; core2?:boolean; collectorAt?:number; dread?:number; curseSight?:boolean; freeBuy?:boolean; fakeEffect?:boolean; cleanse?:boolean; wishlist?:boolean; wishContract?:boolean; challenge?:boolean; polish?:boolean; omen?:{id:string;name:string;text:string}; salePct?:number; fee?:number; maxEnergy?:number; collector?:CollectorResult[]; brokerage?:boolean; roundRewardBase?:number; passives?:boolean;
   self: Omit<Appraiser,'personalVault'|'knowledge'|'portals'|'stock'|'inventory'|'valuations'|'startWealth'|'acceptedDanger'|'seenEvents'|'resolvedEvents'> & {
     personalVault?:{items:ItemView[];credits:number;slots:number;nextSlotPrice:number;nextInterest:number};

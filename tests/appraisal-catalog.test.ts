@@ -1,4 +1,5 @@
 import { rarityValue } from '../src/shared/rarity-power.js';
+import { dismissEvent } from './event-dismiss.js';
 import { passiveSpec } from '../src/game/appraisal/passives.js';
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
@@ -16,7 +17,7 @@ type Body=AppraisalAction extends infer A ? A extends AppraisalAction ? Omit<A,'
 function driver(initial:AppraisalState) {
   let state=initial,request=0;
   const act=(playerId:string,body:Body)=>{state=applyAppraisalAction(state,{...body,playerId,requestId:`catalog-${++request}`,encounter:state.encounter} as AppraisalAction);};
-  const decline=(id:string)=>{const offer=state.players.find(p=>p.id===id)!.eventOffer;if(offer)act(id,{type:'event',key:offer.key,choice:'decline'});};
+  const decline=(id:string)=>{const offer=state.players.find(p=>p.id===id)!.eventOffer;if(offer)act(id,{type:'event',key:offer.key,...dismissEvent(offer)});};
   const finish=()=>{
     for(let i=0;state.phase!=='RESULTS' && i<100;i++) {
       if(state.phase==='REVEAL')state=advanceAppraisalEncounter(state);

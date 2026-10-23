@@ -1,4 +1,5 @@
 import { appraisalFixture as fixture } from './support/appraisal-fixture.js';
+import { dismissEvent } from './event-dismiss.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { advanceAppraisalEncounter, applyAppraisalAction, appraisalViewFor, assertAppraisalInvariants, createAppraisalRun, exportAppraisalAudit, replayAppraisalAudit } from '../src/game/appraisal/index.js';
@@ -56,8 +57,10 @@ for(const id of EVENT_IDS) test(`${id}: eligible offer resolves its actual choic
   assert.equal(eventEligible(empty,ep,id),false,id);
   assert.throws(()=>offerEvent(empty,ep,id));assert(offer?.choices.length);
 });
-for(const id of EVENT_IDS.filter(id=>Number(id.slice(1))<48)) test(`${id}: decline does not charge or transfer goods`,()=>{
+for(const id of EVENT_IDS.filter(id=>Number(id.slice(1))<48)) test(`${id}: decline does not charge or transfer goods (or there is no decline)`,()=>{
   let state=fixture(id);offerEvent(state,state.players[0]!,id);const p=state.players[0]!;
+  // Event choice rules 1 drop the decline from gifts, mishaps and portal choices whose decline duplicated another option.
+  if(!p.eventOffer!.choices.includes('decline')) {assert(['E01','E10','E37','E40','E42','E43'].includes(id),id);return;}
   const before={credits:p.credits,energy:p.energy,inventory:structuredClone(p.inventory),statuses:structuredClone(p.statuses)};
   state=act(state,'alice',{type:'event',choice:'decline'});
   const after=state.players[0]!;assert.deepEqual({credits:after.credits,energy:after.energy,inventory:after.inventory,statuses:after.statuses},before);
@@ -131,7 +134,7 @@ function playRun(count:number,seed:string):AppraisalState {
     const p=state.players.find(s=>!s.paused && !s.done)!;assert(p,'active seat or automatic phase progress');
     if(p.eventOffer) {
       const choices=p.eventOffer.choices;const choice=choices.includes('decline')?'decline':choices.includes('pay')?'pay':choices.includes('oath')?'oath':choices.includes('die')?'die':choices.includes('energy')?'energy':'item';
-      state=act(state,p.id,{type:'event',choice,...(choice==='item'?{itemId:p.inventory[0]!}:{})});
+      state=act(state,p.id,choices.includes(choice)?{type:'event',choice,...(choice==='item'?{itemId:p.inventory[0]!}:{})}:{type:'event',...dismissEvent(p.eventOffer)});
     } else if(state.phase==='PORTALS') state=act(state,p.id,{type:'enter',portalId:p.portals.find(v=>!v.disabled)!.id});
     else if(state.phase==='APPRAISAL') {
       const itemId=p.stock.find(id=>!p.valuations[id]);
@@ -163,7 +166,7 @@ test('alternative event choices carry their exact costs, protections and penalti
     {id:'E03',choice:'debt',status:'D10',energy:8},{id:'E06',choice:'seal',status:'D07',removed:'D01'},
     {id:'E10',choice:'fog',status:'D02'},{id:'E11',choice:'force',status:'D01',energy:6},
     {id:'E15',choice:'curse',status:'B02'},{id:'E18',choice:'risk',status:'B04'},
-    {id:'E37',choice:'burden',status:'D06'},{id:'E40',choice:'fog',status:'D02'},
+    {id:'E37',choice:'burden',status:'D06'},{id:'E40',choice:'endure',status:'D02'},
     {id:'E42',choice:'cleanse',removed:'D10'},{id:'E49',choice:'oath',status:'D08'},
   ];
   for(const example of cases) {

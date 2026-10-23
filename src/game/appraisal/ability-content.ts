@@ -18,8 +18,8 @@ export const ABILITY_STATUS_CATALOG:ReadonlyArray<{id:StatusId;name:string;descr
 ];
 export const ABILITY_EVENT_CATALOG:ReadonlyArray<{id:EventId;name:string;when:string;description:string}>=[
   {id:'E130',name:'ช่างไขลานหลงมิติ',when:'มีสกิลที่ยังรออยู่',description:'จ่าย 3 เครดิต ลดเวลารอที่เหลือของสกิลที่รอนานที่สุด 1 รอบ หรือผ่าน'},
-  {id:'E131',name:'ตลาดซื้อขายเวลา',when:'มีพ่อค้าที่ไว้ใจอย่างน้อยหนึ่งราย',description:'เลือกเร่งสกิลครั้งถัดไป 1 รอบ หรือรับ 5 เครดิตแลก cooldown ครั้งถัดไปเพิ่ม 2 รอบ หรือผ่าน'},
-  {id:'E132',name:'ทางแยกของฝูง',when:'มีสินค้าจากพ่อค้าที่ไว้ใจ',description:'เลือกรับทิศทางแปรผันเพื่อเพิ่มตัวเลือกสัตว์นำทาง หรือใช้พลัง 1 เปิดความแท้ของสินค้าในร้านหนึ่งชิ้น หรือผ่าน'},
+  {id:'E131',name:'ตลาดซื้อขายเวลา',when:'มีพ่อค้าที่ไว้ใจอย่างน้อยหนึ่งราย',description:'เลือกเร่งสกิลครั้งถัดไป 1 รอบ หรือรับ 5 เครดิตแลก cooldown ครั้งถัดไปเพิ่ม 2 รอบ'},
+  {id:'E132',name:'ทางแยกของฝูง',when:'มีสินค้าจากพ่อค้าที่ไว้ใจ',description:'เลือกรับทิศทางแปรผันเพื่อเพิ่มตัวเลือกสัตว์นำทาง หรือใช้พลัง 1 เปิดความแท้ของสินค้าในร้านหนึ่งชิ้น'},
 ];
 
 /** New-run replacements for the three mechanically identical legacy pairs. */

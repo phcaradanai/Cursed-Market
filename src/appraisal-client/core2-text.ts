@@ -1,4 +1,4 @@
-import { FALLBACK_BRAND, core2Spec } from '../game/appraisal/core2-specs.js';
+import { FALLBACK_BRAND, core2Choices, core2Spec } from '../game/appraisal/core2-specs.js';
 import type { Core2Choice } from '../game/appraisal/core2-specs.js';
 import type { EventId } from '../game/appraisal/types.js';
 import { statusName } from './catalog-text.js';
@@ -18,16 +18,16 @@ const TITLES:Partial<Record<EventId,Record<string,string>>>={
 export const isCore2Event=(id:string)=>!!core2Spec(id as EventId);
 export const isCore2Consequence=(id:string)=>!!core2Spec(id as EventId)?.consequence;
 /** The choice's price list, or undefined for ids the table does not know. */
-export function core2Choice(id:string,choice:string):Core2Choice|undefined {
-  return choice===FALLBACK_BRAND.id?FALLBACK_BRAND:core2Spec(id as EventId)?.choices.find(c=>c.id===choice);
+export function core2Choice(id:string,choice:string,rules?:number):Core2Choice|undefined {
+  return choice===FALLBACK_BRAND.id?FALLBACK_BRAND:core2Choices(id as EventId,rules).find(c=>c.id===choice);
 }
 export const core2NeedsItem=(id:string,choice:string)=>!!core2Choice(id,choice)?.lose;
 export const core2Title=(id:string,choice:string)=>t(TITLES[id as EventId]?.[choice]??COMMON[choice]??choice);
-export const core2Needs=(id:string,choice:string):{credits:number;energy:number;life:number}=>{
-  const c=core2Choice(id,choice);return {credits:c?.credits??0,energy:c?.energy??0,life:c?.life??0};
+export const core2Needs=(id:string,choice:string,rules?:number):{credits:number;energy:number;life:number}=>{
+  const c=core2Choice(id,choice,rules);return {credits:c?.credits??0,energy:c?.energy??0,life:c?.life??0};
 };
-export function core2Cost(id:string,choice:string,survival:boolean):string {
-  const c=core2Choice(id,choice);if(!c)return '';
+export function core2Cost(id:string,choice:string,survival:boolean,rules?:number):string {
+  const c=core2Choice(id,choice,rules);if(!c)return '';
   return [
     c.credits?(c.toVictim?t('{n} เครดิต ให้ผู้ที่ถูกล้วง',{n:c.credits}):t('{n} เครดิต',{n:c.credits})):'',
     c.energy?t('{n} พลัง',{n:c.energy}):'',

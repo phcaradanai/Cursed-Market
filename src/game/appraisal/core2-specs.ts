@@ -42,6 +42,17 @@ export const CORE2_SPECS:Partial<Record<EventId,Core2EventSpec>>={
   E129:{id:'E129',name:'เงาสะท้อนผู้ประเมิน',when:'ระหว่างประเมิน',phase:'APPRAISAL',description:'เงาของคุณเสนอให้ประเมินได้ปลอดภัยขึ้น หรือรับตรานักโกงแลกเสียงกระซิบ',choices:[
     {id:'steady',energy:1,grant:['B04']},{id:'whisper',grant:['D03','B12']},{id:'decline'}]},
 };
+/**
+ * Event choice rules 1: a fine paid later must cost more than one paid now, and a loan must cost more than it lends.
+ * Saved runs without the rule keep the original table above.
+ */
+export const CORE2_CHOICES_V2:Partial<Record<EventId,Core2Choice[]>>={
+  E119:[{id:'pay',credits:2,door:'first'},{id:'interest',credits:1,grant:['D04'],door:'first'},{id:'switch',energy:2,door:'second'}],
+  E121:[{id:'pay',credits:3},{id:'tax',grant:['D18','D12']},{id:'blood',life:1}],
+  E127:[{id:'borrow',reward:3,grant:['D04','D18']},{id:'decline'}],
+};
+/** The choices a run plays with: the reworked ones under event choice rules 1, else the original table. */
+export const core2Choices=(id:EventId,rules?:number):Core2Choice[]=>(rules===1?CORE2_CHOICES_V2[id]:undefined)??CORE2_SPECS[id]?.choices??[];
 /** Penalties always keep one way out: when nothing is affordable, the seat takes a brand. */
 export const FALLBACK_BRAND:Core2Choice={id:'brand',grant:['D03','D18']};
 export const core2Spec=(id:EventId)=>CORE2_SPECS[id];

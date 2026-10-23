@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { dismissEvent } from './event-dismiss.js';
 import { EventEmitter, once } from 'node:events';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -52,7 +53,7 @@ async function setup(count: number, rooms: AppraisalRoomService = new AppraisalR
     await c.until(() => c.room!.game!.revision > before ? true : undefined);
     const revision = c.room!.game!.revision; await Promise.all(clients.filter(p => p.socket.readyState === WebSocket.OPEN).map(p => p.until(() => p.room!.game!.revision >= revision ? true : undefined)));
   }
-  async function decline(c: SocketClient) { const offer = c.room!.game!.self.eventOffer; if (offer) await act(c, { type: 'event', key: offer.key, choice: 'decline' }); }
+  async function decline(c: SocketClient) { const offer = c.room!.game!.self.eventOffer; if (offer) await act(c, { type: 'event', key: offer.key, ...dismissEvent(offer) }); }
   async function enter() {
     for (const c of clients) { await decline(c); await act(c, { type: 'enter', portalId: c.room!.game!.self.portals.find(p => !p.disabled)!.id }); }
     await Promise.all(clients.map(c => c.phase('APPRAISAL', 1))); for (const c of clients) await decline(c);
@@ -186,7 +187,8 @@ test('v0.4 actual zero-price player trade is private, atomic and repeat approval
   seller.send({ type: 'action', matchId: seller.room!.matchId!, action: { type: 'respond', offerId: offer.id, accept: true, requestId: 'approve', encounter: 1 } });
   await seller.until(() => seller.messages.filter(m => m.type === 'ack' && m.requestId === 'approve').length === 2 ? true : undefined);
   const state = rooms.state(seller.room!.code); assert.equal(state.revision, revision); assert.equal(state.items[item.id]!.owner, buyer.room!.yourSeatId);
-  assert.deepEqual(state.players.map(p => p.credits), before.players.map(p => p.credits)); assert.equal(state.trace.filter(t => t.type === 'npc-caught').length, 0);
+  // A seat holding the middleman subsidy (E43, which can no longer be declined) earns its 1 credit from the bank.
+  assert.deepEqual(state.players.map(p => p.credits), before.players.map(p => p.credits + (p.subsidy && [offer.buyerId, offer.sellerId].includes(p.id) ? 1 : 0))); assert.equal(state.trace.filter(t => t.type === 'npc-caught').length, 0);
 });
 test('v0.4 actual all-exhausted seats show rest then return next encounter', async t => {
   let now = 1000; const rooms = new TestRooms(() => now, { maxEnergy: 1, recoveryEnergy: 1, freeMerchantAction:false }, { REVEAL: 10 });

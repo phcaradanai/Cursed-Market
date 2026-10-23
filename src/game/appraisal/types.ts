@@ -40,6 +40,10 @@ export interface AppraisalConfig {
   rarity?:import('../../shared/item-rarity.js').RarityConfig;
   /** Absent in saved audits: preserve the original theft, custody and pricing rules. */
   secureEconomy?:boolean;
+  /** Absent in saved audits: active loans stay open when the match ends. New runs foreclose them so the lender keeps the collateral. */
+  loanEndSettlement?:boolean;
+  /** Survival only. Absent in saved audits: the run ends only when every life is gone. Otherwise the Collector arrives after this encounter settles, whoever is still alive. */
+  collectorDeadline?:number;
   /** Absent in historical runs: keep original skills, catalogs and RNG pools exactly. */
   trustAbilities?:boolean;
   /** Absent in saved audits: preserve historical item effects and activation costs. */
@@ -236,6 +240,8 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
   | {type:'theft-hand';duelId:string;hand:import('./theft.js').RpsHand}
   /** Internal timer command; never accepted by the client message parser. */
   | {type:'theft-timeout'}
+  /** Internal duel clock: cancels one open duel and keeps the phase going. Never accepted by the client message parser. */
+  | {type:'theft-expire';duelId:string}
   | {type:'crime-clear'}
   | {type:'reappraise-owned';itemId:string;value:number}
   | {type:'liquidate';itemId:string}

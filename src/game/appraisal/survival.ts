@@ -9,11 +9,14 @@ import type { AppraisalConfig, AppraisalState, CollectorResult } from './types.j
 export const SURVIVAL_RULES:NonNullable<AppraisalConfig['survival']>={maxLife:6,encounterLifeCost:1,entryEnergyCost:0};
 /** Experimental numbers for unsold-appraisal duty, vault auctions and NPC × held-item events. */
 export const BROKERAGE_RULES:NonNullable<AppraisalConfig['brokerage']>={auctionProbability:.5,maxLots:2,bondProbability:.65};
+/** The Collector arrives once the deadline encounter settles, whoever is still alive. */
+export const collectorDue=(state:AppraisalState):boolean=>!!state.config.survival && state.config.collectorDeadline!==undefined && state.encounter>=state.config.collectorDeadline;
 export function collectRun(state:AppraisalState):void {
-  check(state.config.survival && state.players.every(p=>p.life===0),'collector','Collector รับของเมื่อทุกคนชีวิตหมดเท่านั้น');
+  check(state.config.survival && (state.players.every(p=>p.life===0) || collectorDue(state)),'collector','Collector รับของเมื่อทุกคนชีวิตหมดหรือถึงช่วงที่ Collector มาเท่านั้น');
   check(!state.collector,'collector','Collector คิดคะแนนแล้ว');
   closeNpcContracts(state);
-  if(state.config.secureEconomy){state.phase='REVEAL';settleLoansBeforeAdvance(state);}
+  // Saved audits keep the original settlement; new runs close every active loan at the end.
+  if(state.config.secureEconomy){if(state.config.loanEndSettlement)settleLoansBeforeAdvance(state,true);else {state.phase='REVEAL';settleLoansBeforeAdvance(state);}}
   const results:CollectorResult[]=state.players.map(p=>{
     const items=ownedAssetItemIds(state,p).map(id=>{const item=state.items[id]!;const certified=!!item.appraisedBy && item.appraisedBy!==p.id;return {id,kind:item.kind,base:item.base,genuine:item.genuine,cursed:item.cursed,value:itemScoreValue(item.base,item.genuine,item.cursed,certified),...(certified?{certified}:{})};});
     const itemValue=items.reduce((sum,item)=>sum+item.value,0);

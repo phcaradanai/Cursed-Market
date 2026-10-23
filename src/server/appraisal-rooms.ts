@@ -14,12 +14,38 @@ type Seat = LifecycleSeat<AppraisalServerMessage>;
 export const APPRAISAL_PHASE_MS: Record<Exclude<AppraisalPhase, 'RESULTS'>, number> = {
   PORTALS: 30000, APPRAISAL: 90000, TRADE: 45000, REVEAL: 30000,
 };
-/** Replenished income can keep a bot alive indefinitely, so survival bots stop spending after this encounter and the run can end. */
+/** Replenished income can keep a bot alive indefinitely. Runs without a Collector deadline retire survival bots after this encounter so the run can end. */
 const BOT_RETIRE_ENCOUNTER = 12;
+/** Each duel round must get both hands within this time, timed room or not, or the duel is cancelled. */
+export const APPRAISAL_DUEL_MS = 30000;
 export class AppraisalRoomService extends RoomLifecycle<AppraisalState, AppraisalClientMessage, AppraisalServerMessage> {
   private readonly durations: typeof APPRAISAL_PHASE_MS;
-  constructor(now: () => number = Date.now, durations: Partial<typeof APPRAISAL_PHASE_MS> = {}, idleMs = 30 * 60 * 1000, private readonly runConfig:Partial<AppraisalConfig> = {}) {
+  /** Per room: `${duelId}:${round}` -> server time the round is cancelled. Server-only, never part of the replayable run. */
+  private readonly duelClocks = new WeakMap<Room, Map<string, number>>();
+  constructor(now: () => number = Date.now, durations: Partial<typeof APPRAISAL_PHASE_MS> = {}, idleMs = 30 * 60 * 1000, private readonly runConfig:Partial<AppraisalConfig> = {}, private readonly duelMs = APPRAISAL_DUEL_MS) {
     super(now, idleMs); this.durations = { ...APPRAISAL_PHASE_MS, ...durations };
+  }
+  /** Start a clock for every open duel round and forget closed ones; a draw starts a fresh round clock. */
+  private duelDeadlines(room: Room): Map<string, number> {
+    const previous = this.duelClocks.get(room) ?? new Map<string, number>(); const next = new Map<string, number>();
+    for (const duel of room.game?.theftDuels ?? []) if (duel.status === 'open') {
+      const key = `${duel.id}:${duel.round}`; next.set(key, previous.get(key) ?? this.now() + this.duelMs);
+    }
+    this.duelClocks.set(room, next); return next;
+  }
+  protected override sweep(room: Room, now: number): boolean {
+    let changed = false;
+    for (const [key, deadline] of this.duelDeadlines(room)) {
+      if (now < deadline || !room.game) continue;
+      const duel = room.game.theftDuels?.find(d => d.status === 'open' && `${d.id}:${d.round}` === key);
+      if (!duel) continue;
+      const previous = room.game;
+      try { room.game = applyAppraisalAction(previous, { type: 'theft-expire', duelId: duel.id, playerId: duel.thiefId, requestId: `duel_${room.matchId}_${duel.id}_${duel.round}`, encounter: previous.encounter }); }
+      catch (error) { console.error(error); continue; /* the phase timer or the next action settles it */ }
+      this.phaseChanged(room, previous); changed = true;
+    }
+    if (changed) this.duelDeadlines(room);
+    return changed;
   }
   protected parse(value: unknown): AppraisalClientMessage { return parseAppraisalMessage(value); }
   /** The server's configured mode is only the lobby default; the host can switch before the match starts. */
@@ -122,7 +148,7 @@ export class AppraisalRoomService extends RoomLifecycle<AppraisalState, Appraisa
       });
       if (!bots.length) return;
       const humansActive = current.players.some(p => !p.paused && !p.done && (!current.config.survival || p.life !== 0) && !room.seats.find(s => s.id === p.id)?.bot);
-      const turn = appraisalBotTurn(current, bots, { humansActive, retired: !!current.config.survival && current.encounter > BOT_RETIRE_ENCOUNTER });
+      const turn = appraisalBotTurn(current, bots, { humansActive, retired: !!current.config.survival && current.config.collectorDeadline === undefined && current.encounter > BOT_RETIRE_ENCOUNTER });
       if (!turn) return;
       const previous: AppraisalState = current;
       const attempt = (body: object): AppraisalState => applyAppraisalAction(previous, { ...body, playerId: turn.id, requestId: `bot-${++this.botSeq}`, encounter: previous.encounter } as AppraisalAction);
@@ -148,12 +174,16 @@ export class AppraisalRoomService extends RoomLifecycle<AppraisalState, Appraisa
     }
   }
   protected broadcast(room: Room): void {
+    const clocks = this.duelDeadlines(room);
     for (const seat of room.seats) if (seat.peer) {
+      const game = room.game ? appraisalViewFor(room.game, seat.id) : null;
+      const duelDeadlines = Object.fromEntries((game?.theft?.duels ?? []).filter(d => d.status === 'open' && clocks.has(`${d.id}:${d.round}`)).map(d => [d.id, clocks.get(`${d.id}:${d.round}`)!]));
       const view: AppraisalRoomView = { rulesVersion: '0.5', mode: this.modeOf(room), code: room.code, hostId: room.hostId, yourSeatId: seat.id,
         seats: room.seats.map(s => ({ id: s.id, name: s.name, ready: s.ready, connected: s.connected, ...(s.bot ? { bot: s.bot as AppraisalBotPolicy } : {}) })), matchSeats: structuredClone(room.matchSeats),
         playtestMode: room.playtestMode, matchId: room.matchId, deadline: room.deadline, serverTime: this.now(), revealReady: [...room.revealReady],
         timerSettings:this.timerSettings(room),
-        game: room.game ? appraisalViewFor(room.game, seat.id) : null };
+        ...(Object.keys(duelDeadlines).length ? { duelDeadlines } : {}),
+        game };
       seat.peer.send({ type: 'state', room: view });
     }
   }

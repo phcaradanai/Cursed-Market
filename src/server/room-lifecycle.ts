@@ -133,10 +133,13 @@ export abstract class RoomLifecycle<G extends { phase: string }, C extends { typ
     const now = this.now();
     for (const room of this.rooms.values()) {
       if (room.seats.every(s => !s.connected || s.bot) && now - room.lastActivity > this.idleMs) { this.rooms.delete(room.code); continue; }
+      if (room.game && this.sweep(room, now)) { this.afterChange(room); this.broadcast(room); }
       if (!room.game || room.deadline === null || now < room.deadline) continue;
       this.timeout(room, now); this.afterChange(room); this.broadcast(room);
     }
   }
+  /** Clocks shorter than a phase, checked every tick even in untimed rooms. Returns true when the game changed. */
+  protected sweep(_room: LifecycleRoom<G, M>, _now: number): boolean { return false; }
   /** Hook after any state change, before the broadcast; rules versions with bot seats play them here. */
   protected afterChange(_room: LifecycleRoom<G, M>): void {}
   /** Everyone must ready up again; bot seats are always ready. */

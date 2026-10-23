@@ -167,16 +167,20 @@ export function handleLoanAction(state:AppraisalState,p:Appraiser,action:LoanAct
   }
   trace(state,p,action.type,{loanId:loan.id});
 }
-/** Call after the last REVEAL repayment opportunity, before advancing. */
-export function settleLoansBeforeAdvance(state:AppraisalState):void {
+/**
+ * Call after the last REVEAL repayment opportunity, before advancing.
+ * `final` is the end of the match: every active loan is foreclosed as if due, so no borrower keeps both the principal and the collateral.
+ */
+export function settleLoansBeforeAdvance(state:AppraisalState,final=false):void {
   if(!state.config.secureEconomy)return;
   for(const loan of state.loans??[]){
     const borrower=player(state,loan.borrowerId),lender=player(state,loan.lenderId);
     const dead=borrower.paused==='dead' || borrower.life===0;
-    if(loan.status==='active' && state.phase==='REVEAL' && state.encounter>=loan.dueAt){
+    if(loan.status==='active' && (final || state.phase==='REVEAL' && state.encounter>=loan.dueAt)){
+      const due=state.encounter>=loan.dueAt;
       returnCollateral(state,loan,lender);loan.status='foreclosed';loan.settledAt=state.encounter;
-      trace(state,borrower,'secured-loan-foreclosed',{loanId:loan.id,lenderId:lender.id,reason:'deadline'});
-    }else if((loan.status==='proposed' || loan.status==='countered') && (dead || lender.paused==='dead' || lender.life===0)){
+      trace(state,borrower,'secured-loan-foreclosed',{loanId:loan.id,lenderId:lender.id,reason:due?'deadline':'match-end'});
+    }else if((loan.status==='proposed' || loan.status==='countered') && (final || dead || lender.paused==='dead' || lender.life===0)){
       loan.status='cancelled';loan.settledAt=state.encounter;
     }
   }

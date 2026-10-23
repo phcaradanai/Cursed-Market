@@ -176,6 +176,18 @@ export function cancelTheftDuels(state: AppraisalState): void {
   }
 }
 
+/** A duel nobody finished in time is cancelled like a moved target: the attempt and its energy stay spent, and no penalty applies. */
+export function expireTheftDuel(state: AppraisalState, p: Appraiser, duelId: string): void {
+  const duel = (state as TheftState).theftDuels?.find(d => d.id === duelId);
+  check(duel && duel.status === 'open' && [duel.thiefId,duel.victimId].includes(p.id),'theft-duel','ไม่มีการเป่ายิ้งฉุบที่หมดเวลา');
+  duel.status = 'cancelled'; duel.hands = {};
+  for(const id of [duel.thiefId,duel.victimId]) {
+    const seat = id ? state.players.find(v => v.id === id) : undefined;
+    if(seat)note(seat,'เป่ายิ้งฉุบหมดเวลา การขโมยครั้งนี้ถูกยกเลิก');
+  }
+  trace(state,p,'theft-expired',{duelId:duel.id,round:duel.round});
+}
+
 /** Defeat in a PvP duel: one seal for the victim and a per-victim cooldown. Draws and cancellations never reach this. */
 function playerFailure(state: AppraisalState, thief: Appraiser, duel: TheftDuel): void {
   const victimId = duel.victimId!;

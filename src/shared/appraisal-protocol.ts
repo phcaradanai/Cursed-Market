@@ -35,6 +35,8 @@ export interface AppraisalRoomView extends Omit<RoomView, 'rulesVersion' | 'game
   /** One live rules version; classic vs survival is the room's `mode`. */
   rulesVersion: '0.5'; mode: AppraisalMode; game: AppraisalView | null;
   timerSettings?:AppraisalTimerSettings;
+  /** Server time when each of this seat's open theft duels is cancelled for want of a hand; runs even in untimed rooms. */
+  duelDeadlines?:Record<string,number>;
 }
 /** Room metadata wraps the deterministic audit; the engine audit stays byte-for-byte replayable. */
 export interface AppraisalMatchAudit {

@@ -227,9 +227,9 @@ export function simulateAppraisalRun(count:number,policy:AppraisalPolicy,seed:st
     const active=state.players.map((player,index)=>({player,index})).filter(({player})=>!player.paused && !player.done)
       .sort((x,y)=>((x.index-cursor+count)%count)-((y.index-cursor+count)%count));
     if(!active.length) throw new Error('No active seat before automatic phase completion');
-    // Replenished income can sustain life indefinitely. Retire synthetic seats after
-    // twelve encounters so a replay test remains bounded; live play has no such cap.
-    const turnChoice=appraisalBotTurn(state,active.map(({player})=>({id:player.id,policy})),{retired:!!state.config.survival && state.encounter>12})??{id:active[0]!.player.id,body:{type:'done'} as Body};
+    // Replenished income can sustain life indefinitely. Runs without a Collector deadline
+    // retire synthetic seats after twelve encounters so a replay test remains bounded.
+    const turnChoice=appraisalBotTurn(state,active.map(({player})=>({id:player.id,policy})),{retired:!!state.config.survival && state.config.collectorDeadline===undefined && state.encounter>12})??{id:active[0]!.player.id,body:{type:'done'} as Body};
     const chosen=active.find(({player})=>player.id===turnChoice.id)!;cursor=(chosen.index+1)%count;const p=chosen.player;const body=turnChoice.body;
     state=applyAppraisalAction(state,{...body,playerId:p.id,requestId:`sim-${turn}`,encounter:state.encounter} as AppraisalAction);
   }

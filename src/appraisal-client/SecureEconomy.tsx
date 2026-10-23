@@ -1,5 +1,5 @@
 import { ItemVisual } from './ItemVisual.js';
-import {useId,useState} from 'react';
+import {useEffect,useId,useState} from 'react';
 import type {Actions} from './components.js';
 import type {AppraisalView,ItemView} from '../game/appraisal/types.js';
 import type {RpsHand} from '../game/appraisal/theft.js';
@@ -7,6 +7,18 @@ import {itemLabel,npcName} from './catalog-text.js';
 import {pick} from './i18n.js';
 
 type Props=Actions & {playerNames?:Record<string,string>};
+/** Seconds left on a server clock, corrected for the gap between this device and the server. */
+function DuelClock({deadline,serverTime}:{deadline:number;serverTime:number}) {
+  // serverTime was stamped when the state left the server, so it doubles as the clock offset.
+  const left=(offset:number)=>Math.max(0,Math.ceil((deadline-Date.now()-offset)/1000));
+  const [remaining,setRemaining]=useState(()=>left(serverTime-Date.now()));
+  useEffect(()=>{
+    const offset=serverTime-Date.now();
+    const update=()=>setRemaining(left(offset));
+    update();const timer=setInterval(update,250);return()=>clearInterval(timer);
+  },[deadline,serverTime]);
+  return <p className="why" role="timer">{pick(`ส่งมือภายใน ${remaining} วินาที ไม่เช่นนั้นการดวลถูกยกเลิก`,`Play a hand within ${remaining}s or the duel is cancelled`)}</p>;
+}
 const hands:RpsHand[]=['rock','paper','scissors'];
 const handName=(hand:RpsHand)=>hand==='rock'?pick('ค้อน','Rock'):hand==='paper'?pick('กระดาษ','Paper'):pick('กรรไกร','Scissors');
 const positive=(value:number)=>Number.isSafeInteger(value)&&value>0;
@@ -21,7 +33,7 @@ function Amount({label,value,onChange,min=1,max,disabled=false}:{label:string;va
   return <label className="secure-amount" htmlFor={id}><span>{label}</span><input id={id} type="number" inputMode="numeric" min={min} max={max} step="1" value={value} onChange={event=>onChange(event.target.value)} disabled={disabled}/></label>;
 }
 
-export function TheftPanel({game,submit,disabled,playerNames={}}:Props) {
+export function TheftPanel({game,submit,disabled,playerNames={},deadlines={},serverTime=Date.now()}:Props & {deadlines?:Record<string,number>|undefined;serverTime?:number}) {
   if(!game.secureEconomy || !game.theft || !['APPRAISAL','TRADE'].includes(game.phase) || !alive(game))return null;
   const theft=game.theft,p=game.self,name=(id:string)=>playerNames[id]??id;
   const open=theft.duels.some(duel=>duel.status==='open');
@@ -42,6 +54,7 @@ export function TheftPanel({game,submit,disabled,playerNames={}}:Props) {
         {duel.npcTell && <p className="supporting">{pick(duel.npcTell.text,`Merchant tell: favors ${handName(duel.npcTell.preferredHand).toLowerCase()}.`)}</p>}
         {duel.status==='open' && <>
           <p className="supporting">{duel.submitted?pick('ส่งมือแล้ว ล็อกคำตอบไว้ รออีกฝ่าย','Hand sealed. Waiting for your opponent.'):pick('เลือกมือของคุณ ทั้งสองฝ่ายจะเปิดพร้อมกัน','Choose your hand. Both hands are revealed together.')}</p>
+          {deadlines[duel.id]!==undefined && <DuelClock deadline={deadlines[duel.id]!} serverTime={serverTime}/>}
           {duel.needsChoice && <div className="secure-hands" role="group" aria-label={pick('เลือกมือเป่ายิ้งฉุบ','Choose a hand')}>{hands.map(hand=><button key={hand} disabled={disabled} onClick={()=>submit({type:'theft-hand',duelId:duel.id,hand})}>{handName(hand)}</button>)}</div>}
         </>}
         {duel.revealed.length>0 && <ol className="secure-duel-rounds">{duel.revealed.map((round,index)=><li key={index}>{pick(`ตา ${index+1}: คุณออก `,`Round ${index+1}: you played `)}{handName(ownTheft?round.thief:round.opponent)} · {opponent} {handName(ownTheft?round.opponent:round.thief)}{round.thief===round.opponent?pick(' · เสมอ',' · Draw'):''}</li>)}</ol>}
@@ -94,6 +107,7 @@ function LoanContract({loan,game,submit,disabled,playerNames={}}:Props & {loan:L
       <p>{pick(`กู้ ${loan.principal} · คืนแล้ว ${loan.repaid} · เหลือ ${remaining} เครดิต`,`Principal ${loan.principal} · Repaid ${loan.repaid} · Remaining ${remaining} credits`)}</p>
       <p>{pick(`ราคาหลักประกันที่ล็อกไว้ ${loan.collateralValue} เครดิต · ครบกำหนดท้ายช่วง ${loan.dueAt}`,`Frozen collateral value ${loan.collateralValue} credits · Due at the end of encounter ${loan.dueAt}`)}</p>
       <p className="supporting">{pick('หลักประกันพักกับระบบ ใช้หรือรับผลไม่ได้ คืนครบจึงได้ของคืน หากหมดกำหนดแล้วยังคืนไม่ครบ ของเป็นของผู้ให้กู้','Collateral stays in escrow with no use or effects. Repay in full to reclaim it. Unpaid collateral transfers to the lender at the deadline.')}</p>
+      <p className="supporting">{pick('ถ้าเกมจบก่อนคืนครบ แม้ยังไม่ถึงกำหนด ของค้ำตกเป็นของผู้ให้กู้ทันที','If the match ends before the loan is repaid, even before the deadline, the collateral goes to the lender.')}</p>
       {loan.terms && <blockquote>{loan.terms}</blockquote>}
       <p className="supporting">{pick('ข้อความข้อตกลงเป็นบันทึกของทั้งสองฝ่าย ระบบไม่บังคับเงื่อนไขเพิ่มเติม','Written terms are a shared record; extra conditions are not enforced by the game.')}</p>
       {pending && <><p>{responds?pick('ถึงตาคุณยืนยันข้อเสนอ','Your confirmation is needed'):pick('รออีกฝ่ายยืนยันข้อเสนอ','Waiting for the other party to confirm')}</p>
@@ -112,6 +126,7 @@ function LoanProposal({game,submit,disabled,playerNames={}}:Props) {
   const minimum=item?Math.ceil(item.lastTradePrice!/2):0,principal=Number(amount||minimum);
   return <details className="info-fold"><summary>{pick('กู้เงินโดยใช้ของค้ำประกัน','Borrow against an item')}</summary>
     <p className="supporting">{pick('เลือกของ แล้วเลือกผู้ให้กู้ เงินมาจากผู้ให้กู้จริง ทั้งสองฝ่ายต้องยืนยันก่อนส่งของค้ำ','Choose collateral and a lender. Existing lender credits fund the loan after both parties confirm.')}</p>
+    <p className="supporting">{pick('ถ้าเกมจบก่อนคืนครบ ของค้ำตกเป็นของผู้ให้กู้ทันที','If the match ends before you repay in full, the collateral goes to the lender.')}</p>
     {!eligible.length?<p>{pick('ต้องมีของที่ไม่ถูกล็อก ไม่ติดตราราคาเกินจริง และมีประวัติราคาซื้อขาย','You need an unlocked item with a recorded sale price and no overpricing mark.')}</p>:<div className="secure-items" role="group" aria-label={pick('เลือกหลักประกัน','Choose collateral')}>{eligible.map(candidate=><button className="secure-item" key={candidate.id} aria-pressed={selected===candidate.id} disabled={disabled} onClick={()=>{setSelected(candidate.id);setAmount('');}}><ItemArt item={candidate}/><small>{credits(candidate.lastTradePrice!)}</small></button>)}</div>}
     {item && <><p>{pick(`ราคาซื้อขายล่าสุด ${item.lastTradePrice} · กู้ขั้นต่ำ ${minimum} เครดิต`,`Last sale ${item.lastTradePrice} · Minimum loan ${minimum} credits`)}</p><fieldset disabled={disabled}><legend>{pick('เลือกผู้ให้กู้','Choose a lender')}</legend><div className="actions">{lenders.map(lender=><button key={lender.id} aria-pressed={lenderId===lender.id} onClick={()=>setLenderId(lender.id)}>{playerNames[lender.id]??lender.id}</button>)}</div></fieldset>
       <Amount label={pick('ยอดเงินที่ขอกู้','Requested principal')} min={minimum} value={amount||String(minimum)} onChange={setAmount} disabled={disabled}/>

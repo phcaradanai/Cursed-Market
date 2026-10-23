@@ -117,7 +117,7 @@ test('v0.4 historical audits still replay with their exact old shape and scoring
   }
 });
 for(const policy of ['cautious','aggressive','collector','trader'] as const)test(`survival ${policy} reads only DTOs and completes strict seeded replay`,()=>{
-  const audit=simulateAppraisalRun(3,policy,`survival-${policy}`,{survival:SURVIVAL_RULES});assert.equal(audit.schemaVersion,5);assert(audit.final.every(p=>p.life===0));assert.equal(replayAppraisalAudit(audit).phase,'RESULTS');
+  const audit=simulateAppraisalRun(3,policy,`survival-${policy}`,{survival:SURVIVAL_RULES});assert.equal(audit.schemaVersion,5);assert(audit.final.every(p=>p.life===0) || Math.max(...audit.history.map(row=>row.encounter))===audit.config.collectorDeadline,'the run ends when every life is gone or the Collector deadline arrives');assert.equal(replayAppraisalAudit(audit).phase,'RESULTS');
 });
 for(const enabled of [true,false])test(`room death/resume/reveal/final audit/rematch with timers ${enabled}`,()=>{
   let now=0;const service=new AppraisalRoomService(()=>now,{},undefined,{survival:{...SURVIVAL_RULES,maxLife:2}});const host=new Peer(),guest=new Peer();

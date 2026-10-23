@@ -27,6 +27,11 @@ test('theft duel shows sealed hand choices, translated player names and draw his
   game.theft.duels[0]!.submitted=true;game.theft.duels[0]!.needsChoice=false;
   const waiting=renderToStaticMarkup(createElement(TheftPanel,{game,submit,disabled:false}));
   assert.match(waiting,/ส่งมือแล้ว/);assert.doesNotMatch(waiting,/secure-hands/);
+  const now=Date.now();
+  const clocked=renderToStaticMarkup(createElement(TheftPanel,{game,submit,disabled:false,deadlines:{duel:now+20000},serverTime:now}));
+  assert.match(clocked,/role="timer"/);assert.match(clocked,/ส่งมือภายใน (19|20) วินาที/);
+  setLang('en');assert.match(renderToStaticMarkup(createElement(TheftPanel,{game,submit,disabled:false,deadlines:{duel:now+20000},serverTime:now})),/Play a hand within (19|20)s/);setLang('th');
+  assert.doesNotMatch(renderToStaticMarkup(createElement(TheftPanel,{game,submit,disabled:false,deadlines:{},serverTime:now})),/role="timer"/);
 });
 
 test('vault appears after payout only, explains suppressed effects and deferred interest, and shows slot price',()=>{

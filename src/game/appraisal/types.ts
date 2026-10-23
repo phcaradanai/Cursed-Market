@@ -231,6 +231,7 @@ export interface EncounterResult { encounter: number; playerId: string; gain: nu
 export type AppraisalAction = { playerId: string; requestId: string; encounter: number } & (
   | import('./secure-storage.js').StorageAction
   | import('./secure-storage.js').LoanAction
+  | import('./seals.js').SealAction
   | {type:'theft-start';itemId?:string;victimId?:string}
   | {type:'theft-hand';duelId:string;hand:import('./theft.js').RpsHand}
   /** Internal timer command; never accepted by the client message parser. */
@@ -309,13 +310,14 @@ export interface Core2Actions { skill?:{npc:NpcId;name:string;needsItem:boolean;
 export interface AppraisalView {
   secureEconomy?:boolean;
   theft?:ReturnType<typeof import('./theft.js').theftViewFor>;
+  sealMarket?:import('./seals.js').SealMarketView;
   loans?:Array<import('./secure-storage.js').SecuredLoan & {item:ItemView}>;
   trustAbilities?:boolean;
   itemEffects?:boolean;
   version: 4 | 5; phase: AppraisalPhase; encounter: number; encounterCount: number | null; revision: number;
   survival?:NonNullable<AppraisalConfig['survival']>; core2?:boolean; collectorAt?:number; dread?:number; curseSight?:boolean; freeBuy?:boolean; fakeEffect?:boolean; cleanse?:boolean; wishlist?:boolean; wishContract?:boolean; challenge?:boolean; polish?:boolean; omen?:{id:string;name:string;text:string}; salePct?:number; fee?:number; maxEnergy?:number; collector?:CollectorResult[]; brokerage?:boolean; roundRewardBase?:number; passives?:boolean;
   self: Omit<Appraiser,'personalVault'|'knowledge'|'portals'|'stock'|'inventory'|'valuations'|'startWealth'|'acceptedDanger'|'seenEvents'|'resolvedEvents'> & {
-    personalVault?:{items:ItemView[];credits:number;slots:number;nextSlotPrice:number};
+    personalVault?:{items:ItemView[];credits:number;slots:number;nextSlotPrice:number;nextInterest:number};
     loanItems?:ItemView[];
     inventory: ItemView[]; stock: ItemView[]; portals: Array<{id:string; npc:NpcId; hint:ItemKind; disabled:boolean}>;
     counterLimit: number;

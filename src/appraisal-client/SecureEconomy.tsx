@@ -49,8 +49,8 @@ export function TheftPanel({game,submit,disabled,playerNames={}}:Props) {
     })}
     {!open && <details className="info-fold"><summary>{spent?pick('ใช้โอกาสขโมยช่วงนี้แล้ว','Theft attempt spent'):pick('เลือกเป้าหมายขโมย','Choose a theft target')}</summary>
       {p.stock.length>0 && <><h3>{pick('สินค้าหน้าร้าน','Merchant goods')}</h3><p className="supporting">{pick('แพ้: ความเชื่อใจพ่อค้าคนนี้ −2 และเพิ่มโทษห้ามค้าหนึ่งช่วง','Lose: −2 trust with this merchant and one more encounter of merchant trade ban')}</p><div className="secure-items">{p.stock.map(item=><button className="secure-item" key={item.id} disabled={attackingBlocked} onClick={()=>submit({type:'theft-start',itemId:item.id})}><ItemArt item={item}/><small>{pick('ขโมยชิ้นนี้','Steal this item')}</small></button>)}</div></>}
-      <h3>{pick('ของที่ผู้เล่นถืออยู่','Carried player goods')}</h3><p className="supporting">{pick('ของเป้าหมายยังคว่ำอยู่ คุณจะไม่เห็นว่าเป็นชิ้นไหนก่อนชนะ','The target item stays concealed until you win.')}</p>
-      <div className="actions">{theft.targets.map(target=><button key={target.playerId} disabled={attackingBlocked} onClick={()=>submit({type:'theft-start',victimId:target.playerId})}>{pick('ขโมยจาก ','Steal from ')}{name(target.playerId)}</button>)}</div>
+      <h3>{pick('ของที่ผู้เล่นถืออยู่','Carried player goods')}</h3><p className="supporting">{pick('ของเป้าหมายยังคว่ำอยู่ คุณจะไม่เห็นว่าเป็นชิ้นไหนก่อนชนะ','The target item stays concealed until you win.')}</p><p className="supporting">{pick('แพ้: เหยื่อได้ตราคนบาปของคุณ 1 ใบ ขโมยคนเดิมไม่ได้อีก 2 ช่วง และต้องจ่ายชดเชย 5% ของราคาซื้อขายล่าสุดของชิ้นนั้น 4 ช่วงถัดไป','Lose: the victim gets one of your sinner seals, you cannot target them for 2 more encounters, and you pay 5% of that good\'s last trade price at the start of each of the next 4 encounters.')}</p>
+      <div className="actions">{theft.targets.map(target=>{const blocked=target.blockedUntilEncounter!==undefined;return <button key={target.playerId} disabled={attackingBlocked || blocked} onClick={()=>submit({type:'theft-start',victimId:target.playerId})}>{pick('ขโมยจาก ','Steal from ')}{name(target.playerId)}{blocked && <small>{pick(` · ห้ามจนจบช่วง ${target.blockedUntilEncounter}`,` · blocked through encounter ${target.blockedUntilEncounter}`)}</small>}</button>})}</div>
       {!theft.targets.length && <p className="supporting">{pick('ยังไม่มีผู้เล่นที่พร้อมเป็นเป้าหมาย','No player targets are available.')}</p>}
       {p.energy<1 && <p className="why">{pick('ต้องมีอย่างน้อย 1 พลัง','Requires at least 1 energy')}</p>}
     </details>}
@@ -60,7 +60,7 @@ export function TheftPanel({game,submit,disabled,playerNames={}}:Props) {
 export function VaultPanel({game,submit,disabled}:Props) {
   const [amount,setAmount]=useState('10');
   if(!game.secureEconomy || !paid(game) || !alive(game))return null;
-  const p=game.self,vault=p.personalVault??{items:[],credits:0,slots:2,nextSlotPrice:10};
+  const p=game.self,vault=p.personalVault??{items:[],credits:0,slots:2,nextSlotPrice:10,nextInterest:0};
   const value=Number(amount),valid=positive(value);
   return <section className="secure-economy vault-table" aria-label={pick('คลังนิรภัย','Personal vault')}>
     <h2>{pick('เก็บไว้ข้ามคืน','Keep it safe')}</h2>
@@ -72,7 +72,7 @@ export function VaultPanel({game,submit,disabled}:Props) {
     <details className="info-fold"><summary>{pick(`ฝากเงิน · ในคลัง ${vault.credits} เครดิต`,`Store credits · ${vault.credits} credits in vault`)}</summary>
       <p>{pick(`ในกระเป๋า ${p.credits} เครดิต`,`Wallet: ${p.credits} credits`)}</p><Amount label={pick('จำนวนเครดิต','Credit amount')} value={amount} onChange={setAmount} disabled={disabled}/>
       <div className="actions"><button disabled={disabled || !valid || value>p.credits} onClick={()=>submit({type:'vault-deposit-credits',amount:value})}>{pick('ฝากเงิน','Deposit credits')}</button><button disabled={disabled || !valid || value>vault.credits} onClick={()=>submit({type:'vault-withdraw-credits',amount:value})}>{pick('ถอนเงิน','Withdraw credits')}</button></div>
-      <p className="supporting">{pick('ดอกเบี้ยยังไม่เปิดใช้','Interest is not enabled yet.')}</p>
+      <p className="supporting">{pick(`ดอกเบี้ย 4% ต่อช่วง ไม่มีเพดาน จ่ายเข้ากระเป๋าตอนเริ่มช่วงถัดไป ตอนนี้จะได้ ${vault.nextInterest} เครดิต ไม่ทบต้นเอง`,`Interest is 4% of the whole vault balance per encounter, uncapped, paid to your wallet when the next encounter starts. Next payment: ${vault.nextInterest} credits. It does not compound by itself.`)}</p>
     </details>
   </section>;
 }

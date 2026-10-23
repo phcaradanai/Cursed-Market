@@ -9,8 +9,8 @@ type State = AppraisalState & {theftDuels?:TheftDuel[]};
 type Player = Appraiser & {crime?:CrimeRecord};
 const beats: Record<RpsHand,RpsHand> = {rock:'paper',paper:'scissors',scissors:'rock'};
 const loses: Record<RpsHand,RpsHand> = {rock:'scissors',paper:'rock',scissors:'paper'};
-function fixture(): State {
-  const state: State = createAppraisalRun(['alice','bob'],'secure-theft',{core2:true,marketProbability:0});
+function fixture(ids=['alice','bob']): State {
+  const state: State = createAppraisalRun(ids,'secure-theft',{core2:true,marketProbability:0});
   state.phase = 'APPRAISAL';
   for(const p of state.players) {
     p.stock = [...p.portals[0]!.stock];
@@ -206,4 +206,49 @@ test('encounter transition cancels unresolved duels without leaking submitted ha
   startTheftDuel(state,p,{itemId:p.stock[0]!}); const duel = latest(state);
   state.encounter++; cancelTheftDuels(state);
   assert.equal(duel.status,'cancelled'); assert.deepEqual(duel.hands,{});
+});
+
+function pvpAttempt(state:State, thief:Appraiser, victimId:string, hand:RpsHand, answer:RpsHand) {
+  delete thief.stealTried;
+  startTheftDuel(state,thief,{victimId}); const duel = latest(state);
+  chooseTheftHand(state,state.players.find(p=>p.id===victimId)!,duel.id,answer);
+  chooseTheftHand(state,thief,duel.id,hand);
+  return duel;
+}
+
+test('PvP defeat blocks only that victim for two encounters and issues one seal to the victim',()=>{
+  const state = fixture(['alice','bob','cara']); const [thief,victim,third] = state.players as [Appraiser,Appraiser,Appraiser];
+  owned(state,victim);
+  const N = state.encounter;
+  const duel = pvpAttempt(state,thief,victim.id,'rock','paper');
+  assert.equal(duel.status,'lost'); const energy = thief.energy;
+  assert.deepEqual(theftViewFor(state,victim).seals,[{id:`seal-${duel.id}`,thiefId:thief.id}]);
+  assert.deepEqual(theftViewFor(state,thief).seals,[]);
+  for(const offset of [1,2]) {
+    state.encounter = N+offset; delete thief.stealTried;
+    assert.equal(theftViewFor(state,thief).targets.find(t=>t.playerId===victim.id)!.blockedUntilEncounter,N+2);
+    assert.throws(()=>startTheftDuel(state,thief,{victimId:victim.id}));
+    assert.equal(thief.stealTried,undefined); assert.equal(thief.energy,energy);
+  }
+  assert.equal(theftViewFor(state,thief).targets.find(t=>t.playerId===third.id)!.blockedUntilEncounter,undefined);
+  state.encounter = N+3; delete thief.stealTried;
+  assert.equal(theftViewFor(state,thief).targets.find(t=>t.playerId===victim.id)!.blockedUntilEncounter,undefined);
+  startTheftDuel(state,thief,{victimId:victim.id});
+});
+
+test('PvP draws, cancellations and merchant defeats issue no seal or cooldown; a win issues none',()=>{
+  const state = fixture(); const [thief,victim] = state.players as [Appraiser,Appraiser];
+  owned(state,victim);
+  startTheftDuel(state,thief,{victimId:victim.id}); const duel = latest(state);
+  chooseTheftHand(state,thief,duel.id,'rock'); chooseTheftHand(state,victim,duel.id,'rock');
+  assert.equal(duel.status,'open');
+  duel.status = 'cancelled';
+  assert.deepEqual(theftViewFor(state,victim).seals,[]);
+  delete thief.stealTried;
+  startTheftDuel(state,thief,{itemId:thief.stock[0]!}); const npcDuel = latest(state);
+  chooseTheftHand(state,thief,npcDuel.id,loses[npcDuel.hands.npc!]);
+  assert.deepEqual(theftViewFor(state,thief).seals,[]);
+  assert.equal(theftViewFor(state,thief).targets.find(t=>t.playerId===victim.id)!.blockedUntilEncounter,undefined);
+  const win = pvpAttempt(state,thief,victim.id,'rock','scissors');
+  assert.equal(win.status,'won'); assert.deepEqual(theftViewFor(state,victim).seals,[]);
 });

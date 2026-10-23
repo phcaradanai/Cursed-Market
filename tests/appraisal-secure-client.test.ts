@@ -5,6 +5,7 @@ import {createElement} from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {createAppraisalRun,appraisalViewFor,SURVIVAL_RULES} from '../src/game/appraisal/index.js';
 import {TheftPanel,VaultPanel,FinancePanel} from '../src/appraisal-client/SecureEconomy.js';
+import {SealPanel} from '../src/appraisal-client/SinnerSeals.js';
 import {setLang} from '../src/appraisal-client/i18n.js';
 import type {AppraisalView} from '../src/game/appraisal/types.js';
 
@@ -17,7 +18,7 @@ const submit=()=>undefined;
 
 test('theft duel shows sealed hand choices, translated player names and draw history without percentage odds',()=>{
   setLang('th');const game=view();
-  game.theft={duels:[{id:'duel',thiefId:'bob',victimId:'alice',round:2,status:'open',needsChoice:true,submitted:false,revealed:[{thief:'rock',opponent:'rock'}]}],targets:[]};
+  game.theft={duels:[{id:'duel',thiefId:'bob',victimId:'alice',round:2,status:'open',needsChoice:true,submitted:false,revealed:[{thief:'rock',opponent:'rock'}]}],targets:[],seals:[],compensation:[]};
   game.self.done=true;
   const html=renderToStaticMarkup(createElement(TheftPanel,{game,submit,disabled:false,playerNames:{bob:'บ๊อบ'}}));
   assert.match(html,/ป้องกันของจาก/);assert.match(html,/บ๊อบ/);
@@ -35,14 +36,14 @@ test('vault appears after payout only, explains suppressed effects and deferred 
   assert.equal(renderToStaticMarkup(createElement(VaultPanel,{game,submit,disabled:false})), '');
   game.self.roundReward.settled=true;
   const html=renderToStaticMarkup(createElement(VaultPanel,{game,submit,disabled:false}));
-  assert.match(html,/เริ่มต้นฟรี 2 ช่อง/);assert.match(html,/ไม่มีผลบวกหรือลบ/);assert.match(html,/ดอกเบี้ยยังไม่เปิดใช้/);
+  assert.match(html,/เริ่มต้นฟรี 2 ช่อง/);assert.match(html,/ไม่มีผลบวกหรือลบ/);assert.match(html,/ดอกเบี้ย 4%/);
   assert.match(html,/10 เครดิต/);assert.doesNotMatch(html,/<select/);
   game.self.paused='dead';assert.equal(renderToStaticMarkup(createElement(VaultPanel,{game,submit,disabled:false})), '');
 });
 
 test('finance offers one notice at portals that clears every case',()=>{
   setLang('th');const game=view();game.phase='PORTALS';
-  game.theft={duels:[],targets:[],crime:{failures:1,banStartsEncounter:2,banUntilEncounter:2,active:false,noticePrice:200,cases:3}};
+  game.theft={duels:[],targets:[],seals:[],compensation:[],crime:{failures:1,banStartsEncounter:2,banUntilEncounter:2,active:false,noticePrice:200,cases:3}};
   game.self.credits=200;
   const html=renderToStaticMarkup(createElement(FinancePanel,{game,submit,disabled:false}));
   assert.match(html,/ซื้อใบประกาศอาชญากร/);assert.match(html,/200 เครดิต/);assert.match(html,/3 คดี/);assert.doesNotMatch(html,/disabled=""/);
@@ -63,7 +64,7 @@ test('secure economy surfaces have English copy and remain absent in legacy runs
   setLang('en');try {
     const game=view();game.phase='REVEAL';game.self.roundReward={encounter:game.encounter,base:10,amount:10,flips:0,settled:true};
     const html=renderToStaticMarkup(createElement(VaultPanel,{game,submit,disabled:false}));
-    assert.match(html,/Keep it safe/);assert.match(html,/Interest is not enabled yet/);
+    assert.match(html,/Keep it safe/);assert.match(html,/Interest is 4% of the whole vault balance/);
     game.secureEconomy=false;
     for(const Component of [VaultPanel,FinancePanel,TheftPanel])assert.equal(renderToStaticMarkup(createElement(Component,{game,submit,disabled:false})), '');
   } finally {setLang('th');}
@@ -72,8 +73,21 @@ test('secure economy surfaces have English copy and remain absent in legacy runs
 test('vault custody notifications do not report destroyed goods or lost money',()=>{
   setLang('th');const before=view();const item=before.self.stock[0]!;before.self.inventory=[{...item,owner:before.self.id}];
   const after=structuredClone(before);after.self.inventory=[];after.self.credits-=10;
-  after.self.personalVault={items:[{...item,owner:`personal-vault:${before.self.id}`}],credits:10,slots:2,nextSlotPrice:10};
+  after.self.personalVault={items:[{...item,owner:`personal-vault:${before.self.id}`}],credits:10,slots:2,nextSlotPrice:10,nextInterest:0};
   const outcome=outcomeBetween(before,after)!;assert(outcome);
   assert.match(outcome.lines.join(' '),/ฝาก.*คลัง/);
   assert.doesNotMatch([outcome.title,...outcome.lines].join(' '),/เสีย |−10|-10/);
+});
+
+test('seal panel shows face-down redemption cards with no item identity, plain-text terms and compensation',()=>{
+  setLang('th');const game=view();
+  game.sealMarket={holdings:[{thiefId:'bob',count:2}],offers:[{id:'seal-offer:1',sealId:'s1',holderId:'bob',buyerId:game.self.id,credits:5,energy:1,life:0,goods:0,terms:'<script>x</script>',encounter:1,status:'open',thiefId:'cara'}],redemption:{id:'seal-redemption:1',thiefId:'bob',slots:[0,1,2]}};
+  game.theft={duels:[],targets:[],seals:[{id:'s9',thiefId:'cara'}],compensation:[{id:'c',role:'payer',otherId:'bob',amount:5,remaining:[3,4],paid:5}]};
+  const html=renderToStaticMarkup(createElement(SealPanel,{game,submit,disabled:false,playerNames:{bob:'บ๊อบ'}}));
+  assert.match(html,/ไพ่ใบที่ 1/);assert.match(html,/ไพ่ใบที่ 3/);assert.match(html,/ตราของ บ๊อบ × 2/);
+  assert.match(html,/&lt;script&gt;x&lt;\/script&gt;/);assert.doesNotMatch(html,/<script>|<select/);
+  assert.match(html,/ค่าชดเชยให้ บ๊อบ: 5 เครดิต/);
+  setLang('en');
+  assert.match(renderToStaticMarkup(createElement(SealPanel,{game,submit,disabled:false})),/Card 2/);
+  setLang('th');
 });

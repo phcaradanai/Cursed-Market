@@ -59,3 +59,17 @@ The implementation learning records the newly authorized scope so older
 planning-only notes are not mistaken for a current implementation restriction.
 The final Trail scan was capped at the first 400 KB of the combined workspace
 diff; it is not an exhaustive certification of unrelated concurrent changes.
+
+## Update 2026-10-23: notices, PvP penalties, seals, interest
+
+Implemented in `theft.ts`, `seals.ts`, `secure-storage.ts` and wired through the engine,
+message parser, room lifecycle, views and `SinnerSeals.tsx`. Fresh runs this round:
+`npm test` 789/789 and `npm run build` pass. New server tests live in
+`tests/appraisal-secure-seals.test.ts` and the extended theft/client tests: four-instalment
+compensation (5 each at N+1..N+4, none at N or N+5, snapshot immune to resale, short wallet,
+vault untouched, idempotent), 4%/uncapped/floored interest, seal trade/redemption/buy-back,
+forged and duplicate commands, offer expiry on advance. The seal and compensation UI was
+verified by server-rendered markup tests only; the built app was loaded without console errors
+but a live multi-seat seal flow was not exercised in a browser, and bots do not use seals.
+`trail check` was not re-run for this round. Secure-economy rule version was not bumped, so
+historical `secureEconomy` replays recorded before this change would now diverge.

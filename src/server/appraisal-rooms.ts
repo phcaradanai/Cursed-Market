@@ -70,6 +70,11 @@ export class AppraisalRoomService extends RoomLifecycle<AppraisalState, Appraisa
           const loan=room.game.loans?.find(l=>l.id===loanId);
           insist(!loan || ![loan.borrowerId,loan.lenderId].some(id=>room.revealReady.has(id)),'already-ready','คู่สัญญายืนยันไปต่อแล้ว ทำสัญญาใหม่ช่วงถัดไป');
         }
+        if(message.action.type==='seal-respond' && message.action.accept){
+          const offerId=message.action.offerId;
+          const offer=(room.game as {sealOffers?:Array<{id:string;holderId:string;buyerId:string}>}).sealOffers?.find(o=>o.id===offerId);
+          insist(!offer || ![offer.holderId,offer.buyerId].some(id=>room.revealReady.has(id)),'already-ready','คู่ค้ายืนยันไปต่อแล้ว ทำข้อเสนอใหม่ช่วงถัดไป');
+        }
         const previous = room.game;
         room.game = applyAppraisalAction(previous, { ...message.action, playerId: seat.id });
         this.phaseChanged(room, previous); peer.send({ type: 'ack', requestId: message.action.requestId }); break;

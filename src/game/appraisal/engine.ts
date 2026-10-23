@@ -2,8 +2,9 @@ import { integerEffect, statusMagnitude } from './copy-effects.js';
 import { defaultRarityConfig, validateRarityConfig, validateItemAppearance } from '../../shared/item-rarity.js';
 import { defaultRarityEconomy, validateRarityEconomy, validateRarityPower, MAX_RARITY_MULTIPLIER } from '../../shared/rarity-power.js';
 import { ensureItemAppearance } from './rarity.js';
-import { startTheftDuel, chooseTheftHand, clearCrime, cancelTheftDuels, merchantTradeBanned } from './theft.js';
-import { handleStorageAction, handleLoanAction, settleLoansBeforeAdvance, secureStorageInvariants } from './secure-storage.js';
+import { startTheftDuel, chooseTheftHand, clearCrime, cancelTheftDuels, collectCompensations, merchantTradeBanned } from './theft.js';
+import { handleSealAction, closeSealOffers, sealInvariants } from './seals.js';
+import { handleStorageAction, handleLoanAction, payVaultInterest, settleLoansBeforeAdvance, secureStorageInvariants } from './secure-storage.js';
 import { recordItemTrade, reappraiseOwnedItem, liquidateOwnedItem } from './price-integrity.js';
 import { finishAbilityChoice, useMerchantAbility } from './merchant-abilities.js';
 import { passivesEnabled } from './passives.js';
@@ -314,7 +315,8 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
   const roundAction=action.type==='round-flip' || action.type==='round-bank' || action.type==='round-raise';
   const storageAction=action.type.startsWith('vault-');
   const loanAction=action.type.startsWith('loan-');
-  const financeAction=storageAction || loanAction || action.type==='crime-clear';
+  const sealAction=action.type.startsWith('seal-');
+  const financeAction=storageAction || loanAction || sealAction || action.type==='crime-clear';
   check(roundAction?previous.phase==='REVEAL':financeAction?previous.phase!=='RESULTS':!['REVEAL','RESULTS'].includes(previous.phase),'phase','ช่วงนี้ไม่รับ action');
   const state=structuredClone(previous); const p=player(state,action.playerId);
   const duelling=state.config.secureEconomy && state.theftDuels?.some(d=>d.status==='open' && [d.thiefId,d.victimId].includes(p.id));
@@ -330,6 +332,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
     check(state.config.secureEconomy && p.life!==0 && p.paused!=='dead','inactive','ผู้เล่นที่หมดชีวิตทำรายการไม่ได้');
     if(storageAction)handleStorageAction(state,p,action as import('./secure-storage.js').StorageAction);
     else if(loanAction)handleLoanAction(state,p,action as import('./secure-storage.js').LoanAction);
+    else if(sealAction)handleSealAction(state,p,action as import('./seals.js').SealAction);
     else if(action.type==='crime-clear')clearCrime(state,p);
     else if(action.type==='theft-hand')chooseTheftHand(state,p,action.duelId,action.hand);
     cancelTheftDuels(state);for(const seat of state.players)pauseIfNeeded(state,seat);progress(state);expireUnavailableOffers(state);
@@ -402,7 +405,7 @@ export function advanceAppraisalEncounter(previous:AppraisalState):AppraisalStat
   if(state.config.secureEconomy)settleLoansBeforeAdvance(state);
   if(!state.config.survival && state.encounter===state.config.encounters) {closeNpcContracts(state);state.phase='RESULTS';enforceCaps(state);assertAppraisalInvariants(state);return state;}
   state.encounter++;state.phase='PORTALS';state.listings=[];state.market={encounter:state.encounter,open:false,budget:0,orders:[]};
-  if(state.config.secureEconomy)cancelTheftDuels(state);
+  if(state.config.secureEconomy){cancelTheftDuels(state);collectCompensations(state);payVaultInterest(state);closeSealOffers(state);}
   for(const p of state.players) {
     delete p.roundReward;
     delete p.merchantActionsUsed;
@@ -433,7 +436,7 @@ export function defaultAppraisalAction(state:AppraisalState,playerId:string,requ
 export function assertAppraisalInvariants(state:AppraisalState):void {
   for(const item of Object.values(state.items))if(item.rarityPower){check(!!state.config.rarityEconomy&&!!item.appearance,'rarity','พลัง rarity ไม่มีที่มา');validateRarityPower(item.rarityPower);}
   for(const item of Object.values(state.items))if(item.appearance){check(!!state.config.rarity,'rarity','รูปลักษณ์สินค้าไม่มี config');validateItemAppearance(item.appearance);}
-  if(state.config.secureEconomy)secureStorageInvariants(state);
+  if(state.config.secureEconomy){secureStorageInvariants(state);sealInvariants(state);}
   check(state.reservedRewards===state.players.filter(p=>p.subsidy).length+state.players.reduce((sum,p)=>sum+(p.npcContracts?.alien?.reservedCredits??0),0),'reward-reserve','งบรางวัลไม่ตรงสิทธิ์ที่จอง');
   check(Number.isSafeInteger(state.bank) && state.bank>=0 && state.market.budget>=0 && state.bank>=state.market.budget+state.reservedRewards,'economy','bank reserve ไม่ถูกต้อง');
   const roundFunding=state.ledger.filter(e=>e.from==='@round-fund');

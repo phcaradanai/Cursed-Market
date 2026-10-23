@@ -38,6 +38,18 @@ function action(value: unknown): AppraisalSeatAction {
       keys(body,[...fields,'loanId']);return {type:'loan-cancel',...base,loanId:string(body.loanId)};
     case 'loan-repay':
       keys(body,[...fields,'loanId','amount']);return {type:'loan-repay',...base,loanId:string(body.loanId),amount:integer(body.amount)};
+    case 'seal-offer': {
+      keys(body,[...fields,'sealId','buyerId','credits','energy','life','goods','terms']);
+      return {type:'seal-offer',...base,sealId:string(body.sealId),buyerId:string(body.buyerId,32),credits:integer(body.credits),energy:integer(body.energy),life:integer(body.life),goods:integer(body.goods),...(body.terms===undefined?{}:{terms:loanTerms(body.terms)})};
+    }
+    case 'seal-respond': {
+      keys(body,[...fields,'offerId','accept','itemIds']);
+      if(body.itemIds!==undefined && (!Array.isArray(body.itemIds) || body.itemIds.length>8))throw new MessageError();
+      return {type:'seal-respond',...base,offerId:string(body.offerId),accept:boolean(body.accept),...(body.itemIds===undefined?{}:{itemIds:(body.itemIds as unknown[]).map(id=>string(id))})};
+    }
+    case 'seal-cancel': keys(body,[...fields,'offerId']);return {type:'seal-cancel',...base,offerId:string(body.offerId)};
+    case 'seal-redeem': keys(body,[...fields,'thiefId']);return {type:'seal-redeem',...base,thiefId:string(body.thiefId,32)};
+    case 'seal-pick': keys(body,[...fields,'redemptionId','slot']);return {type:'seal-pick',...base,redemptionId:string(body.redemptionId),slot:integer(body.slot)};
     case 'theft-start':
       keys(body,[...fields,'itemId','victimId']);
       if((body.itemId===undefined)===(body.victimId===undefined))throw new MessageError();

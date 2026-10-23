@@ -1,6 +1,6 @@
 import { randomAt } from '../random.js';
 import { CORE2 } from './core2.js';
-import { check, consumeStatus, spend, stockItem, trace, unlocked } from './mechanics.js';
+import { check, consumeStatus, spend, stockItem, trace, transfer, unlocked } from './mechanics.js';
 import type { AppraisalItem, AppraisalState, Appraiser, NpcId } from './types.js';
 
 export type RpsHand = 'rock' | 'paper' | 'scissors';
@@ -9,6 +9,26 @@ export interface CrimeRecord {
   banStartsEncounter: number;
   banUntilEncounter: number;
   cases: Array<{itemId: string; ask: number; npc: NpcId}>;
+}
+/** A victim's proof of a defeated PvP theft. The thief never changes; holders may trade it. */
+export interface SinnerSeal {
+  id: string;
+  thiefId: string;
+  holderId: string;
+  duelId: string;
+  issuedEncounter: number;
+}
+/** Fixed at defeat: the installment never follows later resale of the item. */
+export interface PvpCompensation {
+  id: string;
+  duelId: string;
+  thiefId: string;
+  victimId: string;
+  itemId: string;
+  snapshot: number;
+  amount: number;
+  dueEncounters: number[];
+  settled: Array<{encounter: number; paid: number}>;
 }
 export interface TheftDuel {
   id: string;
@@ -37,7 +57,9 @@ export interface TheftDuelView {
 }
 export interface TheftView {
   duels: TheftDuelView[];
-  targets: Array<{playerId: string}>;
+  targets: Array<{playerId: string; blockedUntilEncounter?: number}>;
+  seals: Array<{id: string; thiefId: string}>;
+  compensation: Array<{id: string; role: 'payer' | 'receiver'; otherId: string; amount: number; remaining: number[]; paid: number}>;
   crime?: {
     failures: number;
     banStartsEncounter: number;
@@ -48,8 +70,16 @@ export interface TheftView {
   };
 }
 
-type TheftState = AppraisalState & {theftDuels?: TheftDuel[]};
-type Thief = Appraiser & {crime?: CrimeRecord};
+type TheftState = AppraisalState & {theftDuels?: TheftDuel[]; sinnerSeals?: SinnerSeal[]; compensations?: PvpCompensation[]};
+/** pvpBlocks maps a victim to the last encounter in which this thief may not target them again. */
+type Thief = Appraiser & {crime?: CrimeRecord; pvpBlocks?: Record<string, number>};
+const PVP_COOLDOWN_ENCOUNTERS = 2;
+export const PVP_COMPENSATION_PERCENT = 5;
+export const PVP_COMPENSATION_INSTALLMENTS = 4;
+const pvpBlockedUntil = (state: AppraisalState, thief: Appraiser, victimId: string): number | undefined => {
+  const until = (thief as Thief).pvpBlocks?.[victimId];
+  return until !== undefined && state.encounter <= until ? until : undefined;
+};
 const hands: readonly RpsHand[] = ['rock', 'paper', 'scissors'];
 const npcTells: Record<NpcId,{preferredHand:RpsHand;text:string}> = {
   orc: {preferredHand:'rock',text:'ออร์คชอบกำหมัดข่มขู่ แต่บางครั้งก็เปลี่ยนท่า'},
@@ -70,7 +100,7 @@ const note = (p: Appraiser, text: string) => { p.notes.push(text); p.notes = p.n
 const openDuel = (state: AppraisalState, playerId: string) => (state as TheftState).theftDuels?.some(d => d.status === 'open' && [d.thiefId,d.victimId].includes(playerId));
 
 /** Only carried, movable goods can be stolen. Escrow and personal vault goods are not inventory. */
-function eligibleItems(state: AppraisalState, victim: Appraiser): string[] {
+export function eligibleItems(state: AppraisalState, victim: Appraiser): string[] {
   return victim.inventory.filter(id => {
     const item = state.items[id];
     return item?.owner === victim.id && unlocked(victim,id) && !victim.npcContracts?.alien?.itemIds.includes(id) &&
@@ -102,6 +132,7 @@ export function startTheftDuel(state: AppraisalState, p: Appraiser, target: {ite
     check(victim && victim.id !== p.id && !victim.paused && !victim.done && !victim.eventOffer && !victim.abilityChoice && !openDuel(state,victim.id),'steal','เริ่มการขโมยกับผู้เล่นนี้ไม่ได้');
     const eligible = eligibleItems(state,victim);
     check(eligible.length > 0,'steal','เริ่มการขโมยกับผู้เล่นนี้ไม่ได้');
+    check(pvpBlockedUntil(state,p,victim.id) === undefined,'steal-cooldown','แพ้การขโมยผู้เล่นคนนี้ ต้องรออีก 2 ช่วงก่อนขโมยซ้ำ');
     // The server chooses the concealed good, never accepts a guessed private item ID.
     const index = Math.floor(randomAt(state.seed,`${state.encounter}:${p.id}:${victim.id}:theft-item`)*eligible.length);
     item = state.items[eligible[index]!]!;
@@ -143,6 +174,24 @@ export function cancelTheftDuels(state: AppraisalState): void {
       duel.status = 'cancelled'; duel.hands = {};
     }
   }
+}
+
+/** Defeat in a PvP duel: one seal for the victim and a per-victim cooldown. Draws and cancellations never reach this. */
+function playerFailure(state: AppraisalState, thief: Appraiser, duel: TheftDuel): void {
+  const victimId = duel.victimId!;
+  ((thief as Thief).pvpBlocks ??= {})[victimId] = state.encounter+PVP_COOLDOWN_ENCOUNTERS;
+  const seals = ((state as TheftState).sinnerSeals ??= []);
+  seals.push({id:`seal-${duel.id}`,thiefId:thief.id,holderId:victimId,duelId:duel.id,issuedEncounter:state.encounter});
+  // Without a recorded trade price no reference exists, so no instalments are scheduled.
+  const snapshot = state.items[duel.itemId]?.lastTradePrice ?? 0;
+  const amount = Math.floor(snapshot*PVP_COMPENSATION_PERCENT/100);
+  if(amount > 0)((state as TheftState).compensations ??= []).push({
+    id:`comp-${duel.id}`,duelId:duel.id,thiefId:thief.id,victimId,itemId:duel.itemId,snapshot,amount,settled:[],
+    dueEncounters:Array.from({length:PVP_COMPENSATION_INSTALLMENTS},(_,i) => state.encounter+1+i),
+  });
+  note(thief,`เป่ายิ้งฉุบแพ้ ขโมยผู้เล่นไม่สำเร็จ: เหยื่อได้ตราคนบาป ขโมยคนเดิมไม่ได้ 2 ช่วง${amount > 0 ? ` และต้องจ่ายชดเชยช่วงละ ${amount} เครดิต ${PVP_COMPENSATION_INSTALLMENTS} ช่วง` : ''}`);
+  const victim = state.players.find(v => v.id === victimId)!;
+  note(victim,'จับขโมยได้: ได้ตราคนบาปของผู้ขโมยหนึ่งใบ');
 }
 
 function merchantFailure(state: AppraisalState, p: Appraiser, duel: TheftDuel): void {
@@ -193,8 +242,27 @@ export function chooseTheftHand(state: AppraisalState, p: Appraiser, duelId: str
     state.listings = state.listings.filter(l => l.itemId !== item.id);
     note(thief,'เป่ายิ้งฉุบชนะ ขโมยสินค้าได้');
   } else if(duel.npc)merchantFailure(state,thief,duel);
-  else note(thief,'เป่ายิ้งฉุบแพ้ ขโมยสินค้าไม่สำเร็จ');
+  else playerFailure(state,thief,duel);
   trace(state,thief,'theft-resolved',{duelId:duel.id,result:duel.status});
+}
+
+const gone = (p: Appraiser) => p.paused === 'dead' || p.life === 0;
+/**
+ * Call once as an encounter begins. Each instalment is keyed by encounter, so replays never charge twice.
+ * Only carried credits are taken: a short wallet pays what it has and the rest is forgiven, never a debt.
+ */
+export function collectCompensations(state: AppraisalState): void {
+  for(const comp of (state as TheftState).compensations ?? []) {
+    if(!comp.dueEncounters.includes(state.encounter) || comp.settled.some(s => s.encounter === state.encounter))continue;
+    const thief = state.players.find(p => p.id === comp.thiefId)!, victim = state.players.find(p => p.id === comp.victimId)!;
+    const paid = gone(thief) || gone(victim) ? 0 : Math.min(comp.amount,thief.credits);
+    if(paid > 0) {
+      transfer(state,thief,victim,paid,'theft-compensation');
+      note(thief,`จ่ายค่าชดเชยขโมยพลาด ${paid} เครดิต`); note(victim,`ได้รับค่าชดเชย ${paid} เครดิต`);
+    }
+    comp.settled.push({encounter:state.encounter,paid});
+    trace(state,thief,'theft-compensation',{compensationId:comp.id,due:comp.amount,paid});
+  }
 }
 
 /** Cases keep the storefront ask captured when each failure happened; later repricing never changes the notice. */
@@ -221,7 +289,15 @@ export function theftViewFor(state: AppraisalState, p: Appraiser): TheftView {
       round:d.round, status:d.status, needsChoice:d.status === 'open' && !d.hands[p.id], submitted:!!d.hands[p.id],
       revealed:d.revealed.map(r => ({...r})),
     })),
-    targets: state.players.filter(v => v.id !== p.id && !v.paused && !v.done).map(v => ({playerId:v.id})),
+    targets: state.players.filter(v => v.id !== p.id && !v.paused && !v.done).map(v => {
+      const until = pvpBlockedUntil(state,p,v.id);
+      return {playerId:v.id,...(until !== undefined ? {blockedUntilEncounter:until} : {})};
+    }),
+    compensation: ((state as TheftState).compensations ?? []).filter(c => [c.thiefId,c.victimId].includes(p.id)).map(c => ({
+      id:c.id,role:c.thiefId === p.id ? 'payer' as const : 'receiver' as const,otherId:c.thiefId === p.id ? c.victimId : c.thiefId,
+      amount:c.amount,remaining:c.dueEncounters.filter(e => !c.settled.some(s => s.encounter === e)),paid:c.settled.reduce((sum,s) => sum+s.paid,0),
+    })),
+    seals: ((state as TheftState).sinnerSeals ?? []).filter(seal => seal.holderId === p.id).map(seal => ({id:seal.id,thiefId:seal.thiefId})),
     ...(crime ? {crime:{failures:crime.failures,banStartsEncounter:crime.banStartsEncounter,banUntilEncounter:crime.banUntilEncounter,active:merchantTradeBanned(state,p),noticePrice:noticePrice(crime),cases:crime.cases.length}} : {}),
   };
 }

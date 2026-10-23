@@ -63,8 +63,44 @@ Implemented scope from the 2026-10-23 design discussion. The latest server enabl
 - Exact liquidation previews require already known or certified value; otherwise
   the player can explicitly sell at an unknown system valuation.
 
+## Rules update 2026-10-23 (supersedes the deferred list below)
+
+Confirmed by the user and implemented; see `docs/handoff/Secure_Economy_Continuation_2026-10-23.md`.
+
+- **Criminal notice:** `2 × sum(storefront ask captured when each case occurred)`. One
+  payment clears every case and the merchant trade ban at once, with no trust refund.
+  It does not clear PvP seals, cooldowns or compensation.
+- **PvP defeat:** the victim receives one sinner seal naming the thief; the thief cannot
+  target that victim for the next two encounters (lost in N: blocked N+1, N+2; free N+3);
+  other victims are unaffected. Draws, cancellations and wins create none of this.
+- **Compensation:** 5% of the item's last trade price, snapshotted at defeat, floored,
+  charged at the start of each of the next four encounters (not per phase). The wallet
+  only: vault credits are never touched. A short wallet pays what it has and the rest of
+  that instalment is forgiven, never a debt.
+- **Seals:** any holder of two unlocked seals of the same thief may redeem them. The
+  server deals up to three face-down carried goods of the thief (vault, collateral, locked
+  and open-trade goods excluded); the holder picks a card slot and receives that good, and
+  both seals are spent. If nothing can be dealt, the seals are kept. A card whose good has
+  since moved shows as empty without spending the seals. Seized goods keep the stolen flag.
+- **Seal trade:** the holder offers one seal to another living player for credits, energy,
+  life, a number of goods (the buyer chooses which carried goods), plus inert text terms.
+  Acceptance moves everything atomically. A thief who buys back their own seal destroys it.
+  Offers and unfinished redemptions last one encounter; seals never expire.
+- **Vault interest:** 4% of the whole vault balance per encounter, floored, uncapped,
+  paid from the bank into the wallet as an encounter begins; it never compounds by itself.
+  A bank unable to cover a payment pays what it safely can.
+- **Start-of-encounter order:** compensation, then vault interest, then the existing
+  per-player entry effects, so both are counted in the encounter's starting wealth.
+
+### Conservative choices not stated by the user (revisit if wrong)
+
+- No recorded last trade price (merchant stock, event or free goods) means no compensation.
+- Instalments are skipped, not deferred, when the thief or victim is dead at that start.
+- Seal trade life/energy: the payer must keep at least 1 life, and the receiver may not exceed
+  the maximum (the trade is rejected rather than discarding value). Life trades need survival.
+- Compensation shows the thief the per-instalment amount, which reveals the last trade price of
+  the item they failed to take.
+
 ## Explicitly deferred
 
-Additional penalties for losing a player theft, notice pricing for multiple cases,
-vault interest rates and interest accrual remain disabled pending further design.
-No hot-item rule or additional theft fee was introduced.
+Superseded by the rules update above. No hot-item rule or additional theft fee was introduced.

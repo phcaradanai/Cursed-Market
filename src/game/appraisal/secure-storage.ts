@@ -1,6 +1,8 @@
 import type {AppraisalItem, AppraisalState, Appraiser} from './types.js';
-import {check, ownedItem, player, spend, trace, transfer} from './mechanics.js';
+import {check, ownedItem, player, reward, spend, trace, transfer} from './mechanics.js';
 
+export const VAULT_INTEREST_PERCENT=4;
+export const vaultInterestOf=(credits:number):number=>Math.floor(credits*VAULT_INTEREST_PERCENT/100);
 export interface PersonalVault {items:string[]; credits:number; slots:number}
 export interface SecuredLoan {
   id:string; borrowerId:string; lenderId:string; itemId:string;
@@ -177,6 +179,21 @@ export function settleLoansBeforeAdvance(state:AppraisalState):void {
     }else if((loan.status==='proposed' || loan.status==='countered') && (dead || lender.paused==='dead' || lender.life===0)){
       loan.status='cancelled';loan.settledAt=state.encounter;
     }
+  }
+}
+/**
+ * Paid into the wallet as an encounter begins, on the whole vault balance and with no cap.
+ * The bank funds it; a bank that cannot cover a payment pays what it safely can. Never compounds on its own.
+ */
+export function payVaultInterest(state:AppraisalState):void {
+  if(!state.config.secureEconomy)return;
+  for(const p of state.players){
+    const vault=p.personalVault;if(!vault || p.paused==='dead' || p.life===0)continue;
+    const owed=vaultInterestOf(vault.credits);
+    const amount=Math.min(owed,Math.max(0,state.bank-state.market.budget-state.reservedRewards));
+    if(amount<=0)continue;
+    reward(state,p,amount,'vault-interest');
+    trace(state,p,'vault-interest',{balance:vault.credits,owed,paid:amount});
   }
 }
 export function loanViewFor(state:AppraisalState,p:Appraiser):SecuredLoan[] {

@@ -1,5 +1,6 @@
 import { ItemVisual } from './ItemVisual.js';
 import { TheftPanel, VaultPanel, FinancePanel } from './SecureEconomy.js';
+import { SealPanel } from './SinnerSeals.js';
 import { abilityText } from './ability-text.js';
 import { MerchantAbilities } from './MerchantAbilities.js';
 import { HeldEffects } from './HeldEffects.js';
@@ -282,7 +283,7 @@ export function GameTable({room,submit,send,disabled}:{room:AppraisalRoomView;su
     {!reveal && drawer('bag',t('กระเป๋า'),<><Inventory game={game} submit={submit} disabled={inactive}/><HeldEffects game={game}/></>)}
     {!reveal && drawer('effects',t('สถานะ'),<><Statuses game={game}/>{self.notes.length>0 && <details className="notes"><summary>{t('ประวัติผลล่าสุด')}</summary><ul>{self.notes.slice(-6).reverse().map((note,index)=><li key={`${index}-${note}`}><Rich text={playerNote(note,playerNames)} survival={!!game.survival}/></li>)}</ul></details>}</>)}
     {!reveal && drawer('market','Dark Market',<DarkMarket game={game} submit={submit} disabled={inactive || !playable}/>)}
-    {drawer('ledger',t('สมุดบันทึก'),<><Players room={room}/><FinancePanel game={game} submit={submit} disabled={disabled || duelling || self.life===0 || room.revealReady.includes(room.yourSeatId)} playerNames={playerNames}/><WishlistPanel game={game}/><NpcContracts game={game}/>{phase==='TRADE' && <HeldEffects game={game}/>}</>)}
+    {drawer('ledger',t('สมุดบันทึก'),<><Players room={room}/><FinancePanel game={game} submit={submit} disabled={disabled || duelling || self.life===0 || room.revealReady.includes(room.yourSeatId)} playerNames={playerNames}/><SealPanel game={game} submit={submit} disabled={disabled || duelling || self.life===0 || room.revealReady.includes(room.yourSeatId)} playerNames={playerNames}/><WishlistPanel game={game}/><NpcContracts game={game}/>{phase==='TRADE' && <HeldEffects game={game}/>}</>)}
     {drawer('rules',t('กติกา'),<Rules timers={room.timerSettings} survival={room.mode==='survival'} trustAbilities={game.trustAbilities}/>)}
     </div>
     {eventOpen && <EventModal key={self.eventOffer!.key} game={game} offer={self.eventOffer!} submit={submit} disabled={inactive} tucked={tucked} setTucked={value=>setTuckedKey(value?self.eventOffer!.key:null)} playerNames={playerNames}/>}

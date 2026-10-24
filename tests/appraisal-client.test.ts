@@ -144,7 +144,7 @@ test('game UI uses choice cards instead of dropdowns and highlights status/item 
   const desk=renderToStaticMarkup(createElement(AppraisalDesk,{game,item:game.self.stock[0]!,submit:()=>{},disabled:false}));
   assert(desk.includes('class="term buff"') || desk.includes('class="term debuff"'),'item effects name their status');
 });
-test('result cards: a correct E46 guess says so, and phase changes announce what to do next',async()=>{
+test('result cards: a correct E46 guess says so, and a bare phase change makes no card',async()=>{
   const {outcomeBetween,appendedNotes}=await import('../src/appraisal-client/model.js');
   let state=appraisalFixture('E46');offerEvent(state,state.players[0]!,'E46');
   const before=appraisalViewFor(state,'alice');const itemId=state.players[0]!.eventOffer!.itemIds[0]!;const genuine=state.items[itemId]!.genuine;
@@ -152,8 +152,7 @@ test('result cards: a correct E46 guess says so, and phase changes announce what
   const outcome=outcomeBetween(before,appraisalViewFor(state,'alice'))!;
   assert.equal(outcome.tone,'good');assert.match(outcome.title,/^ทายถูก!/);assert(outcome.lines.some(l=>l.includes(genuine?'ของแท้':'ของปลอม')));assert(outcome.lines.includes('+2 เครดิต'));
   const quiet=appraisalViewFor(state,'alice');assert.equal(outcomeBetween(quiet,quiet),null,'an unchanged view makes no card');
-  const traded=structuredClone(state);traded.phase='TRADE';const phase=outcomeBetween(quiet,appraisalViewFor(traded,'alice'))!;
-  assert.equal(phase.title,'ต่อรองกับผู้เล่น');assert(phase.lines[0]!.includes('ขายหรือแลก'));
+  const traded=structuredClone(state);traded.phase='TRADE';assert.equal(outcomeBetween(quiet,appraisalViewFor(traded,'alice')),null);
   assert.deepEqual(appendedNotes(['a','b'],['b','c']),['c']);assert.deepEqual(appendedNotes(['a'],['a','a']),['a']);assert.deepEqual(appendedNotes([],[]),[]);
 });
 test('desk shows one step at a time and the event takes the stage as a dialog',()=>{

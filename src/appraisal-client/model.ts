@@ -9,7 +9,7 @@ import type { InspectionProperty, Knowledge } from '../game/appraisal/types.js';
 import { FAKE_EFFECT_CHANCE, collectorTotal, itemScoreValue } from '../game/appraisal/scoring.js';
 import { BOND_SPECS, CONSIGN_RULES, NPC_SPECS } from '../game/appraisal/content.js';
 import { t, getLang } from './i18n.js';
-import { core2Cost, core2Needs, core2NeedsItem, core2Title, isCore2Consequence, isCore2Event } from './core2-text.js';
+import { core2Cost, core2Needs, core2NeedsItem, core2ResolvedNote, core2Title, isCore2Consequence, isCore2Event } from './core2-text.js';
 import { activationBonusText, eventText, itemName, itemLabel, npcName, npcUnsoldText, statusName, statusDescription } from './catalog-text.js';
 import { ITEM_SPECS, itemFamily } from '../game/appraisal/content.js';
 export { statusName } from './catalog-text.js';
@@ -366,7 +366,7 @@ const signed=(n:number,unit:string)=>`${n>0?'+':'−'}${Math.abs(n)} ${unit}`;
  */
 export function outcomeBetween(prev:AppraisalView,next:AppraisalView):Outcome|null {
   const p=prev.self,n=next.self;const lines:string[]=[];let good=0,bad=0;let reveals=0;
-  const notes=appendedNotes(p.notes,n.notes);
+  const notes=appendedNotes(p.notes,n.notes).map(note=>core2ResolvedNote(n.eventOffer?.key!==p.eventOffer?.key?p.eventOffer:null,note));
   const index=(g:AppraisalView)=>new Map([...g.self.stock,...g.self.inventory,...g.listings.map(l=>l.item)].map(i=>[i.id,i]));
   const before=index(prev),after=index(next);
   for(const [id,item] of after) {
@@ -412,7 +412,8 @@ export function outcomeBetween(prev:AppraisalView,next:AppraisalView):Outcome|nu
   const phaseChanged=prev.phase!==next.phase || prev.encounter!==next.encounter;
   if(!phaseChanged && !lines.length && !notes.length) return null;
   const tone=bad>good?'bad':good>bad?'good':'info';
-  if(phaseChanged) return {tone:life<0?'bad':'info',title:next.phase==='REVEAL'?t('รับเครดิตหลังซื้อขายช่วง {n}',{n:next.encounter}):`${phaseLabel(next.phase)}${next.phase==='PORTALS'?t(' · ช่วง {n}',{n:next.encounter}):''}`,lines:[phaseHint(next.phase),...notes,...lines]};
+  // The banner, chapter card and status line already announce a bare phase change; a card needs something that happened.
+  if(phaseChanged) return lines.length||notes.length?{tone:life<0?'bad':'info',title:next.phase==='REVEAL'?t('รับเครดิตหลังซื้อขายช่วง {n}',{n:next.encounter}):`${phaseLabel(next.phase)}${next.phase==='PORTALS'?t(' · ช่วง {n}',{n:next.encounter}):''}`,lines:[...notes,...lines]}:null;
   const activated=n.activated.find(id=>!p.activated.includes(id));
   const resolved=p.eventOffer && n.eventOffer?.key!==p.eventOffer.key?eventText(p.eventOffer.id).name:undefined;
   const activatedName=activated?(after.get(activated)??before.get(activated)):undefined;

@@ -1,25 +1,25 @@
-import { useEffect, useId, useRef } from 'react';
-import type { ReactNode } from 'react';
-import { createPortal } from 'react-dom';
-import { CloseIcon } from './icons.js';
-import { t } from './i18n.js';
-import { Book } from './Book.js';
+import {createContext, useContext, useEffect, useRef} from 'react';
+import type {ReactNode} from 'react';
+import {t} from './i18n.js';
 
-/** Native top-layer dialogs keep focus inside, make the table inert, and restore the opener on close. */
-export function GameDialog({title,labelledBy,onClose,children,className='',open=true}:{title?:ReactNode;labelledBy?:string;onClose:()=>void;children:ReactNode;className?:string;open?:boolean}) {
-  const ref=useRef<HTMLDialogElement>(null);const id=useId();
+export const DialogFeedback=createContext<{busy:boolean;error:string|null;clearError:()=>void;networkMessage?:string|null;reconnect?:(()=>void)|null}|null>(null);
+
+export function GameDialog({open,label,onClose,children,id,className=''}:{open:boolean;label:string;onClose:()=>void;children:ReactNode;id?:string;className?:string}) {
+  const panel=useRef<HTMLDialogElement>(null);
+  const feedback=useContext(DialogFeedback);
   useEffect(()=>{
-    const dialog=ref.current;if(!dialog || !open)return;
-    const opener=document.activeElement instanceof HTMLElement?document.activeElement:null;
+    const dialog=panel.current;
+    if(!open || !dialog)return;
+    const previous=document.activeElement instanceof HTMLElement?document.activeElement:null;
     dialog.showModal();
-    const overflow=document.body.style.overflow;document.body.style.overflow='hidden';
-    const shield=(event:KeyboardEvent)=>{if(event.key==='Escape' && dialog.contains(event.target as Node))event.stopPropagation();};
-    document.addEventListener('keydown',shield);
-    return ()=>{document.removeEventListener('keydown',shield);dialog.close();document.body.style.overflow=overflow;if(opener?.isConnected)opener.focus({preventScroll:true});};
+    return ()=>{dialog.close();if(previous?.isConnected)previous.focus({preventScroll:true});};
   },[open]);
-  const content=<dialog ref={ref} className={`game-dialog ${className}`} role="dialog" aria-modal="true" aria-labelledby={labelledBy??id} onCancel={e=>{e.preventDefault();onClose();}}>
-    {title!==undefined && <header className="game-dialog-head"><h2 id={id}>{title}</h2><button type="button" aria-label={t('ปิดรายละเอียด')} onClick={onClose}><CloseIcon/></button></header>}
-    <Book className="game-dialog-body">{children}</Book>
+  return <dialog ref={panel} id={id} className={`game-dialog ${className}`} role="dialog" aria-modal="true" aria-label={label} tabIndex={-1} onCancel={e=>{e.preventDefault();onClose();}}>
+    <div className="dialog-content">{children}</div>
+    {(feedback?.busy || feedback?.error || feedback?.networkMessage) && <div className="dialog-feedback">
+      {feedback.networkMessage && <div role="status"><p>{feedback.networkMessage}</p>{feedback.reconnect && <button type="button" onClick={feedback.reconnect}>{t('กลับมาเล่นในแท็บนี้')}</button>}</div>}
+      {feedback.error && <div className="error" role="alert"><p>{feedback.error}</p><button type="button" onClick={feedback.clearError}>{t('ปิดข้อความ')}</button></div>}
+      {feedback.busy && <p role="status">{t('กำลังส่งการตัดสินใจ รอผลจากพ่อค้า')}</p>}
+    </div>}
   </dialog>;
-  return typeof document==='undefined'?content:createPortal(content,document.body);
 }

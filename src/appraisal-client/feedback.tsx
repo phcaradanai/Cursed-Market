@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import type { AppraisalView, EventOffer } from '../game/appraisal/types.js';
 import { EventDecision } from './components.js';
+import { GameDialog } from './GameDialog.js';
 import type { Actions } from './components.js';
 import { BuffIcon, CloseIcon, DebuffIcon, EventIcon } from './icons.js';
 import { Rich } from './lore.js';
 import { t } from './i18n.js';
 import { eventCatalog, isConsequence, outcomeBetween, playerNote } from './model.js';
 import type { Outcome } from './model.js';
-import { GameDialog } from './GameDialog.js';
 
 type Toast = Outcome & { id:number };
 const TOAST_MS = 6500;
@@ -19,7 +19,7 @@ export function useOutcomes(game:AppraisalView):[Toast[],(id:number)=>void] {
   useEffect(()=>{
     const prev=previous.current;previous.current=game;if(!prev) return;
     const outcome=outcomeBetween(prev,game);
-    if(outcome) setToasts(list=>[...list.slice(-3),{...outcome,id:++seq.current}]);
+    if(outcome) setToasts(list=>[...list.slice(-1),{...outcome,id:++seq.current}]);
   },[game]);
   return [toasts,(id:number)=>setToasts(list=>list.filter(t=>t.id!==id))];
 }
@@ -44,11 +44,9 @@ export function Toasts({toasts,dismiss,survival,playerNames={}}:{toasts:Toast[];
  * The player can tuck it away to study the table; a pill brings it back.
  */
 export function EventModal({game,offer,submit,disabled,tucked,setTucked,playerNames={}}:Actions&{offer:EventOffer;tucked:boolean;setTucked:(value:boolean)=>void;playerNames?:Record<string,string>}) {
-  const portalEvent=game.phase==='PORTALS';
-  return <>
-    {tucked && <button type="button" className={`event-pill${isConsequence(offer.id)?' danger':''}`} onClick={()=>setTucked(false)}><EventIcon/><span>{t('เหตุการณ์รอคุณ: {name}',{name:eventCatalog(offer).name})}</span><strong>{t('กลับไปตัดสินใจ')}</strong></button>}
-    <GameDialog open={!tucked} className={`modal event-dialog${portalEvent?' portal-event-dialog':''}`} labelledBy={`event-${offer.id}`} onClose={()=>setTucked(true)}>
-      <EventDecision game={game} offer={offer} submit={submit} disabled={disabled} playerNames={playerNames} onTuck={()=>setTucked(true)}/>
-    </GameDialog>
-  </>;
+  if(tucked) return <button type="button" className={`event-pill${isConsequence(offer.id)?' danger':''}`} onClick={()=>setTucked(false)}><EventIcon/><span>{t('เหตุการณ์รอคุณ: {name}',{name:eventCatalog(offer).name})}</span><strong>{t('กลับไปตัดสินใจ')}</strong></button>;
+  return <GameDialog open label={eventCatalog(offer).name} onClose={()=>setTucked(true)} className={`event-dialog${game.phase==='PORTALS'?' portal-event-dialog':''}`}>
+      <EventDecision game={game} offer={offer} submit={submit} disabled={disabled} playerNames={playerNames}/>
+      <button type="button" className="modal-tuck" onClick={()=>setTucked(true)}>{t('ซ่อนไว้ก่อน ขอดูโต๊ะ')}</button>
+  </GameDialog>;
 }

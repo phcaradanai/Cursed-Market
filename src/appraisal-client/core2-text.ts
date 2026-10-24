@@ -42,3 +42,9 @@ export function core2Cost(id:string,choice:string,survival:boolean,rules?:Core2R
     c.deal==='cash'?t('ซื้อด้วยเครดิตเต็มราคา'):c.deal==='condition'?t('ซื้อแบบมีเงื่อนไขของพ่อค้า'):'',
   ].filter(Boolean).join(' · ')||t('ไม่เสียอะไร');
 }
+/** The engine logs a resolved core event as "name: choiceId"; show the choice's title so no raw id reaches a toast. */
+export function core2ResolvedNote(offer:{id:string}|null|undefined,note:string):string {
+  const spec=offer?core2Spec(offer.id as EventId):undefined;if(!spec)return note;
+  const choice=[...spec.choices,FALLBACK_BRAND].find(c=>note===`${spec.name}: ${c.id}`);
+  return choice?`${spec.name}: ${core2Title(spec.id,choice.id)}`:note;
+}

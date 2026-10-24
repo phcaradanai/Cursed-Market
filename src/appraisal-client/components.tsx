@@ -223,16 +223,23 @@ export function AppraisalDesk({game,item,submit,disabled}:Actions&{item:ItemView
     {id:'buy',label:t('ซื้อ'),meta:t('{n} เครดิต',{n:item.price})},
   ];
   return <section className="desk" aria-label={t('ประเมิน {name}',{name})}>
-    <h2 className="desk-title">{name} <RarityLabel item={item}/></h2>
-    <div className="relic-art"><ItemVisual item={item} alt={name} loading="eager"/></div>
+    <div className="cabinet-object"><div className="relic-art"><ItemVisual item={item} alt={name} loading="eager"/></div>
+      <div className="specimen-data"><h2 className="desk-title">{name} <RarityLabel item={item}/></h2>
+      <dl className="specimen-price"><dt>{pick('ราคาขายของพ่อค้า','Merchant selling price')}</dt><dd><CoinIcon/>{item.price} {t('เครดิต')}</dd></dl>
+      <FactSeals item={item}/></div>
+    </div>
     <div className="desk-reading">
       <p className="desk-lore">{t('เมื่อเปิดใช้:')} <Rich text={possibleBenefitText(game,item)} survival={!!game.survival}/><br/>{t('ความเสี่ยง:')} <Rich text={possibleDrawbackText(game,item)} survival={!!game.survival}/></p>
       {game.self.eventOffer && !disabled && <p className="blocked-note">{t('ตอบเหตุการณ์ก่อน ปุ่มบนโต๊ะนี้จึงจะกดได้')}</p>}
-      <FactSeals item={item}/>
-      {item.freeMerchantAction && <p className="positive-text">{t('สินค้าชิ้นนี้ตรวจสอบหรือประเมินฟรี 1 ครั้ง เลือกอย่างใดอย่างหนึ่ง')}</p>}
+      <h3 className="desk-action-title">{pick('ตรวจสอบวัตถุ','Examine the artifact')}</h3>
       {item.appraisal!==null && <p className={`verdict${item.appraisalAccepted?' accepted':' rejected'}`}>{t('คุณเสนอ {n} เครดิต · {v} · ต่อรองเหลือ {left} ครั้ง',{n:item.appraisal,v:item.appraisalAccepted?t('NPC ยอมรับ'):t('NPC ปฏิเสธ'),left:Math.max(0,game.self.counterLimit-game.self.counters)})}</p>}
-      <div className="desk-steps" role="tablist" aria-label={t('ขั้นตอนบนโต๊ะ')}>{steps.map((s,index)=><button key={s.id} type="button" role="tab" id={`${tabs}-${s.id}`} aria-controls={`${tabs}-${s.id}-panel`} aria-selected={deskStep===s.id} className={deskStep===s.id?'current':''} onClick={()=>setDeskStep(s.id)}>
-        <span className="step-number" aria-hidden="true">{index+1}</span><span className="step-label">{s.label}<small>{s.meta}</small></span></button>)}</div>
+      <div className="desk-steps" role="tablist" aria-label={t('ขั้นตอนบนโต๊ะ')} onKeyDown={e=>{
+        const at=steps.findIndex(s=>s.id===deskStep);
+        const next=e.key==='ArrowRight'?(at+1)%steps.length:e.key==='ArrowLeft'?(at+steps.length-1)%steps.length:e.key==='Home'?0:e.key==='End'?steps.length-1:null;
+        if(next===null)return;
+        e.preventDefault();setDeskStep(steps[next]!.id);e.currentTarget.querySelectorAll<HTMLButtonElement>('[role="tab"]')[next]?.focus();
+      }}>{steps.map((s,index)=><button key={s.id} type="button" role="tab" id={`${tabs}-${s.id}`} aria-controls={`${tabs}-${s.id}-panel`} aria-selected={deskStep===s.id} tabIndex={deskStep===s.id?0:-1} className={deskStep===s.id?'current':''} onClick={()=>setDeskStep(s.id)}>
+        <span className="step-number" aria-hidden="true">{index+1}</span>{s.id==='inspect'?<InspectIcon/>:s.id==='appraise'?<AppraiseIcon/>:<BuyIcon/>}<span className="step-label">{s.label}<small>{s.meta}</small></span></button>)}</div>
       <div role="tabpanel" id={`${tabs}-inspect-panel`} aria-labelledby={`${tabs}-inspect`} hidden={deskStep!=='inspect'} className="step-panel">
         <Inspect game={game} item={item} submit={submit} disabled={disabled}/>
         <button type="button" className="step-next" onClick={()=>setDeskStep('appraise')}>{t('พร้อมตีราคาแล้ว')}</button>
@@ -357,7 +364,7 @@ export function DarkMarket({game,submit,disabled,compact=false}:Actions&{compact
       })}</ul>
       {pages>1 && <nav className="market-pages" aria-label={t('หน้ารายการตลาดมืด')}><button type="button" disabled={currentPage===0} title={currentPage===0?t('อยู่หน้าแรกแล้ว'):undefined} onClick={()=>setPage(currentPage-1)}>{t('ก่อนหน้า')}</button><span role="status">{t('หน้า {n}/{total}',{n:currentPage+1,total:pages})}</span><button type="button" disabled={currentPage===pages-1} title={currentPage===pages-1?t('อยู่หน้าสุดท้ายแล้ว'):undefined} onClick={()=>setPage(currentPage+1)}>{t('ถัดไป')}</button></nav>}
     </>}
-    {(order || lot) && <GameDialog title={order?itemName(order.kind):t('ประมูลของจากคลังตลาดเงา')} onClose={()=>setSelected(null)} className="market-dialog">
+    {(order || lot) && <GameDialog open label={order?itemName(order.kind):t('ประมูลของจากคลังตลาดเงา')} onClose={()=>setSelected(null)} className="market-dialog"><header className="drawer-head"><h2>{order?itemName(order.kind):t('ประมูลของจากคลังตลาดเงา')}</h2><button type="button" className="drawer-close" aria-label={t('ปิด {name}',{name:order?itemName(order.kind):t('ประมูลของจากคลังตลาดเงา')})} onClick={()=>setSelected(null)}><CloseIcon/></button></header>
       {order?<MarketOrderDetail key={order.id} game={game} order={order} submit={submit} disabled={disabled}/>:lot && <section className="auction"><p>{t('ไม่ได้เปิดทุกช่วง ราคาสูงสุดที่ยังจ่ายไหวชนะเมื่อคิดผลช่วง ราคาเท่ากันตัดสินด้วยเส้นทาง ไม่เห็นซองของคนอื่น')}</p><ul className="wanted"><AuctionLot key={lot.id} game={game} lot={lot} submit={submit} disabled={disabled}/></ul></section>}
     </GameDialog>}
   </aside>;

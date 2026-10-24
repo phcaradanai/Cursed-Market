@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 /** The parts of a screen that may shrink so the page never needs a scrollbar; the HUD and drawers stay full size. */
 const FIT_SELECTOR='.screen .phase-banner,.screen .table-stage,.lobby,.entry-layout';
-const MIN_FIT=.72;
+const MIN_FIT=.6;
 const MIN_FIT_MODAL=.65;
 const MAX_STEPS=4;
 
@@ -42,13 +42,16 @@ export function useFitViewport():void {
         root.style.setProperty('--fit',fit.toFixed(3));
         if(fit===MIN_FIT)break;
       }
+      // Once the table fits, the page itself is locked; if it cannot fit even at the floor it stays scrollable so nothing is unreachable.
+      root.toggleAttribute('data-fits',root.scrollHeight-window.innerHeight<=1);
     };
     const schedule=()=>{if(!frame)frame=window.setTimeout(measure,30);};
     const mutations=new MutationObserver(schedule);
-    mutations.observe(document.body,{childList:true,subtree:true});
+    mutations.observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['open','hidden']});
+    document.addEventListener('toggle',schedule,true);
     window.addEventListener('resize',schedule);
     document.addEventListener('load',schedule,true);
     schedule();
-    return()=>{mutations.disconnect();window.removeEventListener('resize',schedule);document.removeEventListener('load',schedule,true);if(frame)clearTimeout(frame);root.style.removeProperty('--fit');root.style.removeProperty('--fit-modal');};
+    return()=>{mutations.disconnect();document.removeEventListener('toggle',schedule,true);window.removeEventListener('resize',schedule);document.removeEventListener('load',schedule,true);if(frame)clearTimeout(frame);root.style.removeProperty('--fit');root.removeAttribute('data-fits');root.style.removeProperty('--fit-modal');};
   },[]);
 }

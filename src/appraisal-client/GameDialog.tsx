@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { CloseIcon } from './icons.js';
 import { t } from './i18n.js';
+import { Book } from './Book.js';
 
 /** Native top-layer dialogs keep focus inside, make the table inert, and restore the opener on close. */
 export function GameDialog({title,labelledBy,onClose,children,className='',open=true}:{title?:ReactNode;labelledBy?:string;onClose:()=>void;children:ReactNode;className?:string;open?:boolean}) {
@@ -18,7 +19,7 @@ export function GameDialog({title,labelledBy,onClose,children,className='',open=
   },[open]);
   const content=<dialog ref={ref} className={`game-dialog ${className}`} role="dialog" aria-modal="true" aria-labelledby={labelledBy??id} onCancel={e=>{e.preventDefault();onClose();}}>
     {title!==undefined && <header className="game-dialog-head"><h2 id={id}>{title}</h2><button type="button" aria-label={t('ปิดรายละเอียด')} onClick={onClose}><CloseIcon/></button></header>}
-    <div className="game-dialog-body">{children}</div>
+    <Book className="game-dialog-body">{children}</Book>
   </dialog>;
   return typeof document==='undefined'?content:createPortal(content,document.body);
 }

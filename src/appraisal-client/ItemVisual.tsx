@@ -9,7 +9,9 @@ export function appearanceLabel(item:Pick<ItemView,'appearance'|'rarityPower'>):
   const lang=getLang();return `${RARITY_NAMES[look.rarity][lang]} · ${THEME_NAMES[look.theme][lang]}`+(item.rarityPower?` · ${lang==='th'?'มูลค่า':'Value'} ×${item.rarityPower.valueMultiplier} · effect ×${item.rarityPower.effectMultiplier}`:'');
 }
 export function RarityLabel({item}:{item:Pick<ItemView,'appearance'|'rarityPower'>}) {
-  return item.appearance?<span className="rarity-label">{appearanceLabel(item)}</span>:null;
+  if(!item.appearance)return null;
+  const parts=appearanceLabel(item).split(' · ');
+  return <span className="rarity-label">{parts.map((part,i)=><span key={i} className="rarity-chip">{i>0 && <span className="rarity-sep"> · </span>}{part}</span>)}</span>;
 }
 /** A thin React adapter; all rendering/RNG rules are reusable without React. */
 export function ItemVisual({item,alt='',className='',width=1254,height=1254,loading='lazy'}:{

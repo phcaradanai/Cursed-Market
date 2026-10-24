@@ -5,6 +5,8 @@ import { EN_UI_TEXT } from './en/ui.js';
 export const EN_UI: Record<string, string> = {
   ...EN_UI_TEXT, ...EN_MODEL,
   'สมุดบันทึก · เงินกู้และใบประกาศ':'Ledger · Loans and notices',
+  'เมนู':'Menu','เปิด Dark Market':'Open the Dark Market','ตลาดมืดรับซื้อ':'Dark Market buys','ประมูล':'Auction','พลิกหน้า':'Turn pages','หน้าก่อน':'Previous page','หน้าถัดไป':'Next page','หน้า {n} / {total}':'Page {n} / {total}','ดูทั้งหมด':'View all','มีของชิ้นเดียว':'Only one item','วัตถุที่พบได้ในตลาดมืด':'Relics found in the dark market','ตลาดวัตถุอาถรรพ์':'Market of cursed relics','Collector มาตอนจบช่วง {n}':'The Collector arrives at the end of encounter {n}','ตั้งค่า':'Settings','ภาษา / เสียง':'Language / sound','ช่วง {n}':'Encounter {n}','ลางของช่วงนี้':'Omen of this encounter','ของที่ Collector รับ':'Items the Collector took','ก่อนหน้า':'Previous','อยู่หน้าแรกแล้ว':'Already on the first page','อยู่หน้าสุดท้ายแล้ว':'Already on the last page','ถัดไป':'Next','รายการของเพื่อน':'Friends\' listings','ของในร้านของคุณ':'Your shop items','ของค้างในร้าน':'Unsold items','เดิมพันขโมย':'Theft duel','ความสามารถพ่อค้า':'Merchant powers','ดีลและข้อมูลพ่อค้า':'Merchant deals','ย่อเมนู':'Collapse menu','ขยายเมนู':'Expand menu','จัดการไอเทม':'Manage items','บัฟและดีบัฟ':'Buffs and debuffs',
+  'ซื้อขายตลาดมืด':'Trade in the dark','เงินกู้ · ใบประกาศ':'Loans · notices','วัตถุที่เคยพบ':'Items seen','วิธีเล่น':'How to play',
   'พ่อค้าทั้งหมดระงับการค้าชั่วคราว':'All merchants have temporarily suspended trade',
   'เล่นต่อจนผู้เล่นทุกคนชีวิตหมด หรือ Collector มาตอนจบช่วง {n}':'Play on until every player runs out of life, or until the Collector arrives at the end of encounter {n}',
   ' · Collector มาตอนจบช่วง {n}':' · the Collector arrives at the end of encounter {n}',

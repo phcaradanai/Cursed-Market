@@ -6,5 +6,8 @@ import '@fontsource/im-fell-english/latin-400.css';
 import './styles.css';
 import './secure-economy.css';
 import './item-visual.css';
+import './hud.css';
+import './appraisal-layout.css';
+import './game-theme.css';
 
 createRoot(document.getElementById('root')!).render(<App/>);

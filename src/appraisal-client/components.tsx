@@ -1,4 +1,5 @@
 import { GameDialog } from './GameDialog.js';
+import { Pager } from './Pager.js';
 import { rarityValue } from '../shared/rarity-power.js';
 import { ItemVisual, RarityLabel } from './ItemVisual.js';
 import { copySaleQuote, itemEffectScale } from '../game/appraisal/copy-effects.js';
@@ -225,6 +226,7 @@ export function AppraisalDesk({game,item,submit,disabled}:Actions&{item:ItemView
     <h2 className="desk-title">{name} <RarityLabel item={item}/></h2>
     <div className="relic-art"><ItemVisual item={item} alt={name} loading="eager"/></div>
     <div className="desk-reading">
+      <p className="desk-lore">{t('เมื่อเปิดใช้:')} <Rich text={possibleBenefitText(game,item)} survival={!!game.survival}/><br/>{t('ความเสี่ยง:')} <Rich text={possibleDrawbackText(game,item)} survival={!!game.survival}/></p>
       {game.self.eventOffer && !disabled && <p className="blocked-note">{t('ตอบเหตุการณ์ก่อน ปุ่มบนโต๊ะนี้จึงจะกดได้')}</p>}
       <FactSeals item={item}/>
       {item.freeMerchantAction && <p className="positive-text">{t('สินค้าชิ้นนี้ตรวจสอบหรือประเมินฟรี 1 ครั้ง เลือกอย่างใดอย่างหนึ่ง')}</p>}
@@ -491,7 +493,7 @@ export function Trades({game,room,submit,disabled}:Actions&{room:AppraisalRoomVi
   const listings=game.listings.filter(l=>l.ownerId!==game.self.id);
   const name=(id:string)=>room.matchSeats.find(s=>s.id===id)?.name??t('ผู้เล่น');
   return <section className="trades"><h2>{t('ต่อรองกับนักประเมินคนอื่น')}</h2><details className="info-fold"><summary>{t('วิธีการ')}</summary><p>{t('เจ้าของต้องเปิดรายการและตอบรับก่อนโอนของกับเงิน ราคาต่ำหรือ 0 เครดิตไม่มีผลจับผิดจาก NPC')}</p></details>
-    {!listings.length?<p>{t('ยังไม่มีใครเปิดรายการ เปิดของจากคลังหรือร้านที่ประเมินแล้วให้เพื่อนยื่นข้อเสนอ')}</p>:listings.map(listing=><TradeListing key={listing.itemId} game={game} listing={listing} room={room} submit={submit} disabled={disabled}/>)}
+    {!listings.length?<p>{t('ยังไม่มีใครเปิดรายการ เปิดของจากคลังหรือร้านที่ประเมินแล้วให้เพื่อนยื่นข้อเสนอ')}</p>:<Pager label={t('รายการของเพื่อน')}>{listings.map(listing=><TradeListing key={listing.itemId} game={game} listing={listing} room={room} submit={submit} disabled={disabled}/>)}</Pager>}
     <h3>{t('ข้อเสนอซื้อขายของคุณ')}</h3>{!game.trades.length?<p>{t('ยังไม่มีข้อเสนอ')}</p>:<ul className="offers">{game.trades.map(tr=><li key={tr.id}><p><strong>{itemName(tr.item.kind)}</strong> · {t('{buyer} เสนอ {n} เครดิต',{buyer:name(tr.buyerId),n:tr.credits})}{tr.source==='npc'?t(' เป็นค่าแนะนำ นอกเหนือจากราคาพ่อค้า'):''}{tr.swapItem?t(' + แลก {name}',{name:itemName(tr.swapItem.kind)}):''} {t('ให้ {seller}',{seller:name(tr.sellerId)})}</p><AppraisalPrice item={tr.item}/>{tr.swapItem && <div className="swap-details"><h3>{t('ของแลกจาก {buyer}: {name}',{buyer:name(tr.buyerId),name:itemName(tr.swapItem.kind)})}</h3><img src={tr.swapItem.image} width="1254" height="1254" alt={itemName(tr.swapItem.kind)}/><AppraisalPrice item={tr.swapItem}/><ItemFacts item={tr.swapItem}/><p>{t('ผลที่เป็นไปได้:')} <Rich text={tr.swapItem.possibleBenefit} survival={!!game.survival}/> · <Rich text={tr.swapItem.possibleDrawback} survival={!!game.survival}/></p></div>}<p>{tr.challenge?t('ผู้ซื้อท้าทายคำระบุ "{v}"{seal} · ',{v:claimText(tr.challenge,(game.listings.find(l=>l.itemId===tr.itemId)?.claims?.[tr.challenge])??true),seal:tr.sealId?t(' แนบตราโมฆะ'):''}):''}{tr.condition?t('ผู้ซื้อยอมรับเงื่อนไข NPC · '):''}{tr.status==='open'?t('รอผู้ขายตอบรับ'):tr.status==='accepted'?t('ตกลงและโอนสำเร็จแล้ว'):t('ปฏิเสธหรือหมดอายุแล้ว')}</p>{tr.sellerId===game.self.id && tr.status==='open' && <div className="actions"><button className="primary" disabled={disabled || !!game.self.eventOffer && isConsequence(game.self.eventOffer.id)} title={tip(disabled&&locked,t('ตอบเหตุการณ์ก่อน'))} onClick={()=>submit({type:'respond',offerId:tr.id,accept:true})}>{t('ตกลงและโอนทันที')}</button><button disabled={disabled || !!game.self.eventOffer && isConsequence(game.self.eventOffer.id)} title={tip(disabled&&locked,t('ตอบเหตุการณ์ก่อน'))} onClick={()=>submit({type:'respond',offerId:tr.id,accept:false})}>{t('ปฏิเสธ')}</button></div>}</li>)}</ul>}
   </section>;
 }

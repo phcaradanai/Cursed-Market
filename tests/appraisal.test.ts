@@ -222,7 +222,7 @@ test('cross-shop sale pays NPC and appraiser once, and insufficient combined fun
   state=act(state,'alice',{type:'propose',sellerId:'bob',itemId:state.players[1]!.stock[0]!,credits:4});const before=structuredClone(state);
   assert.throws(()=>act(state,'bob',{type:'respond',offerId:state.trades.at(-1)!.id,accept:true}));assert.deepEqual(state,before);
 });
-test('intermittent market draws are seeded, budgeted, reachable, and independent of inventory targeting',()=>{
+test('market draws open every encounter, seeded, budgeted, and independent of inventory targeting',()=>{
   let opened=0,closed=0;const counts=new Set<number>();
   for(let i=0;i<200;i++) {
     const a=createAppraisalRun(['a','b','c'],`market-${i}`);const b=createAppraisalRun(['a','b','c'],`market-${i}`);
@@ -231,7 +231,7 @@ test('intermittent market draws are seeded, budgeted, reachable, and independent
     assert.equal(a.market.budget,a.market.orders.reduce((sum,o)=>sum+(o.price*(o.rarityReserveMultiplier??1)+(o.contract?.bonus.kind==='credits'?o.contract.bonus.amount:0))*3,0));
     assert(a.market.orders.every(o=>o.price>=ITEM_SPECS[o.kind].anchor*1.25-1 && o.price<=ITEM_SPECS[o.kind].anchor*1.75+1));
   }
-  assert(opened>40 && opened<160 && closed>0);assert.deepEqual([...counts].sort(),[1,2,3]);
+  assert.equal(closed,0,'the Dark Market opens every encounter');assert.equal(opened,200);assert([...counts].every(n=>n>=1 && n<=3) && counts.has(1) && counts.has(2),'quotes vary within the order cap and the half-bank budget');
   let state=fixture();for(const p of state.players) p.done=true;
   state.phase='REVEAL';const kept=advanceAppraisalEncounter(state);
   const sold=structuredClone(state);sold.players[0]!.inventory=sold.players[0]!.inventory.filter(id=>id!=='owned-key');sold.items['owned-key']!.owner='removed';

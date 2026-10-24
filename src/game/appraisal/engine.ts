@@ -26,7 +26,7 @@ import { makeMarketContract, marketOrderReserve, TRUST_CAP } from './market-cont
 import { collectRun, collectorDue } from './survival.js';
 import { PULSE_RULES, TRUST_RULES, activeNpcs, linkTrade } from './pulse.js';
 import { bankRoundReward, flipRoundReward, openRoundRewards, raiseRoundReward } from './round-rewards.js';
-import type { AppraisalAction, AppraisalConfig, AppraisalState, Appraiser, DarkMarket, NpcId, Portal } from './types.js';
+import type { AppraisalAction, AppraisalConfig, AppraisalState, Appraiser, DarkMarket, ItemKind, NpcId, Portal } from './types.js';
 
 export const DEFAULT_APPRAISAL_CONFIG: AppraisalConfig = {
   rarityEconomy:defaultRarityEconomy(),
@@ -34,7 +34,7 @@ export const DEFAULT_APPRAISAL_CONFIG: AppraisalConfig = {
   loanEndSettlement:true, collectorDeadline:CORE2.collectorEncounter, eventChoiceRules:1, statusLinks:1, systemLinks:1,
   trustAbilities:true, catalogVersion:3, itemEffects:true, roundRewards:true, multiCoinRewards:true, commerce:true, totalTrustStock:true, curseSight:true, freeBuy:true, freeMerchantAction:true, fakeEffect:true, cleanse:true, wishlist:true, wishContract:true, challenge:true, expansion:true,
   encounters:3, startingCredits:40, maxEnergy:10, recoveryEnergy:4,
-  bankReserve:2000, marketProbability:.5, marketMaxOrders:3, marketQuota:1,
+  bankReserve:2000, marketProbability:1, marketMaxOrders:3, marketQuota:1,
 };
 function validateConfig(config:AppraisalConfig):void {
   if(config.rarityEconomy!==undefined){validateRarityEconomy(config.rarityEconomy);check(!!config.rarity,'config','Rarity economy requires rarity generation');}
@@ -152,6 +152,7 @@ function rerollPortal(state:AppraisalState,p:Appraiser,portalId:string):void {
   p.portals[index]={id:`portal-${state.encounter}-${seat}-${tag}`,npc,stock,disabled:false};
   p.portalRerolls=done+1;trace(state,p,'portal-rerolled',{from:old.npc,to:npc,energy:rerollCost(done)});
 }
+const MARKET_BANK_SHARE=.5;
 function makeMarket(state:AppraisalState):DarkMarket {
   const market:DarkMarket={encounter:state.encounter,open:false,budget:0,orders:[]};
   // Vault auctions roll independently of the sell-order market.
@@ -159,14 +160,18 @@ function makeMarket(state:AppraisalState):DarkMarket {
   if(!(state.config.core2 && omenNow(state)?.marketOpen) && randomAt(state.seed,`${state.encounter}:market:open`)>=state.config.marketProbability) return market;
   const pool=[...new Set(Object.values(state.items).map(item=>item.kind))];
   const count=1+Math.floor(randomAt(state.seed,`${state.encounter}:market:count`)*Math.min(pool.length,state.config.marketMaxOrders));
-  const selected=pool.map(kind=>({kind,rank:randomAt(state.seed,`${state.encounter}:market:${kind}:rank`)})).sort((a,b)=>a.rank-b.rank).slice(0,count);
-  for(const {kind} of selected) {
+  const ranked=pool.map(kind=>({kind,rank:randomAt(state.seed,`${state.encounter}:market:${kind}:rank`)})).sort((a,b)=>a.rank-b.rank);
+  const orderFor=(kind:ItemKind)=>{
     const price=Math.round(anchorOf(state.config,kind)*(1.25+.5*randomAt(state.seed,`${state.encounter}:market:${kind}:price`)));
     const order={id:`quote-${state.encounter}-${kind}`,kind,price,...(state.config.rarityEconomy?{rarityReserveMultiplier:Math.max(...Object.values(state.config.rarityEconomy.tiers).map(t=>t.value))}:{}),quota:Object.fromEntries(state.players.map(p=>[p.id,state.config.marketQuota])),...(state.config.commerce?{contract:makeMarketContract(key=>randomAt(state.seed,`${state.encounter}:market:${kind}:contract:${key}`),!!state.config.survival)}:{})};
-    const reserved=marketOrderReserve(order)*state.config.marketQuota*state.players.length;
-    if(market.budget+reserved>state.bank-state.reservedRewards) continue;
-    market.orders.push(order);market.budget+=reserved;
-  }
+    return {order,reserved:marketOrderReserve(order)*state.config.marketQuota*state.players.length};
+  };
+  const free=state.bank-state.reservedRewards;
+  // The market opens every encounter, so it may only hold half of the free bank: the rest stays for event and sale rewards promised meanwhile.
+  const cap=Math.floor(free*MARKET_BANK_SHARE);
+  for(const {kind} of ranked.slice(0,count)) {const {order,reserved}=orderFor(kind);if(market.budget+reserved>cap)continue;market.orders.push(order);market.budget+=reserved;}
+  // Every drawn quote too dear for the cap: open with the cheapest quote the bank can still back, so the market never skips an encounter while the bank has money.
+  if(!market.orders.length){const cheapest=ranked.map(({kind})=>orderFor(kind)).sort((a,b)=>a.reserved-b.reserved)[0];if(cheapest && cheapest.reserved<=free){market.orders.push(cheapest.order);market.budget+=cheapest.reserved;}}
   market.open=market.orders.length>0; return market;
 }
 function pauseIfNeeded(state:AppraisalState,p:Appraiser):void {

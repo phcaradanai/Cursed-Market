@@ -145,7 +145,7 @@
 .cabinet-shell .lobby-start-hint{margin:0 0 4px;padding:10px 12px;border:1px solid #826337;border-radius:5px;background:#2b2113;font-size:14px;color:#f1d49a}
 
 /* Each phase occupies the cabinet, with only its decision in the working space. */
-.cabinet-shell .scene-play{display:block;grid-template-columns:none;gap:20px}
+.cabinet-shell .scene-play{display:block;grid-template-columns:none;gap:20px;width:100%;margin:0}
 .cabinet-shell .portals{padding:0}
 .cabinet-shell .portals>h2,.cabinet-shell .portals>p:not(.blocked-note){display:none}
 .cabinet-shell .portals>.trust-fold{position:static;display:block;margin:0 0 14px;text-align:left;max-width:100%;padding:0}
@@ -304,7 +304,7 @@ body:has(.game-dialog[open]){overflow:hidden}
 .cabinet-shell .stock-tabs>button{display:flex;flex-direction:column;align-items:center;gap:5px;min-width:0;width:100%;padding:8px 4px 12px;border:0;border-bottom:4px solid #8a6132;border-radius:0;background:#0c090744;box-shadow:0 8px 12px #0006;color:#f0dbb5;transform:none}
 .cabinet-shell .stock-tabs>button.selected{outline:2px solid #e9b95c;outline-offset:2px;background:#6e351533}
 .cabinet-shell .stock-tabs button>.item-visual,.cabinet-shell .stock-tabs button>img{display:block;flex:none;width:100%;height:auto;aspect-ratio:1;max-width:190px;object-fit:contain;border-radius:0}
-.cabinet-shell .stock-name{display:block;font:600 15px/1.5 'Noto Serif Thai',serif;text-align:center;overflow-wrap:anywhere}
+.cabinet-shell .stock-name{width:100%;padding:5px 6px;border:6px solid transparent;border-image:url('/art/ui/button.webp') 50 120 fill / 6px 12px stretch;color:#26190b;display:block;font:600 15px/1.5 'Noto Serif Thai',serif;text-align:center;overflow-wrap:anywhere}
 .cabinet-shell .stock-price{display:flex;align-items:center;justify-content:center;gap:5px;font:500 13px/1.5 'Noto Sans Thai',sans-serif;color:#f0d28f}
 .cabinet-shell .stock-price .icon{width:16px;height:16px}
 .cabinet-shell .stock-tabs .bonus-badge{position:static;font-size:11px}
@@ -312,24 +312,24 @@ body:has(.game-dialog[open]){overflow:hidden}
 .cabinet-shell .cabinet-object{min-width:0;margin-top:-100px;padding:0 14px 0 0}
 .cabinet-shell .desk .relic-art{display:flex;align-items:center;justify-content:center;position:relative;inset:auto;width:100%;height:auto;aspect-ratio:1.1;max-width:none;max-height:none;margin:0;background:url('/art/ui/cabinet/recess.jpg') center/100% 100% no-repeat;padding:18% 20% 12%;border:0;border-radius:0;box-shadow:none;overflow:visible}
 .cabinet-shell .relic-art::before,.cabinet-shell .relic-art::after{display:none}
-.cabinet-shell .relic-art>.item-visual,.cabinet-shell .relic-art>img{position:relative;inset:auto;width:100%;height:auto;max-width:none;aspect-ratio:1;object-fit:contain;border:0;border-radius:2px;box-shadow:0 10px 20px #0008;transform:none}
+.cabinet-shell .relic-art>.item-visual,.cabinet-shell .relic-art>img{mix-blend-mode:lighten;position:relative;inset:auto;width:100%;height:auto;max-width:none;aspect-ratio:1;object-fit:contain;border:0;border-radius:2px;box-shadow:none;transform:none}
 .cabinet-shell .specimen-data{margin:0;padding:16px 20px 12px;border:12px solid transparent;border-image:url('/art/ui/button.webp') 50 120 fill / 12px 24px stretch;background:none;color:#21160b}
-.cabinet-shell .desk .desk-title{position:static;display:block;margin:0 0 8px;color:#24170b;font:700 clamp(22px,1.8vw,29px)/1.4 'Noto Serif Thai',serif;text-align:center;overflow-wrap:anywhere}
-.cabinet-shell .desk-title>span{display:block;margin-top:6px;font:500 12px/1.6 'Noto Sans Thai',sans-serif;color:#382710}
-.cabinet-shell .specimen-price{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:5px 10px;margin:0;padding:8px 0;border-bottom:1px solid #725127;font-size:13px}
-.cabinet-shell .specimen-price dt{color:#35230f}
-.cabinet-shell .specimen-price dd{display:flex;align-items:center;gap:5px;margin:0;color:#24170b;font-size:16px;font-variant-numeric:tabular-nums}
+.cabinet-shell .desk .desk-title{background:#17130e;border:1px solid #6f522c;padding:8px;color:#f0d291;position:static;display:block;margin:0 0 8px;color:#f0d291;font:700 clamp(22px,1.8vw,29px)/1.4 'Noto Serif Thai',serif;text-align:center;overflow-wrap:anywhere}
+.cabinet-shell .desk-title>span{display:block;margin-top:6px;font:500 12px/1.6 'Noto Sans Thai',sans-serif;color:#d8c5a5}
+.cabinet-shell .specimen-price{background:#17130e;padding-inline:10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:5px 10px;margin:0;padding:8px 10px;border-bottom:1px solid #725127;font-size:13px}
+.cabinet-shell .specimen-price dt{color:#d8c5a5}
+.cabinet-shell .specimen-price dd{display:flex;align-items:center;gap:5px;margin:0;color:#f0d291;font-size:16px;font-variant-numeric:tabular-nums}
 .cabinet-shell .specimen-price .icon{width:17px;height:17px}
 .cabinet-shell .fact-seals{display:grid;grid-template-columns:minmax(0,1fr);gap:0;width:100%;margin:0;padding:0;list-style:none;border:0;border-radius:0;background:none}
 .cabinet-shell .fact-seals .seal{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0;width:100%;padding:8px 0;border:0;border-bottom:1px solid #59452e;border-radius:0;background:none;box-shadow:none;color:var(--cream);font-size:14px}
 .cabinet-shell .seal-label{display:block;position:static;width:auto;height:auto;margin:0;clip-path:none;overflow:visible;white-space:normal;font-size:13px}
 .cabinet-shell .seal strong{margin-left:auto;font:600 14px 'Noto Sans Thai',sans-serif;overflow-wrap:anywhere}
 .cabinet-shell .fact-seals .seal::before{width:20px;height:20px;flex-shrink:0}
-.cabinet-shell .specimen-data .seal{color:#1a1007;border-color:#725127}
-.cabinet-shell .specimen-data .seal-label{color:#2a1a09;font-weight:600}
-.cabinet-shell .specimen-data .seal strong{color:#1a1007}
-.cabinet-shell .specimen-data .seal::before{filter:brightness(.35)}
-.cabinet-shell .specimen-data :is(.specimen-price,.fact-seals){background:rgb(244 214 150 / .62);padding-inline:10px;border-radius:3px}
+.cabinet-shell .specimen-data .seal{color:#f0e4cd;border-color:#725127}
+.cabinet-shell .specimen-data .seal-label{color:#d8c5a5;font-weight:600}
+.cabinet-shell .specimen-data .seal strong{color:#f0e4cd}
+.cabinet-shell .specimen-data .seal::before{filter:none}
+.cabinet-shell .specimen-data :is(.specimen-price,.fact-seals){background:#17130e;padding-inline:10px;border-radius:3px}
 .cabinet-shell .desk .desk-reading{display:flex;flex-direction:column;gap:12px;min-width:0;margin:0;padding:8px 12px 14px 24px;position:relative;border:0;border-image:none;border-radius:0;background:none;box-shadow:none;color:var(--cream)}
 .cabinet-shell .desk-reading .desk-action-title{font:700 23px/1.4 'Noto Serif Thai',serif;color:#edcb89;text-align:center;margin:0}
 .cabinet-shell .desk-reading :is(h2,h3,p,label,legend,small){color:inherit}
@@ -337,11 +337,11 @@ body:has(.game-dialog[open]){overflow:hidden}
 .cabinet-shell .desk-reading .supporting{color:var(--muted)}
 .cabinet-shell .desk-steps{display:flex;gap:7px;margin:0;padding:0;border:0;min-width:0}
 .cabinet-shell .screen .desk-steps>button{--tab-bg:#17130f;display:flex;flex:1 1 0;align-items:center;justify-content:center;gap:7px;min-width:0;min-height:64px;margin:0;padding:8px 5px;border:1px solid #8b6c3b;border-image:none;background:var(--tab-bg);color:#dfc699;font-size:15px;font-weight:600}
-.cabinet-shell .screen .desk-steps>button:nth-child(2){--tab-bg:#85561a;color:#fff1cb;border-color:#e2b35c}
-.cabinet-shell .screen .desk-steps>button:nth-child(3){--tab-bg:#661f16;color:#ffe2b3;border-color:#bc7339}
+.cabinet-shell .screen .desk-steps>button:nth-child(2){--tab-bg:#85561a;border:7px solid transparent;border-image:url('/art/ui/button.webp') 50 120 fill / 7px 15px stretch;background:none;color:#26190b}
+.cabinet-shell .screen .desk-steps>button:nth-child(3){--tab-bg:#661f16;background:#772616 url('/art/ui/button.webp') center/100% 100% no-repeat;background-blend-mode:multiply;color:#fff0cb;border-color:#bc7339}
 .cabinet-shell .screen .desk-steps>button:nth-child(1).current{--tab-bg:#3a2a15;color:#ffe9b8}
 .cabinet-shell .screen .desk-steps>button.current{outline:2px solid #f0c56e;outline-offset:2px;box-shadow:inset 0 -4px 0 #f0c56e}
-.cabinet-shell .screen .desk-steps>button:hover:not(:disabled){background:var(--tab-bg);border-color:#f0c56e;filter:brightness(1.15)}
+.cabinet-shell .screen .desk-steps>button:hover:not(:disabled){filter:brightness(1.15)}
 .cabinet-shell .desk-reading :is(strong,b){color:inherit}
 .cabinet-shell .screen input[type=checkbox]{appearance:none;display:inline-grid;place-content:center;flex:none;width:24px;height:24px;margin:0;border:2px solid #b58d4b;border-radius:4px;background:#14100c;cursor:pointer}
 .cabinet-shell .screen input[type=checkbox]:checked{background:#d8b25f;border-color:#f0c56e}
@@ -370,8 +370,8 @@ body:has(.game-dialog[open]){overflow:hidden}
 .cabinet-shell .step-panel{margin:0;padding:12px 0 0;min-width:0;border-top:1px solid #725734}
 .cabinet-shell .step-panel[hidden]{display:none}
 .cabinet-shell .inspection .actions{display:flex;flex-direction:column;gap:10px;align-items:stretch;margin:12px 0}
-.cabinet-shell .inspection .actions>button{display:flex;align-items:center;justify-content:flex-start;gap:18px;min-height:76px;padding:10px 16px;background:#181511;border:1px solid #9e7842;border-radius:4px;font-size:17px;color:#f3dab0}
-.cabinet-shell .inspection .actions>button .icon{width:44px;height:44px;padding:8px;border:2px solid #b58d4b;border-radius:50%;color:#e0b966;flex:none}
+.cabinet-shell .screen .inspection .actions>button{border:8px solid transparent;border-image:url('/art/ui/panel.webp') 70 fill / 8px stretch;display:flex;align-items:center;justify-content:flex-start;gap:18px;min-height:88px;padding:6px 12px;background:none;border-radius:0;font-size:17px;color:#f3dab0}
+.cabinet-shell .inspection .actions>button .icon{width:60px;height:60px;padding:15px;border:0;border-radius:0;background:url('/art/ui/cabinet/medallion.png') center/contain no-repeat;color:#f0ca7e;flex:none}
 .cabinet-shell .screen .desk-reading .step-next{width:100%;min-height:54px;margin-top:10px;border:8px solid transparent;border-image:url('/art/ui/button.webp') 50 120 fill / 8px 18px stretch;background:none;font-size:16px;color:#26190b;font-weight:700}
 .cabinet-shell .price-entry{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px}
 .cabinet-shell .price-entry .stepper{flex:1 1 190px;min-width:0}
@@ -434,7 +434,7 @@ body:has(.game-dialog[open]){overflow:hidden}
   .cabinet-shell .stock-shelf>h2{font-size:17px;margin-bottom:8px}
   .cabinet-shell .stock-tabs{display:flex;flex-direction:row;flex-wrap:nowrap;gap:10px;max-height:none;overflow-x:auto;overflow-y:hidden;scrollbar-gutter:auto;padding:4px 4px 10px}
   .cabinet-shell .stock-tabs>button{display:grid;grid-template-columns:44px minmax(0,1fr);flex:0 0 190px;gap:4px 8px;padding:6px;min-height:76px;border-bottom-width:2px;box-shadow:none}
-  .cabinet-shell .stock-tabs button>.item-visual,.cabinet-shell .stock-tabs button>img{grid-row:1/3;align-self:center;width:44px;max-width:44px;height:44px}
+  .cabinet-shell .stock-tabs button>.item-visual,.cabinet-shell .stock-tabs button>img{grid-row:1/3;align-self:center;width:44px;max-width:44px;height:44px;max-height:44px}
   .cabinet-shell .stock-name{text-align:left;font-size:13px}
   .cabinet-shell .stock-price{justify-content:flex-start;font-size:12px}
   .cabinet-shell .stage-main>.desk{grid-column:1;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:16px}
@@ -507,20 +507,20 @@ body:has(.game-dialog[open]){overflow:hidden}
   .game-dialog .settings-tools{padding:18px}
 }
 .cabinet-shell .prov>li:empty{display:none}
-/* The action that ends the phase stays in reach instead of sitting below the optional panels. */
+/* Keep the phase exit in document flow so it never covers facts or the current task. */
 @media(min-width:701px){
-  .cabinet-shell .screen .end-phase{position:sticky;bottom:8px;z-index:15;margin-top:12px;padding:4px 16px;box-shadow:0 -8px 24px #000a}
+  .cabinet-shell .screen .end-phase{position:relative;bottom:auto;z-index:1;margin-top:12px;padding:12px 16px;box-shadow:none}
 }
 /* On a desktop viewport the whole decision (shelf, specimen, inspection) should be reachable without scrolling. */
 @media(min-width:1200px){
   .cabinet-shell .appraisal-stage .merchant{min-height:112px}
   .cabinet-shell .merchant>.merchant-window{height:112px}
   .cabinet-shell .appraisal-stage .stage-main{padding-bottom:clamp(52px,5vw,76px)}
-  .cabinet-shell .stock-tabs{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 10px;max-height:none}
+  .cabinet-shell .stock-tabs{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px 10px;max-height:none}
   .cabinet-shell .stock-name{font-size:14px}
   .cabinet-shell .desk .desk-reading{gap:8px}
   .cabinet-shell .inspection .actions{gap:8px;margin:8px 0}
-  .cabinet-shell .inspection .actions>button{min-height:60px;padding:8px 14px}
+  .cabinet-shell .screen .inspection .actions>button{min-height:88px;padding:6px 12px}
   .cabinet-shell .desk-steps>button{min-height:56px}
   .cabinet-shell .cabinet-object{margin-top:-84px}
 }

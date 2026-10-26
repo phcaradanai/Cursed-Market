@@ -1,0 +1,7 @@
+{
+  "tool": "image_gen",
+  "prompt": "Create one standalone production UI material asset for Cursed Market, using the attached approved screen only as a style reference. A single circular, dimensional aged brass medallion rim, matching the eye/lens/flame inspection medallions on the screen's right side. Thick worked bronze-gold outer ring with subtle carved nicks, bevel highlights from upper left, dark recessed charcoal center completely blank. No icon, glyph, text, button, symbol, object, or scene inside or around it. The same blank medallion will hold different semantic vector icons in code. Perfectly front-facing, centered, square 1:1 canvas, rim fills about 88% of canvas, transparent exterior with authentic rounded silhouette, no cast shadow outside canvas. Photographic painted dark fantasy game UI craft, warm aged metal, sharp useful detail. Output only this one blank medallion, not a screen or collection.",
+  "reference": ".impeccable/mocks/decision/bolder-cabinet.png",
+  "source": "/Users/oyl-mac_m1/.codex/generated_images/01a16bde-a12b-7d91-b885-ed51abc8e432/exec-69cc5aa9-be17-411e-9448-b700e1ecb814.png",
+  "transparent_background": true
+}

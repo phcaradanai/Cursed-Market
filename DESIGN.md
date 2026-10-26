@@ -2,6 +2,17 @@
 name: Cursed Market
 description: The Threshold. The appraisal ledger floats over a drowned Three.js void in black, orpiment gold and verdigris. Legacy auction tokens are kept for the independent LAN client.
 colors:
+  cabinet-cream: "#f0e4cd"
+  cabinet-muted: "#c6b99f"
+  cabinet-frame-line: "#896d40"
+  cabinet-panel-solid: "#15110e"
+  cabinet-panel: "#14110ff5"
+  cabinet-focus: "#ffe0a0"
+  cabinet-inset: "#17130e"
+  cabinet-brass-text: "#f0d291"
+  cabinet-control: "#17130f"
+  cabinet-buy: "#681e16"
+  cabinet-buy-text: "#ffe2b3"
   void: "#05090a"
   table: "#080c0d"
   field: "#0a0f10"
@@ -59,6 +70,23 @@ colors:
   finding-wash: "#e5ead9"
   symbol-ink: "#65533b"
 typography:
+  cabinet-phase:
+    fontFamily: '"Noto Serif Thai", serif'
+    fontSize: "clamp(26px, 2.5vw, 36px)"
+    lineHeight: 1.4
+  cabinet-specimen:
+    fontFamily: '"Noto Serif Thai", serif'
+    fontSize: "clamp(22px, 1.8vw, 29px)"
+    fontWeight: 700
+    lineHeight: 1.4
+  cabinet-body:
+    fontFamily: '"Noto Sans Thai", sans-serif'
+    fontSize: "16px"
+    lineHeight: 1.65
+  cabinet-task-copy:
+    fontFamily: '"Noto Sans Thai", sans-serif'
+    fontSize: "14px"
+    lineHeight: 1.65
   chapter:
     fontFamily: '"IM Fell English", "Srisakdi", "Noto Serif Thai", serif'
     fontSize: "clamp(32px, 5.4vw, 72px)"
@@ -147,6 +175,9 @@ typography:
     fontSize: "14px"
     lineHeight: 1.65
 rounded:
+  cabinet-control: "5px"
+  cabinet-inset: "3px"
+  cabinet-dialog: "10px"
   appraisal-control: "6px"
   appraisal-inset: "8px"
   appraisal-frame: "10px"
@@ -165,6 +196,25 @@ spacing:
   stack: "30px"
   appraisal-wide: "32px"
 components:
+  cabinet-button-secondary:
+    backgroundColor: "{colors.cabinet-control}"
+    textColor: "{colors.cabinet-cream}"
+    rounded: "{rounded.cabinet-control}"
+    padding: "9px 14px"
+  cabinet-button-buy:
+    backgroundColor: "{colors.cabinet-buy}"
+    textColor: "{colors.cabinet-buy-text}"
+    width: "100%"
+  cabinet-specimen-inset:
+    backgroundColor: "{colors.cabinet-inset}"
+    textColor: "{colors.cabinet-brass-text}"
+    rounded: "{rounded.cabinet-inset}"
+    padding: "8px 10px"
+  cabinet-dialog:
+    backgroundColor: "{colors.cabinet-panel-solid}"
+    textColor: "{colors.cabinet-cream}"
+    rounded: "{rounded.cabinet-dialog}"
+    padding: "0"
   appraisal-button-primary:
     backgroundColor: "{colors.orpiment}"
     textColor: "{colors.orpiment-ink}"
@@ -273,6 +323,14 @@ components:
 
 ## Overview
 
+### Cabinet implementation scope (2026-10-24)
+
+The approved curiosity-cabinet composition now owns the appraisal client's live UI. Worked dark wood encloses stock, a raised velvet recess and the current action; brass specimen plates use dark reading insets. Gold marks appraisal commitments and blood red marks purchase. The following cabinet additions describe `src/appraisal-client/cabinet.css`, which overrides the inherited Threshold CSS. Earlier text remains the record of the underlying world and independent legacy client; where a cabinet addition differs, it governs only the current cabinet surface. The cabinet does not replace the fixed Three.js background or server phase model.
+
+The approved six-block direction lives in `.impeccable/surfaces/src-appraisal-client-app-tsx.md`; its comp is `.impeccable/mocks/decision/bolder-cabinet.png`. Actual stock and viewer-known facts come from room DTOs. The comp's nine illustrative items are not fixtures or a minimum stock count.
+
+**Review state: FIX.** This record documents implementation, not release acceptance. Original findings 1, 3 and 4 are resolved: inspection medallions and commitments, dark specimen insets/brass labels with mobile 44×44 thumbnails, and overlay placement. Canonical item paintings still carry rectangular/blue backgrounds, so the art integration is partial. The separate fourteen-static-plate/component-receipt gate remains open. Current entry, lobby, portals, appraisal, trade, reward and results captures exist, while actual 200% browser zoom and real human task testing remain unverified. These gaps are not design rules to inherit.
+
 **Creative North Star: "The Threshold"**
 
 The appraiser's ledger floats at the edge of a drowned void, and an eclipse that is really a closed eye watches every bargain. The world is a Thai black samut khoi manuscript fused with cosmic dread: lacquer-black leaves ruled in orpiment gold, chalk-bone text, an abyss teal-black ground, verdigris glow, ichor violet for omens and clotted oxblood for danger. The table UI stays in front, fully operable; the Three.js world sits behind it on a fixed canvas and moves the camera when the phase changes. This replaced the 2026-10-14 warm brown realistic-card table on 2026-10-21.
@@ -291,6 +349,10 @@ The direction contract described every page as a near-opaque black leaf. The bui
 - The scene reacts only to facts the player can already see.
 
 ## Colors
+
+### Cabinet scope
+
+The `cabinet-*` frontmatter tokens keep cabinet overrides separate from inherited black/teal Threshold and legacy auction values. Warm bone and muted linen carry reading text; blackwood panels and dark specimen insets separate it from worked brass. Brass text identifies the specimen and displayed price. Gold appraisal chrome uses the existing text-free button material, while the purchase commitment uses the cabinet buy fill. Keyboard focus uses the cabinet focus token. These assignments are local to the cabinet and its native utility dialogs.
 
 The frontmatter owns exact values. The palette is ink-black and teal-black ground, gold rule and gold action, with three narrow signal hues. The sidecar's tonal ramps are panel previews, not implemented scales.
 
@@ -331,6 +393,10 @@ The frontmatter owns exact values. The palette is ink-black and teal-black groun
 
 ## Typography
 
+### Cabinet scope
+
+The cabinet keeps the installed Noto Sans Thai, Noto Serif Thai, IM Fell English and Srisakdi families; no font or dependency was added. Noto Serif Thai now carries the cabinet's phase, merchant and specimen headings; Noto Sans Thai carries controls, resources and facts. IM Fell remains the brand face and the inherited display stack still serves entry/lobby/reward/results roles. The cabinet phase heading becomes 26px at desktop widths from 1200px, and 27px below 700px. Specimen headings become 24px below 900px. Task prose uses `cabinet-task-copy`; small pricing/resource metadata is subordinate, not a replacement for labels.
+
 **Display Fonts:** Srisakdi 700 (Thai and Latin subsets) and IM Fell English 400 (Latin), self-hosted from `@fontsource/srisakdi` and `@fontsource/im-fell-english` 5.3.0 (OFL-1.1), imported in `main.tsx`. Fallbacks are Noto Serif Thai, then serif.
 **Body and UI Font:** self-hosted Noto Sans Thai, with sans-serif fallback.
 **Section Heading Font:** self-hosted Noto Serif Thai, with serif fallback.
@@ -360,6 +426,14 @@ Prices, resources, timers and score tables use tabular numerals. Headings use ba
 
 ## Layout
 
+### Cabinet scope
+
+The cabinet shell centres at a maximum width of 1760px with 16px 28px 28px padding. A compact resource/tool rail precedes the phase title and current decision. Desktop appraisal uses a stock bay at 35 parts and a desk at 65 parts; the desk divides its space into specimen/action at 30:35, producing the three visible cabinet bays. The merchant sits above the left shelf, and the central recess rises above the shared frame. The stock shelf renders every actual server item as a direct native button, with count, name, price and `aria-pressed` selection.
+
+Below 900px the stock becomes a horizontally scrolling strip (190px items), above a two-column specimen/task area. Below 600px specimen and task stack, with recess art capped at 270px. Below 700px named utilities become a fixed bottom rail with safe-area padding, while the shell reserves 104px below its content. Desktop phase exit remains in document flow. Entry/create-join, lobby/readiness, three direct portal choices, trade, reward and results use the same materials and phase-led hierarchy; trade stacks below 950px and portal rows stack below 700px.
+
+**The Live Cabinet Rule.** Stock, costs, availability and known facts follow authoritative room state; material plates never contain functional labels, item inventories or hidden truth.
+
 The world canvas is `position: fixed; inset: 0; z-index: 0` with no pointer events. It fades in over 1.8s once the scene is ready. The app shell sits above it at `z-index: 1`. The shell is centred, 1440px wide at most, with 16px 32px 20px padding. The first viewport shows the masthead, then the phase header leaf with the title, hint, encounter line and room code on the left, and countdown, resources and seat discs on the right. The phase task (portals, desk, trade) sits below. The play table has a flexible main region and a 312px side column (Dark Market, statuses, notes) with a 28px gap.
 
 Each phase shows only what its decision needs. Portal choice shows portals, the full Dark Market and statuses. Appraisal shows the merchant beside a three-step desk (inspect, appraise, buy) with one step panel visible, statuses, and a one-line market summary. The inventory is a closed drawer. Trade shows unsold duty, trades, the full market, the inventory and other players. Reveal and results use a single column. The rules disclosure stays at the bottom in every phase.
@@ -371,6 +445,10 @@ The legacy `src/client` shell keeps a 1216px maximum width, 32px horizontal padd
 Spacing is practical rather than modular. Reused steps are in the frontmatter.
 
 ## Elevation & Depth
+
+### Cabinet scope
+
+Depth in the cabinet is painted into worked wood, carved brass, the velvet recess and the medallion rim. Live facts sit on dark insets, and inspection rows use the existing panel border image. Native utility dialogs use a solid blackwood panel, a `0 24px 80px #000a` shadow and `#000b` backdrop. Cabinet buttons brighten on hover and move down 1px on activation; reduced motion removes cabinet/dialog transitions and animations. The Fixed Layer Rule below remains binding: no transform, filter or backdrop-filter on fixed-overlay ancestors. Decorative merchant-image shadowing stays on the image leaf.
 
 Depth comes from the world, not from shadow stacks. The void gives distance: fog, a pointer parallax on the camera, and the camera dollying to a new rig at each phase. Leaves sit on it as dark, near-opaque planes. A key leaf (phase header, desk, Dark Market, event, entry portrait, results, lobby, round reward) has a 1px frame-line border, an inset 4px panel-gap channel, then a 1px inset gold rule (`frame-inner`). It adds two 1px gold hairlines inset 14px from the top and bottom, and 16px SVG corner brackets. Supporting panels (portals, statuses, trades, inventory cards, trust ring) use the single frame line. Without WebGL, the body ground is the fallback: a verdigris radial from the top, black toward the bottom, over the void.
 
@@ -392,9 +470,31 @@ Depth comes from the world, not from shadow stacks. The void gives distance: fog
 
 ## Shapes
 
+### Cabinet scope
+
+Worked rectangular bays and a raised arch carry the composition. Brass specimen framing contains dark inset rectangles, with fine separating rules and a 3px inset radius. Standard cabinet buttons have 5px corners; the native dialog has 10px corners (8px on phones). Selected stock has a separate 2px gold outline with 2px offset; keyboard focus is a 3px cabinet-focus outline with 3px offset. Buttons retain at least 44×44px targets, with larger inspection rows (88px), 60px medallions, 64px step tabs and a 60px purchase commitment. Inline glossary terms keep text-sized treatments rather than boxed button chrome; the focused review confirms the mobile thumbnail proportion fix.
+
 Controls have a 6px radius, insets and the parchment 8px, framed leaves 10px, art cards and inventory thumbnails 12px. Portal cards have a 16px radius. Their portrait is cut as an arch: `50% 50% 6px 6px / 34% 34% 6px 6px`, with a 1:1.05 aspect, echoing the gates that rise in the scene. Seat discs, trust discs and pills are round. Fine borders are 1px. Selected stock and inventory use a 2px amber outline with a 2px offset. Keyboard focus is a separate 3px outline with a 3px offset. Trust discs not yet met use a 2px dashed line. Corner brackets are thin L-strokes with an inner echo and a diagonal tick. Legacy `src/client` controls keep a 4px radius. Relic choices are square, focus is a 3px rust outline at a 4px offset, and family symbols are 64px inline SVGs with a 2px rounded stroke.
 
 ## Components
+
+### Cabinet stock, specimen and task
+
+Selecting a real stock item opens its recess and viewer-known specimen facts beside the current inspect/appraise/buy panel. The brass plate uses dark insets for the item title, merchant selling price and independent value/authenticity/curse/provenance facts. Unknown attributes remain unknown. The substantial inspection rows place semantic eye, lens and flame SVGs over the same blank brass medallion; their live labels state the actual cost. Step tabs support Arrow Left/Right, Home and End, with one tab stop and linked panels. Inspection remains optional: players can go directly to appraisal or purchase, sharing the engine's one free inspection-or-appraisal action per item.
+
+### Cabinet buttons and inputs
+
+Standard buttons use cabinet control/bone colors; gold textured commitments use the existing button border image with dark ink. Purchase is blood red with warm light text and a brass border. Disabled controls use half opacity and a blocked cursor. Fields keep visible labels, dark fill and at least 46px height. The numeric stepper retains its integer 0–1000 validation. The cabinet checkbox is a drawn 24px box with a shaped checkmark; contextual costs, risks, contracts and rejection reasons remain DOM text.
+
+### Cabinet utility dialogs and feedback ownership
+
+Bag, statuses, Dark Market, ledger and rules open the shared native `GameDialog`; settings groups language, sound and leaving. `showModal()` places each dialog in the native top layer. Escape closes it; Tab/Shift-Tab cycle enabled, visible controls; an empty dialog receives focus; close restores the connected opener without scrolling. A sticky dialog heading and independently scrolling content keep its close control available. Background scrolling is locked while a dialog is open.
+
+`App` owns connection, busy and server error state and provides it through `DialogFeedback`. Each open dialog repeats the same sending, alert and reconnect message in a non-scrolling feedback footer, including a replaced-tab recovery action when applicable. The shell also shows connection/error status. Dialogs do not own a second network state or announce success before server confirmation. Rejection preserves the current input. Event dialogs retain tuck/reopen behavior and lock table actions while open.
+
+### Cabinet materials and provenance
+
+Runtime material paths are `/art/ui/cabinet/frame.jpg`, `/art/ui/cabinet/recess.jpg` and `/art/ui/cabinet/medallion.png`. Frame and recess are text-free decorative plates; the medallion is a blank rim with transparent exterior. Each has an exact-prompt `.json` sidecar and embedded provenance. The cabinet reuses `/art/ui/button.webp` and `/art/ui/panel.webp`; canonical merchant and item art remain dynamically selected, with no hidden-truth variant. Material plates do not replace semantic text or controls. Rectangular/blue backgrounds in canonical item art remain an open integration defect rather than an approved cutout style.
 
 ### Buttons
 
@@ -461,6 +561,15 @@ Optional synthesized sound starts off and turns on only from the player's own ge
 **The Property Scope Rule.** Inspecting one attribute never visually implies knowledge of another; illustrations identify the item kind without exposing hidden facts.
 
 ## Do's and Don'ts
+
+### Cabinet scope
+
+- **Do** keep the current task, viewer-known facts and real item selection together in the cabinet; use gold appraisal and blood-red purchase consistently.
+- **Do** preserve named utility access, keyboard tabs, native dialog focus return and shared sending/error/reconnect feedback.
+- **Do** keep material plates text-free, preserve their exact-prompt sidecars and embedded provenance, and render facts and controls in DOM.
+- **Don't** manufacture nine stock items, extra specimen facts or hidden-truth artwork from the illustrative comp.
+- **Don't** place transform, filter or backdrop-filter on an ancestor of fixed overlays, including the mobile utility rail.
+- **Don't** treat this implementation record, current screenshots or automated checks as the outstanding static-plate gate, 200% zoom verification or human task acceptance.
 
 ### Do:
 

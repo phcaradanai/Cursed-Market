@@ -28,7 +28,7 @@ import type { AppraisalRoomView } from '../shared/appraisal-protocol.js';
 import { possibleBenefitText, possibleDrawbackText, salePctText, activationBlock, activationOutcome, choiceTitle, effectsInspectionLabel, effectsKnownFor, eventCatalog, eventItemUsable, eventNeeds, inspectionBlock, itemScoreRange, needShort, purchaseBlock, eventCost, eventDecision, eventFacts, eventItemName, eventNeedsItem, eventNeedsStatus, eventStatusOptions, factLabel, hasStatus, inspectionCost, inventoryLabel, marketOptions, purchaseEnergy, purchasePrice, readable, riskRange, stepPrice, scoreStatusText, eventScoreText, statusName, isConsequence, bondOf, unsoldItems, unsoldPenaltyText, consignText } from './model.js';
 import type { Decision } from './model.js';
 import { ChoiceCards, ItemCard, ItemTerm, Peek, Rich, StatusTerm } from './lore.js';
-import { AppraiseIcon, BuffIcon, BuyIcon, CloseIcon, CoinIcon, DebuffIcon, EventIcon, InspectIcon, MarketIcon, MinusIcon, PlusIcon, RebateIcon, SealIcon, TicketIcon, TrustIcon } from './icons.js';
+import { AppraiseIcon, BuffIcon, BuyIcon, CloseIcon, CoinIcon, DebuffIcon, EventIcon, EyeIcon, FlameIcon, InspectIcon, MarketIcon, MinusIcon, PlusIcon, RebateIcon, SealIcon, TicketIcon, TrustIcon } from './icons.js';
 import { t } from './i18n.js';
 import { tip, useLock } from './reasons.js';
 import { itemName, npcName, passiveText, statusDescription, statusDuration, toolText } from './catalog-text.js';
@@ -84,9 +84,9 @@ export function Inspect({game,item,submit,disabled}:Actions&{item:ItemView}) {
     {game.curseSight && <p className="supporting">{t('ตรวจคำสาปเปิดว่าสินค้ามีคำสาปหรือไม่ ความแท้กับคำสาปเป็นคนละเรื่อง ของแท้อาจมีคำสาป และของปลอมอาจไม่มี')}</p>}
     {(['price','authenticity','effects'] as const).some(p=>freeInspectionRemaining(game,p)>0) && <p className="positive-text">{t('สิทธิ์ฟรีที่เหลือช่วงนี้: ราคา {price} · ความแท้ {auth} · {kind} {effects}',{price:freeInspectionRemaining(game,'price'),auth:freeInspectionRemaining(game,'authenticity'),kind:game.curseSight?t('คำสาป'):t('ผลสินค้า'),effects:freeInspectionRemaining(game,'effects')})}</p>}
     <div className="actions">
-      <button className="inspect" disabled={blocked || game.self.energy<price || item.knowledge.base!==undefined} title={inspectWhy(price,item.knowledge.base!==undefined,t('รู้มูลค่าจริงของชิ้นนี้แล้ว'))} onClick={()=>submit({type:'inspect',itemId:item.id,property:'price'})}><InspectIcon/>{t('ตรวจราคา')}{item.knowledge.base!==undefined?t(' · รู้แล้ว'):price===0?t(' · ฟรี'):''}</button>
+      <button className="inspect" disabled={blocked || game.self.energy<price || item.knowledge.base!==undefined} title={inspectWhy(price,item.knowledge.base!==undefined,t('รู้มูลค่าจริงของชิ้นนี้แล้ว'))} onClick={()=>submit({type:'inspect',itemId:item.id,property:'price'})}><EyeIcon/>{t('ตรวจราคา')}{item.knowledge.base!==undefined?t(' · รู้แล้ว'):price===0?t(' · ฟรี'):''}</button>
       <button className="inspect" disabled={blocked || game.self.energy<auth || item.knowledge.genuine!==undefined} title={inspectWhy(auth,item.knowledge.genuine!==undefined,t('รู้ความแท้ของชิ้นนี้แล้ว'))} onClick={()=>submit({type:'inspect',itemId:item.id,property:'authenticity'})}><InspectIcon/>{t('ตรวจความแท้')}{item.knowledge.genuine!==undefined?t(' · รู้แล้ว'):auth===0?t(' · ฟรี'):''}</button>
-      <button className="inspect" disabled={blocked || game.self.energy<effects || effectsDone} title={inspectWhy(effects,effectsDone,t('ตรวจผลของชิ้นนี้ไปแล้ว'))} onClick={()=>submit({type:'inspect',itemId:item.id,property:'effects'})}><InspectIcon/>{effectsLabel}{effectsDone?t(' · รู้แล้ว'):effects===0?t(' · ฟรี'):''}</button>
+      <button className="inspect" disabled={blocked || game.self.energy<effects || effectsDone} title={inspectWhy(effects,effectsDone,t('ตรวจผลของชิ้นนี้ไปแล้ว'))} onClick={()=>submit({type:'inspect',itemId:item.id,property:'effects'})}><FlameIcon/>{effectsLabel}{effectsDone?t(' · รู้แล้ว'):effects===0?t(' · ฟรี'):''}</button>
     </div>
     {notes.length>0 && <p className="why" role="status">{notes.join(' · ')}</p>}
   </div>;

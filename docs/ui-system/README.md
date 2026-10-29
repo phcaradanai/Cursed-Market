@@ -2,7 +2,7 @@
 
 **Active comic source: [`apps/comic/`](../../apps/comic/).** Root `src/` remains the realistic/cabinet implementation and is not the comic UI. The former external build is a historical backup, not an edit target. This relocation was explicitly authorized on 2026-10-29.
 
-Read [design system](design-system.md), [audit and reconciliation](audit.md), [decisions](decisions.md), and [verification](verification.md). For gameplay also read `../game-design/PROJECT-CONTEXT.md`, `rules-and-logic.md` and the relevant roadmap task. [Main system HTML](../game-design/logic-item-relations.html) remains the human-facing index; edit its input files and regenerate it.
+Read [design system](design-system.md), [audit and reconciliation](audit.md), [decisions](decisions.md), [verification](verification.md), and [acceptance audit](completion-audit.md). For gameplay also read `../game-design/PROJECT-CONTEXT.md`, `rules-and-logic.md` and the relevant roadmap task. [Main system HTML](../game-design/logic-item-relations.html) remains the human-facing index; edit its input files and regenerate it.
 
 ## Commands
 
@@ -15,6 +15,7 @@ npm run build:comic
 npm run test:comic
 npm run ui:check
 npm run ui:test
+npm run ui:smoke              # actual menu open/close, frame/header/radius, item state and countdown
 npm run ui:visual             # ego-browser must be available; matching Chromium/font environment
 ```
 
@@ -22,7 +23,7 @@ npm run ui:visual             # ego-browser must be available; matching Chromium
 
 ## Baseline lifecycle
 
-`npm run ui:visual -- --mode record` creates/replaces **candidates** only; use only after explicit baseline-update authorization. `compare` (the default) never updates references. Screenshots, computed geometry, browser identity and timer masks are saved in `baselines/manifest.json`; actuals/reports go in ignored `runs/`. Pixel differences above 0.1% (per-channel noise threshold8) fail. Only `.countdown` is masked; content/action areas are never masked. Dimensions or browser changes fail rather than silently rebase.
+`npm run ui:visual -- --mode record` creates/replaces **candidates** only; use only after explicit baseline-update authorization. `compare` (the default) never updates references. Screenshots, computed geometry, browser identity and timer masks are saved in `baselines/manifest.json`; actuals/reports go in ignored `runs/`. Pixel differences above 0.1% (per-channel noise threshold8) fail. Only `.countdown` is masked; content/action areas are never masked. The screenshot fixture pins DPR1; physical PNG dimensions must equal CSS dimensions×DPR and timer masks use physical coordinates. DPR2 was investigated but did not solve cross-width artwork instability; see raster-investigation.json. Dimensions, DPR or browser changes fail rather than silently rebase.
 
 Existing user-confirmed contracts (same frame, equal action widths, centred stepper, equal +/- gaps, hidden unknown facts) are assertions independent of pixels. A passing pixel comparison proves reproducibility, **not human approval**. Baseline approval status is explicit. Review candidates in [review.html](review.html); do not mark them approved from an agent's own opinion.
 

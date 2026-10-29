@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-30",
+  "cwd": "apps/comic",
+  "command": "node --test dist/tests/appraisal-client.test.js",
+  "tests": 67,
+  "passed": 60,
+  "failed": 7,
+  "reportSHA256": "2c242af652df1734bb3f6b0511c52701824a347b5471814a9f21c36514c38e9e",
+  "notes": "Current run confirms old UI assertions still fail; no assertions changed or disabled. Artwork provenance failure is20 item entries versus old expected10, not a missing manifest now."
+}

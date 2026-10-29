@@ -1,7 +1,7 @@
 {
   "version": 1,
   "asOf": "2026-10-30",
-  "revision": "789ab3dbd3cd8cb4bf02b498d8c8e93d9dc27548",
+  "revision": "d91b4d5f402cb09ccd8f14becc78e0ea363d0975",
   "inputs": {
     "src/game/appraisal/ability-content.ts": "ff33530545a771c4e686640f2fca5db996ef3612f9602da6ddbf68c12377127e",
     "src/game/appraisal/ability-rules.ts": "3e9f33f54b34c91fb26f6d0926f9df83e646dc3623a7c8bbf3beed5cedbc9139",
@@ -97,7 +97,7 @@
     "docs/game-design/concepts/S06-item-sale-v02.png": "5d3238b51971f4fa3394dfc6c23ab76897150059c5720e53bf35207f1e3a600f",
     "docs/game-design/concepts/S07-summary-v01.png": "a06dfcd833f58b37373212413bc718d1f0067ce92ae9245b932be1cc2e5fd01b",
     "docs/game-design/current-captures.json": "063a5bc4e7ce5727131ac5b384762a9f85b6625526a230cbf0a9d05b2b00f2dc",
-    "docs/game-design/scripts/current-capture-render.mjs": "65fbdf78316f82314e9c6a7bebd8e8d2bd59c0321e5befb6bb48ff5c1086f160",
+    "docs/game-design/scripts/current-capture-render.mjs": "7b731850875eba179a40c9792cfea12d17f9609e7762a3a82cde38c382785c19",
     "docs/game-design/screen-flow.json": "c069a2accca94beba5e6a22151a2287ba6323e40814f5a6f407e8e12eeb415ef",
     "docs/game-design/scripts/screen-flow-render.mjs": "cfcee395152816e83b753af8f0b9e06a1fd012713d0d51e0cfd843fef0b768c8",
     "docs/game-design/logic-item-relations.json": "983d130078b1b6f6f1569dd05f295190a73523c1abaa0aa59bc29e0a6693b801",
@@ -113,7 +113,7 @@
   "outputs": [
     {
       "file": "docs/game-design/system-atlas/README.md",
-      "sha256": "56e8456d4b9c0bcf719e77d55d5547d442f0ba59a3ad5e69d3874486a45bd15a"
+      "sha256": "05a2f412a3f8be3ebf7ecdf730183f87d7421d6d7d015cdbf795c1f75ab981de"
     },
     {
       "file": "docs/game-design/system-atlas/actions-logs.md",
@@ -125,7 +125,7 @@
     },
     {
       "file": "docs/game-design/system-atlas/data.json",
-      "sha256": "fc74e648a7d6f52a27e839a03a02d97313ec2d91834003d5508945e3c91138d3"
+      "sha256": "4c989e93bd6cfb7a39c3789e4d030ebfc3a436710a8e9453995cf71b8508fd01"
     },
     {
       "file": "docs/game-design/system-atlas/edges.csv",
@@ -177,7 +177,7 @@
     },
     {
       "file": "docs/game-design/logic-item-relations.html",
-      "sha256": "9543b40a5c5e8a3030ae40e3b8bbd8c7963ffe2a6a1bc424e07a107f58e0cb17"
+      "sha256": "5d2fde7dad869c677b4def407f59a4d45c1bc88414f8a5b211dd02d6a526e7b5"
     }
   ],
   "summary": {

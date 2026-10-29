@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-30",
+  "case": "inventory-1024x800",
+  "source": "same repo Vite, same Ego task space 3, three independent navigations per DPR",
+  "cssImageRect": {
+    "x": 564.4971923828125,
+    "y": 131.96400451660156,
+    "width": 462.989990234375,
+    "height": 293.48004150390625
+  },
+  "dpr1": [
+    {
+      "pair": "0-1",
+      "changed": 2249,
+      "checked": 815540,
+      "maxDelta": 35
+    },
+    {
+      "pair": "1-2",
+      "changed": 0,
+      "maxDelta": 1
+    }
+  ],
+  "dpr2": [
+    {
+      "pair": "0-1",
+      "changed": 0,
+      "checked": 3264580,
+      "maxDelta": 1
+    },
+    {
+      "pair": "1-2",
+      "changed": 0,
+      "checked": 3264580,
+      "maxDelta": 1
+    }
+  ],
+  "interpretation": "DPR1 emulation can yield different artwork raster at identical CSS bounds. DPR2 matching the native display was reproducible in this probe; full suite proof is separate.",
+  "productChanges": false,
+  "thresholdRelaxed": false,
+  "masks": "countdown only; physical-coordinate scaling required",
+  "failed2xAttempt": "first full2x record completed2/14 then page evaluations timed out while4 full-test children consumed ~50%CPU each; no baseline manifest was replaced. Reloaded same page and stopped only verified own test PIDs. Environment failure, not a UI pass.",
+  "dpr2CrossWidthProbe": {
+    "method": "two loads per width; alternate1024/1920 across3 rounds",
+    "narrowChanged": [
+      15320,
+      0
+    ],
+    "wideChanged": [
+      3814,
+      3814
+    ],
+    "conclusion": "Native DPR alone and warming do not guarantee stable raster across width changes. Do not claim this fixes the gate."
+  }
+}

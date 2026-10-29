@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-30",
+  "command": "node --test dist/tests/comic-continuity.test.js dist/tests/appraisal-comic-blood-pact.test.js dist/tests/appraisal-journal.test.js dist/tests/appraisal-trade-price.test.js",
+  "cwd": "apps/comic",
+  "passed": 11,
+  "failed": 1,
+  "tests": 12,
+  "failure": "both trading seats can compare main and swap appraisals; owned inventory shows the appraisal during TRADE",
+  "failureLocation": "apps/comic/tests/appraisal-trade-price.test.ts",
+  "reportSHA256": "09dc9abc468b8a8eba151b7b61336bc188a6331dc6b9aaa1ff8e189b94a9c032",
+  "runtimeImportComparison": {
+    "files": 63,
+    "changed": []
+  }
+}

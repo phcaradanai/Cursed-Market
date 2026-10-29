@@ -29,7 +29,8 @@
     "test:comic": "npm --prefix apps/comic test",
     "ui:check": "node scripts/ui/check.mjs",
     "ui:test": "node --test scripts/ui/contracts.test.mjs",
-    "ui:visual": "node scripts/ui/run.mjs"
+    "ui:visual": "node scripts/ui/run.mjs",
+    "ui:smoke": "node scripts/ui/run.mjs --mode smoke"
   },
   "devDependencies": {
     "@types/node": "22.20.0",

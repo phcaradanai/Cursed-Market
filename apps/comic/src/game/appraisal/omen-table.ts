@@ -1,0 +1,41 @@
+
+/** A seeded omen colours every encounter of a run, so no two runs weigh the same choices. Applies to every seat alike. */
+export type OmenId='boom'|'inflation'|'tax'|'festival'|'insight'|'plague'|'generous'|'bloodmoon'|'collector-tax'|'famine'|'thieves-night'|'calm'|'black-night'|'pilgrims'|'pestilence';
+export interface Omen {
+  id:OmenId; name:string; text:string;
+  /** Percentage points added to every sale of an item the seat owns. */
+  salePct?:number;
+  /** Extra credits on every NPC purchase, cleansing and recovery deal. */
+  fee?:number;
+  /** Percentage points added to NPC acceptance and to curse cleansing. */
+  accept?:number;
+  /** The first inspection of the encounter costs no energy. */
+  firstInspectFree?:boolean;
+  /** Energy every living seat loses at settlement. */
+  settleEnergy?:number;
+  /** Credits added to the post-trade round reward. */
+  roundBonus?:number;
+  /** Core v0.6: multiplier on the dread chance this encounter. */
+  dread?:number;
+  /** Core v0.6: extra credits on recovery deals. */
+  healCost?:number;
+  /** Core v0.6: percentage points added to every theft attempt. */
+  steal?:number;
+  /** Core v0.6: trust a sold appraisal earns on top of the usual. */
+  trust?:number;
+  /** Core v0.6: percent of credits the Collector's tax takes at settlement. */
+  taxPct?:number;
+  /** Core v0.6: the Dark Market is always open this encounter. */
+  marketOpen?:boolean;
+  /** Core v0.6: life every living seat loses at settlement. */
+  settleLife?:number;
+}
+export const OMENS:ReadonlyArray<Omen>=[
+  {id:'boom',name:'ตลาดคึกคัก',text:'ทุกคนขายของที่ตัวเองเป็นเจ้าของได้ราคาเพิ่ม 15% ในช่วงนี้ รวม Dark Market ผู้ซื้อตามหา และผู้ซื้อพิเศษ ไม่รวมของที่ประเมินให้พ่อค้า',salePct:15},
+  {id:'inflation',name:'ราคาตลาดเฟ้อ',text:'ทุกคนขายของที่ตัวเองเป็นเจ้าของได้ราคาลด 20% ในช่วงนี้ รวม Dark Market ผู้ซื้อตามหา และผู้ซื้อพิเศษ ไม่รวมของที่ประเมินให้พ่อค้า',salePct:-20},
+  {id:'tax',name:'ภาษีเงา',text:'ซื้อจากพ่อค้า ล้างคำสาป และดีลฟื้นต้องจ่ายเพิ่ม 1 เครดิต',fee:1},
+  {id:'festival',name:'เทศกาลพ่อค้า',text:'พ่อค้ายอมรับราคาต่ำและล้างคำสาปสำเร็จง่ายขึ้น 10 จุดเปอร์เซ็นต์',accept:10},
+  {id:'insight',name:'ฟ้าสว่างเหนือโต๊ะ',text:'การตรวจครั้งแรกของช่วงนี้ไม่เสียพลัง (ยังนับสิทธิ์ตรวจ)',firstInspectFree:true},
+  {id:'plague',name:'ฝูงโรคระบาด',text:'ทุกคนที่ยังเล่นอยู่เสียพลัง 1 ตอนคิดผลท้ายช่วง',settleEnergy:1},
+  {id:'generous',name:'ปีแห่งการให้',text:'เครดิตหลังซื้อขายของทุกคนเพิ่ม 3',roundBonus:3},
+];

@@ -1,0 +1,891 @@
+{
+  "revision": "789ab3dbd3cd8cb4bf02b498d8c8e93d9dc27548",
+  "runtimeChanges": false,
+  "config": {
+    "brokerage": {
+      "auctionProbability": 0.5,
+      "maxLots": 2,
+      "bondProbability": 0.65
+    },
+    "polish": true,
+    "npcEvents": true,
+    "survival": {
+      "maxLife": 6,
+      "encounterLifeCost": 1,
+      "entryEnergyCost": 0
+    },
+    "secureEconomy": true,
+    "core2": true
+  },
+  "new56Bindings": 0,
+  "limitations": [
+    "12 synthetic runs; no proof of gameplay balance",
+    "Bots do not cover every secure-economy action; vault/loans/RPS require focused scenarios"
+  ],
+  "runs": [
+    {
+      "count": 2,
+      "seed": "baseline-20261028:2:0",
+      "policies": [
+        "cautious",
+        "aggressive",
+        "collector",
+        "trader"
+      ],
+      "result": {
+        "encounters": 6,
+        "ended": "collector",
+        "scores": [
+          74,
+          35
+        ],
+        "credits": [
+          11,
+          35
+        ],
+        "healed": {
+          "recovery-deal": 1
+        },
+        "lost": {
+          "dimensional-decay": 8,
+          "dark-one-contract": 5
+        },
+        "trace": {
+          "portal-entered": 9,
+          "event-offered": 19,
+          "event-declined": 9,
+          "price-audited": 21,
+          "status-granted": 10,
+          "npc-purchased": 6,
+          "event-resolved": 10,
+          "inspected": 8,
+          "appraised": 12,
+          "energy-spent": 11,
+          "listing-shared": 13,
+          "trade-completed": 3,
+          "appraisal-commission": 3,
+          "knowledge-inherited": 1,
+          "pulse-shards": 1,
+          "rebate-paid": 1,
+          "unsold-consigned": 1,
+          "unsold-penalty": 7,
+          "life-lost": 9,
+          "round-reward-banked": 7,
+          "core2-event": 4,
+          "item-removed": 2,
+          "npc-hex": 2,
+          "breath-drain": 2,
+          "dread-hit": 1,
+          "merchant-ability-used": 1,
+          "life-restored": 1,
+          "trust-lost": 1,
+          "death": 2,
+          "energy-restored": 2,
+          "swarm-venom": 2,
+          "collector-scored": 2
+        }
+      }
+    },
+    {
+      "count": 2,
+      "seed": "baseline-20261028:2:1",
+      "policies": [
+        "cautious",
+        "aggressive",
+        "collector",
+        "trader"
+      ],
+      "result": {
+        "encounters": 6,
+        "ended": "collector",
+        "scores": [
+          46,
+          172
+        ],
+        "credits": [
+          4,
+          72
+        ],
+        "healed": {
+          "recovery-deal": 1
+        },
+        "lost": {
+          "dimensional-decay": 12
+        },
+        "trace": {
+          "event-offered": 26,
+          "portal-entered": 12,
+          "core2-event": 7,
+          "event-resolved": 18,
+          "event-declined": 8,
+          "energy-spent": 15,
+          "inspected": 13,
+          "price-audited": 46,
+          "appraised": 26,
+          "appraisal-commission": 12,
+          "npc-purchased": 12,
+          "merchant-ability-used": 8,
+          "listing-shared": 33,
+          "status-granted": 14,
+          "trade-completed": 3,
+          "knowledge-inherited": 1,
+          "pulse-shards": 1,
+          "rebate-paid": 1,
+          "life-lost": 12,
+          "round-reward-banked": 10,
+          "bond-caught": 1,
+          "item-removed": 7,
+          "ability-choice-selected": 3,
+          "unsold-consigned": 6,
+          "unsold-penalty": 8,
+          "dread-hit": 2,
+          "life-paid": 1,
+          "life-restored": 1,
+          "trust-lost": 1,
+          "alien-loan": 1,
+          "energy-restored": 2,
+          "debuff-blocked": 1,
+          "death": 2,
+          "alien-returned": 1,
+          "collector-scored": 2
+        }
+      }
+    },
+    {
+      "count": 2,
+      "seed": "baseline-20261028:2:2",
+      "policies": [
+        "cautious",
+        "aggressive",
+        "collector",
+        "trader"
+      ],
+      "result": {
+        "encounters": 7,
+        "ended": "collector",
+        "scores": [
+          97,
+          302
+        ],
+        "credits": [
+          3,
+          86
+        ],
+        "healed": {
+          "recovery-deal": 3
+        },
+        "lost": {
+          "dimensional-decay": 11,
+          "unsold-penalty": 3,
+          "omen": 1
+        },
+        "trace": {
+          "event-offered": 27,
+          "portal-entered": 12,
+          "energy-spent": 14,
+          "core2-event": 6,
+          "event-resolved": 20,
+          "event-declined": 7,
+          "status-granted": 17,
+          "inspected": 10,
+          "price-audited": 58,
+          "appraised": 29,
+          "appraisal-commission": 16,
+          "npc-purchased": 20,
+          "merchant-ability-used": 5,
+          "listing-shared": 47,
+          "trade-completed": 4,
+          "unsold-penalty": 8,
+          "life-lost": 15,
+          "round-reward-banked": 10,
+          "life-restored": 2,
+          "item-removed": 3,
+          "unsold-consigned": 5,
+          "dread-hit": 2,
+          "energy-restored": 3,
+          "trust-lost": 1,
+          "death": 2,
+          "omen-plague": 1,
+          "alien-loan": 1,
+          "alien-returned": 1,
+          "collector-scored": 2
+        }
+      }
+    },
+    {
+      "count": 2,
+      "seed": "baseline-20261028:2:3",
+      "policies": [
+        "cautious",
+        "aggressive",
+        "collector",
+        "trader"
+      ],
+      "result": {
+        "encounters": 5,
+        "ended": "collector",
+        "scores": [
+          76,
+          96
+        ],
+        "credits": [
+          0,
+          40
+        ],
+        "healed": {},
+        "lost": {
+          "unsold-penalty": 2,
+          "dimensional-decay": 9,
+          "dread-storm": 1
+        },
+        "trace": {
+          "event-offered": 21,
+          "energy-spent": 14,
+          "core2-event": 6,
+          "event-resolved": 12,
+          "portal-entered": 9,
+          "status-granted": 9,
+          "event-declined": 9,
+          "price-audited": 28,
+          "appraised": 17,
+          "inspected": 10,
+          "appraisal-commission": 8,
+          "npc-purchased": 8,
+          "listing-shared": 18,
+          "trade-completed": 2,
+          "unsold-penalty": 8,
+          "life-lost": 12,
+          "round-reward-banked": 7,
+          "alien-loan": 1,
+          "merchant-ability-used": 4,
+          "ability-choice-selected": 2,
+          "dread-hit": 4,
+          "energy-restored": 2,
+          "item-removed": 1,
+          "unsold-consigned": 1,
+          "bond-revealed": 1,
+          "death": 2,
+          "alien-returned": 1,
+          "collector-scored": 2
+        }
+      }
+    },
+    {
+      "count": 3,
+      "seed": "baseline-20261028:3:0",
+      "policies": [
+        "cautious",
+        "aggressive",
+        "collector",
+        "trader"
+      ],
+      "result": {
+        "encounters": 8,
+        "ended": "collector",
+        "scores": [
+          141,
+          216,
+          24
+        ],
+        "credits": [
+          4,
+          22,
+          16
+        ],
+        "healed": {
+          "E54": 1,
+          "recovery-deal": 9
+        },
+        "lost": {
+          "dimensional-decay": 23,
+          "cursed-activation": 1,
+          "omen": 2,
+          "dread-storm": 2
+        },
+        "trace": {
+          "event-offered": 45,
+          "energy-spent": 17,
+          "core2-event": 6,
+          "event-resolved": 32,
+          "portal-entered": 22,
+          "event-declined": 13,
+          "status-granted": 26,
+          "inspected": 7,
+          "price-audited": 71,
+          "appraised": 34,
+          "appraisal-commission": 20,
+          "npc-purchased": 21,
+          "merchant-ability-used": 13,
+          "item-activated": 5,
+          "listing-shared": 58,
+          "knowledge-inherited": 2,
+          "pulse-shards": 2,
+          "trade-completed": 11,
+          "unsold-consigned": 6,
+          "unsold-penalty": 6,
+          "life-lost": 26,
+          "swarm-venom": 3,
+          "round-reward-banked": 19,
+          "item-removed": 8,
+          "energy-restored": 6,
+          "life-restored": 7,
+          "rebate-paid": 3,
+          "scrap-energy": 1,
+          "offer-expired": 1,
+          "alien-loan": 1,
+          "ability-choice-selected": 3,
+          "death": 3,
+          "omen-plague": 2,
+          "alien-returned": 1,
+          "alien-repaid": 1,
+          "dread-hit": 3,
+          "trust-lost": 1,
+          "collector-scored": 3
+        }
+      }
+    },
+    {
+      "count": 3,
+      "seed": "baseline-20261028:3:1",
+      "policies": [
+        "cautious",
+        "aggressive",
+        "collector",
+        "trader"
+      ],
+      "result": {
+        "encounters": 7,
+        "ended": "collector",
+        "scores": [
+          119,
+          64,
+          68
+        ],
+        "credits": [
+          19,
+          8,
+          23
+        ],
+        "healed": {
+          "E114": 1,
+          "recovery-deal": 2
+        },
+        "lost": {
+          "unsold-penalty": 1,
+          "dimensional-decay": 16,
+          "cursed-activation": 3,
+          "dread-storm": 1
+        },
+        "trace": {
+          "event-offered": 37,
+          "core2-event": 7,
+          "event-resolved": 26,
+          "portal-entered": 16,
+          "event-declined": 11,
+          "energy-spent": 20,
+          "status-granted": 27,
+          "price-audited": 49,
+          "appraised": 28,
+          "inspected": 13,
+          "appraisal-commission": 12,
+          "npc-purchased": 13,
+          "item-activated": 5,
+          "listing-shared": 34,
+          "unsold-consigned": 5,
+          "unsold-penalty": 11,
+          "life-lost": 20,
+          "omen-plague": 5,
+          "round-reward-banked": 13,
+          "item-removed": 6,
+          "energy-restored": 3,
+          "life-restored": 3,
+          "bid-placed": 1,
+          "merchant-ability-used": 7,
+          "ability-choice-selected": 2,
+          "trade-completed": 4,
+          "offer-expired": 1,
+          "bond-swapped": 1,
+          "npc-hex": 2,
+          "trust-lost": 2,
+          "knowledge-inherited": 1,
+          "pulse-shards": 1,
+          "breath-drain": 2,
+          "debuff-blocked": 2,
+          "dread-hit": 3,
+          "death": 3,
+          "collector-scored": 3
+        }
+      }
+    },
+    {
+      "count": 3,
+      "seed": "baseline-20261028:3:2",
+      "policies": [
+        "cautious",
+        "aggressive",
+        "collector",
+        "trader"
+      ],
+      "result": {
+        "encounters": 6,
+        "ended": "collector",
+        "scores": [
+          68,
+          221,
+          74
+        ],
+        "credits": [
+          3,
+          54,
+          9
+        ],
+        "healed": {
+          "restorative-item": 1,
+          "recovery-deal": 2
+        },
+        "lost": {
+          "dimensional-decay": 14,
+          "cursed-activation": 2,
+          "unsold-penalty": 4,
+          "dread-storm": 1
+        },
+        "trace": {
+          "event-offered": 29,
+          "core2-event": 5,
+          "event-resolved": 22,
+          "portal-entered": 14,
+          "energy-spent": 17,
+          "price-audited": 68,
+          "appraised": 37,
+          "appraisal-commission": 17,
+          "npc-purchased": 17,
+          "status-granted": 24,
+          "item-activated": 5,
+          "listing-shared": 47,
+          "event-declined": 7,
+          "trade-completed": 8,
+          "knowledge-inherited": 2,
+          "pulse-shards": 2,
+          "rebate-paid": 2,
+          "merchant-ability-used": 8,
+          "item-removed": 5,
+          "ability-choice-selected": 2,
+          "unsold-consigned": 8,
+          "unsold-penalty": 12,
+          "omen-plague": 3,
+          "life-lost": 21,
+          "round-reward-banked": 11,
+          "energy-restored": 6,
+          "inspected": 6,
+          "life-restored": 2,
+          "scrap-energy": 1,
+          "offer-expired": 2,
+          "breath-drain": 2,
+          "alien-loan": 1,
+          "death": 3,
+          "guess": 1,
+          "debuff-blocked": 1,
+          "dread-hit": 1,
+          "alien-returned": 1,
+          "collector-scored": 3
+        }
+      }
+    },
+    {
+      "count": 3,
+      "seed": "baseline-20261028:3:3",
+      "policies": [
+        "cautious",
+        "aggressive",
+        "collector",
+        "trader"
+      ],
+      "result": {
+        "encounters": 8,
+        "ended": "collector",
+        "scores": [
+          156,
+          120,
+          41
+        ],
+        "credits": [
+          4,
+          19,
+          6
+        ],
+        "healed": {
+          "E114": 4,
+          "restorative-item": 0,
+          "recovery-deal": 3,
+          "pulse-shards": 1
+        },
+        "lost": {
+          "dimensional-decay": 19,
+          "cursed-activation": 2,
+          "dread-storm": 3
+        },
+        "trace": {
+          "event-offered": 47,
+          "portal-entered": 20,
+          "core2-event": 6,
+          "event-resolved": 36,
+          "event-declined": 11,
+          "energy-spent": 21,
+          "status-granted": 43,
+          "inspected": 10,
+          "price-audited": 79,
+          "appraised": 41,
+          "npc-purchased": 22,
+          "appraisal-commission": 18,
+          "item-activated": 5,
+          "listing-shared": 67,
+          "trade-completed": 12,
+          "offer-expired": 2,
+          "pulse-shards": 4,
+          "knowledge-inherited": 2,
+          "rebate-paid": 4,
+          "merchant-ability-used": 9,
+          "unsold-penalty": 15,
+          "life-lost": 26,
+          "round-reward-banked": 17,
+          "item-removed": 11,
+          "bond-caught": 1,
+          "unsold-consigned": 8,
+          "dread-hit": 7,
+          "swarm-venom": 2,
+          "energy-restored": 7,
+          "life-restored": 6,
+          "debuff-blocked": 1,
+          "scrap-energy": 1,
+          "life-paid": 1,
+          "bond-revealed": 1,
+          "ability-choice-selected": 4,
+          "bond-swapped": 1,
+          "death": 3,
+          "trust-lost": 1,
+          "omen-plague": 1,
+          "collector-scored": 3
+        }
+      }
+    },
+    {
+      "count": 4,
+      "seed": "baseline-20261028:4:0",
+      "policies": [
+        "cautious",
+        "aggressive",
+        "collector",
+        "trader"
+      ],
+      "result": {
+        "encounters": 6,
+        "ended": "collector",
+        "scores": [
+          120,
+          36,
+          16,
+          231
+        ],
+        "credits": [
+          22,
+          36,
+          0,
+          142
+        ],
+        "healed": {
+          "recovery-deal": 7
+        },
+        "lost": {
+          "dimensional-decay": 18,
+          "unsold-penalty": 4,
+          "cursed-activation": 1,
+          "dark-one-contract": 5,
+          "dread-storm": 2
+        },
+        "trace": {
+          "event-offered": 47,
+          "portal-entered": 21,
+          "energy-spent": 22,
+          "core2-event": 12,
+          "event-resolved": 39,
+          "event-declined": 8,
+          "status-granted": 40,
+          "inspected": 10,
+          "price-audited": 84,
+          "appraised": 46,
+          "appraisal-commission": 17,
+          "npc-purchased": 17,
+          "merchant-ability-used": 10,
+          "item-removed": 10,
+          "item-activated": 6,
+          "listing-shared": 61,
+          "trade-completed": 17,
+          "offer-expired": 7,
+          "unsold-penalty": 20,
+          "life-lost": 26,
+          "round-reward-banked": 17,
+          "life-restored": 5,
+          "ability-choice-selected": 4,
+          "energy-restored": 6,
+          "trust-lost": 2,
+          "guess": 1,
+          "pulse-shards": 3,
+          "unsold-consigned": 7,
+          "dread-hit": 5,
+          "bond-revealed": 2,
+          "bid-placed": 2,
+          "swarm-venom": 3,
+          "npc-hex": 1,
+          "death": 4,
+          "knowledge-inherited": 1,
+          "scrap-energy": 1,
+          "rebate-paid": 2,
+          "life-paid": 1,
+          "collector-scored": 4
+        }
+      }
+    },
+    {
+      "count": 4,
+      "seed": "baseline-20261028:4:1",
+      "policies": [
+        "cautious",
+        "aggressive",
+        "collector",
+        "trader"
+      ],
+      "result": {
+        "encounters": 9,
+        "ended": "collector",
+        "scores": [
+          87,
+          145,
+          41,
+          364
+        ],
+        "credits": [
+          3,
+          2,
+          4,
+          12
+        ],
+        "healed": {
+          "restorative-item": 0,
+          "recovery-deal": 9,
+          "E114": 1,
+          "pulse-shards": 1
+        },
+        "lost": {
+          "dimensional-decay": 26,
+          "cursed-activation": 1,
+          "unsold-penalty": 2,
+          "omen": 3,
+          "dread-storm": 1
+        },
+        "trace": {
+          "event-offered": 52,
+          "energy-spent": 22,
+          "core2-event": 8,
+          "event-resolved": 41,
+          "portal-entered": 25,
+          "status-granted": 48,
+          "inspected": 9,
+          "price-audited": 132,
+          "appraised": 63,
+          "appraisal-commission": 31,
+          "npc-purchased": 32,
+          "merchant-ability-used": 13,
+          "item-removed": 10,
+          "ability-choice-selected": 4,
+          "life-restored": 6,
+          "item-activated": 2,
+          "listing-shared": 117,
+          "trade-completed": 26,
+          "offer-expired": 2,
+          "unsold-consigned": 14,
+          "unsold-penalty": 19,
+          "life-lost": 31,
+          "round-reward-banked": 21,
+          "event-declined": 11,
+          "pulse-shards": 7,
+          "market-sale": 1,
+          "bid-placed": 4,
+          "energy-restored": 7,
+          "scrap-energy": 3,
+          "rebate-paid": 4,
+          "auction-won": 3,
+          "npc-hex": 1,
+          "knowledge-inherited": 1,
+          "breath-drain": 2,
+          "death": 4,
+          "omen-plague": 5,
+          "dread-hit": 2,
+          "alien-loan": 1,
+          "swarm-venom": 1,
+          "life-paid": 1,
+          "alien-returned": 1,
+          "collector-scored": 4
+        }
+      }
+    },
+    {
+      "count": 4,
+      "seed": "baseline-20261028:4:2",
+      "policies": [
+        "cautious",
+        "aggressive",
+        "collector",
+        "trader"
+      ],
+      "result": {
+        "encounters": 10,
+        "ended": "collector",
+        "scores": [
+          38,
+          258,
+          81,
+          22
+        ],
+        "credits": [
+          7,
+          9,
+          9,
+          14
+        ],
+        "healed": {
+          "recovery-deal": 5,
+          "E114": 2
+        },
+        "lost": {
+          "dimensional-decay": 23,
+          "cursed-activation": 1,
+          "unsold-penalty": 3,
+          "omen": 1
+        },
+        "trace": {
+          "event-offered": 51,
+          "portal-entered": 22,
+          "core2-event": 11,
+          "event-resolved": 44,
+          "event-declined": 7,
+          "status-granted": 47,
+          "energy-spent": 21,
+          "life-paid": 2,
+          "inspected": 8,
+          "price-audited": 106,
+          "appraised": 54,
+          "appraisal-commission": 25,
+          "npc-purchased": 27,
+          "item-activated": 4,
+          "merchant-ability-used": 12,
+          "listing-shared": 93,
+          "trade-completed": 15,
+          "unsold-consigned": 13,
+          "unsold-penalty": 16,
+          "life-lost": 27,
+          "round-reward-banked": 18,
+          "bid-placed": 1,
+          "life-restored": 3,
+          "item-removed": 9,
+          "ability-choice-selected": 4,
+          "offer-expired": 1,
+          "pulse-shards": 3,
+          "energy-restored": 8,
+          "scrap-energy": 1,
+          "breath-drain": 2,
+          "bond-refused": 1,
+          "death": 4,
+          "omen-plague": 3,
+          "dread-hit": 2,
+          "trust-lost": 2,
+          "debuff-blocked": 1,
+          "collector-scored": 4
+        }
+      }
+    },
+    {
+      "count": 4,
+      "seed": "baseline-20261028:4:3",
+      "policies": [
+        "cautious",
+        "aggressive",
+        "collector",
+        "trader"
+      ],
+      "result": {
+        "encounters": 12,
+        "ended": "collector",
+        "scores": [
+          48,
+          301,
+          37,
+          397
+        ],
+        "credits": [
+          3,
+          57,
+          6,
+          172
+        ],
+        "healed": {
+          "E114": 6,
+          "recovery-deal": 7,
+          "restorative-item": 1,
+          "market-condition": 2,
+          "pulse-shards": 1
+        },
+        "lost": {
+          "cursed-activation": 3,
+          "unsold-penalty": 5,
+          "dimensional-decay": 31,
+          "omen": 1,
+          "dread-storm": 1
+        },
+        "trace": {
+          "event-offered": 60,
+          "energy-spent": 29,
+          "core2-event": 13,
+          "event-resolved": 54,
+          "portal-entered": 28,
+          "event-declined": 6,
+          "inspected": 6,
+          "price-audited": 187,
+          "appraised": 85,
+          "appraisal-commission": 39,
+          "npc-purchased": 39,
+          "merchant-ability-used": 21,
+          "status-granted": 66,
+          "life-lost": 39,
+          "item-activated": 5,
+          "listing-shared": 161,
+          "trade-completed": 31,
+          "unsold-consigned": 29,
+          "unsold-penalty": 18,
+          "omen-plague": 5,
+          "round-reward-banked": 24,
+          "item-removed": 19,
+          "energy-restored": 13,
+          "life-restored": 13,
+          "ability-choice-selected": 7,
+          "debuff-blocked": 1,
+          "offer-expired": 4,
+          "rebate-paid": 3,
+          "pulse-shards": 4,
+          "bid-placed": 6,
+          "auction-won": 2,
+          "trust-lost": 1,
+          "swarm-venom": 4,
+          "alien-loan": 3,
+          "scrap-energy": 1,
+          "dread-hit": 3,
+          "death": 4,
+          "market-sale": 4,
+          "alien-returned": 3,
+          "alien-repaid": 1,
+          "npc-hex": 1,
+          "collector-scored": 4
+        }
+      }
+    }
+  ]
+}

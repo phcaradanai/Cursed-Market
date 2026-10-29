@@ -1,0 +1,137 @@
+{
+  "mode": "compare",
+  "startedAt": "2026-10-29T17:25:47.056Z",
+  "baseUrl": "http://127.0.0.1:5174",
+  "taskSpaceId": 3,
+  "checks": [
+    {
+      "id": "status-1024x800",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 896,
+            "y": 10,
+            "width": 118,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      },
+      "pixels": {
+        "changed": 0,
+        "checked": 816132,
+        "ratio": 0,
+        "maxDelta": 0
+      }
+    },
+    {
+      "id": "item-sale-1024x800",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 896,
+            "y": 10,
+            "width": 118,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "columnWidths": [
+          486,
+          486
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "actionWidths": [
+          225,
+          225
+        ],
+        "stepperCentre": 755,
+        "actionsCentre": 755,
+        "inputCentre": 755,
+        "stepperGaps": [
+          12,
+          12
+        ],
+        "stepperWidths": [
+          40,
+          40
+        ],
+        "stepperHeights": [
+          40,
+          40,
+          40
+        ],
+        "knownFacts": [
+          "?",
+          "?",
+          "?"
+        ],
+        "saleDisabled": true,
+        "rebateDisabled": true
+      },
+      "pixels": {
+        "changed": 0,
+        "checked": 816132,
+        "ratio": 0,
+        "maxDelta": 0
+      }
+    }
+  ],
+  "failures": [
+    {
+      "id": "inventory-1024x800",
+      "error": "visual drift 0.279%; review actual vs baseline, never auto-update"
+    }
+  ],
+  "finishedAt": "2026-10-29T17:26:03.973Z",
+  "passed": false
+}

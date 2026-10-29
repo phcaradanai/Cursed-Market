@@ -1,0 +1,13 @@
+{
+  "menus": [
+    "กระเป๋า",
+    "สถานะ",
+    "Dark Market",
+    "สมุดบันทึก",
+    "กติกา",
+    "ตั้งค่า"
+  ],
+  "menuToggleAndEventRestoration": "passed",
+  "previewSelectorRulesAndBack": "passed",
+  "blockingModal": false
+}

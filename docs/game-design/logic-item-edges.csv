@@ -1,0 +1,115 @@
+﻿item_id,item,merchant,role,logic_id,logic,effect_id,effect,status
+orc-oath-sword,ดาบสาบานเผ่า,ออร์ก,primary,L10,ความไว้ใจและสต็อก,E28,พบพ่อค้ารายใหม่แล้วได้ความไว้ใจเพิ่ม,proposed
+orc-oath-sword,ดาบสาบานเผ่า,ออร์ก,optional,L13,ขโมยเชิงรุก RPS,E38,ได้เปรียบเมื่อเป่ายิ้งฉุบเสมอหนึ่งครั้ง,proposed
+orc-tusk-shield,โล่เขี้ยวออร์ก,ออร์ก,primary,L24,ชีวิตและการฟื้นฟู,E62,ลดความเสียหายชีวิตครั้งถัดไป,proposed
+orc-tusk-shield,โล่เขี้ยวออร์ก,ออร์ก,optional,L14,บรรเทาผลถูกขโมย,E40,บรรเทาผลเสียเมื่อแพ้ดวลหนึ่งครั้ง,proposed
+orc-ironroot-greaves,สนับแข้งรากเหล็ก,ออร์ก,primary,L23,พลัง,E61,ฟื้นพลังเมื่อเริ่มช่วง,proposed
+orc-ember-salve,ยาทาเถ้าร้อน,ออร์ก,primary,L24,ชีวิตและการฟื้นฟู,E63,ลดราคาดีลฟื้นพลังหรือชีวิต,proposed
+orc-ember-salve,ยาทาเถ้าร้อน,ออร์ก,optional,L27,สถานะผลดี/ผลเสีย,E71,ลบผลเสียที่เลือกหนึ่งอย่าง,proposed
+orc-bone-war-drum,กลองศึกกระดูก,ออร์ก,primary,L06,ซื้อขายระหว่างผู้เล่น,E16,ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง,proposed
+orc-bone-war-drum,กลองศึกกระดูก,ออร์ก,optional,L25,เศษชีพจรและคู่ค้า,E64,ได้เศษเพิ่มเมื่อเปลี่ยนคู่ค้าตามเกณฑ์,proposed
+orc-tally-beads,ลูกปัดนับชัย,ออร์ก,primary,L05,ขาย/ค่านายหน้า/ระบาย,E13,เพิ่มค่านายหน้า,proposed
+orc-tally-beads,ลูกปัดนับชัย,ออร์ก,optional,L08,ประมูล,E24,ชนะต่ำกว่าราคาประเมินที่รู้แล้วได้โบนัส,proposed
+orc-clan-forge-tongs,คีมตีเหล็กเผ่า,ออร์ก,primary,L03,คำสาปและการชำระ,E07,เพิ่มโอกาสชำระสำเร็จ,proposed
+orc-clan-forge-tongs,คีมตีเหล็กเผ่า,ออร์ก,optional,L05,ขาย/ค่านายหน้า/ระบาย,E14,เพิ่มเงินจากการขายระบาย,proposed
+vampire-mist-cloak,เสื้อคลุมหมอก,แวมไพร์,primary,L14,บรรเทาผลถูกขโมย,E42,รับเงินประกันบางส่วนเมื่อของถูกขโมยจริง,proposed
+vampire-mist-cloak,เสื้อคลุมหมอก,แวมไพร์,optional,L15,อาชญากรรมและค่าชดเชย,E43,ลดค่าล้างประวัติ,proposed
+vampire-nocturne-signet,แหวนตราราตรี,แวมไพร์,primary,L16,ดอกเบี้ยเงินฝาก,E46,เพิ่มดอกเบี้ยของเงินต้นที่ครบช่วง,proposed
+vampire-nocturne-signet,แหวนตราราตรี,แวมไพร์,optional,L18,เงินกู้มีหลักประกัน,E50,ผู้ให้กู้รับโบนัสเมื่อสัญญาจบครบถ้วน,proposed
+vampire-shadow-wine-decanter,ขวดรินไวน์เงา,แวมไพร์,primary,L22,สัญญาส่วนตัว NPC,E58,ลดค่าชีวิตสัญญาเลือด Vampire,proposed
+vampire-shadow-wine-decanter,ขวดรินไวน์เงา,แวมไพร์,optional,L24,ชีวิตและการฟื้นฟู,E63,ลดราคาดีลฟื้นพลังหรือชีวิต,proposed
+vampire-gloam-violin,ไวโอลินสนธยา,แวมไพร์,primary,L04,ซื้อและต่อรอง NPC,E11,เพิ่มโอกาสพ่อค้ายอมรับราคา,proposed
+vampire-gloam-violin,ไวโอลินสนธยา,แวมไพร์,optional,L10,ความไว้ใจและสต็อก,E29,ป้องกันความไว้ใจลดหนึ่งครั้ง,proposed
+vampire-mist-atomizer,เครื่องพ่นละอองหมอก,แวมไพร์,primary,L02,ความแท้และท้าทาย,E06,ลดโทษจากการท้าทายพลาด,proposed
+vampire-mist-atomizer,เครื่องพ่นละอองหมอก,แวมไพร์,optional,L07,ตลาดมืดและของค้าง,E20,ลดความเสียหายจากการจัดการของค้าง,proposed
+vampire-midnight-invitation,บัตรเชิญเที่ยงคืน,แวมไพร์,primary,L08,ประมูล,E22,ชนะแล้วได้เงินคืนบางส่วน,proposed
+vampire-midnight-invitation,บัตรเชิญเที่ยงคืน,แวมไพร์,optional,L20,สัญญารับซื้อ Wishlist NPC,E55,เพิ่มรางวัลส่งของสำเร็จ,proposed
+vampire-mooncut-sword,ดาบจันทร์แหว่ง,แวมไพร์,primary,L13,ขโมยเชิงรุก RPS,E38,ได้เปรียบเมื่อเป่ายิ้งฉุบเสมอหนึ่งครั้ง,proposed
+vampire-mooncut-sword,ดาบจันทร์แหว่ง,แวมไพร์,optional,L28,รางวัลและทายเหรียญ,E75,คืนเงินที่เสียบางส่วนหนึ่งครั้ง,proposed
+autometa-coil-repeater,เครื่องยิงขดลวด,ออโตเมตา,primary,L02,ความแท้และท้าทาย,E05,เพิ่มโอกาสท้าทายคำระบุสำเร็จ,proposed
+autometa-coil-repeater,เครื่องยิงขดลวด,ออโตเมตา,optional,L02,ความแท้และท้าทาย,E06,ลดโทษจากการท้าทายพลาด,proposed
+autometa-clockwork-sentry,ยามกลไกไขลาน,ออโตเมตา,primary,L14,บรรเทาผลถูกขโมย,E40,บรรเทาผลเสียเมื่อแพ้ดวลหนึ่งครั้ง,proposed
+autometa-clockwork-sentry,ยามกลไกไขลาน,ออโตเมตา,optional,L26,ภัย Dread/ผุพัง,E68,คุ้มครองของจากการผุพังหนึ่งครั้ง,proposed
+autometa-data-prism,ปริซึมบันทึกข้อมูล,ออโตเมตา,primary,L01,ตรวจและประเมินราคา,E02,เปิดเผยช่วงราคาที่แคบลง,proposed
+autometa-data-prism,ปริซึมบันทึกข้อมูล,ออโตเมตา,optional,L02,ความแท้และท้าทาย,E04,ตรวจความแท้ฟรีหนึ่งครั้ง,proposed
+autometa-data-prism,ปริซึมบันทึกข้อมูล,ออโตเมตา,optional,L08,ประมูล,E23,ตรวจข้อมูลหนึ่งอย่างของล็อตประมูล,proposed
+autometa-coolant-canister,กระป๋องสารหล่อเย็น,ออโตเมตา,primary,L11,ความสามารถพ่อค้า,E31,ลดเวลารอของความสามารถที่เลือก,proposed
+autometa-coolant-canister,กระป๋องสารหล่อเย็น,ออโตเมตา,optional,L23,พลัง,E61,ฟื้นพลังเมื่อเริ่มช่วง,proposed
+autometa-torque-caliper,คาลิเปอร์วัดแรงบิด,ออโตเมตา,primary,L01,ตรวจและประเมินราคา,E01,ตรวจราคาโดยประหยัดพลัง,proposed
+autometa-torque-caliper,คาลิเปอร์วัดแรงบิด,ออโตเมตา,optional,L02,ความแท้และท้าทาย,E05,เพิ่มโอกาสท้าทายคำระบุสำเร็จ,proposed
+autometa-folding-beacon,สัญญาณไฟพับได้,ออโตเมตา,primary,L12,ประตูและเส้นทาง,E35,ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู,proposed
+autometa-folding-beacon,สัญญาณไฟพับได้,ออโตเมตา,optional,L08,ประมูล,E23,ตรวจข้อมูลหนึ่งอย่างของล็อตประมูล,proposed
+autometa-servo-harness,สายรัดเซอร์โว,ออโตเมตา,primary,L23,พลัง,E61,ฟื้นพลังเมื่อเริ่มช่วง,proposed
+autometa-servo-harness,สายรัดเซอร์โว,ออโตเมตา,optional,L17,พื้นที่และการขยาย Vault,E47,ลดราคาขยายคลัง,proposed
+alien-spore-lantern,ตะเกียงสปอร์,เอเลียน,primary,L26,ภัย Dread/ผุพัง,E67,ลดโอกาสภัย Dread,proposed
+alien-spore-lantern,ตะเกียงสปอร์,เอเลียน,optional,L12,ประตูและเส้นทาง,E35,ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู,proposed
+alien-echoweave-shawl,ผ้าคลุมเสียงสะท้อน,เอเลียน,primary,L27,สถานะผลดี/ผลเสีย,E72,ยืดผลดีที่เลือกหนึ่งอย่าง,proposed
+alien-echoweave-shawl,ผ้าคลุมเสียงสะท้อน,เอเลียน,optional,L06,ซื้อขายระหว่างผู้เล่น,E16,ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง,proposed
+alien-star-chart-membrane,แผนที่ดาวเยื่อชีวภาพ,เอเลียน,primary,L09,Rarity,E25,เพิ่มโอกาสสร้างสินค้าระดับสูง,proposed
+alien-star-chart-membrane,แผนที่ดาวเยื่อชีวภาพ,เอเลียน,optional,L12,ประตูและเส้นทาง,E35,ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู,proposed
+alien-star-chart-membrane,แผนที่ดาวเยื่อชีวภาพ,เอเลียน,optional,L11,ความสามารถพ่อค้า,E32,เพิ่มตัวเลือกเมื่อใช้ความสามารถเลือกสินค้า,proposed
+alien-biobright-seedpod,ฝักเมล็ดเรืองแสง,เอเลียน,primary,L23,พลัง,E61,ฟื้นพลังเมื่อเริ่มช่วง,proposed
+alien-biobright-seedpod,ฝักเมล็ดเรืองแสง,เอเลียน,optional,L25,เศษชีพจรและคู่ค้า,E65,ลดเศษที่ต้องใช้ฟื้นชีวิต,proposed
+alien-thought-translator,เครื่องแปลความคิด,เอเลียน,primary,L04,ซื้อและต่อรอง NPC,E11,เพิ่มโอกาสพ่อค้ายอมรับราคา,proposed
+alien-thought-translator,เครื่องแปลความคิด,เอเลียน,optional,L06,ซื้อขายระหว่างผู้เล่น,E17,แลกสินค้าสำเร็จแล้วได้โบนัส,proposed
+alien-phase-dial,หน้าปัดระยะเฟส,เอเลียน,primary,L11,ความสามารถพ่อค้า,E31,ลดเวลารอของความสามารถที่เลือก,proposed
+alien-phase-dial,หน้าปัดระยะเฟส,เอเลียน,optional,L12,ประตูและเส้นทาง,E34,ลดพลังเปลี่ยนประตู,proposed
+alien-phase-staff,คทาเคลื่อนเฟส,เอเลียน,primary,L20,สัญญารับซื้อ Wishlist NPC,E57,เปลี่ยนสัญญาที่ไม่ต้องการฟรีหนึ่งครั้ง,proposed
+alien-phase-staff,คทาเคลื่อนเฟส,เอเลียน,optional,L22,สัญญาส่วนตัว NPC,E60,ลดเวลารอคืนของจาก Alien,proposed
+darkone-null-sword,ดาบสุญญะ,ดาร์กวัน,primary,L27,สถานะผลดี/ผลเสีย,E71,ลบผลเสียที่เลือกหนึ่งอย่าง,proposed
+darkone-null-sword,ดาบสุญญะ,ดาร์กวัน,optional,L14,บรรเทาผลถูกขโมย,E40,บรรเทาผลเสียเมื่อแพ้ดวลหนึ่งครั้ง,proposed
+darkone-null-testament,คัมภีร์สุญญะ,ดาร์กวัน,primary,L29,Collector และคะแนนฐาน,E69,เพิ่มตัวปรับมูลค่าที่ Collector คิด,proposed
+darkone-null-testament,คัมภีร์สุญญะ,ดาร์กวัน,optional,L27,สถานะผลดี/ผลเสีย,E72,ยืดผลดีที่เลือกหนึ่งอย่าง,proposed
+darkone-debt-chain,โซ่พันธะหนี้,ดาร์กวัน,primary,L18,เงินกู้มีหลักประกัน,E49,ผู้กู้คืนครบแล้วรับเงินคืนบางส่วน,proposed
+darkone-debt-chain,โซ่พันธะหนี้,ดาร์กวัน,optional,L15,อาชญากรรมและค่าชดเชย,E44,ช่วยจ่ายค่าชดเชยบางส่วน,proposed
+darkone-omen-censer,กระถางกำยานลางร้าย,ดาร์กวัน,primary,L26,ภัย Dread/ผุพัง,E67,ลดโอกาสภัย Dread,proposed
+darkone-omen-censer,กระถางกำยานลางร้าย,ดาร์กวัน,optional,L27,สถานะผลดี/ผลเสีย,E70,ลดระยะเวลาผลเสียถัดไป,proposed
+darkone-ash-seal,ตราประทับเถ้าถ่าน,ดาร์กวัน,primary,L19,ตราบาป,E53,ใช้ตรายึดของแล้วตรวจข้อมูลของนั้นฟรี,proposed
+darkone-ash-seal,ตราประทับเถ้าถ่าน,ดาร์กวัน,optional,L06,ซื้อขายระหว่างผู้เล่น,E18,ส่งต่อสินค้าที่ตรวจแล้วได้รับค่ารับรอง,proposed
+darkone-crossing-token,เหรียญผ่านแดน,ดาร์กวัน,primary,L15,อาชญากรรมและค่าชดเชย,E43,ลดค่าล้างประวัติ,proposed
+darkone-crossing-token,เหรียญผ่านแดน,ดาร์กวัน,optional,L12,ประตูและเส้นทาง,E34,ลดพลังเปลี่ยนประตู,proposed
+darkone-silence-snuffer,ที่ครอบดับเสียง,ดาร์กวัน,primary,L27,สถานะผลดี/ผลเสีย,E71,ลบผลเสียที่เลือกหนึ่งอย่าง,proposed
+darkone-silence-snuffer,ที่ครอบดับเสียง,ดาร์กวัน,optional,L03,คำสาปและการชำระ,E09,ชำระพลาดแล้วรักษาอุปกรณ์ไว้หนึ่งครั้ง,proposed
+deepsea-abyss-trident,ตรีศูลห้วงลึก,ชาวทะเลลึก,primary,L03,คำสาปและการชำระ,E07,เพิ่มโอกาสชำระสำเร็จ,proposed
+deepsea-abyss-trident,ตรีศูลห้วงลึก,ชาวทะเลลึก,optional,L02,ความแท้และท้าทาย,E05,เพิ่มโอกาสท้าทายคำระบุสำเร็จ,proposed
+deepsea-pressure-cuirass,เกราะแรงดันใต้ทะเล,ชาวทะเลลึก,primary,L24,ชีวิตและการฟื้นฟู,E62,ลดความเสียหายชีวิตครั้งถัดไป,proposed
+deepsea-pressure-cuirass,เกราะแรงดันใต้ทะเล,ชาวทะเลลึก,optional,L26,ภัย Dread/ผุพัง,E67,ลดโอกาสภัย Dread,proposed
+deepsea-tide-compass,เข็มทิศกระแสน้ำ,ชาวทะเลลึก,primary,L12,ประตูและเส้นทาง,E34,ลดพลังเปลี่ยนประตู,proposed
+deepsea-tide-compass,เข็มทิศกระแสน้ำ,ชาวทะเลลึก,optional,L20,สัญญารับซื้อ Wishlist NPC,E57,เปลี่ยนสัญญาที่ไม่ต้องการฟรีหนึ่งครั้ง,proposed
+deepsea-kelp-saddle,อานสาหร่าย,ชาวทะเลลึก,primary,L06,ซื้อขายระหว่างผู้เล่น,E16,ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง,proposed
+deepsea-kelp-saddle,อานสาหร่าย,ชาวทะเลลึก,optional,L25,เศษชีพจรและคู่ค้า,E64,ได้เศษเพิ่มเมื่อเปลี่ยนคู่ค้าตามเกณฑ์,proposed
+deepsea-tideglass-buoy,ทุ่นแก้วคลื่น,ชาวทะเลลึก,primary,L16,ดอกเบี้ยเงินฝาก,E46,เพิ่มดอกเบี้ยของเงินต้นที่ครบช่วง,proposed
+deepsea-tideglass-buoy,ทุ่นแก้วคลื่น,ชาวทะเลลึก,optional,L14,บรรเทาผลถูกขโมย,E42,รับเงินประกันบางส่วนเมื่อของถูกขโมยจริง,proposed
+deepsea-lanternfish-cage,กรงปลาโคม,ชาวทะเลลึก,primary,L12,ประตูและเส้นทาง,E35,ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู,proposed
+deepsea-lanternfish-cage,กรงปลาโคม,ชาวทะเลลึก,optional,L01,ตรวจและประเมินราคา,E02,เปิดเผยช่วงราคาที่แคบลง,proposed
+deepsea-lanternfish-cage,กรงปลาโคม,ชาวทะเลลึก,optional,L08,ประมูล,E23,ตรวจข้อมูลหนึ่งอย่างของล็อตประมูล,proposed
+deepsea-whale-conch-horn,แตรสังข์วาฬ,ชาวทะเลลึก,primary,L24,ชีวิตและการฟื้นฟู,E63,ลดราคาดีลฟื้นพลังหรือชีวิต,proposed
+deepsea-whale-conch-horn,แตรสังข์วาฬ,ชาวทะเลลึก,optional,L20,สัญญารับซื้อ Wishlist NPC,E55,เพิ่มรางวัลส่งของสำเร็จ,proposed
+swarm-brood-hammer,ค้อนรัง,สวอร์ม,primary,L17,พื้นที่และการขยาย Vault,E47,ลดราคาขยายคลัง,proposed
+swarm-brood-hammer,ค้อนรัง,สวอร์ม,optional,L05,ขาย/ค่านายหน้า/ระบาย,E14,เพิ่มเงินจากการขายระบาย,proposed
+swarm-pheromone-sprayer,เครื่องพ่นฟีโรโมน,สวอร์ม,primary,L04,ซื้อและต่อรอง NPC,E11,เพิ่มโอกาสพ่อค้ายอมรับราคา,proposed
+swarm-pheromone-sprayer,เครื่องพ่นฟีโรโมน,สวอร์ม,optional,L06,ซื้อขายระหว่างผู้เล่น,E16,ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง,proposed
+swarm-hive-egg-cluster,กลุ่มไข่รัง,สวอร์ม,primary,L11,ความสามารถพ่อค้า,E33,เสริมการใช้หนึ่งครั้งตามระดับที่ปลดล็อกแล้ว,proposed
+swarm-hive-egg-cluster,กลุ่มไข่รัง,สวอร์ม,indirect,L31,สำเนาสินค้า,,เสริมความสามารถที่สร้างสำเนา ไม่ใช่ effect สร้างสำเนาโดยตรง,indirect
+swarm-resin-spool,หลอดม้วนยางไม้,สวอร์ม,primary,L19,ตราบาป,E52,แลกเปลี่ยนตราสำเร็จแล้วฟื้นพลัง,proposed
+swarm-resin-spool,หลอดม้วนยางไม้,สวอร์ม,optional,L15,อาชญากรรมและค่าชดเชย,E44,ช่วยจ่ายค่าชดเชยบางส่วน,proposed
+swarm-wing-membrane-glider,เครื่องร่อนเยื่อปีก,สวอร์ม,primary,L12,ประตูและเส้นทาง,E34,ลดพลังเปลี่ยนประตู,proposed
+swarm-wing-membrane-glider,เครื่องร่อนเยื่อปีก,สวอร์ม,optional,L13,ขโมยเชิงรุก RPS,E37,ลดพลังเริ่มขโมย,proposed
+swarm-pupa-cradle,แท่นรองดักแด้,สวอร์ม,primary,L22,สัญญาส่วนตัว NPC,E59,เพิ่มผลตอบแทนของที่ให้ Alien ยืม,proposed
+swarm-pupa-cradle,แท่นรองดักแด้,สวอร์ม,optional,L25,เศษชีพจรและคู่ค้า,E65,ลดเศษที่ต้องใช้ฟื้นชีวิต,proposed
+swarm-chitin-cuirass,เกราะไคติน,สวอร์ม,primary,L24,ชีวิตและการฟื้นฟู,E62,ลดความเสียหายชีวิตครั้งถัดไป,proposed
+swarm-chitin-cuirass,เกราะไคติน,สวอร์ม,optional,L26,ภัย Dread/ผุพัง,E68,คุ้มครองของจากการผุพังหนึ่งครั้ง,proposed
+beast-trail-scent-disc,แผ่นกลิ่นสะกดรอย,บีสต์,primary,L09,Rarity,E25,เพิ่มโอกาสสร้างสินค้าระดับสูง,proposed
+beast-trail-scent-disc,แผ่นกลิ่นสะกดรอย,บีสต์,optional,L12,ประตูและเส้นทาง,E35,ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู,proposed
+beast-tracker-horn,เขาส่งสัญญาณ,บีสต์,primary,L11,ความสามารถพ่อค้า,E32,เพิ่มตัวเลือกเมื่อใช้ความสามารถเลือกสินค้า,proposed
+beast-tracker-horn,เขาส่งสัญญาณ,บีสต์,optional,L10,ความไว้ใจและสต็อก,E28,พบพ่อค้ารายใหม่แล้วได้ความไว้ใจเพิ่ม,proposed
+beast-rift-saddle,อานข้ามรอยแยก,บีสต์,primary,L12,ประตูและเส้นทาง,E36,เปิดประตูที่ถูกปิดจากเหตุการณ์หนึ่งครั้ง,proposed
+beast-rift-saddle,อานข้ามรอยแยก,บีสต์,optional,L07,ตลาดมืดและของค้าง,E21,รับของค้างคืนแล้วฟื้นพลัง,proposed
+beast-springjaw-trap,กับดักกรามดีด,บีสต์,primary,L19,ตราบาป,E53,ใช้ตรายึดของแล้วตรวจข้อมูลของนั้นฟรี,proposed
+beast-springjaw-trap,กับดักกรามดีด,บีสต์,optional,L14,บรรเทาผลถูกขโมย,E40,บรรเทาผลเสียเมื่อแพ้ดวลหนึ่งครั้ง,proposed
+beast-amber-fur-mantle,เสื้อคลุมขนอำพัน,บีสต์,primary,L26,ภัย Dread/ผุพัง,E68,คุ้มครองของจากการผุพังหนึ่งครั้ง,proposed
+beast-amber-fur-mantle,เสื้อคลุมขนอำพัน,บีสต์,optional,L24,ชีวิตและการฟื้นฟู,E63,ลดราคาดีลฟื้นพลังหรือชีวิต,proposed
+beast-fangline-lasso,บ่วงเส้นเขี้ยว,บีสต์,primary,L13,ขโมยเชิงรุก RPS,E37,ลดพลังเริ่มขโมย,proposed
+beast-fangline-lasso,บ่วงเส้นเขี้ยว,บีสต์,optional,L15,อาชญากรรมและค่าชดเชย,E45,ลดระยะระงับการค้า,proposed
+beast-riftfang-sword,ดาบเขี้ยวรอยแยก,บีสต์,primary,L13,ขโมยเชิงรุก RPS,E38,ได้เปรียบเมื่อเป่ายิ้งฉุบเสมอหนึ่งครั้ง,proposed
+beast-riftfang-sword,ดาบเขี้ยวรอยแยก,บีสต์,optional,L10,ความไว้ใจและสต็อก,E27,ขายของระดับสูงแล้วได้ความไว้ใจเพิ่ม,proposed

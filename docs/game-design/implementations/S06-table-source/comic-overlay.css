@@ -1,0 +1,18 @@
+/* Shared quiet overlay treatment. Full hit area stays active while faded. */
+#game-main .comic-overlay-control{opacity:.42;transition:opacity .18s ease,border-color .18s ease,box-shadow .18s ease;color:#fff}
+#game-main .comic-overlay-control:hover,#game-main .comic-overlay-control:focus-visible{opacity:1}
+#game-main .comic-overlay-control:focus-visible{outline:2px solid #ff315c;outline-offset:4px}
+#game-main .comic-overlay-control.table-overlay{background:radial-gradient(circle,#0a0b0dba 35%,#0a0b0d55 70%,transparent)!important;border:1px solid #eee8;box-shadow:none}
+#game-main .comic-overlay-control.table-overlay:hover,#game-main .comic-overlay-control.table-overlay:focus-visible{background:radial-gradient(circle,#0a0b0dee,#0a0b0d99)!important;border-color:#ff315c;box-shadow:0 0 12px #e9123b44}
+#game-main .comic-overlay-control.table-overlay>.icon{width:30px;height:30px;stroke-width:1.8}
+#game-main .comic-overlay-control.table-down{gap:0;justify-content:center}
+#game-main .comic-overlay-control.table-down>.icon{width:27px;height:27px}
+#game-main .table-bag-direction{display:flex;height:13px;align-items:center;justify-content:center}
+#game-main .table-bag-direction .icon{width:16px;height:16px;stroke-width:2}
+#game-main .table-peer-rail .comic-overlay-control>span{background:radial-gradient(#171a1dd9,#0a0b0d88);color:#fff;border:1px solid #eee8;box-shadow:none}
+#game-main .table-peer-rail .comic-overlay-control>span .icon{width:30px;height:30px}
+#game-main .table-peer-rail .comic-overlay-control:hover>span,#game-main .table-peer-rail .comic-overlay-control:focus-visible>span{border-color:#ff315c}
+#game-main .table-paging>small{opacity:.42;transition:opacity .18s ease}
+#game-main .table-paging:hover>small,#game-main .table-paging:focus-within>small{opacity:1}
+@media(hover:none){#game-main .comic-overlay-control,#game-main .table-paging>small{opacity:.75}}
+@media(prefers-reduced-motion:reduce){#game-main .comic-overlay-control,#game-main .table-paging>small{transition:none}}

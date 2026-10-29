@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-10-29T16:33:54Z",
+  "retainTool": "hindsight_sync_retain",
+  "retainStatus": "completed",
+  "memoryId": "77b96ea2-f114-49a0-8fdd-ea7262836a6a",
+  "firstUnfilteredRecall": "exact probe marker not returned",
+  "filteredRecall": "returned same memoryId and normalized fact",
+  "readBackVerified": true,
+  "limitations": [
+    "semantic extraction removed the arbitrary probe code",
+    "tagged recall also returned unrelated facts",
+    "availability and exact recall are not guaranteed in future sessions"
+  ],
+  "authority": "repository source and approved versioned decisions, memory is supporting history"
+}

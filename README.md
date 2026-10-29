@@ -1,3 +1,5 @@
+> Comic development now lives in [`apps/comic/`](apps/comic/). Start with the [UI continuity contract](docs/ui-system/README.md); the root app and existing commands are preserved.
+
 # Cursed Market — ตลาดวัตถุต้องสาป
 
 Active Project #1; อีก 3 concepts พักไว้โดยไม่กำหนดเวลากลับมาทำ

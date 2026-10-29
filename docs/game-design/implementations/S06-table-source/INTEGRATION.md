@@ -1,0 +1,4 @@
+Comic build only. Import trade-concept.css last. TRADE renders <TradeScreen game={game} room={room} submit={submit} disabled={inactive} completion={endPhasePanel}/>; remove separate TRADE endPhasePanel after scene. Copy ../../assets/S06-table-background-v1.png to public/art/comic/trade-table-v1.png. Keep shared ComicMenu/Share/TradeListing/Trades and server rules unchanged.
+Copy ComicTooltip.tsx and comic-tooltip.css alongside TradeScreen; shared tooltip uses a viewport-clamped body portal, hover/focus, aria-describedby and Escape.
+Quiet overlay pass: copy comic-overlay.css and the NavigationIcon/TableReturnIcon/PlayerOutlineIcon additions from icons.tsx. Keep the existing icon family.
+Import comic-frame.css LAST in main.tsx. All main menus and .trade-table.comic-main-frame share inventory geometry. See AGENTS.md shared comic frame rule.

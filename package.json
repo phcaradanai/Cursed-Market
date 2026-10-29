@@ -22,7 +22,14 @@
     "playtest:report": "npm run --silent build:server && node dist/src/playtest/run.js",
     "check": "npm test && npm run build:client && node dist/src/simulation/run.js --games 1000 --out /tmp/cursed-market-check",
     "build:appraisal": "tsc -p tsconfig.appraisal-client.json && vite build --config vite.appraisal.config.mjs",
-    "start:appraisal": "node dist/src/server/appraisal-main.js"
+    "start:appraisal": "node dist/src/server/appraisal-main.js",
+    "dev:comic": "npm --prefix apps/comic run dev:appraisal",
+    "dev:comic:server": "npm --prefix apps/comic run dev:server",
+    "build:comic": "npm --prefix apps/comic run build:appraisal",
+    "test:comic": "npm --prefix apps/comic test",
+    "ui:check": "node scripts/ui/check.mjs",
+    "ui:test": "node --test scripts/ui/contracts.test.mjs",
+    "ui:visual": "node scripts/ui/run.mjs"
   },
   "devDependencies": {
     "@types/node": "22.20.0",

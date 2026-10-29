@@ -1,0 +1,326 @@
+{
+  "assets": [
+    {
+      "id": "item-amulet",
+      "kind": "item",
+      "destination": "src/appraisal-client/public/art/comic/items/amulet.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic item asset (items/amulet.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "ce77ce84496c4d1021b5684bebef38c71d4f6bc766942a51f36c8724ce404352"
+    },
+    {
+      "id": "item-battery",
+      "kind": "item",
+      "destination": "src/appraisal-client/public/art/comic/items/battery.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic item asset (items/battery.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "9d80e4452319f825695878d9ac198e7f85962b9d8d04c33f10efafef9075df02"
+    },
+    {
+      "id": "item-blade",
+      "kind": "item",
+      "destination": "src/appraisal-client/public/art/comic/items/blade.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic item asset (items/blade.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "27e62be3c92392fb61e07dd5533ceee42d72fbfe73dd943fa8a673341f6fc3db"
+    },
+    {
+      "id": "item-food",
+      "kind": "item",
+      "destination": "src/appraisal-client/public/art/comic/items/food.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic item asset (items/food.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "fd51f84809d07b2280bcbf4f067d71936299c9b0b81224077d0e70c82be23769"
+    },
+    {
+      "id": "item-key",
+      "kind": "item",
+      "destination": "src/appraisal-client/public/art/comic/items/key.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic item asset (items/key.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "ba730ae8c30846eb02ecc00ff4494a56269b09e7e060aa3801bcda8a4d4714b7"
+    },
+    {
+      "id": "item-mask",
+      "kind": "item",
+      "destination": "src/appraisal-client/public/art/comic/items/mask.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic item asset (items/mask.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "2bce917b7f1d58885f6c89843241c2dfad43c3a143fec9252f6648bc22c491f0"
+    },
+    {
+      "id": "item-mirror",
+      "kind": "item",
+      "destination": "src/appraisal-client/public/art/comic/items/mirror.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic item asset (items/mirror.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "2c511fdfe15491726e6233fdaffc1947cae06158694220b0856b733787b77d97"
+    },
+    {
+      "id": "item-orb",
+      "kind": "item",
+      "destination": "src/appraisal-client/public/art/comic/items/orb.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic item asset (items/orb.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "e7f2adedb314f7e5f74f96933241c739296b34c4fec72baafd5b33dae4f3e8cf"
+    },
+    {
+      "id": "item-potion",
+      "kind": "item",
+      "destination": "src/appraisal-client/public/art/comic/items/potion.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic item asset (items/potion.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "3531b56fb98c1fd7763f8611ef39ba5663bf364dc83bcc3935bf6dd10a7d03cd"
+    },
+    {
+      "id": "item-scanner",
+      "kind": "item",
+      "destination": "src/appraisal-client/public/art/comic/items/scanner.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic item asset (items/scanner.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "492ec691bbc86e9d82dc3170822d51e684274f749c3f23f7843a77af91746af5"
+    },
+    {
+      "id": "npc-alien-angry",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/alien/angry.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/alien/angry.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "440bcd5941d1099e51bbec1d3f03217ee2faf9629a67c3b5f108853ad9f716a0"
+    },
+    {
+      "id": "npc-alien-idle",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/alien/idle.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/alien/idle.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "1621cc1b2a2bab8c96a9ad1106a3814df15c9a8b658e9d7768a8e5e986278903"
+    },
+    {
+      "id": "npc-alien-smile",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/alien/smile.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/alien/smile.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "064359a5eebb22c2754ef365fda592a3ddaf0fd26f19671bc6fc2b5d09764f88"
+    },
+    {
+      "id": "npc-autometa-angry",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/autometa/angry.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/autometa/angry.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "2b1f15a1df43d299ea12147e96c3ab2214c175c566a31da8f6b93fd46f650ec2"
+    },
+    {
+      "id": "npc-autometa-idle",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/autometa/idle.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/autometa/idle.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "550b9a993f41d0e1cfe256a73b6a5a8d48d066ca0604c162d7cfa40459fab5b8"
+    },
+    {
+      "id": "npc-autometa-smile",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/autometa/smile.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/autometa/smile.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "c4b6a2f90022ce4f9fed9806a9d6239d9057c7ee1bb36b76c0eef02d114451b6"
+    },
+    {
+      "id": "npc-beast-angry",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/beast/angry.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/beast/angry.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "e0594baa4e5e42250e3fba8c1bb3269512c4d772d431f0bae0634270384965d2"
+    },
+    {
+      "id": "npc-beast-idle",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/beast/idle.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/beast/idle.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "8bb2f7bf320c21ec1ccfddfe6c3b545c18c668916c610f045615160bf5a23aa0"
+    },
+    {
+      "id": "npc-beast-smile",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/beast/smile.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/beast/smile.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "1c0ed4717c28cfdfe53f07b1cff44ccfd3b3d473be9019ed522fe430d247e642"
+    },
+    {
+      "id": "npc-darkone-angry",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/darkone/angry.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/darkone/angry.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "9708f9546012c53b74a0ac1a46dcaadbd8dced063f72f8fb242de23716b039f6"
+    },
+    {
+      "id": "npc-darkone-idle",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/darkone/idle.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/darkone/idle.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "533d85169e1f337a7190ea2f5832463273775ec53c19bca57b001149995997ea"
+    },
+    {
+      "id": "npc-darkone-smile",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/darkone/smile.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/darkone/smile.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "1602461534b098cf5e07d208efac67dfcdac5a541f2ca1d4682e38a4087da9a0"
+    },
+    {
+      "id": "npc-deepsea-angry",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/deepsea/angry.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/deepsea/angry.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "cc1221b07c68e037ba6c1a25fc646ef7b2acfd92a619934cb83c37fb10203736"
+    },
+    {
+      "id": "npc-deepsea-idle",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/deepsea/idle.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/deepsea/idle.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "2e2b270c70dc848197a2570c4dc5ff332fff1beee02566db642dfbda3efd8421"
+    },
+    {
+      "id": "npc-deepsea-smile",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/deepsea/smile.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/deepsea/smile.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "df4acd6376a91d301997986ceecc50685b7633730820e8768d511da69a829014"
+    },
+    {
+      "id": "npc-orc-angry",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/orc/angry.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/orc/angry.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "0d47e37ba47f3f2eb68a252380ad430797e6e35f4b01dc52f63af34282cfb9c3"
+    },
+    {
+      "id": "npc-orc-idle",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/orc/idle.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/orc/idle.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "bf6905bec5e5494564388327427a213b7309127ca364dd229f9f4c1c1e21bb4e"
+    },
+    {
+      "id": "npc-orc-smile",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/orc/smile.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/orc/smile.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "d3c54d6924bac0e7b51f0e97ae7879a970092750a0adc3e15f657e31931ce647"
+    },
+    {
+      "id": "npc-swarm-angry",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/swarm/angry.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/swarm/angry.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "79902c70798d362c65cf832e2fcb31b8a7fb83a51565bf41bd3018f9a36be0e6"
+    },
+    {
+      "id": "npc-swarm-idle",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/swarm/idle.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/swarm/idle.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "ab4e45773bcd6e6e6f55056c79702733aca681bcbb05090a4e09a2dc0a331070"
+    },
+    {
+      "id": "npc-swarm-smile",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/swarm/smile.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/swarm/smile.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "6563a2c67f71a3be2f811259f7ecfbec4096a1ccacde197e6946f63898d78562"
+    },
+    {
+      "id": "npc-vampire-angry",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/vampire/angry.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/vampire/angry.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "6e6d8fe53040fa1e452965993ad016c8dd32198cdfaad881ff8c76c20732ccc6"
+    },
+    {
+      "id": "npc-vampire-idle",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/vampire/idle.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/vampire/idle.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "b59120b96de75fbe3a2331bf974af3228d0c11698c9c0f39ab619fb8e4f01332"
+    },
+    {
+      "id": "npc-vampire-smile",
+      "kind": "merchant",
+      "destination": "src/appraisal-client/public/art/comic/merchants/vampire/smile.png",
+      "origin": "Origin: pre-existing user-approved Cursed Market 2D comic merchant asset (merchants/vampire/smile.png). Reused from the separate comic asset set with original pixels and transparency preserved. This fidelity pass only adds provenance metadata.",
+      "sha256": "427e4148d86ba3b9174933e5ffca22d4c61b922a61b18970bef029350bad3705"
+    },
+    {
+      "id": "display-cloth",
+      "kind": "background",
+      "destination": "src/appraisal-client/public/art/comic/display-cloth.png",
+      "origin": "Use case: illustration-story. Asset type: production 2D fabric stage background behind isolated game products, wide 2:1 landscape. Draw a richly inked charcoal cloth spread across an antique market display surface, with broad layered diagonal folds and soft woven detail. Match a colored-comic/manhua panel: assertive black contour lines, deliberate flat painted/cel-shaded planes, visible restrained ivory-gray fold highlights, neutral charcoal-black shadows. Keep the central product resting area calm but let the folds remain visibly drawn; a small dark crimson undercloth peeks from the back and side edges. The dominant field must read neutral cool charcoal, never plum, brown or gold. Composition looks slightly down onto the draped fabric, fills the whole image edge to edge and works when cropped to a wide UI panel. No products, people, furniture edges, icons, letters, logos, frames or UI. No photoreal fabric photography, no 3D rendering, no bevels, no shiny silk, no neon.",
+      "sha256": "a04ffa135ee023b6a9caecbcd9cd667b5e284b3e6a22e0785b48b65cbbf3730a"
+    },
+    {
+      "id": "market-night-v2",
+      "kind": "background",
+      "destination": "src/appraisal-client/public/art/comic/market-night-v2.png",
+      "origin": "Edit the supplied 2D Cursed Market background only. Preserve the inked night-market composition, buildings, perspective, cobblestones and dark central breathing space. Replace the warm brown architecture with neutral charcoal, black and cool ivory-gray drawn planes. Make the market's crimson cloth unmistakable: add broad overlapping deep-crimson canvas awnings and draped banners crossing the upper third of the image between the stalls, including a clear sweeping canopy behind the upper central roofline. Keep their dark black ink contours and angular comic folds, and make their red visible without neon or glow. Lanterns should be dim warm-white/ivory rather than orange. The result must remain a hand-drawn 2D manhua/comic scene with bold outlines, not realistic or 3D. Keep the lower central area quiet and dark to sit behind interface panels. No foreground character or product, no words, UI, frames, logos or watermark.",
+      "sha256": "9409bad45c2b864bc08fb91d7680c3344fc12172d8b7155fbf1cc71f97c0556e"
+    },
+    {
+      "id": "item-amulet-v2",
+      "kind": "item",
+      "destination": "src/appraisal-client/public/art/comic/items/amulet-v2.png",
+      "origin": "Generated with OpenAI image_gen on 2026-10-26. Subject: crescent brass oath talisman, crimson enamel seal, ivory charm. Style prompt: colored 2D comic/manhua illustration, bold charcoal ink outline, hand-inked cross-hatching, three-quarter perspective, crimson/charcoal/ivory with restrained aged brass, transparent square PNG, no text or background. Source output: /Users/oyl-mac_m1/.codex/generated_images/01a16cf0-476f-7b22-b420-f6bd620d6fcc/exec-31307f93-f987-41c0-a824-9525b152517f.png.",
+      "sha256": "55cb2b628486aede5ddfdd2861d6d1644d3e540eecdeddc1594dd319ba4b984e"
+    },
+    {
+      "id": "item-battery-v2",
+      "kind": "item",
+      "destination": "src/appraisal-client/public/art/comic/items/battery-v2.png",
+      "origin": "Generated with OpenAI image_gen on 2026-10-26. Subject: dimensional power cell, black iron and brass cage, crimson core with ivory lightning. Style prompt: colored 2D comic/manhua illustration, bold charcoal ink outline, hand-inked cross-hatching, three-quarter perspective, crimson/charcoal/ivory with restrained aged brass, transparent square PNG, no text or background. Source output: /Users/oyl-mac_m1/.codex/generated_images/01a16cf0-476f-7b22-b420-f6bd620d6fcc/exec-69ba57f2-8774-46aa-8959-370710582e25.png.",
+      "sha256": "ccf3781c571705412f6fbb15a5eeebaaacebfeaa7164980db6164daf7b6b576b"
+    },
+    {
+      "id": "item-blade-v2",
+      "kind": "item",
+      "destination": "src/appraisal-client/public/art/comic/items/blade-v2.png",
+      "origin": "Generated with OpenAI image_gen on 2026-10-26. Subject: hooked blood-iron dagger with ruby guard and charcoal grip; checkerboard removed to alpha. Style prompt: colored 2D comic/manhua illustration, bold charcoal ink outline, hand-inked cross-hatching, three-quarter perspective, crimson/charcoal/ivory with restrained aged brass, transparent square PNG, no text or background. Source output: /Users/oyl-mac_m1/.codex/generated_images/01a16cf0-476f-7b22-b420-f6bd620d6fcc/exec-d2dc08d3-d51f-4090-bc7d-68f430a54995.png.",
+      "sha256": "db3fdee99e4c1fbd016d92864bdbe35e045872fcd0c7499464daf8c3d2374ed7"
+    },
+    {
+      "id": "item-food-v2",
+      "kind": "item",
+      "destination": "src/appraisal-client/public/art/comic/items/food-v2.png",
+      "origin": "Generated with OpenAI image_gen on 2026-10-26. Subject: ember-seed ration bundle wrapped in dark leaves and crimson cord. Style prompt: colored 2D comic/manhua illustration, bold charcoal ink outline, hand-inked cross-hatching, three-quarter perspective, crimson/charcoal/ivory with restrained aged brass, transparent square PNG, no text or background. Source output: /Users/oyl-mac_m1/.codex/generated_images/01a16cf0-476f-7b22-b420-f6bd620d6fcc/exec-ae9e58cd-f572-4b1d-97be-37b310a04c29.png.",
+      "sha256": "953d003d7240c40c1e791082b1f77600a22aaee5e7b1562603c6046e99b6b950"
+    },
+    {
+      "id": "item-key-v2",
+      "kind": "item",
+      "destination": "src/appraisal-client/public/art/comic/items/key-v2.png",
+      "origin": "Generated with OpenAI image_gen on 2026-10-26. Subject: ancient black-iron shadow key with crescent bow and crimson crystal. Style prompt: colored 2D comic/manhua illustration, bold charcoal ink outline, hand-inked cross-hatching, three-quarter perspective, crimson/charcoal/ivory with restrained aged brass, transparent square PNG, no text or background. Source output: /Users/oyl-mac_m1/.codex/generated_images/01a16cf0-476f-7b22-b420-f6bd620d6fcc/exec-eaf7083f-aa54-4adc-bad8-d99150498dfe.png.",
+      "sha256": "d2894aefac14edbb53f1f2d36f35129e5e94361179ac0de6035799bccfd9f345"
+    },
+    {
+      "id": "item-mask-v2",
+      "kind": "item",
+      "destination": "src/appraisal-client/public/art/comic/items/mask-v2.png",
+      "origin": "Generated with OpenAI image_gen on 2026-10-26. Subject: cracked ivory oath mask with crimson fracture and red tassels. Style prompt: colored 2D comic/manhua illustration, bold charcoal ink outline, hand-inked cross-hatching, three-quarter perspective, crimson/charcoal/ivory with restrained aged brass, transparent square PNG, no text or background. Source output: /Users/oyl-mac_m1/.codex/generated_images/01a16cf0-476f-7b22-b420-f6bd620d6fcc/exec-eb27ff90-0993-411d-af35-d980d1815bba.png.",
+      "sha256": "7a7b65203659c12d0fc77e75fe91817e1206a6614fe8ac837aec7b08ff1e8239"
+    },
+    {
+      "id": "item-mirror-v2",
+      "kind": "item",
+      "destination": "src/appraisal-client/public/art/comic/items/mirror-v2.png",
+      "origin": "Generated with OpenAI image_gen on 2026-10-26. Subject: crescent-framed moon hand mirror with dark silver glass and red reflection. Style prompt: colored 2D comic/manhua illustration, bold charcoal ink outline, hand-inked cross-hatching, three-quarter perspective, crimson/charcoal/ivory with restrained aged brass, transparent square PNG, no text or background. Source output: /Users/oyl-mac_m1/.codex/generated_images/01a16cf0-476f-7b22-b420-f6bd620d6fcc/exec-984c7354-210d-47df-873a-355fea214222.png.",
+      "sha256": "771a78fb3241e4e5e01bafec447a56b1029bfca6886bdc659e2da432377b4943"
+    },
+    {
+      "id": "item-orb-v2",
+      "kind": "item",
+      "destination": "src/appraisal-client/public/art/comic/items/orb-v2.png",
+      "origin": "Generated with OpenAI image_gen on 2026-10-26. Subject: storm orb with crimson-black vortex, ivory lightning and brass claws. Style prompt: colored 2D comic/manhua illustration, bold charcoal ink outline, hand-inked cross-hatching, three-quarter perspective, crimson/charcoal/ivory with restrained aged brass, transparent square PNG, no text or background. Source output: /Users/oyl-mac_m1/.codex/generated_images/01a16cf0-476f-7b22-b420-f6bd620d6fcc/exec-ee31f877-c019-41ca-9426-95de08dd3f58.png.",
+      "sha256": "4a25503935596f016cfc399d6febfa280941d848510eacecd1a72b7afaee4be7"
+    },
+    {
+      "id": "item-potion-v2",
+      "kind": "item",
+      "destination": "src/appraisal-client/public/art/comic/items/potion-v2.png",
+      "origin": "Generated with OpenAI image_gen on 2026-10-26. Subject: blood-revival tonic vial with crimson liquid, cork and aged-brass collar. Style prompt: colored 2D comic/manhua illustration, bold charcoal ink outline, hand-inked cross-hatching, three-quarter perspective, crimson/charcoal/ivory with restrained aged brass, transparent square PNG, no text or background. Source output: /Users/oyl-mac_m1/.codex/generated_images/01a16cf0-476f-7b22-b420-f6bd620d6fcc/exec-32e961ae-ce47-4aeb-a6c4-4dbf7e4562fd.png.",
+      "sha256": "59a41a3c480cbb931bda54e580d1d758f3c6731679b3b92a0af69d74fa36ee21"
+    },
+    {
+      "id": "item-scanner-v2",
+      "kind": "item",
+      "destination": "src/appraisal-client/public/art/comic/items/scanner-v2.png",
+      "origin": "Generated with OpenAI image_gen on 2026-10-26. Subject: truth-scanning monocle with brass lens frame, black handle and crimson calibration crystal. Style prompt: colored 2D comic/manhua illustration, bold charcoal ink outline, hand-inked cross-hatching, three-quarter perspective, crimson/charcoal/ivory with restrained aged brass, transparent square PNG, no text or background. Source output: /Users/oyl-mac_m1/.codex/generated_images/01a16cf0-476f-7b22-b420-f6bd620d6fcc/exec-5781c86e-7d79-4c0b-9b07-4d993487cb70.png.",
+      "sha256": "74b422c33fd7bd6c49566d934ddd0377ab44b6e25ed4a1435bdefc255aaf0d4e"
+    }
+  ]
+}

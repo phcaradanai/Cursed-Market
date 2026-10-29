@@ -1,0 +1,1503 @@
+<!doctype html><html lang="th"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Screen flow · Cursed Market comic</title><style>*{box-sizing:border-box}body{margin:0;background:#101012;color:#f4f0e8;font:16px/1.65 system-ui,sans-serif}main{max-width:1440px;margin:auto;padding:24px}h1{font-size:28px;margin:0}a{color:#ffb2c1}nav{display:flex;gap:16px;flex-wrap:wrap;margin:20px 0}#cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(360px,100%),1fr));gap:20px}article{border:1px solid #ddd;border-radius:14px;background:#18181b;overflow:hidden;scroll-margin:24px}article:target{outline:3px solid #ef3659}header{padding:16px;border-bottom:1px solid #aaa}header b,header span{display:block}header span,small{color:#c1bbc0;font-size:13px}p,small,details{display:block;margin:14px 16px}img{display:block;width:100%;height:auto}.placeholder{height:130px;display:grid;place-items:center;background:#24171d;color:#c7b9c0}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}button{color:white;background:#28242a;border:1px solid #aaa;border-radius:8px;padding:8px 12px;cursor:pointer}button[aria-pressed=true]{background:#b5163d}.flow{padding:16px;border:1px solid #aaa;border-radius:14px;margin:16px 0}h2{font-size:20px}</style><main><h1>แผนผังหน้าจอและภาพ concept</h1><p>ใช้ screen ID ร่วมกันใน context, ภาพ, graph และงานพัฒนา · runtime หมายถึงมี logic ไม่ใช่ภาพได้รับอนุมัติแล้ว</p><nav><a href="logic-item-relations.html">กราฟทั้งระบบ</a><a href="screen-context.md">วิธีใช้และกติกาภาพ</a><a href="PROJECT-CONTEXT.md">Context กลาง</a><a href="screen-flow.json">ทะเบียน JSON</a></nav><section class="flow"><h2>คนเป็น</h2><a href="#S01">S01 เหตุการณ์ก่อนประตู</a> → <a href="#S02">S02 เลือกประตู</a> → <a href="#S03">S03 เหตุการณ์หลังประตู</a> → <a href="#S04">S04 ประเมิน/ซื้อ</a> → <a href="#S05">S05 เหตุการณ์ก่อนค้า</a> → <a href="#S06">S06 ซื้อขาย</a> → <a href="#S07">S07 สรุปก่อนรับเงิน</a> → <a href="#S08">S08 รับเครดิต</a> → <a href="#S09">S09 บริการ/ไปช่วงหน้า</a><p>Event แสดงเมื่อมีเงื่อนไข; S07 เป็นข้อเสนอการนำเสนอผล ไม่เพิ่ม phase ใหม่ หากเกมจบข้ามรับเงินไป S12/S13 ได้</p></section><section class="flow"><h2>วิญญาณ — ยังเป็นการออกแบบ</h2><a href="#S11">S11 ตาย</a> → <a href="#G01">G01 ปลดสิทธิ์</a> → <a href="#G02">G02 รับงาน</a> → <a href="#G03">G03 Skeleton/RPS</a> → <a href="#G04">G04 ส่งมอบ</a> → G01<p>ทำงานคู่ขนาน คนเป็นไม่ต้องรอวิญญาณ</p></section><nav aria-label="กรองหน้าจอ"><button data-filter="all" aria-pressed="true">ทั้งหมด 30</button><button data-filter="main" aria-pressed="false">main</button><button data-filter="conditional-event" aria-pressed="false">conditional-event</button><button data-filter="transition" aria-pressed="false">transition</button><button data-filter="waiting" aria-pressed="false">waiting</button><button data-filter="menu" aria-pressed="false">menu</button><button data-filter="interaction" aria-pressed="false">interaction</button><button data-filter="ghost" aria-pressed="false">ghost</button></nav><section id="cards"><article id="U02" data-kind="main"><header><b>U02 · ล็อบบี้และตั้งค่าโต๊ะ</b><span>ตามเงื่อนไข · runtime · capture: captured-existing · concept: reuse-existing</span></header><a href="captures/current-comic-2026-10-29/lobby.png"><img src="captures/current-comic-2026-10-29/lobby.png" alt="U02 ล็อบบี้และตั้งค่าโต๊ะ ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"></nav><p>หน้าที่มีอยู่ใน comic build ปัจจุบัน</p><small>Logic: L32 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p><a href="#S02">ไป S02</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;U02&quot;,
+  &quot;title&quot;: &quot;ล็อบบี้และตั้งค่าโต๊ะ&quot;,
+  &quot;phase&quot;: null,
+  &quot;kind&quot;: &quot;main&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;หน้าที่มีอยู่ใน comic build ปัจจุบัน&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L32&quot;
+  ],
+  &quot;actionIds&quot;: [],
+  &quot;nextIds&quot;: [
+    &quot;S02&quot;
+  ],
+  &quot;conceptStatus&quot;: &quot;reuse-existing&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C14&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/lobby.png&quot;,
+      &quot;title&quot;: &quot;ล็อบบี้&quot;,
+      &quot;origin&quot;: &quot;live-game&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureImage&quot;: &quot;captures/current-comic-2026-10-29/lobby.png&quot;,
+  &quot;designPolicy&quot;: &quot;reuse-existing; change only explicit requested gap&quot;,
+  &quot;captureNote&quot;: &quot;&quot;,
+  &quot;sourceRefs&quot;: []
+}</pre></details></article><article id="U01" data-kind="main"><header><b>U01 · เข้าเกมและสร้าง/เข้าห้อง</b><span>ตามเงื่อนไข · runtime · capture: captured-existing · concept: reuse-existing</span></header><a href="captures/current-comic-2026-10-29/entry.png"><img src="captures/current-comic-2026-10-29/entry.png" alt="U01 เข้าเกมและสร้าง/เข้าห้อง ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"></nav><p>หน้าที่มีอยู่ใน comic build ปัจจุบัน</p><small>Logic: L32 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p><a href="#U02">ไป U02</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;U01&quot;,
+  &quot;title&quot;: &quot;เข้าเกมและสร้าง/เข้าห้อง&quot;,
+  &quot;phase&quot;: null,
+  &quot;kind&quot;: &quot;main&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;หน้าที่มีอยู่ใน comic build ปัจจุบัน&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L32&quot;
+  ],
+  &quot;actionIds&quot;: [],
+  &quot;nextIds&quot;: [
+    &quot;U02&quot;
+  ],
+  &quot;conceptStatus&quot;: &quot;reuse-existing&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C13&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/entry.png&quot;,
+      &quot;title&quot;: &quot;เข้าเกม&quot;,
+      &quot;origin&quot;: &quot;live-game&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureImage&quot;: &quot;captures/current-comic-2026-10-29/entry.png&quot;,
+  &quot;designPolicy&quot;: &quot;reuse-existing; change only explicit requested gap&quot;,
+  &quot;captureNote&quot;: &quot;&quot;,
+  &quot;sourceRefs&quot;: []
+}</pre></details></article><article id="S01" data-kind="conditional-event"><header><b>S01 · เหตุการณ์ก่อนเลือกประตู</b><span>PORTALS · runtime · capture: not-captured-yet · concept: draft</span></header><a href="concepts/S01-E117-v03-hover.png"><img src="concepts/S01-E117-v03-hover.png" alt="S01 เหตุการณ์ก่อนเลือกประตู concept draft"></a><nav aria-label="ภาพแต่ละสถานะ"><a href="concepts/S01-E117-v01.png">E117 · superseded</a> · <a href="concepts/S01-E117-v02.png">E117-v02 · superseded</a> · <a href="concepts/S01-E117-v03-hover.png">E117-v03-hover · draft</a></nav><p>eventOffer ก่อนเข้าประตู; ไม่ได้เกิดทุกช่วง</p><small>Logic: L12, L27 · Actions: event</small><p><a href="#S02">ไป S02</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;S01&quot;,
+  &quot;title&quot;: &quot;เหตุการณ์ก่อนเลือกประตู&quot;,
+  &quot;phase&quot;: &quot;PORTALS&quot;,
+  &quot;kind&quot;: &quot;conditional-event&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;eventOffer ก่อนเข้าประตู; ไม่ได้เกิดทุกช่วง&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L12&quot;,
+    &quot;L27&quot;
+  ],
+  &quot;actionIds&quot;: [
+    &quot;event&quot;
+  ],
+  &quot;nextIds&quot;: [
+    &quot;S02&quot;
+  ],
+  &quot;conceptStatus&quot;: &quot;draft&quot;,
+  &quot;currentImage&quot;: &quot;concepts/S01-E117-v03-hover.png&quot;,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [
+    {
+      &quot;id&quot;: &quot;E117&quot;,
+      &quot;purpose&quot;: &quot;ด่านเก็บค่าผ่าน; core2 current profile; ภาพร่างแรกก่อนเข้าประตู&quot;,
+      &quot;image&quot;: &quot;concepts/S01-E117-v01.png&quot;,
+      &quot;brief&quot;: &quot;concepts/S01-E117-v01.md&quot;,
+      &quot;status&quot;: &quot;superseded&quot;
+    },
+    {
+      &quot;id&quot;: &quot;E117-v02&quot;,
+      &quot;purpose&quot;: &quot;เห็นพ่อค้า3ประตูและผลปิดเพียงหนึ่งประตูต่อตัวเลือก&quot;,
+      &quot;image&quot;: &quot;concepts/S01-E117-v02.png&quot;,
+      &quot;brief&quot;: &quot;concepts/S01-E117-v02.md&quot;,
+      &quot;status&quot;: &quot;superseded&quot;
+    },
+    {
+      &quot;id&quot;: &quot;E117-v03-hover&quot;,
+      &quot;purpose&quot;: &quot;หน้าหลัก minimal ขณะ preview ผล; ปุ่มดูประตูใช้หน้าเดิม ไม่สร้างใหม่&quot;,
+      &quot;image&quot;: &quot;concepts/S01-E117-v03-hover.png&quot;,
+      &quot;brief&quot;: &quot;concepts/S01-E117-v03.md&quot;,
+      &quot;status&quot;: &quot;draft&quot;
+    }
+  ],
+  &quot;mustShow&quot;: [
+    &quot;ชื่อเหตุการณ์และสิ่งที่กำลังเกิด&quot;,
+    &quot;ตัวเลือกและต้นทุนก่อนกด&quot;,
+    &quot;เครดิต พลัง ชีวิต เวลา ตาม HUD กลาง&quot;,
+    &quot;ผลเฉพาะข้อมูลที่ผู้เล่นรู้&quot;,
+    &quot;สามตัวเลือก E117: เครดิต2+พลัง1/รับD02/รับD06 พร้อมประตูที่ยังเลือกได้&quot;,
+    &quot;ปุ่มดูประตูที่สลับไปเห็นทั้งสามพร้อมหมายเลขและพ่อค้าก่อนยืนยันผลปิดประตู&quot;,
+    &quot;ผลแต่ละทางเลือกต้องชี้ประตูที่ปิดและประตูที่ยังเปิด โดยไม่อ้างว่าถูกบังคับเข้าอีกประตู&quot;
+  ],
+  &quot;mustNotShow&quot;: [
+    &quot;คะแนนรวมซ้ำใน HUD&quot;,
+    &quot;นิสัยพ่อค้า&quot;,
+    &quot;ความแท้/คำสาปหรือราคาจริงที่ยังไม่เปิด&quot;,
+    &quot;ปุ่มเลือกประตูที่กดข้าม event บังคับได้&quot;,
+    &quot;คำว่าเลือกประตูแรก/ที่สองที่สื่อว่าประตูที่สามหายไป ทั้งที่ runtime ยังเปิดอยู่&quot;,
+    &quot;กริดพ่อค้าครบสามประตูพร้อมเหตุการณ์ตลอดเวลา ทำให้หน้าหลักรก&quot;
+  ],
+  &quot;sourceSymbols&quot;: [
+    &quot;generatePortals&quot;,
+    &quot;resolveCore2Event&quot;,
+    &quot;core2EventChoices&quot;
+  ],
+  &quot;exampleEventId&quot;: &quot;E117&quot;,
+  &quot;decisionContext&quot;: {
+    &quot;required&quot;: [
+      &quot;actual portal IDs and positions&quot;,
+      &quot;merchant identity per visible portal&quot;,
+      &quot;current disabled state&quot;,
+      &quot;per-choice portal closing effect&quot;,
+      &quot;surviving options including third portal&quot;
+    ],
+    &quot;examplePortals&quot;: [
+      {
+        &quot;position&quot;: 1,
+        &quot;npc&quot;: &quot;orc&quot;
+      },
+      {
+        &quot;position&quot;: 2,
+        &quot;npc&quot;: &quot;vampire&quot;
+      },
+      {
+        &quot;position&quot;: 3,
+        &quot;npc&quot;: &quot;autometa&quot;
+      }
+    ],
+    &quot;choiceImpacts&quot;: {
+      &quot;pay&quot;: {
+        &quot;cost&quot;: {
+          &quot;credits&quot;: 2,
+          &quot;energy&quot;: 1
+        },
+        &quot;closesPosition&quot;: 2,
+        &quot;openPositions&quot;: [
+          1,
+          3
+        ]
+      },
+      &quot;fog&quot;: {
+        &quot;status&quot;: &quot;D02&quot;,
+        &quot;closesPosition&quot;: 1,
+        &quot;openPositions&quot;: [
+          2,
+          3
+        ]
+      },
+      &quot;burden&quot;: {
+        &quot;status&quot;: &quot;D06&quot;,
+        &quot;closesPosition&quot;: 1,
+        &quot;openPositions&quot;: [
+          2,
+          3
+        ]
+      }
+    },
+    &quot;provenance&quot;: &quot;resolveCore2Event disables index1 for door first, index0 for door second; other portals unchanged; existing disabled portals must remain disabled&quot;,
+    &quot;presentation&quot;: {
+      &quot;default&quot;: &quot;minimal event illustration plus three choices; do not keep portal grid visible&quot;,
+      &quot;portalPeek&quot;: {
+        &quot;opener&quot;: &quot;ดูประตู · 3&quot;,
+        &quot;mode&quot;: &quot;read-only same unresolved event&quot;,
+        &quot;return&quot;: &quot;กลับไปเหตุการณ์&quot;,
+        &quot;preserve&quot;: [
+          &quot;event identity&quot;,
+          &quot;pending choice state&quot;,
+          &quot;portal IDs and disabled state&quot;,
+          &quot;existing timer behavior&quot;
+        ],
+        &quot;forbid&quot;: [
+          &quot;submit event&quot;,
+          &quot;enter portal&quot;,
+          &quot;reroll portal&quot;,
+          &quot;reset timer&quot;,
+          &quot;dismiss unresolved event&quot;
+        ],
+        &quot;reuse&quot;: &quot;existing S02 portal view/component; suppress entry actions while event unresolved; no new portal concept&quot;
+      },
+      &quot;choicePreview&quot;: {
+        &quot;desktop&quot;: &quot;hover or keyboard focus&quot;,
+        &quot;touch&quot;: &quot;tap dedicated info icon; never auto-submit from info&quot;,
+        &quot;show&quot;: [
+          &quot;credits/energy/life costs as applicable&quot;,
+          &quot;status effect and known duration&quot;,
+          &quot;actual portal number and merchant to close&quot;,
+          &quot;actual portals remaining open&quot;
+        ],
+        &quot;highlight&quot;: &quot;affected target/cost only; label preview, do not mutate HUD/state&quot;,
+        &quot;dismiss&quot;: &quot;pointer leave, focus leave or close info; restore focus appropriately&quot;
+      }
+    }
+  },
+  &quot;captures&quot;: [],
+  &quot;captureStatus&quot;: &quot;not-captured-yet&quot;,
+  &quot;captureNote&quot;: &quot;Code supports portal-event previews, but no matching preportal state captured in this session; do not infer missing implementation.&quot;,
+  &quot;sourceRefs&quot;: [
+    {
+      &quot;symbolId&quot;: &quot;code:src/game/appraisal/engine.ts:generatePortals&quot;,
+      &quot;file&quot;: &quot;src/game/appraisal/engine.ts&quot;,
+      &quot;line&quot;: 131,
+      &quot;endLine&quot;: 139
+    },
+    {
+      &quot;symbolId&quot;: &quot;code:src/game/appraisal/core2-events.ts:resolveCore2Event&quot;,
+      &quot;file&quot;: &quot;src/game/appraisal/core2-events.ts&quot;,
+      &quot;line&quot;: 79,
+      &quot;endLine&quot;: 108
+    },
+    {
+      &quot;symbolId&quot;: &quot;code:src/game/appraisal/core2-events.ts:core2EventChoices&quot;,
+      &quot;file&quot;: &quot;src/game/appraisal/core2-events.ts&quot;,
+      &quot;line&quot;: 31,
+      &quot;endLine&quot;: 44
+    }
+  ]
+}</pre></details></article><article id="S02" data-kind="main"><header><b>S02 · เลือกประตูและพ่อค้า</b><span>PORTALS · runtime · capture: captured-existing · concept: reuse-existing</span></header><a href="captures/current-comic-2026-10-29/merchants.png"><img src="captures/current-comic-2026-10-29/merchants.png" alt="S02 เลือกประตูและพ่อค้า ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"></nav><p>ผู้เล่นยังไม่เลือกประตู และไม่มี event ที่บังคับตอบ</p><small>Logic: L10, L12 · Actions: enter, reroll-portal</small><p><a href="#S03">ไป S03</a> · <a href="#S04">ไป S04</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;S02&quot;,
+  &quot;title&quot;: &quot;เลือกประตูและพ่อค้า&quot;,
+  &quot;phase&quot;: &quot;PORTALS&quot;,
+  &quot;kind&quot;: &quot;main&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;ผู้เล่นยังไม่เลือกประตู และไม่มี event ที่บังคับตอบ&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L10&quot;,
+    &quot;L12&quot;
+  ],
+  &quot;actionIds&quot;: [
+    &quot;enter&quot;,
+    &quot;reroll-portal&quot;
+  ],
+  &quot;nextIds&quot;: [
+    &quot;S03&quot;,
+    &quot;S04&quot;
+  ],
+  &quot;conceptStatus&quot;: &quot;reuse-existing&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;sourceSymbols&quot;: [
+    &quot;generatePortals&quot;,
+    &quot;applyAppraisalAction&quot;
+  ],
+  &quot;designWork&quot;: &quot;none unless user requests a specific change&quot;,
+  &quot;notes&quot;: &quot;ผู้ใช้ยืนยันว่ามีหน้าเลือกประตูแล้ว ใช้ของเดิม ห้าม gen หรือออกแบบหน้าใหม่ซ้ำ&quot;,
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C01&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/merchants.png&quot;,
+      &quot;title&quot;: &quot;เลือกพ่อค้า/ประตู&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureImage&quot;: &quot;captures/current-comic-2026-10-29/merchants.png&quot;,
+  &quot;designPolicy&quot;: &quot;reuse-existing; change only explicit requested gap&quot;,
+  &quot;captureNote&quot;: &quot;&quot;,
+  &quot;merchantExpressionRule&quot;: &quot;MERCHANT-EXPRESSION-01&quot;,
+  &quot;sourceRefs&quot;: [
+    {
+      &quot;symbolId&quot;: &quot;code:src/game/appraisal/engine.ts:generatePortals&quot;,
+      &quot;file&quot;: &quot;src/game/appraisal/engine.ts&quot;,
+      &quot;line&quot;: 131,
+      &quot;endLine&quot;: 139
+    },
+    {
+      &quot;symbolId&quot;: &quot;code:src/game/appraisal/engine.ts:applyAppraisalAction&quot;,
+      &quot;file&quot;: &quot;src/game/appraisal/engine.ts&quot;,
+      &quot;line&quot;: 322,
+      &quot;endLine&quot;: 413
+    }
+  ]
+}</pre></details></article><article id="S03" data-kind="conditional-event"><header><b>S03 · เหตุการณ์หลังเลือกประตู</b><span>APPRAISAL · runtime · capture: captured · concept: implemented</span></header><a href="captures/current-comic-2026-10-29/event-blood-pact.png"><img src="captures/current-comic-2026-10-29/event-blood-pact.png" alt="S03 เหตุการณ์หลังเลือกประตู ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"><a href="concepts/S03-E109-v01.png">E109-v01 · superseded</a> · <a href="concepts/S03-E109-v02.png">E109-v02 · superseded</a> · <a href="concepts/S03-E109-v03.png">E109-v03 · superseded</a> · <a href="concepts/S03-E109-v04.png">E109-v04 · superseded</a> · <a href="concepts/S03-E109-v05.png">E109-v05 · approved</a></nav><p>เข้า APPRAISAL แล้วมี eventOffer ตาม config/eligibility</p><small>Logic: L20, L22, L27 · Actions: event</small><p><a href="#S04">ไป S04</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;S03&quot;,
+  &quot;title&quot;: &quot;เหตุการณ์หลังเลือกประตู&quot;,
+  &quot;phase&quot;: &quot;APPRAISAL&quot;,
+  &quot;kind&quot;: &quot;conditional-event&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;เข้า APPRAISAL แล้วมี eventOffer ตาม config/eligibility&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L20&quot;,
+    &quot;L22&quot;,
+    &quot;L27&quot;
+  ],
+  &quot;actionIds&quot;: [
+    &quot;event&quot;
+  ],
+  &quot;nextIds&quot;: [
+    &quot;S04&quot;
+  ],
+  &quot;conceptStatus&quot;: &quot;implemented&quot;,
+  &quot;currentImage&quot;: &quot;concepts/S03-E109-v05.png&quot;,
+  &quot;approvedImage&quot;: &quot;concepts/S03-E109-v05.png&quot;,
+  &quot;variants&quot;: [
+    {
+      &quot;id&quot;: &quot;E109-v01&quot;,
+      &quot;purpose&quot;: &quot;สัญญาเลือดหลังพบ Vampire; ต้นทุนทันทีและสุ่มผลในอนาคตเพียงหนึ่งอย่าง&quot;,
+      &quot;image&quot;: &quot;concepts/S03-E109-v01.png&quot;,
+      &quot;brief&quot;: &quot;concepts/S03-E109-v01.md&quot;,
+      &quot;status&quot;: &quot;superseded&quot;
+    },
+    {
+      &quot;id&quot;: &quot;E109-v02&quot;,
+      &quot;purpose&quot;: &quot;ลดภาพพ่อค้าเหลือประมาณหนึ่งในสาม เพิ่มพื้นที่ข้อมูลและ comic halftone ตามผู้ใช้&quot;,
+      &quot;image&quot;: &quot;concepts/S03-E109-v02.png&quot;,
+      &quot;brief&quot;: &quot;concepts/S03-E109-v02.md&quot;,
+      &quot;status&quot;: &quot;superseded&quot;
+    },
+    {
+      &quot;id&quot;: &quot;E109-v03&quot;,
+      &quot;purpose&quot;: &quot;Symmetry pass: จัดแนวคู่ต้นทุน/ผลตอบแทนและปุ่มคู่ ช่องไฟร่วม tooltip ไม่บังคำเตือน&quot;,
+      &quot;image&quot;: &quot;concepts/S03-E109-v03.png&quot;,
+      &quot;brief&quot;: &quot;concepts/S03-E109-v03.md&quot;,
+      &quot;status&quot;: &quot;superseded&quot;
+    },
+    {
+      &quot;id&quot;: &quot;E109-v04&quot;,
+      &quot;purpose&quot;: &quot;ฐานพ่อค้าชิดขอบล่าง ทะลุกรอบบนซ้ายขวา ตามรูปแบบเดิม&quot;,
+      &quot;image&quot;: &quot;concepts/S03-E109-v04.png&quot;,
+      &quot;brief&quot;: &quot;concepts/S03-E109-v04.md&quot;,
+      &quot;status&quot;: &quot;superseded&quot;
+    },
+    {
+      &quot;id&quot;: &quot;E109-v05&quot;,
+      &quot;purpose&quot;: &quot;เอากรอบและพื้นหลังเฉพาะพ่อค้าออก วาง cutout บนฉากตลาดโดยตรง ฐานชิดขอบล่าง&quot;,
+      &quot;image&quot;: &quot;concepts/S03-E109-v05.png&quot;,
+      &quot;brief&quot;: &quot;concepts/S03-E109-v05.md&quot;,
+      &quot;status&quot;: &quot;approved&quot;
+    }
+  ],
+  &quot;mustShow&quot;: [
+    &quot;พ่อค้าที่เลือกพบและชื่อเหตุการณ์&quot;,
+    &quot;ชีวิตปัจจุบัน ต้นทุน2 และชีวิตหลังจ่าย ก่อนยืนยัน&quot;,
+    &quot;สุ่มเพียงหนึ่งผลเมื่อเลือกพบ Vampire ครั้งหน้า ไม่ใช่ทันที&quot;,
+    &quot;จบเกมก่อนพบกันอีกไม่ได้ผลตอบแทน&quot;,
+    &quot;ยอมรับ/ปฏิเสธและปุ่มซ่อนที่กลับไปดูโต๊ะเดิม&quot;
+  ],
+  &quot;mustNotShow&quot;: [
+    &quot;ผลตอบแทนทั้งห้าเป็นสิ่งที่ได้รับพร้อมกัน&quot;,
+    &quot;ข้อมูลสินค้าลับหรือของรางวัลที่ยังไม่สุ่ม&quot;,
+    &quot;HUD ที่หักชีวิตจริงก่อนยืนยัน&quot;,
+    &quot;หน้าเลือกประตูใหม่หรือ phase ใหม่&quot;
+  ],
+  &quot;sourceSymbols&quot;: [
+    &quot;progress&quot;,
+    &quot;npcEventEligible&quot;,
+    &quot;resolvePersonalNpcEvent&quot;
+  ],
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C26&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/event-blood-pact.png&quot;,
+      &quot;title&quot;: &quot;E109 comic implementation · fixture&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured&quot;,
+  &quot;captureNote&quot;: &quot;E109 variant implemented in isolated comic build with existing event action and engine. Capture is a fixture, not live encounter. Other S03 event variants retain existing UI.&quot;,
+  &quot;exampleEventId&quot;: &quot;E109&quot;,
+  &quot;decisionContext&quot;: {
+    &quot;required&quot;: [
+      &quot;chosen merchant identity&quot;,
+      &quot;current life and immediate cost&quot;,
+      &quot;pending contract eligibility&quot;,
+      &quot;deferred next-meeting condition&quot;,
+      &quot;one eligible random benefit only&quot;,
+      &quot;end-of-run forfeiture&quot;
+    ],
+    &quot;example&quot;: {
+      &quot;merchant&quot;: &quot;vampire&quot;,
+      &quot;lifeBefore&quot;: 4,
+      &quot;lifeCost&quot;: 2,
+      &quot;lifeAfter&quot;: 2
+    },
+    &quot;presentation&quot;: {
+      &quot;shell&quot;: &quot;reuse S01 event shell and existing comic HUD/footer&quot;,
+      &quot;details&quot;: &quot;hover/focus tooltip; dedicated info action on touch&quot;,
+      &quot;tuck&quot;: &quot;reuse existing EventModal tuck; preserve unresolved offer and actual timer behavior&quot;,
+      &quot;layout&quot;: &quot;merchant approximately30%; equal two-column cost/reward and action pairs with shared edges/gutter; tooltip avoids warning/actions; actual implementation must use shared spacing tokens&quot;,
+      &quot;portrait&quot;: &quot;no dedicated portrait card/background frame; crisp cutout directly over market scene; bottom flush and clipped at outer content baseline; top/left/right may overlap without obscuring controls&quot;
+    }
+  },
+  &quot;captureImage&quot;: &quot;captures/current-comic-2026-10-29/event-blood-pact.png&quot;,
+  &quot;sourceRefs&quot;: [
+    {
+      &quot;symbolId&quot;: &quot;code:src/game/appraisal/engine.ts:progress&quot;,
+      &quot;file&quot;: &quot;src/game/appraisal/engine.ts&quot;,
+      &quot;line&quot;: 212,
+      &quot;endLine&quot;: 224
+    },
+    {
+      &quot;symbolId&quot;: &quot;code:src/game/appraisal/npc-events.ts:npcEventEligible&quot;,
+      &quot;file&quot;: &quot;src/game/appraisal/npc-events.ts&quot;,
+      &quot;line&quot;: 19,
+      &quot;endLine&quot;: 34
+    },
+    {
+      &quot;symbolId&quot;: &quot;code:src/game/appraisal/npc-events.ts:resolvePersonalNpcEvent&quot;,
+      &quot;file&quot;: &quot;src/game/appraisal/npc-events.ts&quot;,
+      &quot;line&quot;: 78,
+      &quot;endLine&quot;: 121
+    }
+  ]
+}</pre></details></article><article id="S04" data-kind="main"><header><b>S04 · ประเมินและซื้อสินค้า</b><span>APPRAISAL · runtime · capture: captured-existing · concept: planned</span></header><a href="captures/current-comic-2026-10-29/inspection.png"><img src="captures/current-comic-2026-10-29/inspection.png" alt="S04 ประเมินและซื้อสินค้า ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"></nav><p>มี stock ของพ่อค้าที่เลือกและไม่มี event ค้าง</p><small>Logic: L01, L02, L03, L04 · Actions: inspect, appraise, counter, buy, done</small><p><a href="#S05">ไป S05</a> · <a href="#S06">ไป S06</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;S04&quot;,
+  &quot;title&quot;: &quot;ประเมินและซื้อสินค้า&quot;,
+  &quot;phase&quot;: &quot;APPRAISAL&quot;,
+  &quot;kind&quot;: &quot;main&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;มี stock ของพ่อค้าที่เลือกและไม่มี event ค้าง&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L01&quot;,
+    &quot;L02&quot;,
+    &quot;L03&quot;,
+    &quot;L04&quot;
+  ],
+  &quot;actionIds&quot;: [
+    &quot;inspect&quot;,
+    &quot;appraise&quot;,
+    &quot;counter&quot;,
+    &quot;buy&quot;,
+    &quot;done&quot;
+  ],
+  &quot;nextIds&quot;: [
+    &quot;S05&quot;,
+    &quot;S06&quot;
+  ],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [
+    {
+      &quot;id&quot;: &quot;inspect&quot;,
+      &quot;purpose&quot;: &quot;ตรวจ&quot;
+    },
+    {
+      &quot;id&quot;: &quot;appraise&quot;,
+      &quot;purpose&quot;: &quot;ตีราคา&quot;
+    },
+    {
+      &quot;id&quot;: &quot;buy&quot;,
+      &quot;purpose&quot;: &quot;ซื้อ&quot;
+    },
+    {
+      &quot;id&quot;: &quot;item-details&quot;,
+      &quot;purpose&quot;: &quot;ผลถือ/ใช้ ไม่ซ้ำข้อมูลหลัก&quot;
+    },
+    {
+      &quot;id&quot;: &quot;merchant-offer&quot;,
+      &quot;purpose&quot;: &quot;ข้อเสนอและจ่ายซื้อ ไม่ซ้ำรูป/trust&quot;
+    }
+  ],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;sourceSymbols&quot;: [
+    &quot;progress&quot;,
+    &quot;applyAppraisalAction&quot;
+  ],
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C02&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/inspection.png&quot;,
+      &quot;title&quot;: &quot;ประเมิน · ตรวจ&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C16&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/inspection-appraise.png&quot;,
+      &quot;title&quot;: &quot;ประเมิน · ตีราคา&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C17&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/inspection-buy.png&quot;,
+      &quot;title&quot;: &quot;ประเมิน · ซื้อ&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C18&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/inspection-item-details.png&quot;,
+      &quot;title&quot;: &quot;ประเมิน · รายละเอียดสินค้า&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C19&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/inspection-merchant-offer.png&quot;,
+      &quot;title&quot;: &quot;ประเมิน · ข้อเสนอพ่อค้า&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureImage&quot;: &quot;captures/current-comic-2026-10-29/inspection.png&quot;,
+  &quot;designPolicy&quot;: &quot;reuse-existing; change only explicit requested gap&quot;,
+  &quot;captureNote&quot;: &quot;&quot;,
+  &quot;merchantExpressionRule&quot;: &quot;MERCHANT-EXPRESSION-01&quot;,
+  &quot;sourceRefs&quot;: [
+    {
+      &quot;symbolId&quot;: &quot;code:src/game/appraisal/engine.ts:progress&quot;,
+      &quot;file&quot;: &quot;src/game/appraisal/engine.ts&quot;,
+      &quot;line&quot;: 212,
+      &quot;endLine&quot;: 224
+    },
+    {
+      &quot;symbolId&quot;: &quot;code:src/game/appraisal/engine.ts:applyAppraisalAction&quot;,
+      &quot;file&quot;: &quot;src/game/appraisal/engine.ts&quot;,
+      &quot;line&quot;: 322,
+      &quot;endLine&quot;: 413
+    }
+  ]
+}</pre></details></article><article id="S05" data-kind="conditional-event"><header><b>S05 · เหตุการณ์ก่อนซื้อขายระหว่างผู้เล่น</b><span>TRADE · runtime · capture: captured-existing · concept: planned</span></header><a href="captures/current-comic-2026-10-29/live-current-event.png"><img src="captures/current-comic-2026-10-29/live-current-event.png" alt="S05 เหตุการณ์ก่อนซื้อขายระหว่างผู้เล่น ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"></nav><p>เปลี่ยนจาก APPRAISAL เป็น TRADE แล้วสุ่ม event ได้</p><small>Logic: L06, L27 · Actions: event</small><p><a href="#S06">ไป S06</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;S05&quot;,
+  &quot;title&quot;: &quot;เหตุการณ์ก่อนซื้อขายระหว่างผู้เล่น&quot;,
+  &quot;phase&quot;: &quot;TRADE&quot;,
+  &quot;kind&quot;: &quot;conditional-event&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;เปลี่ยนจาก APPRAISAL เป็น TRADE แล้วสุ่ม event ได้&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L06&quot;,
+    &quot;L27&quot;
+  ],
+  &quot;actionIds&quot;: [
+    &quot;event&quot;
+  ],
+  &quot;nextIds&quot;: [
+    &quot;S06&quot;
+  ],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;sourceSymbols&quot;: [
+    &quot;progress&quot;
+  ],
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C15&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/live-current-event.png&quot;,
+      &quot;title&quot;: &quot;เหตุการณ์ E101 ตลาดนัดข้ามมิติ · เกมจริง&quot;,
+      &quot;origin&quot;: &quot;live-game&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureImage&quot;: &quot;captures/current-comic-2026-10-29/live-current-event.png&quot;,
+  &quot;designPolicy&quot;: &quot;reuse-existing; change only explicit requested gap&quot;,
+  &quot;captureNote&quot;: &quot;&quot;,
+  &quot;sourceRefs&quot;: [
+    {
+      &quot;symbolId&quot;: &quot;code:src/game/appraisal/engine.ts:progress&quot;,
+      &quot;file&quot;: &quot;src/game/appraisal/engine.ts&quot;,
+      &quot;line&quot;: 212,
+      &quot;endLine&quot;: 224
+    }
+  ]
+}</pre></details></article><article id="S06" data-kind="main"><header><b>S06 · ซื้อขายระหว่างผู้เล่น</b><span>TRADE · runtime · capture: captured-existing · concept: implemented</span></header><a href="captures/current-comic-2026-10-29/trade-table.png"><img src="captures/current-comic-2026-10-29/trade-table.png" alt="S06 ซื้อขายระหว่างผู้เล่น ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"><a href="concepts/S06-trade-v01.png">trade-v01 · superseded</a> · <a href="concepts/S06-trade-v02.png">trade-v02 · superseded</a> · <a href="concepts/S06-trade-v03.png">trade-v03 · superseded</a> · <a href="concepts/S06-trade-v04.png">trade-v04 · superseded</a> · <a href="concepts/S06-table-v05.png">table-v05 · draft</a> · <a href="concepts/S06-item-sale-v01.png">item-sale-v01 · draft</a> · <a href="concepts/S06-item-sale-v02.png">item-sale-v02 · implemented</a></nav><p>เปิดช่วง TRADE; บริการขึ้นตามสิทธิ์ ไม่ต้องแสดงทุกอย่างพร้อมกัน</p><small>Logic: L05, L06 · Actions: propose, respond, done, share</small><p><a href="#S07">ไป S07</a> · <a href="#S08">ไป S08</a> · <a href="#S12">ไป S12</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;S06&quot;,
+  &quot;title&quot;: &quot;ซื้อขายระหว่างผู้เล่น&quot;,
+  &quot;phase&quot;: &quot;TRADE&quot;,
+  &quot;kind&quot;: &quot;main&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;เปิดช่วง TRADE; บริการขึ้นตามสิทธิ์ ไม่ต้องแสดงทุกอย่างพร้อมกัน&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L05&quot;,
+    &quot;L06&quot;
+  ],
+  &quot;actionIds&quot;: [
+    &quot;propose&quot;,
+    &quot;respond&quot;,
+    &quot;done&quot;,
+    &quot;share&quot;
+  ],
+  &quot;nextIds&quot;: [
+    &quot;S07&quot;,
+    &quot;S08&quot;,
+    &quot;S12&quot;
+  ],
+  &quot;conceptStatus&quot;: &quot;implemented&quot;,
+  &quot;currentImage&quot;: &quot;concepts/S06-table-v05.png&quot;,
+  &quot;approvedImage&quot;: &quot;concepts/S06-table-v05.png&quot;,
+  &quot;variants&quot;: [
+    {
+      &quot;id&quot;: &quot;trade-v01&quot;,
+      &quot;purpose&quot;: &quot;layout รายการและรายละเอียดซื้อขาย; ภาพร่างรอ feedback&quot;,
+      &quot;image&quot;: &quot;concepts/S06-trade-v01.png&quot;,
+      &quot;brief&quot;: &quot;concepts/S06-trade-v01.md&quot;,
+      &quot;status&quot;: &quot;superseded&quot;
+    },
+    {
+      &quot;id&quot;: &quot;trade-v02&quot;,
+      &quot;purpose&quot;: &quot;ปรับ symmetry ครั้งแรก แต่ผู้ใช้ยังเห็นว่าไม่สมมาตร&quot;,
+      &quot;image&quot;: &quot;concepts/S06-trade-v02.png&quot;,
+      &quot;brief&quot;: &quot;concepts/S06-trade-v01.md&quot;,
+      &quot;status&quot;: &quot;superseded&quot;
+    },
+    {
+      &quot;id&quot;: &quot;trade-v03&quot;,
+      &quot;purpose&quot;: &quot;ปรับกรอบคู่ แนวและปุ่มตามคำขอ symmetry; ยังรอ feedback&quot;,
+      &quot;image&quot;: &quot;concepts/S06-trade-v03.png&quot;,
+      &quot;brief&quot;: &quot;concepts/S06-trade-v03.md&quot;,
+      &quot;status&quot;: &quot;superseded&quot;
+    },
+    {
+      &quot;id&quot;: &quot;trade-v04&quot;,
+      &quot;purpose&quot;: &quot;ลดกล่อง ใช้กรอบหลักเดียว และตัวเลือกการขายช่องล่างซ้าย&quot;,
+      &quot;image&quot;: &quot;concepts/S06-trade-v04.png&quot;,
+      &quot;brief&quot;: &quot;concepts/S06-trade-v04.md&quot;,
+      &quot;status&quot;: &quot;superseded&quot;
+    },
+    {
+      &quot;id&quot;: &quot;table-v05&quot;,
+      &quot;purpose&quot;: &quot;โต๊ะใหญ่ 3–4ชิ้น overlay กระเป๋า ผู้เล่น และ paging วน&quot;,
+      &quot;image&quot;: &quot;concepts/S06-table-v05.png&quot;,
+      &quot;brief&quot;: &quot;concepts/S06-table-v05.md&quot;,
+      &quot;status&quot;: &quot;draft&quot;
+    },
+    {
+      &quot;id&quot;: &quot;item-sale-v01&quot;,
+      &quot;purpose&quot;: &quot;ร่างหน้ารายละเอียดสินค้าและประกาศขาย กรอบมาตรฐานเดียวกับกระเป๋า สองคอลัมน์เท่ากัน ไม่มี scroll;ยังไม่อนุมัติ/ไม่แก้runtime&quot;,
+      &quot;image&quot;: &quot;concepts/S06-item-sale-v01.png&quot;,
+      &quot;brief&quot;: &quot;concepts/S06-item-sale-v01.md&quot;,
+      &quot;status&quot;: &quot;draft&quot;
+    },
+    {
+      &quot;id&quot;: &quot;item-sale-v02&quot;,
+      &quot;purpose&quot;: &quot;เพิ่มภาษาcomicที่UI: เส้นหมึก captionแดง/ขาว halftone ปุ่มพื้นราบ คงกรอบและstateเดิม&quot;,
+      &quot;image&quot;: &quot;concepts/S06-item-sale-v02.png&quot;,
+      &quot;brief&quot;: &quot;concepts/S06-item-sale-v02.md&quot;,
+      &quot;status&quot;: &quot;implemented&quot;,
+      &quot;captureImage&quot;: &quot;captures/current-comic-2026-10-29/trade-item-sale.png&quot;,
+      &quot;implementationNote&quot;: &quot;Implemented behavior/layout, then user requested consistency pass: existing ComicMenu/ComicButton styles supersede decorative brush captions and white controls; C28 is current runtime look.&quot;
+    }
+  ],
+  &quot;mustShow&quot;: [
+    &quot;รายการสินค้าและเจ้าของ/ที่มาเท่าที่ผู้เล่นรู้&quot;,
+    &quot;ราคาพ่อค้าและค่าเสนอแยกกันเมื่อเป็นสินค้า NPC&quot;,
+    &quot;ปุ่มตามสิทธิ์และสถานะรายการจริง&quot;,
+    &quot;ข้อเสนอเข้า/ออกและการตอบรับหรือปฏิเสธเมื่อมี&quot;,
+    &quot;ต้นทุนรวมและผลกระทบที่ทราบก่อนยืนยัน&quot;
+  ],
+  &quot;mustNotShow&quot;: [
+    &quot;มูลค่าจริง/ความแท้/คำสาปที่ยังไม่รู้&quot;,
+    &quot;ตีความสินค้าเปิดให้ชมว่าเปิดขาย&quot;,
+    &quot;ข้อมูลตัวอย่างเป็นหลักฐานว่ามีการซื้อขายจริง&quot;
+  ],
+  &quot;sourceSymbols&quot;: [
+    &quot;progress&quot;
+  ],
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C03&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/trade.png&quot;,
+      &quot;title&quot;: &quot;ซื้อขายระหว่างผู้เล่น&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C27&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/trade-table.png&quot;,
+      &quot;title&quot;: &quot;โต๊ะซื้อขาย implementation&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C28&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/trade-item-sale.png&quot;,
+      &quot;title&quot;: &quot;รายละเอียดและประกาศขาย · comic v02&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureImage&quot;: &quot;captures/current-comic-2026-10-29/trade-table.png&quot;,
+  &quot;designPolicy&quot;: &quot;redesign requested; use existing logic, shared components and explicit owner/listing states&quot;,
+  &quot;captureNote&quot;: &quot;&quot;,
+  &quot;tableNavigation&quot;: {
+    &quot;initial&quot;: &quot;own-appraised-merchant-stock&quot;,
+    &quot;down&quot;: &quot;own-inventory&quot;,
+    &quot;up&quot;: &quot;return-to-initial-table&quot;,
+    &quot;ownPaging&quot;: &quot;right cyclic pages when multiple&quot;,
+    &quot;players&quot;: &quot;left rail on own table only&quot;,
+    &quot;otherPlayerPaging&quot;: &quot;left cyclic pages when multiple&quot;,
+    &quot;otherPlayerReturn&quot;: &quot;right to own table before choosing another player&quot;,
+    &quot;pageSize&quot;: &quot;3–4 according to viewport&quot;,
+    &quot;status&quot;: &quot;implemented in isolated comic build; preview navigation verified&quot;,
+    &quot;returnPolicy&quot;: &quot;return to initial own merchant table, page0&quot;
+  },
+  &quot;sourceRefs&quot;: [
+    {
+      &quot;symbolId&quot;: &quot;code:src/game/appraisal/engine.ts:progress&quot;,
+      &quot;file&quot;: &quot;src/game/appraisal/engine.ts&quot;,
+      &quot;line&quot;: 212,
+      &quot;endLine&quot;: 224
+    }
+  ]
+}</pre></details></article><article id="S07" data-kind="transition"><header><b>S07 · สรุปผลก่อนรับเงินท้ายช่วง</b><span>TRADE · presentation-proposal · capture: not-captured-yet · concept: draft</span></header><a href="concepts/S07-summary-v01.png"><img src="concepts/S07-summary-v01.png" alt="S07 สรุปผลก่อนรับเงินท้ายช่วง concept draft"></a><nav aria-label="ภาพแต่ละสถานะ"><a href="concepts/S07-summary-v01.png">summary-v01 · draft</a></nav><p>ภาพสรุป settleEncounter: ของขายไม่ออก/ประมูล/ผลติดตัว/ชีวิต; ไม่ใช่ phase หรือ event บังคับใหม่</p><small>Logic: L07, L08, L24, L26 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p><a href="#S08">ไป S08</a> · <a href="#S12">ไป S12</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;S07&quot;,
+  &quot;title&quot;: &quot;สรุปผลก่อนรับเงินท้ายช่วง&quot;,
+  &quot;phase&quot;: &quot;TRADE&quot;,
+  &quot;kind&quot;: &quot;transition&quot;,
+  &quot;implementation&quot;: &quot;presentation-proposal&quot;,
+  &quot;trigger&quot;: &quot;ภาพสรุป settleEncounter: ของขายไม่ออก/ประมูล/ผลติดตัว/ชีวิต; ไม่ใช่ phase หรือ event บังคับใหม่&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L07&quot;,
+    &quot;L08&quot;,
+    &quot;L24&quot;,
+    &quot;L26&quot;
+  ],
+  &quot;actionIds&quot;: [],
+  &quot;nextIds&quot;: [
+    &quot;S08&quot;,
+    &quot;S12&quot;
+  ],
+  &quot;conceptStatus&quot;: &quot;draft&quot;,
+  &quot;currentImage&quot;: &quot;concepts/S07-summary-v01.png&quot;,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [
+    {
+      &quot;id&quot;: &quot;summary-v01&quot;,
+      &quot;purpose&quot;: &quot;สรุปสาเหตุและทรัพยากรก่อนรับเครดิต; presentation proposal&quot;,
+      &quot;image&quot;: &quot;concepts/S07-summary-v01.png&quot;,
+      &quot;brief&quot;: &quot;concepts/S07-summary-v01.md&quot;,
+      &quot;status&quot;: &quot;draft&quot;
+    }
+  ],
+  &quot;mustShow&quot;: [
+    &quot;ผลที่เกิดจริงและสาเหตุที่ผู้เล่นรู้&quot;,
+    &quot;ยอดทรัพยากรก่อนและหลัง ไม่รวมเงินรางวัลที่ยังไม่รับ&quot;,
+    &quot;ทางไปบันทึกหรือผลถัดไปตาม phase จริง&quot;
+  ],
+  &quot;mustNotShow&quot;: [
+    &quot;กฎใหม่ว่าต้องเสียชีวิตทุกช่วง&quot;,
+    &quot;ข้อมูลสินค้าลับ&quot;,
+    &quot;ปุ่มที่จ่ายรางวัลหรือเพิ่ม phase โดยไม่มี runtime&quot;
+  ],
+  &quot;sourceSymbols&quot;: [
+    &quot;settleEncounter&quot;
+  ],
+  &quot;captures&quot;: [],
+  &quot;captureStatus&quot;: &quot;not-captured-yet&quot;,
+  &quot;captureNote&quot;: &quot;Not captured is not proof this screen is absent.&quot;,
+  &quot;sourceRefs&quot;: [
+    {
+      &quot;symbolId&quot;: &quot;code:src/game/appraisal/engine.ts:settleEncounter&quot;,
+      &quot;file&quot;: &quot;src/game/appraisal/engine.ts&quot;,
+      &quot;line&quot;: 187,
+      &quot;endLine&quot;: 211
+    }
+  ]
+}</pre></details></article><article id="S08" data-kind="main"><header><b>S08 · รับเครดิตท้ายช่วงและเสี่ยงเหรียญ</b><span>REVEAL · runtime · capture: captured-existing · concept: planned</span></header><a href="captures/current-comic-2026-10-29/live-salary.png"><img src="captures/current-comic-2026-10-29/live-salary.png" alt="S08 รับเครดิตท้ายช่วงและเสี่ยงเหรียญ ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"></nav><p>มี roundReward และยังไม่ settled; อาจข้ามไปผลจบเกมแทนถ้า Collector มา</p><small>Logic: L28 · Actions: round-bank, round-flip, round-raise</small><p><a href="#S09">ไป S09</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;S08&quot;,
+  &quot;title&quot;: &quot;รับเครดิตท้ายช่วงและเสี่ยงเหรียญ&quot;,
+  &quot;phase&quot;: &quot;REVEAL&quot;,
+  &quot;kind&quot;: &quot;main&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;มี roundReward และยังไม่ settled; อาจข้ามไปผลจบเกมแทนถ้า Collector มา&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L28&quot;
+  ],
+  &quot;actionIds&quot;: [
+    &quot;round-bank&quot;,
+    &quot;round-flip&quot;,
+    &quot;round-raise&quot;
+  ],
+  &quot;nextIds&quot;: [
+    &quot;S09&quot;
+  ],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [
+    {
+      &quot;id&quot;: &quot;unsettled&quot;,
+      &quot;purpose&quot;: &quot;รับเลยหรือเสี่ยง&quot;
+    },
+    {
+      &quot;id&quot;: &quot;tossing&quot;,
+      &quot;purpose&quot;: &quot;รอแอนิเมชันไม่ส่งซ้ำ&quot;
+    },
+    {
+      &quot;id&quot;: &quot;settled&quot;,
+      &quot;purpose&quot;: &quot;รับแล้วและบริการหลังรับเงิน&quot;
+    }
+  ],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;sourceSymbols&quot;: [
+    &quot;settleEncounter&quot;,
+    &quot;openRoundRewards&quot;
+  ],
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C04&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/reveal.png&quot;,
+      &quot;title&quot;: &quot;สรุปท้ายช่วง · fixture ไม่มี roundReward&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C21&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/live-salary.png&quot;,
+      &quot;title&quot;: &quot;รับเครดิตและเสี่ยงเหรียญ · เกมจริง&quot;,
+      &quot;origin&quot;: &quot;live-game&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureImage&quot;: &quot;captures/current-comic-2026-10-29/live-salary.png&quot;,
+  &quot;designPolicy&quot;: &quot;reuse-existing; change only explicit requested gap&quot;,
+  &quot;captureNote&quot;: &quot;Actual salary controls captured separately from preview summary without reward.&quot;,
+  &quot;sourceRefs&quot;: [
+    {
+      &quot;symbolId&quot;: &quot;code:src/game/appraisal/engine.ts:settleEncounter&quot;,
+      &quot;file&quot;: &quot;src/game/appraisal/engine.ts&quot;,
+      &quot;line&quot;: 187,
+      &quot;endLine&quot;: 211
+    },
+    {
+      &quot;symbolId&quot;: &quot;code:src/game/appraisal/round-rewards.ts:openRoundRewards&quot;,
+      &quot;file&quot;: &quot;src/game/appraisal/round-rewards.ts&quot;,
+      &quot;line&quot;: 8,
+      &quot;endLine&quot;: 20
+    }
+  ]
+}</pre></details></article><article id="S09" data-kind="main"><header><b>S09 · บริการหลังรับเงินและพร้อมไปช่วงหน้า</b><span>REVEAL · runtime · capture: not-captured-yet · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>รับรางวัลแล้ว; ฝากถอน Vault ได้เฉพาะหน้าต่างนี้</p><small>Logic: L16, L17, L18 · Actions: vault-deposit-credits, vault-withdraw-credits, vault-deposit-item, vault-withdraw-item, vault-expand</small><p><a href="#S02">ไป S02</a> · <a href="#S12">ไป S12</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;S09&quot;,
+  &quot;title&quot;: &quot;บริการหลังรับเงินและพร้อมไปช่วงหน้า&quot;,
+  &quot;phase&quot;: &quot;REVEAL&quot;,
+  &quot;kind&quot;: &quot;main&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;รับรางวัลแล้ว; ฝากถอน Vault ได้เฉพาะหน้าต่างนี้&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L16&quot;,
+    &quot;L17&quot;,
+    &quot;L18&quot;
+  ],
+  &quot;actionIds&quot;: [
+    &quot;vault-deposit-credits&quot;,
+    &quot;vault-withdraw-credits&quot;,
+    &quot;vault-deposit-item&quot;,
+    &quot;vault-withdraw-item&quot;,
+    &quot;vault-expand&quot;
+  ],
+  &quot;nextIds&quot;: [
+    &quot;S02&quot;,
+    &quot;S12&quot;
+  ],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;sourceSymbols&quot;: [
+    &quot;advanceAppraisalEncounter&quot;,
+    &quot;handleStorageAction&quot;
+  ],
+  &quot;captures&quot;: [],
+  &quot;captureStatus&quot;: &quot;not-captured-yet&quot;,
+  &quot;captureNote&quot;: &quot;Not captured is not proof this screen is absent.&quot;,
+  &quot;sourceRefs&quot;: [
+    {
+      &quot;symbolId&quot;: &quot;code:src/game/appraisal/engine.ts:advanceAppraisalEncounter&quot;,
+      &quot;file&quot;: &quot;src/game/appraisal/engine.ts&quot;,
+      &quot;line&quot;: 414,
+      &quot;endLine&quot;: 444
+    },
+    {
+      &quot;symbolId&quot;: &quot;code:src/game/appraisal/secure-storage.ts:handleStorageAction&quot;,
+      &quot;file&quot;: &quot;src/game/appraisal/secure-storage.ts&quot;,
+      &quot;line&quot;: 70,
+      &quot;endLine&quot;: 102
+    }
+  ]
+}</pre></details></article><article id="S10" data-kind="waiting"><header><b>S10 · รอผู้เล่นอื่น</b><span>PORTALS · runtime · capture: not-captured-yet · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>ตนเอง done/paused แต่เกมหลักยังไม่เปลี่ยน phase; ใช้เป็น variant ใน phase อื่นได้</p><small>Logic: L32 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;S10&quot;,
+  &quot;title&quot;: &quot;รอผู้เล่นอื่น&quot;,
+  &quot;phase&quot;: &quot;PORTALS&quot;,
+  &quot;kind&quot;: &quot;waiting&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;ตนเอง done/paused แต่เกมหลักยังไม่เปลี่ยน phase; ใช้เป็น variant ใน phase อื่นได้&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L32&quot;
+  ],
+  &quot;actionIds&quot;: [],
+  &quot;nextIds&quot;: [],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;captures&quot;: [],
+  &quot;captureStatus&quot;: &quot;not-captured-yet&quot;,
+  &quot;captureNote&quot;: &quot;Not captured is not proof this screen is absent.&quot;,
+  &quot;sourceRefs&quot;: []
+}</pre></details></article><article id="S11" data-kind="transition"><header><b>S11 · เสียชีวิตและทางเข้าโลกวิญญาณ</b><span>ตามเงื่อนไข · mixed · capture: not-captured-yet · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>ตายถาวรครั้งเดียว; runtime มี dead/spectate ส่วนบริการวิญญาณยังเป็นข้อเสนอ</p><small>Logic: L24 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p><a href="#G01">ไป G01</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;S11&quot;,
+  &quot;title&quot;: &quot;เสียชีวิตและทางเข้าโลกวิญญาณ&quot;,
+  &quot;phase&quot;: null,
+  &quot;kind&quot;: &quot;transition&quot;,
+  &quot;implementation&quot;: &quot;mixed&quot;,
+  &quot;trigger&quot;: &quot;ตายถาวรครั้งเดียว; runtime มี dead/spectate ส่วนบริการวิญญาณยังเป็นข้อเสนอ&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L24&quot;
+  ],
+  &quot;actionIds&quot;: [],
+  &quot;nextIds&quot;: [
+    &quot;G01&quot;
+  ],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;sourceSymbols&quot;: [
+    &quot;kill&quot;
+  ],
+  &quot;captures&quot;: [],
+  &quot;captureStatus&quot;: &quot;not-captured-yet&quot;,
+  &quot;captureNote&quot;: &quot;Not captured is not proof this screen is absent.&quot;,
+  &quot;sourceRefs&quot;: [
+    {
+      &quot;symbolId&quot;: &quot;code:src/game/appraisal/mechanics.ts:kill&quot;,
+      &quot;file&quot;: &quot;src/game/appraisal/mechanics.ts&quot;,
+      &quot;line&quot;: 479,
+      &quot;endLine&quot;: 483
+    }
+  ]
+}</pre></details></article><article id="S12" data-kind="transition"><header><b>S12 · Collector มาถึง</b><span>ตามเงื่อนไข · mixed · capture: not-captured-yet · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>collectorDue หรือทุกคนหมดชีวิตแล้ว collectRun; presentation แยกจาก results ยังต้องออกแบบ</p><small>Logic: L29, L30 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p><a href="#S13">ไป S13</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;S12&quot;,
+  &quot;title&quot;: &quot;Collector มาถึง&quot;,
+  &quot;phase&quot;: null,
+  &quot;kind&quot;: &quot;transition&quot;,
+  &quot;implementation&quot;: &quot;mixed&quot;,
+  &quot;trigger&quot;: &quot;collectorDue หรือทุกคนหมดชีวิตแล้ว collectRun; presentation แยกจาก results ยังต้องออกแบบ&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L29&quot;,
+    &quot;L30&quot;
+  ],
+  &quot;actionIds&quot;: [],
+  &quot;nextIds&quot;: [
+    &quot;S13&quot;
+  ],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;sourceSymbols&quot;: [
+    &quot;collectRun&quot;,
+    &quot;collectorDue&quot;
+  ],
+  &quot;captures&quot;: [],
+  &quot;captureStatus&quot;: &quot;not-captured-yet&quot;,
+  &quot;captureNote&quot;: &quot;Not captured is not proof this screen is absent.&quot;,
+  &quot;sourceRefs&quot;: [
+    {
+      &quot;symbolId&quot;: &quot;code:src/game/appraisal/survival.ts:collectRun&quot;,
+      &quot;file&quot;: &quot;src/game/appraisal/survival.ts&quot;,
+      &quot;line&quot;: 14,
+      &quot;endLine&quot;: 34
+    },
+    {
+      &quot;symbolId&quot;: &quot;code:src/game/appraisal/survival.ts:collectorDue&quot;,
+      &quot;file&quot;: &quot;src/game/appraisal/survival.ts&quot;,
+      &quot;line&quot;: 13,
+      &quot;endLine&quot;: 13
+    }
+  ]
+}</pre></details></article><article id="S13" data-kind="main"><header><b>S13 · ผลเกมและอันดับ</b><span>RESULTS · mixed · capture: captured-existing · concept: planned</span></header><a href="captures/current-comic-2026-10-29/live-results.png"><img src="captures/current-comic-2026-10-29/live-results.png" alt="S13 ผลเกมและอันดับ ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"></nav><p>runtime มีผล Collector; โบนัสผู้นำ/หลายสาย/วิญญาณยังพัฒนาไม่ครบ</p><small>Logic: L29, L30, L32 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;S13&quot;,
+  &quot;title&quot;: &quot;ผลเกมและอันดับ&quot;,
+  &quot;phase&quot;: &quot;RESULTS&quot;,
+  &quot;kind&quot;: &quot;main&quot;,
+  &quot;implementation&quot;: &quot;mixed&quot;,
+  &quot;trigger&quot;: &quot;runtime มีผล Collector; โบนัสผู้นำ/หลายสาย/วิญญาณยังพัฒนาไม่ครบ&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L29&quot;,
+    &quot;L30&quot;,
+    &quot;L32&quot;
+  ],
+  &quot;actionIds&quot;: [],
+  &quot;nextIds&quot;: [],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;sourceSymbols&quot;: [
+    &quot;collectRun&quot;
+  ],
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C05&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/results.png&quot;,
+      &quot;title&quot;: &quot;ผลเกม · fixture&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C25&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/live-results.png&quot;,
+      &quot;title&quot;: &quot;ผลเกม · เกมจริง&quot;,
+      &quot;origin&quot;: &quot;live-game&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureImage&quot;: &quot;captures/current-comic-2026-10-29/live-results.png&quot;,
+  &quot;designPolicy&quot;: &quot;reuse-existing; change only explicit requested gap&quot;,
+  &quot;captureNote&quot;: &quot;&quot;,
+  &quot;sourceRefs&quot;: [
+    {
+      &quot;symbolId&quot;: &quot;code:src/game/appraisal/survival.ts:collectRun&quot;,
+      &quot;file&quot;: &quot;src/game/appraisal/survival.ts&quot;,
+      &quot;line&quot;: 14,
+      &quot;endLine&quot;: 34
+    }
+  ]
+}</pre></details></article><article id="M01" data-kind="menu"><header><b>M01 · กระเป๋า</b><span>ตามเงื่อนไข · runtime · capture: captured-existing · concept: planned</span></header><a href="captures/current-comic-2026-10-29/inventory.png"><img src="captures/current-comic-2026-10-29/inventory.png" alt="M01 กระเป๋า ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"></nav><p>เปิดจากเมนูระหว่าง phase ที่อนุญาต; action ตาม phase</p><small>Logic: L01, L02, L03, L33 · Actions: activate, reappraise-owned</small><p></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;M01&quot;,
+  &quot;title&quot;: &quot;กระเป๋า&quot;,
+  &quot;phase&quot;: null,
+  &quot;kind&quot;: &quot;menu&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;เปิดจากเมนูระหว่าง phase ที่อนุญาต; action ตาม phase&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L01&quot;,
+    &quot;L02&quot;,
+    &quot;L03&quot;,
+    &quot;L33&quot;
+  ],
+  &quot;actionIds&quot;: [
+    &quot;activate&quot;,
+    &quot;reappraise-owned&quot;
+  ],
+  &quot;nextIds&quot;: [],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C06&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/inventory.png&quot;,
+      &quot;title&quot;: &quot;กระเป๋า&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C20&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/inventory-details.png&quot;,
+      &quot;title&quot;: &quot;กระเป๋า · รายละเอียดผลใช้งาน&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureImage&quot;: &quot;captures/current-comic-2026-10-29/inventory.png&quot;,
+  &quot;designPolicy&quot;: &quot;reuse-existing; change only explicit requested gap&quot;,
+  &quot;captureNote&quot;: &quot;&quot;,
+  &quot;sourceRefs&quot;: []
+}</pre></details></article><article id="M02" data-kind="menu"><header><b>M02 · สถานะและเส้นทางกลยุทธ์</b><span>ตามเงื่อนไข · mixed · capture: captured-existing · concept: planned</span></header><a href="captures/current-comic-2026-10-29/status.png"><img src="captures/current-comic-2026-10-29/status.png" alt="M02 สถานะและเส้นทางกลยุทธ์ ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"></nav><p>แสดงสถานะ/trust; progress หลายสายยังเป็นข้อเสนอ</p><small>Logic: L10, L11, L23, L24, L27, L30 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;M02&quot;,
+  &quot;title&quot;: &quot;สถานะและเส้นทางกลยุทธ์&quot;,
+  &quot;phase&quot;: null,
+  &quot;kind&quot;: &quot;menu&quot;,
+  &quot;implementation&quot;: &quot;mixed&quot;,
+  &quot;trigger&quot;: &quot;แสดงสถานะ/trust; progress หลายสายยังเป็นข้อเสนอ&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L10&quot;,
+    &quot;L11&quot;,
+    &quot;L23&quot;,
+    &quot;L24&quot;,
+    &quot;L27&quot;,
+    &quot;L30&quot;
+  ],
+  &quot;actionIds&quot;: [],
+  &quot;nextIds&quot;: [],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C07&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/status.png&quot;,
+      &quot;title&quot;: &quot;สถานะ&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureImage&quot;: &quot;captures/current-comic-2026-10-29/status.png&quot;,
+  &quot;designPolicy&quot;: &quot;reuse-existing; change only explicit requested gap&quot;,
+  &quot;captureNote&quot;: &quot;Current status exists; strategic-path progress is not implemented.&quot;,
+  &quot;sourceRefs&quot;: []
+}</pre></details></article><article id="M03" data-kind="menu"><header><b>M03 · ตลาดมืดและประมูล</b><span>ตามเงื่อนไข · runtime · capture: captured-existing · concept: planned</span></header><a href="captures/current-comic-2026-10-29/market.png"><img src="captures/current-comic-2026-10-29/market.png" alt="M03 ตลาดมืดและประมูล ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"></nav><p>ตลาด/auction เปิดตาม config และช่วงเวลา ไม่บังคับทุก encounter</p><small>Logic: L07, L08 · Actions: market-sell, bid</small><p></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;M03&quot;,
+  &quot;title&quot;: &quot;ตลาดมืดและประมูล&quot;,
+  &quot;phase&quot;: null,
+  &quot;kind&quot;: &quot;menu&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;ตลาด/auction เปิดตาม config และช่วงเวลา ไม่บังคับทุก encounter&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L07&quot;,
+    &quot;L08&quot;
+  ],
+  &quot;actionIds&quot;: [
+    &quot;market-sell&quot;,
+    &quot;bid&quot;
+  ],
+  &quot;nextIds&quot;: [],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C08&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/market.png&quot;,
+      &quot;title&quot;: &quot;ตลาดมืด · รายการรับซื้อ&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C09&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/market-demo.png&quot;,
+      &quot;title&quot;: &quot;ตลาดมืด · fixture รายการครบ&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C22&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/market-sale-detail.png&quot;,
+      &quot;title&quot;: &quot;ตลาดมืด · รายละเอียดรับซื้อ&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C23&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/market-auction-list.png&quot;,
+      &quot;title&quot;: &quot;ตลาดมืด · รายการประมูล&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C24&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/market-auction-detail.png&quot;,
+      &quot;title&quot;: &quot;ตลาดมืด · รายละเอียดประมูล&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureImage&quot;: &quot;captures/current-comic-2026-10-29/market.png&quot;,
+  &quot;designPolicy&quot;: &quot;reuse-existing; change only explicit requested gap&quot;,
+  &quot;captureNote&quot;: &quot;&quot;,
+  &quot;sourceRefs&quot;: []
+}</pre></details></article><article id="M04" data-kind="menu"><header><b>M04 · บันทึกเหตุการณ์</b><span>ตามเงื่อนไข · runtime · capture: captured-existing · concept: planned</span></header><a href="captures/current-comic-2026-10-29/ledger.png"><img src="captures/current-comic-2026-10-29/ledger.png" alt="M04 บันทึกเหตุการณ์ ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"></nav><p>ข้อมูลเฉพาะที่ผู้เล่นมีสิทธิ์เห็น; ไม่เปิด seed/hidden facts ก่อนจบ</p><small>Logic: L32 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;M04&quot;,
+  &quot;title&quot;: &quot;บันทึกเหตุการณ์&quot;,
+  &quot;phase&quot;: null,
+  &quot;kind&quot;: &quot;menu&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;ข้อมูลเฉพาะที่ผู้เล่นมีสิทธิ์เห็น; ไม่เปิด seed/hidden facts ก่อนจบ&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L32&quot;
+  ],
+  &quot;actionIds&quot;: [],
+  &quot;nextIds&quot;: [],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C10&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/ledger.png&quot;,
+      &quot;title&quot;: &quot;บันทึกเหตุการณ์ · fixture&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureImage&quot;: &quot;captures/current-comic-2026-10-29/ledger.png&quot;,
+  &quot;designPolicy&quot;: &quot;reuse-existing; change only explicit requested gap&quot;,
+  &quot;captureNote&quot;: &quot;&quot;,
+  &quot;sourceRefs&quot;: []
+}</pre></details></article><article id="M05" data-kind="menu"><header><b>M05 · กติกา</b><span>ตามเงื่อนไข · runtime · capture: captured-existing · concept: planned</span></header><a href="captures/current-comic-2026-10-29/rules.png"><img src="captures/current-comic-2026-10-29/rules.png" alt="M05 กติกา ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"></nav><p>เปิดอ่านกฎที่ตรงกับ run config</p><small>Logic: L32 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;M05&quot;,
+  &quot;title&quot;: &quot;กติกา&quot;,
+  &quot;phase&quot;: null,
+  &quot;kind&quot;: &quot;menu&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;เปิดอ่านกฎที่ตรงกับ run config&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L32&quot;
+  ],
+  &quot;actionIds&quot;: [],
+  &quot;nextIds&quot;: [],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C11&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/rules.png&quot;,
+      &quot;title&quot;: &quot;กติกา&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureImage&quot;: &quot;captures/current-comic-2026-10-29/rules.png&quot;,
+  &quot;designPolicy&quot;: &quot;reuse-existing; change only explicit requested gap&quot;,
+  &quot;captureNote&quot;: &quot;&quot;,
+  &quot;sourceRefs&quot;: []
+}</pre></details></article><article id="M06" data-kind="menu"><header><b>M06 · ตั้งค่า</b><span>ตามเงื่อนไข · runtime · capture: captured-existing · concept: planned</span></header><a href="captures/current-comic-2026-10-29/settings.png"><img src="captures/current-comic-2026-10-29/settings.png" alt="M06 ตั้งค่า ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"></nav><p>ใช้ตัวเลือกที่เกมรองรับจริง ไม่เพิ่ม settings จากภาพเอง</p><small>Logic: L32 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;M06&quot;,
+  &quot;title&quot;: &quot;ตั้งค่า&quot;,
+  &quot;phase&quot;: null,
+  &quot;kind&quot;: &quot;menu&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;ใช้ตัวเลือกที่เกมรองรับจริง ไม่เพิ่ม settings จากภาพเอง&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L32&quot;
+  ],
+  &quot;actionIds&quot;: [],
+  &quot;nextIds&quot;: [],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C12&quot;,
+      &quot;image&quot;: &quot;captures/current-comic-2026-10-29/settings.png&quot;,
+      &quot;title&quot;: &quot;ตั้งค่า&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureImage&quot;: &quot;captures/current-comic-2026-10-29/settings.png&quot;,
+  &quot;designPolicy&quot;: &quot;reuse-existing; change only explicit requested gap&quot;,
+  &quot;captureNote&quot;: &quot;&quot;,
+  &quot;sourceRefs&quot;: []
+}</pre></details></article><article id="A01" data-kind="interaction"><header><b>A01 · ข้อเสนอเงินกู้และหลักประกัน</b><span>ตามเงื่อนไข · runtime · capture: not-captured-yet · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>คู่สัญญามีสิทธิ์เสนอ/ตอบรับ/ชำระตาม loanWindow</p><small>Logic: L18, L33 · Actions: loan-propose, loan-counter, loan-respond, loan-repay</small><p></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;A01&quot;,
+  &quot;title&quot;: &quot;ข้อเสนอเงินกู้และหลักประกัน&quot;,
+  &quot;phase&quot;: null,
+  &quot;kind&quot;: &quot;interaction&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;คู่สัญญามีสิทธิ์เสนอ/ตอบรับ/ชำระตาม loanWindow&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L18&quot;,
+    &quot;L33&quot;
+  ],
+  &quot;actionIds&quot;: [
+    &quot;loan-propose&quot;,
+    &quot;loan-counter&quot;,
+    &quot;loan-respond&quot;,
+    &quot;loan-repay&quot;
+  ],
+  &quot;nextIds&quot;: [],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;captures&quot;: [],
+  &quot;captureStatus&quot;: &quot;not-captured-yet&quot;,
+  &quot;captureNote&quot;: &quot;Not captured is not proof this screen is absent.&quot;,
+  &quot;sourceRefs&quot;: []
+}</pre></details></article><article id="A02" data-kind="interaction"><header><b>A02 · ขโมยและเป่ายิ้งฉุบ</b><span>ตามเงื่อนไข · mixed · capture: not-captured-yet · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>มี duel ค้าง; forced RPS ยืนยันแล้วแต่ timeout runtime ยังมีช่องว่าง</p><small>Logic: L13, L14, L15 · Actions: theft-start, theft-hand</small><p></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;A02&quot;,
+  &quot;title&quot;: &quot;ขโมยและเป่ายิ้งฉุบ&quot;,
+  &quot;phase&quot;: null,
+  &quot;kind&quot;: &quot;interaction&quot;,
+  &quot;implementation&quot;: &quot;mixed&quot;,
+  &quot;trigger&quot;: &quot;มี duel ค้าง; forced RPS ยืนยันแล้วแต่ timeout runtime ยังมีช่องว่าง&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L13&quot;,
+    &quot;L14&quot;,
+    &quot;L15&quot;
+  ],
+  &quot;actionIds&quot;: [
+    &quot;theft-start&quot;,
+    &quot;theft-hand&quot;
+  ],
+  &quot;nextIds&quot;: [],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;captures&quot;: [],
+  &quot;captureStatus&quot;: &quot;not-captured-yet&quot;,
+  &quot;captureNote&quot;: &quot;Not captured is not proof this screen is absent.&quot;,
+  &quot;sourceRefs&quot;: []
+}</pre></details></article><article id="A03" data-kind="interaction"><header><b>A03 · ตราบาปและแลกคืน</b><span>ตามเงื่อนไข · runtime · capture: not-captured-yet · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>ผู้เล่นมีสิทธิ์ตาม seal offer/redeem</p><small>Logic: L19, L33 · Actions: seal-offer, seal-respond, seal-redeem, seal-pick</small><p></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;A03&quot;,
+  &quot;title&quot;: &quot;ตราบาปและแลกคืน&quot;,
+  &quot;phase&quot;: null,
+  &quot;kind&quot;: &quot;interaction&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;ผู้เล่นมีสิทธิ์ตาม seal offer/redeem&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L19&quot;,
+    &quot;L33&quot;
+  ],
+  &quot;actionIds&quot;: [
+    &quot;seal-offer&quot;,
+    &quot;seal-respond&quot;,
+    &quot;seal-redeem&quot;,
+    &quot;seal-pick&quot;
+  ],
+  &quot;nextIds&quot;: [],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;captures&quot;: [],
+  &quot;captureStatus&quot;: &quot;not-captured-yet&quot;,
+  &quot;captureNote&quot;: &quot;Not captured is not proof this screen is absent.&quot;,
+  &quot;sourceRefs&quot;: []
+}</pre></details></article><article id="A04" data-kind="interaction"><header><b>A04 · ของขายไม่ออก</b><span>APPRAISAL · runtime · capture: not-captured-yet · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>มี unsold choices ก่อนปิดช่วง; ตำแหน่งตามเงื่อนไขจริง</p><small>Logic: L05, L07 · Actions: unsold</small><p></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;A04&quot;,
+  &quot;title&quot;: &quot;ของขายไม่ออก&quot;,
+  &quot;phase&quot;: &quot;APPRAISAL&quot;,
+  &quot;kind&quot;: &quot;interaction&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;มี unsold choices ก่อนปิดช่วง; ตำแหน่งตามเงื่อนไขจริง&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L05&quot;,
+    &quot;L07&quot;
+  ],
+  &quot;actionIds&quot;: [
+    &quot;unsold&quot;
+  ],
+  &quot;nextIds&quot;: [],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;captures&quot;: [],
+  &quot;captureStatus&quot;: &quot;not-captured-yet&quot;,
+  &quot;captureNote&quot;: &quot;Not captured is not proof this screen is absent.&quot;,
+  &quot;sourceRefs&quot;: []
+}</pre></details></article><article id="A05" data-kind="interaction"><header><b>A05 · Collector Wishlist</b><span>ตามเงื่อนไข · design-only · capture: design-only-not-captured · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>Wishlist 3+2 ที่ผู้ใช้ยืนยัน ยังไม่มี dedicated runtime; ไม่ใช่ E73</p><small>Logic: L21 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;A05&quot;,
+  &quot;title&quot;: &quot;Collector Wishlist&quot;,
+  &quot;phase&quot;: null,
+  &quot;kind&quot;: &quot;interaction&quot;,
+  &quot;implementation&quot;: &quot;design-only&quot;,
+  &quot;trigger&quot;: &quot;Wishlist 3+2 ที่ผู้ใช้ยืนยัน ยังไม่มี dedicated runtime; ไม่ใช่ E73&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L21&quot;
+  ],
+  &quot;actionIds&quot;: [],
+  &quot;nextIds&quot;: [],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;captures&quot;: [],
+  &quot;captureStatus&quot;: &quot;design-only-not-captured&quot;,
+  &quot;captureNote&quot;: &quot;&quot;,
+  &quot;sourceRefs&quot;: []
+}</pre></details></article><article id="G01" data-kind="ghost"><header><b>G01 · วิญญาณติดตามการ์ด</b><span>ตามเงื่อนไข · design-only · capture: design-only-not-captured · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>ตายแล้ว ต้องชนะติดตามการ์ดสี่ใบเพื่อเปิดบริการ</p><small>Logic: L24 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p><a href="#G02">ไป G02</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;G01&quot;,
+  &quot;title&quot;: &quot;วิญญาณติดตามการ์ด&quot;,
+  &quot;phase&quot;: null,
+  &quot;kind&quot;: &quot;ghost&quot;,
+  &quot;implementation&quot;: &quot;design-only&quot;,
+  &quot;trigger&quot;: &quot;ตายแล้ว ต้องชนะติดตามการ์ดสี่ใบเพื่อเปิดบริการ&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L24&quot;
+  ],
+  &quot;actionIds&quot;: [],
+  &quot;nextIds&quot;: [
+    &quot;G02&quot;
+  ],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;captures&quot;: [],
+  &quot;captureStatus&quot;: &quot;design-only-not-captured&quot;,
+  &quot;captureNote&quot;: &quot;&quot;,
+  &quot;sourceRefs&quot;: []
+}</pre></details></article><article id="G02" data-kind="ghost"><header><b>G02 · เรียกบริการและตกลงสัญญาวิญญาณ</b><span>ตามเงื่อนไข · design-only · capture: design-only-not-captured · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>ผู้มีชีวิตเลือกหนึ่งในสามสินค้าและตกลงค่าจ้างกับวิญญาณที่เปิดบริการ</p><small>Logic: L06 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p><a href="#G03">ไป G03</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;G02&quot;,
+  &quot;title&quot;: &quot;เรียกบริการและตกลงสัญญาวิญญาณ&quot;,
+  &quot;phase&quot;: null,
+  &quot;kind&quot;: &quot;ghost&quot;,
+  &quot;implementation&quot;: &quot;design-only&quot;,
+  &quot;trigger&quot;: &quot;ผู้มีชีวิตเลือกหนึ่งในสามสินค้าและตกลงค่าจ้างกับวิญญาณที่เปิดบริการ&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L06&quot;
+  ],
+  &quot;actionIds&quot;: [],
+  &quot;nextIds&quot;: [
+    &quot;G03&quot;
+  ],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;captures&quot;: [],
+  &quot;captureStatus&quot;: &quot;design-only-not-captured&quot;,
+  &quot;captureNote&quot;: &quot;&quot;,
+  &quot;sourceRefs&quot;: []
+}</pre></details></article><article id="G03" data-kind="ghost"><header><b>G03 · ร้าน Skeleton และ RPS แยกสามช่อง</b><span>ตามเงื่อนไข · design-only · capture: design-only-not-captured · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>ซื้อได้เฉพาะเป้าหมายตามงาน; แต่ละช่องแพ้แยกกัน; แพ้ครบสามรอช่วงหน้า</p><small>Logic: L33 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p><a href="#G04">ไป G04</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;G03&quot;,
+  &quot;title&quot;: &quot;ร้าน Skeleton และ RPS แยกสามช่อง&quot;,
+  &quot;phase&quot;: null,
+  &quot;kind&quot;: &quot;ghost&quot;,
+  &quot;implementation&quot;: &quot;design-only&quot;,
+  &quot;trigger&quot;: &quot;ซื้อได้เฉพาะเป้าหมายตามงาน; แต่ละช่องแพ้แยกกัน; แพ้ครบสามรอช่วงหน้า&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L33&quot;
+  ],
+  &quot;actionIds&quot;: [],
+  &quot;nextIds&quot;: [
+    &quot;G04&quot;
+  ],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;captures&quot;: [],
+  &quot;captureStatus&quot;: &quot;design-only-not-captured&quot;,
+  &quot;captureNote&quot;: &quot;&quot;,
+  &quot;sourceRefs&quot;: []
+}</pre></details></article><article id="G04" data-kind="ghost"><header><b>G04 · ส่งมอบและคะแนนพิเศษวิญญาณ</b><span>ตามเงื่อนไข · design-only · capture: design-only-not-captured · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>สำเร็จจึงจ่าย;10%baseหักราคาสินค้า; อัตราแปลงคะแนนยังไม่ยืนยัน</p><small>Logic: L30, L33 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p><a href="#G01">ไป G01</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;id&quot;: &quot;G04&quot;,
+  &quot;title&quot;: &quot;ส่งมอบและคะแนนพิเศษวิญญาณ&quot;,
+  &quot;phase&quot;: null,
+  &quot;kind&quot;: &quot;ghost&quot;,
+  &quot;implementation&quot;: &quot;design-only&quot;,
+  &quot;trigger&quot;: &quot;สำเร็จจึงจ่าย;10%baseหักราคาสินค้า; อัตราแปลงคะแนนยังไม่ยืนยัน&quot;,
+  &quot;logicIds&quot;: [
+    &quot;L30&quot;,
+    &quot;L33&quot;
+  ],
+  &quot;actionIds&quot;: [],
+  &quot;nextIds&quot;: [
+    &quot;G01&quot;
+  ],
+  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;currentImage&quot;: null,
+  &quot;approvedImage&quot;: null,
+  &quot;variants&quot;: [],
+  &quot;mustShow&quot;: [],
+  &quot;mustNotShow&quot;: [],
+  &quot;captures&quot;: [],
+  &quot;captureStatus&quot;: &quot;design-only-not-captured&quot;,
+  &quot;captureNote&quot;: &quot;&quot;,
+  &quot;sourceRefs&quot;: []
+}</pre></details></article></section><p>ภาพร่างไม่ใช่หลักฐานว่า logic ลงระบบแล้ว สถานะ approved ต้องอ้างการอนุมัติผู้ใช้จริง</p></main><script>document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>{document.querySelectorAll('article').forEach(a=>a.hidden=b.dataset.filter!=='all'&&a.dataset.kind!==b.dataset.filter);document.querySelectorAll('[data-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)))});addEventListener('hashchange',()=>{const target=document.getElementById(location.hash.slice(1));if(target){target.hidden=false;target.scrollIntoView()}});</script></html>

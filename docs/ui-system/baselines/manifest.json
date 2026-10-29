@@ -1,0 +1,644 @@
+{
+  "schema": 1,
+  "approval": "candidate; confirmed layout contracts only, pixel review pending",
+  "references": [
+    "inventory is the confirmed frame/control reference",
+    "2026-10-29 user: one game, same existing style; equal spacing and centred stepper"
+  ],
+  "entries": [
+    {
+      "id": "inventory-1440x722",
+      "file": "inventory-1440x722.png",
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      },
+      "sha256": "4124d615f8dac8f1f750c5bb00f73cb99c141725b0cde5f9f95c21cc11412045"
+    },
+    {
+      "id": "status-1440x722",
+      "file": "status-1440x722.png",
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      },
+      "sha256": "6809a314fc130441bf05f232746796632660af69ff46c491cc76bfbe2c734213"
+    },
+    {
+      "id": "market-1440x722",
+      "file": "market-1440x722.png",
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      },
+      "sha256": "9168086ecea71c0669073be7cfa22e6da7582195d561477d2affde7cd9158a2a"
+    },
+    {
+      "id": "ledger-1440x722",
+      "file": "ledger-1440x722.png",
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      },
+      "sha256": "90d3af6cf087fcb930cd79b24cebce002dc2655c6c4bcce593216157d0f2d041"
+    },
+    {
+      "id": "rules-1440x722",
+      "file": "rules-1440x722.png",
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      },
+      "sha256": "92d85a45de2ff8fee787ad1babe434375f33a982161e2561996da4030fb89baa"
+    },
+    {
+      "id": "settings-1440x722",
+      "file": "settings-1440x722.png",
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      },
+      "sha256": "f24f52248570f7f1f042abf9e6c7ccdc048bc2b61468627ef2b5dd1214adeefe"
+    },
+    {
+      "id": "trade-1440x722",
+      "file": "trade-1440x722.png",
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": null
+      },
+      "sha256": "6c70c76ee9ddc879264bdb97e4894c8e1e61d79a17fe41267285d380119ab588"
+    },
+    {
+      "id": "item-sale-1440x722",
+      "file": "item-sale-1440x722.png",
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "columnWidths": [
+          694,
+          694
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "actionWidths": [
+          323,
+          323
+        ],
+        "stepperCentre": 1067,
+        "actionsCentre": 1067,
+        "inputCentre": 1067,
+        "stepperGaps": [
+          12,
+          12
+        ],
+        "stepperWidths": [
+          40,
+          40
+        ],
+        "stepperHeights": [
+          40,
+          40,
+          40
+        ],
+        "knownFacts": [
+          "?",
+          "?",
+          "?"
+        ],
+        "saleDisabled": true,
+        "rebateDisabled": true
+      },
+      "sha256": "ade56206d1a32edcbb704d585efed92b343986fc13d7d2d0dc533533e96d0984"
+    },
+    {
+      "id": "inventory-1024x800",
+      "file": "inventory-1024x800.png",
+      "metrics": {
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 896,
+            "y": 10,
+            "width": 118,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      },
+      "sha256": "80ec9423057c8f3826cd173e8a12679233334eae9d8bba4257dac1659f225e21"
+    },
+    {
+      "id": "status-1024x800",
+      "file": "status-1024x800.png",
+      "metrics": {
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 896,
+            "y": 10,
+            "width": 118,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      },
+      "sha256": "b7e753be83f157e396463c83b0f7d60701d390f197c71f0dc1cdf2d60cbbd642"
+    },
+    {
+      "id": "item-sale-1024x800",
+      "file": "item-sale-1024x800.png",
+      "metrics": {
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 896,
+            "y": 10,
+            "width": 118,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "columnWidths": [
+          486,
+          486
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "actionWidths": [
+          225,
+          225
+        ],
+        "stepperCentre": 755,
+        "actionsCentre": 755,
+        "inputCentre": 755,
+        "stepperGaps": [
+          12,
+          12
+        ],
+        "stepperWidths": [
+          40,
+          40
+        ],
+        "stepperHeights": [
+          40,
+          40,
+          40
+        ],
+        "knownFacts": [
+          "?",
+          "?",
+          "?"
+        ],
+        "saleDisabled": true,
+        "rebateDisabled": true
+      },
+      "sha256": "df9b913aab1ccd7e824d026f1d514793cf64915a359ec59a0bea781214eabc2e"
+    },
+    {
+      "id": "inventory-1920x800",
+      "file": "inventory-1920x800.png",
+      "metrics": {
+        "viewport": [
+          1920,
+          800
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1516,
+            "y": 10,
+            "width": 386,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      },
+      "sha256": "f21f256c7b7e57044c85c0527a632b8c09cd8a4cc8f0fa48cc9dd3fa57ef8d53"
+    },
+    {
+      "id": "status-1920x800",
+      "file": "status-1920x800.png",
+      "metrics": {
+        "viewport": [
+          1920,
+          800
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1516,
+            "y": 10,
+            "width": 386,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      },
+      "sha256": "405c6ef3a693c3968435f980349e0a0ddb31e4869e56db0b84a8b97bcf3be17c"
+    },
+    {
+      "id": "item-sale-1920x800",
+      "file": "item-sale-1920x800.png",
+      "metrics": {
+        "viewport": [
+          1920,
+          800
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1516,
+            "y": 10,
+            "width": 386,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "columnWidths": [
+          738,
+          738
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "actionWidths": [
+          345,
+          345
+        ],
+        "stepperCentre": 1329,
+        "actionsCentre": 1329,
+        "inputCentre": 1329,
+        "stepperGaps": [
+          12,
+          12
+        ],
+        "stepperWidths": [
+          40,
+          40
+        ],
+        "stepperHeights": [
+          40,
+          40,
+          40
+        ],
+        "knownFacts": [
+          "?",
+          "?",
+          "?"
+        ],
+        "saleDisabled": true,
+        "rebateDisabled": true
+      },
+      "sha256": "81bcbb4b5a3b9b09883f06bada72c4ebfcc7e619f816f0dd16dabe1bebcf2922"
+    }
+  ]
+}

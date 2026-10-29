@@ -1,0 +1,685 @@
+/* The approved comic composition: art leads, controls stay ordinary HTML. */
+:root {
+  --comic-bg:#0a0a0a; --comic-panel:#111111; --comic-white:#f3f3f3;
+  --comic-muted:#c7c7c7; --comic-red:#d91d40; --comic-line:#979797;
+  --display:"Noto Serif Thai","IM Fell English",serif;
+  --amber:#f3f3f3; --focus:#ff3e61; --bronze:#9f9f9f;
+  --comic-radius-small:var(--comic-radius); --comic-radius-control:var(--comic-radius); --comic-radius-inset:var(--comic-radius);
+  --comic-radius-panel:var(--comic-radius); --comic-radius-dialog:var(--comic-radius);
+}
+html { background:#0a0a0a; }
+body { color:#f3f3f3; background:#0a0a0a; font-family:"Noto Sans Thai",sans-serif; }
+body::before {
+  content:""; position:fixed; z-index:-2; inset:0;
+  background:linear-gradient(180deg,rgb(0 0 0 / 30%),rgb(0 0 0 / 58%)),url("/art/comic/market-night-v2.png") center/cover no-repeat;
+  pointer-events:none;
+}
+::selection { color:white; background:#ac1735; }
+:focus-visible { outline:3px solid #ff4265!important; outline-offset:4px; }
+* { scrollbar-color:#7a7a7a #111111; }
+button,input,select { border-image:none!important; text-shadow:none!important; }
+button { box-shadow:none; }
+button:hover:not(:disabled) { transform:none; box-shadow:none; }
+button:disabled { color:#b0b0b0; background:#252525!important; border-color:#565656!important; opacity:.65; }
+input:not([type=checkbox]),select { color:#fff!important; background:#131313!important; border:1px solid #a0a0a0!important; caret-color:#ff4265; }
+input::placeholder { color:#c1c1c1!important; }
+.app-shell.comic-build { width:min(100% - 32px,1560px); padding:0 0 20px; }
+.app-shell.comic-build::before { content:none; }
+.comic-build h1,.comic-build h2,.comic-build h3 { font-family:"Noto Serif Thai",serif; font-weight:700; text-shadow:none!important; }
+.comic-build p { line-height:1.55; }
+.comic-build :is(.muted,.supporting,.field-help,.trust-note,.commission-note,.help) { color:#c7c7c7; }
+.comic-build button { color:#fff; background:#0d0d0d; border:1px solid #c0c0c0; border-radius:var(--comic-radius-control); box-shadow:none; font-weight:600; }
+#game-main .screen dialog.game-dialog,.comic-build .game-dialog { border-radius:var(--comic-radius-dialog); }
+.comic-build :is(input:not([type=checkbox]),select,textarea) { border-radius:var(--comic-radius-control); }
+.comic-build button.primary { color:#fff; background:#be1736!important; border:2px solid #fa3b5d; }
+.comic-build button:hover:not(:disabled) { background:#312027!important; border-color:#fff; }
+.comic-build button.primary:hover:not(:disabled) { background:#dc2346!important; }
+.comic-build :is(.notice,.blocked-note,.danger-text,.error,.why) { color:#e5e5e5; background:#31121c; border:1px solid #a74358; border-radius:var(--comic-radius-inset); box-shadow:none; }
+.comic-build .masthead { border:0; border-bottom:1px solid #b3b3b3; border-radius:var(--comic-radius-panel); margin:0 0 30px; padding:14px 20px; background:#090909; box-shadow:none; }
+.comic-build .masthead .brand { display:block!important; font-family:"IM Fell English",serif; text-transform:uppercase; font-size:23px; letter-spacing:.12em; text-shadow:none; }
+.comic-build .connection { background:transparent; border:0; padding:0; }
+.comic-build .connection-label { padding:0; background:transparent; border:0; font-size:13px; }
+.comic-build footer { border-top:1px solid #6f6f6f; color:#cbcbcb; }
+/* The entry is one readable page rather than independently positioned boxes. */
+.app-shell.comic-build .entry-layout {
+  display:grid; grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr);
+  grid-template-rows:auto auto auto; align-items:center; gap:24px 42px;
+  max-width:1240px; margin:34px auto 0; padding:28px 36px 0;
+  background:rgb(8 8 10 / 88%); border:1px solid #999999; border-radius:var(--comic-radius-panel); box-shadow:0 14px 36px rgb(0 0 0 / 45%);
+}
+.app-shell.comic-build .entry-copy { grid-column:1; grid-row:1; padding:0; }
+.app-shell.comic-build .entry-logo { margin:0 0 20px; color:#fff; font:26px "IM Fell English",serif; text-transform:uppercase; letter-spacing:.13em; }
+.app-shell.comic-build .entry-copy h1 { margin:0 0 18px; max-width:none; font:700 clamp(30px,3.2vw,48px)/1.4 "Noto Serif Thai",serif; color:#fff; letter-spacing:0; }
+.app-shell.comic-build .entry-copy h1::after { content:none; }
+.app-shell.comic-build .entry-copy > p:last-child { font-size:17px; max-width:45ch; color:#d9d9d9; margin:0; }
+.app-shell.comic-build .entry-art { grid-column:2; grid-row:1 / span 2; min-height:560px; width:100%; margin:0; padding:0; align-self:end; justify-self:stretch; display:grid; align-items:end; overflow:visible; }
+.app-shell.comic-build .entry-art img { width:100%; max-width:570px; height:560px; max-height:none; object-fit:contain; object-position:center bottom; transform:translateY(12px); filter:drop-shadow(5px 9px 2px #000); }
+.app-shell.comic-build .entry-console { grid-column:1; grid-row:2; width:100%; max-width:540px; padding:20px; margin:0; background:#121212; border:1px solid #7c7c7c; border-radius:var(--comic-radius-inset); }
+.app-shell.comic-build .entry-intent { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:18px; }
+.app-shell.comic-build .entry-intent button[aria-pressed=true] { background:#4b1223!important; border-color:#f12d51; }
+.app-shell.comic-build .entry-console form { display:grid!important; grid-template-columns:minmax(0,1fr)!important; gap:8px; width:100%; margin:0; }
+.app-shell.comic-build .entry-console form label { margin:0; font-size:15px; }
+.app-shell.comic-build .entry-console form input { width:100%; min-width:0; font-size:17px; }
+.app-shell.comic-build .entry-console form > .primary { width:100%; margin-top:8px; min-height:50px; font-size:18px; }
+.app-shell.comic-build .entry-join-fields[hidden] { display:none!important; }
+.app-shell.comic-build .entry-seats { margin:14px 0 0; color:#c4c4c4; font-size:13px; }
+.app-shell.comic-build .entry-more { grid-column:1 / -1; grid-row:3; width:100%; margin:0; padding:0; background:none; border:0; }
+.app-shell.comic-build .entry-more .rules { padding:16px 0; border:0; border-top:1px solid #636363; border-radius:0; box-shadow:none; background:transparent; color:#e4e4e4; }
+/* Shared game chrome, intentionally quiet beside the colored art. */
+#game-main .screen { padding-bottom:92px!important; min-width:0; }
+#game-main .screen .hud.phase-header { margin:0 0 8px; }
+#game-main .screen .hud-bar { position:relative; left:auto; width:100vw; max-width:none; margin:0 0 0 calc(50% - 50vw); transform:none; display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:20px; align-items:center; padding:12px 0; border:0; border-bottom:1px solid #bdbdbd; border-radius:0; box-shadow:none; background:#080808!important; }
+#game-main .screen .cabinet-brand { display:block; min-width:0; margin:0; color:#fff; font:800 clamp(24px,2.5vw,42px)/1.18 "Noto Sans Thai",sans-serif; letter-spacing:-.02em; text-transform:none; }
+#game-main .screen .resources { display:grid; grid-auto-flow:column; grid-auto-columns:minmax(0,1fr); width:100%; max-width:720px; justify-self:center; gap:0; margin:0; padding:0; }
+#game-main .screen .resources .resource { display:flex; align-items:center; justify-content:center; gap:8px; min-width:0; padding:0 12px; border:0; border-right:1px solid #585858; }
+#game-main .screen .resource dt { display:flex; align-items:center; gap:7px; font-size:14px; color:#ebebeb; }
+#game-main .screen .resource dt svg { width:23px; height:23px; }
+#game-main .screen .resource dd { margin:0; font-size:23px; font-weight:600; line-height:1.2; }
+#game-main .screen .resource dd small { font-size:15px; color:#d8d8d8; white-space:normal; }
+#game-main .screen .resources .resource:last-child { border-right:0; }
+#game-main .screen .resource.energy svg,#game-main .screen .resource.life svg { color:#f22a51; }
+#game-main .screen .countdown { display:flex; align-items:center; justify-content:center; gap:8px; padding:0; font-size:20px; color:#efefef; }
+#game-main .screen .hud-bar > .roster { display:none; }
+#game-main .screen .phase-banner { display:block; margin:0; padding:20px 18px 18px; border:0; border-radius:0; background:transparent!important; box-shadow:none; }
+#game-main .screen .phase-title { flex:none; width:100%; min-width:0; }
+#game-main .screen .phase-title h1 { font-size:clamp(28px,2.8vw,42px); margin:0 0 7px; line-height:1.3; }
+#game-main .screen .phase-title p { display:inline; margin:0; font-size:13px; color:#d0d0d0; }
+#game-main .screen .phase-title .phase-hint { font-size:17px; margin-right:16px; color:#ededed; }
+#game-main .screen .phase-banner .hud-extras { float:right; max-width:420px; margin-top:-40px; }
+#game-main .screen .phase-banner details.omen { margin:12px 0 0; font-size:13px; width:fit-content; max-width:100%; }
+#game-main .screen .table-stage,#game-main .screen .scene-play { display:block; min-width:0; width:100%; padding:0; margin:0; background:transparent!important; border:0; box-shadow:none; }
+#game-main .screen .hud-drawers { display:flex; justify-content:center; align-items:stretch; gap:0; position:fixed; bottom:0; left:0; right:0; z-index:70; height:68px; padding:0 max(12px,calc((100vw - 1500px)/2)); background:#090909!important; border:0; border-top:1px solid #a5a5a5; border-radius:var(--comic-radius-panel) var(--comic-radius-panel) 0 0; box-shadow:0 -8px 22px rgb(0 0 0 / 38%); }
+#game-main .screen .hud-drawer,#game-main .screen .hud-settings { display:flex; align-items:center; justify-content:center; gap:14px; flex:1 1 0; max-width:270px; padding:10px 18px; min-width:0; height:100%; color:#f1f1f1; background:transparent!important; border:0; border-right:1px solid #494949; border-radius:var(--comic-radius-control); font-size:16px; }
+#game-main .screen .hud-drawer.active { box-shadow:inset 0 -3px #ef244b; background:#2d0e19!important; }
+#game-main .screen .hud-drawer svg { width:clamp(22px,1.8vw,30px); height:clamp(22px,1.8vw,30px); }
+#game-main .screen .hud-count { font-size:12px; padding:1px 6px; background:#ab1939; color:white; border-radius:var(--comic-radius-small); min-width:20px; }
+#game-main .screen .end-phase { display:flex; flex-wrap:wrap; justify-content:flex-end; align-items:center; gap:12px; margin:16px 0 0; padding:12px 16px; border:1px solid #626262; border-radius:var(--comic-radius-panel); background:#0c0c0c!important; box-shadow:none; }
+#game-main .screen .end-phase p { margin:0; flex:1 1 300px; font-size:13px; }
+#game-main .screen .end-phase button { min-width:260px; min-height:46px; background:#141414!important; }
+/* Three figures occupy the top half of the merchant-choice cards. */
+#game-main .screen .portals { padding:20px 14px 0; border:0; background:transparent!important; box-shadow:none; }
+#game-main .screen .portals > h2,#game-main .screen .portals > p { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+#game-main .screen .trust-fold { margin:0 0 22px auto; width:fit-content; padding:0; background:transparent!important; border:0; box-shadow:none; }
+#game-main .screen .portal-row { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; overflow:visible; }
+#game-main .screen .portal { display:flex; flex-direction:column; padding:0; gap:0; min-width:0; border:1px solid #a1a1a1; border-radius:var(--comic-radius-panel); background:#0c0c0c!important; box-shadow:0 10px 25px rgb(0 0 0 / 45%); }
+#game-main .screen .portal .gate { position:relative; width:100%; height:clamp(240px,34vh,390px); min-height:0; padding:0; margin:0; overflow:visible; background:transparent!important; border:0; border-radius:calc(var(--comic-radius-panel) - var(--comic-radius)) calc(var(--comic-radius-panel) - var(--comic-radius)) 0 0; }
+#game-main .screen .portal .gate-window { width:100%; height:100%; margin:0; padding:0; border:0; overflow:visible; background:transparent!important; }
+#game-main .screen .gate-window::before,#game-main .screen .merchant-window::before { content:none; }
+#game-main .screen .comic-screen-lines { display:none; }
+#game-main .screen .portal .gate-figure { position:absolute; left:0; right:0; bottom:-2px; width:100%; max-width:none; height:calc(100% + 22px); object-fit:contain; object-position:center bottom; transform:scale(1.04); transform-origin:center bottom; filter:drop-shadow(4px 7px 2px #000); }
+#game-main .screen .portal-details { border-radius:0 0 calc(var(--comic-radius-panel) - var(--comic-radius)) calc(var(--comic-radius-panel) - var(--comic-radius)); position:relative; z-index:1; display:flex; flex:1; flex-direction:column; gap:0; margin-top:calc(-1 * clamp(48px,7.5vh,72px)); padding:0 15px 15px; border:0; border-image:none; box-shadow:none; background:#0c0c0c; }
+#game-main .screen .portal h3 { display:grid; place-items:center; margin:0 -8px; padding:8px 12px; text-align:center; border:1px solid #b0b0b0; border-radius:var(--comic-radius-inset); color:#fff; background:#0a0a0a; }
+#game-main .screen .plaque-chips { display:grid; flex:1; grid-template-columns:minmax(0,1fr) clamp(104px,9.33vw,156px); align-items:center; gap:8px 12px; margin:0; padding:4px 0; min-height:clamp(96px,6.7vw,112px); }
+#game-main .screen .plaque-chip { display:flex; align-items:center; gap:7px; padding:0; min-width:0; background:none!important; border:0; border-radius:0; font-size:13px; color:#d4d4d4; }
+#game-main .screen .plaque-chip.goods { display:grid; grid-template-columns:clamp(64px,6.6vw,104px) minmax(0,1fr); grid-row:auto; gap:10px; justify-content:start; }
+#game-main .screen .plaque-chip.goods > img { width:100%; height:auto; aspect-ratio:1; object-fit:contain; margin:0; filter:drop-shadow(2px 4px 1px #000); }
+#game-main .screen .portal-goods-copy,#game-main .screen .portal-goods-title,#game-main .screen .portal-goods-title .term-wrap { display:block; min-width:0; }
+#game-main .screen .portal-goods-title button.term { display:inline-flex; align-items:center; min-height:44px; max-width:100%; padding:0; text-align:left; white-space:normal; overflow-wrap:anywhere; font:500 clamp(16px,1.5vw,25px)/1.35 "Noto Sans Thai",sans-serif; }
+#game-main .screen .portal-goods-note { display:block; color:#c6c8ca; font-size:clamp(12px,1.1vw,18px); line-height:1.4; }
+#game-main .screen .plaque-chip.trust { display:flex; flex-direction:column; align-items:stretch; gap:8px; color:#f6f6f6; }
+#game-main .screen .portal-trust-value { display:flex; align-items:center; justify-content:flex-start; gap:7px; white-space:nowrap; font:500 clamp(16px,1.45vw,24px)/1.4 "Noto Sans Thai",sans-serif; }
+#game-main .screen .portal-trust-value > svg { flex:0 0 auto; width:26px; height:26px; }
+#game-main .screen .portal-trust-value strong { color:#fff; font-weight:600; }
+#game-main .screen .plaque-chip.trust meter { appearance:none; display:block; width:100%; height:10px; margin:0; border:0; border-radius:var(--comic-radius); background:#343638; overflow:hidden; }
+#game-main .screen .plaque-chip.trust meter::-webkit-meter-bar { height:10px; border:0; border-radius:var(--comic-radius); background:#343638; box-shadow:none; }
+#game-main .screen .plaque-chip.trust meter::-webkit-meter-optimum-value,#game-main .screen .plaque-chip.trust meter::-webkit-meter-suboptimum-value,#game-main .screen .plaque-chip.trust meter::-webkit-meter-even-less-good-value { border-radius:var(--comic-radius); background:#ff315c; }
+#game-main .screen .plaque-chip.trust meter::-moz-meter-bar { border-radius:var(--comic-radius); background:#ff315c; }
+#game-main .screen .plaque-chip.wish { grid-column:1 / -1; padding:6px 0; font-size:12px; }
+#game-main .screen .portal-details > button { width:100%; min-height:48px; font-size:17px; margin:0; }
+#game-main .screen .portal .reroll-portal { background:#0c0c0c!important; color:#ececec; border:1px solid #dddddd; }
+/* The artifact and merchant share the left page; decisions form the right page. */
+#game-main .screen.phase-APPRAISAL .appraisal-stage { display:block; width:100%; min-width:0; padding:0 14px; }
+#game-main .screen.phase-APPRAISAL .desk { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.98fr); align-items:start; gap:16px; width:100%; min-width:0; padding:0; border:0; background:transparent!important; box-shadow:none; }
+#game-main .screen.phase-APPRAISAL .appraisal-visual { display:grid; grid-template-columns:minmax(0,1fr); width:100%; min-width:0; border:1px solid #a1a1a1; border-radius:var(--comic-radius-panel); background:#0c0c0c; box-shadow:0 10px 26px rgb(0 0 0 / 45%); }
+#game-main .screen.phase-APPRAISAL .merchant { display:grid; grid-template-columns:minmax(130px,190px) minmax(0,1fr); grid-template-rows:auto auto; align-items:center; gap:0 14px; min-width:0; min-height:148px; padding:0 18px 0 0; margin:0; border:0; border-bottom:1px solid #7c7c7c; border-radius:calc(var(--comic-radius-panel) - var(--comic-radius)) calc(var(--comic-radius-panel) - var(--comic-radius)) 0 0; box-shadow:none; background:#131313!important; overflow:visible; }
+#game-main .screen.phase-APPRAISAL .merchant > .merchant-window { grid-column:1; grid-row:1 / span 2; width:100%; height:172px; min-height:0; margin:-24px 0 0; padding:0; border:0; background:transparent!important; }
+#game-main .screen.phase-APPRAISAL .merchant-figure { position:relative; left:auto; bottom:auto; width:100%; max-width:none; height:100%; max-height:none; object-fit:contain; object-position:center bottom; transform:scale(1.16); transform-origin:center bottom; filter:drop-shadow(3px 4px 1px #000); }
+#game-main .screen.phase-APPRAISAL .merchant-copy { grid-column:2; grid-row:1; padding:12px 0 0; min-width:0; }
+#game-main .screen.phase-APPRAISAL .merchant-copy h2 { margin:0 0 5px; color:#fff; font-size:25px; }
+#game-main .screen.phase-APPRAISAL .merchant-line { margin:5px 0; color:#c9c9c9!important; font-size:12px; line-height:1.5; }
+#game-main .screen.phase-APPRAISAL .merchant-trust { display:flex; align-items:center; flex-wrap:wrap; gap:7px; font-size:14px; }
+#game-main .screen.phase-APPRAISAL .merchant-trust meter { width:100px; height:10px; accent-color:#ec234c; }
+#game-main .screen.phase-APPRAISAL .merchant-services { grid-column:2; grid-row:2; max-height:none; margin:0 0 10px; padding:0; color:#dfdfdf; border:0; border-radius:0; background:transparent!important; box-shadow:none; font-size:12px; overflow:visible; }
+#game-main .screen.phase-APPRAISAL .merchant-services summary { min-height:32px; padding:3px 0; font-size:12px; }
+#game-main .screen.phase-APPRAISAL .merchant-services summary span { display:block; color:#ff6985; }
+#game-main .screen.phase-APPRAISAL .merchant-services[open] { grid-column:1 / -1; grid-row:3; padding:12px 18px; }
+#game-main .screen.phase-APPRAISAL .merchant-services-body { padding:0; }
+#game-main .screen.phase-APPRAISAL .desk .relic-art { display:grid; place-items:center; position:relative; width:100%; max-width:none; height:clamp(260px,32vh,370px); min-height:260px; max-height:none; aspect-ratio:auto; margin:0; padding:12px 24px; border:0; border-bottom:1px solid #595959; border-radius:0; background:#141414!important; overflow:visible; box-shadow:none; }
+#game-main .screen.phase-APPRAISAL .desk .relic-art :is(img,.item-visual) { display:block; width:100%; max-width:470px; height:100%; max-height:340px; object-fit:contain; }
+#game-main .screen.phase-APPRAISAL .desk .relic-art img { transform:scale(1.05); filter:drop-shadow(6px 9px 2px #000); }
+#game-main .screen.phase-APPRAISAL .stock-shelf { min-width:0; padding:12px 14px; margin:0; border:0; border-radius:0 0 calc(var(--comic-radius-panel) - var(--comic-radius)) calc(var(--comic-radius-panel) - var(--comic-radius)); background:#0c0c0c!important; box-shadow:none; }
+#game-main .screen.phase-APPRAISAL .stock-shelf h2 { margin:0 0 8px; font:500 12px "Noto Sans Thai",sans-serif; color:#d3d3d3; }
+#game-main .screen.phase-APPRAISAL .stock-tabs { display:flex; flex-wrap:nowrap; gap:10px; width:100%; max-width:100%; padding:3px; overflow-x:auto; }
+#game-main .screen.phase-APPRAISAL .stock-tabs > button { display:grid; grid-template-columns:68px minmax(0,1fr); grid-template-rows:auto auto; gap:0 8px; align-items:center; flex:0 0 min(210px,70%); min-width:145px; min-height:76px; padding:4px 8px; border:1px solid #9e9e9e; border-radius:var(--comic-radius-small); color:#fff; background:#121212!important; }
+#game-main .screen.phase-APPRAISAL .stock-tabs > button.selected { border:2px solid #f42752; background:#291019!important; padding:3px 7px; }
+#game-main .screen.phase-APPRAISAL .stock-tabs :is(img,.item-visual) { grid-column:1; grid-row:1 / span 2; width:68px!important; height:68px!important; object-fit:contain; }
+#game-main .screen.phase-APPRAISAL .stock-name { grid-column:2; text-align:left; white-space:normal; font-size:12px; line-height:1.3; }
+#game-main .screen.phase-APPRAISAL .stock-price { grid-column:2; font-size:12px; text-align:left; }
+#game-main .screen.phase-APPRAISAL .stock-price svg { width:13px; height:13px; }
+#game-main .screen.phase-APPRAISAL .desk-reading { min-width:0; width:100%; padding:18px 22px; background:#0c0c0c!important; border:1px solid #aaaaaa; border-radius:var(--comic-radius-panel); box-shadow:0 10px 26px rgb(0 0 0 / 45%); }
+#game-main .screen.phase-APPRAISAL .specimen-data { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px 16px; width:100%; min-width:0; margin:0; padding:0 0 14px; color:#fff; border:0; border-bottom:1px solid #707070; border-radius:0; background:transparent!important; }
+#game-main .screen.phase-APPRAISAL .desk-title { margin:0; max-width:100%; color:#fff; font-size:clamp(21px,2vw,29px); line-height:1.4; }
+#game-main .screen.phase-APPRAISAL .specimen-price { display:flex; align-items:center; flex-wrap:wrap; gap:7px; margin:0; }
+#game-main .screen.phase-APPRAISAL .specimen-price dt { color:#c7c7c7; font-size:12px; }
+#game-main .screen.phase-APPRAISAL .specimen-price dd { display:flex; align-items:center; gap:7px; margin:0; color:#fff; font-size:28px; line-height:1.2; }
+#game-main .screen.phase-APPRAISAL .specimen-price dd small { font-size:13px; }
+#game-main .screen.phase-APPRAISAL .desk-steps { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0; margin:12px 0; width:100%; border-bottom:1px solid #696969; }
+#game-main .screen.phase-APPRAISAL .desk-steps > button { display:flex; align-items:center; justify-content:center; gap:10px; min-width:0; width:100%; min-height:64px; padding:7px 5px; border:0; border-bottom:3px solid transparent; border-radius:var(--comic-radius-control) var(--comic-radius-control) 0 0; color:#bfbfbf; background:transparent!important; }
+#game-main .screen.phase-APPRAISAL .desk-steps > button[aria-selected=true] { color:#ff315c; border-bottom-color:#ef234e; background:#241019!important; box-shadow:none; }
+#game-main .screen.phase-APPRAISAL .desk-steps .step-number { display:none; }
+#game-main .screen.phase-APPRAISAL .desk-steps svg { width:25px; height:25px; }
+#game-main .screen.phase-APPRAISAL .step-label { min-width:0; white-space:normal; font-size:17px; line-height:1.3; }
+#game-main .screen.phase-APPRAISAL .step-label small { display:block; margin-top:4px; font-size:10px; color:inherit; }
+#game-main .screen .fact-seals { display:block; width:100%; list-style:none; padding:4px 15px; margin:12px 0; color:#f5f5f5; background:#121212; border:1px solid #7d7d7d; border-radius:var(--comic-radius-inset); }
+#game-main .screen .fact-seals .seal { display:grid; grid-template-columns:25px minmax(0,1fr) minmax(44px,auto); align-items:center; gap:12px; min-height:43px; padding:7px 2px; border:0; border-bottom:1px solid #5d5d5d; border-radius:0; color:#ececec; background:transparent; font-size:15px; }
+#game-main .screen .fact-seals .seal:last-child { border-bottom:0; }
+#game-main .screen .fact-seals .seal svg { width:23px; height:23px; }
+#game-main .screen .fact-seals .seal strong { font-size:17px; text-align:right; color:#fff; }
+#game-main .screen .fact-seals .seal.bad strong { color:#ff6a89; }
+#game-main .screen .fact-seals .seal-label { display:block; }
+#game-main .screen.phase-APPRAISAL .step-panel { width:100%; min-width:0; padding:0; margin:0; border:0; background:transparent!important; box-shadow:none; }
+#game-main .screen.phase-APPRAISAL .step-panel[hidden] { display:none!important; }
+#game-main .screen.phase-APPRAISAL .inspection > .actions { display:grid; grid-template-columns:minmax(0,1fr); gap:8px; }
+#game-main .screen.phase-APPRAISAL .inspection > .actions button { width:100%; justify-content:center; min-height:46px; background:#0d0d0d!important; border:1px solid #bfbfbf; color:#fff; font-size:16px; }
+#game-main .screen.phase-APPRAISAL .inspection > .actions button:first-child:not(:disabled) { background:#ae1737!important; border-color:#f0355d; }
+#game-main .screen.phase-APPRAISAL .inspection > .actions svg { width:23px; height:23px; }
+#game-main .screen.phase-APPRAISAL .step-next { width:100%; min-height:36px; margin:9px 0 0; padding:5px; color:#e0e0e0; background:transparent!important; border:0; text-decoration:underline; text-underline-offset:4px; font-size:13px; }
+#game-main .screen.phase-APPRAISAL .desk-more { margin-top:12px; border:0; border-top:1px solid #5a5a5a; background:transparent!important; }
+#game-main .screen.phase-APPRAISAL .desk-more summary { padding:10px 0 2px; min-height:34px; font-size:13px; color:#d4d4d4; }
+#game-main .screen.phase-APPRAISAL .desk-more p { font-size:13px; }
+#game-main .screen.phase-APPRAISAL .price-entry { display:grid; gap:10px; grid-template-columns:minmax(0,1fr); }
+#game-main .screen.phase-APPRAISAL .price-entry .stepper { width:100%; }
+#game-main .screen.phase-APPRAISAL .purchase > .primary { width:100%; }
+#game-main .screen.phase-APPRAISAL .empty-shop { max-width:900px; margin:0 auto; }
+/* The bag is a selectable gallery with one detailed, actionable item. */
+#game-main .screen dialog.game-dialog.drawer { width:min(1440px,calc(100vw - 48px)); max-width:none; max-height:calc(100dvh - 100px); padding:0; color:#fff; background:#0d0d0d!important; border:1px solid #afafaf; border-radius:var(--comic-radius-dialog); }
+#game-main .screen dialog .drawer-head { border-radius:calc(var(--comic-radius-dialog) - var(--comic-radius)) calc(var(--comic-radius-dialog) - var(--comic-radius)) 0 0; display:flex; align-items:center; justify-content:space-between; gap:15px; padding:14px 22px; margin:0; border-bottom:1px solid #8d8d8d; background:#101010!important; }
+#game-main .screen dialog .drawer-head h2 { margin:0; font-size:26px; }
+#game-main .screen dialog .drawer-close { width:44px; height:44px; min-width:44px; padding:8px; border:1px solid #bebebe; border-radius:var(--comic-radius-control); }
+#game-main .screen dialog .drawer-body { padding:0; width:100%; max-height:calc(100dvh - 178px); overflow-y:auto; }
+#game-main .screen dialog .status-score { margin:18px 22px; padding:0 0 18px; border:0; border-bottom:1px solid #73777b; background:transparent; box-shadow:none; }
+#game-main .screen dialog .trust-fold { display:block; width:auto; margin:16px 22px; padding:0; border:0; background:transparent!important; box-shadow:none; }
+#game-main .screen dialog .status-score dl { margin:0; }
+#game-main .screen dialog .status-score dl > div { display:flex; align-items:baseline; justify-content:space-between; gap:16px; }
+#game-main .screen dialog .status-score dt { color:#f6f6f6; font-size:22px; font-weight:700; }
+#game-main .screen dialog .status-score dd { margin:0; color:#fff; font-size:32px; font-weight:700; line-height:1.3; font-variant-numeric:tabular-nums; }
+#game-main .screen dialog .status-score > p { margin:8px 0 0; max-width:72ch; color:#cacbce; font-size:14px; line-height:1.55; }
+#game-main .screen dialog .ledger-context { margin:18px 22px; padding:0 0 18px; border:0; border-bottom:1px solid #73777b; background:transparent; box-shadow:none; }
+#game-main .screen dialog .ledger-context h3 { margin:0 0 8px; color:#f6f6f6; font-size:22px; }
+#game-main .screen dialog .ledger-context p { margin:0; max-width:72ch; color:#f6f6f6; font-size:16px; line-height:1.55; }
+#game-main .screen dialog .ledger-context p.encounter-meta { margin-top:8px; color:#cacbce; font-size:14px; line-height:1.6; }
+#game-main .screen .inventory { width:100%; max-width:none; min-width:0; padding:0; border:0; border-radius:0; color:#fff; background:transparent!important; box-shadow:none; }
+#game-main .screen .inventory > h2 { margin:0; padding:12px 20px; font:500 14px "Noto Sans Thai",sans-serif; color:#cecece; border-bottom:1px solid #585858; }
+#game-main .screen .inventory > h2 span { margin-left:8px; }
+#game-main .screen .inventory-layout { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); width:100%; min-width:0; }
+#game-main .screen .inventory-row { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-content:start; gap:12px; min-width:0; width:100%; max-width:none; margin:0; padding:20px; list-style:none; overflow:visible; }
+#game-main .screen .inventory-row li { display:block; min-width:0; width:auto; padding:0; margin:0; background:none; border:0; }
+#game-main .screen .inventory-row .item-thumb { display:flex; flex-direction:column; align-items:center; justify-content:flex-start; gap:6px; position:relative; width:100%; min-width:0; height:100%; min-height:204px; padding:12px 8px 10px; color:#fff; background:#141414!important; border:1px solid #7f7f7f; border-radius:var(--comic-radius-inset); }
+#game-main .screen .inventory-row .item-thumb.selected { border:2px solid #f12755; padding:11px 7px 9px; background:#2a101d!important; }
+#game-main .screen .item-thumb > :is(img,.item-visual) { display:block; width:100%!important; max-width:190px; height:150px!important; object-fit:contain; filter:drop-shadow(3px 5px 1px #000); }
+#game-main .screen .item-thumb .thumb-label { display:block; max-width:100%; font-size:14px; line-height:1.4; color:#ededed; white-space:normal; }
+#game-main .screen .thumb-slot { position:absolute; top:8px; left:8px; display:grid; place-items:center; width:28px; height:30px; border:1px solid #a8a8a8; border-radius:var(--comic-radius-small); background:#0c0c0c; font-size:15px; color:#d7d7d7; }
+#game-main .screen .thumb-marks { position:absolute; top:7px; right:7px; display:flex; max-width:65%; }
+#game-main .screen .inventory-detail { min-width:0; padding:16px 20px 22px; margin:0; border:0; border-left:1px solid #6e6e6e; border-radius:0; background:#0f0f0f; box-shadow:none; }
+#game-main .screen .inventory-usage-page { display:flex; flex-direction:column; gap:var(--layout-space,12px); min-width:0; min-height:100%; }
+#game-main .screen .inventory-effect-back { display:inline-flex; align-items:center; justify-content:flex-start; align-self:flex-start; gap:10px; min-height:40px; padding:7px 12px; color:#f3f3f3; background:#101010!important; border:1px solid #b7b7b7; border-radius:var(--comic-radius-small); font:600 15px/1.4 "Noto Sans Thai",sans-serif; }
+#game-main .screen .inventory-effect-back span { font-size:22px; line-height:1; }
+#game-main .screen .inventory-effect-head { padding:0 0 12px; border-bottom:1px solid #656565; }
+#game-main .screen .inventory-effect-head h3 { margin:0; color:#fff; font-size:26px; }
+#game-main .screen .inventory-effect-head p { margin:6px 0 0; color:#c8c8c8; font-size:14px; line-height:1.5; }
+#game-main .screen .inventory-effect-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+#game-main .screen .inventory-effect-card { display:flex; flex-direction:column; gap:10px; min-width:0; min-height:170px; padding:14px; color:#f1f1f1; background:#151515; border:1px solid #777; border-radius:var(--comic-radius-inset); }
+#game-main .screen .inventory-effect-card h4 { display:flex; align-items:center; gap:8px; margin:0; color:#fff; font-size:16px; line-height:1.4; }
+#game-main .screen .inventory-effect-card h4 svg { flex:0 0 22px; width:22px; height:22px; }
+#game-main .screen .inventory-effect-card p { margin:0; font-size:15px; line-height:1.6; overflow-wrap:anywhere; }
+#game-main .screen .inventory-effect-card.risk { border-color:#b31d3f; background:#1b1014; }
+#game-main .screen .inventory-effect-card.risk h4 svg { color:#ff315c; }
+#game-main .screen .inventory-effect-passive { display:flex; align-items:flex-start; gap:10px; margin:0; padding:12px; color:#ededed; background:#151515; border:1px solid #777; border-radius:var(--comic-radius-inset); font-size:14px; line-height:1.55; }
+#game-main .screen .inventory-effect-passive svg { flex:0 0 20px; width:20px; height:20px; }
+#game-main .screen .inventory-effect-inspect { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; min-height:46px; margin-top:auto; padding:8px 12px; color:#fff; background:#151515!important; border:1px solid #e6e6e6; border-radius:var(--comic-radius-small); font:700 15px/1.4 "Noto Sans Thai",sans-serif; }
+#game-main .screen .inventory-effect-inspect svg { flex:0 0 22px; width:22px; height:22px; }
+#game-main .screen .inventory-effect-inspect:disabled { color:#8d8d8d; border-color:#555; }
+#game-main .screen .inventory-detail-head { display:flex; align-items:center; flex-wrap:wrap; gap:10px; min-width:0; padding:0 0 8px; border-bottom:1px solid #656565; }
+#game-main .screen .inventory-detail h3 { margin:0; color:#fff; font-size:24px; }
+#game-main .screen .inventory-art { display:grid; place-items:center; width:100%; height:230px; padding:8px 20px; margin:0; overflow:visible; background:#171717; }
+#game-main .screen .inventory-art :is(img,.item-visual) { width:100%!important; height:100%!important; max-width:330px; max-height:230px; object-fit:contain; filter:drop-shadow(4px 6px 2px #000); }
+#game-main .screen .inventory-detail .fact-seals { margin-top:0; }
+#game-main .screen .inventory-actions { display:grid; gap:10px; }
+#game-main .screen .inventory-effect-details { display:grid; grid-template-columns:24px minmax(0,1fr) 24px; align-items:center; justify-items:center; gap:10px; width:100%; min-width:0; min-height:46px; padding:8px 12px; color:#f3f3f3; background:#101010!important; border:1px solid #dedede; border-radius:var(--comic-radius-small); font:600 15px/1.4 "Noto Sans Thai",sans-serif; }
+#game-main .screen .inventory-effect-details svg { width:22px; height:22px; }
+#game-main .screen .inventory-effect-details > span { font-size:22px; line-height:1; }
+#game-main .screen .inventory-effect-details:focus-visible,
+#game-main .screen .inventory-effect-back:focus-visible,
+#game-main .screen .inventory-effect-inspect:focus-visible { outline:2px solid #ff315c; outline-offset:2px; }
+#game-main .screen .inventory-activate { width:100%; min-height:48px; }
+#game-main .screen .inventory-actions details { border:1px solid #757575; border-radius:var(--comic-radius-small); padding:0 12px; margin:0; }
+#game-main .screen .inventory-actions summary { padding:8px 0; min-height:44px; font-size:15px; }
+#game-main .screen .inventory-empty { padding:30px; }
+#game-main .screen .inventory-layout .inspection > .actions { display:grid; grid-template-columns:minmax(0,1fr); gap:6px; }
+/* Related screens keep the same black panel, drawn white rules and red commits. */
+#game-main .screen :is(.results,.round-reward,.vault-panel,.trade,.shop-sharing,.unsold) { min-width:0; max-width:100%; color:#eeeeee; background:#101010!important; border:1px solid #909090; border-radius:var(--comic-radius-panel); box-shadow:0 10px 24px rgb(0 0 0 / 40%); }
+#game-main .screen .results { width:100%; padding:22px; }
+#game-main .screen .results .table-scroll { min-width:0; max-width:100%; overflow-x:auto; }
+#game-main .screen .merchant-abilities { margin:18px 14px 0; color:#ebebeb; background:#0f0f0f!important; border:1px solid #5c5c5c; border-radius:var(--comic-radius-panel); box-shadow:none; }
+.preview-toolbar { position:fixed; left:12px; bottom:78px; z-index:400; display:flex; flex-wrap:wrap; gap:5px; max-width:calc(100vw - 24px); padding:7px 10px; color:#fff; background:#131313; border:1px solid #aaaaaa; border-radius:var(--comic-radius-small); box-shadow:0 6px 18px #0008; font:12px "Noto Sans Thai",sans-serif; }
+.preview-toolbar a { color:#fff; padding:3px 6px; }
+.preview-toolbar a[aria-current=page] { color:#ff547e; }
+.preview-feedback { position:fixed; top:80px; right:20px; z-index:500; padding:14px; color:#fff; background:#5b1832; border:1px solid #e69bbb; max-width:340px; }
+@media (max-width:1100px) {
+  #game-main .screen .hud-bar { grid-template-columns:auto 1fr auto; gap:10px; padding:12px; }
+  #game-main .screen .cabinet-brand { font-size:18px; max-width:170px; }
+  #game-main .screen .resources .resource { padding:0 9px; gap:4px; }
+  #game-main .screen .resource dt { font-size:12px; gap:4px; }
+  #game-main .screen .resource dd { font-size:19px; }
+  #game-main .screen.phase-APPRAISAL .merchant { grid-template-columns:140px minmax(0,1fr); }
+  #game-main .screen.phase-APPRAISAL .merchant-copy h2 { font-size:22px; }
+  #game-main .screen.phase-APPRAISAL .desk-reading { padding:14px 16px; }
+  #game-main .screen.phase-APPRAISAL .desk .relic-art { height:300px; min-height:300px; }
+  #game-main .screen .inventory-row { gap:8px; padding:12px; }
+  #game-main .screen .inventory-row .item-thumb { min-height:178px; }
+  #game-main .screen .item-thumb > :is(img,.item-visual) { height:125px!important; }
+}
+@media (max-width:760px) {
+  .app-shell.comic-build { width:calc(100% - 20px); }
+  .comic-build .masthead { padding:12px 4px; margin-bottom:16px; gap:8px; }
+  .comic-build .masthead .brand { font-size:17px; }
+  .comic-build .masthead .connection { display:none; }
+  .comic-build .masthead .sound-toggle { width:44px; padding:8px; }
+  .comic-build .masthead .sound-label { display:none; }
+  .app-shell.comic-build .entry-layout { grid-template-columns:minmax(0,1fr); gap:22px; padding:22px 18px 0; margin:0; }
+  .app-shell.comic-build .entry-copy { grid-column:1; grid-row:1; }
+  .app-shell.comic-build .entry-copy h1 { font-size:30px; }
+  .app-shell.comic-build .entry-art { grid-column:1; grid-row:2; min-height:230px; height:230px; }
+  .app-shell.comic-build .entry-art img { height:260px; width:100%; transform:translateY(8px); }
+  .app-shell.comic-build .entry-console { grid-column:1; grid-row:3; padding:16px; }
+  .app-shell.comic-build .entry-more { grid-row:4; }
+  #game-main .screen .hud-bar { grid-template-columns:1fr auto; gap:8px; padding:10px 0; }
+  #game-main .screen .cabinet-brand { grid-column:1; grid-row:1; max-width:none; font-size:clamp(18px,4.8vw,26px); line-height:1.1; white-space:normal; }
+  #game-main .screen .countdown { grid-column:2; grid-row:1; font-size:16px; }
+  #game-main .screen .resources { grid-column:1 / -1; grid-row:2; width:100%; max-width:none; grid-template-columns:none; padding-top:8px; border-top:1px solid #404040; }
+  #game-main .screen .resources .resource { flex-direction:column; gap:3px; padding:0 4px; }
+  #game-main .screen .resource dt { font-size:11px; }
+  #game-main .screen .resource dt svg { width:16px; height:16px; }
+  #game-main .screen .resource dd { font-size:19px; }
+  #game-main .screen .resource dd small { font-size:12px; }
+  #game-main .screen .phase-banner,#game-main .screen.phase-APPRAISAL .phase-banner { display:block; min-height:0; height:auto; padding:18px 2px 20px; margin:0; }
+  #game-main .screen .phase-title h1 { font-size:27px; }
+  #game-main .screen .phase-title .phase-hint { display:block; font-size:14px; margin:6px 0; }
+  #game-main .screen .phase-title p:last-child { font-size:11px; }
+  #game-main .screen .phase-banner .hud-extras { float:none; width:100%; max-width:none; margin:10px 0 0; }
+  #game-main .screen .hud-drawers { height:62px; padding:0; }
+  #game-main .screen .hud-drawer,#game-main .screen .hud-settings { flex-direction:column; gap:3px; padding:7px 3px; font-size:11px; }
+  #game-main .screen .hud-drawer svg { width:22px; height:22px; }
+  #game-main .screen .hud-count { position:absolute; top:5px; margin-left:32px; padding:0 4px; font-size:9px; }
+  #game-main .screen .portals { padding:4px 0 0; }
+  #game-main .screen .portal-row { grid-template-columns:minmax(0,1fr); gap:36px; }
+  #game-main .screen .portal .gate { height:285px; }
+  #game-main .screen .trust-fold { margin-bottom:30px; }
+  #game-main .screen .plaque-chips { min-height:104px; }
+  #game-main .screen.phase-APPRAISAL .appraisal-stage { padding:0; }
+  #game-main .screen.phase-APPRAISAL .desk { grid-template-columns:minmax(0,1fr); gap:16px; }
+  #game-main .screen.phase-APPRAISAL .merchant { grid-template-columns:124px minmax(0,1fr); min-height:132px; padding-right:10px; }
+  #game-main .screen.phase-APPRAISAL .merchant > .merchant-window { height:148px; min-height:0; margin-top:-16px; grid-column:1; grid-row:1 / span 2; }
+  #game-main .screen.phase-APPRAISAL .merchant-copy { grid-column:2; grid-row:1; padding-top:8px; }
+  #game-main .screen.phase-APPRAISAL .merchant-copy h2 { font-size:22px; }
+  #game-main .screen.phase-APPRAISAL .merchant-line { font-size:11px; }
+  #game-main .screen.phase-APPRAISAL .merchant-services { grid-column:2; grid-row:2; font-size:11px; margin-bottom:7px; }
+  #game-main .screen.phase-APPRAISAL .merchant-services[open] { grid-column:1 / -1; grid-row:3; }
+  #game-main .screen.phase-APPRAISAL .merchant-trust { gap:4px; font-size:12px; }
+  #game-main .screen.phase-APPRAISAL .merchant-trust meter { width:75px; }
+  #game-main .screen.phase-APPRAISAL .desk .relic-art { height:265px; min-height:265px; max-height:none; width:100%; max-width:none; margin:0; padding:12px 22px; }
+  #game-main .screen.phase-APPRAISAL .desk .relic-art :is(img,.item-visual) { max-height:245px; }
+  #game-main .screen.phase-APPRAISAL .stock-tabs > button { flex-basis:180px; }
+  #game-main .screen.phase-APPRAISAL .desk-reading { padding:15px; }
+  #game-main .screen.phase-APPRAISAL .desk-title { font-size:24px; }
+  #game-main .screen.phase-APPRAISAL .desk-steps { gap:0; }
+  #game-main .screen.phase-APPRAISAL .desk-steps > button { gap:6px; min-height:62px; justify-content:center; }
+  #game-main .screen.phase-APPRAISAL .step-label { font-size:15px; }
+  #game-main .screen.phase-APPRAISAL .step-label small { font-size:9px; }
+  #game-main .screen .end-phase { padding:10px; }
+  #game-main .screen .end-phase button { width:100%; min-width:0; }
+  #game-main .screen dialog.game-dialog.drawer { width:calc(100vw - 16px); max-height:calc(100dvh - 78px); }
+  #game-main .screen dialog .drawer-head { padding:10px 14px; }
+  #game-main .screen dialog .drawer-head h2 { font-size:22px; }
+  #game-main .screen dialog .status-score { margin:16px 14px; padding-bottom:16px; }
+  #game-main .screen dialog .trust-fold { margin:16px 14px; }
+  #game-main .screen dialog .ledger-context { margin:16px 14px; padding-bottom:16px; }
+  #game-main .screen dialog .ledger-context h3 { font-size:20px; }
+  #game-main .screen dialog .ledger-context p { font-size:15px; }
+  #game-main .screen dialog .ledger-context p.encounter-meta { font-size:13px; }
+  #game-main .screen dialog .drawer-body { max-height:calc(100dvh - 146px); }
+  #game-main .screen .inventory-layout { grid-template-columns:minmax(0,1fr); }
+  #game-main .screen .inventory-row { grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; padding:10px; }
+  #game-main .screen .inventory-row .item-thumb { padding:8px 4px; min-height:130px; }
+  #game-main .screen .inventory-row .item-thumb.selected { padding:7px 3px; }
+  #game-main .screen .item-thumb > :is(img,.item-visual) { height:82px!important; }
+  #game-main .screen .item-thumb .thumb-label { font-size:10px; line-height:1.3; }
+  #game-main .screen .thumb-slot { width:20px; height:22px; top:4px; left:4px; font-size:11px; }
+  #game-main .screen .inventory-detail { border-left:0; border-top:1px solid #777777; padding:16px; }
+  #game-main .screen .inventory-art { height:220px; }
+  #game-main .screen .results { width:100%; min-width:0; padding:16px 10px; }
+  .preview-toolbar { bottom:68px; font-size:10px; }
+}
+@media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; } }
+
+/* Resolve the remaining inherited composition rules at their owning elements. */
+body { background:linear-gradient(180deg,rgb(0 0 0 / 22%),rgb(0 0 0 / 45%)),url("/art/comic/market-night-v2.png") center top/cover fixed no-repeat,#0a0a0a!important; }
+body::before { content:none; }
+.app-shell.comic-build { font-weight:400; }
+#game-main .screen :is(h1,h2,h3) { font-family:"Noto Serif Thai",serif!important; font-weight:700; }
+#game-main .screen .icon { display:inline-block!important; }
+#game-main .screen :is(.portal,.merchant,.stock-shelf,.desk-reading,.specimen-data,.relic-art)::before,
+#game-main .screen :is(.portal,.merchant,.stock-shelf,.desk-reading,.specimen-data,.relic-art)::after { content:none!important; }
+#game-main .screen button.primary { color:#fff!important; font-weight:600; }
+#game-main .screen button[aria-pressed=true]:not(:focus-visible),
+#game-main .screen button[aria-selected=true]:not(:focus-visible),
+#game-main .screen .item-thumb.selected:not(:focus-visible) { outline:0!important; box-shadow:none!important; }
+#game-main .screen .phase-title h1 { display:block!important; margin-bottom:8px; }
+#game-main .screen .countdown { border:0; border-radius:0; background:transparent!important; }
+#game-main .screen .hud-drawers { width:100vw; max-width:none; transform:none!important; translate:none!important; flex-wrap:nowrap; inset:auto 0 0; margin:0; }
+#game-main .screen .hud-drawer::before,#game-main .screen .hud-settings::before { content:none!important; }
+#game-main .screen .hud-drawer-label { font-size:16px; }
+#game-main .screen .portals { padding-top:18px; }
+#game-main .screen .portal-row { padding:0; margin:0; }
+#game-main .screen .phase-banner .trust-fold { width:fit-content; margin:0; padding:0; border:0; background:transparent!important; box-shadow:none; }
+#game-main .screen .trust-fold > summary { min-height:40px; padding:6px 12px; color:#ebebeb; background:#111111; border:1px solid #999999; border-radius:var(--comic-radius-control); }
+#game-main .screen .portal .plaque-chip button.term { color:#f6f6f6!important; background:transparent!important; border:0; box-shadow:none; }
+#game-main .screen .portal .plaque-chip button.term:hover { color:#ff7891!important; }
+#game-main .screen.phase-APPRAISAL .appraisal-visual > .merchant { grid-column:1; grid-row:1; grid-template-columns:minmax(180px,240px) minmax(0,1fr); min-height:164px; }
+#game-main .screen.phase-APPRAISAL .appraisal-visual > .merchant > .merchant-window { height:188px; }
+#game-main .screen.phase-APPRAISAL .appraisal-visual .merchant-figure { transform:scale(1.2); }
+#game-main .screen.phase-APPRAISAL .appraisal-visual > .relic-art { grid-column:1; grid-row:2; }
+#game-main .screen.phase-APPRAISAL .appraisal-visual > .stock-shelf { grid-column:1; grid-row:3; }
+#game-main .screen.phase-APPRAISAL .specimen-data .desk-title { padding:0!important; border:0!important; background:transparent!important; box-shadow:none; }
+#game-main .screen.phase-APPRAISAL .specimen-price :is(dt,dd) { padding:0; border:0; background:transparent!important; box-shadow:none; }
+#game-main .screen .fact-seals .seal { min-height:44px; }
+#game-main .screen .fact-seals .seal-label { color:#e9e9e9!important; opacity:1!important; font-size:16px; font-weight:500; }
+#game-main .screen .fact-seals .seal svg { color:#e9e9e9!important; }
+#game-main .screen .inspection > p { font-size:13px; margin:8px 0; color:#dedede; }
+#game-main .screen .inspection > p.positive-text { color:#e5e5e5; font-size:12px; }
+#game-main .screen .inspection-help { margin:8px 0 0; padding:0; border:0; }
+#game-main .screen .inspection-help summary { font-size:12px; min-height:28px; color:#bdbdbd; }
+#game-main .screen .inspection-help p { font-size:12px; margin:6px 0; }
+#game-main .screen .thumb-label { border:0!important; background:transparent!important; box-shadow:none; }
+#game-main .screen .inventory-row .item-thumb.selected { box-shadow:none; }
+#game-main .screen .merchant-abilities { width:100%; max-width:100%; margin:18px 0 0; }
+.app-shell.comic-build .entry-console form { display:grid!important; }
+.app-shell.comic-build .entry-console form > input { grid-column:1!important; width:100%!important; }
+.app-shell.comic-build .entry-console form > button.primary { grid-column:1!important; width:100%!important; }
+.app-shell.comic-build .entry-console form > label { grid-column:1!important; }
+.app-shell.comic-build .entry-console form > :is(label,input,button,.entry-join-fields) { grid-row:auto!important; position:static!important; }
+@media (max-width:760px) {
+  #game-main .screen .hud-drawer-label { font-size:10px; }
+  #game-main .screen.phase-APPRAISAL .appraisal-visual > .merchant { grid-template-columns:124px minmax(0,1fr); min-height:132px; }
+  #game-main .screen.phase-APPRAISAL .appraisal-visual > .merchant > .merchant-window { height:148px; }
+  #game-main .screen.phase-APPRAISAL .appraisal-visual .merchant-figure { transform:scale(1.12); }
+  #game-main .screen.phase-APPRAISAL .desk .relic-art { height:225px; min-height:225px; }
+  #game-main .screen.phase-APPRAISAL .desk .relic-art :is(img,.item-visual) { max-height:215px; }
+  #game-main .screen .inventory-row { display:flex; overflow-x:auto; align-items:stretch; gap:8px; padding:10px; }
+  #game-main .screen .inventory-row li { flex:0 0 100px; min-width:0; }
+  #game-main .screen .inventory-row .item-thumb { min-height:130px; }
+}
+
+/* Independent review F1–F6: focal scale, one-line facts, visible decisions. */
+:root { --comic-black:#090a0b; --comic-bg:#090a0b; --comic-panel:#101112; --comic-paper:#101112; --comic-ink:#f6f6f6; --comic-white:#f6f6f6; --comic-muted:#cacbce; --comic-line:#a1a3a6; --comic-red:#d71940; --display:"Noto Sans Thai",sans-serif; }
+body { background:linear-gradient(180deg,rgb(0 0 0 / 10%),rgb(0 0 0 / 24%)),url("/art/comic/market-night-v2.png") center top/cover fixed no-repeat,#090a0b!important; }
+#game-main .screen :is(h1,h2,h3) { font-family:"Noto Sans Thai",sans-serif!important; font-weight:800; letter-spacing:-.02em; }
+#game-main .screen .hud-bar { min-height:52px; padding:8px 0; }
+#game-main .screen .hud.phase-header { margin-bottom:0; }
+#game-main .screen .cabinet-brand { font-size:clamp(24px,2.5vw,42px); }
+#game-main .screen .countdown { white-space:nowrap; max-width:none; font-size:18px; }
+#game-main .screen .countdown > * { white-space:nowrap; }
+#game-main .screen .phase-banner { padding:8px 18px 36px; }
+#game-main .screen .phase-title h1 { font-size:clamp(32px,2.9vw,48px); line-height:1.2; margin:0 0 6px; }
+#game-main .screen .phase-title .phase-hint { font-size:16px; line-height:1.5; }
+#game-main .screen .phase-title p:last-child { font-size:12px; }
+#game-main .screen .phase-banner .hud-extras { margin-top:-38px; }
+#game-main .screen.phase-PORTALS .phase-banner { padding:0; }
+#game-main .screen .portal .gate { height:clamp(320px,43.5vh,430px); }
+#game-main .screen .portal .gate-figure { width:100%; left:0; height:calc(100% + 44px); bottom:-2px; object-fit:cover; object-position:center top; transform:none; }
+#game-main .screen :is(.gate,.gate-window,.merchant-window)::before,
+#game-main .screen :is(.gate,.gate-window,.merchant-window)::after { content:none!important; }
+#game-main .screen .portal h3 { min-height:clamp(48px,3.35vw,56px); padding:8px 12px; font:800 clamp(22px,1.9vw,30px)/1.2 "Noto Sans Thai",sans-serif; }
+#game-main .screen .portal-details > button { display:flex; align-items:center; justify-content:center; gap:14px; min-height:clamp(52px,3.6vw,62px); padding:8px 12px; font:700 clamp(18px,1.65vw,28px)/1.25 "Noto Sans Thai",sans-serif; }
+#game-main .screen .portal-details > .primary > svg { flex:0 0 auto; width:clamp(24px,2.2vw,36px); height:clamp(24px,2.2vw,36px); }
+#game-main .screen .portal-details > .reroll-portal { margin-top:12px; border:2px solid #f1f1f1; font-size:clamp(17px,1.55vw,26px); font-weight:500; }
+#game-main .screen .portal-details > .reroll-portal > svg { flex:0 0 auto; width:clamp(24px,1.9vw,32px); height:clamp(24px,1.9vw,32px); }
+#game-main .screen .plaque-chips:not(:has(> .trust)) { grid-template-columns:minmax(0,1fr); }
+#game-main .screen .portal-details { background:#0c0c0c; }
+#game-main .screen .portal .plaque-chip { color:#dddfe1; background:transparent!important; }
+#game-main .screen.phase-APPRAISAL .appraisal-visual > .merchant { grid-template-columns:minmax(0,.46fr) minmax(0,.54fr); min-height:174px; background:#101214!important; }
+#game-main .screen.phase-APPRAISAL .appraisal-visual > .merchant > .merchant-window { position:relative; height:184px; margin-top:-10px; overflow:hidden; }
+#game-main .screen.phase-APPRAISAL .appraisal-visual .merchant-figure { position:absolute; top:0; left:-12.5%; width:125%; height:auto; max-height:none; aspect-ratio:auto; object-fit:contain; object-position:center top; transform:none; }
+#game-main .screen.phase-APPRAISAL .merchant-copy h2 { font-size:28px; }
+#game-main .screen.phase-APPRAISAL .merchant-line { color:#d1d3d5!important; font-size:12px; }
+#game-main .screen.phase-APPRAISAL .appraisal-visual > .relic-art { height:clamp(300px,39vh,368px); min-height:300px; padding:0 18px; background:#111416!important; background-image:url("/art/comic/display-cloth.png")!important; background-size:cover!important; background-position:center!important; }
+#game-main .screen.phase-APPRAISAL .desk .relic-art > :is(img,.item-visual) { position:absolute; inset:0; max-width:none; width:100%; height:100%; max-height:none; aspect-ratio:auto; object-fit:contain; transform:scale(1.04); }
+#game-main .screen.phase-APPRAISAL .desk .relic-art .item-visual img { width:100%; height:100%; max-width:none; max-height:none; aspect-ratio:auto; object-fit:contain; transform:none; }
+#game-main .screen.phase-APPRAISAL .stock-shelf { position:relative; z-index:2; }
+#game-main .screen.phase-APPRAISAL .desk-reading { padding:14px 18px; background:#0f1011!important; border-color:#a3a5a7; }
+#game-main .screen.phase-APPRAISAL .specimen-data { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:6px 12px; align-items:center; padding:0 0 9px; border-color:#808387; }
+#game-main .screen.phase-APPRAISAL .desk-title { font-size:clamp(24px,1.9vw,32px); line-height:1.25; }
+#game-main .screen.phase-APPRAISAL .specimen-price { padding:0!important; margin:0!important; background:transparent!important; border:0!important; border-radius:0; box-shadow:none; }
+#game-main .screen.phase-APPRAISAL .specimen-price dt { font-size:11px; }
+#game-main .screen.phase-APPRAISAL .specimen-price dd { font-size:28px; }
+#game-main .screen.phase-APPRAISAL .desk-steps { margin:8px 0; }
+#game-main .screen.phase-APPRAISAL .desk-steps > button { min-height:53px; padding:5px; }
+#game-main .screen.phase-APPRAISAL .step-label { font-size:19px; }
+#game-main .screen.phase-APPRAISAL .desk-steps svg { width:27px; height:27px; }
+#game-main .screen .fact-seals { display:block; padding:3px 14px; margin:9px 0; background:#111315!important; border:1px solid #999da0; }
+#game-main .screen .fact-seals .seal { display:grid; grid-template-columns:26px minmax(0,1fr) minmax(48px,auto); grid-template-rows:auto; align-items:center; column-gap:12px; min-height:40px; padding:6px 0; margin:0; background:transparent!important; border-bottom-color:#73777b; }
+#game-main .screen .fact-seals .seal > .icon { grid-column:1; grid-row:1; position:static; width:24px; height:24px; margin:0; color:#f4f5f5!important; }
+#game-main .screen .fact-seals .seal > .seal-label { grid-column:2; grid-row:1; position:static; width:auto; height:auto; margin:0; padding:0; clip-path:none; overflow:visible; white-space:normal; justify-self:start; color:#f4f5f5!important; font:500 18px/1.25 "Noto Sans Thai",sans-serif; }
+#game-main .screen .fact-seals .seal > strong { grid-column:3; grid-row:1; position:static; max-width:220px; margin:0; justify-self:end; text-align:right; font:600 22px/1.2 "Noto Sans Thai",sans-serif; color:#fff!important; overflow-wrap:anywhere; }
+#game-main .screen .fact-seals .seal.bad > strong { color:#ff7891!important; }
+#game-main .screen :is(.resource dt,.countdown,.fact-seals .seal)::before { content:none!important; }
+#game-main .screen .fact-seals .seal { row-gap:0; }
+#game-main .screen.phase-APPRAISAL .inspection > p { margin:7px 0; font-size:13px; line-height:1.4; }
+#game-main .screen.phase-APPRAISAL .inspection > .actions { display:grid; grid-template-columns:minmax(0,1fr); gap:8px; margin:8px 0 0; }
+#game-main .screen.phase-APPRAISAL .inspection > .actions button { min-height:46px; padding:6px 10px; color:#fff; border:1px solid #e2e3e5; font:700 20px/1.3 "Noto Sans Thai",sans-serif; background:#0e1011!important; }
+#game-main .screen.phase-APPRAISAL .inspection > .actions button:first-child:not(:disabled) { background:#bf1539!important; border-color:#fa3158; }
+#game-main .screen.phase-APPRAISAL .inspection > .actions svg { width:26px; height:26px; }
+#game-main .screen .inspection-remaining { margin:6px 0 0; padding:0; border:0; }
+#game-main .screen .inspection-remaining summary,#game-main .screen .inspection-help summary { min-height:26px; font-size:12px; color:#c3c6c8; }
+#game-main .screen .inventory > h2 { padding:9px 20px; min-height:0; height:auto; font:500 14px/1.4 "Noto Sans Thai",sans-serif; color:#d5d6d8; }
+#game-main .screen .inventory-row .item-thumb { min-height:270px; background:#111416!important; background-image:url("/art/comic/display-cloth.png")!important; background-size:cover!important; filter:none!important; box-shadow:none!important; }
+#game-main .screen .inventory-row .item-thumb.selected { filter:none!important; box-shadow:none!important; background:#111416!important; background-image:url("/art/comic/display-cloth.png")!important; background-size:cover!important; }
+#game-main .screen .item-thumb > :is(img,.item-visual) { max-width:230px; height:220px!important; filter:drop-shadow(3px 6px 2px #000); }
+#game-main .screen .item-thumb .thumb-label { font-size:17px; color:#f0f1f2; }
+#game-main .screen .inventory-detail { background:#101112; border-left-color:#85888b; }
+#game-main .screen .inventory-detail h3 { font-size:28px; }
+#game-main .screen .inventory-art { height:280px; padding:8px 20px; background:#111416!important; background-image:url("/art/comic/display-cloth.png")!important; background-size:cover!important; background-position:center!important; }
+#game-main .screen .inventory-art :is(img,.item-visual) { max-width:390px; max-height:266px; width:100%!important; height:100%!important; }
+#game-main .screen .inventory-main-actions { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:10px; align-items:start; }
+#game-main .screen .inventory-use { min-width:0; }
+#game-main .screen .inventory-main-actions button { width:100%; min-height:54px; padding:8px; font:700 18px/1.4 "Noto Sans Thai",sans-serif; }
+#game-main .screen .inventory-main-actions .inventory-sell { color:#fff; background:#101112!important; border:1px solid #e0e2e4; }
+#game-main .screen .inventory-sale { padding:12px; margin:0; background:#121416; border:1px solid #8e9397; border-radius:var(--comic-radius-inset); }
+#game-main .screen .inventory-notes { margin:8px 0 0; }
+@media (min-width:1500px) {
+  #game-main .screen.phase-APPRAISAL .inspection > .actions button { font-size:22px; min-height:50px; }
+}
+@media (min-width:761px) and (max-height:850px) {
+  #game-main .screen .portal .gate { height:clamp(280px,38vh,325px); }
+  #game-main .screen.phase-APPRAISAL .appraisal-visual > .merchant { min-height:154px; }
+  #game-main .screen.phase-APPRAISAL .appraisal-visual > .merchant > .merchant-window { height:164px; }
+  #game-main .screen.phase-APPRAISAL .appraisal-visual > .relic-art { height:300px; min-height:300px; }
+  #game-main .screen.phase-APPRAISAL .stock-shelf { padding:8px 12px; }
+  #game-main .screen.phase-APPRAISAL .stock-shelf h2 { min-height:0; padding:0; margin:0 0 6px; line-height:16px; }
+  #game-main .screen.phase-APPRAISAL .stock-tabs { padding:0; }
+  #game-main .screen.phase-APPRAISAL .stock-tabs > button { grid-template-columns:54px minmax(0,1fr); min-height:60px; }
+  #game-main .screen.phase-APPRAISAL .stock-tabs :is(img,.item-visual) { width:54px!important; height:54px!important; }
+}
+@media (max-width:1100px) {
+  #game-main .screen.phase-APPRAISAL .appraisal-visual > .merchant { grid-template-columns:minmax(0,.46fr) minmax(0,.54fr); }
+  #game-main .screen .inventory-row .item-thumb { min-height:215px; }
+  #game-main .screen .item-thumb > :is(img,.item-visual) { height:165px!important; }
+}
+@media (max-width:760px) {
+  #game-main .screen .inventory-effect-grid { grid-template-columns:minmax(0,1fr); }
+  #game-main .screen .inventory-effect-card { min-height:0; }
+  #game-main .screen .inventory-effect-head h3 { font-size:22px; }
+  #game-main .screen .inventory-effect-card p { font-size:14px; }
+  #game-main .screen .hud-bar { min-height:0; padding:8px 0; }
+  #game-main .screen .cabinet-brand { font-size:16px; white-space:nowrap; }
+  #game-main .screen .countdown { font-size:12px; white-space:nowrap; }
+  #game-main .screen .phase-banner,#game-main .screen.phase-APPRAISAL .phase-banner { padding:14px 2px 24px; }
+  #game-main .screen .phase-title h1 { font-size:29px; }
+  #game-main .screen .phase-title .phase-hint { font-size:14px; }
+  #game-main .screen .phase-banner .hud-extras { float:none; margin:10px 0 0; }
+  #game-main .screen .portal .gate { height:340px; }
+  #game-main .screen .portal .gate-figure { width:100%; left:0; height:calc(100% + 20px); bottom:-2px; }
+  #game-main .screen .portal h3 { min-height:52px; font-size:26px; }
+  #game-main .screen .portal-details > button { min-height:56px; font-size:22px; }
+  #game-main .screen .portal-details > .reroll-portal { font-size:20px; }
+  #game-main .screen .portal-details > .primary > svg { width:30px; height:30px; }
+  #game-main .screen .portal-details > .reroll-portal > svg { width:28px; height:28px; }
+  #game-main .screen .portal-goods-title button.term { font-size:18px; }
+  #game-main .screen.phase-APPRAISAL .appraisal-visual > .merchant { grid-template-columns:minmax(0,.46fr) minmax(0,.54fr); min-height:156px; }
+  #game-main .screen.phase-APPRAISAL .appraisal-visual > .merchant > .merchant-window { height:170px; margin-top:-10px; }
+  #game-main .screen.phase-APPRAISAL .appraisal-visual .merchant-figure { transform:none; }
+  #game-main .screen.phase-APPRAISAL .merchant-copy h2 { font-size:23px; }
+  #game-main .screen.phase-APPRAISAL .desk .relic-art { height:280px; min-height:280px; padding:0 10px; }
+  #game-main .screen.phase-APPRAISAL .desk .relic-art :is(img,.item-visual) { max-height:none; }
+  #game-main .screen.phase-APPRAISAL .desk-reading { padding:14px; }
+  #game-main .screen.phase-APPRAISAL .specimen-data { grid-template-columns:minmax(0,1fr); gap:8px; }
+  #game-main .screen.phase-APPRAISAL .desk-title { font-size:26px; }
+  #game-main .screen .fact-seals .seal > .seal-label { font-size:16px; }
+  #game-main .screen .fact-seals .seal > strong { font-size:20px; max-width:140px; }
+  #game-main .screen .inventory-row .item-thumb { min-height:132px; }
+  #game-main .screen .item-thumb > :is(img,.item-visual) { height:84px!important; }
+  #game-main .screen .item-thumb .thumb-label { font-size:11px; }
+  #game-main .screen .inventory-art { height:235px; }
+  #game-main .screen .inventory-art :is(img,.item-visual) { max-height:220px; }
+  #game-main .screen .inventory-main-actions button { font-size:15px; min-height:60px; }
+  .app-shell.comic-build .entry-console { grid-row:2; }
+  .app-shell.comic-build .entry-art { grid-row:3; }
+}
+
+
+
+
+#game-main .screen.phase-APPRAISAL .desk .relic-art > :is(img,.item-visual) { mix-blend-mode:normal!important; }
+#game-main .toasts .toast { color:#f5f6f7!important; background:#111315!important; border:1px solid #b7bcc0; border-radius:var(--comic-radius-inset); }
+#game-main .toasts .toast.bad { color:#fff!important; background:#541326!important; border-color:#ff5276; }
+#game-main .toasts .toast :is(.toast-body,.toast-body strong,.toast-body li,.toast-icon) { color:inherit!important; }
+#game-main .toasts .toast-close { color:#f5f6f7; background:transparent; }
+
+#game-main .screen :is(.portal-details > button,.inspection > .actions button,.inventory-main-actions button,.purchase > .primary,.price-entry button) { border-radius:var(--comic-radius-control); }
+
+#game-main .screen :is(input:not([type=checkbox]),select,textarea) { border-radius:var(--comic-radius-control); }
+#game-main .screen .peek { border-radius:var(--comic-radius-inset); }
+
+/* Portal choice is a viewport-fitted scene; character cutouts can cross the card edges. */
+.app-shell.comic-build:has(.screen.phase-PORTALS) { height:100vh; height:100dvh; padding-bottom:0; }
+.app-shell.comic-build:has(.screen.phase-PORTALS) > #game-main { height:100%; min-height:0; }
+#game-main .screen.phase-PORTALS { display:flex; flex-direction:column; height:100%; min-height:0; overflow:hidden; padding-bottom:68px!important; box-sizing:border-box; }
+#game-main .screen.phase-PORTALS > .hud.phase-header,
+#game-main .screen.phase-PORTALS > .phase-banner { flex:0 0 auto; }
+#game-main .screen.phase-PORTALS > .table-stage { flex:1 1 0; min-height:0; overflow:hidden; }
+#game-main .screen.phase-PORTALS .scene-play { height:100%; min-height:0; }
+#game-main .screen.phase-PORTALS .portals { display:flex; flex-direction:column; height:100%; min-height:0; padding:8px 14px 0; }
+#game-main .screen.phase-PORTALS .portal-row { flex:1 1 0; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:stretch; min-height:0; overflow:visible; }
+#game-main .screen.phase-PORTALS .portal { position:relative; height:100%; min-height:0; }
+#game-main .screen.phase-PORTALS .portal .gate { flex:0 1 auto; height:clamp(150px,46vh,430px); min-height:0; }
+#game-main .screen.phase-PORTALS .portal .gate-figure { left:clamp(-28px,-2vw,-16px); width:calc(100% + clamp(32px,4vw,56px)); max-width:none; }
+#game-main .screen.phase-PORTALS .portal-details { flex:1 1 auto; min-height:0; }
+
+@media (min-width:761px) {
+  .app-shell.comic-build:has(.screen.phase-PORTALS) { width:100%; max-width:none; }
+  #game-main .screen.phase-PORTALS { --portal-space:12px; --portal-gap:clamp(28px,5.5vw,88px); padding-bottom:48px!important; }
+  #game-main .screen.phase-PORTALS .hud-bar {
+    grid-template-columns:minmax(240px,1fr) minmax(400px,1.5fr) minmax(140px,.65fr);
+    height:48px; min-height:48px; padding:4px 20px; gap:16px;
+  }
+  #game-main .screen.phase-PORTALS .cabinet-brand { font-size:clamp(23px,2vw,30px); line-height:1.2; }
+  #game-main .screen.phase-PORTALS .resource dt { font-size:13px; }
+  #game-main .screen.phase-PORTALS .resource dd { font-size:22px; }
+  #game-main .screen.phase-PORTALS .countdown { font-size:14px; }
+  #game-main .screen.phase-PORTALS .hud-drawers { height:48px; padding:0 16px; }
+  #game-main .screen.phase-PORTALS :is(.hud-drawer,.hud-settings) {
+    display:flex; flex:1; align-items:center; justify-content:center; gap:8px; min-height:0; padding:4px 8px;
+  }
+  #game-main .screen.phase-PORTALS .hud-drawer-label { font-size:14px; }
+  #game-main .screen.phase-PORTALS .portals {
+    justify-content:center; padding:clamp(40px,7vh,64px) var(--portal-gap);
+  }
+  #game-main .screen.phase-PORTALS .portal-row { width:100%; max-height:70dvh; gap:var(--portal-gap); }
+  #game-main .screen.phase-PORTALS .portal { display:grid; grid-template-rows:minmax(0,1fr) 268px; }
+  #game-main .screen.phase-PORTALS .portal .gate { width:100%; height:100%; min-height:0; }
+  #game-main .screen.phase-PORTALS .portal .gate-figure { left:-16px; width:calc(100% + 32px); height:calc(100% + 48px); bottom:0; }
+  #game-main .screen.phase-PORTALS .portal-details {
+    display:grid; grid-template-rows:44px minmax(72px,1fr) 48px 44px; gap:var(--portal-space);
+    margin:0; padding:var(--portal-space); min-height:0;
+  }
+  #game-main .screen.phase-PORTALS .portal h3 { min-height:44px; margin:0; padding:6px 8px; font-size:clamp(18px,1.65vw,26px); line-height:1.2; }
+  #game-main .screen.phase-PORTALS .plaque-chips { min-height:72px; padding:0; gap:10px; grid-template-columns:minmax(0,1fr) clamp(96px,8.3vw,120px); }
+  #game-main .screen.phase-PORTALS .plaque-chip.goods { grid-template-columns:clamp(48px,4.5vw,64px) minmax(0,1fr); gap:8px; }
+  #game-main .screen.phase-PORTALS .portal-goods-title button.term { min-height:32px; font-size:clamp(14px,1.25vw,20px); }
+  #game-main .screen.phase-PORTALS .portal-goods-note { font-size:clamp(11px,1vw,15px); }
+  #game-main .screen.phase-PORTALS .portal-trust-value { gap:5px; font-size:clamp(14px,1.2vw,19px); }
+  #game-main .screen.phase-PORTALS .portal-trust-value > svg { width:21px; height:21px; }
+  #game-main .screen.phase-PORTALS .portal-details > button { min-height:44px; margin:0; padding:6px 8px; gap:8px; font-size:clamp(16px,1.4vw,22px); line-height:1.2; }
+  #game-main .screen.phase-PORTALS .portal-details > button > svg { width:25px; height:25px; }
+}
+@media (min-width:761px) and (max-width:1050px) {
+  #game-main .screen.phase-PORTALS .hud-bar { grid-template-columns:minmax(190px,1fr) minmax(330px,1.5fr) 120px; padding-inline:12px; gap:8px; }
+  #game-main .screen.phase-PORTALS .cabinet-brand { font-size:21px; }
+  #game-main .screen.phase-PORTALS .portals { padding-inline:24px; }
+  #game-main .screen.phase-PORTALS .portal-row { gap:24px; }
+  #game-main .screen.phase-PORTALS .plaque-chips { grid-template-columns:minmax(0,1fr) 85px; gap:6px; }
+  #game-main .screen.phase-PORTALS .plaque-chip.goods { grid-template-columns:40px minmax(0,1fr); gap:5px; }
+  #game-main .screen.phase-PORTALS .portal-trust-value { font-size:12px; }
+}
+@media (min-width:761px) and (max-height:620px) {
+  #game-main .screen.phase-PORTALS .portals { padding-block:28px; }
+  #game-main .screen.phase-PORTALS .portal-row { max-height:none; }
+}
+@media (max-width:760px) {
+  #game-main .screen.phase-PORTALS { padding-bottom:62px!important; }
+  #game-main .screen.phase-PORTALS > .table-stage { overflow:hidden; }
+  #game-main .screen.phase-PORTALS .portals { padding:4px 0 0; }
+  #game-main .screen.phase-PORTALS .portal-row { grid-template-columns:minmax(0,1fr); grid-template-rows:repeat(3,minmax(0,1fr)); gap:4px; }
+  #game-main .screen.phase-PORTALS .portal { display:block; overflow:visible; }
+  #game-main .screen.phase-PORTALS .portal .gate { position:absolute; z-index:2; left:-8px; top:-10px; width:clamp(112px,31vw,140px); height:calc(100% + 20px); margin:0; overflow:visible; }
+  #game-main .screen.phase-PORTALS .portal .gate-figure { left:-4px; bottom:-2px; width:calc(100% + 8px); height:calc(100% + 16px); object-fit:cover; object-position:center top; }
+  #game-main .screen.phase-PORTALS .portal-details { position:relative; z-index:1; height:100%; margin-top:0; padding:5px 8px 7px clamp(96px,31vw,126px); background:transparent; }
+  #game-main .screen.phase-PORTALS .portal h3 { position:relative; z-index:3; min-height:32px; margin:0 0 3px calc(-1 * clamp(90px,30vw,120px)); padding:2px 8px; font-size:clamp(18px,5.4vw,22px); line-height:1.15; }
+  #game-main .screen.phase-PORTALS .plaque-chips { flex:0 0 auto; grid-template-columns:minmax(0,1fr) clamp(76px,22vw,88px); gap:4px 6px; min-height:clamp(40px,6.2vh,52px); padding:0; }
+  #game-main .screen.phase-PORTALS .plaque-chip.goods { grid-template-columns:clamp(38px,12vw,46px) minmax(0,1fr); gap:5px; }
+  #game-main .screen.phase-PORTALS .portal-goods-title button.term { min-height:28px; font-size:clamp(12px,3.6vw,15px); line-height:1.15; }
+  #game-main .screen.phase-PORTALS .portal-goods-note { font-size:10px; line-height:1.2; }
+  #game-main .screen.phase-PORTALS .portal-trust-value { gap:3px; font-size:clamp(12px,3.5vw,14px); line-height:1.2; }
+  #game-main .screen.phase-PORTALS .portal-trust-value > svg { width:18px; height:18px; }
+  #game-main .screen.phase-PORTALS .plaque-chip.trust { gap:3px; }
+  #game-main .screen.phase-PORTALS .plaque-chip.trust meter,
+  #game-main .screen.phase-PORTALS .plaque-chip.trust meter::-webkit-meter-bar { height:6px; }
+  #game-main .screen.phase-PORTALS .portal-details > button { flex:0 0 auto; min-height:44px; margin:0; padding:3px 6px; gap:5px; font-size:clamp(13px,3.7vw,16px); line-height:1.15; }
+  #game-main .screen.phase-PORTALS .portal-details > .reroll-portal { margin-top:3px; }
+  #game-main .screen.phase-PORTALS .portal-details > button > svg { width:20px; height:20px; }
+}
+@media (max-width:360px) {
+  #game-main .screen.phase-PORTALS .plaque-chips { min-height:40px; }
+  #game-main .screen.phase-PORTALS .portal-goods-note { display:none; }
+  #game-main .screen.phase-PORTALS .portal h3 { min-height:28px; font-size:18px; }
+  #game-main .screen.phase-PORTALS .portal-details > .reroll-portal { font-size:13px; }
+}
+@media (max-height:700px) and (max-width:760px) {
+  #game-main .screen.phase-PORTALS .portal h3 { min-height:27px; margin-bottom:2px; font-size:17px; }
+  #game-main .screen.phase-PORTALS .plaque-chips { min-height:36px; }
+  #game-main .screen.phase-PORTALS .portal-goods-note,
+  #game-main .screen.phase-PORTALS .plaque-chip.trust meter { display:none; }
+  #game-main .screen.phase-PORTALS .portal-details {
+    display:grid; grid-template-columns:minmax(0,1fr) 84px; grid-template-rows:24px minmax(32px,auto) minmax(44px,auto);
+    align-content:center; gap:2px 4px; padding:2px 8px 3px clamp(96px,31vw,126px);
+  }
+  #game-main .screen.phase-PORTALS .portal-details > h3 { grid-column:1 / -1; min-height:24px; margin:0 0 1px calc(-1 * clamp(90px,30vw,120px)); font-size:17px; }
+  #game-main .screen.phase-PORTALS .portal-details > .plaque-chips { grid-column:1 / -1; min-height:32px; }
+  #game-main .screen.phase-PORTALS .portal-details > button { min-height:44px; padding:2px 4px; font-size:13px; }
+  #game-main .screen.phase-PORTALS .portal-details > .primary { grid-column:1; grid-row:3; }
+  #game-main .screen.phase-PORTALS .portal-details > .reroll-portal {
+    grid-column:2; grid-row:3; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    min-width:84px; margin:0; padding:2px 3px; font-size:10px; line-height:1.1; text-align:center;
+  }
+  #game-main .screen.phase-PORTALS .portal-details > .reroll-portal > svg { width:16px; height:16px; }
+}

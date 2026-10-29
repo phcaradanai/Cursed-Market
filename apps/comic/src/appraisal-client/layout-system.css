@@ -1,0 +1,234 @@
+/* Shared proportions for the comic build: one spacing scale on every screen. */
+
+.app-shell.comic-build:has(.screen) { height:100dvh; padding:0; }
+.app-shell.comic-build:has(.screen) > #game-main { height:100%; min-height:0; }
+.app-shell.comic-build:has(.screen) > footer { display:none; }
+.app-shell.comic-build:not(:has(.screen)) { height:100dvh; min-height:0; display:flex; flex-direction:column; overflow:hidden; box-sizing:border-box; }
+.app-shell.comic-build:not(:has(.screen)) > #game-main { flex:1 1 0; min-height:0; overflow:auto; }
+.app-shell.comic-build:not(:has(.screen)) > :is(.masthead,footer) { flex:0 0 auto; }
+.app-shell.comic-build > footer { margin:0; padding:12px; font-size:12px; }
+.app-shell.comic-build .lobby {
+  display:grid; grid-template-rows:auto minmax(100px,1fr) auto; height:100%; min-height:0;
+  max-width:1200px; margin:0 auto; padding:12px; gap:12px; overflow:hidden; box-sizing:border-box;
+}
+.app-shell.comic-build .lobby-head h1 { margin:0; font-size:28px; line-height:1.25; }
+.app-shell.comic-build .lobby-head p { margin:12px 0 0; font-size:14px; line-height:1.5; }
+.app-shell.comic-build .lobby .code-plaque { padding:12px; }
+.app-shell.comic-build .lobby .code-copy :is(input,button) { min-height:44px; font-size:18px; }
+.app-shell.comic-build .lobby .seat-list { min-height:0; overflow:auto; gap:12px; margin:0; padding:0; align-content:start; }
+.app-shell.comic-build .lobby .seat-list li { padding:12px; gap:8px; border:1px solid #777; border-image:none; border-radius:var(--comic-radius); background:#111; }
+.app-shell.comic-build .lobby .seat-list .seat-disc { width:44px; height:44px; font-size:20px; }
+.app-shell.comic-build .lobby .seat-list strong { margin:0; font-size:16px; }
+.app-shell.comic-build .lobby-foot { padding:0; gap:12px; }
+.app-shell.comic-build .lobby-host-tools { min-height:0; max-height:200px; overflow:auto; }
+.app-shell.comic-build .lobby .lobby-actions { padding:0; margin:0; gap:12px; }
+.app-shell.comic-build .lobby .lobby-actions button,
+.app-shell.comic-build .lobby .lobby-actions button.start { min-height:44px; padding:8px 12px; font-size:16px; border:1px solid #aaa; }
+#game-main .screen:not(.phase-PORTALS) {
+  display:flex; flex-direction:column; height:100%; min-height:0; overflow:hidden;
+  padding-bottom:var(--layout-chrome)!important; box-sizing:border-box;
+}
+#game-main .screen:not(.phase-PORTALS) > .hud { flex:0 0 auto; margin:0; }
+#game-main .screen:not(.phase-PORTALS) > .phase-banner {
+  flex:0 0 auto; padding:var(--layout-space) var(--layout-gutter) 0;
+}
+#game-main .screen .phase-banner:empty { display:none; }
+#game-main .screen .phase-banner .hud-extras { float:none; margin:0; max-width:none; }
+#game-main .screen .phase-banner details.omen { margin:var(--layout-space) 0 0; }
+#game-main .screen:not(.phase-PORTALS) > .table-stage {
+  display:flex; flex-direction:column; gap:var(--layout-space);
+  flex:1 1 0; min-height:0; overflow:hidden; overscroll-behavior:contain;
+  padding:var(--layout-space) var(--layout-gutter); box-sizing:border-box;
+}
+body:has(.preview-toolbar) #game-main .screen { padding-bottom:calc(var(--layout-chrome) + var(--layout-preview-row))!important; }
+#game-main .screen:not(.phase-PORTALS) .scene-play { flex:1 1 0; height:auto; min-height:0; overflow:auto; gap:var(--layout-space); }
+#game-main .screen:not(.phase-PORTALS) .table-stage > :is(.end-phase,.merchant-abilities) { flex:0 0 auto; margin:0; }
+#game-main .screen:not(.phase-PORTALS) .table-stage > .merchant-abilities { padding:var(--layout-space); max-height:26vh; overflow:auto; }
+#game-main .screen:not(.phase-PORTALS) .table-stage > .merchant-abilities:not([open]) { padding:0; height:46px; }
+#game-main .screen .merchant-abilities > summary { min-height:44px; padding:8px 12px; box-sizing:border-box; }
+#game-main .screen .merchant-abilities > summary h2 { margin:0; padding:0; font-size:18px; line-height:1.25; }
+#game-main .screen .end-phase { gap:var(--layout-space); margin:0; padding:var(--layout-space); }
+#game-main .screen .end-phase button { min-width:0; min-height:44px; padding:8px 12px; font-size:16px; }
+#game-main .screen .end-phase > button { height:44px; min-height:44px; padding:6px 12px; font-size:16px; }
+#game-main .screen :is(.trades,.unsold,.shop-sharing,.results,.round-reward,.vault-panel) {
+  min-width:0; margin:0; padding:var(--layout-space); gap:var(--layout-space); box-sizing:border-box;
+}
+#game-main .screen :is(.trades,.unsold,.shop-sharing,.results,.round-reward,.vault-panel) > :is(h2,h3) { margin:0 0 var(--layout-space); font-size:clamp(18px,1.5vw,24px); }
+#game-main .screen :is(.sell-card,.trade-listing,.offers > li) { gap:var(--layout-space); padding:var(--layout-space); margin-block:var(--layout-space); }
+#game-main .screen :is(.sell-card,.trade-listing) .pedestal { width:clamp(64px,9vw,128px); height:clamp(64px,9vw,128px); min-height:0; margin:0; }
+#game-main .screen :is(.sell-card,.trade-listing) .pedestal-item { width:100%; height:100%; object-fit:contain; }
+#game-main .screen :is(.sell-card,.trade-listing) h3 { font-size:18px; margin:0 0 var(--layout-space); }
+
+/* Dialogs keep their heading fixed and long records inside the panel. */
+#game-main .screen dialog.game-dialog {
+  width:min(1280px,calc(100vw - 2 * var(--layout-gutter)));
+  max-width:none; max-height:calc(100dvh - 48px); padding:var(--layout-space); box-sizing:border-box;
+}
+#game-main .screen dialog.game-dialog.drawer { width:min(1280px,calc(100vw - 2 * var(--layout-gutter))); max-height:calc(100dvh - 48px); padding:0; }
+#game-main .screen dialog.game-dialog.drawer > .dialog-content {
+  display:flex; flex-direction:column; max-height:calc(100dvh - 50px); min-height:0; overflow:hidden;
+}
+#game-main .screen dialog .drawer-head { flex:0 0 auto; padding:var(--layout-space); gap:var(--layout-space); }
+#game-main .screen dialog .drawer-head h2 { font-size:22px; }
+#game-main .screen dialog .drawer-body { flex:1 1 auto; min-height:0; max-height:none; padding:var(--layout-space); overflow:auto; overscroll-behavior:contain; }
+#game-main .screen dialog :is(.status-score,.trust-fold,.ledger-context) { margin:0 0 var(--layout-space); padding:0 0 var(--layout-space); }
+#game-main .screen dialog .status-score dd { font-size:28px; }
+#game-main .screen dialog .merchant-abilities { width:100%; margin:0 0 12px; padding:12px; box-sizing:border-box; }
+#game-main .screen dialog .status-completion { margin-top:12px; padding-top:12px; border-top:1px solid #73777b; }
+#game-main .screen dialog .status-completion .end-phase { display:flex; flex-direction:column; align-items:stretch; gap:12px; }
+#game-main .screen dialog .status-completion .end-phase > button { width:100%; min-height:48px; height:auto; color:#fff; border:1px solid #ff315c; background:#b91938!important; }
+#game-main .screen dialog .status-progress { margin:0 0 12px; padding:0 0 12px; border-bottom:1px solid #73777b; }
+#game-main .screen dialog .status-progress h3 { margin:0 0 12px; font-size:20px; }
+#game-main .screen dialog .status-progress .fortune { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:12px; margin:0; }
+#game-main .screen dialog .status-progress .fortune-item > *,
+#game-main .screen dialog .status-progress button.term,
+#game-main .screen dialog .status-progress .meter { width:100%; min-width:0; box-sizing:border-box; }
+#game-main .screen dialog .status-progress button.term { padding:0; }
+#game-main .screen dialog .status-progress .meter { flex-wrap:wrap; gap:8px; padding:12px; }
+#game-main .screen dialog .status-progress .meter-name { flex:1; font-size:14px; }
+#game-main .screen dialog .status-progress .meter-count { font-size:18px; }
+#game-main .screen dialog :is(.actions,.inventory-actions,.inventory-main-actions) { gap:var(--layout-space); }
+#game-main .screen dialog :is(input:not([type=checkbox]),select,button) { min-height:44px; }
+#game-main .screen .inventory > h2 { padding:0 0 var(--layout-space); }
+#game-main .screen .inventory-layout { gap:var(--layout-space); }
+#game-main .screen .inventory-row { gap:var(--layout-space); padding:0; }
+#game-main .screen .inventory-row .item-thumb,
+#game-main .screen .inventory-row .item-thumb.selected { min-height:140px; padding:var(--layout-space); border-width:2px; }
+#game-main .screen .item-thumb > :is(img,.item-visual) { max-width:160px; height:clamp(76px,12vh,112px)!important; }
+#game-main .screen .item-thumb .thumb-label { font-size:13px; }
+#game-main .screen .inventory-detail { padding:var(--layout-space); }
+#game-main .screen .inventory-detail h3 { font-size:22px; }
+#game-main .screen .inventory-art { height:clamp(120px,23vh,200px); padding:var(--layout-space); }
+#game-main .screen .inventory-art :is(img,.item-visual) { max-height:100%; }
+#game-main .screen .inventory-main-actions button { min-height:44px; font-size:16px; }
+#game-main .screen .inventory-detail .fact-seals { margin:var(--layout-space) 0; padding:0 var(--layout-space); }
+#game-main .screen .inventory-detail .fact-seals .seal { gap:var(--layout-space); min-height:36px; }
+#game-main .screen .inventory-detail .fact-seals .seal :is(.seal-label,strong) { font-size:15px; }
+.preview-toolbar {
+  --preview-dock:48px; position:fixed; left:0; right:0; bottom:var(--preview-dock); z-index:400;
+  display:flex; align-items:center; justify-content:center; flex-wrap:nowrap; gap:12px;
+  width:100%; max-width:none; height:40px; min-height:40px; margin:0; padding:4px 12px;
+  border:0; border-top:1px solid #777; border-bottom:1px solid #777; border-radius:0; box-shadow:none;
+  background:#090909; box-sizing:border-box;
+}
+.preview-toolbar label { display:flex; align-items:center; gap:12px; }
+.preview-toolbar select { min-height:28px; max-width:180px; padding:3px 6px; border-radius:var(--comic-radius); font:inherit; }
+
+@media (min-width:761px) {
+  .app-shell.comic-build:has(.screen) { width:100%; max-width:none; }
+  #game-main .screen .hud-bar {
+    grid-template-columns:minmax(240px,1fr) minmax(400px,1.5fr) minmax(140px,.65fr);
+    height:48px; min-height:48px; padding:4px 20px; gap:16px;
+  }
+  #game-main .screen .cabinet-brand { max-width:none; font-size:clamp(23px,2vw,30px); line-height:1.2; }
+  #game-main .screen .resource dt { font-size:13px; }
+  #game-main .screen .resource dd { font-size:22px; }
+  #game-main .screen .countdown { font-size:14px; }
+  #game-main .screen .hud-drawers { height:48px; padding:0 16px; }
+  #game-main .screen :is(.hud-drawer,.hud-settings) { display:flex; flex:1; align-items:center; justify-content:center; gap:8px; min-height:0; padding:4px 8px; }
+  #game-main .screen .hud-drawer-label { font-size:14px; }
+  #game-main .screen.phase-APPRAISAL .scene-play { display:flex; flex-direction:column; overflow:hidden; }
+  #game-main .screen.phase-APPRAISAL .appraisal-stage { flex:1 1 0; min-height:0; padding:0; }
+  #game-main .screen.phase-APPRAISAL .desk { height:100%; min-height:0; gap:var(--layout-space); }
+  #game-main .screen.phase-APPRAISAL .appraisal-visual { min-height:0; height:100%; grid-template-rows:120px minmax(100px,1fr) 100px; overflow:hidden; }
+  #game-main .screen.phase-APPRAISAL .appraisal-visual > .merchant { min-height:0; grid-template-columns:140px minmax(0,1fr); padding:0 var(--layout-space) 0 0; gap:var(--layout-space); }
+  #game-main .screen.phase-APPRAISAL .appraisal-visual > .merchant > .merchant-window { height:126px; margin-top:-6px; }
+  #game-main .screen.phase-APPRAISAL .merchant-copy { padding:var(--layout-space) 0 0; }
+  #game-main .screen.phase-APPRAISAL .merchant-copy h2 { font-size:20px; }
+  #game-main .screen.phase-APPRAISAL .merchant-line { display:none; }
+  #game-main .screen.phase-APPRAISAL .merchant-services { margin:0; }
+  #game-main .screen.phase-APPRAISAL .merchant-services[open] { position:relative; z-index:3; max-height:180px; overflow:auto; background:#111!important; }
+  #game-main .screen.phase-APPRAISAL .desk .relic-art { height:100%; min-height:0; padding:var(--layout-space); overflow:hidden; }
+  #game-main .screen.phase-APPRAISAL .desk .relic-art :is(img,.item-visual) { max-width:100%; max-height:100%; }
+  #game-main .screen.phase-APPRAISAL .stock-shelf { padding:var(--layout-space); min-height:0; }
+  #game-main .screen.phase-APPRAISAL .stock-tabs { gap:var(--layout-space); padding:0; }
+  #game-main .screen.phase-APPRAISAL .stock-tabs > button { min-height:54px; min-width:120px; grid-template-columns:44px minmax(0,1fr); }
+  #game-main .screen.phase-APPRAISAL .stock-tabs :is(img,.item-visual) { width:44px!important; height:44px!important; }
+  #game-main .screen.phase-APPRAISAL .desk-reading { min-height:0; height:100%; overflow:auto; padding:var(--layout-space); }
+  #game-main .screen.phase-APPRAISAL .specimen-data { gap:var(--layout-space); padding-bottom:var(--layout-space); }
+  #game-main .screen.phase-APPRAISAL .desk-title { font-size:24px; }
+  #game-main .screen.phase-APPRAISAL .desk-steps { margin:var(--layout-space) 0; }
+  #game-main .screen.phase-APPRAISAL .desk-steps > button { min-height:48px; }
+  #game-main .screen.phase-APPRAISAL .step-label { font-size:15px; }
+  #game-main .screen.phase-APPRAISAL .fact-seals { margin:var(--layout-space) 0; }
+  #game-main .screen.phase-APPRAISAL .fact-seals .seal { min-height:36px; }
+  #game-main .screen.phase-APPRAISAL .fact-seals .seal :is(.seal-label,strong) { font-size:16px; }
+  #game-main .screen.phase-APPRAISAL .inspection > .actions { gap:var(--layout-space); }
+  #game-main .screen.phase-APPRAISAL .inspection > .actions button { min-height:44px; font-size:16px; }
+  #game-main .screen.phase-TRADE .scene-play { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:repeat(2,minmax(0,1fr)); overflow:hidden; }
+  #game-main .screen.phase-TRADE .scene-play > :is(.unsold,.shop-sharing,.trades) { min-height:0; overflow:auto; }
+  #game-main .screen.phase-TRADE .unsold { grid-column:1; grid-row:1; }
+  #game-main .screen.phase-TRADE .shop-sharing { grid-column:1; grid-row:2; }
+  #game-main .screen.phase-TRADE .trades { grid-column:2; grid-row:1 / span 2; }
+  #game-main .screen.phase-TRADE .end-phase { grid-column:1 / -1; grid-row:3; }
+  #game-main .screen.phase-TRADE .scene-play:not(:has(> .unsold)) > .shop-sharing,
+  #game-main .screen.phase-TRADE .scene-play:not(:has(> .shop-sharing)) > .unsold { grid-row:1 / span 2; }
+  #game-main .screen.phase-TRADE .scene-play:not(:has(> .unsold,> .shop-sharing)) > .trades { grid-column:1 / -1; }
+  #game-main .screen.phase-REVEAL .scene-play { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:repeat(2,minmax(0,1fr)); }
+  #game-main .screen.phase-REVEAL .scene-play > * { min-height:0; overflow:auto; }
+  #game-main .screen.phase-REVEAL .round-reward { grid-column:1; grid-row:1; }
+  #game-main .screen.phase-REVEAL .vault-panel { grid-column:1; grid-row:2; }
+  #game-main .screen.phase-REVEAL .results { grid-column:2; grid-row:1 / span 2; }
+  #game-main .screen.phase-REVEAL .scene-play:not(:has(> .round-reward,> .vault-panel)) .results { grid-column:1 / -1; }
+  #game-main .screen.phase-RESULTS .results { height:100%; overflow:auto; }
+  .app-shell.comic-build:not(:has(.screen)) { width:100%; max-width:none; padding:12px var(--layout-gutter); }
+  .app-shell.comic-build .masthead { min-height:48px; margin:0 0 var(--layout-space); padding:var(--layout-space); }
+  .app-shell.comic-build .entry-layout { width:100%; max-width:1200px; gap:var(--layout-space); padding:var(--layout-space); margin:var(--layout-space) auto; }
+  .app-shell.comic-build .entry-console { width:100%; max-width:none; padding:var(--layout-space); }
+  .app-shell.comic-build .entry-art { height:clamp(200px,44vh,400px); min-height:0; }
+  .app-shell.comic-build .entry-art img { height:100%; max-height:400px; }
+  .app-shell.comic-build :is(.lobby,.lobby-head,.lobby-foot,.lobby-settings) { gap:var(--layout-space); padding:var(--layout-space); }
+}
+@media (min-width:761px) and (max-width:1050px) {
+  #game-main .screen .hud-bar { grid-template-columns:minmax(190px,1fr) minmax(330px,1.5fr) 120px; padding-inline:12px; gap:8px; }
+  #game-main .screen .cabinet-brand { font-size:21px; }
+  .app-shell.comic-build { --layout-gutter:24px; }
+}
+@media (max-width:760px) {
+  .app-shell.comic-build { --layout-gutter:12px; --layout-chrome:62px; }
+  #game-main .screen .cabinet-brand { max-width:none; font-size:16px; }
+  #game-main .screen:not(.phase-PORTALS) .scene-play { height:auto; display:block; overflow:auto; }
+  #game-main .screen:not(.phase-PORTALS) .scene-play > * + * { margin-top:var(--layout-space); }
+  #game-main .screen.phase-APPRAISAL .appraisal-stage { padding:0; }
+  #game-main .screen.phase-APPRAISAL .desk { gap:var(--layout-space); }
+  #game-main .screen.phase-APPRAISAL .appraisal-visual { grid-template-rows:96px 160px 84px; }
+  #game-main .screen.phase-APPRAISAL .appraisal-visual > .merchant { min-height:0; grid-template-columns:100px minmax(0,1fr); padding-right:12px; gap:8px; }
+  #game-main .screen.phase-APPRAISAL .appraisal-visual > .merchant > .merchant-window { height:104px; margin:0; }
+  #game-main .screen.phase-APPRAISAL .merchant-copy h2 { font-size:18px; }
+  #game-main .screen.phase-APPRAISAL .merchant-line { display:none; }
+  #game-main .screen.phase-APPRAISAL .merchant-trust { gap:4px; font-size:12px; }
+  #game-main .screen.phase-APPRAISAL .merchant-trust meter { width:64px; }
+  #game-main .screen.phase-APPRAISAL .desk .relic-art { height:160px; min-height:0; padding:12px; overflow:hidden; }
+  #game-main .screen.phase-APPRAISAL .desk .relic-art :is(img,.item-visual) { max-height:100%; }
+  #game-main .screen.phase-APPRAISAL .stock-shelf { padding:8px; }
+  #game-main .screen.phase-APPRAISAL .stock-shelf h2 { margin-bottom:4px; }
+  #game-main .screen.phase-APPRAISAL .stock-tabs { padding:0; gap:8px; }
+  #game-main .screen.phase-APPRAISAL .stock-tabs > button { grid-template-columns:44px minmax(0,1fr); min-height:54px; }
+  #game-main .screen.phase-APPRAISAL .stock-tabs :is(img,.item-visual) { width:44px!important; height:44px!important; }
+  #game-main .screen.phase-APPRAISAL .desk-reading { padding:var(--layout-space); }
+  #game-main .screen.phase-APPRAISAL .desk-title { font-size:22px; }
+  #game-main .screen.phase-APPRAISAL .desk-steps > button { min-height:48px; }
+  #game-main .screen.phase-APPRAISAL .step-label { font-size:14px; }
+  #game-main .screen.phase-APPRAISAL .fact-seals .seal { min-height:36px; }
+  #game-main .screen.phase-APPRAISAL .fact-seals .seal :is(.seal-label,strong) { font-size:15px; }
+  #game-main .screen.phase-APPRAISAL .inspection > .actions button { min-height:44px; font-size:16px; }
+  #game-main .screen dialog.game-dialog,
+  #game-main .screen dialog.game-dialog.drawer { width:calc(100vw - 24px); max-height:calc(100dvh - 24px); }
+  #game-main .screen dialog.game-dialog.drawer > .dialog-content { max-height:calc(100dvh - 26px); }
+  #game-main .screen .inventory-layout { display:flex; flex-direction:column; }
+  #game-main .screen .inventory-row { flex:0 0 auto; }
+  #game-main .screen .inventory-row .item-thumb,
+  #game-main .screen .inventory-row .item-thumb.selected { min-height:124px; }
+  .preview-toolbar { --preview-dock:62px; font-size:10px; }
+  .preview-toolbar select { max-width:clamp(112px,35vw,144px); }
+  .app-shell.comic-build :is(.entry-layout,.entry-console,.lobby,.lobby-head,.lobby-foot,.lobby-settings) { gap:var(--layout-space); padding:var(--layout-space); }
+  .app-shell.comic-build .lobby-head { display:grid; grid-template-columns:minmax(0,1fr); gap:8px; padding:0; }
+  .app-shell.comic-build .lobby-head h1 { font-size:22px; }
+  .app-shell.comic-build .lobby-head p { font-size:12px; margin-top:8px; }
+  .app-shell.comic-build .lobby .code-plaque { padding:8px; }
+  .app-shell.comic-build .lobby-foot { display:grid; grid-template-columns:minmax(0,1fr); padding:0; }
+  .app-shell.comic-build .lobby-host-tools { max-height:120px; }
+  .app-shell.comic-build .lobby .lobby-actions { flex-direction:row; flex-wrap:wrap; }
+  .app-shell.comic-build .lobby .lobby-actions > p { flex-basis:100%; margin:0; }
+  .app-shell.comic-build .lobby .lobby-actions button { flex:1; }
+}

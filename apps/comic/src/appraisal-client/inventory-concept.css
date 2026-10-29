@@ -1,0 +1,113 @@
+/* Bag spread: equal panels and one 12px spacing rhythm. */
+#game-main .screen #drawer-bag.game-dialog {
+  position:fixed; inset:calc(var(--layout-chrome,48px) + 12px) 0 calc(var(--layout-chrome,48px) + 52px);
+  width:calc(100vw - 48px); max-width:1480px; height:auto; max-height:none; margin:auto;
+  padding:0; overflow:hidden; border:2px solid #ededed; border-radius:var(--comic-radius); background:#090b0c;
+}
+#game-main .screen #drawer-bag > .dialog-content { display:flex; flex-direction:column; gap:0; padding:0; height:100%; max-height:none; overflow:hidden; }
+#game-main .screen #drawer-bag .drawer-body { display:flex; flex-direction:column; flex:1; min-height:0; padding:0; overflow:hidden; }
+#game-main .screen #drawer-bag .drawer-body > .held-effects { display:none; }
+#game-main .screen #drawer-bag .inventory { flex:1; min-height:0; height:100%; margin:0!important; }
+#game-main .screen #drawer-bag .inventory-layout { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); gap:0; height:100%; min-height:0; }
+#game-main .screen #drawer-bag :is(.inventory-collection,.inventory-detail) { display:flex; flex-direction:column; gap:12px; min-width:0; min-height:0; margin:0; padding:18px; border:0; border-radius:0; background:#080b0ded; overflow:hidden; }
+#game-main .screen #drawer-bag .inventory-detail { border-left:1px solid #ededed; gap:0; }
+#game-main .screen #drawer-bag #inventory-title { display:flex; align-items:center; justify-content:space-between; flex:0 0 auto; gap:12px; margin:0; padding:0; font-size:clamp(20px,2vw,30px); line-height:1.4; }
+#game-main .screen #drawer-bag #inventory-title > span { font-size:16px; font-weight:400; white-space:nowrap; }
+#game-main .screen #drawer-bag .inventory-price-legend { display:flex; align-items:center; gap:6px; font-size:12px; line-height:1; color:#ddd; }
+#game-main .screen #drawer-bag .inventory-price-legend svg { width:18px; height:18px; color:#e7be65; }
+#game-main .screen #drawer-bag .inventory-filters { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+#game-main .screen #drawer-bag .inventory-filters button { min-height:40px; padding:6px; border:1px solid #6a7379; border-radius:var(--comic-radius); font-size:15px; background:#0a0d0f; }
+#game-main .screen #drawer-bag .inventory-filters button[aria-pressed=true] { background:#ba1035; border-color:#ff315c; color:#fff; }
+#game-main .screen #drawer-bag .inventory-row { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); grid-template-rows:repeat(2,minmax(0,1fr)); flex:1; min-height:0; gap:12px; margin:0; padding:0; overflow:visible; }
+#game-main .screen #drawer-bag .inventory-row li { display:block; min-width:0; min-height:0; width:auto; flex:initial; }
+#game-main .screen #drawer-bag .inventory-row .item-thumb,
+#game-main .screen #drawer-bag .inventory-row .item-thumb.selected { position:relative; display:flex; align-items:center; justify-content:center; width:100%; height:100%; min-height:0; padding:16px 0 30px; border:0; border-radius:var(--comic-radius); background:transparent!important; background-image:none!important; overflow:visible; isolation:isolate; box-shadow:none!important; }
+#game-main .screen #drawer-bag .item-thumb::before { content:''; position:absolute; z-index:-1; inset:auto 0 0; height:86%; border:1px solid #dadada; border-radius:var(--comic-radius); background:#101518 url("/art/comic/display-cloth.png") center/cover no-repeat!important; }
+#game-main .screen #drawer-bag .item-thumb.selected::before { border:2px solid #ff315c; background:#291019 url("/art/comic/display-cloth.png") center/cover no-repeat!important; box-shadow:0 0 8px #ff315c44; }
+#game-main .screen #drawer-bag .item-thumb > :is(img,.item-visual) { width:100%!important; height:100%!important; max-width:none; object-fit:contain; border:0; min-height:0; transform:translateY(-8px) scale(1.357); transform-origin:center; filter:drop-shadow(1px 0 0 #050505) drop-shadow(-1px 0 0 #050505) drop-shadow(0 1px 0 #050505) drop-shadow(0 9px 3px #000a); }
+#game-main .screen #drawer-bag .item-thumb .thumb-label { position:absolute; bottom:7px; left:4px; right:4px; margin:0; color:#fff; font-size:clamp(12px,1.2vw,17px); line-height:1.3; text-align:center; }
+#game-main .screen #drawer-bag :is(.thumb-price,.thumb-knowledge) { position:absolute; z-index:2; top:0; display:flex; align-items:center; gap:5px; min-height:28px; padding:2px 6px; color:#fff; background:#080b0e; border:1px solid #bdbdbd; border-radius:var(--comic-radius); font-size:15px; }
+#game-main .screen #drawer-bag .thumb-price { left:0; }
+#game-main .screen #drawer-bag .thumb-knowledge { right:0; }
+#game-main .screen #drawer-bag :is(.thumb-price,.thumb-knowledge) svg { width:20px; height:20px; }
+#game-main .screen #drawer-bag .thumb-price svg { color:#e7be65; }
+#game-main .screen #drawer-bag .thumb-knowledge .icon-flame { color:#ff315c; }
+#game-main .screen #drawer-bag .inventory-pagination { display:flex; flex:0 0 auto; align-items:center; justify-content:center; gap:24px; margin:0; }
+#game-main .screen #drawer-bag .inventory-pagination button { width:38px; min-height:32px; height:32px; padding:0; font-size:25px; line-height:1; }
+#game-main .screen #drawer-bag .inventory-pagination span { font-size:16px; font-variant-numeric:tabular-nums; }
+#game-main .screen #drawer-bag .inventory-filter-empty { flex:1; display:grid; place-items:center; }
+#game-main .screen #drawer-bag .inventory-detail-head { position:relative; z-index:1; flex:0 0 auto; min-height:48px; padding:8px 12px; margin:0; border:1px solid #dedede; border-bottom:0; border-radius:var(--comic-radius) var(--comic-radius) 0 0; background:#141618; }
+#game-main .screen #drawer-bag .inventory-detail-head h3 { font-size:clamp(20px,2vw,28px); }
+#game-main .screen #drawer-bag .inventory-art { position:relative; z-index:2; isolation:isolate; overflow:visible; display:grid; flex:1 1 0; min-height:0; height:auto; margin:0; padding:0; border:1px solid #dedede; border-top:0; border-radius:0 0 var(--comic-radius) var(--comic-radius); background:transparent!important; background-image:none!important; }
+#game-main .screen #drawer-bag .inventory-art > :is(img,.item-visual) { width:100%!important; height:100%!important; max-width:none; max-height:100%; min-height:0; position:relative; z-index:1; object-fit:contain; transform:translateY(-18px) scale(1.265); transform-origin:center 70%; filter:drop-shadow(1px 0 0 #050505) drop-shadow(-1px 0 0 #050505) drop-shadow(0 10px 4px #000a); }
+#game-main .screen #drawer-bag .inventory-item-name { flex:0 0 auto; margin:0; font-size:clamp(19px,2vw,28px); line-height:1.35; }
+#game-main .screen #drawer-bag .inventory-known-facts { display:grid; grid-template-columns:minmax(0,1fr); gap:0; flex:0 0 auto; margin:0; padding:0 12px; border:1px solid #dedede; border-radius:var(--comic-radius); }
+#game-main .screen #drawer-bag .inventory-fact { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:center; gap:12px; min-width:0; min-height:42px; padding:6px 0; border:0; border-bottom:1px solid #686b6e; border-radius:0; }
+#game-main .screen #drawer-bag .inventory-fact:last-child { border-bottom:0; }
+#game-main .screen #drawer-bag .inventory-facts-slot:not(:empty) { margin-top:12px; }
+#game-main .screen #drawer-bag .inventory-fact dt { display:flex; align-items:center; justify-content:flex-start; gap:6px; font-size:14px; line-height:1.3; }
+#game-main .screen #drawer-bag .inventory-fact dt svg { width:20px; height:20px; flex:0 0 auto; }
+#game-main .screen #drawer-bag .inventory-fact dd { display:flex; align-items:center; justify-content:center; min-height:30px; margin:0; font-size:20px; line-height:1.3; text-align:center; }
+#game-main .screen #drawer-bag .inventory-fact .unknown { font-size:13px; color:#bfc5ca; }
+#game-main .screen #drawer-bag .inventory-fact button { display:flex; align-items:center; justify-content:center; gap:4px; min-height:30px; padding:4px 6px; font-size:13px; }
+#game-main .screen #drawer-bag .inventory-fact button svg { width:17px; height:17px; }
+#game-main .screen #drawer-bag .inventory-actions { flex:0 0 auto; display:grid; gap:12px; margin-top:12px; }
+#game-main .screen #drawer-bag .inventory-main-actions { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; align-items:stretch; }
+#game-main .screen #drawer-bag .inventory-main-actions button { display:flex; align-items:center; justify-content:center; gap:6px; height:46px; min-height:46px; padding:8px; font-size:18px; }
+#game-main .screen #drawer-bag .inventory-main-actions button svg { width:22px; height:22px; }
+#game-main .screen #drawer-bag .inventory-effect-details { min-height:42px; height:42px; font-size:15px; }
+#game-main .screen #drawer-bag .inventory-effect-details[aria-expanded=true] { color:#fff; background:#32101b!important; border-color:#ff315c; }
+#game-main .screen #drawer-bag .inventory-main-actions .inventory-sell:disabled { color:#7c8286; border-color:#454c51; opacity:1; }
+#game-main .screen #drawer-bag .inventory-usage-page { display:flex; flex-direction:column; gap:12px; height:100%; min-height:0; }
+#game-main .screen #drawer-bag .inventory-effect-head { display:flex; flex-direction:column; align-items:flex-start; gap:12px; padding:0; border:0; }
+#game-main .screen #drawer-bag .inventory-effect-head h3 { font-size:clamp(20px,2vw,28px); }
+#game-main .screen #drawer-bag .inventory-effect-grid { display:grid; grid-template-columns:minmax(0,1fr); flex:0 0 auto; align-items:start; min-height:0; gap:24px; }
+#game-main .screen #drawer-bag .inventory-effect-card { min-height:0; margin:0!important; padding:0; gap:8px; overflow:visible; background:transparent!important; border:0; border-radius:0; box-shadow:none; }
+#game-main .screen #drawer-bag .inventory-effect-card p { font-size:15px; line-height:1.6; }
+#game-main .screen #drawer-bag .inventory-lock-note { font-size:12px; margin:0; }
+@media(max-width:760px) {
+  #game-main .screen #drawer-bag.game-dialog { inset:6px; width:calc(100vw - 12px); height:calc(100dvh - 12px); max-height:none; }
+  #game-main .screen #drawer-bag .drawer-body { padding:0; }
+  #game-main .screen #drawer-bag .inventory-layout { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:0; }
+  #game-main .screen #drawer-bag :is(.inventory-collection,.inventory-detail) { padding:8px; gap:8px; }
+  #game-main .screen #drawer-bag .inventory-detail { gap:0; }
+  #game-main .screen #drawer-bag .inventory-row { grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:repeat(3,minmax(0,1fr)); gap:8px; }
+  #game-main .screen #drawer-bag #inventory-title { font-size:16px; flex-wrap:wrap; gap:4px; }
+  #game-main .screen #drawer-bag #inventory-title > span { font-size:12px; }
+  #game-main .screen #drawer-bag .inventory-filters { grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px; }
+  #game-main .screen #drawer-bag .inventory-filters button { min-height:32px; font-size:12px; }
+  #game-main .screen #drawer-bag .inventory-known-facts { grid-template-columns:minmax(0,1fr); gap:0; padding:0 6px; }
+  #game-main .screen #drawer-bag .inventory-fact { grid-template-columns:minmax(0,1fr) minmax(0,1fr); min-height:36px; padding:4px 0; gap:4px; }
+  #game-main .screen #drawer-bag .inventory-fact dt { font-size:11px; gap:3px; }
+  #game-main .screen #drawer-bag .inventory-fact dd { font-size:13px; }
+  #game-main .screen #drawer-bag .inventory-fact dt svg { width:16px; height:16px; }
+  #game-main .screen #drawer-bag .inventory-fact button { font-size:11px; padding:3px; }
+  #game-main .screen #drawer-bag .inventory-main-actions { grid-template-columns:minmax(0,1fr); gap:6px; }
+  #game-main .screen #drawer-bag .inventory-main-actions button { height:38px; min-height:38px; font-size:14px; }
+  #game-main .screen #drawer-bag .inventory-effect-details { font-size:12px; grid-template-columns:18px minmax(0,1fr) 14px; gap:4px; padding:6px; height:auto; }
+  #game-main .screen #drawer-bag .inventory-effect-grid { grid-template-columns:minmax(0,1fr); }
+  #game-main .screen #drawer-bag .inventory-effect-card { padding:0; gap:6px; }
+  #game-main .screen #drawer-bag .inventory-effect-card :is(h4,p) { font-size:12px; }
+  #game-main .screen #drawer-bag .inventory-effect-head h3 { font-size:17px; }
+  #game-main .screen #drawer-bag .inventory-effect-back { font-size:12px; min-height:32px; padding:4px 6px; }
+  #game-main .screen #drawer-bag .inventory-item-name { font-size:16px; }
+  #game-main .screen #drawer-bag .inventory-detail-head h3 { font-size:17px; }
+  #game-main .screen #drawer-bag :is(.thumb-price,.thumb-knowledge) { min-height:22px; padding:1px 3px; font-size:11px; gap:2px; }
+  #game-main .screen #drawer-bag :is(.thumb-price,.thumb-knowledge) svg { width:14px; height:14px; }
+  #game-main .screen #drawer-bag .item-thumb .thumb-label { font-size:10px; }
+}
+
+/* Show the market itself around the bag without a dimmed modal veil. */
+#game-main .screen #drawer-bag::backdrop { background:transparent; backdrop-filter:none; }
+body:has(#drawer-bag[open]), body:has(#drawer-bag[open])::before { background:url("/art/comic/market-night-v2.png") center/cover fixed no-repeat!important; }
+#game-main .screen:has(#drawer-bag[open]) { background:transparent!important; }
+#game-main .screen:has(#drawer-bag[open]) > .table-stage { visibility:hidden; }
+#game-main .screen #drawer-bag .inventory-art::before { content:''; position:absolute; z-index:0; inset:0; border:0; border-radius:0 0 var(--comic-radius) var(--comic-radius); background:#101416 url("/art/comic/display-cloth.png") center/cover!important; }
+#game-main .screen #drawer-bag .inventory-effect-card h4 { color:#f4f1eb; }
+#game-main .screen #drawer-bag .inventory-effect-card.risk h4 svg { color:#ff315c; }
+@media(max-width:760px) {
+  #game-main .screen #drawer-bag .item-thumb > :is(img,.item-visual) { transform:translateY(-3px) scale(1.242); }
+  #game-main .screen #drawer-bag .inventory-art::before { inset:0; }
+  #game-main .screen #drawer-bag .inventory-art > :is(img,.item-visual) { transform:translateY(-6px) scale(1.219); }
+  #game-main .screen #drawer-bag .inventory-effect-grid { gap:16px; }
+}

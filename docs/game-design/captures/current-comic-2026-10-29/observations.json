@@ -1,0 +1,2183 @@
+[
+  {
+    "scene": "merchants",
+    "url": "http://127.0.0.1:5174/?preview=merchants&capture",
+    "file": "merchants.png",
+    "mode": "existing-comic-components/built-in-preview-fixture",
+    "capturedAt": "2026-10-29T05:43:27.292Z",
+    "viewport": {
+      "width": 1440,
+      "height": 722,
+      "scrollWidth": 1440,
+      "scrollHeight": 722
+    },
+    "headings": [
+      "เลือกพ่อค้าที่จะพบ",
+      "ออร์กผู้รักษาเกียรติ",
+      "พ่อค้าแวมไพร์",
+      "นักค้าจักรกล Autometa"
+    ],
+    "buttons": [
+      {
+        "text": "กระเป๋า6",
+        "label": "กระเป๋า",
+        "disabled": false
+      },
+      {
+        "text": "สถานะ",
+        "label": "สถานะ",
+        "disabled": false
+      },
+      {
+        "text": "ตลาดมืด1",
+        "label": "Dark Market",
+        "disabled": false
+      },
+      {
+        "text": "บันทึก",
+        "label": "สมุดบันทึก",
+        "disabled": false
+      },
+      {
+        "text": "กติกา",
+        "label": "กติกา",
+        "disabled": false
+      },
+      {
+        "text": "ตั้งค่า",
+        "label": "ตั้งค่า",
+        "disabled": false
+      },
+      {
+        "text": "แหวนผูกไมตรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "พบพ่อค้า",
+        "label": "พบพ่อค้า · ออร์กผู้รักษาเกียรติ",
+        "disabled": false
+      },
+      {
+        "text": "เปลี่ยนรายนี้ · 2 พลัง",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "เครื่องรางเฝ้าจิต",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "พบพ่อค้า",
+        "label": "พบพ่อค้า · พ่อค้าแวมไพร์",
+        "disabled": false
+      },
+      {
+        "text": "เปลี่ยนรายนี้ · 2 พลัง",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "น้ำยาเลือดคืนชีพ",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "พบพ่อค้า",
+        "label": "พบพ่อค้า · นักค้าจักรกล Autometa",
+        "disabled": false
+      },
+      {
+        "text": "เปลี่ยนรายนี้ · 2 พลัง",
+        "label": null,
+        "disabled": false
+      }
+    ],
+    "brokenImages": [],
+    "styleSample": {
+      "bodyFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonRadius": "10px",
+      "buttonBackground": "rgba(0, 0, 0, 0)"
+    }
+  },
+  {
+    "scene": "inspection",
+    "url": "http://127.0.0.1:5174/?preview=inspection&capture",
+    "file": "inspection.png",
+    "mode": "existing-comic-components/built-in-preview-fixture",
+    "capturedAt": "2026-10-29T05:43:28.233Z",
+    "viewport": {
+      "width": 1440,
+      "height": 722,
+      "scrollWidth": 1440,
+      "scrollHeight": 722
+    },
+    "headings": [
+      "ประเมินและซื้อ",
+      "พ่อค้าแวมไพร์",
+      "สินค้าของพ่อค้า 2",
+      "เครื่องรางเฝ้าจิต"
+    ],
+    "buttons": [
+      {
+        "text": "กระเป๋า6",
+        "label": "กระเป๋า",
+        "disabled": false
+      },
+      {
+        "text": "สถานะ",
+        "label": "สถานะ",
+        "disabled": false
+      },
+      {
+        "text": "ตลาดมืด1",
+        "label": "Dark Market",
+        "disabled": false
+      },
+      {
+        "text": "บันทึก",
+        "label": "สมุดบันทึก",
+        "disabled": false
+      },
+      {
+        "text": "กติกา",
+        "label": "กติกา",
+        "disabled": false
+      },
+      {
+        "text": "ตั้งค่า",
+        "label": "ตั้งค่า",
+        "disabled": false
+      },
+      {
+        "text": "ข้อเสนอและข้อมูลพ่อค้า",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "รายละเอียดของชิ้นนี้",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าก่อนหน้า",
+        "disabled": true
+      },
+      {
+        "text": "",
+        "label": "เครื่องรางเฝ้าจิต · 48 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "ยาชำระล้าง · 52 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าถัดไป",
+        "disabled": false
+      },
+      {
+        "text": "1ตรวจฟรี 1 ครั้ง",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "2ตีราคายังไม่ตีราคา",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "3ซื้อ48 เครดิต",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจราคา · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจความแท้ · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจคำสาป · ฟรี",
+        "label": null,
+        "disabled": false
+      }
+    ],
+    "brokenImages": [],
+    "styleSample": {
+      "bodyFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonRadius": "10px",
+      "buttonBackground": "rgba(0, 0, 0, 0)"
+    }
+  },
+  {
+    "scene": "trade",
+    "url": "http://127.0.0.1:5174/?preview=trade&capture",
+    "file": "trade.png",
+    "mode": "existing-comic-components/built-in-preview-fixture",
+    "capturedAt": "2026-10-29T05:43:29.560Z",
+    "viewport": {
+      "width": 1440,
+      "height": 722,
+      "scrollWidth": 1440,
+      "scrollHeight": 722
+    },
+    "headings": [
+      "ต่อรองกับผู้เล่น",
+      "เปิดของในร้านที่คุณประเมินแล้วให้เพื่อนซื้อ",
+      "เครื่องรางเฝ้าจิต · ราคาพ่อค้า 48 เครดิต",
+      "ยาชำระล้าง · ราคาพ่อค้า 52 เครดิต",
+      "ต่อรองกับนักประเมินคนอื่น",
+      "ข้อเสนอซื้อขายของคุณ"
+    ],
+    "buttons": [
+      {
+        "text": "กระเป๋า6",
+        "label": "กระเป๋า",
+        "disabled": false
+      },
+      {
+        "text": "สถานะ",
+        "label": "สถานะ",
+        "disabled": false
+      },
+      {
+        "text": "ตลาดมืด1",
+        "label": "Dark Market",
+        "disabled": false
+      },
+      {
+        "text": "บันทึก",
+        "label": "สมุดบันทึก",
+        "disabled": false
+      },
+      {
+        "text": "กติกา",
+        "label": "กติกา",
+        "disabled": false
+      },
+      {
+        "text": "ตั้งค่า",
+        "label": "ตั้งค่า",
+        "disabled": false
+      },
+      {
+        "text": "พ่อค้าแวมไพร์",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "พ่อค้าตั้ง48",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ประกาศขาย",
+        "label": null,
+        "disabled": true
+      },
+      {
+        "text": "โชว์ให้ดู",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "พ่อค้าแวมไพร์",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "พ่อค้าตั้ง52",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ประกาศขาย",
+        "label": null,
+        "disabled": true
+      },
+      {
+        "text": "โชว์ให้ดู",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "จบซื้อขาย ไปรับเครดิต",
+        "label": null,
+        "disabled": false
+      }
+    ],
+    "brokenImages": [],
+    "styleSample": {
+      "bodyFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonRadius": "10px",
+      "buttonBackground": "rgba(0, 0, 0, 0)"
+    }
+  },
+  {
+    "scene": "reveal",
+    "url": "http://127.0.0.1:5174/?preview=reveal&capture",
+    "file": "reveal.png",
+    "mode": "existing-comic-components/built-in-preview-fixture",
+    "capturedAt": "2026-10-29T05:43:31.237Z",
+    "viewport": {
+      "width": 1440,
+      "height": 722,
+      "scrollWidth": 1440,
+      "scrollHeight": 722
+    },
+    "headings": [
+      "รับเครดิตหลังซื้อขาย",
+      "ซื้อขายช่วง 1 เสร็จแล้ว"
+    ],
+    "buttons": [
+      {
+        "text": "บันทึก",
+        "label": "สมุดบันทึก",
+        "disabled": false
+      },
+      {
+        "text": "กติกา",
+        "label": "กติกา",
+        "disabled": false
+      },
+      {
+        "text": "ตั้งค่า",
+        "label": "ตั้งค่า",
+        "disabled": false
+      },
+      {
+        "text": "พร้อมไปช่วงถัดไป",
+        "label": null,
+        "disabled": false
+      }
+    ],
+    "brokenImages": [],
+    "styleSample": {
+      "bodyFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonRadius": "10px",
+      "buttonBackground": "rgba(0, 0, 0, 0)"
+    }
+  },
+  {
+    "scene": "results",
+    "url": "http://127.0.0.1:5174/?preview=results&capture",
+    "file": "results.png",
+    "mode": "existing-comic-components/built-in-preview-fixture",
+    "capturedAt": "2026-10-29T05:43:32.937Z",
+    "viewport": {
+      "width": 1440,
+      "height": 722,
+      "scrollWidth": 1440,
+      "scrollHeight": 722
+    },
+    "headings": [
+      "จบการเดินทาง",
+      "Collector มารับของ · ผู้ได้คะแนนสูงสุด: คุณ"
+    ],
+    "buttons": [
+      {
+        "text": "บันทึก",
+        "label": "สมุดบันทึก",
+        "disabled": false
+      },
+      {
+        "text": "กติกา",
+        "label": "กติกา",
+        "disabled": false
+      },
+      {
+        "text": "ตั้งค่า",
+        "label": "ตั้งค่า",
+        "disabled": false
+      },
+      {
+        "text": "กลับห้องเพื่อเล่นเส้นทางใหม่",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ดาวน์โหลดบันทึกเกม",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ออกจากห้อง",
+        "label": null,
+        "disabled": false
+      }
+    ],
+    "brokenImages": [],
+    "styleSample": {
+      "bodyFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonRadius": "10px",
+      "buttonBackground": "rgba(0, 0, 0, 0)"
+    }
+  },
+  {
+    "scene": "inventory",
+    "url": "http://127.0.0.1:5174/?preview=inventory&capture",
+    "file": "inventory.png",
+    "mode": "existing-comic-components/built-in-preview-fixture",
+    "capturedAt": "2026-10-29T05:43:34.558Z",
+    "viewport": {
+      "width": 1440,
+      "height": 722,
+      "scrollWidth": 1440,
+      "scrollHeight": 722
+    },
+    "headings": [
+      "ประเมินและซื้อ",
+      "พ่อค้าแวมไพร์",
+      "สินค้าของพ่อค้า 2",
+      "เครื่องรางเฝ้าจิต",
+      "กระเป๋าของคุณ",
+      "ของที่คุณเก็บไว้ 6 ชิ้น",
+      "ยาชำระล้าง"
+    ],
+    "buttons": [
+      {
+        "text": "กระเป๋า6",
+        "label": "กระเป๋า",
+        "disabled": false
+      },
+      {
+        "text": "สถานะ",
+        "label": "สถานะ",
+        "disabled": false
+      },
+      {
+        "text": "ตลาดมืด1",
+        "label": "Dark Market",
+        "disabled": false
+      },
+      {
+        "text": "บันทึก",
+        "label": "สมุดบันทึก",
+        "disabled": false
+      },
+      {
+        "text": "กติกา",
+        "label": "กติกา",
+        "disabled": false
+      },
+      {
+        "text": "ตั้งค่า",
+        "label": "ตั้งค่า",
+        "disabled": false
+      },
+      {
+        "text": "ข้อเสนอและข้อมูลพ่อค้า",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "รายละเอียดของชิ้นนี้",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าก่อนหน้า",
+        "disabled": true
+      },
+      {
+        "text": "",
+        "label": "เครื่องรางเฝ้าจิต · 48 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "ยาชำระล้าง · 52 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าถัดไป",
+        "disabled": false
+      },
+      {
+        "text": "1ตรวจฟรี 1 ครั้ง",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "2ตีราคายังไม่ตีราคา",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "3ซื้อ48 เครดิต",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจราคา · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจความแท้ · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจคำสาป · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ปิด",
+        "label": "ปิด กระเป๋าของคุณ",
+        "disabled": false
+      },
+      {
+        "text": "ทั้งหมด",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ของแท้",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "คำสาป",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ยังไม่รู้",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "12?ยาชำระล้าง",
+        "label": "คลัง #1 ยาชำระล้าง",
+        "disabled": false
+      },
+      {
+        "text": "26?เครื่องรางเฝ้าจิต",
+        "label": "คลัง #2 เครื่องรางเฝ้าจิต",
+        "disabled": false
+      },
+      {
+        "text": "18?หน้ากากกระซิบ",
+        "label": "คลัง #3 หน้ากากกระซิบ",
+        "disabled": false
+      },
+      {
+        "text": "20?กุญแจเงา",
+        "label": "คลัง #4 กุญแจเงา",
+        "disabled": false
+      },
+      {
+        "text": "24?กระจกจันทรา",
+        "label": "คลัง #5 กระจกจันทรา",
+        "disabled": false
+      },
+      {
+        "text": "14?ลูกแก้วแลกแรง",
+        "label": "คลัง #6 ลูกแก้วแลกแรง",
+        "disabled": false
+      },
+      {
+        "text": "‹",
+        "label": "ก่อนหน้า",
+        "disabled": true
+      },
+      {
+        "text": "›",
+        "label": "ถัดไป",
+        "disabled": true
+      },
+      {
+        "text": "ตรวจ · 1",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจ · 1",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "เปิดใช้ · 0",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "เสนอขาย",
+        "label": null,
+        "disabled": true
+      },
+      {
+        "text": "รายละเอียดผลการใช้งาน›",
+        "label": null,
+        "disabled": false
+      }
+    ],
+    "brokenImages": [],
+    "styleSample": {
+      "bodyFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonRadius": "10px",
+      "buttonBackground": "rgb(45, 14, 25)"
+    }
+  },
+  {
+    "scene": "status",
+    "url": "http://127.0.0.1:5174/?preview=status&capture",
+    "file": "status.png",
+    "mode": "existing-comic-components/built-in-preview-fixture",
+    "capturedAt": "2026-10-29T05:43:36.203Z",
+    "viewport": {
+      "width": 1440,
+      "height": 722,
+      "scrollWidth": 1440,
+      "scrollHeight": 722
+    },
+    "headings": [
+      "ประเมินและซื้อ",
+      "พ่อค้าแวมไพร์",
+      "สินค้าของพ่อค้า 2",
+      "เครื่องรางเฝ้าจิต",
+      "สถานะของคุณ",
+      "ผลติดตัว 2 อย่าง",
+      "ความไว้ใจและพันธะ"
+    ],
+    "buttons": [
+      {
+        "text": "กระเป๋า6",
+        "label": "กระเป๋า",
+        "disabled": false
+      },
+      {
+        "text": "สถานะ2",
+        "label": "สถานะ",
+        "disabled": false
+      },
+      {
+        "text": "ตลาดมืด1",
+        "label": "Dark Market",
+        "disabled": false
+      },
+      {
+        "text": "บันทึก",
+        "label": "สมุดบันทึก",
+        "disabled": false
+      },
+      {
+        "text": "กติกา",
+        "label": "กติกา",
+        "disabled": false
+      },
+      {
+        "text": "ตั้งค่า",
+        "label": "ตั้งค่า",
+        "disabled": false
+      },
+      {
+        "text": "ข้อเสนอและข้อมูลพ่อค้า",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "รายละเอียดของชิ้นนี้",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าก่อนหน้า",
+        "disabled": true
+      },
+      {
+        "text": "",
+        "label": "เครื่องรางเฝ้าจิต · 48 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "ยาชำระล้าง · 52 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าถัดไป",
+        "disabled": false
+      },
+      {
+        "text": "1ตรวจฟรี 1 ครั้ง",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "2ตีราคายังไม่ตีราคา",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "3ซื้อ48 เครดิต",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจราคา · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจความแท้ · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจคำสาป · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "จบการประเมิน",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ปิด",
+        "label": "ปิด สถานะของคุณ",
+        "disabled": false
+      },
+      {
+        "text": "‹",
+        "label": "ก่อนหน้า",
+        "disabled": true
+      },
+      {
+        "text": "›",
+        "label": "ถัดไป",
+        "disabled": false
+      },
+      {
+        "text": "ปิดดีล",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "รักษาร่างต้น",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "วิเคราะห์สมบูรณ์",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "แลกเปลี่ยนต่างมิติ",
+        "label": null,
+        "disabled": true
+      }
+    ],
+    "brokenImages": [],
+    "styleSample": {
+      "bodyFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonRadius": "10px",
+      "buttonBackground": "rgba(0, 0, 0, 0)"
+    }
+  },
+  {
+    "scene": "market",
+    "url": "http://127.0.0.1:5174/?preview=market&capture",
+    "file": "market.png",
+    "mode": "existing-comic-components/built-in-preview-fixture",
+    "capturedAt": "2026-10-29T05:43:38.923Z",
+    "viewport": {
+      "width": 1440,
+      "height": 722,
+      "scrollWidth": 1440,
+      "scrollHeight": 722
+    },
+    "headings": [
+      "ประเมินและซื้อ",
+      "พ่อค้าแวมไพร์",
+      "สินค้าของพ่อค้า 2",
+      "เครื่องรางเฝ้าจิต",
+      "ตลาดมืด",
+      "รายการรับซื้อ"
+    ],
+    "buttons": [
+      {
+        "text": "กระเป๋า6",
+        "label": "กระเป๋า",
+        "disabled": false
+      },
+      {
+        "text": "สถานะ",
+        "label": "สถานะ",
+        "disabled": false
+      },
+      {
+        "text": "ตลาดมืด1",
+        "label": "Dark Market",
+        "disabled": false
+      },
+      {
+        "text": "บันทึก",
+        "label": "สมุดบันทึก",
+        "disabled": false
+      },
+      {
+        "text": "กติกา",
+        "label": "กติกา",
+        "disabled": false
+      },
+      {
+        "text": "ตั้งค่า",
+        "label": "ตั้งค่า",
+        "disabled": false
+      },
+      {
+        "text": "ข้อเสนอและข้อมูลพ่อค้า",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "รายละเอียดของชิ้นนี้",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าก่อนหน้า",
+        "disabled": true
+      },
+      {
+        "text": "",
+        "label": "เครื่องรางเฝ้าจิต · 48 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "ยาชำระล้าง · 52 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าถัดไป",
+        "disabled": false
+      },
+      {
+        "text": "1ตรวจฟรี 1 ครั้ง",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "2ตีราคายังไม่ตีราคา",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "3ซื้อ48 เครดิต",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจราคา · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจความแท้ · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจคำสาป · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ปิด",
+        "label": "ปิด ตลาดมืด",
+        "disabled": false
+      },
+      {
+        "text": "1กระดานรับซื้อแลกของเป็นเครดิต›",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "0ห้องประมูลยื่นราคาแบบปิดซอง›",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "น้ำยาเลือดคืนชีพราคารับซื้อ39สิทธิ์คงเหลือ1ของที่ขายได้0ดูเงื่อนไข›",
+        "label": "น้ำยาเลือดคืนชีพ · ดูรายละเอียด",
+        "disabled": false
+      }
+    ],
+    "brokenImages": [],
+    "styleSample": {
+      "bodyFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonRadius": "10px",
+      "buttonBackground": "rgba(0, 0, 0, 0)"
+    }
+  },
+  {
+    "scene": "market-demo",
+    "url": "http://127.0.0.1:5174/?preview=market-demo&capture",
+    "file": "market-demo.png",
+    "mode": "existing-comic-components/built-in-preview-fixture",
+    "capturedAt": "2026-10-29T05:43:40.620Z",
+    "viewport": {
+      "width": 1440,
+      "height": 722,
+      "scrollWidth": 1440,
+      "scrollHeight": 722
+    },
+    "headings": [
+      "ประเมินและซื้อ",
+      "พ่อค้าแวมไพร์",
+      "สินค้าของพ่อค้า 2",
+      "เครื่องรางเฝ้าจิต",
+      "ตลาดมืด",
+      "รายการรับซื้อ"
+    ],
+    "buttons": [
+      {
+        "text": "กระเป๋า6",
+        "label": "กระเป๋า",
+        "disabled": false
+      },
+      {
+        "text": "สถานะ",
+        "label": "สถานะ",
+        "disabled": false
+      },
+      {
+        "text": "ตลาดมืด5",
+        "label": "Dark Market",
+        "disabled": false
+      },
+      {
+        "text": "บันทึก",
+        "label": "สมุดบันทึก",
+        "disabled": false
+      },
+      {
+        "text": "กติกา",
+        "label": "กติกา",
+        "disabled": false
+      },
+      {
+        "text": "ตั้งค่า",
+        "label": "ตั้งค่า",
+        "disabled": false
+      },
+      {
+        "text": "ข้อเสนอและข้อมูลพ่อค้า",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "รายละเอียดของชิ้นนี้",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าก่อนหน้า",
+        "disabled": true
+      },
+      {
+        "text": "",
+        "label": "เครื่องรางเฝ้าจิต · 48 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "ยาชำระล้าง · 52 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าถัดไป",
+        "disabled": false
+      },
+      {
+        "text": "1ตรวจฟรี 1 ครั้ง",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "2ตีราคายังไม่ตีราคา",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "3ซื้อ48 เครดิต",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจราคา · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจความแท้ · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจคำสาป · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ปิด",
+        "label": "ปิด ตลาดมืด",
+        "disabled": false
+      },
+      {
+        "text": "3กระดานรับซื้อแลกของเป็นเครดิต›",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "2ห้องประมูลยื่นราคาแบบปิดซอง›",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ยาชำระล้างราคารับซื้อ39สิทธิ์คงเหลือ1ของที่ขายได้1ดูเงื่อนไข›",
+        "label": "ยาชำระล้าง · ดูรายละเอียด",
+        "disabled": false
+      },
+      {
+        "text": "เครื่องรางเฝ้าจิตราคารับซื้อ30สิทธิ์คงเหลือ1ของที่ขายได้1ดูเงื่อนไข›",
+        "label": "เครื่องรางเฝ้าจิต · ดูรายละเอียด",
+        "disabled": false
+      },
+      {
+        "text": "หน้ากากกระซิบราคารับซื้อ24สิทธิ์คงเหลือ1ของที่ขายได้1ดูเงื่อนไข›",
+        "label": "หน้ากากกระซิบ · ดูรายละเอียด",
+        "disabled": false
+      }
+    ],
+    "brokenImages": [],
+    "styleSample": {
+      "bodyFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonRadius": "10px",
+      "buttonBackground": "rgba(0, 0, 0, 0)"
+    }
+  },
+  {
+    "scene": "ledger",
+    "url": "http://127.0.0.1:5174/?preview=ledger&capture",
+    "file": "ledger.png",
+    "mode": "existing-comic-components/built-in-preview-fixture",
+    "capturedAt": "2026-10-29T05:43:43.350Z",
+    "viewport": {
+      "width": 1440,
+      "height": 722,
+      "scrollWidth": 1440,
+      "scrollHeight": 722
+    },
+    "headings": [
+      "ประเมินและซื้อ",
+      "พ่อค้าแวมไพร์",
+      "สินค้าของพ่อค้า 2",
+      "เครื่องรางเฝ้าจิต",
+      "สมุดบันทึก",
+      "เหตุการณ์ทั้งหมด",
+      "ตรวจสินค้า"
+    ],
+    "buttons": [
+      {
+        "text": "กระเป๋า6",
+        "label": "กระเป๋า",
+        "disabled": false
+      },
+      {
+        "text": "สถานะ",
+        "label": "สถานะ",
+        "disabled": false
+      },
+      {
+        "text": "ตลาดมืด1",
+        "label": "Dark Market",
+        "disabled": false
+      },
+      {
+        "text": "บันทึก",
+        "label": "สมุดบันทึก",
+        "disabled": false
+      },
+      {
+        "text": "กติกา",
+        "label": "กติกา",
+        "disabled": false
+      },
+      {
+        "text": "ตั้งค่า",
+        "label": "ตั้งค่า",
+        "disabled": false
+      },
+      {
+        "text": "ข้อเสนอและข้อมูลพ่อค้า",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "รายละเอียดของชิ้นนี้",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าก่อนหน้า",
+        "disabled": true
+      },
+      {
+        "text": "",
+        "label": "เครื่องรางเฝ้าจิต · 48 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "ยาชำระล้าง · 52 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าถัดไป",
+        "disabled": false
+      },
+      {
+        "text": "1ตรวจฟรี 1 ครั้ง",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "2ตีราคายังไม่ตีราคา",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "3ซื้อ48 เครดิต",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจราคา · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจความแท้ · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจคำสาป · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ปิด",
+        "label": "ปิด สมุดบันทึก",
+        "disabled": false
+      },
+      {
+        "text": "12เหตุการณ์ทุกการตัดสินใจ›",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "0สัญญากู้หนี้และหลักประกัน›",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "0ตราคนบาปสิทธิ์และข้อเสนอ›",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "0รายการตามหาของที่พ่อค้าต้องการ›",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "0สัญญาพ่อค้าพันธะที่ยังมีผล›",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "12ตรวจสินค้าจ่ายพลังเพื่อตรวจความแท้พลัง -1",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "11ซื้อสินค้าจ่ายให้พ่อค้าและได้รับสินค้าเข้ากระเป๋าเครดิต -28",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "10เลือกพบพ่อค้าเลือกประตูของแวมไพร์ช่วง 3",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "9เริ่มช่วงใหม่ผลของสถานะสิ้นสุดเมื่อเริ่มช่วงใหม่สิ้นสุดสถานะ B03",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "‹",
+        "label": "ก่อนหน้า",
+        "disabled": true
+      },
+      {
+        "text": "›",
+        "label": "ถัดไป",
+        "disabled": false
+      }
+    ],
+    "brokenImages": [],
+    "styleSample": {
+      "bodyFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonRadius": "10px",
+      "buttonBackground": "rgba(0, 0, 0, 0)"
+    }
+  },
+  {
+    "scene": "rules",
+    "url": "http://127.0.0.1:5174/?preview=rules&capture",
+    "file": "rules.png",
+    "mode": "existing-comic-components/built-in-preview-fixture",
+    "capturedAt": "2026-10-29T05:43:45.991Z",
+    "viewport": {
+      "width": 1440,
+      "height": 722,
+      "scrollWidth": 1440,
+      "scrollHeight": 722
+    },
+    "headings": [
+      "ประเมินและซื้อ",
+      "พ่อค้าแวมไพร์",
+      "สินค้าของพ่อค้า 2",
+      "เครื่องรางเฝ้าจิต",
+      "กติกา",
+      "หนึ่งช่วง เล่นอย่างไร",
+      "ประเมินและซื้อ"
+    ],
+    "buttons": [
+      {
+        "text": "กระเป๋า6",
+        "label": "กระเป๋า",
+        "disabled": false
+      },
+      {
+        "text": "สถานะ",
+        "label": "สถานะ",
+        "disabled": false
+      },
+      {
+        "text": "ตลาดมืด1",
+        "label": "Dark Market",
+        "disabled": false
+      },
+      {
+        "text": "บันทึก",
+        "label": "สมุดบันทึก",
+        "disabled": false
+      },
+      {
+        "text": "กติกา",
+        "label": "กติกา",
+        "disabled": false
+      },
+      {
+        "text": "ตั้งค่า",
+        "label": "ตั้งค่า",
+        "disabled": false
+      },
+      {
+        "text": "ข้อเสนอและข้อมูลพ่อค้า",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "รายละเอียดของชิ้นนี้",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าก่อนหน้า",
+        "disabled": true
+      },
+      {
+        "text": "",
+        "label": "เครื่องรางเฝ้าจิต · 48 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "ยาชำระล้าง · 52 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าถัดไป",
+        "disabled": false
+      },
+      {
+        "text": "1ตรวจฟรี 1 ครั้ง",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "2ตีราคายังไม่ตีราคา",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "3ซื้อ48 เครดิต",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจราคา · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจความแท้ · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจคำสาป · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ปิด",
+        "label": "ปิด กติกา",
+        "disabled": false
+      },
+      {
+        "text": "เริ่มเล่นตั้งห้องและทรัพยากร›",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "วงจรแต่ละช่วงเล่นทีละสี่ขั้น›",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจและซื้ออ่านของก่อนจ่าย›",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ซื้อขายและตลาดมืดข้อเสนอและประมูล›",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "จบเกมและคะแนนอยู่รอดและคิดผล›",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "01เลือกพ่อค้าเลือกประตูและพบสินค้า",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "02ประเมินและซื้อตรวจสินค้า ตีราคา แล้วตัดสินใจ",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "03ซื้อขายยื่นข้อเสนอให้ผู้เล่นอื่น",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "04รับเครดิตรับเลยหรือเสี่ยงเหรียญ",
+        "label": null,
+        "disabled": false
+      }
+    ],
+    "brokenImages": [],
+    "styleSample": {
+      "bodyFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonRadius": "10px",
+      "buttonBackground": "rgba(0, 0, 0, 0)"
+    }
+  },
+  {
+    "scene": "settings",
+    "url": "http://127.0.0.1:5174/?preview=settings&capture",
+    "file": "settings.png",
+    "mode": "existing-comic-components/built-in-preview-fixture",
+    "capturedAt": "2026-10-29T05:43:47.604Z",
+    "viewport": {
+      "width": 1440,
+      "height": 722,
+      "scrollWidth": 1440,
+      "scrollHeight": 722
+    },
+    "headings": [
+      "ประเมินและซื้อ",
+      "ตั้งค่า",
+      "การตั้งค่าของคุณ",
+      "ผู้ร่วมโต๊ะ",
+      "พ่อค้าแวมไพร์",
+      "สินค้าของพ่อค้า 2",
+      "เครื่องรางเฝ้าจิต"
+    ],
+    "buttons": [
+      {
+        "text": "กระเป๋า6",
+        "label": "กระเป๋า",
+        "disabled": false
+      },
+      {
+        "text": "สถานะ",
+        "label": "สถานะ",
+        "disabled": false
+      },
+      {
+        "text": "ตลาดมืด1",
+        "label": "Dark Market",
+        "disabled": false
+      },
+      {
+        "text": "บันทึก",
+        "label": "สมุดบันทึก",
+        "disabled": false
+      },
+      {
+        "text": "กติกา",
+        "label": "กติกา",
+        "disabled": false
+      },
+      {
+        "text": "ตั้งค่า",
+        "label": "ตั้งค่า",
+        "disabled": false
+      },
+      {
+        "text": "ปิด",
+        "label": "ปิด ตั้งค่า",
+        "disabled": false
+      },
+      {
+        "text": "ปิด",
+        "label": "เสียงเกม",
+        "disabled": false
+      },
+      {
+        "text": "ไทย",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "English",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ออกจากเกม",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ข้อเสนอและข้อมูลพ่อค้า",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "รายละเอียดของชิ้นนี้",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าก่อนหน้า",
+        "disabled": true
+      },
+      {
+        "text": "",
+        "label": "เครื่องรางเฝ้าจิต · 48 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "ยาชำระล้าง · 52 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าถัดไป",
+        "disabled": false
+      },
+      {
+        "text": "1ตรวจฟรี 1 ครั้ง",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "2ตีราคายังไม่ตีราคา",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "3ซื้อ48 เครดิต",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจราคา · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจความแท้ · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ตรวจคำสาป · ฟรี",
+        "label": null,
+        "disabled": false
+      }
+    ],
+    "brokenImages": [],
+    "styleSample": {
+      "bodyFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonFont": "\"Noto Sans Thai\", sans-serif",
+      "buttonRadius": "10px",
+      "buttonBackground": "rgba(0, 0, 0, 0)"
+    }
+  },
+  {
+    "scene": "entry",
+    "url": "http://127.0.0.1:5174/",
+    "file": "entry.png",
+    "mode": "existing-comic/live-backend-entry",
+    "capturedAt": "2026-10-29T05:45:17.570Z",
+    "headings": [
+      "ทุกข้อเสนอมีราคาที่ต้องจ่าย"
+    ],
+    "viewport": {
+      "width": 1440,
+      "height": 722
+    }
+  },
+  {
+    "scene": "lobby",
+    "url": "http://127.0.0.1:5174/",
+    "file": "lobby.png",
+    "mode": "existing-comic/live-backend-lobby",
+    "capturedAt": "2026-10-29T05:47:47.057Z",
+    "headings": [
+      "โต๊ะนักประเมิน"
+    ],
+    "viewport": {
+      "width": 1440,
+      "height": 722
+    }
+  },
+  {
+    "scene": "live-current-event",
+    "url": "http://127.0.0.1:5174/",
+    "file": "live-current-event.png",
+    "mode": "existing-comic/live-backend-scout-room",
+    "capturedAt": "2026-10-29T05:50:24.114Z",
+    "headings": [
+      "ต่อรองกับผู้เล่น",
+      "ต่อรองกับนักประเมินคนอื่น",
+      "เข็มกลัดชีพจร · Bot 1",
+      "ข้อเสนอซื้อขายของคุณ",
+      "เดิมพันด้วยมือเดียว",
+      "ของที่ผู้เล่นถืออยู่",
+      "ตลาดนัดข้ามมิติ",
+      "คุณจะเลือกทางไหน"
+    ],
+    "text": "ข้ามไปพื้นที่เล่น\nต่อรองกับผู้เล่น\nเครดิต\n48\nพลัง\n9 / 10\nชีวิต\n5 / 6\n\nเหลือ 27 วินาที\n\nกระเป๋า\nสถานะ\nตลาดมืด\n1\nบันทึก\nกติกา\nตั้งค่า\nตั๋วมืด\n0/3\nลางของช่วงนี้ · ภาษีเงา\n\nต่อรองกับผู้เล่น ช่วง 2 เล่นจนทุกคนชีวิตหมด. ขายหรือแลกของกับเพื่อน จัดการของค้างโต๊ะ แล้วรับเครดิตเติมก่อนพบพ่อค้าช่วงถัดไป\n\nต่อรองกับนักประเมินคนอื่น\nวิธีการ\nเข็มกลัดชีพจร · Bot 1\n\nของในร้าน NPC · ต้องให้เจ้าของร้านอนุมัติ\n\nออร์กผู้รักษาเกียรติ\nBot 1 ประเมิน\n29\nตรา +15%\nมูลค่าจริง\n?\nความแท้\n?\nคำสาป\n?\nใบรับรองพ่อค้า\n?\nรายละเอียดของชิ้นนี้\nค่าแนะนำที่จะให้นักประเมิน\nรับเงื่อนไขเพื่อลดราคา: ลด 2 เครดิต แลก ตรานักโกง\n(ผลเสีย)\n\nการประเมินสองครั้งถัดไป โอกาสถูกจับว่ากดราคาเพิ่ม 10% · 2 การประเมิน · หมดเมื่อจบช่วงหน้า\n\nเมื่อผู้ขายยอมรับ จ่ายรวม 30 เครดิต (30 ให้ NPC + 0 ค่าแนะนำ) · ไม่เสียพลัง\n\nยื่นข้อเสนอให้ Bot 1\n‹1 / 2›\nข้อเสนอซื้อขายของคุณ\n\nยังไม่มีข้อเสนอ\n\nเดิมพันด้วยมือเดียว\n\nขโมยได้ครั้งเดียวต่อช่วง · ใช้ 1 พลัง · เสมอเลือกมือใหม่โดยไม่เสียพลังเพิ่ม\n\nเลือกเป้าหมายขโมย\n\nเมื่อทุกคนจบซื้อขาย รับเครดิตเติมช่วงนี้ 15 เครดิต หรือเสี่ยงหัวก้อย ก่อนเลือกประตูครั้งถัดไป\n\nจบซื้อขาย ไปรับเครดิต\nตลาดนัดข้ามมิติ\n\nจ่าย 1 เครดิตเข้าตลาดนัด รับ ตลาดคึกคัก\n(ผลดี)\n ขายของได้ราคาเพิ่ม 15% แต่ต้องจ่ายภาษีแอบแฝง\n(ผลเสีย)\n ภาษีแอบแฝง\n(ผลเสีย)\n ช่วงนี้\n\nคุณจะเลือกทางไหน\nตกลง\n1 เครดิต · รับ ตลาดคึกคัก\n(ผลดี)\n · รับ ภาษีแอบแฝง\n(ผลเสีย)\nไม่รับ\nไม่จ่ายเครดิตหรือพลัง\nยืนยัน: ตกลง\nซ่อนไว้ก่อน ขอดูโต๊ะ",
+    "viewport": {
+      "width": 1440,
+      "height": 722
+    }
+  },
+  {
+    "scene": "inspection-appraise",
+    "url": "http://127.0.0.1:5174/?preview=inspection&capture",
+    "file": "inspection-appraise.png",
+    "mode": "existing-comic-components/built-in-preview-fixture",
+    "actions": [
+      "tab appraise"
+    ],
+    "capturedAt": "2026-10-29T05:51:03.630Z",
+    "headings": [
+      "ประเมินและซื้อ",
+      "พ่อค้าแวมไพร์",
+      "สินค้าของพ่อค้า 2",
+      "เครื่องรางเฝ้าจิต"
+    ],
+    "viewport": {
+      "width": 1428,
+      "height": 710
+    },
+    "buttons": [
+      {
+        "text": "กระเป๋า6",
+        "label": "กระเป๋า",
+        "disabled": false
+      },
+      {
+        "text": "สถานะ",
+        "label": "สถานะ",
+        "disabled": false
+      },
+      {
+        "text": "ตลาดมืด1",
+        "label": "Dark Market",
+        "disabled": false
+      },
+      {
+        "text": "บันทึก",
+        "label": "สมุดบันทึก",
+        "disabled": false
+      },
+      {
+        "text": "กติกา",
+        "label": "กติกา",
+        "disabled": false
+      },
+      {
+        "text": "ตั้งค่า",
+        "label": "ตั้งค่า",
+        "disabled": false
+      },
+      {
+        "text": "ข้อเสนอและข้อมูลพ่อค้า",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "รายละเอียดของชิ้นนี้",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าก่อนหน้า",
+        "disabled": true
+      },
+      {
+        "text": "",
+        "label": "เครื่องรางเฝ้าจิต · 48 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "ยาชำระล้าง · 52 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าถัดไป",
+        "disabled": false
+      },
+      {
+        "text": "1ตรวจฟรี 1 ครั้ง",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "2ตีราคายังไม่ตีราคา",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "3ซื้อ48 เครดิต",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "ลดราคา 1 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "เพิ่มราคา 1 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "ยืนยันการประเมิน · ฟรี",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ไปหน้าซื้อ",
+        "label": null,
+        "disabled": false
+      }
+    ]
+  },
+  {
+    "scene": "inspection-buy",
+    "url": "http://127.0.0.1:5174/?preview=inspection&capture",
+    "file": "inspection-buy.png",
+    "mode": "existing-comic-components/built-in-preview-fixture",
+    "actions": [
+      "tab buy"
+    ],
+    "capturedAt": "2026-10-29T05:51:04.062Z",
+    "headings": [
+      "ประเมินและซื้อ",
+      "พ่อค้าแวมไพร์",
+      "สินค้าของพ่อค้า 2",
+      "เครื่องรางเฝ้าจิต"
+    ],
+    "viewport": {
+      "width": 1428,
+      "height": 710
+    },
+    "buttons": [
+      {
+        "text": "กระเป๋า6",
+        "label": "กระเป๋า",
+        "disabled": false
+      },
+      {
+        "text": "สถานะ",
+        "label": "สถานะ",
+        "disabled": false
+      },
+      {
+        "text": "ตลาดมืด1",
+        "label": "Dark Market",
+        "disabled": false
+      },
+      {
+        "text": "บันทึก",
+        "label": "สมุดบันทึก",
+        "disabled": false
+      },
+      {
+        "text": "กติกา",
+        "label": "กติกา",
+        "disabled": false
+      },
+      {
+        "text": "ตั้งค่า",
+        "label": "ตั้งค่า",
+        "disabled": false
+      },
+      {
+        "text": "ข้อเสนอและข้อมูลพ่อค้า",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "รายละเอียดของชิ้นนี้",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าก่อนหน้า",
+        "disabled": true
+      },
+      {
+        "text": "",
+        "label": "เครื่องรางเฝ้าจิต · 48 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "ยาชำระล้าง · 52 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าถัดไป",
+        "disabled": false
+      },
+      {
+        "text": "1ตรวจฟรี 1 ครั้ง",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "2ตีราคายังไม่ตีราคา",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "3ซื้อ48 เครดิต",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "ซื้อเก็บไว้",
+        "label": null,
+        "disabled": false
+      }
+    ]
+  },
+  {
+    "scene": "inspection-item-details",
+    "url": "http://127.0.0.1:5174/?preview=inspection&capture",
+    "file": "inspection-item-details.png",
+    "mode": "existing-comic-components/built-in-preview-fixture",
+    "actions": [
+      "รายละเอียดของชิ้นนี้"
+    ],
+    "capturedAt": "2026-10-29T05:51:04.458Z",
+    "headings": [
+      "ประเมินและซื้อ",
+      "พ่อค้าแวมไพร์",
+      "สินค้าของพ่อค้า 2",
+      "เครื่องรางเฝ้าจิต",
+      "ผลของสินค้า",
+      "วิธีใช้"
+    ],
+    "viewport": {
+      "width": 1428,
+      "height": 710
+    },
+    "buttons": [
+      {
+        "text": "กระเป๋า6",
+        "label": "กระเป๋า",
+        "disabled": false
+      },
+      {
+        "text": "สถานะ",
+        "label": "สถานะ",
+        "disabled": false
+      },
+      {
+        "text": "ตลาดมืด1",
+        "label": "Dark Market",
+        "disabled": false
+      },
+      {
+        "text": "บันทึก",
+        "label": "สมุดบันทึก",
+        "disabled": false
+      },
+      {
+        "text": "กติกา",
+        "label": "กติกา",
+        "disabled": false
+      },
+      {
+        "text": "ตั้งค่า",
+        "label": "ตั้งค่า",
+        "disabled": false
+      },
+      {
+        "text": "ข้อเสนอและข้อมูลพ่อค้า",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "รายละเอียดของชิ้นนี้",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าก่อนหน้า",
+        "disabled": true
+      },
+      {
+        "text": "",
+        "label": "เครื่องรางเฝ้าจิต · 48 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "ยาชำระล้าง · 52 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าถัดไป",
+        "disabled": false
+      },
+      {
+        "text": "← กลับไปประเมิน",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "‹",
+        "label": "ก่อนหน้า",
+        "disabled": true
+      },
+      {
+        "text": "›",
+        "label": "ถัดไป",
+        "disabled": false
+      }
+    ]
+  },
+  {
+    "scene": "inspection-merchant-offer",
+    "url": "http://127.0.0.1:5174/?preview=inspection&capture",
+    "file": "inspection-merchant-offer.png",
+    "mode": "existing-comic-components/built-in-preview-fixture",
+    "actions": [
+      "ข้อเสนอและข้อมูลพ่อค้า"
+    ],
+    "capturedAt": "2026-10-29T05:51:04.827Z",
+    "headings": [
+      "ประเมินและซื้อ",
+      "พ่อค้าแวมไพร์",
+      "สินค้าของพ่อค้า 2",
+      "เครื่องรางเฝ้าจิต",
+      "ดีลฟื้นพลัง"
+    ],
+    "viewport": {
+      "width": 1428,
+      "height": 710
+    },
+    "buttons": [
+      {
+        "text": "กระเป๋า6",
+        "label": "กระเป๋า",
+        "disabled": false
+      },
+      {
+        "text": "สถานะ",
+        "label": "สถานะ",
+        "disabled": false
+      },
+      {
+        "text": "ตลาดมืด1",
+        "label": "Dark Market",
+        "disabled": false
+      },
+      {
+        "text": "บันทึก",
+        "label": "สมุดบันทึก",
+        "disabled": false
+      },
+      {
+        "text": "กติกา",
+        "label": "กติกา",
+        "disabled": false
+      },
+      {
+        "text": "ตั้งค่า",
+        "label": "ตั้งค่า",
+        "disabled": false
+      },
+      {
+        "text": "ข้อเสนอและข้อมูลพ่อค้า",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "รายละเอียดของชิ้นนี้",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าก่อนหน้า",
+        "disabled": true
+      },
+      {
+        "text": "",
+        "label": "เครื่องรางเฝ้าจิต · 48 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "ยาชำระล้าง · 52 เครดิต",
+        "disabled": false
+      },
+      {
+        "text": "",
+        "label": "สินค้าถัดไป",
+        "disabled": false
+      },
+      {
+        "text": "← กลับไปประเมิน",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "จ่าย 3 เครดิต",
+        "label": null,
+        "disabled": false
+      },
+      {
+        "text": "‹",
+        "label": "ก่อนหน้า",
+        "disabled": true
+      },
+      {
+        "text": "›",
+        "label": "ถัดไป",
+        "disabled": false
+      }
+    ]
+  },
+  {
+    "scene": "inventory-details",
+    "url": "http://127.0.0.1:5174/?preview=inventory&capture",
+    "file": "inventory-details.png",
+    "mode": "existing-comic-components/built-in-preview-fixture",
+    "actions": [
+      "รายละเอียดผลการใช้งาน"
+    ],
+    "capturedAt": "2026-10-29T05:52:20.222Z",
+    "headings": [
+      "ประเมินและซื้อ",
+      "พ่อค้าแวมไพร์",
+      "สินค้าของพ่อค้า 2",
+      "เครื่องรางเฝ้าจิต",
+      "กระเป๋าของคุณ",
+      "ข้อมูลและผลการใช้งาน",
+      "ยาชำระล้าง"
+    ],
+    "viewport": {
+      "width": 1428,
+      "height": 710
+    }
+  },
+  {
+    "scene": "live-salary",
+    "url": "http://127.0.0.1:5174/",
+    "file": "live-salary.png",
+    "mode": "existing-comic/live-backend-scout-room",
+    "capturedAt": "2026-10-29T05:53:00.842Z",
+    "headings": [
+      "รับเครดิตหลังซื้อขาย",
+      "เครดิตหลังจบช่วงซื้อขาย 3",
+      "ซื้อขายช่วง 3 เสร็จแล้ว"
+    ],
+    "text": "ข้ามไปพื้นที่เล่น\nรับเครดิตหลังซื้อขาย\nเครดิต\n63\nพลัง\n10 / 10\nชีวิต\n2 / 6\n\nเหลือ 5 วินาที\n\nบันทึก\nกติกา\nตั้งค่า\n\nรับเครดิตหลังซื้อขาย ช่วง 3 เล่นจนทุกคนชีวิตหมด. จบช่วงซื้อขายนี้แล้ว รับเครดิตเติม หรือเสี่ยงหัวก้อยพร้อมผลของสะสม ก่อนเลือกประตูครั้งถัดไป\n\nห\nหัว\nก\nก้อย\nเครดิตหลังจบช่วงซื้อขาย 3\n\nยอดที่รับได้ 10 เครดิต\n\nเลือกรับเลย หรือทายให้ถูกครบทุกเหรียญ เพิ่ม 5 เครดิต แล้วเลือกเสี่ยงต่อได้\n\nทายให้ถูกครบ 1 เหรียญ: ได้ 5 · ผิดหัก 5 เครดิต (ต่ำสุด 0)\n\nในกระเป๋า 63 เครดิต · ทบแล้ว 0 เครดิต\n\nเพิ่ม 1 เหรียญ · จ่าย 10 เครดิต\nรับเลย 10 เครดิต\nทายหัว\nทายก้อย\n\nเมื่อหมดเวลาหรือกดพร้อมไปต่อ จะรับยอดที่เหลืออัตโนมัติ\n\nวิธีการ\nซื้อขายช่วง 3 เสร็จแล้ว\n\nทุกคนที่ยังเล่นเสียชีวิต 1 ตอนจบช่วง คะแนนจะคิดตอน Collector มา ชีวิตหมดแล้วดูเพื่อนต่อได้ ของและเครดิตของผู้ตายยังอยู่\n\nรับ 10 เครดิตและไปต่อ",
+    "viewport": {
+      "width": 1440,
+      "height": 722
+    }
+  },
+  {
+    "scene": "market-sale-detail",
+    "url": "http://127.0.0.1:5174/?preview=market-demo&capture",
+    "file": "market-sale-detail.png",
+    "mode": "existing-comic-components/built-in-preview-fixture",
+    "actions": [
+      "รายการรับซื้อ ยาชำระล้าง"
+    ],
+    "capturedAt": "2026-10-29T05:53:35.465Z",
+    "headings": [
+      "ประเมินและซื้อ",
+      "พ่อค้าแวมไพร์",
+      "สินค้าของพ่อค้า 2",
+      "เครื่องรางเฝ้าจิต",
+      "ตลาดมืด",
+      "เงื่อนไขและขาย"
+    ],
+    "viewport": {
+      "width": 1428,
+      "height": 710
+    }
+  },
+  {
+    "scene": "market-auction-list",
+    "url": "http://127.0.0.1:5174/?preview=market-demo&capture",
+    "file": "market-auction-list.png",
+    "mode": "existing-comic-components/built-in-preview-fixture",
+    "actions": [
+      "ห้องประมูล"
+    ],
+    "capturedAt": "2026-10-29T05:53:35.804Z",
+    "headings": [
+      "ประเมินและซื้อ",
+      "พ่อค้าแวมไพร์",
+      "สินค้าของพ่อค้า 2",
+      "เครื่องรางเฝ้าจิต",
+      "ตลาดมืด",
+      "ของประมูลจากคลัง"
+    ],
+    "viewport": {
+      "width": 1428,
+      "height": 710
+    }
+  },
+  {
+    "scene": "market-auction-detail",
+    "url": "http://127.0.0.1:5174/?preview=market-demo&capture",
+    "file": "market-auction-detail.png",
+    "mode": "existing-comic-components/built-in-preview-fixture",
+    "actions": [
+      "ห้องประมูล",
+      "กุญแจเงา · ดูรายละเอียด"
+    ],
+    "capturedAt": "2026-10-29T05:55:38.955Z",
+    "headings": [
+      "ประเมินและซื้อ",
+      "พ่อค้าแวมไพร์",
+      "สินค้าของพ่อค้า 2",
+      "เครื่องรางเฝ้าจิต",
+      "ตลาดมืด",
+      "ประมูลแบบปิดซอง"
+    ],
+    "viewport": {
+      "width": 1428,
+      "height": 710
+    }
+  },
+  {
+    "scene": "live-results",
+    "url": "http://127.0.0.1:5174/",
+    "file": "live-results.png",
+    "mode": "existing-comic/live-backend-scout-room",
+    "capturedAt": "2026-10-29T05:56:50.568Z",
+    "headings": [
+      "จบการเดินทาง",
+      "Collector มารับของ · ผู้ได้คะแนนสูงสุด: สำรวจหน้าจอ"
+    ],
+    "viewport": {
+      "width": 1440,
+      "height": 722
+    }
+  }
+]

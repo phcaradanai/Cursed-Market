@@ -1,0 +1,165 @@
+--- a/src/appraisal-client/TradeScreen.tsx
++++ b/src/appraisal-client/TradeScreen.tsx
+@@ -1,26 +1,31 @@
+ import {createPortal} from 'react-dom';
+-import {useState} from 'react';
++import {useEffect,useState,type ReactNode} from 'react';
+ import type {AppraisalRoomView} from '../shared/appraisal-protocol.js';
+-import {FactSeals,Share,Trades,type Actions} from './components.js';
++import {FactSeals,Share,Trades,TradeListing,type Actions} from './components.js';
+ import {ComicButton,ComicMenu} from './ComicUI.js';
+ import {itemName} from './catalog-text.js';
+-export function TradeScreen({game,room,submit,disabled}:Actions&{room:AppraisalRoomView}) {
+- const [selected,setSelected]=useState('');
+- const [optionsOpen,setOptionsOpen]=useState(false);const [optionsPage,setOptionsPage]=useState(0);const [optionsHost,setOptionsHost]=useState<HTMLDivElement|null>(null);
+- const [marketOpen,setMarketOpen]=useState(false);
+- const items=game.self.stock,item=items.find(i=>i.id===selected)??items[0];
+- return <div className="trade-spread">
+-  <section className="trade-stock"><h2>สินค้าในร้านที่คุณประเมิน</h2>
+-   <div className="trade-stock-list">{(optionsOpen&&item?[item]:items).map(i=><ComicButton key={i.id} className="trade-stock-row" aria-pressed={item?.id===i.id} onClick={()=>{setSelected(i.id);setOptionsOpen(false);}}><img src={i.image} alt=""/><span><strong>{itemName(i.kind)}</strong><small>ราคาพ่อค้า {i.price} เครดิต</small></span><span aria-hidden="true">›</span></ComicButton>)}<div className="trade-options-slot" hidden={!optionsOpen} data-page={optionsPage}><nav aria-label="รายละเอียดตัวเลือกการขาย">{['ความแท้','คำสาป','ค่าแถม'].map((name,index)=><ComicButton key={name} aria-pressed={optionsPage===index} onClick={()=>setOptionsPage(index)}>{name}</ComicButton>)}</nav><div ref={setOptionsHost}/></div></div>
+-   {!items.length&&<p>ไม่มีสินค้าในร้านที่เปิดได้</p>}
+-  </section>
+-  <section className="trade-selected">
+-   <header><h2>{item?itemName(item.kind):'รายละเอียดสินค้า'}</h2>{item&&<strong>ราคาพ่อค้า {item.price} เครดิต</strong>}</header>
+-   <div className="trade-selected-item">{item&&<FactSeals item={item}/>}</div>
+-   <div className="trade-action-area">{item&&<Share key={item.id} game={game} item={item} submit={submit} disabled={disabled} optionsHost={optionsHost} onOptionsChange={open=>{setOptionsOpen(open);setOptionsPage(0);}}/>}
+-    <ComicButton className="trade-market-open" onClick={()=>setMarketOpen(true)}>รายการและข้อเสนอระหว่างผู้เล่น</ComicButton>
+-   </div>
+-   {marketOpen&&typeof document!=='undefined'&&createPortal(<ComicMenu id="trade-player-offers" open={marketOpen} title="รายการและข้อเสนอระหว่างผู้เล่น" onClose={()=>setMarketOpen(false)}><Trades game={game} room={room} submit={submit} disabled={disabled}/></ComicMenu>,document.querySelector('#game-main .screen')??document.body)}
+-  </section>
+- </div>;
++import {ComicTooltip} from './ComicTooltip.js';
++import {BagIcon,NavigationIcon,TableReturnIcon,PlayerOutlineIcon} from './icons.js';
++import './comic-overlay.css';
++export function TradeScreen({game,room,submit,disabled,completion}:Actions&{room:AppraisalRoomView;completion?:ReactNode}) {
++ const [other,setOther]=useState<string|null>(null),[bag,setBag]=useState(false),[page,setPage]=useState(0),[selected,setSelected]=useState<string|null>(null),[offers,setOffers]=useState(false);
++ const [direction,setDirection]=useState('down');
++ const [size,setSize]=useState(()=>typeof window!=='undefined'&&window.innerWidth<1100?3:4);
++ useEffect(()=>{const resize=()=>setSize(window.innerWidth<1100?3:4);window.addEventListener('resize',resize);return()=>window.removeEventListener('resize',resize);},[]);
++ const listings=game.listings.filter(l=>l.ownerId===other),items=other?listings.map(l=>l.item):bag?game.self.inventory:game.self.stock;
++ const pages=Math.max(1,Math.ceil(items.length/size)),at=page%pages,visible=items.slice(at*size,(at+1)*size),picked=items.find(i=>i.id===selected),listing=listings.find(l=>l.itemId===selected);
++ const peers=room.matchSeats.filter(s=>s.id!==game.self.id),name=room.matchSeats.find(s=>s.id===other)?.name??'ผู้เล่น';
++ const navigate=(owner:string|null,inventory=false)=>{setDirection(owner?'left':other?'right':inventory?'down':'up');setOther(owner);setBag(inventory);setPage(0);setSelected(null);};
++ const menuTarget=typeof document!=='undefined'?document.querySelector('#game-main .screen'):null;
++ return <section className="trade-table comic-main-frame" aria-label="โต๊ะซื้อขาย">
++  <header className="trade-table-title"><h2>{other?`โต๊ะของ ${name}`:'โต๊ะของคุณ'}</h2><p>{other?'สินค้าที่เปิดให้ผู้อื่นเห็น':bag?'ของในกระเป๋าของคุณ':'สินค้าในร้านที่คุณประเมิน'}</p></header>
++  {!other&&<nav className="table-peer-rail" aria-label="โต๊ะผู้เล่นอื่น">{peers.map(p=><ComicTooltip key={p.id} content={`ดูสินค้าที่ ${p.name} เปิดขาย · ไปยังโต๊ะผู้เล่นนี้`}><button className="comic-overlay-control" type="button" onClick={()=>navigate(p.id)} aria-label={`ไปโต๊ะ ${p.name}`}><span aria-hidden="true"><PlayerOutlineIcon/></span><small>{p.name}</small></button></ComicTooltip>)}</nav>}
++  {bag&&!other&&<ComicTooltip content="กลับไปดูสินค้าในร้านที่คุณประเมิน"><button className="comic-overlay-control table-overlay table-up" type="button" aria-label="กลับสินค้าในร้าน" onClick={()=>navigate(null)}><NavigationIcon direction="up"/></button></ComicTooltip>}
++  <div key={`${other??(bag?'bag':'shop')}-${at}`} className={`table-goods${visible.length?'':' is-empty'}`} data-direction={direction} style={{gridTemplateColumns:`repeat(${Math.max(1,visible.length)},minmax(0,1fr))`}}>{visible.map(i=><ComicTooltip key={i.id} content={<><strong>{itemName(i.kind)}</strong>{`ราคาประเมิน: ${i.appraisal===null?'ยังไม่ประเมิน':i.appraisal+' เครดิต'}\nมูลค่าจริง: ${i.knowledge.base??(i.knowledge.range?.join('–')??'ยังไม่รู้')}\nความแท้: ${i.knowledge.genuine===undefined?'ยังไม่รู้':i.knowledge.genuine?'ของแท้':'ของปลอม'}\nคำสาป: ${i.knowledge.cursed===undefined?'ยังไม่รู้':i.knowledge.cursed?'มีคำสาป':'ไม่มีคำสาป'}\nกดเพื่อดูรายละเอียดและจัดการ`}</>}><button type="button" className="table-good" key={i.id} onClick={()=>setSelected(i.id)}><img src={i.image} alt=""/><strong>{itemName(i.kind)}</strong>{!bag&&!other&&<small>◉ {i.price} เครดิต</small>}</button></ComicTooltip>)}{!visible.length&&<p className="table-empty">{other?'ผู้เล่นนี้ยังไม่เปิดสินค้า':bag?'ยังไม่มีของในกระเป๋า':'ไม่มีสินค้าในร้านครั้งนี้'}</p>}</div>
++  {pages>1&&<div className={`table-paging ${other?'table-left':'table-right'}`}><ComicTooltip content="ดูสินค้าหน้าถัดไป · วนกลับหน้าแรกเมื่อถึงหน้าสุดท้าย"><button className="comic-overlay-control table-overlay" type="button" aria-label="สินค้าหน้าถัดไป" onClick={()=>{setDirection(other?'right':'left');setPage((at+1)%pages);}}><NavigationIcon direction={other?'left':'right'}/></button></ComicTooltip><small>{at+1} / {pages}</small></div>}
++  {other?<ComicTooltip content="กลับโต๊ะของคุณ เพื่อเลือกสินค้าและไปโต๊ะผู้เล่นคนอื่น"><button className="comic-overlay-control table-overlay table-return" type="button" aria-label="กลับโต๊ะของคุณ" onClick={()=>navigate(null)}><TableReturnIcon/></button></ComicTooltip>:!bag&&<ComicTooltip content="เลื่อนลงไปดูของในกระเป๋าของคุณ"><button className="comic-overlay-control table-overlay table-down" type="button" aria-label="ของในกระเป๋า" onClick={()=>navigate(null,true)}><BagIcon/><span className="table-bag-direction"><NavigationIcon direction="down"/></span></button></ComicTooltip>}
++  <div className="table-completion">{completion}</div>
++  <ComicButton className="table-offers" onClick={()=>setOffers(true)}>ข้อเสนอซื้อขาย {game.trades.filter(t=>t.status==='open').length||''}</ComicButton>
++  {menuTarget&&createPortal(<><ComicMenu id="table-item-detail" open={!!picked} title={picked?itemName(picked.kind):'สินค้า'} onClose={()=>setSelected(null)} className="table-item-menu">{picked&&(listing?<TradeListing game={game} room={room} listing={listing} submit={submit} disabled={disabled}/>:<><FactSeals item={picked}/><Share key={picked.id} game={game} item={picked} submit={submit} disabled={disabled}/></>)}</ComicMenu><ComicMenu id="table-offers-detail" open={offers} title="ข้อเสนอซื้อขาย" onClose={()=>setOffers(false)}><Trades game={game} room={room} submit={submit} disabled={disabled}/></ComicMenu></>,menuTarget)}
++ </section>;
+ }
+--- a/src/appraisal-client/trade-concept.css
++++ b/src/appraisal-client/trade-concept.css
+@@ -0,0 +1,59 @@
++#game-main .trade-table{position:relative;height:100%;min-height:0;border:1px solid #ccc;border-radius:var(--comic-radius);padding:24px 100px 72px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;overflow:hidden;background:linear-gradient(#080a0bbc,#080a0b44),url('/art/comic/display-cloth.png') center/cover}
++#game-main .trade-table-title{text-align:center;flex:0 0 auto;margin:0;padding:0}
++#game-main .trade-table-title h2{margin:0;color:#fff;font-size:30px}#game-main .trade-table-title p{margin:6px 0 0;color:#ddd}
++#game-main .table-goods{display:grid;align-items:center;gap:24px;flex:1;min-height:0}
++#game-main .table-good{height:100%;min-height:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;padding:8px;border:0;background:transparent!important;box-shadow:none}
++#game-main .table-good img{width:100%;height:clamp(100px,22vh,230px);object-fit:contain;filter:drop-shadow(4px 8px 3px #000b)}
++#game-main .table-good strong{font-size:20px;color:#fff}#game-main .table-good small{font-size:15px;color:#eadba7}
++#game-main .table-overlay{display:flex;align-items:center;justify-content:center;flex-direction:column;width:52px;height:52px;min-height:52px;border:1px solid #aaa;border-radius:50%!important;background:radial-gradient(#0b0d0ef0,#0b0d0e77 65%,transparent)!important;color:white;font-size:36px;padding:0;z-index:2}
++#game-main .table-overlay:hover{border-color:#ff315c}
++#game-main .table-down{position:absolute;bottom:12px;left:calc(50% - 26px);gap:0;font-size:18px}#game-main .table-down svg{width:24px;height:24px}
++#game-main .table-up{position:absolute;top:12px;left:24px}
++#game-main .table-paging{position:absolute;top:45%;display:flex;align-items:center;flex-direction:column;gap:8px;color:white}
++#game-main .table-right{right:18px}#game-main .table-left{left:18px}
++#game-main .table-return{position:absolute;right:18px;top:45%}
++#game-main .table-peer-rail{position:absolute;left:12px;top:22%;bottom:70px;display:flex;flex-direction:column;justify-content:center;gap:16px;width:74px}
++#game-main .table-peer-rail button{display:flex;align-items:center;flex-direction:column;gap:4px;border:0;padding:0;background:none!important;color:white}
++#game-main .table-peer-rail button>span{display:grid;place-items:center;width:44px;height:44px;border:1px solid #bbb;border-radius:50%;background:#101316d9;font-size:22px}#game-main .table-peer-rail small{font-size:12px}
++#game-main .table-offers{position:absolute;bottom:16px;right:18px;height:40px;min-height:40px}
++#game-main .table-empty{text-align:center;color:#eee;grid-column:1/-1}
++@media(prefers-reduced-motion:no-preference){#game-main .table-goods{animation:table-slide .22s ease-out}@keyframes table-slide{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}}
++@media(max-width:760px){#game-main .trade-table{padding:16px 64px 70px}#game-main .table-goods{gap:8px}#game-main .table-good strong{font-size:13px}#game-main .table-good small{font-size:11px}#game-main .table-peer-rail{width:44px;left:8px}#game-main .table-peer-rail small{max-width:44px;overflow:hidden}#game-main .table-overlay{width:40px;height:40px;min-height:40px}#game-main .table-down{left:calc(50% - 20px)}#game-main .table-good img{height:100px}}
++
++@media(prefers-reduced-motion:no-preference){#game-main .table-goods[data-direction="left"]{animation-name:table-left-in}#game-main .table-goods[data-direction="right"]{animation-name:table-right-in}#game-main .table-goods[data-direction="up"]{animation-name:table-up-in}@keyframes table-left-in{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}@keyframes table-right-in{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:none}}@keyframes table-up-in{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}}
++#game-main .screen .scene-play>.trade-table{background:linear-gradient(#080a0b44,#080a0b11),url('/art/comic/display-cloth.png') center/cover!important}
++#game-main .trade-table-title p{width:100%;max-width:none;text-align:center}
++/* S06 tabletop: one shared scene, equal edge insets and a common item baseline. */
++#game-main .screen .scene-play>.trade-table{background:linear-gradient(#0002,#0000 60%,#0003),url('/art/comic/trade-table-v1.png') center/cover!important;padding:24px 100px 88px;gap:12px}
++#game-main .trade-table-title h2{display:inline-block;position:relative;isolation:isolate;font-size:clamp(28px,3vw,44px);line-height:1.3;text-shadow:2px 3px #000}
++#game-main .trade-table-title h2::before{content:'';position:absolute;inset:10% -30px -2px;z-index:-1;background:repeating-linear-gradient(-12deg,#ad0821 0 5px,#8d091a 5px 9px);clip-path:polygon(4% 5%,92% 0,100% 22%,94% 44%,100% 70%,90% 100%,0 93%,5% 61%,0 34%)}
++#game-main .trade-table-title p{font-size:clamp(14px,1.35vw,19px);text-shadow:1px 2px 3px #000}
++#game-main .table-goods{width:100%;max-width:1100px;margin:auto;align-items:end;justify-content:center;gap:24px}
++#game-main .table-good{position:relative;justify-content:flex-end;gap:8px;padding:0 8px 12px;max-height:100%;text-shadow:2px 2px 3px #000}
++#game-main .table-good img{height:clamp(135px,31vh,340px);max-width:100%;width:100%;object-fit:contain;filter:drop-shadow(2px 2px 0 #000) drop-shadow(5px 12px 4px #000b);transition:transform .18s ease}
++#game-main .table-good:hover img,#game-main .table-good:focus-visible img{transform:translateY(-7px)}
++#game-main .table-good strong{font-size:clamp(16px,1.65vw,25px);line-height:1.4}
++#game-main .table-good small{font-size:clamp(14px,1.3vw,19px);color:#f6df8c}
++#game-main .table-peer-rail{left:16px;width:72px;top:25%;bottom:96px;gap:20px}
++#game-main .table-peer-rail button>span{width:52px;height:52px;border:2px solid #ccc;background:radial-gradient(#5c5c5c,#151515);box-shadow:0 2px 6px #000;color:#080808;overflow:hidden}
++#game-main .table-peer-rail button>span svg{width:44px;height:44px}
++#game-main .table-peer-rail small{max-width:80px;text-align:center;text-shadow:1px 2px #000}
++#game-main .table-overlay{width:56px;height:56px;min-height:56px;border:2px solid #b8b8b8;box-shadow:0 3px 8px #000b}
++#game-main .table-down{left:calc(50% - 28px);bottom:20px;border-color:#ef244c;box-shadow:0 0 14px #ce143e66}
++#game-main .table-completion{position:absolute;bottom:20px;right:20px;z-index:3}
++#game-main .table-completion .end-phase{display:flex;gap:8px;border:0!important;padding:0!important;margin:0!important;background:none!important;align-items:end;max-width:280px}
++#game-main .table-completion .end-phase>p{display:none}
++#game-main .table-completion .end-phase:has(.danger-text)::before{content:'มีของค้าง · ดูเงื่อนไขก่อนจบ';position:absolute;bottom:calc(100% + 8px);right:0;white-space:nowrap;color:#ffd2d8;font-size:12px;background:#19090ee6;padding:4px 8px;border-radius:var(--comic-radius)}
++#game-main .table-completion .pass{height:44px;min-height:44px;min-width:180px;padding:8px 16px;background:#0a0b0ce8!important;border:1px solid #ddd!important;font-size:15px}
++#game-main .table-offers{bottom:auto;top:20px;right:20px;height:36px;min-height:36px;font-size:13px;background:#111c!important;border:1px solid #888!important;padding:6px 12px}
++@media(max-width:900px){#game-main .screen .scene-play>.trade-table{padding:20px 80px 88px}#game-main .table-goods{gap:12px}#game-main .table-down::after{display:none}#game-main .table-offers{top:12px;right:12px;font-size:11px}#game-main .table-completion{bottom:20px;right:16px}#game-main .table-completion .pass{min-width:132px;font-size:12px}#game-main .table-good img{height:clamp(120px,28vh,260px)}}
++@media(prefers-reduced-motion:reduce){#game-main .table-good img{transition:none}}
++#game-main .phase-TRADE .scene-play:has(>.trade-table){display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr);height:100%;min-height:0;gap:0}
++#game-main .phase-TRADE .table-goods{position:relative;align-self:stretch;grid-template-rows:minmax(0,1fr);padding:0;max-width:1000px}
++#game-main .table-good{min-width:0;align-self:end;height:auto}
++#game-main .table-completion .end-phase>p{display:block;position:absolute;right:0;bottom:calc(100% + 12px);width:320px;margin:0;padding:12px;background:#111f;border:1px solid #aaa;border-radius:var(--comic-radius);font-size:13px;opacity:0;pointer-events:none}
++#game-main .table-completion:hover .end-phase>p,#game-main .table-completion:focus-within .end-phase>p{opacity:1}
++#game-main .table-completion .end-phase>p+p{bottom:calc(100% + 104px)}
++
++#game-main .table-goods.is-empty{display:grid;place-items:center;align-self:stretch;width:100%;max-width:none}
++#game-main .table-goods.is-empty .table-empty{margin:0;padding:16px;text-align:center;align-self:center;justify-self:center;color:#fff;text-shadow:1px 2px 4px #000;font-size:clamp(16px,1.8vw,24px)}
+--- a/src/appraisal-client/ComicTooltip.tsx
++++ b/src/appraisal-client/ComicTooltip.tsx
+@@ -0,0 +1,12 @@
++import {cloneElement,useEffect,useId,useLayoutEffect,useRef,useState,type ReactElement,type ReactNode} from 'react';
++import {createPortal} from 'react-dom';
++import './comic-tooltip.css';
++/** Read-only hint shared by icon navigation and item previews. */
++export function ComicTooltip({children,content}:{children:ReactElement<{'aria-describedby'?:string|undefined}>;content:ReactNode}) {
++ const id=useId(),anchor=useRef<HTMLSpanElement>(null),tip=useRef<HTMLSpanElement>(null);
++ const [open,setOpen]=useState(false),[position,setPosition]=useState({left:0,top:0});
++ useEffect(()=>{if(!open)return;const close=()=>setOpen(false);document.addEventListener('pointerdown',close,true);window.addEventListener('blur',close);window.addEventListener('scroll',close,true);return()=>{document.removeEventListener('pointerdown',close,true);window.removeEventListener('blur',close);window.removeEventListener('scroll',close,true);};},[open]);
++ useLayoutEffect(()=>{if(!open)return;const a=anchor.current?.firstElementChild?.getBoundingClientRect(),b=tip.current?.getBoundingClientRect();if(!a||!b)return;
++ const place=()=>{const a=anchor.current?.firstElementChild?.getBoundingClientRect(),b=tip.current?.getBoundingClientRect();if(!a||!b)return;setPosition({left:Math.max(12,Math.min(innerWidth-b.width-12,a.left+(a.width-b.width)/2)),top:Math.max(12,a.top-b.height-10>=12?a.top-b.height-10:Math.min(innerHeight-b.height-12,a.bottom+10))});};place();window.addEventListener('resize',place);return()=>window.removeEventListener('resize',place);},[open]);
++ return <span ref={anchor} className="comic-tooltip-anchor" onMouseEnter={()=>setOpen(true)} onMouseLeave={()=>setOpen(false)} onFocus={e=>{if(e.target instanceof Element&&e.target.matches(':focus-visible'))setOpen(true);}} onClickCapture={()=>setOpen(false)} onBlur={()=>setOpen(false)} onKeyDown={e=>{if(e.key==='Escape')setOpen(false);}}>{cloneElement(children,{'aria-describedby':open?id:undefined})}{open&&createPortal(<span id={id} ref={tip} role="tooltip" className="comic-tooltip" style={position}>{content}</span>,document.body)}</span>;
++}
+--- a/src/appraisal-client/comic-tooltip.css
++++ b/src/appraisal-client/comic-tooltip.css
+@@ -0,0 +1 @@
++.comic-tooltip-anchor{display:contents}.comic-tooltip{position:fixed;z-index:10000;pointer-events:none;box-sizing:border-box;width:max-content;max-width:min(280px,calc(100vw - 24px));padding:12px 16px;border:1px solid #ddd;border-radius:var(--comic-radius,12px);background:#101214f5;color:#fff;box-shadow:0 4px 16px #0009;font:14px/1.6 "Noto Sans Thai",sans-serif;white-space:pre-line;text-align:left}.comic-tooltip strong{display:block;color:#f8df92;margin-bottom:4px}
+--- a/src/appraisal-client/comic-overlay.css
++++ b/src/appraisal-client/comic-overlay.css
+@@ -0,0 +1,18 @@
++/* Shared quiet overlay treatment. Full hit area stays active while faded. */
++#game-main .comic-overlay-control{opacity:.42;transition:opacity .18s ease,border-color .18s ease,box-shadow .18s ease;color:#fff}
++#game-main .comic-overlay-control:hover,#game-main .comic-overlay-control:focus-visible{opacity:1}
++#game-main .comic-overlay-control:focus-visible{outline:2px solid #ff315c;outline-offset:4px}
++#game-main .comic-overlay-control.table-overlay{background:radial-gradient(circle,#0a0b0dba 35%,#0a0b0d55 70%,transparent)!important;border:1px solid #eee8;box-shadow:none}
++#game-main .comic-overlay-control.table-overlay:hover,#game-main .comic-overlay-control.table-overlay:focus-visible{background:radial-gradient(circle,#0a0b0dee,#0a0b0d99)!important;border-color:#ff315c;box-shadow:0 0 12px #e9123b44}
++#game-main .comic-overlay-control.table-overlay>.icon{width:30px;height:30px;stroke-width:1.8}
++#game-main .comic-overlay-control.table-down{gap:0;justify-content:center}
++#game-main .comic-overlay-control.table-down>.icon{width:27px;height:27px}
++#game-main .table-bag-direction{display:flex;height:13px;align-items:center;justify-content:center}
++#game-main .table-bag-direction .icon{width:16px;height:16px;stroke-width:2}
++#game-main .table-peer-rail .comic-overlay-control>span{background:radial-gradient(#171a1dd9,#0a0b0d88);color:#fff;border:1px solid #eee8;box-shadow:none}
++#game-main .table-peer-rail .comic-overlay-control>span .icon{width:30px;height:30px}
++#game-main .table-peer-rail .comic-overlay-control:hover>span,#game-main .table-peer-rail .comic-overlay-control:focus-visible>span{border-color:#ff315c}
++#game-main .table-paging>small{opacity:.42;transition:opacity .18s ease}
++#game-main .table-paging:hover>small,#game-main .table-paging:focus-within>small{opacity:1}
++@media(hover:none){#game-main .comic-overlay-control,#game-main .table-paging>small{opacity:.75}}
++@media(prefers-reduced-motion:reduce){#game-main .comic-overlay-control,#game-main .table-paging>small{transition:none}}
+--- a/src/appraisal-client/comic-frame.css
++++ b/src/appraisal-client/comic-frame.css
+@@ -0,0 +1,5 @@
++/* Main destination frame: inventory is the reference for every comic menu/screen.
++   Change geometry here, never introduce per-screen widths or edge insets. */
++#game-main .screen{--comic-frame-inset:24px;--comic-frame-max:1480px;--comic-frame-top:calc(var(--layout-chrome,48px) + 12px);--comic-frame-bottom:var(--utility-bottom)}
++#game-main .screen :is(dialog.game-dialog.utility-panel.comic-menu,#drawer-bag.game-dialog.utility-panel,.trade-table.comic-main-frame){position:fixed;inset:var(--comic-frame-top) 0 var(--comic-frame-bottom);width:calc(100vw - 2 * var(--comic-frame-inset));max-width:var(--comic-frame-max);height:auto;min-height:0;max-height:none;margin:auto;box-sizing:border-box;border-width:2px;border-radius:var(--comic-radius)}
++@media(max-width:760px){#game-main .screen{--comic-frame-inset:6px;--comic-frame-top:6px}}

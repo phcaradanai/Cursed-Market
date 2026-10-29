@@ -1,0 +1,5 @@
+/* Main destination frame: inventory is the reference for every comic menu/screen.
+   Change geometry here, never introduce per-screen widths or edge insets. */
+#game-main .screen{--comic-frame-inset:24px;--comic-frame-max:1480px;--comic-frame-top:calc(var(--layout-chrome,48px) + 12px);--comic-frame-bottom:var(--utility-bottom)}
+#game-main .screen :is(dialog.game-dialog.utility-panel.comic-menu,#drawer-bag.game-dialog.utility-panel,.trade-table.comic-main-frame){position:fixed;inset:var(--comic-frame-top) 0 var(--comic-frame-bottom);width:calc(100vw - 2 * var(--comic-frame-inset));max-width:var(--comic-frame-max);height:auto;min-height:0;max-height:none;margin:auto;box-sizing:border-box;border-width:2px;border-radius:var(--comic-radius)}
+@media(max-width:760px){#game-main .screen{--comic-frame-inset:6px;--comic-frame-top:6px}}

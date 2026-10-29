@@ -1,0 +1,3 @@
+Comic build only. ItemSalePanel wraps existing FactSeals and Share(comic=true). Merge Share.fragment into existing components.tsx; add EyeIcon and ComicTooltip imports. Keep default Share callers unchanged. Add utilityOpen={openDrawer!==null||settingsOpen} to TradeScreen in GameTable; its dialogs pause while utilities open. Style files imported by ItemSalePanel. Main frame remains comic-frame.css; no engine change.
+
+Latest user correction supersedes decorative v02 styling: use existing ComicMenu header and ComicButton palette, not new brush captions/white controls. item-sale.css now contains layout and narrowly scoped fact/control resets only. CSS imported in main.tsx; comic-ink.css no longer imported.

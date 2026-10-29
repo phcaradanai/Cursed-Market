@@ -1,0 +1,1618 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-29",
+  "status": "screen-plan-not-runtime-phase-enumeration",
+  "style": {
+    "theme": "2D comic, red/black/white chrome, merchant/item palette retained",
+    "geometry": "shared inventory-menu bounds, same header/button height and corner radius, equal padding/gaps",
+    "viewport": "reference16:9,100vh,no page scroll for game; responsive rules require separate checks",
+    "art": "ink outlines, transparent cutouts above/side frame, lower character edge anchored, perspective goods",
+    "components": [
+      "shared HUD",
+      "shared menu shell",
+      "comic button",
+      "event choice card",
+      "item frame",
+      "pager",
+      "tooltip"
+    ]
+  },
+  "screens": [
+    {
+      "id": "U02",
+      "title": "ล็อบบี้และตั้งค่าโต๊ะ",
+      "phase": null,
+      "kind": "main",
+      "implementation": "runtime",
+      "trigger": "หน้าที่มีอยู่ใน comic build ปัจจุบัน",
+      "logicIds": [
+        "L32"
+      ],
+      "actionIds": [],
+      "nextIds": [
+        "S02"
+      ],
+      "conceptStatus": "reuse-existing",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "captures": [
+        {
+          "id": "C14",
+          "image": "captures/current-comic-2026-10-29/lobby.png",
+          "title": "ล็อบบี้",
+          "origin": "live-game"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureImage": "captures/current-comic-2026-10-29/lobby.png",
+      "designPolicy": "reuse-existing; change only explicit requested gap",
+      "captureNote": "",
+      "sourceRefs": []
+    },
+    {
+      "id": "U01",
+      "title": "เข้าเกมและสร้าง/เข้าห้อง",
+      "phase": null,
+      "kind": "main",
+      "implementation": "runtime",
+      "trigger": "หน้าที่มีอยู่ใน comic build ปัจจุบัน",
+      "logicIds": [
+        "L32"
+      ],
+      "actionIds": [],
+      "nextIds": [
+        "U02"
+      ],
+      "conceptStatus": "reuse-existing",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "captures": [
+        {
+          "id": "C13",
+          "image": "captures/current-comic-2026-10-29/entry.png",
+          "title": "เข้าเกม",
+          "origin": "live-game"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureImage": "captures/current-comic-2026-10-29/entry.png",
+      "designPolicy": "reuse-existing; change only explicit requested gap",
+      "captureNote": "",
+      "sourceRefs": []
+    },
+    {
+      "id": "S01",
+      "title": "เหตุการณ์ก่อนเลือกประตู",
+      "phase": "PORTALS",
+      "kind": "conditional-event",
+      "implementation": "runtime",
+      "trigger": "eventOffer ก่อนเข้าประตู; ไม่ได้เกิดทุกช่วง",
+      "logicIds": [
+        "L12",
+        "L27"
+      ],
+      "actionIds": [
+        "event"
+      ],
+      "nextIds": [
+        "S02"
+      ],
+      "conceptStatus": "draft",
+      "currentImage": "concepts/S01-E117-v03-hover.png",
+      "approvedImage": null,
+      "variants": [
+        {
+          "id": "E117",
+          "purpose": "ด่านเก็บค่าผ่าน; core2 current profile; ภาพร่างแรกก่อนเข้าประตู",
+          "image": "concepts/S01-E117-v01.png",
+          "brief": "concepts/S01-E117-v01.md",
+          "status": "superseded"
+        },
+        {
+          "id": "E117-v02",
+          "purpose": "เห็นพ่อค้า3ประตูและผลปิดเพียงหนึ่งประตูต่อตัวเลือก",
+          "image": "concepts/S01-E117-v02.png",
+          "brief": "concepts/S01-E117-v02.md",
+          "status": "superseded"
+        },
+        {
+          "id": "E117-v03-hover",
+          "purpose": "หน้าหลัก minimal ขณะ preview ผล; ปุ่มดูประตูใช้หน้าเดิม ไม่สร้างใหม่",
+          "image": "concepts/S01-E117-v03-hover.png",
+          "brief": "concepts/S01-E117-v03.md",
+          "status": "draft"
+        }
+      ],
+      "mustShow": [
+        "ชื่อเหตุการณ์และสิ่งที่กำลังเกิด",
+        "ตัวเลือกและต้นทุนก่อนกด",
+        "เครดิต พลัง ชีวิต เวลา ตาม HUD กลาง",
+        "ผลเฉพาะข้อมูลที่ผู้เล่นรู้",
+        "สามตัวเลือก E117: เครดิต2+พลัง1/รับD02/รับD06 พร้อมประตูที่ยังเลือกได้",
+        "ปุ่มดูประตูที่สลับไปเห็นทั้งสามพร้อมหมายเลขและพ่อค้าก่อนยืนยันผลปิดประตู",
+        "ผลแต่ละทางเลือกต้องชี้ประตูที่ปิดและประตูที่ยังเปิด โดยไม่อ้างว่าถูกบังคับเข้าอีกประตู"
+      ],
+      "mustNotShow": [
+        "คะแนนรวมซ้ำใน HUD",
+        "นิสัยพ่อค้า",
+        "ความแท้/คำสาปหรือราคาจริงที่ยังไม่เปิด",
+        "ปุ่มเลือกประตูที่กดข้าม event บังคับได้",
+        "คำว่าเลือกประตูแรก/ที่สองที่สื่อว่าประตูที่สามหายไป ทั้งที่ runtime ยังเปิดอยู่",
+        "กริดพ่อค้าครบสามประตูพร้อมเหตุการณ์ตลอดเวลา ทำให้หน้าหลักรก"
+      ],
+      "sourceSymbols": [
+        "generatePortals",
+        "resolveCore2Event",
+        "core2EventChoices"
+      ],
+      "exampleEventId": "E117",
+      "decisionContext": {
+        "required": [
+          "actual portal IDs and positions",
+          "merchant identity per visible portal",
+          "current disabled state",
+          "per-choice portal closing effect",
+          "surviving options including third portal"
+        ],
+        "examplePortals": [
+          {
+            "position": 1,
+            "npc": "orc"
+          },
+          {
+            "position": 2,
+            "npc": "vampire"
+          },
+          {
+            "position": 3,
+            "npc": "autometa"
+          }
+        ],
+        "choiceImpacts": {
+          "pay": {
+            "cost": {
+              "credits": 2,
+              "energy": 1
+            },
+            "closesPosition": 2,
+            "openPositions": [
+              1,
+              3
+            ]
+          },
+          "fog": {
+            "status": "D02",
+            "closesPosition": 1,
+            "openPositions": [
+              2,
+              3
+            ]
+          },
+          "burden": {
+            "status": "D06",
+            "closesPosition": 1,
+            "openPositions": [
+              2,
+              3
+            ]
+          }
+        },
+        "provenance": "resolveCore2Event disables index1 for door first, index0 for door second; other portals unchanged; existing disabled portals must remain disabled",
+        "presentation": {
+          "default": "minimal event illustration plus three choices; do not keep portal grid visible",
+          "portalPeek": {
+            "opener": "ดูประตู · 3",
+            "mode": "read-only same unresolved event",
+            "return": "กลับไปเหตุการณ์",
+            "preserve": [
+              "event identity",
+              "pending choice state",
+              "portal IDs and disabled state",
+              "existing timer behavior"
+            ],
+            "forbid": [
+              "submit event",
+              "enter portal",
+              "reroll portal",
+              "reset timer",
+              "dismiss unresolved event"
+            ],
+            "reuse": "existing S02 portal view/component; suppress entry actions while event unresolved; no new portal concept"
+          },
+          "choicePreview": {
+            "desktop": "hover or keyboard focus",
+            "touch": "tap dedicated info icon; never auto-submit from info",
+            "show": [
+              "credits/energy/life costs as applicable",
+              "status effect and known duration",
+              "actual portal number and merchant to close",
+              "actual portals remaining open"
+            ],
+            "highlight": "affected target/cost only; label preview, do not mutate HUD/state",
+            "dismiss": "pointer leave, focus leave or close info; restore focus appropriately"
+          }
+        }
+      },
+      "captures": [],
+      "captureStatus": "not-captured-yet",
+      "captureNote": "Code supports portal-event previews, but no matching preportal state captured in this session; do not infer missing implementation.",
+      "sourceRefs": [
+        {
+          "symbolId": "code:src/game/appraisal/engine.ts:generatePortals",
+          "file": "src/game/appraisal/engine.ts",
+          "line": 131,
+          "endLine": 139
+        },
+        {
+          "symbolId": "code:src/game/appraisal/core2-events.ts:resolveCore2Event",
+          "file": "src/game/appraisal/core2-events.ts",
+          "line": 79,
+          "endLine": 108
+        },
+        {
+          "symbolId": "code:src/game/appraisal/core2-events.ts:core2EventChoices",
+          "file": "src/game/appraisal/core2-events.ts",
+          "line": 31,
+          "endLine": 44
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "เลือกประตูและพ่อค้า",
+      "phase": "PORTALS",
+      "kind": "main",
+      "implementation": "runtime",
+      "trigger": "ผู้เล่นยังไม่เลือกประตู และไม่มี event ที่บังคับตอบ",
+      "logicIds": [
+        "L10",
+        "L12"
+      ],
+      "actionIds": [
+        "enter",
+        "reroll-portal"
+      ],
+      "nextIds": [
+        "S03",
+        "S04"
+      ],
+      "conceptStatus": "reuse-existing",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "sourceSymbols": [
+        "generatePortals",
+        "applyAppraisalAction"
+      ],
+      "designWork": "none unless user requests a specific change",
+      "notes": "ผู้ใช้ยืนยันว่ามีหน้าเลือกประตูแล้ว ใช้ของเดิม ห้าม gen หรือออกแบบหน้าใหม่ซ้ำ",
+      "captures": [
+        {
+          "id": "C01",
+          "image": "captures/current-comic-2026-10-29/merchants.png",
+          "title": "เลือกพ่อค้า/ประตู",
+          "origin": "existing-component-preview-fixture"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureImage": "captures/current-comic-2026-10-29/merchants.png",
+      "designPolicy": "reuse-existing; change only explicit requested gap",
+      "captureNote": "",
+      "merchantExpressionRule": "MERCHANT-EXPRESSION-01",
+      "sourceRefs": [
+        {
+          "symbolId": "code:src/game/appraisal/engine.ts:generatePortals",
+          "file": "src/game/appraisal/engine.ts",
+          "line": 131,
+          "endLine": 139
+        },
+        {
+          "symbolId": "code:src/game/appraisal/engine.ts:applyAppraisalAction",
+          "file": "src/game/appraisal/engine.ts",
+          "line": 322,
+          "endLine": 413
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "เหตุการณ์หลังเลือกประตู",
+      "phase": "APPRAISAL",
+      "kind": "conditional-event",
+      "implementation": "runtime",
+      "trigger": "เข้า APPRAISAL แล้วมี eventOffer ตาม config/eligibility",
+      "logicIds": [
+        "L20",
+        "L22",
+        "L27"
+      ],
+      "actionIds": [
+        "event"
+      ],
+      "nextIds": [
+        "S04"
+      ],
+      "conceptStatus": "implemented",
+      "currentImage": "concepts/S03-E109-v05.png",
+      "approvedImage": "concepts/S03-E109-v05.png",
+      "variants": [
+        {
+          "id": "E109-v01",
+          "purpose": "สัญญาเลือดหลังพบ Vampire; ต้นทุนทันทีและสุ่มผลในอนาคตเพียงหนึ่งอย่าง",
+          "image": "concepts/S03-E109-v01.png",
+          "brief": "concepts/S03-E109-v01.md",
+          "status": "superseded"
+        },
+        {
+          "id": "E109-v02",
+          "purpose": "ลดภาพพ่อค้าเหลือประมาณหนึ่งในสาม เพิ่มพื้นที่ข้อมูลและ comic halftone ตามผู้ใช้",
+          "image": "concepts/S03-E109-v02.png",
+          "brief": "concepts/S03-E109-v02.md",
+          "status": "superseded"
+        },
+        {
+          "id": "E109-v03",
+          "purpose": "Symmetry pass: จัดแนวคู่ต้นทุน/ผลตอบแทนและปุ่มคู่ ช่องไฟร่วม tooltip ไม่บังคำเตือน",
+          "image": "concepts/S03-E109-v03.png",
+          "brief": "concepts/S03-E109-v03.md",
+          "status": "superseded"
+        },
+        {
+          "id": "E109-v04",
+          "purpose": "ฐานพ่อค้าชิดขอบล่าง ทะลุกรอบบนซ้ายขวา ตามรูปแบบเดิม",
+          "image": "concepts/S03-E109-v04.png",
+          "brief": "concepts/S03-E109-v04.md",
+          "status": "superseded"
+        },
+        {
+          "id": "E109-v05",
+          "purpose": "เอากรอบและพื้นหลังเฉพาะพ่อค้าออก วาง cutout บนฉากตลาดโดยตรง ฐานชิดขอบล่าง",
+          "image": "concepts/S03-E109-v05.png",
+          "brief": "concepts/S03-E109-v05.md",
+          "status": "approved"
+        }
+      ],
+      "mustShow": [
+        "พ่อค้าที่เลือกพบและชื่อเหตุการณ์",
+        "ชีวิตปัจจุบัน ต้นทุน2 และชีวิตหลังจ่าย ก่อนยืนยัน",
+        "สุ่มเพียงหนึ่งผลเมื่อเลือกพบ Vampire ครั้งหน้า ไม่ใช่ทันที",
+        "จบเกมก่อนพบกันอีกไม่ได้ผลตอบแทน",
+        "ยอมรับ/ปฏิเสธและปุ่มซ่อนที่กลับไปดูโต๊ะเดิม"
+      ],
+      "mustNotShow": [
+        "ผลตอบแทนทั้งห้าเป็นสิ่งที่ได้รับพร้อมกัน",
+        "ข้อมูลสินค้าลับหรือของรางวัลที่ยังไม่สุ่ม",
+        "HUD ที่หักชีวิตจริงก่อนยืนยัน",
+        "หน้าเลือกประตูใหม่หรือ phase ใหม่"
+      ],
+      "sourceSymbols": [
+        "progress",
+        "npcEventEligible",
+        "resolvePersonalNpcEvent"
+      ],
+      "captures": [
+        {
+          "id": "C26",
+          "image": "captures/current-comic-2026-10-29/event-blood-pact.png",
+          "title": "E109 comic implementation · fixture",
+          "origin": "existing-component-preview-fixture"
+        }
+      ],
+      "captureStatus": "captured",
+      "captureNote": "E109 variant implemented in isolated comic build with existing event action and engine. Capture is a fixture, not live encounter. Other S03 event variants retain existing UI.",
+      "exampleEventId": "E109",
+      "decisionContext": {
+        "required": [
+          "chosen merchant identity",
+          "current life and immediate cost",
+          "pending contract eligibility",
+          "deferred next-meeting condition",
+          "one eligible random benefit only",
+          "end-of-run forfeiture"
+        ],
+        "example": {
+          "merchant": "vampire",
+          "lifeBefore": 4,
+          "lifeCost": 2,
+          "lifeAfter": 2
+        },
+        "presentation": {
+          "shell": "reuse S01 event shell and existing comic HUD/footer",
+          "details": "hover/focus tooltip; dedicated info action on touch",
+          "tuck": "reuse existing EventModal tuck; preserve unresolved offer and actual timer behavior",
+          "layout": "merchant approximately30%; equal two-column cost/reward and action pairs with shared edges/gutter; tooltip avoids warning/actions; actual implementation must use shared spacing tokens",
+          "portrait": "no dedicated portrait card/background frame; crisp cutout directly over market scene; bottom flush and clipped at outer content baseline; top/left/right may overlap without obscuring controls"
+        }
+      },
+      "captureImage": "captures/current-comic-2026-10-29/event-blood-pact.png",
+      "sourceRefs": [
+        {
+          "symbolId": "code:src/game/appraisal/engine.ts:progress",
+          "file": "src/game/appraisal/engine.ts",
+          "line": 212,
+          "endLine": 224
+        },
+        {
+          "symbolId": "code:src/game/appraisal/npc-events.ts:npcEventEligible",
+          "file": "src/game/appraisal/npc-events.ts",
+          "line": 19,
+          "endLine": 34
+        },
+        {
+          "symbolId": "code:src/game/appraisal/npc-events.ts:resolvePersonalNpcEvent",
+          "file": "src/game/appraisal/npc-events.ts",
+          "line": 78,
+          "endLine": 121
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "ประเมินและซื้อสินค้า",
+      "phase": "APPRAISAL",
+      "kind": "main",
+      "implementation": "runtime",
+      "trigger": "มี stock ของพ่อค้าที่เลือกและไม่มี event ค้าง",
+      "logicIds": [
+        "L01",
+        "L02",
+        "L03",
+        "L04"
+      ],
+      "actionIds": [
+        "inspect",
+        "appraise",
+        "counter",
+        "buy",
+        "done"
+      ],
+      "nextIds": [
+        "S05",
+        "S06"
+      ],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [
+        {
+          "id": "inspect",
+          "purpose": "ตรวจ"
+        },
+        {
+          "id": "appraise",
+          "purpose": "ตีราคา"
+        },
+        {
+          "id": "buy",
+          "purpose": "ซื้อ"
+        },
+        {
+          "id": "item-details",
+          "purpose": "ผลถือ/ใช้ ไม่ซ้ำข้อมูลหลัก"
+        },
+        {
+          "id": "merchant-offer",
+          "purpose": "ข้อเสนอและจ่ายซื้อ ไม่ซ้ำรูป/trust"
+        }
+      ],
+      "mustShow": [],
+      "mustNotShow": [],
+      "sourceSymbols": [
+        "progress",
+        "applyAppraisalAction"
+      ],
+      "captures": [
+        {
+          "id": "C02",
+          "image": "captures/current-comic-2026-10-29/inspection.png",
+          "title": "ประเมิน · ตรวจ",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C16",
+          "image": "captures/current-comic-2026-10-29/inspection-appraise.png",
+          "title": "ประเมิน · ตีราคา",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C17",
+          "image": "captures/current-comic-2026-10-29/inspection-buy.png",
+          "title": "ประเมิน · ซื้อ",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C18",
+          "image": "captures/current-comic-2026-10-29/inspection-item-details.png",
+          "title": "ประเมิน · รายละเอียดสินค้า",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C19",
+          "image": "captures/current-comic-2026-10-29/inspection-merchant-offer.png",
+          "title": "ประเมิน · ข้อเสนอพ่อค้า",
+          "origin": "existing-component-preview-fixture"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureImage": "captures/current-comic-2026-10-29/inspection.png",
+      "designPolicy": "reuse-existing; change only explicit requested gap",
+      "captureNote": "",
+      "merchantExpressionRule": "MERCHANT-EXPRESSION-01",
+      "sourceRefs": [
+        {
+          "symbolId": "code:src/game/appraisal/engine.ts:progress",
+          "file": "src/game/appraisal/engine.ts",
+          "line": 212,
+          "endLine": 224
+        },
+        {
+          "symbolId": "code:src/game/appraisal/engine.ts:applyAppraisalAction",
+          "file": "src/game/appraisal/engine.ts",
+          "line": 322,
+          "endLine": 413
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "เหตุการณ์ก่อนซื้อขายระหว่างผู้เล่น",
+      "phase": "TRADE",
+      "kind": "conditional-event",
+      "implementation": "runtime",
+      "trigger": "เปลี่ยนจาก APPRAISAL เป็น TRADE แล้วสุ่ม event ได้",
+      "logicIds": [
+        "L06",
+        "L27"
+      ],
+      "actionIds": [
+        "event"
+      ],
+      "nextIds": [
+        "S06"
+      ],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "sourceSymbols": [
+        "progress"
+      ],
+      "captures": [
+        {
+          "id": "C15",
+          "image": "captures/current-comic-2026-10-29/live-current-event.png",
+          "title": "เหตุการณ์ E101 ตลาดนัดข้ามมิติ · เกมจริง",
+          "origin": "live-game"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureImage": "captures/current-comic-2026-10-29/live-current-event.png",
+      "designPolicy": "reuse-existing; change only explicit requested gap",
+      "captureNote": "",
+      "sourceRefs": [
+        {
+          "symbolId": "code:src/game/appraisal/engine.ts:progress",
+          "file": "src/game/appraisal/engine.ts",
+          "line": 212,
+          "endLine": 224
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "ซื้อขายระหว่างผู้เล่น",
+      "phase": "TRADE",
+      "kind": "main",
+      "implementation": "runtime",
+      "trigger": "เปิดช่วง TRADE; บริการขึ้นตามสิทธิ์ ไม่ต้องแสดงทุกอย่างพร้อมกัน",
+      "logicIds": [
+        "L05",
+        "L06"
+      ],
+      "actionIds": [
+        "propose",
+        "respond",
+        "done",
+        "share"
+      ],
+      "nextIds": [
+        "S07",
+        "S08",
+        "S12"
+      ],
+      "conceptStatus": "implemented",
+      "currentImage": "concepts/S06-table-v05.png",
+      "approvedImage": "concepts/S06-table-v05.png",
+      "variants": [
+        {
+          "id": "trade-v01",
+          "purpose": "layout รายการและรายละเอียดซื้อขาย; ภาพร่างรอ feedback",
+          "image": "concepts/S06-trade-v01.png",
+          "brief": "concepts/S06-trade-v01.md",
+          "status": "superseded"
+        },
+        {
+          "id": "trade-v02",
+          "purpose": "ปรับ symmetry ครั้งแรก แต่ผู้ใช้ยังเห็นว่าไม่สมมาตร",
+          "image": "concepts/S06-trade-v02.png",
+          "brief": "concepts/S06-trade-v01.md",
+          "status": "superseded"
+        },
+        {
+          "id": "trade-v03",
+          "purpose": "ปรับกรอบคู่ แนวและปุ่มตามคำขอ symmetry; ยังรอ feedback",
+          "image": "concepts/S06-trade-v03.png",
+          "brief": "concepts/S06-trade-v03.md",
+          "status": "superseded"
+        },
+        {
+          "id": "trade-v04",
+          "purpose": "ลดกล่อง ใช้กรอบหลักเดียว และตัวเลือกการขายช่องล่างซ้าย",
+          "image": "concepts/S06-trade-v04.png",
+          "brief": "concepts/S06-trade-v04.md",
+          "status": "superseded"
+        },
+        {
+          "id": "table-v05",
+          "purpose": "โต๊ะใหญ่ 3–4ชิ้น overlay กระเป๋า ผู้เล่น และ paging วน",
+          "image": "concepts/S06-table-v05.png",
+          "brief": "concepts/S06-table-v05.md",
+          "status": "draft"
+        },
+        {
+          "id": "item-sale-v01",
+          "purpose": "ร่างหน้ารายละเอียดสินค้าและประกาศขาย กรอบมาตรฐานเดียวกับกระเป๋า สองคอลัมน์เท่ากัน ไม่มี scroll;ยังไม่อนุมัติ/ไม่แก้runtime",
+          "image": "concepts/S06-item-sale-v01.png",
+          "brief": "concepts/S06-item-sale-v01.md",
+          "status": "draft"
+        },
+        {
+          "id": "item-sale-v02",
+          "purpose": "เพิ่มภาษาcomicที่UI: เส้นหมึก captionแดง/ขาว halftone ปุ่มพื้นราบ คงกรอบและstateเดิม",
+          "image": "concepts/S06-item-sale-v02.png",
+          "brief": "concepts/S06-item-sale-v02.md",
+          "status": "implemented",
+          "captureImage": "captures/current-comic-2026-10-29/trade-item-sale.png",
+          "implementationNote": "Implemented behavior/layout, then user requested consistency pass: existing ComicMenu/ComicButton styles supersede decorative brush captions and white controls; C28 is current runtime look."
+        }
+      ],
+      "mustShow": [
+        "รายการสินค้าและเจ้าของ/ที่มาเท่าที่ผู้เล่นรู้",
+        "ราคาพ่อค้าและค่าเสนอแยกกันเมื่อเป็นสินค้า NPC",
+        "ปุ่มตามสิทธิ์และสถานะรายการจริง",
+        "ข้อเสนอเข้า/ออกและการตอบรับหรือปฏิเสธเมื่อมี",
+        "ต้นทุนรวมและผลกระทบที่ทราบก่อนยืนยัน"
+      ],
+      "mustNotShow": [
+        "มูลค่าจริง/ความแท้/คำสาปที่ยังไม่รู้",
+        "ตีความสินค้าเปิดให้ชมว่าเปิดขาย",
+        "ข้อมูลตัวอย่างเป็นหลักฐานว่ามีการซื้อขายจริง"
+      ],
+      "sourceSymbols": [
+        "progress"
+      ],
+      "captures": [
+        {
+          "id": "C03",
+          "image": "captures/current-comic-2026-10-29/trade.png",
+          "title": "ซื้อขายระหว่างผู้เล่น",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C27",
+          "image": "captures/current-comic-2026-10-29/trade-table.png",
+          "title": "โต๊ะซื้อขาย implementation",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C28",
+          "image": "captures/current-comic-2026-10-29/trade-item-sale.png",
+          "title": "รายละเอียดและประกาศขาย · comic v02",
+          "origin": "existing-component-preview-fixture"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureImage": "captures/current-comic-2026-10-29/trade-table.png",
+      "designPolicy": "redesign requested; use existing logic, shared components and explicit owner/listing states",
+      "captureNote": "",
+      "tableNavigation": {
+        "initial": "own-appraised-merchant-stock",
+        "down": "own-inventory",
+        "up": "return-to-initial-table",
+        "ownPaging": "right cyclic pages when multiple",
+        "players": "left rail on own table only",
+        "otherPlayerPaging": "left cyclic pages when multiple",
+        "otherPlayerReturn": "right to own table before choosing another player",
+        "pageSize": "3–4 according to viewport",
+        "status": "implemented in isolated comic build; preview navigation verified",
+        "returnPolicy": "return to initial own merchant table, page0"
+      },
+      "sourceRefs": [
+        {
+          "symbolId": "code:src/game/appraisal/engine.ts:progress",
+          "file": "src/game/appraisal/engine.ts",
+          "line": 212,
+          "endLine": 224
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "title": "สรุปผลก่อนรับเงินท้ายช่วง",
+      "phase": "TRADE",
+      "kind": "transition",
+      "implementation": "presentation-proposal",
+      "trigger": "ภาพสรุป settleEncounter: ของขายไม่ออก/ประมูล/ผลติดตัว/ชีวิต; ไม่ใช่ phase หรือ event บังคับใหม่",
+      "logicIds": [
+        "L07",
+        "L08",
+        "L24",
+        "L26"
+      ],
+      "actionIds": [],
+      "nextIds": [
+        "S08",
+        "S12"
+      ],
+      "conceptStatus": "draft",
+      "currentImage": "concepts/S07-summary-v01.png",
+      "approvedImage": null,
+      "variants": [
+        {
+          "id": "summary-v01",
+          "purpose": "สรุปสาเหตุและทรัพยากรก่อนรับเครดิต; presentation proposal",
+          "image": "concepts/S07-summary-v01.png",
+          "brief": "concepts/S07-summary-v01.md",
+          "status": "draft"
+        }
+      ],
+      "mustShow": [
+        "ผลที่เกิดจริงและสาเหตุที่ผู้เล่นรู้",
+        "ยอดทรัพยากรก่อนและหลัง ไม่รวมเงินรางวัลที่ยังไม่รับ",
+        "ทางไปบันทึกหรือผลถัดไปตาม phase จริง"
+      ],
+      "mustNotShow": [
+        "กฎใหม่ว่าต้องเสียชีวิตทุกช่วง",
+        "ข้อมูลสินค้าลับ",
+        "ปุ่มที่จ่ายรางวัลหรือเพิ่ม phase โดยไม่มี runtime"
+      ],
+      "sourceSymbols": [
+        "settleEncounter"
+      ],
+      "captures": [],
+      "captureStatus": "not-captured-yet",
+      "captureNote": "Not captured is not proof this screen is absent.",
+      "sourceRefs": [
+        {
+          "symbolId": "code:src/game/appraisal/engine.ts:settleEncounter",
+          "file": "src/game/appraisal/engine.ts",
+          "line": 187,
+          "endLine": 211
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "รับเครดิตท้ายช่วงและเสี่ยงเหรียญ",
+      "phase": "REVEAL",
+      "kind": "main",
+      "implementation": "runtime",
+      "trigger": "มี roundReward และยังไม่ settled; อาจข้ามไปผลจบเกมแทนถ้า Collector มา",
+      "logicIds": [
+        "L28"
+      ],
+      "actionIds": [
+        "round-bank",
+        "round-flip",
+        "round-raise"
+      ],
+      "nextIds": [
+        "S09"
+      ],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [
+        {
+          "id": "unsettled",
+          "purpose": "รับเลยหรือเสี่ยง"
+        },
+        {
+          "id": "tossing",
+          "purpose": "รอแอนิเมชันไม่ส่งซ้ำ"
+        },
+        {
+          "id": "settled",
+          "purpose": "รับแล้วและบริการหลังรับเงิน"
+        }
+      ],
+      "mustShow": [],
+      "mustNotShow": [],
+      "sourceSymbols": [
+        "settleEncounter",
+        "openRoundRewards"
+      ],
+      "captures": [
+        {
+          "id": "C04",
+          "image": "captures/current-comic-2026-10-29/reveal.png",
+          "title": "สรุปท้ายช่วง · fixture ไม่มี roundReward",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C21",
+          "image": "captures/current-comic-2026-10-29/live-salary.png",
+          "title": "รับเครดิตและเสี่ยงเหรียญ · เกมจริง",
+          "origin": "live-game"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureImage": "captures/current-comic-2026-10-29/live-salary.png",
+      "designPolicy": "reuse-existing; change only explicit requested gap",
+      "captureNote": "Actual salary controls captured separately from preview summary without reward.",
+      "sourceRefs": [
+        {
+          "symbolId": "code:src/game/appraisal/engine.ts:settleEncounter",
+          "file": "src/game/appraisal/engine.ts",
+          "line": 187,
+          "endLine": 211
+        },
+        {
+          "symbolId": "code:src/game/appraisal/round-rewards.ts:openRoundRewards",
+          "file": "src/game/appraisal/round-rewards.ts",
+          "line": 8,
+          "endLine": 20
+        }
+      ]
+    },
+    {
+      "id": "S09",
+      "title": "บริการหลังรับเงินและพร้อมไปช่วงหน้า",
+      "phase": "REVEAL",
+      "kind": "main",
+      "implementation": "runtime",
+      "trigger": "รับรางวัลแล้ว; ฝากถอน Vault ได้เฉพาะหน้าต่างนี้",
+      "logicIds": [
+        "L16",
+        "L17",
+        "L18"
+      ],
+      "actionIds": [
+        "vault-deposit-credits",
+        "vault-withdraw-credits",
+        "vault-deposit-item",
+        "vault-withdraw-item",
+        "vault-expand"
+      ],
+      "nextIds": [
+        "S02",
+        "S12"
+      ],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "sourceSymbols": [
+        "advanceAppraisalEncounter",
+        "handleStorageAction"
+      ],
+      "captures": [],
+      "captureStatus": "not-captured-yet",
+      "captureNote": "Not captured is not proof this screen is absent.",
+      "sourceRefs": [
+        {
+          "symbolId": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+          "file": "src/game/appraisal/engine.ts",
+          "line": 414,
+          "endLine": 444
+        },
+        {
+          "symbolId": "code:src/game/appraisal/secure-storage.ts:handleStorageAction",
+          "file": "src/game/appraisal/secure-storage.ts",
+          "line": 70,
+          "endLine": 102
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "title": "รอผู้เล่นอื่น",
+      "phase": "PORTALS",
+      "kind": "waiting",
+      "implementation": "runtime",
+      "trigger": "ตนเอง done/paused แต่เกมหลักยังไม่เปลี่ยน phase; ใช้เป็น variant ใน phase อื่นได้",
+      "logicIds": [
+        "L32"
+      ],
+      "actionIds": [],
+      "nextIds": [],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "captures": [],
+      "captureStatus": "not-captured-yet",
+      "captureNote": "Not captured is not proof this screen is absent.",
+      "sourceRefs": []
+    },
+    {
+      "id": "S11",
+      "title": "เสียชีวิตและทางเข้าโลกวิญญาณ",
+      "phase": null,
+      "kind": "transition",
+      "implementation": "mixed",
+      "trigger": "ตายถาวรครั้งเดียว; runtime มี dead/spectate ส่วนบริการวิญญาณยังเป็นข้อเสนอ",
+      "logicIds": [
+        "L24"
+      ],
+      "actionIds": [],
+      "nextIds": [
+        "G01"
+      ],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "sourceSymbols": [
+        "kill"
+      ],
+      "captures": [],
+      "captureStatus": "not-captured-yet",
+      "captureNote": "Not captured is not proof this screen is absent.",
+      "sourceRefs": [
+        {
+          "symbolId": "code:src/game/appraisal/mechanics.ts:kill",
+          "file": "src/game/appraisal/mechanics.ts",
+          "line": 479,
+          "endLine": 483
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "title": "Collector มาถึง",
+      "phase": null,
+      "kind": "transition",
+      "implementation": "mixed",
+      "trigger": "collectorDue หรือทุกคนหมดชีวิตแล้ว collectRun; presentation แยกจาก results ยังต้องออกแบบ",
+      "logicIds": [
+        "L29",
+        "L30"
+      ],
+      "actionIds": [],
+      "nextIds": [
+        "S13"
+      ],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "sourceSymbols": [
+        "collectRun",
+        "collectorDue"
+      ],
+      "captures": [],
+      "captureStatus": "not-captured-yet",
+      "captureNote": "Not captured is not proof this screen is absent.",
+      "sourceRefs": [
+        {
+          "symbolId": "code:src/game/appraisal/survival.ts:collectRun",
+          "file": "src/game/appraisal/survival.ts",
+          "line": 14,
+          "endLine": 34
+        },
+        {
+          "symbolId": "code:src/game/appraisal/survival.ts:collectorDue",
+          "file": "src/game/appraisal/survival.ts",
+          "line": 13,
+          "endLine": 13
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "title": "ผลเกมและอันดับ",
+      "phase": "RESULTS",
+      "kind": "main",
+      "implementation": "mixed",
+      "trigger": "runtime มีผล Collector; โบนัสผู้นำ/หลายสาย/วิญญาณยังพัฒนาไม่ครบ",
+      "logicIds": [
+        "L29",
+        "L30",
+        "L32"
+      ],
+      "actionIds": [],
+      "nextIds": [],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "sourceSymbols": [
+        "collectRun"
+      ],
+      "captures": [
+        {
+          "id": "C05",
+          "image": "captures/current-comic-2026-10-29/results.png",
+          "title": "ผลเกม · fixture",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C25",
+          "image": "captures/current-comic-2026-10-29/live-results.png",
+          "title": "ผลเกม · เกมจริง",
+          "origin": "live-game"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureImage": "captures/current-comic-2026-10-29/live-results.png",
+      "designPolicy": "reuse-existing; change only explicit requested gap",
+      "captureNote": "",
+      "sourceRefs": [
+        {
+          "symbolId": "code:src/game/appraisal/survival.ts:collectRun",
+          "file": "src/game/appraisal/survival.ts",
+          "line": 14,
+          "endLine": 34
+        }
+      ]
+    },
+    {
+      "id": "M01",
+      "title": "กระเป๋า",
+      "phase": null,
+      "kind": "menu",
+      "implementation": "runtime",
+      "trigger": "เปิดจากเมนูระหว่าง phase ที่อนุญาต; action ตาม phase",
+      "logicIds": [
+        "L01",
+        "L02",
+        "L03",
+        "L33"
+      ],
+      "actionIds": [
+        "activate",
+        "reappraise-owned"
+      ],
+      "nextIds": [],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "captures": [
+        {
+          "id": "C06",
+          "image": "captures/current-comic-2026-10-29/inventory.png",
+          "title": "กระเป๋า",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C20",
+          "image": "captures/current-comic-2026-10-29/inventory-details.png",
+          "title": "กระเป๋า · รายละเอียดผลใช้งาน",
+          "origin": "existing-component-preview-fixture"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureImage": "captures/current-comic-2026-10-29/inventory.png",
+      "designPolicy": "reuse-existing; change only explicit requested gap",
+      "captureNote": "",
+      "sourceRefs": []
+    },
+    {
+      "id": "M02",
+      "title": "สถานะและเส้นทางกลยุทธ์",
+      "phase": null,
+      "kind": "menu",
+      "implementation": "mixed",
+      "trigger": "แสดงสถานะ/trust; progress หลายสายยังเป็นข้อเสนอ",
+      "logicIds": [
+        "L10",
+        "L11",
+        "L23",
+        "L24",
+        "L27",
+        "L30"
+      ],
+      "actionIds": [],
+      "nextIds": [],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "captures": [
+        {
+          "id": "C07",
+          "image": "captures/current-comic-2026-10-29/status.png",
+          "title": "สถานะ",
+          "origin": "existing-component-preview-fixture"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureImage": "captures/current-comic-2026-10-29/status.png",
+      "designPolicy": "reuse-existing; change only explicit requested gap",
+      "captureNote": "Current status exists; strategic-path progress is not implemented.",
+      "sourceRefs": []
+    },
+    {
+      "id": "M03",
+      "title": "ตลาดมืดและประมูล",
+      "phase": null,
+      "kind": "menu",
+      "implementation": "runtime",
+      "trigger": "ตลาด/auction เปิดตาม config และช่วงเวลา ไม่บังคับทุก encounter",
+      "logicIds": [
+        "L07",
+        "L08"
+      ],
+      "actionIds": [
+        "market-sell",
+        "bid"
+      ],
+      "nextIds": [],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "captures": [
+        {
+          "id": "C08",
+          "image": "captures/current-comic-2026-10-29/market.png",
+          "title": "ตลาดมืด · รายการรับซื้อ",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C09",
+          "image": "captures/current-comic-2026-10-29/market-demo.png",
+          "title": "ตลาดมืด · fixture รายการครบ",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C22",
+          "image": "captures/current-comic-2026-10-29/market-sale-detail.png",
+          "title": "ตลาดมืด · รายละเอียดรับซื้อ",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C23",
+          "image": "captures/current-comic-2026-10-29/market-auction-list.png",
+          "title": "ตลาดมืด · รายการประมูล",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C24",
+          "image": "captures/current-comic-2026-10-29/market-auction-detail.png",
+          "title": "ตลาดมืด · รายละเอียดประมูล",
+          "origin": "existing-component-preview-fixture"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureImage": "captures/current-comic-2026-10-29/market.png",
+      "designPolicy": "reuse-existing; change only explicit requested gap",
+      "captureNote": "",
+      "sourceRefs": []
+    },
+    {
+      "id": "M04",
+      "title": "บันทึกเหตุการณ์",
+      "phase": null,
+      "kind": "menu",
+      "implementation": "runtime",
+      "trigger": "ข้อมูลเฉพาะที่ผู้เล่นมีสิทธิ์เห็น; ไม่เปิด seed/hidden facts ก่อนจบ",
+      "logicIds": [
+        "L32"
+      ],
+      "actionIds": [],
+      "nextIds": [],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "captures": [
+        {
+          "id": "C10",
+          "image": "captures/current-comic-2026-10-29/ledger.png",
+          "title": "บันทึกเหตุการณ์ · fixture",
+          "origin": "existing-component-preview-fixture"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureImage": "captures/current-comic-2026-10-29/ledger.png",
+      "designPolicy": "reuse-existing; change only explicit requested gap",
+      "captureNote": "",
+      "sourceRefs": []
+    },
+    {
+      "id": "M05",
+      "title": "กติกา",
+      "phase": null,
+      "kind": "menu",
+      "implementation": "runtime",
+      "trigger": "เปิดอ่านกฎที่ตรงกับ run config",
+      "logicIds": [
+        "L32"
+      ],
+      "actionIds": [],
+      "nextIds": [],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "captures": [
+        {
+          "id": "C11",
+          "image": "captures/current-comic-2026-10-29/rules.png",
+          "title": "กติกา",
+          "origin": "existing-component-preview-fixture"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureImage": "captures/current-comic-2026-10-29/rules.png",
+      "designPolicy": "reuse-existing; change only explicit requested gap",
+      "captureNote": "",
+      "sourceRefs": []
+    },
+    {
+      "id": "M06",
+      "title": "ตั้งค่า",
+      "phase": null,
+      "kind": "menu",
+      "implementation": "runtime",
+      "trigger": "ใช้ตัวเลือกที่เกมรองรับจริง ไม่เพิ่ม settings จากภาพเอง",
+      "logicIds": [
+        "L32"
+      ],
+      "actionIds": [],
+      "nextIds": [],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "captures": [
+        {
+          "id": "C12",
+          "image": "captures/current-comic-2026-10-29/settings.png",
+          "title": "ตั้งค่า",
+          "origin": "existing-component-preview-fixture"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureImage": "captures/current-comic-2026-10-29/settings.png",
+      "designPolicy": "reuse-existing; change only explicit requested gap",
+      "captureNote": "",
+      "sourceRefs": []
+    },
+    {
+      "id": "A01",
+      "title": "ข้อเสนอเงินกู้และหลักประกัน",
+      "phase": null,
+      "kind": "interaction",
+      "implementation": "runtime",
+      "trigger": "คู่สัญญามีสิทธิ์เสนอ/ตอบรับ/ชำระตาม loanWindow",
+      "logicIds": [
+        "L18",
+        "L33"
+      ],
+      "actionIds": [
+        "loan-propose",
+        "loan-counter",
+        "loan-respond",
+        "loan-repay"
+      ],
+      "nextIds": [],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "captures": [],
+      "captureStatus": "not-captured-yet",
+      "captureNote": "Not captured is not proof this screen is absent.",
+      "sourceRefs": []
+    },
+    {
+      "id": "A02",
+      "title": "ขโมยและเป่ายิ้งฉุบ",
+      "phase": null,
+      "kind": "interaction",
+      "implementation": "mixed",
+      "trigger": "มี duel ค้าง; forced RPS ยืนยันแล้วแต่ timeout runtime ยังมีช่องว่าง",
+      "logicIds": [
+        "L13",
+        "L14",
+        "L15"
+      ],
+      "actionIds": [
+        "theft-start",
+        "theft-hand"
+      ],
+      "nextIds": [],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "captures": [],
+      "captureStatus": "not-captured-yet",
+      "captureNote": "Not captured is not proof this screen is absent.",
+      "sourceRefs": []
+    },
+    {
+      "id": "A03",
+      "title": "ตราบาปและแลกคืน",
+      "phase": null,
+      "kind": "interaction",
+      "implementation": "runtime",
+      "trigger": "ผู้เล่นมีสิทธิ์ตาม seal offer/redeem",
+      "logicIds": [
+        "L19",
+        "L33"
+      ],
+      "actionIds": [
+        "seal-offer",
+        "seal-respond",
+        "seal-redeem",
+        "seal-pick"
+      ],
+      "nextIds": [],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "captures": [],
+      "captureStatus": "not-captured-yet",
+      "captureNote": "Not captured is not proof this screen is absent.",
+      "sourceRefs": []
+    },
+    {
+      "id": "A04",
+      "title": "ของขายไม่ออก",
+      "phase": "APPRAISAL",
+      "kind": "interaction",
+      "implementation": "runtime",
+      "trigger": "มี unsold choices ก่อนปิดช่วง; ตำแหน่งตามเงื่อนไขจริง",
+      "logicIds": [
+        "L05",
+        "L07"
+      ],
+      "actionIds": [
+        "unsold"
+      ],
+      "nextIds": [],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "captures": [],
+      "captureStatus": "not-captured-yet",
+      "captureNote": "Not captured is not proof this screen is absent.",
+      "sourceRefs": []
+    },
+    {
+      "id": "A05",
+      "title": "Collector Wishlist",
+      "phase": null,
+      "kind": "interaction",
+      "implementation": "design-only",
+      "trigger": "Wishlist 3+2 ที่ผู้ใช้ยืนยัน ยังไม่มี dedicated runtime; ไม่ใช่ E73",
+      "logicIds": [
+        "L21"
+      ],
+      "actionIds": [],
+      "nextIds": [],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "captures": [],
+      "captureStatus": "design-only-not-captured",
+      "captureNote": "",
+      "sourceRefs": []
+    },
+    {
+      "id": "G01",
+      "title": "วิญญาณติดตามการ์ด",
+      "phase": null,
+      "kind": "ghost",
+      "implementation": "design-only",
+      "trigger": "ตายแล้ว ต้องชนะติดตามการ์ดสี่ใบเพื่อเปิดบริการ",
+      "logicIds": [
+        "L24"
+      ],
+      "actionIds": [],
+      "nextIds": [
+        "G02"
+      ],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "captures": [],
+      "captureStatus": "design-only-not-captured",
+      "captureNote": "",
+      "sourceRefs": []
+    },
+    {
+      "id": "G02",
+      "title": "เรียกบริการและตกลงสัญญาวิญญาณ",
+      "phase": null,
+      "kind": "ghost",
+      "implementation": "design-only",
+      "trigger": "ผู้มีชีวิตเลือกหนึ่งในสามสินค้าและตกลงค่าจ้างกับวิญญาณที่เปิดบริการ",
+      "logicIds": [
+        "L06"
+      ],
+      "actionIds": [],
+      "nextIds": [
+        "G03"
+      ],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "captures": [],
+      "captureStatus": "design-only-not-captured",
+      "captureNote": "",
+      "sourceRefs": []
+    },
+    {
+      "id": "G03",
+      "title": "ร้าน Skeleton และ RPS แยกสามช่อง",
+      "phase": null,
+      "kind": "ghost",
+      "implementation": "design-only",
+      "trigger": "ซื้อได้เฉพาะเป้าหมายตามงาน; แต่ละช่องแพ้แยกกัน; แพ้ครบสามรอช่วงหน้า",
+      "logicIds": [
+        "L33"
+      ],
+      "actionIds": [],
+      "nextIds": [
+        "G04"
+      ],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "captures": [],
+      "captureStatus": "design-only-not-captured",
+      "captureNote": "",
+      "sourceRefs": []
+    },
+    {
+      "id": "G04",
+      "title": "ส่งมอบและคะแนนพิเศษวิญญาณ",
+      "phase": null,
+      "kind": "ghost",
+      "implementation": "design-only",
+      "trigger": "สำเร็จจึงจ่าย;10%baseหักราคาสินค้า; อัตราแปลงคะแนนยังไม่ยืนยัน",
+      "logicIds": [
+        "L30",
+        "L33"
+      ],
+      "actionIds": [],
+      "nextIds": [
+        "G01"
+      ],
+      "conceptStatus": "planned",
+      "currentImage": null,
+      "approvedImage": null,
+      "variants": [],
+      "mustShow": [],
+      "mustNotShow": [],
+      "captures": [],
+      "captureStatus": "design-only-not-captured",
+      "captureNote": "",
+      "sourceRefs": []
+    }
+  ],
+  "notes": [
+    "nextIds are editorial screen flow, not unconditional runtime transitions",
+    "events are conditional overlays, not extra phases",
+    "menus are available by permissions; buying/selling actions remain phase-gated",
+    "concept approval does not prove implementation; keep planned/draft/approved/implemented distinct",
+    "pending ghost/strategy rules are not silently supplied by an image",
+    "planned is an inventory placeholder, not a request to regenerate every existing screen; check existing implementation/concept before any work"
+  ],
+  "merchantExpressionRules": {
+    "id": "MERCHANT-EXPRESSION-01",
+    "status": "confirmed-design-not-implemented",
+    "confirmedOn": "2026-10-29",
+    "summary": "ใช้ท่าพ่อค้าเพื่อสะท้อนบริบทและผลการตัดสินใจ โดยใช้ component กลางร่วมกัน",
+    "poses": [
+      {
+        "id": "idle",
+        "label": "idle",
+        "assetStatus": "พบ idle.png ครบ 8 ราย",
+        "meaning": "ท่าปกติ"
+      },
+      {
+        "id": "angry",
+        "label": "angry",
+        "assetStatus": "พบ angry.png ครบ 8 ราย",
+        "meaning": "แสดงเมื่อไม่ถูกเลือกหรือไม่ยอมรับการตีราคา"
+      },
+      {
+        "id": "smile",
+        "label": "smile",
+        "assetStatus": "พบ smile.png ครบ 8 ราย",
+        "meaning": "แสดงเมื่อถูกเลือกหรือยอมรับการตีราคา"
+      }
+    ],
+    "flows": [
+      {
+        "screenId": "S02",
+        "when": "ก่อนเลือกประตู",
+        "reaction": "พ่อค้าทุกประตูใช้ idle"
+      },
+      {
+        "screenId": "S02",
+        "when": "ยืนยันเลือกพ่อค้า",
+        "reaction": "พ่อค้าที่เลือก smile; พ่อค้าอื่นที่ไม่ถูกเลือก angry ก่อนเข้าสู่หน้าถัดไป"
+      },
+      {
+        "screenId": "S04",
+        "when": "เริ่มหน้าประเมิน",
+        "reaction": "พ่อค้าที่เลือกใช้ idle เมื่อเริ่มหน้าประเมิน"
+      },
+      {
+        "screenId": "S04",
+        "when": "ทราบผลการตีราคาที่เสนอ",
+        "reaction": "พ่อค้ายอมรับ → smile; พ่อค้าไม่ยอมรับ → angry"
+      }
+    ],
+    "constraints": [
+      "ใช้ผลยืนยันจริงจากเกม ไม่แสดงผลล่วงหน้าหรือเปิดข้อมูลที่ยังไม่รู้",
+      "สัดส่วนและฐานรูปใช้ MerchantEventPortrait component กลาง; ปุ่ม spacing radius และ tooltip ใช้ component/token กลาง",
+      "แสดงปฏิกิริยาโดยไม่บล็อกเมนู ไม่เปลี่ยนต้นทุน logic หรือรีเซ็ตเวลา",
+      "ยังต้องกำหนดระยะเวลาเปลี่ยนเฟรม เงื่อนไข timeout/reconnect และลด motion ก่อนลง implementation",
+      "ตรวจสัดส่วน smile/angry ทุกคนก่อนใช้; ใช้เพียง 3 ท่าที่มี ไม่ต้องหาท่ายื่นมือ"
+    ],
+    "source": "ผู้ใช้ยืนยัน 2026-10-29"
+  }
+}

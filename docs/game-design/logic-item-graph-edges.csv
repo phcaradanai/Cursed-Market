@@ -1,0 +1,306 @@
+﻿source,target,type,role,label,condition,amount,status,description
+merchant:orc,item:orc-oath-sword,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:orc,item:orc-tusk-shield,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:orc,item:orc-ironroot-greaves,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:orc,item:orc-ember-salve,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:orc,item:orc-bone-war-drum,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:orc,item:orc-tally-beads,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:orc,item:orc-clan-forge-tongs,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:vampire,item:vampire-mist-cloak,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:vampire,item:vampire-nocturne-signet,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:vampire,item:vampire-shadow-wine-decanter,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:vampire,item:vampire-gloam-violin,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:vampire,item:vampire-mist-atomizer,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:vampire,item:vampire-midnight-invitation,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:vampire,item:vampire-mooncut-sword,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:autometa,item:autometa-coil-repeater,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:autometa,item:autometa-clockwork-sentry,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:autometa,item:autometa-data-prism,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:autometa,item:autometa-coolant-canister,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:autometa,item:autometa-torque-caliper,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:autometa,item:autometa-folding-beacon,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:autometa,item:autometa-servo-harness,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:alien,item:alien-spore-lantern,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:alien,item:alien-echoweave-shawl,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:alien,item:alien-star-chart-membrane,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:alien,item:alien-biobright-seedpod,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:alien,item:alien-thought-translator,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:alien,item:alien-phase-dial,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:alien,item:alien-phase-staff,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:darkone,item:darkone-null-sword,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:darkone,item:darkone-null-testament,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:darkone,item:darkone-debt-chain,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:darkone,item:darkone-omen-censer,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:darkone,item:darkone-ash-seal,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:darkone,item:darkone-crossing-token,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:darkone,item:darkone-silence-snuffer,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:deepsea,item:deepsea-abyss-trident,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:deepsea,item:deepsea-pressure-cuirass,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:deepsea,item:deepsea-tide-compass,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:deepsea,item:deepsea-kelp-saddle,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:deepsea,item:deepsea-tideglass-buoy,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:deepsea,item:deepsea-lanternfish-cage,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:deepsea,item:deepsea-whale-conch-horn,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:swarm,item:swarm-brood-hammer,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:swarm,item:swarm-pheromone-sprayer,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:swarm,item:swarm-hive-egg-cluster,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:swarm,item:swarm-resin-spool,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:swarm,item:swarm-wing-membrane-glider,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:swarm,item:swarm-pupa-cradle,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:swarm,item:swarm-chitin-cuirass,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:beast,item:beast-trail-scent-disc,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:beast,item:beast-tracker-horn,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:beast,item:beast-rift-saddle,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:beast,item:beast-springjaw-trap,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:beast,item:beast-amber-fur-mantle,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:beast,item:beast-fangline-lasso,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+merchant:beast,item:beast-riftfang-sword,ownership,catalog,อยู่ในชุดพ่อค้า,,,catalog,ข้อมูลจาก merchant-set-v1; ไม่ใช่ runtime ownership ของ instance
+item:orc-oath-sword,effect:E28,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:orc-oath-sword,effect:E38,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E28,logic:L10,benefit,modifier,ปรับระบบนี้,,,proposal,พบพ่อค้ารายใหม่แล้วได้ความไว้ใจเพิ่ม; เงื่อนไข; กำหนดนิยามรายใหม่ต่อเกม
+effect:E38,logic:L13,benefit,modifier,ปรับระบบนี้,,,proposal,ได้เปรียบเมื่อเป่ายิ้งฉุบเสมอหนึ่งครั้ง; ใช้/ทบทวน; ประกาศกฎให้ทั้งคู่ทราบก่อนส่งมือ
+item:orc-tusk-shield,effect:E62,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:orc-tusk-shield,effect:E40,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E62,logic:L24,benefit,modifier,ปรับระบบนี้,,,proposal,ลดความเสียหายชีวิตครั้งถัดไป; เงื่อนไข; เก็บค่าความเสียหายจริงหลังลดไว้สำหรับสถิติ
+effect:E40,logic:L14,benefit,modifier,ปรับระบบนี้,,,proposal,บรรเทาผลเสียเมื่อแพ้ดวลหนึ่งครั้ง; ทบทวน; ปรับจากแนวกันขโมยอัตโนมัติเดิม ต้องเข้าดวลและห้ามปฏิเสธ
+item:orc-ironroot-greaves,effect:E61,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E61,logic:L23,benefit,modifier,ปรับระบบนี้,,,proposal,ฟื้นพลังเมื่อเริ่มช่วง; ถือ; ไม่เกินค่าสูงสุด
+item:orc-ember-salve,effect:E63,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:orc-ember-salve,effect:E71,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E63,logic:L24,benefit,modifier,ปรับระบบนี้,,,proposal,ลดราคาดีลฟื้นพลังหรือชีวิต; ถือ; รักษาจำนวนครั้งใช้บริการ
+effect:E71,logic:L27,benefit,modifier,ปรับระบบนี้,,,proposal,ลบผลเสียที่เลือกหนึ่งอย่าง; ใช้; ระบุรายการที่ลบได้ ไม่ยกเลิกภาระสัญญา
+item:orc-bone-war-drum,effect:E16,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:orc-bone-war-drum,effect:E64,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E16,logic:L06,benefit,modifier,ปรับระบบนี้,,,proposal,ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง; เงื่อนไข; รักษากฎคู่ค้า/anti-farming
+effect:E64,logic:L25,benefit,modifier,ปรับระบบนี้,,,proposal,ได้เศษเพิ่มเมื่อเปลี่ยนคู่ค้าตามเกณฑ์; เงื่อนไข; ไม่ข้ามกฎความระแวง/ซื้อขายวน
+item:orc-tally-beads,effect:E13,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:orc-tally-beads,effect:E24,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E13,logic:L05,benefit,modifier,ปรับระบบนี้,,,proposal,เพิ่มค่านายหน้า; ถือ; คิดจากการขายสำเร็จ
+effect:E24,logic:L08,benefit,modifier,ปรับระบบนี้,,,proposal,ชนะต่ำกว่าราคาประเมินที่รู้แล้วได้โบนัส; เงื่อนไข; ใช้ความรู้ที่บันทึกไว้ก่อนชนะ
+item:orc-clan-forge-tongs,effect:E07,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:orc-clan-forge-tongs,effect:E14,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E07,logic:L03,benefit,modifier,ปรับระบบนี้,,,proposal,เพิ่มโอกาสชำระสำเร็จ; ถือ/ใช้; ปรับเฉพาะการชำระ
+effect:E14,logic:L05,benefit,modifier,ปรับระบบนี้,,,proposal,เพิ่มเงินจากการขายระบาย; ถือ/ใช้; ระบุแหล่งจ่าย
+item:vampire-mist-cloak,effect:E42,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:vampire-mist-cloak,effect:E43,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E42,logic:L14,benefit,modifier,ปรับระบบนี้,,,proposal,รับเงินประกันบางส่วนเมื่อของถูกขโมยจริง; เงื่อนไข; ไม่สร้างสำเนาของที่เสียไป
+effect:E43,logic:L15,benefit,modifier,ปรับระบบนี้,,,proposal,ลดค่าล้างประวัติ; ถือ/ใช้; ไม่ล้างระหว่างดวลเพื่อหลบผล
+item:vampire-nocturne-signet,effect:E46,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:vampire-nocturne-signet,effect:E50,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E46,logic:L16,benefit,modifier,ปรับระบบนี้,,,proposal,เพิ่มดอกเบี้ยของเงินต้นที่ครบช่วง; ถือ; ฐานใหม่ 10% เงินเติมใหม่ไม่มีสิทธิ์ทันที
+effect:E50,logic:L18,benefit,modifier,ปรับระบบนี้,,,proposal,ผู้ให้กู้รับโบนัสเมื่อสัญญาจบครบถ้วน; เงื่อนไข; ไม่สร้างดอกเบี้ยเรียกเก็บจากผู้กู้เอง
+item:vampire-shadow-wine-decanter,effect:E58,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:vampire-shadow-wine-decanter,effect:E63,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E58,logic:L22,benefit,modifier,ปรับระบบนี้,,,proposal,ลดค่าชีวิตสัญญาเลือด Vampire; ถือ/ทบทวน; ยังมีต้นทุนขั้นต่ำ
+item:vampire-gloam-violin,effect:E11,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:vampire-gloam-violin,effect:E29,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E11,logic:L04,benefit,modifier,ปรับระบบนี้,,,proposal,เพิ่มโอกาสพ่อค้ายอมรับราคา; ถือ/ใช้; ไม่บังคับผู้เล่นรับข้อเสนอ
+effect:E29,logic:L10,benefit,modifier,ปรับระบบนี้,,,proposal,ป้องกันความไว้ใจลดหนึ่งครั้ง; เงื่อนไข; แยกจากกฎบังคับดวล
+item:vampire-mist-atomizer,effect:E06,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:vampire-mist-atomizer,effect:E20,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E06,logic:L02,benefit,modifier,ปรับระบบนี้,,,proposal,ลดโทษจากการท้าทายพลาด; เงื่อนไข; ไม่ลบสิทธิ์อีกฝ่าย
+effect:E20,logic:L07,benefit,modifier,ปรับระบบนี้,,,proposal,ลดความเสียหายจากการจัดการของค้าง; ถือ; กำหนดว่าลดส่วนใดของค่าใช้จ่าย
+item:vampire-midnight-invitation,effect:E22,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:vampire-midnight-invitation,effect:E55,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E22,logic:L08,benefit,modifier,ปรับระบบนี้,,,proposal,ชนะแล้วได้เงินคืนบางส่วน; เงื่อนไข; ผู้ขายยังได้เงินครบ แหล่งเงินส่วนต่างต้องชัด
+effect:E55,logic:L20,benefit,modifier,ปรับระบบนี้,,,proposal,เพิ่มรางวัลส่งของสำเร็จ; เงื่อนไข; ระบบคำขอรับซื้อเดิม ไม่ทำ Collector แจกของฟรี
+item:vampire-mooncut-sword,effect:E38,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:vampire-mooncut-sword,effect:E75,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E75,logic:L28,benefit,modifier,ปรับระบบนี้,,,proposal,คืนเงินที่เสียบางส่วนหนึ่งครั้ง; เงื่อนไข; ระบุแหล่งเงินและป้องกันเสี่ยงแบบไม่เสียอะไร
+item:autometa-coil-repeater,effect:E05,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:autometa-coil-repeater,effect:E06,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E05,logic:L02,benefit,modifier,ปรับระบบนี้,,,proposal,เพิ่มโอกาสท้าทายคำระบุสำเร็จ; ถือ/ใช้; จำกัดตามระบบท้าทาย
+item:autometa-clockwork-sentry,effect:E40,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:autometa-clockwork-sentry,effect:E68,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E68,logic:L26,benefit,modifier,ปรับระบบนี้,,,proposal,คุ้มครองของจากการผุพังหนึ่งครั้ง; เงื่อนไข; แยกจากการขโมย
+item:autometa-data-prism,effect:E02,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:autometa-data-prism,effect:E04,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:autometa-data-prism,effect:E23,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E02,logic:L01,benefit,modifier,ปรับระบบนี้,,,proposal,เปิดเผยช่วงราคาที่แคบลง; ใช้; ส่งเฉพาะข้อมูลที่ effect อนุญาต
+effect:E04,logic:L02,benefit,modifier,ปรับระบบนี้,,,proposal,ตรวจความแท้ฟรีหนึ่งครั้ง; ใช้; มีโควตาชัดเจน
+effect:E23,logic:L08,benefit,modifier,ปรับระบบนี้,,,proposal,ตรวจข้อมูลหนึ่งอย่างของล็อตประมูล; ใช้; ไม่เปิดเผยข้อเสนอราคาลับของคนอื่น
+item:autometa-coolant-canister,effect:E31,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:autometa-coolant-canister,effect:E61,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E31,logic:L11,benefit,modifier,ปรับระบบนี้,,,proposal,ลดเวลารอของความสามารถที่เลือก; ใช้; ห้ามใช้วนคืนคูลดาวน์ไม่สิ้นสุด
+item:autometa-torque-caliper,effect:E01,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:autometa-torque-caliper,effect:E05,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E01,logic:L01,benefit,modifier,ปรับระบบนี้,,,proposal,ตรวจราคาโดยประหยัดพลัง; ใช้; ไม่นับสิทธิ์ฟรีซ้ำ
+item:autometa-folding-beacon,effect:E35,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:autometa-folding-beacon,effect:E23,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E35,logic:L12,benefit,modifier,ปรับระบบนี้,,,proposal,ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู; ใช้; ไม่ส่งข้อมูลลับทั้งร้าน
+item:autometa-servo-harness,effect:E61,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:autometa-servo-harness,effect:E47,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E47,logic:L17,benefit,modifier,ปรับระบบนี้,,,proposal,ลดราคาขยายคลัง; ถือ/ใช้; ไม่คืนส่วนลดซ้ำจากการฝากถอน
+item:alien-spore-lantern,effect:E67,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:alien-spore-lantern,effect:E35,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E67,logic:L26,benefit,modifier,ปรับระบบนี้,,,proposal,ลดโอกาสภัย Dread; ถือ; ไม่ใช้แทนการลดต้นทุนทุก action
+item:alien-echoweave-shawl,effect:E72,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:alien-echoweave-shawl,effect:E16,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E72,logic:L27,benefit,modifier,ปรับระบบนี้,,,proposal,ยืดผลดีที่เลือกหนึ่งอย่าง; ใช้/ทบทวน; ไม่ขยายสิทธิ์เปิดดู Collector เกิน 1 โดยพลการ
+item:alien-star-chart-membrane,effect:E25,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:alien-star-chart-membrane,effect:E35,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:alien-star-chart-membrane,effect:E32,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E25,logic:L09,benefit,modifier,ปรับระบบนี้,,,proposal,เพิ่มโอกาสสร้างสินค้าระดับสูง; ถือ; เฉพาะของที่กำลังสร้าง ไม่สุ่มของเดิมใหม่
+effect:E32,logic:L11,benefit,modifier,ปรับระบบนี้,,,proposal,เพิ่มตัวเลือกเมื่อใช้ความสามารถเลือกสินค้า; ถือ/ใช้; ชุดสุ่มค้างต้องคงเดิม
+item:alien-biobright-seedpod,effect:E61,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:alien-biobright-seedpod,effect:E65,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E65,logic:L25,benefit,modifier,ปรับระบบนี้,,,proposal,ลดเศษที่ต้องใช้ฟื้นชีวิต; ถือ/ทบทวน; tune แยกจากราคาสินค้า
+item:alien-thought-translator,effect:E11,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:alien-thought-translator,effect:E17,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E17,logic:L06,benefit,modifier,ปรับระบบนี้,,,proposal,แลกสินค้าสำเร็จแล้วได้โบนัส; เงื่อนไข; การแลกต้องโอนสำเร็จจริง
+item:alien-phase-dial,effect:E31,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:alien-phase-dial,effect:E34,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E34,logic:L12,benefit,modifier,ปรับระบบนี้,,,proposal,ลดพลังเปลี่ยนประตู; ถือ/ใช้; ไม่ทำต้นทุนติดลบ
+item:alien-phase-staff,effect:E57,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:alien-phase-staff,effect:E60,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E57,logic:L20,benefit,modifier,ปรับระบบนี้,,,proposal,เปลี่ยนสัญญาที่ไม่ต้องการฟรีหนึ่งครั้ง; ใช้; ไม่สุ่ม Collector delivery ใหม่
+effect:E60,logic:L22,benefit,modifier,ปรับระบบนี้,,,proposal,ลดเวลารอคืนของจาก Alien; ใช้/ทบทวน; ไม่เปลี่ยนสัญญาเงินกู้ผู้เล่น
+item:darkone-null-sword,effect:E71,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:darkone-null-sword,effect:E40,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:darkone-null-testament,effect:E69,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:darkone-null-testament,effect:E72,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E69,logic:L29,benefit,modifier,ปรับระบบนี้,,,proposal,เพิ่มตัวปรับมูลค่าที่ Collector คิด; ถือ/ทบทวน; ไม่เลื่อนรอบ Wishlist ไม่เพิ่ม award ผู้นำ rarity เอง
+item:darkone-debt-chain,effect:E49,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:darkone-debt-chain,effect:E44,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E49,logic:L18,benefit,modifier,ปรับระบบนี้,,,proposal,ผู้กู้คืนครบแล้วรับเงินคืนบางส่วน; เงื่อนไข; ไม่หักจากเงินต้นที่ผู้ให้กู้ควรได้รับ
+effect:E44,logic:L15,benefit,modifier,ปรับระบบนี้,,,proposal,ช่วยจ่ายค่าชดเชยบางส่วน; เงื่อนไข; ผู้เสียหายได้เงินครบ ส่วนต่างต้องมีแหล่งจ่าย
+item:darkone-omen-censer,effect:E67,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:darkone-omen-censer,effect:E70,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E70,logic:L27,benefit,modifier,ปรับระบบนี้,,,proposal,ลดระยะเวลาผลเสียถัดไป; เงื่อนไข; ไม่เปลี่ยนกำหนดหนี้/สัญญาหรือเวลาบังคับดวล
+item:darkone-ash-seal,effect:E53,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:darkone-ash-seal,effect:E18,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E53,logic:L19,benefit,modifier,ปรับระบบนี้,,,proposal,ใช้ตรายึดของแล้วตรวจข้อมูลของนั้นฟรี; เงื่อนไข; เปิดข้อมูลหลังได้เป็นเจ้าของจริง
+effect:E18,logic:L06,benefit,modifier,ปรับระบบนี้,,,proposal,ส่งต่อสินค้าที่ตรวจแล้วได้รับค่ารับรอง; เงื่อนไข; ไม่สร้างข้อมูลรับรองปลอม
+item:darkone-crossing-token,effect:E43,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:darkone-crossing-token,effect:E34,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:darkone-silence-snuffer,effect:E71,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:darkone-silence-snuffer,effect:E09,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E09,logic:L03,benefit,modifier,ปรับระบบนี้,,,proposal,ชำระพลาดแล้วรักษาอุปกรณ์ไว้หนึ่งครั้ง; เงื่อนไข; ไม่คืน action อัตโนมัติ
+item:deepsea-abyss-trident,effect:E07,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:deepsea-abyss-trident,effect:E05,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:deepsea-pressure-cuirass,effect:E62,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:deepsea-pressure-cuirass,effect:E67,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:deepsea-tide-compass,effect:E34,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:deepsea-tide-compass,effect:E57,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:deepsea-kelp-saddle,effect:E16,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:deepsea-kelp-saddle,effect:E64,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:deepsea-tideglass-buoy,effect:E46,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:deepsea-tideglass-buoy,effect:E42,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:deepsea-lanternfish-cage,effect:E35,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:deepsea-lanternfish-cage,effect:E02,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:deepsea-lanternfish-cage,effect:E23,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:deepsea-whale-conch-horn,effect:E63,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:deepsea-whale-conch-horn,effect:E55,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:swarm-brood-hammer,effect:E47,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:swarm-brood-hammer,effect:E14,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:swarm-pheromone-sprayer,effect:E11,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:swarm-pheromone-sprayer,effect:E16,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:swarm-hive-egg-cluster,effect:E33,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E33,logic:L11,benefit,modifier,ปรับระบบนี้,,,proposal,เสริมการใช้หนึ่งครั้งตามระดับที่ปลดล็อกแล้ว; ใช้/ทบทวน; ไม่ข้ามเกณฑ์ความไว้ใจโดยปริยาย
+effect:E33,logic:L31,dependency,indirect,I ผ่านสกิล Swarm,,,proposal,เสริมความสามารถที่สร้างสำเนา ไม่ใช่ effect สร้างสำเนาโดยตรง
+item:swarm-resin-spool,effect:E52,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:swarm-resin-spool,effect:E44,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E52,logic:L19,benefit,modifier,ปรับระบบนี้,,,proposal,แลกเปลี่ยนตราสำเร็จแล้วฟื้นพลัง; เงื่อนไข; ป้องกันแลกวนเพื่อปั๊มผล
+item:swarm-wing-membrane-glider,effect:E34,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:swarm-wing-membrane-glider,effect:E37,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E37,logic:L13,benefit,modifier,ปรับระบบนี้,,,proposal,ลดพลังเริ่มขโมย; ถือ; ตรวจสิทธิ์และบังคับดวลตามกฎ
+item:swarm-pupa-cradle,effect:E59,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:swarm-pupa-cradle,effect:E65,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E59,logic:L22,benefit,modifier,ปรับระบบนี้,,,proposal,เพิ่มผลตอบแทนของที่ให้ Alien ยืม; เงื่อนไข; คืนของและจ่ายผลครั้งเดียวตามสัญญา
+item:swarm-chitin-cuirass,effect:E62,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:swarm-chitin-cuirass,effect:E68,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:beast-trail-scent-disc,effect:E25,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:beast-trail-scent-disc,effect:E35,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:beast-tracker-horn,effect:E32,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:beast-tracker-horn,effect:E28,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:beast-rift-saddle,effect:E36,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:beast-rift-saddle,effect:E21,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E36,logic:L12,benefit,modifier,ปรับระบบนี้,,,proposal,เปิดประตูที่ถูกปิดจากเหตุการณ์หนึ่งครั้ง; ใช้/ทบทวน; ไม่ล้างโทษแบนการค้า
+effect:E21,logic:L07,benefit,modifier,ปรับระบบนี้,,,proposal,รับของค้างคืนแล้วฟื้นพลัง; เงื่อนไข; หนึ่ง trigger ต่อการรับคืนจริง
+item:beast-springjaw-trap,effect:E53,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:beast-springjaw-trap,effect:E40,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:beast-amber-fur-mantle,effect:E68,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:beast-amber-fur-mantle,effect:E63,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:beast-fangline-lasso,effect:E37,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:beast-fangline-lasso,effect:E45,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E45,logic:L15,benefit,modifier,ปรับระบบนี้,,,proposal,ลดระยะระงับการค้า; ทบทวน; โทษขั้นต่ำและการคงสิทธิ์เหยื่อต้องชัด
+item:beast-riftfang-sword,effect:E38,binding,primary,P หน้าที่หลัก,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+item:beast-riftfang-sword,effect:E27,binding,optional,S ตัวรองที่ยังเลือกตัดได้,,,proposal,ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน
+effect:E27,logic:L10,benefit,modifier,ปรับระบบนี้,,,proposal,ขายของระดับสูงแล้วได้ความไว้ใจเพิ่ม; เงื่อนไข; ต้องเกิดการขายจริง
+effect:E03,logic:L01,catalog,unassigned,แนวในคลัง ยังไม่มีสินค้าเลือก,,,unassigned-proposal,เป็นความสัมพันธ์ระดับคลัง effect ไม่ใช่ coverage ของสินค้า; E39 เป็น legacy ไม่ใช้แทน RPS
+effect:E08,logic:L03,catalog,unassigned,แนวในคลัง ยังไม่มีสินค้าเลือก,,,unassigned-proposal,เป็นความสัมพันธ์ระดับคลัง effect ไม่ใช่ coverage ของสินค้า; E39 เป็น legacy ไม่ใช้แทน RPS
+effect:E10,logic:L04,catalog,unassigned,แนวในคลัง ยังไม่มีสินค้าเลือก,,,unassigned-proposal,เป็นความสัมพันธ์ระดับคลัง effect ไม่ใช่ coverage ของสินค้า; E39 เป็น legacy ไม่ใช้แทน RPS
+effect:E12,logic:L04,catalog,unassigned,แนวในคลัง ยังไม่มีสินค้าเลือก,,,unassigned-proposal,เป็นความสัมพันธ์ระดับคลัง effect ไม่ใช่ coverage ของสินค้า; E39 เป็น legacy ไม่ใช้แทน RPS
+effect:E15,logic:L05,catalog,unassigned,แนวในคลัง ยังไม่มีสินค้าเลือก,,,unassigned-proposal,เป็นความสัมพันธ์ระดับคลัง effect ไม่ใช่ coverage ของสินค้า; E39 เป็น legacy ไม่ใช้แทน RPS
+effect:E19,logic:L07,catalog,unassigned,แนวในคลัง ยังไม่มีสินค้าเลือก,,,unassigned-proposal,เป็นความสัมพันธ์ระดับคลัง effect ไม่ใช่ coverage ของสินค้า; E39 เป็น legacy ไม่ใช้แทน RPS
+effect:E26,logic:L09,catalog,unassigned,แนวในคลัง ยังไม่มีสินค้าเลือก,,,unassigned-proposal,เป็นความสัมพันธ์ระดับคลัง effect ไม่ใช่ coverage ของสินค้า; E39 เป็น legacy ไม่ใช้แทน RPS
+effect:E30,logic:L10,catalog,unassigned,แนวในคลัง ยังไม่มีสินค้าเลือก,,,unassigned-proposal,เป็นความสัมพันธ์ระดับคลัง effect ไม่ใช่ coverage ของสินค้า; E39 เป็น legacy ไม่ใช้แทน RPS
+effect:E39,logic:L13,catalog,unassigned,แนวในคลัง ยังไม่มีสินค้าเลือก,,,unassigned-proposal,เป็นความสัมพันธ์ระดับคลัง effect ไม่ใช่ coverage ของสินค้า; E39 เป็น legacy ไม่ใช้แทน RPS
+effect:E41,logic:L14,catalog,unassigned,แนวในคลัง ยังไม่มีสินค้าเลือก,,,unassigned-proposal,เป็นความสัมพันธ์ระดับคลัง effect ไม่ใช่ coverage ของสินค้า; E39 เป็น legacy ไม่ใช้แทน RPS
+effect:E48,logic:L17,catalog,unassigned,แนวในคลัง ยังไม่มีสินค้าเลือก,,,unassigned-proposal,เป็นความสัมพันธ์ระดับคลัง effect ไม่ใช่ coverage ของสินค้า; E39 เป็น legacy ไม่ใช้แทน RPS
+effect:E51,logic:L18,catalog,unassigned,แนวในคลัง ยังไม่มีสินค้าเลือก,,,unassigned-proposal,เป็นความสัมพันธ์ระดับคลัง effect ไม่ใช่ coverage ของสินค้า; E39 เป็น legacy ไม่ใช้แทน RPS
+effect:E54,logic:L19,catalog,unassigned,แนวในคลัง ยังไม่มีสินค้าเลือก,,,unassigned-proposal,เป็นความสัมพันธ์ระดับคลัง effect ไม่ใช่ coverage ของสินค้า; E39 เป็น legacy ไม่ใช้แทน RPS
+effect:E56,logic:L20,catalog,unassigned,แนวในคลัง ยังไม่มีสินค้าเลือก,,,unassigned-proposal,เป็นความสัมพันธ์ระดับคลัง effect ไม่ใช่ coverage ของสินค้า; E39 เป็น legacy ไม่ใช้แทน RPS
+effect:E66,logic:L25,catalog,unassigned,แนวในคลัง ยังไม่มีสินค้าเลือก,,,unassigned-proposal,เป็นความสัมพันธ์ระดับคลัง effect ไม่ใช่ coverage ของสินค้า; E39 เป็น legacy ไม่ใช้แทน RPS
+effect:E73,logic:L28,catalog,unassigned,แนวในคลัง ยังไม่มีสินค้าเลือก,,,unassigned-proposal,เป็นความสัมพันธ์ระดับคลัง effect ไม่ใช่ coverage ของสินค้า; E39 เป็น legacy ไม่ใช้แทน RPS
+effect:E74,logic:L28,catalog,unassigned,แนวในคลัง ยังไม่มีสินค้าเลือก,,,unassigned-proposal,เป็นความสัมพันธ์ระดับคลัง effect ไม่ใช่ coverage ของสินค้า; E39 เป็น legacy ไม่ใช้แทน RPS
+logic:L22,resource:life,cost,system-context,− ชีวิต · สัญญาเลือด,ยืนยันทำสัญญาเลือด,ไม่ระบุตัวเลขในร่างสินค้าชุดใหม่,existing-rule,การทำสัญญาเลือดจ่ายชีวิตตามกฎสัญญา; E58 ลดต้นทุนนี้ ไม่ใช่ effect เพิ่มความเสียหาย
+logic:L22,resource:energy,benefit,system-context,+ พลัง · รับของ Alien คืน,รับคืนตามสัญญา,ขึ้นกับสัญญา,existing-rule,เกิดเมื่อสัญญา Alien ครบกำหนดและรับคืนสำเร็จ ไม่จ่ายซ้ำ
+logic:L22,resource:credits,benefit,system-context,+ เครดิต · ผลตอบแทนสัญญา,รับคืนตามสัญญา,ขึ้นกับสัญญา,existing-rule,Alien คืนของพร้อมผลตอบแทนตามสัญญา ไม่ใช่ดอกเบี้ยเงินกู้ผู้เล่น
+logic:L13,resource:energy,cost,system-context,− พลัง · เริ่มขโมย,เริ่มขโมยถูกกฎ,ตามต้นทุน action,existing-rule/new-no-refusal,หักต้นทุนเริ่มขโมยเมื่อผ่านเงื่อนไข บังคับ RPS ปฏิเสธไม่ได้
+logic:L13,resource:goods,benefit,system-context,+ สินค้า · ขโมยชนะ,ผู้ขโมยชนะ RPS,สินค้าที่เป็นเป้าหมาย,existing-rule,ย้ายของจากเป้าหมายเมื่อชนะ RPS ไม่ใช่ได้รับฟรีทุกครั้งที่เริ่มขโมย
+logic:L14,resource:goods,cost,system-context,− สินค้า · ถูกขโมยสำเร็จ,เสียของจากผลดวล,ของที่ถูกโอนจริง,existing-rule,ผลเสียเกิดเฉพาะเมื่อแพ้และของถูกโอน ไม่ใช่ข้อเสียถาวรของสินค้าที่มี E40/E42
+logic:L15,resource:credits,cost,system-context,− เครดิต · ชดเชย/ล้างประวัติ,ถึงรอบชดเชยหรือเลือกล้างประวัติ,ตามสัญญา/กฎ,existing-rule,ภาระตามกฎอาชญากรรมและรอบชำระ ส่วนลดของผู้จ่ายห้ามลดสิทธิ์ผู้เสียหายเอง
+logic:L16,resource:credits,transfer,system-context,↔ เงินใช้จ่าย → ฝาก,ฝากเงิน,จำนวนที่ฝาก,existing-rule,ฝากคือโอนเงินไปเก็บ ไม่ใช่เงินสูญหาย จึงใช้เส้นโอนสีเทา
+logic:L16,resource:vault,transfer,system-context,↔ เก็บเงินต้นเข้าคลัง,ฝากและอยู่ข้ามช่วง,เงินต้นที่ฝากจริง,new-confirmed-rule,เงินแต่ละก้อนต้องติดตามอายุและการถอน; ไม่คิดสิทธิ์จากยอดสุดท้ายอย่างเดียว
+logic:L16,resource:credits,benefit,system-context,+ 10% · เงินต้นครบช่วง,เงินก้อนเดิมอยู่ข้ามช่วงครบ,10% ของเงินต้นที่มีสิทธิ์,new-confirmed-rule/not-implemented,ดอกเบี้ยฐาน 10% เฉพาะเงินก้อนเดิมที่มีสิทธิ์ เงินถอน/เติมใหม่ไม่รับย้อนหลัง; วิธีปัดและงบไม่พอยังไม่ตกลง
+logic:L17,resource:credits,cost,system-context,− เครดิต · ขยายคลัง,ยืนยันขยายคลัง,ตามราคาขยาย,existing-rule,จ่ายราคาขยายที่ระบบกำหนด E47 เสนอให้ลดต้นทุน ไม่ใช่เพิ่มดอกเบี้ย
+logic:L17,resource:slots,benefit,system-context,+ ช่องเก็บของ,ขยายคลังสำเร็จ,ตามรายการขยาย,existing-rule,เพิ่มช่องเมื่อขยายสำเร็จ; E48 เพิ่มช่องถาวรยังเป็นข้อเสนอที่ไม่ได้เลือกใน 56 ชิ้น
+logic:L18,resource:credits,cost,system-context,− เครดิต · ผ่อนคืน,ยืนยันผ่อนคืน,เงินที่ชำระจริง,existing-rule,ผู้กู้จ่ายตามสัญญา ผู้ให้กู้ต้องได้รับส่วนที่ตกลงครบ
+logic:L18,resource:debt,benefit,system-context,− หนี้ · เป็นผลดี,ชำระสำเร็จ,ยอดชำระที่ลดหนี้,existing-rule,จำนวนหนี้ลดลงเป็นประโยชน์ ใช้เส้นเขียว ห้ามตีความเครื่องหมายลบทุกอย่างว่าเป็นผลเสีย
+logic:L19,resource:seals,cost,system-context,− 2 ตรา · ใช้สิทธิ์ยึด,ยึดสำเร็จ,2 ตราคนเดียวกัน,existing-rule,ต้องเป็นตราของคนขโมยเดียวกัน; ใช้เมื่อการยึดสำเร็จตามกฎ
+logic:L19,resource:goods,benefit,system-context,+ ของที่ยึดสำเร็จ,ใช้ตราและเลือกสำเร็จ,หนึ่ง instance ตามกฎ,existing-rule,เปิดข้อมูล E53 หลังเปลี่ยนเจ้าของแล้ว ไม่เปิดสินค้าทั้งกระเป๋าลับก่อนเลือก
+logic:L21,resource:credits,cost,system-context,− เครดิต · ซื้อ Collector,ยืนยันซื้อและมีเงินพอ,ราคาชิ้นที่ซื้อจริง,new-confirmed-rule/not-implemented,Wishlist ทุก 2 turn ขอ 3 อีก 2 turn ส่งรวมสุ่ม 2 เป็น 5 ช่อง เปิดดูได้ 1 ต้องมีเงินจริงซื้อ ไม่แจกฟรี
+logic:L21,resource:goods,benefit,system-context,+ ของจากชุด 3+2,จ่ายซื้อสำเร็จ,ตามสิทธิ์ซื้อที่ตกลง,new-confirmed-rule/not-implemented,รายการ 5 ช่องปกปิดยังไม่มีสินค้า modifier เชื่อมตรงในร่าง กติกาซื้อกี่ชิ้นยังต้องยืนยัน
+logic:L23,resource:credits,cost,system-context,− เครดิต · ดีลฟื้นพลัง,ใช้ดีลฟื้นพลัง,ราคาดีล,existing-rule,เฉพาะใช้บริการที่ต้องจ่ายเครดิต ไม่ได้หมายความว่าการฟื้นพลังจากทุก effect เสียเงิน
+logic:L23,resource:energy,benefit,system-context,+ พลัง · ฟื้นตามเหตุการณ์,เกิด trigger การฟื้น,ตาม effect/เพดาน,existing-rule,ผลฟื้นจริงขึ้นกับ trigger ของ effect/บริการและเพดาน ไม่ใช่ทุก E61 ฟื้นทันทีเมื่อซื้อ
+logic:L24,resource:credits,cost,system-context,− เครดิต · ดีลฟื้นชีวิต,ซื้อดีลรักษา,ราคาดีล,existing-rule,เฉพาะบริการฟื้นชีวิตที่มีค่าใช้จ่าย E63 เสนอให้ลดราคานี้
+logic:L24,resource:life,benefit,system-context,+ ชีวิต · ฟื้น/บรรเทา,รักษาหรือผลบรรเทาตามเงื่อนไข,ตามผลจริง/เพดาน,existing-rule/proposed-modifier,การรักษาเพิ่มชีวิต; E62 ลดความเสียหายครั้งถัดไปเป็นอีก trigger หนึ่ง ต้องแยกก่อนล็อกค่า
+logic:L25,resource:shards,benefit,system-context,+ เศษ · ซื้อขายเข้าเกณฑ์,ซื้อขายสำเร็จและผ่านเกณฑ์,ตามกฎคู่ค้า,existing-rule,ต้องผ่านเงื่อนไขคู่ค้าและกฎ anti-farming
+logic:L25,resource:shards,cost,system-context,− เศษ · ใช้ฟื้นชีวิต,แปลงเศษฟื้นชีวิต,ตามอัตราที่กำหนด,existing-rule,ใช้เศษจริง ห้ามหมุนกลับเป็นเศษเพิ่มโดยไม่จ่ายต้นทุน
+logic:L25,resource:life,benefit,system-context,+ ชีวิต · แปลงเศษ,ใช้เศษครบเกณฑ์,ตามการแปลง,existing-rule,แยกจากการจ่ายเงินซื้อบริการรักษา; E65 ลดเกณฑ์เป็นเพียงข้อเสนอ
+logic:L26,resource:life,cost,system-context,− ชีวิต · ภัยพายุ,ภัยชนิด storm ทำงาน,ตามกฎภัย,existing-rule/config-gated,เป็นผลเมื่อ Dread สุ่มพายุ ไม่ใช่ทุกภัยลดชีวิตและไม่ใช่ drawback เฉพาะของเกราะ
+logic:L26,resource:energy,cost,system-context,− พลัง · ภัยอ่อนล้า,ภัยพลังทำงาน,ตามกฎภัย,existing-rule/config-gated,ผลเฉพาะภัยอ่อนล้าหรือแผลตามเงื่อนไข; ลดโอกาสภัยไม่เท่ากับกันภัยทั้งหมด
+logic:L26,resource:goods,cost,system-context,− สินค้า · ผุพัง,ภัย rot และไม่มีคุ้มครอง,สินค้าที่ผุพังจริง,existing-rule/config-gated,E68 เสนอคุ้มครองหนึ่งครั้งเมื่อ trigger; ไม่ใช่ effect ปฏิเสธ RPS
+logic:L28,resource:credits,cost,system-context,− เครดิต · ทายผิด,ทายผิด,ยอดเสี่ยงตามกฎ,existing-rule,เกิดเฉพาะเสี่ยงทายแล้วแพ้ตามกฎ E75 คืนบางส่วนยังต้องมีงบและเพดาน
+logic:L28,resource:credits,benefit,system-context,+ เครดิต · รับรางวัล/ทายถูก,รับรางวัลหรือทายถูก,ตามรอบรางวัล,existing-rule,รับหรือชนะตามผลรอบที่ยืนยันแล้ว ไม่เกิดซ้ำจากคำสั่งซ้ำ
+logic:L29,resource:score,context,system-context,→ คะแนนฐาน,snapshot ตอนจบ,ตามสูตรคะแนนฐาน,existing-rule,รวมเงินและมูลค่าสินค้ากับตัวปรับคะแนน; ของทุกชิ้นมีมูลค่าตอนจบ แต่ไม่นับเป็นโบนัส E69 ของทุกสินค้า
+logic:L30,resource:score,benefit,system-context,+ รางวัลผู้นำแยกหมวด,ตัดสินผู้นำตอนจบ,×2:20 / ×3:40; อื่นยังไม่กำหนด,new-confirmed-rule/not-implemented,"กลุ่ม rarity ×2 มากสุด=20, ×3 มากสุด=40; ไม่ใช่คะแนนต่อชิ้น หมวดอื่น/เสมอยังไม่ตกลง"
+logic:L31,resource:goods,context,system-context,→ สำเนาตามสกิล Swarm,ใช้สกิล Swarm ตามสิทธิ์,ตามความสามารถ/พลังสำเนา 40%,existing-rule/indirect-proposal,เส้น I จากกลุ่มไข่รังผ่านสกิล; ยังไม่มี effect สร้างสำเนาโดยตรงของสินค้าใหม่
+logic:L01,resource:energy,cost,system-context,− พลัง · ตรวจ/ประเมินที่มีค่าใช้จ่าย,ตรวจหรือประเมินแบบมีค่าใช้จ่าย,ต้นทุนจริงหลังปรับ,existing-rule,เฉพาะ action ที่ยังมีค่าใช้พลัง หลังหักสิทธิ์ฟรี/ส่วนลดแล้ว ไม่ใช่ทุกการตรวจเสียพลัง
+logic:L02,resource:energy,cost,system-context,− พลัง · ตรวจความแท้/ท้าทาย,ใช้ action ที่มีต้นทุน,ตาม action ที่เลือก,existing-rule,เช็กต้นทุนและโควตาตาม action; effect ลดโทษท้าทายไม่แปลว่าตรวจฟรี
+logic:L03,resource:energy,cost,system-context,− พลัง · ตรวจ/ชำระคำสาป,ใช้ action ที่คิดพลัง,ตาม action ที่เลือก,existing-rule,เฉพาะการตรวจหรือชำระที่มีต้นทุน ไม่ใช่ drawback จากการถือสินค้า
+logic:L03,resource:credits,cost,system-context,− เครดิต · ค่าชำระ,ยืนยันชำระแบบมีค่าบริการ,ราคาตามข้อเสนอ,existing-rule,ขึ้นกับข้อเสนอชำระและเครื่องมือที่ใช้ ไม่ใช่การชำระทุกแบบจ่ายค่าเดียวกัน
+logic:L04,resource:credits,cost,system-context,− เครดิต · ซื้อ NPC,ซื้อสินค้าสำเร็จ,ราคาจริงหลังปรับ,existing-rule,ต้องมีเงินใช้จ่ายพอ และหักเฉพาะเมื่อซื้อสำเร็จ
+logic:L04,resource:goods,benefit,system-context,+ สินค้า · ซื้อสำเร็จ,ซื้อสินค้าสำเร็จ,จำนวนที่ซื้อจริง,existing-rule,ย้าย instance ที่จ่ายเงินจริงเข้ากระเป๋า ไม่ให้เพิ่มฟรีจากแค่เสนอราคา
+logic:L05,resource:credits,benefit,system-context,+ เครดิต · ขาย/ค่านายหน้า,การขาย/ระบายยืนยันแล้ว,ยอดจ่ายตามกฎ,existing-rule,เงินขายและค่านายหน้าต้องผ่านธุรกรรมและงบจริง ไม่รับซ้ำจากคำสั่งซ้ำ
+logic:L05,resource:goods,transfer,system-context,↔ โอนสินค้าหลังขาย,ขายสำเร็จ,instance ที่ขาย,existing-rule,สินค้าออกจากเจ้าของเดิมเพื่อแลกเงิน เป็นการโอน ไม่ใช่ของสูญหาย
+logic:L06,resource:credits,transfer,system-context,↔ เครดิตระหว่างผู้เล่น,ทั้งคู่ยืนยันการค้า,จำนวนตามสัญญา,existing-rule,เงินออกจากผู้ซื้อไปผู้ขายตามข้อเสนอที่รับแล้ว ไม่ใช่สร้างรายได้สองฝ่ายจากธนาคาร
+logic:L06,resource:goods,transfer,system-context,↔ สินค้าระหว่างผู้เล่น,ธุรกรรมยืนยันแล้ว,instance ที่โอน,existing-rule,โอนเจ้าของจริงและสิทธิ์ passive ตามการค้าหรือการแลก
+logic:L07,resource:credits,benefit,system-context,+ เครดิต · ขายตลาดมืด,ส่งของและขายสำเร็จ,ราคาจ่ายจริง,existing-rule,ผ่านเงื่อนไขรับซื้อและงบ; บางกรณีมีการลดราคาตามกฎ
+logic:L08,resource:credits,cost,system-context,− เครดิต · ชนะประมูล,ตัดสินชนะและซื้อสำเร็จ,ราคาที่ต้องชำระจริง,existing-rule,ต้นทุนซื้อเมื่อประมูลสำเร็จ; โบนัสคืนเงิน E22 ยังเป็นข้อเสนอและต้องระบุงบ
+logic:L08,resource:goods,benefit,system-context,+ สินค้า · ประมูลสำเร็จ,ชนะและชำระสำเร็จ,สินค้าล็อตนั้น,existing-rule,ย้ายล็อตหลังชำระตามกฎ ไม่เปิดการสร้างสินค้าใหม่
+logic:L12,resource:energy,cost,system-context,− พลัง · เปลี่ยนประตู,ยืนยันเปลี่ยนประตู,ต้นทุนตามจำนวนครั้ง/กฎ,existing-rule/config-gated,เฉพาะการเปลี่ยนประตูที่มีต้นทุน ข้อเสนอ E34 ลดได้ตามเพดานที่ตกลง
+logic:L20,resource:energy,cost,system-context,− พลัง · เปลี่ยนคำขอ NPC,ทำสัญญา NPC ที่มีค่าใช้พลัง,ตาม action,existing-rule,เป็นคำขอรับซื้อ NPC เดิม ไม่ใช่จังหวะเลือกสามอย่างของ Collector
+logic:L20,resource:credits,benefit,system-context,+ เครดิต · ส่งของตามคำขอ NPC,ส่งของและ NPC ยอมรับ,ราคารับซื้อจริง,existing-rule,NPC จ่ายเมื่อรับซื้อสำเร็จหลังต่อรองและตรวจเงื่อนไข
+item:autometa-data-prism,risk:breadth,risk,review,ข้อควรทบทวน,,,review-warning,ตัวรองอาจตัดได้; จำนวนเส้นไม่ใช่คะแนนพลัง
+item:alien-star-chart-membrane,risk:breadth,risk,review,ข้อควรทบทวน,,,review-warning,ตัวรองอาจตัดได้; จำนวนเส้นไม่ใช่คะแนนพลัง
+item:deepsea-lanternfish-cage,risk:breadth,risk,review,ข้อควรทบทวน,,,review-warning,ตัวรองอาจตัดได้; จำนวนเส้นไม่ใช่คะแนนพลัง
+item:orc-bone-war-drum,risk:duplicate,risk,review,ข้อควรทบทวน,,,review-warning,กลองศึกกระดูกและอานสาหร่ายใช้ E16+E64 เหมือนกัน
+item:deepsea-kelp-saddle,risk:duplicate,risk,review,ข้อควรทบทวน,,,review-warning,กลองศึกกระดูกและอานสาหร่ายใช้ E16+E64 เหมือนกัน
+item:vampire-nocturne-signet,risk:finance,risk,review,ข้อควรทบทวน,,,review-warning,ดอกเบี้ยและผลตอบแทนเงินกู้อาจเร่งเงินหลายทาง ต้องคงอายุเงินฝาก
+item:deepsea-tideglass-buoy,risk:finance,risk,review,ข้อควรทบทวน,,,review-warning,ดอกเบี้ยและผลตอบแทนเงินกู้อาจเร่งเงินหลายทาง ต้องคงอายุเงินฝาก
+item:darkone-debt-chain,risk:finance,risk,review,ข้อควรทบทวน,,,review-warning,ดอกเบี้ยและผลตอบแทนเงินกู้อาจเร่งเงินหลายทาง ต้องคงอายุเงินฝาก
+item:autometa-coolant-canister,risk:action,risk,review,ข้อควรทบทวน,,,review-warning,เร่งสกิลพร้อมฟื้น/ประหยัดพลังอาจเพิ่มจำนวน action มากกว่าตัวเลขราคา
+item:alien-phase-dial,risk:action,risk,review,ข้อควรทบทวน,,,review-warning,เร่งสกิลพร้อมฟื้น/ประหยัดพลังอาจเพิ่มจำนวน action มากกว่าตัวเลขราคา
+item:darkone-null-testament,risk:score,risk,review,ข้อควรทบทวน,,,review-warning,ห้ามยืดผลของตัวเองเป็นวงจร; ยังไม่ได้ทดสอบ balance

@@ -1,0 +1,1829 @@
+{
+  "migratedAtUTC": "2026-10-29T16:40:16.031256+00:00",
+  "authorizedBy": "user: move comic build into repo separately from old version",
+  "source": "/Users/oyl-mac_m1/Documents/Codex/2026-10-24/j/outputs/ui-2d-red-black-white/build",
+  "destination": "apps/comic",
+  "canonicalLegacyPreserved": true,
+  "filesAtImport": [
+    {
+      "file": "DESIGN.md",
+      "sha256": "d44eb410a05401dc297183e290f3fbb7ef63c8b2aaa4209b3960dd8c43271d2e",
+      "bytes": 17544
+    },
+    {
+      "file": "README-COMIC-BUILD.md",
+      "sha256": "a8409b68bca88acca696e4a7dadfadea24c523cc7142b2166488d32d1fa88c2c",
+      "bytes": 1859
+    },
+    {
+      "file": "package.json",
+      "sha256": "0337ce35f975f89bc62fe311d2590e3de272c8cd0e5a5019f1167128b73b0e96",
+      "bytes": 1985
+    },
+    {
+      "file": "scripts/clean.mjs",
+      "sha256": "9b7b8df422a91ad8c837aba297b3ab74312a7e9c3f942851879a08bf086fd278",
+      "bytes": 219
+    },
+    {
+      "file": "scripts/compare-comic-concepts.py",
+      "sha256": "3fd557ae5b9cc92f4af052ed83434b6e81bb37ee60678b241af4e99069683ff2",
+      "bytes": 1741
+    },
+    {
+      "file": "scripts/dev.mjs",
+      "sha256": "2abb725356e79febf12ddde87fa23ebe06b999fde25359e1702354a09f3c4dc8",
+      "bytes": 1287
+    },
+    {
+      "file": "scripts/gen-art-items.mjs",
+      "sha256": "1d4721e90a8ac1a906e49f624ba92afdf24f6d3ca7d0fbd9a6c55aad6f9dd530",
+      "bytes": 39679
+    },
+    {
+      "file": "scripts/gen-art-npcs.mjs",
+      "sha256": "d60c5c0a732cc2fa6c8abde9fc32cf75d07bc7b69605c700b962f2b045f7d114",
+      "bytes": 14986
+    },
+    {
+      "file": "scripts/generate-comic-preview.mjs",
+      "sha256": "ee2693243139cc3a9f820bb6237fcb4b7ebee1f1413db10ba96c2ab125377e30",
+      "bytes": 3093
+    },
+    {
+      "file": "src/appraisal-client/App.tsx",
+      "sha256": "c317b1db5cf90880e033899fb66222d3191fc3dba240108f67efaec149b40a19",
+      "bytes": 77566
+    },
+    {
+      "file": "src/appraisal-client/BloodPactEvent.tsx",
+      "sha256": "dacff89565120fea4efdc804e1fa1ae287443795355993883a40764cf6e8a853",
+      "bytes": 4800
+    },
+    {
+      "file": "src/appraisal-client/ComicPreview.tsx",
+      "sha256": "16150998d80b8b83f54bc53e9c83156000050d94ad6ca7ce64ecf75b9c0fb5ac",
+      "bytes": 7046
+    },
+    {
+      "file": "src/appraisal-client/ComicTooltip.tsx",
+      "sha256": "d03fbc20af1ccd872265e799f64b53587160ec1aab8a180bd2ae45227cb6d915",
+      "bytes": 2061
+    },
+    {
+      "file": "src/appraisal-client/ComicUI.tsx",
+      "sha256": "e562b11d6ed7f4405dcc294e8ebe16cee0adce651f498ef481c8c8c9041807dc",
+      "bytes": 3754
+    },
+    {
+      "file": "src/appraisal-client/GameDialog.tsx",
+      "sha256": "4ae99a173050d0b5096fd5767a9c139a7f082571fe05597bf95e2a2f4bd902c7",
+      "bytes": 2947
+    },
+    {
+      "file": "src/appraisal-client/HeldEffects.tsx",
+      "sha256": "902264779a2b9d7b2bc50181998ff376198c7f59d9ed8419af8661769397b4b6",
+      "bytes": 3726
+    },
+    {
+      "file": "src/appraisal-client/ItemSalePanel.tsx",
+      "sha256": "b6bbdbe39f516f783fa419f8858c20a6fdf6c1bbc8244de89cf844d43d6ae94d",
+      "bytes": 1007
+    },
+    {
+      "file": "src/appraisal-client/ItemVisual.tsx",
+      "sha256": "ced9e084e05d4baf2a88c39bc7f978dbdb8bc14c170bbf46c438839f030e6115",
+      "bytes": 3226
+    },
+    {
+      "file": "src/appraisal-client/LedgerMenu.tsx",
+      "sha256": "e0e4992735ffef8c99d6905daa9fbc86656428b51306fdbd521c397e1630189a",
+      "bytes": 6655
+    },
+    {
+      "file": "src/appraisal-client/MarketSale.tsx",
+      "sha256": "3316e7bd17e16c1eec82f7582435f2ffb6369bcfe76358604846c7cfa9c35c25",
+      "bytes": 6205
+    },
+    {
+      "file": "src/appraisal-client/MerchantAbilities.tsx",
+      "sha256": "c10312d2fd158ed81c1c9d9683eb8e335befa32150c96479ed1638255a0cf4cc",
+      "bytes": 12519
+    },
+    {
+      "file": "src/appraisal-client/MerchantEventPortrait.tsx",
+      "sha256": "2fefcc04acd2649adc661f926a592068eeb5b56bccd0ee01c9dfc3e725fd516d",
+      "bytes": 849
+    },
+    {
+      "file": "src/appraisal-client/NpcContracts.tsx",
+      "sha256": "fc84b36924040f5a9e10c759a019e0ac7738709366c1d6877f76bdf1c74bde0a",
+      "bytes": 2703
+    },
+    {
+      "file": "src/appraisal-client/Pager.tsx",
+      "sha256": "76bff0fac17478da072b73bafca05f8e05cc34d46bff5c3b2f65a48d9b054737",
+      "bytes": 1207
+    },
+    {
+      "file": "src/appraisal-client/PortalEventPreview.tsx",
+      "sha256": "071be52a88e7564aec98d3e4922674484d0ad957e57f53b68ea1fbf35dab9995",
+      "bytes": 5139
+    },
+    {
+      "file": "src/appraisal-client/RoundReward.tsx",
+      "sha256": "4ac0dc8cff10e3ebce3155469b1de88bde3b0e55f7b206642985ccffd1f4006b",
+      "bytes": 9380
+    },
+    {
+      "file": "src/appraisal-client/RulesMenu.tsx",
+      "sha256": "9d0a1d555d7cd52ccea817c9c31bbf41b02811428f56a897a888131c5e237430",
+      "bytes": 18413
+    },
+    {
+      "file": "src/appraisal-client/SecureEconomy.tsx",
+      "sha256": "ad66c77ca462d3eb54225cb1737fef0e59b6c9b58fcc4a605782d367233c1d87",
+      "bytes": 31297
+    },
+    {
+      "file": "src/appraisal-client/SinnerSeals.tsx",
+      "sha256": "0fa6e32afcb6f4d2d235f16572ca039cb1e8fb63b52c703745cdd76add9c7df3",
+      "bytes": 9720
+    },
+    {
+      "file": "src/appraisal-client/StatusMenu.tsx",
+      "sha256": "7abdb8a864445e812344b4778020ac58e88900be322dfc3063b8efd8dd6f357a",
+      "bytes": 9773
+    },
+    {
+      "file": "src/appraisal-client/TradeScreen.tsx",
+      "sha256": "bf9e33b0036d824f957b2f16f8265ca3e6f995dae80132b66c2dc3eeb5d825fd",
+      "bytes": 7073
+    },
+    {
+      "file": "src/appraisal-client/WishlistPanel.tsx",
+      "sha256": "0fbf2437312f51cc0933598859972a1873ceb1922276f4bc7d6c9d4b6c372a04",
+      "bytes": 1662
+    },
+    {
+      "file": "src/appraisal-client/ability-text.ts",
+      "sha256": "6f890ee506f19cecc53712bb5e9ea64cc5fa495768f3e50ec09ed9f77ecc544e",
+      "bytes": 6122
+    },
+    {
+      "file": "src/appraisal-client/appraisal-concept.css",
+      "sha256": "e7fc54e27013d37110f18303fb7cba8a1bbaa2093b56f6b91319a884c1d746c8",
+      "bytes": 32390
+    },
+    {
+      "file": "src/appraisal-client/cabinet.css",
+      "sha256": "ec7ef4a2c8ed7af4e29bf1d57169611e7c62be875e8a5f0a11c69f2295aa0e5c",
+      "bytes": 52315
+    },
+    {
+      "file": "src/appraisal-client/catalog-text.ts",
+      "sha256": "1d06306d08200cb57ad1e662d25c20869d26687559bd9f4fde61975da7f32aca",
+      "bytes": 5166
+    },
+    {
+      "file": "src/appraisal-client/comic-frame.css",
+      "sha256": "e180a4b0a74d906c80d4ecec38cf5fce53e0400b8c73a2154a8ebfcb552b8ff8",
+      "bytes": 839
+    },
+    {
+      "file": "src/appraisal-client/comic-ink.css",
+      "sha256": "d26e3c1a5f421536e7585f1fb2a0a02cae14825034868a9481ed05e66e3e81a2",
+      "bytes": 1008
+    },
+    {
+      "file": "src/appraisal-client/comic-overlay.css",
+      "sha256": "00e1c08bca74325a7fd2dbf0611763e5f1f20ad854bc8dd246bb12ce791a75ce",
+      "bytes": 2009
+    },
+    {
+      "file": "src/appraisal-client/comic-preview-data.ts",
+      "sha256": "efffc1b0ecdaf896ab30aeba644374dc3630cd08d178693b9528f503777a983b",
+      "bytes": 66907
+    },
+    {
+      "file": "src/appraisal-client/comic-theme.css",
+      "sha256": "470f9fae3606eee023811a5320680272cedfcd34449d920e4ede76c709cc82cd",
+      "bytes": 62217
+    },
+    {
+      "file": "src/appraisal-client/comic-tooltip.css",
+      "sha256": "27f89cbae2a0fa59dc302e46300d3ee54a7e0b7e3256a3c45a47f63591854844",
+      "bytes": 470
+    },
+    {
+      "file": "src/appraisal-client/comic-ui.css",
+      "sha256": "0ddb2144ee16d58d290911cdefcd91fb1d0a8187cc148043e889c64b474b6686",
+      "bytes": 36439
+    },
+    {
+      "file": "src/appraisal-client/components.tsx",
+      "sha256": "7ec59502603c60ee6d262268d5b7ea23cbbc6bdd5068241ee3349397146a3a88",
+      "bytes": 115453
+    },
+    {
+      "file": "src/appraisal-client/concept-layout.css",
+      "sha256": "5dafb4c7626b452a7e5ae11f64ed00dae2f4f4a70056fa66f28ec37a60e882dd",
+      "bytes": 74221
+    },
+    {
+      "file": "src/appraisal-client/connection.ts",
+      "sha256": "8f20e3857710ba3c791ad3d6931cf7802478df77ecf267da44ba4fe3b355469c",
+      "bytes": 6014
+    },
+    {
+      "file": "src/appraisal-client/core2-text.ts",
+      "sha256": "8f77b52e0444faa071a6dff65077b98bf938e215146a1ea246af80e5658468b4",
+      "bytes": 4704
+    },
+    {
+      "file": "src/appraisal-client/en/model.ts",
+      "sha256": "039a66f0817dc5cf423e7f7e39dff1483c977ae76d0ea3c98fdba34af6a99f56",
+      "bytes": 30389
+    },
+    {
+      "file": "src/appraisal-client/en/ui.ts",
+      "sha256": "ed753df07d2df7b9f9df92beeceaa2cff44eba4912f66d939b7cbcc5fffc92bd",
+      "bytes": 119649
+    },
+    {
+      "file": "src/appraisal-client/event-concept.css",
+      "sha256": "6753dce5e9305bffd24f7692e0c3dfd17725fe0a453bd035a794b5d7bbda2fec",
+      "bytes": 7640
+    },
+    {
+      "file": "src/appraisal-client/feedback.tsx",
+      "sha256": "77648b5232723f972cab8503ab2a7f36f67958f320ecf8eb764dcfbd13349d4c",
+      "bytes": 4261
+    },
+    {
+      "file": "src/appraisal-client/i18n-content.ts",
+      "sha256": "40b19a64a4e824030aef74fac4806b815e1c4977224b102d7cb5f26afa3a6e03",
+      "bytes": 46698
+    },
+    {
+      "file": "src/appraisal-client/i18n-en.ts",
+      "sha256": "b3022fe4b0c59729958e66cdf913f2e55d13df4b15b638d7cc4950018b3a7879",
+      "bytes": 6574
+    },
+    {
+      "file": "src/appraisal-client/i18n.ts",
+      "sha256": "3a6e679fba4927f656eabb925546e4e3f0e47ea118d0318afb4fc82a0fe1c4d0",
+      "bytes": 2229
+    },
+    {
+      "file": "src/appraisal-client/icons.tsx",
+      "sha256": "3b51c0b4cbccfc0e6cb4ac61df3792636d12c341f97d5580ab7c8c66c4c9141b",
+      "bytes": 6843
+    },
+    {
+      "file": "src/appraisal-client/index.html",
+      "sha256": "8d148a73a7d6aecbaf224844a84e937bb0e6611b77fff67dbe976e5b45d2d451",
+      "bytes": 392
+    },
+    {
+      "file": "src/appraisal-client/inventory-concept.css",
+      "sha256": "b6eba05ba249da4f6cc0279429ebe3f93c4e9f27c335e6ae328712be7006af85",
+      "bytes": 14131
+    },
+    {
+      "file": "src/appraisal-client/item-sale.css",
+      "sha256": "ccc24ecf942a35d35110c3b23a78ef4a259489bf2da9134785700173b44e0c92",
+      "bytes": 9595
+    },
+    {
+      "file": "src/appraisal-client/item-visual.css",
+      "sha256": "714e7b1bcb6aeda914fff054e95efe6d13b181e827362bcdd0f3062f6dbcade3",
+      "bytes": 951
+    },
+    {
+      "file": "src/appraisal-client/layout-system.css",
+      "sha256": "a08943037fbac7477760f0b619702bc01dd54d2165a996526241b525cae32d4f",
+      "bytes": 20459
+    },
+    {
+      "file": "src/appraisal-client/lore.tsx",
+      "sha256": "78e9e5b3170eeef0a010159e68795f95b31fea89572f1ce81fbe0fe97a618074",
+      "bytes": 12558
+    },
+    {
+      "file": "src/appraisal-client/main.tsx",
+      "sha256": "e1e9b2d0bc16283243486bfcd25cd6a9391c5256954bf9fe37f6a64e3830650a",
+      "bytes": 981
+    },
+    {
+      "file": "src/appraisal-client/market-concept.css",
+      "sha256": "f7f3b4e43f1689508051aa9039f8ec0c8b3cfe790e19576db77c1bc95eb3d36b",
+      "bytes": 20059
+    },
+    {
+      "file": "src/appraisal-client/merchant-portrait-frames.ts",
+      "sha256": "bcb4c7e2144abe5d5efbc3ecd7b316bdb08921c64fd6739705600eda7e221971",
+      "bytes": 1442
+    },
+    {
+      "file": "src/appraisal-client/meters.tsx",
+      "sha256": "5f73b540a7adb39ca1e9c3d95f5bb49ef0fce3d9a8b62b7c384bd7827fd2d918",
+      "bytes": 15599
+    },
+    {
+      "file": "src/appraisal-client/model.ts",
+      "sha256": "a3b828d06619ad34826c3f901fad68374ab8eaba44d5459cf7a69bd08c12ad9e",
+      "bytes": 58008
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/display-cloth.png",
+      "sha256": "a04ffa135ee023b6a9caecbcd9cd667b5e284b3e6a22e0785b48b65cbbf3730a",
+      "bytes": 2756671
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/amulet-v2.png",
+      "sha256": "55cb2b628486aede5ddfdd2861d6d1644d3e540eecdeddc1594dd319ba4b984e",
+      "bytes": 1240702
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/amulet.png",
+      "sha256": "ce77ce84496c4d1021b5684bebef38c71d4f6bc766942a51f36c8724ce404352",
+      "bytes": 1525105
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/battery-v2.png",
+      "sha256": "ccf3781c571705412f6fbb15a5eeebaaacebfeaa7164980db6164daf7b6b576b",
+      "bytes": 1520730
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/battery.png",
+      "sha256": "9d80e4452319f825695878d9ac198e7f85962b9d8d04c33f10efafef9075df02",
+      "bytes": 1847905
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/blade-v2.png",
+      "sha256": "db3fdee99e4c1fbd016d92864bdbe35e045872fcd0c7499464daf8c3d2374ed7",
+      "bytes": 907746
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/blade.png",
+      "sha256": "27e62be3c92392fb61e07dd5533ceee42d72fbfe73dd943fa8a673341f6fc3db",
+      "bytes": 1048615
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/food-v2.png",
+      "sha256": "953d003d7240c40c1e791082b1f77600a22aaee5e7b1562603c6046e99b6b950",
+      "bytes": 1849470
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/food.png",
+      "sha256": "fd51f84809d07b2280bcbf4f067d71936299c9b0b81224077d0e70c82be23769",
+      "bytes": 1895204
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/key-v2.png",
+      "sha256": "d2894aefac14edbb53f1f2d36f35129e5e94361179ac0de6035799bccfd9f345",
+      "bytes": 914074
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/key.png",
+      "sha256": "ba730ae8c30846eb02ecc00ff4494a56269b09e7e060aa3801bcda8a4d4714b7",
+      "bytes": 724234
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/mask-v2.png",
+      "sha256": "7a7b65203659c12d0fc77e75fe91817e1206a6614fe8ac837aec7b08ff1e8239",
+      "bytes": 1567640
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/mask.png",
+      "sha256": "2bce917b7f1d58885f6c89843241c2dfad43c3a143fec9252f6648bc22c491f0",
+      "bytes": 2443732
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/CATALOG.md",
+      "sha256": "1600d719375b49d8e9dd899ae89f2dab85851f29fa4a908c67649719eac549a7",
+      "bytes": 8529
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/alien-biobright-seedpod.png",
+      "sha256": "c1c429077b270185c1241e7efb2217e167f0c4ac8190de477baf2e9dbcf0f865",
+      "bytes": 2071452
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/alien-echoweave-shawl.png",
+      "sha256": "8c88727a778c56751a788ef042d71b0386b5e7d9c49a5798e442be3f3e3e70b5",
+      "bytes": 2489920
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/alien-phase-dial.png",
+      "sha256": "e54a351a81f7dc8bacb59fe607fb6d5048cae40d281ace7876881b69cb7c8e0f",
+      "bytes": 1893522
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/alien-phase-staff.png",
+      "sha256": "4386f7ee2816df8c9aa5074e88728e3de81fb6333fdaee491cc9b038f9b3fe2e",
+      "bytes": 1469525
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/alien-spore-lantern.png",
+      "sha256": "e3517f78ff582da5b6076218132a2a692605d10dddef870fa5769cc0dd3c553d",
+      "bytes": 2359800
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/alien-star-chart-membrane.png",
+      "sha256": "436be8b94e7618b8d059ecaa591c61122c308608a5c421b8e0986ab3050ff556",
+      "bytes": 2369868
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/alien-thought-translator.png",
+      "sha256": "5d1b13e96b6227b522c39d22b46257d513f898d75c679cb5ef64ea7e20286b39",
+      "bytes": 2039905
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/autometa-clockwork-sentry.png",
+      "sha256": "148a235b6e01bb902f0f3235037ae4607655a7620e8b45103a9fc3a0f330274e",
+      "bytes": 1483727
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/autometa-coil-repeater.png",
+      "sha256": "f6f8d51c8f932868acc8d8933bb5261aa31c5ad0e2c134d681a446f8697d9336",
+      "bytes": 2190763
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/autometa-coolant-canister.png",
+      "sha256": "ed36d8cdbde7d3e5899d9313e6418e386e9149782f3c503a2c3b414e7e495877",
+      "bytes": 2850076
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/autometa-data-prism.png",
+      "sha256": "0c7cce6c6afdc0ecd506870f3407cfdc436770ddb8c574896f366d12cb6b6a88",
+      "bytes": 1737365
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/autometa-folding-beacon.png",
+      "sha256": "ed9065f2a9f98afd157ee786f0b512ac85d1ff354b2d9434aa026e0d355c625b",
+      "bytes": 1768724
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/autometa-servo-harness.png",
+      "sha256": "32cbec36662e6053e6dac63459fbc19b98868c1052fdf60488473a883edefafd",
+      "bytes": 2342734
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/autometa-torque-caliper.png",
+      "sha256": "6be56f9bdd954b5fab205673a552139aaf23a11facb43b536c29eed35c3635dc",
+      "bytes": 1904523
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/beast-amber-fur-mantle.png",
+      "sha256": "ffe71f5a0293f05ca411e6d7b22efb7a66bd637e5c7409c2d10e9083a7a9def3",
+      "bytes": 3020204
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/beast-fangline-lasso.png",
+      "sha256": "a61396f2cd3e47c874109860027ce4d34de3a00efbdb3dd754f4c2187f52ba1a",
+      "bytes": 2306660
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/beast-rift-saddle.png",
+      "sha256": "aca6ed044fd72bb83ca3b9f5932544a88fa553de829358a2259fea8bb8fb5c4d",
+      "bytes": 2576739
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/beast-riftfang-sword.png",
+      "sha256": "7a1e348998ff76e4a5cc3c29dccaed9176fe468a2f9d96759114c33140675b5b",
+      "bytes": 1682657
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/beast-springjaw-trap.png",
+      "sha256": "527c6875819a360dd58b7c5f4231ad6d48ae19f1bbfc7eb42b2a25c798e018c8",
+      "bytes": 2957054
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/beast-tracker-horn.png",
+      "sha256": "1ff42a465b8d7e2418b624efb0ea179abae0ddf331027cbe0467dd8bfc3e9d53",
+      "bytes": 2447693
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/beast-trail-scent-disc.png",
+      "sha256": "4d3365f61c0a075138224157d5e1f23f59e10cdac6ab79396dc26b4597a12fd7",
+      "bytes": 2718661
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/catalog.json",
+      "sha256": "1aba59f2a0e8fb48f49865fdb22c89fd7a17044537f7140f322952f66a7c2b44",
+      "bytes": 26032
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/darkone-ash-seal.png",
+      "sha256": "e70a6c990328457b9c373389eec6b76c36fd7fd1f6c4f048ba02621b6e458c01",
+      "bytes": 2365713
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/darkone-crossing-token.png",
+      "sha256": "cfd348a9e24effbf8ff623dea1078459763452c1fca25aec64a58ca9a791e061",
+      "bytes": 3069977
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/darkone-debt-chain.png",
+      "sha256": "9e081971edebf2789c3f8ca211ad25606d0f55360a37d040e290ce0182e862a8",
+      "bytes": 1922160
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/darkone-null-sword.png",
+      "sha256": "4ba33707971e1c497fdbd8bc72568026f8f32afb43b22caeddc6d1c5392d5101",
+      "bytes": 1434371
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/darkone-null-testament.png",
+      "sha256": "bf1e34421a1bda281295e2edaf3d0d579918d517e1425f5db3a84b7e382b6311",
+      "bytes": 2408076
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/darkone-omen-censer.png",
+      "sha256": "641a3db505a0441b11eb228ea81335d7a230397ccae81aa7b59e5c4856662ff2",
+      "bytes": 2218650
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/darkone-silence-snuffer.png",
+      "sha256": "f472567e130f1a9ce24dc703845aab2fa38667cd488aa2925ce9e37afc6f056f",
+      "bytes": 1414033
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/deepsea-abyss-trident.png",
+      "sha256": "1c7e519e91c6eec298a29cf048353f5c50d896b513e555498b0e2d477fdc105f",
+      "bytes": 1830645
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/deepsea-kelp-saddle.png",
+      "sha256": "ee610c515e4378fd5a201297fac4bfbcf7379605ce6ff64513095298335318ac",
+      "bytes": 2605772
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/deepsea-lanternfish-cage.png",
+      "sha256": "af42332d40f6738c769cbdc3a41f4c7656776f7bda451aa84f70ac4ea01273c1",
+      "bytes": 2162246
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/deepsea-pressure-cuirass.png",
+      "sha256": "981f06ba9f145b831c586c51c04963cc0453ba091231cede8556b24ee3f6dfc5",
+      "bytes": 2831074
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/deepsea-tide-compass.png",
+      "sha256": "3e503a6b857aef5aa72ead0ce40bea4f9e42bf1111124c53c35cb97f953317e1",
+      "bytes": 2277912
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/deepsea-tideglass-buoy.png",
+      "sha256": "49b5ad1dae02f434d111b028c4f1eea3c47d2109430f6f38b01371a1f18b2c03",
+      "bytes": 1631009
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/deepsea-whale-conch-horn.png",
+      "sha256": "3f260f9435cf5f52bab91466339f551868aec50fbf86fc1ed2d1340da26fe3a9",
+      "bytes": 2248443
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/orc-bone-war-drum.png",
+      "sha256": "281177376a5c9eff72ed40a8121efc02e7514eec3562cceaaf6c2819028413ba",
+      "bytes": 2913863
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/orc-clan-forge-tongs.png",
+      "sha256": "26867f05de1af2773c9ca8c14efc70747eae842efc597d85984c2ce41154b0d1",
+      "bytes": 2381615
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/orc-ember-salve.png",
+      "sha256": "3a6b35df418ad3c9d2fdc9fd5995e0d35363599c2f2758e1e1d0f1c9149bb8e2",
+      "bytes": 2225664
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/orc-ironroot-greaves.png",
+      "sha256": "bb7ad07765f1028223b6d36d1f12d94aee4b1584d9af9fef9377dba2571a6155",
+      "bytes": 2311554
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/orc-oath-sword.png",
+      "sha256": "2308648392ff1519dce679c6ce27fa5241a11b4c5b4f2a758beeba392780fcdc",
+      "bytes": 1933558
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/orc-tally-beads.png",
+      "sha256": "404917eee84a37464881a4dba62114498f410ad746d0d257bf567f1e156e47ee",
+      "bytes": 2204931
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/orc-tusk-shield.png",
+      "sha256": "6d44150878d6525ece6488cd777d1e51259e163802838049a8840ff807e4a9e9",
+      "bytes": 2649324
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/swarm-brood-hammer.png",
+      "sha256": "523f3cbd35f3fd278e4fe74a1488dd53401d1f5256c9a97d02df7c8c4962a8a5",
+      "bytes": 1520515
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/swarm-chitin-cuirass.png",
+      "sha256": "733c2c22f7b8c974d760194a0471c72de1ff19934f3233f42ed9e51bca2bedaf",
+      "bytes": 2885432
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/swarm-hive-egg-cluster.png",
+      "sha256": "2c0b096c2c4933148eaf92f1168cef4359c16f68e9f0a2f4063c9a11ac5433de",
+      "bytes": 2143784
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/swarm-pheromone-sprayer.png",
+      "sha256": "fea433096f549be8b4c643bd89a80205ace5300b3dbcff8a9741c9b848471df2",
+      "bytes": 2090606
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/swarm-pupa-cradle.png",
+      "sha256": "6f7e67a964ac9a3e8575a30e0367dc84a814494e38d16f6e06ae7f4c78ce01fe",
+      "bytes": 2394014
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/swarm-resin-spool.png",
+      "sha256": "93f9ec905ed85b3a724c054e49785841497c34a15162ad283c0e9821260f8ec7",
+      "bytes": 2851547
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/swarm-wing-membrane-glider.png",
+      "sha256": "7097a76388086b8da8fe73d4046859e5bdc7cd0d60a2d23863a69d0e98ae29cd",
+      "bytes": 2485178
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/vampire-gloam-violin.png",
+      "sha256": "971511fee21a1b386abb9fb83641bfde749b2017da06f51dc1722c0c304830e3",
+      "bytes": 2104468
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/vampire-midnight-invitation.png",
+      "sha256": "d0e01bcbff23fa4167877bcc11e3c289d7db12b3cfb5abdbf848d29da3334496",
+      "bytes": 2107821
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/vampire-mist-atomizer.png",
+      "sha256": "1ad5c52ce225fc5f806a95266b2510c625640a2bde4881620f35e710950c32ef",
+      "bytes": 2063949
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/vampire-mist-cloak.png",
+      "sha256": "c3386c75fdab2ad0b0164ce05bb89be1fc444ce1ba1fed385b20b8682c8b39a4",
+      "bytes": 2615369
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/vampire-mooncut-sword.png",
+      "sha256": "ce01b9af0b0cb0137ae9d264c7e0ee85926824e7ec2f5f11de66e9019e8e48fe",
+      "bytes": 1261597
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/vampire-nocturne-signet.png",
+      "sha256": "d183c1a132725596ee14d28c18c9859f537603d4f33e823c165c045b5c53ccda",
+      "bytes": 2490936
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/merchant-set-v1/vampire-shadow-wine-decanter.png",
+      "sha256": "2e00aeef673e1d403583e3dd982421cf42885636cf19cd225e2ee37440d668ee",
+      "bytes": 1623315
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/mirror-v2.png",
+      "sha256": "771a78fb3241e4e5e01bafec447a56b1029bfca6886bdc659e2da432377b4943",
+      "bytes": 996123
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/mirror.png",
+      "sha256": "2c511fdfe15491726e6233fdaffc1947cae06158694220b0856b733787b77d97",
+      "bytes": 1094550
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/orb-v2.png",
+      "sha256": "4a25503935596f016cfc399d6febfa280941d848510eacecd1a72b7afaee4be7",
+      "bytes": 2068762
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/orb.png",
+      "sha256": "e7f2adedb314f7e5f74f96933241c739296b34c4fec72baafd5b33dae4f3e8cf",
+      "bytes": 1476278
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/potion-v2.png",
+      "sha256": "59a41a3c480cbb931bda54e580d1d758f3c6731679b3b92a0af69d74fa36ee21",
+      "bytes": 1458536
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/potion.png",
+      "sha256": "3531b56fb98c1fd7763f8611ef39ba5663bf364dc83bcc3935bf6dd10a7d03cd",
+      "bytes": 1589049
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/scanner-v2.png",
+      "sha256": "74b422c33fd7bd6c49566d934ddd0377ab44b6e25ed4a1435bdefc255aaf0d4e",
+      "bytes": 1215070
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/items/scanner.png",
+      "sha256": "492ec691bbc86e9d82dc3170822d51e684274f749c3f23f7843a77af91746af5",
+      "bytes": 1568468
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/market-night-v2.png",
+      "sha256": "9409bad45c2b864bc08fb91d7680c3344fc12172d8b7155fbf1cc71f97c0556e",
+      "bytes": 2607055
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/alien/angry.png",
+      "sha256": "440bcd5941d1099e51bbec1d3f03217ee2faf9629a67c3b5f108853ad9f716a0",
+      "bytes": 2640667
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/alien/idle.png",
+      "sha256": "1621cc1b2a2bab8c96a9ad1106a3814df15c9a8b658e9d7768a8e5e986278903",
+      "bytes": 2428952
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/alien/smile.png",
+      "sha256": "064359a5eebb22c2754ef365fda592a3ddaf0fd26f19671bc6fc2b5d09764f88",
+      "bytes": 2228924
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/autometa/angry.png",
+      "sha256": "2b1f15a1df43d299ea12147e96c3ab2214c175c566a31da8f6b93fd46f650ec2",
+      "bytes": 2509862
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/autometa/idle.png",
+      "sha256": "550b9a993f41d0e1cfe256a73b6a5a8d48d066ca0604c162d7cfa40459fab5b8",
+      "bytes": 2620361
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/autometa/smile.png",
+      "sha256": "c4b6a2f90022ce4f9fed9806a9d6239d9057c7ee1bb36b76c0eef02d114451b6",
+      "bytes": 2614223
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/beast/angry.png",
+      "sha256": "e0594baa4e5e42250e3fba8c1bb3269512c4d772d431f0bae0634270384965d2",
+      "bytes": 2613060
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/beast/idle.png",
+      "sha256": "8bb2f7bf320c21ec1ccfddfe6c3b545c18c668916c610f045615160bf5a23aa0",
+      "bytes": 2444561
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/beast/smile.png",
+      "sha256": "1c0ed4717c28cfdfe53f07b1cff44ccfd3b3d473be9019ed522fe430d247e642",
+      "bytes": 2438371
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/darkone/angry.png",
+      "sha256": "9708f9546012c53b74a0ac1a46dcaadbd8dced063f72f8fb242de23716b039f6",
+      "bytes": 2658227
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/darkone/idle.png",
+      "sha256": "533d85169e1f337a7190ea2f5832463273775ec53c19bca57b001149995997ea",
+      "bytes": 2539287
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/darkone/smile.png",
+      "sha256": "1602461534b098cf5e07d208efac67dfcdac5a541f2ca1d4682e38a4087da9a0",
+      "bytes": 2422680
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/deepsea/angry.png",
+      "sha256": "cc1221b07c68e037ba6c1a25fc646ef7b2acfd92a619934cb83c37fb10203736",
+      "bytes": 2649961
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/deepsea/idle.png",
+      "sha256": "2e2b270c70dc848197a2570c4dc5ff332fff1beee02566db642dfbda3efd8421",
+      "bytes": 2723124
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/deepsea/smile.png",
+      "sha256": "df4acd6376a91d301997986ceecc50685b7633730820e8768d511da69a829014",
+      "bytes": 2557237
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/orc/angry.png",
+      "sha256": "0d47e37ba47f3f2eb68a252380ad430797e6e35f4b01dc52f63af34282cfb9c3",
+      "bytes": 2523548
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/orc/idle.png",
+      "sha256": "bf6905bec5e5494564388327427a213b7309127ca364dd229f9f4c1c1e21bb4e",
+      "bytes": 2484670
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/orc/smile.png",
+      "sha256": "d3c54d6924bac0e7b51f0e97ae7879a970092750a0adc3e15f657e31931ce647",
+      "bytes": 2421602
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/swarm/angry.png",
+      "sha256": "79902c70798d362c65cf832e2fcb31b8a7fb83a51565bf41bd3018f9a36be0e6",
+      "bytes": 2291395
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/swarm/idle.png",
+      "sha256": "ab4e45773bcd6e6e6f55056c79702733aca681bcbb05090a4e09a2dc0a331070",
+      "bytes": 2217604
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/swarm/smile.png",
+      "sha256": "6563a2c67f71a3be2f811259f7ecfbec4096a1ccacde197e6946f63898d78562",
+      "bytes": 2357797
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/vampire/angry.png",
+      "sha256": "6e6d8fe53040fa1e452965993ad016c8dd32198cdfaad881ff8c76c20732ccc6",
+      "bytes": 2360049
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/vampire/idle.png",
+      "sha256": "b59120b96de75fbe3a2331bf974af3228d0c11698c9c0f39ab619fb8e4f01332",
+      "bytes": 2380386
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/merchants/vampire/smile.png",
+      "sha256": "427e4148d86ba3b9174933e5ffca22d4c61b922a61b18970bef029350bad3705",
+      "bytes": 2345532
+    },
+    {
+      "file": "src/appraisal-client/public/art/comic/trade-table-v1.png",
+      "sha256": "2b7bd74bbd1e6d7a5a0e08482e72616951c0097fbf4508efdf4fd38b3e5aff2a",
+      "bytes": 2467741
+    },
+    {
+      "file": "src/appraisal-client/public/art/rarity/key-cutout.png",
+      "sha256": "6273ff3c7021a0ab7daa808582b94393496640e0296f3151f81d46eff5fa3ccf",
+      "bytes": 916904
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/button.webp",
+      "sha256": "6701580d4f9a8cd38b3240edc2bc6a22d6a8758a4238aab94ab0cb04a0077bea",
+      "bytes": 41748
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/cabinet/frame.jpg",
+      "sha256": "9dce8b45ca25ed60386a098ac37fbf383b9d395318fb573490b74fa59ff70571",
+      "bytes": 560830
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/cabinet/frame.jpg.json",
+      "sha256": "4526e1e931701e4310f0a27ab25d3aedf7c1e7fde8e793afc77176de5edad31d",
+      "bytes": 1629
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/cabinet/medallion.png",
+      "sha256": "88eef89d0c84a220a3d8040a7c2b905cfc96f11e4f9265428eae3703827278f6",
+      "bytes": 2697437
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/cabinet/medallion.png.json",
+      "sha256": "f47adf23548941f1be0776c350f25fcbfb75abce3d0bd9b1e2a437b25814bd31",
+      "bytes": 1165
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/cabinet/recess.jpg",
+      "sha256": "8077a09a9a92520f9d6a2a00524d45abf582244454aad4790af6d1bb616daee3",
+      "bytes": 570439
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/cabinet/recess.jpg.json",
+      "sha256": "74650f328f33461fffc705b4ddf15e3cdd99990e8448ac2af45a799426991f9b",
+      "bytes": 1173
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/icon-bag.webp",
+      "sha256": "af5134f0bd0601675f5bb6293867f9403bb7dabd787948d6517980c8428ec929",
+      "bytes": 9802
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/icon-certificate.webp",
+      "sha256": "93656e0e65ff40f6479508e49d1f62db988388dd57d99db93e25c44879843770",
+      "bytes": 8586
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/icon-chest.webp",
+      "sha256": "3ac803a42adc16d42918bb605919671cd0a4460b928ab8855257b797a5f1f67e",
+      "bytes": 21418
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/icon-coins.webp",
+      "sha256": "9b3804a350426e56b83a34bfc08670648eb013df07124851ec882f09a1a6c097",
+      "bytes": 15386
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/icon-credit.webp",
+      "sha256": "9bf9074159a0b3243b39393605c8c4bafaf61cf228e5bd3da051d6c96d13862f",
+      "bytes": 10576
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/icon-effects.webp",
+      "sha256": "2a3d6a62baa58af17c72a895ff10ec2e820a8d3680e030d2a9a82adaaa0ff544",
+      "bytes": 8104
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/icon-energy.webp",
+      "sha256": "5febf90cde1c6341ff51dfd751a65190fe52c91341050e701fff6e21d968368c",
+      "bytes": 6706
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/icon-genuine.webp",
+      "sha256": "6d47f1b1cfdb1585d96abc9c0cf0856034b9956740d4665a96f73e5d384347c7",
+      "bytes": 8054
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/icon-ledger.webp",
+      "sha256": "9a5387f8c98bdbab81bc2e9f477b375376d424e7df91d0f1e6dec10f5dcd3cce",
+      "bytes": 9436
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/icon-life.webp",
+      "sha256": "5caa34fd578864550a5e9d13b24bbf36d1535a35be7e1a31cd8ae646796a188b",
+      "bytes": 8760
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/icon-market.webp",
+      "sha256": "520ce9eeaa67f860f347cafd61cb24853fac14e32c9c807f17c1020505e7ac9d",
+      "bytes": 5164
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/icon-rules.webp",
+      "sha256": "995eaeb9373567d4071ea7d22d73500596dee0333450a7994fd727174e6118c2",
+      "bytes": 7576
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/icon-score.webp",
+      "sha256": "b5fcf4cd6f6489e0214bba8e21a7ffa874cb28ebd632fb2d3c124499de67b54d",
+      "bytes": 10666
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/icon-shard.webp",
+      "sha256": "91f726af4427c0b7ff80977c1fb740befa1a1ceb65795cc615e2095e783724ea",
+      "bytes": 7004
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/icon-skull.webp",
+      "sha256": "6bd3011c2d4786daf669c7dee00c5b05c9c9551e9b581b864d69ae12aad34a84",
+      "bytes": 21092
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/icon-ticket.webp",
+      "sha256": "ea95dc80da0b5d297db7e4df6bf9d50327d7f53dbf17385fcbdc590e79be81ac",
+      "bytes": 7682
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/icon-time.webp",
+      "sha256": "23d37f47faee3cc153c340189ab3f5ffdae524129e342ce7160c6260b6cc5ce8",
+      "bytes": 8596
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/icon-trust.webp",
+      "sha256": "012d17153a67366110b090b622c9670252dd1d273f655d4be53e642463bfd608",
+      "bytes": 11248
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/medallion.webp",
+      "sha256": "3b8c6ed1532315115cc8f330af323989d1767762755b7b1cb349e0f85c9f301f",
+      "bytes": 18860
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/ornament.webp",
+      "sha256": "9f5d10c11da44a28030cb25fd77341b45c37e1442a72ea6d1c79a6925c5c8a91",
+      "bytes": 32430
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/panel.webp",
+      "sha256": "f27eb831908f76968f1711eb5da67805fd43966006c25ec58b96051b31722148",
+      "bytes": 136172
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/pedestal.webp",
+      "sha256": "ca962653744654accae361e5de549ee74ce1c90d5b3c2384dffab97cd09a3e80",
+      "bytes": 27404
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/slot.webp",
+      "sha256": "eb76ddd31c551b1ae12fc913525e9d111a75138554800e97fb520b8a638f6274",
+      "bytes": 15338
+    },
+    {
+      "file": "src/appraisal-client/public/art/ui/wanted-poster.webp",
+      "sha256": "49a6b7d7ca8a1ec967a20abb7c8f5b5b2ff96a7cb04e1a94cc805227edc2ea54",
+      "bytes": 78998
+    },
+    {
+      "file": "src/appraisal-client/public/fonts/cormorantgaramond-OFL.txt",
+      "sha256": "60700d351cac4650c51f3f9db318d2a420f8b45052dba2715eb5fec41f0f6956",
+      "bytes": 4387
+    },
+    {
+      "file": "src/appraisal-client/public/fonts/cormorantgaramond.ttf",
+      "sha256": "b20b7d9626dd956b2c5e558692ad328b1f19e3275e2782db4fa07670d83f35e0",
+      "bytes": 1195560
+    },
+    {
+      "file": "src/appraisal-client/public/fonts/notosansthai-OFL.txt",
+      "sha256": "2e98fd23a52d253db8612cd5942c8f2ff4111b21d2367050fdca91d8ccc374a0",
+      "bytes": 4380
+    },
+    {
+      "file": "src/appraisal-client/public/fonts/notosansthai.ttf",
+      "sha256": "5a1c559bb539583c8a1fd99d1c5b9491e5e14478c9cd2bd0970d5c3096cc9ef8",
+      "bytes": 218652
+    },
+    {
+      "file": "src/appraisal-client/public/fonts/notoserifthai-OFL.txt",
+      "sha256": "2e98fd23a52d253db8612cd5942c8f2ff4111b21d2367050fdca91d8ccc374a0",
+      "bytes": 4380
+    },
+    {
+      "file": "src/appraisal-client/public/fonts/notoserifthai.ttf",
+      "sha256": "34a7ad11647c845303aabdde639059806c56b84719e5d2ceb28eb038711bdf53",
+      "bytes": 292188
+    },
+    {
+      "file": "src/appraisal-client/reasons.tsx",
+      "sha256": "ebaa36cc4f671bb0bb0f185270c88f40bd4399f88291357cf482c52a5baec5a9",
+      "bytes": 978
+    },
+    {
+      "file": "src/appraisal-client/secure-economy.css",
+      "sha256": "91746e27e2f6f5dea6afa037fc6cbbff924b4156b35d0de97e73fe0dea78140c",
+      "bytes": 3272
+    },
+    {
+      "file": "src/appraisal-client/styles.css",
+      "sha256": "60e2cd97aec0f5c445f89d333a85879a6001b5a65b797af00fb51c06dc023241",
+      "bytes": 139354
+    },
+    {
+      "file": "src/appraisal-client/trade-concept.css",
+      "sha256": "b89798c4393e0709a8c39657cddd5045c7e05f42acc505a29fe70f2006a7a674",
+      "bytes": 8812
+    },
+    {
+      "file": "src/appraisal-client/useFitViewport.ts",
+      "sha256": "592e2f77ba8f1fc060bbb121b9feec5664a0348f93502a824c7e941e67405718",
+      "bytes": 2899
+    },
+    {
+      "file": "src/appraisal-client/utility-navigation.css",
+      "sha256": "4410a2b78185a084a82eb94ad74e9102ba2b6ff51e7721d619f4cd869d436784",
+      "bytes": 1145
+    },
+    {
+      "file": "src/appraisal-client/world/Chapter.tsx",
+      "sha256": "8e133627287a6ed59ea2e198fa5139a215020f3788256a021d71bf7c47474db0",
+      "bytes": 1276
+    },
+    {
+      "file": "src/appraisal-client/world/Stage.tsx",
+      "sha256": "4e65893a337359fca4fef170a27503bfa6d49e58689f610ba02d9d44b5631ca8",
+      "bytes": 3518
+    },
+    {
+      "file": "src/appraisal-client/world/World.tsx",
+      "sha256": "9d8581e64a8fabad4b346e79815f724030e39c527a860205c773da846cb60c7b",
+      "bytes": 1398
+    },
+    {
+      "file": "src/appraisal-client/world/art.ts",
+      "sha256": "057940c995a5cbd1c9dd935fce410da6e9d76c65695e02376de30247daba5f1d",
+      "bytes": 1758
+    },
+    {
+      "file": "src/appraisal-client/world/embers.ts",
+      "sha256": "586f45933654a1d6d174cc3dd05a3c90ec2fbc5a5d0e83e3daf51b06c1529dca",
+      "bytes": 3981
+    },
+    {
+      "file": "src/appraisal-client/world/state.ts",
+      "sha256": "cc3598e601d74f382379bf00baa33effc5089d4eeb458fffd9f34220f50e2751",
+      "bytes": 1879
+    },
+    {
+      "file": "src/appraisal-client/world/tilt.ts",
+      "sha256": "ba83a0992a5b6c2d4dbdcf9b4b441aa75977be44672a9154f3947d33b93baf7a",
+      "bytes": 2405
+    },
+    {
+      "file": "src/client/App.tsx",
+      "sha256": "d8405d62728d16d6730ec073431f4506d49f8238b187cbddb74a712dfcf025d8",
+      "bytes": 41960
+    },
+    {
+      "file": "src/client/Relic.tsx",
+      "sha256": "ca2c2c729ececbbdd5d804ecacda9c8e17150b813b133ce68d79f276796bfcec",
+      "bytes": 1837
+    },
+    {
+      "file": "src/client/connection.ts",
+      "sha256": "5d80db283736b91bcea4b6c6fe9420407af8723bd7039bd4cc63e3b2c2ebf6a8",
+      "bytes": 5435
+    },
+    {
+      "file": "src/client/index.html",
+      "sha256": "9e0a47f83f60c5372406537404f87104b28e3c8a4a4712964055c877e98abe86",
+      "bytes": 399
+    },
+    {
+      "file": "src/client/main.tsx",
+      "sha256": "fb2e13a114438843deef8718d9786e11ce1e3af2fba02234fdc413417961f719",
+      "bytes": 165
+    },
+    {
+      "file": "src/client/styles.css",
+      "sha256": "b91348a1e99c157230f14100d6d23e25ba45497f50f9605d3d8f7db559b48588",
+      "bytes": 11789
+    },
+    {
+      "file": "src/game/appraisal/ability-content.ts",
+      "sha256": "ff33530545a771c4e686640f2fca5db996ef3612f9602da6ddbf68c12377127e",
+      "bytes": 5732
+    },
+    {
+      "file": "src/game/appraisal/ability-rules.ts",
+      "sha256": "3e9f33f54b34c91fb26f6d0926f9df83e646dc3623a7c8bbf3beed5cedbc9139",
+      "bytes": 4306
+    },
+    {
+      "file": "src/game/appraisal/audit.ts",
+      "sha256": "352f047f66b8b3744f3feeb72c45bf371423c0defc5a95ef31241548ae35e0c6",
+      "bytes": 2740
+    },
+    {
+      "file": "src/game/appraisal/brokerage.ts",
+      "sha256": "df01497aef38dd46cec5384a53cfdc55b1d43daf9e9014ad0f78a3bd40a00894",
+      "bytes": 16921
+    },
+    {
+      "file": "src/game/appraisal/challenge-rules.ts",
+      "sha256": "74cfbe2083106078cdc44e96caefc9e959d999f4e1cb9319dc0e363375aa7e55",
+      "bytes": 1571
+    },
+    {
+      "file": "src/game/appraisal/challenge.ts",
+      "sha256": "35a2d880e49702b24560eae95fa6b2194c2e02f474f9a8ec2842e0114f3c6fec",
+      "bytes": 3203
+    },
+    {
+      "file": "src/game/appraisal/cleanse-rules.ts",
+      "sha256": "6fb69a3f4a4aa870670248255e02eb81d3fc527dbd4d9c975ba14eac81915cd1",
+      "bytes": 2525
+    },
+    {
+      "file": "src/game/appraisal/cleanse.ts",
+      "sha256": "2195402df17b9c929a06ca65ca766bbe6f7f7e37db0f2e098e9554e523e08de5",
+      "bytes": 4299
+    },
+    {
+      "file": "src/game/appraisal/content.ts",
+      "sha256": "769c0ed9bbe0ac774647f39bfdb1a2febc0d9f48e03e774de45e408c513cdc18",
+      "bytes": 85169
+    },
+    {
+      "file": "src/game/appraisal/copy-effects.ts",
+      "sha256": "908b28f89ad8de7212adbd4636fdef6b2daaca230f97c41050ac2e436f4942f9",
+      "bytes": 1068
+    },
+    {
+      "file": "src/game/appraisal/core2-actions.ts",
+      "sha256": "a6000bd555a61b4140e3d41e43f882c5b692599b4d5b260e66a614d08c6c9837",
+      "bytes": 10302
+    },
+    {
+      "file": "src/game/appraisal/core2-content.ts",
+      "sha256": "e96206fa8c7d638c3b0ccbc756a8d6bf2977a84308c6c423956b63340cf789b9",
+      "bytes": 8421
+    },
+    {
+      "file": "src/game/appraisal/core2-events.ts",
+      "sha256": "00cc312c9caa75c5000e805e96722a8a79909c9c21c96a2911f6d0e9fcef5979",
+      "bytes": 7879
+    },
+    {
+      "file": "src/game/appraisal/core2-rules.ts",
+      "sha256": "c512cac29fda1d586afcc82ece3ac15a0411650283d1226ae12787c76bfce0ea",
+      "bytes": 4897
+    },
+    {
+      "file": "src/game/appraisal/core2-specs.ts",
+      "sha256": "399d270a4c3c8d170ae2c9a995dfff13863aeba2ebce98b70b78a5f2a1ce5316",
+      "bytes": 9388
+    },
+    {
+      "file": "src/game/appraisal/core2.ts",
+      "sha256": "6e3faed1e5d097006ccbfffb7c29e540edab9036f2bc9903f9572c0f3b8ea5f4",
+      "bytes": 5264
+    },
+    {
+      "file": "src/game/appraisal/engine.ts",
+      "sha256": "880acbbf3b7eee9d944514082b120eed362df811c1ca8138117bd702310f4ca9",
+      "bytes": 57888
+    },
+    {
+      "file": "src/game/appraisal/events.ts",
+      "sha256": "05da0823b84b85cea769c06085cd56da6973fb238abf05b9cf3ff623724240f2",
+      "bytes": 46766
+    },
+    {
+      "file": "src/game/appraisal/index.ts",
+      "sha256": "7867d91af9702cce970b74c8c6ae4d28f1f932139e439bcc86c471d293fbd557",
+      "bytes": 647
+    },
+    {
+      "file": "src/game/appraisal/item-effects.ts",
+      "sha256": "c2ff1cbae837a24e19f6a5c81f56d27b986f870d7c277fd5d787d70728c63abd",
+      "bytes": 6986
+    },
+    {
+      "file": "src/game/appraisal/journal.ts",
+      "sha256": "551ae451a57870bb5d39d9edf9564137306ab4026b4a79ff4b90325ed3fd5874",
+      "bytes": 4689
+    },
+    {
+      "file": "src/game/appraisal/market-contracts.ts",
+      "sha256": "aef568c8fd9288c26fa6f74d696cd310f0949fddeefd4155af5c8a38db76ff9c",
+      "bytes": 1891
+    },
+    {
+      "file": "src/game/appraisal/mechanics.ts",
+      "sha256": "220548204a4be0efdde4dd8d839ad51b468f0867d2cb7174fd2cabbbf307f362",
+      "bytes": 46875
+    },
+    {
+      "file": "src/game/appraisal/merchant-abilities.ts",
+      "sha256": "e90c4ea9b0c2f302ec3e005efef4d61e73c9d239a460d8aeb8859c394b226b09",
+      "bytes": 12273
+    },
+    {
+      "file": "src/game/appraisal/npc-events.ts",
+      "sha256": "28a925726df336b668b542630cdcee012b64e17a20dfdf3e519d9a7652ec89bf",
+      "bytes": 15089
+    },
+    {
+      "file": "src/game/appraisal/omen-table.ts",
+      "sha256": "8b6ab850d3722a62f735726aef4d3c9b17a40a9791fff31e284a1a90df862106",
+      "bytes": 3525
+    },
+    {
+      "file": "src/game/appraisal/omens.ts",
+      "sha256": "23bf7f701d39d380ec315aaf5050602540ee662b232006bfc51fba7561f3019d",
+      "bytes": 1845
+    },
+    {
+      "file": "src/game/appraisal/passives.ts",
+      "sha256": "4c698f61577c48d58ff945546be159f49945e1e6279c85456ae8d7e1c0d8a2ab",
+      "bytes": 12270
+    },
+    {
+      "file": "src/game/appraisal/polish-events.ts",
+      "sha256": "b79b7d4c1fcc159aad0d319ed3542844d28c22479637a2a70306570c01abfbb6",
+      "bytes": 1075
+    },
+    {
+      "file": "src/game/appraisal/price-integrity.ts",
+      "sha256": "e2198294f78ee5def8be05631082eb23f2ba819fe6cdc2d8d89f75dc85501268",
+      "bytes": 5172
+    },
+    {
+      "file": "src/game/appraisal/pulse.ts",
+      "sha256": "a2850ad9e52e5e4e8f2122affb24e8d8e9ac7fa015b249c61b6ec93076fe712d",
+      "bytes": 2271
+    },
+    {
+      "file": "src/game/appraisal/rarity.ts",
+      "sha256": "3672184a63c2899151c92ed7a413a0881ec5df613fc10d0ca16f01090936cbd6",
+      "bytes": 1534
+    },
+    {
+      "file": "src/game/appraisal/round-rewards.ts",
+      "sha256": "0cc05a064ee355cf102ecbebd8bb8754c33d7bdc3d500f1f7196182cedfcaa5d",
+      "bytes": 5813
+    },
+    {
+      "file": "src/game/appraisal/scoring.ts",
+      "sha256": "82cd3af13438d22f426f5dc9b79741b7f0d22511fdd1728ac8a87911e018df3a",
+      "bytes": 928
+    },
+    {
+      "file": "src/game/appraisal/seals.ts",
+      "sha256": "89e1b53c5f9d9d7aa010fe00bc84e8b3e37f8f83cbeb2f28895704e7e7532807",
+      "bytes": 13652
+    },
+    {
+      "file": "src/game/appraisal/secure-storage.ts",
+      "sha256": "8809389abd9c149b961a08822979fcbfbebfb6042b6c826eed09dec126260e57",
+      "bytes": 16630
+    },
+    {
+      "file": "src/game/appraisal/survival.ts",
+      "sha256": "82807d479e910e293910d3ac0cafd23b6e5d0826411330a0a1bd2147af3c6c47",
+      "bytes": 3030
+    },
+    {
+      "file": "src/game/appraisal/theft.ts",
+      "sha256": "83a321cd2cad805547d35298ef5fc21abd93dc3b0f1c6f3914d426def30247db",
+      "bytes": 21343
+    },
+    {
+      "file": "src/game/appraisal/types.ts",
+      "sha256": "c75ddff3689e1db1e18d83f57eb307d7afb7823d533ab66d9878cd902c57db2d",
+      "bytes": 26514
+    },
+    {
+      "file": "src/game/appraisal/views.ts",
+      "sha256": "f8dbb65384370226c329e6eee3b0c6af891c7fffe66d5b8e5cd720012605d592",
+      "bytes": 10683
+    },
+    {
+      "file": "src/game/appraisal/wishlist-rules.ts",
+      "sha256": "9157cc6f7636ed765494f6fc0ae7a5c1c54cad42036728d1288853e257aa3c30",
+      "bytes": 1987
+    },
+    {
+      "file": "src/game/appraisal/wishlist.ts",
+      "sha256": "335080d7252080ffdd373d0d452a8f999d2d0305c8ae35da673972d6794b4167",
+      "bytes": 10975
+    },
+    {
+      "file": "src/game/audit.ts",
+      "sha256": "0449a71a5bdf6a620aaa60e550e53820ef85e0c092ed3951ed6da5fd231ee15c",
+      "bytes": 3281
+    },
+    {
+      "file": "src/game/engine.ts",
+      "sha256": "7784254cd7dac9534ef2d021f4d37d6ce13a7193fa227f1277718423f81d25c5",
+      "bytes": 16678
+    },
+    {
+      "file": "src/game/index.ts",
+      "sha256": "8e84ae70ce4c857910d6ba5bec27ed89e846d141e98c620366ed2ab92cf59a1b",
+      "bytes": 315
+    },
+    {
+      "file": "src/game/random.ts",
+      "sha256": "ec6facfcf36a0bb9cc137ffb4fe897ce1edb6cdad9763fb090adcaa1de8330d0",
+      "bytes": 605
+    },
+    {
+      "file": "src/game/rules.ts",
+      "sha256": "ea14c941e488b48acd503a5e82983c91ff9ea7d4f28867411083ec44e3da01ff",
+      "bytes": 3269
+    },
+    {
+      "file": "src/game/run.ts",
+      "sha256": "223e294c700835b7e926663a96f19998e4c2ac2a2c7e677cd87b663386bdb460",
+      "bytes": 7768
+    },
+    {
+      "file": "src/game/types.ts",
+      "sha256": "8bcd1de1a652224f989bfdaf61b455992520a903c6156cdceca1ea5001eb1c86",
+      "bytes": 6006
+    },
+    {
+      "file": "src/game/views.ts",
+      "sha256": "37c2091fbbf3042e9ea513bf6236f40f5136a11af8ed5b1eb5122cf2e89d4f04",
+      "bytes": 2674
+    },
+    {
+      "file": "src/playtest/appraisal-report.ts",
+      "sha256": "531f2a9ced0992636b9446fe3192b6dea8d437b9e9ff9be7a7bb6e6b03b07258",
+      "bytes": 6882
+    },
+    {
+      "file": "src/playtest/downloaded-reports.ts",
+      "sha256": "d6a2085fec5f536977abab906edb2e4b2179aa0657c5ddc106664740336d2568",
+      "bytes": 899
+    },
+    {
+      "file": "src/playtest/report.ts",
+      "sha256": "98baba39efeb74895f2013d261b0b217adf8b32ed26eea81c8dc2d20dc56cf00",
+      "bytes": 10080
+    },
+    {
+      "file": "src/playtest/run.ts",
+      "sha256": "9471e8df13f60a2abd9bc1cd2eec2158a954396d424a2ec1ea9871fd5d99475a",
+      "bytes": 431
+    },
+    {
+      "file": "src/server/app.ts",
+      "sha256": "368de881c156b1cf698dcb73d0833b6d73f1c381c140fef1c8d7fb517449db7c",
+      "bytes": 4710
+    },
+    {
+      "file": "src/server/appraisal-main.ts",
+      "sha256": "6af8d2ab0a6678a0c0521908cf6539823626ed16323fe38942729249a8d6497c",
+      "bytes": 818
+    },
+    {
+      "file": "src/server/appraisal-messages.ts",
+      "sha256": "1641544b9440fe060f026c35997671ec1179ffdfc4473f7cd45bd63b302737f9",
+      "bytes": 14405
+    },
+    {
+      "file": "src/server/appraisal-rooms.ts",
+      "sha256": "589661b0aeb77b7da6ba3394a4868f6cb085af383ecf8f7d359e8981658549c5",
+      "bytes": 14769
+    },
+    {
+      "file": "src/server/main.ts",
+      "sha256": "5a47f38e3501b1a70e015d5c6eca94cccfd6eec368c630c6f20df54ff2349a7d",
+      "bytes": 497
+    },
+    {
+      "file": "src/server/messages.ts",
+      "sha256": "9aca862e4cedf704babca0fb627268de531fd2cc2717e8f62afa268f59be6ee4",
+      "bytes": 5632
+    },
+    {
+      "file": "src/server/room-lifecycle.ts",
+      "sha256": "6428c3c8dc9f94dfd881ac52925f28811843c52b9844cfde11608ff4eb69a673",
+      "bytes": 12559
+    },
+    {
+      "file": "src/server/rooms.ts",
+      "sha256": "e7f49dd8b939f8a1f179e678f98758e011864ff8a54cc05dc20876118fbd2ffb",
+      "bytes": 8557
+    },
+    {
+      "file": "src/shared/appraisal-protocol.ts",
+      "sha256": "fc466f14f54cced6c40ed5c934a69d7a2c99b1f927195956560bf344f3c073b7",
+      "bytes": 3746
+    },
+    {
+      "file": "src/shared/item-rarity.ts",
+      "sha256": "bf190d3345ba346f6cb9be496e85c6d471b470d7b243f7a7447ba1a1d5e48d1e",
+      "bytes": 6326
+    },
+    {
+      "file": "src/shared/protocol.ts",
+      "sha256": "662c38b865368d8cbcaa888cfec36a05ce2d61a3c588f6e94417cb6a01129bc1",
+      "bytes": 2035
+    },
+    {
+      "file": "src/shared/rarity-power.ts",
+      "sha256": "337e80b7cd349c7e4f075df0e45a695e7f9c8d4eb5f598191eb9ceac8582e097",
+      "bytes": 2103
+    },
+    {
+      "file": "src/shared/rarity-renderer.ts",
+      "sha256": "db81272375ca01e8396c8bfee506b330e6354b165f91ae26a5bfe216d098f81b",
+      "bytes": 11407
+    },
+    {
+      "file": "src/simulation/appraisal.ts",
+      "sha256": "33bca7fd3bf022b7a2ed9e2608612910d9593a1467cb55b65eeb3928e7eb7640",
+      "bytes": 22610
+    },
+    {
+      "file": "src/simulation/balance.ts",
+      "sha256": "a75ef2136ca48e38d3caf402f1978205d0765a9dcdcf3f5b1c3adc9ceb43d26a",
+      "bytes": 5669
+    },
+    {
+      "file": "src/simulation/bots.ts",
+      "sha256": "81607b19900e45006e999d04e327c0cefde1b2a1e8aae1a5d5b49117548d08c4",
+      "bytes": 3613
+    },
+    {
+      "file": "src/simulation/replay.ts",
+      "sha256": "d07f24463bb8b39c7d6149c4ad2a4e22bbfccd78ce4335bf420eee1e528c10bf",
+      "bytes": 1734
+    },
+    {
+      "file": "src/simulation/run.ts",
+      "sha256": "b4157c7120877e5eb1c12f75a022039bf1d2407913424291644a083a9da9a047",
+      "bytes": 14224
+    },
+    {
+      "file": "src/simulation/simulate.ts",
+      "sha256": "185c568a935a6b473ad9b6f13987657bfa6a6b81e9943d5e5616cca08e223009",
+      "bytes": 2605
+    },
+    {
+      "file": "tests/appraisal-bots.test.ts",
+      "sha256": "dfc540dba90b1134d3032658acd7b414251259d39aba9c53d2392e21ae16c46c",
+      "bytes": 5765
+    },
+    {
+      "file": "tests/appraisal-brokerage.test.ts",
+      "sha256": "b60c5670b3becd0907bcb7361bb3af48c1e2e3250162475d4c60799c6bb4bf9d",
+      "bytes": 17307
+    },
+    {
+      "file": "tests/appraisal-cabinet.test.ts",
+      "sha256": "f1458617ba195015921bc5027acde5b6b11cffd940aa1cf8b9e1b35c945e8c88",
+      "bytes": 4120
+    },
+    {
+      "file": "tests/appraisal-catalog.test.ts",
+      "sha256": "b17c31aab9ecfbcf0c3311a5c6ad266a7a7407b70e5371864d3a067472e80179",
+      "bytes": 8890
+    },
+    {
+      "file": "tests/appraisal-challenge.test.ts",
+      "sha256": "a54b6ac934930c1c917ba01624d7950108a5981ce93f461f73dc7b077ebc85eb",
+      "bytes": 6682
+    },
+    {
+      "file": "tests/appraisal-cleanse.test.ts",
+      "sha256": "8bd6afda461e3e4de70e855c3ce5bca0143a95d62f8f9d0fa058d0c09c943e93",
+      "bytes": 5565
+    },
+    {
+      "file": "tests/appraisal-client.test.ts",
+      "sha256": "50a3a7510b88bd6ceee86e78a596ab5d82719593c2e4259fe56fc6c79a86da95",
+      "bytes": 19524
+    },
+    {
+      "file": "tests/appraisal-comic-blood-pact.test.ts",
+      "sha256": "c2ae7accb68f2339235e91a8d5f5a1931a310052827fe53f9ff7716476da7a0f",
+      "bytes": 3841
+    },
+    {
+      "file": "tests/appraisal-commerce.test.ts",
+      "sha256": "9471036144c310d0c8fa81f761ba7e9a8e4e8a3061480748566436858dfe5bfe",
+      "bytes": 13798
+    },
+    {
+      "file": "tests/appraisal-core2-client.test.ts",
+      "sha256": "966d2db6eac2965a1fb9574d0aac2d4182d130d3bae68321e7e2426ac518d0bd",
+      "bytes": 1392
+    },
+    {
+      "file": "tests/appraisal-core2.test.ts",
+      "sha256": "113cb65f0ef0e07c4e11d288fcb3b3fed8a5de23d73768c2b233ea6f8b7d688a",
+      "bytes": 13003
+    },
+    {
+      "file": "tests/appraisal-curse-sight.test.ts",
+      "sha256": "c89381f381b270e6b1f43c0f8861cc995186995c3fa5cbf743911b176fc13429",
+      "bytes": 6732
+    },
+    {
+      "file": "tests/appraisal-end-rules.test.ts",
+      "sha256": "802b8b14d05e49108546e835a845e97ecf9ffb08b6dc74f0cca7bdeec2c4f9aa",
+      "bytes": 9978
+    },
+    {
+      "file": "tests/appraisal-event-choices.test.ts",
+      "sha256": "149567cdb24b5c9974570ca0f5bef3791f22fadcb2f538934c267d58498991da",
+      "bytes": 10214
+    },
+    {
+      "file": "tests/appraisal-event-rework.test.ts",
+      "sha256": "561c5ce9be25a7d559880c44f0090fae9d5458e8876e68eaebd19ce8bc17a833",
+      "bytes": 7453
+    },
+    {
+      "file": "tests/appraisal-expansion.test.ts",
+      "sha256": "a3883149bfe9a4bcd54cf290065b4fd321d221911ee5067483b724820ef730f3",
+      "bytes": 13280
+    },
+    {
+      "file": "tests/appraisal-free-actions.test.ts",
+      "sha256": "fce35e7517af010c6cf208e64f47f33012f399f3803eeaf38cf1d5ad48f022fc",
+      "bytes": 7291
+    },
+    {
+      "file": "tests/appraisal-i18n.test.ts",
+      "sha256": "0663108510838daf77b2d20894dc90ff8bed8d60826434722e8db3d918651761",
+      "bytes": 7150
+    },
+    {
+      "file": "tests/appraisal-incentives.test.ts",
+      "sha256": "68a5a980bd7fe7d86c0502dbbb35ac63138731e58c254a9792c62be3905e490f",
+      "bytes": 6716
+    },
+    {
+      "file": "tests/appraisal-item-effects.test.ts",
+      "sha256": "330a4921d5dcdf0d38321f44c40676ef1824ca2c0829c2c6b0bf34c1a52c43d5",
+      "bytes": 11552
+    },
+    {
+      "file": "tests/appraisal-journal.test.ts",
+      "sha256": "9a48821781b74d6e6b3252e1acb57094175c08c246cb60bf940d383cc6775e16",
+      "bytes": 1487
+    },
+    {
+      "file": "tests/appraisal-merchant-abilities.test.ts",
+      "sha256": "3ee2076f1170c5ee06511feb0acfdcf386056a8c534689edfd40f0f61fa7fbcf",
+      "bytes": 21548
+    },
+    {
+      "file": "tests/appraisal-network.test.ts",
+      "sha256": "28c55bed769077723108e7c893a40174846e3ac513430733edbe584e5fe4b696",
+      "bytes": 29508
+    },
+    {
+      "file": "tests/appraisal-npc-events.test.ts",
+      "sha256": "a2d40609952a9f663a26bbbeb797365a9a0ca997b3df1a29f4becfacc5f4880e",
+      "bytes": 20999
+    },
+    {
+      "file": "tests/appraisal-passives.test.ts",
+      "sha256": "cc1f60ed60ba14bfe845b3cab8883981e778e7c87fddd3e15a13eb1c68d0f42b",
+      "bytes": 14560
+    },
+    {
+      "file": "tests/appraisal-polish.test.ts",
+      "sha256": "115edb370653d314816899fedc6ffe6c100d7276b4d5554fe4f37335501e4bf0",
+      "bytes": 19321
+    },
+    {
+      "file": "tests/appraisal-portal-context.test.ts",
+      "sha256": "c3a28e6240bdc719d0f65af3e9f47ea1c0d95ceb4e936818240092f56df310cc",
+      "bytes": 5583
+    },
+    {
+      "file": "tests/appraisal-price-integrity.test.ts",
+      "sha256": "c75d3b0c65933b6043f3ee44a1ec578ed901b20dcd2f3b013ed9b65d5939fefd",
+      "bytes": 10025
+    },
+    {
+      "file": "tests/appraisal-price-knowledge.test.ts",
+      "sha256": "d1efe47b4f9144e4012eb1c2a30d427ee6165ecbd3778b3aed66822acaf293dc",
+      "bytes": 4689
+    },
+    {
+      "file": "tests/appraisal-pulse.test.ts",
+      "sha256": "01c9a4569c92849d69ac827c7f81848ac8467e6b1d8666e3e5f6c00fef14c17f",
+      "bytes": 7890
+    },
+    {
+      "file": "tests/appraisal-report.test.ts",
+      "sha256": "3b4e0fffd63b06c625e13744849ba053c031bc4b150f6984f8501be81c536653",
+      "bytes": 5289
+    },
+    {
+      "file": "tests/appraisal-rooms.test.ts",
+      "sha256": "d48c48d41499c979e4c56adacefd60cd72d4410d818ce4ec375d0d161d1cd504",
+      "bytes": 17424
+    },
+    {
+      "file": "tests/appraisal-round-rewards.test.ts",
+      "sha256": "16444ac3ad864bfb776c927408f765a2d2f918a9ad0edcc360c71933eb875161",
+      "bytes": 15783
+    },
+    {
+      "file": "tests/appraisal-secure-client.test.ts",
+      "sha256": "3b207c7de6699581b89db09999e192f6ec59c793b595c07fbef9fd3eb42a4d68",
+      "bytes": 8104
+    },
+    {
+      "file": "tests/appraisal-secure-integration.test.ts",
+      "sha256": "07751e96f605315633bc3529ccac130671cac397ea8ab10dceecffc2f90e62c0",
+      "bytes": 6819
+    },
+    {
+      "file": "tests/appraisal-secure-seals.test.ts",
+      "sha256": "23e0aa112467c2f50c783a1325cdc2237c8aabde9a2b85050045ee37f9d1f349",
+      "bytes": 15868
+    },
+    {
+      "file": "tests/appraisal-secure-storage.test.ts",
+      "sha256": "85589e5507fc50ba1d8512258bf600bce22fa706d90e2e3e0e3bb3bdae8d9b69",
+      "bytes": 11214
+    },
+    {
+      "file": "tests/appraisal-secure-theft.test.ts",
+      "sha256": "cbbbd45c5a4d4e15a1cde03c808377c179b24cbbe2ba6e5ae089380c018bcc47",
+      "bytes": 13729
+    },
+    {
+      "file": "tests/appraisal-status-links.test.ts",
+      "sha256": "d0c11edf498fdaac7d79cd358164f78520a8b6b304ba808cb0f4a734316f2a55",
+      "bytes": 9356
+    },
+    {
+      "file": "tests/appraisal-stock.test.ts",
+      "sha256": "021fa5c0232b6014c53cd98c1fa28a9d874c53fb9471dda13bafab7a92fabb9e",
+      "bytes": 8456
+    },
+    {
+      "file": "tests/appraisal-survival.test.ts",
+      "sha256": "6fe9bb89b5cac4749d332ae0a7dcd3a8bb032a9ac51e4e05368f109d6f110dac",
+      "bytes": 29565
+    },
+    {
+      "file": "tests/appraisal-system-links.test.ts",
+      "sha256": "34ed4e9c66a00fb121d39a2c0da6ebe7b5184583b83b358628b48d002397619d",
+      "bytes": 13311
+    },
+    {
+      "file": "tests/appraisal-tickets.test.ts",
+      "sha256": "3038caad8edc98e4166d78813f89d6280c63002b424ba3cce03bb2e4fda7aea1",
+      "bytes": 7128
+    },
+    {
+      "file": "tests/appraisal-timers.test.ts",
+      "sha256": "9954f385cb8ee831944c9063e3a93d3dfbbc6ae5c44f6a88bfbe041099a7bf59",
+      "bytes": 10153
+    },
+    {
+      "file": "tests/appraisal-trade-price.test.ts",
+      "sha256": "d7d9962e7b5a5c578b28fb9293f6554b320337118b7094a41aa18a3bd3768e2f",
+      "bytes": 4619
+    },
+    {
+      "file": "tests/appraisal-wishlist.test.ts",
+      "sha256": "51fe03db57a3c261c848406bc7d0c36ff95781a7a4e12815077bec7efa7b2080",
+      "bytes": 12671
+    },
+    {
+      "file": "tests/appraisal.test.ts",
+      "sha256": "0c44b3fe73330b8ae2c9e61f989aadca6a10a678a202fbf7912df658285e4ec5",
+      "bytes": 23821
+    },
+    {
+      "file": "tests/engine.test.ts",
+      "sha256": "f31eb3170f6fefe5a8ef72bef0c7a22a947d35b2b7484a43e13f910babfe1582",
+      "bytes": 15985
+    },
+    {
+      "file": "tests/event-dismiss.ts",
+      "sha256": "a5685c9bb0ceccb74b04ab89ed94e3451977125490b89db6abdd6f3d81867bc7",
+      "bytes": 803
+    },
+    {
+      "file": "tests/fixtures/system-links-legacy.json",
+      "sha256": "6ce3bd40d5a6b6cb9df579a38343bbe8f75dff886e57ed7e00448a52eea9a092",
+      "bytes": 19469
+    },
+    {
+      "file": "tests/item-rarity.test.ts",
+      "sha256": "da68f91dc0abe8b76f6fc382da32cf8b685ad3983214516174fdcec9348bd228",
+      "bytes": 6343
+    },
+    {
+      "file": "tests/network.test.ts",
+      "sha256": "3802c9dc66b0a808429d4196e63cbb2bd7d4de1fd495b872e3b000722b5276d1",
+      "bytes": 13232
+    },
+    {
+      "file": "tests/playtest.test.ts",
+      "sha256": "4e55a33bb06f63ad516b9980d71935783606f5023bc71038bbaf8b919a67bb17",
+      "bytes": 5390
+    },
+    {
+      "file": "tests/rarity-economy.test.ts",
+      "sha256": "b2f909a45190b700694146fa94d758ae4771f9b906202bd15eb20151241583fb",
+      "bytes": 11009
+    },
+    {
+      "file": "tests/rooms.test.ts",
+      "sha256": "11430a9d9feeb3e7b86082e9ba1fa6310d896d23afe9652e65fd581549938bbc",
+      "bytes": 13779
+    },
+    {
+      "file": "tests/run.test.ts",
+      "sha256": "5c626e6cafb5d40c8be690e079a165d424a713611add836993368498140ef641",
+      "bytes": 12620
+    },
+    {
+      "file": "tests/support/appraisal-fixture.ts",
+      "sha256": "4e68c7aa8ef3475d366fffe0fefdb452002c302cb40a69ba7f9ac2307b429054",
+      "bytes": 2913
+    },
+    {
+      "file": "tests/wagers.test.ts",
+      "sha256": "2fcc1d31c2585d77e9215a28dc9dc6791eca4f29501fa4f4f12aca5cfc21936e",
+      "bytes": 8521
+    },
+    {
+      "file": "tsconfig.appraisal-client.json",
+      "sha256": "9c21ae44a87f867e7bd0d813514365d1d3b233ffc8cb7027a0bfc9a515fa5906",
+      "bytes": 311
+    },
+    {
+      "file": "tsconfig.client.json",
+      "sha256": "79427f10dc26e10da4b37192cbecd5652bfcc6d141f40f7a5238268a9f0faaae",
+      "bytes": 451
+    },
+    {
+      "file": "tsconfig.json",
+      "sha256": "938bc5b541bb60ca74608c01a73865c3f6227adc2ce8831901b818486f6286b5",
+      "bytes": 637
+    },
+    {
+      "file": "vite.appraisal.config.mjs",
+      "sha256": "10ab18f5d86a4be4fb5d04877b6d720771ab77acfbf4f2c590d83f564ab80331",
+      "bytes": 343
+    },
+    {
+      "file": "vite.config.mjs",
+      "sha256": "4f3c507378bd2a800118113dcfe19e2b767ee24c44ac175fd072995cc3960fd3",
+      "bytes": 365
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+/* Utility pages keep the persistent dock available; consequential dialogs remain modal. */
+#game-main .screen { --utility-preview-space:0px; --utility-dock-space:48px; --utility-bottom:calc(var(--utility-dock-space) + var(--utility-preview-space) + 12px); }
+body:has(.preview-toolbar) #game-main .screen { --utility-preview-space:40px; }
+#game-main .screen dialog.utility-panel {
+  position:fixed; inset:12px 0 var(--utility-bottom); z-index:200;
+  min-height:0; max-height:calc(100dvh - var(--utility-bottom) - 12px); margin:auto;
+}
+
+#game-main .screen:has(dialog.utility-panel[open]) > .table-stage { pointer-events:none; }
+#game-main .screen .hud-settings[aria-expanded=true] { color:#fff; border-color:#ff315c; background:#89172e!important; }
+@media(max-width:760px) {
+  #game-main .screen { --utility-dock-space:62px; }
+}

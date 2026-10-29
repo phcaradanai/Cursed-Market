@@ -1,0 +1,28 @@
+{
+  "method": "before/after actual browser screenshot RGB difference >15",
+  "regions": {
+    "above_frame": [
+      100,
+      48,
+      400,
+      60
+    ],
+    "left_of_frame": [
+      0,
+      180,
+      24,
+      600
+    ],
+    "below_frame": [
+      0,
+      624,
+      430,
+      632
+    ]
+  },
+  "changedPixels": {
+    "above_frame": 510,
+    "left_of_frame": 3621,
+    "below_frame": 0
+  }
+}

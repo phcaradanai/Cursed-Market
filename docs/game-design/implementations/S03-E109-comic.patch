@@ -1,0 +1,365 @@
+--- /dev/null
++++ b/src/appraisal-client/BloodPactEvent.tsx
+@@ -0,0 +1,46 @@
++import type {EventOffer} from '../game/appraisal/types.js';
++import type {Actions} from './components.js';
++import {MerchantEventPortrait} from './MerchantEventPortrait.js';
++import {ComicButton} from './ComicUI.js';
++import {EventIcon,EyeIcon,InfoIcon,LifeIcon} from './icons.js';
++import {Peek} from './lore.js';
++import {eventDecision,eventNeeds,needShort} from './model.js';
++import {pick} from './i18n.js';
++import {useLock} from './reasons.js';
++
++/** E109 presentation only; the existing event command owns payment and deferred rewards. */
++export function BloodPactEvent({game,offer,submit,disabled,onTuck}:Actions&{offer:EventOffer;onTuck:()=>void}) {
++  const locked=useLock();
++  const cost=eventNeeds(game,offer,'accept','');
++  const life=game.self.life??0;
++  const reason=!offer.npcTerms?pick('ไม่มีเงื่อนไขข้อตกลง','Missing contract terms'):needShort(game,cost);
++  const choose=(choice:string)=>{
++    const action=eventDecision(offer,choice,{itemId:'',statusId:'',fact:'',guess:false});
++    if(!disabled && action && (choice==='decline'||!reason))submit(action);
++  };
++  return <section className="comic-event-spread" aria-labelledby="blood-pact-title">
++    <MerchantEventPortrait npc="vampire"/>
++    <div className="comic-event-content">
++      <header className="comic-event-heading">
++        <div className="comic-event-topline"><span>{pick(`ช่วงที่ ${game.encounter} · พบพ่อค้าแวมไพร์`,`Encounter ${game.encounter} · Vampire`)}</span><ComicButton onClick={onTuck}><EyeIcon/>{pick('ซ่อนไว้ดูโต๊ะ','View table')}</ComicButton></div>
++        <h2 id="blood-pact-title">{pick('สัญญาเลือด','Blood pact')}<em>{pick('ครั้งหน้า',' · next meeting')}</em></h2>
++        <p>{pick('มอบชีวิตตอนนี้ เพื่อรับผลตอบแทนเมื่อพบกันอีกครั้ง','Pay life now for a reward when you choose to meet the Vampire again.')}</p>
++      </header>
++      <div className="comic-event-facts">
++        <div className="comic-event-fact"><LifeIcon/><div><span>{pick('ชีวิต','Life')}</span><strong>{life}<span aria-hidden="true"> → </span><span className="sr-only">{pick(' เหลือ ',' remaining ')}</span><em>{Math.max(0,life-(cost.life??0))}</em></strong></div><b>−{cost.life??0}</b></div>
++        <div className="comic-event-fact comic-event-reward"><EventIcon/><div><strong>{pick('พบแวมไพร์ครั้งหน้า','Next Vampire meeting')}</strong><span>{pick('สุ่มรับเพียง 1 อย่าง','One eligible random reward')}</span></div>
++          <Peek tone="rule" label={<><InfoIcon/><span className="sr-only">{pick('ดูผลตอบแทนที่อาจได้รับ','Possible rewards')}</span></>} card={<><span className="peek-head"><strong>{pick('สุ่มเฉพาะผลที่ใช้ได้ · เพียง 1 อย่าง','One eligible result only')}</strong></span><span className="peek-body">{pick('ของฟรี 1 ชิ้น · ลดซื้อครั้งแรก 50% · ฟื้นพลังสูงสุด 6 · ฟื้นชีวิตสูงสุด 3 · หรือพรสุ่ม 1 อย่าง','One free item · 50% off first purchase · recover up to 6 energy · heal up to 3 life · or one random boon')}</span><span className="peek-foot">{pick('รับเมื่อเลือกพบอีกครั้งในช่วงถัดไป ไม่ได้รับทันที','Available on a later encounter when you choose the Vampire again, not immediately.')}</span></>}/>
++        </div>
++      </div>
++      <div className="comic-event-breathing-room" aria-hidden="true"/>
++      <div className="comic-event-bottom">
++        <p className="comic-event-warning"><EventIcon/>{pick('จบเกมก่อนพบกันอีกครั้ง จะไม่ได้ผลตอบแทน','No reward if the run ends before you meet again.')}</p>
++        {reason&&<p className="comic-event-block" role="status">{reason}</p>}
++        <div className="comic-event-actions">
++          <ComicButton tone="primary" disabled={disabled||!!reason||!offer.choices.includes('accept')} title={disabled?locked??undefined:reason??undefined} onClick={()=>choose('accept')}>{pick('ยอมรับ','Accept')} · <LifeIcon/> −{cost.life??0}</ComicButton>
++          <ComicButton disabled={disabled||!offer.choices.includes('decline')} title={disabled?locked??undefined:undefined} onClick={()=>choose('decline')}>{pick('ปฏิเสธ','Decline')}</ComicButton>
++        </div>
++      </div>
++    </div>
++  </section>;
++}
+--- /dev/null
++++ b/src/appraisal-client/MerchantEventPortrait.tsx
+@@ -0,0 +1,15 @@
++import type {CSSProperties} from 'react';
++import type {NpcId} from '../game/appraisal/types.js';
++import {npcImage} from '../game/appraisal/content.js';
++import {MERCHANT_PORTRAIT_FRAMES as frames} from './merchant-portrait-frames.js';
++
++/** Idle art calibration: visible alpha height and base, not canvas width, determine event scale. */
++export function MerchantEventPortrait({npc}:{npc:NpcId}) {
++  const frame=frames[npc],visibleHeight=frame.bounds[3]!-frame.bounds[1]!;
++  const style={
++    '--portrait-height-ratio':frame.height/visibleHeight,
++    '--portrait-bottom-offset':-(frame.height-frame.bounds[3]!)/visibleHeight,
++    '--portrait-anchor':`${frame.anchorX/frame.width*100}%`,
++  } as CSSProperties;
++  return <div className="comic-event-portrait" data-merchant={npc} style={style} aria-hidden="true"><img src={npcImage(npc)} alt=""/></div>;
++}
+--- /dev/null
++++ b/src/appraisal-client/merchant-portrait-frames.ts
+@@ -0,0 +1,93 @@
++import type {NpcId} from '../game/appraisal/types.js';
++
++// Alpha >=32 bounds of idle art; anchorX aligns the head, not wide sleeves or ornaments.
++export const MERCHANT_PORTRAIT_FRAMES={
++  "orc": {
++    "width": 1374,
++    "height": 1145,
++    "bounds": [
++      19,
++      9,
++      1358,
++      1139
++    ],
++    "anchorX": 730
++  },
++  "vampire": {
++    "width": 1145,
++    "height": 1374,
++    "bounds": [
++      3,
++      6,
++      1145,
++      1374
++    ],
++    "anchorX": 615
++  },
++  "autometa": {
++    "width": 1145,
++    "height": 1374,
++    "bounds": [
++      3,
++      8,
++      1145,
++      1374
++    ],
++    "anchorX": 535
++  },
++  "alien": {
++    "width": 1287,
++    "height": 1222,
++    "bounds": [
++      28,
++      0,
++      1265,
++      1222
++    ],
++    "anchorX": 735
++  },
++  "darkone": {
++    "width": 1326,
++    "height": 1187,
++    "bounds": [
++      7,
++      0,
++      1326,
++      1187
++    ],
++    "anchorX": 790
++  },
++  "beast": {
++    "width": 1213,
++    "height": 1296,
++    "bounds": [
++      11,
++      1,
++      1212,
++      1296
++    ],
++    "anchorX": 750
++  },
++  "deepsea": {
++    "width": 1323,
++    "height": 1189,
++    "bounds": [
++      4,
++      2,
++      1319,
++      1189
++    ],
++    "anchorX": 740
++  },
++  "swarm": {
++    "width": 1199,
++    "height": 1312,
++    "bounds": [
++      12,
++      9,
++      1184,
++      1312
++    ],
++    "anchorX": 650
++  }
++} as const satisfies Record<NpcId,{width:number;height:number;bounds:readonly [number,number,number,number];anchorX:number}>;
+--- /dev/null
++++ b/src/appraisal-client/event-concept.css
+@@ -0,0 +1,79 @@
++/* S03 uses the same comic tokens and window bounds as the existing utility menus. */
++#game-main dialog.game-dialog.comic-event-dialog {
++  position:fixed; inset:calc(var(--layout-chrome,48px) + var(--layout-space)) 0 calc(60px + var(--event-preview-space,0px));
++  width:calc(100vw - 48px); max-width:1480px; height:auto; max-height:none; margin:auto; padding:0; display:block;
++  border:2px solid var(--comic-line); border-radius:var(--comic-radius); box-shadow:none; overflow:visible;
++  background:linear-gradient(90deg,transparent 20%,#090b0ce8 37%,#090b0cf5 100%),url('/art/comic/market-night-v2.png') left center/cover;
++}
++#game-main .comic-event-dialog::backdrop { background:rgb(0 0 0 / 15%); backdrop-filter:none; }
++#game-main .comic-event-dialog > .dialog-content { height:100%; padding:0; max-height:none; overflow:visible; }
++#game-main .comic-event-spread { display:grid; grid-template-columns:minmax(0,3fr) minmax(0,7fr); grid-template-rows:minmax(0,1fr); align-items:stretch; gap:var(--layout-space-large); height:100%; min-height:0; padding:0 var(--layout-space-large) 0 0; }
++/* Clip at the bottom only: the cutout may cross its top and side bounds, with no portrait card. */
++#game-main .comic-event-portrait { position:relative; align-self:stretch; height:100%; min-width:0; min-height:0; border:0; background:none; overflow:visible; clip-path:inset(-100vh -18px 0 -100vw); pointer-events:none; }
++#game-main .comic-event-portrait img { position:absolute; bottom:calc((100% + var(--layout-space)) * var(--portrait-bottom-offset)); left:50%; transform:translateX(calc(-1 * var(--portrait-anchor))); width:auto; max-width:none; height:calc((100% + var(--layout-space)) * var(--portrait-height-ratio)); object-fit:fill; filter:drop-shadow(3px 0 1px #050607); }
++#game-main .comic-event-content { display:flex; flex-direction:column; gap:var(--layout-space-large); min-width:0; min-height:0; padding:var(--layout-space-large) 0; }
++#game-main .comic-event-heading { display:flex; flex-direction:column; gap:var(--layout-space); min-width:0; }
++#game-main .comic-event-topline { display:flex; align-items:center; justify-content:space-between; gap:var(--layout-space); padding:0; }
++#game-main .comic-event-topline > span { padding:6px 12px; border-radius:var(--comic-radius); background:repeating-linear-gradient(130deg,#a30f2b44 0 8px,transparent 8px 16px); font-size:clamp(14px,1.4vw,21px); }
++#game-main .comic-event-topline .comic-button { flex:none; min-height:var(--layout-control); }
++#game-main .comic-event-heading h2 { margin:0; padding:0; font:800 clamp(24px,3.1vw,48px)/1.3 var(--display); color:#f8f7f2; border:0; background:none; }
++#game-main .comic-event-heading h2::after { display:none; }
++#game-main .comic-event-heading em { color:#ff315c; font-style:normal; }
++#game-main .comic-event-heading p { margin:0; font-size:clamp(14px,1.45vw,21px); line-height:1.5; color:#d8d8d8; }
++#game-main .comic-event-facts,.comic-event-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--layout-space); }
++#game-main .comic-event-fact { display:flex; align-items:center; gap:var(--layout-space); padding:var(--layout-space); min-width:0; min-height:104px; border:1px solid #f32948; border-radius:var(--comic-radius); background:radial-gradient(#a3193533 1px,transparent 1px) right bottom/6px 6px,#090b0c; }
++#game-main .comic-event-fact > svg { flex:0 0 36px; width:36px; height:36px; }
++#game-main .comic-event-fact:first-child > svg { color:#ff315c; }
++#game-main .comic-event-fact > div { display:flex; flex-direction:column; gap:6px; min-width:0; }
++#game-main .comic-event-fact strong { font-size:clamp(16px,1.6vw,24px); line-height:1.35; }
++#game-main .comic-event-fact:first-child strong { font-size:clamp(27px,3vw,44px); white-space:nowrap; }
++#game-main .comic-event-fact em,#game-main .comic-event-fact > b { font-style:normal; color:#ff315c; }
++#game-main .comic-event-fact > b { margin-left:auto; font-size:clamp(24px,2.7vw,40px); }
++#game-main .comic-event-fact span { font-size:clamp(13px,1.25vw,18px); }
++#game-main .comic-event-fact .term-wrap { margin-left:auto; }
++#game-main .comic-event-fact .term { display:flex; align-items:center; justify-content:center; width:44px; min-height:44px; padding:0; border:0; background:transparent; }
++#game-main .comic-event-fact .term svg { width:24px; height:24px; }
++#game-main .comic-event-fact .peek { max-width:min(440px,calc(100vw - 24px)); font-size:16px; }
++#game-main .comic-event-breathing-room { flex:1; min-height:0; }
++#game-main .comic-event-bottom { display:flex; flex-direction:column; gap:var(--layout-space); }
++#game-main .comic-event-warning { display:flex; align-items:center; gap:var(--layout-space); margin:0; max-width:none; width:100%; padding:var(--layout-space); color:#ff4265; border:1px solid #aa1b37; border-radius:var(--comic-radius); background:repeating-linear-gradient(130deg,#96152c22 0 4px,transparent 4px 9px); font-size:clamp(14px,1.4vw,20px); }
++#game-main .comic-event-warning svg { flex:none; width:28px; height:28px; }
++#game-main .comic-event-block { margin:0; color:#f3e2e5; font-size:14px; }
++#game-main .comic-event-actions .comic-button { width:100%; min-height:64px; font-size:clamp(17px,1.8vw,26px); }
++#game-main .comic-event-actions svg { width:25px; height:25px; }
++#game-main:has(.comic-event-dialog[open]) .screen > .table-stage { visibility:hidden; }
++#game-main .comic-event-dialog .dialog-feedback { position:absolute; inset:auto 12px 12px auto; max-width:min(440px,90%); z-index:4; }
++@media(max-height:700px) {
++  #game-main .comic-event-content { gap:var(--layout-space); padding-block:var(--layout-space); }
++  #game-main .comic-event-heading { gap:6px; }
++  #game-main .comic-event-fact { min-height:80px; }
++  #game-main .comic-event-actions .comic-button { min-height:48px; }
++}
++@media(max-width:800px) {
++  #game-main dialog.game-dialog.comic-event-dialog { width:calc(100vw - 24px); }
++  #game-main .comic-event-spread { grid-template-columns:minmax(0,1fr) minmax(0,3fr); gap:var(--layout-space); padding-right:var(--layout-space); }
++  #game-main .comic-event-content { gap:var(--layout-space); }
++  #game-main .comic-event-fact { flex-wrap:wrap; min-height:80px; gap:6px; }
++  #game-main .comic-event-fact > svg { flex-basis:24px; width:24px; height:24px; }
++  #game-main .comic-event-fact > b { font-size:24px; }
++  #game-main .comic-event-fact .term-wrap { align-self:start; }
++  #game-main .comic-event-topline > span { padding:0; background:none; }
++  #game-main .comic-event-topline .comic-button { padding:6px; font-size:12px; }
++
++}
++
++body:has(.preview-toolbar) #game-main .comic-event-dialog { --event-preview-space:40px; }
++
++#game-main .comic-event-dialog .peek { border:1px solid #eee; border-radius:var(--comic-radius); background:#090b0c; color:#f7f7f7; box-shadow:0 4px 0 #000; }
++#game-main .comic-event-dialog .peek :is(.peek-body,.peek-foot,.peek-head) { color:#eee; border-color:#676b70; }
++@media(max-width:600px) {
++  #game-main dialog.game-dialog.comic-event-dialog { inset:108px 0 calc(74px + var(--event-preview-space,0px)); }
++  #game-main .comic-event-spread { grid-template-columns:minmax(0,1fr) minmax(0,4fr); }
++  #game-main .comic-event-facts { grid-template-columns:minmax(0,1fr); }
++  #game-main .comic-event-fact { flex-wrap:nowrap; min-height:72px; }
++  #game-main .comic-event-topline { flex-wrap:wrap; }
++  #game-main .comic-event-heading h2 { font-size:24px; }
++  #game-main .comic-event-actions .comic-button { font-size:14px; gap:4px; padding:6px; min-height:48px; }
++  #game-main .comic-event-actions svg { width:18px; height:18px; }
++  #game-main .comic-event-warning { gap:6px; font-size:13px; }
++}
+--- a/src/appraisal-client/feedback.tsx
++++ b/src/appraisal-client/feedback.tsx
+@@ -1,6 +1,7 @@
+ import { useEffect, useRef, useState } from 'react';
+ import type { AppraisalView, EventOffer } from '../game/appraisal/types.js';
+ import { EventDecision } from './components.js';
++import { BloodPactEvent } from './BloodPactEvent.js';
+ import { GameDialog } from './GameDialog.js';
+ import type { Actions } from './components.js';
+ import { BuffIcon, CloseIcon, DebuffIcon, EventIcon } from './icons.js';
+@@ -45,8 +46,10 @@
+  */
+ export function EventModal({game,offer,submit,disabled,tucked,setTucked,playerNames={}}:Actions&{offer:EventOffer;tucked:boolean;setTucked:(value:boolean)=>void;playerNames?:Record<string,string>}) {
+   if(tucked) return <button type="button" className={`event-pill${isConsequence(offer.id)?' danger':''}`} onClick={()=>setTucked(false)}><EventIcon/><span>{t('เหตุการณ์รอคุณ: {name}',{name:eventCatalog(offer).name})}</span><strong>{t('กลับไปตัดสินใจ')}</strong></button>;
+-  return <GameDialog open label={eventCatalog(offer).name} onClose={()=>setTucked(true)} className={`event-dialog${game.phase==='PORTALS'?' portal-event-dialog':''}`}>
++  const bloodPact=offer.id==='E109' && game.phase==='APPRAISAL';
++  return <GameDialog open modal={!bloodPact} label={eventCatalog(offer).name} onClose={()=>setTucked(true)} className={`event-dialog${game.phase==='PORTALS'?' portal-event-dialog':''}${bloodPact?' comic-event-dialog':''}`}>
++      {bloodPact?<BloodPactEvent game={game} offer={offer} submit={submit} disabled={disabled} onTuck={()=>setTucked(true)}/>:<>
+       <EventDecision game={game} offer={offer} submit={submit} disabled={disabled} playerNames={playerNames}/>
+-      <button type="button" className="modal-tuck" onClick={()=>setTucked(true)}>{t('ซ่อนไว้ก่อน ขอดูโต๊ะ')}</button>
++      <button type="button" className="modal-tuck" onClick={()=>setTucked(true)}>{t('ซ่อนไว้ก่อน ขอดูโต๊ะ')}</button></>}
+   </GameDialog>;
+ }
+--- a/src/appraisal-client/main.tsx
++++ b/src/appraisal-client/main.tsx
+@@ -15,6 +15,7 @@
+ import './utility-navigation.css';
+ import './comic-ui.css';
+ import './market-concept.css';
++import './event-concept.css';
+ 
+ const root=createRoot(document.getElementById('root')!);
+ if(new URLSearchParams(location.search).has('preview')){
+--- a/src/appraisal-client/ComicPreview.tsx
++++ b/src/appraisal-client/ComicPreview.tsx
+@@ -4,7 +4,7 @@
+ import type {AppraisalRoomView} from '../shared/appraisal-protocol.js';
+ import type {Decision} from './model.js';
+ 
+-const previewScenes=[['merchants','เลือกพ่อค้า'],['inspection','ประเมินสินค้า'],['trade','ซื้อขาย'],['reveal','สรุปช่วง'],['results','ผลเกม'],['inventory','กระเป๋า'],['status','สถานะ'],['market','ตลาดมืด'],['market-demo','ตลาดมืด · ตัวอย่างครบ'],['ledger','บันทึก'],['rules','กติกา'],['settings','ตั้งค่า']] as const;
++const previewScenes=[['merchants','เลือกพ่อค้า'],['inspection','ประเมินสินค้า'],['event-blood-pact','เหตุการณ์ · สัญญาเลือด'],['trade','ซื้อขาย'],['reveal','สรุปช่วง'],['results','ผลเกม'],['inventory','กระเป๋า'],['status','สถานะ'],['market','ตลาดมืด'],['market-demo','ตลาดมืด · ตัวอย่างครบ'],['ledger','บันทึก'],['rules','กติกา'],['settings','ตั้งค่า']] as const;
+ const drawerScenes={inventory:'bag',status:'effects',market:'market','market-demo':'market',ledger:'ledger',rules:'rules'} as const;
+ 
+ export function ComicPreview(){
+@@ -14,6 +14,10 @@
+   const time=useRef(Date.now());
+   const room=useMemo<AppraisalRoomView>(()=>{
+     const base=structuredClone(previewRooms[scene]??previewRooms.inspection!) as AppraisalRoomView;
++    if(scene==='event-blood-pact') {
++      const game=base.game!;
++      game.self.eventOffer={id:'E109',key:'preview-blood-pact',choices:['accept','decline'],itemIds:[],statusIds:[],otherPlayerIds:[],quotedPrices:{},facts:{},targetKinds:{},npcTerms:{credits:0,energy:0,life:2,items:0}};
++    }
+     if(scene==='market-demo') {
+       const game=base.game!,sample=game.market.orders[0]!;
+       game.market.open=true;
+--- a/src/appraisal-client/App.tsx
++++ b/src/appraisal-client/App.tsx
+@@ -279,7 +279,7 @@
+     {drawer('ledger',t('สมุดบันทึก'),<LedgerMenu game={game} room={room} submit={submit} disabled={disabled || duelling || self.life===0 || room.revealReady.includes(room.yourSeatId)} playerNames={playerNames}/>)}
+     {drawer('rules',t('กติกา'),<RulesMenu timers={room.timerSettings} survival={room.mode==='survival'} trustAbilities={!!game.trustAbilities}/>)}
+     </div>
+-    {eventOpen && <EventModal key={self.eventOffer!.key} game={game} offer={self.eventOffer!} submit={submit} disabled={inactive} tucked={tucked} setTucked={value=>setTuckedKey(value?self.eventOffer!.key:null)} playerNames={playerNames}/>}
++    {eventOpen && <EventModal key={self.eventOffer!.key} game={game} offer={self.eventOffer!} submit={submit} disabled={inactive} tucked={tucked || openDrawer!==null || settingsOpen} setTucked={value=>setTuckedKey(value?self.eventOffer!.key:null)} playerNames={playerNames}/>}
+     <Toasts toasts={toasts} dismiss={dismiss} survival={!!game.survival} playerNames={playerNames}/>
+   </LockReason></SeatNames.Provider>;
+ }
+--- /dev/null
++++ b/tests/appraisal-comic-blood-pact.test.ts
+@@ -0,0 +1,51 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {createElement} from 'react';
++import {renderToStaticMarkup} from 'react-dom/server';
++import {EventModal} from '../src/appraisal-client/feedback.js';
++import {eventDecision} from '../src/appraisal-client/model.js';
++import {applyAppraisalAction,appraisalViewFor,SURVIVAL_RULES} from '../src/game/appraisal/index.js';
++import {offerEvent} from '../src/game/appraisal/events.js';
++import {appraisalFixture} from './support/appraisal-fixture.js';
++
++function fixture() {
++  const state=appraisalFixture();state.config.npcEvents=true;state.config.survival=SURVIVAL_RULES;state.version=5;
++  for(const player of state.players)player.life=4;
++  const p=state.players[0]!;p.selectedPortalId=p.portals[0]!.id;p.portals[0]!.npc='vampire';
++  for(const id of p.stock)state.items[id]!.npc='vampire';
++  offerEvent(state,p,'E109');return {state,p,game:appraisalViewFor(state,p.id)};
++}
++test('comic E109 displays actual life price and deferred reward without exposing item truths',()=>{
++  const {game}=fixture(),offer=game.self.eventOffer!;
++  const html=renderToStaticMarkup(createElement(EventModal,{game,offer,submit:()=>assert.fail('render submitted'),disabled:false,tucked:false,setTucked:()=>{}}));
++  assert(html.includes('comic-event-dialog'));assert(html.includes('/art/comic/merchants/vampire/idle.png'));
++  assert(html.includes('สุ่มรับเพียง 1 อย่าง'));assert(html.includes('จบเกมก่อนพบกันอีกครั้ง'));
++  assert(html.includes('ซ่อนไว้ดูโต๊ะ'));assert(!html.includes('event-form'));assert(!html.includes('portrait-card'));
++  assert(html.includes('ดูผลตอบแทนที่อาจได้รับ'));assert(html.includes('role="tooltip"'));
++  for(const item of game.self.stock)assert(!html.includes(item.id),'no stock detail leaks from event presentation');
++  offer.npcTerms!.life=1;
++  const repriced=renderToStaticMarkup(createElement(EventModal,{game,offer,submit:()=>{},disabled:false,tucked:false,setTucked:()=>{}}));
++  assert(repriced.includes('−1'),'cost comes from offer terms');
++});
++test('life shortage blocks accept only; transport busy blocks both and tuck retains pending event',()=>{
++  const {game}=fixture(),offer=game.self.eventOffer!;
++  const render=(disabled:boolean,tucked=false)=>renderToStaticMarkup(createElement(EventModal,{game,offer,submit:()=>assert.fail('render submitted'),disabled,tucked,setTucked:()=>{}}));
++  game.self.life=2;const html=render(false);
++  assert.match(html,/<button[^>]*disabled=""[^>]*>ยอมรับ/);
++  assert.match(html,/<button(?![^>]*disabled)[^>]*>ปฏิเสธ/);
++  assert(html.includes('ต้องมีชีวิตมากกว่า 2'));
++  assert.match(render(true),/<button[^>]*disabled=""[^>]*>ปฏิเสธ/);
++  const tucked=render(false,true);assert(tucked.includes('กลับไปตัดสินใจ'));assert(!tucked.includes('comic-event-spread'));
++  assert.equal(offer.key,game.self.eventOffer!.key);
++});
++test('event command used by comic choices pays now, defers reward and preserves decline',()=>{
++  for(const choice of ['accept','decline']) {
++    const {state,p,game}=fixture(),offer=game.self.eventOffer!;
++    const command=eventDecision(offer,choice,{itemId:'',statusId:'',fact:'',guess:false});assert(command);
++    const next=applyAppraisalAction(state,{...command,playerId:p.id,requestId:`comic-${choice}`,encounter:state.encounter});
++    const after=next.players[0]!;
++    assert.equal(after.life,choice==='accept'?2:4);assert.deepEqual(after.inventory,p.inventory);
++    assert.equal(after.credits,p.credits);assert.equal(after.energy,p.energy);
++    assert.equal(!!after.npcContracts?.vampire,choice==='accept');assert.equal(after.eventOffer,null);
++  }
++});

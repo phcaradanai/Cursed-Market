@@ -3,3 +3,6 @@ dist/
 graft/
 .impeccable/review/
 .DS_Store
+
+# UI verification actuals; reviewed references stay in Git.
+docs/ui-system/runs/

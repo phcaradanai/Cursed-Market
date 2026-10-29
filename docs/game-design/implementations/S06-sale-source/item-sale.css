@@ -1,0 +1,55 @@
+/* S06 shares ComicMenu/ComicButton geometry and palette with inventory. */
+#game-main .screen #table-item-detail:has(.item-sale-panel) .drawer-body{padding:0;overflow:hidden}
+#game-main #table-item-detail .item-sale-panel{--sale-pad:18px;--sale-gap:12px;--sale-label:88px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));height:100%;min-height:0;background:#0b0e0f}
+#game-main #table-item-detail .item-sale-visual,#game-main #table-item-detail .comic-sale-controls{box-sizing:border-box;display:flex;flex-direction:column;gap:var(--sale-gap);padding:var(--sale-pad);min-width:0;min-height:0}
+#game-main #table-item-detail .item-sale-visual{background:linear-gradient(#0003,#0002),url('/art/comic/trade-table-v1.png') center/cover!important;border:0}
+#game-main #table-item-detail .item-sale-art{display:flex;flex:1;min-height:0;align-items:flex-end;justify-content:center}
+#game-main #table-item-detail .item-sale-art img{width:100%;max-width:80%;height:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(1px 1px 0 #000) drop-shadow(4px 6px 3px #0009)}
+#game-main #table-item-detail .item-sale-visual .fact-seals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sale-gap);flex:0 0 auto;padding:0;margin:0;border:0;background:none!important}
+#game-main #table-item-detail .item-sale-visual .seal{display:grid;grid-template-columns:22px minmax(0,1fr);grid-template-rows:24px 32px;column-gap:5px;row-gap:0;min-width:0;width:auto;padding:8px;border:1px solid #bdbdbd;border-radius:var(--comic-radius);background:#0b0e0fe8!important;box-shadow:none;color:#eee}
+#game-main #table-item-detail .item-sale-visual .seal::before{content:none!important}
+#game-main #table-item-detail .item-sale-visual .seal>.icon{grid-column:1;grid-row:1;position:static;width:20px;height:20px;margin:0;color:#eee!important}
+#game-main #table-item-detail .item-sale-visual .seal>.seal-label{grid-column:2;grid-row:1;position:static;padding:0;justify-self:start;max-width:none;white-space:nowrap;font-size:14px;font-weight:600;color:#eee!important}
+#game-main #table-item-detail .item-sale-visual .seal>strong{grid-column:1/-1;grid-row:2;position:static;justify-self:center;text-align:center;font-size:22px;line-height:1.2;color:#fff!important;margin:0}
+#game-main #table-item-detail .item-sale-origin{display:flex;justify-content:space-between;align-items:center;gap:var(--sale-gap);min-height:30px;flex:0 0 auto;margin:0;padding:0;border:0;color:#eee;font-size:14px;text-shadow:1px 2px #000}
+#game-main #table-item-detail .item-sale-origin>span{display:flex;gap:6px;align-items:center;min-width:0}
+#game-main #table-item-detail .comic-sale-state{display:flex;align-items:center;gap:8px;min-height:30px;margin:0;color:#ccc;font-size:15px}
+#game-main #table-item-detail .comic-sale-claims{display:flex;flex-direction:column;justify-content:center;gap:var(--sale-gap);flex:1;min-height:0;margin:0;padding:0;border:0;background:none!important}
+#game-main #table-item-detail .comic-sale-heading{display:flex;align-items:center;gap:8px;margin:0;padding:0;min-height:32px;color:#eee;font-size:22px;line-height:1.3;background:none!important;border:0;box-shadow:none}
+#game-main #table-item-detail .comic-sale-heading::before,#game-main #table-item-detail .comic-sale-heading::after{content:none!important}
+#game-main #table-item-detail .comic-info{display:inline-grid;place-items:center;width:28px;height:28px;min-height:28px;padding:2px;border:0;background:none!important;color:#ddd;box-shadow:none}
+#game-main #table-item-detail .comic-info .icon{width:20px;height:20px}
+#game-main #table-item-detail .comic-sale-note{margin:0;color:#bfc5ca;font-size:13px;line-height:1.4}
+#game-main #table-item-detail .comic-sale-controls .choice-cards{display:block;flex:0 0 auto;min-width:0;min-height:44px;padding:0;margin:0;border:0;background:none!important}
+#game-main #table-item-detail .comic-sale-controls .choice-cards legend{float:left;width:var(--sale-label);line-height:44px;margin:0;padding:0;font-size:15px;color:#eee}
+#game-main #table-item-detail .comic-sale-controls .choice-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sale-gap);margin-left:var(--sale-label)}
+#game-main #table-item-detail .comic-sale-controls .choice-card{position:relative;display:flex;align-items:center;justify-content:center;box-sizing:border-box;height:44px;min-height:44px;min-width:0;padding:6px;margin:0;border:1px solid #ddd;border-radius:var(--comic-radius);background:#0c1011!important;color:#eee;box-shadow:none}
+#game-main #table-item-detail .comic-sale-controls .choice-card.selected{background:var(--comic-red,#c51032)!important;border-color:#ff315c;color:#fff;box-shadow:none}
+#game-main #table-item-detail .comic-sale-controls .choice-card::before,#game-main #table-item-detail .comic-sale-controls .choice-card::after{content:none!important}
+#game-main #table-item-detail .comic-sale-controls .choice-card input{position:absolute!important;width:1px!important;height:1px!important;opacity:0!important;clip-path:inset(50%);overflow:hidden}
+#game-main #table-item-detail .comic-sale-controls :is(.choice-title,.choice-text){display:block;text-align:center;white-space:nowrap;font-size:15px;color:inherit;background:none!important;border:0!important;box-shadow:none!important;padding:0!important;outline:0!important}
+#game-main #table-item-detail .comic-sale-controls .choice-card.selected .choice-title::after{content:'✓';margin-left:6px}
+#game-main #table-item-detail .comic-sale-controls .choice-card:has(input:focus-visible){outline:2px solid #fff;outline-offset:3px}
+#game-main #table-item-detail .comic-sale-controls fieldset:disabled .choice-card{opacity:.55}
+#game-main #table-item-detail .comic-sale-rebate{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;border:0;background:none!important}
+#game-main #table-item-detail .comic-sale-rebate-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--sale-gap);align-items:center}
+#game-main #table-item-detail .comic-sale-stepper{display:grid;grid-template-columns:40px minmax(48px,1fr) 40px 22px;gap:8px;align-items:center;min-width:0}
+#game-main #table-item-detail .comic-sale-stepper .comic-button,#game-main #table-item-detail .comic-sale-stepper input{box-sizing:border-box;width:100%;height:40px;min-height:40px;padding:4px}
+#game-main #table-item-detail .comic-sale-stepper input{min-width:0;text-align:center;border:1px solid #ddd;background:#090c0d;color:#fff;font:inherit;font-weight:700;appearance:textfield}
+#game-main #table-item-detail .comic-sale-stepper input::-webkit-inner-spin-button{appearance:none}
+#game-main #table-item-detail .comic-sale-rebate>.comic-sale-note{text-align:center;margin-left:calc(50% + var(--sale-gap)/2)}
+#game-main #table-item-detail .comic-sale-footer{display:flex;flex-direction:column;gap:var(--sale-gap);flex:0 0 auto;padding:0;margin:0;border:0;background:none!important}
+#game-main #table-item-detail .comic-sale-reason{margin:0;color:#ff315c!important;font-size:14px;line-height:1.4}
+#game-main #table-item-detail .comic-sale-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sale-gap)}
+#game-main #table-item-detail .comic-sale-actions .comic-button{height:46px;min-height:46px;padding:8px;font-size:18px;box-shadow:none}
+#game-main #table-item-detail .comic-sale-withdraw{align-self:center;height:30px;min-height:30px;padding:3px 12px;font-size:13px}
+#game-main #table-item-detail .item-sale-visual .seal:is([data-seal=certificate],[data-seal=overpriced]){grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;padding:6px 8px;min-height:30px}
+#game-main #table-item-detail .item-sale-visual .seal:is([data-seal=certificate],[data-seal=overpriced])>strong{max-width:none;font-size:12px;text-align:left}
+@media(max-width:1100px){#game-main #table-item-detail .item-sale-panel{--sale-pad:12px;--sale-label:66px}#game-main #table-item-detail .comic-sale-heading{font-size:18px}#game-main #table-item-detail .item-sale-origin{font-size:12px}#game-main #table-item-detail .item-sale-visual .seal>.seal-label{font-size:12px}#game-main #table-item-detail .comic-sale-controls :is(.choice-title,.choice-text){font-size:13px}#game-main #table-item-detail .comic-sale-stepper{grid-template-columns:32px minmax(40px,1fr) 32px 18px;gap:5px}}
+@media(max-height:680px){#game-main #table-item-detail .item-sale-panel{--sale-pad:12px;--sale-gap:8px}#game-main #table-item-detail .comic-sale-heading{font-size:18px}#game-main #table-item-detail .comic-sale-actions .comic-button{height:40px;min-height:40px}}
+/* Form headings share one left edge; every value row shares the label column. */
+#game-main #table-item-detail .comic-sale-rebate-row{display:flex;flex-direction:column;align-items:stretch;gap:var(--sale-gap)}
+#game-main #table-item-detail .comic-sale-stepper{margin-left:var(--sale-label)}
+#game-main #table-item-detail .comic-sale-rebate>.comic-sale-note{margin-left:var(--sale-label)}
+#game-main #table-item-detail .comic-sale-controls .choice-card.selected{outline:none}
+#game-main #table-item-detail .comic-sale-controls .choice-card:has(input:focus-visible){outline:2px solid #fff;outline-offset:3px}

@@ -1,0 +1,239 @@
+/* Shared 12px rhythm; equal panels and matching header regions in the appraisal spread. */
+#game-main .screen.phase-APPRAISAL {
+  --appraisal-header-region:calc(var(--layout-row) + 24px + 7px + var(--layout-control) * 2 + var(--layout-space) * 5);
+  --appraisal-stock-row:calc(var(--layout-control) + var(--layout-space) * 3);
+  --appraisal-thumb-size:calc(var(--layout-control) + var(--layout-space-large));
+}
+#game-main .screen.phase-APPRAISAL > .table-stage { padding-inline:var(--layout-spread-gutter); }
+#game-main .screen.phase-APPRAISAL .desk { grid-template-columns:repeat(2,minmax(0,1fr)); align-items:stretch; gap:var(--layout-spread-gutter); height:calc(100% - var(--layout-space)); }
+#game-main .screen.phase-APPRAISAL .appraisal-visual { position:relative; padding:0; gap:0; box-sizing:border-box; border:0; border-radius:0; box-shadow:none; background:transparent!important; overflow:visible; }
+#game-main .screen.phase-APPRAISAL .appraisal-visual::before { content:""!important; position:absolute; inset:var(--layout-row) 0 0; z-index:0; border:1px solid #aaa; border-radius:var(--comic-radius-panel); background:rgba(10,11,12,.96); pointer-events:none; }
+#game-main .screen.phase-APPRAISAL .appraisal-visual > * { position:relative; z-index:1; }
+#game-main .screen.phase-APPRAISAL .appraisal-visual > .merchant {
+  position:relative; grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:var(--layout-row) max-content max-content;
+  min-height:0; padding:0 var(--layout-space) var(--layout-space); gap:var(--layout-space); box-sizing:border-box; border:0; background:transparent!important;
+}
+#game-main .screen.phase-APPRAISAL .appraisal-visual > .merchant > .merchant-window { grid-row:1 / -1; height:calc(100% + var(--layout-space)); margin:0; align-self:stretch; overflow:visible; clip-path:inset(-100vh -100vw 0 -100vw); }
+#game-main .screen.phase-APPRAISAL .appraisal-visual .merchant-figure {
+  position:absolute; inset:auto 0 0; width:100%; height:100%; max-height:none;
+  object-fit:cover; object-position:center top; transform:none; pointer-events:none;
+}
+#game-main .screen.phase-APPRAISAL .merchant-copy { display:contents; padding:0; }
+#game-main .screen.phase-APPRAISAL .merchant-copy h2 { grid-column:2; grid-row:1; align-self:center; margin:0; text-align:left; font-size:clamp(18px,1.65vw,27px); }
+#game-main .screen.phase-APPRAISAL .merchant-trust { grid-column:2; grid-row:2; align-self:start; padding:0; margin:0; display:grid; grid-template-columns:24px minmax(0,1fr); gap:var(--layout-space); font-size:clamp(14px,1.2vw,19px); }
+#game-main .screen.phase-APPRAISAL .merchant-trust > span { line-height:24px!important; }
+#game-main .screen.phase-APPRAISAL .merchant-trust > svg { width:24px; height:24px; }
+#game-main .screen.phase-APPRAISAL .merchant-trust meter { grid-column:1 / -1; appearance:none; width:100%; height:7px; margin:0; border:0; border-radius:var(--comic-radius); overflow:hidden; background:#343638; }
+#game-main .screen.phase-APPRAISAL .merchant-trust meter::-webkit-meter-bar { height:7px; border:0; border-radius:var(--comic-radius); background:#343638; }
+#game-main .screen.phase-APPRAISAL .merchant-trust meter::-webkit-meter-optimum-value,
+#game-main .screen.phase-APPRAISAL .merchant-trust meter::-webkit-meter-suboptimum-value,
+#game-main .screen.phase-APPRAISAL .merchant-trust meter::-webkit-meter-even-less-good-value { background:#ff315c; border-radius:var(--comic-radius); }
+#game-main .screen.phase-APPRAISAL .merchant-trust meter::-moz-meter-bar { background:#ff315c; border-radius:var(--comic-radius); }
+#game-main .screen.phase-APPRAISAL .merchant-services { grid-column:2; grid-row:3; align-self:start; margin:0; padding:0; }
+#game-main .screen.phase-APPRAISAL .merchant-services summary { padding:0; min-height:28px; font-size:11px; color:#c7c7c7; }
+#game-main .screen.phase-APPRAISAL .merchant-services summary span { display:inline; margin-left:var(--layout-space-small); }
+#game-main .screen.phase-APPRAISAL .merchant-services[open] { position:relative; z-index:4; grid-column:1 / -1; max-height:220px; padding:var(--layout-space); overflow:auto; background:#111!important; }
+#game-main .screen.phase-APPRAISAL .desk .relic-art {
+  position:relative; padding:var(--layout-space); border:1px solid #8e979a; border-inline:0; border-radius:0;
+  background-color:#101719!important;
+  background-image:linear-gradient(rgb(4 11 14 / 55%),rgb(3 8 11 / 65%)),url('/art/comic/display-cloth.png')!important;
+  background-size:cover!important; background-position:center!important; overflow:visible;
+}
+#game-main .screen.phase-APPRAISAL .desk .relic-art > :is(img,.item-visual) { width:100%; height:100%; max-width:100%; max-height:100%; object-fit:contain; transform:scale(1.04); pointer-events:none; }
+#game-main .screen.phase-APPRAISAL .stock-shelf { padding:var(--layout-space-small) var(--layout-space); border:0; background:transparent!important; }
+#game-main .screen.phase-APPRAISAL .stock-carousel { display:grid; grid-template-columns:44px minmax(0,1fr) 44px; align-items:center; gap:var(--layout-space); width:100%; height:100%; }
+#game-main .screen.phase-APPRAISAL .stock-arrow { display:grid; place-items:center; width:44px; height:44px; min-width:44px; min-height:var(--layout-control); padding:var(--layout-space-small); border:1px solid #aaa; border-radius:var(--comic-radius); background:transparent!important; }
+#game-main .screen.phase-APPRAISAL .stock-arrow svg { width:24px; height:24px; }
+#game-main .screen.phase-APPRAISAL .stock-arrow.previous svg { transform:rotate(180deg); }
+#game-main .screen.phase-APPRAISAL .stock-tabs { height:100%; align-items:center; justify-content:safe center; gap:var(--layout-space); padding:0; }
+#game-main .screen.phase-APPRAISAL .stock-tabs > button,
+#game-main .screen.phase-APPRAISAL .stock-tabs > button.selected {
+  position:relative; display:grid; grid-template-columns:minmax(0,1fr); grid-template-rows:minmax(0,1fr);
+  flex:0 0 auto; width:var(--appraisal-thumb-size); min-width:var(--appraisal-thumb-size); height:var(--appraisal-thumb-size); min-height:var(--appraisal-thumb-size); padding:var(--layout-space-small);
+  border:2px solid #777; border-radius:var(--comic-radius); background:transparent!important;
+}
+#game-main .screen.phase-APPRAISAL .stock-tabs > button.selected { border-color:#ff315c; }
+#game-main .screen.phase-APPRAISAL .stock-tabs :is(img,.item-visual) { grid-column:1; grid-row:1; width:100%!important; height:100%!important; max-width:100%; max-height:100%; object-fit:contain; }
+#game-main .screen.phase-APPRAISAL .stock-tabs .bonus-badge { position:absolute; top:2px; right:2px; }
+#game-main .screen.phase-APPRAISAL .desk-reading { display:flex; flex-direction:column; gap:0; padding:0; border:0; border-radius:0; box-shadow:none; background:transparent!important; overflow:visible; }
+#game-main .screen.phase-APPRAISAL .desk-reading > .appraisal-controls { flex:1 1 0; min-height:0; display:flex; flex-direction:column; gap:var(--layout-space); padding:var(--layout-space); border:1px solid #aaa; border-radius:var(--comic-radius-panel); background:rgba(10,11,12,.96); overflow:auto; box-sizing:border-box; }
+#game-main .screen.phase-APPRAISAL .appraisal-controls > * { flex:0 0 auto; }
+#game-main .screen.phase-APPRAISAL .desk-reading > * { flex:0 0 auto; }
+#game-main .screen.phase-APPRAISAL .desk-reading .specimen-data {
+  display:grid; grid-template-columns:minmax(0,1fr) auto; height:var(--layout-row); min-height:var(--layout-row); padding:0 var(--layout-space); gap:var(--layout-space); align-items:center; border:0; box-sizing:border-box;
+}
+#game-main .screen.phase-APPRAISAL .desk-reading .desk-title { grid-column:1; grid-row:1; margin:0; padding:0; text-align:left; font-size:clamp(19px,1.7vw,28px); line-height:1.25; }
+#game-main .screen.phase-APPRAISAL .desk-reading .specimen-price { grid-column:2; grid-row:1; display:flex; flex-wrap:nowrap; align-items:center; justify-content:flex-end; gap:var(--layout-space-small); margin:0; }
+#game-main .screen.phase-APPRAISAL .desk-reading .specimen-price dt { font-size:clamp(12px,1vw,16px); color:#eee; white-space:nowrap; }
+#game-main .screen.phase-APPRAISAL .desk-reading .specimen-price dd { display:flex; align-items:center; gap:var(--layout-space-small); font-size:clamp(21px,1.8vw,30px); white-space:nowrap; }
+#game-main .screen.phase-APPRAISAL .desk-reading .specimen-price dd small { font-size:13px; }
+#game-main .screen.phase-APPRAISAL .desk-reading .specimen-price svg { width:24px; height:24px; }
+#game-main .screen.phase-APPRAISAL .desk-reading .desk-steps { height:var(--layout-row); min-height:var(--layout-row); margin:0; box-sizing:border-box; grid-template-rows:minmax(0,1fr); }
+#game-main .screen.phase-APPRAISAL .desk-reading .desk-steps > button { height:100%; min-height:var(--layout-control); padding:var(--layout-space-small); gap:var(--layout-space); background:transparent!important; }
+#game-main .screen.phase-APPRAISAL .desk-reading .desk-steps > button[aria-selected=true] { color:#ff315c; border-bottom-color:#ff315c; background:transparent!important; }
+#game-main .screen.phase-APPRAISAL .desk-reading .step-label { font-size:clamp(15px,1.3vw,21px); }
+#game-main .screen.phase-APPRAISAL .desk-reading .step-label small { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+#game-main .screen.phase-APPRAISAL .desk-reading .fact-seals { margin:0; padding:0 var(--layout-space); background:transparent!important; border:1px solid #8e9397; border-radius:var(--comic-radius); }
+#game-main .screen.phase-APPRAISAL .desk-reading .fact-seals .seal { grid-template-columns:28px minmax(0,1fr) minmax(72px,.65fr); min-height:var(--layout-read-row); padding:var(--layout-space-small) 0; gap:var(--layout-space); }
+#game-main .screen.phase-APPRAISAL .desk-reading .fact-seals .seal > .icon { width:25px; height:25px; }
+#game-main .screen.phase-APPRAISAL .desk-reading .fact-seals .seal > .seal-label { font-size:clamp(15px,1.3vw,21px); }
+#game-main .screen.phase-APPRAISAL .desk-reading .fact-seals .seal > strong { justify-self:start; text-align:left; font-size:clamp(19px,1.6vw,26px); }
+#game-main .screen.phase-APPRAISAL .desk-reading .step-panel { margin:0; }
+#game-main .screen.phase-APPRAISAL .desk-reading .inspection { margin:0; }
+#game-main .screen.phase-APPRAISAL .desk-reading .inspection > p { display:flex; justify-content:center; gap:var(--layout-space-small); margin:0 0 var(--layout-space); font-size:13px; line-height:1.35; text-align:center; }
+#game-main .screen.phase-APPRAISAL .desk-reading .inspection > .actions { margin:0; gap:var(--layout-space); grid-auto-rows:1fr; }
+#game-main .screen.phase-APPRAISAL .desk-reading .inspection > .actions button { min-height:var(--layout-control); padding:var(--layout-space-small) var(--layout-space); border:2px solid #eee; border-radius:var(--comic-radius); background:#0c0d0e!important; font-size:clamp(16px,1.4vw,23px); line-height:1.2; }
+#game-main .screen.phase-APPRAISAL .desk-reading .inspection > .actions button:first-child:not(:disabled) { border-color:#ff315c; background:#b91938!important; }
+#game-main .screen.phase-APPRAISAL .desk-reading .inspection > .actions button svg { flex:0 0 25px; width:25px!important; height:25px!important; padding:0!important; margin:0!important; border:0!important; background:none!important; color:currentColor!important; overflow:visible; }
+#game-main .screen.phase-APPRAISAL .inspection-info { margin-top:var(--layout-space); }
+#game-main .screen.phase-APPRAISAL .inspection-info > summary { display:flex; align-items:center; justify-content:center; gap:var(--layout-space-small); min-height:32px; padding:var(--layout-space-small) 0; font-size:12px; list-style:none; }
+#game-main .screen.phase-APPRAISAL .inspection-info > summary svg { width:18px; height:18px; }
+#game-main .screen.phase-APPRAISAL .inspection-info[open] { padding-bottom:var(--layout-space); }
+#game-main .screen.phase-APPRAISAL .desk-reading .desk-more { margin:0; padding:0; }
+#game-main .screen.phase-APPRAISAL .desk-reading .desk-more > summary { min-height:32px; padding:var(--layout-space-small) 0; font-size:12px; }
+#game-main .screen.phase-APPRAISAL .desk-reading .price-entry { gap:var(--layout-space); }
+#game-main .screen.phase-APPRAISAL .desk-reading .purchase > .primary,
+#game-main .screen.phase-APPRAISAL .desk-reading .price-entry > .primary { min-height:48px; font-size:18px; }
+#game-main .screen.phase-APPRAISAL .end-phase { min-height:44px; padding:0; border:0; background:transparent!important; box-shadow:none; }
+@media (min-width:761px) {
+  #game-main .screen.phase-APPRAISAL .appraisal-visual { grid-template-rows:var(--appraisal-header-region) minmax(100px,1fr) var(--appraisal-stock-row); }
+  #game-main .screen.phase-APPRAISAL .merchant-copy { padding-top:0; }
+  #game-main .screen.phase-APPRAISAL .appraisal-visual > .merchant > .merchant-window { height:calc(100% + var(--layout-space)); }
+}
+@media (max-width:1050px) and (min-width:761px) {
+  #game-main .screen.phase-APPRAISAL .desk-reading .specimen-price dt { display:none; }
+  #game-main .screen.phase-APPRAISAL .merchant-copy h2 { font-size:19px; }
+}
+@media (max-width:760px) {
+  #game-main .screen.phase-APPRAISAL > .table-stage { padding-inline:var(--layout-gutter); }
+  #game-main .screen.phase-APPRAISAL .desk { grid-template-columns:minmax(0,1fr); gap:var(--layout-space); height:auto; }
+  #game-main .screen.phase-APPRAISAL .desk-reading > .appraisal-controls { flex:0 0 auto; height:auto; overflow:visible; }
+  #game-main .screen.phase-APPRAISAL .appraisal-visual { grid-template-rows:minmax(168px,max-content) 200px var(--appraisal-stock-row); }
+  #game-main .screen.phase-APPRAISAL .appraisal-visual > .merchant { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  #game-main .screen.phase-APPRAISAL .appraisal-visual > .merchant > .merchant-window { height:calc(100% + var(--layout-space)); }
+  #game-main .screen.phase-APPRAISAL .merchant-copy h2 { font-size:17px; }
+  #game-main .screen.phase-APPRAISAL .merchant-trust { font-size:14px; }
+  #game-main .screen.phase-APPRAISAL .desk .relic-art { height:200px; padding:var(--layout-space); }
+  #game-main .screen.phase-APPRAISAL .stock-shelf { padding:var(--layout-space-small) var(--layout-space); }
+  #game-main .screen.phase-APPRAISAL .stock-carousel { gap:var(--layout-space); }
+  #game-main .screen.phase-APPRAISAL .stock-tabs > button,
+  #game-main .screen.phase-APPRAISAL .stock-tabs > button.selected { width:var(--appraisal-thumb-size); min-width:var(--appraisal-thumb-size); height:var(--appraisal-thumb-size); min-height:var(--appraisal-thumb-size); }
+  #game-main .screen.phase-APPRAISAL .desk-reading .desk-title { font-size:20px; }
+  #game-main .screen.phase-APPRAISAL .desk-reading .desk-steps > button { flex-direction:row; justify-content:center; gap:var(--layout-space-small); }
+  #game-main .screen.phase-APPRAISAL .desk-reading .specimen-data { grid-template-columns:minmax(0,1fr) auto; height:auto; }
+  #game-main .screen.phase-APPRAISAL .desk-reading .specimen-price dt { display:none; }
+  #game-main .screen.phase-APPRAISAL .desk-reading .specimen-price dd { font-size:22px; }
+  #game-main .screen.phase-APPRAISAL .desk-reading .specimen-price dd small { font-size:11px; }
+  #game-main .screen.phase-APPRAISAL .desk-reading .fact-seals .seal { grid-template-columns:25px minmax(0,1fr) minmax(56px,.65fr); }
+}
+/* In-place information pages share the appraisal frame, without a second disclosure layer. */
+#game-main .screen.phase-APPRAISAL .merchant-page-nav { grid-column:2; grid-row:3; display:flex; flex-direction:column; gap:var(--layout-space); min-width:0; align-self:start; }
+#game-main .screen.phase-APPRAISAL .merchant-page-nav button { width:100%; min-height:var(--layout-control); padding:var(--layout-space-small) var(--layout-space); border:1px solid #ddd; border-radius:var(--comic-radius); background:#101112!important; font-size:clamp(11px,1vw,15px); line-height:1.3; }
+#game-main .screen.phase-APPRAISAL .merchant-page-nav button[aria-pressed=true] { border-color:#ff315c; background:#b91938!important; color:#fff; }
+#game-main .screen.phase-APPRAISAL .assessment-content { display:flex; flex-direction:column; gap:var(--layout-space); }
+#game-main .screen.phase-APPRAISAL .assessment-content[hidden] { display:none!important; }
+#game-main .screen.phase-APPRAISAL .desk-reading > .information-page { overflow:hidden; }
+#game-main .screen.phase-APPRAISAL .information-page > .desk-back { align-self:start; min-height:var(--layout-control); padding:var(--layout-space-small) var(--layout-space); border:1px solid #ddd; border-radius:var(--comic-radius); background:transparent!important; font-size:15px; }
+#game-main .screen.phase-APPRAISAL .information-page > :is(.item-detail-pages,.merchant-services-body) { flex:1 1 0; min-height:0; padding:0; }
+#game-main .screen.phase-APPRAISAL .information-page .pager { height:100%; min-height:0; display:flex; flex-direction:column; gap:var(--layout-space); }
+#game-main .screen.phase-APPRAISAL .information-page .pager-page { flex:1 1 0; min-height:0; }
+#game-main .screen.phase-APPRAISAL .information-page .pager-page[hidden] { display:none!important; }
+#game-main .screen.phase-APPRAISAL .information-page .pager-nav { flex:0 0 auto; display:flex; justify-content:center; align-items:center; gap:var(--layout-space-large); margin:0; padding:var(--layout-space-small) 0 0; }
+#game-main .screen.phase-APPRAISAL .information-page .pager-nav button { width:var(--layout-control); height:var(--layout-control); padding:0; background:transparent!important; }
+#game-main .screen.phase-APPRAISAL .information-page :is(.item-mechanics,.recovery-deal,.wish-deal,.cleanse-deal) { padding:var(--layout-space); margin:0; border:0; background:transparent!important; }
+#game-main .screen.phase-APPRAISAL .information-page h3 { display:flex; align-items:center; gap:var(--layout-space); margin:0 0 var(--layout-space); font-size:clamp(20px,1.7vw,26px); line-height:1.35; }
+#game-main .screen.phase-APPRAISAL .information-page h3:not(:first-child) { padding-top:var(--layout-space-large); margin-top:var(--layout-space-large); border-top:1px solid #777; }
+#game-main .screen.phase-APPRAISAL .information-page p { margin:0 0 var(--layout-space); line-height:1.55; font-size:clamp(14px,1.2vw,18px); overflow-wrap:anywhere; }
+#game-main .screen.phase-APPRAISAL .information-page .recovery-deal > button { width:100%; min-height:var(--layout-control); margin-top:var(--layout-space); border:1px solid #ff315c; border-radius:var(--comic-radius); background:#b91938!important; font-size:18px; }
+@media (max-width:760px) {
+ #game-main .screen.phase-APPRAISAL .appraisal-visual { grid-template-rows:minmax(var(--appraisal-header-region),max-content) 200px var(--appraisal-stock-row); }
+ #game-main .screen.phase-APPRAISAL .merchant-page-nav button { font-size:11px; padding:var(--layout-space-small); }
+ #game-main .screen.phase-APPRAISAL .desk-reading > .information-page { min-height:420px; }
+ #game-main .screen.phase-APPRAISAL .information-page > :is(.item-detail-pages,.merchant-services-body) { flex:1 0 auto; }
+ #game-main .screen.phase-APPRAISAL .information-page h3 { font-size:20px; }
+}
+#game-main .screen.phase-APPRAISAL .information-page .compact-cleanse { display:flex; flex-direction:column; gap:var(--layout-space); height:100%; padding:var(--layout-space); box-sizing:border-box; }
+#game-main .screen.phase-APPRAISAL .information-page .compact-cleanse > .pager { flex:1 1 0; }
+#game-main .screen.phase-APPRAISAL .information-page .compact-cleanse :is(h3,p) { margin:0; }
+#game-main .screen.phase-APPRAISAL .information-page .cleanse-quote h4 { margin:0 0 var(--layout-space); font-size:18px; }
+#game-main .screen.phase-APPRAISAL .information-page .cleanse-quote button.primary { width:100%; min-height:var(--layout-control); margin-top:var(--layout-space); background:#b91938!important; border-color:#ff315c; }
+#game-main .screen.phase-APPRAISAL .information-page .offer-choice { display:flex; align-items:center; gap:var(--layout-space); }
+#game-main .screen.phase-APPRAISAL .information-page .offer-choice > span { flex:1; text-align:center; }
+#game-main .screen.phase-APPRAISAL .information-page .offer-choice button { width:var(--layout-control); height:var(--layout-control); }
+#game-main .screen.phase-APPRAISAL .information-page .wish-book { padding:var(--layout-space); }
+#game-main .screen.phase-APPRAISAL .information-page .wish-deal > .wish-book { padding:0; }
+#game-main .screen.phase-APPRAISAL .information-page .actions > button { min-height:var(--layout-control); background:#b91938!important; border-color:#ff315c; }
+#game-main .screen.phase-APPRAISAL .information-page .cleanse-quote button.primary,
+#game-main .screen.phase-APPRAISAL .information-page .wish-book > button.primary { box-sizing:border-box; border:1px solid #ff315c; border-radius:var(--comic-radius); padding:var(--layout-space-small) var(--layout-space); min-height:var(--layout-control); background:#b91938!important; }
+/* Every decision uses the complete reading frame and the same bottom action baseline. */
+#game-main .screen.phase-APPRAISAL .appraisal-controls > .assessment-content { flex:1 1 0; min-height:0; }
+#game-main .screen.phase-APPRAISAL .assessment-content > :is(.desk-steps,.fact-seals,.verdict,.blocked-note) { flex:0 0 auto; }
+#game-main .screen.phase-APPRAISAL .assessment-content > .step-panel:not([hidden]) { flex:1 1 0; min-height:0; display:flex; flex-direction:column; gap:var(--layout-space); padding:0; border:0; }
+#game-main .screen.phase-APPRAISAL .valuation-form { flex:1; min-height:0; display:flex; flex-direction:column; gap:var(--layout-space); margin:0; }
+#game-main .screen.phase-APPRAISAL .valuation-editor { flex:1; display:flex; flex-direction:column; justify-content:center; gap:var(--layout-space); min-height:100px; }
+#game-main .screen.phase-APPRAISAL .valuation-editor > label { margin:0; line-height:24px; font-size:16px; }
+#game-main .screen.phase-APPRAISAL .desk-reading .valuation-editor .price-entry { display:block; width:100%; margin:0; }
+#game-main .screen.phase-APPRAISAL .desk-reading .valuation-editor .stepper { display:grid; grid-template-columns:64px minmax(0,1fr) 64px; align-items:stretch; gap:0; width:100%; max-width:none; height:64px; box-sizing:border-box; border:1px solid #aaa; border-radius:var(--comic-radius); background:#101112!important; }
+#game-main .screen.phase-APPRAISAL .desk-reading .valuation-editor .stepper button { width:100%; height:100%; margin:0; padding:0; border:0; border-radius:0; background:transparent!important; color:#fff; }
+#game-main .screen.phase-APPRAISAL .desk-reading .valuation-editor .stepper button:first-child { border-right:1px solid #777; }
+#game-main .screen.phase-APPRAISAL .desk-reading .valuation-editor .stepper button:last-child { border-left:1px solid #777; }
+#game-main .screen.phase-APPRAISAL .desk-reading .valuation-editor .stepper input { width:100%; max-width:none; min-width:0; height:100%; padding:0; margin:0; border:0; border-radius:0; background:transparent!important; color:#fff; text-align:center; font-size:32px; line-height:1; }
+#game-main .screen.phase-APPRAISAL .valuation-form > .risk { flex:0 0 auto; min-height:60px; display:block; box-sizing:border-box; margin:0; padding:var(--layout-space); border:1px solid #73777a; border-radius:var(--comic-radius); font-size:13px; line-height:1.4; background:transparent!important; }
+#game-main .screen.phase-APPRAISAL .valuation-footer { flex:0 0 auto; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--layout-space); }
+#game-main .screen.phase-APPRAISAL .valuation-footer > :only-child { grid-column:1 / -1; }
+#game-main .screen.phase-APPRAISAL .desk-reading :is(.valuation-footer,.purchase-footer) > button { min-height:48px; width:100%; margin:0; padding:var(--layout-space-small) var(--layout-space); border:1px solid #ddd; border-radius:var(--comic-radius); background:#101112!important; font-size:16px; text-decoration:none; }
+#game-main .screen.phase-APPRAISAL .desk-reading :is(.valuation-footer,.purchase-footer) > button.primary { border-color:#ff315c; background:#b91938!important; }
+#game-main .screen.phase-APPRAISAL .purchase-options { flex:1 0 auto; display:flex; flex-direction:column; gap:var(--layout-space); }
+#game-main .screen.phase-APPRAISAL .purchase-options > .contract { flex:1; display:flex; flex-direction:column; justify-content:center; padding:var(--layout-space); border:1px solid #73777a; border-radius:var(--comic-radius); }
+#game-main .screen.phase-APPRAISAL .purchase-options :is(.contract > p,.contract > .check) { margin:0; }
+#game-main .screen.phase-APPRAISAL .purchase-options .contract > p { font-size:13px; line-height:1.4; margin-top:var(--layout-space); }
+#game-main .screen.phase-APPRAISAL :is(.purchase-options,.valuation-form) .check { display:grid; grid-template-columns:20px minmax(0,1fr); align-items:center; gap:var(--layout-space); min-height:44px; margin:0; padding:0; font-size:14px; line-height:1.4; }
+#game-main .screen.phase-APPRAISAL .purchase-options > .check { padding:var(--layout-space-small) var(--layout-space); border:1px solid #73777a; border-radius:var(--comic-radius); }
+#game-main .screen.phase-APPRAISAL :is(.purchase-options,.valuation-form) input[type=checkbox] { appearance:auto; width:20px!important; height:20px!important; min-width:20px!important; min-height:20px!important; padding:0; margin:0; accent-color:#ff315c; justify-self:center; align-self:center; }
+#game-main .screen.phase-APPRAISAL .purchase-footer { flex:0 0 auto; display:flex; flex-direction:column; gap:var(--layout-space); }
+#game-main .screen.phase-APPRAISAL .purchase-summary { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0; margin:0; padding:0; border:1px solid #73777a; border-radius:var(--comic-radius); }
+#game-main .screen.phase-APPRAISAL .purchase-summary > div { display:flex; flex-direction:column; justify-content:center; align-items:center; gap:var(--layout-space-small); min-height:64px; padding:var(--layout-space-small) var(--layout-space); box-sizing:border-box; }
+#game-main .screen.phase-APPRAISAL .purchase-summary > div + div { border-left:1px solid #73777a; }
+#game-main .screen.phase-APPRAISAL .purchase-summary dt { margin:0; font-size:13px; line-height:18px; color:#bbb; }
+#game-main .screen.phase-APPRAISAL .purchase-summary dd { display:flex; align-items:center; gap:var(--layout-space-small); margin:0; font-size:26px; line-height:28px; }
+#game-main .screen.phase-APPRAISAL .purchase-summary dd small { font-size:13px; }
+#game-main .screen.phase-APPRAISAL .purchase-summary svg { width:20px; height:20px; }
+@media (max-width:760px) {
+ #game-main .screen.phase-APPRAISAL .appraisal-controls > .assessment-content { flex:1 0 auto; }
+ #game-main .screen.phase-APPRAISAL .assessment-content > .step-panel:not([hidden]) { flex:1 0 auto; min-height:280px; }
+ #game-main .screen.phase-APPRAISAL .desk-reading .valuation-editor .stepper { grid-template-columns:48px minmax(0,1fr) 48px; }
+ #game-main .screen.phase-APPRAISAL .valuation-footer > button { font-size:14px; }
+}
+#game-main .screen.phase-APPRAISAL .valuation-form > .risk { width:100%; max-width:none; align-self:stretch; }
+@media (min-width:761px) {
+ #game-main .screen.phase-APPRAISAL .assessment-content:is([data-step=inspect],[data-step=appraise],[data-step=buy]) > .fact-seals { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); padding:0; }
+ #game-main .screen.phase-APPRAISAL .assessment-content:is([data-step=inspect],[data-step=appraise],[data-step=buy]) > .fact-seals .seal { display:grid; grid-template-columns:20px auto; grid-template-rows:24px auto; justify-content:center; align-content:center; gap:var(--layout-space-small); min-height:88px; padding:var(--layout-space); border:0; box-sizing:border-box; }
+ #game-main .screen.phase-APPRAISAL .assessment-content:is([data-step=inspect],[data-step=appraise],[data-step=buy]) > .fact-seals .seal + .seal { border-left:1px solid #73777a; }
+ #game-main .screen.phase-APPRAISAL .assessment-content:is([data-step=inspect],[data-step=appraise],[data-step=buy]) > .fact-seals .seal > .icon { grid-column:1; grid-row:1; width:20px; height:20px; align-self:center; }
+ #game-main .screen.phase-APPRAISAL .assessment-content:is([data-step=inspect],[data-step=appraise],[data-step=buy]) > .fact-seals .seal > .seal-label { grid-column:2; grid-row:1; font-size:14px; align-self:center; }
+ #game-main .screen.phase-APPRAISAL .assessment-content:is([data-step=inspect],[data-step=appraise],[data-step=buy]) > .fact-seals .seal > strong { grid-column:1 / -1; grid-row:2; justify-self:center; font-size:24px; line-height:28px; }
+}
+#game-main .screen.phase-APPRAISAL .purchase-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--layout-space); }
+#game-main .screen.phase-APPRAISAL .purchase-actions > :only-child { grid-column:1 / -1; }
+#game-main .screen.phase-APPRAISAL .purchase-actions > :is(button,.check) { box-sizing:border-box; min-height:48px; width:100%; margin:0; padding:var(--layout-space-small) var(--layout-space); border:1px solid #ddd; border-radius:var(--comic-radius); background:#101112!important; font-size:14px; line-height:1.35; }
+#game-main .screen.phase-APPRAISAL .purchase-actions > button.primary { border-color:#ff315c; background:#b91938!important; }
+#game-main .screen.phase-APPRAISAL .purchase-actions > .check { display:grid; grid-template-columns:20px minmax(0,1fr); align-items:center; gap:var(--layout-space); }
+#game-main .screen.phase-APPRAISAL .purchase-actions input[type=checkbox] { appearance:auto; width:20px!important; height:20px!important; min-width:20px!important; min-height:20px!important; margin:0; accent-color:#ff315c; }
+#game-main .screen.phase-APPRAISAL .purchase-footer > .why { margin:0; font-size:12px; line-height:1.4; }
+#game-main .screen.phase-APPRAISAL .valuation-editor { box-sizing:border-box; padding:var(--layout-space); border:1px solid #73777a; border-radius:var(--comic-radius); }
+#game-main .screen.phase-APPRAISAL .valuation-editor > label { text-align:center; }
+#game-main .screen.phase-APPRAISAL .desk-reading .valuation-editor .stepper input { font-size:40px; }
+#game-main .screen.phase-APPRAISAL .purchase-summary > div { min-height:58px; }
+#game-main .screen.phase-APPRAISAL .purchase-summary dt { font-size:12px; line-height:16px; }
+#game-main .screen.phase-APPRAISAL .purchase-summary dd { font-size:24px; line-height:24px; }
+
+/* Inspection shares the facts band, full-width edges and 12px rhythm of the other steps. */
+#game-main .screen.phase-APPRAISAL .assessment-content[data-step=inspect] .inspection { flex:1; min-height:0; display:flex; flex-direction:column; gap:var(--layout-space); }
+#game-main .screen.phase-APPRAISAL .assessment-content[data-step=inspect] .inspection > p:first-child { flex:0 0 auto; display:flex; align-items:center; justify-content:center; box-sizing:border-box; width:100%; max-width:none; align-self:stretch; min-height:60px; margin:0; padding:var(--layout-space); border:1px solid #73777a; border-radius:var(--comic-radius); font-size:14px; line-height:1.4; }
+#game-main .screen.phase-APPRAISAL .assessment-content[data-step=inspect] .inspection > .actions { flex:1; min-height:156px; display:grid; grid-template-columns:minmax(0,1fr); grid-template-rows:repeat(3,minmax(44px,1fr)); gap:var(--layout-space); width:100%; margin:0; }
+#game-main .screen.phase-APPRAISAL .assessment-content[data-step=inspect] .inspection > .actions button { width:100%; height:100%; margin:0; padding:var(--layout-space); border-width:1px; box-sizing:border-box; font-size:clamp(17px,1.4vw,22px); }
+#game-main .screen.phase-APPRAISAL .assessment-content[data-step=inspect] .inspection > .why { flex:0 0 auto; margin:0; padding:0; font-size:12px; line-height:1.4; }
+/* Merchant offer pages use the same uninterrupted surface and single content inset. */
+#game-main .screen.phase-APPRAISAL .information-page .wish-book { margin:0; border:0; box-shadow:none; background:transparent!important; }
+#game-main .screen.phase-APPRAISAL .information-page .wish-deal:has(> .pager) { padding:0; }
+#game-main .screen.phase-APPRAISAL .information-page .wish-book > button.primary { width:100%; }

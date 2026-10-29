@@ -1,0 +1,631 @@
+{
+  "mode": "record",
+  "startedAt": "2026-10-29T17:21:12.267Z",
+  "baseUrl": "http://127.0.0.1:5174",
+  "taskSpaceId": 3,
+  "checks": [
+    {
+      "id": "inventory-1440x722",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      }
+    },
+    {
+      "id": "status-1440x722",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      }
+    },
+    {
+      "id": "market-1440x722",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      }
+    },
+    {
+      "id": "ledger-1440x722",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      }
+    },
+    {
+      "id": "rules-1440x722",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      }
+    },
+    {
+      "id": "settings-1440x722",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      }
+    },
+    {
+      "id": "trade-1440x722",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": null
+      }
+    },
+    {
+      "id": "item-sale-1440x722",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "columnWidths": [
+          694,
+          694
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "actionWidths": [
+          323,
+          323
+        ],
+        "stepperCentre": 1067,
+        "actionsCentre": 1067,
+        "inputCentre": 1067,
+        "stepperGaps": [
+          12,
+          12
+        ],
+        "stepperWidths": [
+          40,
+          40
+        ],
+        "stepperHeights": [
+          40,
+          40,
+          40
+        ],
+        "knownFacts": [
+          "?",
+          "?",
+          "?"
+        ],
+        "saleDisabled": true,
+        "rebateDisabled": true
+      }
+    },
+    {
+      "id": "inventory-1024x800",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 896,
+            "y": 10,
+            "width": 118,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      }
+    },
+    {
+      "id": "status-1024x800",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 896,
+            "y": 10,
+            "width": 118,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      }
+    },
+    {
+      "id": "item-sale-1024x800",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 896,
+            "y": 10,
+            "width": 118,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "columnWidths": [
+          486,
+          486
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "actionWidths": [
+          225,
+          225
+        ],
+        "stepperCentre": 755,
+        "actionsCentre": 755,
+        "inputCentre": 755,
+        "stepperGaps": [
+          12,
+          12
+        ],
+        "stepperWidths": [
+          40,
+          40
+        ],
+        "stepperHeights": [
+          40,
+          40,
+          40
+        ],
+        "knownFacts": [
+          "?",
+          "?",
+          "?"
+        ],
+        "saleDisabled": true,
+        "rebateDisabled": true
+      }
+    },
+    {
+      "id": "inventory-1920x800",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1920,
+          800
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1516,
+            "y": 10,
+            "width": 386,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      }
+    },
+    {
+      "id": "status-1920x800",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1920,
+          800
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1516,
+            "y": 10,
+            "width": 386,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      }
+    },
+    {
+      "id": "item-sale-1920x800",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1920,
+          800
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1516,
+            "y": 10,
+            "width": 386,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "columnWidths": [
+          738,
+          738
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "actionWidths": [
+          345,
+          345
+        ],
+        "stepperCentre": 1329,
+        "actionsCentre": 1329,
+        "inputCentre": 1329,
+        "stepperGaps": [
+          12,
+          12
+        ],
+        "stepperWidths": [
+          40,
+          40
+        ],
+        "stepperHeights": [
+          40,
+          40,
+          40
+        ],
+        "knownFacts": [
+          "?",
+          "?",
+          "?"
+        ],
+        "saleDisabled": true,
+        "rebateDisabled": true
+      }
+    }
+  ],
+  "failures": [],
+  "finishedAt": "2026-10-29T17:23:02.640Z",
+  "passed": true
+}

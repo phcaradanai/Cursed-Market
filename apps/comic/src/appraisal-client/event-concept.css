@@ -1,0 +1,79 @@
+/* S03 uses the same comic tokens and window bounds as the existing utility menus. */
+#game-main dialog.game-dialog.comic-event-dialog {
+  position:fixed; inset:calc(var(--layout-chrome,48px) + var(--layout-space)) 0 calc(60px + var(--event-preview-space,0px));
+  width:calc(100vw - 48px); max-width:1480px; height:auto; max-height:none; margin:auto; padding:0; display:block;
+  border:2px solid var(--comic-line); border-radius:var(--comic-radius); box-shadow:none; overflow:visible;
+  background:linear-gradient(90deg,transparent 20%,#090b0ce8 37%,#090b0cf5 100%),url('/art/comic/market-night-v2.png') left center/cover;
+}
+#game-main .comic-event-dialog::backdrop { background:rgb(0 0 0 / 15%); backdrop-filter:none; }
+#game-main .comic-event-dialog > .dialog-content { height:100%; padding:0; max-height:none; overflow:visible; }
+#game-main .comic-event-spread { display:grid; grid-template-columns:minmax(0,3fr) minmax(0,7fr); grid-template-rows:minmax(0,1fr); align-items:stretch; gap:var(--layout-space-large); height:100%; min-height:0; padding:0 var(--layout-space-large) 0 0; }
+/* Clip at the bottom only: the cutout may cross its top and side bounds, with no portrait card. */
+#game-main .comic-event-portrait { position:relative; align-self:stretch; height:100%; min-width:0; min-height:0; border:0; background:none; overflow:visible; clip-path:inset(-100vh -18px 0 -100vw); pointer-events:none; }
+#game-main .comic-event-portrait img { position:absolute; bottom:calc((100% + var(--layout-space)) * var(--portrait-bottom-offset)); left:50%; transform:translateX(calc(-1 * var(--portrait-anchor))); width:auto; max-width:none; height:calc((100% + var(--layout-space)) * var(--portrait-height-ratio)); object-fit:fill; filter:drop-shadow(3px 0 1px #050607); }
+#game-main .comic-event-content { display:flex; flex-direction:column; gap:var(--layout-space-large); min-width:0; min-height:0; padding:var(--layout-space-large) 0; }
+#game-main .comic-event-heading { display:flex; flex-direction:column; gap:var(--layout-space); min-width:0; }
+#game-main .comic-event-topline { display:flex; align-items:center; justify-content:space-between; gap:var(--layout-space); padding:0; }
+#game-main .comic-event-topline > span { padding:6px 12px; border-radius:var(--comic-radius); background:repeating-linear-gradient(130deg,#a30f2b44 0 8px,transparent 8px 16px); font-size:clamp(14px,1.4vw,21px); }
+#game-main .comic-event-topline .comic-button { flex:none; min-height:var(--layout-control); }
+#game-main .comic-event-heading h2 { margin:0; padding:0; font:800 clamp(24px,3.1vw,48px)/1.3 var(--display); color:#f8f7f2; border:0; background:none; }
+#game-main .comic-event-heading h2::after { display:none; }
+#game-main .comic-event-heading em { color:#ff315c; font-style:normal; }
+#game-main .comic-event-heading p { margin:0; font-size:clamp(14px,1.45vw,21px); line-height:1.5; color:#d8d8d8; }
+#game-main .comic-event-facts,.comic-event-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--layout-space); }
+#game-main .comic-event-fact { display:flex; align-items:center; gap:var(--layout-space); padding:var(--layout-space); min-width:0; min-height:104px; border:1px solid #f32948; border-radius:var(--comic-radius); background:radial-gradient(#a3193533 1px,transparent 1px) right bottom/6px 6px,#090b0c; }
+#game-main .comic-event-fact > svg { flex:0 0 36px; width:36px; height:36px; }
+#game-main .comic-event-fact:first-child > svg { color:#ff315c; }
+#game-main .comic-event-fact > div { display:flex; flex-direction:column; gap:6px; min-width:0; }
+#game-main .comic-event-fact strong { font-size:clamp(16px,1.6vw,24px); line-height:1.35; }
+#game-main .comic-event-fact:first-child strong { font-size:clamp(27px,3vw,44px); white-space:nowrap; }
+#game-main .comic-event-fact em,#game-main .comic-event-fact > b { font-style:normal; color:#ff315c; }
+#game-main .comic-event-fact > b { margin-left:auto; font-size:clamp(24px,2.7vw,40px); }
+#game-main .comic-event-fact span { font-size:clamp(13px,1.25vw,18px); }
+#game-main .comic-event-fact .term-wrap { margin-left:auto; }
+#game-main .comic-event-fact .term { display:flex; align-items:center; justify-content:center; width:44px; min-height:44px; padding:0; border:0; background:transparent; }
+#game-main .comic-event-fact .term svg { width:24px; height:24px; }
+#game-main .comic-event-fact .peek { max-width:min(440px,calc(100vw - 24px)); font-size:16px; }
+#game-main .comic-event-breathing-room { flex:1; min-height:0; }
+#game-main .comic-event-bottom { display:flex; flex-direction:column; gap:var(--layout-space); }
+#game-main .comic-event-warning { display:flex; align-items:center; gap:var(--layout-space); margin:0; max-width:none; width:100%; padding:var(--layout-space); color:#ff4265; border:1px solid #aa1b37; border-radius:var(--comic-radius); background:repeating-linear-gradient(130deg,#96152c22 0 4px,transparent 4px 9px); font-size:clamp(14px,1.4vw,20px); }
+#game-main .comic-event-warning svg { flex:none; width:28px; height:28px; }
+#game-main .comic-event-block { margin:0; color:#f3e2e5; font-size:14px; }
+#game-main .comic-event-actions .comic-button { width:100%; min-height:64px; font-size:clamp(17px,1.8vw,26px); }
+#game-main .comic-event-actions svg { width:25px; height:25px; }
+#game-main:has(.comic-event-dialog[open]) .screen > .table-stage { visibility:hidden; }
+#game-main .comic-event-dialog .dialog-feedback { position:absolute; inset:auto 12px 12px auto; max-width:min(440px,90%); z-index:4; }
+@media(max-height:700px) {
+  #game-main .comic-event-content { gap:var(--layout-space); padding-block:var(--layout-space); }
+  #game-main .comic-event-heading { gap:6px; }
+  #game-main .comic-event-fact { min-height:80px; }
+  #game-main .comic-event-actions .comic-button { min-height:48px; }
+}
+@media(max-width:800px) {
+  #game-main dialog.game-dialog.comic-event-dialog { width:calc(100vw - 24px); }
+  #game-main .comic-event-spread { grid-template-columns:minmax(0,1fr) minmax(0,3fr); gap:var(--layout-space); padding-right:var(--layout-space); }
+  #game-main .comic-event-content { gap:var(--layout-space); }
+  #game-main .comic-event-fact { flex-wrap:wrap; min-height:80px; gap:6px; }
+  #game-main .comic-event-fact > svg { flex-basis:24px; width:24px; height:24px; }
+  #game-main .comic-event-fact > b { font-size:24px; }
+  #game-main .comic-event-fact .term-wrap { align-self:start; }
+  #game-main .comic-event-topline > span { padding:0; background:none; }
+  #game-main .comic-event-topline .comic-button { padding:6px; font-size:12px; }
+
+}
+
+body:has(.preview-toolbar) #game-main .comic-event-dialog { --event-preview-space:40px; }
+
+#game-main .comic-event-dialog .peek { border:1px solid #eee; border-radius:var(--comic-radius); background:#090b0c; color:#f7f7f7; box-shadow:0 4px 0 #000; }
+#game-main .comic-event-dialog .peek :is(.peek-body,.peek-foot,.peek-head) { color:#eee; border-color:#676b70; }
+@media(max-width:600px) {
+  #game-main dialog.game-dialog.comic-event-dialog { inset:108px 0 calc(74px + var(--event-preview-space,0px)); }
+  #game-main .comic-event-spread { grid-template-columns:minmax(0,1fr) minmax(0,4fr); }
+  #game-main .comic-event-facts { grid-template-columns:minmax(0,1fr); }
+  #game-main .comic-event-fact { flex-wrap:nowrap; min-height:72px; }
+  #game-main .comic-event-topline { flex-wrap:wrap; }
+  #game-main .comic-event-heading h2 { font-size:24px; }
+  #game-main .comic-event-actions .comic-button { font-size:14px; gap:4px; padding:6px; min-height:48px; }
+  #game-main .comic-event-actions svg { width:18px; height:18px; }
+  #game-main .comic-event-warning { gap:6px; font-size:13px; }
+}

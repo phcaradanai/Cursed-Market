@@ -1,0 +1,61 @@
+{
+  "viewport": {
+    "width": 1440,
+    "height": 722,
+    "scrollWidth": 1440,
+    "scrollHeight": 722
+  },
+  "dialog": {
+    "x": 24,
+    "y": 60,
+    "width": 1392,
+    "height": 602,
+    "bottom": 662
+  },
+  "portrait": {
+    "x": 26,
+    "y": 62,
+    "width": 402,
+    "height": 598,
+    "bottom": 660
+  },
+  "image": {
+    "x": -14.19921875,
+    "y": 2.203125,
+    "width": 482.3984375,
+    "height": 657.796875,
+    "bottom": 660
+  },
+  "facts": [
+    {
+      "x": 452,
+      "y": 268.609375,
+      "width": 463,
+      "height": 120.015625,
+      "bottom": 388.625
+    },
+    {
+      "x": 927,
+      "y": 268.609375,
+      "width": 463,
+      "height": 120.015625,
+      "bottom": 388.625
+    }
+  ],
+  "actions": [
+    {
+      "x": 452,
+      "y": 572,
+      "width": 463,
+      "height": 64,
+      "bottom": 636
+    },
+    {
+      "x": 927,
+      "y": 572,
+      "width": 463,
+      "height": 64,
+      "bottom": 636
+    }
+  ]
+}

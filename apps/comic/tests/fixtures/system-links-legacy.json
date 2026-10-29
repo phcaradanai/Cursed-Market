@@ -1,0 +1,905 @@
+[
+  {
+    "mode": "classic",
+    "seed": "system-links-legacy-false",
+    "playerIds": [
+      "alice",
+      "bob"
+    ],
+    "config": {
+      "rarityEconomy": {
+        "version": 1,
+        "tiers": {
+          "common": {
+            "value": 1,
+            "effect": 1
+          },
+          "uncommon": {
+            "value": 2,
+            "effect": 2
+          },
+          "rare": {
+            "value": 3,
+            "effect": 3
+          },
+          "epic": {
+            "value": 4,
+            "effect": 4
+          },
+          "legendary": {
+            "value": 6,
+            "effect": 6
+          },
+          "mythic": {
+            "value": 8,
+            "effect": 8
+          }
+        }
+      },
+      "rarity": {
+        "version": 1,
+        "rates": {
+          "common": 0.6,
+          "uncommon": 0.25,
+          "rare": 0.1,
+          "epic": 0.035,
+          "legendary": 0.013,
+          "mythic": 0.002
+        },
+        "themes": {
+          "common": [
+            {
+              "theme": "plain",
+              "weight": 1
+            }
+          ],
+          "uncommon": [
+            {
+              "theme": "inferno",
+              "weight": 1
+            },
+            {
+              "theme": "frost",
+              "weight": 1
+            },
+            {
+              "theme": "storm",
+              "weight": 1
+            },
+            {
+              "theme": "venom",
+              "weight": 1
+            },
+            {
+              "theme": "spirit",
+              "weight": 1
+            },
+            {
+              "theme": "lunar",
+              "weight": 1
+            },
+            {
+              "theme": "solar",
+              "weight": 1
+            },
+            {
+              "theme": "void",
+              "weight": 1
+            },
+            {
+              "theme": "prism",
+              "weight": 1
+            },
+            {
+              "theme": "clockwork",
+              "weight": 1
+            }
+          ],
+          "rare": [
+            {
+              "theme": "inferno",
+              "weight": 1
+            },
+            {
+              "theme": "frost",
+              "weight": 1
+            },
+            {
+              "theme": "storm",
+              "weight": 1
+            },
+            {
+              "theme": "venom",
+              "weight": 1
+            },
+            {
+              "theme": "spirit",
+              "weight": 1
+            },
+            {
+              "theme": "lunar",
+              "weight": 1
+            },
+            {
+              "theme": "solar",
+              "weight": 1
+            },
+            {
+              "theme": "void",
+              "weight": 1
+            },
+            {
+              "theme": "prism",
+              "weight": 1
+            },
+            {
+              "theme": "clockwork",
+              "weight": 1
+            }
+          ],
+          "epic": [
+            {
+              "theme": "inferno",
+              "weight": 1
+            },
+            {
+              "theme": "frost",
+              "weight": 1
+            },
+            {
+              "theme": "storm",
+              "weight": 1
+            },
+            {
+              "theme": "venom",
+              "weight": 1
+            },
+            {
+              "theme": "spirit",
+              "weight": 1
+            },
+            {
+              "theme": "lunar",
+              "weight": 1
+            },
+            {
+              "theme": "solar",
+              "weight": 1
+            },
+            {
+              "theme": "void",
+              "weight": 1
+            },
+            {
+              "theme": "prism",
+              "weight": 1
+            },
+            {
+              "theme": "clockwork",
+              "weight": 1
+            }
+          ],
+          "legendary": [
+            {
+              "theme": "inferno",
+              "weight": 1
+            },
+            {
+              "theme": "frost",
+              "weight": 1
+            },
+            {
+              "theme": "storm",
+              "weight": 1
+            },
+            {
+              "theme": "venom",
+              "weight": 1
+            },
+            {
+              "theme": "spirit",
+              "weight": 1
+            },
+            {
+              "theme": "lunar",
+              "weight": 1
+            },
+            {
+              "theme": "solar",
+              "weight": 1
+            },
+            {
+              "theme": "void",
+              "weight": 1
+            },
+            {
+              "theme": "prism",
+              "weight": 1
+            },
+            {
+              "theme": "clockwork",
+              "weight": 1
+            }
+          ],
+          "mythic": [
+            {
+              "theme": "inferno",
+              "weight": 1
+            },
+            {
+              "theme": "frost",
+              "weight": 1
+            },
+            {
+              "theme": "storm",
+              "weight": 1
+            },
+            {
+              "theme": "venom",
+              "weight": 1
+            },
+            {
+              "theme": "spirit",
+              "weight": 1
+            },
+            {
+              "theme": "lunar",
+              "weight": 1
+            },
+            {
+              "theme": "solar",
+              "weight": 1
+            },
+            {
+              "theme": "void",
+              "weight": 1
+            },
+            {
+              "theme": "prism",
+              "weight": 1
+            },
+            {
+              "theme": "clockwork",
+              "weight": 1
+            }
+          ]
+        }
+      },
+      "loanEndSettlement": true,
+      "collectorDeadline": 15,
+      "eventChoiceRules": 1,
+      "statusLinks": 1,
+      "trustAbilities": true,
+      "catalogVersion": 3,
+      "itemEffects": true,
+      "roundRewards": true,
+      "multiCoinRewards": true,
+      "commerce": true,
+      "totalTrustStock": true,
+      "curseSight": true,
+      "freeBuy": true,
+      "freeMerchantAction": true,
+      "fakeEffect": true,
+      "cleanse": true,
+      "wishlist": true,
+      "wishContract": true,
+      "challenge": true,
+      "expansion": true,
+      "encounters": 3,
+      "startingCredits": 40,
+      "maxEnergy": 10,
+      "recoveryEnergy": 4,
+      "bankReserve": 2000,
+      "marketProbability": 0.5,
+      "marketMaxOrders": 3,
+      "marketQuota": 1,
+      "secureEconomy": true,
+      "core2": true,
+      "polish": true,
+      "npcEvents": true,
+      "brokerage": {
+        "auctionProbability": 0.5,
+        "maxLots": 2,
+        "bondProbability": 0.65
+      }
+    },
+    "commands": [
+      {
+        "playerId": "alice",
+        "encounter": 1,
+        "requestId": "legacy-1",
+        "type": "done"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 1,
+        "requestId": "legacy-2",
+        "type": "done"
+      },
+      {
+        "playerId": "alice",
+        "encounter": 1,
+        "requestId": "legacy-3",
+        "type": "done"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 1,
+        "requestId": "legacy-4",
+        "type": "done"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "playerId": "alice",
+        "encounter": 2,
+        "requestId": "legacy-6",
+        "type": "done"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 2,
+        "requestId": "legacy-7",
+        "type": "done"
+      },
+      {
+        "playerId": "alice",
+        "encounter": 2,
+        "requestId": "legacy-8",
+        "type": "done"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 2,
+        "requestId": "legacy-9",
+        "type": "done"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "playerId": "alice",
+        "encounter": 3,
+        "requestId": "legacy-11",
+        "type": "done"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 3,
+        "requestId": "legacy-12",
+        "type": "done"
+      },
+      {
+        "playerId": "alice",
+        "encounter": 3,
+        "requestId": "legacy-13",
+        "type": "done"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 3,
+        "requestId": "legacy-14",
+        "type": "done"
+      },
+      {
+        "type": "advance"
+      }
+    ],
+    "auditSha256": "395acb789ba5b0f16b368aadc3b4edf9d5236e01c51fe7295bec0be9bd86a8d1"
+  },
+  {
+    "mode": "survival",
+    "seed": "system-links-legacy-true",
+    "playerIds": [
+      "alice",
+      "bob"
+    ],
+    "config": {
+      "rarityEconomy": {
+        "version": 1,
+        "tiers": {
+          "common": {
+            "value": 1,
+            "effect": 1
+          },
+          "uncommon": {
+            "value": 2,
+            "effect": 2
+          },
+          "rare": {
+            "value": 3,
+            "effect": 3
+          },
+          "epic": {
+            "value": 4,
+            "effect": 4
+          },
+          "legendary": {
+            "value": 6,
+            "effect": 6
+          },
+          "mythic": {
+            "value": 8,
+            "effect": 8
+          }
+        }
+      },
+      "rarity": {
+        "version": 1,
+        "rates": {
+          "common": 0.6,
+          "uncommon": 0.25,
+          "rare": 0.1,
+          "epic": 0.035,
+          "legendary": 0.013,
+          "mythic": 0.002
+        },
+        "themes": {
+          "common": [
+            {
+              "theme": "plain",
+              "weight": 1
+            }
+          ],
+          "uncommon": [
+            {
+              "theme": "inferno",
+              "weight": 1
+            },
+            {
+              "theme": "frost",
+              "weight": 1
+            },
+            {
+              "theme": "storm",
+              "weight": 1
+            },
+            {
+              "theme": "venom",
+              "weight": 1
+            },
+            {
+              "theme": "spirit",
+              "weight": 1
+            },
+            {
+              "theme": "lunar",
+              "weight": 1
+            },
+            {
+              "theme": "solar",
+              "weight": 1
+            },
+            {
+              "theme": "void",
+              "weight": 1
+            },
+            {
+              "theme": "prism",
+              "weight": 1
+            },
+            {
+              "theme": "clockwork",
+              "weight": 1
+            }
+          ],
+          "rare": [
+            {
+              "theme": "inferno",
+              "weight": 1
+            },
+            {
+              "theme": "frost",
+              "weight": 1
+            },
+            {
+              "theme": "storm",
+              "weight": 1
+            },
+            {
+              "theme": "venom",
+              "weight": 1
+            },
+            {
+              "theme": "spirit",
+              "weight": 1
+            },
+            {
+              "theme": "lunar",
+              "weight": 1
+            },
+            {
+              "theme": "solar",
+              "weight": 1
+            },
+            {
+              "theme": "void",
+              "weight": 1
+            },
+            {
+              "theme": "prism",
+              "weight": 1
+            },
+            {
+              "theme": "clockwork",
+              "weight": 1
+            }
+          ],
+          "epic": [
+            {
+              "theme": "inferno",
+              "weight": 1
+            },
+            {
+              "theme": "frost",
+              "weight": 1
+            },
+            {
+              "theme": "storm",
+              "weight": 1
+            },
+            {
+              "theme": "venom",
+              "weight": 1
+            },
+            {
+              "theme": "spirit",
+              "weight": 1
+            },
+            {
+              "theme": "lunar",
+              "weight": 1
+            },
+            {
+              "theme": "solar",
+              "weight": 1
+            },
+            {
+              "theme": "void",
+              "weight": 1
+            },
+            {
+              "theme": "prism",
+              "weight": 1
+            },
+            {
+              "theme": "clockwork",
+              "weight": 1
+            }
+          ],
+          "legendary": [
+            {
+              "theme": "inferno",
+              "weight": 1
+            },
+            {
+              "theme": "frost",
+              "weight": 1
+            },
+            {
+              "theme": "storm",
+              "weight": 1
+            },
+            {
+              "theme": "venom",
+              "weight": 1
+            },
+            {
+              "theme": "spirit",
+              "weight": 1
+            },
+            {
+              "theme": "lunar",
+              "weight": 1
+            },
+            {
+              "theme": "solar",
+              "weight": 1
+            },
+            {
+              "theme": "void",
+              "weight": 1
+            },
+            {
+              "theme": "prism",
+              "weight": 1
+            },
+            {
+              "theme": "clockwork",
+              "weight": 1
+            }
+          ],
+          "mythic": [
+            {
+              "theme": "inferno",
+              "weight": 1
+            },
+            {
+              "theme": "frost",
+              "weight": 1
+            },
+            {
+              "theme": "storm",
+              "weight": 1
+            },
+            {
+              "theme": "venom",
+              "weight": 1
+            },
+            {
+              "theme": "spirit",
+              "weight": 1
+            },
+            {
+              "theme": "lunar",
+              "weight": 1
+            },
+            {
+              "theme": "solar",
+              "weight": 1
+            },
+            {
+              "theme": "void",
+              "weight": 1
+            },
+            {
+              "theme": "prism",
+              "weight": 1
+            },
+            {
+              "theme": "clockwork",
+              "weight": 1
+            }
+          ]
+        }
+      },
+      "loanEndSettlement": true,
+      "collectorDeadline": 15,
+      "eventChoiceRules": 1,
+      "statusLinks": 1,
+      "trustAbilities": true,
+      "catalogVersion": 3,
+      "itemEffects": true,
+      "roundRewards": true,
+      "multiCoinRewards": true,
+      "commerce": true,
+      "totalTrustStock": true,
+      "curseSight": true,
+      "freeBuy": true,
+      "freeMerchantAction": true,
+      "fakeEffect": true,
+      "cleanse": true,
+      "wishlist": true,
+      "wishContract": true,
+      "challenge": true,
+      "expansion": true,
+      "encounters": 3,
+      "startingCredits": 40,
+      "maxEnergy": 10,
+      "recoveryEnergy": 4,
+      "bankReserve": 2000,
+      "marketProbability": 0.5,
+      "marketMaxOrders": 3,
+      "marketQuota": 1,
+      "secureEconomy": true,
+      "core2": true,
+      "polish": true,
+      "npcEvents": true,
+      "brokerage": {
+        "auctionProbability": 0.5,
+        "maxLots": 2,
+        "bondProbability": 0.65
+      },
+      "survival": {
+        "maxLife": 6,
+        "encounterLifeCost": 1,
+        "entryEnergyCost": 0
+      }
+    },
+    "commands": [
+      {
+        "playerId": "alice",
+        "encounter": 1,
+        "requestId": "legacy-1",
+        "type": "done"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 1,
+        "requestId": "legacy-2",
+        "type": "enter",
+        "portalId": "portal-1-1-0"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 1,
+        "requestId": "legacy-3",
+        "type": "done"
+      },
+      {
+        "playerId": "alice",
+        "encounter": 1,
+        "requestId": "legacy-4",
+        "type": "done"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 1,
+        "requestId": "legacy-5",
+        "type": "done"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "playerId": "alice",
+        "encounter": 2,
+        "requestId": "legacy-7",
+        "type": "done"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 2,
+        "requestId": "legacy-8",
+        "type": "enter",
+        "portalId": "portal-2-1-0"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 2,
+        "requestId": "legacy-9",
+        "type": "done"
+      },
+      {
+        "playerId": "alice",
+        "encounter": 2,
+        "requestId": "legacy-10",
+        "type": "done"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 2,
+        "requestId": "legacy-11",
+        "type": "done"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "playerId": "alice",
+        "encounter": 3,
+        "requestId": "legacy-13",
+        "type": "enter",
+        "portalId": "portal-3-0-0"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 3,
+        "requestId": "legacy-14",
+        "type": "done"
+      },
+      {
+        "playerId": "alice",
+        "encounter": 3,
+        "requestId": "legacy-15",
+        "type": "done"
+      },
+      {
+        "playerId": "alice",
+        "encounter": 3,
+        "requestId": "legacy-16",
+        "type": "done"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 3,
+        "requestId": "legacy-17",
+        "type": "done"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "playerId": "alice",
+        "encounter": 4,
+        "requestId": "legacy-19",
+        "type": "enter",
+        "portalId": "portal-4-0-0"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 4,
+        "requestId": "legacy-20",
+        "type": "enter",
+        "portalId": "portal-4-1-0"
+      },
+      {
+        "playerId": "alice",
+        "encounter": 4,
+        "requestId": "legacy-21",
+        "type": "done"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 4,
+        "requestId": "legacy-22",
+        "type": "done"
+      },
+      {
+        "playerId": "alice",
+        "encounter": 4,
+        "requestId": "legacy-23",
+        "type": "done"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 4,
+        "requestId": "legacy-24",
+        "type": "done"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "playerId": "alice",
+        "encounter": 5,
+        "requestId": "legacy-26",
+        "type": "done"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 5,
+        "requestId": "legacy-27",
+        "type": "enter",
+        "portalId": "portal-5-1-0"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 5,
+        "requestId": "legacy-28",
+        "type": "done"
+      },
+      {
+        "playerId": "alice",
+        "encounter": 5,
+        "requestId": "legacy-29",
+        "type": "done"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 5,
+        "requestId": "legacy-30",
+        "type": "done"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "playerId": "alice",
+        "encounter": 6,
+        "requestId": "legacy-32",
+        "type": "done"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 6,
+        "requestId": "legacy-33",
+        "type": "done"
+      },
+      {
+        "playerId": "alice",
+        "encounter": 6,
+        "requestId": "legacy-34",
+        "type": "done"
+      },
+      {
+        "playerId": "bob",
+        "encounter": 6,
+        "requestId": "legacy-35",
+        "type": "done"
+      }
+    ],
+    "auditSha256": "28c92b49de527f1d4f34b0ab573c96dd7376ebd908ccca6935d241012eefa795"
+  }
+]

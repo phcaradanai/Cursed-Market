@@ -1,0 +1,35 @@
+/* Existing values extracted unchanged; authority: docs/ui-system/design-system.md. */
+:root {
+  color-scheme: dark;
+  --comic-ink: #171515;
+  --comic-black: #100e0f;
+  --comic-white: #fffaf2;
+  --comic-paper: #f1eadf;
+  --comic-paper-deep: #e4d8ca;
+  --comic-red: #c52c32;
+  --comic-red-dark: #8f2028;
+  --comic-red-pale: #f6dede;
+  --comic-muted: #595451;
+  --comic-line: #2a2524;
+  --comic-shadow: 0 10px 26px rgb(0 0 0 / 32%);
+  --comic-radius: 10px;
+  --comic-round: var(--comic-radius);
+  --frame-radius: var(--comic-radius);
+  --control-radius: var(--comic-radius);
+  accent-color: var(--comic-red);
+}
+.app-shell.comic-build {
+  --layout-space-small:6px;
+  --layout-space:12px;
+  --layout-space-large:24px;
+  --layout-control:44px;
+  --layout-row:48px;
+  --layout-read-row:40px;
+  --layout-spread-gutter:clamp(24px,4.5vw,72px);
+  --layout-preview-row:40px;
+  --layout-gutter:clamp(24px,5.5vw,88px);
+  --layout-chrome:48px;
+}
+#game-main .screen { --comic-paper:#f2e8d8; --comic-ink:#0a0d0e; --comic-red:#c51032; --comic-line:#e6e6e0; --comic-gap:12px; --comic-menu-header-height:65px; --comic-menu-control-height:40px; }
+#game-main .screen{--comic-menu-inset:18px}
+#game-main .screen{--comic-frame-inset:24px;--comic-frame-max:1480px;--comic-frame-top:calc(var(--layout-chrome,48px) + 12px);--comic-frame-bottom:var(--utility-bottom)}

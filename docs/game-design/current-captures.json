@@ -1,0 +1,1355 @@
+{
+  "version": 1,
+  "clientDate": "2026-10-29",
+  "scope": "Observed existing comic UI, live scout room plus built-in preview fixtures; no generated images",
+  "source": {
+    "uiRoot": "/Users/oyl-mac_m1/Documents/Codex/2026-10-24/j/outputs/ui-2d-red-black-white/build",
+    "backendRoot": "/Users/Projects/Cursed Market",
+    "frontendUrl": "http://127.0.0.1:5174/",
+    "sourceFiles": [
+      {
+        "file": "src/appraisal-client/App.tsx",
+        "sha256": "c9564ebd7027e50fd3468d5fac6e7dbdd04bc8cb91ce3d160de1ae8c46c2a8e1"
+      },
+      {
+        "file": "src/appraisal-client/ComicPreview.tsx",
+        "sha256": "ae0b04aa088c2c8dd120e8c5ca8ba66e28f25d7bce49c3ca7ee2d2c13c478c6c"
+      },
+      {
+        "file": "src/appraisal-client/ComicUI.tsx",
+        "sha256": "e562b11d6ed7f4405dcc294e8ebe16cee0adce651f498ef481c8c8c9041807dc"
+      },
+      {
+        "file": "src/appraisal-client/GameDialog.tsx",
+        "sha256": "4ae99a173050d0b5096fd5767a9c139a7f082571fe05597bf95e2a2f4bd902c7"
+      },
+      {
+        "file": "src/appraisal-client/HeldEffects.tsx",
+        "sha256": "902264779a2b9d7b2bc50181998ff376198c7f59d9ed8419af8661769397b4b6"
+      },
+      {
+        "file": "src/appraisal-client/ItemVisual.tsx",
+        "sha256": "ced9e084e05d4baf2a88c39bc7f978dbdb8bc14c170bbf46c438839f030e6115"
+      },
+      {
+        "file": "src/appraisal-client/LedgerMenu.tsx",
+        "sha256": "e0e4992735ffef8c99d6905daa9fbc86656428b51306fdbd521c397e1630189a"
+      },
+      {
+        "file": "src/appraisal-client/MarketSale.tsx",
+        "sha256": "3316e7bd17e16c1eec82f7582435f2ffb6369bcfe76358604846c7cfa9c35c25"
+      },
+      {
+        "file": "src/appraisal-client/MerchantAbilities.tsx",
+        "sha256": "c10312d2fd158ed81c1c9d9683eb8e335befa32150c96479ed1638255a0cf4cc"
+      },
+      {
+        "file": "src/appraisal-client/NpcContracts.tsx",
+        "sha256": "fc84b36924040f5a9e10c759a019e0ac7738709366c1d6877f76bdf1c74bde0a"
+      },
+      {
+        "file": "src/appraisal-client/Pager.tsx",
+        "sha256": "76bff0fac17478da072b73bafca05f8e05cc34d46bff5c3b2f65a48d9b054737"
+      },
+      {
+        "file": "src/appraisal-client/PortalEventPreview.tsx",
+        "sha256": "071be52a88e7564aec98d3e4922674484d0ad957e57f53b68ea1fbf35dab9995"
+      },
+      {
+        "file": "src/appraisal-client/RoundReward.tsx",
+        "sha256": "4ac0dc8cff10e3ebce3155469b1de88bde3b0e55f7b206642985ccffd1f4006b"
+      },
+      {
+        "file": "src/appraisal-client/RulesMenu.tsx",
+        "sha256": "9d0a1d555d7cd52ccea817c9c31bbf41b02811428f56a897a888131c5e237430"
+      },
+      {
+        "file": "src/appraisal-client/SecureEconomy.tsx",
+        "sha256": "ad66c77ca462d3eb54225cb1737fef0e59b6c9b58fcc4a605782d367233c1d87"
+      },
+      {
+        "file": "src/appraisal-client/SinnerSeals.tsx",
+        "sha256": "0fa6e32afcb6f4d2d235f16572ca039cb1e8fb63b52c703745cdd76add9c7df3"
+      },
+      {
+        "file": "src/appraisal-client/StatusMenu.tsx",
+        "sha256": "7abdb8a864445e812344b4778020ac58e88900be322dfc3063b8efd8dd6f357a"
+      },
+      {
+        "file": "src/appraisal-client/WishlistPanel.tsx",
+        "sha256": "0fbf2437312f51cc0933598859972a1873ceb1922276f4bc7d6c9d4b6c372a04"
+      },
+      {
+        "file": "src/appraisal-client/ability-text.ts",
+        "sha256": "6f890ee506f19cecc53712bb5e9ea64cc5fa495768f3e50ec09ed9f77ecc544e"
+      },
+      {
+        "file": "src/appraisal-client/appraisal-concept.css",
+        "sha256": "e7fc54e27013d37110f18303fb7cba8a1bbaa2093b56f6b91319a884c1d746c8"
+      },
+      {
+        "file": "src/appraisal-client/cabinet.css",
+        "sha256": "ec7ef4a2c8ed7af4e29bf1d57169611e7c62be875e8a5f0a11c69f2295aa0e5c"
+      },
+      {
+        "file": "src/appraisal-client/catalog-text.ts",
+        "sha256": "1d06306d08200cb57ad1e662d25c20869d26687559bd9f4fde61975da7f32aca"
+      },
+      {
+        "file": "src/appraisal-client/comic-preview-data.ts",
+        "sha256": "efffc1b0ecdaf896ab30aeba644374dc3630cd08d178693b9528f503777a983b"
+      },
+      {
+        "file": "src/appraisal-client/comic-theme.css",
+        "sha256": "470f9fae3606eee023811a5320680272cedfcd34449d920e4ede76c709cc82cd"
+      },
+      {
+        "file": "src/appraisal-client/comic-ui.css",
+        "sha256": "0ddb2144ee16d58d290911cdefcd91fb1d0a8187cc148043e889c64b474b6686"
+      },
+      {
+        "file": "src/appraisal-client/components.tsx",
+        "sha256": "9cdec195113f5e008908308895ef1619906338e1fc1bdc160b64011ebe518cd4"
+      },
+      {
+        "file": "src/appraisal-client/concept-layout.css",
+        "sha256": "5dafb4c7626b452a7e5ae11f64ed00dae2f4f4a70056fa66f28ec37a60e882dd"
+      },
+      {
+        "file": "src/appraisal-client/connection.ts",
+        "sha256": "8f20e3857710ba3c791ad3d6931cf7802478df77ecf267da44ba4fe3b355469c"
+      },
+      {
+        "file": "src/appraisal-client/core2-text.ts",
+        "sha256": "8f77b52e0444faa071a6dff65077b98bf938e215146a1ea246af80e5658468b4"
+      },
+      {
+        "file": "src/appraisal-client/feedback.tsx",
+        "sha256": "5cb229d01fe0653aed84f9b2956c84174b0d2170e5b663c190f9e6ef44b9e5f9"
+      },
+      {
+        "file": "src/appraisal-client/i18n-content.ts",
+        "sha256": "40b19a64a4e824030aef74fac4806b815e1c4977224b102d7cb5f26afa3a6e03"
+      },
+      {
+        "file": "src/appraisal-client/i18n-en.ts",
+        "sha256": "b3022fe4b0c59729958e66cdf913f2e55d13df4b15b638d7cc4950018b3a7879"
+      },
+      {
+        "file": "src/appraisal-client/i18n.ts",
+        "sha256": "3a6e679fba4927f656eabb925546e4e3f0e47ea118d0318afb4fc82a0fe1c4d0"
+      },
+      {
+        "file": "src/appraisal-client/icons.tsx",
+        "sha256": "4ab207c9447bde6f263ba1e7b3e4056f8e502e40b6f5215714126253f1d7a18b"
+      },
+      {
+        "file": "src/appraisal-client/inventory-concept.css",
+        "sha256": "b6eba05ba249da4f6cc0279429ebe3f93c4e9f27c335e6ae328712be7006af85"
+      },
+      {
+        "file": "src/appraisal-client/item-visual.css",
+        "sha256": "714e7b1bcb6aeda914fff054e95efe6d13b181e827362bcdd0f3062f6dbcade3"
+      },
+      {
+        "file": "src/appraisal-client/layout-system.css",
+        "sha256": "a08943037fbac7477760f0b619702bc01dd54d2165a996526241b525cae32d4f"
+      },
+      {
+        "file": "src/appraisal-client/lore.tsx",
+        "sha256": "78e9e5b3170eeef0a010159e68795f95b31fea89572f1ce81fbe0fe97a618074"
+      },
+      {
+        "file": "src/appraisal-client/main.tsx",
+        "sha256": "285ba28079c810e3b9ca1208b8a51db627830174ee5fa7f437a7642b41eee53e"
+      },
+      {
+        "file": "src/appraisal-client/market-concept.css",
+        "sha256": "f7f3b4e43f1689508051aa9039f8ec0c8b3cfe790e19576db77c1bc95eb3d36b"
+      },
+      {
+        "file": "src/appraisal-client/meters.tsx",
+        "sha256": "5f73b540a7adb39ca1e9c3d95f5bb49ef0fce3d9a8b62b7c384bd7827fd2d918"
+      },
+      {
+        "file": "src/appraisal-client/model.ts",
+        "sha256": "a3b828d06619ad34826c3f901fad68374ab8eaba44d5459cf7a69bd08c12ad9e"
+      },
+      {
+        "file": "src/appraisal-client/reasons.tsx",
+        "sha256": "ebaa36cc4f671bb0bb0f185270c88f40bd4399f88291357cf482c52a5baec5a9"
+      },
+      {
+        "file": "src/appraisal-client/secure-economy.css",
+        "sha256": "91746e27e2f6f5dea6afa037fc6cbbff924b4156b35d0de97e73fe0dea78140c"
+      },
+      {
+        "file": "src/appraisal-client/styles.css",
+        "sha256": "60e2cd97aec0f5c445f89d333a85879a6001b5a65b797af00fb51c06dc023241"
+      },
+      {
+        "file": "src/appraisal-client/useFitViewport.ts",
+        "sha256": "592e2f77ba8f1fc060bbb121b9feec5664a0348f93502a824c7e941e67405718"
+      },
+      {
+        "file": "src/appraisal-client/utility-navigation.css",
+        "sha256": "4410a2b78185a084a82eb94ad74e9102ba2b6ff51e7721d619f4cd869d436784"
+      },
+      {
+        "file": "package.json",
+        "sha256": "0521a730c386ef84bbdd388c13dd174d12f66f2b51db66136658a5e87687371a"
+      },
+      {
+        "file": "vite.appraisal.config.mjs",
+        "sha256": "10ab18f5d86a4be4fb5d04877b6d720771ab77acfbf4f2c590d83f564ab80331"
+      }
+    ],
+    "backendBuildFile": "dist/src/server/appraisal-main.js",
+    "backendBuildSha256": "a0f49aeda6dec7d50af3b76d686b3c5cb913443171fb2cd43ade46c43b64b0cb",
+    "canonicalUiAppSha256": "e080edcd861ae66ab8985648294370013e1219323907c25d80ae324f23c9a6b4",
+    "capturedUiAppSha256": "c9564ebd7027e50fd3468d5fac6e7dbdd04bc8cb91ce3d160de1ae8c46c2a8e1",
+    "warning": "Comic UI is in separate build and differs from canonical UI source. Logic links are references, not proof every latest backend rule has matching UI."
+  },
+  "summary": {
+    "capturedImages": 28,
+    "capturedScreenGroups": 15,
+    "registeredScreens": 30,
+    "liveImages": 5,
+    "fixtureImages": 23
+  },
+  "style": {
+    "observedViewport": "1440×722 (browser native viewport; image dimensions recorded per file)",
+    "font": "Noto Sans Thai",
+    "palette": "near-black panels, white/cream text and borders, crimson primary controls; artwork retains merchant/item palette",
+    "measuredBodyBackground": "rgb(9, 10, 11)",
+    "measuredPrimaryBackground": "rgb(197, 16, 50)",
+    "measuredSecondaryBackground": "rgb(12, 16, 17)",
+    "measuredButtonRadius": "10px",
+    "measuredExamples": "market detail buttons 44px height; some icon buttons48px; not a claim all controls are identical",
+    "layout": "full-width HUD; bottom navigation; shared menu shells; 2-column appraisal;3merchant cards; inventory grid; left market navigation",
+    "art": "existing comic/manhua cutouts over inked market background",
+    "overflow": "12 preview base captures observed scrollWidth/scrollHeight equal viewport; not an all-device check"
+  },
+  "limitations": [
+    "Capture count is observed screen groups, not an exhaustive count of every conditional UI state.",
+    "Built-in previews render existing components but do not execute full backend logic.",
+    "No screenshot is generated art and no screenshot is a new design approval.",
+    "Current sample goods are not evidence that new56 catalog/effect bindings are complete.",
+    "Uncaptured and design-only screens are listed separately; do not generate replacements before checking source."
+  ],
+  "captures": [
+    {
+      "id": "C01",
+      "screenId": "S02",
+      "title": "เลือกพ่อค้า/ประตู",
+      "phase": "PORTALS",
+      "image": "captures/current-comic-2026-10-29/merchants.png",
+      "sha256": "8ee97826aa87f57473895d6a3c7f1b1b335a2d1a3a73255eb0eb36e86228b954",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=merchants&capture",
+      "capturedAtUTC": "2026-10-29T05:43:27.292Z",
+      "clientDate": "2026-10-29",
+      "actions": [],
+      "headings": [
+        "เลือกพ่อค้าที่จะพบ",
+        "ออร์กผู้รักษาเกียรติ",
+        "พ่อค้าแวมไพร์",
+        "นักค้าจักรกล Autometa"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "notes": "",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx",
+        "src/appraisal-client/ComicPreview.tsx",
+        "src/appraisal-client/comic-preview-data.ts"
+      ]
+    },
+    {
+      "id": "C02",
+      "screenId": "S04",
+      "title": "ประเมิน · ตรวจ",
+      "phase": "APPRAISAL",
+      "image": "captures/current-comic-2026-10-29/inspection.png",
+      "sha256": "0ad4d6bf846bbf21ddc7418b18a10de5271ee7d1663d7cec8d95aeae67bb34fa",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=inspection&capture",
+      "capturedAtUTC": "2026-10-29T05:43:28.233Z",
+      "clientDate": "2026-10-29",
+      "actions": [],
+      "headings": [
+        "ประเมินและซื้อ",
+        "พ่อค้าแวมไพร์",
+        "สินค้าของพ่อค้า 2",
+        "เครื่องรางเฝ้าจิต"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "notes": "",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx",
+        "src/appraisal-client/ComicPreview.tsx",
+        "src/appraisal-client/comic-preview-data.ts"
+      ]
+    },
+    {
+      "id": "C03",
+      "screenId": "S06",
+      "title": "ซื้อขายระหว่างผู้เล่น",
+      "phase": "TRADE",
+      "image": "captures/current-comic-2026-10-29/trade.png",
+      "sha256": "db8f72d12e2ba5d4531761bd09866da533a0f5c814bdbbf2ef3135ff273f4982",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=trade&capture",
+      "capturedAtUTC": "2026-10-29T05:43:29.560Z",
+      "clientDate": "2026-10-29",
+      "actions": [],
+      "headings": [
+        "ต่อรองกับผู้เล่น",
+        "เปิดของในร้านที่คุณประเมินแล้วให้เพื่อนซื้อ",
+        "เครื่องรางเฝ้าจิต · ราคาพ่อค้า 48 เครดิต",
+        "ยาชำระล้าง · ราคาพ่อค้า 52 เครดิต",
+        "ต่อรองกับนักประเมินคนอื่น",
+        "ข้อเสนอซื้อขายของคุณ"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "notes": "",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx",
+        "src/appraisal-client/ComicPreview.tsx",
+        "src/appraisal-client/comic-preview-data.ts"
+      ]
+    },
+    {
+      "id": "C04",
+      "screenId": "S08",
+      "title": "สรุปท้ายช่วง · fixture ไม่มี roundReward",
+      "phase": "REVEAL",
+      "image": "captures/current-comic-2026-10-29/reveal.png",
+      "sha256": "b8920690ea2786c76f65263869d6f91bdf3647abe762643052e4ac4b4bf0aeb9",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=reveal&capture",
+      "capturedAtUTC": "2026-10-29T05:43:31.237Z",
+      "clientDate": "2026-10-29",
+      "actions": [],
+      "headings": [
+        "รับเครดิตหลังซื้อขาย",
+        "ซื้อขายช่วง 1 เสร็จแล้ว"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "notes": "This existing preview has no roundReward; use live-salary for actual coin/salary controls.",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx",
+        "src/appraisal-client/ComicPreview.tsx",
+        "src/appraisal-client/comic-preview-data.ts"
+      ]
+    },
+    {
+      "id": "C05",
+      "screenId": "S13",
+      "title": "ผลเกม · fixture",
+      "phase": "RESULTS",
+      "image": "captures/current-comic-2026-10-29/results.png",
+      "sha256": "fdb06c35740eb4aad3e1c91fad1e537ba7f4b81e92d18999a13d7e6875df6f64",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=results&capture",
+      "capturedAtUTC": "2026-10-29T05:43:32.937Z",
+      "clientDate": "2026-10-29",
+      "actions": [],
+      "headings": [
+        "จบการเดินทาง",
+        "Collector มารับของ · ผู้ได้คะแนนสูงสุด: คุณ"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "notes": "",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx",
+        "src/appraisal-client/ComicPreview.tsx",
+        "src/appraisal-client/comic-preview-data.ts"
+      ]
+    },
+    {
+      "id": "C06",
+      "screenId": "M01",
+      "title": "กระเป๋า",
+      "phase": "APPRAISAL",
+      "image": "captures/current-comic-2026-10-29/inventory.png",
+      "sha256": "c9593be7f847fc7f817ebb4bdb65b068ba1db74cb0da3b8ab89fd1afb9bd40fe",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=inventory&capture",
+      "capturedAtUTC": "2026-10-29T05:43:34.558Z",
+      "clientDate": "2026-10-29",
+      "actions": [],
+      "headings": [
+        "ประเมินและซื้อ",
+        "พ่อค้าแวมไพร์",
+        "สินค้าของพ่อค้า 2",
+        "เครื่องรางเฝ้าจิต",
+        "กระเป๋าของคุณ",
+        "ของที่คุณเก็บไว้ 6 ชิ้น",
+        "ยาชำระล้าง"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "notes": "",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx",
+        "src/appraisal-client/ComicPreview.tsx",
+        "src/appraisal-client/comic-preview-data.ts"
+      ]
+    },
+    {
+      "id": "C07",
+      "screenId": "M02",
+      "title": "สถานะ",
+      "phase": "APPRAISAL",
+      "image": "captures/current-comic-2026-10-29/status.png",
+      "sha256": "696cf70a58509cbf348ce2aeea66e07a1c38e754bd86037faac5dc4c1c8e87a5",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=status&capture",
+      "capturedAtUTC": "2026-10-29T05:43:36.203Z",
+      "clientDate": "2026-10-29",
+      "actions": [],
+      "headings": [
+        "ประเมินและซื้อ",
+        "พ่อค้าแวมไพร์",
+        "สินค้าของพ่อค้า 2",
+        "เครื่องรางเฝ้าจิต",
+        "สถานะของคุณ",
+        "ผลติดตัว 2 อย่าง",
+        "ความไว้ใจและพันธะ"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "notes": "",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx",
+        "src/appraisal-client/ComicPreview.tsx",
+        "src/appraisal-client/comic-preview-data.ts"
+      ]
+    },
+    {
+      "id": "C08",
+      "screenId": "M03",
+      "title": "ตลาดมืด · รายการรับซื้อ",
+      "phase": "APPRAISAL",
+      "image": "captures/current-comic-2026-10-29/market.png",
+      "sha256": "467a749d9d84bb225c1ee8b20826491b0fa451e9ff852e0cb173814fb460475e",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=market&capture",
+      "capturedAtUTC": "2026-10-29T05:43:38.923Z",
+      "clientDate": "2026-10-29",
+      "actions": [],
+      "headings": [
+        "ประเมินและซื้อ",
+        "พ่อค้าแวมไพร์",
+        "สินค้าของพ่อค้า 2",
+        "เครื่องรางเฝ้าจิต",
+        "ตลาดมืด",
+        "รายการรับซื้อ"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "notes": "",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx",
+        "src/appraisal-client/ComicPreview.tsx",
+        "src/appraisal-client/comic-preview-data.ts"
+      ]
+    },
+    {
+      "id": "C09",
+      "screenId": "M03",
+      "title": "ตลาดมืด · fixture รายการครบ",
+      "phase": "APPRAISAL",
+      "image": "captures/current-comic-2026-10-29/market-demo.png",
+      "sha256": "60b5d7cdf7579a8cdbcffc99364a176e5b715afd263e55de58797ac5ad223d32",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=market-demo&capture",
+      "capturedAtUTC": "2026-10-29T05:43:40.620Z",
+      "clientDate": "2026-10-29",
+      "actions": [],
+      "headings": [
+        "ประเมินและซื้อ",
+        "พ่อค้าแวมไพร์",
+        "สินค้าของพ่อค้า 2",
+        "เครื่องรางเฝ้าจิต",
+        "ตลาดมืด",
+        "รายการรับซื้อ"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "notes": "Built-in ComicPreview constructs demonstration entries; not proof of backend action coverage.",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx",
+        "src/appraisal-client/ComicPreview.tsx",
+        "src/appraisal-client/comic-preview-data.ts"
+      ]
+    },
+    {
+      "id": "C10",
+      "screenId": "M04",
+      "title": "บันทึกเหตุการณ์ · fixture",
+      "phase": "APPRAISAL",
+      "image": "captures/current-comic-2026-10-29/ledger.png",
+      "sha256": "e08117fdb2f30a115314d8d7ddc0068c8bff7bb26c6846a365133a32619ba0bb",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=ledger&capture",
+      "capturedAtUTC": "2026-10-29T05:43:43.350Z",
+      "clientDate": "2026-10-29",
+      "actions": [],
+      "headings": [
+        "ประเมินและซื้อ",
+        "พ่อค้าแวมไพร์",
+        "สินค้าของพ่อค้า 2",
+        "เครื่องรางเฝ้าจิต",
+        "สมุดบันทึก",
+        "เหตุการณ์ทั้งหมด",
+        "ตรวจสินค้า"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "notes": "Built-in ComicPreview constructs demonstration entries; not proof of backend action coverage.",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx",
+        "src/appraisal-client/ComicPreview.tsx",
+        "src/appraisal-client/comic-preview-data.ts"
+      ]
+    },
+    {
+      "id": "C11",
+      "screenId": "M05",
+      "title": "กติกา",
+      "phase": "APPRAISAL",
+      "image": "captures/current-comic-2026-10-29/rules.png",
+      "sha256": "c2ea7141de5bb36961920e3f1585b32c00364e86df29a4fafe30420cc8dc83d1",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=rules&capture",
+      "capturedAtUTC": "2026-10-29T05:43:45.991Z",
+      "clientDate": "2026-10-29",
+      "actions": [],
+      "headings": [
+        "ประเมินและซื้อ",
+        "พ่อค้าแวมไพร์",
+        "สินค้าของพ่อค้า 2",
+        "เครื่องรางเฝ้าจิต",
+        "กติกา",
+        "หนึ่งช่วง เล่นอย่างไร",
+        "ประเมินและซื้อ"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "notes": "",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx",
+        "src/appraisal-client/ComicPreview.tsx",
+        "src/appraisal-client/comic-preview-data.ts"
+      ]
+    },
+    {
+      "id": "C12",
+      "screenId": "M06",
+      "title": "ตั้งค่า",
+      "phase": "APPRAISAL",
+      "image": "captures/current-comic-2026-10-29/settings.png",
+      "sha256": "b4baa3b41fe41fabae05ce42dd46b41e294592fe782cbb32ac7ce6aa8493b2b2",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=settings&capture",
+      "capturedAtUTC": "2026-10-29T05:43:47.604Z",
+      "clientDate": "2026-10-29",
+      "actions": [],
+      "headings": [
+        "ประเมินและซื้อ",
+        "ตั้งค่า",
+        "การตั้งค่าของคุณ",
+        "ผู้ร่วมโต๊ะ",
+        "พ่อค้าแวมไพร์",
+        "สินค้าของพ่อค้า 2",
+        "เครื่องรางเฝ้าจิต"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "notes": "",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx",
+        "src/appraisal-client/ComicPreview.tsx",
+        "src/appraisal-client/comic-preview-data.ts"
+      ]
+    },
+    {
+      "id": "C13",
+      "screenId": "U01",
+      "title": "เข้าเกม",
+      "phase": null,
+      "image": "captures/current-comic-2026-10-29/entry.png",
+      "sha256": "6240fcb5154111514cd3368f554209c6ca5acc085001052b6e82f10cdfbfc4b2",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "live-game",
+      "url": "http://127.0.0.1:5174/",
+      "capturedAtUTC": "2026-10-29T05:45:17.570Z",
+      "clientDate": "2026-10-29",
+      "actions": [],
+      "headings": [
+        "ทุกข้อเสนอมีราคาที่ต้องจ่าย"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722
+      },
+      "notes": "",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx"
+      ]
+    },
+    {
+      "id": "C14",
+      "screenId": "U02",
+      "title": "ล็อบบี้",
+      "phase": null,
+      "image": "captures/current-comic-2026-10-29/lobby.png",
+      "sha256": "e86713b0d470957ae8d2a41b90a6f866c2562a3181ff38c049cd1bdbf0958415",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "live-game",
+      "url": "http://127.0.0.1:5174/",
+      "capturedAtUTC": "2026-10-29T05:47:47.057Z",
+      "clientDate": "2026-10-29",
+      "actions": [],
+      "headings": [
+        "โต๊ะนักประเมิน"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722
+      },
+      "notes": "",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx"
+      ]
+    },
+    {
+      "id": "C15",
+      "screenId": "S05",
+      "title": "เหตุการณ์ E101 ตลาดนัดข้ามมิติ · เกมจริง",
+      "phase": "TRADE",
+      "image": "captures/current-comic-2026-10-29/live-current-event.png",
+      "sha256": "2fd8797eb469e2ebf4e6159e7933507a33e661ab580ba0196e7401288721035b",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "live-game",
+      "url": "http://127.0.0.1:5174/",
+      "capturedAtUTC": "2026-10-29T05:50:24.114Z",
+      "clientDate": "2026-10-29",
+      "actions": [],
+      "headings": [
+        "ต่อรองกับผู้เล่น",
+        "ต่อรองกับนักประเมินคนอื่น",
+        "เข็มกลัดชีพจร · Bot 1",
+        "ข้อเสนอซื้อขายของคุณ",
+        "เดิมพันด้วยมือเดียว",
+        "ของที่ผู้เล่นถืออยู่",
+        "ตลาดนัดข้ามมิติ",
+        "คุณจะเลือกทางไหน"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722
+      },
+      "notes": "Observed event name matches E101; captured during TRADE, not a portal encounter.",
+      "eventIds": [
+        "E101"
+      ],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx"
+      ]
+    },
+    {
+      "id": "C16",
+      "screenId": "S04",
+      "title": "ประเมิน · ตีราคา",
+      "phase": "APPRAISAL",
+      "image": "captures/current-comic-2026-10-29/inspection-appraise.png",
+      "sha256": "d5047438d9c96fb2332c387eaaf5332f1378eca5cea5eba52d766d12d4ebb821",
+      "dimensions": {
+        "width": 1428,
+        "height": 710
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=inspection&capture",
+      "capturedAtUTC": "2026-10-29T05:51:03.630Z",
+      "clientDate": "2026-10-29",
+      "actions": [
+        "tab appraise"
+      ],
+      "headings": [
+        "ประเมินและซื้อ",
+        "พ่อค้าแวมไพร์",
+        "สินค้าของพ่อค้า 2",
+        "เครื่องรางเฝ้าจิต"
+      ],
+      "observedViewport": {
+        "width": 1428,
+        "height": 710
+      },
+      "notes": "",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx",
+        "src/appraisal-client/ComicPreview.tsx",
+        "src/appraisal-client/comic-preview-data.ts"
+      ]
+    },
+    {
+      "id": "C17",
+      "screenId": "S04",
+      "title": "ประเมิน · ซื้อ",
+      "phase": "APPRAISAL",
+      "image": "captures/current-comic-2026-10-29/inspection-buy.png",
+      "sha256": "2664fe7dd158cb121db3c902253dc6be792c29ecf4d617f15e413befecfb4f45",
+      "dimensions": {
+        "width": 1428,
+        "height": 710
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=inspection&capture",
+      "capturedAtUTC": "2026-10-29T05:51:04.062Z",
+      "clientDate": "2026-10-29",
+      "actions": [
+        "tab buy"
+      ],
+      "headings": [
+        "ประเมินและซื้อ",
+        "พ่อค้าแวมไพร์",
+        "สินค้าของพ่อค้า 2",
+        "เครื่องรางเฝ้าจิต"
+      ],
+      "observedViewport": {
+        "width": 1428,
+        "height": 710
+      },
+      "notes": "",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx",
+        "src/appraisal-client/ComicPreview.tsx",
+        "src/appraisal-client/comic-preview-data.ts"
+      ]
+    },
+    {
+      "id": "C18",
+      "screenId": "S04",
+      "title": "ประเมิน · รายละเอียดสินค้า",
+      "phase": "APPRAISAL",
+      "image": "captures/current-comic-2026-10-29/inspection-item-details.png",
+      "sha256": "2f26dca80495eae25213f3dc23d575010ace21f464a540fbf7daeff779f63d49",
+      "dimensions": {
+        "width": 1428,
+        "height": 710
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=inspection&capture",
+      "capturedAtUTC": "2026-10-29T05:51:04.458Z",
+      "clientDate": "2026-10-29",
+      "actions": [
+        "รายละเอียดของชิ้นนี้"
+      ],
+      "headings": [
+        "ประเมินและซื้อ",
+        "พ่อค้าแวมไพร์",
+        "สินค้าของพ่อค้า 2",
+        "เครื่องรางเฝ้าจิต",
+        "ผลของสินค้า",
+        "วิธีใช้"
+      ],
+      "observedViewport": {
+        "width": 1428,
+        "height": 710
+      },
+      "notes": "",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx",
+        "src/appraisal-client/ComicPreview.tsx",
+        "src/appraisal-client/comic-preview-data.ts"
+      ]
+    },
+    {
+      "id": "C19",
+      "screenId": "S04",
+      "title": "ประเมิน · ข้อเสนอพ่อค้า",
+      "phase": "APPRAISAL",
+      "image": "captures/current-comic-2026-10-29/inspection-merchant-offer.png",
+      "sha256": "c946e01e8e75bad5080ea39ff2719e9ae662f24c398547a0e233efd4623ec46a",
+      "dimensions": {
+        "width": 1428,
+        "height": 710
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=inspection&capture",
+      "capturedAtUTC": "2026-10-29T05:51:04.827Z",
+      "clientDate": "2026-10-29",
+      "actions": [
+        "ข้อเสนอและข้อมูลพ่อค้า"
+      ],
+      "headings": [
+        "ประเมินและซื้อ",
+        "พ่อค้าแวมไพร์",
+        "สินค้าของพ่อค้า 2",
+        "เครื่องรางเฝ้าจิต",
+        "ดีลฟื้นพลัง"
+      ],
+      "observedViewport": {
+        "width": 1428,
+        "height": 710
+      },
+      "notes": "",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx",
+        "src/appraisal-client/ComicPreview.tsx",
+        "src/appraisal-client/comic-preview-data.ts"
+      ]
+    },
+    {
+      "id": "C20",
+      "screenId": "M01",
+      "title": "กระเป๋า · รายละเอียดผลใช้งาน",
+      "phase": "APPRAISAL",
+      "image": "captures/current-comic-2026-10-29/inventory-details.png",
+      "sha256": "9b5e324c0d42115311b080498e868983b6ce6cb6e7ccf0a3a735ea9c14a15ac9",
+      "dimensions": {
+        "width": 1428,
+        "height": 710
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=inventory&capture",
+      "capturedAtUTC": "2026-10-29T05:52:20.222Z",
+      "clientDate": "2026-10-29",
+      "actions": [
+        "รายละเอียดผลการใช้งาน"
+      ],
+      "headings": [
+        "ประเมินและซื้อ",
+        "พ่อค้าแวมไพร์",
+        "สินค้าของพ่อค้า 2",
+        "เครื่องรางเฝ้าจิต",
+        "กระเป๋าของคุณ",
+        "ข้อมูลและผลการใช้งาน",
+        "ยาชำระล้าง"
+      ],
+      "observedViewport": {
+        "width": 1428,
+        "height": 710
+      },
+      "notes": "",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx",
+        "src/appraisal-client/ComicPreview.tsx",
+        "src/appraisal-client/comic-preview-data.ts"
+      ]
+    },
+    {
+      "id": "C21",
+      "screenId": "S08",
+      "title": "รับเครดิตและเสี่ยงเหรียญ · เกมจริง",
+      "phase": "REVEAL",
+      "image": "captures/current-comic-2026-10-29/live-salary.png",
+      "sha256": "40afbacf45b17ab8f4b883eeb596d5eefeb24c1ecf94e03b07e633adc7359776",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "live-game",
+      "url": "http://127.0.0.1:5174/",
+      "capturedAtUTC": "2026-10-29T05:53:00.842Z",
+      "clientDate": "2026-10-29",
+      "actions": [],
+      "headings": [
+        "รับเครดิตหลังซื้อขาย",
+        "เครดิตหลังจบช่วงซื้อขาย 3",
+        "ซื้อขายช่วง 3 เสร็จแล้ว"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722
+      },
+      "notes": "",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx"
+      ]
+    },
+    {
+      "id": "C22",
+      "screenId": "M03",
+      "title": "ตลาดมืด · รายละเอียดรับซื้อ",
+      "phase": "APPRAISAL",
+      "image": "captures/current-comic-2026-10-29/market-sale-detail.png",
+      "sha256": "c3156b2115fb46f56fc1cc70f0c7448dddce65c280bbc9b47e3fcba907a09dba",
+      "dimensions": {
+        "width": 1428,
+        "height": 710
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=market-demo&capture",
+      "capturedAtUTC": "2026-10-29T05:53:35.465Z",
+      "clientDate": "2026-10-29",
+      "actions": [
+        "รายการรับซื้อ ยาชำระล้าง"
+      ],
+      "headings": [
+        "ประเมินและซื้อ",
+        "พ่อค้าแวมไพร์",
+        "สินค้าของพ่อค้า 2",
+        "เครื่องรางเฝ้าจิต",
+        "ตลาดมืด",
+        "เงื่อนไขและขาย"
+      ],
+      "observedViewport": {
+        "width": 1428,
+        "height": 710
+      },
+      "notes": "",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx",
+        "src/appraisal-client/ComicPreview.tsx",
+        "src/appraisal-client/comic-preview-data.ts"
+      ]
+    },
+    {
+      "id": "C23",
+      "screenId": "M03",
+      "title": "ตลาดมืด · รายการประมูล",
+      "phase": "APPRAISAL",
+      "image": "captures/current-comic-2026-10-29/market-auction-list.png",
+      "sha256": "dac30f2170bdeffdde90e6482df72fafa5ea8dfaf7ae968e5ccca52b198d04fc",
+      "dimensions": {
+        "width": 1428,
+        "height": 710
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=market-demo&capture",
+      "capturedAtUTC": "2026-10-29T05:53:35.804Z",
+      "clientDate": "2026-10-29",
+      "actions": [
+        "ห้องประมูล"
+      ],
+      "headings": [
+        "ประเมินและซื้อ",
+        "พ่อค้าแวมไพร์",
+        "สินค้าของพ่อค้า 2",
+        "เครื่องรางเฝ้าจิต",
+        "ตลาดมืด",
+        "ของประมูลจากคลัง"
+      ],
+      "observedViewport": {
+        "width": 1428,
+        "height": 710
+      },
+      "notes": "",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx",
+        "src/appraisal-client/ComicPreview.tsx",
+        "src/appraisal-client/comic-preview-data.ts"
+      ]
+    },
+    {
+      "id": "C24",
+      "screenId": "M03",
+      "title": "ตลาดมืด · รายละเอียดประมูล",
+      "phase": "APPRAISAL",
+      "image": "captures/current-comic-2026-10-29/market-auction-detail.png",
+      "sha256": "8d55f34fc2b09b40da186fc57f018e75e06588503ecc36dfa355a634af466519",
+      "dimensions": {
+        "width": 1428,
+        "height": 710
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=market-demo&capture",
+      "capturedAtUTC": "2026-10-29T05:55:38.955Z",
+      "clientDate": "2026-10-29",
+      "actions": [
+        "ห้องประมูล",
+        "กุญแจเงา · ดูรายละเอียด"
+      ],
+      "headings": [
+        "ประเมินและซื้อ",
+        "พ่อค้าแวมไพร์",
+        "สินค้าของพ่อค้า 2",
+        "เครื่องรางเฝ้าจิต",
+        "ตลาดมืด",
+        "ประมูลแบบปิดซอง"
+      ],
+      "observedViewport": {
+        "width": 1428,
+        "height": 710
+      },
+      "notes": "ภาพจับ preview รายละเอียดประมูลรอบนี้เห็นพื้นหลังแต่ไม่เห็นรูปสินค้า ต้องตรวจ fixture/asset binding ก่อนสรุปว่าต้องแก้ภาพหรือ UI ห้าม gen สินค้าใหม่เพื่อกลบปัญหา",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx",
+        "src/appraisal-client/ComicPreview.tsx",
+        "src/appraisal-client/comic-preview-data.ts"
+      ]
+    },
+    {
+      "id": "C25",
+      "screenId": "S13",
+      "title": "ผลเกม · เกมจริง",
+      "phase": "RESULTS",
+      "image": "captures/current-comic-2026-10-29/live-results.png",
+      "sha256": "ac50822b14a8a12e9e7dad3d4d00dd2a3955490168e147fffc830669a579f948",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "live-game",
+      "url": "http://127.0.0.1:5174/",
+      "capturedAtUTC": "2026-10-29T05:56:50.568Z",
+      "clientDate": "2026-10-29",
+      "actions": [],
+      "headings": [
+        "จบการเดินทาง",
+        "Collector มารับของ · ผู้ได้คะแนนสูงสุด: สำรวจหน้าจอ"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722
+      },
+      "notes": "",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/App.tsx"
+      ]
+    },
+    {
+      "id": "C26",
+      "screenId": "S03",
+      "title": "เหตุการณ์หลังเลือกประตู · สัญญาเลือด E109",
+      "phase": "APPRAISAL",
+      "image": "captures/current-comic-2026-10-29/event-blood-pact.png",
+      "sha256": "e8af75196db2828072def70ae1d87c2da56c3203853dafaab5d862257443c12a",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=event-blood-pact&capture",
+      "capturedAtUTC": "2026-10-29T08:17:20.311513+00:00",
+      "clientDate": "2026-10-29",
+      "actions": [
+        "ซ่อนแล้วกลับเหตุการณ์",
+        "Tab เปิด tooltip",
+        "hover ผลตอบแทน"
+      ],
+      "headings": [
+        "สัญญาเลือดครั้งหน้า"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "notes": "ภาพจับ implementation E109 ใน comic build แยกด้วย fixture หลังแก้ navigation และ overflow portrait. ไม่ใช่ live encounter.",
+      "eventIds": [
+        "E109"
+      ],
+      "componentFiles": [
+        "src/appraisal-client/BloodPactEvent.tsx",
+        "src/appraisal-client/event-concept.css",
+        "src/appraisal-client/feedback.tsx",
+        "src/appraisal-client/main.tsx",
+        "src/appraisal-client/ComicPreview.tsx"
+      ],
+      "sourceFiles": [
+        {
+          "file": "src/appraisal-client/BloodPactEvent.tsx",
+          "sha256": "2621e0fb8fa86f2ead6f13c2ac67306de47e96554983375b5986a75630365919"
+        },
+        {
+          "file": "src/appraisal-client/event-concept.css",
+          "sha256": "ce2f1293df2f65b66227e26cd599170b3e934ce8383cb92bd42656d1f7226ac3"
+        },
+        {
+          "file": "src/appraisal-client/feedback.tsx",
+          "sha256": "77648b5232723f972cab8503ab2a7f36f67958f320ecf8eb764dcfbd13349d4c"
+        },
+        {
+          "file": "src/appraisal-client/main.tsx",
+          "sha256": "8fb78565b1a4e311b4361e669a0a079c5b530eea456791e771b9c8cc494c1d75"
+        },
+        {
+          "file": "src/appraisal-client/ComicPreview.tsx",
+          "sha256": "16150998d80b8b83f54bc53e9c83156000050d94ad6ca7ce64ecf75b9c0fb5ac"
+        },
+        {
+          "file": "src/appraisal-client/App.tsx",
+          "sha256": "3b144b3ad2d39e38e2dfb0807d1e34b38fafe9d1ef5bd091f4ec8aa8364befad"
+        },
+        {
+          "file": "tests/appraisal-comic-blood-pact.test.ts",
+          "sha256": "c2ae7accb68f2339235e91a8d5f5a1931a310052827fe53f9ff7716476da7a0f"
+        }
+      ]
+    },
+    {
+      "id": "C27",
+      "screenId": "S06",
+      "title": "โต๊ะซื้อขาย v05 implementation",
+      "phase": "TRADE",
+      "image": "captures/current-comic-2026-10-29/trade-table.png",
+      "sha256": "8e3799f4296d3881a724bd30764e9290ef520d11521141dacc8440e9f71c4356",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=trade",
+      "capturedAtUTC": "2026-10-29T13:53:10.441135+00:00",
+      "clientDate": "2026-10-29",
+      "actions": [
+        "ไปกระเป๋า",
+        "วน4→2→4",
+        "ไปโต๊ะเพื่อนและกลับ",
+        "เปิดปิดรายละเอียด"
+      ],
+      "headings": [
+        "โต๊ะของคุณ"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "notes": "ภาพ component ผ่าน preview fixture; ปรับ fidelity ด้วยฉากโต๊ะ comic แยกจาก concept, วาง runtime items ทับ ไม่ใช่ภาพ mockup ทั้งหน้า; ยังไม่ทดสอบธุรกรรมห้องจริง; tooltip follow-up เกิดหลังภาพ C27 นี้ ดู implementations/S06-transition-tooltip.png และ source snapshot ล่าสุดใน implementations/S06-table-source",
+      "eventIds": [],
+      "componentFiles": [
+        "src/appraisal-client/TradeScreen.tsx",
+        "src/appraisal-client/trade-concept.css"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "src/appraisal-client/TradeScreen.tsx",
+          "sha256": "6acb254ceab60d5618fddecf7b39560646fd0588e0a105ba85e1f8e2b631a4cb"
+        },
+        {
+          "file": "src/appraisal-client/trade-concept.css",
+          "sha256": "773a09f7241939db57b2d6d7e2ff023070bfc960563202f00ee186db03ea311b"
+        },
+        {
+          "file": "src/appraisal-client/App.tsx",
+          "sha256": "a0e6a28d2e476449aa00985d6d691fd24e604dcbaab460f85e4d0a526d0166dc"
+        },
+        {
+          "file": "src/appraisal-client/public/art/comic/trade-table-v1.png",
+          "sha256": "2b7bd74bbd1e6d7a5a0e08482e72616951c0097fbf4508efdf4fd38b3e5aff2a"
+        }
+      ]
+    },
+    {
+      "id": "C28",
+      "screenId": "S06",
+      "title": "รายละเอียดและประกาศขาย · shared comic",
+      "phase": "TRADE",
+      "image": "captures/current-comic-2026-10-29/trade-item-sale-continuity.png",
+      "sha256": "ade56206d1a32edcbb704d585efed92b343986fc13d7d2d0dc533533e96d0984",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=trade",
+      "capturedAtUTC": "2026-10-29T17:23:02.640Z",
+      "clientDate": "2026-10-30",
+      "actions": [
+        "เปิด preview trade",
+        "กดสินค้ารายการสอง"
+      ],
+      "headings": [
+        "ยาชำระล้าง",
+        "คำระบุให้ผู้ซื้อ",
+        "ค่าแถมให้ผู้ซื้อ"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "notes": "Public preview fixture จาก apps/comic ใน repo; ปุ่มลบ/บวก40px ระยะ12/12px input/group/actions centre1067px ที่1440x722; ไม่ใช่ธุรกรรมห้องจริง ภาพ candidate รอ human approval ดู docs/ui-system",
+      "eventIds": [],
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/TradeScreen.tsx",
+        "apps/comic/src/appraisal-client/ItemSalePanel.tsx",
+        "apps/comic/src/appraisal-client/components.tsx",
+        "apps/comic/src/appraisal-client/item-sale.css",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/main.tsx"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/TradeScreen.tsx",
+          "sha256": "bf9e33b0036d824f957b2f16f8265ca3e6f995dae80132b66c2dc3eeb5d825fd"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ItemSalePanel.tsx",
+          "sha256": "b6bbdbe39f516f783fa419f8858c20a6fdf6c1bbc8244de89cf844d43d6ae94d"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/components.tsx",
+          "sha256": "adb23222780f55864046c04bed2aec410fde0c889375302b0af3c0283215ca40"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/item-sale.css",
+          "sha256": "cede94fd558d2cf69c58e42996c6a1803387effb35a83090fe15e0330827199d"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "c317b1db5cf90880e033899fb66222d3191fc3dba240108f67efaec149b40a19"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "6f1e45223b233b6bea961f35ed9086c7b9a3110a66c403c5d9dd861291c902b1"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "a4707ee81eea5f5741113e64a70252962bfb5fd02049b3a965fc9901fbd5d36b"
+        }
+      ],
+      "sourceRoot": "apps/comic"
+    }
+  ],
+  "activeImplementation": {
+    "uiRoot": "apps/comic",
+    "migratedFrom": "/Users/oyl-mac_m1/Documents/Codex/2026-10-24/j/outputs/ui-2d-red-black-white/build",
+    "date": "2026-10-29",
+    "authorization": "explicit user approval",
+    "note": "historical captures keep their original source roots/hashes; new captures use repo source"
+  }
+}

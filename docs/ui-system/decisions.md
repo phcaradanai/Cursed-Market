@@ -1,0 +1,14 @@
+# Decisions and authority
+
+| ID | Status / evidence | Decision |
+|---|---|---|
+| UI-01 | Confirmed user repeatedly, latest 2026-10-29 | One game: reuse existing inventory/status/menu look; symmetry includes inner padding, gaps and centres, not just equal columns. |
+| UI-02 | Confirmed user | Inventory frame is standard across comic menus and S06. Shared frame/corner tokens, persistent dock, no gameplay scrolling/dropdown expansion. |
+| UI-03 | Confirmed user correction | No per-page brush-caption/white-button identity; reduce internal dividers. Prior item-sale v02 decorative PNG is superseded for those details by current implementation. |
+| UI-04 | Confirmed user latest screenshot | +/-/input group must centre on the equal action pair; equal button padding, width and gaps. Coin icon must not offset it. |
+| ARCH-01 | Explicit asynchronous user approval this audit | Move comic build into `apps/comic`, separately from old root app. Preserve old commands and original external backup. Use repo copy from now on. |
+| ARCH-02 | Current implementation, no unification approval | Root and comic game code differ in journal/engine/types/views/content/secure-storage. Preserve both and document divergence. No gameplay migration or engine deduplication in this audit. |
+| QA-01 | Authorized task scope | Add Node tests, Ego browser geometry and deterministic pixel comparison. Reuse tooling, no new npm dependency. Mask timer only. |
+| QA-02 | Pending human image review | New screenshot set is a candidate reproducibility baseline. Do not call pixel candidates approved or silently replace them. Confirmed rule assertions are approved contracts; image approval is separate. |
+
+Material changes need a concrete comparison and approval: altering information visibility, navigation, action eligibility, mobile policy, global dimensions/palette/type, or merging the two runtime implementations. Bug fixes restoring UI-01–04 and safe identical-value extraction do not need repeated permission.

@@ -1,0 +1,7 @@
+{
+  "prompt": "Use case: precise-object-edit. Asset type: reusable empty selected-artifact cabinet recess background for a game UI. Recreate the reference's frontal arched blackwood alcove and tarnished gold carved frame, deep burgundy velvet curtain inside, and small velvet-lined horizontal base. REMOVE the necklace, amulet, all hanging chains, all text, icons, magnifying glass, UI, symbols, numbers and surrounding scenery. Render a completely EMPTY alcove ready for a separate dynamic item image to be placed in its centre by HTML. Preserve real painted material detail, candlelit wood and brass, strong front-view symmetry and deep nearly black burgundy velvet interior. Do not substitute a geometric CSS-looking arch. One empty recess only, approximately square, with a large quiet interior, tightly framed to the outer carved wood. Opaque background with dark exterior corners matching blackwood; no white or new objects.",
+  "tool": "built-in image_gen",
+  "format": "JPEG 88% via sips; no visual edits",
+  "reference": ".impeccable/build selected-recess reference crop",
+  "role": "Text-free decorative material; controls, items and facts are native live UI."
+}

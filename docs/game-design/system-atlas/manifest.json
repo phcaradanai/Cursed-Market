@@ -1,0 +1,211 @@
+{
+  "version": 1,
+  "asOf": "2026-10-30",
+  "revision": "789ab3dbd3cd8cb4bf02b498d8c8e93d9dc27548",
+  "inputs": {
+    "src/game/appraisal/ability-content.ts": "ff33530545a771c4e686640f2fca5db996ef3612f9602da6ddbf68c12377127e",
+    "src/game/appraisal/ability-rules.ts": "3e9f33f54b34c91fb26f6d0926f9df83e646dc3623a7c8bbf3beed5cedbc9139",
+    "src/game/appraisal/audit.ts": "352f047f66b8b3744f3feeb72c45bf371423c0defc5a95ef31241548ae35e0c6",
+    "src/game/appraisal/brokerage.ts": "df01497aef38dd46cec5384a53cfdc55b1d43daf9e9014ad0f78a3bd40a00894",
+    "src/game/appraisal/challenge-rules.ts": "74cfbe2083106078cdc44e96caefc9e959d999f4e1cb9319dc0e363375aa7e55",
+    "src/game/appraisal/challenge.ts": "35a2d880e49702b24560eae95fa6b2194c2e02f474f9a8ec2842e0114f3c6fec",
+    "src/game/appraisal/cleanse-rules.ts": "6fb69a3f4a4aa870670248255e02eb81d3fc527dbd4d9c975ba14eac81915cd1",
+    "src/game/appraisal/cleanse.ts": "2195402df17b9c929a06ca65ca766bbe6f7f7e37db0f2e098e9554e523e08de5",
+    "src/game/appraisal/content.ts": "5139041f880d8eacdb7c8ce173b3df5faa1708adc47585cdabbb81e17fd9ab79",
+    "src/game/appraisal/copy-effects.ts": "908b28f89ad8de7212adbd4636fdef6b2daaca230f97c41050ac2e436f4942f9",
+    "src/game/appraisal/core2-actions.ts": "a6000bd555a61b4140e3d41e43f882c5b692599b4d5b260e66a614d08c6c9837",
+    "src/game/appraisal/core2-content.ts": "e96206fa8c7d638c3b0ccbc756a8d6bf2977a84308c6c423956b63340cf789b9",
+    "src/game/appraisal/core2-events.ts": "00cc312c9caa75c5000e805e96722a8a79909c9c21c96a2911f6d0e9fcef5979",
+    "src/game/appraisal/core2-rules.ts": "c512cac29fda1d586afcc82ece3ac15a0411650283d1226ae12787c76bfce0ea",
+    "src/game/appraisal/core2-specs.ts": "399d270a4c3c8d170ae2c9a995dfff13863aeba2ebce98b70b78a5f2a1ce5316",
+    "src/game/appraisal/core2.ts": "6e3faed1e5d097006ccbfffb7c29e540edab9036f2bc9903f9572c0f3b8ea5f4",
+    "src/game/appraisal/engine.ts": "fbf67f3390188c27e637d7ecd1aba2bc15d2b29f056b1384360331703a76f220",
+    "src/game/appraisal/events.ts": "05da0823b84b85cea769c06085cd56da6973fb238abf05b9cf3ff623724240f2",
+    "src/game/appraisal/index.ts": "7867d91af9702cce970b74c8c6ae4d28f1f932139e439bcc86c471d293fbd557",
+    "src/game/appraisal/item-effects.ts": "c2ff1cbae837a24e19f6a5c81f56d27b986f870d7c277fd5d787d70728c63abd",
+    "src/game/appraisal/market-contracts.ts": "aef568c8fd9288c26fa6f74d696cd310f0949fddeefd4155af5c8a38db76ff9c",
+    "src/game/appraisal/mechanics.ts": "220548204a4be0efdde4dd8d839ad51b468f0867d2cb7174fd2cabbbf307f362",
+    "src/game/appraisal/merchant-abilities.ts": "e90c4ea9b0c2f302ec3e005efef4d61e73c9d239a460d8aeb8859c394b226b09",
+    "src/game/appraisal/npc-events.ts": "28a925726df336b668b542630cdcee012b64e17a20dfdf3e519d9a7652ec89bf",
+    "src/game/appraisal/omen-table.ts": "8b6ab850d3722a62f735726aef4d3c9b17a40a9791fff31e284a1a90df862106",
+    "src/game/appraisal/omens.ts": "23bf7f701d39d380ec315aaf5050602540ee662b232006bfc51fba7561f3019d",
+    "src/game/appraisal/passives.ts": "4c698f61577c48d58ff945546be159f49945e1e6279c85456ae8d7e1c0d8a2ab",
+    "src/game/appraisal/polish-events.ts": "b79b7d4c1fcc159aad0d319ed3542844d28c22479637a2a70306570c01abfbb6",
+    "src/game/appraisal/price-integrity.ts": "e2198294f78ee5def8be05631082eb23f2ba819fe6cdc2d8d89f75dc85501268",
+    "src/game/appraisal/pulse.ts": "a2850ad9e52e5e4e8f2122affb24e8d8e9ac7fa015b249c61b6ec93076fe712d",
+    "src/game/appraisal/rarity.ts": "3672184a63c2899151c92ed7a413a0881ec5df613fc10d0ca16f01090936cbd6",
+    "src/game/appraisal/round-rewards.ts": "0cc05a064ee355cf102ecbebd8bb8754c33d7bdc3d500f1f7196182cedfcaa5d",
+    "src/game/appraisal/scoring.ts": "82cd3af13438d22f426f5dc9b79741b7f0d22511fdd1728ac8a87911e018df3a",
+    "src/game/appraisal/seals.ts": "89e1b53c5f9d9d7aa010fe00bc84e8b3e37f8f83cbeb2f28895704e7e7532807",
+    "src/game/appraisal/secure-storage.ts": "7f718bc5594b9e1be3be28ea4c8cae3f24023a81b0b58f6a3949f3c00d8a7af5",
+    "src/game/appraisal/survival.ts": "82807d479e910e293910d3ac0cafd23b6e5d0826411330a0a1bd2147af3c6c47",
+    "src/game/appraisal/theft.ts": "83a321cd2cad805547d35298ef5fc21abd93dc3b0f1c6f3914d426def30247db",
+    "src/game/appraisal/types.ts": "082d9e63fb0eee479f864a378f595ae36800d45e614bf534ce673bff6ceb4d9b",
+    "src/game/appraisal/views.ts": "f6675475bc684341cdff6124bfe41851b3d71bfa8135c1fc3ec98b385aa0b1e5",
+    "src/game/appraisal/wishlist-rules.ts": "9157cc6f7636ed765494f6fc0ae7a5c1c54cad42036728d1288853e257aa3c30",
+    "src/game/appraisal/wishlist.ts": "335080d7252080ffdd373d0d452a8f999d2d0305c8ae35da673972d6794b4167",
+    "src/game/random.ts": "ec6facfcf36a0bb9cc137ffb4fe897ce1edb6cdad9763fb090adcaa1de8330d0",
+    "src/shared/item-rarity.ts": "bf190d3345ba346f6cb9be496e85c6d471b470d7b243f7a7447ba1a1d5e48d1e",
+    "src/shared/rarity-power.ts": "337e80b7cd349c7e4f075df0e45a695e7f9c8d4eb5f598191eb9ceac8582e097",
+    "src/shared/appraisal-protocol.ts": "fc466f14f54cced6c40ed5c934a69d7a2c99b1f927195956560bf344f3c073b7",
+    "src/server/appraisal-rooms.ts": "589661b0aeb77b7da6ba3394a4868f6cb085af383ecf8f7d359e8981658549c5",
+    "src/server/appraisal-messages.ts": "1641544b9440fe060f026c35997671ec1179ffdfc4473f7cd45bd63b302737f9",
+    "src/server/appraisal-main.ts": "6af8d2ab0a6678a0c0521908cf6539823626ed16323fe38942729249a8d6497c",
+    "src/server/room-lifecycle.ts": "6428c3c8dc9f94dfd881ac52925f28811843c52b9844cfde11608ff4eb69a673",
+    "docs/game-design/captures/current-comic-2026-10-29/merchants.png": "8ee97826aa87f57473895d6a3c7f1b1b335a2d1a3a73255eb0eb36e86228b954",
+    "docs/game-design/captures/current-comic-2026-10-29/inspection.png": "0ad4d6bf846bbf21ddc7418b18a10de5271ee7d1663d7cec8d95aeae67bb34fa",
+    "docs/game-design/captures/current-comic-2026-10-29/trade.png": "db8f72d12e2ba5d4531761bd09866da533a0f5c814bdbbf2ef3135ff273f4982",
+    "docs/game-design/captures/current-comic-2026-10-29/reveal.png": "b8920690ea2786c76f65263869d6f91bdf3647abe762643052e4ac4b4bf0aeb9",
+    "docs/game-design/captures/current-comic-2026-10-29/results.png": "fdb06c35740eb4aad3e1c91fad1e537ba7f4b81e92d18999a13d7e6875df6f64",
+    "docs/game-design/captures/current-comic-2026-10-29/inventory.png": "c9593be7f847fc7f817ebb4bdb65b068ba1db74cb0da3b8ab89fd1afb9bd40fe",
+    "docs/game-design/captures/current-comic-2026-10-29/status.png": "696cf70a58509cbf348ce2aeea66e07a1c38e754bd86037faac5dc4c1c8e87a5",
+    "docs/game-design/captures/current-comic-2026-10-29/market.png": "467a749d9d84bb225c1ee8b20826491b0fa451e9ff852e0cb173814fb460475e",
+    "docs/game-design/captures/current-comic-2026-10-29/market-demo.png": "60b5d7cdf7579a8cdbcffc99364a176e5b715afd263e55de58797ac5ad223d32",
+    "docs/game-design/captures/current-comic-2026-10-29/ledger.png": "e08117fdb2f30a115314d8d7ddc0068c8bff7bb26c6846a365133a32619ba0bb",
+    "docs/game-design/captures/current-comic-2026-10-29/rules.png": "c2ea7141de5bb36961920e3f1585b32c00364e86df29a4fafe30420cc8dc83d1",
+    "docs/game-design/captures/current-comic-2026-10-29/settings.png": "b4baa3b41fe41fabae05ce42dd46b41e294592fe782cbb32ac7ce6aa8493b2b2",
+    "docs/game-design/captures/current-comic-2026-10-29/entry.png": "6240fcb5154111514cd3368f554209c6ca5acc085001052b6e82f10cdfbfc4b2",
+    "docs/game-design/captures/current-comic-2026-10-29/lobby.png": "e86713b0d470957ae8d2a41b90a6f866c2562a3181ff38c049cd1bdbf0958415",
+    "docs/game-design/captures/current-comic-2026-10-29/live-current-event.png": "2fd8797eb469e2ebf4e6159e7933507a33e661ab580ba0196e7401288721035b",
+    "docs/game-design/captures/current-comic-2026-10-29/inspection-appraise.png": "d5047438d9c96fb2332c387eaaf5332f1378eca5cea5eba52d766d12d4ebb821",
+    "docs/game-design/captures/current-comic-2026-10-29/inspection-buy.png": "2664fe7dd158cb121db3c902253dc6be792c29ecf4d617f15e413befecfb4f45",
+    "docs/game-design/captures/current-comic-2026-10-29/inspection-item-details.png": "2f26dca80495eae25213f3dc23d575010ace21f464a540fbf7daeff779f63d49",
+    "docs/game-design/captures/current-comic-2026-10-29/inspection-merchant-offer.png": "c946e01e8e75bad5080ea39ff2719e9ae662f24c398547a0e233efd4623ec46a",
+    "docs/game-design/captures/current-comic-2026-10-29/inventory-details.png": "9b5e324c0d42115311b080498e868983b6ce6cb6e7ccf0a3a735ea9c14a15ac9",
+    "docs/game-design/captures/current-comic-2026-10-29/live-salary.png": "40afbacf45b17ab8f4b883eeb596d5eefeb24c1ecf94e03b07e633adc7359776",
+    "docs/game-design/captures/current-comic-2026-10-29/market-sale-detail.png": "c3156b2115fb46f56fc1cc70f0c7448dddce65c280bbc9b47e3fcba907a09dba",
+    "docs/game-design/captures/current-comic-2026-10-29/market-auction-list.png": "dac30f2170bdeffdde90e6482df72fafa5ea8dfaf7ae968e5ccca52b198d04fc",
+    "docs/game-design/captures/current-comic-2026-10-29/market-auction-detail.png": "8d55f34fc2b09b40da186fc57f018e75e06588503ecc36dfa355a634af466519",
+    "docs/game-design/captures/current-comic-2026-10-29/live-results.png": "ac50822b14a8a12e9e7dad3d4d00dd2a3955490168e147fffc830669a579f948",
+    "docs/game-design/captures/current-comic-2026-10-29/event-blood-pact.png": "e8af75196db2828072def70ae1d87c2da56c3203853dafaab5d862257443c12a",
+    "docs/game-design/captures/current-comic-2026-10-29/trade-table.png": "8e3799f4296d3881a724bd30764e9290ef520d11521141dacc8440e9f71c4356",
+    "docs/game-design/captures/current-comic-2026-10-29/trade-item-sale-continuity.png": "ade56206d1a32edcbb704d585efed92b343986fc13d7d2d0dc533533e96d0984",
+    "docs/game-design/concepts/S01-E117-v03-hover.png": "c08b1f73021b3ab37d3ac84140a64f1ddb19fd14abe529e92374bccbddbac455",
+    "docs/game-design/concepts/S01-E117-v01.png": "84371077ef87664fd0fe3507fe568292aa0bee50c1accd37aee9d03a4a93431d",
+    "docs/game-design/concepts/S01-E117-v02.png": "804bdd9a010891cc406a159649bb10f8aefb83caca01abab9de67a865b4278f7",
+    "docs/game-design/concepts/S03-E109-v05.png": "06216a690b6462de07cfee2e123743e704880d3d5d986f07c4917e7fd1c2e90c",
+    "docs/game-design/concepts/S03-E109-v01.png": "8e66a824a7ff4dcd162d88e7c730ab3ea71b0abd0f44ca86037f32f4e3947d08",
+    "docs/game-design/concepts/S03-E109-v02.png": "e1f97a7ae6148e8707318254109327d7a8df439a006c9118ea080971ee1659be",
+    "docs/game-design/concepts/S03-E109-v03.png": "b2082de4bf424cc655e6d6cb99d4645ce4f311c8917f281cb61a1777a5561c48",
+    "docs/game-design/concepts/S03-E109-v04.png": "eef22e9e13388b272ce8fd3249ef0ac95c7269efc4a03c07000bc1098097f606",
+    "docs/game-design/concepts/S06-table-v05.png": "c6919a53b34036c1537f20b47242c21c69c0e6e6e1544dd8c4b9b742fa4d9f87",
+    "docs/game-design/concepts/S06-trade-v01.png": "6e51010e088b832f9274cb12e41cb7bf271a5f738f30a4787070271e1eb52e27",
+    "docs/game-design/concepts/S06-trade-v02.png": "1fea2eea1b40900652e34c04d3e164429a9fb6161e9a7c2f45e7b832d9d4574d",
+    "docs/game-design/concepts/S06-trade-v03.png": "f7b0de700630ce8978478edda333fc70532325c75f766c9b45d1d55efa9787ad",
+    "docs/game-design/concepts/S06-trade-v04.png": "7a88cfcbad11f8cf852c3bc20bdb0f21b20e0dd690d939e35d117a425198c48e",
+    "docs/game-design/concepts/S06-item-sale-v01.png": "f9684031620d7b447237bdd8b1ae6a642dce029a884cc40de5ae859e239682ef",
+    "docs/game-design/concepts/S06-item-sale-v02.png": "5d3238b51971f4fa3394dfc6c23ab76897150059c5720e53bf35207f1e3a600f",
+    "docs/game-design/concepts/S07-summary-v01.png": "a06dfcd833f58b37373212413bc718d1f0067ce92ae9245b932be1cc2e5fd01b",
+    "docs/game-design/current-captures.json": "063a5bc4e7ce5727131ac5b384762a9f85b6625526a230cbf0a9d05b2b00f2dc",
+    "docs/game-design/scripts/current-capture-render.mjs": "65fbdf78316f82314e9c6a7bebd8e8d2bd59c0321e5befb6bb48ff5c1086f160",
+    "docs/game-design/screen-flow.json": "c069a2accca94beba5e6a22151a2287ba6323e40814f5a6f407e8e12eeb415ef",
+    "docs/game-design/scripts/screen-flow-render.mjs": "cfcee395152816e83b753af8f0b9e06a1fd012713d0d51e0cfd843fef0b768c8",
+    "docs/game-design/logic-item-relations.json": "983d130078b1b6f6f1569dd05f295190a73523c1abaa0aa59bc29e0a6693b801",
+    "docs/game-design/logic-item-graph.json": "84016a430feb3ff4c34a268cb3caa37eaceeacfeb582c1a8dd552e5d4aeaa030",
+    "docs/game-design/rules-and-logic.md": "08361d3c1ff4bf2b082e0b70aa8ba948dfcba9e55e0a757cefaef18ccbd1c62c",
+    "docs/game-design/effect-catalog.md": "3fb1fa1046874aebf7a335f4f84dc3b87c6c1e5704d203311d414d8808102bcd",
+    "docs/game-design/scripts/system-atlas-render.mjs": "dd0ba6d67a4da0d83a33239a1d00d70464210b55c6a97a8663fc4e4365ca942f",
+    "docs/game-design/scripts/system-atlas-view.js": "041d3fb5f7bc85a19e56193b31243e071bf3d3909e279ff955adbc2f43c348e4",
+    "docs/game-design/scripts/system-atlas-view.css": "ca47fb89530d6902468e68bafab7754e3f430fca07c4bbd38520d91d94759992",
+    "docs/game-design/scripts/system-atlas-view.html": "78b7c2e0739761fe5e82d155c8ea58f0260df5b571ce68098b588dfc19f64d9d",
+    "docs/game-design/scripts/build-system-atlas.mjs": "49a89838ed024146093e3e7ad04d2d1831f69acf58c8b361297dadfc8080de9d"
+  },
+  "outputs": [
+    {
+      "file": "docs/game-design/system-atlas/README.md",
+      "sha256": "56e8456d4b9c0bcf719e77d55d5547d442f0ba59a3ad5e69d3874486a45bd15a"
+    },
+    {
+      "file": "docs/game-design/system-atlas/actions-logs.md",
+      "sha256": "2ec5d05d62cdff72001df9b9d67cfc6c9451a5c147f875c747090c29c7211994"
+    },
+    {
+      "file": "docs/game-design/system-atlas/coverage.md",
+      "sha256": "1bfc3cbbbd16fd667774e517fce0987217b64557ae7639f0bfeb500c27f5644e"
+    },
+    {
+      "file": "docs/game-design/system-atlas/data.json",
+      "sha256": "fc74e648a7d6f52a27e839a03a02d97313ec2d91834003d5508945e3c91138d3"
+    },
+    {
+      "file": "docs/game-design/system-atlas/edges.csv",
+      "sha256": "081541e042675c30311f7a86ab3fb8adb03733f2663e3dde4839b0cf924c6bbd"
+    },
+    {
+      "file": "docs/game-design/system-atlas/encounters-config.md",
+      "sha256": "21f1349566432c060e6743a20df883fea25055e9e2cd8fef22d03311daf80aae"
+    },
+    {
+      "file": "docs/game-design/system-atlas/events.md",
+      "sha256": "592f484db4dbefe7d1d7cf013ad800fbe3888916f41245897d4607fc88fe1665"
+    },
+    {
+      "file": "docs/game-design/system-atlas/graph.json",
+      "sha256": "af1b3ca4204efa16c259777b56989a6b212ffadc951d679716c3a9615bcb06f6"
+    },
+    {
+      "file": "docs/game-design/system-atlas/merchants.md",
+      "sha256": "e59f3e42189b91ea5a79baad575314d81970e0bed2d8541680ba15f5ba3fe88e"
+    },
+    {
+      "file": "docs/game-design/system-atlas/nodes.csv",
+      "sha256": "b08c9570e8c7830695d3902a3b98c32cbd281cfd0d3628e9c7171644f42c0a74"
+    },
+    {
+      "file": "docs/game-design/system-atlas/screens.json",
+      "sha256": "9ba40f4706386ab77ee979c92672ec6a21bcef43704b0c6667e2fa41ef4aa6b4"
+    },
+    {
+      "file": "docs/game-design/system-atlas/state-schema.md",
+      "sha256": "d8e170afe540208f03edb7979ee3bc15334f17cb1ef042e12136e8c50c45bf8c"
+    },
+    {
+      "file": "docs/game-design/system-atlas/statuses-omens.md",
+      "sha256": "0b8d0cf0f118a43e7fa22a59e751a0f096915eb559b748360ad4db0a0cdf3662"
+    },
+    {
+      "file": "docs/game-design/system-atlas/systems.md",
+      "sha256": "0d7320626217f6e2cd3a542d474cbd69b280494db14dcaa24ef49692919d594d"
+    },
+    {
+      "file": "docs/game-design/system-atlas/verification.md",
+      "sha256": "04ec6dc60b7716d71b84954716483f02d6aee2d662eb595a05fc985410963906"
+    },
+    {
+      "file": "docs/game-design/screen-flow.html",
+      "sha256": "c3086080052c3d46351800b80a2a6b3509c7ed29ffd3f1e3f7ed1172893a4437"
+    },
+    {
+      "file": "docs/game-design/logic-item-relations.html",
+      "sha256": "9543b40a5c5e8a3030ae40e3b8bbd8c7963ffe2a6a1bc424e07a107f58e0cb17"
+    }
+  ],
+  "summary": {
+    "events": 132,
+    "statuses": 51,
+    "omens": 22,
+    "omenPacks": {
+      "polish": 7,
+      "core2": 15
+    },
+    "merchants": 8,
+    "abilities": 8,
+    "choiceVariants": 314,
+    "encounterModels": 6,
+    "phases": 5,
+    "actions": 50,
+    "configKeys": 53,
+    "parameters": 67,
+    "functions": 431,
+    "codeSymbols": 564,
+    "policies": 197,
+    "randomRules": 89,
+    "legacyGateSites": 21,
+    "logSites": 105,
+    "logTopics": 92,
+    "validationSites": 406,
+    "dynamicStatusOperations": 28,
+    "schemas": 108,
+    "propertyWriteSites": 485
+  }
+}

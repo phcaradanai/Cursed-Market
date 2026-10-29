@@ -1,0 +1,188 @@
+{
+  "body": {
+    "font": "\"Noto Sans Thai\", sans-serif",
+    "background": "rgb(9, 10, 11)"
+  },
+  "buttons": [
+    {
+      "text": "1ตรวจฟรี 1 ครั้ง",
+      "class": "current",
+      "radius": "10px",
+      "font": "\"Noto Sans Thai\", sans-serif",
+      "fontSize": "15px",
+      "fontWeight": "600",
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 49, 92)",
+      "height": 47,
+      "border": ""
+    },
+    {
+      "text": "2ตีราคายังไม่ตีราคา",
+      "class": "",
+      "radius": "10px",
+      "font": "\"Noto Sans Thai\", sans-serif",
+      "fontSize": "15px",
+      "fontWeight": "600",
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(191, 191, 191)",
+      "height": 47,
+      "border": ""
+    },
+    {
+      "text": "3ซื้อ48 เครดิต",
+      "class": "",
+      "radius": "10px",
+      "font": "\"Noto Sans Thai\", sans-serif",
+      "fontSize": "15px",
+      "fontWeight": "600",
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(191, 191, 191)",
+      "height": 47,
+      "border": ""
+    },
+    {
+      "text": "ตรวจราคา · ฟรี",
+      "class": "inspect",
+      "radius": "10px",
+      "font": "\"Noto Sans Thai\", sans-serif",
+      "fontSize": "19.992px",
+      "fontWeight": "700",
+      "background": "rgb(185, 25, 56)",
+      "color": "rgb(255, 255, 255)",
+      "height": 82,
+      "border": "1px solid rgb(255, 49, 92)"
+    },
+    {
+      "text": "ตรวจความแท้ · ฟรี",
+      "class": "inspect",
+      "radius": "10px",
+      "font": "\"Noto Sans Thai\", sans-serif",
+      "fontSize": "19.992px",
+      "fontWeight": "700",
+      "background": "rgb(12, 13, 14)",
+      "color": "rgb(255, 255, 255)",
+      "height": 82,
+      "border": "1px solid rgb(238, 238, 238)"
+    },
+    {
+      "text": "ตรวจคำสาป · ฟรี",
+      "class": "inspect",
+      "radius": "10px",
+      "font": "\"Noto Sans Thai\", sans-serif",
+      "fontSize": "19.992px",
+      "fontWeight": "700",
+      "background": "rgb(12, 13, 14)",
+      "color": "rgb(255, 255, 255)",
+      "height": 82,
+      "border": "1px solid rgb(238, 238, 238)"
+    },
+    {
+      "text": "ปิด",
+      "class": "comic-button comic-button-secondary drawer-close",
+      "radius": "10px",
+      "font": "\"Noto Sans Thai\", sans-serif",
+      "fontSize": "17px",
+      "fontWeight": "600",
+      "background": "rgb(12, 16, 17)",
+      "color": "rgb(244, 238, 224)",
+      "height": 40,
+      "border": "1px solid rgb(190, 190, 190)"
+    },
+    {
+      "text": "3กระดานรับซื้อแลกของเป็นเครดิต›",
+      "class": "comic-button comic-button-secondary comic-destination",
+      "radius": "10px",
+      "font": "\"Noto Sans Thai\", sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "background": "rgb(13, 17, 18)",
+      "color": "rgb(244, 238, 224)",
+      "height": 219.5,
+      "border": "1px solid rgb(145, 150, 148)"
+    },
+    {
+      "text": "2ห้องประมูลยื่นราคาแบบปิดซอง›",
+      "class": "comic-button comic-button-secondary comic-destination",
+      "radius": "10px",
+      "font": "\"Noto Sans Thai\", sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(244, 238, 224)",
+      "height": 219.5,
+      "border": "2px solid rgb(255, 49, 92)"
+    },
+    {
+      "text": "‹ กลับรายการ",
+      "class": "comic-button comic-button-secondary market-back",
+      "radius": "10px",
+      "font": "\"Noto Sans Thai\", sans-serif",
+      "fontSize": "13px",
+      "fontWeight": "600",
+      "background": "rgb(12, 16, 17)",
+      "color": "rgb(244, 238, 224)",
+      "height": 36,
+      "border": "1px solid rgb(230, 230, 224)"
+    },
+    {
+      "text": "ข้อมูลสินค้า",
+      "class": "comic-button comic-button-secondary ",
+      "radius": "10px",
+      "font": "\"Noto Sans Thai\", sans-serif",
+      "fontSize": "11px",
+      "fontWeight": "600",
+      "background": "rgb(12, 16, 17)",
+      "color": "rgb(244, 238, 224)",
+      "height": 30,
+      "border": "1px solid rgb(230, 230, 224)"
+    },
+    {
+      "text": "",
+      "class": "comic-button comic-button-secondary ",
+      "radius": "10px",
+      "font": "\"Noto Sans Thai\", sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "background": "rgb(12, 16, 17)",
+      "color": "rgb(244, 238, 224)",
+      "height": 48,
+      "border": "1px solid rgb(230, 230, 224)"
+    },
+    {
+      "text": "",
+      "class": "comic-button comic-button-secondary ",
+      "radius": "10px",
+      "font": "\"Noto Sans Thai\", sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "background": "rgb(12, 16, 17)",
+      "color": "rgb(244, 238, 224)",
+      "height": 48,
+      "border": "1px solid rgb(230, 230, 224)"
+    },
+    {
+      "text": "แก้ซองประมูล",
+      "class": "comic-button comic-button-primary ",
+      "radius": "10px",
+      "font": "\"Noto Sans Thai\", sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "background": "rgb(197, 16, 50)",
+      "color": "rgb(255, 255, 255)",
+      "height": 44,
+      "border": "1px solid rgb(255, 49, 92)"
+    },
+    {
+      "text": "ถอนซอง",
+      "class": "comic-button comic-button-secondary ",
+      "radius": "10px",
+      "font": "\"Noto Sans Thai\", sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "background": "rgb(12, 16, 17)",
+      "color": "rgb(244, 238, 224)",
+      "height": 44,
+      "border": "1px solid rgb(230, 230, 224)"
+    }
+  ]
+}

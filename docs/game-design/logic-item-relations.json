@@ -1,0 +1,3231 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-10-28",
+  "status": "design-proposal-not-runtime",
+  "scope": "new-56-only",
+  "source": {
+    "catalogPath": "/Users/oyl-mac_m1/Documents/Codex/2026-10-24/j/outputs/ui-2d-red-black-white/build/src/appraisal-client/public/art/comic/items/merchant-set-v1/catalog.json",
+    "sha256": "1aba59f2a0e8fb48f49865fdb22c89fd7a17044537f7140f322952f66a7c2b44",
+    "catalogId": "merchant-set-v1",
+    "catalogStatus": "art-only",
+    "observation": "แค็ตตาล็อกเป็น art-only; ไม่พบ ID สินค้าใหม่ใน build/src runtime .ts/.tsx/.js ที่ตรวจ ไม่มีการย้ายสินค้ารุ่นเก่ามาปะปนในรายการนี้"
+  },
+  "methodology": {
+    "primary": "P = หน้าที่หลักที่เสนอหนึ่งอย่างต่อสินค้า",
+    "optional": "S = ตัวรองสำหรับพิจารณา ยังไม่ใช่การอนุมัติให้ทำงานร่วมทั้งหมด",
+    "indirect": "I = ผลผ่านอีกระบบ เช่น เสริมสกิล Swarm แล้วไปกระทบสำเนา ไม่บวกเป็น direct benefit",
+    "commonRules": [
+      "L09 การมี rarity และรับตัวคูณทั่วไป ไม่เท่ากับสินค้าเพิ่มโอกาส rarity",
+      "L29 สินค้าทุกชิ้นมีมูลค่าคะแนน แต่ไม่ถือว่าทุกชิ้นเป็น effect เพิ่มคะแนน",
+      "L30 การถูกนับสถิติซื้อ/ขาย/จำนวนของ ไม่ใช่ effect เพิ่ม award",
+      "L32 ทุก effect ต้องมี log และปิดข้อมูลตามสิทธิ์",
+      "L33 ของฝาก/ค้ำ/เปลี่ยนเจ้าของต้องเปลี่ยนสิทธิ์ passive"
+    ],
+    "breadthThreshold": "มากกว่า 2 ระบบตรงเป็นธงให้ทบทวน ไม่ใช่หลักฐานว่าแรงเกินจริง",
+    "notMeasured": [
+      "มูลค่าคาดหวัง",
+      "โอกาสได้ของ",
+      "ราคา",
+      "ต้นทุน",
+      "จำนวนชาร์จ",
+      "stacking",
+      "อัตราชนะหรือผล playtest"
+    ]
+  },
+  "summary": {
+    "items": 56,
+    "merchants": 8,
+    "features": 33,
+    "primaryEdges": 56,
+    "optionalEdges": 57,
+    "runtimeDedicatedEdgesInNewCatalog": 0,
+    "overBreadthItems": [
+      "autometa-data-prism",
+      "alien-star-chart-membrane",
+      "deepsea-lanternfish-cage"
+    ],
+    "duplicateEffectSets": [
+      [
+        "orc-bone-war-drum",
+        "deepsea-kelp-saddle"
+      ]
+    ],
+    "uncoveredDirectFeatures": [
+      "L21",
+      "L30",
+      "L31"
+    ],
+    "infrastructureNotExpectedToHaveModifiers": [
+      "L32",
+      "L33"
+    ],
+    "usedEffectIds": [
+      "E01",
+      "E02",
+      "E04",
+      "E05",
+      "E06",
+      "E07",
+      "E09",
+      "E11",
+      "E13",
+      "E14",
+      "E16",
+      "E17",
+      "E18",
+      "E20",
+      "E21",
+      "E22",
+      "E23",
+      "E24",
+      "E25",
+      "E27",
+      "E28",
+      "E29",
+      "E31",
+      "E32",
+      "E33",
+      "E34",
+      "E35",
+      "E36",
+      "E37",
+      "E38",
+      "E40",
+      "E42",
+      "E43",
+      "E44",
+      "E45",
+      "E46",
+      "E47",
+      "E49",
+      "E50",
+      "E52",
+      "E53",
+      "E55",
+      "E57",
+      "E58",
+      "E59",
+      "E60",
+      "E61",
+      "E62",
+      "E63",
+      "E64",
+      "E65",
+      "E67",
+      "E68",
+      "E69",
+      "E70",
+      "E71",
+      "E72",
+      "E75"
+    ],
+    "optionalOnlyFeatures": [
+      "L07",
+      "L25",
+      "L28"
+    ],
+    "unusedEffectIds": [
+      "E03",
+      "E08",
+      "E10",
+      "E12",
+      "E15",
+      "E19",
+      "E26",
+      "E30",
+      "E39",
+      "E41",
+      "E48",
+      "E51",
+      "E54",
+      "E56",
+      "E66",
+      "E73",
+      "E74"
+    ]
+  },
+  "features": [
+    {
+      "id": "L01",
+      "name": "ตรวจและประเมินราคา",
+      "category": "ข้อมูล",
+      "logicStatus": "มีระบบ",
+      "description": "เปิดมูลค่า/ช่วงราคา สิทธิ์ตรวจและการประเมิน",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "autometa-data-prism",
+        "autometa-torque-caliper"
+      ],
+      "optionalItems": [
+        "deepsea-lanternfish-cage"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 3,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L02",
+      "name": "ความแท้และท้าทาย",
+      "category": "ข้อมูล",
+      "logicStatus": "มีระบบ",
+      "description": "ตรวจความแท้ ท้าทายคำระบุ และผลพลาด",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "vampire-mist-atomizer",
+        "autometa-coil-repeater"
+      ],
+      "optionalItems": [
+        "autometa-coil-repeater",
+        "autometa-data-prism",
+        "autometa-torque-caliper",
+        "deepsea-abyss-trident"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 5,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L03",
+      "name": "คำสาปและการชำระ",
+      "category": "ข้อมูล/ความเสี่ยง",
+      "logicStatus": "มีระบบ",
+      "description": "ตรวจคำสาป ชำระ เครื่องมือและความล้มเหลว",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "orc-clan-forge-tongs",
+        "deepsea-abyss-trident"
+      ],
+      "optionalItems": [
+        "darkone-silence-snuffer"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 3,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L04",
+      "name": "ซื้อและต่อรอง NPC",
+      "category": "เศรษฐกิจ",
+      "logicStatus": "มีระบบ",
+      "description": "ส่วนลด โอกาสยอมรับ ราคาและจำนวนการต่อรอง",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "vampire-gloam-violin",
+        "alien-thought-translator",
+        "swarm-pheromone-sprayer"
+      ],
+      "optionalItems": [],
+      "indirectItems": [],
+      "proposedItemCount": 3,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L05",
+      "name": "ขาย/ค่านายหน้า/ระบาย",
+      "category": "เศรษฐกิจ",
+      "logicStatus": "มีระบบ",
+      "description": "ผลจากการขายจริง ค่านายหน้า กำไรและระบายของ",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "orc-tally-beads"
+      ],
+      "optionalItems": [
+        "orc-clan-forge-tongs",
+        "swarm-brood-hammer"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 3,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L06",
+      "name": "ซื้อขายระหว่างผู้เล่น",
+      "category": "เศรษฐกิจ/สังคม",
+      "logicStatus": "มีระบบ",
+      "description": "คู่ค้า การแลกของ ข้อมูลรับรองและการรับข้อเสนอ",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "orc-bone-war-drum",
+        "deepsea-kelp-saddle"
+      ],
+      "optionalItems": [
+        "alien-echoweave-shawl",
+        "alien-thought-translator",
+        "darkone-ash-seal",
+        "swarm-pheromone-sprayer"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 6,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L07",
+      "name": "ตลาดมืดและของค้าง",
+      "category": "เศรษฐกิจ",
+      "logicStatus": "มีระบบ",
+      "description": "เงื่อนไขรับซื้อ งบ และการรับคืนของค้าง",
+      "isInfrastructure": false,
+      "primaryItems": [],
+      "optionalItems": [
+        "vampire-mist-atomizer",
+        "beast-rift-saddle"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 2,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L08",
+      "name": "ประมูล",
+      "category": "เศรษฐกิจ",
+      "logicStatus": "มีระบบ",
+      "description": "ล็อต การเสนอราคา ผู้ชนะและข้อมูลล็อต",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "vampire-midnight-invitation"
+      ],
+      "optionalItems": [
+        "orc-tally-beads",
+        "autometa-data-prism",
+        "autometa-folding-beacon",
+        "deepsea-lanternfish-cage"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 5,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L09",
+      "name": "Rarity",
+      "category": "สะสม",
+      "logicStatus": "มีระบบแบบมี config",
+      "description": "อัตราสร้าง rarity; แยกจากตัวคูณทั่วไปที่สินค้าทุกชิ้นได้รับ",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "alien-star-chart-membrane",
+        "beast-trail-scent-disc"
+      ],
+      "optionalItems": [],
+      "indirectItems": [],
+      "proposedItemCount": 2,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L10",
+      "name": "ความไว้ใจและสต็อก",
+      "category": "พ่อค้า",
+      "logicStatus": "มีระบบ",
+      "description": "ความไว้ใจ โบนัสจำนวนสินค้า และการลดความไว้ใจ",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "orc-oath-sword"
+      ],
+      "optionalItems": [
+        "vampire-gloam-violin",
+        "beast-tracker-horn",
+        "beast-riftfang-sword"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 4,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L11",
+      "name": "ความสามารถพ่อค้า",
+      "category": "พ่อค้า",
+      "logicStatus": "มีระบบ",
+      "description": "เวลารอ ระดับที่ปลดล็อกและตัวเลือกของความสามารถ",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "autometa-coolant-canister",
+        "alien-phase-dial",
+        "swarm-hive-egg-cluster",
+        "beast-tracker-horn"
+      ],
+      "optionalItems": [
+        "alien-star-chart-membrane"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 5,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L12",
+      "name": "ประตูและเส้นทาง",
+      "category": "การเดินเกม",
+      "logicStatus": "มีระบบ",
+      "description": "เปลี่ยน/เปิดประตูและเบาะแสก่อนเลือก",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "autometa-folding-beacon",
+        "deepsea-tide-compass",
+        "deepsea-lanternfish-cage",
+        "swarm-wing-membrane-glider",
+        "beast-rift-saddle"
+      ],
+      "optionalItems": [
+        "alien-spore-lantern",
+        "alien-star-chart-membrane",
+        "alien-phase-dial",
+        "darkone-crossing-token",
+        "beast-trail-scent-disc"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 10,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L13",
+      "name": "ขโมยเชิงรุก RPS",
+      "category": "การแย่งชิง",
+      "logicStatus": "มี RPS; กฎห้ามปฏิเสธยังมีช่องว่าง",
+      "description": "ต้นทุนและความได้เปรียบต้องคงการเข้าร่วมแบบบังคับ",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "vampire-mooncut-sword",
+        "beast-fangline-lasso",
+        "beast-riftfang-sword"
+      ],
+      "optionalItems": [
+        "orc-oath-sword",
+        "swarm-wing-membrane-glider"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 5,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L14",
+      "name": "บรรเทาผลถูกขโมย",
+      "category": "การแย่งชิง",
+      "logicStatus": "effect ยังเป็นข้อเสนอ",
+      "description": "ประกัน/บรรเทาหลังผลดวล ห้ามใช้ปฏิเสธหรือยกเลิก RPS",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "vampire-mist-cloak",
+        "autometa-clockwork-sentry"
+      ],
+      "optionalItems": [
+        "orc-tusk-shield",
+        "darkone-null-sword",
+        "deepsea-tideglass-buoy",
+        "beast-springjaw-trap"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 6,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L15",
+      "name": "อาชญากรรมและค่าชดเชย",
+      "category": "ความเสี่ยง",
+      "logicStatus": "มีระบบ",
+      "description": "ประวัติ แบนการค้า ชดเชย และล้างประวัติ",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "darkone-crossing-token"
+      ],
+      "optionalItems": [
+        "vampire-mist-cloak",
+        "darkone-debt-chain",
+        "swarm-resin-spool",
+        "beast-fangline-lasso"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 5,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L16",
+      "name": "ดอกเบี้ยเงินฝาก",
+      "category": "การเงิน",
+      "logicStatus": "กฎใหม่ 10%; โค้ด snapshot เดิมยัง 4%",
+      "description": "นับเฉพาะเงินก้อนเดิมครบช่วง ถอน/เติมใหม่ห้ามรับทันที",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "vampire-nocturne-signet",
+        "deepsea-tideglass-buoy"
+      ],
+      "optionalItems": [],
+      "indirectItems": [],
+      "proposedItemCount": 2,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L17",
+      "name": "พื้นที่และการขยาย Vault",
+      "category": "การเงิน",
+      "logicStatus": "มีระบบ",
+      "description": "ราคาขยายและจำนวนช่อง ไม่รวมดอกเบี้ย",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "swarm-brood-hammer"
+      ],
+      "optionalItems": [
+        "autometa-servo-harness"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 2,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L18",
+      "name": "เงินกู้มีหลักประกัน",
+      "category": "การเงิน",
+      "logicStatus": "มีระบบ",
+      "description": "เงินต้น คืนครบ ผลตอบแทนและกำหนดที่ทั้งคู่ยอมรับ",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "darkone-debt-chain"
+      ],
+      "optionalItems": [
+        "vampire-nocturne-signet"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 2,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L19",
+      "name": "ตราบาป",
+      "category": "การแย่งชิง",
+      "logicStatus": "มีระบบ",
+      "description": "แลกตราและใช้ตราคนเดียวกันสองใบยึดของแบบปกปิด",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "darkone-ash-seal",
+        "swarm-resin-spool",
+        "beast-springjaw-trap"
+      ],
+      "optionalItems": [],
+      "indirectItems": [],
+      "proposedItemCount": 3,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L20",
+      "name": "สัญญารับซื้อ Wishlist NPC",
+      "category": "สัญญา",
+      "logicStatus": "มีระบบ",
+      "description": "NPC ขอซื้อของจากผู้เล่น; ไม่ใช่ Collector Wishlist",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "alien-phase-staff"
+      ],
+      "optionalItems": [
+        "vampire-midnight-invitation",
+        "deepsea-tide-compass",
+        "deepsea-whale-conch-horn"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 4,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L21",
+      "name": "Collector Wishlist 3+2",
+      "category": "สัญญา",
+      "logicStatus": "กฎใหม่; ยังไม่มีการเชื่อมสินค้า",
+      "description": "ทุก 2 turn ขอ 3; รอ 2 turn; สุ่มเพิ่ม 2; ดู 1; จ่ายซื้อจริง",
+      "isInfrastructure": false,
+      "primaryItems": [],
+      "optionalItems": [],
+      "indirectItems": [],
+      "proposedItemCount": 0,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L22",
+      "name": "สัญญาส่วนตัว NPC",
+      "category": "สัญญา",
+      "logicStatus": "มีระบบ",
+      "description": "เลือด Vampire และให้ Alien ยืมของ",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "vampire-shadow-wine-decanter",
+        "swarm-pupa-cradle"
+      ],
+      "optionalItems": [
+        "alien-phase-staff"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 3,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L23",
+      "name": "พลัง",
+      "category": "ทรัพยากร",
+      "logicStatus": "มีระบบ",
+      "description": "ต้นทุน ฟื้นพลัง และค่าสูงสุด",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "orc-ironroot-greaves",
+        "autometa-servo-harness",
+        "alien-biobright-seedpod"
+      ],
+      "optionalItems": [
+        "autometa-coolant-canister"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 4,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L24",
+      "name": "ชีวิตและการฟื้นฟู",
+      "category": "ทรัพยากร",
+      "logicStatus": "มีระบบ",
+      "description": "ความเสียหาย ดีลฟื้นชีวิตและการตาย",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "orc-tusk-shield",
+        "orc-ember-salve",
+        "deepsea-pressure-cuirass",
+        "deepsea-whale-conch-horn",
+        "swarm-chitin-cuirass"
+      ],
+      "optionalItems": [
+        "vampire-shadow-wine-decanter",
+        "beast-amber-fur-mantle"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 7,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L25",
+      "name": "เศษชีพจรและคู่ค้า",
+      "category": "ทรัพยากร/สังคม",
+      "logicStatus": "มีระบบ",
+      "description": "เศษจากการค้า ฟื้นชีวิต และกฎป้องกันปั๊มคู่ค้าเดิม",
+      "isInfrastructure": false,
+      "primaryItems": [],
+      "optionalItems": [
+        "orc-bone-war-drum",
+        "alien-biobright-seedpod",
+        "deepsea-kelp-saddle",
+        "swarm-pupa-cradle"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 4,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L26",
+      "name": "ภัย Dread/ผุพัง",
+      "category": "เอาตัวรอด",
+      "logicStatus": "มีระบบแบบมี config",
+      "description": "โอกาสภัย เสียทรัพยากรและของผุพัง",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "alien-spore-lantern",
+        "darkone-omen-censer",
+        "beast-amber-fur-mantle"
+      ],
+      "optionalItems": [
+        "autometa-clockwork-sentry",
+        "deepsea-pressure-cuirass",
+        "swarm-chitin-cuirass"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 6,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L27",
+      "name": "สถานะผลดี/ผลเสีย",
+      "category": "เอาตัวรอด",
+      "logicStatus": "มีระบบ",
+      "description": "ลบ ลดหรือยืดสถานะ ไม่เปลี่ยนหนี้หรือกำหนดสัญญาเอง",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "alien-echoweave-shawl",
+        "darkone-null-sword",
+        "darkone-silence-snuffer"
+      ],
+      "optionalItems": [
+        "orc-ember-salve",
+        "darkone-null-testament",
+        "darkone-omen-censer"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 6,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L28",
+      "name": "รางวัลและทายเหรียญ",
+      "category": "การเสี่ยง",
+      "logicStatus": "มีระบบ",
+      "description": "โอกาส เงินรางวัลและการเสียเดิมพัน",
+      "isInfrastructure": false,
+      "primaryItems": [],
+      "optionalItems": [
+        "vampire-mooncut-sword"
+      ],
+      "indirectItems": [],
+      "proposedItemCount": 1,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L29",
+      "name": "Collector และคะแนนฐาน",
+      "category": "คะแนน",
+      "logicStatus": "มีสูตรฐาน",
+      "description": "มูลค่าเงิน/สินค้าและตัวปรับ; แยกจากรางวัลผู้นำ",
+      "isInfrastructure": false,
+      "primaryItems": [
+        "darkone-null-testament"
+      ],
+      "optionalItems": [],
+      "indirectItems": [],
+      "proposedItemCount": 1,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L30",
+      "name": "คะแนนพิเศษผู้นำ",
+      "category": "คะแนน",
+      "logicStatus": "กฎใหม่; วิธีนับบางส่วนยังไม่ตกลง",
+      "description": "ซื้อ ขาย ตาย ของตอนจบ ความไว้ใจ และกลุ่ม rarity ×2=20/×3=40",
+      "isInfrastructure": false,
+      "primaryItems": [],
+      "optionalItems": [],
+      "indirectItems": [],
+      "proposedItemCount": 0,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L31",
+      "name": "สำเนาสินค้า",
+      "category": "สะสม",
+      "logicStatus": "มีระบบผ่าน Swarm",
+      "description": "พลังสำเนา 40% กฎต้นฉบับและการสร้างสำเนา",
+      "isInfrastructure": false,
+      "primaryItems": [],
+      "optionalItems": [],
+      "indirectItems": [
+        "swarm-hive-egg-cluster"
+      ],
+      "proposedItemCount": 0,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L32",
+      "name": "Log/ข้อมูลปกปิด",
+      "category": "โครงสร้างร่วม",
+      "logicStatus": "มี trace/ledger; ไม่ได้ audit ครบทุกเหตุการณ์",
+      "description": "ติดตามเหตุผล/คำสั่งซ้ำ/ความรู้ ห้ามกลายเป็นโบนัสเฉพาะสินค้า",
+      "isInfrastructure": true,
+      "primaryItems": [],
+      "optionalItems": [],
+      "indirectItems": [],
+      "proposedItemCount": 0,
+      "currentDedicatedNewCatalogItemCount": 0
+    },
+    {
+      "id": "L33",
+      "name": "เจ้าของ/คลัง/หลักประกัน",
+      "category": "โครงสร้างร่วม",
+      "logicStatus": "มีระบบ",
+      "description": "สิทธิ์ใช้และ passive ต้องหายเมื่อฝาก/ค้ำ/เปลี่ยนเจ้าของ",
+      "isInfrastructure": true,
+      "primaryItems": [],
+      "optionalItems": [],
+      "indirectItems": [],
+      "proposedItemCount": 0,
+      "currentDedicatedNewCatalogItemCount": 0
+    }
+  ],
+  "effects": {
+    "E01": {
+      "id": "E01",
+      "group": "ตรวจราคา",
+      "description": "ตรวจราคาโดยประหยัดพลัง",
+      "constraint": "ใช้; ไม่นับสิทธิ์ฟรีซ้ำ",
+      "primaryItems": [
+        "autometa-torque-caliper"
+      ],
+      "optionalItems": []
+    },
+    "E02": {
+      "id": "E02",
+      "group": "ตรวจราคา",
+      "description": "เปิดเผยช่วงราคาที่แคบลง",
+      "constraint": "ใช้; ส่งเฉพาะข้อมูลที่ effect อนุญาต",
+      "primaryItems": [
+        "autometa-data-prism"
+      ],
+      "optionalItems": [
+        "deepsea-lanternfish-cage"
+      ]
+    },
+    "E03": {
+      "id": "E03",
+      "group": "ตรวจราคา",
+      "description": "ประเมินของที่ถือสำเร็จแล้วคืนพลังบางส่วน",
+      "constraint": "เงื่อนไข; จำกัดครั้ง ไม่วนคืนพลัง",
+      "primaryItems": [],
+      "optionalItems": []
+    },
+    "E04": {
+      "id": "E04",
+      "group": "ความแท้/ท้าทาย",
+      "description": "ตรวจความแท้ฟรีหนึ่งครั้ง",
+      "constraint": "ใช้; มีโควตาชัดเจน",
+      "primaryItems": [],
+      "optionalItems": [
+        "autometa-data-prism"
+      ]
+    },
+    "E05": {
+      "id": "E05",
+      "group": "ความแท้/ท้าทาย",
+      "description": "เพิ่มโอกาสท้าทายคำระบุสำเร็จ",
+      "constraint": "ถือ/ใช้; จำกัดตามระบบท้าทาย",
+      "primaryItems": [
+        "autometa-coil-repeater"
+      ],
+      "optionalItems": [
+        "autometa-torque-caliper",
+        "deepsea-abyss-trident"
+      ]
+    },
+    "E06": {
+      "id": "E06",
+      "group": "ความแท้/ท้าทาย",
+      "description": "ลดโทษจากการท้าทายพลาด",
+      "constraint": "เงื่อนไข; ไม่ลบสิทธิ์อีกฝ่าย",
+      "primaryItems": [
+        "vampire-mist-atomizer"
+      ],
+      "optionalItems": [
+        "autometa-coil-repeater"
+      ]
+    },
+    "E07": {
+      "id": "E07",
+      "group": "คำสาป/ชำระ",
+      "description": "เพิ่มโอกาสชำระสำเร็จ",
+      "constraint": "ถือ/ใช้; ปรับเฉพาะการชำระ",
+      "primaryItems": [
+        "orc-clan-forge-tongs",
+        "deepsea-abyss-trident"
+      ],
+      "optionalItems": []
+    },
+    "E08": {
+      "id": "E08",
+      "group": "คำสาป/ชำระ",
+      "description": "ลดค่าใช้จ่ายการชำระ",
+      "constraint": "ถือ; มีต้นทุนขั้นต่ำที่ต้องตกลง",
+      "primaryItems": [],
+      "optionalItems": []
+    },
+    "E09": {
+      "id": "E09",
+      "group": "คำสาป/ชำระ",
+      "description": "ชำระพลาดแล้วรักษาอุปกรณ์ไว้หนึ่งครั้ง",
+      "constraint": "เงื่อนไข; ไม่คืน action อัตโนมัติ",
+      "primaryItems": [],
+      "optionalItems": [
+        "darkone-silence-snuffer"
+      ]
+    },
+    "E10": {
+      "id": "E10",
+      "group": "ซื้อ/ต่อราคา",
+      "description": "ลดราคาซื้อ",
+      "constraint": "ถือ/ใช้; ตรวจยอดเงินจริงก่อนซื้อ",
+      "primaryItems": [],
+      "optionalItems": []
+    },
+    "E11": {
+      "id": "E11",
+      "group": "ซื้อ/ต่อราคา",
+      "description": "เพิ่มโอกาสพ่อค้ายอมรับราคา",
+      "constraint": "ถือ/ใช้; ไม่บังคับผู้เล่นรับข้อเสนอ",
+      "primaryItems": [
+        "vampire-gloam-violin",
+        "alien-thought-translator",
+        "swarm-pheromone-sprayer"
+      ],
+      "optionalItems": []
+    },
+    "E12": {
+      "id": "E12",
+      "group": "ซื้อ/ต่อราคา",
+      "description": "เพิ่มจำนวนครั้งที่ต่อรองได้",
+      "constraint": "ถือ/ใช้; ทบทวนเพดาน action",
+      "primaryItems": [],
+      "optionalItems": []
+    },
+    "E13": {
+      "id": "E13",
+      "group": "ขาย/ระบาย",
+      "description": "เพิ่มค่านายหน้า",
+      "constraint": "ถือ; คิดจากการขายสำเร็จ",
+      "primaryItems": [
+        "orc-tally-beads"
+      ],
+      "optionalItems": []
+    },
+    "E14": {
+      "id": "E14",
+      "group": "ขาย/ระบาย",
+      "description": "เพิ่มเงินจากการขายระบาย",
+      "constraint": "ถือ/ใช้; ระบุแหล่งจ่าย",
+      "primaryItems": [],
+      "optionalItems": [
+        "orc-clan-forge-tongs",
+        "swarm-brood-hammer"
+      ]
+    },
+    "E15": {
+      "id": "E15",
+      "group": "ขาย/ระบาย",
+      "description": "ขายได้กำไรจากราคาซื้อแล้วรับโบนัส",
+      "constraint": "เงื่อนไข; ต้องมีราคาซื้อจริงและป้องกันปั๊มธุรกรรม",
+      "primaryItems": [],
+      "optionalItems": []
+    },
+    "E16": {
+      "id": "E16",
+      "group": "ซื้อขายผู้เล่น",
+      "description": "ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง",
+      "constraint": "เงื่อนไข; รักษากฎคู่ค้า/anti-farming",
+      "primaryItems": [
+        "orc-bone-war-drum",
+        "deepsea-kelp-saddle"
+      ],
+      "optionalItems": [
+        "alien-echoweave-shawl",
+        "swarm-pheromone-sprayer"
+      ]
+    },
+    "E17": {
+      "id": "E17",
+      "group": "ซื้อขายผู้เล่น",
+      "description": "แลกสินค้าสำเร็จแล้วได้โบนัส",
+      "constraint": "เงื่อนไข; การแลกต้องโอนสำเร็จจริง",
+      "primaryItems": [],
+      "optionalItems": [
+        "alien-thought-translator"
+      ]
+    },
+    "E18": {
+      "id": "E18",
+      "group": "ซื้อขายผู้เล่น",
+      "description": "ส่งต่อสินค้าที่ตรวจแล้วได้รับค่ารับรอง",
+      "constraint": "เงื่อนไข; ไม่สร้างข้อมูลรับรองปลอม",
+      "primaryItems": [],
+      "optionalItems": [
+        "darkone-ash-seal"
+      ]
+    },
+    "E19": {
+      "id": "E19",
+      "group": "ตลาดมืด/ของค้าง",
+      "description": "ส่งของตรงเงื่อนไขรับซื้อแล้วได้เงินเพิ่ม",
+      "constraint": "เงื่อนไข; อยู่ในงบจ่าย",
+      "primaryItems": [],
+      "optionalItems": []
+    },
+    "E20": {
+      "id": "E20",
+      "group": "ตลาดมืด/ของค้าง",
+      "description": "ลดความเสียหายจากการจัดการของค้าง",
+      "constraint": "ถือ; กำหนดว่าลดส่วนใดของค่าใช้จ่าย",
+      "primaryItems": [],
+      "optionalItems": [
+        "vampire-mist-atomizer"
+      ]
+    },
+    "E21": {
+      "id": "E21",
+      "group": "ตลาดมืด/ของค้าง",
+      "description": "รับของค้างคืนแล้วฟื้นพลัง",
+      "constraint": "เงื่อนไข; หนึ่ง trigger ต่อการรับคืนจริง",
+      "primaryItems": [],
+      "optionalItems": [
+        "beast-rift-saddle"
+      ]
+    },
+    "E22": {
+      "id": "E22",
+      "group": "ประมูล",
+      "description": "ชนะแล้วได้เงินคืนบางส่วน",
+      "constraint": "เงื่อนไข; ผู้ขายยังได้เงินครบ แหล่งเงินส่วนต่างต้องชัด",
+      "primaryItems": [
+        "vampire-midnight-invitation"
+      ],
+      "optionalItems": []
+    },
+    "E23": {
+      "id": "E23",
+      "group": "ประมูล",
+      "description": "ตรวจข้อมูลหนึ่งอย่างของล็อตประมูล",
+      "constraint": "ใช้; ไม่เปิดเผยข้อเสนอราคาลับของคนอื่น",
+      "primaryItems": [],
+      "optionalItems": [
+        "autometa-data-prism",
+        "autometa-folding-beacon",
+        "deepsea-lanternfish-cage"
+      ]
+    },
+    "E24": {
+      "id": "E24",
+      "group": "ประมูล",
+      "description": "ชนะต่ำกว่าราคาประเมินที่รู้แล้วได้โบนัส",
+      "constraint": "เงื่อนไข; ใช้ความรู้ที่บันทึกไว้ก่อนชนะ",
+      "primaryItems": [],
+      "optionalItems": [
+        "orc-tally-beads"
+      ]
+    },
+    "E25": {
+      "id": "E25",
+      "group": "Rarity",
+      "description": "เพิ่มโอกาสสร้างสินค้าระดับสูง",
+      "constraint": "ถือ; เฉพาะของที่กำลังสร้าง ไม่สุ่มของเดิมใหม่",
+      "primaryItems": [
+        "alien-star-chart-membrane",
+        "beast-trail-scent-disc"
+      ],
+      "optionalItems": []
+    },
+    "E26": {
+      "id": "E26",
+      "group": "Rarity",
+      "description": "กำหนด rarity ขั้นต่ำของสินค้าที่จะสร้างหนึ่งชิ้น",
+      "constraint": "ใช้/ทบทวน; ไม่เร่งตัวคูณของ effect นี้ซ้ำตัวเอง",
+      "primaryItems": [],
+      "optionalItems": []
+    },
+    "E27": {
+      "id": "E27",
+      "group": "Rarity",
+      "description": "ขายของระดับสูงแล้วได้ความไว้ใจเพิ่ม",
+      "constraint": "เงื่อนไข; ต้องเกิดการขายจริง",
+      "primaryItems": [],
+      "optionalItems": [
+        "beast-riftfang-sword"
+      ]
+    },
+    "E28": {
+      "id": "E28",
+      "group": "ความไว้ใจ/สต็อก",
+      "description": "พบพ่อค้ารายใหม่แล้วได้ความไว้ใจเพิ่ม",
+      "constraint": "เงื่อนไข; กำหนดนิยามรายใหม่ต่อเกม",
+      "primaryItems": [
+        "orc-oath-sword"
+      ],
+      "optionalItems": [
+        "beast-tracker-horn"
+      ]
+    },
+    "E29": {
+      "id": "E29",
+      "group": "ความไว้ใจ/สต็อก",
+      "description": "ป้องกันความไว้ใจลดหนึ่งครั้ง",
+      "constraint": "เงื่อนไข; แยกจากกฎบังคับดวล",
+      "primaryItems": [],
+      "optionalItems": [
+        "vampire-gloam-violin"
+      ]
+    },
+    "E30": {
+      "id": "E30",
+      "group": "ความไว้ใจ/สต็อก",
+      "description": "ลดเกณฑ์ความไว้ใจของโบนัสจำนวนสินค้า",
+      "constraint": "ถือ/ทบทวน; ไม่เปลี่ยน trust จริงหรือปลดสกิลเอง",
+      "primaryItems": [],
+      "optionalItems": []
+    },
+    "E31": {
+      "id": "E31",
+      "group": "ความสามารถพ่อค้า",
+      "description": "ลดเวลารอของความสามารถที่เลือก",
+      "constraint": "ใช้; ห้ามใช้วนคืนคูลดาวน์ไม่สิ้นสุด",
+      "primaryItems": [
+        "autometa-coolant-canister",
+        "alien-phase-dial"
+      ],
+      "optionalItems": []
+    },
+    "E32": {
+      "id": "E32",
+      "group": "ความสามารถพ่อค้า",
+      "description": "เพิ่มตัวเลือกเมื่อใช้ความสามารถเลือกสินค้า",
+      "constraint": "ถือ/ใช้; ชุดสุ่มค้างต้องคงเดิม",
+      "primaryItems": [
+        "beast-tracker-horn"
+      ],
+      "optionalItems": [
+        "alien-star-chart-membrane"
+      ]
+    },
+    "E33": {
+      "id": "E33",
+      "group": "ความสามารถพ่อค้า",
+      "description": "เสริมการใช้หนึ่งครั้งตามระดับที่ปลดล็อกแล้ว",
+      "constraint": "ใช้/ทบทวน; ไม่ข้ามเกณฑ์ความไว้ใจโดยปริยาย",
+      "primaryItems": [
+        "swarm-hive-egg-cluster"
+      ],
+      "optionalItems": []
+    },
+    "E34": {
+      "id": "E34",
+      "group": "ประตู",
+      "description": "ลดพลังเปลี่ยนประตู",
+      "constraint": "ถือ/ใช้; ไม่ทำต้นทุนติดลบ",
+      "primaryItems": [
+        "deepsea-tide-compass",
+        "swarm-wing-membrane-glider"
+      ],
+      "optionalItems": [
+        "alien-phase-dial",
+        "darkone-crossing-token"
+      ]
+    },
+    "E35": {
+      "id": "E35",
+      "group": "ประตู",
+      "description": "ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู",
+      "constraint": "ใช้; ไม่ส่งข้อมูลลับทั้งร้าน",
+      "primaryItems": [
+        "autometa-folding-beacon",
+        "deepsea-lanternfish-cage"
+      ],
+      "optionalItems": [
+        "alien-spore-lantern",
+        "alien-star-chart-membrane",
+        "beast-trail-scent-disc"
+      ]
+    },
+    "E36": {
+      "id": "E36",
+      "group": "ประตู",
+      "description": "เปิดประตูที่ถูกปิดจากเหตุการณ์หนึ่งครั้ง",
+      "constraint": "ใช้/ทบทวน; ไม่ล้างโทษแบนการค้า",
+      "primaryItems": [
+        "beast-rift-saddle"
+      ],
+      "optionalItems": []
+    },
+    "E37": {
+      "id": "E37",
+      "group": "ขโมยเชิงรุก",
+      "description": "ลดพลังเริ่มขโมย",
+      "constraint": "ถือ; ตรวจสิทธิ์และบังคับดวลตามกฎ",
+      "primaryItems": [
+        "beast-fangline-lasso"
+      ],
+      "optionalItems": [
+        "swarm-wing-membrane-glider"
+      ]
+    },
+    "E38": {
+      "id": "E38",
+      "group": "ขโมยเชิงรุก",
+      "description": "ได้เปรียบเมื่อเป่ายิ้งฉุบเสมอหนึ่งครั้ง",
+      "constraint": "ใช้/ทบทวน; ประกาศกฎให้ทั้งคู่ทราบก่อนส่งมือ",
+      "primaryItems": [
+        "vampire-mooncut-sword",
+        "beast-riftfang-sword"
+      ],
+      "optionalItems": [
+        "orc-oath-sword"
+      ]
+    },
+    "E39": {
+      "id": "E39",
+      "group": "ขโมยเชิงรุก",
+      "description": "เพิ่มโอกาสสำเร็จในระบบขโมยแบบสุ่มเดิม",
+      "constraint": "Legacy เท่านั้น; ไม่ใช้แทน RPS ในเกมหลัก",
+      "primaryItems": [],
+      "optionalItems": []
+    },
+    "E40": {
+      "id": "E40",
+      "group": "ป้องกันขโมย",
+      "description": "บรรเทาผลเสียเมื่อแพ้ดวลหนึ่งครั้ง",
+      "constraint": "ทบทวน; ปรับจากแนวกันขโมยอัตโนมัติเดิม ต้องเข้าดวลและห้ามปฏิเสธ",
+      "primaryItems": [
+        "autometa-clockwork-sentry"
+      ],
+      "optionalItems": [
+        "orc-tusk-shield",
+        "darkone-null-sword",
+        "beast-springjaw-trap"
+      ]
+    },
+    "E41": {
+      "id": "E41",
+      "group": "ป้องกันขโมย",
+      "description": "คุ้มครองสินค้าหนึ่งชิ้นจากการถูกเลือกเป็นเป้าหมาย",
+      "constraint": "ทบทวน; ห้ามทำให้ไม่มีเป้าหมายจนหลบ RPS ได้ ต้องกำหนดขอบเขตใหม่ก่อนใช้",
+      "primaryItems": [],
+      "optionalItems": []
+    },
+    "E42": {
+      "id": "E42",
+      "group": "ป้องกันขโมย",
+      "description": "รับเงินประกันบางส่วนเมื่อของถูกขโมยจริง",
+      "constraint": "เงื่อนไข; ไม่สร้างสำเนาของที่เสียไป",
+      "primaryItems": [
+        "vampire-mist-cloak"
+      ],
+      "optionalItems": [
+        "deepsea-tideglass-buoy"
+      ]
+    },
+    "E43": {
+      "id": "E43",
+      "group": "อาชญากรรม",
+      "description": "ลดค่าล้างประวัติ",
+      "constraint": "ถือ/ใช้; ไม่ล้างระหว่างดวลเพื่อหลบผล",
+      "primaryItems": [
+        "darkone-crossing-token"
+      ],
+      "optionalItems": [
+        "vampire-mist-cloak"
+      ]
+    },
+    "E44": {
+      "id": "E44",
+      "group": "อาชญากรรม",
+      "description": "ช่วยจ่ายค่าชดเชยบางส่วน",
+      "constraint": "เงื่อนไข; ผู้เสียหายได้เงินครบ ส่วนต่างต้องมีแหล่งจ่าย",
+      "primaryItems": [],
+      "optionalItems": [
+        "darkone-debt-chain",
+        "swarm-resin-spool"
+      ]
+    },
+    "E45": {
+      "id": "E45",
+      "group": "อาชญากรรม",
+      "description": "ลดระยะระงับการค้า",
+      "constraint": "ทบทวน; โทษขั้นต่ำและการคงสิทธิ์เหยื่อต้องชัด",
+      "primaryItems": [],
+      "optionalItems": [
+        "beast-fangline-lasso"
+      ]
+    },
+    "E46": {
+      "id": "E46",
+      "group": "Vault",
+      "description": "เพิ่มดอกเบี้ยของเงินต้นที่ครบช่วง",
+      "constraint": "ถือ; ฐานใหม่ 10% เงินเติมใหม่ไม่มีสิทธิ์ทันที",
+      "primaryItems": [
+        "vampire-nocturne-signet",
+        "deepsea-tideglass-buoy"
+      ],
+      "optionalItems": []
+    },
+    "E47": {
+      "id": "E47",
+      "group": "Vault",
+      "description": "ลดราคาขยายคลัง",
+      "constraint": "ถือ/ใช้; ไม่คืนส่วนลดซ้ำจากการฝากถอน",
+      "primaryItems": [
+        "swarm-brood-hammer"
+      ],
+      "optionalItems": [
+        "autometa-servo-harness"
+      ]
+    },
+    "E48": {
+      "id": "E48",
+      "group": "Vault",
+      "description": "ใช้สินค้าเพื่อเพิ่มช่องคลังถาวร",
+      "constraint": "ใช้/ทบทวน; กำหนดเพดานและการหมดไปของสินค้า",
+      "primaryItems": [],
+      "optionalItems": []
+    },
+    "E49": {
+      "id": "E49",
+      "group": "เงินกู้",
+      "description": "ผู้กู้คืนครบแล้วรับเงินคืนบางส่วน",
+      "constraint": "เงื่อนไข; ไม่หักจากเงินต้นที่ผู้ให้กู้ควรได้รับ",
+      "primaryItems": [
+        "darkone-debt-chain"
+      ],
+      "optionalItems": []
+    },
+    "E50": {
+      "id": "E50",
+      "group": "เงินกู้",
+      "description": "ผู้ให้กู้รับโบนัสเมื่อสัญญาจบครบถ้วน",
+      "constraint": "เงื่อนไข; ไม่สร้างดอกเบี้ยเรียกเก็บจากผู้กู้เอง",
+      "primaryItems": [],
+      "optionalItems": [
+        "vampire-nocturne-signet"
+      ]
+    },
+    "E51": {
+      "id": "E51",
+      "group": "เงินกู้",
+      "description": "เพิ่มระยะผ่อนก่อนลงนาม",
+      "constraint": "ทบทวน; ทั้งคู่เห็นและตกลงก่อนเริ่มสัญญา",
+      "primaryItems": [],
+      "optionalItems": []
+    },
+    "E52": {
+      "id": "E52",
+      "group": "ตราบาป",
+      "description": "แลกเปลี่ยนตราสำเร็จแล้วฟื้นพลัง",
+      "constraint": "เงื่อนไข; ป้องกันแลกวนเพื่อปั๊มผล",
+      "primaryItems": [
+        "swarm-resin-spool"
+      ],
+      "optionalItems": []
+    },
+    "E53": {
+      "id": "E53",
+      "group": "ตราบาป",
+      "description": "ใช้ตรายึดของแล้วตรวจข้อมูลของนั้นฟรี",
+      "constraint": "เงื่อนไข; เปิดข้อมูลหลังได้เป็นเจ้าของจริง",
+      "primaryItems": [
+        "darkone-ash-seal",
+        "beast-springjaw-trap"
+      ],
+      "optionalItems": []
+    },
+    "E54": {
+      "id": "E54",
+      "group": "ตราบาป",
+      "description": "ถือตราครบคู่คนเดียวกันแล้วรับการคุ้มครอง",
+      "constraint": "ทบทวน; ไม่ลดจำนวนตราที่ใช้ ไม่ยกเลิก RPS และไม่เปิดกระเป๋าลับ",
+      "primaryItems": [],
+      "optionalItems": []
+    },
+    "E55": {
+      "id": "E55",
+      "group": "Wishlist NPC",
+      "description": "เพิ่มรางวัลส่งของสำเร็จ",
+      "constraint": "เงื่อนไข; ระบบคำขอรับซื้อเดิม ไม่ทำ Collector แจกของฟรี",
+      "primaryItems": [],
+      "optionalItems": [
+        "vampire-midnight-invitation",
+        "deepsea-whale-conch-horn"
+      ]
+    },
+    "E56": {
+      "id": "E56",
+      "group": "Wishlist NPC",
+      "description": "เพิ่มจำนวนสัญญาที่รับพร้อมกัน",
+      "constraint": "ถือ; ไม่เปลี่ยนจำนวน 3 อย่างของ Collector Wishlist",
+      "primaryItems": [],
+      "optionalItems": []
+    },
+    "E57": {
+      "id": "E57",
+      "group": "Wishlist NPC",
+      "description": "เปลี่ยนสัญญาที่ไม่ต้องการฟรีหนึ่งครั้ง",
+      "constraint": "ใช้; ไม่สุ่ม Collector delivery ใหม่",
+      "primaryItems": [
+        "alien-phase-staff"
+      ],
+      "optionalItems": [
+        "deepsea-tide-compass"
+      ]
+    },
+    "E58": {
+      "id": "E58",
+      "group": "สัญญา NPC",
+      "description": "ลดค่าชีวิตสัญญาเลือด Vampire",
+      "constraint": "ถือ/ทบทวน; ยังมีต้นทุนขั้นต่ำ",
+      "primaryItems": [
+        "vampire-shadow-wine-decanter"
+      ],
+      "optionalItems": []
+    },
+    "E59": {
+      "id": "E59",
+      "group": "สัญญา NPC",
+      "description": "เพิ่มผลตอบแทนของที่ให้ Alien ยืม",
+      "constraint": "เงื่อนไข; คืนของและจ่ายผลครั้งเดียวตามสัญญา",
+      "primaryItems": [
+        "swarm-pupa-cradle"
+      ],
+      "optionalItems": []
+    },
+    "E60": {
+      "id": "E60",
+      "group": "สัญญา NPC",
+      "description": "ลดเวลารอคืนของจาก Alien",
+      "constraint": "ใช้/ทบทวน; ไม่เปลี่ยนสัญญาเงินกู้ผู้เล่น",
+      "primaryItems": [],
+      "optionalItems": [
+        "alien-phase-staff"
+      ]
+    },
+    "E61": {
+      "id": "E61",
+      "group": "พลัง/ชีวิต",
+      "description": "ฟื้นพลังเมื่อเริ่มช่วง",
+      "constraint": "ถือ; ไม่เกินค่าสูงสุด",
+      "primaryItems": [
+        "orc-ironroot-greaves",
+        "autometa-servo-harness",
+        "alien-biobright-seedpod"
+      ],
+      "optionalItems": [
+        "autometa-coolant-canister"
+      ]
+    },
+    "E62": {
+      "id": "E62",
+      "group": "พลัง/ชีวิต",
+      "description": "ลดความเสียหายชีวิตครั้งถัดไป",
+      "constraint": "เงื่อนไข; เก็บค่าความเสียหายจริงหลังลดไว้สำหรับสถิติ",
+      "primaryItems": [
+        "orc-tusk-shield",
+        "deepsea-pressure-cuirass",
+        "swarm-chitin-cuirass"
+      ],
+      "optionalItems": []
+    },
+    "E63": {
+      "id": "E63",
+      "group": "พลัง/ชีวิต",
+      "description": "ลดราคาดีลฟื้นพลังหรือชีวิต",
+      "constraint": "ถือ; รักษาจำนวนครั้งใช้บริการ",
+      "primaryItems": [
+        "orc-ember-salve",
+        "deepsea-whale-conch-horn"
+      ],
+      "optionalItems": [
+        "vampire-shadow-wine-decanter",
+        "beast-amber-fur-mantle"
+      ]
+    },
+    "E64": {
+      "id": "E64",
+      "group": "เศษชีพจร",
+      "description": "ได้เศษเพิ่มเมื่อเปลี่ยนคู่ค้าตามเกณฑ์",
+      "constraint": "เงื่อนไข; ไม่ข้ามกฎความระแวง/ซื้อขายวน",
+      "primaryItems": [],
+      "optionalItems": [
+        "orc-bone-war-drum",
+        "deepsea-kelp-saddle"
+      ]
+    },
+    "E65": {
+      "id": "E65",
+      "group": "เศษชีพจร",
+      "description": "ลดเศษที่ต้องใช้ฟื้นชีวิต",
+      "constraint": "ถือ/ทบทวน; tune แยกจากราคาสินค้า",
+      "primaryItems": [],
+      "optionalItems": [
+        "alien-biobright-seedpod",
+        "swarm-pupa-cradle"
+      ]
+    },
+    "E66": {
+      "id": "E66",
+      "group": "เศษชีพจร",
+      "description": "เลือกแปลงเศษเป็นพลังแทนชีวิต",
+      "constraint": "ใช้/ทบทวน; ใช้เศษจริงและไม่มีการแปลงกลับทำกำไร",
+      "primaryItems": [],
+      "optionalItems": []
+    },
+    "E67": {
+      "id": "E67",
+      "group": "เอาตัวรอด",
+      "description": "ลดโอกาสภัย Dread",
+      "constraint": "ถือ; ไม่ใช้แทนการลดต้นทุนทุก action",
+      "primaryItems": [
+        "alien-spore-lantern",
+        "darkone-omen-censer"
+      ],
+      "optionalItems": [
+        "deepsea-pressure-cuirass"
+      ]
+    },
+    "E68": {
+      "id": "E68",
+      "group": "เอาตัวรอด",
+      "description": "คุ้มครองของจากการผุพังหนึ่งครั้ง",
+      "constraint": "เงื่อนไข; แยกจากการขโมย",
+      "primaryItems": [
+        "beast-amber-fur-mantle"
+      ],
+      "optionalItems": [
+        "autometa-clockwork-sentry",
+        "swarm-chitin-cuirass"
+      ]
+    },
+    "E69": {
+      "id": "E69",
+      "group": "Collector ตอนจบ",
+      "description": "เพิ่มตัวปรับมูลค่าที่ Collector คิด",
+      "constraint": "ถือ/ทบทวน; ไม่เลื่อนรอบ Wishlist ไม่เพิ่ม award ผู้นำ rarity เอง",
+      "primaryItems": [
+        "darkone-null-testament"
+      ],
+      "optionalItems": []
+    },
+    "E70": {
+      "id": "E70",
+      "group": "สถานะ",
+      "description": "ลดระยะเวลาผลเสียถัดไป",
+      "constraint": "เงื่อนไข; ไม่เปลี่ยนกำหนดหนี้/สัญญาหรือเวลาบังคับดวล",
+      "primaryItems": [],
+      "optionalItems": [
+        "darkone-omen-censer"
+      ]
+    },
+    "E71": {
+      "id": "E71",
+      "group": "สถานะ",
+      "description": "ลบผลเสียที่เลือกหนึ่งอย่าง",
+      "constraint": "ใช้; ระบุรายการที่ลบได้ ไม่ยกเลิกภาระสัญญา",
+      "primaryItems": [
+        "darkone-null-sword",
+        "darkone-silence-snuffer"
+      ],
+      "optionalItems": [
+        "orc-ember-salve"
+      ]
+    },
+    "E72": {
+      "id": "E72",
+      "group": "สถานะ",
+      "description": "ยืดผลดีที่เลือกหนึ่งอย่าง",
+      "constraint": "ใช้/ทบทวน; ไม่ขยายสิทธิ์เปิดดู Collector เกิน 1 โดยพลการ",
+      "primaryItems": [
+        "alien-echoweave-shawl"
+      ],
+      "optionalItems": [
+        "darkone-null-testament"
+      ]
+    },
+    "E73": {
+      "id": "E73",
+      "group": "ทายเหรียญ",
+      "description": "เพิ่มโอกาสทายถูก",
+      "constraint": "ถือ/ใช้; ใช้เพดานโอกาสที่ตกลง",
+      "primaryItems": [],
+      "optionalItems": []
+    },
+    "E74": {
+      "id": "E74",
+      "group": "ทายเหรียญ",
+      "description": "เพิ่มเงินเมื่อทายถูกครบ",
+      "constraint": "เงื่อนไข; คิดจากรอบที่ยืนยันผลแล้ว",
+      "primaryItems": [],
+      "optionalItems": []
+    },
+    "E75": {
+      "id": "E75",
+      "group": "ทายเหรียญ",
+      "description": "คืนเงินที่เสียบางส่วนหนึ่งครั้ง",
+      "constraint": "เงื่อนไข; ระบุแหล่งเงินและป้องกันเสี่ยงแบบไม่เสียอะไร",
+      "primaryItems": [],
+      "optionalItems": [
+        "vampire-mooncut-sword"
+      ]
+    }
+  },
+  "items": [
+    {
+      "id": "orc-oath-sword",
+      "name": "ดาบสาบานเผ่า",
+      "merchantId": "orc",
+      "merchantName": "ออร์ก",
+      "type": "sword",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E28",
+          "logicId": "L10",
+          "status": "proposed",
+          "effect": "พบพ่อค้ารายใหม่แล้วได้ความไว้ใจเพิ่ม"
+        },
+        {
+          "role": "optional",
+          "effectId": "E38",
+          "logicId": "L13",
+          "status": "proposed",
+          "effect": "ได้เปรียบเมื่อเป่ายิ้งฉุบเสมอหนึ่งครั้ง"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ความไว้ใจกับความได้เปรียบ RPS ต้องแยก trigger; ดาบเป็นภาพสินค้า ไม่เพิ่มระบบต่อสู้ใหม่",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "orc-tusk-shield",
+      "name": "โล่เขี้ยวออร์ก",
+      "merchantId": "orc",
+      "merchantName": "ออร์ก",
+      "type": "shield",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E62",
+          "logicId": "L24",
+          "status": "proposed",
+          "effect": "ลดความเสียหายชีวิตครั้งถัดไป"
+        },
+        {
+          "role": "optional",
+          "effectId": "E40",
+          "logicId": "L14",
+          "status": "proposed",
+          "effect": "บรรเทาผลเสียเมื่อแพ้ดวลหนึ่งครั้ง"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "บรรเทาผลหลังดวลเท่านั้น ห้ามกันไม่ให้เริ่ม RPS",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "orc-ironroot-greaves",
+      "name": "สนับแข้งรากเหล็ก",
+      "merchantId": "orc",
+      "merchantName": "ออร์ก",
+      "type": "armor",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E61",
+          "logicId": "L23",
+          "status": "proposed",
+          "effect": "ฟื้นพลังเมื่อเริ่มช่วง"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ผู้เล่นที่ไม่ขาดพลังอาจไม่ต้องการ ต้องทดสอบมูลค่าเทียบของฟื้นพลังอื่น",
+      "directSystemCount": 1,
+      "effectCandidateCount": 1,
+      "overBreadthReview": false
+    },
+    {
+      "id": "orc-ember-salve",
+      "name": "ยาทาเถ้าร้อน",
+      "merchantId": "orc",
+      "merchantName": "ออร์ก",
+      "type": "salve",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E63",
+          "logicId": "L24",
+          "status": "proposed",
+          "effect": "ลดราคาดีลฟื้นพลังหรือชีวิต"
+        },
+        {
+          "role": "optional",
+          "effectId": "E71",
+          "logicId": "L27",
+          "status": "proposed",
+          "effect": "ลบผลเสียที่เลือกหนึ่งอย่าง"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ของใช้แล้วหมด; ลดค่าดีลชีวิตและลบสถานะต้องเลือกว่าจะให้ครบทั้งสองหรือไม่",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "orc-bone-war-drum",
+      "name": "กลองศึกกระดูก",
+      "merchantId": "orc",
+      "merchantName": "ออร์ก",
+      "type": "instrument",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E16",
+          "logicId": "L06",
+          "status": "proposed",
+          "effect": "ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E64",
+          "logicId": "L25",
+          "status": "proposed",
+          "effect": "ได้เศษเพิ่มเมื่อเปลี่ยนคู่ค้าตามเกณฑ์"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "คืนพลังพร้อมเพิ่มเศษอาจซื้อขายวนได้ ต้องรักษากฎคู่ค้าใหม่",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "orc-tally-beads",
+      "name": "ลูกปัดนับชัย",
+      "merchantId": "orc",
+      "merchantName": "ออร์ก",
+      "type": "beads",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E13",
+          "logicId": "L05",
+          "status": "proposed",
+          "effect": "เพิ่มค่านายหน้า"
+        },
+        {
+          "role": "optional",
+          "effectId": "E24",
+          "logicId": "L08",
+          "status": "proposed",
+          "effect": "ชนะต่ำกว่าราคาประเมินที่รู้แล้วได้โบนัส"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "รายได้ค่านายหน้ากับโบนัสประมูลต้องมีงบและเพดานแยก",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "orc-clan-forge-tongs",
+      "name": "คีมตีเหล็กเผ่า",
+      "merchantId": "orc",
+      "merchantName": "ออร์ก",
+      "type": "smithing-tool",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E07",
+          "logicId": "L03",
+          "status": "proposed",
+          "effect": "เพิ่มโอกาสชำระสำเร็จ"
+        },
+        {
+          "role": "optional",
+          "effectId": "E14",
+          "logicId": "L05",
+          "status": "proposed",
+          "effect": "เพิ่มเงินจากการขายระบาย"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ชำระแล้วขายระบายสร้างเส้นทำกำไร ต้องหักต้นทุนเครื่องมือจริง",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "vampire-mist-cloak",
+      "name": "เสื้อคลุมหมอก",
+      "merchantId": "vampire",
+      "merchantName": "แวมไพร์",
+      "type": "garment",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E42",
+          "logicId": "L14",
+          "status": "proposed",
+          "effect": "รับเงินประกันบางส่วนเมื่อของถูกขโมยจริง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E43",
+          "logicId": "L15",
+          "status": "proposed",
+          "effect": "ลดค่าล้างประวัติ"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ประกันหลังเสียของ ไม่ปฏิเสธดวล; ลดค่าล้างประวัติต้องไม่ทำการขโมยไร้ความเสี่ยง",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "vampire-nocturne-signet",
+      "name": "แหวนตราราตรี",
+      "merchantId": "vampire",
+      "merchantName": "แวมไพร์",
+      "type": "signet-ring",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E46",
+          "logicId": "L16",
+          "status": "proposed",
+          "effect": "เพิ่มดอกเบี้ยของเงินต้นที่ครบช่วง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E50",
+          "logicId": "L18",
+          "status": "proposed",
+          "effect": "ผู้ให้กู้รับโบนัสเมื่อสัญญาจบครบถ้วน"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ดอกเบี้ย+ผลตอบแทนให้กู้อาจเร่งทุนสองทาง; เงินใหม่ไม่มีอายุฝากย้อนหลัง",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "vampire-shadow-wine-decanter",
+      "name": "ขวดรินไวน์เงา",
+      "merchantId": "vampire",
+      "merchantName": "แวมไพร์",
+      "type": "decanter",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E58",
+          "logicId": "L22",
+          "status": "proposed",
+          "effect": "ลดค่าชีวิตสัญญาเลือด Vampire"
+        },
+        {
+          "role": "optional",
+          "effectId": "E63",
+          "logicId": "L24",
+          "status": "proposed",
+          "effect": "ลดราคาดีลฟื้นพลังหรือชีวิต"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ลดค่าชีวิตสัญญาและดีลรักษาอาจทำสัญญาเลือดแทบฟรี",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "vampire-gloam-violin",
+      "name": "ไวโอลินสนธยา",
+      "merchantId": "vampire",
+      "merchantName": "แวมไพร์",
+      "type": "instrument",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E11",
+          "logicId": "L04",
+          "status": "proposed",
+          "effect": "เพิ่มโอกาสพ่อค้ายอมรับราคา"
+        },
+        {
+          "role": "optional",
+          "effectId": "E29",
+          "logicId": "L10",
+          "status": "proposed",
+          "effect": "ป้องกันความไว้ใจลดหนึ่งครั้ง"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "เพิ่มการยอมรับพร้อมกันความไว้ใจลด อาจลดความเสี่ยงต่อรองมากไป",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "vampire-mist-atomizer",
+      "name": "เครื่องพ่นละอองหมอก",
+      "merchantId": "vampire",
+      "merchantName": "แวมไพร์",
+      "type": "atomizer",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E06",
+          "logicId": "L02",
+          "status": "proposed",
+          "effect": "ลดโทษจากการท้าทายพลาด"
+        },
+        {
+          "role": "optional",
+          "effectId": "E20",
+          "logicId": "L07",
+          "status": "proposed",
+          "effect": "ลดความเสียหายจากการจัดการของค้าง"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ลดโทษสองระบบ อาจกลายเป็นของกลางที่ทุกสายต้องถือ",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "vampire-midnight-invitation",
+      "name": "บัตรเชิญเที่ยงคืน",
+      "merchantId": "vampire",
+      "merchantName": "แวมไพร์",
+      "type": "invitation",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E22",
+          "logicId": "L08",
+          "status": "proposed",
+          "effect": "ชนะแล้วได้เงินคืนบางส่วน"
+        },
+        {
+          "role": "optional",
+          "effectId": "E55",
+          "logicId": "L20",
+          "status": "proposed",
+          "effect": "เพิ่มรางวัลส่งของสำเร็จ"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "โบนัสประมูลและสัญญารับซื้อ NPC ต้องไม่อ้างว่าเพิ่มสิทธิ์ Collector Wishlist",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "vampire-mooncut-sword",
+      "name": "ดาบจันทร์แหว่ง",
+      "merchantId": "vampire",
+      "merchantName": "แวมไพร์",
+      "type": "sword",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E38",
+          "logicId": "L13",
+          "status": "proposed",
+          "effect": "ได้เปรียบเมื่อเป่ายิ้งฉุบเสมอหนึ่งครั้ง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E75",
+          "logicId": "L28",
+          "status": "proposed",
+          "effect": "คืนเงินที่เสียบางส่วนหนึ่งครั้ง"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "RPS กับทายเหรียญเป็นคนละการเสี่ยง จำกัดประกันและ tie advantage แยกกัน",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "autometa-coil-repeater",
+      "name": "เครื่องยิงขดลวด",
+      "merchantId": "autometa",
+      "merchantName": "ออโตเมตา",
+      "type": "gun",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E05",
+          "logicId": "L02",
+          "status": "proposed",
+          "effect": "เพิ่มโอกาสท้าทายคำระบุสำเร็จ"
+        },
+        {
+          "role": "optional",
+          "effectId": "E06",
+          "logicId": "L02",
+          "status": "proposed",
+          "effect": "ลดโทษจากการท้าทายพลาด"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "สอง effect อยู่ระบบเดียว แต่เพิ่มชนะและลดโทษพร้อมกันอาจท้าทายแบบไม่เสี่ยง",
+      "directSystemCount": 1,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "autometa-clockwork-sentry",
+      "name": "ยามกลไกไขลาน",
+      "merchantId": "autometa",
+      "merchantName": "ออโตเมตา",
+      "type": "clockwork-construct",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E40",
+          "logicId": "L14",
+          "status": "proposed",
+          "effect": "บรรเทาผลเสียเมื่อแพ้ดวลหนึ่งครั้ง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E68",
+          "logicId": "L26",
+          "status": "proposed",
+          "effect": "คุ้มครองของจากการผุพังหนึ่งครั้ง"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "กันผุพังไม่ใช่กันดวล; กำหนดชาร์จคุ้มครองแยกชัด",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "autometa-data-prism",
+      "name": "ปริซึมบันทึกข้อมูล",
+      "merchantId": "autometa",
+      "merchantName": "ออโตเมตา",
+      "type": "data-prism",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E02",
+          "logicId": "L01",
+          "status": "proposed",
+          "effect": "เปิดเผยช่วงราคาที่แคบลง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E04",
+          "logicId": "L02",
+          "status": "proposed",
+          "effect": "ตรวจความแท้ฟรีหนึ่งครั้ง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E23",
+          "logicId": "L08",
+          "status": "proposed",
+          "effect": "ตรวจข้อมูลหนึ่งอย่างของล็อตประมูล"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ข้อมูลราคา+ความแท้+ประมูลครอบคลุมกว้าง พิจารณาตัดตัวรองหนึ่งอย่าง",
+      "directSystemCount": 3,
+      "effectCandidateCount": 3,
+      "overBreadthReview": true
+    },
+    {
+      "id": "autometa-coolant-canister",
+      "name": "กระป๋องสารหล่อเย็น",
+      "merchantId": "autometa",
+      "merchantName": "ออโตเมตา",
+      "type": "canister",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E31",
+          "logicId": "L11",
+          "status": "proposed",
+          "effect": "ลดเวลารอของความสามารถที่เลือก"
+        },
+        {
+          "role": "optional",
+          "effectId": "E61",
+          "logicId": "L23",
+          "status": "proposed",
+          "effect": "ฟื้นพลังเมื่อเริ่มช่วง"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ลดคูลดาวน์และเติมพลังอาจวนเร่งสกิล ต้องมีต้นทุน/จำนวนครั้ง",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "autometa-torque-caliper",
+      "name": "คาลิเปอร์วัดแรงบิด",
+      "merchantId": "autometa",
+      "merchantName": "ออโตเมตา",
+      "type": "measuring-tool",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E01",
+          "logicId": "L01",
+          "status": "proposed",
+          "effect": "ตรวจราคาโดยประหยัดพลัง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E05",
+          "logicId": "L02",
+          "status": "proposed",
+          "effect": "เพิ่มโอกาสท้าทายคำระบุสำเร็จ"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ตรวจราคาประหยัดกับท้าทายต้องไม่ใช้สิทธิ์ฟรีซ้ำ; ใกล้บทบาทปริซึม",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "autometa-folding-beacon",
+      "name": "สัญญาณไฟพับได้",
+      "merchantId": "autometa",
+      "merchantName": "ออโตเมตา",
+      "type": "beacon",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E35",
+          "logicId": "L12",
+          "status": "proposed",
+          "effect": "ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู"
+        },
+        {
+          "role": "optional",
+          "effectId": "E23",
+          "logicId": "L08",
+          "status": "proposed",
+          "effect": "ตรวจข้อมูลหนึ่งอย่างของล็อตประมูล"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "เบาะแสประตูกับตรวจล็อตประมูลอาจกว้างเกินภาพอุปกรณ์ส่งสัญญาณ",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "autometa-servo-harness",
+      "name": "สายรัดเซอร์โว",
+      "merchantId": "autometa",
+      "merchantName": "ออโตเมตา",
+      "type": "armor",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E61",
+          "logicId": "L23",
+          "status": "proposed",
+          "effect": "ฟื้นพลังเมื่อเริ่มช่วง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E47",
+          "logicId": "L17",
+          "status": "proposed",
+          "effect": "ลดราคาขยายคลัง"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "บทบาทพลังและส่วนลดช่องคลังต้องมีราคาเหมาะ ไม่เพิ่มช่องฟรีโดยไม่ได้ตกลง",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "alien-spore-lantern",
+      "name": "ตะเกียงสปอร์",
+      "merchantId": "alien",
+      "merchantName": "เอเลียน",
+      "type": "lantern",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E67",
+          "logicId": "L26",
+          "status": "proposed",
+          "effect": "ลดโอกาสภัย Dread"
+        },
+        {
+          "role": "optional",
+          "effectId": "E35",
+          "logicId": "L12",
+          "status": "proposed",
+          "effect": "ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ลดภัยกับรู้เบาะแสอาจทำการเลือกเส้นทางปลอดภัยเกินไป",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "alien-echoweave-shawl",
+      "name": "ผ้าคลุมเสียงสะท้อน",
+      "merchantId": "alien",
+      "merchantName": "เอเลียน",
+      "type": "garment",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E72",
+          "logicId": "L27",
+          "status": "proposed",
+          "effect": "ยืดผลดีที่เลือกหนึ่งอย่าง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E16",
+          "logicId": "L06",
+          "status": "proposed",
+          "effect": "ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ยืดสถานะต้องไม่ยืดสิทธิ์เปิดดู Collector หรือสัญญา; ระวังคืนพลังจากการค้า",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "alien-star-chart-membrane",
+      "name": "แผนที่ดาวเยื่อชีวภาพ",
+      "merchantId": "alien",
+      "merchantName": "เอเลียน",
+      "type": "star-chart",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E25",
+          "logicId": "L09",
+          "status": "proposed",
+          "effect": "เพิ่มโอกาสสร้างสินค้าระดับสูง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E35",
+          "logicId": "L12",
+          "status": "proposed",
+          "effect": "ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู"
+        },
+        {
+          "role": "optional",
+          "effectId": "E32",
+          "logicId": "L11",
+          "status": "proposed",
+          "effect": "เพิ่มตัวเลือกเมื่อใช้ความสามารถเลือกสินค้า"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "rarity+ข้อมูลเส้นทาง+ตัวเลือกสกิล ครอบคลุมสามระบบ ควรเลือกตัวรองเพียงหนึ่ง",
+      "directSystemCount": 3,
+      "effectCandidateCount": 3,
+      "overBreadthReview": true
+    },
+    {
+      "id": "alien-biobright-seedpod",
+      "name": "ฝักเมล็ดเรืองแสง",
+      "merchantId": "alien",
+      "merchantName": "เอเลียน",
+      "type": "seedpod",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E61",
+          "logicId": "L23",
+          "status": "proposed",
+          "effect": "ฟื้นพลังเมื่อเริ่มช่วง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E65",
+          "logicId": "L25",
+          "status": "proposed",
+          "effect": "ลดเศษที่ต้องใช้ฟื้นชีวิต"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ฟื้นพลังและใช้เศษรักษาถูกลงอาจแทนที่ของทรัพยากรเฉพาะทาง",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "alien-thought-translator",
+      "name": "เครื่องแปลความคิด",
+      "merchantId": "alien",
+      "merchantName": "เอเลียน",
+      "type": "translator",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E11",
+          "logicId": "L04",
+          "status": "proposed",
+          "effect": "เพิ่มโอกาสพ่อค้ายอมรับราคา"
+        },
+        {
+          "role": "optional",
+          "effectId": "E17",
+          "logicId": "L06",
+          "status": "proposed",
+          "effect": "แลกสินค้าสำเร็จแล้วได้โบนัส"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "NPC ยอมรับราคากับโบนัสแลก PvP ต้องไม่บังคับผู้เล่นคนอื่นรับการค้า",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "alien-phase-dial",
+      "name": "หน้าปัดระยะเฟส",
+      "merchantId": "alien",
+      "merchantName": "เอเลียน",
+      "type": "phase-dial",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E31",
+          "logicId": "L11",
+          "status": "proposed",
+          "effect": "ลดเวลารอของความสามารถที่เลือก"
+        },
+        {
+          "role": "optional",
+          "effectId": "E34",
+          "logicId": "L12",
+          "status": "proposed",
+          "effect": "ลดพลังเปลี่ยนประตู"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "คูลดาวน์สกิลกับประหยัดเปลี่ยนประตูมีผลต่อจำนวน action มากกว่าตัวเลขราคา",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "alien-phase-staff",
+      "name": "คทาเคลื่อนเฟส",
+      "merchantId": "alien",
+      "merchantName": "เอเลียน",
+      "type": "staff",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E57",
+          "logicId": "L20",
+          "status": "proposed",
+          "effect": "เปลี่ยนสัญญาที่ไม่ต้องการฟรีหนึ่งครั้ง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E60",
+          "logicId": "L22",
+          "status": "proposed",
+          "effect": "ลดเวลารอคืนของจาก Alien"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "เปลี่ยนสัญญา NPC และเร่งคืนของ Alien ไม่เปลี่ยนรอบส่ง Collector",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "darkone-null-sword",
+      "name": "ดาบสุญญะ",
+      "merchantId": "darkone",
+      "merchantName": "ดาร์กวัน",
+      "type": "sword",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E71",
+          "logicId": "L27",
+          "status": "proposed",
+          "effect": "ลบผลเสียที่เลือกหนึ่งอย่าง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E40",
+          "logicId": "L14",
+          "status": "proposed",
+          "effect": "บรรเทาผลเสียเมื่อแพ้ดวลหนึ่งครั้ง"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ลบ debuff ไม่ลบหนี้/ประวัติหรือยกเลิกดวล; แยกคำสาปติดสินค้าจากสถานะผู้เล่น",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "darkone-null-testament",
+      "name": "คัมภีร์สุญญะ",
+      "merchantId": "darkone",
+      "merchantName": "ดาร์กวัน",
+      "type": "book",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E69",
+          "logicId": "L29",
+          "status": "proposed",
+          "effect": "เพิ่มตัวปรับมูลค่าที่ Collector คิด"
+        },
+        {
+          "role": "optional",
+          "effectId": "E72",
+          "logicId": "L27",
+          "status": "proposed",
+          "effect": "ยืดผลดีที่เลือกหนึ่งอย่าง"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "คะแนนฐานกับยืด buff คะแนนอาจทวีคูณกัน ต้องห้ามยืดผลของตัวเองเป็นวงจร",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "darkone-debt-chain",
+      "name": "โซ่พันธะหนี้",
+      "merchantId": "darkone",
+      "merchantName": "ดาร์กวัน",
+      "type": "chain",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E49",
+          "logicId": "L18",
+          "status": "proposed",
+          "effect": "ผู้กู้คืนครบแล้วรับเงินคืนบางส่วน"
+        },
+        {
+          "role": "optional",
+          "effectId": "E44",
+          "logicId": "L15",
+          "status": "proposed",
+          "effect": "ช่วยจ่ายค่าชดเชยบางส่วน"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "คืนเงินกู้แล้วได้เงินคืนและช่วยจ่ายชดเชยต้องมีแหล่งเงิน ไม่หักสิทธิ์ผู้รับ",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "darkone-omen-censer",
+      "name": "กระถางกำยานลางร้าย",
+      "merchantId": "darkone",
+      "merchantName": "ดาร์กวัน",
+      "type": "censer",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E67",
+          "logicId": "L26",
+          "status": "proposed",
+          "effect": "ลดโอกาสภัย Dread"
+        },
+        {
+          "role": "optional",
+          "effectId": "E70",
+          "logicId": "L27",
+          "status": "proposed",
+          "effect": "ลดระยะเวลาผลเสียถัดไป"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ลดภัยพร้อมลดระยะ debuff อาจปิดความเสี่ยงหลายแหล่ง",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "darkone-ash-seal",
+      "name": "ตราประทับเถ้าถ่าน",
+      "merchantId": "darkone",
+      "merchantName": "ดาร์กวัน",
+      "type": "seal",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E53",
+          "logicId": "L19",
+          "status": "proposed",
+          "effect": "ใช้ตรายึดของแล้วตรวจข้อมูลของนั้นฟรี"
+        },
+        {
+          "role": "optional",
+          "effectId": "E18",
+          "logicId": "L06",
+          "status": "proposed",
+          "effect": "ส่งต่อสินค้าที่ตรวจแล้วได้รับค่ารับรอง"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ตรวจของหลังยึดสำเร็จเท่านั้น; รูปตราบนสินค้าไม่ใช่ตราบาปที่ใช้ยึดโดยตัวมันเอง",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "darkone-crossing-token",
+      "name": "เหรียญผ่านแดน",
+      "merchantId": "darkone",
+      "merchantName": "ดาร์กวัน",
+      "type": "token",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E43",
+          "logicId": "L15",
+          "status": "proposed",
+          "effect": "ลดค่าล้างประวัติ"
+        },
+        {
+          "role": "optional",
+          "effectId": "E34",
+          "logicId": "L12",
+          "status": "proposed",
+          "effect": "ลดพลังเปลี่ยนประตู"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ลดค่าล้างประวัติไม่ทำให้หนี RPS หรือกลับมาเริ่มขโมยซ้ำผิดคูลดาวน์",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "darkone-silence-snuffer",
+      "name": "ที่ครอบดับเสียง",
+      "merchantId": "darkone",
+      "merchantName": "ดาร์กวัน",
+      "type": "snuffer",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E71",
+          "logicId": "L27",
+          "status": "proposed",
+          "effect": "ลบผลเสียที่เลือกหนึ่งอย่าง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E09",
+          "logicId": "L03",
+          "status": "proposed",
+          "effect": "ชำระพลาดแล้วรักษาอุปกรณ์ไว้หนึ่งครั้ง"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ลบสถานะกับรักษาเครื่องมือชำระเป็นคนละเหตุการณ์ ห้ามลบภาระสัญญา",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "deepsea-abyss-trident",
+      "name": "ตรีศูลห้วงลึก",
+      "merchantId": "deepsea",
+      "merchantName": "ชาวทะเลลึก",
+      "type": "trident",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E07",
+          "logicId": "L03",
+          "status": "proposed",
+          "effect": "เพิ่มโอกาสชำระสำเร็จ"
+        },
+        {
+          "role": "optional",
+          "effectId": "E05",
+          "logicId": "L02",
+          "status": "proposed",
+          "effect": "เพิ่มโอกาสท้าทายคำระบุสำเร็จ"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ชำระกับท้าทายต้องเลือกบทบาทหลักให้ต่างจากคีมออร์ก",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "deepsea-pressure-cuirass",
+      "name": "เกราะแรงดันใต้ทะเล",
+      "merchantId": "deepsea",
+      "merchantName": "ชาวทะเลลึก",
+      "type": "armor",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E62",
+          "logicId": "L24",
+          "status": "proposed",
+          "effect": "ลดความเสียหายชีวิตครั้งถัดไป"
+        },
+        {
+          "role": "optional",
+          "effectId": "E67",
+          "logicId": "L26",
+          "status": "proposed",
+          "effect": "ลดโอกาสภัย Dread"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ลดทั้งโอกาสภัยและความเสียหายอาจแรงแบบคูณกัน",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "deepsea-tide-compass",
+      "name": "เข็มทิศกระแสน้ำ",
+      "merchantId": "deepsea",
+      "merchantName": "ชาวทะเลลึก",
+      "type": "compass",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E34",
+          "logicId": "L12",
+          "status": "proposed",
+          "effect": "ลดพลังเปลี่ยนประตู"
+        },
+        {
+          "role": "optional",
+          "effectId": "E57",
+          "logicId": "L20",
+          "status": "proposed",
+          "effect": "เปลี่ยนสัญญาที่ไม่ต้องการฟรีหนึ่งครั้ง"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "หาเส้นทาง/เปลี่ยนสัญญา NPC ไม่เพิ่มสิทธิ์สุ่ม Collector ใหม่",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "deepsea-kelp-saddle",
+      "name": "อานสาหร่าย",
+      "merchantId": "deepsea",
+      "merchantName": "ชาวทะเลลึก",
+      "type": "saddle",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E16",
+          "logicId": "L06",
+          "status": "proposed",
+          "effect": "ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E64",
+          "logicId": "L25",
+          "status": "proposed",
+          "effect": "ได้เศษเพิ่มเมื่อเปลี่ยนคู่ค้าตามเกณฑ์"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "คู่ effect ตรงกับกลองศึกกระดูก ต้องเลือกความต่างหรือเก็บเพียงหนึ่งบทบาท",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "deepsea-tideglass-buoy",
+      "name": "ทุ่นแก้วคลื่น",
+      "merchantId": "deepsea",
+      "merchantName": "ชาวทะเลลึก",
+      "type": "buoy",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E46",
+          "logicId": "L16",
+          "status": "proposed",
+          "effect": "เพิ่มดอกเบี้ยของเงินต้นที่ครบช่วง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E42",
+          "logicId": "L14",
+          "status": "proposed",
+          "effect": "รับเงินประกันบางส่วนเมื่อของถูกขโมยจริง"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ดอกเบี้ยและประกันขโมยทำให้สะสมทุนปลอดภัย ต้องจำกัดผลตอบแทนรวม",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "deepsea-lanternfish-cage",
+      "name": "กรงปลาโคม",
+      "merchantId": "deepsea",
+      "merchantName": "ชาวทะเลลึก",
+      "type": "cage",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E35",
+          "logicId": "L12",
+          "status": "proposed",
+          "effect": "ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู"
+        },
+        {
+          "role": "optional",
+          "effectId": "E02",
+          "logicId": "L01",
+          "status": "proposed",
+          "effect": "เปิดเผยช่วงราคาที่แคบลง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E23",
+          "logicId": "L08",
+          "status": "proposed",
+          "effect": "ตรวจข้อมูลหนึ่งอย่างของล็อตประมูล"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ข้อมูลเส้นทาง+ราคา+ประมูลสามระบบ พิจารณาลดให้เป็นของสืบประตูเฉพาะทาง",
+      "directSystemCount": 3,
+      "effectCandidateCount": 3,
+      "overBreadthReview": true
+    },
+    {
+      "id": "deepsea-whale-conch-horn",
+      "name": "แตรสังข์วาฬ",
+      "merchantId": "deepsea",
+      "merchantName": "ชาวทะเลลึก",
+      "type": "instrument",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E63",
+          "logicId": "L24",
+          "status": "proposed",
+          "effect": "ลดราคาดีลฟื้นพลังหรือชีวิต"
+        },
+        {
+          "role": "optional",
+          "effectId": "E55",
+          "logicId": "L20",
+          "status": "proposed",
+          "effect": "เพิ่มรางวัลส่งของสำเร็จ"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ดีลรักษาและโบนัสสัญญารับซื้อ NPC ควรไม่เป็นของหาเงินและรักษาครบในชิ้นเดียว",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "swarm-brood-hammer",
+      "name": "ค้อนรัง",
+      "merchantId": "swarm",
+      "merchantName": "สวอร์ม",
+      "type": "hammer",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E47",
+          "logicId": "L17",
+          "status": "proposed",
+          "effect": "ลดราคาขยายคลัง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E14",
+          "logicId": "L05",
+          "status": "proposed",
+          "effect": "เพิ่มเงินจากการขายระบาย"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ส่วนลดช่องคลังและราคาขายระบายควรมีจังหวะใช้ต่างกัน",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "swarm-pheromone-sprayer",
+      "name": "เครื่องพ่นฟีโรโมน",
+      "merchantId": "swarm",
+      "merchantName": "สวอร์ม",
+      "type": "sprayer",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E11",
+          "logicId": "L04",
+          "status": "proposed",
+          "effect": "เพิ่มโอกาสพ่อค้ายอมรับราคา"
+        },
+        {
+          "role": "optional",
+          "effectId": "E16",
+          "logicId": "L06",
+          "status": "proposed",
+          "effect": "ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ส่วนลดความเสี่ยงต่อรองกับคืนพลัง PvP ทำให้ใช้งานได้แทบทุกสายค้า",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "swarm-hive-egg-cluster",
+      "name": "กลุ่มไข่รัง",
+      "merchantId": "swarm",
+      "merchantName": "สวอร์ม",
+      "type": "egg-cluster",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E33",
+          "logicId": "L11",
+          "status": "proposed",
+          "effect": "เสริมการใช้หนึ่งครั้งตามระดับที่ปลดล็อกแล้ว"
+        }
+      ],
+      "indirectLinks": [
+        {
+          "logicId": "L31",
+          "via": "L11 / Swarm ability",
+          "status": "indirect",
+          "note": "เสริมความสามารถที่สร้างสำเนา ไม่ใช่ effect สร้างสำเนาโดยตรง"
+        }
+      ],
+      "caution": "จำกัดเสริมสกิล Swarm ที่ปลดล็อกแล้ว; เป็น dependency ต่อการสร้างสำเนา ไม่ใช่สร้างสำเนาฟรีแยกสกิล",
+      "directSystemCount": 1,
+      "effectCandidateCount": 1,
+      "overBreadthReview": false
+    },
+    {
+      "id": "swarm-resin-spool",
+      "name": "หลอดม้วนยางไม้",
+      "merchantId": "swarm",
+      "merchantName": "สวอร์ม",
+      "type": "resin-spool",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E52",
+          "logicId": "L19",
+          "status": "proposed",
+          "effect": "แลกเปลี่ยนตราสำเร็จแล้วฟื้นพลัง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E44",
+          "logicId": "L15",
+          "status": "proposed",
+          "effect": "ช่วยจ่ายค่าชดเชยบางส่วน"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ตราบาปเป็นการค้าระหว่างผู้เล่น ต้องกันส่งกลับไปมาเพื่อฟื้นพลัง",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "swarm-wing-membrane-glider",
+      "name": "เครื่องร่อนเยื่อปีก",
+      "merchantId": "swarm",
+      "merchantName": "สวอร์ม",
+      "type": "glider",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E34",
+          "logicId": "L12",
+          "status": "proposed",
+          "effect": "ลดพลังเปลี่ยนประตู"
+        },
+        {
+          "role": "optional",
+          "effectId": "E37",
+          "logicId": "L13",
+          "status": "proposed",
+          "effect": "ลดพลังเริ่มขโมย"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ประหยัดพลังสอง action ต้องไม่ลดจนต้นทุนเสี่ยงแทบเป็นศูนย์",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "swarm-pupa-cradle",
+      "name": "แท่นรองดักแด้",
+      "merchantId": "swarm",
+      "merchantName": "สวอร์ม",
+      "type": "cradle",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E59",
+          "logicId": "L22",
+          "status": "proposed",
+          "effect": "เพิ่มผลตอบแทนของที่ให้ Alien ยืม"
+        },
+        {
+          "role": "optional",
+          "effectId": "E65",
+          "logicId": "L25",
+          "status": "proposed",
+          "effect": "ลดเศษที่ต้องใช้ฟื้นชีวิต"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ผลตอบแทนสัญญา Alien กับเศษรักษาเป็นคนละวงจร ใช้ชาร์จ/ช่วงแยก",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "swarm-chitin-cuirass",
+      "name": "เกราะไคติน",
+      "merchantId": "swarm",
+      "merchantName": "สวอร์ม",
+      "type": "armor",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E62",
+          "logicId": "L24",
+          "status": "proposed",
+          "effect": "ลดความเสียหายชีวิตครั้งถัดไป"
+        },
+        {
+          "role": "optional",
+          "effectId": "E68",
+          "logicId": "L26",
+          "status": "proposed",
+          "effect": "คุ้มครองของจากการผุพังหนึ่งครั้ง"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "เทียบกับโล่ออร์ก/เกราะทะเล ต้องมีความต่างที่วัดได้มากกว่าชื่อ",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "beast-trail-scent-disc",
+      "name": "แผ่นกลิ่นสะกดรอย",
+      "merchantId": "beast",
+      "merchantName": "บีสต์",
+      "type": "scent-disc",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E25",
+          "logicId": "L09",
+          "status": "proposed",
+          "effect": "เพิ่มโอกาสสร้างสินค้าระดับสูง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E35",
+          "logicId": "L12",
+          "status": "proposed",
+          "effect": "ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "คล้ายแผนที่ดาวแบบสองระบบ ควรเป็น baseline ที่ราคาถูกหรือเงื่อนไขง่ายกว่า",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "beast-tracker-horn",
+      "name": "เขาส่งสัญญาณ",
+      "merchantId": "beast",
+      "merchantName": "บีสต์",
+      "type": "instrument",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E32",
+          "logicId": "L11",
+          "status": "proposed",
+          "effect": "เพิ่มตัวเลือกเมื่อใช้ความสามารถเลือกสินค้า"
+        },
+        {
+          "role": "optional",
+          "effectId": "E28",
+          "logicId": "L10",
+          "status": "proposed",
+          "effect": "พบพ่อค้ารายใหม่แล้วได้ความไว้ใจเพิ่ม"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "จำกัดเพิ่มตัวเลือกสกิล Beast; ความไว้ใจไม่ควรลัดปลดล็อกหลายสกิลในครั้งเดียว",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "beast-rift-saddle",
+      "name": "อานข้ามรอยแยก",
+      "merchantId": "beast",
+      "merchantName": "บีสต์",
+      "type": "saddle",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E36",
+          "logicId": "L12",
+          "status": "proposed",
+          "effect": "เปิดประตูที่ถูกปิดจากเหตุการณ์หนึ่งครั้ง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E21",
+          "logicId": "L07",
+          "status": "proposed",
+          "effect": "รับของค้างคืนแล้วฟื้นพลัง"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "เปิดประตูที่ปิดไม่ล้างแบนการค้า; รับของค้างคืนต้องเป็นธุรกรรมจริง",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "beast-springjaw-trap",
+      "name": "กับดักกรามดีด",
+      "merchantId": "beast",
+      "merchantName": "บีสต์",
+      "type": "trap",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E53",
+          "logicId": "L19",
+          "status": "proposed",
+          "effect": "ใช้ตรายึดของแล้วตรวจข้อมูลของนั้นฟรี"
+        },
+        {
+          "role": "optional",
+          "effectId": "E40",
+          "logicId": "L14",
+          "status": "proposed",
+          "effect": "บรรเทาผลเสียเมื่อแพ้ดวลหนึ่งครั้ง"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "กับดักไม่ใช่ปุ่มปฏิเสธขโมย; ตรวจของที่ยึดหลังเปลี่ยนเจ้าของแล้วเท่านั้น",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "beast-amber-fur-mantle",
+      "name": "เสื้อคลุมขนอำพัน",
+      "merchantId": "beast",
+      "merchantName": "บีสต์",
+      "type": "garment",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E68",
+          "logicId": "L26",
+          "status": "proposed",
+          "effect": "คุ้มครองของจากการผุพังหนึ่งครั้ง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E63",
+          "logicId": "L24",
+          "status": "proposed",
+          "effect": "ลดราคาดีลฟื้นพลังหรือชีวิต"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "บทบาทกันของผุพังและดีลรักษาควรเทียบเกราะไคตินและยามกลไก",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "beast-fangline-lasso",
+      "name": "บ่วงเส้นเขี้ยว",
+      "merchantId": "beast",
+      "merchantName": "บีสต์",
+      "type": "lasso",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E37",
+          "logicId": "L13",
+          "status": "proposed",
+          "effect": "ลดพลังเริ่มขโมย"
+        },
+        {
+          "role": "optional",
+          "effectId": "E45",
+          "logicId": "L15",
+          "status": "proposed",
+          "effect": "ลดระยะระงับการค้า"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "ลดต้นทุนและโทษการขโมยพร้อมกันอาจกลายเป็นของจำเป็นของสายขโมย",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    },
+    {
+      "id": "beast-riftfang-sword",
+      "name": "ดาบเขี้ยวรอยแยก",
+      "merchantId": "beast",
+      "merchantName": "บีสต์",
+      "type": "sword",
+      "catalogStatus": "art-only",
+      "runtimeDedicatedLinks": [],
+      "proposedLinks": [
+        {
+          "role": "primary",
+          "effectId": "E38",
+          "logicId": "L13",
+          "status": "proposed",
+          "effect": "ได้เปรียบเมื่อเป่ายิ้งฉุบเสมอหนึ่งครั้ง"
+        },
+        {
+          "role": "optional",
+          "effectId": "E27",
+          "logicId": "L10",
+          "status": "proposed",
+          "effect": "ขายของระดับสูงแล้วได้ความไว้ใจเพิ่ม"
+        }
+      ],
+      "indirectLinks": [],
+      "caution": "เพิ่ม edge RPS และความไว้ใจจากขายของ rarity สูงเป็นคนละ trigger; ไม่เพิ่มคะแนน rarity โดยตรง",
+      "directSystemCount": 2,
+      "effectCandidateCount": 2,
+      "overBreadthReview": false
+    }
+  ]
+}

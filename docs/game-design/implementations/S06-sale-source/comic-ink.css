@@ -1,0 +1,6 @@
+/* Shared comic vocabulary: captions, paper controls, and restrained ink texture. */
+#game-main .comic-ink-surface{--comic-ink-paper:#f3ead5;--comic-ink-edge:#080a0b;background-color:#0b0e0f;background-image:radial-gradient(#fff05 .7px,transparent .8px);background-size:5px 5px}
+#game-main .comic-caption{position:relative;isolation:isolate;display:inline-flex;align-items:center;gap:10px;width:max-content;max-width:100%;margin:0;color:#fff;font-weight:800;text-shadow:2px 2px #080a0b;line-height:1.3;padding:5px 12px}
+#game-main .comic-caption::before{content:'';position:absolute;inset:0;z-index:-1;background:repeating-linear-gradient(-7deg,#c51032 0 6px,#ad102a 6px 8px);clip-path:polygon(4% 0,100% 3%,96% 24%,100% 43%,95% 67%,98% 93%,0 100%,3% 74%,0 48%,4% 21%)}
+#game-main .comic-info{display:inline-grid;place-items:center;width:28px;height:28px;min-height:28px;padding:2px;border:0;background:transparent!important;color:inherit;box-shadow:none}
+#game-main .comic-info .icon{width:22px;height:22px}

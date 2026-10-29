@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-30",
+  "passed": true,
+  "scope": "Legacy comic display asset provenance, separate from new56 catalog/runtime bindings",
+  "assetCount": 46,
+  "merchantCount": 8,
+  "moodsPerMerchant": [
+    "angry",
+    "idle",
+    "smile"
+  ],
+  "legacyItemFamilies": 10,
+  "versionsPerFamily": 2,
+  "backgrounds": 2,
+  "checks": [
+    "all46 actual files exist inside apps/comic",
+    "all46 SHA256 hashes match versioned manifest",
+    "original36 PNGs retain fidelity metadata",
+    "new10 item variants have generator/date/source provenance in manifest",
+    "test resolves paths from compiled module location, not process cwd"
+  ],
+  "portableRun": {
+    "cwd": "/private/tmp",
+    "tests": 1,
+    "passed": 1,
+    "failed": 0,
+    "reportSHA256": "f05a02dad0d6c1c50ad883037cc6a0bea11e270c748fa4c30d84800442317d32"
+  },
+  "runtimeChanged": false,
+  "testSourceSHA256": "98c5ab26e26a4a35097d272a940a5958d82a14d63035cf33a99f10024890a322"
+}

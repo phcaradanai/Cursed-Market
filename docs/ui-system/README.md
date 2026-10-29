@@ -19,6 +19,8 @@ npm run ui:smoke              # actual menu open/close, frame/header/radius, ite
 npm run ui:visual             # ego-browser must be available; matching Chromium/font environment
 ```
 
+`test:comic` still has known CPU-bound simulation cases and legacy UI assertion failures; read verification.md before using it as a full gate. The source fingerprints include the portable artwork provenance manifest.
+
 `npm run dev`, `build`, `start`, `test` retain their existing root behavior. Comic is isolated: its local `game/` includes journal integration and presentation paths. Do not replace it with root game code blindly. Reconcile rules in a separate reviewed task.
 
 ## Baseline lifecycle

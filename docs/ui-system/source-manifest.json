@@ -4,6 +4,10 @@
   "node": "v26.12.1",
   "files": [
     {
+      "file": "apps/comic/docs/art/comic-assets.json",
+      "sha256": "75ec8f27bf2d9f0f77b7c721ad18b81ee17b638d1f2391fe9f554d3adb29d7b3"
+    },
+    {
       "file": "apps/comic/package.json",
       "sha256": "0337ce35f975f89bc62fe311d2590e3de272c8cd0e5a5019f1167128b73b0e96"
     },
@@ -1209,7 +1213,7 @@
     },
     {
       "file": "apps/comic/tests/appraisal-client.test.ts",
-      "sha256": "50a3a7510b88bd6ceee86e78a596ab5d82719593c2e4259fe56fc6c79a86da95"
+      "sha256": "98c5ab26e26a4a35097d272a940a5958d82a14d63035cf33a99f10024890a322"
     },
     {
       "file": "apps/comic/tests/appraisal-comic-blood-pact.test.ts",

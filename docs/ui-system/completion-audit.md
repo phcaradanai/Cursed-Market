@@ -24,3 +24,5 @@ When every row is supported, obtain the outstanding human review and rerun relev
 Continuation correction: native DPR2 is **not** a sufficient solution; the full14-case comparison passed10/14 and warm loads still drift across widths. Baselines and DPR1 restored to checkpoint; no human approval implied. Header height/border assertions were added and all14 recorded cases pass them.
 
 Menu interaction gate now proves18 real fixture flows on three desktop widths, including computed inner padding, control height/radius, single utility visibility, item restoration, clock preservation and no overflow. See menu-smoke.json. This does not resolve raster reproducibility or image approval.
+
+Portable-art follow-up:46 art files/manifest SHA checked from a working directory outside the repo; one stale provenance assertion reconciled with original/v2 formats while retaining all checks and adding per-merchant mood completeness. Historical UI file improves60/67→61/67. Source fingerprints now359, including the art manifest. No production app or asset changed. Pixel/approval rows remain incomplete.

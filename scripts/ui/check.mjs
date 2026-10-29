@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 const root = path.resolve(import.meta.dirname, '../..'), app = path.join(root, 'apps/comic'), doc = path.join(root, 'docs/ui-system'), sha = p => crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
 function walk(dir) { return fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(dir, e.name)) : e.isFile() ? [path.join(dir, e.name)] : []); }
-const source = [...walk(path.join(app, 'src')), ...walk(path.join(app, 'tests')), ...['package.json', 'tsconfig.json', 'tsconfig.client.json', 'tsconfig.appraisal-client.json', 'vite.appraisal.config.mjs'].map(f => path.join(app, f))].sort();
+const source = [...walk(path.join(app, 'src')), ...walk(path.join(app, 'tests')), ...['package.json', 'tsconfig.json', 'tsconfig.client.json', 'tsconfig.appraisal-client.json', 'vite.appraisal.config.mjs', 'docs/art/comic-assets.json'].map(f => path.join(app, f))].sort();
 const manifestFile = path.join(doc, 'source-manifest.json');
 if (process.argv.includes('--refresh')) {
     fs.writeFileSync(manifestFile, JSON.stringify({ schema: 1, implementation: 'apps/comic', node: process.version, files: source.map(f => ({ file: path.relative(root, f), sha256: sha(f) })) }, null, 2) + '\n');

@@ -1,6 +1,6 @@
 # Verification — audit 2026-10-29 → 2026-10-30
 
-Current status: **in progress**.7 Node contract tests,18 preview menu flows,358 source/static fingerprints and106 atlas inputs pass; all63 imported runtime files are unchanged. Pixel reproducibility and human image approval remain open. No full functional-suite pass is claimed.
+Current status: **in progress**.7 Node contract tests,18 preview menu flows,359 source/static fingerprints and106 atlas inputs pass; all63 imported runtime files are unchanged. Pixel reproducibility and human image approval remain open. No full functional-suite pass is claimed.
 
 ## Passed evidence
 
@@ -45,3 +45,7 @@ Latest atlas check passed106 inputs. Static continuity check passed358 source fi
 ## Repeatable menu interaction proof
 
 `node scripts/ui/run.mjs --space3 --mode smoke` passed18 flows: six utility menus at1024×800,1440×722,1920×800. It uses actual preview handlers, loads visible art, checks shared frame, header65px/border1px, symmetric12/18/12/18px header padding,40px header actions,10px corners, exactly one visible utility, same-button close, preserved sale item, positive fresh countdown with no reset, and no page scroll. See menu-smoke.json. Repeat with `npm run ui:smoke`; this is public fixture UI proof, not a live multiplayer transaction.7 Node contract tests pass; all14 retained baseline metrics satisfy shared frame/header contracts. Main generated HTML now labels active source separately from historical build origins.
+
+## Portable artwork provenance correction
+
+2026-10-30: verified46 legacy display art files from /private/tmp using the compiled test, not the app working directory. All SHA hashes match. The manifest holds10 item families with original/v2 art (20 files), not20 gameplay kinds; originals36 carry the fidelity PNG metadata while10 v2 items record generator provenance in the manifest. Test now checks both formats and each of8 merchants has exactly angry/idle/smile. No image bytes or gameplay changed. The portable target passes1/1; full historical UI file now61/67 with6 unchanged failures (previous60/67). See asset-provenance-verification.json and historical-ui-tests.json. Build:server,359 source checks (including manifest) and7 UI contract tests pass. This does not resolve image approval, raster determinism, or the full simulation suite.

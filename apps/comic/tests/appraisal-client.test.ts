@@ -4,6 +4,8 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { readFileSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
 import { applyAppraisalAction, appraisalViewFor } from '../src/game/appraisal/index.js';
 import { offerEvent } from '../src/game/appraisal/events.js';
 import { detectionRisk, grant } from '../src/game/appraisal/mechanics.js';
@@ -93,13 +95,19 @@ test('confirmed consequences expose timeout defaults and decline cannot forge ta
   assert.equal(eventDecision(offer,'accept',{itemId:offer.itemIds[0]!,statusId:'',fact:'cursed',guess:false}),null);
 });
 test('eight comic merchants in three moods, ten item families and two illustrated grounds ship with provenance',()=>{
-  const manifest=JSON.parse(readFileSync('docs/art/comic-assets.json','utf8')) as {assets:{id:string;kind:string;destination:string;origin:string;sha256:string}[]};
-  assert.equal(manifest.assets.filter(a=>a.kind==='merchant').length,24);
-  assert.equal(new Set(manifest.assets.filter(a=>a.kind==='merchant').map(a=>a.id.split('-')[1])).size,8);
-  assert.equal(manifest.assets.filter(a=>a.kind==='item').length,10);
+  const appRoot=fileURLToPath(new URL('../../',import.meta.url)),appFile=(name:string)=>resolve(appRoot,name);
+  const manifest=JSON.parse(readFileSync(appFile('docs/art/comic-assets.json'),'utf8')) as {assets:{id:string;kind:string;destination:string;origin:string;sha256:string}[]};
+  const merchants=manifest.assets.filter(a=>a.kind==='merchant'),npcs=new Set(merchants.map(a=>a.id.split('-')[1]));
+  assert.equal(merchants.length,24);assert.equal(npcs.size,8);
+  for(const npc of npcs)assert.deepEqual(merchants.filter(a=>a.id.split('-')[1]===npc).map(a=>a.id.split('-').at(-1)).sort(),['angry','idle','smile']);
+  // Legacy display artwork is separate from the proposed new56 gameplay catalog.
+  const items=manifest.assets.filter(a=>a.kind==='item'),families=new Set(items.map(a=>a.id.replace(/-v2$/,'')));
+  assert.equal(families.size,10);assert.equal(items.length,20,'original and v2 artwork for each legacy family');
+  for(const family of families){assert(items.some(a=>a.id===family));assert(items.some(a=>a.id===family+'-v2'));}
   assert.equal(manifest.assets.filter(a=>a.kind==='background').length,2);
-  for(const asset of manifest.assets){assert(existsSync(asset.destination),asset.id);const bytes=readFileSync(asset.destination);assert.equal(createHash('sha256').update(bytes).digest('hex'),asset.sha256);assert(bytes.includes(Buffer.from('impeccable')),asset.id);assert(asset.origin.length>100);}
-  const css=readFileSync('src/appraisal-client/styles.css','utf8');assert(css.includes('prefers-reduced-motion'));assert(css.includes('min-height:44px'));assert(css.includes('font-display:swap'));
+  // V2 generator provenance lives in the manifest; originals also carry the fidelity-pass PNG metadata.
+  for(const asset of manifest.assets){assert(asset.destination.startsWith('src/appraisal-client/public/art/comic/')&&!asset.destination.includes('..'),'portable comic asset path');assert(existsSync(appFile(asset.destination)),asset.id);const bytes=readFileSync(appFile(asset.destination));assert.equal(createHash('sha256').update(bytes).digest('hex'),asset.sha256);if(asset.kind==='item'&&asset.id.endsWith('-v2'))assert(asset.origin.startsWith('Generated with OpenAI image_gen on '),asset.id);else assert(bytes.includes(Buffer.from('impeccable')),asset.id);assert(asset.origin.length>100);}
+  const css=readFileSync(appFile('src/appraisal-client/styles.css'),'utf8');assert(css.includes('prefers-reduced-motion'));assert(css.includes('min-height:44px'));assert(css.includes('font-display:swap'));
 });
 test('seller sees an incoming unlisted swap identity without the buyer private truth',()=>{
   let state=appraisalFixture('E43');const buyer=state.players[0]!,seller=state.players[1]!;

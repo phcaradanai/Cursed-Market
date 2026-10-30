@@ -103,7 +103,10 @@ export class AppraisalRoomService extends RoomLifecycle<AppraisalState, Appraisa
           insist(!offer || ![offer.holderId,offer.buyerId].some(id=>room.revealReady.has(id)),'already-ready','คู่ค้ายืนยันไปต่อแล้ว ทำข้อเสนอใหม่ช่วงถัดไป');
         }
         const previous = room.game;
-        room.game = applyAppraisalAction(previous, { ...message.action, playerId: seat.id });
+        const prior=previous.accepted[`${seat.id}:${message.action.requestId}`];
+        if(message.action.type==='ghost-guess'&&!prior)insist(this.now()-(previous.ghosts?.[seat.id]?.startedAt??Infinity)>=5200,'ghost-shuffling','รอการสลับการ์ดให้จบ');
+        const startedAt=message.action.type==='ghost-start'?(prior?(JSON.parse(prior) as {startedAt?:number}).startedAt??this.now():this.now()):undefined;
+        room.game = applyAppraisalAction(previous, { ...message.action, ...(startedAt===undefined?{}:{startedAt}), playerId: seat.id });
         this.phaseChanged(room, previous); peer.send({ type: 'ack', requestId: message.action.requestId }); break;
       }
       case 'reveal-ready':

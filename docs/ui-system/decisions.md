@@ -12,3 +12,7 @@
 | QA-02 | Explicit user approval 2026-10-30 | User approved these14 baseline images via call_febe0d975da64664862214910d667d0e. Exact SHA set is sealed in baselines/manifest.json. Approval covers existing UI and corrected rebate geometry, not unrelated redesign or passing pixel/functional gates. Compare may capture proposals; record cannot overwrite this approved set. New replacements need human review of exact captures. |
 
 Material changes need a concrete comparison and approval: altering information visibility, navigation, action eligibility, mobile policy, global dimensions/palette/type, or merging the two runtime implementations. Bug fixes restoring UI-01–04 and safe identical-value extraction do not need repeated permission.
+
+### Spirit delivery settlement and continuity — 2026-10-30
+
+Confirmed: buyer death cancels pending work with no charge/bonus; no remaining jobs requires a new tracking-game win. Displayed quote identity is checked on hiring and private accepted terms remain fixed through delivery. Special income adds1point per earned credit once at Collector. See `implementations/ghost-delivery-progress.md` (game-design) and `ghost-functional-verification.json` (ui-system) for evidence and limits.

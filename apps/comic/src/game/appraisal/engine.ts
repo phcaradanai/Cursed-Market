@@ -1,3 +1,4 @@
+import {handleGhostAction,reconcileGhostJobs} from './ghost-service.js';
 import { integerEffect, statusMagnitude } from './copy-effects.js';
 import { defaultRarityConfig, validateRarityConfig, validateItemAppearance } from '../../shared/item-rarity.js';
 import { defaultRarityEconomy, validateRarityEconomy, validateRarityPower, MAX_RARITY_MULTIPLIER } from '../../shared/rarity-power.js';
@@ -325,13 +326,15 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
   const key=`${action.playerId}:${action.requestId}`; const signature=JSON.stringify(action);
   if(previous.accepted[key]) {check(previous.accepted[key]===signature,'request-conflict','request ID ถูกใช้กับคำสั่งอื่น');return previous;}
   check(action.encounter===previous.encounter,'stale-encounter','คำสั่งมาจาก encounter เก่า');
+  const ghostAction=action.type.startsWith('ghost-');
   const roundAction=action.type==='round-flip' || action.type==='round-bank' || action.type==='round-raise';
   const storageAction=action.type.startsWith('vault-');
   const loanAction=action.type.startsWith('loan-');
   const sealAction=action.type.startsWith('seal-');
   const financeAction=storageAction || loanAction || sealAction || action.type==='crime-clear';
-  check(roundAction?previous.phase==='REVEAL':financeAction?previous.phase!=='RESULTS':!['REVEAL','RESULTS'].includes(previous.phase),'phase','ช่วงนี้ไม่รับ action');
+  check(ghostAction?previous.phase!=='RESULTS':roundAction?previous.phase==='REVEAL':financeAction?previous.phase!=='RESULTS':!['REVEAL','RESULTS'].includes(previous.phase),'phase','ช่วงนี้ไม่รับ action');
   const state=structuredClone(previous); const p=player(state,action.playerId);
+  if(ghostAction){handleGhostAction(state,p.id,action as import('./ghost-service.js').GhostAction);enforceCaps(state);state.revision++;state.accepted[key]=signature;state.commands.push(structuredClone(action));reconcileGhostJobs(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;}
   const duelling=state.config.secureEconomy && state.theftDuels?.some(d=>d.status==='open' && [d.thiefId,d.victimId].includes(p.id));
   check(!duelling || action.type==='theft-hand' || action.type==='theft-timeout' || action.type==='theft-expire','theft-pending','เลือกมือเป่ายิ้งฉุบให้เสร็จก่อน');
   check(!p.abilityChoice || action.type==='merchant-ability' && !!action.choiceId || action.type==='done' || action.type==='theft-timeout' || action.type==='theft-expire','ability-choice','เลือกสินค้าที่พ่อค้าเสนอให้ก่อน');
@@ -339,7 +342,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
     if(action.type==='round-flip')flipRoundReward(state,p,action.guess,action.attempt,action.guesses);
     else if(action.type==='round-raise')raiseRoundReward(state,p,action.coinCount,action.attempt);
     else bankRoundReward(state,p);
-    state.revision++;state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;
+    state.revision++;state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);reconcileGhostJobs(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;
   }
   if(financeAction || action.type==='theft-hand' || action.type==='theft-expire') {
     check(state.config.secureEconomy && p.life!==0 && p.paused!=='dead','inactive','ผู้เล่นที่หมดชีวิตทำรายการไม่ได้');
@@ -350,7 +353,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
     else if(action.type==='theft-hand')chooseTheftHand(state,p,action.duelId,action.hand);
     else if(action.type==='theft-expire')expireTheftDuel(state,p,action.duelId);
     cancelTheftDuels(state);for(const seat of state.players)pauseIfNeeded(state,seat);progress(state);expireUnavailableOffers(state);
-    state.revision++;state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;
+    state.revision++;state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);reconcileGhostJobs(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;
   }
   check(!p.paused && !p.done,'inactive','ผู้เล่นพักหรือจบช่วงแล้ว');
   check(!p.eventOffer || !isConsequence(p.eventOffer.id) || action.type==='event' || action.type==='done' || action.type==='theft-timeout','consequence','resolve ผล NPC ก่อน');
@@ -410,14 +413,14 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
     default: check(false,'action-type','ไม่รู้จักคำสั่ง');
   }
   pauseIfNeeded(state,p); progress(state); if(state.config.secureEconomy)cancelTheftDuels(state);expireUnavailableOffers(state); state.revision++;
-  state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;
+  state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);reconcileGhostJobs(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;
 }
 export function advanceAppraisalEncounter(previous:AppraisalState):AppraisalState {
   check(previous.phase==='REVEAL','phase','ต้องเปิดผลก่อน');
   const state=structuredClone(previous);state.commands.push({type:'advance'});state.revision++;
   for(const p of state.players)if(p.roundReward && !p.roundReward.settled)bankRoundReward(state,p);
   if(state.config.secureEconomy)settleLoansBeforeAdvance(state);
-  if(!state.config.survival && state.encounter===state.config.encounters) {if(state.config.secureEconomy && state.config.loanEndSettlement)settleLoansBeforeAdvance(state,true);closeNpcContracts(state);state.phase='RESULTS';enforceCaps(state);recordJournal(previous,state,{type:'advance'});assertAppraisalInvariants(state);return state;}
+  if(!state.config.survival && state.encounter===state.config.encounters) {if(state.config.secureEconomy && state.config.loanEndSettlement)settleLoansBeforeAdvance(state,true);closeNpcContracts(state);state.phase='RESULTS';enforceCaps(state);reconcileGhostJobs(state);recordJournal(previous,state,{type:'advance'});assertAppraisalInvariants(state);return state;}
   state.encounter++;state.phase='PORTALS';state.listings=[];state.market={encounter:state.encounter,open:false,budget:0,orders:[]};
   if(state.config.secureEconomy){cancelTheftDuels(state);collectCompensations(state);payVaultInterest(state);closeSealOffers(state);}
   for(const p of state.players) {
@@ -441,7 +444,7 @@ export function advanceAppraisalEncounter(previous:AppraisalState):AppraisalStat
   }
   state.market=makeMarket(state);
   for(const p of state.players) if(randomAt(state.seed,`${state.encounter}:${p.id}:entry-event`)<.55) drawEvent(state,p);
-  enforceCaps(state);recordJournal(previous,state,{type:'advance'});assertAppraisalInvariants(state);return state;
+  enforceCaps(state);reconcileGhostJobs(state);recordJournal(previous,state,{type:'advance'});assertAppraisalInvariants(state);return state;
 }
 export function defaultAppraisalAction(state:AppraisalState,playerId:string,requestId:string):AppraisalAction | null {
   const p=player(state,playerId);if(p.paused || p.done || ['RESULTS','REVEAL'].includes(state.phase)) return null;

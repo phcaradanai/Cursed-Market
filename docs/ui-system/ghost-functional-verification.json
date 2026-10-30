@@ -1,0 +1,146 @@
+{
+  "status": "implemented-and-verified-with-listed-limits",
+  "updatedAt": "2026-10-30T17:16:18.381954+00:00",
+  "scope": "Comic S11/G01–G04 only; not whole-game balance or new56 runtime binding",
+  "core": {
+    "pass": 15,
+    "fail": 0,
+    "command": "node --test apps/comic/dist/tests/ghost-service.test.js apps/comic/dist/tests/ghost-tracking.test.js apps/comic/dist/tests/ghost-replay.test.js",
+    "includes": [
+      "command-only natural death through Collector strict replay",
+      "buyer death and insufficient funds",
+      "single delivery/payment/bonus",
+      "private quote/prototype/rarity preservation",
+      "RPS ties/losses/new-encounter projection",
+      "living phase independence"
+    ]
+  },
+  "network": {
+    "pass": 1,
+    "fail": 0,
+    "command": "node --test apps/comic/dist/tests/ghost-network.test.js",
+    "scope": "two real WebSockets; initial death and matching slot fixtures; forged time, early guess, resume, duplicate start, agreed job, wait funds, payment, bonus, duplicate delivery, old accepted guess while next round shuffles"
+  },
+  "focused": {
+    "pass": 20,
+    "fail": 0,
+    "command": "node --test apps/comic/dist/tests/appraisal-secure-client.test.js apps/comic/dist/tests/appraisal-curse-sight.test.js apps/comic/dist/tests/comic-continuity.test.js"
+  },
+  "builds": {
+    "server": "npm run build:server --prefix apps/comic: PASS",
+    "client": "npm run build:appraisal --prefix apps/comic: PASS; existing >500KB bundle warning"
+  },
+  "uiContracts": {
+    "pass": 10,
+    "fail": 0,
+    "command": "npm run ui:test"
+  },
+  "sourceCheck": {
+    "pass": true,
+    "files": 370,
+    "command": "npm run ui:check"
+  },
+  "ghostGeometry": {
+    "pass": 15,
+    "fail": 0,
+    "widths": [
+      1024,
+      1440,
+      1920
+    ],
+    "report": "ghost-ui-verification.json",
+    "scope": "5 public component fixture states ×3 widths; inventory frame/header/equal columns/paired controls/no overflow/utility navigation; not settlement proof"
+  },
+  "peerMenus": {
+    "pass": 18,
+    "fail": 0,
+    "command": "npm run ui:smoke -- --space 8 --url http://127.0.0.1:3189",
+    "report": "ghost-final-menus.json",
+    "receipt": "ghost-final-menus-invocation.json"
+  },
+  "visual": {
+    "pass": 14,
+    "fail": 0,
+    "command": "npm run ui:visual -- --space 8 --url http://127.0.0.1:3189",
+    "report": "ghost-final-visual.json",
+    "receipt": "ghost-final-visual-invocation.json",
+    "baselineChanged": false
+  },
+  "browserLive": {
+    "clock": "ghost-live-clock.json",
+    "delivery": "ghost-live-workflow.json",
+    "scope": "Prior two-client browser workflow: first-seat death/clocks fixture, then actual UI unlock/hire/accept/5 real RPS rerolls/delivery; local oracle chooses winning hands only. Predates quoteId/paid metadata hardening; latest protocol/core/replay tests cover those changes."
+  },
+  "atlas": {
+    "inputs": 123,
+    "pass": true,
+    "command": "node docs/game-design/scripts/build-system-atlas.mjs && node docs/game-design/scripts/check-system-atlas.mjs"
+  },
+  "trail": {
+    "status": "known-unrelated-conflicts",
+    "conflicts": 20,
+    "files": [
+      ".impeccable/design.json",
+      ".impeccable/hook.cache.json"
+    ],
+    "coverageLimit": "first400KB of large branch diff; not exhaustive approval",
+    "excludedFromCommit": true
+  },
+  "playUrl": "http://127.0.0.1:3189/",
+  "previewUrl": "http://127.0.0.1:3189/?preview=ghost-working",
+  "limits": [
+    "Known old Dark One sender/victim display-name test TypeError reproduces in committed39ec327; preserved, not a new ghost regression",
+    "No full CPU-bound simulation, game-balance or phone portrait claim",
+    "New56 catalog runtime binding remains separate",
+    "Server restart loses rooms as before; reconnect proof is within a running match",
+    "Ghost screenshots are current fixtures, not human-approved additions to the sealed14 baselines",
+    "Initial browser space7 disappeared; replacement8 was used under existing authorization. Earlier dev visual failures retained, never silently rebaselined."
+  ],
+  "sources": [
+    {
+      "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+      "sha256": "4741d9dfad3d695b8615d0c00c5dc11a6e14ba8543bde6228471eb0a5c962989"
+    },
+    {
+      "file": "apps/comic/src/game/appraisal/ghost-tracking.ts",
+      "sha256": "1a179d345d9aac40a5122a68f376017e384284f487fcd8c369795bd0a7f9242f"
+    },
+    {
+      "file": "apps/comic/src/server/appraisal-rooms.ts",
+      "sha256": "9254b9431ded373a3feaed35cd9a9fb42b7673a6cb3adc32f034b83d14ff0984"
+    },
+    {
+      "file": "apps/comic/src/server/appraisal-messages.ts",
+      "sha256": "e54b6a08f5d8d793be4e930a826b1abb824d11f50d51c5c91d1beae13aadb3a6"
+    },
+    {
+      "file": "apps/comic/src/appraisal-client/GhostWorld.tsx",
+      "sha256": "46929bb93b8000e65d6963b0e7bd593d345e524f0f97bcd6694d9623feb6a77f"
+    },
+    {
+      "file": "apps/comic/src/appraisal-client/ghost-world.css",
+      "sha256": "2d7c91c5af05ec8b7890ef045d0524eeee121cf4a1e5ba56b5435e20b6097ee9"
+    }
+  ],
+  "environmentFinalOpen": {
+    "status": "prior-taskspace-missing",
+    "space": 8,
+    "effect": "Could not reopen/finish the old verification tab after environment resumed. Earlier reports retain their matching successful invocation receipts. Latest server restarted; link supplied instead. No new visual result is inferred from this failure.",
+    "codexPanel": "queued for this chat; not a browser verification result"
+  },
+  "runtimeHealth": {
+    "url": "http://127.0.0.1:3189/health",
+    "status": 200,
+    "body": {
+      "ok": true
+    },
+    "clientAsset": "assets/index-CrVUVS54.js"
+  },
+  "gitIndexExport": {
+    "status": "pass",
+    "time": "2026-10-30T17:20:23.179839+00:00",
+    "scope": "Fresh git checkout-index tree, no unstaged/untracked files; reused installed dependencies by node_modules symlink, not a fresh npm install",
+    "uiCheck": "370 fingerprints and14 approved baseline hashes pass",
+    "atlasCheck": "123 inputs and generated outputs current"
+  }
+}

@@ -8,6 +8,7 @@ const titles:Record<string,string>={
   'round-flip':'เสี่ยงเหรียญ', 'round-raise':'เพิ่มเดิมพัน', 'round-bank':'รับรางวัลช่วง', 'bid':'เสนอราคาประมูล',
   'reappraise-owned':'ประเมินของในกระเป๋าใหม่', liquidate:'ขายของให้ระบบ', 'theft-start':'เริ่มขโมย', 'theft-hand':'เลือกมือดวล',
   'loan-propose':'เสนอสัญญากู้', 'loan-respond':'ตอบสัญญากู้', 'loan-repay':'ชำระหนี้', 'seal-offer':'เสนอตราคนบาป',
+  'ghost-start':'เริ่มติดตามการ์ด', 'ghost-guess':'ทายตำแหน่งการ์ด', 'ghost-hire':'เสนองานวิญญาณ', 'ghost-accept':'ตอบงานวิญญาณ', 'ghost-rps':'เปลี่ยนสินค้าวิญญาณ', 'ghost-deliver':'ส่งมอบสินค้าวิญญาณ',
   'crime-clear':'ล้างใบประกาศ', advance:'เริ่มช่วงใหม่',
 };
 function addedNotes(before:string[],after:string[]):string[] {
@@ -25,7 +26,7 @@ export function recordJournal(previous:AppraisalState,state:AppraisalState,actio
     const prior=previous.players.find(player=>player.id===current.id)!;
     const changes=[delta('เครดิต',prior.credits,current.credits),delta('พลัง',prior.energy,current.energy),
       prior.life!==undefined&&current.life!==undefined?delta('ชีวิต',prior.life,current.life):null,
-      delta('คะแนน',prior.score,current.score)]
+      delta('คะแนน',prior.score,current.score),delta('คะแนนวิญญาณ',previous.ghosts?.[current.id]?.bonus??0,state.ghosts?.[current.id]?.bonus??0)]
       .filter((change):change is string=>change!==null);
     const itemNameOf=(id:string)=>ITEM_SPECS[state.items[id]!.kind].name;
     changes.push(...current.inventory.filter(id=>!prior.inventory.includes(id)).map(id=>`ได้รับ ${itemNameOf(id)}`),

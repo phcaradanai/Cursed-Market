@@ -956,7 +956,7 @@
       &quot;endLine&quot;: 102
     }
   ]
-}</pre></details></article><article id="S10" data-kind="waiting"><header><b>S10 · รอผู้เล่นอื่น</b><span>PORTALS · runtime · capture: not-captured-yet · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>ตนเอง done/paused แต่เกมหลักยังไม่เปลี่ยน phase; ใช้เป็น variant ใน phase อื่นได้</p><small>Logic: L32 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+}</pre></details></article><article id="S10" data-kind="waiting"><header><b>S10 · รอผู้เล่นอื่น</b><span>PORTALS · runtime · capture: not-captured-yet · concept: draft</span></header><a href="concepts/S10-waiting-v01.png"><img src="concepts/S10-waiting-v01.png" alt="S10 รอผู้เล่นอื่น concept draft"></a><nav aria-label="ภาพแต่ละสถานะ"><a href="concepts/S10-waiting-v01.png">reveal-ready-v01 · draft</a></nav><p>ตนเอง done/paused แต่เกมหลักยังไม่เปลี่ยน phase; ใช้เป็น variant ใน phase อื่นได้</p><small>Logic: L32 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
   &quot;id&quot;: &quot;S10&quot;,
   &quot;title&quot;: &quot;รอผู้เล่นอื่น&quot;,
   &quot;phase&quot;: &quot;PORTALS&quot;,
@@ -968,48 +968,95 @@
   ],
   &quot;actionIds&quot;: [],
   &quot;nextIds&quot;: [],
-  &quot;conceptStatus&quot;: &quot;planned&quot;,
-  &quot;currentImage&quot;: null,
+  &quot;conceptStatus&quot;: &quot;draft&quot;,
+  &quot;currentImage&quot;: &quot;concepts/S10-waiting-v01.png&quot;,
   &quot;approvedImage&quot;: null,
-  &quot;variants&quot;: [],
+  &quot;variants&quot;: [
+    {
+      &quot;id&quot;: &quot;reveal-ready-v01&quot;,
+      &quot;image&quot;: &quot;concepts/S10-waiting-v01.png&quot;,
+      &quot;purpose&quot;: &quot;Waiting after ready; illustrative four-player fixture&quot;,
+      &quot;status&quot;: &quot;draft&quot;
+    }
+  ],
   &quot;mustShow&quot;: [],
   &quot;mustNotShow&quot;: [],
   &quot;captures&quot;: [],
   &quot;captureStatus&quot;: &quot;not-captured-yet&quot;,
   &quot;captureNote&quot;: &quot;Not captured is not proof this screen is absent.&quot;,
+  &quot;designNote&quot;: &quot;Draft only; REVEAL readiness is existing state, not a new phase. Timer text must follow actual room settings; handle spectator and variable player counts. No separate approval or implementation.&quot;,
   &quot;sourceRefs&quot;: []
-}</pre></details></article><article id="S11" data-kind="transition"><header><b>S11 · เสียชีวิตและทางเข้าโลกวิญญาณ</b><span>ตามเงื่อนไข · mixed · capture: not-captured-yet · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>ตายถาวรครั้งเดียว; runtime มี dead/spectate ส่วนบริการวิญญาณยังเป็นข้อเสนอ</p><small>Logic: L24 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p><a href="#G01">ไป G01</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+}</pre></details></article><article id="S11" data-kind="transition"><header><b>S11 · เสียชีวิตและทางเข้าโลกวิญญาณ</b><span>ตามเงื่อนไข · runtime · capture: captured-existing · concept: draft</span></header><a href="captures/ghost-2026-10-30/ghost-1440x722.png"><img src="captures/ghost-2026-10-30/ghost-1440x722.png" alt="S11 เสียชีวิตและทางเข้าโลกวิญญาณ ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"><a href="concepts/S11-death-v01.png">death-v01 · draft</a> · <a href="concepts/S11-death-v02.png">death-v02 · draft</a></nav><p>ตายถาวรครั้งเดียว เข้าติดตามการ์ดหรือดูเกมต่อได้</p><small>Logic: L24 · Actions: ghost-start</small><p><a href="#G01">ไป G01</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
   &quot;id&quot;: &quot;S11&quot;,
   &quot;title&quot;: &quot;เสียชีวิตและทางเข้าโลกวิญญาณ&quot;,
   &quot;phase&quot;: null,
   &quot;kind&quot;: &quot;transition&quot;,
-  &quot;implementation&quot;: &quot;mixed&quot;,
-  &quot;trigger&quot;: &quot;ตายถาวรครั้งเดียว; runtime มี dead/spectate ส่วนบริการวิญญาณยังเป็นข้อเสนอ&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;ตายถาวรครั้งเดียว เข้าติดตามการ์ดหรือดูเกมต่อได้&quot;,
   &quot;logicIds&quot;: [
     &quot;L24&quot;
   ],
-  &quot;actionIds&quot;: [],
+  &quot;actionIds&quot;: [
+    &quot;ghost-start&quot;
+  ],
   &quot;nextIds&quot;: [
     &quot;G01&quot;
   ],
-  &quot;conceptStatus&quot;: &quot;planned&quot;,
-  &quot;currentImage&quot;: null,
+  &quot;conceptStatus&quot;: &quot;draft&quot;,
+  &quot;currentImage&quot;: &quot;concepts/S11-death-v02.png&quot;,
   &quot;approvedImage&quot;: null,
-  &quot;variants&quot;: [],
+  &quot;variants&quot;: [
+    {
+      &quot;id&quot;: &quot;death-v01&quot;,
+      &quot;image&quot;: &quot;concepts/S11-death-v01.png&quot;,
+      &quot;purpose&quot;: &quot;Death/spectator transition; spirit services future only&quot;,
+      &quot;status&quot;: &quot;draft&quot;
+    },
+    {
+      &quot;id&quot;: &quot;death-v02&quot;,
+      &quot;image&quot;: &quot;concepts/S11-death-v02.png&quot;,
+      &quot;purpose&quot;: &quot;Spirit entrance with card minigame and planned market&quot;,
+      &quot;status&quot;: &quot;draft&quot;
+    }
+  ],
   &quot;mustShow&quot;: [],
   &quot;mustNotShow&quot;: [],
   &quot;sourceSymbols&quot;: [
-    &quot;kill&quot;
+    &quot;handleGhostAction&quot;,
+    &quot;handleGhostCommand&quot;,
+    &quot;ghostView&quot;
   ],
-  &quot;captures&quot;: [],
-  &quot;captureStatus&quot;: &quot;not-captured-yet&quot;,
-  &quot;captureNote&quot;: &quot;Not captured is not proof this screen is absent.&quot;,
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C34&quot;,
+      &quot;image&quot;: &quot;captures/ghost-2026-10-30/ghost-1440x722.png&quot;,
+      &quot;title&quot;: &quot;โลกวิญญาณ · ทางเข้าและมินิเกม&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureNote&quot;: &quot;Shared GhostWorld composite states; fixture screenshots are not multiplayer settlement or design approval.&quot;,
+  &quot;designNote&quot;: &quot;User-authorized shared inventory frame; historical concepts remain drafts, actual captures are separate.&quot;,
+  &quot;implementationNote&quot;: &quot;Runtime server/client integration with core, real socket and strict replay evidence; see implementations/ghost-delivery-progress.md and ../ui-system/ghost-functional-verification.json.&quot;,
+  &quot;captureImage&quot;: &quot;captures/ghost-2026-10-30/ghost-1440x722.png&quot;,
   &quot;sourceRefs&quot;: [
     {
-      &quot;symbolId&quot;: &quot;code:src/game/appraisal/mechanics.ts:kill&quot;,
-      &quot;file&quot;: &quot;src/game/appraisal/mechanics.ts&quot;,
-      &quot;line&quot;: 479,
-      &quot;endLine&quot;: 483
+      &quot;symbolId&quot;: &quot;code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostAction&quot;,
+      &quot;file&quot;: &quot;apps/comic/src/game/appraisal/ghost-service.ts&quot;,
+      &quot;line&quot;: 63,
+      &quot;endLine&quot;: 69
+    },
+    {
+      &quot;symbolId&quot;: &quot;code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand&quot;,
+      &quot;file&quot;: &quot;apps/comic/src/game/appraisal/ghost-service.ts&quot;,
+      &quot;line&quot;: 24,
+      &quot;endLine&quot;: 58
+    },
+    {
+      &quot;symbolId&quot;: &quot;code:apps/comic/src/game/appraisal/ghost-service.ts:ghostView&quot;,
+      &quot;file&quot;: &quot;apps/comic/src/game/appraisal/ghost-service.ts&quot;,
+      &quot;line&quot;: 59,
+      &quot;endLine&quot;: 61
     }
   ]
 }</pre></details></article><article id="S12" data-kind="transition"><header><b>S12 · Collector มาถึง</b><span>ตามเงื่อนไข · mixed · capture: not-captured-yet · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>collectorDue หรือทุกคนหมดชีวิตแล้ว collectRun; presentation แยกจาก results ยังต้องออกแบบ</p><small>Logic: L29, L30 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p><a href="#S13">ไป S13</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
@@ -1464,101 +1511,249 @@
   &quot;captureStatus&quot;: &quot;design-only-not-captured&quot;,
   &quot;captureNote&quot;: &quot;&quot;,
   &quot;sourceRefs&quot;: []
-}</pre></details></article><article id="G01" data-kind="ghost"><header><b>G01 · วิญญาณติดตามการ์ด</b><span>ตามเงื่อนไข · design-only · capture: design-only-not-captured · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>ตายแล้ว ต้องชนะติดตามการ์ดสี่ใบเพื่อเปิดบริการ</p><small>Logic: L24 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p><a href="#G02">ไป G02</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+}</pre></details></article><article id="G01" data-kind="ghost"><header><b>G01 · วิญญาณติดตามการ์ด</b><span>ตามเงื่อนไข · runtime · capture: captured-existing · concept: draft</span></header><a href="captures/ghost-2026-10-30/ghost-1440x722.png"><img src="captures/ghost-2026-10-30/ghost-1440x722.png" alt="G01 วิญญาณติดตามการ์ด ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"></nav><p>ตายแล้ว ต้องชนะติดตามการ์ดสี่ใบเพื่อเปิดบริการ</p><small>Logic: L24 · Actions: ghost-start, ghost-guess</small><p><a href="#G02">ไป G02</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
   &quot;id&quot;: &quot;G01&quot;,
   &quot;title&quot;: &quot;วิญญาณติดตามการ์ด&quot;,
   &quot;phase&quot;: null,
   &quot;kind&quot;: &quot;ghost&quot;,
-  &quot;implementation&quot;: &quot;design-only&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
   &quot;trigger&quot;: &quot;ตายแล้ว ต้องชนะติดตามการ์ดสี่ใบเพื่อเปิดบริการ&quot;,
   &quot;logicIds&quot;: [
     &quot;L24&quot;
   ],
-  &quot;actionIds&quot;: [],
+  &quot;actionIds&quot;: [
+    &quot;ghost-start&quot;,
+    &quot;ghost-guess&quot;
+  ],
   &quot;nextIds&quot;: [
     &quot;G02&quot;
   ],
-  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;conceptStatus&quot;: &quot;draft&quot;,
   &quot;currentImage&quot;: null,
   &quot;approvedImage&quot;: null,
   &quot;variants&quot;: [],
   &quot;mustShow&quot;: [],
   &quot;mustNotShow&quot;: [],
-  &quot;captures&quot;: [],
-  &quot;captureStatus&quot;: &quot;design-only-not-captured&quot;,
-  &quot;captureNote&quot;: &quot;&quot;,
-  &quot;sourceRefs&quot;: []
-}</pre></details></article><article id="G02" data-kind="ghost"><header><b>G02 · เรียกบริการและตกลงสัญญาวิญญาณ</b><span>ตามเงื่อนไข · design-only · capture: design-only-not-captured · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>ผู้มีชีวิตเลือกหนึ่งในสามสินค้าและตกลงค่าจ้างกับวิญญาณที่เปิดบริการ</p><small>Logic: L06 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p><a href="#G03">ไป G03</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C34&quot;,
+      &quot;image&quot;: &quot;captures/ghost-2026-10-30/ghost-1440x722.png&quot;,
+      &quot;title&quot;: &quot;โลกวิญญาณ · ทางเข้าและมินิเกม&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureNote&quot;: &quot;Shared GhostWorld composite states; fixture screenshots are not multiplayer settlement or design approval.&quot;,
+  &quot;implementationNote&quot;: &quot;Runtime server/client integration with core, real socket and strict replay evidence; see implementations/ghost-delivery-progress.md and ../ui-system/ghost-functional-verification.json.&quot;,
+  &quot;sourceSymbols&quot;: [
+    &quot;handleGhostAction&quot;,
+    &quot;handleGhostCommand&quot;,
+    &quot;ghostView&quot;
+  ],
+  &quot;captureImage&quot;: &quot;captures/ghost-2026-10-30/ghost-1440x722.png&quot;,
+  &quot;sourceRefs&quot;: [
+    {
+      &quot;symbolId&quot;: &quot;code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostAction&quot;,
+      &quot;file&quot;: &quot;apps/comic/src/game/appraisal/ghost-service.ts&quot;,
+      &quot;line&quot;: 63,
+      &quot;endLine&quot;: 69
+    },
+    {
+      &quot;symbolId&quot;: &quot;code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand&quot;,
+      &quot;file&quot;: &quot;apps/comic/src/game/appraisal/ghost-service.ts&quot;,
+      &quot;line&quot;: 24,
+      &quot;endLine&quot;: 58
+    },
+    {
+      &quot;symbolId&quot;: &quot;code:apps/comic/src/game/appraisal/ghost-service.ts:ghostView&quot;,
+      &quot;file&quot;: &quot;apps/comic/src/game/appraisal/ghost-service.ts&quot;,
+      &quot;line&quot;: 59,
+      &quot;endLine&quot;: 61
+    }
+  ]
+}</pre></details></article><article id="G02" data-kind="ghost"><header><b>G02 · เรียกบริการและตกลงสัญญาวิญญาณ</b><span>ตามเงื่อนไข · runtime · capture: captured-existing · concept: draft</span></header><a href="captures/ghost-2026-10-30/ghost-busy-1440x722.png"><img src="captures/ghost-2026-10-30/ghost-busy-1440x722.png" alt="G02 เรียกบริการและตกลงสัญญาวิญญาณ ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"></nav><p>ผู้มีชีวิตเลือกหนึ่งในสามสินค้าและตกลงค่าจ้างกับวิญญาณที่เปิดบริการ</p><small>Logic: L06 · Actions: ghost-hire, ghost-accept</small><p><a href="#G03">ไป G03</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
   &quot;id&quot;: &quot;G02&quot;,
   &quot;title&quot;: &quot;เรียกบริการและตกลงสัญญาวิญญาณ&quot;,
   &quot;phase&quot;: null,
   &quot;kind&quot;: &quot;ghost&quot;,
-  &quot;implementation&quot;: &quot;design-only&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
   &quot;trigger&quot;: &quot;ผู้มีชีวิตเลือกหนึ่งในสามสินค้าและตกลงค่าจ้างกับวิญญาณที่เปิดบริการ&quot;,
   &quot;logicIds&quot;: [
     &quot;L06&quot;
   ],
-  &quot;actionIds&quot;: [],
+  &quot;actionIds&quot;: [
+    &quot;ghost-hire&quot;,
+    &quot;ghost-accept&quot;
+  ],
   &quot;nextIds&quot;: [
     &quot;G03&quot;
   ],
-  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;conceptStatus&quot;: &quot;draft&quot;,
   &quot;currentImage&quot;: null,
   &quot;approvedImage&quot;: null,
   &quot;variants&quot;: [],
   &quot;mustShow&quot;: [],
   &quot;mustNotShow&quot;: [],
-  &quot;captures&quot;: [],
-  &quot;captureStatus&quot;: &quot;design-only-not-captured&quot;,
-  &quot;captureNote&quot;: &quot;&quot;,
-  &quot;sourceRefs&quot;: []
-}</pre></details></article><article id="G03" data-kind="ghost"><header><b>G03 · ร้าน Skeleton และ RPS แยกสามช่อง</b><span>ตามเงื่อนไข · design-only · capture: design-only-not-captured · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>ซื้อได้เฉพาะเป้าหมายตามงาน; แต่ละช่องแพ้แยกกัน; แพ้ครบสามรอช่วงหน้า</p><small>Logic: L33 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p><a href="#G04">ไป G04</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C35&quot;,
+      &quot;image&quot;: &quot;captures/ghost-2026-10-30/ghost-busy-1440x722.png&quot;,
+      &quot;title&quot;: &quot;งานวิญญาณ · ตอบรับข้อเสนอ&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureNote&quot;: &quot;Shared GhostWorld composite states; fixture screenshots are not multiplayer settlement or design approval.&quot;,
+  &quot;implementationNote&quot;: &quot;Runtime server/client integration with core, real socket and strict replay evidence; see implementations/ghost-delivery-progress.md and ../ui-system/ghost-functional-verification.json.&quot;,
+  &quot;sourceSymbols&quot;: [
+    &quot;handleGhostAction&quot;,
+    &quot;handleGhostCommand&quot;,
+    &quot;ghostView&quot;
+  ],
+  &quot;captureImage&quot;: &quot;captures/ghost-2026-10-30/ghost-busy-1440x722.png&quot;,
+  &quot;sourceRefs&quot;: [
+    {
+      &quot;symbolId&quot;: &quot;code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostAction&quot;,
+      &quot;file&quot;: &quot;apps/comic/src/game/appraisal/ghost-service.ts&quot;,
+      &quot;line&quot;: 63,
+      &quot;endLine&quot;: 69
+    },
+    {
+      &quot;symbolId&quot;: &quot;code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand&quot;,
+      &quot;file&quot;: &quot;apps/comic/src/game/appraisal/ghost-service.ts&quot;,
+      &quot;line&quot;: 24,
+      &quot;endLine&quot;: 58
+    },
+    {
+      &quot;symbolId&quot;: &quot;code:apps/comic/src/game/appraisal/ghost-service.ts:ghostView&quot;,
+      &quot;file&quot;: &quot;apps/comic/src/game/appraisal/ghost-service.ts&quot;,
+      &quot;line&quot;: 59,
+      &quot;endLine&quot;: 61
+    }
+  ]
+}</pre></details></article><article id="G03" data-kind="ghost"><header><b>G03 · ร้าน Skeleton และ RPS แยกสามช่อง</b><span>ตามเงื่อนไข · runtime · capture: captured-existing · concept: draft</span></header><a href="captures/ghost-2026-10-30/ghost-lost-1440x722.png"><img src="captures/ghost-2026-10-30/ghost-lost-1440x722.png" alt="G03 ร้าน Skeleton และ RPS แยกสามช่อง ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"></nav><p>ซื้อได้เฉพาะเป้าหมายตามงาน; แต่ละช่องแพ้แยกกัน; แพ้ครบสามรอช่วงหน้า</p><small>Logic: L33 · Actions: ghost-rps</small><p><a href="#G04">ไป G04</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
   &quot;id&quot;: &quot;G03&quot;,
   &quot;title&quot;: &quot;ร้าน Skeleton และ RPS แยกสามช่อง&quot;,
   &quot;phase&quot;: null,
   &quot;kind&quot;: &quot;ghost&quot;,
-  &quot;implementation&quot;: &quot;design-only&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
   &quot;trigger&quot;: &quot;ซื้อได้เฉพาะเป้าหมายตามงาน; แต่ละช่องแพ้แยกกัน; แพ้ครบสามรอช่วงหน้า&quot;,
   &quot;logicIds&quot;: [
     &quot;L33&quot;
   ],
-  &quot;actionIds&quot;: [],
+  &quot;actionIds&quot;: [
+    &quot;ghost-rps&quot;
+  ],
   &quot;nextIds&quot;: [
     &quot;G04&quot;
   ],
-  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;conceptStatus&quot;: &quot;draft&quot;,
   &quot;currentImage&quot;: null,
   &quot;approvedImage&quot;: null,
   &quot;variants&quot;: [],
   &quot;mustShow&quot;: [],
   &quot;mustNotShow&quot;: [],
-  &quot;captures&quot;: [],
-  &quot;captureStatus&quot;: &quot;design-only-not-captured&quot;,
-  &quot;captureNote&quot;: &quot;&quot;,
-  &quot;sourceRefs&quot;: []
-}</pre></details></article><article id="G04" data-kind="ghost"><header><b>G04 · ส่งมอบและคะแนนพิเศษวิญญาณ</b><span>ตามเงื่อนไข · design-only · capture: design-only-not-captured · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>สำเร็จจึงจ่าย;10%baseหักราคาสินค้า; อัตราแปลงคะแนนยังไม่ยืนยัน</p><small>Logic: L30, L33 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p><a href="#G01">ไป G01</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C36&quot;,
+      &quot;image&quot;: &quot;captures/ghost-2026-10-30/ghost-lost-1440x722.png&quot;,
+      &quot;title&quot;: &quot;Skeleton · แพ้ครบสามช่อง&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureNote&quot;: &quot;Shared GhostWorld composite states; fixture screenshots are not multiplayer settlement or design approval.&quot;,
+  &quot;implementationNote&quot;: &quot;Runtime server/client integration with core, real socket and strict replay evidence; see implementations/ghost-delivery-progress.md and ../ui-system/ghost-functional-verification.json.&quot;,
+  &quot;sourceSymbols&quot;: [
+    &quot;handleGhostAction&quot;,
+    &quot;handleGhostCommand&quot;,
+    &quot;ghostView&quot;
+  ],
+  &quot;captureImage&quot;: &quot;captures/ghost-2026-10-30/ghost-lost-1440x722.png&quot;,
+  &quot;sourceRefs&quot;: [
+    {
+      &quot;symbolId&quot;: &quot;code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostAction&quot;,
+      &quot;file&quot;: &quot;apps/comic/src/game/appraisal/ghost-service.ts&quot;,
+      &quot;line&quot;: 63,
+      &quot;endLine&quot;: 69
+    },
+    {
+      &quot;symbolId&quot;: &quot;code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand&quot;,
+      &quot;file&quot;: &quot;apps/comic/src/game/appraisal/ghost-service.ts&quot;,
+      &quot;line&quot;: 24,
+      &quot;endLine&quot;: 58
+    },
+    {
+      &quot;symbolId&quot;: &quot;code:apps/comic/src/game/appraisal/ghost-service.ts:ghostView&quot;,
+      &quot;file&quot;: &quot;apps/comic/src/game/appraisal/ghost-service.ts&quot;,
+      &quot;line&quot;: 59,
+      &quot;endLine&quot;: 61
+    }
+  ]
+}</pre></details></article><article id="G04" data-kind="ghost"><header><b>G04 · ส่งมอบและคะแนนพิเศษวิญญาณ</b><span>ตามเงื่อนไข · runtime · capture: captured-existing · concept: draft</span></header><a href="captures/ghost-2026-10-30/ghost-working-1440x722.png"><img src="captures/ghost-2026-10-30/ghost-working-1440x722.png" alt="G04 ส่งมอบและคะแนนพิเศษวิญญาณ ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"></nav><p>ส่งสำเร็จจึงจ่ายราคา+ค่าจ้าง; floor10%baseหักในราคา; รายได้1เครดิต=1คะแนนพิเศษ; เงินไม่พอรอเติม; ผู้ว่าจ้างตายยกเลิก</p><small>Logic: L30, L33 · Actions: ghost-deliver</small><p><a href="#G01">ไป G01</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
   &quot;id&quot;: &quot;G04&quot;,
   &quot;title&quot;: &quot;ส่งมอบและคะแนนพิเศษวิญญาณ&quot;,
   &quot;phase&quot;: null,
   &quot;kind&quot;: &quot;ghost&quot;,
-  &quot;implementation&quot;: &quot;design-only&quot;,
-  &quot;trigger&quot;: &quot;สำเร็จจึงจ่าย;10%baseหักราคาสินค้า; อัตราแปลงคะแนนยังไม่ยืนยัน&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;ส่งสำเร็จจึงจ่ายราคา+ค่าจ้าง; floor10%baseหักในราคา; รายได้1เครดิต=1คะแนนพิเศษ; เงินไม่พอรอเติม; ผู้ว่าจ้างตายยกเลิก&quot;,
   &quot;logicIds&quot;: [
     &quot;L30&quot;,
     &quot;L33&quot;
   ],
-  &quot;actionIds&quot;: [],
+  &quot;actionIds&quot;: [
+    &quot;ghost-deliver&quot;
+  ],
   &quot;nextIds&quot;: [
     &quot;G01&quot;
   ],
-  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;conceptStatus&quot;: &quot;draft&quot;,
   &quot;currentImage&quot;: null,
   &quot;approvedImage&quot;: null,
   &quot;variants&quot;: [],
   &quot;mustShow&quot;: [],
   &quot;mustNotShow&quot;: [],
-  &quot;captures&quot;: [],
-  &quot;captureStatus&quot;: &quot;design-only-not-captured&quot;,
-  &quot;captureNote&quot;: &quot;&quot;,
-  &quot;sourceRefs&quot;: []
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C37&quot;,
+      &quot;image&quot;: &quot;captures/ghost-2026-10-30/ghost-working-1440x722.png&quot;,
+      &quot;title&quot;: &quot;ส่งมอบสินค้าเป้าหมาย&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C38&quot;,
+      &quot;image&quot;: &quot;captures/ghost-2026-10-30/ghost-funds-1440x722.png&quot;,
+      &quot;title&quot;: &quot;ส่งมอบ · รอผู้ว่าจ้างเติมเครดิต&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureNote&quot;: &quot;Shared GhostWorld composite states; fixture screenshots are not multiplayer settlement or design approval.&quot;,
+  &quot;implementationNote&quot;: &quot;Runtime server/client integration with core, real socket and strict replay evidence; see implementations/ghost-delivery-progress.md and ../ui-system/ghost-functional-verification.json.&quot;,
+  &quot;sourceSymbols&quot;: [
+    &quot;handleGhostAction&quot;,
+    &quot;handleGhostCommand&quot;,
+    &quot;ghostView&quot;
+  ],
+  &quot;captureImage&quot;: &quot;captures/ghost-2026-10-30/ghost-working-1440x722.png&quot;,
+  &quot;sourceRefs&quot;: [
+    {
+      &quot;symbolId&quot;: &quot;code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostAction&quot;,
+      &quot;file&quot;: &quot;apps/comic/src/game/appraisal/ghost-service.ts&quot;,
+      &quot;line&quot;: 63,
+      &quot;endLine&quot;: 69
+    },
+    {
+      &quot;symbolId&quot;: &quot;code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand&quot;,
+      &quot;file&quot;: &quot;apps/comic/src/game/appraisal/ghost-service.ts&quot;,
+      &quot;line&quot;: 24,
+      &quot;endLine&quot;: 58
+    },
+    {
+      &quot;symbolId&quot;: &quot;code:apps/comic/src/game/appraisal/ghost-service.ts:ghostView&quot;,
+      &quot;file&quot;: &quot;apps/comic/src/game/appraisal/ghost-service.ts&quot;,
+      &quot;line&quot;: 59,
+      &quot;endLine&quot;: 61
+    }
+  ]
 }</pre></details></article></section><p>ภาพร่างไม่ใช่หลักฐานว่า logic ลงระบบแล้ว สถานะ approved ต้องอ้างการอนุมัติผู้ใช้จริง</p></main><script>document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>{document.querySelectorAll('article').forEach(a=>a.hidden=b.dataset.filter!=='all'&&a.dataset.kind!==b.dataset.filter);document.querySelectorAll('[data-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)))});addEventListener('hashchange',()=>{const target=document.getElementById(location.hash.slice(1));if(target){target.hidden=false;target.scrollIntoView()}});</script></html>

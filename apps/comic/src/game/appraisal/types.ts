@@ -241,6 +241,7 @@ export interface TraceEntry { type: string; encounter: number; playerId: string;
 export interface JournalEntry { id:number; encounter:number; phase:AppraisalPhase; action:string; cause:string; changes:string[]; choice?:string; itemKind?:ItemKind }
 export interface EncounterResult { encounter: number; playerId: string; gain: number; accuracy: number; score: number; paused: Appraiser['paused'] }
 export type AppraisalAction = { playerId: string; requestId: string; encounter: number } & (
+  | import('./ghost-service.js').GhostAction
   | import('./secure-storage.js').StorageAction
   | import('./secure-storage.js').LoanAction
   | import('./seals.js').SealAction
@@ -284,6 +285,7 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
 /** `rebate` is credits the owner pays the buyer when the sale completes, so a poor item can still find a price. */
 export interface SharedListing { ownerId: string; itemId: string; purchase: boolean; claims?: { genuine?: boolean; cursed?: boolean }; rebate?: number }
 export interface AppraisalState {
+  ghosts?:Record<string,import('./ghost-service.js').GhostState>;
   theftDuels?:import('./theft.js').TheftDuel[];
   loans?:import('./secure-storage.js').SecuredLoan[];
   version: 4 | 5; seed: string; config: AppraisalConfig; encounter: number; phase: AppraisalPhase;
@@ -322,6 +324,7 @@ export interface ItemView {
 }
 export interface Core2Actions { skill?:{npc:NpcId;name:string;needsItem:boolean;strong:boolean}; stealChance?:number; pickpocketChance?:number; theftUsed:boolean; trustForSkill:number }
 export interface AppraisalView {
+  ghosts?:ReturnType<typeof import('./ghost-service.js').ghostView>;
   secureEconomy?:boolean;
   theft?:ReturnType<typeof import('./theft.js').theftViewFor>;
   sealMarket?:import('./seals.js').SealMarketView;

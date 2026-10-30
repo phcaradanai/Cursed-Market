@@ -6735,6 +6735,17 @@ source guards and call order determine actual application; do not add damage fro
         },
         "expression": "current.config.survival",
         "guards": []
+      },
+      {
+        "key": "survival",
+        "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+          "line": 25,
+          "endLine": 25
+        },
+        "expression": "s.config.survival",
+        "guards": []
       }
     ]
   },
@@ -11042,6 +11053,84 @@ source guards and call order determine actual application; do not add damage fro
       "endLine": 98
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:wish-deal`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/ghost-service.ts:12:1345",
+    "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:draw",
+    "key": "`ghost:${label}:${g.round}:${g.draws++}`",
+    "seed": "s.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+      "line": 12,
+      "endLine": 12
+    },
+    "expression": "randomAt(s.seed,`ghost:${label}:${g.round}:${g.draws++}`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/ghost-service.ts:18:1977",
+    "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:ghostQuotes",
+    "key": "`ghost-quote:${s.encounter}:${ghostId}:${buyerId}:${a}`",
+    "seed": "s.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+      "line": 18,
+      "endLine": 18
+    },
+    "expression": "randomAt(s.seed,`ghost-quote:${s.encounter}:${ghostId}:${buyerId}:${a}`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/ghost-service.ts:18:2050",
+    "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:ghostQuotes",
+    "key": "`ghost-quote:${s.encounter}:${ghostId}:${buyerId}:${b}`",
+    "seed": "s.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+      "line": 18,
+      "endLine": 18
+    },
+    "expression": "randomAt(s.seed,`ghost-quote:${s.encounter}:${ghostId}:${buyerId}:${b}`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/ghost-service.ts:20:2334",
+    "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:ghostQuotes",
+    "key": "`ghost-price:${s.encounter}:${ghostId}:${buyerId}:${kind}`",
+    "seed": "s.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+      "line": 20,
+      "endLine": 20
+    },
+    "expression": "randomAt(s.seed,`ghost-price:${s.encounter}:${ghostId}:${buyerId}:${kind}`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/ghost-service.ts:54:6169",
+    "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+    "key": "`${itemId}:genuine`",
+    "seed": "s.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+      "line": 54,
+      "endLine": 54
+    },
+    "expression": "randomAt(s.seed,`${itemId}:genuine`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/ghost-service.ts:54:6217",
+    "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+    "key": "`${itemId}:curse`",
+    "seed": "s.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+      "line": 54,
+      "endLine": 54
+    },
+    "expression": "randomAt(s.seed,`${itemId}:curse`)"
   }
 ]
 ```

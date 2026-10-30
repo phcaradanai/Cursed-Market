@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-29",
+  "updatedAt": "2026-10-30",
   "status": "screen-plan-not-runtime-phase-enumeration",
   "style": {
     "theme": "2D comic, red/black/white chrome, merchant/item palette retained",
@@ -877,42 +877,77 @@
       ],
       "actionIds": [],
       "nextIds": [],
-      "conceptStatus": "planned",
-      "currentImage": null,
+      "conceptStatus": "draft",
+      "currentImage": "concepts/S10-waiting-v01.png",
       "approvedImage": null,
-      "variants": [],
+      "variants": [
+        {
+          "id": "reveal-ready-v01",
+          "image": "concepts/S10-waiting-v01.png",
+          "purpose": "Waiting after ready; illustrative four-player fixture",
+          "status": "draft"
+        }
+      ],
       "mustShow": [],
       "mustNotShow": [],
       "captures": [],
       "captureStatus": "not-captured-yet",
-      "captureNote": "Not captured is not proof this screen is absent."
+      "captureNote": "Not captured is not proof this screen is absent.",
+      "designNote": "Draft only; REVEAL readiness is existing state, not a new phase. Timer text must follow actual room settings; handle spectator and variable player counts. No separate approval or implementation."
     },
     {
       "id": "S11",
       "title": "เสียชีวิตและทางเข้าโลกวิญญาณ",
       "phase": null,
       "kind": "transition",
-      "implementation": "mixed",
-      "trigger": "ตายถาวรครั้งเดียว; runtime มี dead/spectate ส่วนบริการวิญญาณยังเป็นข้อเสนอ",
+      "implementation": "runtime",
+      "trigger": "ตายถาวรครั้งเดียว เข้าติดตามการ์ดหรือดูเกมต่อได้",
       "logicIds": [
         "L24"
       ],
-      "actionIds": [],
+      "actionIds": [
+        "ghost-start"
+      ],
       "nextIds": [
         "G01"
       ],
-      "conceptStatus": "planned",
-      "currentImage": null,
+      "conceptStatus": "draft",
+      "currentImage": "concepts/S11-death-v02.png",
       "approvedImage": null,
-      "variants": [],
+      "variants": [
+        {
+          "id": "death-v01",
+          "image": "concepts/S11-death-v01.png",
+          "purpose": "Death/spectator transition; spirit services future only",
+          "status": "draft"
+        },
+        {
+          "id": "death-v02",
+          "image": "concepts/S11-death-v02.png",
+          "purpose": "Spirit entrance with card minigame and planned market",
+          "status": "draft"
+        }
+      ],
       "mustShow": [],
       "mustNotShow": [],
       "sourceSymbols": [
-        "kill"
+        "handleGhostAction",
+        "handleGhostCommand",
+        "ghostView"
       ],
-      "captures": [],
-      "captureStatus": "not-captured-yet",
-      "captureNote": "Not captured is not proof this screen is absent."
+      "captures": [
+        {
+          "id": "C34",
+          "image": "captures/ghost-2026-10-30/ghost-1440x722.png",
+          "title": "โลกวิญญาณ · ทางเข้าและมินิเกม",
+          "origin": "existing-component-preview-fixture"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureNote": "Shared GhostWorld composite states; fixture screenshots are not multiplayer settlement or design approval.",
+      "designNote": "User-authorized shared inventory frame; historical concepts remain drafts, actual captures are separate.",
+      "implementationNote": "Runtime server/client integration with core, real socket and strict replay evidence; see implementations/ghost-delivery-progress.md and ../ui-system/ghost-functional-verification.json.",
+      "captureImage": "captures/ghost-2026-10-30/ghost-1440x722.png"
     },
     {
       "id": "S12",
@@ -1351,97 +1386,169 @@
       "title": "วิญญาณติดตามการ์ด",
       "phase": null,
       "kind": "ghost",
-      "implementation": "design-only",
+      "implementation": "runtime",
       "trigger": "ตายแล้ว ต้องชนะติดตามการ์ดสี่ใบเพื่อเปิดบริการ",
       "logicIds": [
         "L24"
       ],
-      "actionIds": [],
+      "actionIds": [
+        "ghost-start",
+        "ghost-guess"
+      ],
       "nextIds": [
         "G02"
       ],
-      "conceptStatus": "planned",
+      "conceptStatus": "draft",
       "currentImage": null,
       "approvedImage": null,
       "variants": [],
       "mustShow": [],
       "mustNotShow": [],
-      "captures": [],
-      "captureStatus": "design-only-not-captured",
-      "captureNote": ""
+      "captures": [
+        {
+          "id": "C34",
+          "image": "captures/ghost-2026-10-30/ghost-1440x722.png",
+          "title": "โลกวิญญาณ · ทางเข้าและมินิเกม",
+          "origin": "existing-component-preview-fixture"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureNote": "Shared GhostWorld composite states; fixture screenshots are not multiplayer settlement or design approval.",
+      "implementationNote": "Runtime server/client integration with core, real socket and strict replay evidence; see implementations/ghost-delivery-progress.md and ../ui-system/ghost-functional-verification.json.",
+      "sourceSymbols": [
+        "handleGhostAction",
+        "handleGhostCommand",
+        "ghostView"
+      ],
+      "captureImage": "captures/ghost-2026-10-30/ghost-1440x722.png"
     },
     {
       "id": "G02",
       "title": "เรียกบริการและตกลงสัญญาวิญญาณ",
       "phase": null,
       "kind": "ghost",
-      "implementation": "design-only",
+      "implementation": "runtime",
       "trigger": "ผู้มีชีวิตเลือกหนึ่งในสามสินค้าและตกลงค่าจ้างกับวิญญาณที่เปิดบริการ",
       "logicIds": [
         "L06"
       ],
-      "actionIds": [],
+      "actionIds": [
+        "ghost-hire",
+        "ghost-accept"
+      ],
       "nextIds": [
         "G03"
       ],
-      "conceptStatus": "planned",
+      "conceptStatus": "draft",
       "currentImage": null,
       "approvedImage": null,
       "variants": [],
       "mustShow": [],
       "mustNotShow": [],
-      "captures": [],
-      "captureStatus": "design-only-not-captured",
-      "captureNote": ""
+      "captures": [
+        {
+          "id": "C35",
+          "image": "captures/ghost-2026-10-30/ghost-busy-1440x722.png",
+          "title": "งานวิญญาณ · ตอบรับข้อเสนอ",
+          "origin": "existing-component-preview-fixture"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureNote": "Shared GhostWorld composite states; fixture screenshots are not multiplayer settlement or design approval.",
+      "implementationNote": "Runtime server/client integration with core, real socket and strict replay evidence; see implementations/ghost-delivery-progress.md and ../ui-system/ghost-functional-verification.json.",
+      "sourceSymbols": [
+        "handleGhostAction",
+        "handleGhostCommand",
+        "ghostView"
+      ],
+      "captureImage": "captures/ghost-2026-10-30/ghost-busy-1440x722.png"
     },
     {
       "id": "G03",
       "title": "ร้าน Skeleton และ RPS แยกสามช่อง",
       "phase": null,
       "kind": "ghost",
-      "implementation": "design-only",
+      "implementation": "runtime",
       "trigger": "ซื้อได้เฉพาะเป้าหมายตามงาน; แต่ละช่องแพ้แยกกัน; แพ้ครบสามรอช่วงหน้า",
       "logicIds": [
         "L33"
       ],
-      "actionIds": [],
+      "actionIds": [
+        "ghost-rps"
+      ],
       "nextIds": [
         "G04"
       ],
-      "conceptStatus": "planned",
+      "conceptStatus": "draft",
       "currentImage": null,
       "approvedImage": null,
       "variants": [],
       "mustShow": [],
       "mustNotShow": [],
-      "captures": [],
-      "captureStatus": "design-only-not-captured",
-      "captureNote": ""
+      "captures": [
+        {
+          "id": "C36",
+          "image": "captures/ghost-2026-10-30/ghost-lost-1440x722.png",
+          "title": "Skeleton · แพ้ครบสามช่อง",
+          "origin": "existing-component-preview-fixture"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureNote": "Shared GhostWorld composite states; fixture screenshots are not multiplayer settlement or design approval.",
+      "implementationNote": "Runtime server/client integration with core, real socket and strict replay evidence; see implementations/ghost-delivery-progress.md and ../ui-system/ghost-functional-verification.json.",
+      "sourceSymbols": [
+        "handleGhostAction",
+        "handleGhostCommand",
+        "ghostView"
+      ],
+      "captureImage": "captures/ghost-2026-10-30/ghost-lost-1440x722.png"
     },
     {
       "id": "G04",
       "title": "ส่งมอบและคะแนนพิเศษวิญญาณ",
       "phase": null,
       "kind": "ghost",
-      "implementation": "design-only",
-      "trigger": "สำเร็จจึงจ่าย;10%baseหักราคาสินค้า; อัตราแปลงคะแนนยังไม่ยืนยัน",
+      "implementation": "runtime",
+      "trigger": "ส่งสำเร็จจึงจ่ายราคา+ค่าจ้าง; floor10%baseหักในราคา; รายได้1เครดิต=1คะแนนพิเศษ; เงินไม่พอรอเติม; ผู้ว่าจ้างตายยกเลิก",
       "logicIds": [
         "L30",
         "L33"
       ],
-      "actionIds": [],
+      "actionIds": [
+        "ghost-deliver"
+      ],
       "nextIds": [
         "G01"
       ],
-      "conceptStatus": "planned",
+      "conceptStatus": "draft",
       "currentImage": null,
       "approvedImage": null,
       "variants": [],
       "mustShow": [],
       "mustNotShow": [],
-      "captures": [],
-      "captureStatus": "design-only-not-captured",
-      "captureNote": ""
+      "captures": [
+        {
+          "id": "C37",
+          "image": "captures/ghost-2026-10-30/ghost-working-1440x722.png",
+          "title": "ส่งมอบสินค้าเป้าหมาย",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C38",
+          "image": "captures/ghost-2026-10-30/ghost-funds-1440x722.png",
+          "title": "ส่งมอบ · รอผู้ว่าจ้างเติมเครดิต",
+          "origin": "existing-component-preview-fixture"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureNote": "Shared GhostWorld composite states; fixture screenshots are not multiplayer settlement or design approval.",
+      "implementationNote": "Runtime server/client integration with core, real socket and strict replay evidence; see implementations/ghost-delivery-progress.md and ../ui-system/ghost-functional-verification.json.",
+      "sourceSymbols": [
+        "handleGhostAction",
+        "handleGhostCommand",
+        "ghostView"
+      ],
+      "captureImage": "captures/ghost-2026-10-30/ghost-working-1440x722.png"
     }
   ],
   "notes": [

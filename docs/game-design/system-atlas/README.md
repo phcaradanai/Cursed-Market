@@ -1,6 +1,6 @@
 # แผนที่ระบบเกมทั้งหมด
 
-Snapshot 2026-10-30; revision 7be5aed18aa048c7ea45850913cadbfc4c8d52e0 (รวม working tree fingerprint ใน manifest)
+Snapshot 2026-10-31; revision 39ec3277e2570cb24dc4ccb6abbf0cd154ed3fad (รวม working tree fingerprint ใน manifest)
 
 [เปิด HTML ทั้งระบบ](../logic-item-relations.html) · [Events](events.md) · [Status/Omen](statuses-omens.md) · [Encounter/Config](encounters-config.md) · [พ่อค้า](merchants.md) · [Actions/Logs/Validation](actions-logs.md) · [State schemas](state-schema.md) · [Coverage/ช่องว่าง](coverage.md) · [33 ระบบและหลักฐาน](systems.md)
 
@@ -25,20 +25,20 @@ Snapshot 2026-10-30; revision 7be5aed18aa048c7ea45850913cadbfc4c8d52e0 (รว�
   "choiceVariants": 314,
   "encounterModels": 6,
   "phases": 5,
-  "actions": 50,
+  "actions": 56,
   "configKeys": 53,
   "parameters": 67,
-  "functions": 431,
-  "codeSymbols": 564,
+  "functions": 444,
+  "codeSymbols": 577,
   "policies": 197,
-  "randomRules": 89,
+  "randomRules": 95,
   "legacyGateSites": 21,
   "logSites": 105,
   "logTopics": 92,
-  "validationSites": 406,
+  "validationSites": 429,
   "dynamicStatusOperations": 28,
-  "schemas": 108,
-  "propertyWriteSites": 485
+  "schemas": 112,
+  "propertyWriteSites": 509
 }
 ```
 ## สืบต่อเมื่อเพิ่ม logic

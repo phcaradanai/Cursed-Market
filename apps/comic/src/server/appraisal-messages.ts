@@ -18,6 +18,12 @@ function action(value: unknown): AppraisalSeatAction {
   const base = { requestId, encounter: encounter(body.encounter) };
   const fields = ['type', 'requestId', 'encounter'];
   switch (body.type) {
+    case 'ghost-start': keys(body,fields);return {type:body.type,...base};
+    case 'ghost-guess': keys(body,[...fields,'round','position']);return {type:body.type,...base,round:integer(body.round),position:integer(body.position)};
+    case 'ghost-hire': keys(body,[...fields,'ghostId','choice','quoteId','fee']);return {type:body.type,...base,ghostId:string(body.ghostId),choice:integer(body.choice),quoteId:string(body.quoteId,256),fee:integer(body.fee)};
+    case 'ghost-accept': keys(body,[...fields,'jobId','accept']);return {type:body.type,...base,jobId:string(body.jobId),accept:boolean(body.accept)};
+    case 'ghost-deliver': keys(body,[...fields,'jobId','slot']);return {type:body.type,...base,jobId:string(body.jobId),slot:integer(body.slot)};
+    case 'ghost-rps': keys(body,[...fields,'slot','hand']);if(!['rock','paper','scissors'].includes(String(body.hand)))throw new MessageError();return {type:body.type,...base,slot:integer(body.slot),hand:body.hand as 'rock'|'paper'|'scissors'};
     case 'vault-deposit-item': case 'vault-withdraw-item': case 'liquidate':
       keys(body,[...fields,'itemId']);return {type:body.type,...base,itemId:string(body.itemId)};
     case 'vault-deposit-credits': case 'vault-withdraw-credits':

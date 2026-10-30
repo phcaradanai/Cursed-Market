@@ -30,4 +30,5 @@ import './comic-overlay.css';
 import './item-sale.css';
 import './reward-concept.css';
 import './vault-concept.css';
+import './ghost-world.css';
 import './comic-frame.css';

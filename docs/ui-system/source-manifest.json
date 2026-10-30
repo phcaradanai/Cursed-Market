@@ -13,7 +13,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/App.tsx",
-      "sha256": "928d4202adf2bb0ee6dc9b64081405c96849e00f99fa7165d0303769f41af3cf"
+      "sha256": "9d1c3999da001442b5f5f155e3f43d89bd914416252663e9fa4c17dd1f08c50e"
     },
     {
       "file": "apps/comic/src/appraisal-client/BloodPactEvent.tsx",
@@ -21,7 +21,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
-      "sha256": "3e6d4c8d91538018246ea877899ef22db96f9694b07b94d2afb0419e3845f6e0"
+      "sha256": "bdbc07da2cd3c32183539dac153b80f78b6a8ab91e4ab1ea832c949ba13278fa"
     },
     {
       "file": "apps/comic/src/appraisal-client/ComicTooltip.tsx",
@@ -34,6 +34,10 @@
     {
       "file": "apps/comic/src/appraisal-client/GameDialog.tsx",
       "sha256": "4ae99a173050d0b5096fd5767a9c139a7f082571fe05597bf95e2a2f4bd902c7"
+    },
+    {
+      "file": "apps/comic/src/appraisal-client/GhostWorld.tsx",
+      "sha256": "46929bb93b8000e65d6963b0e7bd593d345e524f0f97bcd6694d9623feb6a77f"
     },
     {
       "file": "apps/comic/src/appraisal-client/HeldEffects.tsx",
@@ -97,7 +101,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/StatusMenu.tsx",
-      "sha256": "7abdb8a864445e812344b4778020ac58e88900be322dfc3063b8efd8dd6f357a"
+      "sha256": "2092fa458a5bdf70c56aa6ffd49e678b396c821cc8586e8ed203ed044f7be97c"
     },
     {
       "file": "apps/comic/src/appraisal-client/TradeScreen.tsx",
@@ -188,6 +192,10 @@
       "sha256": "77648b5232723f972cab8503ab2a7f36f67958f320ecf8eb764dcfbd13349d4c"
     },
     {
+      "file": "apps/comic/src/appraisal-client/ghost-world.css",
+      "sha256": "2d7c91c5af05ec8b7890ef045d0524eeee121cf4a1e5ba56b5435e20b6097ee9"
+    },
+    {
       "file": "apps/comic/src/appraisal-client/i18n-content.ts",
       "sha256": "40b19a64a4e824030aef74fac4806b815e1c4977224b102d7cb5f26afa3a6e03"
     },
@@ -229,7 +237,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/main.tsx",
-      "sha256": "2e7b7c3eaa14d3ae7af9534b53b5b634803b87c975432acee53252ac85d7ed30"
+      "sha256": "f6cc4f1ad3a46d299e86b62ea13388187fa1dd21d9abcb15327f313884ddf4ca"
     },
     {
       "file": "apps/comic/src/appraisal-client/market-concept.css",
@@ -245,7 +253,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/model.ts",
-      "sha256": "a3b828d06619ad34826c3f901fad68374ab8eaba44d5459cf7a69bd08c12ad9e"
+      "sha256": "9eb9d487668ad738bcc8bc328feaa0b94088f3b95a070f99f3ae44e5c4bf57f4"
     },
     {
       "file": "apps/comic/src/appraisal-client/public/art/comic/display-cloth.png",
@@ -973,11 +981,19 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "sha256": "880acbbf3b7eee9d944514082b120eed362df811c1ca8138117bd702310f4ca9"
+      "sha256": "c21198fcecb55275f02c0d5efb2f859c9f5ac0a15d911018a55d51220abbd081"
     },
     {
       "file": "apps/comic/src/game/appraisal/events.ts",
       "sha256": "05da0823b84b85cea769c06085cd56da6973fb238abf05b9cf3ff623724240f2"
+    },
+    {
+      "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+      "sha256": "4741d9dfad3d695b8615d0c00c5dc11a6e14ba8543bde6228471eb0a5c962989"
+    },
+    {
+      "file": "apps/comic/src/game/appraisal/ghost-tracking.ts",
+      "sha256": "1a179d345d9aac40a5122a68f376017e384284f487fcd8c369795bd0a7f9242f"
     },
     {
       "file": "apps/comic/src/game/appraisal/index.ts",
@@ -989,7 +1005,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/journal.ts",
-      "sha256": "551ae451a57870bb5d39d9edf9564137306ab4026b4a79ff4b90325ed3fd5874"
+      "sha256": "458c6d094b0ba120d1b52a84ab92415fdbef80897b97cc547cc3db9c807cc047"
     },
     {
       "file": "apps/comic/src/game/appraisal/market-contracts.ts",
@@ -1053,7 +1069,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/survival.ts",
-      "sha256": "82807d479e910e293910d3ac0cafd23b6e5d0826411330a0a1bd2147af3c6c47"
+      "sha256": "6591734cc8e42fa1c60fe381e5cb28e6b910e509ae2c3add7e383ef045fcd365"
     },
     {
       "file": "apps/comic/src/game/appraisal/theft.ts",
@@ -1061,11 +1077,11 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/types.ts",
-      "sha256": "c75ddff3689e1db1e18d83f57eb307d7afb7823d533ab66d9878cd902c57db2d"
+      "sha256": "8a501e8c2b5adcc59ecd7b8a4b62245f3da5c7eb78d23f0350b7b0f90aed77ec"
     },
     {
       "file": "apps/comic/src/game/appraisal/views.ts",
-      "sha256": "f8dbb65384370226c329e6eee3b0c6af891c7fffe66d5b8e5cd720012605d592"
+      "sha256": "e554d90dc9cb0fab1c47f00d74917b7c5c5b00ebe3ea0ae8d5db7e3051af594d"
     },
     {
       "file": "apps/comic/src/game/appraisal/wishlist-rules.ts",
@@ -1133,11 +1149,11 @@
     },
     {
       "file": "apps/comic/src/server/appraisal-messages.ts",
-      "sha256": "1641544b9440fe060f026c35997671ec1179ffdfc4473f7cd45bd63b302737f9"
+      "sha256": "e54b6a08f5d8d793be4e930a826b1abb824d11f50d51c5c91d1beae13aadb3a6"
     },
     {
       "file": "apps/comic/src/server/appraisal-rooms.ts",
-      "sha256": "589661b0aeb77b7da6ba3394a4868f6cb085af383ecf8f7d359e8981658549c5"
+      "sha256": "9254b9431ded373a3feaed35cd9a9fb42b7673a6cb3adc32f034b83d14ff0984"
     },
     {
       "file": "apps/comic/src/server/main.ts",
@@ -1333,7 +1349,7 @@
     },
     {
       "file": "apps/comic/tests/appraisal-secure-client.test.ts",
-      "sha256": "0f03658c8b6b62b585c6cdbed9403a07c5887c9e376e6da3f6c78e8446231e1c"
+      "sha256": "86b360b4cbcfbc5cda4deb19d125e14bd90ca86af61c713e94407afec2ac9def"
     },
     {
       "file": "apps/comic/tests/appraisal-secure-integration.test.ts",
@@ -1402,6 +1418,22 @@
     {
       "file": "apps/comic/tests/fixtures/system-links-legacy.json",
       "sha256": "6ce3bd40d5a6b6cb9df579a38343bbe8f75dff886e57ed7e00448a52eea9a092"
+    },
+    {
+      "file": "apps/comic/tests/ghost-network.test.ts",
+      "sha256": "ac1926f25d3c6fb887adcd118570037ed8d86c9d524105477fe2b84f37e5aeaa"
+    },
+    {
+      "file": "apps/comic/tests/ghost-replay.test.ts",
+      "sha256": "a2e727e720617ac24bf2579a3c826476872e15a84f357e1d0f24828e04e62c53"
+    },
+    {
+      "file": "apps/comic/tests/ghost-service.test.ts",
+      "sha256": "d6334818d971c5736d1107c5b7f3623c873859527f32d286ba8abdf5e5b13251"
+    },
+    {
+      "file": "apps/comic/tests/ghost-tracking.test.ts",
+      "sha256": "eee42bb2c9c5921af1fce7eef2d82041ac46448f9ab087d1e4e490be100cdad7"
     },
     {
       "file": "apps/comic/tests/item-rarity.test.ts",

@@ -1,0 +1,39 @@
+{
+  "scope": "Two actual browser clients; first-seat death/timers are fixture setup. RPS winning hands use local oracle; no stock injection or production secret exposure.",
+  "search": [
+    {
+      "revision": 5,
+      "kind": "larva-cell"
+    },
+    {
+      "revision": 6,
+      "kind": "food"
+    },
+    {
+      "revision": 7,
+      "kind": "truth-lens"
+    },
+    {
+      "revision": 8,
+      "kind": "abyss-pearl"
+    },
+    {
+      "revision": 9,
+      "kind": "ember-feed"
+    }
+  ],
+  "delivery": {
+    "price": 10,
+    "fee": 2,
+    "buyerBefore": 200,
+    "buyerAfter": 188,
+    "itemsBefore": 0,
+    "itemsAfter": 1,
+    "bonus": 3,
+    "requiresNewMinigame": true,
+    "phaseBefore": "PORTALS",
+    "phaseAfter": "PORTALS"
+  },
+  "passed": true,
+  "finishedAt": "2026-10-30T12:31:37.023Z"
+}

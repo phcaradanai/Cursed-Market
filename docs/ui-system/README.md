@@ -40,3 +40,5 @@ Inspect the current screen and an existing peer, read applicable decisions, trac
 Each CLI call writes a separate `MODE-invocation.json`, even when the browser cannot bootstrap. Check its exit status/time against the detailed report; a leftover green report is not evidence of a new run. The approved set covers14 states across7 registry screen IDs; trade table and item-sale are bothS06, not two new pages.
 
 S08 user-approved implementation: see [current evidence](../game-design/implementations/S08-reward.md), s08-verification.json and scripts/ui/s08-smoke.mjs. Its captures are separate from the sealed14-image baseline set; existing peer image comparisons still pass. The four pre-existing broad i18n failures remain documented in s08-functional-verification.json.
+
+Spirit-world S11/G01–G04: [runtime handoff](../game-design/implementations/ghost-delivery-progress.md), [rules](../game-design/ghost-service-contracts.md), [verification](ghost-functional-verification.json). Shared inventory bounds and controls; C34–C38 are actual fixture captures, not automatically approved visual baselines.

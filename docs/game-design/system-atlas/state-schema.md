@@ -1192,6 +1192,50 @@
         "endLine": 30
       },
       "text": "export interface LifecycleRoom<G, M> {\n  timing?:{enabled:boolean;durationsMs:Record<string,number>};\n  /** Rules mode picked by the host in the lobby; subclasses that have modes read it in createGame. */\n  mode?: string;\n  code: string; hostId: string; seats: LifecycleSeat<M>[];\n  matchSeats: { id: string; name: string }[]; playtestMode: PlaytestMode;\n  game: G | null; matchId: string | null; deadline: number | null;\n  phaseStartedAt: number;\n  phaseTimes: { number: number; phase: string; startedAt: number; endedAt: number }[];\n  timeouts: { at: number; number: number; phase: string; playerId: string | null }[];\n  startedAt: number; endedAt: number | null; lastActivity: number; revealReady: Set<string>;\n}"
+    },
+    {
+      "id": "schema:apps/comic/src/game/appraisal/ghost-service.ts:GhostAction",
+      "name": "GhostAction",
+      "kind": "TypeAliasDeclaration",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 8,
+        "endLine": 8
+      },
+      "text": "export type GhostAction = {type:'ghost-start';startedAt?:number}|{type:'ghost-guess';round:number;position:number}|{type:'ghost-hire';ghostId:string;choice:number;quoteId:string;fee:number}|{type:'ghost-accept';jobId:string;accept:boolean}|{type:'ghost-rps';slot:number;hand:'rock'|'paper'|'scissors'}|{type:'ghost-deliver';jobId:string;slot:number};"
+    },
+    {
+      "id": "schema:apps/comic/src/game/appraisal/ghost-service.ts:GhostJob",
+      "name": "GhostJob",
+      "kind": "InterfaceDeclaration",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 9,
+        "endLine": 9
+      },
+      "text": "export interface GhostJob {id:string;buyerId:string;kind:ItemKind;price:number;base:number;fee:number;status:'offered'|'accepted'|'delivered'|'cancelled';prototype?:AppraisalItem;round?:number}"
+    },
+    {
+      "id": "schema:apps/comic/src/game/appraisal/ghost-service.ts:GhostState",
+      "name": "GhostState",
+      "kind": "InterfaceDeclaration",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 10,
+        "endLine": 10
+      },
+      "text": "export interface GhostState {round:number;available:boolean;startedAt?:number;tracking?:Tracking;swaps:[number,number][];encounter:number;slots:{kind:ItemKind;lost:boolean}[];jobs:GhostJob[];bonus:number;draws:number;lastRps?:{slot:number;hand:string;opponent:string;result:string}}"
+    },
+    {
+      "id": "schema:apps/comic/src/game/appraisal/ghost-tracking.ts:Tracking",
+      "name": "Tracking",
+      "kind": "TypeAliasDeclaration",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-tracking.ts",
+        "line": 2,
+        "endLine": 2
+      },
+      "text": "export type Tracking = {status:'guessing'|'failed'|'available'; initialPosition:number; answer:number};"
     }
   ],
   "propertyWrites": [
@@ -7530,6 +7574,323 @@
       },
       "guards": [
         "!room.seats.find(s => s.id === room.hostId)?.connected"
+      ]
+    },
+    {
+      "target": "g.draws",
+      "operator": "++",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:draw",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 12,
+        "endLine": 12
+      },
+      "guards": []
+    },
+    {
+      "target": "g.encounter",
+      "operator": "=",
+      "value": "s.encounter",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:resetSlots",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 15,
+        "endLine": 15
+      },
+      "guards": []
+    },
+    {
+      "target": "g.slots",
+      "operator": "=",
+      "value": "Array.from({length:3},()=>({kind:sample(s,g,id),lost:false}))",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:resetSlots",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 15,
+        "endLine": 15
+      },
+      "guards": []
+    },
+    {
+      "target": "s.ghosts",
+      "operator": "??=",
+      "value": "{}",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 26,
+        "endLine": 26
+      },
+      "guards": []
+    },
+    {
+      "target": "s.ghosts[id]",
+      "operator": "??=",
+      "value": "{round:0,available:false,swaps:[],encounter:s.encounter,slots:[],jobs:[],bonus:0,draws:0}",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 34,
+        "endLine": 34
+      },
+      "guards": []
+    },
+    {
+      "target": "g.startedAt",
+      "operator": "=",
+      "value": "a.startedAt??0",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 36,
+        "endLine": 36
+      },
+      "guards": [
+        "a.type==='ghost-start'"
+      ]
+    },
+    {
+      "target": "g.round",
+      "operator": "++",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 36,
+        "endLine": 36
+      },
+      "guards": [
+        "a.type==='ghost-start'"
+      ]
+    },
+    {
+      "target": "g.swaps",
+      "operator": "=",
+      "value": "[]",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 36,
+        "endLine": 36
+      },
+      "guards": [
+        "a.type==='ghost-start'"
+      ]
+    },
+    {
+      "target": "g.tracking",
+      "operator": "=",
+      "value": "startTracking(order,0)",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 38,
+        "endLine": 38
+      },
+      "guards": [
+        "a.type==='ghost-start'"
+      ]
+    },
+    {
+      "target": "g.tracking",
+      "operator": "=",
+      "value": "guessTracking(g.tracking,a.position)",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 41,
+        "endLine": 41
+      },
+      "guards": [
+        "a.type==='ghost-guess'"
+      ]
+    },
+    {
+      "target": "g.available",
+      "operator": "=",
+      "value": "g.tracking.status==='available'",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 41,
+        "endLine": 41
+      },
+      "guards": [
+        "a.type==='ghost-guess'"
+      ]
+    },
+    {
+      "target": "j.status",
+      "operator": "=",
+      "value": "a.accept?'accepted':'cancelled'",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 44,
+        "endLine": 44
+      },
+      "guards": [
+        "a.type==='ghost-accept'"
+      ]
+    },
+    {
+      "target": "g.available",
+      "operator": "=",
+      "value": "false",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 44,
+        "endLine": 44
+      },
+      "guards": [
+        "a.type==='ghost-accept'",
+        "!g.jobs.some(active)&&g.jobs.some(job=>job.round===g.round&&job.status==='delivered')"
+      ]
+    },
+    {
+      "target": "slot.lost",
+      "operator": "=",
+      "value": "true",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 50,
+        "endLine": 50
+      },
+      "guards": [
+        "a.type==='ghost-rps'",
+        "result==='lost'"
+      ]
+    },
+    {
+      "target": "slot.kind",
+      "operator": "=",
+      "value": "sample(s,g,id)",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 50,
+        "endLine": 50
+      },
+      "guards": [
+        "a.type==='ghost-rps'",
+        "result==='won'"
+      ]
+    },
+    {
+      "target": "g.lastRps",
+      "operator": "=",
+      "value": "{slot:a.slot,hand:a.hand,opponent:hands[opponent]!,result}",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 50,
+        "endLine": 50
+      },
+      "guards": [
+        "a.type==='ghost-rps'"
+      ]
+    },
+    {
+      "target": "s.items[itemId]",
+      "operator": "=",
+      "value": "{id:itemId,kind:j.kind,base:j.base,genuine:randomAt(s.seed,`${itemId}:genuine`)<.75,cursed:randomAt(s.seed,`${itemId}:curse`)<.35,ask:j.price,owner:buyer.id,npcOwnerId:buyer.id,npc:source.npc,encounter:s.encounter,lastAppraisal:null,lastAccepted:null,certificate:false,reservation:1,...(source.appearance?{appearance:structuredClone(source.appearance)}:{}),...(source.rarityPower?{rarityPower:structuredClone(source.rarityPower)}:{})}",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 54,
+        "endLine": 54
+      },
+      "guards": []
+    },
+    {
+      "target": "buyer.paid",
+      "operator": "=",
+      "value": "{...buyer.paid,[itemId]:j.price+j.fee}",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 55,
+        "endLine": 55
+      },
+      "guards": []
+    },
+    {
+      "target": "g.bonus",
+      "operator": "+=",
+      "value": "commission+j.fee",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 55,
+        "endLine": 55
+      },
+      "guards": []
+    },
+    {
+      "target": "j.status",
+      "operator": "=",
+      "value": "'delivered'",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 55,
+        "endLine": 55
+      },
+      "guards": []
+    },
+    {
+      "target": "g.slots[a.slot]",
+      "operator": "=",
+      "value": "{kind:sample(s,g,id),lost:false}",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 55,
+        "endLine": 55
+      },
+      "guards": []
+    },
+    {
+      "target": "g.available",
+      "operator": "=",
+      "value": "false",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 56,
+        "endLine": 56
+      },
+      "guards": [
+        "!g.jobs.some(active)"
+      ]
+    },
+    {
+      "target": "job.status",
+      "operator": "=",
+      "value": "'cancelled'",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:reconcileGhostJobs",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 74,
+        "endLine": 74
+      },
+      "guards": [
+        "active(job)&&player(state,job.buyerId).life===0"
+      ]
+    },
+    {
+      "target": "g.available",
+      "operator": "=",
+      "value": "false",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:reconcileGhostJobs",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 75,
+        "endLine": 75
+      },
+      "guards": [
+        "cancelled&&!g.jobs.some(active)"
       ]
     }
   ]

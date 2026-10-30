@@ -14,20 +14,20 @@
   "choiceVariants": 314,
   "encounterModels": 6,
   "phases": 5,
-  "actions": 50,
+  "actions": 56,
   "configKeys": 53,
   "parameters": 67,
-  "functions": 431,
-  "codeSymbols": 564,
+  "functions": 444,
+  "codeSymbols": 577,
   "policies": 197,
-  "randomRules": 89,
+  "randomRules": 95,
   "legacyGateSites": 21,
   "logSites": 105,
   "logTopics": 92,
-  "validationSites": 406,
+  "validationSites": 429,
   "dynamicStatusOperations": 28,
-  "schemas": 108,
-  "propertyWriteSites": 485
+  "schemas": 112,
+  "propertyWriteSites": 509
 }
 ```
 ## กฎยืนยันและสถานะ runtime

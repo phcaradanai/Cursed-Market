@@ -4,8 +4,8 @@
 
 ## ขอบเขตที่ตรวจพบ
 
-- 33 ภาพ ครอบคลุม 16 กลุ่มหน้าจอ/เมนู/เหตุการณ์
-- 5 ภาพมาจากห้องเกมที่รันจริง; 28 ภาพใช้ preview fixture (รวม E109 ที่เพิ่มหลังลง UI)
+- 38 ภาพ ครอบคลุม 20 กลุ่มหน้าจอ/เมนู/เหตุการณ์
+- 5 ภาพมาจากห้องเกมที่รันจริง; 29 ภาพใช้ preview fixture (รวม E109 ที่เพิ่มหลังลง UI)
 - ทะเบียน30รายการรวมหน้าที่ยังเป็นแผน จึงไม่ใช่30หน้าที่ทำแล้ว และภาพหลายแท็บของหน้าเดียวไม่นับเป็นหน้าใหม่
 - ชุดแรก25ภาพไม่ได้แก้ UI/logic เกม; C26 เพิ่มหลังลง UI E109 ตาม concept v05 เป็นภาพจับ component จริงด้วย fixture ไม่ใช่ภาพ AI ไม่ได้แก้กฎเกม
 
@@ -25,7 +25,7 @@
 | S08 | รับเครดิตท้ายช่วงและเสี่ยงเหรียญ | 4 | runtime; comic implementation C29/C30 | [ดูภาพปัจจุบัน](captures/s08-2026-10-30/reveal-1440x722.png) |
 | S09 | บริการหลังรับเงินและพร้อมไปช่วงหน้า | 3 | runtime; comic implementation C31–C33 | [ดูภาพปัจจุบัน](captures/s09-2026-10-30/reward-settled-1440x722.png) |
 | S10 | รอผู้เล่นอื่น | 0 | runtime | ยังไม่จับ ไม่ใช่ข้อสรุปว่าไม่มี |
-| S11 | เสียชีวิตและทางเข้าโลกวิญญาณ | 0 | mixed | ยังไม่จับ ไม่ใช่ข้อสรุปว่าไม่มี |
+| S11 | เสียชีวิตและทางเข้าโลกวิญญาณ | 1 | runtime | [ดูภาพ](captures/ghost-2026-10-30/ghost-1440x722.png) |
 | S12 | Collector มาถึง | 0 | mixed | ยังไม่จับ ไม่ใช่ข้อสรุปว่าไม่มี |
 | S13 | ผลเกมและอันดับ | 2 | mixed | [ดูภาพ](captures/current-comic-2026-10-29/live-results.png) |
 | M01 | กระเป๋า | 2 | runtime | [ดูภาพ](captures/current-comic-2026-10-29/inventory.png) |
@@ -39,10 +39,10 @@
 | A03 | ตราบาปและแลกคืน | 0 | runtime | ยังไม่จับ ไม่ใช่ข้อสรุปว่าไม่มี |
 | A04 | ของขายไม่ออก | 0 | runtime | ยังไม่จับ ไม่ใช่ข้อสรุปว่าไม่มี |
 | A05 | Collector Wishlist | 0 | design-only | ยังเป็นspec |
-| G01 | วิญญาณติดตามการ์ด | 0 | design-only | ยังเป็นspec |
-| G02 | เรียกบริการและตกลงสัญญาวิญญาณ | 0 | design-only | ยังเป็นspec |
-| G03 | ร้าน Skeleton และ RPS แยกสามช่อง | 0 | design-only | ยังเป็นspec |
-| G04 | ส่งมอบและคะแนนพิเศษวิญญาณ | 0 | design-only | ยังเป็นspec |
+| G01 | วิญญาณติดตามการ์ด | 1 | runtime (shared composite state) | [ดูภาพ](captures/ghost-2026-10-30/ghost-1440x722.png) |
+| G02 | เรียกบริการและตกลงสัญญาวิญญาณ | 1 | runtime (shared composite state) | [ดูภาพ](captures/ghost-2026-10-30/ghost-busy-1440x722.png) |
+| G03 | ร้าน Skeleton และ RPS แยกสามช่อง | 1 | runtime (shared composite state) | [ดูภาพ](captures/ghost-2026-10-30/ghost-lost-1440x722.png) |
+| G04 | ส่งมอบและคะแนนพิเศษวิญญาณ | 2 | runtime (shared composite state) | [ดูภาพ](captures/ghost-2026-10-30/ghost-working-1440x722.png) |
 
 ## Style ที่มีอยู่จริง
 
@@ -78,3 +78,5 @@ Preview reveal เดิมไม่มี roundReward จึงเห็นเ�
 C28 เพิ่มรายละเอียด/ประกาศขาย comic v02 เป็น substate S06 ไม่นับหน้าใหม่ ดู captures/current-comic-2026-10-29/trade-item-sale.png
 
 2026-10-30 C29/C30 เพิ่มภาพ S08 หลังลง concept ที่อนุมัติ เป็นสอง substate ของหน้าเดิม ไม่ใช่สองหน้าใหม่ ไม่ใช่ AI หรือธุรกรรมเกมหลายคน ดู implementations/S08-reward.md
+
+S11/G01 share the same tracking view. G02–G04 are substates of GhostWorld, not newly duplicated full-screen shells. Counts refer to captured registry groups.

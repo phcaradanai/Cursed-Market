@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "asOf": "2026-10-30",
-  "revision": "7be5aed18aa048c7ea45850913cadbfc4c8d52e0",
+  "asOf": "2026-10-31",
+  "revision": "39ec3277e2570cb24dc4ccb6abbf0cd154ed3fad",
   "inputs": {
     "src/game/appraisal/ability-content.ts": "ff33530545a771c4e686640f2fca5db996ef3612f9602da6ddbf68c12377127e",
     "src/game/appraisal/ability-rules.ts": "3e9f33f54b34c91fb26f6d0926f9df83e646dc3623a7c8bbf3beed5cedbc9139",
@@ -52,6 +52,8 @@
     "src/server/appraisal-messages.ts": "1641544b9440fe060f026c35997671ec1179ffdfc4473f7cd45bd63b302737f9",
     "src/server/appraisal-main.ts": "6af8d2ab0a6678a0c0521908cf6539823626ed16323fe38942729249a8d6497c",
     "src/server/room-lifecycle.ts": "6428c3c8dc9f94dfd881ac52925f28811843c52b9844cfde11608ff4eb69a673",
+    "apps/comic/src/game/appraisal/ghost-service.ts": "4741d9dfad3d695b8615d0c00c5dc11a6e14ba8543bde6228471eb0a5c962989",
+    "apps/comic/src/game/appraisal/ghost-tracking.ts": "1a179d345d9aac40a5122a68f376017e384284f487fcd8c369795bd0a7f9242f",
     "docs/game-design/captures/current-comic-2026-10-29/merchants.png": "8ee97826aa87f57473895d6a3c7f1b1b335a2d1a3a73255eb0eb36e86228b954",
     "docs/game-design/captures/current-comic-2026-10-29/inspection.png": "0ad4d6bf846bbf21ddc7418b18a10de5271ee7d1663d7cec8d95aeae67bb34fa",
     "docs/game-design/captures/current-comic-2026-10-29/trade.png": "db8f72d12e2ba5d4531761bd09866da533a0f5c814bdbbf2ef3135ff273f4982",
@@ -85,6 +87,11 @@
     "docs/game-design/captures/s09-2026-10-30/reward-settled-1440x722.png": "c1155315cad403bb1bb012a0213a51f88be3a12eadf12f750b32a60a14c084c5",
     "docs/game-design/captures/s09-2026-10-30/vault-full-1440x722.png": "ef7911debcb73dccf2e1c142cfec717c59697d796fa45c41fd6ada153c1a272e",
     "docs/game-design/captures/s09-2026-10-30/vault-empty-1440x722.png": "656f6fbe38ace81296be2dcc74064dbef9b77e930179fc13ea7baf0ade75d46e",
+    "docs/game-design/captures/ghost-2026-10-30/ghost-1440x722.png": "b1932513981380a7875a32b59980942d84e0fdea2cc190caf48ebc2cad30b9ab",
+    "docs/game-design/captures/ghost-2026-10-30/ghost-busy-1440x722.png": "f2bcfb314c15dac01f282eae73e33546f45a5ab64431a263d63d59c980c508a9",
+    "docs/game-design/captures/ghost-2026-10-30/ghost-lost-1440x722.png": "527fccbcf88abde2f320b109773b33ca80183eb765fbe69549156eb6ae4336ee",
+    "docs/game-design/captures/ghost-2026-10-30/ghost-working-1440x722.png": "4c60bcf6e38b98985e3bb4868b54d184e2371ce4416a57954254466adeafc782",
+    "docs/game-design/captures/ghost-2026-10-30/ghost-funds-1440x722.png": "53b3fa946ea6fa5611c5c65d4eebf18bb25e4d4b34898e513abc041ba5223701",
     "docs/game-design/concepts/S01-E117-v03-hover.png": "c08b1f73021b3ab37d3ac84140a64f1ddb19fd14abe529e92374bccbddbac455",
     "docs/game-design/concepts/S01-E117-v01.png": "84371077ef87664fd0fe3507fe568292aa0bee50c1accd37aee9d03a4a93431d",
     "docs/game-design/concepts/S01-E117-v02.png": "804bdd9a010891cc406a159649bb10f8aefb83caca01abab9de67a865b4278f7",
@@ -103,44 +110,47 @@
     "docs/game-design/concepts/S07-summary-v01.png": "a06dfcd833f58b37373212413bc718d1f0067ce92ae9245b932be1cc2e5fd01b",
     "docs/game-design/concepts/S08-salary-v01.png": "e3a772febf8a4742af3e9a533e6d89e5f3ae39205f043ee1cbd30b5da24b5904",
     "docs/game-design/concepts/S09-vault-v01.png": "981671e811f271d64e619c679240e71470946cedc049d386f52b579057e97888",
-    "docs/game-design/current-captures.json": "f5ed8cf513db450671297c3c6046de8a9a449998543c85b61a0957b21ddabd6b",
+    "docs/game-design/concepts/S10-waiting-v01.png": "de560f8bda104459d5ab4c753ec18d88f10b8b2823ca462b5315a3765a38016b",
+    "docs/game-design/concepts/S11-death-v02.png": "71dabbe08860067f252885a5699e86881b76135b9691a0a33b180587b19c2252",
+    "docs/game-design/concepts/S11-death-v01.png": "d6d89e6c43637a2aa73cc93f04728e38ea39ed2b6b1dce2888ba995b6f2e2456",
+    "docs/game-design/current-captures.json": "9859f7bd29e87aab85d9f913e508a6069f6576f56512443f14d741756296cec4",
     "docs/game-design/scripts/current-capture-render.mjs": "7b731850875eba179a40c9792cfea12d17f9609e7762a3a82cde38c382785c19",
-    "docs/game-design/screen-flow.json": "09598c31030d93e34603354d59c53eb2c4c6262ed54fcc4a55d60e09ec46b9a5",
+    "docs/game-design/screen-flow.json": "761fefb08d0b4ff61dc989e686831327c1161ccd8f6f2bd59fe75a51f4c95621",
     "docs/game-design/scripts/screen-flow-render.mjs": "cfcee395152816e83b753af8f0b9e06a1fd012713d0d51e0cfd843fef0b768c8",
     "docs/game-design/logic-item-relations.json": "983d130078b1b6f6f1569dd05f295190a73523c1abaa0aa59bc29e0a6693b801",
     "docs/game-design/logic-item-graph.json": "84016a430feb3ff4c34a268cb3caa37eaceeacfeb582c1a8dd552e5d4aeaa030",
-    "docs/game-design/rules-and-logic.md": "08361d3c1ff4bf2b082e0b70aa8ba948dfcba9e55e0a757cefaef18ccbd1c62c",
+    "docs/game-design/rules-and-logic.md": "5bea26f93dc6df5bbce794d629b43567fd8a78390c52c9f153a4b9d0498092e8",
     "docs/game-design/effect-catalog.md": "3fb1fa1046874aebf7a335f4f84dc3b87c6c1e5704d203311d414d8808102bcd",
     "docs/game-design/scripts/system-atlas-render.mjs": "dd0ba6d67a4da0d83a33239a1d00d70464210b55c6a97a8663fc4e4365ca942f",
     "docs/game-design/scripts/system-atlas-view.js": "041d3fb5f7bc85a19e56193b31243e071bf3d3909e279ff955adbc2f43c348e4",
     "docs/game-design/scripts/system-atlas-view.css": "ca47fb89530d6902468e68bafab7754e3f430fca07c4bbd38520d91d94759992",
     "docs/game-design/scripts/system-atlas-view.html": "78b7c2e0739761fe5e82d155c8ea58f0260df5b571ce68098b588dfc19f64d9d",
-    "docs/game-design/scripts/build-system-atlas.mjs": "49a89838ed024146093e3e7ad04d2d1831f69acf58c8b361297dadfc8080de9d"
+    "docs/game-design/scripts/build-system-atlas.mjs": "ec4d24fb2bfa8bbb7015df001cfa479f4b81bc2bc3478d0b989cbfafceefcf51"
   },
   "outputs": [
     {
       "file": "docs/game-design/system-atlas/README.md",
-      "sha256": "c61af7ef685bd5f001d639d3c1019e6567905cd89370109d7c00d86927b7d8c4"
+      "sha256": "9ca9c434f7eaa3060a51c211036434bed58107fb11c790112a0606d39e882bbd"
     },
     {
       "file": "docs/game-design/system-atlas/actions-logs.md",
-      "sha256": "2ec5d05d62cdff72001df9b9d67cfc6c9451a5c147f875c747090c29c7211994"
+      "sha256": "df5a1d0166e226bf366104898e5408f1dad1c295501021263458c9fafc87706d"
     },
     {
       "file": "docs/game-design/system-atlas/coverage.md",
-      "sha256": "1bfc3cbbbd16fd667774e517fce0987217b64557ae7639f0bfeb500c27f5644e"
+      "sha256": "ca4162c85dd8b39d455285ff51193e26f73e482152108589841d281c3f8a85ee"
     },
     {
       "file": "docs/game-design/system-atlas/data.json",
-      "sha256": "a282d6788eee7212abc35b690cda23027d7e1846144872b506e3e6a8f6c9095e"
+      "sha256": "a3471826880a32b601c3c3eda218e6a3c51af16be1081a8cbff4f2c8fca8f473"
     },
     {
       "file": "docs/game-design/system-atlas/edges.csv",
-      "sha256": "80ffabd501df1a847df787a6d80a74f07c72aa7626380173d5cb937693c7e7fd"
+      "sha256": "a4f86f466a89b14ea942140ae5e54107b948255e7db5d5c17eba49fe65459fc1"
     },
     {
       "file": "docs/game-design/system-atlas/encounters-config.md",
-      "sha256": "21f1349566432c060e6743a20df883fea25055e9e2cd8fef22d03311daf80aae"
+      "sha256": "96225ab9d533288f705bc5510b807dc56cdbba89c94b4bc16fb6ba77483fe6ba"
     },
     {
       "file": "docs/game-design/system-atlas/events.md",
@@ -148,7 +158,7 @@
     },
     {
       "file": "docs/game-design/system-atlas/graph.json",
-      "sha256": "074b708e1e05268f53659a1d7bb00194e2e3897e8a68c2565dd2a392ed17dce1"
+      "sha256": "42d8a9cbd50e8aedac938891915612c69d16a307e8883113ee80f3a4330130b2"
     },
     {
       "file": "docs/game-design/system-atlas/merchants.md",
@@ -156,15 +166,15 @@
     },
     {
       "file": "docs/game-design/system-atlas/nodes.csv",
-      "sha256": "07eff82354543ac8181852d8e32ae9019ba41d649b6b6ead232c9765c4a94b1a"
+      "sha256": "ac6190581b061361b787640c1bdb3f0b346082194ba8e1b37dc52e985244be03"
     },
     {
       "file": "docs/game-design/system-atlas/screens.json",
-      "sha256": "6f60f9d87ed3f52d49952060cc5e9eb2527b36d60a87293b589ce6eb6410e3c6"
+      "sha256": "fea3fd55ad98d87399f2d664e59bba9720d4eab28513d54e528cc6a8eefffb92"
     },
     {
       "file": "docs/game-design/system-atlas/state-schema.md",
-      "sha256": "d8e170afe540208f03edb7979ee3bc15334f17cb1ef042e12136e8c50c45bf8c"
+      "sha256": "4110f145723b2c1ad1b1f0335c5b8c5e8b3b28b30d1a5b7640f9726564f932c7"
     },
     {
       "file": "docs/game-design/system-atlas/statuses-omens.md",
@@ -180,11 +190,11 @@
     },
     {
       "file": "docs/game-design/screen-flow.html",
-      "sha256": "3204d51cddcbc98a1568600755c298b45588340714ed5b12043c878cbfa6dafd"
+      "sha256": "078cbae8cb5351d250e096d26a532fd39dad28587a64c1df74213a1f4cf9df44"
     },
     {
       "file": "docs/game-design/logic-item-relations.html",
-      "sha256": "6ee8c96e3d604476cfac1b441c221be0eaa1cbf12137b0fd4cfca7e2723149c7"
+      "sha256": "e599c3e358238db0fc7eaf98bd7abd4465b039fa561e3a23f2df84ba58ec0ff7"
     }
   ],
   "summary": {
@@ -200,19 +210,19 @@
     "choiceVariants": 314,
     "encounterModels": 6,
     "phases": 5,
-    "actions": 50,
+    "actions": 56,
     "configKeys": 53,
     "parameters": 67,
-    "functions": 431,
-    "codeSymbols": 564,
+    "functions": 444,
+    "codeSymbols": 577,
     "policies": 197,
-    "randomRules": 89,
+    "randomRules": 95,
     "legacyGateSites": 21,
     "logSites": 105,
     "logTopics": 92,
-    "validationSites": 406,
+    "validationSites": 429,
     "dynamicStatusOperations": 28,
-    "schemas": 108,
-    "propertyWriteSites": 485
+    "schemas": 112,
+    "propertyWriteSites": 509
   }
 }

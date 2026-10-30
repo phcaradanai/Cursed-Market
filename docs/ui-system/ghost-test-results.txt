@@ -1,0 +1,339 @@
+=== ghost-final-server-build.log ===
+
+> cursed-market-comic@0.1.0 build:server
+> tsc -p tsconfig.json
+
+
+
+=== ghost-client-final.log ===
+
+> cursed-market-comic@0.1.0 build:appraisal
+> tsc -p tsconfig.appraisal-client.json && vite build --config vite.appraisal.config.mjs
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 119 modules transformed.
+rendering chunks...
+computing gzip size...
+../../dist/appraisal-client/index.html                                                0.50 kB │ gzip:   0.35 kB
+../../dist/appraisal-client/assets/srisakdi-thai-700-normal-ClYfKm-d.woff2           10.51 kB
+../../dist/appraisal-client/assets/srisakdi-thai-700-normal-BPDgklCj.woff            12.93 kB
+../../dist/appraisal-client/assets/srisakdi-latin-700-normal-djYySggx.woff2          15.82 kB
+../../dist/appraisal-client/assets/srisakdi-latin-700-normal-B7lFu79Q.woff           19.41 kB
+../../dist/appraisal-client/assets/im-fell-english-latin-400-normal-BhowGHCQ.woff2   59.88 kB
+../../dist/appraisal-client/assets/im-fell-english-latin-400-normal-CxhBQSzl.woff    69.68 kB
+../../dist/appraisal-client/assets/index-BCtAPseS.css                               467.45 kB │ gzip:  78.59 kB
+../../dist/appraisal-client/assets/rarity-renderer-BYF5Btyt.js                        8.31 kB │ gzip:   3.85 kB
+../../dist/appraisal-client/assets/ComicPreview-C4-WQXnL.js                          69.01 kB │ gzip:   6.41 kB
+../../dist/appraisal-client/assets/index-CrVUVS54.js                                878.33 kB │ gzip: 232.53 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 3.92s
+
+
+=== ghost-core-final.log ===
+✔ command-only death, card unlock, agreed job, RPS search, delivery and Collector strictly replay (466.465417ms)
+(node:37351) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ living cannot start ghost game; dead can retry and view never contains answer (56.3695ms)
+✔ delivery waits for funds then charges once, grants one item and bonus; duplicate is rejected (63.775625ms)
+✔ engine integrates ghost actions with idempotency and conservation (21.558708ms)
+✔ Collector adds earned ghost bonus and cancels unfinished jobs without payment (3.062667ms)
+✔ buyer death cancels unpaid work and requires a new minigame (14.582583ms)
+✔ next-encounter slot preview equals the slots used by the next action and hides item truth (30.213375ms)
+✔ RPS ties retry, losses lock each slot independently, no minigame reset until next encounter (14.424541ms)
+✔ living phase advances while a ghost is still tracking cards (4.969791ms)
+✔ status estimate adds spirit earnings once after ordinary score modifiers (39.845792ms)
+✔ multiple buyers share a service batch; declining the last offer after a delivery relocks hiring (31.028125ms)
+✔ a stale or forged displayed quote cannot create a differently priced contract (20.084917ms)
+✔ quotes apply rarity once on a private clone and delivery keeps the accepted prototype (24.136709ms)
+✔ tracking keeps answer private, rejects invalid guesses, permits retries and unlocks on success (2.485ms)
+✔ tracking validates every permutation boundary without mutating the server round (2.468459ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 828.885875
+
+
+=== ghost-network-final.log ===
+✔ two real sockets track cards, agree a job and deliver with no duplicate payment (350.026083ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 723.421875
+
+
+=== ghost-focused-final.log ===
+(node:29296) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ the third inspection reads the curse without any buff, and only once per item (110.044709ms)
+✔ a saved run without the flag keeps the old effects check (no curse unless B02) (45.146292ms)
+✔ B02 adds the curse to the next price or authenticity check and is spent (18.890875ms)
+✔ activating spells out genuine/fake × cursed/clean; genuine always works, fake only sometimes (361.460708ms)
+✔ event choices that cost resources are priced, and already-known items are not offered again (10.412958ms)
+✔ score value and the Collector total share one formula; the client estimate uses only known facts (27.087583ms)
+(node:29297) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ theft duel shows sealed hand choices, translated player names and draw history without percentage odds (109.443208ms)
+✔ vault appears after payout only, explains suppressed effects and deferred interest, and shows slot price (15.45175ms)
+✔ finance offers one notice at portals that clears every case (17.048292ms)
+✔ loan contract exposes deadline, installments and custom terms as inert text, with no dropdown (14.803708ms)
+✔ secure economy surfaces have English copy and remain absent in legacy runs (7.005584ms)
+✔ vault custody notifications do not report destroyed goods or lost money (21.291167ms)
+✔ seal panel shows face-down redemption cards with no item identity, plain-text terms and compensation (9.387125ms)
+✔ vault pages carried/stored goods without expansion, keeps full/locked reasons, and renders no cash-out (14.008959ms)
+✔ settled destination has one ready action, no duplicate reward, and respects readiness/spectators (188.618042ms)
+✔ settled reward may be hidden by its phase owner without another payment control (4.27625ms)
+(node:29298) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ unknown NPC facts stay unknown and unappraised sale is disabled (117.208625ms)
+✔ appraised shop can list, owned item has no seller claims (17.658917ms)
+✔ locked owned item and invalid listing rebate remain blocked (33.66675ms)
+✔ live table can SSR without window or CSS module imports (80.294875ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1074.58375
+
+
+=== ghost-ui-contract-final.log ===
+
+> cursed-market@0.1.0 ui:test
+> node --test scripts/ui/contracts.test.mjs
+
+✔ approved frame and inner symmetry contract passes (2.005375ms)
+✔ the reported unequal minus/plus gaps fail, even with centred input (1.795ms)
+✔ asymmetric centre, hidden facts and frame drift each fail (0.363ms)
+✔ pixel comparison detects colour change and honours declared timer masks (6.556875ms)
+✔ capture waits for repeated artwork pixels and rejects unstable raster (15.996ms)
+✔ countdown masks scale with screenshot DPR, not CSS geometry (1.393334ms)
+✔ shared headers reject per-menu height or border drift (1.227125ms)
+✔ record cannot overwrite a human-approved baseline (34.177083ms)
+✔ failed browser invocation cannot be mistaken for an older green report (12.445625ms)
+✔ readiness allows deferred paint without retrying against the baseline (5.420208ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 283.885625
+
+
+=== ghost-quote-red.log ===
+✖ a stale or forged displayed quote cannot create a differently priced contract (79.633667ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 418.255709
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/ghost-service.test.js:199:1
+✖ a stale or forged displayed quote cannot create a differently priced contract (79.633667ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/ghost-service.test.js:207:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+
+=== ghost-clock-retry-red.log ===
+✖ two real sockets track cards, agree a job and deliver with no duplicate payment (2575.159041ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3025.368459
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/ghost-network.test.js:14:1
+✖ two real sockets track cards, agree a job and deliver with no duplicate payment (2575.159041ms)
+  Error: socket condition timeout
+      at wait (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/ghost-network.test.js:32:13)
+      at async TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/ghost-network.test.js:97:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+
+=== ghost-reference-npc-tests.log ===
+(node:27751) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ all eight merchants have an exclusive optional personal event; historical rooms keep them out (92.743292ms)
+✔ Vampire charges exactly two life, leaves shields unchanged, and refuses a second pending pact or last two life (12.463083ms)
+✔ Vampire reward waits for actual later entry, pays once, and reaches all five seeded outcomes (426.471916ms)
+✔ actual portal action redeems a Vampire pact rather than just exposing the merchant in choices (12.011875ms)
+✔ 50% Vampire discount matches the displayed final price, excludes fees, supports a bundle, and spends once (32.6745ms)
+✔ Vampire discount is not applied to another merchant or another appraiser shop and expires on advance (11.297875ms)
+✔ Alien escrows one to three chosen unique items, preserves truths/knowledge, and reserves repayment (30.815542ms)
+✔ Alien pays only after two intervals and the next chosen Alien, returning exact items once with proportional rewards (27.939209ms)
+✔ Alien rejects duplicated, foreign, missing, locked and over-limit selections atomically (12.202083ms)
+✔ run end returns Alien principal for Collector scoring without paying a bonus, even to dead spectators (11.101166ms)
+✔ loan items remove held capacity immediately and the private projection reveals no hidden truths (13.747042ms)
+✔ Dark One cost RNG reaches one, two and three distinct payable resource types (186.800916ms)
+✔ Dark One cleanses only the selected owned debuff and charges the disclosed cost (4.611791ms)
+✔ Dark One sends RNG debuffs to the chosen living opponent and rejects self/dead/unknown targets (223.575875ms)
+✔ Autometa accepts either a chosen item or two energy and grants a seeded buff (110.13325ms)
+✔ Dark One excludes dead spectators in historical encounter mode too (4.1855ms)
+✔ orc unique event settles its own cost and reward (7.506791ms)
+✔ beast unique event settles its own cost and reward (3.693042ms)
+✔ deepsea unique event settles its own cost and reward (3.52975ms)
+✔ swarm unique event settles its own cost and reward (2.717125ms)
+✔ event command parser validates one to three distinct string item IDs (1.462625ms)
+✔ loan request retry is idempotent and conflicting payload cannot replace an accepted request (7.895708ms)
+✔ loan feedback names a temporary loan and a later return rather than a permanent loss (45.169792ms)
+✔ Collector estimate keeps known loan principal and unknown-item counts until items return (19.350292ms)
+✔ client decisions require exact loan selection, own cleanse or chosen opponent, and disclose all costs (11.432125ms)
+✔ UI renders loan checkbox identities, known opponent names and the pending contract ledger (69.318792ms)
+✖ Dark One sender and victim see room display names in both result feedback and history (70.426292ms)
+✔ new and historical rule sets finish and strictly replay in seeded simulations (22865.773583ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 27
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 24835.983208
+
+✖ failing tests:
+
+test at ../../../private/tmp/ghost-peer-reference/apps/comic/dist/tests/appraisal-npc-events.test.js:362:1
+✖ Dark One sender and victim see room display names in both result feedback and history (70.426292ms)
+  TypeError [Error]: Cannot read properties of undefined (reading 'split')
+      at TestContext.<anonymous> (file:///private/tmp/ghost-peer-reference/apps/comic/dist/tests/appraisal-npc-events.test.js:369:132)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+
+=== ghost-trail-check.log ===
+⬆ trail 0.23.0 → 0.28.0 available: run `trail upgrade` (restart your agent after).
+⚠ the diff is over 400 KB; only the first 400 KB is checked
+checking 500 changed files against 106 learnings and 0 skills
+
+✗ .impeccable/design.json:6
+  brings back inset cabinet tab, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 24: A tall inset cabinet with small merchant and
+  neutral tabs failed the first independent finish review.
+✗ .impeccable/design.json:6
+  brings back system cost claim, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 28: Red life loss from a blood contract is a
+  contextual system cost, not a claim that owning the connected wine
+  item causes damage; E58 reduces that existing cost.
+✗ .impeccable/design.json:7
+  brings back contain pass impeccable, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 29: Requiring every image to contain the old
+  fidelity-pass impeccable metadata was also wrong: the10 newer item
+  variants record generator/date/source in the versioned manifest.
+✗ .impeccable/design.json:9
+  brings back source art exact, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 28: Source catalog is art-only and exact new IDs
+  were absent in inspected build runtime .ts/.tsx/.js, so observed
+  dedicated runtime bindings for new products remain zero.
+✗ .impeccable/design.json:9
+  brings back source item leave, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 22: Do not remove activated benefits when the
+  consumed source item leaves inventory.
+✗ .impeccable/design.json:10
+  brings back client css tsx, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 23: Import client CSS from main.tsx so Node SSR
+  tests can import components.
+✗ .impeccable/design.json:13
+  brings back browser current game, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 23: The earlier E01/E08/E10-only fix and its browser
+  checks missed the events used by the current Survival game.
+✗ .impeccable/design.json:13
+  brings back actual game browser, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 30: Actual GameTable synthetic DTO browser test
+  verifies tossing is visible before S09 and S09 appears afterward.
+✗ .impeccable/design.json:13
+  brings back modal outside game, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 29: EventModal is a sibling outside .screen in comic
+  GameTable.
+✗ .impeccable/design.json:17
+  brings back outside min width, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 29: Move decoration outside and set min-width:0.
+✗ .impeccable/design.json:17
+  brings back width capture, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 29: Same-width DPR2 captures matched, but full
+  cross-width comparison still drifted (10/14 pass) and double loads
+  did not fix it.
+✗ .impeccable/design.json:21
+  brings back exist item art, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 29: Do not treat existing chrome reference's old
+  item art as new56 runtime catalog.
+✗ .impeccable/design.json:25
+  brings back retain one phase, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 23: Do not retain the superseded one-time2%
+  compensation, charge at phase end, interpret5% as a total split
+  across four payments, or use personal-vault credits.
+✗ .impeccable/design.json:27
+  brings back exist art font, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 24: Reuse existing art and fonts for structure
+  studies rather than generating a new visual identity.
+✗ .impeccable/design.json:30
+  brings back pend reconnect path, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 22: Do not allow rerolling pending Beast/Alien
+  choices by reconnecting, duplicating copies, laundering copy value
+  via unconditional swaps, or applying full-strength copy effects
+  through event/special-tool paths.
+✗ .impeccable/design.json:42
+  brings back button fact exist, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 29: Brush caption ribbons, offwhite choice buttons,
+  paper fact cards and repeated separator lines made this screen look
+  unrelated to existing menus.
+✗ .impeccable/design.json:43
+  brings back control setting state, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 26: Do not add invented volume/graphics controls or
+  new settings state.
+✗ .impeccable/design.json:57
+  brings back exist animation, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 30: Reuse existing coin animation; no new image
+  generation.
+✗ .impeccable/hook.cache.json:1
+  brings back event survival game, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 23: The earlier E01/E08/E10-only fix and its browser
+  checks missed the events used by the current Survival game.
+✗ .impeccable/hook.cache.json:1
+  brings back game main dialog, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 29: Scope #game-main dialog.comic-event-dialog
+  instead, with explicit fixed bounds, grid row stretch and
+  bottom-only clipping.
+
+· 20 conflicts · fix them, or say why in the commit message or PR description

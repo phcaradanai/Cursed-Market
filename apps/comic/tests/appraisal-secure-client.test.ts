@@ -113,7 +113,7 @@ test('settled destination has one ready action, no duplicate reward, and respect
  const render=()=>renderToStaticMarkup(createElement(GameTable,{room,submit,send:()=>true,disabled:false}));
  let html=render();assert(html.includes('post-reward-screen'));assert.equal((html.match(/>พร้อมไปช่วงถัดไป</g)??[]).length,1);assert(!/<button[^>]*>รับเลย/.test(html));assert(!html.includes('coin-heads'));
  room.revealReady=[room.yourSeatId];html=render();assert(html.includes('พร้อมแล้ว รอผู้ที่ยังมีชีวิต'));assert(html.includes('ยืนยันไปต่อแล้ว หรือกำลังรอการเชื่อมต่อ'));
- game.self.life=0;html=render();assert(!html.includes('vault-spread'));assert(html.includes('คุณเป็นผู้ชม ไม่ต้องยืนยันช่วงถัดไป'));
+ game.self.life=0;html=render();assert(!html.includes('vault-spread'));assert(html.includes('โลกวิญญาณ'));assert(html.includes('เริ่มมินิเกม'));assert(!html.includes('พร้อมไปช่วงถัดไป</button>'));
 });
 test('settled reward may be hidden by its phase owner without another payment control',async()=>{
  const {RoundReward}=await import('../src/appraisal-client/RoundReward.js');

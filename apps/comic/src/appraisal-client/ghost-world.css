@@ -1,0 +1,30 @@
+#game-main .ghost-world{display:flex;flex-direction:column;padding:0;gap:0;overflow:hidden;background:var(--comic-black,#0b0e0f)}
+#game-main .ghost-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:24px;min-height:0;flex:1}
+#game-main .ghost-columns>section{min-width:0;display:flex;flex-direction:column;gap:12px}
+#game-main .ghost-columns h3,#game-main .ghost-columns p{margin:0}
+#game-main .ghost-cards{position:relative;height:140px;margin:24px 0}
+#game-main .ghost-cards>button{position:absolute;width:23%;height:140px;transition:left .5s ease;font-size:42px}
+#game-main .ghost-quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+#game-main .ghost-slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+#game-main .ghost-slots article{min-width:0;display:flex;flex-direction:column;gap:12px}
+#game-main .ghost-slots article>div{display:flex;gap:4px}
+#game-main .ghost-slots button{padding:6px;min-width:0}
+#game-main .ghost-jobs{display:grid;gap:12px;min-height:0}
+#game-main .ghost-jobs article{border-top:1px solid var(--comic-line);padding-top:12px}
+@media(prefers-reduced-motion:reduce){#game-main .ghost-cards>button{transition:none}}
+#game-main .screen:has(.ghost-world) .scene-play{display:block}
+#game-main .ghost-world .ghost-columns>section{overflow:hidden}
+#game-main .ghost-world .ghost-slots button{font-size:14px}
+#game-main .ghost-world input{max-width:140px;text-align:center}
+#game-main .screen .ghost-world{border:2px solid var(--comic-line);border-radius:var(--comic-radius);box-sizing:border-box}
+#game-main .ghost-slots img{object-fit:contain;align-self:center}
+#game-main .ghost-columns input{min-width:0}
+#game-main .ghost-section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:36px}
+#game-main .ghost-job-detail{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;min-width:0;flex:1;justify-content:center}
+#game-main .ghost-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:100%}
+#game-main .ghost-pair button{width:100%;height:44px}
+#game-main .ghost-footnote{font-size:14px;color:#bbc3c0}
+#game-main .ghost-empty{display:grid;place-items:center;flex:1;text-align:center}
+#game-main .ghost-quotes>button{display:flex;flex-direction:column;gap:8px;align-items:center;min-width:0;white-space:normal}
+#game-main .ghost-quotes>button>small{font-size:12px}
+#game-main .ghost-fee{display:flex;align-items:center;justify-content:space-between;gap:12px}

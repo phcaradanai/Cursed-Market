@@ -211,11 +211,11 @@
     "warning": "Comic UI is in separate build and differs from canonical UI source. Logic links are references, not proof every latest backend rule has matching UI."
   },
   "summary": {
-    "capturedImages": 33,
-    "capturedScreenGroups": 16,
+    "capturedImages": 38,
+    "capturedScreenGroups": 20,
     "registeredScreens": 30,
     "liveImages": 5,
-    "fixtureImages": 28
+    "fixtureImages": 33
   },
   "style": {
     "observedViewport": "1440×722 (browser native viewport; image dimensions recorded per file)",
@@ -1764,6 +1764,351 @@
       "sourceRoot": "apps/comic",
       "captureSourceRevision": "7be5aed18aa048c7ea45850913cadbfc4c8d52e0",
       "workingTreeSourceSnapshot": true
+    },
+    {
+      "id": "C34",
+      "screenId": "S11",
+      "title": "โลกวิญญาณ · ทางเข้าและมินิเกม",
+      "phase": "APPRAISAL",
+      "image": "captures/ghost-2026-10-30/ghost-1440x722.png",
+      "sha256": "b1932513981380a7875a32b59980942d84e0fdea2cc190caf48ebc2cad30b9ab",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:3189/?preview=ghost",
+      "capturedAtUTC": "2026-10-30T13:09:46.972401+00:00",
+      "clientDate": "2026-10-30",
+      "notes": "Current component fixture; callbacks do not settle transactions. Real network/replay and prior browser workflow are separate evidence. Not a human-approved pixel reference.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/GhostWorld.tsx",
+        "apps/comic/src/appraisal-client/ghost-world.css",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/main.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/ComicUI.tsx"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/GhostWorld.tsx",
+          "sha256": "46929bb93b8000e65d6963b0e7bd593d345e524f0f97bcd6694d9623feb6a77f"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ghost-world.css",
+          "sha256": "2d7c91c5af05ec8b7890ef045d0524eeee121cf4a1e5ba56b5435e20b6097ee9"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "9d1c3999da001442b5f5f155e3f43d89bd914416252663e9fa4c17dd1f08c50e"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "bdbc07da2cd3c32183539dac153b80f78b6a8ab91e4ab1ea832c949ba13278fa"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "f6cc4f1ad3a46d299e86b62ea13388187fa1dd21d9abcb15327f313884ddf4ca"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "39ec3277e2570cb24dc4ccb6abbf0cd154ed3fad",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [
+        "Open ghost preview; measure shared frame and equal columns"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      }
+    },
+    {
+      "id": "C35",
+      "screenId": "G02",
+      "title": "งานวิญญาณ · ตอบรับข้อเสนอ",
+      "phase": "APPRAISAL",
+      "image": "captures/ghost-2026-10-30/ghost-busy-1440x722.png",
+      "sha256": "f2bcfb314c15dac01f282eae73e33546f45a5ab64431a263d63d59c980c508a9",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:3189/?preview=ghost-busy",
+      "capturedAtUTC": "2026-10-30T13:09:46.972401+00:00",
+      "clientDate": "2026-10-30",
+      "notes": "Current component fixture; callbacks do not settle transactions. Real network/replay and prior browser workflow are separate evidence. Not a human-approved pixel reference.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/GhostWorld.tsx",
+        "apps/comic/src/appraisal-client/ghost-world.css",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/main.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/ComicUI.tsx"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/GhostWorld.tsx",
+          "sha256": "46929bb93b8000e65d6963b0e7bd593d345e524f0f97bcd6694d9623feb6a77f"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ghost-world.css",
+          "sha256": "2d7c91c5af05ec8b7890ef045d0524eeee121cf4a1e5ba56b5435e20b6097ee9"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "9d1c3999da001442b5f5f155e3f43d89bd914416252663e9fa4c17dd1f08c50e"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "bdbc07da2cd3c32183539dac153b80f78b6a8ab91e4ab1ea832c949ba13278fa"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "f6cc4f1ad3a46d299e86b62ea13388187fa1dd21d9abcb15327f313884ddf4ca"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "39ec3277e2570cb24dc4ccb6abbf0cd154ed3fad",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [
+        "Open ghost preview; measure shared frame and equal columns"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      }
+    },
+    {
+      "id": "C36",
+      "screenId": "G03",
+      "title": "Skeleton · แพ้ครบสามช่อง",
+      "phase": "APPRAISAL",
+      "image": "captures/ghost-2026-10-30/ghost-lost-1440x722.png",
+      "sha256": "527fccbcf88abde2f320b109773b33ca80183eb765fbe69549156eb6ae4336ee",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:3189/?preview=ghost-lost",
+      "capturedAtUTC": "2026-10-30T13:09:46.972401+00:00",
+      "clientDate": "2026-10-30",
+      "notes": "Current component fixture; callbacks do not settle transactions. Real network/replay and prior browser workflow are separate evidence. Not a human-approved pixel reference.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/GhostWorld.tsx",
+        "apps/comic/src/appraisal-client/ghost-world.css",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/main.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/ComicUI.tsx"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/GhostWorld.tsx",
+          "sha256": "46929bb93b8000e65d6963b0e7bd593d345e524f0f97bcd6694d9623feb6a77f"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ghost-world.css",
+          "sha256": "2d7c91c5af05ec8b7890ef045d0524eeee121cf4a1e5ba56b5435e20b6097ee9"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "9d1c3999da001442b5f5f155e3f43d89bd914416252663e9fa4c17dd1f08c50e"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "bdbc07da2cd3c32183539dac153b80f78b6a8ab91e4ab1ea832c949ba13278fa"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "f6cc4f1ad3a46d299e86b62ea13388187fa1dd21d9abcb15327f313884ddf4ca"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "39ec3277e2570cb24dc4ccb6abbf0cd154ed3fad",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [
+        "Open ghost preview; measure shared frame and equal columns"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      }
+    },
+    {
+      "id": "C37",
+      "screenId": "G04",
+      "title": "ส่งมอบสินค้าเป้าหมาย",
+      "phase": "APPRAISAL",
+      "image": "captures/ghost-2026-10-30/ghost-working-1440x722.png",
+      "sha256": "4c60bcf6e38b98985e3bb4868b54d184e2371ce4416a57954254466adeafc782",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:3189/?preview=ghost-working",
+      "capturedAtUTC": "2026-10-30T13:09:46.972401+00:00",
+      "clientDate": "2026-10-30",
+      "notes": "Current component fixture; callbacks do not settle transactions. Real network/replay and prior browser workflow are separate evidence. Not a human-approved pixel reference.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/GhostWorld.tsx",
+        "apps/comic/src/appraisal-client/ghost-world.css",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/main.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/ComicUI.tsx"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/GhostWorld.tsx",
+          "sha256": "46929bb93b8000e65d6963b0e7bd593d345e524f0f97bcd6694d9623feb6a77f"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ghost-world.css",
+          "sha256": "2d7c91c5af05ec8b7890ef045d0524eeee121cf4a1e5ba56b5435e20b6097ee9"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "9d1c3999da001442b5f5f155e3f43d89bd914416252663e9fa4c17dd1f08c50e"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "bdbc07da2cd3c32183539dac153b80f78b6a8ab91e4ab1ea832c949ba13278fa"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "f6cc4f1ad3a46d299e86b62ea13388187fa1dd21d9abcb15327f313884ddf4ca"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "39ec3277e2570cb24dc4ccb6abbf0cd154ed3fad",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [
+        "Open ghost preview; measure shared frame and equal columns"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      }
+    },
+    {
+      "id": "C38",
+      "screenId": "G04",
+      "title": "ส่งมอบ · รอผู้ว่าจ้างเติมเครดิต",
+      "phase": "APPRAISAL",
+      "image": "captures/ghost-2026-10-30/ghost-funds-1440x722.png",
+      "sha256": "53b3fa946ea6fa5611c5c65d4eebf18bb25e4d4b34898e513abc041ba5223701",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:3189/?preview=ghost-funds",
+      "capturedAtUTC": "2026-10-30T13:09:46.972401+00:00",
+      "clientDate": "2026-10-30",
+      "notes": "Current component fixture; callbacks do not settle transactions. Real network/replay and prior browser workflow are separate evidence. Not a human-approved pixel reference.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/GhostWorld.tsx",
+        "apps/comic/src/appraisal-client/ghost-world.css",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/main.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/ComicUI.tsx"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/GhostWorld.tsx",
+          "sha256": "46929bb93b8000e65d6963b0e7bd593d345e524f0f97bcd6694d9623feb6a77f"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ghost-world.css",
+          "sha256": "2d7c91c5af05ec8b7890ef045d0524eeee121cf4a1e5ba56b5435e20b6097ee9"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "9d1c3999da001442b5f5f155e3f43d89bd914416252663e9fa4c17dd1f08c50e"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "bdbc07da2cd3c32183539dac153b80f78b6a8ab91e4ab1ea832c949ba13278fa"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "f6cc4f1ad3a46d299e86b62ea13388187fa1dd21d9abcb15327f313884ddf4ca"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "39ec3277e2570cb24dc4ccb6abbf0cd154ed3fad",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [
+        "Open ghost preview; measure shared frame and equal columns"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      }
     }
   ],
   "activeImplementation": {

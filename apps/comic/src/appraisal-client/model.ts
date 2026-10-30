@@ -199,7 +199,8 @@ export function collectorEstimate(game:AppraisalView):{min:number;max:number;unp
   let low=0,high=0,unpriced=0;
   for(const item of [...game.self.inventory,...(game.self.loanItems??[]),...(game.self.personalVault?.items??[]),...(game.loans??[]).filter(l=>l.status==='active' && l.borrowerId===game.self.id).map(l=>l.item)]) {const r=itemScoreRange(item.knowledge,item.appraisedBy!==undefined && item.appraisedBy!==game.self.id);if(r){low+=r[0];high+=r[1];}else unpriced++;}
   const modifier=statusMagnitude(game.self,'B10',20)-statusMagnitude(game.self,'D10',20);
-  return {min:collectorTotal(game.self.credits+(game.self.personalVault?.credits??0),low,modifier),max:collectorTotal(game.self.credits+(game.self.personalVault?.credits??0),high,modifier),unpriced,modifier};
+  const spiritBonus=game.ghosts?.self?.bonus??0;
+  return {min:collectorTotal(game.self.credits+(game.self.personalVault?.credits??0),low,modifier)+spiritBonus,max:collectorTotal(game.self.credits+(game.self.personalVault?.credits??0),high,modifier)+spiritBonus,unpriced,modifier};
 }
 /** The four authentic/fake × cursed/clean results of opening an item, said only as far as the facts are known. */
 export function activationOutcome(k:Knowledge):string {

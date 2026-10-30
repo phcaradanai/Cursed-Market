@@ -435,6 +435,72 @@
       "guards": []
     },
     {
+      "id": "ghost-start",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostAction",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 66,
+        "endLine": 66
+      },
+      "text": "case 'ghost-start':\ncase 'ghost-guess':\ncase 'ghost-hire':\ncase 'ghost-accept':\ncase 'ghost-rps':\ncase 'ghost-deliver':\nreturn handleGhostCommand(state,id,action);",
+      "guards": []
+    },
+    {
+      "id": "ghost-guess",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostAction",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 66,
+        "endLine": 66
+      },
+      "text": "case 'ghost-start':\ncase 'ghost-guess':\ncase 'ghost-hire':\ncase 'ghost-accept':\ncase 'ghost-rps':\ncase 'ghost-deliver':\nreturn handleGhostCommand(state,id,action);",
+      "guards": []
+    },
+    {
+      "id": "ghost-hire",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostAction",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 66,
+        "endLine": 66
+      },
+      "text": "case 'ghost-start':\ncase 'ghost-guess':\ncase 'ghost-hire':\ncase 'ghost-accept':\ncase 'ghost-rps':\ncase 'ghost-deliver':\nreturn handleGhostCommand(state,id,action);",
+      "guards": []
+    },
+    {
+      "id": "ghost-accept",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostAction",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 66,
+        "endLine": 66
+      },
+      "text": "case 'ghost-start':\ncase 'ghost-guess':\ncase 'ghost-hire':\ncase 'ghost-accept':\ncase 'ghost-rps':\ncase 'ghost-deliver':\nreturn handleGhostCommand(state,id,action);",
+      "guards": []
+    },
+    {
+      "id": "ghost-rps",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostAction",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 66,
+        "endLine": 66
+      },
+      "text": "case 'ghost-start':\ncase 'ghost-guess':\ncase 'ghost-hire':\ncase 'ghost-accept':\ncase 'ghost-rps':\ncase 'ghost-deliver':\nreturn handleGhostCommand(state,id,action);",
+      "guards": []
+    },
+    {
+      "id": "ghost-deliver",
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostAction",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 66,
+        "endLine": 66
+      },
+      "text": "case 'ghost-start':\ncase 'ghost-guess':\ncase 'ghost-hire':\ncase 'ghost-accept':\ncase 'ghost-rps':\ncase 'ghost-deliver':\nreturn handleGhostCommand(state,id,action);",
+      "guards": []
+    },
+    {
       "id": "loan-propose",
       "owner": "LoanAction",
       "source": {
@@ -7070,6 +7136,312 @@
         "endLine": 150
       },
       "owner": "code:src/server/room-lifecycle.ts:RoomLifecycle.hostOnly",
+      "guards": []
+    },
+    {
+      "code": "ghost-phase",
+      "condition": "s.config.survival&&s.phase!=='RESULTS'",
+      "message": "'โลกวิญญาณปิดแล้ว'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 25,
+        "endLine": 25
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": []
+    },
+    {
+      "code": "ghost-alive",
+      "condition": "p.life!==0",
+      "message": "'เฉพาะผู้มีชีวิตจ้างงานได้'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 28,
+        "endLine": 28
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": [
+        "a.type==='ghost-hire'"
+      ]
+    },
+    {
+      "code": "ghost-unavailable",
+      "condition": "g?.available",
+      "message": "'วิญญาณยังไม่เปิดรับงาน'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 28,
+        "endLine": 28
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": [
+        "a.type==='ghost-hire'"
+      ]
+    },
+    {
+      "code": "ghost-job",
+      "condition": "!g.jobs.some(j=>j.buyerId===id&&active(j))",
+      "message": "'มีงานค้างอยู่แล้ว'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 29,
+        "endLine": 29
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": [
+        "a.type==='ghost-hire'"
+      ]
+    },
+    {
+      "code": "ghost-fee",
+      "condition": "Number.isSafeInteger(a.fee)&&a.fee>=0",
+      "message": "'ค่าจ้างไม่ถูกต้อง'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 29,
+        "endLine": 29
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": [
+        "a.type==='ghost-hire'"
+      ]
+    },
+    {
+      "code": "ghost-choice",
+      "condition": "Number.isInteger(a.choice)&&q",
+      "message": "'เลือกสินค้าที่เสนอ'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 30,
+        "endLine": 30
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": [
+        "a.type==='ghost-hire'"
+      ]
+    },
+    {
+      "code": "ghost-quote",
+      "condition": "a.quoteId===q.id",
+      "message": "'ข้อเสนอเปลี่ยนแล้ว กรุณาเลือกใหม่'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 30,
+        "endLine": 30
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": [
+        "a.type==='ghost-hire'"
+      ]
+    },
+    {
+      "code": "credits",
+      "condition": "p.credits>=q.price+a.fee",
+      "message": "'เครดิตไม่พอสำหรับราคาที่ตกลง'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 30,
+        "endLine": 30
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": [
+        "a.type==='ghost-hire'"
+      ]
+    },
+    {
+      "code": "ghost-dead",
+      "condition": "p.life===0",
+      "message": "'ต้องหมดชีวิตก่อนเข้าโลกวิญญาณ'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 33,
+        "endLine": 33
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": []
+    },
+    {
+      "code": "ghost-busy",
+      "condition": "g.tracking?.status!=='guessing'&&!g.available&&!g.jobs.some(active)",
+      "message": "'กำลังเปิดบริการหรือมีงานค้าง'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 36,
+        "endLine": 36
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": [
+        "a.type==='ghost-start'"
+      ]
+    },
+    {
+      "code": "ghost-clock",
+      "condition": "a.startedAt===undefined||Number.isSafeInteger(a.startedAt)&&a.startedAt>=0",
+      "message": "'เวลามินิเกมไม่ถูกต้อง'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 36,
+        "endLine": 36
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": [
+        "a.type==='ghost-start'"
+      ]
+    },
+    {
+      "code": "ghost-round",
+      "condition": "g.tracking&&a.round===g.round",
+      "message": "'รอบการ์ดผ่านไปแล้ว'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 41,
+        "endLine": 41
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": [
+        "a.type==='ghost-guess'"
+      ]
+    },
+    {
+      "code": "ghost-locked",
+      "condition": "g.available",
+      "message": "'ชนะมินิเกมก่อน'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 43,
+        "endLine": 43
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": []
+    },
+    {
+      "code": "ghost-job",
+      "condition": "j?.status==='offered'",
+      "message": "'ข้อเสนอนี้ผ่านไปแล้ว'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 44,
+        "endLine": 44
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": [
+        "a.type==='ghost-accept'"
+      ]
+    },
+    {
+      "code": "ghost-buyer",
+      "condition": "player(s,j.buyerId).life!==0",
+      "message": "'ผู้ว่าจ้างหมดชีวิตแล้ว'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 44,
+        "endLine": 44
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": [
+        "a.type==='ghost-accept'"
+      ]
+    },
+    {
+      "code": "ghost-slot",
+      "condition": "Number.isInteger(a.slot)&&slot",
+      "message": "'ช่องสินค้าไม่ถูกต้อง'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 46,
+        "endLine": 46
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": []
+    },
+    {
+      "code": "ghost-lost",
+      "condition": "!slot.lost",
+      "message": "'ช่องนี้แพ้แล้ว รอช่วงหน้า'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 48,
+        "endLine": 48
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": [
+        "a.type==='ghost-rps'"
+      ]
+    },
+    {
+      "code": "ghost-job",
+      "condition": "g.jobs.some(j=>j.status==='accepted')",
+      "message": "'รับงานก่อนตามหาของ'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 48,
+        "endLine": 48
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": [
+        "a.type==='ghost-rps'"
+      ]
+    },
+    {
+      "code": "ghost-hand",
+      "condition": "h>=0",
+      "message": "'มือไม่ถูกต้อง'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 49,
+        "endLine": 49
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": [
+        "a.type==='ghost-rps'"
+      ]
+    },
+    {
+      "code": "ghost-target",
+      "condition": "j?.status==='accepted'&&j.kind===slot.kind",
+      "message": "'ซื้อได้เฉพาะของตามงาน'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 52,
+        "endLine": 52
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": []
+    },
+    {
+      "code": "ghost-buyer",
+      "condition": "buyer.life!==0",
+      "message": "'ผู้ว่าจ้างหมดชีวิตแล้ว'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 52,
+        "endLine": 52
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": []
+    },
+    {
+      "code": "credits",
+      "condition": "buyer.credits>=j.price+j.fee",
+      "message": "'รอผู้ว่าจ้างเติมเครดิตก่อนส่งมอบ'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 52,
+        "endLine": 52
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+      "guards": []
+    },
+    {
+      "code": "ghost-duplicate",
+      "condition": "!s.items[itemId]",
+      "message": "'ส่งของแล้ว'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+        "line": 53,
+        "endLine": 53
+      },
+      "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
       "guards": []
     }
   ]

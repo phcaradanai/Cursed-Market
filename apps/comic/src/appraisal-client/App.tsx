@@ -1,3 +1,4 @@
+import {GhostWorld} from './GhostWorld.js';
 import {PostRewardScreen} from './PostRewardScreen.js';
 import {TradeScreen} from './TradeScreen.js';
 import { Pager } from './Pager.js';
@@ -11,7 +12,7 @@ import {RulesMenu} from './RulesMenu.js';
 import {ComicMenu,ComicButton} from './ComicUI.js';
 import { HeldEffects } from './HeldEffects.js';
 import { phaseHint, phaseLabel, readable, unsoldItems, defaultConsequence, needShort, npcAcceptanceChance } from './model.js';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { DialogFeedback } from './GameDialog.js';
 import { CORE2, rerollCost } from '../game/appraisal/core2.js';
 import type { FormEvent, ReactElement } from 'react';
@@ -203,6 +204,9 @@ export function GameTable({room,submit,send,disabled,tools,connected=true,connec
   useLang();
   const game=room.game!;const self=game.self;
   const playerNames=Object.fromEntries(room.matchSeats.map(seat=>[seat.id,seat.name]));
+  const ghostServerOffset=useMemo(()=>Date.now()-room.serverTime,[room.serverTime]);
+  const [ghostOpen,setGhostOpen]=useState(false),[watching,setWatching]=useState(false);
+  const spirit=game.phase!=='RESULTS'&&!!game.survival&&((self.life===0&&!watching)||ghostOpen);
   const [selected,setSelected]=useState('');
   const [deskPage,setDeskPage]=useState<DeskPage>('assessment');
   const [coinTossing,setCoinTossing]=useState(false);
@@ -221,7 +225,7 @@ export function GameTable({room,submit,send,disabled,tools,connected=true,connec
   const [toasts,dismiss]=useOutcomes(game);
   const phase=game.phase;const reveal=phase==='REVEAL' || phase==='RESULTS';
   useEffect(()=>{window.scrollTo(0,0);},[phase,game.encounter]);
-  const eventOpen=!!self.eventOffer && playable;
+  const eventOpen=self.life!==0&&!!self.eventOffer && playable;
   // A tucked event lets the player study the table; the table only locks while the dialog is actually open.
   const [tuckedKey,setTuckedKey]=useState<string|null>(null);
   const tucked=eventOpen && tuckedKey===self.eventOffer!.key;
@@ -261,11 +265,14 @@ export function GameTable({room,submit,send,disabled,tools,connected=true,connec
     
     <p className="sr-only" role="status" key={`${game.encounter}-${game.phase}`}>{phaseLabel(game.phase)} {t('ช่วง {n}',{n:game.encounter})}{game.encounterCount!==null?t(' จาก {n}',{n:game.encounterCount}):t(' เล่นจนทุกคนชีวิตหมด')}. {phaseHint(game.phase)}</p>
     {self.paused && playable && !game.survival && <div className="notice" role="status"><h2>{self.paused==='dead'?t('สัญญาคร่าชีวิตคุณในช่วงนี้'):t('พลังหมดในช่วงนี้')}</h2><p>{self.paused==='dead'?t('คะแนนช่วงนี้เป็น 0 คะแนนที่ได้ก่อนหน้ายังอยู่'):t('คะแนนที่ทำได้ในช่วงนี้ยังอยู่')} {t('พักดูเพื่อนจนจบช่วงนี้ แล้วกลับมาเล่นช่วงถัดไป')}</p></div>}
-    {game.survival && self.life===0 && playable && <div className="notice" role="status"><h2>{t('ชีวิตหมดแล้ว · คุณเป็นผู้ชม')}</h2><p>{t('ดูเพื่อนจนทุกคนชีวิตหมด Collector จะรับของที่คุณเก็บไว้และคิดคะแนนพร้อมกัน ไม่มีการกลับมาเล่นใน run นี้')}</p></div>}
+    {game.survival && self.life===0 && playable && !spirit && <div className="notice" role="status"><h2>{t('ชีวิตหมดแล้ว · คุณเป็นผู้ชม')}</h2><p>{t('ดูเพื่อนจนทุกคนชีวิตหมด Collector จะรับของที่คุณเก็บไว้และคิดคะแนนพร้อมกัน ไม่มีการกลับมาเล่นใน run นี้')}</p></div>}
     {game.survival && self.energy===0 && self.life!>0 && playable && <p className="notice" role="status">{t('พลัง 0 ยังเล่นต่อได้ เลือกประตูและรับดีลฟื้นพลังได้ การกระทำที่ใช้พลังต้องมีพอ')}</p>}
     {self.done && playable && !self.paused && <p className="notice" role="status">{room.timerSettings?.enabled===false?t('คุณจบช่วงนี้แล้ว รอเพื่อนจบช่วงเพื่อไปต่อ'):t('คุณจบช่วงนี้แล้ว รอเพื่อนหรือหมดเวลาเพื่อไปต่อ')}</p>}
+    {game.survival&&game.phase!=='RESULTS'&&!spirit&&(self.life===0||game.ghosts?.services.some(s=>s.available)||!!game.ghosts?.jobs.some(j=>j.status==='accepted'||j.status==='offered'))&&<ComicButton onClick={()=>{setGhostOpen(true);setWatching(false);}}>โลกวิญญาณ</ComicButton>}
     <div className="table-stage" inert={eventOpen && !tucked || openDrawer!==null || settingsOpen}>
       <div className={`scene-play${reveal?' single':''}`}>
+      {spirit&&<GhostWorld serverOffset={ghostServerOffset} game={game} submit={submit} disabled={disabled} names={playerNames} onClose={()=>{setGhostOpen(false);setWatching(true);}}/>}
+      {!spirit&&<>
       {game.phase==='PORTALS' && !self.paused && <section className="portals"><h2>{t('เชิญใครมาที่โต๊ะของคุณ')}</h2><p>{pick('พบได้หนึ่งรายต่อช่วง แต่ละรายมีสินค้าต่างกัน','Meet one merchant each encounter. Each offers different goods.')}</p>{self.eventOffer && <p className="blocked-note">{t('ตอบเหตุการณ์ก่อน จึงเปิดประตูได้')}</p>}<div className="portal-row">{self.portals.map(p=><article key={p.id} className={`portal ${p.disabled?'closed':''}`}><div className="gate comic-gate" data-npc={p.npc}><div className="gate-window"><span className="comic-screen-lines" aria-hidden="true"/><img className="gate-figure" src={npcImage(p.npc,p.disabled?'angry':(self.npcTrust?.[p.npc]??0)>=4?'smile':'idle')} width="640" height="960" alt={npcName(p.npc)}/></div></div><div className="portal-details"><h3>{npcName(p.npc)}</h3><div className="plaque-chips"><span className="plaque-chip goods"><img src={itemImage(p.hint)} width="88" height="88" alt=""/><span className="portal-goods-copy"><span className="portal-goods-title"><ItemTerm kind={p.hint}/></span><span className="portal-goods-note">{pick('ของที่นำมาเสนอ','Merchant offering')}</span></span></span>{self.npcTrust && <span className="plaque-chip trust" title={t('ความไว้ใจ {n}/10 · ช่วยต่อรอง +{chance} จุดเปอร์เซ็นต์',{n:self.npcTrust[p.npc]??0,chance:npcAcceptanceChance(game,p.npc)})}><span className="portal-trust-value"><HandshakeIcon/><span>{pick('ไว้ใจ','Trust')} <strong>{self.npcTrust[p.npc]??0}/10</strong></span></span><meter min={0} max={10} value={self.npcTrust[p.npc]??0} aria-label={pick('ความไว้ใจพ่อค้า','Merchant trust')}/></span>}{self.wishes?.[p.npc] && <span className="plaque-chip wish" title={`${t('ตามหา {name}',{name:itemName(self.wishes[p.npc]!.kind)})} · ${game.wishContract?t('ราคาเริ่ม {n} เครดิต ลดลงทุกช่วง ไม่ต่ำกว่า {floor}',{n:self.wishes[p.npc]!.price,floor:ITEM_SPECS[self.wishes[p.npc]!.kind].anchor}):t('รับซื้อ {n} เครดิต',{n:self.wishes[p.npc]!.price})}`}><CoinIcon/>{t('ตามหา {name}',{name:itemName(self.wishes[p.npc]!.kind)})}</span>}</div><button className="primary" aria-label={`${p.disabled?t('ประตูปิด'):pick('พบพ่อค้า','Meet merchant')} · ${npcName(p.npc)}`} disabled={inactive || p.disabled || !!self.eventOffer} title={tip(inactive&&lock,p.disabled&&t('ประตูนี้ปิดอยู่ เลือกพ่อค้ารายอื่น'),!!self.eventOffer&&t('ตอบเหตุการณ์ก่อน จึงเปิดประตูได้'))} onClick={()=>submit({type:'enter',portalId:p.id})}><HandshakeIcon/>{p.disabled?t('ประตูปิด'):pick('พบพ่อค้า','Meet merchant')}</button>{game.core2 && !p.disabled && <button type="button" className="reroll-portal" disabled={inactive || !!self.eventOffer || self.energy<rerollCost(self.portalRerolls??0)} title={tip(inactive&&lock,!!self.eventOffer&&t('ตอบเหตุการณ์ก่อน จึงรีประตูได้'),self.energy<rerollCost(self.portalRerolls??0)&&t('พลังไม่พอรีประตู'))||t('เปลี่ยนเป็นพ่อค้ารายใหม่พร้อมของใหม่ · รีครั้งต่อไปในช่วงนี้แพงขึ้น 1 พลัง')} onClick={()=>submit({type:'reroll-portal',portalId:p.id})}><LightningIcon/>{pick('เปลี่ยนรายนี้','Replace merchant')} · {rerollCost(self.portalRerolls??0)} {pick('พลัง','energy')}</button>}</div></article>)}</div></section>}
       {game.phase==='APPRAISAL' && !self.paused && <div className={`appraisal-stage${npc?'':' no-merchant'}`}>
         {!npc && <><WishDeal game={game} submit={submit} disabled={inactive}/><CleanseDeal game={game} submit={submit} disabled={inactive}/></>}
@@ -277,6 +284,7 @@ export function GameTable({room,submit,send,disabled,tools,connected=true,connec
       {phase==='REVEAL' && self.roundReward && <RoundReward hideSettled key={game.encounter} reward={self.roundReward} credits={self.credits} submit={submit} disabled={disabled || room.revealReady.includes(room.yourSeatId)} onTossing={setCoinTossing}/>}
       {phase==='REVEAL' && self.roundReward?.settled && !coinTossing && <PostRewardScreen game={game} submit={submit} disabled={disabled || room.revealReady.includes(room.yourSeatId)} completion={<ReadyForNext room={room} send={send} disabled={disabled}/>}/>}
       {reveal && (phase==='RESULTS' || !self.roundReward) && !coinTossing && <Results room={room} send={send} disabled={disabled || coinTossing}/>}
+      </>}
       </div>
       <TheftPanel game={game} submit={submit} disabled={disabled || self.life===0} playerNames={playerNames} deadlines={room.duelDeadlines} serverTime={room.serverTime}/>
     </div>

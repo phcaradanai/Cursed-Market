@@ -819,8 +819,8 @@
       "nextIds": [
         "S09"
       ],
-      "conceptStatus": "planned",
-      "currentImage": null,
+      "conceptStatus": "draft",
+      "currentImage": "concepts/S08-salary-v01.png",
       "approvedImage": null,
       "variants": [
         {
@@ -834,6 +834,13 @@
         {
           "id": "settled",
           "purpose": "รับแล้วและบริการหลังรับเงิน"
+        },
+        {
+          "id": "salary-v01",
+          "purpose": "User-requested shared comic-frame redesign; symmetric cash-out and coin choice regions, initial one-coin multi-enabled state",
+          "image": "concepts/S08-salary-v01.png",
+          "brief": "concepts/S08-salary-v01.md",
+          "status": "draft"
         }
       ],
       "mustShow": [],
@@ -860,6 +867,7 @@
       "captureImage": "captures/current-comic-2026-10-29/live-salary.png",
       "designPolicy": "reuse-existing; change only explicit requested gap",
       "captureNote": "Actual salary controls captured separately from preview summary without reward.",
+      "designNote": "2026-10-30 user explicitly requested S08 concept redesign only. Live C21 capture remains runtime evidence; new draft is not approved, implemented or a baseline replacement.",
       "sourceRefs": [
         {
           "symbolId": "code:src/game/appraisal/engine.ts:settleEncounter",

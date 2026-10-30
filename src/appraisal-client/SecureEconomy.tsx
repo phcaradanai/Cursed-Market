@@ -74,7 +74,7 @@ export function TheftPanel({game,submit,disabled,playerNames={},deadlines={},ser
 export function VaultPanel({game,submit,disabled}:Props) {
   const [amount,setAmount]=useState('10');
   if(!game.secureEconomy || !paid(game) || !alive(game))return null;
-  const p=game.self,vault=p.personalVault??{items:[],credits:0,slots:2,nextSlotPrice:10,nextInterest:0};
+  const p=game.self,vault=p.personalVault??{items:[],credits:0,slots:2,nextSlotPrice:10,nextInterest:0,interestPercent:4};
   const value=Number(amount),valid=positive(value);
   return <section className="secure-economy vault-table" aria-label={pick('คลังนิรภัย','Personal vault')}>
     <h2>{pick('เก็บไว้ข้ามคืน','Keep it safe')}</h2>
@@ -86,7 +86,7 @@ export function VaultPanel({game,submit,disabled}:Props) {
     <details className="info-fold"><summary>{pick(`ฝากเงิน · ในคลัง ${vault.credits} เครดิต`,`Store credits · ${vault.credits} credits in vault`)}</summary>
       <p>{pick(`ในกระเป๋า ${p.credits} เครดิต`,`Wallet: ${p.credits} credits`)}</p><Amount label={pick('จำนวนเครดิต','Credit amount')} value={amount} onChange={setAmount} disabled={disabled}/>
       <div className="actions"><button disabled={disabled || !valid || value>p.credits} onClick={()=>submit({type:'vault-deposit-credits',amount:value})}>{pick('ฝากเงิน','Deposit credits')}</button><button disabled={disabled || !valid || value>vault.credits} onClick={()=>submit({type:'vault-withdraw-credits',amount:value})}>{pick('ถอนเงิน','Withdraw credits')}</button></div>
-      <p className="supporting">{pick(`ดอกเบี้ย 4% ต่อช่วง ไม่มีเพดาน จ่ายเข้ากระเป๋าตอนเริ่มช่วงถัดไป ตอนนี้จะได้ ${vault.nextInterest} เครดิต ไม่ทบต้นเอง`,`Interest is 4% of the whole vault balance per encounter, uncapped, paid to your wallet when the next encounter starts. Next payment: ${vault.nextInterest} credits. It does not compound by itself.`)}</p>
+      <p className="supporting">{pick(`ดอกเบี้ย ${vault.interestPercent??4}% ต่อช่วง ${vault.interestPercent===10?'เฉพาะเงินต้นที่อยู่ครบช่วง ถอนเงินใหม่ก่อนเงินเก่า เติมใหม่ไม่รับย้อนหลัง ปัดเศษลง':'ตามกติกาเดิมของรัน'} จ่ายเข้ากระเป๋า ยอดที่มีสิทธิ์ตอนนี้ได้ ${vault.nextInterest} เครดิต ไม่ทบต้นเอง`,`Interest is ${vault.interestPercent??4}% per encounter. ${vault.interestPercent===10?'Only principal held for a full encounter qualifies; withdrawals use new deposits first. New deposits earn no retroactive interest. Rounded down.':'Historical whole-balance rules apply.'} Paid to your wallet. Eligible payment: ${vault.nextInterest} credits. It does not compound by itself.`)}</p>
     </details>
   </section>;
 }

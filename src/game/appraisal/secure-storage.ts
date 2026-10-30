@@ -1,9 +1,12 @@
 import type {AppraisalItem, AppraisalState, Appraiser} from './types.js';
 import {check, ownedItem, player, reward, spend, trace, transfer} from './mechanics.js';
 
-export const VAULT_INTEREST_PERCENT=4;
-export const vaultInterestOf=(credits:number):number=>Math.floor(credits*VAULT_INTEREST_PERCENT/100);
-export interface PersonalVault {items:string[]; credits:number; slots:number}
+export const VAULT_INTEREST_PERCENT=10;
+export const vaultInterestOf=(credits:number,percent=VAULT_INTEREST_PERCENT):number=>percent===10?Math.floor(credits/10):Math.floor(credits*percent/100);
+export interface PersonalVault {items:string[]; credits:number; slots:number; interest?:{principal:number;encounter:number}}
+export function nextVaultInterest(state:AppraisalState,vault:PersonalVault):number {
+  return state.config.vaultInterestRules===1?vaultInterestOf(vault.interest?.encounter===state.encounter?vault.interest.principal:0):vaultInterestOf(vault.credits,4);
+}
 export interface SecuredLoan {
   id:string; borrowerId:string; lenderId:string; itemId:string;
   /** Agreed item value and deadline never change after funding. */
@@ -66,7 +69,7 @@ function firstPayout(state:AppraisalState):number {
 }
 export function handleStorageAction(state:AppraisalState,p:Appraiser,action:StorageAction):void {
   enabled(state,p);afterReward(state,p);
-  const vault=p.personalVault??{items:[],credits:0,slots:2};
+  const vault:PersonalVault=p.personalVault??{items:[],credits:0,slots:2};
   switch(action.type){
     case 'vault-deposit-item':{
       check(vault.items.length<vault.slots,'vault-full','คลังส่วนตัวเต็ม');
@@ -87,6 +90,7 @@ export function handleStorageAction(state:AppraisalState,p:Appraiser,action:Stor
     case 'vault-withdraw-credits':{
       positive(action.amount);check(vault.credits>=action.amount,'credits','เครดิตในคลังไม่พอ');addable(p.credits,action.amount);
       vault.credits-=action.amount;p.credits+=action.amount;
+      if(state.config.vaultInterestRules===1 && vault.interest)vault.interest.principal=Math.min(vault.interest.principal,vault.credits);
       state.ledger.push({from:`vault:${p.id}`,to:p.id,amount:action.amount,reason:'vault-withdraw',encounter:state.encounter});break;
     }
     case 'vault-expand':{
@@ -186,18 +190,24 @@ export function settleLoansBeforeAdvance(state:AppraisalState,final=false):void 
   }
 }
 /**
- * Paid into the wallet as an encounter begins, on the whole vault balance and with no cap.
+ * Paid into the wallet as an encounter begins. New rules require the original principal to remain for a full encounter.
  * The bank funds it; a bank that cannot cover a payment pays what it safely can. Never compounds on its own.
  */
 export function payVaultInterest(state:AppraisalState):void {
   if(!state.config.secureEconomy)return;
   for(const p of state.players){
     const vault=p.personalVault;if(!vault || p.paused==='dead' || p.life===0)continue;
-    const owed=vaultInterestOf(vault.credits);
+    let principal=vault.credits;
+    if(state.config.vaultInterestRules===1){
+      if(vault.interest && vault.interest.encounter>=state.encounter)continue;
+      principal=vault.interest?.encounter===state.encounter-1?vault.interest.principal:0;
+      vault.interest={principal:vault.credits,encounter:state.encounter};
+    }
+    const owed=vaultInterestOf(principal,state.config.vaultInterestRules===1?10:4);
     const amount=Math.min(owed,Math.max(0,state.bank-state.market.budget-state.reservedRewards));
     if(amount<=0)continue;
     reward(state,p,amount,'vault-interest');
-    trace(state,p,'vault-interest',{balance:vault.credits,owed,paid:amount});
+    trace(state,p,'vault-interest',{balance:vault.credits,...(state.config.vaultInterestRules===1?{principal}:{}),owed,paid:amount});
   }
 }
 export function loanViewFor(state:AppraisalState,p:Appraiser):SecuredLoan[] {
@@ -208,6 +218,7 @@ export function secureStorageInvariants(state:AppraisalState):void {
   for(const p of state.players){
     const vault=p.personalVault;if(!vault)continue;
     check(state.config.secureEconomy && Number.isSafeInteger(vault.slots) && vault.slots>=2 && vault.items.length<=vault.slots && Number.isSafeInteger(vault.credits) && vault.credits>=0,'vault','ข้อมูลคลังส่วนตัวไม่ถูกต้อง');
+    if(vault.interest)check(Number.isSafeInteger(vault.interest.principal) && vault.interest.principal>=0 && vault.interest.principal<=vault.credits && Number.isSafeInteger(vault.interest.encounter) && vault.interest.encounter>=1 && vault.interest.encounter<=state.encounter,'vault-interest','ข้อมูลอายุเงินต้นไม่ถูกต้อง');
     for(const id of vault.items){check(!held.has(id) && state.items[id]?.owner===`personal-vault:${p.id}` && !p.inventory.includes(id),'vault-owner','เจ้าของคลังส่วนตัวไม่ตรง');held.add(id);}
   }
   for(const loan of state.loans??[]){

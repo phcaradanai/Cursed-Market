@@ -42,6 +42,8 @@ export interface AppraisalConfig {
   secureEconomy?:boolean;
   /** Absent in saved audits: active loans stay open when the match ends. New runs foreclose them so the lender keeps the collateral. */
   loanEndSettlement?:boolean;
+  /** Absent in old audits: preserve 4% whole-balance interest. 1 uses aged principal at 10%. */
+  vaultInterestRules?:1;
   /** Survival only. Absent in saved audits: the run ends only when every life is gone. Otherwise the Collector arrives after this encounter settles, whoever is still alive. */
   collectorDeadline?:number;
   /** Absent in saved audits: keep the original event choices. 1 removes pointless decline buttons, turns E37/E40 into mishaps you handle, reprices E119/E121/E127 and gives E47 an effect. */
@@ -331,7 +333,7 @@ export interface AppraisalView {
   statusLinks?:1;
   survival?:NonNullable<AppraisalConfig['survival']>; core2?:boolean; collectorAt?:number; dread?:number; curseSight?:boolean; freeBuy?:boolean; fakeEffect?:boolean; cleanse?:boolean; wishlist?:boolean; wishContract?:boolean; challenge?:boolean; polish?:boolean; omen?:{id:string;name:string;text:string}; salePct?:number; fee?:number; maxEnergy?:number; collector?:CollectorResult[]; brokerage?:boolean; roundRewardBase?:number; passives?:boolean;
   self: Omit<Appraiser,'personalVault'|'knowledge'|'portals'|'stock'|'inventory'|'valuations'|'startWealth'|'acceptedDanger'|'seenEvents'|'resolvedEvents'> & {
-    personalVault?:{items:ItemView[];credits:number;slots:number;nextSlotPrice:number;nextInterest:number};
+    personalVault?:{items:ItemView[];credits:number;slots:number;nextSlotPrice:number;nextInterest:number;interestPercent?:number};
     loanItems?:ItemView[];
     inventory: ItemView[]; stock: ItemView[]; portals: Array<{id:string; npc:NpcId; hint:ItemKind; disabled:boolean}>;
     counterLimit: number;

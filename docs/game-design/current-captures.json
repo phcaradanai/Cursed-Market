@@ -1301,7 +1301,7 @@
         "scrollWidth": 1440,
         "scrollHeight": 722
       },
-      "notes": "Public preview fixture จาก apps/comic ใน repo; ปุ่มลบ/บวก40px ระยะ12/12px input/group/actions centre1067px ที่1440x722; ไม่ใช่ธุรกรรมห้องจริง ภาพ candidate รอ human approval ดู docs/ui-system",
+      "notes": "Public preview fixture จาก apps/comic ใน repo; ปุ่มลบ/บวก40px ระยะ12/12px input/group/actions centre1067px ที่1440x722; ไม่ใช่ธุรกรรมห้องจริง ภาพ baseline อนุมัติ2026-10-30 ดู docs/ui-system",
       "eventIds": [],
       "componentFiles": [
         "apps/comic/src/appraisal-client/TradeScreen.tsx",
@@ -1342,7 +1342,8 @@
           "sha256": "a4707ee81eea5f5741113e64a70252962bfb5fd02049b3a965fc9901fbd5d36b"
         }
       ],
-      "sourceRoot": "apps/comic"
+      "sourceRoot": "apps/comic",
+      "baselineApproval": "../ui-system/baselines/manifest.json"
     }
   ],
   "activeImplementation": {
@@ -1350,6 +1351,7 @@
     "migratedFrom": "/Users/oyl-mac_m1/Documents/Codex/2026-10-24/j/outputs/ui-2d-red-black-white/build",
     "date": "2026-10-29",
     "authorization": "explicit user approval",
-    "note": "historical captures keep their original source roots/hashes; new captures use repo source"
+    "note": "historical captures keep their original source roots/hashes; new captures use repo source",
+    "approvedBaselineManifest": "../ui-system/baselines/manifest.json"
   }
 }

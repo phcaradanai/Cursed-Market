@@ -1,28 +1,30 @@
 # Acceptance evidence — continuity goal
 
-Status: **in progress**. A checkpoint commit is not completion. The preceding goal turn made progress by committing the isolated app, governance and test infrastructure; it did not satisfy pixel approval.
+Final verification audit2026-10-30. Completion is not yet declared: root Atlas source provenance must be resolved, scoped files committed and final gates checked. Historical failures remain documented; no unrelated screen redesign is implied.
 
-| Requirement | Authoritative evidence | State |
+| Requirement | Current authoritative evidence | Verdict |
 |---|---|---|
-| Audit repository, screens, architecture and Git history | audit.md; migration-origin.json; screen registry/captures; starting HEAD789ab3d and checkpointd91b4d5 | documented; unrelated root changes excluded |
-| Verify Hindsight recall and retention, report failures | memory-health.json contains retain ID and matching read-back; audit.md records marker normalization and broad tag results | verified for that session, never assume future availability |
-| Derive design system from established approved patterns | design-system.md + decisions.md UI-01–04; current inventory/status/menu source and historical user corrections | documented; no new identity approved or introduced |
-| Propose reconciliation; approval for material changes | audit.md reconciliation table; decisions.md ARCH-02, QA-02 | engine unification / broad restyles excluded pending separate approval |
-| Future agents read docs, inspect peers, reuse tokens and verify | root AGENTS.md; README.md; generated main HTML links | versioned in checkpoint |
-| Safe shared component/token reuse | apps/comic/src/appraisal-client/comic-tokens.css + comic-frame.css and existing ComicMenu/ComicButton/Share handlers; source fingerprints | extracted existing values; engine/legacy folders preserved |
-| Repeatable consistency assertions | npm run ui:test; contracts.mjs; negative8/12 gap, off-centre, unknown facts and frame tests |7 checks pass including DPR masks and shared header geometry |
-| Screenshot baselines and visual regression | browser-suite.mjs; manifests; raw reports; review.html | candidate approval pending; DPR1 raster instability under investigation, same-width DPR2 probe matched, but full cross-width comparison still fails |
-| Preserve existing functionality | import fingerprints; focused root81, comic SSR4 and blood-pact/journal4; compiled server/client; full comic test run | focused proof passes; all63 runtime source hashes unchanged; focused12 tests11 pass/1 historical markup failure; full run stopped after verified CPU-bound work |
-| No unrelated redesign | scoped commit; no root src/tests/.impeccable staged; shared menu appearance retained | preserved; pixel evidence still needs final gate |
-| Approved baselines pass | candidate approval field and independent comparison report | **not yet proven**; agent cannot self-approve |
-| Docs updated; verification honestly reported | verification.md, roadmap CONTINUITY-01, PROJECT-CONTEXT.md, main generated HTML | current checkpoint; update with final outcomes |
+| Audit repository/runtime/history/architecture | audit.md, migration-origin.json, current-captures.json and screen-flow.json; starting HEAD789ab3d, isolated app checkpointd91b4d5 | covered; source/profile/proposal boundaries explicit |
+| Verify Hindsight retention and recall, report limitations | memory-health.json: initial same-ID probe roundtrip; actual user approval retained/recalled and read directly by ID5e19f5c9-b0bc-44e5-8fd7-a14688d2774b; scoped restriction also retrieved | verified this session; broad query limitation reported, future availability not assumed |
+| Derive a design system from existing approved UI | design-system.md, decisions.md UI-01–04, existing shared components, human-approved14-image hash set | covered; no new identity |
+| Propose reconciliation and obtain approval for material changes | reconciliation-plan.md gives U01/U02/S08/S13 observed captures, reuse plan, preserved behavior and review boundaries. Migration and baseline explicitly approved; no unrelated material redesign performed | proposals delivered; future screen redesign is a separate task |
+| Concise future-session instructions | root AGENTS.md, root/comic READMEs, PROJECT-CONTEXT.md and generated main HTML identify apps/comic and relevant source/docs/tests | versioned session contract |
+| Safe token/component consolidation | existing ComicMenu/ComicButton/Share retained; identical-value tokens/frame owner centralized; source fingerprints | covered; no duplicate rule implementation |
+| Preserve functionality | all63 imported runtime files remain byte-identical; build:server;79 UI/knowledge/price/E109/journal tests pass; existing root focused81-pass evidence retained | scoped preservation verified; not a claim that every old simulation is green |
+| Repeatable UI consistency checks |10 Node tests;18 real preview menu flows at1024/1440/1920; frames, header padding/actions/radius, restored item/clock and no page scroll | covered; negative regression cases included |
+| Screenshot references and visual regression | sealed approved manifest14 states across7 stable screen IDs. compare-approved-pass-1.json and pass-2.json each14/14; max changed-pixel ratio0.0000794405833 in both, below unchanged0.001 limit | approved baselines pass twice, no reference mismatch retries or art masking |
+| Protect approval / trust fresh evidence | record refuses approved replacement; exact approved SHA set checked; CLI invocation receipts distinguish bootstrap failure from stale reports; failed readiness retains sample pair | covered by negative tests |
+| No unrelated redesign / original app preserved | production UI/rule/art unchanged in follow-ups; root legacy files and unrelated changes excluded from scoped commits; imports preserve original source/art | covered; proposals only for other screens |
+| Documentation/registry/generated HTML current | decisions, verification, roadmap, current capture metadata, stable IDs; generated atlas source/output hash checker106 inputs | final freshness gate required before closing |
 
-Image fixture correction is a test-environment change, not a product redesign: DPR1 repeated enlarged potion raster differed2249px at identical CSS geometry; DPR2 repeated navigations changed0px (channel noise≤1). Pin the chosen DPR, verify physical PNG dimensions and scale only timer masks. Do not mask artwork or relax the existing0.1% / channel8 threshold. Retain failed reports and superseded candidate status.
+## Evidence limits retained, not hidden
 
-When every row is supported, obtain the outstanding human review and rerun relevant gates. Only then mark the goal complete. Do not use a partial screen suite to claim all game behavior or every mobile state has been tested.
+- Earlier raw captures drifted; DPR2/warm reloads did not solve cross-width behavior. Corrected capture preparation samples actual paint frames, allows up to10 readiness samples and compares the approved reference once. A stable changed image still fails the regression test. Two full current runs pass; hardware/browser changes still require a matching environment or reviewed migration.
+- The original browser space3 no longer existed. User authorized replacement; space4 was created. The failed bootstrap is not counted as a visual test. See browser-session-gap.json and per-run invocation receipts.
+- Historical UI assertions were reconciled to current approved surfaces, not disabled: exact merchant quote/payment totals and consent/unknown facts; phase utility visibility; duplicate-family receipts/selected sale; card/page/quota/disabled decisions; reusable term peeks and explicit item details.67/67 in that file,79/79 in the combined affected suite.
+- Full simulations were stopped after verified CPU-bound execution despite Node test-timeout. No whole-simulation, live multiplayer, phone-portrait or game-balance pass is claimed. None was used to justify UI changes; gameplay/balance integration remains the existing separate roadmap.
+- Trail check reports unrelated pre-existing .impeccable lexical conflicts. Those files are not part of the continuity commits. Any large-diff cap is reported rather than treated as an exhaustive pass.
 
-Continuation correction: native DPR2 is **not** a sufficient solution; the full14-case comparison passed10/14 and warm loads still drift across widths. Baselines and DPR1 restored to checkpoint; no human approval implied. Header height/border assertions were added and all14 recorded cases pass them.
+Root Atlas provenance: four current root runtime inputs differ from committed HEAD due to pre-existing aged-interest changes. Current-worktree freshness is not clean-clone reproducibility. See verification.md; this separate source work remains outside the UI commit pending scoped direction.
 
-Menu interaction gate now proves18 real fixture flows on three desktop widths, including computed inner padding, control height/radius, single utility visibility, item restoration, clock preservation and no overflow. See menu-smoke.json. This does not resolve raster reproducibility or image approval.
-
-Portable-art follow-up:46 art files/manifest SHA checked from a working directory outside the repo; one stale provenance assertion reconciled with original/v2 formats while retaining all checks and adding per-merchant mood completeness. Historical UI file improves60/67→61/67. Source fingerprints now359, including the art manifest. No production app or asset changed. Pixel/approval rows remain incomplete.
+Repository implementation and explicit approved decisions remain authoritative. Memory supports history. These limits are documented operational boundaries, not authorization to rebrand, change rules or re-record reviewed images.

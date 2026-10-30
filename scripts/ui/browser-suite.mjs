@@ -4,23 +4,37 @@ import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 import { checkGeometry } from './contracts.mjs';
 import { comparePng, scaleMasks } from './png.mjs';
-export async function captureStable(capture, masks) { let previous; for (let at = 0; at < 5; at++) {
-    const current = await capture();
-    if (previous && comparePng(previous, current, masks).changed === 0)
-        return current;
-    previous = current;
-} throw Error('artwork raster did not settle in five captures'); }
+export async function captureStable(capture, masks) {
+    let previous, diagnostic;
+    for(let at=0;at<10;at++) {
+        const current=await capture();
+        if(previous) {
+            const pixels=comparePng(previous,current,masks);
+            if(pixels.changed===0)return current;
+            diagnostic={before:previous,after:current,pixels};
+        }
+        previous=current;
+    }
+    const error=new Error('render did not settle in ten captures');
+    error.captureDiagnostic=diagnostic;
+    throw error;
+}
+const screenIds={inventory:'M01',status:'M02',market:'M03',ledger:'M04',rules:'M05',settings:'M06',trade:'S06','item-sale':'S06'};
 const cases = ['inventory', 'status', 'market', 'ledger', 'rules', 'settings', 'trade', 'item-sale'];
 export async function run({ task, page, repo, baseUrl, mode = 'compare', viewports = [[1440, 722], [1024, 800], [1920, 800]] }) {
     const baselineDir = path.join(repo, 'docs/ui-system/baselines'), out = path.join(repo, 'docs/ui-system/runs/latest');
     await fs.mkdir(out, { recursive: true });
     let manifest = { schema: 1, approval: 'candidate; confirmed layout contracts only, pixel review pending', references: [], entries: [] };
+    if (mode === 'record') {
+        const existing = await fs.readFile(path.join(baselineDir, 'manifest.json'), 'utf8').catch(error => { if(error.code==='ENOENT')return null; throw error; });
+        assert(!existing || JSON.parse(existing).approvalEvidence?.status !== 'approved', 'Baseline is user-approved: record cannot overwrite it. Compare actuals and obtain a new review before promotion.');
+    }
     if (mode === 'compare')
         manifest = JSON.parse(await fs.readFile(path.join(baselineDir, 'manifest.json'), 'utf8'));
-    const report = { mode, startedAt: new Date().toISOString(), baseUrl, taskSpaceId: task.spaceId, checks: [], failures: [] };
+    const report = { mode, startedAt: new Date().toISOString(), baseUrl, taskSpaceId: task.spaceId, checks: [], failures: [], readiness:{maxSamples:10,paintFramesBetweenSamples:2,referenceComparisonsPerCase:1} };
     for (const [width, height] of viewports)
         for (const name of width === 1440 ? cases : ['inventory', 'status', 'item-sale']) {
-            const id = `${name}-${width}x${height}`, evidence = {};
+            const id = `${name}-${width}x${height}`, evidence = {screenId:screenIds[name]};
             try {
                 await page.cdp('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: false });
                 await page.cdp('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] });
@@ -35,7 +49,7 @@ export async function run({ task, page, repo, baseUrl, mode = 'compare', viewpor
                 await page.evaluate(async () => { await Promise.all([...document.images].filter(e => e.getClientRects().length).map(e => e.decode())); await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))); });
                 const metrics = await page.evaluate(() => {
                     const q = s => document.querySelector(s), r = e => e.getBoundingClientRect(), rect = e => { const a = r(e); return [a.x, a.y, a.width, a.height]; }, centre = e => { const a = r(e); return a.x + a.width / 2; }, box = q('dialog[open]') ?? q('.trade-table'), sale = q('.item-sale-panel');
-                    const data = { viewport: [innerWidth, innerHeight], page: [document.documentElement.scrollWidth, document.documentElement.scrollHeight], frame: rect(box), imagesReady: [...document.images].filter(e => e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden').every(e => e.complete && e.naturalWidth > 0), masks: [q('.countdown')].filter(Boolean).map(e => { const a = r(e); return { x: Math.floor(a.x) - 2, y: Math.floor(a.y) - 2, width: Math.ceil(a.width) + 4, height: Math.ceil(a.height) + 4 }; }), environment: { userAgent: navigator.userAgent, dpr: devicePixelRatio }, header: box.querySelector('.drawer-head') ? { height: r(box.querySelector('.drawer-head')).height, border: getComputedStyle(box.querySelector('.drawer-head')).borderBottomWidth } : null };
+                    const data = { viewport: [innerWidth, innerHeight], page: [document.documentElement.scrollWidth, document.documentElement.scrollHeight], frame: rect(box), imagesReady: [...document.images].filter(e => e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden').every(e => e.complete && e.naturalWidth > 0), masks: [q('.countdown')].filter(Boolean).map(e => { const a = r(e); return { x: Math.floor(a.x) - 2, y: Math.floor(a.y) - 2, width: Math.ceil(a.width) + 4, height: Math.ceil(a.height) + 4 }; }), environment: { userAgent: navigator.userAgent, dpr: devicePixelRatio }, renderState: { visibility:document.visibilityState,focused:document.hasFocus(),scale:visualViewport?.scale,art:[...document.images].filter(e=>e.getClientRects().length&&getComputedStyle(e).visibility!=='hidden').map(e=>({src:e.currentSrc,rect:rect(e),natural:[e.naturalWidth,e.naturalHeight],filter:getComputedStyle(e).filter,transform:getComputedStyle(e).transform})) }, header: box.querySelector('.drawer-head') ? { height: r(box.querySelector('.drawer-head')).height, border: getComputedStyle(box.querySelector('.drawer-head')).borderBottomWidth } : null };
                     if (sale) {
                         const [minus, input, plus] = [q('.comic-sale-stepper button:first-child'), q('.comic-sale-stepper input'), q('.comic-sale-stepper button:last-child')], a = r(minus), b = r(input), c = r(plus);
                         Object.assign(data, { columnWidths: [...sale.children].map(e => r(e).width), overflow: [sale.scrollWidth - sale.clientWidth, sale.scrollHeight - sale.clientHeight], actionWidths: [...document.querySelectorAll('.comic-sale-actions button')].map(e => r(e).width), stepperCentre: centre(q('.comic-sale-stepper')), actionsCentre: centre(q('.comic-sale-actions')), inputCentre: centre(input), stepperGaps: [b.left - a.right, c.left - b.right], stepperWidths: [a.width, c.width], stepperHeights: [a.height, b.height, c.height], knownFacts: [...document.querySelectorAll('.item-sale-visual .seal strong')].map(e => e.textContent), saleDisabled: q('.comic-sale-actions button').disabled, rebateDisabled: input.disabled });
@@ -45,7 +59,10 @@ export async function run({ task, page, repo, baseUrl, mode = 'compare', viewpor
                 evidence.metrics = metrics;
                 checkGeometry(metrics, { sale: name === 'item-sale' });
                 const file = `${id}.png`, actual = path.join(out, file);
-                const bytes = await captureStable(async () => { let shot; for (let attempt = 0; attempt < 3; attempt++) {
+                const bytes = await captureStable(async () => {
+                    // Separate samples by actual paints; reference comparison remains a single later step.
+                    await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+                    let shot; for (let attempt = 0; attempt < 3; attempt++) {
                     try {
                         shot = await page.cdp('Page.captureScreenshot', { format: 'png', fromSurface: true, captureBeyondViewport: false, optimizeForSpeed: true });
                         break;
@@ -62,7 +79,7 @@ export async function run({ task, page, repo, baseUrl, mode = 'compare', viewpor
                 let pixels;
                 if (mode === 'record') {
                     await fs.mkdir(baselineDir, { recursive: true });
-                    manifest.entries.push({ id, file, metrics, sha256: crypto.createHash('sha256').update(bytes).digest('hex') });
+                    manifest.entries.push({ id, screenId:screenIds[name], file, metrics, sha256: crypto.createHash('sha256').update(bytes).digest('hex') });
                 }
                 else {
                     const entry = manifest.entries.find(e => e.id === id);
@@ -74,10 +91,15 @@ export async function run({ task, page, repo, baseUrl, mode = 'compare', viewpor
                     evidence.pixels = pixels;
                     assert(pixels.ratio <= .001, `visual drift ${(pixels.ratio * 100).toFixed(3)}%; review actual vs baseline, never auto-update`);
                 }
-                report.checks.push({ id, passed: true, metrics, pixels });
+                report.checks.push({ id, screenId:screenIds[name], passed: true, metrics, pixels });
                 console.log(id + ' PASS');
             }
             catch (error) {
+                if(error.captureDiagnostic) {
+                    const before=path.join(out,`${id}-unstable-before.png`),after=path.join(out,`${id}-unstable-after.png`);
+                    await fs.writeFile(before,error.captureDiagnostic.before);await fs.writeFile(after,error.captureDiagnostic.after);
+                    evidence.captureStability={before:path.relative(repo,before),after:path.relative(repo,after),pixels:error.captureDiagnostic.pixels};
+                }
                 report.failures.push({ id, error: String(error.message ?? error), ...evidence });
             }
         }

@@ -30,6 +30,9 @@ const base = JSON.parse(fs.readFileSync(path.join(doc, 'baselines/manifest.json'
 assert.equal(base.entries.length, 14, 'all baseline cases required');
 for (const e of base.entries)
     assert.equal(sha(path.join(doc, 'baselines', e.file)), e.sha256, e.id + ' reference changed');
+if(base.approvalEvidence?.status==='approved')assert.deepEqual(base.approvalEvidence.imageHashes,Object.fromEntries(base.entries.map(e=>[e.id,e.sha256])),'approved image set changed without new review');
+const screenIds=new Set(JSON.parse(fs.readFileSync(path.join(root,'docs/game-design/screen-flow.json'),'utf8')).screens.map(s=>s.id));
+for(const e of base.entries)assert(screenIds.has(e.screenId),e.id+' lacks a stable screen ID');
 const top = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8')), comic = JSON.parse(fs.readFileSync(path.join(app, 'package.json'), 'utf8'));
 assert.deepEqual(comic.dependencies, top.dependencies, 'use root dependencies/lock');
 assert.deepEqual(comic.devDependencies, top.devDependencies);

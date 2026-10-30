@@ -3,27 +3,38 @@
   "cwd": "apps/comic",
   "command": "node --test dist/tests/appraisal-client.test.js",
   "tests": 67,
-  "passed": 61,
-  "failed": 6,
-  "failures": [
-    "purchase preview uses accepted quote and buyer discounts, once for a bundle",
-    "unknown authenticity and curse remain unknown in the desk; Dark One requires separate consent",
-    "full phase surfaces render with live DTO data and no missing text",
-    "same-kind Dark Market detail focuses one inventory identifier and its known facts",
-    "Dark Market bounds the noticeboard and keeps full sale decisions in the item dialog",
-    "game UI uses choice cards instead of dropdowns and highlights status/item names with peek cards"
-  ],
-  "reportSHA256": "914267e2194ed4bb8c8fcec55f6f03344b6cdec3fcd555db88099e698c5d3b43",
-  "testSourceSHA256": "98c5ab26e26a4a35097d272a940a5958d82a14d63035cf33a99f10024890a322",
-  "notes": "Provenance check corrected to10 legacy families in2 versions, all46 SHA hashes and documented origin formats, all8 merchants each3 moods.6 other assertions remain failing; no other assertions changed or disabled.",
+  "passed": 67,
+  "failed": 0,
+  "reportSHA256": "bca2e7b8d55611e6d03f5a38e9ded0bba268dd6fcb130f7ae60465d3eec9b764",
+  "testSourceSHA256": "41232b27dec344e7c0d8171fec9892846257e6b8e6720b6ecbe557ea5a46c60c",
+  "notes": "Assertions reconciled with approved existing UI surfaces: exact quote/payment totals, scoped unknown facts/consent gate, utility-menu phase availability, distinct same-family items and selected receipts, bounded cards/pager/quota/disabled sale, shared Rich peeks and explicit item details. No production UI or rule code changed.",
   "previousRun": {
     "date": "2026-10-30",
     "cwd": "apps/comic",
     "command": "node --test dist/tests/appraisal-client.test.js",
     "tests": 67,
-    "passed": 60,
-    "failed": 7,
-    "reportSHA256": "2c242af652df1734bb3f6b0511c52701824a347b5471814a9f21c36514c38e9e",
-    "notes": "Current run confirms old UI assertions still fail; no assertions changed or disabled. Artwork provenance failure is20 item entries versus old expected10, not a missing manifest now."
+    "passed": 61,
+    "failed": 6,
+    "failures": [
+      "purchase preview uses accepted quote and buyer discounts, once for a bundle",
+      "unknown authenticity and curse remain unknown in the desk; Dark One requires separate consent",
+      "full phase surfaces render with live DTO data and no missing text",
+      "same-kind Dark Market detail focuses one inventory identifier and its known facts",
+      "Dark Market bounds the noticeboard and keeps full sale decisions in the item dialog",
+      "game UI uses choice cards instead of dropdowns and highlights status/item names with peek cards"
+    ],
+    "reportSHA256": "914267e2194ed4bb8c8fcec55f6f03344b6cdec3fcd555db88099e698c5d3b43",
+    "testSourceSHA256": "98c5ab26e26a4a35097d272a940a5958d82a14d63035cf33a99f10024890a322",
+    "notes": "Provenance check corrected to10 legacy families in2 versions, all46 SHA hashes and documented origin formats, all8 merchants each3 moods.6 other assertions remain failing; no other assertions changed or disabled.",
+    "previousRun": {
+      "date": "2026-10-30",
+      "cwd": "apps/comic",
+      "command": "node --test dist/tests/appraisal-client.test.js",
+      "tests": 67,
+      "passed": 60,
+      "failed": 7,
+      "reportSHA256": "2c242af652df1734bb3f6b0511c52701824a347b5471814a9f21c36514c38e9e",
+      "notes": "Current run confirms old UI assertions still fail; no assertions changed or disabled. Artwork provenance failure is20 item entries versus old expected10, not a missing manifest now."
+    }
   }
 }

@@ -11,5 +11,22 @@
     "tagged recall also returned unrelated facts",
     "availability and exact recall are not guaranteed in future sessions"
   ],
-  "authority": "repository source and approved versioned decisions, memory is supporting history"
+  "authority": "repository source and approved versioned decisions, memory is supporting history",
+  "approvalFollowup": {
+    "date": "2026-10-30",
+    "retainAcknowledged": true,
+    "scopedRecallVerified": true,
+    "directReadVerified": true,
+    "memoryId": "5e19f5c9-b0bc-44e5-8fd7-a14688d2774b",
+    "scopeConstraintMemoryId": "9bd2e2ff-44f5-49ab-aa10-094f849e6d35",
+    "documentId": "f315d25b-fe01-43d3-9786-a8254cf307e4",
+    "verifiedQuery": "User explicitly approved the current 14-image Cursed Market baseline on 2026-10-30. No unrelated screen redesign.",
+    "tags": [
+      "project:cursed-market",
+      "approved-baseline"
+    ],
+    "tags_match": "all",
+    "directState": "valid",
+    "earlierQueryLimitation": "Mixed Thai/English query without explicit tags_match surfaced unrelated old memories. Exact English fact with all-tag matching retrieved approval and scope. Do not infer that any returned memory is relevant."
+  }
 }

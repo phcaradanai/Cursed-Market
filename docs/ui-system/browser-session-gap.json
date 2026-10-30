@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-30",
+  "previousSpace": 3,
+  "observedFailure": "task space not found: 3",
+  "toolExitCode": 1,
+  "staleReportWarning": "Prior compare.json was unchanged, not evidence of a new run. CLI now writes separate invocation receipts.",
+  "appIdentityVerified": {
+    "url": "http://127.0.0.1:5174/continuity-origin.json",
+    "response": {
+      "implementation": "apps/comic",
+      "identity": "cursed-market-comic"
+    }
+  },
+  "replacementAuthorization": "user reply: เปิดหน้าตรวจใหม่ได้; call_8d20cb9a073447fbb93d1dc9fe1d9337",
+  "replacementSpace": 4,
+  "replacementPage": "p1"
+}

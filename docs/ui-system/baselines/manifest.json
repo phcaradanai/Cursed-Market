@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "approval": "candidate; confirmed layout contracts only, pixel review pending",
+  "approval": "approved by user 2026-10-30; image reference set only",
   "references": [
     "inventory is the confirmed frame/control reference",
     "2026-10-29 user: one game, same existing style; equal spacing and centred stepper"
@@ -42,7 +42,8 @@
           "border": "1px"
         }
       },
-      "sha256": "4124d615f8dac8f1f750c5bb00f73cb99c141725b0cde5f9f95c21cc11412045"
+      "sha256": "4124d615f8dac8f1f750c5bb00f73cb99c141725b0cde5f9f95c21cc11412045",
+      "screenId": "M01"
     },
     {
       "id": "status-1440x722",
@@ -80,7 +81,8 @@
           "border": "1px"
         }
       },
-      "sha256": "6809a314fc130441bf05f232746796632660af69ff46c491cc76bfbe2c734213"
+      "sha256": "6809a314fc130441bf05f232746796632660af69ff46c491cc76bfbe2c734213",
+      "screenId": "M02"
     },
     {
       "id": "market-1440x722",
@@ -118,7 +120,8 @@
           "border": "1px"
         }
       },
-      "sha256": "9168086ecea71c0669073be7cfa22e6da7582195d561477d2affde7cd9158a2a"
+      "sha256": "9168086ecea71c0669073be7cfa22e6da7582195d561477d2affde7cd9158a2a",
+      "screenId": "M03"
     },
     {
       "id": "ledger-1440x722",
@@ -156,7 +159,8 @@
           "border": "1px"
         }
       },
-      "sha256": "90d3af6cf087fcb930cd79b24cebce002dc2655c6c4bcce593216157d0f2d041"
+      "sha256": "90d3af6cf087fcb930cd79b24cebce002dc2655c6c4bcce593216157d0f2d041",
+      "screenId": "M04"
     },
     {
       "id": "rules-1440x722",
@@ -194,7 +198,8 @@
           "border": "1px"
         }
       },
-      "sha256": "92d85a45de2ff8fee787ad1babe434375f33a982161e2561996da4030fb89baa"
+      "sha256": "92d85a45de2ff8fee787ad1babe434375f33a982161e2561996da4030fb89baa",
+      "screenId": "M05"
     },
     {
       "id": "settings-1440x722",
@@ -232,7 +237,8 @@
           "border": "1px"
         }
       },
-      "sha256": "f24f52248570f7f1f042abf9e6c7ccdc048bc2b61468627ef2b5dd1214adeefe"
+      "sha256": "f24f52248570f7f1f042abf9e6c7ccdc048bc2b61468627ef2b5dd1214adeefe",
+      "screenId": "M06"
     },
     {
       "id": "trade-1440x722",
@@ -267,7 +273,8 @@
         },
         "header": null
       },
-      "sha256": "6c70c76ee9ddc879264bdb97e4894c8e1e61d79a17fe41267285d380119ab588"
+      "sha256": "6c70c76ee9ddc879264bdb97e4894c8e1e61d79a17fe41267285d380119ab588",
+      "screenId": "S06"
     },
     {
       "id": "item-sale-1440x722",
@@ -340,7 +347,8 @@
         "saleDisabled": true,
         "rebateDisabled": true
       },
-      "sha256": "ade56206d1a32edcbb704d585efed92b343986fc13d7d2d0dc533533e96d0984"
+      "sha256": "ade56206d1a32edcbb704d585efed92b343986fc13d7d2d0dc533533e96d0984",
+      "screenId": "S06"
     },
     {
       "id": "inventory-1024x800",
@@ -378,7 +386,8 @@
           "border": "1px"
         }
       },
-      "sha256": "80ec9423057c8f3826cd173e8a12679233334eae9d8bba4257dac1659f225e21"
+      "sha256": "80ec9423057c8f3826cd173e8a12679233334eae9d8bba4257dac1659f225e21",
+      "screenId": "M01"
     },
     {
       "id": "status-1024x800",
@@ -416,7 +425,8 @@
           "border": "1px"
         }
       },
-      "sha256": "b7e753be83f157e396463c83b0f7d60701d390f197c71f0dc1cdf2d60cbbd642"
+      "sha256": "b7e753be83f157e396463c83b0f7d60701d390f197c71f0dc1cdf2d60cbbd642",
+      "screenId": "M02"
     },
     {
       "id": "item-sale-1024x800",
@@ -489,7 +499,8 @@
         "saleDisabled": true,
         "rebateDisabled": true
       },
-      "sha256": "df9b913aab1ccd7e824d026f1d514793cf64915a359ec59a0bea781214eabc2e"
+      "sha256": "df9b913aab1ccd7e824d026f1d514793cf64915a359ec59a0bea781214eabc2e",
+      "screenId": "S06"
     },
     {
       "id": "inventory-1920x800",
@@ -527,7 +538,8 @@
           "border": "1px"
         }
       },
-      "sha256": "f21f256c7b7e57044c85c0527a632b8c09cd8a4cc8f0fa48cc9dd3fa57ef8d53"
+      "sha256": "f21f256c7b7e57044c85c0527a632b8c09cd8a4cc8f0fa48cc9dd3fa57ef8d53",
+      "screenId": "M01"
     },
     {
       "id": "status-1920x800",
@@ -565,7 +577,8 @@
           "border": "1px"
         }
       },
-      "sha256": "405c6ef3a693c3968435f980349e0a0ddb31e4869e56db0b84a8b97bcf3be17c"
+      "sha256": "405c6ef3a693c3968435f980349e0a0ddb31e4869e56db0b84a8b97bcf3be17c",
+      "screenId": "M02"
     },
     {
       "id": "item-sale-1920x800",
@@ -638,7 +651,32 @@
         "saleDisabled": true,
         "rebateDisabled": true
       },
-      "sha256": "81bcbb4b5a3b9b09883f06bada72c4ebfcc7e619f816f0dd16dabe1bebcf2922"
+      "sha256": "81bcbb4b5a3b9b09883f06bada72c4ebfcc7e619f816f0dd16dabe1bebcf2922",
+      "screenId": "S06"
     }
-  ]
+  ],
+  "approvalEvidence": {
+    "status": "approved",
+    "date": "2026-10-30",
+    "timezone": "Asia/Bangkok",
+    "source": "direct user reply to request_user_input_async call_febe0d975da64664862214910d667d0e",
+    "answer": "อนุมัติชุดภาพนี้เป็น baseline",
+    "scope": "these14 existing UI captures including corrected rebate layout; no unrelated redesign; no waiver of pixel or functional failures",
+    "imageHashes": {
+      "inventory-1440x722": "4124d615f8dac8f1f750c5bb00f73cb99c141725b0cde5f9f95c21cc11412045",
+      "status-1440x722": "6809a314fc130441bf05f232746796632660af69ff46c491cc76bfbe2c734213",
+      "market-1440x722": "9168086ecea71c0669073be7cfa22e6da7582195d561477d2affde7cd9158a2a",
+      "ledger-1440x722": "90d3af6cf087fcb930cd79b24cebce002dc2655c6c4bcce593216157d0f2d041",
+      "rules-1440x722": "92d85a45de2ff8fee787ad1babe434375f33a982161e2561996da4030fb89baa",
+      "settings-1440x722": "f24f52248570f7f1f042abf9e6c7ccdc048bc2b61468627ef2b5dd1214adeefe",
+      "trade-1440x722": "6c70c76ee9ddc879264bdb97e4894c8e1e61d79a17fe41267285d380119ab588",
+      "item-sale-1440x722": "ade56206d1a32edcbb704d585efed92b343986fc13d7d2d0dc533533e96d0984",
+      "inventory-1024x800": "80ec9423057c8f3826cd173e8a12679233334eae9d8bba4257dac1659f225e21",
+      "status-1024x800": "b7e753be83f157e396463c83b0f7d60701d390f197c71f0dc1cdf2d60cbbd642",
+      "item-sale-1024x800": "df9b913aab1ccd7e824d026f1d514793cf64915a359ec59a0bea781214eabc2e",
+      "inventory-1920x800": "f21f256c7b7e57044c85c0527a632b8c09cd8a4cc8f0fa48cc9dd3fa57ef8d53",
+      "status-1920x800": "405c6ef3a693c3968435f980349e0a0ddb31e4869e56db0b84a8b97bcf3be17c",
+      "item-sale-1920x800": "81bcbb4b5a3b9b09883f06bada72c4ebfcc7e619f816f0dd16dabe1bebcf2922"
+    }
+  }
 }

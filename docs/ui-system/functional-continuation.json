@@ -1,15 +1,29 @@
 {
   "date": "2026-10-30",
-  "command": "node --test dist/tests/comic-continuity.test.js dist/tests/appraisal-comic-blood-pact.test.js dist/tests/appraisal-journal.test.js dist/tests/appraisal-trade-price.test.js",
+  "command": "node --test dist/tests/appraisal-client.test.js dist/tests/appraisal-trade-price.test.js dist/tests/comic-continuity.test.js dist/tests/appraisal-comic-blood-pact.test.js dist/tests/appraisal-journal.test.js",
   "cwd": "apps/comic",
-  "passed": 11,
-  "failed": 1,
-  "tests": 12,
-  "failure": "both trading seats can compare main and swap appraisals; owned inventory shows the appraisal during TRADE",
-  "failureLocation": "apps/comic/tests/appraisal-trade-price.test.ts",
-  "reportSHA256": "09dc9abc468b8a8eba151b7b61336bc188a6331dc6b9aaa1ff8e189b94a9c032",
+  "passed": 79,
+  "failed": 0,
+  "tests": 79,
+  "reportSHA256": "5ebe5630af4b16954659c1e7d1abf488adf9e2e2122814c82c0096f8025fcfae",
+  "scope": "UI/server-render, price/knowledge, E109 choice resolution, causal journal, existing Share eligibility. Not full simulations or live multiplayer.",
   "runtimeImportComparison": {
     "files": 63,
     "changed": []
+  },
+  "previousRun": {
+    "date": "2026-10-30",
+    "command": "node --test dist/tests/comic-continuity.test.js dist/tests/appraisal-comic-blood-pact.test.js dist/tests/appraisal-journal.test.js dist/tests/appraisal-trade-price.test.js",
+    "cwd": "apps/comic",
+    "passed": 11,
+    "failed": 1,
+    "tests": 12,
+    "failure": "both trading seats can compare main and swap appraisals; owned inventory shows the appraisal during TRADE",
+    "failureLocation": "apps/comic/tests/appraisal-trade-price.test.ts",
+    "reportSHA256": "09dc9abc468b8a8eba151b7b61336bc188a6331dc6b9aaa1ff8e189b94a9c032",
+    "runtimeImportComparison": {
+      "files": 63,
+      "changed": []
+    }
   }
 }

@@ -1,4 +1,25 @@
-# Verification — audit 2026-10-29 → 2026-10-30
+# Verification — current evidence 2026-10-30
+
+Current UI gates pass against the exact user-approved references. Final continuity handoff still requires resolving the root-source provenance gap below and committing the scoped follow-up. This is not a full-game simulation or balance verdict.
+
+- Human approval: exact14-image set approved2026-10-30; image hashes sealed in `baselines/manifest.json`. The approval does not permit unrelated redesign or waive test failures.
+- Visual comparisons: `compare-approved-pass-1.json` and `compare-approved-pass-2.json` each pass14/14. Maximum changed-pixel ratio0.0000794405833, below unchanged0.001 limit. Reference images unchanged; only countdown masked. Current samples settle before a single reference comparison; failures are not retried against references.
+- UI contracts:10/10 tests pass, including unequal spacing/off-centre controls, unknown-fact privacy, approved-reference overwrite protection and fresh CLI failure receipts. Deferred-paint test fails with old five-sample preparation and passes with bounded ten-sample/two-paint preparation. Stable changed artwork still fails reference comparison.
+- Functional affected suite:79/79 pass, including67 historical client cases and4 trade-price cases. Exact quotes/payments, consent, unknown facts, duplicate receipts, selected appraisal and phase utilities remain asserted. See `historical-ui-tests.json` and `functional-continuation.json`.
+- Real preview interactions:18 menu flows at1024/1440/1920 pass shared frame/header/control symmetry, same-menu close, selected-item restoration, no clock reset and no scrolling. See `menu-smoke.json`.
+- Preservation: all63 imported comic runtime files retain migration hashes;46 artwork files pass portable provenance tests;359 source/static fingerprints. No production UI, rule or art changes in this follow-up.
+- Memory: initial same-ID retain/recall probe plus actual baseline-approval retain, scoped recall and direct-ID retrieval verified. Broad mixed query returned irrelevant history; use explicit project tags and `tags_match:all`. Repository files remain authoritative. See `memory-health.json`.
+- Browser: original space3 missing; user approved replacement space4. Failed bootstrap is not counted as a visual result. Fresh successful invocation receipt: `compare-approved-pass-2-invocation.json`.
+
+## Remaining handoff dependency
+
+The Atlas uses root runtime source. Four of its runtime inputs differ from committed HEAD: engine.ts, secure-storage.ts, types.ts and views.ts under `src/game/appraisal/`. They are pre-existing aged10% vault-interest work, not comic UI changes. The current worktree can pass Atlas freshness while a clean clone cannot reproduce those inputs. Preserve the pending source and related tests; obtain scoped user direction before folding this separate gameplay work into a continuity commit. Do not silently switch Atlas to the comic engine or call a worktree-only pass clean-clone proof.
+
+## Verification limits
+
+No full simulation-suite, live multiplayer, phone-portrait or game-balance pass. Full simulations were CPU-bound despite Node timeouts; do not repeat without an external wall-clock bound. Trail reports pre-existing unrelated `.impeccable` conflicts and a large-diff coverage cap. Historical failed attempts below remain evidence; they are superseded only by the explicitly dated current results above.
+
+## Historical attempts (superseded where current evidence says so)
 
 Current status: **in progress**.7 Node contract tests,18 preview menu flows,359 source/static fingerprints and106 atlas inputs pass; all63 imported runtime files are unchanged. Pixel reproducibility and human image approval remain open. No full functional-suite pass is claimed.
 

@@ -1,6 +1,6 @@
 # Cursed Market — Context กลางสำหรับพัฒนาเกม
 
-อัปเดต continuity 2026-10-29 · Active comic: `apps/comic/`
+อัปเดต continuity 2026-10-30 · Active comic: `apps/comic/`
 
 เริ่ม session ที่ [UI continuity](../ui-system/README.md) และ [decisions](../ui-system/decisions.md). ข้อความเส้นทาง external ด้านล่างเป็นประวัติ; อย่าแก้ backup แทน source ใน repo.
 
@@ -130,3 +130,6 @@ S06/item-sale v02: ผู้ใช้ขอcomicขึ้น ทำภาพedit
 2026-10-29 S06/item-sale v02 implemented in isolated comic build. ItemSalePanel + Share comic presentation retain same handlers/eligibility; caption/paper choice controls and knownfacts3cells. 1024×800 columns486/486;1920×800 738/738;1440×722 694/694; zero panel overflow and frame matches inventory. Browser public-fixture tests confirmed share claims genuine/cursed+rebate3, over-budget disabled, owned sale/show omit claims, withdraw allowfalse. Menu overlap found and fixed with utilityOpen pause; only one dialog remains when utilities open. Build114modules passed. C28 actual fixture capture, not AI/live multiplayer; portable code and fixture under implementations/S06-sale-source and docs/validation/s06-item-sale.
 
 2026-10-29 S06 style correction: ผู้ใช้ย้ำเกมเดียวกันต้องอ้างอิงUIที่มี ไม่สร้างstyleใหม่ต่อหน้า. ยกเลิกbrushcaption/whitechoice/paperfactsและdividerกลาง/ที่มา/rebate/footer; ใช้ComicMenu header65px/line1pxและComicButtonดำแดงเดิม. คอลัมน์1024=486/486,1920=738/738,1440=694/694. แถวchoice/rebateleftตรงกัน590/1066/826ตามviewport; stepper40pxเท่ากันและpaneloverflow0. ไม่เปลี่ยนShare logic. C28จับใหม่จริงตามstyleนี้.
+
+
+2026-10-30 CONTINUITY-01 latest: user approved the exact14-image baseline; two independent comparisons14/14, affected functional suite79/79, UI contracts10/10, existing18 real menu flows pass. Hindsight approval retain/scoped recall/direct-ID verified; broad retrieval is not assumed reliable. See docs/ui-system/verification.md for current evidence and historical failures. Atlas clean-clone reproducibility still depends on resolving four uncommitted root aged-interest source inputs; do not mark complete from worktree freshness alone. No unrelated screen redesign or gameplay unification.

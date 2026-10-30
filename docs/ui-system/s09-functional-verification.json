@@ -1,0 +1,37 @@
+{
+  "scope": "S09 comic UI only; no game/shared/server or root source changes",
+  "focusedCommand": "node --test dist/tests/appraisal-secure-client.test.js dist/tests/appraisal-secure-storage.test.js dist/tests/appraisal-round-rewards.test.js dist/tests/appraisal-client.test.js",
+  "focused": {
+    "tests": 104,
+    "pass": 104,
+    "fail": 0
+  },
+  "buildServer": true,
+  "buildComic": true,
+  "sharedContractTests": 10,
+  "existingBaselines": {
+    "pass": 14,
+    "fail": 0,
+    "referenceChanged": false,
+    "report": "s09-baseline-compare.json",
+    "receipt": "s09-baseline-invocation.json"
+  },
+  "browser": "s09-verification.json:9 geometry/validation/menu/paging cases with public fixtures, no live transfer proof",
+  "semanticAssertionChanges": [
+    "English vault heading follows the user-authorized S09 implementation;4% interest/guard assertions retained",
+    "Settled no-duplicate check targets payment buttons instead of unrelated hidden Rules prose",
+    "Previous settled reward assertion targets absence of wager title, not substring reward-screen which also occurs in post-reward-screen"
+  ],
+  "knownLimits": [
+    "Existing four broader i18n failures from previous audit are not resolved or counted green",
+    "No full simulation, live multiplayer, phone-portrait or balance verdict",
+    "Concept image not separately human-reviewed or approved as a pixel baseline"
+  ],
+  "animation": "s09-transition-verification.json: synthetic incoming DTO lifecycle, not server payment",
+  "animationPassed": true,
+  "peerMenus": {
+    "pass": 18,
+    "fail": 0,
+    "report": "s09-peer-menus.json"
+  }
+}

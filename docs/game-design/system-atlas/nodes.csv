@@ -2771,3 +2771,6 @@
 "capture:C28","capture","S06 · รายละเอียดและประกาศขาย · shared comic","source-snapshot"
 "capture:C29","capture","S08 · รับเครดิตและเสี่ยงเหรียญ · 1 เหรียญ","source-snapshot"
 "capture:C30","capture","S08 · รับเครดิตและเสี่ยงเหรียญ · หลายเหรียญ","source-snapshot"
+"capture:C31","capture","S09 · บริการหลังรับเงิน · ฝากถอนและจัดของ","source-snapshot"
+"capture:C32","capture","S09 · บริการหลังรับเงิน · คลังเต็ม","source-snapshot"
+"capture:C33","capture","S09 · บริการหลังรับเงิน · คลังว่าง","source-snapshot"

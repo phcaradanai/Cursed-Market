@@ -812,19 +812,58 @@
         "S02",
         "S12"
       ],
-      "conceptStatus": "planned",
-      "currentImage": null,
+      "conceptStatus": "implemented",
+      "currentImage": "concepts/S09-vault-v01.png",
       "approvedImage": null,
-      "variants": [],
+      "variants": [
+        {
+          "id": "reward-settled",
+          "purpose": "Normal vault",
+          "status": "implemented"
+        },
+        {
+          "id": "vault-full",
+          "purpose": "Full vault with stored paging",
+          "status": "implemented"
+        },
+        {
+          "id": "vault-empty",
+          "purpose": "Empty vault and wallet",
+          "status": "implemented"
+        }
+      ],
       "mustShow": [],
       "mustNotShow": [],
       "sourceSymbols": [
         "advanceAppraisalEncounter",
         "handleStorageAction"
       ],
-      "captures": [],
-      "captureStatus": "not-captured-yet",
-      "captureNote": "Not captured is not proof this screen is absent."
+      "captures": [
+        {
+          "id": "C31",
+          "image": "captures/s09-2026-10-30/reward-settled-1440x722.png",
+          "title": "บริการหลังรับเงิน · ฝากถอนและจัดของ",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C32",
+          "image": "captures/s09-2026-10-30/vault-full-1440x722.png",
+          "title": "บริการหลังรับเงิน · คลังเต็ม",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C33",
+          "image": "captures/s09-2026-10-30/vault-empty-1440x722.png",
+          "title": "บริการหลังรับเงิน · คลังว่าง",
+          "origin": "existing-component-preview-fixture"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureNote": "C31-C33 actual component fixtures; current captures are not approved screenshot references.",
+      "captureImage": "captures/s09-2026-10-30/reward-settled-1440x722.png",
+      "designPolicy": "reuse-existing; change only explicit requested gap",
+      "designNote": "2026-10-30 user authorized concept and implementation together. No separate human image approval. Shared inventory frame/header/buttons; no-scroll custody and readiness; Comic4% unchanged.",
+      "implementationAuthorization": "2026-10-30 user: ออกแบบ concept image และทำต่อ"
     },
     {
       "id": "S10",

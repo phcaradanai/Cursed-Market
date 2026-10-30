@@ -211,11 +211,11 @@
     "warning": "Comic UI is in separate build and differs from canonical UI source. Logic links are references, not proof every latest backend rule has matching UI."
   },
   "summary": {
-    "capturedImages": 30,
-    "capturedScreenGroups": 15,
+    "capturedImages": 33,
+    "capturedScreenGroups": 16,
     "registeredScreens": 30,
     "liveImages": 5,
-    "fixtureImages": 25
+    "fixtureImages": 28
   },
   "style": {
     "observedViewport": "1440×722 (browser native viewport; image dimensions recorded per file)",
@@ -1493,6 +1493,276 @@
       ],
       "sourceRoot": "apps/comic",
       "captureSourceRevision": "32b456737e5b0107cd6e9b8326fc3c6d5c0ce63c",
+      "workingTreeSourceSnapshot": true
+    },
+    {
+      "id": "C31",
+      "screenId": "S09",
+      "title": "บริการหลังรับเงิน · ฝากถอนและจัดของ",
+      "phase": "REVEAL",
+      "image": "captures/s09-2026-10-30/reward-settled-1440x722.png",
+      "sha256": "c1155315cad403bb1bb012a0213a51f88be3a12eadf12f750b32a60a14c084c5",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=reward-settled",
+      "capturedAtUTC": "2026-10-30T06:56:13.910065+00:00",
+      "clientDate": "2026-10-30",
+      "actions": [
+        "Open real S09 component fixture",
+        "Compare bounds with inventory at the same viewport"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "notes": "User authorized S09 concept and implementation together. Actual component with sample data; no live transfer proof or separate pixel-baseline approval. See implementations/S09-vault.md.",
+      "eventIds": [],
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/PostRewardScreen.tsx",
+        "apps/comic/src/appraisal-client/SecureEconomy.tsx",
+        "apps/comic/src/appraisal-client/RoundReward.tsx",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/ComicUI.tsx",
+        "apps/comic/src/appraisal-client/ItemVisual.tsx",
+        "apps/comic/src/appraisal-client/vault-concept.css",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/comic-ui.css",
+        "apps/comic/src/appraisal-client/main.tsx"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/PostRewardScreen.tsx",
+          "sha256": "2def2f7eaaffc6e43dd348fe0d79848191665f51953a7408d6c16d639aad2b38"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/SecureEconomy.tsx",
+          "sha256": "d5005d53a7004976323a638bd357e3fc7df86214c3e25519fb98e00e054fa1ea"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/RoundReward.tsx",
+          "sha256": "ab0eec008e6bd76985ebb1049ac22b46da2e10bef937adbf24d93b1560b1911a"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "928d4202adf2bb0ee6dc9b64081405c96849e00f99fa7165d0303769f41af3cf"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "3e6d4c8d91538018246ea877899ef22db96f9694b07b94d2afb0419e3845f6e0"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ItemVisual.tsx",
+          "sha256": "ced9e084e05d4baf2a88c39bc7f978dbdb8bc14c170bbf46c438839f030e6115"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/vault-concept.css",
+          "sha256": "f227ca449e30975c31698b200c45c4dc0b0b1219039fa8a06ca0b2a80174d0f3"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-ui.css",
+          "sha256": "d421ec043647d34677a6dbaeea6c551a8648ac5355d3f86fd009c2a7ee068523"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "2e7b7c3eaa14d3ae7af9534b53b5b634803b87c975432acee53252ac85d7ed30"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "7be5aed18aa048c7ea45850913cadbfc4c8d52e0",
+      "workingTreeSourceSnapshot": true
+    },
+    {
+      "id": "C32",
+      "screenId": "S09",
+      "title": "บริการหลังรับเงิน · คลังเต็ม",
+      "phase": "REVEAL",
+      "image": "captures/s09-2026-10-30/vault-full-1440x722.png",
+      "sha256": "ef7911debcb73dccf2e1c142cfec717c59697d796fa45c41fd6ada153c1a272e",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=vault-full",
+      "capturedAtUTC": "2026-10-30T06:48:32.022763+00:00",
+      "clientDate": "2026-10-30",
+      "actions": [
+        "Open real S09 component fixture",
+        "Compare bounds with inventory at the same viewport"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "notes": "User authorized S09 concept and implementation together. Actual component with sample data; no live transfer proof or separate pixel-baseline approval. See implementations/S09-vault.md.",
+      "eventIds": [],
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/PostRewardScreen.tsx",
+        "apps/comic/src/appraisal-client/SecureEconomy.tsx",
+        "apps/comic/src/appraisal-client/RoundReward.tsx",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/ComicUI.tsx",
+        "apps/comic/src/appraisal-client/ItemVisual.tsx",
+        "apps/comic/src/appraisal-client/vault-concept.css",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/comic-ui.css",
+        "apps/comic/src/appraisal-client/main.tsx"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/PostRewardScreen.tsx",
+          "sha256": "2def2f7eaaffc6e43dd348fe0d79848191665f51953a7408d6c16d639aad2b38"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/SecureEconomy.tsx",
+          "sha256": "d5005d53a7004976323a638bd357e3fc7df86214c3e25519fb98e00e054fa1ea"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/RoundReward.tsx",
+          "sha256": "ab0eec008e6bd76985ebb1049ac22b46da2e10bef937adbf24d93b1560b1911a"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "928d4202adf2bb0ee6dc9b64081405c96849e00f99fa7165d0303769f41af3cf"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "3e6d4c8d91538018246ea877899ef22db96f9694b07b94d2afb0419e3845f6e0"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ItemVisual.tsx",
+          "sha256": "ced9e084e05d4baf2a88c39bc7f978dbdb8bc14c170bbf46c438839f030e6115"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/vault-concept.css",
+          "sha256": "f227ca449e30975c31698b200c45c4dc0b0b1219039fa8a06ca0b2a80174d0f3"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-ui.css",
+          "sha256": "d421ec043647d34677a6dbaeea6c551a8648ac5355d3f86fd009c2a7ee068523"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "2e7b7c3eaa14d3ae7af9534b53b5b634803b87c975432acee53252ac85d7ed30"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "7be5aed18aa048c7ea45850913cadbfc4c8d52e0",
+      "workingTreeSourceSnapshot": true
+    },
+    {
+      "id": "C33",
+      "screenId": "S09",
+      "title": "บริการหลังรับเงิน · คลังว่าง",
+      "phase": "REVEAL",
+      "image": "captures/s09-2026-10-30/vault-empty-1440x722.png",
+      "sha256": "656f6fbe38ace81296be2dcc74064dbef9b77e930179fc13ea7baf0ade75d46e",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=vault-empty",
+      "capturedAtUTC": "2026-10-30T06:48:33.438911+00:00",
+      "clientDate": "2026-10-30",
+      "actions": [
+        "Open real S09 component fixture",
+        "Compare bounds with inventory at the same viewport"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "notes": "User authorized S09 concept and implementation together. Actual component with sample data; no live transfer proof or separate pixel-baseline approval. See implementations/S09-vault.md.",
+      "eventIds": [],
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/PostRewardScreen.tsx",
+        "apps/comic/src/appraisal-client/SecureEconomy.tsx",
+        "apps/comic/src/appraisal-client/RoundReward.tsx",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/ComicUI.tsx",
+        "apps/comic/src/appraisal-client/ItemVisual.tsx",
+        "apps/comic/src/appraisal-client/vault-concept.css",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/comic-ui.css",
+        "apps/comic/src/appraisal-client/main.tsx"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/PostRewardScreen.tsx",
+          "sha256": "2def2f7eaaffc6e43dd348fe0d79848191665f51953a7408d6c16d639aad2b38"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/SecureEconomy.tsx",
+          "sha256": "d5005d53a7004976323a638bd357e3fc7df86214c3e25519fb98e00e054fa1ea"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/RoundReward.tsx",
+          "sha256": "ab0eec008e6bd76985ebb1049ac22b46da2e10bef937adbf24d93b1560b1911a"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "928d4202adf2bb0ee6dc9b64081405c96849e00f99fa7165d0303769f41af3cf"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "3e6d4c8d91538018246ea877899ef22db96f9694b07b94d2afb0419e3845f6e0"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ItemVisual.tsx",
+          "sha256": "ced9e084e05d4baf2a88c39bc7f978dbdb8bc14c170bbf46c438839f030e6115"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/vault-concept.css",
+          "sha256": "f227ca449e30975c31698b200c45c4dc0b0b1219039fa8a06ca0b2a80174d0f3"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-ui.css",
+          "sha256": "d421ec043647d34677a6dbaeea6c551a8648ac5355d3f86fd009c2a7ee068523"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "2e7b7c3eaa14d3ae7af9534b53b5b634803b87c975432acee53252ac85d7ed30"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "7be5aed18aa048c7ea45850913cadbfc4c8d52e0",
       "workingTreeSourceSnapshot": true
     }
   ],

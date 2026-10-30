@@ -4,7 +4,7 @@ import {previewRooms} from './comic-preview-data.js';
 import type {AppraisalRoomView} from '../shared/appraisal-protocol.js';
 import type {Decision} from './model.js';
 
-const previewScenes=[['merchants','เลือกพ่อค้า'],['inspection','ประเมินสินค้า'],['event-blood-pact','เหตุการณ์ · สัญญาเลือด'],['trade','ซื้อขาย'],['reveal','รับเครดิต'],['reward-multi','หลายเหรียญ'],['reward-settled','รับเครดิตแล้ว'],['results','ผลเกม'],['inventory','กระเป๋า'],['status','สถานะ'],['market','ตลาดมืด'],['market-demo','ตลาดมืด · ตัวอย่างครบ'],['ledger','บันทึก'],['rules','กติกา'],['settings','ตั้งค่า']] as const;
+const previewScenes=[['merchants','เลือกพ่อค้า'],['inspection','ประเมินสินค้า'],['event-blood-pact','เหตุการณ์ · สัญญาเลือด'],['trade','ซื้อขาย'],['reveal','รับเครดิต'],['reward-multi','หลายเหรียญ'],['reward-settled','รับเครดิตแล้ว'],['vault-full','คลังเต็ม'],['vault-empty','คลังว่าง'],['results','ผลเกม'],['inventory','กระเป๋า'],['status','สถานะ'],['market','ตลาดมืด'],['market-demo','ตลาดมืด · ตัวอย่างครบ'],['ledger','บันทึก'],['rules','กติกา'],['settings','ตั้งค่า']] as const;
 const drawerScenes={inventory:'bag',status:'effects',market:'market','market-demo':'market',ledger:'ledger',rules:'rules'} as const;
 
 export function ComicPreview(){
@@ -41,11 +41,18 @@ export function ComicPreview(){
         {id:12,encounter:3,phase:'APPRAISAL',action:'ตรวจสินค้า',cause:'จ่ายพลังเพื่อตรวจความแท้',changes:['พลัง -1'],...(item?{itemKind:item.kind}:{})},
       ];
     }
-    if(['reveal','reward-multi','reward-settled'].includes(scene)) {
+    if(['reveal','reward-multi','reward-settled','vault-full','vault-empty'].includes(scene)) {
       const game=base.game!;game.phase='REVEAL';game.encounter=3;game.self.eventOffer=null;
       const count=scene==='reward-multi'?5:1;
       game.self.credits=85-(count-1)*10;
-      game.self.roundReward={encounter:3,base:10,amount:count*10,flips:0,settled:scene==='reward-settled',coinCount:count,staked:(count-1)*10,net:0};
+      game.self.roundReward={encounter:3,base:10,amount:count*10,flips:0,settled:['reward-settled','vault-full','vault-empty'].includes(scene),coinCount:count,staked:(count-1)*10,net:0};
+    }
+    if(['reward-settled','vault-full','vault-empty'].includes(scene)) {
+      const game=base.game!,items=[...game.self.inventory],full=scene==='vault-full',empty=scene==='vault-empty';
+      game.secureEconomy=true;game.self.credits=empty?0:95;
+      const stored=empty?[]:full?items.slice(0,4):items.slice(1,2);
+      game.self.inventory=empty?[]:items.filter(i=>!stored.some(s=>s.id===i.id));
+      game.self.personalVault={items:stored.map(i=>({...i,owner:'personal-vault:'+game.self.id})),credits:empty?0:40,slots:full?4:2,nextSlotPrice:full?20:10,nextInterest:empty?0:1};
     }
     if(scene==='results')base.game!.phase='RESULTS';
     if(scene==='results')base.game!.collector=base.matchSeats.map((seat,index)=>({playerId:seat.id,credits:85-index*12,itemValue:64-index*8,modifierPercent:0,statusIds:[],score:149-index*20,items:[]}));

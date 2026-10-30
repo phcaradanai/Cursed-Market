@@ -13,7 +13,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/App.tsx",
-      "sha256": "293978844d4a0fc49a8cb561b72d4518d3790ec23705053359a3ef91c8c8de8b"
+      "sha256": "928d4202adf2bb0ee6dc9b64081405c96849e00f99fa7165d0303769f41af3cf"
     },
     {
       "file": "apps/comic/src/appraisal-client/BloodPactEvent.tsx",
@@ -21,7 +21,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
-      "sha256": "d1b501f04ac1089fa67567e4d7607efa3e5c38d925b9f7f53244b4261a4a6880"
+      "sha256": "3e6d4c8d91538018246ea877899ef22db96f9694b07b94d2afb0419e3845f6e0"
     },
     {
       "file": "apps/comic/src/appraisal-client/ComicTooltip.tsx",
@@ -76,8 +76,12 @@
       "sha256": "071be52a88e7564aec98d3e4922674484d0ad957e57f53b68ea1fbf35dab9995"
     },
     {
+      "file": "apps/comic/src/appraisal-client/PostRewardScreen.tsx",
+      "sha256": "2def2f7eaaffc6e43dd348fe0d79848191665f51953a7408d6c16d639aad2b38"
+    },
+    {
       "file": "apps/comic/src/appraisal-client/RoundReward.tsx",
-      "sha256": "4fe8df5a09ac382e17f280ab352cc7b2c92190e444dfbfcbed0abebe32b046c4"
+      "sha256": "ab0eec008e6bd76985ebb1049ac22b46da2e10bef937adbf24d93b1560b1911a"
     },
     {
       "file": "apps/comic/src/appraisal-client/RulesMenu.tsx",
@@ -85,7 +89,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/SecureEconomy.tsx",
-      "sha256": "ad66c77ca462d3eb54225cb1737fef0e59b6c9b58fcc4a605782d367233c1d87"
+      "sha256": "d5005d53a7004976323a638bd357e3fc7df86214c3e25519fb98e00e054fa1ea"
     },
     {
       "file": "apps/comic/src/appraisal-client/SinnerSeals.tsx",
@@ -225,7 +229,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/main.tsx",
-      "sha256": "5e6fe728097bbf79992f557ec5ee85f684d6336bc7db3fd7ace03bcd70a53055"
+      "sha256": "2e7b7c3eaa14d3ae7af9534b53b5b634803b87c975432acee53252ac85d7ed30"
     },
     {
       "file": "apps/comic/src/appraisal-client/market-concept.css",
@@ -848,6 +852,10 @@
       "sha256": "877c75ab232165790d7c27989551377ebb08e28d22ab73833e5edfa44dee39ac"
     },
     {
+      "file": "apps/comic/src/appraisal-client/vault-concept.css",
+      "sha256": "f227ca449e30975c31698b200c45c4dc0b0b1219039fa8a06ca0b2a80174d0f3"
+    },
+    {
       "file": "apps/comic/src/appraisal-client/world/Chapter.tsx",
       "sha256": "8e133627287a6ed59ea2e198fa5139a215020f3788256a021d71bf7c47474db0"
     },
@@ -1321,11 +1329,11 @@
     },
     {
       "file": "apps/comic/tests/appraisal-round-rewards.test.ts",
-      "sha256": "46431832ffe7d17919fe2ee5d1d9ccdaec4f095c274aa9e5d62e0dbc018d0ceb"
+      "sha256": "c767c776c75f9f409b4fccf1fdd154d7f65516f5952da3893ae8e50ddc457ed6"
     },
     {
       "file": "apps/comic/tests/appraisal-secure-client.test.ts",
-      "sha256": "3b207c7de6699581b89db09999e192f6ec59c793b595c07fbef9fd3eb42a4d68"
+      "sha256": "0f03658c8b6b62b585c6cdbed9403a07c5887c9e376e6da3f6c78e8446231e1c"
     },
     {
       "file": "apps/comic/tests/appraisal-secure-integration.test.ts",

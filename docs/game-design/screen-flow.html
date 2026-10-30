@@ -867,7 +867,7 @@
       &quot;endLine&quot;: 20
     }
   ]
-}</pre></details></article><article id="S09" data-kind="main"><header><b>S09 · บริการหลังรับเงินและพร้อมไปช่วงหน้า</b><span>REVEAL · runtime · capture: not-captured-yet · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>รับรางวัลแล้ว; ฝากถอน Vault ได้เฉพาะหน้าต่างนี้</p><small>Logic: L16, L17, L18 · Actions: vault-deposit-credits, vault-withdraw-credits, vault-deposit-item, vault-withdraw-item, vault-expand</small><p><a href="#S02">ไป S02</a> · <a href="#S12">ไป S12</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+}</pre></details></article><article id="S09" data-kind="main"><header><b>S09 · บริการหลังรับเงินและพร้อมไปช่วงหน้า</b><span>REVEAL · runtime · capture: captured-existing · concept: implemented</span></header><a href="captures/s09-2026-10-30/reward-settled-1440x722.png"><img src="captures/s09-2026-10-30/reward-settled-1440x722.png" alt="S09 บริการหลังรับเงินและพร้อมไปช่วงหน้า ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"></nav><p>รับรางวัลแล้ว; ฝากถอน Vault ได้เฉพาะหน้าต่างนี้</p><small>Logic: L16, L17, L18 · Actions: vault-deposit-credits, vault-withdraw-credits, vault-deposit-item, vault-withdraw-item, vault-expand</small><p><a href="#S02">ไป S02</a> · <a href="#S12">ไป S12</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
   &quot;id&quot;: &quot;S09&quot;,
   &quot;title&quot;: &quot;บริการหลังรับเงินและพร้อมไปช่วงหน้า&quot;,
   &quot;phase&quot;: &quot;REVEAL&quot;,
@@ -890,19 +890,58 @@
     &quot;S02&quot;,
     &quot;S12&quot;
   ],
-  &quot;conceptStatus&quot;: &quot;planned&quot;,
-  &quot;currentImage&quot;: null,
+  &quot;conceptStatus&quot;: &quot;implemented&quot;,
+  &quot;currentImage&quot;: &quot;concepts/S09-vault-v01.png&quot;,
   &quot;approvedImage&quot;: null,
-  &quot;variants&quot;: [],
+  &quot;variants&quot;: [
+    {
+      &quot;id&quot;: &quot;reward-settled&quot;,
+      &quot;purpose&quot;: &quot;Normal vault&quot;,
+      &quot;status&quot;: &quot;implemented&quot;
+    },
+    {
+      &quot;id&quot;: &quot;vault-full&quot;,
+      &quot;purpose&quot;: &quot;Full vault with stored paging&quot;,
+      &quot;status&quot;: &quot;implemented&quot;
+    },
+    {
+      &quot;id&quot;: &quot;vault-empty&quot;,
+      &quot;purpose&quot;: &quot;Empty vault and wallet&quot;,
+      &quot;status&quot;: &quot;implemented&quot;
+    }
+  ],
   &quot;mustShow&quot;: [],
   &quot;mustNotShow&quot;: [],
   &quot;sourceSymbols&quot;: [
     &quot;advanceAppraisalEncounter&quot;,
     &quot;handleStorageAction&quot;
   ],
-  &quot;captures&quot;: [],
-  &quot;captureStatus&quot;: &quot;not-captured-yet&quot;,
-  &quot;captureNote&quot;: &quot;Not captured is not proof this screen is absent.&quot;,
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C31&quot;,
+      &quot;image&quot;: &quot;captures/s09-2026-10-30/reward-settled-1440x722.png&quot;,
+      &quot;title&quot;: &quot;บริการหลังรับเงิน · ฝากถอนและจัดของ&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C32&quot;,
+      &quot;image&quot;: &quot;captures/s09-2026-10-30/vault-full-1440x722.png&quot;,
+      &quot;title&quot;: &quot;บริการหลังรับเงิน · คลังเต็ม&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C33&quot;,
+      &quot;image&quot;: &quot;captures/s09-2026-10-30/vault-empty-1440x722.png&quot;,
+      &quot;title&quot;: &quot;บริการหลังรับเงิน · คลังว่าง&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureNote&quot;: &quot;C31-C33 actual component fixtures; current captures are not approved screenshot references.&quot;,
+  &quot;captureImage&quot;: &quot;captures/s09-2026-10-30/reward-settled-1440x722.png&quot;,
+  &quot;designPolicy&quot;: &quot;reuse-existing; change only explicit requested gap&quot;,
+  &quot;designNote&quot;: &quot;2026-10-30 user authorized concept and implementation together. No separate human image approval. Shared inventory frame/header/buttons; no-scroll custody and readiness; Comic4% unchanged.&quot;,
+  &quot;implementationAuthorization&quot;: &quot;2026-10-30 user: ออกแบบ concept image และทำต่อ&quot;,
   &quot;sourceRefs&quot;: [
     {
       &quot;symbolId&quot;: &quot;code:src/game/appraisal/engine.ts:advanceAppraisalEncounter&quot;,

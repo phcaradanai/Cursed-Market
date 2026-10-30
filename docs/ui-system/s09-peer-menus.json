@@ -1,0 +1,710 @@
+{
+  "taskSpaceId": 6,
+  "startedAt": "2026-10-30T06:54:37.038Z",
+  "checks": [
+    {
+      "width": 1024,
+      "height": 800,
+      "menu": "กระเป๋า",
+      "metrics": {
+        "imagesReady": true,
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "padding": [
+          "12px",
+          "18px",
+          "12px",
+          "18px"
+        ],
+        "buttons": [
+          {
+            "height": 40,
+            "radius": "10px"
+          }
+        ],
+        "dialogs": 1
+      }
+    },
+    {
+      "width": 1024,
+      "height": 800,
+      "menu": "สถานะ",
+      "metrics": {
+        "imagesReady": true,
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "padding": [
+          "12px",
+          "18px",
+          "12px",
+          "18px"
+        ],
+        "buttons": [
+          {
+            "height": 40,
+            "radius": "10px"
+          }
+        ],
+        "dialogs": 1
+      }
+    },
+    {
+      "width": 1024,
+      "height": 800,
+      "menu": "Dark Market",
+      "metrics": {
+        "imagesReady": true,
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "padding": [
+          "12px",
+          "18px",
+          "12px",
+          "18px"
+        ],
+        "buttons": [
+          {
+            "height": 40,
+            "radius": "10px"
+          }
+        ],
+        "dialogs": 1
+      }
+    },
+    {
+      "width": 1024,
+      "height": 800,
+      "menu": "สมุดบันทึก",
+      "metrics": {
+        "imagesReady": true,
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "padding": [
+          "12px",
+          "18px",
+          "12px",
+          "18px"
+        ],
+        "buttons": [
+          {
+            "height": 40,
+            "radius": "10px"
+          }
+        ],
+        "dialogs": 1
+      }
+    },
+    {
+      "width": 1024,
+      "height": 800,
+      "menu": "กติกา",
+      "metrics": {
+        "imagesReady": true,
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "padding": [
+          "12px",
+          "18px",
+          "12px",
+          "18px"
+        ],
+        "buttons": [
+          {
+            "height": 40,
+            "radius": "10px"
+          }
+        ],
+        "dialogs": 1
+      }
+    },
+    {
+      "width": 1024,
+      "height": 800,
+      "menu": "ตั้งค่า",
+      "metrics": {
+        "imagesReady": true,
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "padding": [
+          "12px",
+          "18px",
+          "12px",
+          "18px"
+        ],
+        "buttons": [
+          {
+            "height": 40,
+            "radius": "10px"
+          }
+        ],
+        "dialogs": 1
+      }
+    },
+    {
+      "width": 1440,
+      "height": 722,
+      "menu": "กระเป๋า",
+      "metrics": {
+        "imagesReady": true,
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "padding": [
+          "12px",
+          "18px",
+          "12px",
+          "18px"
+        ],
+        "buttons": [
+          {
+            "height": 40,
+            "radius": "10px"
+          }
+        ],
+        "dialogs": 1
+      }
+    },
+    {
+      "width": 1440,
+      "height": 722,
+      "menu": "สถานะ",
+      "metrics": {
+        "imagesReady": true,
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "padding": [
+          "12px",
+          "18px",
+          "12px",
+          "18px"
+        ],
+        "buttons": [
+          {
+            "height": 40,
+            "radius": "10px"
+          }
+        ],
+        "dialogs": 1
+      }
+    },
+    {
+      "width": 1440,
+      "height": 722,
+      "menu": "Dark Market",
+      "metrics": {
+        "imagesReady": true,
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "padding": [
+          "12px",
+          "18px",
+          "12px",
+          "18px"
+        ],
+        "buttons": [
+          {
+            "height": 40,
+            "radius": "10px"
+          }
+        ],
+        "dialogs": 1
+      }
+    },
+    {
+      "width": 1440,
+      "height": 722,
+      "menu": "สมุดบันทึก",
+      "metrics": {
+        "imagesReady": true,
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "padding": [
+          "12px",
+          "18px",
+          "12px",
+          "18px"
+        ],
+        "buttons": [
+          {
+            "height": 40,
+            "radius": "10px"
+          }
+        ],
+        "dialogs": 1
+      }
+    },
+    {
+      "width": 1440,
+      "height": 722,
+      "menu": "กติกา",
+      "metrics": {
+        "imagesReady": true,
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "padding": [
+          "12px",
+          "18px",
+          "12px",
+          "18px"
+        ],
+        "buttons": [
+          {
+            "height": 40,
+            "radius": "10px"
+          }
+        ],
+        "dialogs": 1
+      }
+    },
+    {
+      "width": 1440,
+      "height": 722,
+      "menu": "ตั้งค่า",
+      "metrics": {
+        "imagesReady": true,
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "padding": [
+          "12px",
+          "18px",
+          "12px",
+          "18px"
+        ],
+        "buttons": [
+          {
+            "height": 40,
+            "radius": "10px"
+          }
+        ],
+        "dialogs": 1
+      }
+    },
+    {
+      "width": 1920,
+      "height": 800,
+      "menu": "กระเป๋า",
+      "metrics": {
+        "imagesReady": true,
+        "viewport": [
+          1920,
+          800
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "padding": [
+          "12px",
+          "18px",
+          "12px",
+          "18px"
+        ],
+        "buttons": [
+          {
+            "height": 40,
+            "radius": "10px"
+          }
+        ],
+        "dialogs": 1
+      }
+    },
+    {
+      "width": 1920,
+      "height": 800,
+      "menu": "สถานะ",
+      "metrics": {
+        "imagesReady": true,
+        "viewport": [
+          1920,
+          800
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "padding": [
+          "12px",
+          "18px",
+          "12px",
+          "18px"
+        ],
+        "buttons": [
+          {
+            "height": 40,
+            "radius": "10px"
+          }
+        ],
+        "dialogs": 1
+      }
+    },
+    {
+      "width": 1920,
+      "height": 800,
+      "menu": "Dark Market",
+      "metrics": {
+        "imagesReady": true,
+        "viewport": [
+          1920,
+          800
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "padding": [
+          "12px",
+          "18px",
+          "12px",
+          "18px"
+        ],
+        "buttons": [
+          {
+            "height": 40,
+            "radius": "10px"
+          }
+        ],
+        "dialogs": 1
+      }
+    },
+    {
+      "width": 1920,
+      "height": 800,
+      "menu": "สมุดบันทึก",
+      "metrics": {
+        "imagesReady": true,
+        "viewport": [
+          1920,
+          800
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "padding": [
+          "12px",
+          "18px",
+          "12px",
+          "18px"
+        ],
+        "buttons": [
+          {
+            "height": 40,
+            "radius": "10px"
+          }
+        ],
+        "dialogs": 1
+      }
+    },
+    {
+      "width": 1920,
+      "height": 800,
+      "menu": "กติกา",
+      "metrics": {
+        "imagesReady": true,
+        "viewport": [
+          1920,
+          800
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "padding": [
+          "12px",
+          "18px",
+          "12px",
+          "18px"
+        ],
+        "buttons": [
+          {
+            "height": 40,
+            "radius": "10px"
+          }
+        ],
+        "dialogs": 1
+      }
+    },
+    {
+      "width": 1920,
+      "height": 800,
+      "menu": "ตั้งค่า",
+      "metrics": {
+        "imagesReady": true,
+        "viewport": [
+          1920,
+          800
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "padding": [
+          "12px",
+          "18px",
+          "12px",
+          "18px"
+        ],
+        "buttons": [
+          {
+            "height": 40,
+            "radius": "10px"
+          }
+        ],
+        "dialogs": 1
+      }
+    }
+  ],
+  "finishedAt": "2026-10-30T06:54:39.698Z",
+  "passed": true
+}

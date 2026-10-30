@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import type { CSSProperties } from 'react';
 import type { CoinSide, RoundReward as Reward } from '../game/appraisal/types.js';
 import type { Decision } from './model.js';
@@ -9,14 +9,14 @@ import {CoinIcon, TimerIcon, PlusIcon} from './icons.js';
 import {Peek} from './lore.js';
 
 const sideName=()=>({heads:t('หัว'),tails:t('ก้อย')});
-export function RoundReward({reward,credits=0,submit,disabled,onTossing}:{reward:Reward;credits?:number;submit:(action:Decision)=>void;disabled:boolean;onTossing:(active:boolean)=>void}) {
+export function RoundReward({reward,credits=0,submit,disabled,onTossing,hideSettled=false}:{reward:Reward;credits?:number;submit:(action:Decision)=>void;disabled:boolean;onTossing:(active:boolean)=>void;hideSettled?:boolean}) {
   const locked=useLock();
   const [choices,setChoices]=useState<CoinSide[]>([]);
   const [page,setPage]=useState(0);
   const [shownFlips,setShownFlips]=useState(reward.flips);
   const tossing=reward.flips>shownFlips;
   useEffect(()=>()=>onTossing(false),[onTossing]);
-  useEffect(()=>{
+  useLayoutEffect(()=>{
     onTossing(tossing);
     if(!tossing)return;
     const timer=window.setTimeout(()=>setShownFlips(reward.flips),window.matchMedia('(prefers-reduced-motion: reduce)').matches?100:1300);
@@ -32,7 +32,7 @@ export function RoundReward({reward,credits=0,submit,disabled,onTossing}:{reward
   const outcome=multi&&flip?(flip.correct?t('ถูกครบทุกเหรียญ! เพิ่ม {n} เครดิต',{n:flip.delta??step}):t('ทายผิด หัก {n} เครดิต · เหลือ {amount} เครดิต',{n:-(flip.delta??0),amount:reward.amount})):flip?(flip.correct?t('ออก{side} · คุณทาย{guess} · ทายถูก! เพิ่ม {bonus} เครดิต',{side:names[flip.side],guess:names[flip.guess],bonus:winBonus}):t('ออก{side} · คุณทาย{guess} · ทายผิด! รางวัลช่วงนี้เหลือ 0 เครดิต',{side:names[flip.side],guess:names[flip.guess]})):'';
   const method=<><strong>{t('เครดิตหลังจบช่วงซื้อขาย {n}',{n:reward.encounter})}</strong><p>{t('ช่วง{kind} รับ {base} เครดิต · เติมหลังซื้อขายทุกช่วง ก่อนเลือกประตูครั้งถัดไป',{kind:reward.encounter%2?t('คี่'):t('คู่'),base:reward.base})}</p>{multi&&<p>{t('เพิ่มเหรียญโดยจ่ายจากกระเป๋า ตามทุนเริ่มช่วงต่อเหรียญ เงินทบรวมในยอดที่รับได้ เล่นต่อจนยอดเป็น 0 หรือหยุดรับได้ทุกครั้ง')}</p>}{reward.incomeBonus!==undefined&&<p>{t('ของสะสมเพิ่ม {income} เครดิต · รวมเริ่มต้น {total} เครดิต · โอกาสถูกต่อเหรียญ {chance}% · ได้หรือเสียต่อเหรียญ {bonus} เครดิต',{income:reward.incomeBonus,total:totalBase,chance:reward.winChance??50,bonus:winBonus})}</p>}</>;
   // Settled rewards hand back to the existing post-payout services, not a second cash-out action.
-  if(reward.settled&&!tossing)return <section className="round-reward reward-settled" aria-labelledby="round-reward-title"><h2 id="round-reward-title">{t('เครดิตหลังจบช่วงซื้อขาย {n}',{n:reward.encounter})}</h2><p className="reward-amount">{reward.amount?t('รับแล้ว'):t('รับรอบนี้')} <strong>{reward.amount}</strong> {t('เครดิต')}</p><p role="status">{outcome}</p><span className="sr-only">{pick('ก่อนเลือกประตูครั้งถัดไป','Before the next portal')}</span></section>;
+  if(reward.settled&&!tossing)return hideSettled?null:<section className="round-reward reward-settled" aria-labelledby="round-reward-title"><h2 id="round-reward-title">{t('เครดิตหลังจบช่วงซื้อขาย {n}',{n:reward.encounter})}</h2><p className="reward-amount">{reward.amount?t('รับแล้ว'):t('รับรอบนี้')} <strong>{reward.amount}</strong> {t('เครดิต')}</p><p role="status">{outcome}</p><span className="sr-only">{pick('ก่อนเลือกประตูครั้งถัดไป','Before the next portal')}</span></section>;
   return <ComicPhaseFrame className="round-reward reward-screen" title={pick('รับเครดิตท้ายช่วง','End-of-encounter credits')} icon={<CoinIcon/>}
     tools={<><span className="reward-encounter">{t('ช่วง {n}',{n:reward.encounter})}</span><Peek tone="rule" label={t('วิธีการ')} card={method}/></>}
     footer={<><TimerIcon/>{t('เมื่อหมดเวลาหรือกดพร้อมไปต่อ จะรับยอดที่เหลืออัตโนมัติ')}</>}>

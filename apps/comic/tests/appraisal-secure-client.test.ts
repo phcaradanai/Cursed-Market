@@ -69,7 +69,7 @@ test('secure economy surfaces have English copy and remain absent in legacy runs
   setLang('en');try {
     const game=view();game.phase='REVEAL';game.self.roundReward={encounter:game.encounter,base:10,amount:10,flips:0,settled:true};
     const html=renderToStaticMarkup(createElement(VaultPanel,{game,submit,disabled:false}));
-    assert.match(html,/Keep it safe/);assert.match(html,/Interest is 4% of the whole vault balance/);
+    assert.match(html,/Deposit and withdraw credits/);assert.match(html,/Interest is 4% of the whole vault balance/);
     game.secureEconomy=false;
     for(const Component of [VaultPanel,FinancePanel,TheftPanel])assert.equal(renderToStaticMarkup(createElement(Component,{game,submit,disabled:false})), '');
   } finally {setLang('th');}
@@ -95,4 +95,27 @@ test('seal panel shows face-down redemption cards with no item identity, plain-t
   setLang('en');
   assert.match(renderToStaticMarkup(createElement(SealPanel,{game,submit,disabled:false})),/Card 2/);
   setLang('th');
+});
+
+test('vault pages carried/stored goods without expansion, keeps full/locked reasons, and renders no cash-out',()=>{
+ const game=view(),item=game.self.stock[0]!;
+ game.phase='REVEAL';game.self.roundReward={encounter:game.encounter,base:10,amount:10,flips:0,settled:true};
+ game.self.inventory=Array.from({length:5},(_,n)=>({...item,id:`carried-${n}`,lockedUntil:n===0?game.encounter:null}));
+ game.self.personalVault={items:Array.from({length:4},(_,n)=>({...item,id:`stored-${n}`})),credits:40,slots:4,nextSlotPrice:20,nextInterest:1};
+ const html=renderToStaticMarkup(createElement(VaultPanel,{game,submit,disabled:false}));
+ assert(html.includes('1 / 3'));assert(html.includes('1 / 2'));assert(html.includes('สินค้าติดล็อก ฝากไม่ได้'));assert(html.includes('คลังเต็ม เพิ่มช่องหรือถอนของก่อน'));
+ assert(!html.includes('<details'));assert(!/<button[^>]*>รับเลย/.test(html));assert(!html.includes('carried-4'));
+});
+test('settled destination has one ready action, no duplicate reward, and respects readiness/spectators',async()=>{
+ const {GameTable}=await import('../src/appraisal-client/App.js');const {previewRooms}=await import('../src/appraisal-client/comic-preview-data.js');
+ const room=structuredClone(previewRooms.inspection!),game=room.game!;game.phase='REVEAL';game.secureEconomy=true;game.self.eventOffer=null;
+ game.self.roundReward={encounter:game.encounter,base:10,amount:10,flips:0,settled:true};
+ const render=()=>renderToStaticMarkup(createElement(GameTable,{room,submit,send:()=>true,disabled:false}));
+ let html=render();assert(html.includes('post-reward-screen'));assert.equal((html.match(/>พร้อมไปช่วงถัดไป</g)??[]).length,1);assert(!/<button[^>]*>รับเลย/.test(html));assert(!html.includes('coin-heads'));
+ room.revealReady=[room.yourSeatId];html=render();assert(html.includes('พร้อมแล้ว รอผู้ที่ยังมีชีวิต'));assert(html.includes('ยืนยันไปต่อแล้ว หรือกำลังรอการเชื่อมต่อ'));
+ game.self.life=0;html=render();assert(!html.includes('vault-spread'));assert(html.includes('คุณเป็นผู้ชม ไม่ต้องยืนยันช่วงถัดไป'));
+});
+test('settled reward may be hidden by its phase owner without another payment control',async()=>{
+ const {RoundReward}=await import('../src/appraisal-client/RoundReward.js');
+ const html=renderToStaticMarkup(createElement(RoundReward,{reward:{encounter:1,base:10,amount:10,flips:0,settled:true},submit,disabled:false,onTossing:()=>{},hideSettled:true}));assert.equal(html,'');
 });

@@ -175,7 +175,7 @@ test('comic reward decision has one cash-out, preserved six-menu access, and no 
   assert.doesNotMatch(html,/รับ 10 เครดิตและไปต่อ/);assert.doesNotMatch(html,/ซื้อขายช่วง 3 เสร็จแล้ว/);
   for(const label of ['กระเป๋า','สถานะ','Dark Market','สมุดบันทึก','กติกา','ตั้งค่า'])assert(html.includes(`aria-label="${label}"`),label);
   game.self.roundReward.settled=true;
-  const settled=render();assert(!settled.includes('reward-screen'));assert(settled.includes('พร้อมไปช่วงถัดไป'));
+  const settled=render();assert(!settled.includes('reward-wager-title'));assert(settled.includes('พร้อมไปช่วงถัดไป'));
 });
 test('many reward coins use bounded pages while retaining the full toss count and step',()=>{
   const reward={encounter:3,base:10,amount:90,flips:0,settled:false,coinCount:9,staked:80,net:0};

@@ -1,0 +1,15 @@
+{
+  "scope": "Real component lifecycle with synthetic incoming DTOs, not live match settlement",
+  "during": {
+    "tossing": true,
+    "postReward": false,
+    "disabled": true
+  },
+  "after": {
+    "postReward": true,
+    "tossing": false,
+    "reward": "รางวัลช่วงนี้ 0 เครดิต"
+  },
+  "passed": true,
+  "finishedAt": "2026-10-30T06:56:10.101Z"
+}

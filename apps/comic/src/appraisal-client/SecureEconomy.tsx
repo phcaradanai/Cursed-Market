@@ -1,3 +1,7 @@
+import {ComicButton,CompactPager} from './ComicUI.js';
+import {MinusIcon,PlusIcon} from './icons.js';
+import {Peek} from './lore.js';
+import {itemName} from './catalog-text.js';
 import { ItemVisual } from './ItemVisual.js';
 import {useEffect,useId,useState} from 'react';
 import type {Actions} from './components.js';
@@ -72,23 +76,35 @@ export function TheftPanel({game,submit,disabled,playerNames={},deadlines={},ser
 }
 
 export function VaultPanel({game,submit,disabled}:Props) {
-  const [amount,setAmount]=useState('10');
+  const [amount,setAmount]=useState('10'),[carriedPage,setCarriedPage]=useState(0),[storedPage,setStoredPage]=useState(0);
   if(!game.secureEconomy || !paid(game) || !alive(game))return null;
   const p=game.self,vault=p.personalVault??{items:[],credits:0,slots:2,nextSlotPrice:10,nextInterest:0};
-  const value=Number(amount),valid=positive(value);
-  return <section className="secure-economy vault-table" aria-label={pick('คลังนิรภัย','Personal vault')}>
-    <h2>{pick('เก็บไว้ข้ามคืน','Keep it safe')}</h2>
-    <p>{pick(`คลังนิรภัย ${vault.items.length}/${vault.slots} ช่อง · เริ่มต้นฟรี 2 ช่อง`,`Personal vault ${vault.items.length}/${vault.slots} slots · First 2 slots are free`)}</p>
-    <p className="supporting">{pick('ของในคลังขโมยไม่ได้ ใช้ไม่ได้ และไม่มีผลบวกหรือลบกับผู้ถือครอง ถอนแล้วจึงกลับมามีผล','Stored items cannot be stolen or used and have no positive or negative effects. Withdraw to restore their effects.')}</p>
-    <div className="secure-vault-sides"><div><h3>{pick('ถืออยู่ · เลือกเพื่อฝาก','Carried · choose to deposit')}</h3><div className="secure-items">{p.inventory.map(item=><button className="secure-item" key={item.id} disabled={disabled || item.lockedUntil!==null || vault.items.length>=vault.slots} onClick={()=>submit({type:'vault-deposit-item',itemId:item.id})}><ItemArt item={item}/><small>{item.lockedUntil!==null?pick('ถูกล็อก','Locked'):pick('ฝากเข้าคลัง','Deposit')}</small></button>)}</div>{!p.inventory.length && <p className="supporting">{pick('ไม่มีของที่ถืออยู่','No carried items')}</p>}</div>
-      <div><h3>{pick('ปลอดภัยในคลัง · เลือกเพื่อถอน','In the vault · choose to withdraw')}</h3><div className="secure-items">{vault.items.map(item=><button className="secure-item" key={item.id} disabled={disabled} onClick={()=>submit({type:'vault-withdraw-item',itemId:item.id})}><ItemArt item={item}/><small>{pick('ถอนออกมาถือ','Withdraw')}</small></button>)}</div>{!vault.items.length && <p className="supporting">{pick('คลังยังว่าง','Vault is empty')}</p>}</div></div>
-    <button disabled={disabled || p.credits<vault.nextSlotPrice} onClick={()=>submit({type:'vault-expand'})}>{pick('เพิ่ม 1 ช่อง · ','Add 1 slot · ')}{credits(vault.nextSlotPrice)}</button>
-    <details className="info-fold"><summary>{pick(`ฝากเงิน · ในคลัง ${vault.credits} เครดิต`,`Store credits · ${vault.credits} credits in vault`)}</summary>
-      <p>{pick(`ในกระเป๋า ${p.credits} เครดิต`,`Wallet: ${p.credits} credits`)}</p><Amount label={pick('จำนวนเครดิต','Credit amount')} value={amount} onChange={setAmount} disabled={disabled}/>
-      <div className="actions"><button disabled={disabled || !valid || value>p.credits} onClick={()=>submit({type:'vault-deposit-credits',amount:value})}>{pick('ฝากเงิน','Deposit credits')}</button><button disabled={disabled || !valid || value>vault.credits} onClick={()=>submit({type:'vault-withdraw-credits',amount:value})}>{pick('ถอนเงิน','Withdraw credits')}</button></div>
-      <p className="supporting">{pick(`ดอกเบี้ย 4% ต่อช่วง ไม่มีเพดาน จ่ายเข้ากระเป๋าตอนเริ่มช่วงถัดไป ตอนนี้จะได้ ${vault.nextInterest} เครดิต ไม่ทบต้นเอง`,`Interest is 4% of the whole vault balance per encounter, uncapped, paid to your wallet when the next encounter starts. Next payment: ${vault.nextInterest} credits. It does not compound by itself.`)}</p>
-    </details>
-  </section>;
+  const value=Number(amount),valid=positive(value),max=Math.max(p.credits,vault.credits);
+  const locked=pick('ยืนยันไปต่อแล้ว หรือกำลังรอการเชื่อมต่อ','Already ready, or waiting for connection');
+  const depositWhy=disabled?locked:!valid?pick('ใส่จำนวนเต็มบวก','Enter a positive whole number'):value>p.credits?pick('เครดิตในกระเป๋าไม่พอ','Not enough wallet credits'):undefined;
+  const withdrawWhy=disabled?locked:!valid?pick('ใส่จำนวนเต็มบวก','Enter a positive whole number'):value>vault.credits?pick('เครดิตในคลังไม่พอ','Not enough vault credits'):undefined;
+  const slotCount=Math.max(vault.items.length,Math.min(vault.slots,Math.ceil((vault.items.length+1)/2)*2));
+  const shelf=(stored:boolean)=>{
+    const items=stored?vault.items:p.inventory,total=stored?slotCount:items.length,pages=Math.max(1,Math.ceil(total/2)),at=Math.min(stored?storedPage:carriedPage,pages-1),setPage=stored?setStoredPage:setCarriedPage;
+    return <section className="vault-shelf" aria-label={stored?pick('สินค้าที่ฝากไว้','Stored items'):pick('สินค้าที่ถืออยู่','Carried items')}>
+      <header><h3>{stored?pick('ในคลัง','In the vault'):pick('ของที่ถืออยู่','Carried items')} <small>{stored?`${items.length}/${vault.slots}`:items.length}</small></h3>{pages>1&&<CompactPager page={at} pages={pages} onChange={setPage} label={stored?pick('หน้าของในคลัง','Stored item pages'):pick('หน้าของที่ถืออยู่','Carried item pages')}/>}</header>
+      <div className="vault-item-row">{Array.from({length:Math.min(2,total-at*2)},(_,offset)=>{const item=items[at*2+offset];
+        if(!item)return <div className="vault-empty-slot" key={offset}>{pick('ว่าง','Empty')}</div>;
+        const why=disabled?locked:!stored&&item.lockedUntil!==null?pick('สินค้าติดล็อก ฝากไม่ได้','Locked item cannot be deposited'):!stored&&vault.items.length>=vault.slots?pick('คลังเต็ม เพิ่มช่องหรือถอนของก่อน','Vault full; expand or withdraw first'):undefined;
+        return <ComicButton key={item.id} className="vault-item" disabled={!!why} title={why??itemName(item.kind)} aria-label={`${stored?pick('ถอน','Withdraw'):pick('ฝาก','Deposit')} ${itemName(item.kind)}`} onClick={()=>submit({type:stored?'vault-withdraw-item':'vault-deposit-item',itemId:item.id})}><ItemVisual item={item} width={80} height={80}/><strong>{itemName(item.kind)}</strong><small>{stored?pick('ถอน','Withdraw'):pick('ฝาก','Deposit')}</small></ComicButton>;
+      })}{!total&&<p className="vault-empty-slot">{pick('ไม่มีของที่ถืออยู่','No carried items')}</p>}</div>
+    </section>;
+  };
+  return <div className="vault-spread" aria-label={pick('คลังนิรภัย','Personal vault')}>
+    <section className="vault-money"><h3>{pick('ฝาก–ถอนเครดิต','Deposit and withdraw credits')}</h3>
+      <dl className="vault-balances"><div><dt>{pick('ในกระเป๋า','Wallet')}</dt><dd>{p.credits}</dd></div><div><dt>{pick('ในคลัง','Vault')}</dt><dd>{vault.credits}</dd></div></dl>
+      <div className="vault-transfer"><div className="vault-stepper"><ComicButton aria-label={pick('ลดจำนวนเครดิต','Decrease credit amount')} disabled={disabled||!valid||value<=1} title={disabled?locked:pick('จำนวนต่ำสุด 1 เครดิต','Minimum 1 credit')} onClick={()=>setAmount(String(value-1))}><MinusIcon/></ComicButton><Amount label={pick('จำนวนเครดิต','Credit amount')} value={amount} onChange={setAmount} max={max} disabled={disabled}/><ComicButton aria-label={pick('เพิ่มจำนวนเครดิต','Increase credit amount')} disabled={disabled||!valid||value>=max} title={disabled?locked:pick('ไม่เกินเครดิตที่มี','Cannot exceed available credits')} onClick={()=>setAmount(String(value+1))}><PlusIcon/></ComicButton></div>
+      <div className="vault-transfer-actions"><ComicButton tone="primary" disabled={!!depositWhy} title={depositWhy} onClick={()=>submit({type:'vault-deposit-credits',amount:value})}>{pick('ฝากเงิน','Deposit credits')}</ComicButton><ComicButton disabled={!!withdrawWhy} title={withdrawWhy} onClick={()=>submit({type:'vault-withdraw-credits',amount:value})}>{pick('ถอนเงิน','Withdraw credits')}</ComicButton></div></div>
+      <div className="vault-interest"><span>{pick('ดอกเบี้ยถัดไป','Next interest')} <strong>{credits(vault.nextInterest)}</strong></span><Peek tone="rule" label={pick('วิธีคิด','Interest rules')} card={<><p>{pick(`ดอกเบี้ย 4% ต่อช่วง ไม่มีเพดาน จ่ายเข้ากระเป๋าตอนเริ่มช่วงถัดไป ตอนนี้จะได้ ${vault.nextInterest} เครดิต ไม่ทบต้นเอง`,`Interest is 4% of the whole vault balance per encounter, uncapped, paid to your wallet when the next encounter starts. Next payment: ${vault.nextInterest} credits. It does not compound by itself.`)}</p><p>{pick('เริ่มต้นฟรี 2 ช่อง','First 2 slots are free')}</p></>}/></div>
+      <p className="vault-custody-note">{pick('ของในคลังขโมยไม่ได้ ใช้ไม่ได้ และไม่มีผลบวกหรือลบกับผู้ถือครอง ถอนแล้วจึงกลับมามีผล','Stored items cannot be stolen or used and have no positive or negative effects. Withdraw to restore their effects.')}</p>
+    </section>
+    <section className="vault-goods">{shelf(false)}{shelf(true)}<ComicButton className="vault-expand" disabled={disabled||p.credits<vault.nextSlotPrice} title={disabled?locked:p.credits<vault.nextSlotPrice?pick('เครดิตในกระเป๋าไม่พอ','Not enough wallet credits'):undefined} onClick={()=>submit({type:'vault-expand'})}><PlusIcon/>{pick('เพิ่ม 1 ช่อง · ','Add 1 slot · ')}{credits(vault.nextSlotPrice)}</ComicButton></section>
+  </div>;
 }
 
 type LoanView=NonNullable<AppraisalView['loans']>[number];

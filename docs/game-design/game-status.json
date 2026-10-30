@@ -1,0 +1,130 @@
+{
+  "asOf": "2026-10-31",
+  "activeSource": "apps/comic",
+  "revision": "51d89ea",
+  "headline": "ยังไม่ครบตามกฎและขอบเขตเกมที่ตกลงทั้งหมด",
+  "summary": "วงจรเดิมและตลาดวิญญาณเล่นได้ แต่การย้ายกฎ/สินค้าใหม่และบาลานซ์ทั้งเกมยังค้าง ภาพหน้าจอหรือกราฟครบไม่ได้แปลว่า runtime ครบ",
+  "atlasScope": "Atlas ฐานยังสกัด runtime root และเพิ่ม Comic ghost แบบระบุไฟล์ ไม่ใช่สำเนาเต็มของ active Comic ทุกระบบ ต้องอ่าน source path และตารางนี้ประกอบ โดยเฉพาะดอกเบี้ย4%/10%",
+  "systems": [
+    {
+      "id": "CORE",
+      "system": "วงจรเกมหลัก",
+      "status": "มี runtime — ยังไม่รับรองครบทั้งเกม",
+      "remaining": "เลือกประตู ตรวจ/ตีราคา ซื้อขาย เหตุการณ์ สถานะ ตลาดมืด/ประมูล เงินกู้/คลัง และ Collector มีอยู่แล้ว ต้องตรวจครบกับกฎใหม่และสินค้าใหม่อีกครั้ง",
+      "evidence": [
+        "apps/comic/src/game/appraisal/engine.ts",
+        "apps/comic/src/server/appraisal-main.ts",
+        "docs/ui-system/verification.md"
+      ]
+    },
+    {
+      "id": "GHOST-01",
+      "system": "ตลาดวิญญาณและมินิเกม",
+      "status": "ทำและตรวจแล้ว",
+      "remaining": "S11/G01–G04 ครบ: ติดตามการ์ด รับงาน RPS สามช่อง ส่งมอบ จ่ายเงิน คะแนนพิเศษ; ยังไม่ใช่ผลบาลานซ์",
+      "evidence": [
+        "docs/game-design/implementations/ghost-acceptance-audit.md",
+        "docs/ui-system/ghost-functional-verification.json"
+      ]
+    },
+    {
+      "id": "RULE-01",
+      "system": "ดอกเบี้ยเงินต้นครบช่วง10%",
+      "status": "ยังไม่เชื่อม Comic",
+      "remaining": "root ทำกฎใหม่แล้ว แต่ Comic ยัง floor(ยอดปัจจุบัน×4%); ต้องย้ายเฉพาะกฎพร้อมทดสอบ ห้ามถือว่า UI คลังใหม่แปลว่า logic ใหม่แล้ว",
+      "evidence": [
+        "apps/comic/src/game/appraisal/secure-storage.ts",
+        "src/game/appraisal/secure-storage.ts",
+        "docs/ui-system/root-provenance.json"
+      ]
+    },
+    {
+      "id": "ITEM-01–03",
+      "system": "สินค้าใหม่56ชิ้นและ effect",
+      "status": "ยังไม่เชื่อม runtime",
+      "remaining": "56ชิ้นมี catalog/ภาพ/ข้อเสนอ relation แต่ dedicated binding ใน runtime ที่ตรวจพบเป็น0; ต้องกำหนด trigger/target/stack/cap แล้วทดลอง8ชิ้น ก่อนย้ายครบพร้อม event/omen",
+      "evidence": [
+        "docs/game-design/logic-item-relations.json",
+        "docs/game-design/system-atlas/coverage.md",
+        "docs/game-design/development-roadmap.md"
+      ]
+    },
+    {
+      "id": "STRAT-01",
+      "system": "ชนะได้หลายเส้นทาง",
+      "status": "ยังเป็นแบบออกแบบ",
+      "remaining": "ยืนยันตัดสินพร้อมกันตอน Collector แล้ว แต่เป้าหมาย โบนัส progress และกฎเสมอต่อสายยังไม่ลงระบบ",
+      "evidence": [
+        "docs/game-design/strategic-paths.md",
+        "apps/comic/src/game/appraisal/survival.ts",
+        "apps/comic/src/game/appraisal/scoring.ts"
+      ]
+    },
+    {
+      "id": "RULE-03",
+      "system": "Collector Wishlist3+2",
+      "status": "ยังไม่ครบกฎใหม่",
+      "remaining": "ระบบ wish ของพ่อค้าเดิมมีอยู่ แต่ไม่ใช่เลือก3ทุก2turn รออีก2turn รวมสุ่ม2 ปิด5ใบ เปิด1และจ่ายซื้อ; ต้องปิดนิยามturn/สิทธิซื้อ/เงินไม่พอ/หมดเวลา",
+      "evidence": [
+        "apps/comic/src/game/appraisal/wishlist.ts",
+        "docs/game-design/rules-and-logic.md",
+        "docs/game-design/PROJECT-CONTEXT.md"
+      ]
+    },
+    {
+      "id": "RULE-04",
+      "system": "รางวัลสถิติและกลุ่ม rarity",
+      "status": "ยังไม่ลงครบ",
+      "remaining": "ซื้อ/ขายมากสุด เสียพลังชีวิตสะสม ของตอนจบ ความไว้ใจ และrarity×2/×3 ยังต้องกำหนดรางวัล/กฎเสมอและตัวนับกันปั๊ม; คะแนนวิญญาณที่ทำแล้วเป็นคนละระบบ",
+      "evidence": [
+        "apps/comic/src/game/appraisal/survival.ts",
+        "docs/game-design/rules-and-logic.md",
+        "docs/game-design/development-roadmap.md"
+      ]
+    },
+    {
+      "id": "RULE-02",
+      "system": "ขโมยและ forced RPS",
+      "status": "มีระบบ — ยังต้องยืนยันความครบตามกฎ",
+      "remaining": "มี duel/มือ/timeout ใน runtime แต่ roadmap ยังไม่ปิดเรื่อง timeout/disconnect ให้ตรงกฎห้ามปฏิเสธ และตรวจวงจรหลบผลให้ครบ",
+      "evidence": [
+        "apps/comic/src/game/appraisal/theft.ts",
+        "apps/comic/src/server/appraisal-rooms.ts",
+        "docs/game-design/PROJECT-CONTEXT.md"
+      ]
+    },
+    {
+      "id": "MERCHANT-EXPRESSION-01",
+      "system": "อารมณ์พ่อค้าตามบริบท",
+      "status": "กฎและภาพมี — ยังไม่เชื่อมครบ",
+      "remaining": "idle/smile/angry มีและมีกฎแล้ว แต่ยังไม่ครบทุกการเลือกประตู/ยอมรับ/ปฏิเสธ; ใช้ component กลางเดิม",
+      "evidence": [
+        "docs/game-design/merchant-expression-rules.md",
+        "docs/game-design/PROJECT-CONTEXT.md"
+      ]
+    },
+    {
+      "id": "BAL-02 / PLAY-01",
+      "system": "บาลานซ์และเล่นเต็มเกมตามกฎใหม่",
+      "status": "ยังไม่ผ่านเกณฑ์จบ",
+      "remaining": "มีหลักฐานทดสอบเฉพาะส่วน ไม่ใช่ครบทุกระบบ; ยังต้องทดสอบหลายคนเต็มรัน new56/effects/เส้นทาง/คะแนน/reconnect และบาลานซ์; มีเทสต์เก่า Dark One แสดงชื่อผู้เล่นล้มเหลวหนึ่งข้อ",
+      "evidence": [
+        "docs/ui-system/ghost-functional-verification.json",
+        "docs/game-design/balance-workflow.md",
+        "docs/game-design/development-roadmap.md"
+      ]
+    }
+  ],
+  "next": [
+    "นำกฎดอกเบี้ย10%และเงินต้นครบช่วงเข้าสู่ Comic พร้อมทดสอบเดิม",
+    "ปิดเป้าหมาย/โบนัสเส้นทางและสัญญาข้อมูลสินค้าใหม่ แล้วทดลอง8ชิ้น",
+    "ทำ Wishlist3+2 และรางวัลสถิติ/rarityตามกติกาที่ปิดรายละเอียดแล้ว",
+    "ย้ายครบ56 ผูกevent/encounter/omen แล้วทดสอบเต็มเกมและบาลานซ์"
+  ],
+  "verification": "รายงานล่าสุดอยู่ใน docs/ui-system/ghost-functional-verification.json; รอบนี้เป็นการตรวจสถานะและแก้เอกสาร ไม่ได้เปลี่ยน gameplay หรือรันทั้งเกมใหม่",
+  "runtimeFacts": {
+    "comicVaultInterestPercent": 4,
+    "rootVaultInterestPercent": 10,
+    "new56DedicatedBindings": 0
+  }
+}

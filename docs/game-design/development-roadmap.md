@@ -1,6 +1,6 @@
 # แผนพัฒนาเกมจริงและกระดานงาน
 
-อัปเดต 2026-10-28 · แผนดำเนินงาน ไม่ใช่คำรับรองว่างาน runtime เสร็จแล้ว
+อัปเดตสถานะ 2026-10-31 · Active Comic: apps/comic · แผนดำเนินงาน ไม่ใช่คำรับรองว่างาน runtime เสร็จแล้ว
 
 ## ลำดับงาน
 
@@ -9,7 +9,7 @@
 | 0 CTX-01 | Catalog และแผนที่ทั้งระบบ | done | — | ตรวจ atlas และ HTML ผ่าน |
 | 0 CTX-02 | Context กลางและแผนส่งต่อ | done | CTX-01 | มีจุดเริ่มต้น/งานถัดไป/กติกาอัปเดตถาวร |
 | 1 BAL-01 | Baseline runtime และข้อผิดพลาดเศรษฐกิจ | done (initial baseline) | CTX-02 | เก็บ revision, config server/room, seed, policies, ผลก่อนปรับ; ไม่เอา simulator เกมเก่ามาอ้างเป็น appraisal |
-| 2 RULE-01 | Vault เงินต้นตามอายุและดอกเบี้ย 10% | done | BAL-01, D02 | ฝาก/ถอนบางส่วน/เติม/ฝากซ้ำ/ข้ามช่วง/settle ซ้ำถูกต้อง; ไม่มีดอกเบี้ยย้อนหลัง |
+| 2 RULE-01 | Vault เงินต้นตามอายุและดอกเบี้ย 10% | root done / Comic pending (ยัง4%) | BAL-01, D02 | ฝาก/ถอนบางส่วน/เติม/ฝากซ้ำ/ข้ามช่วง/settle ซ้ำถูกต้อง; ไม่มีดอกเบี้ยย้อนหลัง |
 | 2 RULE-02 | ขโมยและ forced RPS ครบวงจร | prepare | BAL-01, D01 | ทั้ง UI/timeout/disconnect/retry ไม่มีช่องปฏิเสธหรือ settle ซ้ำ |
 | 3 STRAT-01 | เส้นทางชนะหลายแบบและเป้าหมายต่อสาย | design in progress | BAL-01; วิธีจบยืนยันแล้ว: Collector | มี progress/cost/counter ต่อสายและผลทดสอบแยก policy; ดู strategic-paths.md |
 | 3 ITEM-01 | สัญญาข้อมูล runtime ของสินค้าใหม่ 56 | ready for design | CTX-01, STRAT-01, D05 | stable IDs, merchant/type/palette, trigger/target/scale/stack/cap, legacy predicates แต่ละตัวมี mapping หรือระบุเลิกใช้ |
@@ -22,7 +22,11 @@
 
 `ready` = เริ่มงานตามขอบเขตได้; `prepare` = ทำส่วนที่กฎชัดได้ แต่รายละเอียดใน Dxx ต้องตกลงก่อนปิดงาน; `queued` = ยังไม่เริ่ม
 
-## งานถัดไปที่ควรหยิบ: BAL-01
+## งานถัดไป: เชื่อม RULE-01 เข้า Comic แล้วปิด STRAT-01 / ITEM-01
+
+สถานะรวมที่แสดงบน HTML หลัก: [game-status.json](game-status.json). GHOST-01 ทำและตรวจแล้วใน51d89ea แต่ไม่ใช่การปิด PLAY-01 ทั้งเกม
+
+## ขั้นตอน BAL-01 เดิม (ประวัติ; initial baseline เสร็จแล้ว)
 
 1. อ่าน `system-atlas/profiles` และ `encounters-config.md` แยก engine defaults กับ server-entry/room mode
 2. ตรวจ `src/simulation/appraisal.ts` ผ่าน Trail ว่าใช้กฎ/profile ใด; `src/simulation/balance.ts` อาจเป็นอีกโหมด ต้องตรวจแทนการสมมติ
@@ -51,7 +55,7 @@
 
 ## หลักฐานล่าสุด
 
-[Baseline attempt 2026-10-28](balance-reports/2026-10-28-baseline-attempt.md): ตรวจเอกสารผ่าน แต่ `npm test` ยังไม่ผ่านขั้น build จึงไม่มีผลทดสอบเกมหรือผลบาลานซ์ งาน BAL-01 ยังไม่เสร็จ
+[Baseline attempt 2026-10-28](balance-reports/2026-10-28-baseline-attempt.md): ตรวจเอกสารผ่าน แต่ `npm test` ยังไม่ผ่านขั้น build จึงไม่มีผลทดสอบเกมหรือผลบาลานซ์ นี่คือผลครั้งแรก ก่อน baseline12เกมด้านล่าง; ไม่ใช่สถานะปัจจุบัน
 
 
 ## ส่งต่อหลัง RULE-01
@@ -68,7 +72,7 @@ STRAT-01: ผู้ใช้ยืนยัน 2026-10-28 ให้ตัดส�
 
 ## GHOST-01 — สัญญาบริการหลังตาย
 
-สถานะ design in progress ดู ghost-service-contracts.md ใช้กติกาล่าสุดจากผู้ใช้แทนข้อเสนอร่วมชัยชนะผ่านพันธมิตร ก่อนลง runtime สูตรจ่ายเมื่อส่งมอบและ 10%base หักราคาสินค้ายืนยันแล้ว ต้องปิดอัตราแปลงรายได้เป็นคะแนนพิเศษ/ปัดเศษ/เงินไม่พอ จากนั้นกำหนดวงจรรับงาน/สามช่อง/หมดสิทธิ์/ส่งมอบ/reconnect โดยคนเป็นไม่ต้องรอ
+สถานะ implemented and verified ใน Comic commit51d89ea. กฎยืนยันครบและเชื่อม runtime แล้ว ดู ghost-service-contracts.md, implementations/ghost-acceptance-audit.md และ ../ui-system/ghost-functional-verification.json. ผลตรวจนี้ไม่ใช่ผลบาลานซ์ทั้งเกม
 
 
 ## UI-FLOW-01 — ทะเบียนหน้าจอและ concept
@@ -78,7 +82,7 @@ STRAT-01: ผู้ใช้ยืนยัน 2026-10-28 ให้ตัดส�
 
 ## CAPTURE-01 — Existing game first
 
-เสร็จ:25ภาพ/14กลุ่มที่ตรวจพบ จากlive5และpreviewเดิม20 ผูกในHTMLหลักเป็นdefault view มีstyleและsource hashesแยกจากconcept หยุดgen งานต่อไปเลือกจากgapจริงในcurrent-ui-inventory.md ไม่ถือว่า30รายการในregistryคือ30หน้าที่ต้องออกแบบใหม่
+ปัจจุบัน38ภาพ/20กลุ่มที่ตรวจพบ (รวมสถานะย่อย) จากlive5และfixture33 ผูกในHTMLหลักเป็นdefault view มีstyleและsource hashesแยกจากconcept หยุดgen งานต่อไปเลือกจากgapจริงในcurrent-ui-inventory.md ไม่ถือว่า30รายการในregistryคือ30หน้าที่ต้องออกแบบใหม่
 
 
 2026-10-29 · S03/E109: ใช้ MerchantEventPortrait กลาง จัดสัดส่วน idle ทั้ง 8; ตรวจภาพและฐานร่วมแล้ว ต่อไปใช้กับ event พ่อค้าอื่นเมื่อพัฒนา พร้อมตรวจภาพอารมณ์อื่นก่อนใช้จริง ดู implementations/S03-E109.md

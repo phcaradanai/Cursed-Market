@@ -13,5 +13,11 @@ assert(g.nodes.some(n=>n.id==='effect:E01'));assert(g.nodes.some(n=>n.id==='even
 for(const e of d.events){assert(e.handlerRefs.length>0);assert(e.choiceRefs.every(id=>ids.has(id)));assert(e.sourceDefinitions.length>0)}
 assert(d.legacyTargetGates.length>0);assert(d.dynamicOperations.length>0);assert(d.logSites.length>0);assert(d.validations.length>0);
 const html=fs.readFileSync(path.join(dir,'logic-item-relations.html'),'utf8');for(const id of ['system-atlas-data','data','graph-data','matrix-view'])assert(html.includes('id="'+id+'"'));assert.equal((html.match(/<!-- SYSTEM-ATLAS-START -->/g)??[]).length,1);
+const status=read('game-status.json');assert.equal(status.activeSource,'apps/comic');assert(html.includes('id="game-status"')&&html.includes(status.headline));
+for(const row of status.systems){assert(html.includes(row.remaining));for(const file of row.evidence)assert(fs.existsSync(path.join(root,file)),'Missing status evidence '+file);}
+const vaultRate=file=>Number(fs.readFileSync(path.join(root,file),'utf8').match(/VAULT_INTEREST_PERCENT=(\d+)/)?.[1]);
+assert.equal(status.runtimeFacts.comicVaultInterestPercent,vaultRate('apps/comic/src/game/appraisal/secure-storage.ts'));
+assert.equal(status.runtimeFacts.rootVaultInterestPercent,vaultRate('src/game/appraisal/secure-storage.ts'));
+assert.equal(status.runtimeFacts.new56DedicatedBindings,d.productScope.runtimeDedicatedBindings);
 execFileSync(process.execPath,['docs/game-design/scripts/build-system-atlas.mjs','--check'],{cwd:root,stdio:'inherit'});
 console.log('PASS: catalog coverage, namespaces, new56-only products, source guards, rule gaps, generic actions, profiles, original views and freshness.');

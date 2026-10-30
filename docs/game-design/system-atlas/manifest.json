@@ -1,7 +1,7 @@
 {
   "version": 1,
   "asOf": "2026-10-31",
-  "revision": "39ec3277e2570cb24dc4ccb6abbf0cd154ed3fad",
+  "revision": "51d89eab301541bf50c3fec5e5ece97b83fca538",
   "inputs": {
     "src/game/appraisal/ability-content.ts": "ff33530545a771c4e686640f2fca5db996ef3612f9602da6ddbf68c12377127e",
     "src/game/appraisal/ability-rules.ts": "3e9f33f54b34c91fb26f6d0926f9df83e646dc3623a7c8bbf3beed5cedbc9139",
@@ -113,8 +113,16 @@
     "docs/game-design/concepts/S10-waiting-v01.png": "de560f8bda104459d5ab4c753ec18d88f10b8b2823ca462b5315a3765a38016b",
     "docs/game-design/concepts/S11-death-v02.png": "71dabbe08860067f252885a5699e86881b76135b9691a0a33b180587b19c2252",
     "docs/game-design/concepts/S11-death-v01.png": "d6d89e6c43637a2aa73cc93f04728e38ea39ed2b6b1dce2888ba995b6f2e2456",
+    "apps/comic/src/game/appraisal/secure-storage.ts": "8809389abd9c149b961a08822979fcbfbebfb6042b6c826eed09dec126260e57",
+    "apps/comic/src/game/appraisal/scoring.ts": "82cd3af13438d22f426f5dc9b79741b7f0d22511fdd1728ac8a87911e018df3a",
+    "apps/comic/src/game/appraisal/survival.ts": "6591734cc8e42fa1c60fe381e5cb28e6b910e509ae2c3add7e383ef045fcd365",
+    "apps/comic/src/game/appraisal/wishlist.ts": "335080d7252080ffdd373d0d452a8f999d2d0305c8ae35da673972d6794b4167",
+    "apps/comic/src/server/appraisal-main.ts": "6af8d2ab0a6678a0c0521908cf6539823626ed16323fe38942729249a8d6497c",
+    "docs/game-design/game-status.json": "f6d1db0deeb50bdd9ab851cb72643c39a3478552179aa81bdab7d8c7ae242f96",
+    "docs/game-design/PROJECT-CONTEXT.md": "0a1a0450120697a8516a3faa211e358110baaa6ed624e9ea859e222e7c936437",
+    "docs/game-design/development-roadmap.md": "bf2e813ddd437890a83a69427105ccde6d922db83b06ba26dd8d4f3ea078a362",
     "docs/game-design/current-captures.json": "9859f7bd29e87aab85d9f913e508a6069f6576f56512443f14d741756296cec4",
-    "docs/game-design/scripts/current-capture-render.mjs": "7b731850875eba179a40c9792cfea12d17f9609e7762a3a82cde38c382785c19",
+    "docs/game-design/scripts/current-capture-render.mjs": "6d0ba09f10bc4ed80cdee477feb51a5d1003cb99bed19d67193f602f783c55ce",
     "docs/game-design/screen-flow.json": "761fefb08d0b4ff61dc989e686831327c1161ccd8f6f2bd59fe75a51f4c95621",
     "docs/game-design/scripts/screen-flow-render.mjs": "cfcee395152816e83b753af8f0b9e06a1fd012713d0d51e0cfd843fef0b768c8",
     "docs/game-design/logic-item-relations.json": "983d130078b1b6f6f1569dd05f295190a73523c1abaa0aa59bc29e0a6693b801",
@@ -125,12 +133,12 @@
     "docs/game-design/scripts/system-atlas-view.js": "041d3fb5f7bc85a19e56193b31243e071bf3d3909e279ff955adbc2f43c348e4",
     "docs/game-design/scripts/system-atlas-view.css": "ca47fb89530d6902468e68bafab7754e3f430fca07c4bbd38520d91d94759992",
     "docs/game-design/scripts/system-atlas-view.html": "78b7c2e0739761fe5e82d155c8ea58f0260df5b571ce68098b588dfc19f64d9d",
-    "docs/game-design/scripts/build-system-atlas.mjs": "ec4d24fb2bfa8bbb7015df001cfa479f4b81bc2bc3478d0b989cbfafceefcf51"
+    "docs/game-design/scripts/build-system-atlas.mjs": "e380f09d47a58ea33c01ec8f80e7f9efbf922ed91537ece1b95d116f5b166d20"
   },
   "outputs": [
     {
       "file": "docs/game-design/system-atlas/README.md",
-      "sha256": "9ca9c434f7eaa3060a51c211036434bed58107fb11c790112a0606d39e882bbd"
+      "sha256": "a8889bb77f3ea21ecf5a7d30e7773379e47bb2a2f498ebd999c508cb5a1c531e"
     },
     {
       "file": "docs/game-design/system-atlas/actions-logs.md",
@@ -142,7 +150,7 @@
     },
     {
       "file": "docs/game-design/system-atlas/data.json",
-      "sha256": "a3471826880a32b601c3c3eda218e6a3c51af16be1081a8cbff4f2c8fca8f473"
+      "sha256": "106d99f18dab798278285e2c9feb374132ac85cc3100227420f316ef761b0484"
     },
     {
       "file": "docs/game-design/system-atlas/edges.csv",
@@ -194,7 +202,7 @@
     },
     {
       "file": "docs/game-design/logic-item-relations.html",
-      "sha256": "e599c3e358238db0fc7eaf98bd7abd4465b039fa561e3a23f2df84ba58ec0ff7"
+      "sha256": "be5007b7a4d0d02821c467e79fb3a83e34b4ff69484f529d5996e363ce5c43d9"
     }
   ],
   "summary": {

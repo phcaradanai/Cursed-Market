@@ -93,7 +93,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/SecureEconomy.tsx",
-      "sha256": "d5005d53a7004976323a638bd357e3fc7df86214c3e25519fb98e00e054fa1ea"
+      "sha256": "6536d31c08779f44078b97a26ec864eca65951d1429ac41ae780d3d2c58d704a"
     },
     {
       "file": "apps/comic/src/appraisal-client/SinnerSeals.tsx",
@@ -981,7 +981,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "sha256": "c21198fcecb55275f02c0d5efb2f859c9f5ac0a15d911018a55d51220abbd081"
+      "sha256": "fb64b397d07a84be90fbeffccc5f29991c88cb93c0c6cd6d3504dfb6e995de0b"
     },
     {
       "file": "apps/comic/src/game/appraisal/events.ts",
@@ -1065,7 +1065,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-      "sha256": "8809389abd9c149b961a08822979fcbfbebfb6042b6c826eed09dec126260e57"
+      "sha256": "7f718bc5594b9e1be3be28ea4c8cae3f24023a81b0b58f6a3949f3c00d8a7af5"
     },
     {
       "file": "apps/comic/src/game/appraisal/survival.ts",
@@ -1077,11 +1077,11 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/types.ts",
-      "sha256": "8a501e8c2b5adcc59ecd7b8a4b62245f3da5c7eb78d23f0350b7b0f90aed77ec"
+      "sha256": "a6a46eec57c495c24daee4b6b8a8d86f51eab02001d8e07670ede4ebd06407ea"
     },
     {
       "file": "apps/comic/src/game/appraisal/views.ts",
-      "sha256": "e554d90dc9cb0fab1c47f00d74917b7c5c5b00ebe3ea0ae8d5db7e3051af594d"
+      "sha256": "c1c334d81c1e57ef759fbb51ab35a0a21ed5f52155d3c59d1277ea5e814f7801"
     },
     {
       "file": "apps/comic/src/game/appraisal/wishlist-rules.ts",
@@ -1349,7 +1349,7 @@
     },
     {
       "file": "apps/comic/tests/appraisal-secure-client.test.ts",
-      "sha256": "86b360b4cbcfbc5cda4deb19d125e14bd90ca86af61c713e94407afec2ac9def"
+      "sha256": "c564a32a8c1701a1971c2e2e73b6c3b00fbbec7158a69db6dd8c535824fc4ffa"
     },
     {
       "file": "apps/comic/tests/appraisal-secure-integration.test.ts",
@@ -1357,7 +1357,7 @@
     },
     {
       "file": "apps/comic/tests/appraisal-secure-seals.test.ts",
-      "sha256": "23e0aa112467c2f50c783a1325cdc2237c8aabde9a2b85050045ee37f9d1f349"
+      "sha256": "0b962497e39231a0519ba947db7e10aa587a40cafd192b045d51d335ae86fd06"
     },
     {
       "file": "apps/comic/tests/appraisal-secure-storage.test.ts",
@@ -1394,6 +1394,10 @@
     {
       "file": "apps/comic/tests/appraisal-trade-price.test.ts",
       "sha256": "69e98b51cd994fc2ee24a57d387a2285f195d38d0e6b5bd9a3f8abae621e2f0c"
+    },
+    {
+      "file": "apps/comic/tests/appraisal-vault-interest.test.ts",
+      "sha256": "bf5dd2de5a4c37c154a3f8b491561acac0d5dea35f21ff4a6ee24b6919e36082"
     },
     {
       "file": "apps/comic/tests/appraisal-wishlist.test.ts",

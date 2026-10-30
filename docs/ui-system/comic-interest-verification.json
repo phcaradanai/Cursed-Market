@@ -1,0 +1,78 @@
+{
+  "updatedAt": "2026-10-30T17:53:06.535090+00:00",
+  "scope": "RULE-01 active Comic aged10% migration only; whole-game goal remains active",
+  "status": "verified",
+  "approvedRules": [
+    "full-encounter original principal",
+    "floor10%",
+    "new deposits withdrawn first",
+    "topup/redeposit no retroactive eligibility",
+    "legacy no version flag keeps4%",
+    "wallet payment/bank limits/idempotency preserved"
+  ],
+  "functional": {
+    "pass": 54,
+    "fail": 0,
+    "command": "node --test apps/comic/dist/tests/appraisal-vault-interest.test.js apps/comic/dist/tests/appraisal-secure-client.test.js apps/comic/dist/tests/appraisal-secure-integration.test.js apps/comic/dist/tests/appraisal-secure-seals.test.js apps/comic/dist/tests/ghost-service.test.js apps/comic/dist/tests/ghost-replay.test.js"
+  },
+  "network": {
+    "pass": 1,
+    "fail": 0,
+    "command": "node --test apps/comic/dist/tests/ghost-network.test.js",
+    "scope": "nearest existing two-socket ledger/reconnect regression; interest lifecycle itself is command-only engine/replay test"
+  },
+  "serverBuild": "pass",
+  "clientBuild": "pass; existing bundle-size warning",
+  "uiContracts": {
+    "pass": 10,
+    "fail": 0
+  },
+  "sourceFingerprints": 371,
+  "visual": {
+    "pass": 14,
+    "fail": 0,
+    "report": "comic-interest-visual.json",
+    "receipt": "comic-interest-visual-invocation.json",
+    "baselineChanged": false
+  },
+  "menus": {
+    "pass": 18,
+    "fail": 0,
+    "report": "comic-interest-menus.json",
+    "receipt": "comic-interest-menus-invocation.json"
+  },
+  "browser": {
+    "space": 10,
+    "state": "kept active for whole-game continuation; user authorized continuous verification",
+    "url": "http://127.0.0.1:3191/",
+    "upgrade": "Ego update available; not installed or authorized"
+  },
+  "limits": [
+    "No whole-game completion or balance claim",
+    "Old source/root preserved",
+    "Earlier direct browser batch is intermediate evidence only; final CLI receipts correspond to latest build",
+    "Known unrelated Dark One test and pre-existing dirty files remain outside this scope"
+  ],
+  "sources": [
+    {
+      "file": "apps/comic/src/game/appraisal/secure-storage.ts",
+      "sha256": "7f718bc5594b9e1be3be28ea4c8cae3f24023a81b0b58f6a3949f3c00d8a7af5"
+    },
+    {
+      "file": "apps/comic/src/game/appraisal/types.ts",
+      "sha256": "a6a46eec57c495c24daee4b6b8a8d86f51eab02001d8e07670ede4ebd06407ea"
+    },
+    {
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "sha256": "fb64b397d07a84be90fbeffccc5f29991c88cb93c0c6cd6d3504dfb6e995de0b"
+    },
+    {
+      "file": "apps/comic/src/game/appraisal/views.ts",
+      "sha256": "c1c334d81c1e57ef759fbb51ab35a0a21ed5f52155d3c59d1277ea5e814f7801"
+    },
+    {
+      "file": "apps/comic/src/appraisal-client/SecureEconomy.tsx",
+      "sha256": "6536d31c08779f44078b97a26ec864eca65951d1429ac41ae780d3d2c58d704a"
+    }
+  ]
+}

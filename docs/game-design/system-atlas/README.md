@@ -1,6 +1,6 @@
 # แผนที่ระบบเกมทั้งหมด
 
-Snapshot 2026-10-31; revision 51d89eab301541bf50c3fec5e5ece97b83fca538 (รวม working tree fingerprint ใน manifest)
+Snapshot 2026-10-31; revision 9e749c469d8af51ad017f23695050a8357f268cf (รวม working tree fingerprint ใน manifest)
 
 [เปิด HTML ทั้งระบบ](../logic-item-relations.html) · [Events](events.md) · [Status/Omen](statuses-omens.md) · [Encounter/Config](encounters-config.md) · [พ่อค้า](merchants.md) · [Actions/Logs/Validation](actions-logs.md) · [State schemas](state-schema.md) · [Coverage/ช่องว่าง](coverage.md) · [33 ระบบและหลักฐาน](systems.md)
 

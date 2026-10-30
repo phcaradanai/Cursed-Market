@@ -3,7 +3,7 @@
   "asOf": "2026-10-31",
   "scope": "appraisal-runtime-plus-confirmed-rules-and-new56-proposals",
   "provenance": {
-    "revision": "51d89eab301541bf50c3fec5e5ece97b83fca538",
+    "revision": "9e749c469d8af51ad017f23695050a8357f268cf",
     "sourceFiles": [
       {
         "file": "src/game/appraisal/ability-content.ts",

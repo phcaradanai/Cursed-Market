@@ -9,7 +9,7 @@
 [สถานะรวมรายระบบ](game-status.json) เป็นข้อมูลสรุปที่แสดงใน HTML หลัก สถานะนี้แยก **active Comic** ออกจาก root เวอร์ชันเก่า และแยก runtime / แผน / ผลตรวจ
 
 - ตลาดวิญญาณ S11/G01–G04 ทำและตรวจแล้วใน commit51d89ea; ดู ghost-service-contracts.md และ ../ui-system/ghost-functional-verification.json
-- จุดตกหล่นสำคัญ: RULE-01 ดอกเบี้ย10%พร้อมอายุเงินต้นเสร็จใน root แต่ **Comic ยัง4%ของยอดปัจจุบัน** ต้องเชื่อมกฎใหม่ ไม่ใช่งาน UI คลังที่เสร็จไปแล้ว
+- จุดตกหล่นสำคัญ: RULE-01 ดอกเบี้ย10%พร้อมอายุเงินต้นเชื่อมเข้า Comic รันใหม่แล้ว ตรวจผ่านแล้ว; รันเก่าไม่มีflagรักษา4% ดู implementations/comic-aged-interest-plan.md
 - สินค้าใหม่56และeffect ยังเป็น catalog/ข้อเสนอ ไม่ใช่ dedicated runtime bindings; ไม่ถือว่าของเดิมที่ยังรันอยู่คือชุดใหม่แล้ว
 - เส้นทางชนะหลายสาย, Wishlist Collector3+2 และรางวัลสถิติ/rarityยังไม่ครบ ต้องปิดรายละเอียดและเชื่อมระบบ
 - ขโมย/RPSมี runtime แต่การตรวจให้ครบกฎ forced/timeout/disconnect ยังไม่ปิด; อารมณ์พ่อค้ายังไม่เชื่อมครบทุกบริบท
@@ -25,7 +25,7 @@ Atlas เดิมสกัด root เป็นฐานและเพิ่�
 
 ## เป้าหมายและสถานะจริง
 
-นำ UI comic ที่มีอยู่มาเชื่อมกฎเกมและสินค้าใหม่ให้เล่นได้ครบ แล้วจึงปรับบาลานซ์จากผลทดสอบที่ทำซ้ำได้ งานจัดข้อมูล/กราฟและ RULE-01 ใน root เสร็จแล้ว แต่ Comic ยังไม่รับกฎเงินฝากใหม่ การย้ายสินค้าใหม่และการบาลานซ์ทั้งเกมยังไม่เสร็จ
+นำ UI comic ที่มีอยู่มาเชื่อมกฎเกมและสินค้าใหม่ให้เล่นได้ครบ แล้วจึงปรับบาลานซ์จากผลทดสอบที่ทำซ้ำได้ งานจัดข้อมูล/กราฟและ RULE-01 ใน root เสร็จแล้ว แต่ Comic เชื่อมและตรวจการใช้กฎเงินฝากใหม่แล้ว การย้ายสินค้าใหม่และการบาลานซ์ทั้งเกมยังไม่เสร็จ
 
 - สินค้าใช้ชุดใหม่ **56 ชิ้น / 8 พ่อค้า / คนละ 7** เท่านั้น ไม่ย้อนใช้รายการสินค้า realistic
 - Effect ที่ผูกสินค้าใน relation ยังเป็นข้อเสนอ; dedicated runtime bindings ที่ตรวจพบ = 0
@@ -69,7 +69,7 @@ Atlas เดิมสกัด root เป็นฐานและเพิ่�
 
 | ID | เรื่อง | ยืนยันแล้ว | ยังต้องตัดสินใจ |
 |---|---|---|---|
-| D01 | ขโมย | ถูกกฎแล้วบังคับ RPS ปฏิเสธไม่ได้ | timeout/disconnect ต้องจบอย่างไรโดยไม่เป็นช่องหลบ |
+| D01 | ขโมย | ถูกกฎแล้วบังคับ RPS ปฏิเสธไม่ได้ | ยืนยัน2026-10-31: สุ่มมือเฉพาะฝ่ายยังไม่ส่ง เก็บมือเดิม ตัดสินปกติ; รอเชื่อมruntime |
 | D02 | ดอกเบี้ย | 10% จากเงินต้นเดิมครบช่วง; ถอนก่อน/เติมใหม่ไม่รับย้อนหลัง | ยืนยันเพิ่มแล้ว: อยู่ครบจากเริ่มถึงจบช่วง ปัดเศษลง ถอนเงินใหม่ก่อนเงินเก่า; รักษาการจ่ายเข้ากระเป๋า/งบธนาคารเดิม |
 | D03 | Collector Wishlist | ทุก 2 turn เลือก 3; อีก 2 turn รวมสุ่ม 2; ปกปิด 5; เปิด 1; จ่ายซื้อ | นิยาม turn ใน runtime, ราคา/หมดเวลา/เงินไม่พอ/สิทธิ์ซื้อกี่ชิ้น/ของซ้ำ |
 | D04 | คะแนนพิเศษ | ซื้อ/ขาย/เสียพลังชีวิตสะสม/ของจบ/ความไว้ใจ; rarity ×2=20, ×3=40 | เสมอ, จำนวนรางวัลหมวดอื่น, วิธีนับ lifeLost ที่จ่ายเอง/ป้องกันรักษาวน และการนับสำเนา |
@@ -162,3 +162,7 @@ S06/item-sale v02: ผู้ใช้ขอcomicขึ้น ทำภาพedit
 ### Current Comic spirit-world runtime — 2026-10-30
 
 GHOST-01 is implemented through real authenticated commands, replay and shared UI; see implementations/ghost-delivery-progress.md for rules/evidence. Quote identities prevent stale financial terms; delivery owns a private snapshot. Buyer death/end cancels unpaid/unscored jobs; no pending batch requires a minigame win again. Current captures distinguish fixtures from live transactions. Ordinary latest entry uses appraisal-main.ts flags (secure economy, brokerage, polish, NPC events, core2, survival); fixture3188 is never the normal play entry.
+
+## Whole-game goal active — 2026-10-31
+
+ดู [completion program](implementations/completion-program.md). ต้องทำครบกฎ/สินค้าใหม่/UXและหลักฐานทั้งเกมก่อนปิด goal ไม่ถือว่าแต่ละ checkpointคือจบทั้งเกม กฎforced-RPS missing handsยืนยันแล้ว เดินงานส่วนที่กฎชัดต่อได้

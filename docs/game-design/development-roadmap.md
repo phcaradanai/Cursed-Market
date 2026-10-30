@@ -9,7 +9,7 @@
 | 0 CTX-01 | Catalog และแผนที่ทั้งระบบ | done | — | ตรวจ atlas และ HTML ผ่าน |
 | 0 CTX-02 | Context กลางและแผนส่งต่อ | done | CTX-01 | มีจุดเริ่มต้น/งานถัดไป/กติกาอัปเดตถาวร |
 | 1 BAL-01 | Baseline runtime และข้อผิดพลาดเศรษฐกิจ | done (initial baseline) | CTX-02 | เก็บ revision, config server/room, seed, policies, ผลก่อนปรับ; ไม่เอา simulator เกมเก่ามาอ้างเป็น appraisal |
-| 2 RULE-01 | Vault เงินต้นตามอายุและดอกเบี้ย 10% | root done / Comic pending (ยัง4%) | BAL-01, D02 | ฝาก/ถอนบางส่วน/เติม/ฝากซ้ำ/ข้ามช่วง/settle ซ้ำถูกต้อง; ไม่มีดอกเบี้ยย้อนหลัง |
+| 2 RULE-01 | Vault เงินต้นตามอายุและดอกเบี้ย 10% | root+Comic implemented/verified | BAL-01, D02 | ฝาก/ถอนบางส่วน/เติม/ฝากซ้ำ/ข้ามช่วง/settle ซ้ำถูกต้อง; ไม่มีดอกเบี้ยย้อนหลัง |
 | 2 RULE-02 | ขโมยและ forced RPS ครบวงจร | prepare | BAL-01, D01 | ทั้ง UI/timeout/disconnect/retry ไม่มีช่องปฏิเสธหรือ settle ซ้ำ |
 | 3 STRAT-01 | เส้นทางชนะหลายแบบและเป้าหมายต่อสาย | design in progress | BAL-01; วิธีจบยืนยันแล้ว: Collector | มี progress/cost/counter ต่อสายและผลทดสอบแยก policy; ดู strategic-paths.md |
 | 3 ITEM-01 | สัญญาข้อมูล runtime ของสินค้าใหม่ 56 | ready for design | CTX-01, STRAT-01, D05 | stable IDs, merchant/type/palette, trigger/target/scale/stack/cap, legacy predicates แต่ละตัวมี mapping หรือระบุเลิกใช้ |
@@ -140,3 +140,5 @@ CONTINUITY-01 closure2026-10-30: source gap resolved by explicitly approved sepa
 ## GHOST-01 runtime milestone — 2026-10-30
 
 Confirmed rules are closed, including buyer death and floor/tie/end handling. S11/G01–G04 are now integrated in apps/comic: server card clock, contracts, independent RPS slots, atomic delivery and bonus scoring. Earlier design-only paragraph is historical. Current evidence/limits: implementations/ghost-delivery-progress.md and ../ui-system/ghost-functional-verification.json. New56 binding, full-game balance and remaining strategic-path/content rules are separate tasks; do not imply a whole-game completion from this milestone.
+
+2026-10-31 whole-game program active: implementations/completion-program.md. RULE-01 Comic verified:54focusedtests, ghost network1, visual14, menus18 and UI contracts10 pass. RULE-02 missing-hand behavior approved: server seeded fallback only for absent hands, retain submitted hands, normal resolution.

@@ -104,7 +104,7 @@ test('compensation collection is idempotent for a repeated start of the same enc
 });
 
 test('vault interest is 4% of the whole balance, uncapped, floored and paid to the wallet',()=>{
-  let state = fixture(['alice','bob']); const [rich,small] = state.players as [Appraiser,Appraiser];
+  let state = fixture(['alice','bob']); delete state.config.vaultInterestRules; const [rich,small] = state.players as [Appraiser,Appraiser];
   setVault(state,rich,1000); setVault(state,small,24);
   const wallets = [rich.credits,small.credits]; const bank = state.bank;
   state = nextEncounter(state);
@@ -112,7 +112,7 @@ test('vault interest is 4% of the whole balance, uncapped, floored and paid to t
   assert.equal(a.credits-wallets[0]!,40); assert.equal(b.credits-wallets[1]!,0);
   assert.equal(a.personalVault!.credits,1000); assert.equal(state.bank,bank-40);
   assert.equal(state.ledger.some(e => e.reason === 'vault-interest' && e.from === 'bank' && e.to === 'alice' && e.amount === 40),true);
-  const again = fixture(['alice','bob']); setVault(again,again.players[0]!,100);
+  const again = fixture(['alice','bob']); delete again.config.vaultInterestRules; setVault(again,again.players[0]!,100);
   const before = again.players[0]!.credits;
   assert.equal(nextEncounter(again).players[0]!.credits-before,4);
 });

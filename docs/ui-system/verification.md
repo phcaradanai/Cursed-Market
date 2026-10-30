@@ -92,3 +92,7 @@ One old NPC display-name TypeError reproduces on39ec327. Trail reports20 lexical
 ## Whole-game status audit — 2026-10-31
 
 Documentation-only follow-up: added `game-design/game-status.json` to the main HTML, reconciled stale roadmap/context statements, and explicitly separated root10% aged interest from active Comic4% current-balance interest. Added source assertions for both rates, new56 binding count, rendered status rows and evidence-file existence. Atlas generator/checker pass131inputs, including relevant active Comic source fingerprints; this does not change the base root extraction into a full Comic-wide snapshot. No gameplay/UI-art change or new full-game test/balance result is claimed. Previous ghost evidence remains scoped to S11/G01–G04.
+
+## Whole-game checkpoint RULE-01 — 2026-10-31
+
+Comic now uses approved10% aged principal in new runs; no-flag audits retain4%. See comic-interest-verification.json and raw comic-interest-test-results.txt.54focused cases and nearest ghost2socket1pass;11interest cases include full phase-to-results strict replay and empty/missing-vault Thai/English rule copy. Server/client builds, UI contracts10, approved visual14 and menus18 pass. Fresh CLI receipts match latest reports. No new baseline or layout style. Goal remains active; next forced-RPS missing-hand rule is user-approved but not yet implemented. Browser space10 remains active under explicit continuous-verification authorization; Ego upgrade remains separate.

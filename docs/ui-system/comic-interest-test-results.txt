@@ -1,0 +1,496 @@
+=== comic-interest-red-build.log ===
+
+> cursed-market-comic@0.1.0 build:server
+> tsc -p tsconfig.json
+
+tests/appraisal-vault-interest.test.ts(33,80): error TS2339: Property 'interest' does not exist on type 'PersonalVault'.
+tests/appraisal-vault-interest.test.ts(37,36): error TS2339: Property 'vaultInterestRules' does not exist on type 'AppraisalConfig'.
+tests/appraisal-vault-interest.test.ts(37,143): error TS2339: Property 'interest' does not exist on type 'PersonalVault'.
+
+
+=== comic-interest-red.log ===
+✖ fresh deposit matures only after a complete encounter, pays 10 percent to wallet once (47.342083ms)
+✖ new topup does not increase mature interest; withdrawals spend new money first (25.669708ms)
+✖ withdrawal of old principal reduces entitlement; redeposit cannot restore it (10.158167ms)
+✖ floor aggregate eligible principal and do not compound wallet interest automatically (4.518875ms)
+✖ legacy balance without age evidence starts fresh and cannot claim retroactive interest (4.015958ms)
+✖ bank shortage cannot be retried in the same encounter to claim a second payment (9.008792ms)
+✖ age metadata stays private and invalid principal is rejected (4.813208ms)
+✔ historical configs keep whole-balance 4 percent without age metadata (9.564667ms)
+✖ large safe-integer principal uses exact integer tenth; dead seats earn nothing (1.628833ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 1
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 464.791459
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/appraisal-vault-interest.test.js:10:1
+✖ fresh deposit matures only after a complete encounter, pays 10 percent to wallet once (47.342083ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  904 !== 900
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-vault-interest.test.js:14:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 904,
+    expected: 900,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/appraisal-vault-interest.test.js:23:1
+✖ new topup does not increase mature interest; withdrawals spend new money first (25.669708ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  6 !== 10
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-vault-interest.test.js:29:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 6,
+    expected: 10,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/appraisal-vault-interest.test.js:35:1
+✖ withdrawal of old principal reduces entitlement; redeposit cannot restore it (10.158167ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  908 !== 904
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-vault-interest.test.js:44:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 908,
+    expected: 904,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/appraisal-vault-interest.test.js:46:1
+✖ floor aggregate eligible principal and do not compound wallet interest automatically (4.518875ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  981 !== 982
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-vault-interest.test.js:51:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 981,
+    expected: 982,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/appraisal-vault-interest.test.js:56:1
+✖ legacy balance without age evidence starts fresh and cannot claim retroactive interest (4.015958ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1004 !== 1000
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-vault-interest.test.js:61:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1004,
+    expected: 1000,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/appraisal-vault-interest.test.js:65:1
+✖ bank shortage cannot be retried in the same encounter to claim a second payment (9.008792ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  907 !== 903
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-vault-interest.test.js:73:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 907,
+    expected: 903,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/appraisal-vault-interest.test.js:78:1
+✖ age metadata stays private and invalid principal is rejected (4.813208ms)
+  TypeError [Error]: Cannot set properties of undefined (setting 'principal')
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-vault-interest.test.js:85:42)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at apps/comic/dist/tests/appraisal-vault-interest.test.js:96:1
+✖ large safe-integer principal uses exact integer tenth; dead seats earn nothing (1.628833ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 360287970189639
+  - 900719925474099
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-vault-interest.test.js:98:12)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 360287970189639,
+    expected: 900719925474099,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+
+=== comic-interest-green2.log ===
+✔ PvP defeat charges 5% of the snapshot price at the start of the next four encounters only (269.264834ms)
+✔ short wallet pays what it has, forgives the rest, and never touches the vault or goes negative (46.580792ms)
+✔ rounding floors, a missing trade price schedules nothing, and a win schedules nothing (68.304084ms)
+✔ compensation collection is idempotent for a repeated start of the same encounter (19.107625ms)
+✔ vault interest is 4% of the whole balance, uncapped, floored and paid to the wallet (29.482125ms)
+✔ two seals of one thief, from different holders, redeem one of three sealed goods and spend both (23.978416ms)
+✔ seal redemption ignores vault and collateral goods and keeps the seals when nothing can be taken (13.26ms)
+✔ fewer than three goods deal fewer slots; a moved good empties its slot without spending the seals (13.013833ms)
+✔ a thief buying back their own seal destroys it; failed trades move nothing (19.100916ms)
+✔ forged and unauthorised seal commands are rejected (49.67675ms)
+✔ engine rejects seal commands from a non-holder, replays duplicate request IDs, and closes offers on advance (31.604417ms)
+✔ goods payment: the buyer chooses exactly the requested number of carried goods and trade is atomic (30.218417ms)
+✔ life payment cannot kill the payer or overflow the receiver (12.434208ms)
+✔ fresh deposit matures only after a complete encounter, pays 10 percent to wallet once (80.4855ms)
+✔ new topup does not increase mature interest; withdrawals spend new money first (38.655458ms)
+✔ withdrawal of old principal reduces entitlement; redeposit cannot restore it (35.13575ms)
+✔ floor aggregate eligible principal and do not compound wallet interest automatically (15.020792ms)
+✔ legacy balance without age evidence starts fresh and cannot claim retroactive interest (12.890709ms)
+✔ bank shortage cannot be retried in the same encounter to claim a second payment (36.475375ms)
+✔ age metadata stays private and invalid principal is rejected (8.95725ms)
+✔ historical configs keep whole-balance 4 percent without age metadata (9.500625ms)
+✔ large safe-integer principal uses exact integer tenth; dead seats earn nothing (12.964583ms)
+✖ real phase advances mature deposits once and the complete command audit replays (58.554958ms)
+✔ command-only death, card unlock, agreed job, RPS search, delivery and Collector strictly replay (640.994ms)
+(node:40188) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ living cannot start ghost game; dead can retry and view never contains answer (117.520583ms)
+✔ delivery waits for funds then charges once, grants one item and bonus; duplicate is rejected (119.659125ms)
+✔ engine integrates ghost actions with idempotency and conservation (39.379166ms)
+✔ Collector adds earned ghost bonus and cancels unfinished jobs without payment (3.537167ms)
+✔ buyer death cancels unpaid work and requires a new minigame (20.6335ms)
+✔ next-encounter slot preview equals the slots used by the next action and hides item truth (39.301625ms)
+✔ RPS ties retry, losses lock each slot independently, no minigame reset until next encounter (17.782708ms)
+✔ living phase advances while a ghost is still tracking cards (6.063083ms)
+✔ status estimate adds spirit earnings once after ordinary score modifiers (48.107458ms)
+✔ multiple buyers share a service batch; declining the last offer after a delivery relocks hiring (31.589834ms)
+✔ a stale or forged displayed quote cannot create a differently priced contract (20.232ms)
+✔ quotes apply rarity once on a private clone and delivery keeps the accepted prototype (28.100875ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 35
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1078.356958
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/appraisal-vault-interest.test.js:107:1
+✖ real phase advances mature deposits once and the complete command audit replays (58.554958ms)
+  Error [RuleError]: ดาวน์โหลด seed/audit ได้หลังจบ run เท่านั้น
+      at check (file:///Users/Projects/Cursed%20Market/apps/comic/dist/src/game/appraisal/mechanics.js:22:15)
+      at exportAppraisalAudit (file:///Users/Projects/Cursed%20Market/apps/comic/dist/src/game/appraisal/audit.js:13:5)
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-vault-interest.test.js:129:43)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    code: 'audit-private'
+  }
+
+
+=== comic-interest-green4.log ===
+(node:40980) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ theft duel shows sealed hand choices, translated player names and draw history without percentage odds (79.509042ms)
+✔ vault appears after payout only, explains suppressed effects and deferred interest, and shows slot price (19.34625ms)
+✔ finance offers one notice at portals that clears every case (36.318625ms)
+✔ loan contract exposes deadline, installments and custom terms as inert text, with no dropdown (28.945208ms)
+✖ secure economy surfaces have English copy and remain absent in legacy runs (36.835791ms)
+✔ vault custody notifications do not report destroyed goods or lost money (10.441792ms)
+✔ seal panel shows face-down redemption cards with no item identity, plain-text terms and compensation (15.015167ms)
+✔ vault pages carried/stored goods without expansion, keeps full/locked reasons, and renders no cash-out (28.746125ms)
+✔ settled destination has one ready action, no duplicate reward, and respects readiness/spectators (271.717625ms)
+✔ settled reward may be hidden by its phase owner without another payment control (4.644667ms)
+✔ full action pipeline conserves wallet/vault ledger, suppresses held effects and redacts other custody (242.952417ms)
+✔ last-energy theft can resolve; done cannot evade RPS; timeout is rejected on the wire (29.751834ms)
+✔ secured funding, installments and maturity work through authoritative actions (51.802875ms)
+✔ due collateral transfers on advance after the payout repayment window (43.910208ms)
+✔ Collector includes vault assets without activating their held effects (10.859125ms)
+✔ network contracts accept omitted or blank loan terms and reject forged fields (0.722208ms)
+✔ RPS participants cannot move goods or bypass an unresolved merchant choice (26.338208ms)
+✔ PvP defeat charges 5% of the snapshot price at the start of the next four encounters only (206.857625ms)
+✔ short wallet pays what it has, forgives the rest, and never touches the vault or goes negative (54.05025ms)
+✔ rounding floors, a missing trade price schedules nothing, and a win schedules nothing (110.811ms)
+✔ compensation collection is idempotent for a repeated start of the same encounter (19.854625ms)
+✔ vault interest is 4% of the whole balance, uncapped, floored and paid to the wallet (28.792709ms)
+✔ two seals of one thief, from different holders, redeem one of three sealed goods and spend both (25.973792ms)
+✔ seal redemption ignores vault and collateral goods and keeps the seals when nothing can be taken (14.053333ms)
+✔ fewer than three goods deal fewer slots; a moved good empties its slot without spending the seals (12.796917ms)
+✔ a thief buying back their own seal destroys it; failed trades move nothing (41.782875ms)
+✔ forged and unauthorised seal commands are rejected (47.987666ms)
+✔ engine rejects seal commands from a non-holder, replays duplicate request IDs, and closes offers on advance (56.885541ms)
+✔ goods payment: the buyer chooses exactly the requested number of carried goods and trade is atomic (32.493ms)
+✔ life payment cannot kill the payer or overflow the receiver (18.705042ms)
+(node:40983) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ fresh deposit matures only after a complete encounter, pays 10 percent to wallet once (84.590625ms)
+✔ new topup does not increase mature interest; withdrawals spend new money first (51.03125ms)
+✔ withdrawal of old principal reduces entitlement; redeposit cannot restore it (51.232833ms)
+✔ floor aggregate eligible principal and do not compound wallet interest automatically (5.09225ms)
+✔ legacy balance without age evidence starts fresh and cannot claim retroactive interest (7.959ms)
+✔ bank shortage cannot be retried in the same encounter to claim a second payment (20.567084ms)
+✔ age metadata stays private and invalid principal is rejected (9.628792ms)
+✔ historical configs keep whole-balance 4 percent without age metadata (39.100792ms)
+✔ large safe-integer principal uses exact integer tenth; dead seats earn nothing (6.796542ms)
+✔ real phase advances mature deposits once and the complete command audit replays (124.736042ms)
+✖ vault without a deposit explains the active rule; historical DTO still reports four percent (111.5805ms)
+✔ command-only death, card unlock, agreed job, RPS search, delivery and Collector strictly replay (728.303459ms)
+(node:40985) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ living cannot start ghost game; dead can retry and view never contains answer (135.39525ms)
+✔ delivery waits for funds then charges once, grants one item and bonus; duplicate is rejected (131.588958ms)
+✔ engine integrates ghost actions with idempotency and conservation (33.616625ms)
+✔ Collector adds earned ghost bonus and cancels unfinished jobs without payment (3.276166ms)
+✔ buyer death cancels unpaid work and requires a new minigame (18.428833ms)
+✔ next-encounter slot preview equals the slots used by the next action and hides item truth (39.74675ms)
+✔ RPS ties retry, losses lock each slot independently, no minigame reset until next encounter (22.698291ms)
+✔ living phase advances while a ghost is still tracking cards (5.570583ms)
+✔ status estimate adds spirit earnings once after ordinary score modifiers (54.91875ms)
+✔ multiple buyers share a service batch; declining the last offer after a delivery relocks hiring (36.495333ms)
+✔ a stale or forged displayed quote cannot create a differently priced contract (44.97375ms)
+✔ quotes apply rarity once on a private clone and delivery keeps the accepted prototype (56.059417ms)
+ℹ tests 54
+ℹ suites 0
+ℹ pass 52
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1341.594542
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/appraisal-secure-client.test.js:88:1
+✖ secure economy surfaces have English copy and remain absent in legacy runs (36.835791ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Interest is 4% of the whole vault balance/. Input:
+  
+  '<div class="vault-spread" aria-label="Personal vault"><section class="vault-money"><h3>Deposit and withdraw credits</h3><dl class="vault-balances"><div><dt>Wallet</dt><dd>40</dd></div><div><dt>Vault</dt><dd>0</dd></div></dl><div class="vault-transfer"><div class="vault-stepper"><button type="button" aria-label="Decrease credit amount" title="Minimum 1 credit" class="comic-button comic-button-secondary "><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 12h12"></path></svg></button><label class="secure-amount" for="_R_9d_"><span>Credit amount</span><input id="_R_9d_" type="number" inputMode="numeric" min="1" max="40" step="1" value="10"/></label><button type="button" aria-label="Increase credit amount" title="Cannot exceed available credits" class="comic-button comic-button-secondary "><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6v12M6 12h12"></path></svg></button></div><div class="vault-transfer-actions"><button type="button" class="comic-button comic-button-primary ">Deposit credits</button><button type="button" disabled="" title="Not enough vault credits" class="comic-button comic-button-secondary ">Withdraw credits</button></div></div><div class="vault-interest"><span>Next interest <strong>0 credits</strong></span><span class="term-wrap"><button type="button" class="term rule" aria-describedby="_R_2h_" aria-expanded="false">Interest rules</button><span id="_R_2h_" role="tooltip" class="peek rule" hidden="" style="visibility:hidden"><p>Interest is 10% per encounter. Only principal held for a full encounter qualifies; withdrawals use new deposits first. New deposits earn no retroactive interest. Rounded down. Paid to your wallet. Eligible payment: 0 credits. It does not compound by itself.</p><p>First 2 slots are free</p></span></span></div><p class="vault-custody-note">Stored items cannot be stolen or used and have no positive or negative effects. Withdraw to restore their effects.</p></section><section class="vault-goods"><section class="vault-shelf" aria-label="Carried items"><header><h3>Carried items <small>0</small></h3></header><div class="vault-item-row"><p class="vault-empty-slot">No carried items</p></div></section><section class="vault-shelf" aria-label="Stored items"><header><h3>In the vault <small>0/2</small></h3></header><div class="vault-item-row"><div class="vault-empty-slot">Empty</div><div class="vault-empty-slot">Empty</div></div></section><button type="button" class="comic-button comic-button-secondary vault-expand"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6v12M6 12h12"></path></svg>Add 1 slot · 10 credits</button></section></div>'
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-secure-client.test.js:96:16)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<div class="vault-spread" aria-label="Personal vault"><section class="vault-money"><h3>Deposit and withdraw credits</h3><dl class="vault-balances"><div><dt>Wallet</dt><dd>40</dd></div><div><dt>Vault</dt><dd>0</dd></div></dl><div class="vault-transfer"><div class="vault-stepper"><button type="button" aria-label="Decrease credit amount" title="Minimum 1 credit" class="comic-button comic-button-secondary "><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 12h12"></path></svg></button><label class="secure-amount" for="_R_9d_"><span>Credit amount</span><input id="_R_9d_" type="number" inputMode="numeric" min="1" max="40" step="1" value="10"/></label><button type="button" aria-label="Increase credit amount" title="Cannot exceed available credits" class="comic-button comic-button-secondary "><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6v12M6 12h12"></path></svg></button></div><div class="vault-transfer-actions"><button type="button" class="comic-button comic-button-primary ">Deposit credits</button><button type="button" disabled="" title="Not enough vault credits" class="comic-button comic-button-secondary ">Withdraw credits</button></div></div><div class="vault-interest"><span>Next interest <strong>0 credits</strong></span><span class="term-wrap"><button type="button" class="term rule" aria-describedby="_R_2h_" aria-expanded="false">Interest rules</button><span id="_R_2h_" role="tooltip" class="peek rule" hidden="" style="visibility:hidden"><p>Interest is 10% per encounter. Only principal held for a full encounter qualifies; withdrawals use new deposits first. New deposits earn no retroactive interest. Rounded down. Paid to your wallet. Eligible payment: 0 credits. It does not compound by itself.</p><p>First 2 slots are free</p></span></span></div><p class="vault-custody-note">Stored items cannot be stolen or used and have no positive or negative effects. Withdraw to restore their effects.</p></section><section class="vault-goods"><section class="vault-shelf" aria-label="Carried items"><header><h3>Carried items <small>0</small></h3></header><div class="vault-item-row"><p class="vault-empty-slot">No carried items</p></div></section><section class="vault-shelf" aria-label="Stored items"><header><h3>In the vault <small>0/2</small></h3></header><div class="vault-item-row"><div class="vault-empty-slot">Empty</div><div class="vault-empty-slot">Empty</div></div></section><button type="button" class="comic-button comic-button-secondary vault-expand"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6v12M6 12h12"></path></svg>Add 1 slot · 10 credits</button></section></div>',
+    expected: /Interest is 4% of the whole vault balance/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/appraisal-vault-interest.test.js:136:1
+✖ vault without a deposit explains the active rule; historical DTO still reports four percent (111.5805ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + {
+  +   credits: 0,
+  +   items: [],
+  +   slots: 2
+  + }
+  - undefined
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-vault-interest.test.js:141:12)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { items: [], credits: 0, slots: 2 },
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+
+=== comic-interest-green5.log ===
+(node:41126) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ theft duel shows sealed hand choices, translated player names and draw history without percentage odds (59.354875ms)
+✔ vault appears after payout only, explains suppressed effects and deferred interest, and shows slot price (11.208ms)
+✔ finance offers one notice at portals that clears every case (23.537667ms)
+✔ loan contract exposes deadline, installments and custom terms as inert text, with no dropdown (25.246375ms)
+✔ secure economy surfaces have English copy and remain absent in legacy runs (31.586459ms)
+✔ vault custody notifications do not report destroyed goods or lost money (13.434208ms)
+✔ seal panel shows face-down redemption cards with no item identity, plain-text terms and compensation (18.255583ms)
+✔ vault pages carried/stored goods without expansion, keeps full/locked reasons, and renders no cash-out (37.615ms)
+✔ settled destination has one ready action, no duplicate reward, and respects readiness/spectators (267.860916ms)
+✔ settled reward may be hidden by its phase owner without another payment control (8.712208ms)
+✔ full action pipeline conserves wallet/vault ledger, suppresses held effects and redacts other custody (204.722041ms)
+✔ last-energy theft can resolve; done cannot evade RPS; timeout is rejected on the wire (37.476791ms)
+✔ secured funding, installments and maturity work through authoritative actions (65.855958ms)
+✔ due collateral transfers on advance after the payout repayment window (52.585875ms)
+✔ Collector includes vault assets without activating their held effects (15.9315ms)
+✔ network contracts accept omitted or blank loan terms and reject forged fields (3.967125ms)
+✔ RPS participants cannot move goods or bypass an unresolved merchant choice (31.101ms)
+✔ PvP defeat charges 5% of the snapshot price at the start of the next four encounters only (241.704041ms)
+✔ short wallet pays what it has, forgives the rest, and never touches the vault or goes negative (48.618209ms)
+✔ rounding floors, a missing trade price schedules nothing, and a win schedules nothing (79.897ms)
+✔ compensation collection is idempotent for a repeated start of the same encounter (22.429042ms)
+✔ vault interest is 4% of the whole balance, uncapped, floored and paid to the wallet (34.020792ms)
+✔ two seals of one thief, from different holders, redeem one of three sealed goods and spend both (27.76275ms)
+✔ seal redemption ignores vault and collateral goods and keeps the seals when nothing can be taken (18.891209ms)
+✔ fewer than three goods deal fewer slots; a moved good empties its slot without spending the seals (16.336042ms)
+✔ a thief buying back their own seal destroys it; failed trades move nothing (25.044ms)
+✔ forged and unauthorised seal commands are rejected (57.256166ms)
+✔ engine rejects seal commands from a non-holder, replays duplicate request IDs, and closes offers on advance (101.9655ms)
+✔ goods payment: the buyer chooses exactly the requested number of carried goods and trade is atomic (47.146584ms)
+✔ life payment cannot kill the payer or overflow the receiver (17.232ms)
+(node:41129) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ fresh deposit matures only after a complete encounter, pays 10 percent to wallet once (124.25425ms)
+✔ new topup does not increase mature interest; withdrawals spend new money first (72.400125ms)
+✔ withdrawal of old principal reduces entitlement; redeposit cannot restore it (27.547042ms)
+✔ floor aggregate eligible principal and do not compound wallet interest automatically (8.30775ms)
+✔ legacy balance without age evidence starts fresh and cannot claim retroactive interest (6.173209ms)
+✔ bank shortage cannot be retried in the same encounter to claim a second payment (12.716833ms)
+✔ age metadata stays private and invalid principal is rejected (8.991042ms)
+✔ historical configs keep whole-balance 4 percent without age metadata (22.246ms)
+✔ large safe-integer principal uses exact integer tenth; dead seats earn nothing (8.766709ms)
+✔ real phase advances mature deposits once and the complete command audit replays (140.539459ms)
+✔ vault without a deposit explains the active rule; historical DTO still reports four percent (147.519333ms)
+✔ command-only death, card unlock, agreed job, RPS search, delivery and Collector strictly replay (711.287833ms)
+(node:41131) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ living cannot start ghost game; dead can retry and view never contains answer (122.874417ms)
+✔ delivery waits for funds then charges once, grants one item and bonus; duplicate is rejected (115.732833ms)
+✔ engine integrates ghost actions with idempotency and conservation (36.832542ms)
+✔ Collector adds earned ghost bonus and cancels unfinished jobs without payment (3.941333ms)
+✔ buyer death cancels unpaid work and requires a new minigame (20.947375ms)
+✔ next-encounter slot preview equals the slots used by the next action and hides item truth (43.135875ms)
+✔ RPS ties retry, losses lock each slot independently, no minigame reset until next encounter (16.347166ms)
+✔ living phase advances while a ghost is still tracking cards (8.674917ms)
+✔ status estimate adds spirit earnings once after ordinary score modifiers (78.154458ms)
+✔ multiple buyers share a service batch; declining the last offer after a delivery relocks hiring (34.690458ms)
+✔ a stale or forged displayed quote cannot create a differently priced contract (26.004125ms)
+✔ quotes apply rarity once on a private clone and delivery keeps the accepted prototype (50.294167ms)
+ℹ tests 54
+ℹ suites 0
+ℹ pass 54
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1280.989042
+
+
+=== comic-interest-network.log ===
+✔ two real sockets track cards, agree a job and deliver with no duplicate payment (370.830916ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 814.662291
+
+
+=== comic-interest-client-final.log ===
+
+> cursed-market-comic@0.1.0 build:appraisal
+> tsc -p tsconfig.appraisal-client.json && vite build --config vite.appraisal.config.mjs
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 119 modules transformed.
+rendering chunks...
+computing gzip size...
+../../dist/appraisal-client/index.html                                                0.50 kB │ gzip:   0.35 kB
+../../dist/appraisal-client/assets/srisakdi-thai-700-normal-ClYfKm-d.woff2           10.51 kB
+../../dist/appraisal-client/assets/srisakdi-thai-700-normal-BPDgklCj.woff            12.93 kB
+../../dist/appraisal-client/assets/srisakdi-latin-700-normal-djYySggx.woff2          15.82 kB
+../../dist/appraisal-client/assets/srisakdi-latin-700-normal-B7lFu79Q.woff           19.41 kB
+../../dist/appraisal-client/assets/im-fell-english-latin-400-normal-BhowGHCQ.woff2   59.88 kB
+../../dist/appraisal-client/assets/im-fell-english-latin-400-normal-CxhBQSzl.woff    69.68 kB
+../../dist/appraisal-client/assets/index-BCtAPseS.css                               467.45 kB │ gzip:  78.59 kB
+../../dist/appraisal-client/assets/rarity-renderer--XkbyFAm.js                        8.31 kB │ gzip:   3.85 kB
+../../dist/appraisal-client/assets/ComicPreview-BT34A3CK.js                          69.01 kB │ gzip:   6.41 kB
+../../dist/appraisal-client/assets/index-CJHQzPXe.js                                878.85 kB │ gzip: 232.69 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 3.33s
+
+
+=== comic-interest-contracts.log ===
+
+> cursed-market@0.1.0 ui:test
+> node --test scripts/ui/contracts.test.mjs
+
+✔ approved frame and inner symmetry contract passes (1.829291ms)
+✔ the reported unequal minus/plus gaps fail, even with centred input (1.962166ms)
+✔ asymmetric centre, hidden facts and frame drift each fail (0.47275ms)
+✔ pixel comparison detects colour change and honours declared timer masks (7.806541ms)
+✔ capture waits for repeated artwork pixels and rejects unstable raster (15.645791ms)
+✔ countdown masks scale with screenshot DPR, not CSS geometry (1.383291ms)
+✔ shared headers reject per-menu height or border drift (1.9055ms)
+✔ record cannot overwrite a human-approved baseline (38.058167ms)
+✔ failed browser invocation cannot be mistaken for an older green report (15.065333ms)
+✔ readiness allows deferred paint without retrying against the baseline (5.728416ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 296.077916

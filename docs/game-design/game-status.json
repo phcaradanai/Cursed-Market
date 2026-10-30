@@ -30,12 +30,14 @@
     {
       "id": "RULE-01",
       "system": "ดอกเบี้ยเงินต้นครบช่วง10%",
-      "status": "ยังไม่เชื่อม Comic",
-      "remaining": "root ทำกฎใหม่แล้ว แต่ Comic ยัง floor(ยอดปัจจุบัน×4%); ต้องย้ายเฉพาะกฎพร้อมทดสอบ ห้ามถือว่า UI คลังใหม่แปลว่า logic ใหม่แล้ว",
+      "status": "เชื่อมและตรวจ Comic แล้ว",
+      "remaining": "รันใหม่ใช้10%เฉพาะเงินต้นครบช่วง ปัดลง ถอนใหม่ก่อนเก่า; รันเก่าไม่มีflagคง4%. ทดสอบ54/54รวมphase/replay, ghost network1/1, baseline14/14,เมนู18/18ผ่าน; ไม่ใช่ผลบาลานซ์ทั้งเกม",
       "evidence": [
         "apps/comic/src/game/appraisal/secure-storage.ts",
         "src/game/appraisal/secure-storage.ts",
-        "docs/ui-system/root-provenance.json"
+        "docs/ui-system/root-provenance.json",
+        "docs/game-design/implementations/comic-aged-interest-plan.md",
+        "docs/ui-system/comic-interest-verification.json"
       ]
     },
     {
@@ -86,7 +88,7 @@
       "id": "RULE-02",
       "system": "ขโมยและ forced RPS",
       "status": "มีระบบ — ยังต้องยืนยันความครบตามกฎ",
-      "remaining": "มี duel/มือ/timeout ใน runtime แต่ roadmap ยังไม่ปิดเรื่อง timeout/disconnect ให้ตรงกฎห้ามปฏิเสธ และตรวจวงจรหลบผลให้ครบ",
+      "remaining": "ผู้ใช้ยืนยันแล้ว: หมดเวลา/หลุดเกมสุ่มเฉพาะมือที่ยังไม่ส่ง เก็บมือเดิมและตัดสินตามปกติ; ยังต้องเชื่อมและทดสอบ timeout/disconnect/retry",
       "evidence": [
         "apps/comic/src/game/appraisal/theft.ts",
         "apps/comic/src/server/appraisal-rooms.ts",
@@ -116,14 +118,14 @@
     }
   ],
   "next": [
-    "นำกฎดอกเบี้ย10%และเงินต้นครบช่วงเข้าสู่ Comic พร้อมทดสอบเดิม",
+    "เชื่อม forced-RPS ตามกฎสุ่มเฉพาะมือที่ยังไม่ส่ง ซึ่งยืนยันแล้ว2026-10-31",
     "ปิดเป้าหมาย/โบนัสเส้นทางและสัญญาข้อมูลสินค้าใหม่ แล้วทดลอง8ชิ้น",
     "ทำ Wishlist3+2 และรางวัลสถิติ/rarityตามกติกาที่ปิดรายละเอียดแล้ว",
     "ย้ายครบ56 ผูกevent/encounter/omen แล้วทดสอบเต็มเกมและบาลานซ์"
   ],
-  "verification": "รายงานล่าสุดอยู่ใน docs/ui-system/ghost-functional-verification.json; รอบนี้เป็นการตรวจสถานะและแก้เอกสาร ไม่ได้เปลี่ยน gameplay หรือรันทั้งเกมใหม่",
+  "verification": "Whole-game goal เปิดแล้ว ดู implementations/completion-program.md; งานแต่ละส่วนมีผลตรวจเฉพาะส่วน ไม่ใช่คำรับรองครบทั้งเกม",
   "runtimeFacts": {
-    "comicVaultInterestPercent": 4,
+    "comicVaultInterestPercent": 10,
     "rootVaultInterestPercent": 10,
     "new56DedicatedBindings": 0
   }

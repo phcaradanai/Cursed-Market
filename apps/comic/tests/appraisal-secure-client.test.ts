@@ -41,7 +41,7 @@ test('vault appears after payout only, explains suppressed effects and deferred 
   assert.equal(renderToStaticMarkup(createElement(VaultPanel,{game,submit,disabled:false})), '');
   game.self.roundReward.settled=true;
   const html=renderToStaticMarkup(createElement(VaultPanel,{game,submit,disabled:false}));
-  assert.match(html,/เริ่มต้นฟรี 2 ช่อง/);assert.match(html,/ไม่มีผลบวกหรือลบ/);assert.match(html,/ดอกเบี้ย 4%/);
+  assert.match(html,/เริ่มต้นฟรี 2 ช่อง/);assert.match(html,/ไม่มีผลบวกหรือลบ/);assert.match(html,/ดอกเบี้ย 10%/);
   assert.match(html,/10 เครดิต/);assert.doesNotMatch(html,/<select/);
   game.self.paused='dead';assert.equal(renderToStaticMarkup(createElement(VaultPanel,{game,submit,disabled:false})), '');
 });
@@ -69,7 +69,7 @@ test('secure economy surfaces have English copy and remain absent in legacy runs
   setLang('en');try {
     const game=view();game.phase='REVEAL';game.self.roundReward={encounter:game.encounter,base:10,amount:10,flips:0,settled:true};
     const html=renderToStaticMarkup(createElement(VaultPanel,{game,submit,disabled:false}));
-    assert.match(html,/Deposit and withdraw credits/);assert.match(html,/Interest is 4% of the whole vault balance/);
+    assert.match(html,/Deposit and withdraw credits/);assert.match(html,/Interest is 10% per encounter/);
     game.secureEconomy=false;
     for(const Component of [VaultPanel,FinancePanel,TheftPanel])assert.equal(renderToStaticMarkup(createElement(Component,{game,submit,disabled:false})), '');
   } finally {setLang('th');}

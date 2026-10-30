@@ -21,6 +21,7 @@ Derived from implemented inventory/status/market/ledger/rules/settings and lates
 ## Reuse map
 
 - `ComicMenu`, `ComicButton`, `CompactPager`, `ComicMeter`: menu/control primitives.
+- `ComicPhaseFrame`: non-dismissible phase frame sharing the same outer geometry and header rules as ComicMenu; S08 is its first use. Keep destination-specific content inside, and retain explicit server actions. S08 paired decision controls use the existing48px layout-row token/role.
 - `ComicDestination`: established market destination sign; not a new universal tab style.
 - `FactSeals`, `ChoiceCards`, `Share`, `TradeListing`, `Trades`: known facts, native accessible radios and existing game decisions.
 - `MerchantEventPortrait`, `merchant-portrait-frames`: per-character consistent scale; use existing frames, not invented ones.

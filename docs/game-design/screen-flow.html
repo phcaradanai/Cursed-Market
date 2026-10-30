@@ -772,7 +772,7 @@
       &quot;endLine&quot;: 211
     }
   ]
-}</pre></details></article><article id="S08" data-kind="main"><header><b>S08 · รับเครดิตท้ายช่วงและเสี่ยงเหรียญ</b><span>REVEAL · runtime · capture: captured-existing · concept: draft</span></header><a href="captures/current-comic-2026-10-29/live-salary.png"><img src="captures/current-comic-2026-10-29/live-salary.png" alt="S08 รับเครดิตท้ายช่วงและเสี่ยงเหรียญ ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"><a href="concepts/S08-salary-v01.png">salary-v01 · draft</a></nav><p>มี roundReward และยังไม่ settled; อาจข้ามไปผลจบเกมแทนถ้า Collector มา</p><small>Logic: L28 · Actions: round-bank, round-flip, round-raise</small><p><a href="#S09">ไป S09</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+}</pre></details></article><article id="S08" data-kind="main"><header><b>S08 · รับเครดิตท้ายช่วงและเสี่ยงเหรียญ</b><span>REVEAL · runtime · capture: captured-existing · concept: implemented</span></header><a href="captures/s08-2026-10-30/reveal-1440x722.png"><img src="captures/s08-2026-10-30/reveal-1440x722.png" alt="S08 รับเครดิตท้ายช่วงและเสี่ยงเหรียญ ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"><a href="concepts/S08-salary-v01.png">salary-v01 · implemented</a></nav><p>มี roundReward และยังไม่ settled; อาจข้ามไปผลจบเกมแทนถ้า Collector มา</p><small>Logic: L28 · Actions: round-bank, round-flip, round-raise</small><p><a href="#S09">ไป S09</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
   &quot;id&quot;: &quot;S08&quot;,
   &quot;title&quot;: &quot;รับเครดิตท้ายช่วงและเสี่ยงเหรียญ&quot;,
   &quot;phase&quot;: &quot;REVEAL&quot;,
@@ -790,9 +790,9 @@
   &quot;nextIds&quot;: [
     &quot;S09&quot;
   ],
-  &quot;conceptStatus&quot;: &quot;draft&quot;,
+  &quot;conceptStatus&quot;: &quot;implemented&quot;,
   &quot;currentImage&quot;: &quot;concepts/S08-salary-v01.png&quot;,
-  &quot;approvedImage&quot;: null,
+  &quot;approvedImage&quot;: &quot;concepts/S08-salary-v01.png&quot;,
   &quot;variants&quot;: [
     {
       &quot;id&quot;: &quot;unsettled&quot;,
@@ -811,7 +811,9 @@
       &quot;purpose&quot;: &quot;User-requested shared comic-frame redesign; symmetric cash-out and coin choice regions, initial one-coin multi-enabled state&quot;,
       &quot;image&quot;: &quot;concepts/S08-salary-v01.png&quot;,
       &quot;brief&quot;: &quot;concepts/S08-salary-v01.md&quot;,
-      &quot;status&quot;: &quot;draft&quot;
+      &quot;status&quot;: &quot;implemented&quot;,
+      &quot;captureImage&quot;: &quot;captures/s08-2026-10-30/reveal-1440x722.png&quot;,
+      &quot;implementationNote&quot;: &quot;See implementations/S08-reward.md; concept approval does not approve screenshots as pixel references.&quot;
     }
   ],
   &quot;mustShow&quot;: [],
@@ -832,13 +834,25 @@
       &quot;image&quot;: &quot;captures/current-comic-2026-10-29/live-salary.png&quot;,
       &quot;title&quot;: &quot;รับเครดิตและเสี่ยงเหรียญ · เกมจริง&quot;,
       &quot;origin&quot;: &quot;live-game&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C29&quot;,
+      &quot;image&quot;: &quot;captures/s08-2026-10-30/reveal-1440x722.png&quot;,
+      &quot;title&quot;: &quot;S08 initial reward decision&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C30&quot;,
+      &quot;image&quot;: &quot;captures/s08-2026-10-30/reward-multi-1440x722.png&quot;,
+      &quot;title&quot;: &quot;S08 multi-coin selection&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
     }
   ],
   &quot;captureStatus&quot;: &quot;captured-existing&quot;,
-  &quot;captureImage&quot;: &quot;captures/current-comic-2026-10-29/live-salary.png&quot;,
+  &quot;captureImage&quot;: &quot;captures/s08-2026-10-30/reveal-1440x722.png&quot;,
   &quot;designPolicy&quot;: &quot;reuse-existing; change only explicit requested gap&quot;,
-  &quot;captureNote&quot;: &quot;Actual salary controls captured separately from preview summary without reward.&quot;,
-  &quot;designNote&quot;: &quot;2026-10-30 user explicitly requested S08 concept redesign only. Live C21 capture remains runtime evidence; new draft is not approved, implemented or a baseline replacement.&quot;,
+  &quot;captureNote&quot;: &quot;C29/C30 real comic component fixtures after approved S08 implementation; C21 remains historical live-game evidence. No new baseline approval.&quot;,
+  &quot;designNote&quot;: &quot;2026-10-30 user authorized salary-v01 implementation; shared ComicPhaseFrame and buttons, two-column pending decision, compact multi-coin selection. Runtime rules unchanged; existing S09 follows settlement.&quot;,
   &quot;sourceRefs&quot;: [
     {
       &quot;symbolId&quot;: &quot;code:src/game/appraisal/engine.ts:settleEncounter&quot;,

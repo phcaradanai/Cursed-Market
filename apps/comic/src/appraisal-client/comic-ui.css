@@ -18,9 +18,9 @@
   padding:0; border:2px solid var(--comic-line); border-radius:var(--comic-radius); background:#090d0ef5; overflow:hidden;
 }
 #game-main .screen dialog.comic-menu > .dialog-content { display:flex; flex-direction:column; gap:0; padding:0; height:100%; min-height:0; max-height:none; overflow:hidden; }
-#game-main .screen dialog.comic-menu .drawer-head { flex:0 0 auto; display:flex; align-items:center; justify-content:space-between; gap:12px; height:var(--comic-menu-header-height); min-height:var(--comic-menu-header-height); box-sizing:border-box; margin:0; padding:12px var(--comic-menu-inset); background:#0b0e0f; border-bottom:1px solid var(--comic-line); }
-#game-main .screen dialog.comic-menu .drawer-head h2 { display:flex; align-items:center; gap:12px; margin:0; color:#f8f7f2; font-size:30px; line-height:1.2; }
-#game-main .screen dialog.comic-menu .drawer-head h2 svg { width:32px; height:32px; }
+#game-main .screen dialog.comic-menu .drawer-head, #game-main .comic-phase-frame > .comic-frame-header { flex:0 0 auto; display:flex; align-items:center; justify-content:space-between; gap:12px; height:var(--comic-menu-header-height); min-height:var(--comic-menu-header-height); box-sizing:border-box; margin:0; padding:12px var(--comic-menu-inset); background:#0b0e0f; border-bottom:1px solid var(--comic-line); }
+#game-main .screen dialog.comic-menu .drawer-head h2, #game-main .comic-phase-frame > .comic-frame-header h2 { display:flex; align-items:center; gap:12px; margin:0; color:#f8f7f2; font-size:30px; line-height:1.2; }
+#game-main .screen dialog.comic-menu .drawer-head h2 svg, #game-main .comic-phase-frame > .comic-frame-header h2 svg { width:32px; height:32px; }
 #game-main .screen dialog.comic-menu .comic-menu-actions { display:flex; align-items:center; gap:12px; }
 #game-main .screen dialog.comic-menu .drawer-close { display:flex; gap:8px; align-items:center; justify-content:center; width:auto; padding:6px 12px; font-size:17px; }
 #game-main .screen dialog.comic-menu .drawer-close svg { width:20px; height:20px; }
@@ -96,9 +96,9 @@
 }
 @media(max-width:760px) {
   #game-main .screen { --comic-menu-header-height:53px; }
-  #game-main .screen dialog.comic-menu .drawer-head { padding:6px 8px; gap:8px; }
-  #game-main .screen dialog.comic-menu .drawer-head h2 { font-size:21px; gap:6px; }
-  #game-main .screen dialog.comic-menu .drawer-head h2 svg { width:24px; height:24px; }
+  #game-main .screen dialog.comic-menu .drawer-head, #game-main .comic-phase-frame > .comic-frame-header { padding:6px 8px; gap:8px; }
+  #game-main .screen dialog.comic-menu .drawer-head h2, #game-main .comic-phase-frame > .comic-frame-header h2 { font-size:21px; gap:6px; }
+  #game-main .screen dialog.comic-menu .drawer-head h2 svg, #game-main .comic-phase-frame > .comic-frame-header h2 svg { width:24px; height:24px; }
   #game-main .screen dialog.comic-menu .comic-menu-actions { gap:6px; }
   #game-main .screen dialog.comic-menu .drawer-close { padding:4px 8px; font-size:13px; }
   #game-main .screen dialog.comic-menu .drawer-body { padding:12px; }

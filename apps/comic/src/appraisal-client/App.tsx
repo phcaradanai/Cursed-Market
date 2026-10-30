@@ -222,8 +222,8 @@ export function GameTable({room,submit,send,disabled,tools,connected=true,connec
   const [settingsOpen,setSettingsOpen]=useState(initialSettings??false);
   const markets=(game.market.open?game.market.orders.length:0)+(game.market.lots?.length??0);
   const drawers:{id:Drawer;label:string;icon:ReactElement;count?:number;hot?:boolean}[]=[
-    ...(reveal?[]:[{id:'bag' as const,label:t('กระเป๋า'),icon:<BagIcon/>,count:self.inventory.length}]),
-    ...(reveal?[]:[{id:'effects' as const,label:t('สถานะ'),icon:<BuffIcon/>,count:self.statuses.length},{id:'market' as const,label:'Dark Market',icon:<MarketIcon/>,count:markets,hot:markets>0}]),
+    ...(phase==='RESULTS'?[]:[{id:'bag' as const,label:t('กระเป๋า'),icon:<BagIcon/>,count:self.inventory.length}]),
+    ...(phase==='RESULTS'?[]:[{id:'effects' as const,label:t('สถานะ'),icon:<BuffIcon/>,count:self.statuses.length},{id:'market' as const,label:'Dark Market',icon:<MarketIcon/>,count:markets,hot:markets>0}]),
     {id:'ledger',label:game.secureEconomy?t('สมุดบันทึก · เงินกู้และใบประกาศ'):t('สมุดบันทึก'),icon:<BookIcon/>,count:game.loans?.filter(l=>['proposed','countered'].includes(l.status)).length??0},
     {id:'rules',label:t('กติกา'),icon:<EventIcon/>},
   ];
@@ -268,14 +268,14 @@ export function GameTable({room,submit,send,disabled,tools,connected=true,connec
       {phase==='TRADE' && <TradeScreen game={game} room={room} submit={submit} disabled={inactive} completion={endPhasePanel} utilityOpen={openDrawer!==null||settingsOpen}/>}
       
       {phase==='REVEAL' && self.roundReward && <RoundReward key={game.encounter} reward={self.roundReward} credits={self.credits} submit={submit} disabled={disabled || room.revealReady.includes(room.yourSeatId)} onTossing={setCoinTossing}/>}
-      {phase==='REVEAL' && <VaultPanel game={game} submit={submit} disabled={disabled || room.revealReady.includes(room.yourSeatId)} playerNames={playerNames}/>}
-      {reveal && <Results room={room} send={send} disabled={disabled || coinTossing}/>}
+      {phase==='REVEAL' && (!self.roundReward || self.roundReward.settled) && !coinTossing && <VaultPanel game={game} submit={submit} disabled={disabled || room.revealReady.includes(room.yourSeatId)} playerNames={playerNames}/>}
+      {reveal && (phase==='RESULTS' || !self.roundReward || self.roundReward.settled) && !coinTossing && <Results room={room} send={send} disabled={disabled || coinTossing}/>}
       </div>
       <TheftPanel game={game} submit={submit} disabled={disabled || self.life===0} playerNames={playerNames} deadlines={room.duelDeadlines} serverTime={room.serverTime}/>
     </div>
-    {!reveal && drawer('bag',t('กระเป๋า'),<><Inventory game={game} submit={submit} disabled={inactive}/><HeldEffects game={game}/></>)}
-    {!reveal && drawer('effects',t('สถานะ'),<>{openDrawer==='effects'&&<StatusMenu game={game} submit={submit} disabled={inactive} playerNames={playerNames}/>}</>,phase==='APPRAISAL'&&endPhasePanel?<div className="status-header-completion">{endPhasePanel}</div>:undefined)}
-    {!reveal && drawer('market',pick('ตลาดมืด','Dark Market'),<DarkMarket game={game} submit={submit} disabled={inactive || !playable}/>)}
+    {phase!=='RESULTS' && drawer('bag',t('กระเป๋า'),<><Inventory game={game} submit={submit} disabled={inactive || phase==='REVEAL'}/><HeldEffects game={game}/></>)}
+    {phase!=='RESULTS' && drawer('effects',t('สถานะ'),<>{openDrawer==='effects'&&<StatusMenu game={game} submit={submit} disabled={inactive || phase==='REVEAL'} playerNames={playerNames}/>}</>,phase==='APPRAISAL'&&endPhasePanel?<div className="status-header-completion">{endPhasePanel}</div>:undefined)}
+    {phase!=='RESULTS' && drawer('market',pick('ตลาดมืด','Dark Market'),<DarkMarket game={game} submit={submit} disabled={inactive || !playable}/>)}
     {drawer('ledger',t('สมุดบันทึก'),<LedgerMenu game={game} room={room} submit={submit} disabled={disabled || duelling || self.life===0 || room.revealReady.includes(room.yourSeatId)} playerNames={playerNames}/>)}
     {drawer('rules',t('กติกา'),<RulesMenu timers={room.timerSettings} survival={room.mode==='survival'} trustAbilities={!!game.trustAbilities}/>)}
     </div>

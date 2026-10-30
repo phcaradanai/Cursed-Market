@@ -28,4 +28,5 @@ import './trade-concept.css';
 import './comic-tooltip.css';
 import './comic-overlay.css';
 import './item-sale.css';
+import './reward-concept.css';
 import './comic-frame.css';

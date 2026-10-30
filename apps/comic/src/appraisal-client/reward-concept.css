@@ -1,0 +1,71 @@
+/* S08 uses the same frame/header/controls as inventory; only its inner grid differs. */
+#game-main .screen .reward-screen {
+ display:flex;flex-direction:column;align-items:stretch;gap:0;padding:0;min-width:0;border:2px solid var(--comic-line);border-image:none;background:#090d0ef5!important;box-shadow:none;overflow:hidden;color:var(--comic-white);font:inherit;
+}
+#game-main .screen .reward-screen .comic-frame-header {flex-shrink:0;}
+#game-main .reward-screen .comic-menu-actions {display:flex;align-items:center;gap:var(--layout-space);}
+#game-main .reward-encounter {color:#c5c6c2;font-size:16px;white-space:nowrap;}
+#game-main .reward-screen .term-wrap > button {display:inline-flex;align-items:center;justify-content:center;height:var(--comic-menu-control-height);padding:6px 16px;border:1px solid var(--comic-line);background:#0c1011;color:var(--comic-white);text-decoration:none;}
+#game-main .reward-screen .reward-spread {display:grid;flex:1;min-height:0;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:40px minmax(0,1fr) 48px 70px;gap:var(--layout-space) var(--layout-space-large);padding:var(--layout-space-large);}
+#game-main .reward-screen .reward-half {display:grid;grid-template-rows:subgrid;grid-row:1 / span 4;gap:var(--layout-space);padding:0;min-width:0;min-height:0;text-align:center;}
+#game-main .reward-screen .reward-half > h3 {margin:0;align-self:center;font:inherit;font-size:clamp(22px,2.1vw,32px);font-weight:700;line-height:1.25;color:var(--comic-white);text-shadow:none;}
+#game-main .reward-screen .reward-pool {display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;gap:var(--layout-space);}
+#game-main .reward-screen .reward-pool p {margin:0;color:#c9ccca;font-size:16px;}
+#game-main .reward-screen .reward-amount {display:flex;flex-direction:column;gap:6px;color:var(--comic-white);}
+#game-main .reward-screen .reward-amount strong {color:var(--comic-white);font:inherit;font-size:clamp(64px,12vh,116px);font-weight:750;line-height:1;font-variant-numeric:tabular-nums;text-shadow:none;}
+#game-main .reward-screen .reward-amount span {color:var(--comic-white);font-size:24px;}
+#game-main .reward-screen .reward-primary-row {display:flex;align-items:stretch;gap:var(--layout-space);min-width:0;}
+#game-main .reward-screen .reward-primary-row > button {flex:1;min-width:0;min-height:48px;height:48px;margin:0;font-size:20px;}
+#game-main .reward-screen .reward-secondary-row {display:flex;flex-direction:column;align-items:stretch;gap:6px;min-width:0;min-height:0;}
+#game-main .reward-screen .reward-secondary-row p {margin:0;color:#c9ccca;font-size:15px;line-height:1.5;}
+#game-main .reward-screen .reward-secondary-row > button {height:40px;min-height:40px;margin:0;font-size:16px;}
+#game-main .reward-screen .reward-secondary-row small {color:#c9ccca;font-size:12px;}
+#game-main .reward-screen .reward-coin-stage {display:flex;flex-direction:column;justify-content:center;gap:6px;min-height:0;min-width:0;}
+#game-main .reward-screen .coin-table {display:grid;grid-template-columns:minmax(0,1fr);width:100%;max-width:none;min-height:0;margin:0;}
+#game-main .reward-screen .coin-table.multi-coin {grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--layout-space);}
+#game-main .reward-screen .reward-coin {min-height:0;min-width:0;}
+#game-main .reward-screen .coin-scene {height:115px;width:160px;max-width:100%;margin:auto;transform:none;}
+#game-main .reward-screen .coin-flight {top:8px;}
+#game-main .reward-screen .coin-shadow {top:76px;height:20px;filter:none;background:#050607;}
+#game-main .reward-screen .coin-face {background:#d7ae60;border:3px solid #201b12;box-shadow:inset 0 0 0 3px #ebcb85,inset 0 0 0 5px #40321d;color:#201b12;}
+#game-main .reward-screen .coin-face > span {font-family:inherit;}
+#game-main .reward-screen .coin-edge {background:#9c7635;border-color:#302619;}
+#game-main .reward-screen .reward-risk {flex:0 0 auto;margin:0;color:var(--comic-white);font-size:14px;line-height:1.5;}
+#game-main .reward-screen .reward-guess {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:0;padding:0;border:0;min-width:0;}
+#game-main .reward-screen .reward-guess legend {padding:0;margin:0 0 4px;font-size:12px;color:#d8dcda;}
+#game-main .reward-screen .reward-guess button {min-width:0;min-height:34px;height:34px;padding:4px 8px;font-size:14px;}
+#game-main .reward-screen .reward-guess [aria-pressed=true] {background:#4c1321;border-color:#ff315c;color:#fff;}
+#game-main .reward-screen .comic-phase-footer {display:flex;flex:0 0 auto;align-items:center;justify-content:center;gap:8px;margin:0;border:0;background:none;padding:0 24px 14px;font-size:12px;line-height:1.5;color:#c9ccca;text-align:center;}
+#game-main .reward-screen .comic-phase-footer svg {width:18px;height:18px;flex-shrink:0;}
+#game-main .screen.phase-REVEAL:has(.reward-screen) .scene-play {display:block;}
+#game-main .screen.phase-REVEAL .scene-play > .reward-screen {overflow:hidden;}
+#game-main .reward-screen .tossing .coin-flight {animation-name:comic-reward-flight;}
+@keyframes comic-reward-flight {0%,100%{transform:translateY(0)}50%{transform:translateY(-36px)}}
+@media(max-height:740px) {
+ #game-main .reward-screen .reward-spread {grid-template-rows:40px minmax(0,1fr) 48px 64px;padding:18px;}
+ #game-main .reward-screen .coin-scene {height:95px;}
+ #game-main .reward-screen .coin-flight {top:0;}
+ #game-main .reward-screen .coin-shadow {top:70px;}
+ #game-main .reward-screen .comic-phase-footer {padding-bottom:10px;}
+}
+@media(max-width:760px) {
+ #game-main .reward-screen .reward-spread {padding:12px;gap:12px;grid-template-rows:32px minmax(0,1fr) 44px 80px;}
+ #game-main .reward-screen .reward-half > h3 {font-size:18px;}
+ #game-main .reward-screen .reward-primary-row > button {height:44px;min-height:44px;font-size:14px;padding:4px;}
+ #game-main .reward-screen .reward-secondary-row > button {height:auto;font-size:12px;padding:4px;}
+ #game-main .reward-screen .reward-pool p,#game-main .reward-screen .reward-risk {font-size:12px;}
+ #game-main .reward-screen .reward-amount span {font-size:18px;}
+ #game-main .reward-screen .reward-amount strong {font-size:64px;}
+ #game-main .reward-screen .coin-scene {width:105px;height:90px;}
+ #game-main .reward-screen .coin-flight {transform:scale(.8);transform-origin:top center;}
+ #game-main .reward-screen .reward-guess legend {font-size:10px;}
+ #game-main .reward-screen .reward-guess button {padding:2px;min-height:28px;height:28px;font-size:12px;}
+ #game-main .reward-screen .reward-encounter {display:none;}
+ #game-main .reward-screen .comic-phase-footer {font-size:10px;padding:0 12px 8px;}
+}
+@media(prefers-reduced-motion:reduce){#game-main .reward-screen .tossing .coin-flight{animation:none;}}
+
+#game-main .reward-screen .coin-table:not(.multi-coin) .coin-scene {height:150px;width:200px;}
+#game-main .reward-screen .coin-table:not(.multi-coin) .coin-flight {width:150px;height:150px;left:calc(50% - 75px);top:0;}
+#game-main .reward-screen .coin-table:not(.multi-coin) .coin-shadow {width:150px;top:106px;}
+@media(max-width:760px){#game-main .reward-screen .coin-table:not(.multi-coin) .coin-scene{width:160px;height:130px;}}

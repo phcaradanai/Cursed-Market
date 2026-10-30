@@ -1,6 +1,6 @@
 # Reconcile existing screens without a new visual identity
 
-Audit proposals only. These screens were **not redesigned** in the continuity goal and are outside the14-image approval. Inspect the current implementation again before a follow-up; captures below retain their historical source/origin hashes in current-captures.json. No new concept generation is authorized here.
+Audit proposals, with S08 subsequently authorized for implementation2026-10-30. These screens were **not redesigned** in the continuity goal and are outside the14-image approval. Inspect the current implementation again before a follow-up; captures below retain their historical source/origin hashes in current-captures.json. No new concept generation is authorized here.
 
 | Screen / evidence | Observed difference in recorded capture | Recommended reuse and preserved behavior | Approval boundary for follow-up |
 |---|---|---|---|
@@ -10,3 +10,5 @@ Audit proposals only. These screens were **not redesigned** in the continuity go
 | S13 results · [C25 live](../game-design/captures/current-comic-2026-10-29/live-results.png) | Gold-heavy typography/row borders and expanding item regions differ from the approved menu hierarchy. | Reuse common frame/header, Noto Sans Thai hierarchy and existing rank-row/pager patterns. Preserve server-provided scores, ties, Collector item details, log download, return/leave. Show real2–4 seats and empty inventories; do not invent leader/path/ghost bonuses absent from runtime. UI entry point: App.tsx. | Review any ranking/detail navigation or information-visibility change first. Existing runtime scoring remains authoritative; planned scoring systems are separate tasks. |
 
 Reference: [approved inventory baseline](baselines/inventory-1440x722.png), [design system](design-system.md), [decisions](decisions.md). Safe identical-value consolidation can proceed under the session contract; material changes above require their own concrete review. They are not unfinished redesigns silently included in this audit.
+
+S08 follow-up2026-10-30: user approved salary-v01 implementation. Pending reward now uses ComicPhaseFrame, equal cash-out/coin regions and shared controls; existing post-cash-out S09 services/ready flow remains. Exact wages/odds/stakes and server commands unchanged. See ../game-design/implementations/S08-reward.md. Other proposals remain unapproved and untouched.

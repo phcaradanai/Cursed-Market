@@ -819,9 +819,9 @@
       "nextIds": [
         "S09"
       ],
-      "conceptStatus": "draft",
+      "conceptStatus": "implemented",
       "currentImage": "concepts/S08-salary-v01.png",
-      "approvedImage": null,
+      "approvedImage": "concepts/S08-salary-v01.png",
       "variants": [
         {
           "id": "unsettled",
@@ -840,7 +840,9 @@
           "purpose": "User-requested shared comic-frame redesign; symmetric cash-out and coin choice regions, initial one-coin multi-enabled state",
           "image": "concepts/S08-salary-v01.png",
           "brief": "concepts/S08-salary-v01.md",
-          "status": "draft"
+          "status": "implemented",
+          "captureImage": "captures/s08-2026-10-30/reveal-1440x722.png",
+          "implementationNote": "See implementations/S08-reward.md; concept approval does not approve screenshots as pixel references."
         }
       ],
       "mustShow": [],
@@ -861,13 +863,25 @@
           "image": "captures/current-comic-2026-10-29/live-salary.png",
           "title": "รับเครดิตและเสี่ยงเหรียญ · เกมจริง",
           "origin": "live-game"
+        },
+        {
+          "id": "C29",
+          "image": "captures/s08-2026-10-30/reveal-1440x722.png",
+          "title": "S08 initial reward decision",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C30",
+          "image": "captures/s08-2026-10-30/reward-multi-1440x722.png",
+          "title": "S08 multi-coin selection",
+          "origin": "existing-component-preview-fixture"
         }
       ],
       "captureStatus": "captured-existing",
-      "captureImage": "captures/current-comic-2026-10-29/live-salary.png",
+      "captureImage": "captures/s08-2026-10-30/reveal-1440x722.png",
       "designPolicy": "reuse-existing; change only explicit requested gap",
-      "captureNote": "Actual salary controls captured separately from preview summary without reward.",
-      "designNote": "2026-10-30 user explicitly requested S08 concept redesign only. Live C21 capture remains runtime evidence; new draft is not approved, implemented or a baseline replacement.",
+      "captureNote": "C29/C30 real comic component fixtures after approved S08 implementation; C21 remains historical live-game evidence. No new baseline approval.",
+      "designNote": "2026-10-30 user authorized salary-v01 implementation; shared ComicPhaseFrame and buttons, two-column pending decision, compact multi-coin selection. Runtime rules unchanged; existing S09 follows settlement.",
       "sourceRefs": [
         {
           "symbolId": "code:src/game/appraisal/engine.ts:settleEncounter",

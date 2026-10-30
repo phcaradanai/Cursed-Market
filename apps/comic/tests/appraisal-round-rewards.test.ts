@@ -163,3 +163,24 @@ test('income does not give dead survival spectators new rewards; living seats ca
   s.players[0]!.life=1;s=end(s);assert.equal(s.players[0]!.life,0);assert.equal(s.players[0]!.roundReward,undefined);assert(s.players[1]!.roundReward);
   assert.throws(()=>act(s,{type:'round-flip',guess:'heads',attempt:1}));s=advanceAppraisalEncounter(s);assert.equal(s.players[0]!.credits,40);assert.equal(s.players[1]!.credits,50);
 });
+
+test('comic reward decision has one cash-out, preserved six-menu access, and no duplicate ready shortcut',async()=>{
+  const {GameTable}=await import('../src/appraisal-client/App.js');
+  const {previewRooms}=await import('../src/appraisal-client/comic-preview-data.js');
+  const room=structuredClone(previewRooms.inspection!);const game=room.game!;
+  game.phase='REVEAL';game.encounter=3;game.self.eventOffer=null;
+  game.self.roundReward={encounter:3,base:10,amount:10,flips:0,settled:false,coinCount:1,staked:0,net:0};
+  const render=()=>renderToStaticMarkup(createElement(GameTable,{room,submit:()=>{},send:()=>true,disabled:false}));
+  const html=render();assert.equal((html.match(/>รับเลย 10 เครดิต</g)??[]).length,1);
+  assert.doesNotMatch(html,/รับ 10 เครดิตและไปต่อ/);assert.doesNotMatch(html,/ซื้อขายช่วง 3 เสร็จแล้ว/);
+  for(const label of ['กระเป๋า','สถานะ','Dark Market','สมุดบันทึก','กติกา','ตั้งค่า'])assert(html.includes(`aria-label="${label}"`),label);
+  game.self.roundReward.settled=true;
+  const settled=render();assert(!settled.includes('reward-screen'));assert(settled.includes('พร้อมไปช่วงถัดไป'));
+});
+test('many reward coins use bounded pages while retaining the full toss count and step',()=>{
+  const reward={encounter:3,base:10,amount:90,flips:0,settled:false,coinCount:9,staked:80,net:0};
+  const html=renderToStaticMarkup(createElement(RoundReward,{reward,credits:5,submit:()=>{},disabled:false,onTossing:()=>{}}));
+  assert.equal((html.match(/class="coin-scene/g)??[]).length,2);
+  for(const text of ['1 / 5','โยน 9 เหรียญ','ได้ 45 · ผิดหัก 45','เครดิตในกระเป๋าไม่พอเพิ่มเหรียญ'])assert(html.includes(text),text);
+  assert(!html.includes('<details'));
+});

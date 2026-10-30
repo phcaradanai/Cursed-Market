@@ -85,7 +85,7 @@ test('full phase surfaces render with live DTO data and no missing text',()=>{
   for(const phase of ['PORTALS','APPRAISAL','TRADE','REVEAL','RESULTS'] as const) {
     const state=appraisalFixture();state.phase=phase;const room=roomView(state);
     const html=renderToStaticMarkup(createElement(GameTable,{room,submit:()=>{},send:()=>true,disabled:false}));
-    const table=['PORTALS','APPRAISAL','TRADE'].includes(phase);
+    const table=phase!=='RESULTS';
     assert.equal(html.includes('id="drawer-market"'),table,`${phase}: market lives in its shared utility menu`);
     for(const label of ['สมุดบันทึก','กติกา','ตั้งค่า'])assert(new RegExp(`<button[^>]*aria-label="${label}"`).test(html),`${phase}: ${label} remains available`);assert.equal(html.includes('ของที่คุณเก็บไว้'),table,phase);
     assert(html.includes('เครดิต'));assert(!html.includes('undefined'));

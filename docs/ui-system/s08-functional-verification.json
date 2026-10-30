@@ -1,0 +1,34 @@
+{
+  "scope": "Comic S08 UI only; game/shared/server source unchanged",
+  "buildComic": "passed,115 modules, existing bundle-size warning",
+  "focused": {
+    "command": "node --test dist/tests/appraisal-round-rewards.test.js dist/tests/appraisal-client.test.js",
+    "tests": 83,
+    "pass": 83,
+    "fail": 0
+  },
+  "i18nBroaderGate": {
+    "current": [
+      "28 pre-existing missing English keys",
+      "old translated UI surfaces retain Thai",
+      "old Rules panel expected copy differs",
+      "existing pager buttons lack disabled title"
+    ],
+    "beforeSource": "Git export4548562, before S08 product changes",
+    "before": {
+      "tests": 7,
+      "pass": 3,
+      "fail": 4,
+      "missingKeys": 28
+    },
+    "after": {
+      "tests": 7,
+      "pass": 3,
+      "fail": 4,
+      "missingKeys": 28
+    },
+    "note": "Compared identical four failing i18n cases in committed earlier source. Not fixed or counted as passing in S08."
+  },
+  "preview": "S08 public fixtures are labelled examples; action buttons retain existing example-only feedback, not proof of live cash-out",
+  "initialCaptureAttempt": "Geometry/interaction completed four narrow/mid cases before raw screenshot timeout on wide case; retry limited to read-only screenshot timeout, no pixel-reference retry"
+}

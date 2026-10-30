@@ -1,6 +1,6 @@
 # S08 — รับเครดิตท้ายช่วงและเสี่ยงเหรียญ · v01
 
-2026-10-30 · **draft / not approved / no runtime UI change**
+2026-10-30 · **approved for implementation by user2026-10-30; implemented**
 
 The user explicitly requested a new concept image for this existing screen. This resumes image generation for S08 only; other paused image work stays paused. Keep C21/live-salary as the historical runtime capture and the approved inventory/menu baselines as the current visual authority.
 
@@ -24,4 +24,6 @@ Initial fixture: encounter3, wallet85, energy7/10, life4/6, pending reward10, on
 - Approved peer: `docs/ui-system/baselines/inventory-1440x722.png`.
 - Historical functionality: `docs/game-design/captures/current-comic-2026-10-29/live-salary.png`.
 - Generated image: `S08-salary-v01.png`; built-in imagegen, initial prompt and alignment/typography revision prompt retained in sibling `.prompt.txt` files.
-- Register as a draft variant. Keep actual capture and approvedImage separate; no automatic baseline promotion. Existing-game code and approved references remain unchanged.
+- Initially registered as a draft; user subsequently approved implementation. Keep actual captures and the concept reference separate; no automatic pixel-baseline promotion. Game-rule sources and approved baselines remain unchanged.
+
+Implementation and verification: ../implementations/S08-reward.md. Current screenshots C29/C30 are separate actual fixture evidence, not AI images or newly approved pixel baselines.

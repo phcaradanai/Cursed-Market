@@ -1,7 +1,7 @@
 {
   "version": 1,
   "asOf": "2026-10-30",
-  "revision": "580f9ba69166635691517dcabc3d7a244a014110",
+  "revision": "45485629fc6bf051904575e242b6574ac1ac3030",
   "inputs": {
     "src/game/appraisal/ability-content.ts": "ff33530545a771c4e686640f2fca5db996ef3612f9602da6ddbf68c12377127e",
     "src/game/appraisal/ability-rules.ts": "3e9f33f54b34c91fb26f6d0926f9df83e646dc3623a7c8bbf3beed5cedbc9139",
@@ -113,7 +113,7 @@
   "outputs": [
     {
       "file": "docs/game-design/system-atlas/README.md",
-      "sha256": "b14a91314299b9bdd99dab1d80b3d6442d5cac406969e7d71b627d7231f4a64e"
+      "sha256": "ba5356baa0f3b01168f1a37a8ffbc7665dbd95afd27b789e56e9b344b5935490"
     },
     {
       "file": "docs/game-design/system-atlas/actions-logs.md",
@@ -125,7 +125,7 @@
     },
     {
       "file": "docs/game-design/system-atlas/data.json",
-      "sha256": "ae5ab58c7d560c9d867d1c10fbcd3003f28ee06181f1bd479bc8e2afdc218df5"
+      "sha256": "1c6699208ea925996af532d47874bb0d2bbbe76a722c63bf91cb4e1a1fe8bab2"
     },
     {
       "file": "docs/game-design/system-atlas/edges.csv",

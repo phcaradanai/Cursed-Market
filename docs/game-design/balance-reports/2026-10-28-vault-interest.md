@@ -21,3 +21,7 @@ User confirmed on 2026-10-28: 10%, held from encounter start to finish, floor to
 ## Balance boundary
 
 This fixes a confirmed rule, not proof that 10% is balanced. Original pre-change 12-run synthetic baseline is in 2026-10-28-runtime-baseline.json. These bots do not intentionally execute every vault/loan action. Multiple victory paths are tracked separately in strategic-paths.md and are not implemented by this change.
+
+## Durable source follow-up2026-10-30
+
+User explicitly authorized a separate commit for this previously uncommitted work:4548562. Root server/client typechecks and29 focused vault/client/seal tests pass, including all9 aged-interest cases. A fresh Git-export tree verifies all106 Atlas inputs/outputs with installed dependencies reused. No additional production edits, E43 test change, comic rule integration or full simulation/balance claim is included. See docs/ui-system/root-provenance.json.

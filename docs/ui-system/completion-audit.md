@@ -1,6 +1,6 @@
 # Acceptance evidence — continuity goal
 
-Final verification audit2026-10-30. Completion is not yet declared: root Atlas source provenance must be resolved, scoped files committed and final gates checked. Historical failures remain documented; no unrelated screen redesign is implied.
+Final verification audit2026-10-30. Acceptance evidence complete: approved UI/source checks pass; separate root-source commit and Git-export verification resolve the last provenance gap. Historical failures remain documented; no unrelated screen redesign is implied.
 
 | Requirement | Current authoritative evidence | Verdict |
 |---|---|---|
@@ -15,7 +15,7 @@ Final verification audit2026-10-30. Completion is not yet declared: root Atlas s
 | Screenshot references and visual regression | sealed approved manifest14 states across7 stable screen IDs. compare-approved-pass-1.json and pass-2.json each14/14; max changed-pixel ratio0.0000794405833 in both, below unchanged0.001 limit | approved baselines pass twice, no reference mismatch retries or art masking |
 | Protect approval / trust fresh evidence | record refuses approved replacement; exact approved SHA set checked; CLI invocation receipts distinguish bootstrap failure from stale reports; failed readiness retains sample pair | covered by negative tests |
 | No unrelated redesign / original app preserved | production UI/rule/art unchanged in follow-ups; root legacy files and unrelated changes excluded from scoped commits; imports preserve original source/art | covered; proposals only for other screens |
-| Documentation/registry/generated HTML current | decisions, verification, roadmap, current capture metadata, stable IDs; generated atlas source/output hash checker106 inputs | final freshness gate required before closing |
+| Documentation/registry/generated HTML current | decisions, verification, roadmap, current capture metadata, stable IDs; generated atlas source/output hash checker106 inputs | verified106 inputs/outputs, including exported committed root source; see root-provenance.json |
 
 ## Evidence limits retained, not hidden
 
@@ -25,6 +25,6 @@ Final verification audit2026-10-30. Completion is not yet declared: root Atlas s
 - Full simulations were stopped after verified CPU-bound execution despite Node test-timeout. No whole-simulation, live multiplayer, phone-portrait or game-balance pass is claimed. None was used to justify UI changes; gameplay/balance integration remains the existing separate roadmap.
 - Trail check reports unrelated pre-existing .impeccable lexical conflicts. Those files are not part of the continuity commits. Any large-diff cap is reported rather than treated as an exhaustive pass.
 
-Root Atlas provenance: four current root runtime inputs differ from committed HEAD due to pre-existing aged-interest changes. Current-worktree freshness is not clean-clone reproducibility. See verification.md; this separate source work remains outside the UI commit pending scoped direction.
+Root Atlas provenance resolved: user approved the separate source commit4548562, server/client typechecks and29 focused tests pass. Fresh Git export verifies106 Atlas inputs and generated outputs, with installed dependencies reused explicitly. All source/art/docs used by this check are committed; no root gameplay was copied over comic. The separate E43 test assertion and unrelated work remain untouched.
 
 Repository implementation and explicit approved decisions remain authoritative. Memory supports history. These limits are documented operational boundaries, not authorization to rebrand, change rules or re-record reviewed images.

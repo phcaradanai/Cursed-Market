@@ -1,6 +1,6 @@
 # Verification — current evidence 2026-10-30
 
-Current UI gates pass against the exact user-approved references. Final continuity handoff still requires resolving the root-source provenance gap below and committing the scoped follow-up. This is not a full-game simulation or balance verdict.
+Continuity acceptance gates pass against the exact user-approved references. Root provenance gap resolved with the explicitly approved separate source commit4548562 and a Git-export check. This is not a full-game simulation or balance verdict.
 
 - Human approval: exact14-image set approved2026-10-30; image hashes sealed in `baselines/manifest.json`. The approval does not permit unrelated redesign or waive test failures.
 - Visual comparisons: `compare-approved-pass-1.json` and `compare-approved-pass-2.json` each pass14/14. Maximum changed-pixel ratio0.0000794405833, below unchanged0.001 limit. Reference images unchanged; only countdown masked. Current samples settle before a single reference comparison; failures are not retried against references.
@@ -11,9 +11,11 @@ Current UI gates pass against the exact user-approved references. Final continui
 - Memory: initial same-ID retain/recall probe plus actual baseline-approval retain, scoped recall and direct-ID retrieval verified. Broad mixed query returned irrelevant history; use explicit project tags and `tags_match:all`. Repository files remain authoritative. See `memory-health.json`.
 - Browser: original space3 missing; user approved replacement space4. Failed bootstrap is not counted as a visual result. Fresh successful invocation receipt: `compare-approved-pass-2-invocation.json`.
 
-## Remaining handoff dependency
+## Root-source handoff resolved2026-10-30
 
-The Atlas uses root runtime source. Four of its runtime inputs differ from committed HEAD: engine.ts, secure-storage.ts, types.ts and views.ts under `src/game/appraisal/`. They are pre-existing aged10% vault-interest work, not comic UI changes. The current worktree can pass Atlas freshness while a clean clone cannot reproduce those inputs. Preserve the pending source and related tests; obtain scoped user direction before folding this separate gameplay work into a continuity commit. Do not silently switch Atlas to the comic engine or call a worktree-only pass clean-clone proof.
+User explicitly authorized a separate aged-interest commit. Commit4548562 includes the five root source files and three vault-related test files; the separate E43 network assertion remains untouched. Server build, appraisal-client typecheck and29 focused tests pass, including9 aged-interest cases and legacy4% compatibility.
+
+Exported the committed Git tree into a fresh temporary directory and ran the Atlas checker there:106 inputs and all generated outputs match, including49 root runtime inputs. Source/art/docs came from Git, not the dirty worktree; installed dependencies were reused by symlink, so this is not a fresh npm-install or network proof. See `root-provenance.json` for exact revision/output and the retained earlier finding. Comic runtime remains isolated; this commit does not claim10% integration into comic.
 
 ## Verification limits
 

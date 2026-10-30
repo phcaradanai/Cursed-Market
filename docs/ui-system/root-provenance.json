@@ -1,38 +1,76 @@
 {
-  "asOfUTC": "2026-10-30T04:00:41.739159+00:00",
-  "head": "580f9ba69166635691517dcabc3d7a244a014110",
-  "scope": "Atlas root runtime inputs, not the isolated comic runtime",
-  "runtimeInputs": 49,
-  "uncommittedRuntimeInputs": [
-    {
-      "file": "src/game/appraisal/engine.ts",
-      "committedSha256": "ca18bc2afce5feac549f3b6b5c9bfc45a98a6de143a1288050efd913f9fbffb8",
-      "atlasAndWorktreeSha256": "fbf67f3390188c27e637d7ecd1aba2bc15d2b29f056b1384360331703a76f220"
-    },
-    {
-      "file": "src/game/appraisal/secure-storage.ts",
-      "committedSha256": "8809389abd9c149b961a08822979fcbfbebfb6042b6c826eed09dec126260e57",
-      "atlasAndWorktreeSha256": "7f718bc5594b9e1be3be28ea4c8cae3f24023a81b0b58f6a3949f3c00d8a7af5"
-    },
-    {
-      "file": "src/game/appraisal/types.ts",
-      "committedSha256": "fa347e8a5f82cc11eb171efd27966b8ff06e975cac84c68e4cc5365a01dc1e61",
-      "atlasAndWorktreeSha256": "082d9e63fb0eee479f864a378f595ae36800d45e614bf534ce673bff6ceb4d9b"
-    },
-    {
-      "file": "src/game/appraisal/views.ts",
-      "committedSha256": "f8dbb65384370226c329e6eee3b0c6af891c7fffe66d5b8e5cd720012605d592",
-      "atlasAndWorktreeSha256": "f6675475bc684341cdff6124bfe41851b3d71bfa8135c1fc3ec98b385aa0b1e5"
+  "asOfUTC": "2026-10-30T05:29:19.748606+00:00",
+  "status": "resolved: explicitly authorized root aged-interest source and focused tests committed separately",
+  "authorization": {
+    "date": "2026-10-30",
+    "source": "direct user answer to call_3e9569ea4ce043618cd1ff6ba72fbb83",
+    "answer": "ตรวจและเก็บกฎดอกเบี้ยเป็น commit แยก"
+  },
+  "sourceCommit": "45485629fc6bf051904575e242b6574ac1ac3030",
+  "scope": "Root Atlas runtime source; comic imported runtime remains separate and unchanged",
+  "uncommittedRuntimeInputs": [],
+  "exportVerification": {
+    "revision": "45485629fc6bf051904575e242b6574ac1ac3030",
+    "export": "/var/folders/09/d3d4dkqd74vc4qj3ydq0clf80000gn/T/cursed-market-committed-k7p_ngxa",
+    "command": "git archive HEAD -> fresh temporary tree; node docs/game-design/scripts/check-system-atlas.mjs",
+    "dependencies": "Existing installed root node_modules reused by symlink; not a fresh npm ci or network test. Source/art/docs all exported from Git.",
+    "inputs": 106,
+    "runtimeInputs": 49,
+    "exitCode": 0,
+    "output": "Atlas source fingerprints and outputs current: 106 inputs\nPASS: catalog coverage, namespaces, new56-only products, source guards, rule gaps, generic actions, profiles, original views and freshness.",
+    "additionalChecks": {
+      "comicSourceAndBaselineFingerprints": 359,
+      "uiContractTests": 10,
+      "passed": true,
+      "note": "Executed within the exported committed tree; no working-tree source substituted."
     }
-  ],
-  "status": "pending scoped direction for pre-existing aged10% vault-interest work; worktree freshness is not clean-clone reproducibility",
+  },
   "verification": {
     "command": "npm run build:server && node --test dist/tests/appraisal-vault-interest.test.js dist/tests/appraisal-secure-client.test.js dist/tests/appraisal-secure-seals.test.js",
     "buildExit": 0,
     "tests": 29,
     "pass": 29,
     "fail": 0,
-    "includesAgedInterestTests": 9
+    "includesAgedInterestTests": 9,
+    "appraisalClientTypecheckExit": 0
   },
-  "preservation": "No pending root source/test files staged or modified by the UI continuation. Do not silently switch Atlas source to comic."
+  "historicalFinding": {
+    "asOfUTC": "2026-10-30T04:00:41.739159+00:00",
+    "head": "580f9ba69166635691517dcabc3d7a244a014110",
+    "scope": "Atlas root runtime inputs, not the isolated comic runtime",
+    "runtimeInputs": 49,
+    "uncommittedRuntimeInputs": [
+      {
+        "file": "src/game/appraisal/engine.ts",
+        "committedSha256": "ca18bc2afce5feac549f3b6b5c9bfc45a98a6de143a1288050efd913f9fbffb8",
+        "atlasAndWorktreeSha256": "fbf67f3390188c27e637d7ecd1aba2bc15d2b29f056b1384360331703a76f220"
+      },
+      {
+        "file": "src/game/appraisal/secure-storage.ts",
+        "committedSha256": "8809389abd9c149b961a08822979fcbfbebfb6042b6c826eed09dec126260e57",
+        "atlasAndWorktreeSha256": "7f718bc5594b9e1be3be28ea4c8cae3f24023a81b0b58f6a3949f3c00d8a7af5"
+      },
+      {
+        "file": "src/game/appraisal/types.ts",
+        "committedSha256": "fa347e8a5f82cc11eb171efd27966b8ff06e975cac84c68e4cc5365a01dc1e61",
+        "atlasAndWorktreeSha256": "082d9e63fb0eee479f864a378f595ae36800d45e614bf534ce673bff6ceb4d9b"
+      },
+      {
+        "file": "src/game/appraisal/views.ts",
+        "committedSha256": "f8dbb65384370226c329e6eee3b0c6af891c7fffe66d5b8e5cd720012605d592",
+        "atlasAndWorktreeSha256": "f6675475bc684341cdff6124bfe41851b3d71bfa8135c1fc3ec98b385aa0b1e5"
+      }
+    ],
+    "status": "pending scoped direction for pre-existing aged10% vault-interest work; worktree freshness is not clean-clone reproducibility",
+    "verification": {
+      "command": "npm run build:server && node --test dist/tests/appraisal-vault-interest.test.js dist/tests/appraisal-secure-client.test.js dist/tests/appraisal-secure-seals.test.js",
+      "buildExit": 0,
+      "tests": 29,
+      "pass": 29,
+      "fail": 0,
+      "includesAgedInterestTests": 9
+    },
+    "preservation": "No pending root source/test files staged or modified by the UI continuation. Do not silently switch Atlas source to comic."
+  },
+  "preservation": "Separate E43 network assertion and unrelated .impeccable/untracked files remain untouched. No copying root gameplay over comic."
 }

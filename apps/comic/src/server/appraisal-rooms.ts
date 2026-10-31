@@ -16,7 +16,7 @@ export const APPRAISAL_PHASE_MS: Record<Exclude<AppraisalPhase, 'RESULTS'>, numb
 };
 /** Replenished income can keep a bot alive indefinitely. Runs without a Collector deadline retire survival bots after this encounter so the run can end. */
 const BOT_RETIRE_ENCOUNTER = 12;
-/** Each duel round must get both hands within this time, timed room or not, or the duel is cancelled. */
+/** Each duel round expires independently, even in untimed rooms; new runs fill missing hands, old audits cancel. */
 export const APPRAISAL_DUEL_MS = 30000;
 export class AppraisalRoomService extends RoomLifecycle<AppraisalState, AppraisalClientMessage, AppraisalServerMessage> {
   private readonly durations: typeof APPRAISAL_PHASE_MS;

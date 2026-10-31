@@ -244,20 +244,20 @@
       "captureNote": "Code supports portal-event previews, but no matching preportal state captured in this session; do not infer missing implementation.",
       "sourceRefs": [
         {
-          "symbolId": "code:src/game/appraisal/engine.ts:generatePortals",
-          "file": "src/game/appraisal/engine.ts",
-          "line": 131,
-          "endLine": 139
+          "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:generatePortals",
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 135,
+          "endLine": 143
         },
         {
-          "symbolId": "code:src/game/appraisal/core2-events.ts:resolveCore2Event",
-          "file": "src/game/appraisal/core2-events.ts",
+          "symbolId": "code:apps/comic/src/game/appraisal/core2-events.ts:resolveCore2Event",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 79,
           "endLine": 108
         },
         {
-          "symbolId": "code:src/game/appraisal/core2-events.ts:core2EventChoices",
-          "file": "src/game/appraisal/core2-events.ts",
+          "symbolId": "code:apps/comic/src/game/appraisal/core2-events.ts:core2EventChoices",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 31,
           "endLine": 44
         }
@@ -309,16 +309,16 @@
       "merchantExpressionRule": "MERCHANT-EXPRESSION-01",
       "sourceRefs": [
         {
-          "symbolId": "code:src/game/appraisal/engine.ts:generatePortals",
-          "file": "src/game/appraisal/engine.ts",
-          "line": 131,
-          "endLine": 139
+          "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:generatePortals",
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 135,
+          "endLine": 143
         },
         {
-          "symbolId": "code:src/game/appraisal/engine.ts:applyAppraisalAction",
-          "file": "src/game/appraisal/engine.ts",
-          "line": 322,
-          "endLine": 413
+          "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 326,
+          "endLine": 424
         }
       ]
     },
@@ -435,20 +435,20 @@
       "captureImage": "captures/current-comic-2026-10-29/event-blood-pact.png",
       "sourceRefs": [
         {
-          "symbolId": "code:src/game/appraisal/engine.ts:progress",
-          "file": "src/game/appraisal/engine.ts",
-          "line": 212,
-          "endLine": 224
+          "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:progress",
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 216,
+          "endLine": 228
         },
         {
-          "symbolId": "code:src/game/appraisal/npc-events.ts:npcEventEligible",
-          "file": "src/game/appraisal/npc-events.ts",
+          "symbolId": "code:apps/comic/src/game/appraisal/npc-events.ts:npcEventEligible",
+          "file": "apps/comic/src/game/appraisal/npc-events.ts",
           "line": 19,
           "endLine": 34
         },
         {
-          "symbolId": "code:src/game/appraisal/npc-events.ts:resolvePersonalNpcEvent",
-          "file": "src/game/appraisal/npc-events.ts",
+          "symbolId": "code:apps/comic/src/game/appraisal/npc-events.ts:resolvePersonalNpcEvent",
+          "file": "apps/comic/src/game/appraisal/npc-events.ts",
           "line": 78,
           "endLine": 121
         }
@@ -560,16 +560,16 @@
       "merchantExpressionRule": "MERCHANT-EXPRESSION-01",
       "sourceRefs": [
         {
-          "symbolId": "code:src/game/appraisal/engine.ts:progress",
-          "file": "src/game/appraisal/engine.ts",
-          "line": 212,
-          "endLine": 224
+          "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:progress",
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 216,
+          "endLine": 228
         },
         {
-          "symbolId": "code:src/game/appraisal/engine.ts:applyAppraisalAction",
-          "file": "src/game/appraisal/engine.ts",
-          "line": 322,
-          "endLine": 413
+          "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 326,
+          "endLine": 424
         }
       ]
     },
@@ -613,10 +613,10 @@
       "captureNote": "",
       "sourceRefs": [
         {
-          "symbolId": "code:src/game/appraisal/engine.ts:progress",
-          "file": "src/game/appraisal/engine.ts",
-          "line": 212,
-          "endLine": 224
+          "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:progress",
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 216,
+          "endLine": 228
         }
       ]
     },
@@ -751,10 +751,10 @@
       },
       "sourceRefs": [
         {
-          "symbolId": "code:src/game/appraisal/engine.ts:progress",
-          "file": "src/game/appraisal/engine.ts",
-          "line": 212,
-          "endLine": 224
+          "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:progress",
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 216,
+          "endLine": 228
         }
       ]
     },
@@ -806,10 +806,10 @@
       "captureNote": "Not captured is not proof this screen is absent.",
       "sourceRefs": [
         {
-          "symbolId": "code:src/game/appraisal/engine.ts:settleEncounter",
-          "file": "src/game/appraisal/engine.ts",
-          "line": 187,
-          "endLine": 211
+          "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 191,
+          "endLine": 215
         }
       ]
     },
@@ -896,14 +896,14 @@
       "designNote": "2026-10-30 user authorized salary-v01 implementation; shared ComicPhaseFrame and buttons, two-column pending decision, compact multi-coin selection. Runtime rules unchanged; existing S09 follows settlement.",
       "sourceRefs": [
         {
-          "symbolId": "code:src/game/appraisal/engine.ts:settleEncounter",
-          "file": "src/game/appraisal/engine.ts",
-          "line": 187,
-          "endLine": 211
+          "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 191,
+          "endLine": 215
         },
         {
-          "symbolId": "code:src/game/appraisal/round-rewards.ts:openRoundRewards",
-          "file": "src/game/appraisal/round-rewards.ts",
+          "symbolId": "code:apps/comic/src/game/appraisal/round-rewards.ts:openRoundRewards",
+          "file": "apps/comic/src/game/appraisal/round-rewards.ts",
           "line": 8,
           "endLine": 20
         }
@@ -986,14 +986,14 @@
       "implementationAuthorization": "2026-10-30 user: ออกแบบ concept image และทำต่อ",
       "sourceRefs": [
         {
-          "symbolId": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
-          "file": "src/game/appraisal/engine.ts",
-          "line": 414,
-          "endLine": 444
+          "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 425,
+          "endLine": 455
         },
         {
-          "symbolId": "code:src/game/appraisal/secure-storage.ts:handleStorageAction",
-          "file": "src/game/appraisal/secure-storage.ts",
+          "symbolId": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleStorageAction",
+          "file": "apps/comic/src/game/appraisal/secure-storage.ts",
           "line": 70,
           "endLine": 102
         }
@@ -1134,14 +1134,14 @@
       "captureNote": "Not captured is not proof this screen is absent.",
       "sourceRefs": [
         {
-          "symbolId": "code:src/game/appraisal/survival.ts:collectRun",
-          "file": "src/game/appraisal/survival.ts",
+          "symbolId": "code:apps/comic/src/game/appraisal/survival.ts:collectRun",
+          "file": "apps/comic/src/game/appraisal/survival.ts",
           "line": 14,
-          "endLine": 34
+          "endLine": 35
         },
         {
-          "symbolId": "code:src/game/appraisal/survival.ts:collectorDue",
-          "file": "src/game/appraisal/survival.ts",
+          "symbolId": "code:apps/comic/src/game/appraisal/survival.ts:collectorDue",
+          "file": "apps/comic/src/game/appraisal/survival.ts",
           "line": 13,
           "endLine": 13
         }
@@ -1190,10 +1190,10 @@
       "captureNote": "",
       "sourceRefs": [
         {
-          "symbolId": "code:src/game/appraisal/survival.ts:collectRun",
-          "file": "src/game/appraisal/survival.ts",
+          "symbolId": "code:apps/comic/src/game/appraisal/survival.ts:collectRun",
+          "file": "apps/comic/src/game/appraisal/survival.ts",
           "line": 14,
-          "endLine": 34
+          "endLine": 35
         }
       ]
     },

@@ -15,19 +15,19 @@
   "encounterModels": 6,
   "phases": 5,
   "actions": 56,
-  "configKeys": 53,
-  "parameters": 67,
-  "functions": 444,
-  "codeSymbols": 577,
-  "policies": 197,
-  "randomRules": 95,
+  "configKeys": 54,
+  "parameters": 70,
+  "functions": 464,
+  "codeSymbols": 603,
+  "policies": 212,
+  "randomRules": 96,
   "legacyGateSites": 21,
-  "logSites": 105,
-  "logTopics": 92,
-  "validationSites": 429,
+  "logSites": 106,
+  "logTopics": 93,
+  "validationSites": 433,
   "dynamicStatusOperations": 28,
-  "schemas": 112,
-  "propertyWriteSites": 509
+  "schemas": 117,
+  "propertyWriteSites": 516
 }
 ```
 ## กฎยืนยันและสถานะ runtime
@@ -38,8 +38,13 @@
 {
   "id": "forced-rps",
   "name": "ขโมยบังคับ RPS ห้ามปฏิเสธ",
-  "state": "confirmed-rule/runtime-gap",
-  "runtime": "expireTheftDuel cancels on expiry",
+  "state": "implemented-new-runs/legacy-versioned",
+  "runtime": {
+    "flag": "theftTimeoutRules:1",
+    "newRuns": "server-seeded missing hands only; preserve submitted hands; fresh independent deadline after a tie",
+    "legacy": "flagless audits retain cancellation",
+    "verification": "docs/ui-system/forced-rps-verification.json"
+  },
   "confirmed": "ห้ามปฏิเสธ; timeout ต้องไม่เป็นช่องหลบปลอดภัย",
   "functionNames": [
     "startTheftDuel",
@@ -52,9 +57,9 @@
   ],
   "evidence": "docs/game-design/rules-and-logic.md",
   "functionRefs": [
-    "code:src/game/appraisal/theft.ts:startTheftDuel",
-    "code:src/game/appraisal/theft.ts:expireTheftDuel",
-    "code:src/game/appraisal/theft.ts:chooseTheftHand"
+    "code:apps/comic/src/game/appraisal/theft.ts:startTheftDuel",
+    "code:apps/comic/src/game/appraisal/theft.ts:expireTheftDuel",
+    "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand"
   ]
 }
 ```
@@ -83,9 +88,9 @@
   ],
   "evidence": "docs/game-design/rules-and-logic.md",
   "functionRefs": [
-    "code:src/game/appraisal/secure-storage.ts:payVaultInterest",
-    "code:src/game/appraisal/secure-storage.ts:handleStorageAction",
-    "code:src/game/appraisal/secure-storage.ts:vaultInterestOf"
+    "code:apps/comic/src/game/appraisal/secure-storage.ts:payVaultInterest",
+    "code:apps/comic/src/game/appraisal/secure-storage.ts:handleStorageAction",
+    "code:apps/comic/src/game/appraisal/secure-storage.ts:vaultInterestOf"
   ]
 }
 ```
@@ -128,8 +133,8 @@
   "note": "ผู้ใช้แก้ความหมาย 2026-10-29: วัด cumulative life lost ไม่ใช่ death count; ตายได้ครั้งเดียว; ไม่อนุมาน ×4/×5",
   "evidence": "docs/game-design/rules-and-logic.md",
   "functionRefs": [
-    "code:src/game/appraisal/scoring.ts:collectorTotal",
-    "code:src/game/appraisal/survival.ts:collectRun"
+    "code:apps/comic/src/game/appraisal/scoring.ts:collectorTotal",
+    "code:apps/comic/src/game/appraisal/survival.ts:collectRun"
   ]
 }
 ```
@@ -141,9 +146,9 @@
 {
   "legacyKindSites": [
     {
-      "owner": "code:src/game/appraisal/events.ts:eventEligible",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
       "source": {
-        "file": "src/game/appraisal/events.ts",
+        "file": "apps/comic/src/game/appraisal/events.ts",
         "line": 126,
         "endLine": 126
       },
@@ -156,9 +161,9 @@
       "end": 10483
     },
     {
-      "owner": "code:src/game/appraisal/events.ts:eventEligible",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
       "source": {
-        "file": "src/game/appraisal/events.ts",
+        "file": "apps/comic/src/game/appraisal/events.ts",
         "line": 148,
         "endLine": 148
       },
@@ -171,9 +176,9 @@
       "end": 12156
     },
     {
-      "owner": "code:src/game/appraisal/events.ts:eventEligible",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
       "source": {
-        "file": "src/game/appraisal/events.ts",
+        "file": "apps/comic/src/game/appraisal/events.ts",
         "line": 149,
         "endLine": 149
       },
@@ -186,9 +191,9 @@
       "end": 12214
     },
     {
-      "owner": "code:src/game/appraisal/events.ts:eventEligible",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
       "source": {
-        "file": "src/game/appraisal/events.ts",
+        "file": "apps/comic/src/game/appraisal/events.ts",
         "line": 150,
         "endLine": 150
       },
@@ -201,9 +206,9 @@
       "end": 12305
     },
     {
-      "owner": "code:src/game/appraisal/events.ts:eventEligible",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
       "source": {
-        "file": "src/game/appraisal/events.ts",
+        "file": "apps/comic/src/game/appraisal/events.ts",
         "line": 151,
         "endLine": 151
       },
@@ -216,9 +221,9 @@
       "end": 12385
     },
     {
-      "owner": "code:src/game/appraisal/events.ts:eventEligible",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
       "source": {
-        "file": "src/game/appraisal/events.ts",
+        "file": "apps/comic/src/game/appraisal/events.ts",
         "line": 152,
         "endLine": 152
       },
@@ -231,9 +236,9 @@
       "end": 12506
     },
     {
-      "owner": "code:src/game/appraisal/events.ts:eventEligible",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
       "source": {
-        "file": "src/game/appraisal/events.ts",
+        "file": "apps/comic/src/game/appraisal/events.ts",
         "line": 153,
         "endLine": 153
       },
@@ -246,9 +251,9 @@
       "end": 12612
     },
     {
-      "owner": "code:src/game/appraisal/events.ts:eventEligible",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
       "source": {
-        "file": "src/game/appraisal/events.ts",
+        "file": "apps/comic/src/game/appraisal/events.ts",
         "line": 155,
         "endLine": 155
       },
@@ -261,9 +266,9 @@
       "end": 12781
     },
     {
-      "owner": "code:src/game/appraisal/events.ts:eventEligible",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
       "source": {
-        "file": "src/game/appraisal/events.ts",
+        "file": "apps/comic/src/game/appraisal/events.ts",
         "line": 156,
         "endLine": 156
       },
@@ -276,9 +281,9 @@
       "end": 12870
     },
     {
-      "owner": "code:src/game/appraisal/events.ts:eventEligible",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
       "source": {
-        "file": "src/game/appraisal/events.ts",
+        "file": "apps/comic/src/game/appraisal/events.ts",
         "line": 157,
         "endLine": 157
       },
@@ -291,9 +296,9 @@
       "end": 12967
     },
     {
-      "owner": "code:src/game/appraisal/events.ts:offerEvent",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:offerEvent",
       "source": {
-        "file": "src/game/appraisal/events.ts",
+        "file": "apps/comic/src/game/appraisal/events.ts",
         "line": 228,
         "endLine": 228
       },
@@ -306,9 +311,9 @@
       "end": 18443
     },
     {
-      "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
       "source": {
-        "file": "src/game/appraisal/events.ts",
+        "file": "apps/comic/src/game/appraisal/events.ts",
         "line": 332,
         "endLine": 332
       },
@@ -321,9 +326,9 @@
       "end": 29427
     },
     {
-      "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
       "source": {
-        "file": "src/game/appraisal/events.ts",
+        "file": "apps/comic/src/game/appraisal/events.ts",
         "line": 356,
         "endLine": 356
       },
@@ -336,9 +341,9 @@
       "end": 32771
     },
     {
-      "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
       "source": {
-        "file": "src/game/appraisal/events.ts",
+        "file": "apps/comic/src/game/appraisal/events.ts",
         "line": 357,
         "endLine": 357
       },
@@ -351,9 +356,9 @@
       "end": 33008
     },
     {
-      "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
       "source": {
-        "file": "src/game/appraisal/events.ts",
+        "file": "apps/comic/src/game/appraisal/events.ts",
         "line": 358,
         "endLine": 358
       },
@@ -366,9 +371,9 @@
       "end": 33234
     },
     {
-      "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
       "source": {
-        "file": "src/game/appraisal/events.ts",
+        "file": "apps/comic/src/game/appraisal/events.ts",
         "line": 359,
         "endLine": 359
       },
@@ -381,9 +386,9 @@
       "end": 33441
     },
     {
-      "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
       "source": {
-        "file": "src/game/appraisal/events.ts",
+        "file": "apps/comic/src/game/appraisal/events.ts",
         "line": 360,
         "endLine": 360
       },
@@ -396,9 +401,9 @@
       "end": 33871
     },
     {
-      "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
       "source": {
-        "file": "src/game/appraisal/events.ts",
+        "file": "apps/comic/src/game/appraisal/events.ts",
         "line": 361,
         "endLine": 361
       },
@@ -411,9 +416,9 @@
       "end": 34088
     },
     {
-      "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
       "source": {
-        "file": "src/game/appraisal/events.ts",
+        "file": "apps/comic/src/game/appraisal/events.ts",
         "line": 363,
         "endLine": 363
       },
@@ -426,9 +431,9 @@
       "end": 34431
     },
     {
-      "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
       "source": {
-        "file": "src/game/appraisal/events.ts",
+        "file": "apps/comic/src/game/appraisal/events.ts",
         "line": 364,
         "endLine": 364
       },
@@ -441,9 +446,9 @@
       "end": 34656
     },
     {
-      "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
       "source": {
-        "file": "src/game/appraisal/events.ts",
+        "file": "apps/comic/src/game/appraisal/events.ts",
         "line": 368,
         "endLine": 368
       },
@@ -1156,6 +1161,7 @@
 ## ข้อจำกัดและงานติดตาม
 
 - Static branches record possible source paths, not simultaneous effects or availability for a particular player.
+- legacyTargetGates counts literal kindOwned/ownKind helper calls, not every direct kind/family predicate; migration still needs a complete consumer audit.
 - Choice candidates extracted from source may be gated, replaced, dynamic or fallback-only.
 - Encounter generation is seeded and stateful; this catalog does not enumerate every possible run.
 - No new56 item→runtime-event binding is inferred from images, names, old kinds or effect IDs.
@@ -1170,9 +1176,9 @@
 ```json
 [
   {
-    "id": "operation:src/game/appraisal/brokerage.ts:4997",
+    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:4997",
     "name": "grant",
-    "owner": "code:src/game/appraisal/brokerage.ts:applyGain",
+    "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:applyGain",
     "args": [
       "state",
       "p",
@@ -1181,7 +1187,7 @@
     "statusIds": [],
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/brokerage.ts",
+      "file": "apps/comic/src/game/appraisal/brokerage.ts",
       "line": 71,
       "endLine": 71
     },
@@ -1190,9 +1196,9 @@
     "end": 5015
   },
   {
-    "id": "operation:src/game/appraisal/brokerage.ts:5052",
+    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:5052",
     "name": "grant",
-    "owner": "code:src/game/appraisal/brokerage.ts:applyGain",
+    "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:applyGain",
     "args": [
       "state",
       "p",
@@ -1201,7 +1207,7 @@
     "statusIds": [],
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/brokerage.ts",
+      "file": "apps/comic/src/game/appraisal/brokerage.ts",
       "line": 72,
       "endLine": 72
     },
@@ -1210,9 +1216,9 @@
     "end": 5070
   },
   {
-    "id": "operation:src/game/appraisal/brokerage.ts:9333",
+    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:9333",
     "name": "grant",
-    "owner": "code:src/game/appraisal/brokerage.ts:unsoldPenalty",
+    "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:unsoldPenalty",
     "args": [
       "state",
       "p",
@@ -1221,7 +1227,7 @@
     "statusIds": [],
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/brokerage.ts",
+      "file": "apps/comic/src/game/appraisal/brokerage.ts",
       "line": 133,
       "endLine": 133
     },
@@ -1230,9 +1236,9 @@
     "end": 9351
   },
   {
-    "id": "operation:src/game/appraisal/brokerage.ts:10992",
+    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:10992",
     "name": "grant",
-    "owner": "code:src/game/appraisal/brokerage.ts:consign",
+    "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:consign",
     "args": [
       "state",
       "p",
@@ -1245,7 +1251,7 @@
       "roll>=CORE2.consign.cleanBelow"
     ],
     "source": {
-      "file": "src/game/appraisal/brokerage.ts",
+      "file": "apps/comic/src/game/appraisal/brokerage.ts",
       "line": 154,
       "endLine": 154
     },
@@ -1254,9 +1260,9 @@
     "end": 11020
   },
   {
-    "id": "operation:src/game/appraisal/brokerage.ts:11831",
+    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:11831",
     "name": "grant",
-    "owner": "code:src/game/appraisal/brokerage.ts:consign",
+    "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:consign",
     "args": [
       "state",
       "p",
@@ -1268,7 +1274,7 @@
       "roll>=CONSIGN_RULES.cleanBelow"
     ],
     "source": {
-      "file": "src/game/appraisal/brokerage.ts",
+      "file": "apps/comic/src/game/appraisal/brokerage.ts",
       "line": 165,
       "endLine": 165
     },
@@ -1277,9 +1283,9 @@
     "end": 11857
   },
   {
-    "id": "operation:src/game/appraisal/core2-actions.ts:7729",
+    "id": "operation:apps/comic/src/game/appraisal/core2-actions.ts:7729",
     "name": "removeStatus",
-    "owner": "code:src/game/appraisal/core2-actions.ts:useSkill",
+    "owner": "code:apps/comic/src/game/appraisal/core2-actions.ts:useSkill",
     "args": [
       "p",
       "debuff.id"
@@ -1287,7 +1293,7 @@
     "statusIds": [],
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/core2-actions.ts",
+      "file": "apps/comic/src/game/appraisal/core2-actions.ts",
       "line": 118,
       "endLine": 118
     },
@@ -1296,9 +1302,9 @@
     "end": 7761
   },
   {
-    "id": "operation:src/game/appraisal/core2-events.ts:6739",
+    "id": "operation:apps/comic/src/game/appraisal/core2-events.ts:6739",
     "name": "grant",
-    "owner": "code:src/game/appraisal/core2-events.ts:resolveCore2Event",
+    "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:resolveCore2Event",
     "args": [
       "state",
       "p",
@@ -1307,7 +1313,7 @@
     "statusIds": [],
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/core2-events.ts",
+      "file": "apps/comic/src/game/appraisal/core2-events.ts",
       "line": 96,
       "endLine": 96
     },
@@ -1316,9 +1322,9 @@
     "end": 6755
   },
   {
-    "id": "operation:src/game/appraisal/core2-events.ts:6917",
+    "id": "operation:apps/comic/src/game/appraisal/core2-events.ts:6917",
     "name": "grant",
-    "owner": "code:src/game/appraisal/core2-events.ts:resolveCore2Event",
+    "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:resolveCore2Event",
     "args": [
       "state",
       "p",
@@ -1329,7 +1335,7 @@
       "picked.gamble"
     ],
     "source": {
-      "file": "src/game/appraisal/core2-events.ts",
+      "file": "apps/comic/src/game/appraisal/core2-events.ts",
       "line": 99,
       "endLine": 99
     },
@@ -1338,9 +1344,9 @@
     "end": 6933
   },
   {
-    "id": "operation:src/game/appraisal/events.ts:29331",
+    "id": "operation:apps/comic/src/game/appraisal/events.ts:29331",
     "name": "removeStatus",
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "args": [
       "p",
       "selected"
@@ -1348,7 +1354,7 @@
     "statusIds": [],
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 331,
       "endLine": 331
     },
@@ -1357,9 +1363,9 @@
     "end": 29356
   },
   {
-    "id": "operation:src/game/appraisal/events.ts:29357",
+    "id": "operation:apps/comic/src/game/appraisal/events.ts:29357",
     "name": "grant",
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "args": [
       "state",
       "p",
@@ -1368,7 +1374,7 @@
     "statusIds": [],
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 331,
       "endLine": 331
     },
@@ -1377,9 +1383,9 @@
     "end": 29377
   },
   {
-    "id": "operation:src/game/appraisal/events.ts:33592",
+    "id": "operation:apps/comic/src/game/appraisal/events.ts:33592",
     "name": "removeStatus",
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "args": [
       "p",
       "selected"
@@ -1387,7 +1393,7 @@
     "statusIds": [],
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 359,
       "endLine": 359
     },
@@ -1396,9 +1402,9 @@
     "end": 33617
   },
   {
-    "id": "operation:src/game/appraisal/events.ts:34011",
+    "id": "operation:apps/comic/src/game/appraisal/events.ts:34011",
     "name": "removeStatus",
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "args": [
       "p",
       "selected"
@@ -1408,7 +1414,7 @@
       "power===1||randomAt(state.seed,`${offer.key}:${v}:copy-potion`)<power"
     ],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 360,
       "endLine": 360
     },
@@ -1417,9 +1423,9 @@
     "end": 34035
   },
   {
-    "id": "operation:src/game/appraisal/events.ts:35418",
+    "id": "operation:apps/comic/src/game/appraisal/events.ts:35418",
     "name": "removeStatus",
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "args": [
       "p",
       "selected"
@@ -1427,7 +1433,7 @@
     "statusIds": [],
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 370,
       "endLine": 370
     },
@@ -1436,9 +1442,9 @@
     "end": 35443
   },
   {
-    "id": "operation:src/game/appraisal/events.ts:38666",
+    "id": "operation:apps/comic/src/game/appraisal/events.ts:38666",
     "name": "grant",
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "args": [
       "state",
       "p",
@@ -1447,7 +1453,7 @@
     "statusIds": [],
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 390,
       "endLine": 390
     },
@@ -1456,9 +1462,9 @@
     "end": 38683
   },
   {
-    "id": "operation:src/game/appraisal/events.ts:38864",
+    "id": "operation:apps/comic/src/game/appraisal/events.ts:38864",
     "name": "grant",
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "args": [
       "state",
       "p",
@@ -1467,7 +1473,7 @@
     "statusIds": [],
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 392,
       "endLine": 392
     },
@@ -1476,9 +1482,9 @@
     "end": 38885
   },
   {
-    "id": "operation:src/game/appraisal/events.ts:39679",
+    "id": "operation:apps/comic/src/game/appraisal/events.ts:39679",
     "name": "removeStatus",
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "args": [
       "p",
       "selected"
@@ -1486,7 +1492,7 @@
     "statusIds": [],
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 397,
       "endLine": 397
     },
@@ -1495,9 +1501,9 @@
     "end": 39704
   },
   {
-    "id": "operation:src/game/appraisal/mechanics.ts:21773",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:21773",
     "name": "grant",
-    "owner": "code:src/game/appraisal/mechanics.ts:appraise",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
     "args": [
       "state",
       "p",
@@ -1508,7 +1514,7 @@
       "p.honestyReward && accuracy"
     ],
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 287,
       "endLine": 287
     },
@@ -1517,9 +1523,9 @@
     "end": 21804
   },
   {
-    "id": "operation:src/game/appraisal/mechanics.ts:31348",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:31348",
     "name": "grant",
-    "owner": "code:src/game/appraisal/mechanics.ts:purchase",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
     "args": [
       "state",
       "buyer",
@@ -1530,7 +1536,7 @@
       "options.grantStatus"
     ],
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 394,
       "endLine": 394
     },
@@ -1539,9 +1545,9 @@
     "end": 31387
   },
   {
-    "id": "operation:src/game/appraisal/mechanics.ts:31413",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:31413",
     "name": "grant",
-    "owner": "code:src/game/appraisal/mechanics.ts:purchase",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
     "args": [
       "state",
       "buyer",
@@ -1552,7 +1558,7 @@
       "options.condition"
     ],
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 395,
       "endLine": 395
     },
@@ -1561,9 +1567,9 @@
     "end": 31450
   },
   {
-    "id": "operation:src/game/appraisal/mechanics.ts:32154",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:32154",
     "name": "grant",
-    "owner": "code:src/game/appraisal/mechanics.ts:activate",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "args": [
       "state",
       "p",
@@ -1576,7 +1582,7 @@
       "item.cursed"
     ],
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 405,
       "endLine": 405
     },
@@ -1585,9 +1591,9 @@
     "end": 32217
   },
   {
-    "id": "operation:src/game/appraisal/mechanics.ts:35381",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:35381",
     "name": "grant",
-    "owner": "code:src/game/appraisal/mechanics.ts:activate",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "args": [
       "state",
       "p",
@@ -1604,7 +1610,7 @@
       "NOT itemFamily(item.kind) === 'key' && status(p,'D07')"
     ],
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 436,
       "endLine": 436
     },
@@ -1613,9 +1619,9 @@
     "end": 35422
   },
   {
-    "id": "operation:src/game/appraisal/mechanics.ts:41709",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:41709",
     "name": "grant",
-    "owner": "code:src/game/appraisal/mechanics.ts:marketSell",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
     "args": [
       "state",
       "p",
@@ -1629,7 +1635,7 @@
       "NOT cost.kind==='life'"
     ],
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 511,
       "endLine": 511
     },
@@ -1638,9 +1644,9 @@
     "end": 41738
   },
   {
-    "id": "operation:src/game/appraisal/mechanics.ts:42587",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:42587",
     "name": "grant",
-    "owner": "code:src/game/appraisal/mechanics.ts:marketSell",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
     "args": [
       "state",
       "p",
@@ -1654,7 +1660,7 @@
       "bonus.kind==='buff'"
     ],
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 523,
       "endLine": 523
     },
@@ -1663,9 +1669,9 @@
     "end": 42616
   },
   {
-    "id": "operation:src/game/appraisal/merchant-abilities.ts:8327",
+    "id": "operation:apps/comic/src/game/appraisal/merchant-abilities.ts:8327",
     "name": "removeStatus",
-    "owner": "code:src/game/appraisal/merchant-abilities.ts:useMerchantAbility",
+    "owner": "code:apps/comic/src/game/appraisal/merchant-abilities.ts:useMerchantAbility",
     "args": [
       "p",
       "action.statusId"
@@ -1673,7 +1679,7 @@
     "statusIds": [],
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/merchant-abilities.ts",
+      "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
       "line": 92,
       "endLine": 92
     },
@@ -1682,9 +1688,9 @@
     "end": 8358
   },
   {
-    "id": "operation:src/game/appraisal/npc-events.ts:5638",
+    "id": "operation:apps/comic/src/game/appraisal/npc-events.ts:5638",
     "name": "grant",
-    "owner": "code:src/game/appraisal/npc-events.ts:randomBuff",
+    "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:randomBuff",
     "args": [
       "state",
       "p",
@@ -1693,7 +1699,7 @@
     "statusIds": [],
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/npc-events.ts",
+      "file": "apps/comic/src/game/appraisal/npc-events.ts",
       "line": 70,
       "endLine": 70
     },
@@ -1702,9 +1708,9 @@
     "end": 5655
   },
   {
-    "id": "operation:src/game/appraisal/npc-events.ts:8884",
+    "id": "operation:apps/comic/src/game/appraisal/npc-events.ts:8884",
     "name": "removeStatus",
-    "owner": "code:src/game/appraisal/npc-events.ts:resolvePersonalNpcEvent",
+    "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:resolvePersonalNpcEvent",
     "args": [
       "p",
       "command.statusId!"
@@ -1714,7 +1720,7 @@
       "command.choice==='purge'"
     ],
     "source": {
-      "file": "src/game/appraisal/npc-events.ts",
+      "file": "apps/comic/src/game/appraisal/npc-events.ts",
       "line": 105,
       "endLine": 105
     },
@@ -1723,9 +1729,9 @@
     "end": 8917
   },
   {
-    "id": "operation:src/game/appraisal/npc-events.ts:9141",
+    "id": "operation:apps/comic/src/game/appraisal/npc-events.ts:9141",
     "name": "grant",
-    "owner": "code:src/game/appraisal/npc-events.ts:resolvePersonalNpcEvent",
+    "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:resolvePersonalNpcEvent",
     "args": [
       "state",
       "victim!",
@@ -1736,7 +1742,7 @@
       "NOT command.choice==='purge'"
     ],
     "source": {
-      "file": "src/game/appraisal/npc-events.ts",
+      "file": "apps/comic/src/game/appraisal/npc-events.ts",
       "line": 106,
       "endLine": 106
     },
@@ -1745,9 +1751,9 @@
     "end": 9164
   },
   {
-    "id": "operation:src/game/appraisal/theft.ts:11707",
+    "id": "operation:apps/comic/src/game/appraisal/theft.ts:12341",
     "name": "consumeStatus",
-    "owner": "code:src/game/appraisal/theft.ts:breakTie",
+    "owner": "code:apps/comic/src/game/appraisal/theft.ts:breakTie",
     "args": [
       "thief",
       "id"
@@ -1755,13 +1761,13 @@
     "statusIds": [],
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/theft.ts",
-      "line": 220,
-      "endLine": 220
+      "file": "apps/comic/src/game/appraisal/theft.ts",
+      "line": 231,
+      "endLine": 231
     },
     "expression": "consumeStatus(thief,id)",
-    "start": 11707,
-    "end": 11730
+    "start": 12341,
+    "end": 12364
   }
 ]
 ```

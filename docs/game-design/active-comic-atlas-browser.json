@@ -1,0 +1,22 @@
+{
+  "checkedAt": "2026-10-31T01:19:08.045Z",
+  "spaceId": 11,
+  "scope": "Document source navigation and approved pilot display only; no lifecycle/balance claim",
+  "atlas": {
+    "source": {
+      "file": "apps/comic/src/game/appraisal/theft.ts",
+      "line": 183,
+      "endLine": 203
+    },
+    "missingHandsFlag": true,
+    "rpsState": "implemented-new-runs/legacy-versioned",
+    "approvedPilotNodes": 8,
+    "rootCodeNodes": 0
+  },
+  "pilot": {
+    "title": "New56 — pilot proposal",
+    "approvalText": "อนุมัติเป็นค่าทดลองแล้ว · ยังไม่ลง runtime",
+    "images": 8,
+    "rows": 8
+  }
+}

@@ -8,48 +8,48 @@
 
 ระยะ: 1 ครั้ง · หมดเมื่อจบช่วงหน้า; ที่มา: เครื่องตรวจราคา/กระจก; D02 ระงับการเปิดค่าจริงได้ แต่ข้อมูลที่รู้แล้วไม่ถูกลบ
 
-[src/game/appraisal/content.ts:403](../../../src/game/appraisal/content.ts#L403)
+[apps/comic/src/game/appraisal/content.ts:403](../../../apps/comic/src/game/appraisal/content.ts#L403)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 329,
       "endLine": 329
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 340,
       "endLine": 340
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 356,
       "endLine": 356
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 230,
       "endLine": 230
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:inspect",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
     "guards": [
       "property === 'price'",
       "status(p,'B01') && !status(p,'D02')"
@@ -64,38 +64,38 @@
 
 ระยะ: 1 ครั้ง · หมดเมื่อจบช่วงหน้า; ที่มา: เครื่องแปล/การสแกน; ข้อสัญญาที่ NPC เสนอต้องเปิดก่อนรับอยู่แล้ว
 
-[src/game/appraisal/content.ts:410](../../../src/game/appraisal/content.ts#L410)
+[apps/comic/src/game/appraisal/content.ts:410](../../../apps/comic/src/game/appraisal/content.ts#L410)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 330,
       "endLine": 330
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 340,
       "endLine": 340
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 239,
       "endLine": 239
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:inspect",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
     "guards": [
       "NOT property === 'price'",
       "NOT property === 'authenticity'",
@@ -106,11 +106,11 @@
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 242,
       "endLine": 242
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:inspect",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
     "guards": [
       "state.config.curseSight && property !== 'effects' && status(p,'B02')"
     ]
@@ -124,18 +124,18 @@
 
 ระยะ: 1 การซื้อ · หมดเมื่อจบช่วงหน้า; ที่มา: ปิดงานประเมินที่ยาก; ไม่ลดราคาที่ผู้เล่นอีกคนได้รับ
 
-[src/game/appraisal/content.ts:417](../../../src/game/appraisal/content.ts#L417)
+[apps/comic/src/game/appraisal/content.ts:417](../../../apps/comic/src/game/appraisal/content.ts#L417)
 
 ```json
 [
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/cleanse.ts",
+      "file": "apps/comic/src/game/appraisal/cleanse.ts",
       "line": 38,
       "endLine": 38
     },
-    "owner": "code:src/game/appraisal/cleanse.ts:cleanseItem",
+    "owner": "code:apps/comic/src/game/appraisal/cleanse.ts:cleanseItem",
     "guards": [
       "state.config.polish"
     ]
@@ -143,11 +143,11 @@
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 381,
       "endLine": 381
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:purchase",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
     "guards": []
   }
 ]
@@ -159,28 +159,28 @@
 
 ระยะ: 1 การประเมิน · หมดเมื่อจบช่วงหน้า; ที่มา: ประเมินตรงในงานตรวจสอบ/เปิดใช้สินค้า
 
-[src/game/appraisal/content.ts:424](../../../src/game/appraisal/content.ts#L424)
+[apps/comic/src/game/appraisal/content.ts:424](../../../apps/comic/src/game/appraisal/content.ts#L424)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 364,
       "endLine": 364
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 285,
       "endLine": 285
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:appraise",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
     "guards": []
   }
 ]
@@ -192,58 +192,58 @@
 
 ระยะ: 2 ครั้ง · หมดเมื่อจบช่วงนี้; ที่มา: สัตว์นำทาง/แบตเตอรี่; ยังต้องมีสิทธิ์ตรวจตามกติกาหลัก
 
-[src/game/appraisal/content.ts:431](../../../src/game/appraisal/content.ts#L431)
+[apps/comic/src/game/appraisal/content.ts:431](../../../apps/comic/src/game/appraisal/content.ts#L431)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/core2-actions.ts",
+      "file": "apps/comic/src/game/appraisal/core2-actions.ts",
       "line": 120,
       "endLine": 120
     },
-    "owner": "code:src/game/appraisal/core2-actions.ts:useSkill",
+    "owner": "code:apps/comic/src/game/appraisal/core2-actions.ts:useSkill",
     "guards": []
   },
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 303,
       "endLine": 303
     },
-    "owner": "code:src/game/appraisal/events.ts:eventInspect",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:eventInspect",
     "guards": []
   },
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 332,
       "endLine": 332
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 361,
       "endLine": 361
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 227,
       "endLine": 227
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:inspect",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
     "guards": [
       "NOT merchantFree",
       "NOT free",
@@ -260,18 +260,18 @@
 
 ระยะ: 1 ครั้ง · หมดเมื่อจบช่วงหน้า; ที่มา: รับเงื่อนไข NPC/เครื่องราง; ไม่ป้องกันการสูญเสีย credit หรือของโดยตรง
 
-[src/game/appraisal/content.ts:438](../../../src/game/appraisal/content.ts#L438)
+[apps/comic/src/game/appraisal/content.ts:438](../../../apps/comic/src/game/appraisal/content.ts#L438)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/core2-actions.ts",
+      "file": "apps/comic/src/game/appraisal/core2-actions.ts",
       "line": 118,
       "endLine": 118
     },
-    "owner": "code:src/game/appraisal/core2-actions.ts:useSkill",
+    "owner": "code:apps/comic/src/game/appraisal/core2-actions.ts:useSkill",
     "guards": [
       "strong"
     ]
@@ -279,21 +279,21 @@
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 363,
       "endLine": 363
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 87,
       "endLine": 87
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:grant",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:grant",
     "guards": [
       "id.startsWith('D') && status(p,'B06')"
     ]
@@ -301,11 +301,11 @@
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/merchant-abilities.ts",
+      "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
       "line": 92,
       "endLine": 92
     },
-    "owner": "code:src/game/appraisal/merchant-abilities.ts:useMerchantAbility",
+    "owner": "code:apps/comic/src/game/appraisal/merchant-abilities.ts:useMerchantAbility",
     "guards": [
       "tier>=2"
     ]
@@ -319,18 +319,18 @@
 
 ระยะ: 1 ครั้ง · หมดเมื่อจบช่วงหน้า; ที่มา: พ่อค้าประกัน/พ่อค้าออร์กที่ไว้ใจ
 
-[src/game/appraisal/content.ts:445](../../../src/game/appraisal/content.ts#L445)
+[apps/comic/src/game/appraisal/content.ts:445](../../../apps/comic/src/game/appraisal/content.ts#L445)
 
 ```json
 [
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/core2-rules.ts",
+      "file": "apps/comic/src/game/appraisal/core2-rules.ts",
       "line": 28,
       "endLine": 28
     },
-    "owner": "code:src/game/appraisal/core2-rules.ts:applyDread",
+    "owner": "code:apps/comic/src/game/appraisal/core2-rules.ts:applyDread",
     "guards": [
       "status(p,'B07')"
     ]
@@ -338,21 +338,21 @@
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 347,
       "endLine": 347
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 286,
       "endLine": 286
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:appraise",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
     "guards": [
       "p.honorJob && accuracy"
     ]
@@ -360,11 +360,11 @@
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 476,
       "endLine": 476
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:penaltyItem",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:penaltyItem",
     "guards": [
       "status(p,'B07')"
     ]
@@ -378,28 +378,28 @@
 
 ระยะ: 1 ครั้ง · หมดเมื่อจบช่วงหน้า; ที่มา: ซื้อสิทธิ์คุ้มครอง; ไม่ล้างผลสัญญาอื่น
 
-[src/game/appraisal/content.ts:452](../../../src/game/appraisal/content.ts#L452)
+[apps/comic/src/game/appraisal/content.ts:452](../../../apps/comic/src/game/appraisal/content.ts#L452)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 353,
       "endLine": 353
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 480,
       "endLine": 480
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:kill",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:kill",
     "guards": [
       "status(p,'B08')"
     ]
@@ -413,18 +413,18 @@
 
 ระยะ: ทำงานตอนต้นช่วงหน้า; ที่มา: จ่ายล่วงหน้าหรือรับสัญญาฝากพลัง; ไม่สุ่มถ้าไม่มี encounter ถัดไป
 
-[src/game/appraisal/content.ts:459](../../../src/game/appraisal/content.ts#L459)
+[apps/comic/src/game/appraisal/content.ts:459](../../../apps/comic/src/game/appraisal/content.ts#L459)
 
 ```json
 [
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 438,
-      "endLine": 438
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 449,
+      "endLine": 449
     },
-    "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
       "status(p,'B09')?.starts===state.encounter"
     ]
@@ -432,11 +432,11 @@
   {
     "operation": "recover",
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 438,
-      "endLine": 438
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 449,
+      "endLine": 449
     },
-    "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
       "status(p,'B09')?.starts===state.encounter"
     ]
@@ -444,11 +444,11 @@
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 351,
       "endLine": 351
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   }
 ]
@@ -460,28 +460,28 @@
 
 ระยะ: หมดเมื่อจบช่วงนี้; ที่มา: ซื้องานนายหน้า/หน้ากาก; ไม่เพิ่มผลลงโทษในการต่อรองระหว่างผู้เล่น
 
-[src/game/appraisal/content.ts:466](../../../src/game/appraisal/content.ts#L466)
+[apps/comic/src/game/appraisal/content.ts:466](../../../apps/comic/src/game/appraisal/content.ts#L466)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 348,
       "endLine": 348
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 359,
       "endLine": 359
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   }
 ]
@@ -493,28 +493,28 @@
 
 ระยะ: 2 ครั้ง · หมดเมื่อจบช่วงหน้า; ที่มา: หยุดตรวจหรือชำระล้าง; B05 หักล้างต้นทุนตามจำนวนใช้ที่เหลือ
 
-[src/game/appraisal/content.ts:473](../../../src/game/appraisal/content.ts#L473)
+[apps/comic/src/game/appraisal/content.ts:473](../../../apps/comic/src/game/appraisal/content.ts#L473)
 
 ```json
 [
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 303,
       "endLine": 303
     },
-    "owner": "code:src/game/appraisal/events.ts:eventInspect",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:eventInspect",
     "guards": []
   },
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 336,
       "endLine": 336
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
       "choice==='force'"
     ]
@@ -522,11 +522,11 @@
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 227,
       "endLine": 227
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:inspect",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
     "guards": [
       "NOT merchantFree",
       "NOT free",
@@ -543,18 +543,18 @@
 
 ระยะ: หมดเมื่อจบช่วงนี้; ที่มา: ซ่อมหรือชำระล้างก่อนตรวจ; เลือกตรวจเงื่อนไขอื่นแทน
 
-[src/game/appraisal/content.ts:480](../../../src/game/appraisal/content.ts#L480)
+[apps/comic/src/game/appraisal/content.ts:480](../../../apps/comic/src/game/appraisal/content.ts#L480)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 335,
       "endLine": 335
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
       "NOT choice==='pay'",
       "choice==='fog'"
@@ -563,11 +563,11 @@
   {
     "operation": "removeStatus",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 366,
       "endLine": 366
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
       "!reworked(state)",
       "choice==='repair'"
@@ -576,11 +576,11 @@
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 366,
       "endLine": 366
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
       "!reworked(state)",
       "NOT choice==='repair'"
@@ -589,11 +589,11 @@
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 368,
       "endLine": 368
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
       "NOT choice==='repair'",
       "NOT choice==='discard'"
@@ -608,18 +608,18 @@
 
 ระยะ: 2 การประเมิน · หมดเมื่อจบช่วงหน้า; ที่มา: ประเมินตรง/หลีกเลี่ยงข้อเสนอเสี่ยงหรือชำระล้าง; ไม่ใช้กับการเสนอราคาให้ผู้เล่น
 
-[src/game/appraisal/content.ts:487](../../../src/game/appraisal/content.ts#L487)
+[apps/comic/src/game/appraisal/content.ts:487](../../../apps/comic/src/game/appraisal/content.ts#L487)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/brokerage.ts",
+      "file": "apps/comic/src/game/appraisal/brokerage.ts",
       "line": 104,
       "endLine": 104
     },
-    "owner": "code:src/game/appraisal/brokerage.ts:resolveBond",
+    "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:resolveBond",
     "guards": [
       "spec.risk && randomAt(state.seed,`${offer.key}:bond-risk`)<spec.risk"
     ]
@@ -627,21 +627,21 @@
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 363,
       "endLine": 363
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 285,
       "endLine": 285
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:appraise",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
     "guards": []
   }
 ]
@@ -653,18 +653,18 @@
 
 ระยะ: ทำงานตอนต้นช่วงหน้า; ที่มา: กันเงินหรือชำระสัญญาก่อนจุดคิดเงิน; ไม่สุ่มถ้าไม่มี encounter ถัดไป
 
-[src/game/appraisal/content.ts:494](../../../src/game/appraisal/content.ts#L494)
+[apps/comic/src/game/appraisal/content.ts:494](../../../apps/comic/src/game/appraisal/content.ts#L494)
 
 ```json
 [
   {
     "operation": "spend",
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 437,
-      "endLine": 437
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 448,
+      "endLine": 448
     },
-    "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
       "status(p,'D04')?.starts===state.encounter"
     ]
@@ -672,11 +672,11 @@
   {
     "operation": "spend",
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 437,
-      "endLine": 437
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 448,
+      "endLine": 448
     },
-    "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
       "status(p,'D04')?.starts===state.encounter"
     ]
@@ -684,11 +684,11 @@
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 437,
-      "endLine": 437
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 448,
+      "endLine": 448
     },
-    "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
       "status(p,'D04')?.starts===state.encounter"
     ]
@@ -702,18 +702,18 @@
 
 ระยะ: 2 ครั้งตอนคิดผลช่วง; ที่มา: ชำระล้างก่อน settlement/เก็บพลังสำรอง; ถ้าหมดพลังใช้ช่วงพักเดิม
 
-[src/game/appraisal/content.ts:501](../../../src/game/appraisal/content.ts#L501)
+[apps/comic/src/game/appraisal/content.ts:501](../../../apps/comic/src/game/appraisal/content.ts#L501)
 
 ```json
 [
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 194,
-      "endLine": 194
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 198,
+      "endLine": 198
     },
-    "owner": "code:src/game/appraisal/engine.ts:settleEncounter",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
     "guards": [
       "status(p,'D05')"
     ]
@@ -721,11 +721,11 @@
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 356,
       "endLine": 356
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   }
 ]
@@ -737,18 +737,18 @@
 
 ระยะ: 2 การซื้อ · หมดเมื่อจบช่วงหน้า; ที่มา: ลดการซื้อหรือจ้างจัดของ; ไม่หักพลังจากผู้ขายที่เป็นผู้เล่น
 
-[src/game/appraisal/content.ts:508](../../../src/game/appraisal/content.ts#L508)
+[apps/comic/src/game/appraisal/content.ts:508](../../../apps/comic/src/game/appraisal/content.ts#L508)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 362,
       "endLine": 362
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
       "NOT choice==='pay'",
       "NOT choice==='drop'"
@@ -757,11 +757,11 @@
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 381,
       "endLine": 381
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:purchase",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
     "guards": []
   }
 ]
@@ -773,18 +773,18 @@
 
 ระยะ: ตอนเลือกประตูครั้งหน้า; ที่มา: ใช้กุญแจเงา/ชำระล้าง; ให้ event นี้ได้เมื่อมีประตูอย่างน้อยสองบานและมี encounter ถัดไป
 
-[src/game/appraisal/content.ts:515](../../../src/game/appraisal/content.ts#L515)
+[apps/comic/src/game/appraisal/content.ts:515](../../../apps/comic/src/game/appraisal/content.ts#L515)
 
 ```json
 [
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 439,
-      "endLine": 439
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 450,
+      "endLine": 450
     },
-    "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
       "status(p,'D07')?.starts===state.encounter"
     ]
@@ -792,11 +792,11 @@
   {
     "operation": "removeStatus",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 358,
       "endLine": 358
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
       "power===1||randomAt(state.seed,`${offer.key}:${v}:copy-key`)<power"
     ]
@@ -804,11 +804,11 @@
   {
     "operation": "removeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 435,
       "endLine": 435
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:activate",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "guards": [
       "works",
       "NOT state.config.trustAbilities && (ABILITY_ITEM_IDS as readonly string[]).includes(item.kind)",
@@ -827,18 +827,18 @@
 
 ระยะ: หมดเมื่อจบช่วงหน้า; ที่มา: รอหมดอายุ/ปลดสัญญา; B10 เพิ่มสิทธิ์คืนได้ ไม่จำกัดการคุยกับผู้เล่น
 
-[src/game/appraisal/content.ts:522](../../../src/game/appraisal/content.ts#L522)
+[apps/comic/src/game/appraisal/content.ts:522](../../../apps/comic/src/game/appraisal/content.ts#L522)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 404,
       "endLine": 404
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
       "NOT choice==='pay'"
     ]
@@ -852,18 +852,18 @@
 
 ระยะ: หมดเมื่อจบช่วงหน้า; ที่มา: ชำระล้าง/รอหมดอายุ; ขอดูได้โดยไม่โอน ไม่สุ่มเมื่อไม่มีของที่เข้าเงื่อนไข
 
-[src/game/appraisal/content.ts:529](../../../src/game/appraisal/content.ts#L529)
+[apps/comic/src/game/appraisal/content.ts:529](../../../apps/comic/src/game/appraisal/content.ts#L529)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 396,
       "endLine": 396
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:purchase",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
     "guards": [
       "options.lock"
     ]
@@ -877,18 +877,18 @@
 
 ระยะ: 2 ครั้ง · หมดเมื่อจบช่วงหน้า; ที่มา: ชำระล้าง/หลีกเลี่ยงดีลเลือด/ใช้การฟื้นตามกติกากลับเข้าเล่น
 
-[src/game/appraisal/content.ts:536](../../../src/game/appraisal/content.ts#L536)
+[apps/comic/src/game/appraisal/content.ts:536](../../../apps/comic/src/game/appraisal/content.ts#L536)
 
 ```json
 [
   {
     "operation": "removeStatus",
     "source": {
-      "file": "src/game/appraisal/brokerage.ts",
+      "file": "apps/comic/src/game/appraisal/brokerage.ts",
       "line": 69,
       "endLine": 69
     },
-    "owner": "code:src/game/appraisal/brokerage.ts:applyGain",
+    "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:applyGain",
     "guards": [
       "spec.cleanse==='D10'"
     ]
@@ -896,11 +896,11 @@
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/brokerage.ts",
+      "file": "apps/comic/src/game/appraisal/brokerage.ts",
       "line": 103,
       "endLine": 103
     },
-    "owner": "code:src/game/appraisal/brokerage.ts:resolveBond",
+    "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:resolveBond",
     "guards": [
       "spec.genuineOnly && !give.genuine"
     ]
@@ -908,11 +908,11 @@
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 328,
       "endLine": 328
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
       "NOT choice==='pay'"
     ]
@@ -920,21 +920,21 @@
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 364,
       "endLine": 364
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "removeStatus",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 372,
       "endLine": 372
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
       "NOT choice==='energy'"
     ]
@@ -942,11 +942,11 @@
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 123,
       "endLine": 123
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:recover",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:recover",
     "guards": [
       "!minimum && status(p,'D10')"
     ]
@@ -960,18 +960,18 @@
 
 ระยะ: 2 ครั้ง · หมดเมื่อจบช่วงหน้า; ที่มา: ตะเกียงน้ำขึ้น/กระจกตารวม/ข้อเสนอของ The Swarm
 
-[src/game/appraisal/content.ts:543](../../../src/game/appraisal/content.ts#L543)
+[apps/comic/src/game/appraisal/content.ts:543](../../../apps/comic/src/game/appraisal/content.ts#L543)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/core2-actions.ts",
+      "file": "apps/comic/src/game/appraisal/core2-actions.ts",
       "line": 120,
       "endLine": 120
     },
-    "owner": "code:src/game/appraisal/core2-actions.ts:useSkill",
+    "owner": "code:apps/comic/src/game/appraisal/core2-actions.ts:useSkill",
     "guards": [
       "strong"
     ]
@@ -979,21 +979,21 @@
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 398,
       "endLine": 398
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 226,
       "endLine": 226
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:inspect",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
     "guards": [
       "NOT merchantFree",
       "NOT free",
@@ -1010,28 +1010,28 @@
 
 ระยะ: 1 การประเมิน · หมดเมื่อจบช่วงหน้า; ที่มา: หมึกยักษ์ดำ/อสูรใต้ทะเลลึก
 
-[src/game/appraisal/content.ts:550](../../../src/game/appraisal/content.ts#L550)
+[apps/comic/src/game/appraisal/content.ts:550](../../../apps/comic/src/game/appraisal/content.ts#L550)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 393,
       "endLine": 393
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 285,
       "endLine": 285
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:appraise",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
     "guards": []
   }
 ]
@@ -1043,18 +1043,18 @@
 
 ระยะ: 1 การขาย · หมดเมื่อจบช่วงหน้า; ที่มา: ดาบเปลือกแมลง/ข้อตกลงกับ The Swarm
 
-[src/game/appraisal/content.ts:557](../../../src/game/appraisal/content.ts#L557)
+[apps/comic/src/game/appraisal/content.ts:557](../../../apps/comic/src/game/appraisal/content.ts#L557)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/core2-actions.ts",
+      "file": "apps/comic/src/game/appraisal/core2-actions.ts",
       "line": 121,
       "endLine": 121
     },
-    "owner": "code:src/game/appraisal/core2-actions.ts:useSkill",
+    "owner": "code:apps/comic/src/game/appraisal/core2-actions.ts:useSkill",
     "guards": [
       "strong"
     ]
@@ -1062,31 +1062,31 @@
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/core2-actions.ts",
+      "file": "apps/comic/src/game/appraisal/core2-actions.ts",
       "line": 122,
       "endLine": 122
     },
-    "owner": "code:src/game/appraisal/core2-actions.ts:useSkill",
+    "owner": "code:apps/comic/src/game/appraisal/core2-actions.ts:useSkill",
     "guards": []
   },
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 399,
       "endLine": 399
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 78,
       "endLine": 78
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:saleApply",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:saleApply",
     "guards": [
       "market || state.config.polish"
     ]
@@ -1100,28 +1100,28 @@
 
 ระยะ: 1 ครั้ง · หมดเมื่อจบช่วงหน้า; ที่มา: ไข่มุกห้วงลึก/เซลล์ตัวอ่อนเรืองแสง
 
-[src/game/appraisal/content.ts:564](../../../src/game/appraisal/content.ts#L564)
+[apps/comic/src/game/appraisal/content.ts:564](../../../apps/comic/src/game/appraisal/content.ts#L564)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/core2-actions.ts",
+      "file": "apps/comic/src/game/appraisal/core2-actions.ts",
       "line": 121,
       "endLine": 121
     },
-    "owner": "code:src/game/appraisal/core2-actions.ts:useSkill",
+    "owner": "code:apps/comic/src/game/appraisal/core2-actions.ts:useSkill",
     "guards": []
   },
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 396,
       "endLine": 396
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
       "randomAt(state.seed,`${offer.key}:pearl-dive`)<.5"
     ]
@@ -1129,21 +1129,21 @@
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 400,
       "endLine": 400
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 124,
       "endLine": 124
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:recover",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:recover",
     "guards": [
       "!minimum && status(p,'B14')"
     ]
@@ -1157,18 +1157,18 @@
 
 ระยะ: 1 การขาย · หมดเมื่อจบช่วงหน้า; ที่มา: รวงรังฝูง/พ่อค้าผึ้งส่งสาร
 
-[src/game/appraisal/content.ts:571](../../../src/game/appraisal/content.ts#L571)
+[apps/comic/src/game/appraisal/content.ts:571](../../../apps/comic/src/game/appraisal/content.ts#L571)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/core2-actions.ts",
+      "file": "apps/comic/src/game/appraisal/core2-actions.ts",
       "line": 122,
       "endLine": 122
     },
-    "owner": "code:src/game/appraisal/core2-actions.ts:useSkill",
+    "owner": "code:apps/comic/src/game/appraisal/core2-actions.ts:useSkill",
     "guards": [
       "strong"
     ]
@@ -1176,21 +1176,21 @@
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 394,
       "endLine": 394
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 402,
       "endLine": 402
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
       "randomAt(state.seed,`${offer.key}:old-nest`)<.6"
     ]
@@ -1198,11 +1198,11 @@
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 304,
       "endLine": 304
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:completeAppraisedSale",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:completeAppraisedSale",
     "guards": []
   }
 ]
@@ -1214,38 +1214,38 @@
 
 ระยะ: 1 ครั้ง · หมดเมื่อจบช่วงหน้า; ที่มา: สังข์เรียกเงา/เสียงเรียกจากเหวลึก
 
-[src/game/appraisal/content.ts:578](../../../src/game/appraisal/content.ts#L578)
+[apps/comic/src/game/appraisal/content.ts:578](../../../apps/comic/src/game/appraisal/content.ts#L578)
 
 ```json
 [
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/cleanse.ts",
+      "file": "apps/comic/src/game/appraisal/cleanse.ts",
       "line": 38,
       "endLine": 38
     },
-    "owner": "code:src/game/appraisal/cleanse.ts:cleanseItem",
+    "owner": "code:apps/comic/src/game/appraisal/cleanse.ts:cleanseItem",
     "guards": []
   },
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 400,
       "endLine": 400
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/wishlist.ts",
+      "file": "apps/comic/src/game/appraisal/wishlist.ts",
       "line": 97,
       "endLine": 97
     },
-    "owner": "code:src/game/appraisal/wishlist.ts:wishSell",
+    "owner": "code:apps/comic/src/game/appraisal/wishlist.ts:wishSell",
     "guards": [
       "NOT !item.genuine && randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:wish-fake`)<Math.min(.9,Math.max(.05,.4*NPC_SPECS[npc].sensitivity+(state.config.polish?statusMagnitude(p,'D03',.1)-statusMagnitude(p,'B04',.1):0)))"
     ]
@@ -1259,18 +1259,18 @@
 
 ระยะ: 2 ครั้ง · หมดเมื่อจบช่วงหน้า; ที่มา: รวงรังฝูง/เซลล์ตัวอ่อน/ข้อตกลงกับ The Swarm
 
-[src/game/appraisal/content.ts:585](../../../src/game/appraisal/content.ts#L585)
+[apps/comic/src/game/appraisal/content.ts:585](../../../apps/comic/src/game/appraisal/content.ts#L585)
 
 ```json
 [
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 195,
-      "endLine": 195
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 199,
+      "endLine": 199
     },
-    "owner": "code:src/game/appraisal/engine.ts:settleEncounter",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
     "guards": [
       "status(p,'D11')"
     ]
@@ -1278,11 +1278,11 @@
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 399,
       "endLine": 399
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   }
 ]
@@ -1294,18 +1294,18 @@
 
 ระยะ: 1 การซื้อ · หมดเมื่อจบช่วงหน้า; ที่มา: ไข่มุกห้วงลึก/การดำน้ำพลาด
 
-[src/game/appraisal/content.ts:592](../../../src/game/appraisal/content.ts#L592)
+[apps/comic/src/game/appraisal/content.ts:592](../../../apps/comic/src/game/appraisal/content.ts#L592)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 396,
       "endLine": 396
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
       "NOT randomAt(state.seed,`${offer.key}:pearl-dive`)<.5"
     ]
@@ -1313,11 +1313,11 @@
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 381,
       "endLine": 381
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:purchase",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
     "guards": []
   }
 ]
@@ -1329,28 +1329,28 @@
 
 ระยะ: 1 การขาย · หมดเมื่อจบช่วงหน้า; ที่มา: ดาบเปลือกแมลง/ขายข้อมูลใต้น้ำ
 
-[src/game/appraisal/content.ts:599](../../../src/game/appraisal/content.ts#L599)
+[apps/comic/src/game/appraisal/content.ts:599](../../../apps/comic/src/game/appraisal/content.ts#L599)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 401,
       "endLine": 401
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 78,
       "endLine": 78
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:saleApply",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:saleApply",
     "guards": [
       "market || state.config.polish"
     ]
@@ -1364,28 +1364,28 @@
 
 ระยะ: 1 การเปิดใช้ · หมดเมื่อจบช่วงหน้า; ที่มา: หมึกยักษ์ดำ/หมอกเมาทะเลลึก
 
-[src/game/appraisal/content.ts:606](../../../src/game/appraisal/content.ts#L606)
+[apps/comic/src/game/appraisal/content.ts:606](../../../apps/comic/src/game/appraisal/content.ts#L606)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 398,
       "endLine": 398
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 406,
       "endLine": 406
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:activate",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "guards": []
   }
 ]
@@ -1397,28 +1397,28 @@
 
 ระยะ: 1 การขาย · หมดเมื่อจบช่วงหน้า; ที่มา: ดาบเปลือกแมลง/ตาข่ายใย
 
-[src/game/appraisal/content.ts:613](../../../src/game/appraisal/content.ts#L613)
+[apps/comic/src/game/appraisal/content.ts:613](../../../apps/comic/src/game/appraisal/content.ts#L613)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 395,
       "endLine": 395
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   },
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 402,
       "endLine": 402
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
       "NOT randomAt(state.seed,`${offer.key}:old-nest`)<.6"
     ]
@@ -1426,11 +1426,11 @@
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 304,
       "endLine": 304
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:completeAppraisedSale",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:completeAppraisedSale",
     "guards": []
   }
 ]
@@ -1442,18 +1442,18 @@
 
 ระยะ: เฉพาะช่วงนี้; ที่มา: ตะเกียงน้ำขึ้น/เสียงเรียกจากเหวลึก
 
-[src/game/appraisal/content.ts:620](../../../src/game/appraisal/content.ts#L620)
+[apps/comic/src/game/appraisal/content.ts:620](../../../apps/comic/src/game/appraisal/content.ts#L620)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 400,
       "endLine": 400
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
   }
 ]
@@ -1465,7 +1465,7 @@
 
 ระยะ: เฉพาะช่วงนี้; ที่มา: ข่าวตลาด/ลางตลาดคึกคัก
 
-[src/game/appraisal/content.ts:627](../../../src/game/appraisal/content.ts#L627)
+[apps/comic/src/game/appraisal/content.ts:627](../../../apps/comic/src/game/appraisal/content.ts#L627)
 
 ```json
 []
@@ -1477,7 +1477,7 @@
 
 ระยะ: เฉพาะช่วงนี้; ที่มา: เหรียญริมทาง/เหตุการณ์โชคดี
 
-[src/game/appraisal/content.ts:634](../../../src/game/appraisal/content.ts#L634)
+[apps/comic/src/game/appraisal/content.ts:634](../../../apps/comic/src/game/appraisal/content.ts#L634)
 
 ```json
 []
@@ -1489,18 +1489,18 @@
 
 ระยะ: 1 ครั้ง · หมดเมื่อจบช่วงหน้า; ที่มา: วิญญาณคุ้มครอง/ของสะสม
 
-[src/game/appraisal/content.ts:641](../../../src/game/appraisal/content.ts#L641)
+[apps/comic/src/game/appraisal/content.ts:641](../../../apps/comic/src/game/appraisal/content.ts#L641)
 
 ```json
 [
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/brokerage.ts",
+      "file": "apps/comic/src/game/appraisal/brokerage.ts",
       "line": 130,
       "endLine": 130
     },
-    "owner": "code:src/game/appraisal/brokerage.ts:unsoldPenalty",
+    "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:unsoldPenalty",
     "guards": [
       "ward"
     ]
@@ -1508,11 +1508,11 @@
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 136,
       "endLine": 136
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:damageLife",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:damageLife",
     "guards": [
       "hit>0 && status(p,'B19')"
     ]
@@ -1526,18 +1526,18 @@
 
 ระยะ: 1 ครั้ง · หมดเมื่อจบช่วงหน้า; ที่มา: ผู้ประมูลเก่าแก่/ของสะสม
 
-[src/game/appraisal/content.ts:648](../../../src/game/appraisal/content.ts#L648)
+[apps/comic/src/game/appraisal/content.ts:648](../../../apps/comic/src/game/appraisal/content.ts#L648)
 
 ```json
 [
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/brokerage.ts",
+      "file": "apps/comic/src/game/appraisal/brokerage.ts",
       "line": 219,
       "endLine": 219
     },
-    "owner": "code:src/game/appraisal/brokerage.ts:settleAuction",
+    "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:settleAuction",
     "guards": [
       "edge"
     ]
@@ -1551,7 +1551,7 @@
 
 ระยะ: เฉพาะช่วงนี้; ที่มา: ข่าวลือเฟ้อ/ลางราคาตลาดเฟ้อ
 
-[src/game/appraisal/content.ts:655](../../../src/game/appraisal/content.ts#L655)
+[apps/comic/src/game/appraisal/content.ts:655](../../../apps/comic/src/game/appraisal/content.ts#L655)
 
 ```json
 []
@@ -1563,7 +1563,7 @@
 
 ระยะ: เฉพาะช่วงนี้; ที่มา: นักเก็บภาษีเงา
 
-[src/game/appraisal/content.ts:662](../../../src/game/appraisal/content.ts#L662)
+[apps/comic/src/game/appraisal/content.ts:662](../../../apps/comic/src/game/appraisal/content.ts#L662)
 
 ```json
 []
@@ -1575,7 +1575,7 @@
 
 ระยะ: เฉพาะช่วงนี้; ที่มา: เหรียญสาป/เหตุการณ์โชคร้าย
 
-[src/game/appraisal/content.ts:669](../../../src/game/appraisal/content.ts#L669)
+[apps/comic/src/game/appraisal/content.ts:669](../../../apps/comic/src/game/appraisal/content.ts#L669)
 
 ```json
 []
@@ -1587,18 +1587,18 @@
 
 ระยะ: 1 ครั้ง · หมดเมื่อจบช่วงหน้า; ที่มา: แผลเก่า/คำสาปติดตัว
 
-[src/game/appraisal/content.ts:676](../../../src/game/appraisal/content.ts#L676)
+[apps/comic/src/game/appraisal/content.ts:676](../../../apps/comic/src/game/appraisal/content.ts#L676)
 
 ```json
 [
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/brokerage.ts",
+      "file": "apps/comic/src/game/appraisal/brokerage.ts",
       "line": 130,
       "endLine": 130
     },
-    "owner": "code:src/game/appraisal/brokerage.ts:unsoldPenalty",
+    "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:unsoldPenalty",
     "guards": [
       "wound"
     ]
@@ -1606,11 +1606,11 @@
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/core2-rules.ts",
+      "file": "apps/comic/src/game/appraisal/core2-rules.ts",
       "line": 32,
       "endLine": 32
     },
-    "owner": "code:src/game/appraisal/core2-rules.ts:applyDread",
+    "owner": "code:apps/comic/src/game/appraisal/core2-rules.ts:applyDread",
     "guards": [
       "NOT status(p,'D20')"
     ]
@@ -1618,11 +1618,11 @@
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 137,
       "endLine": 137
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:damageLife",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:damageLife",
     "guards": [
       "hit>0 && status(p,'D20')"
     ]
@@ -1636,18 +1636,18 @@
 
 ระยะ: 1 ครั้ง · หมดเมื่อจบช่วงหน้า; ที่มา: เหตุการณ์โจรกระเป๋า/ไอเทมเฝ้ายาม
 
-[src/game/appraisal/core2-content.ts:6](../../../src/game/appraisal/core2-content.ts#L6)
+[apps/comic/src/game/appraisal/core2-content.ts:6](../../../apps/comic/src/game/appraisal/core2-content.ts#L6)
 
 ```json
 [
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/core2-actions.ts",
+      "file": "apps/comic/src/game/appraisal/core2-actions.ts",
       "line": 57,
       "endLine": 57
     },
-    "owner": "code:src/game/appraisal/core2-actions.ts:pickpocket",
+    "owner": "code:apps/comic/src/game/appraisal/core2-actions.ts:pickpocket",
     "guards": [
       "guarded"
     ]
@@ -1655,11 +1655,11 @@
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 269,
       "endLine": 269
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:appraise",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
     "guards": [
       "overChance>0 && randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:overvalue:${counter?p.counters:0}`)<overChance",
       "status(p,'B21')"
@@ -1668,11 +1668,11 @@
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/theft.ts",
-      "line": 221,
-      "endLine": 221
+      "file": "apps/comic/src/game/appraisal/theft.ts",
+      "line": 232,
+      "endLine": 232
     },
-    "owner": "code:src/game/appraisal/theft.ts:breakTie",
+    "owner": "code:apps/comic/src/game/appraisal/theft.ts:breakTie",
     "guards": [
       "victim && status(victim,'B21')"
     ]
@@ -1686,38 +1686,38 @@
 
 ระยะ: 1 ครั้ง · หมดเมื่อจบช่วงหน้า; ที่มา: พ่อค้าที่ไว้ใจ/ไอเทมโจร
 
-[src/game/appraisal/core2-content.ts:7](../../../src/game/appraisal/core2-content.ts#L7)
+[apps/comic/src/game/appraisal/core2-content.ts:7](../../../apps/comic/src/game/appraisal/core2-content.ts#L7)
 
 ```json
 [
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/core2-actions.ts",
+      "file": "apps/comic/src/game/appraisal/core2-actions.ts",
       "line": 31,
       "endLine": 31
     },
-    "owner": "code:src/game/appraisal/core2-actions.ts:stealShop",
+    "owner": "code:apps/comic/src/game/appraisal/core2-actions.ts:stealShop",
     "guards": []
   },
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/core2-actions.ts",
+      "file": "apps/comic/src/game/appraisal/core2-actions.ts",
       "line": 51,
       "endLine": 51
     },
-    "owner": "code:src/game/appraisal/core2-actions.ts:pickpocket",
+    "owner": "code:apps/comic/src/game/appraisal/core2-actions.ts:pickpocket",
     "guards": []
   },
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/theft.ts",
+      "file": "apps/comic/src/game/appraisal/theft.ts",
       "line": 148,
       "endLine": 148
     },
-    "owner": "code:src/game/appraisal/theft.ts:startTheftDuel",
+    "owner": "code:apps/comic/src/game/appraisal/theft.ts:startTheftDuel",
     "guards": [
       "state.config.statusLinks !== 1"
     ]
@@ -1731,7 +1731,7 @@
 
 ระยะ: ช่วงนี้เท่านั้น; ที่มา: พิธีสงบใจ/พ่อค้าที่ไว้ใจ
 
-[src/game/appraisal/core2-content.ts:8](../../../src/game/appraisal/core2-content.ts#L8)
+[apps/comic/src/game/appraisal/core2-content.ts:8](../../../apps/comic/src/game/appraisal/core2-content.ts#L8)
 
 ```json
 []
@@ -1743,18 +1743,18 @@
 
 ระยะ: ตอนคิดผลท้ายช่วงนี้; ที่มา: หมอเถื่อน/พ่อค้า
 
-[src/game/appraisal/core2-content.ts:9](../../../src/game/appraisal/core2-content.ts#L9)
+[apps/comic/src/game/appraisal/core2-content.ts:9](../../../apps/comic/src/game/appraisal/core2-content.ts#L9)
 
 ```json
 [
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/core2-rules.ts",
+      "file": "apps/comic/src/game/appraisal/core2-rules.ts",
       "line": 58,
       "endLine": 58
     },
-    "owner": "code:src/game/appraisal/core2-rules.ts:applyCore2Settlement",
+    "owner": "code:apps/comic/src/game/appraisal/core2-rules.ts:applyCore2Settlement",
     "guards": [
       "status(p,'B24')"
     ]
@@ -1768,18 +1768,18 @@
 
 ระยะ: 1 ครั้ง · หมดเมื่อจบช่วงหน้า; ที่มา: ถูกจับตอนขโมย/ผลสะท้อนราคาพอง
 
-[src/game/appraisal/core2-content.ts:10](../../../src/game/appraisal/core2-content.ts#L10)
+[apps/comic/src/game/appraisal/core2-content.ts:10](../../../apps/comic/src/game/appraisal/core2-content.ts#L10)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/theft.ts",
-      "line": 237,
-      "endLine": 237
+      "file": "apps/comic/src/game/appraisal/theft.ts",
+      "line": 248,
+      "endLine": 248
     },
-    "owner": "code:src/game/appraisal/theft.ts:merchantFailure",
+    "owner": "code:apps/comic/src/game/appraisal/theft.ts:merchantFailure",
     "guards": [
       "state.config.statusLinks === 1"
     ]
@@ -1793,18 +1793,18 @@
 
 ระยะ: ตอนคิดผลท้ายช่วงนี้; ที่มา: โจรกระเป๋า/ผลสะท้อน
 
-[src/game/appraisal/core2-content.ts:11](../../../src/game/appraisal/core2-content.ts#L11)
+[apps/comic/src/game/appraisal/core2-content.ts:11](../../../apps/comic/src/game/appraisal/core2-content.ts#L11)
 
 ```json
 [
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/core2-rules.ts",
+      "file": "apps/comic/src/game/appraisal/core2-rules.ts",
       "line": 49,
       "endLine": 49
     },
-    "owner": "code:src/game/appraisal/core2-rules.ts:applyCore2Settlement",
+    "owner": "code:apps/comic/src/game/appraisal/core2-rules.ts:applyCore2Settlement",
     "guards": [
       "status(p,'D22')"
     ]
@@ -1818,18 +1818,18 @@
 
 ระยะ: ตอนคิดผลท้ายช่วงนี้; ที่มา: พ่อค้าแค้น/หมอเถื่อนพลาด
 
-[src/game/appraisal/core2-content.ts:12](../../../src/game/appraisal/core2-content.ts#L12)
+[apps/comic/src/game/appraisal/core2-content.ts:12](../../../apps/comic/src/game/appraisal/core2-content.ts#L12)
 
 ```json
 [
   {
     "operation": "consumeStatus",
     "source": {
-      "file": "src/game/appraisal/core2-rules.ts",
+      "file": "apps/comic/src/game/appraisal/core2-rules.ts",
       "line": 51,
       "endLine": 51
     },
-    "owner": "code:src/game/appraisal/core2-rules.ts:applyCore2Settlement",
+    "owner": "code:apps/comic/src/game/appraisal/core2-rules.ts:applyCore2Settlement",
     "guards": [
       "status(p,'D23')"
     ]
@@ -1843,7 +1843,7 @@
 
 ระยะ: ช่วงนี้เท่านั้น; ที่มา: ผลสะท้อน/ความกดดัน
 
-[src/game/appraisal/core2-content.ts:13](../../../src/game/appraisal/core2-content.ts#L13)
+[apps/comic/src/game/appraisal/core2-content.ts:13](../../../apps/comic/src/game/appraisal/core2-content.ts#L13)
 
 ```json
 []
@@ -1855,18 +1855,18 @@
 
 ระยะ: ถึงจบช่วงถัดไป หรือใช้สกิล; ที่มา: เหตุการณ์เวลา
 
-[src/game/appraisal/ability-content.ts:15](../../../src/game/appraisal/ability-content.ts#L15)
+[apps/comic/src/game/appraisal/ability-content.ts:15](../../../apps/comic/src/game/appraisal/ability-content.ts#L15)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 324,
       "endLine": 324
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
       "choice==='haste'"
     ]
@@ -1874,11 +1874,11 @@
   {
     "operation": "removeStatus",
     "source": {
-      "file": "src/game/appraisal/merchant-abilities.ts",
+      "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
       "line": 117,
       "endLine": 117
     },
-    "owner": "code:src/game/appraisal/merchant-abilities.ts:useMerchantAbility",
+    "owner": "code:apps/comic/src/game/appraisal/merchant-abilities.ts:useMerchantAbility",
     "guards": []
   }
 ]
@@ -1890,18 +1890,18 @@
 
 ระยะ: ถึงจบช่วงถัดไป หรือใช้สัตว์นำทาง; ที่มา: เข็มทิศแปรผัน
 
-[src/game/appraisal/ability-content.ts:16](../../../src/game/appraisal/ability-content.ts#L16)
+[apps/comic/src/game/appraisal/ability-content.ts:16](../../../apps/comic/src/game/appraisal/ability-content.ts#L16)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 325,
       "endLine": 325
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
       "choice==='compass'"
     ]
@@ -1909,11 +1909,11 @@
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 417,
       "endLine": 417
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:activate",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "guards": [
       "works",
       "state.config.trustAbilities && (ABILITY_ITEM_IDS as readonly string[]).includes(item.kind)",
@@ -1923,11 +1923,11 @@
   {
     "operation": "removeStatus",
     "source": {
-      "file": "src/game/appraisal/merchant-abilities.ts",
+      "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
       "line": 110,
       "endLine": 110
     },
-    "owner": "code:src/game/appraisal/merchant-abilities.ts:useMerchantAbility",
+    "owner": "code:apps/comic/src/game/appraisal/merchant-abilities.ts:useMerchantAbility",
     "guards": [
       "npc==='beast'"
     ]
@@ -1941,18 +1941,18 @@
 
 ระยะ: ถึงจบช่วงถัดไป หรือใช้สกิล; ที่มา: คำสาปและเหตุการณ์เวลา
 
-[src/game/appraisal/ability-content.ts:17](../../../src/game/appraisal/ability-content.ts#L17)
+[apps/comic/src/game/appraisal/ability-content.ts:17](../../../apps/comic/src/game/appraisal/ability-content.ts#L17)
 
 ```json
 [
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 324,
       "endLine": 324
     },
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
       "NOT choice==='haste'"
     ]
@@ -1960,11 +1960,11 @@
   {
     "operation": "grant",
     "source": {
-      "file": "src/game/appraisal/mechanics.ts",
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
       "line": 422,
       "endLine": 422
     },
-    "owner": "code:src/game/appraisal/mechanics.ts:activate",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "guards": [
       "works",
       "NOT state.config.trustAbilities && (ABILITY_ITEM_IDS as readonly string[]).includes(item.kind)",
@@ -1975,11 +1975,11 @@
   {
     "operation": "removeStatus",
     "source": {
-      "file": "src/game/appraisal/merchant-abilities.ts",
+      "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
       "line": 117,
       "endLine": 117
     },
-    "owner": "code:src/game/appraisal/merchant-abilities.ts:useMerchantAbility",
+    "owner": "code:apps/comic/src/game/appraisal/merchant-abilities.ts:useMerchantAbility",
     "guards": []
   }
 ]

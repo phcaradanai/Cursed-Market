@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-31",
+  "scope": "Active appraisal source extraction/context and exact pilot approval; not whole-game completion",
+  "sourceBase": "9f0a972",
+  "activeSourceRoot": "apps/comic/src",
+  "extractedSourceFiles": 53,
+  "extractionScope": "Every game/appraisal module plus explicit random/rarity/protocol/server lifecycle and bot sources; UI uses separate capture/flow registry",
+  "summary": {
+    "events": 132,
+    "statuses": 51,
+    "omens": 22,
+    "omenPacks": {
+      "polish": 7,
+      "core2": 15
+    },
+    "merchants": 8,
+    "abilities": 8,
+    "choiceVariants": 314,
+    "encounterModels": 6,
+    "phases": 5,
+    "actions": 56,
+    "configKeys": 54,
+    "parameters": 70,
+    "functions": 464,
+    "codeSymbols": 603,
+    "policies": 212,
+    "randomRules": 96,
+    "legacyGateSites": 21,
+    "logSites": 106,
+    "logTopics": 93,
+    "validationSites": 433,
+    "dynamicStatusOperations": 28,
+    "schemas": 117,
+    "propertyWriteSites": 516
+  },
+  "verification": {
+    "activeScope": "PASS: all appraisal modules, explicit support/server/bot, no root code records; new flag/default/timer/schema/action assertions",
+    "ghostAndBotDependencies": "PASS: actual typed code-call edges engine→handleGhostAction and room.afterChange→appraisalBotTurn",
+    "historicalEvidence": "PASS: output hashes from legacy-atlas-baseline.json match Git9f0a972 blobs",
+    "gameExecutableChanges": "none; server timer comment only, removeComments-transpiled output identical to9f0a972",
+    "comicBuild": "PASS",
+    "rpsRegression": "12/12 PASS incl two real WebSockets/reconnect/replay; active-comic-atlas-rps-results.txt",
+    "uiSourceCheck": "378 fingerprints/frozen14 hashes PASS",
+    "uiContracts": "10/10 PASS",
+    "browser": "active-comic-atlas-browser.json; correct current source selected,0 root code nodes,8 approved/unbound items,8/8 proposal images",
+    "atlasCheck": "PASS source/output fingerprints and full structural/semantic assertions"
+  },
+  "pilotApproval": {
+    "status": "approved-experimental-pilot",
+    "record": "new56-pilot-approval.json",
+    "originalProposalSha256": "ec70ac9f55770ff3866b54cb55131f5703058faafbc921970cb7519c4924b0a1",
+    "preservedFields": [
+      "items",
+      "globalRules",
+      "requiredTests"
+    ],
+    "runtimeNewIds": 0,
+    "notApproved": [
+      "optional effects",
+      "remaining48 parameters",
+      "release balance"
+    ]
+  },
+  "limitations": [
+    "Static source dependencies are not runtime execution/frequency evidence",
+    "UI has capture/flow registry, not full React semantic extraction",
+    "legacyTargetGates covers literal kindOwned/ownKind helpers, not all direct predicates",
+    "Actual pilot runtime/new56/strategy/Collector/awards/full-game balance remain unfinished",
+    "Historical archived outputs require Git9f0a972; current active outputs/source are versioned directly"
+  ],
+  "next": "Implement approved8 pilot typed catalog/runtime lifecycle; strategy structure remains pending"
+}

@@ -1,6 +1,10 @@
 # แผนที่ระบบเกมทั้งหมด
 
-Snapshot 2026-10-31; revision ab2c1a1eb606e9d6d02596e8b0ae18237a7e354a (รวม working tree fingerprint ใน manifest)
+Snapshot 2026-10-31; revision 9f0a9721358df70cdfb7862f9da54ccdb93f64a7 (รวม working tree fingerprint ใน manifest)
+
+Active source: `apps/comic/src` — Every game/appraisal module plus explicit random/rarity/protocol/server lifecycle and bot sources; UI uses separate capture/flow registry
+
+[หลักฐาน Atlas รุ่นก่อนเปลี่ยน](../legacy-atlas-baseline.json) อยู่ที่ Git9f0a972 ไม่ใช่ runtime ปัจจุบัน
 
 [เปิด HTML ทั้งระบบ](../logic-item-relations.html) · [Events](events.md) · [Status/Omen](statuses-omens.md) · [Encounter/Config](encounters-config.md) · [พ่อค้า](merchants.md) · [Actions/Logs/Validation](actions-logs.md) · [State schemas](state-schema.md) · [Coverage/ช่องว่าง](coverage.md) · [33 ระบบและหลักฐาน](systems.md)
 
@@ -26,19 +30,19 @@ Snapshot 2026-10-31; revision ab2c1a1eb606e9d6d02596e8b0ae18237a7e354a (รว�
   "encounterModels": 6,
   "phases": 5,
   "actions": 56,
-  "configKeys": 53,
-  "parameters": 67,
-  "functions": 444,
-  "codeSymbols": 577,
-  "policies": 197,
-  "randomRules": 95,
+  "configKeys": 54,
+  "parameters": 70,
+  "functions": 464,
+  "codeSymbols": 603,
+  "policies": 212,
+  "randomRules": 96,
   "legacyGateSites": 21,
-  "logSites": 105,
-  "logTopics": 92,
-  "validationSites": 429,
+  "logSites": 106,
+  "logTopics": 93,
+  "validationSites": 433,
   "dynamicStatusOperations": 28,
-  "schemas": 112,
-  "propertyWriteSites": 509
+  "schemas": 117,
+  "propertyWriteSites": 516
 }
 ```
 ## สืบต่อเมื่อเพิ่ม logic

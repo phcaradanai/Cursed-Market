@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "status": "candidate-awaiting-user-approval",
+  "status": "approved-experimental-pilot",
   "date": "2026-10-31",
   "scope": "8-item pilot proposal, one per merchant; no runtime change or release balance claim",
   "globalRules": [
@@ -130,5 +130,6 @@
     "mandatory life costs not shielded; actual lifeLost only",
     "public sword declaration without hidden guard leak; both swords/timeout/tie/copy cases",
     "same seed/config/policies baseline vs candidate, source revision and bounded simulation receipt"
-  ]
+  ],
+  "approvalFile": "new56-pilot-approval.json"
 }

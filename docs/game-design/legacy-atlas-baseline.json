@@ -1,0 +1,364 @@
+{
+  "version": 1,
+  "scope": "historical root-runtime baseline plus scoped Comic ghost evidence; not full active Comic",
+  "archivedAt": "2026-10-31",
+  "gitRevision": "9f0a972",
+  "sourceFiles": [
+    {
+      "file": "src/game/appraisal/ability-content.ts",
+      "sha256": "ff33530545a771c4e686640f2fca5db996ef3612f9602da6ddbf68c12377127e",
+      "lines": 31
+    },
+    {
+      "file": "src/game/appraisal/ability-rules.ts",
+      "sha256": "3e9f33f54b34c91fb26f6d0926f9df83e646dc3623a7c8bbf3beed5cedbc9139",
+      "lines": 25
+    },
+    {
+      "file": "src/game/appraisal/audit.ts",
+      "sha256": "352f047f66b8b3744f3feeb72c45bf371423c0defc5a95ef31241548ae35e0c6",
+      "lines": 34
+    },
+    {
+      "file": "src/game/appraisal/brokerage.ts",
+      "sha256": "df01497aef38dd46cec5384a53cfdc55b1d43daf9e9014ad0f78a3bd40a00894",
+      "lines": 229
+    },
+    {
+      "file": "src/game/appraisal/challenge-rules.ts",
+      "sha256": "74cfbe2083106078cdc44e96caefc9e959d999f4e1cb9319dc0e363375aa7e55",
+      "lines": 18
+    },
+    {
+      "file": "src/game/appraisal/challenge.ts",
+      "sha256": "35a2d880e49702b24560eae95fa6b2194c2e02f474f9a8ec2842e0114f3c6fec",
+      "lines": 34
+    },
+    {
+      "file": "src/game/appraisal/cleanse-rules.ts",
+      "sha256": "6fb69a3f4a4aa870670248255e02eb81d3fc527dbd4d9c975ba14eac81915cd1",
+      "lines": 37
+    },
+    {
+      "file": "src/game/appraisal/cleanse.ts",
+      "sha256": "2195402df17b9c929a06ca65ca766bbe6f7f7e37db0f2e098e9554e523e08de5",
+      "lines": 51
+    },
+    {
+      "file": "src/game/appraisal/content.ts",
+      "sha256": "5139041f880d8eacdb7c8ce173b3df5faa1708adc47585cdabbb81e17fd9ab79",
+      "lines": 762
+    },
+    {
+      "file": "src/game/appraisal/copy-effects.ts",
+      "sha256": "908b28f89ad8de7212adbd4636fdef6b2daaca230f97c41050ac2e436f4942f9",
+      "lines": 14
+    },
+    {
+      "file": "src/game/appraisal/core2-actions.ts",
+      "sha256": "a6000bd555a61b4140e3d41e43f882c5b692599b4d5b260e66a614d08c6c9837",
+      "lines": 136
+    },
+    {
+      "file": "src/game/appraisal/core2-content.ts",
+      "sha256": "e96206fa8c7d638c3b0ccbc756a8d6bf2977a84308c6c423956b63340cf789b9",
+      "lines": 35
+    },
+    {
+      "file": "src/game/appraisal/core2-events.ts",
+      "sha256": "00cc312c9caa75c5000e805e96722a8a79909c9c21c96a2911f6d0e9fcef5979",
+      "lines": 112
+    },
+    {
+      "file": "src/game/appraisal/core2-rules.ts",
+      "sha256": "c512cac29fda1d586afcc82ece3ac15a0411650283d1226ae12787c76bfce0ea",
+      "lines": 67
+    },
+    {
+      "file": "src/game/appraisal/core2-specs.ts",
+      "sha256": "399d270a4c3c8d170ae2c9a995dfff13863aeba2ebce98b70b78a5f2a1ce5316",
+      "lines": 74
+    },
+    {
+      "file": "src/game/appraisal/core2.ts",
+      "sha256": "6e3faed1e5d097006ccbfffb7c29e540edab9036f2bc9903f9572c0f3b8ea5f4",
+      "lines": 80
+    },
+    {
+      "file": "src/game/appraisal/engine.ts",
+      "sha256": "fbf67f3390188c27e637d7ecd1aba2bc15d2b29f056b1384360331703a76f220",
+      "lines": 496
+    },
+    {
+      "file": "src/game/appraisal/events.ts",
+      "sha256": "05da0823b84b85cea769c06085cd56da6973fb238abf05b9cf3ff623724240f2",
+      "lines": 449
+    },
+    {
+      "file": "src/game/appraisal/index.ts",
+      "sha256": "7867d91af9702cce970b74c8c6ae4d28f1f932139e439bcc86c471d293fbd557",
+      "lines": 8
+    },
+    {
+      "file": "src/game/appraisal/item-effects.ts",
+      "sha256": "c2ff1cbae837a24e19f6a5c81f56d27b986f870d7c277fd5d787d70728c63abd",
+      "lines": 48
+    },
+    {
+      "file": "src/game/appraisal/market-contracts.ts",
+      "sha256": "aef568c8fd9288c26fa6f74d696cd310f0949fddeefd4155af5c8a38db76ff9c",
+      "lines": 23
+    },
+    {
+      "file": "src/game/appraisal/mechanics.ts",
+      "sha256": "220548204a4be0efdde4dd8d839ad51b468f0867d2cb7174fd2cabbbf307f362",
+      "lines": 530
+    },
+    {
+      "file": "src/game/appraisal/merchant-abilities.ts",
+      "sha256": "e90c4ea9b0c2f302ec3e005efef4d61e73c9d239a460d8aeb8859c394b226b09",
+      "lines": 122
+    },
+    {
+      "file": "src/game/appraisal/npc-events.ts",
+      "sha256": "28a925726df336b668b542630cdcee012b64e17a20dfdf3e519d9a7652ec89bf",
+      "lines": 158
+    },
+    {
+      "file": "src/game/appraisal/omen-table.ts",
+      "sha256": "8b6ab850d3722a62f735726aef4d3c9b17a40a9791fff31e284a1a90df862106",
+      "lines": 42
+    },
+    {
+      "file": "src/game/appraisal/omens.ts",
+      "sha256": "23bf7f701d39d380ec315aaf5050602540ee662b232006bfc51fba7561f3019d",
+      "lines": 40
+    },
+    {
+      "file": "src/game/appraisal/passives.ts",
+      "sha256": "4c698f61577c48d58ff945546be159f49945e1e6279c85456ae8d7e1c0d8a2ab",
+      "lines": 70
+    },
+    {
+      "file": "src/game/appraisal/polish-events.ts",
+      "sha256": "b79b7d4c1fcc159aad0d319ed3542844d28c22479637a2a70306570c01abfbb6",
+      "lines": 19
+    },
+    {
+      "file": "src/game/appraisal/price-integrity.ts",
+      "sha256": "e2198294f78ee5def8be05631082eb23f2ba819fe6cdc2d8d89f75dc85501268",
+      "lines": 81
+    },
+    {
+      "file": "src/game/appraisal/pulse.ts",
+      "sha256": "a2850ad9e52e5e4e8f2122affb24e8d8e9ac7fa015b249c61b6ec93076fe712d",
+      "lines": 27
+    },
+    {
+      "file": "src/game/appraisal/rarity.ts",
+      "sha256": "3672184a63c2899151c92ed7a413a0881ec5df613fc10d0ca16f01090936cbd6",
+      "lines": 27
+    },
+    {
+      "file": "src/game/appraisal/round-rewards.ts",
+      "sha256": "0cc05a064ee355cf102ecbebd8bb8754c33d7bdc3d500f1f7196182cedfcaa5d",
+      "lines": 72
+    },
+    {
+      "file": "src/game/appraisal/scoring.ts",
+      "sha256": "82cd3af13438d22f426f5dc9b79741b7f0d22511fdd1728ac8a87911e018df3a",
+      "lines": 13
+    },
+    {
+      "file": "src/game/appraisal/seals.ts",
+      "sha256": "89e1b53c5f9d9d7aa010fe00bc84e8b3e37f8f83cbeb2f28895704e7e7532807",
+      "lines": 201
+    },
+    {
+      "file": "src/game/appraisal/secure-storage.ts",
+      "sha256": "7f718bc5594b9e1be3be28ea4c8cae3f24023a81b0b58f6a3949f3c00d8a7af5",
+      "lines": 241
+    },
+    {
+      "file": "src/game/appraisal/survival.ts",
+      "sha256": "82807d479e910e293910d3ac0cafd23b6e5d0826411330a0a1bd2147af3c6c47",
+      "lines": 35
+    },
+    {
+      "file": "src/game/appraisal/theft.ts",
+      "sha256": "83a321cd2cad805547d35298ef5fc21abd93dc3b0f1c6f3914d426def30247db",
+      "lines": 346
+    },
+    {
+      "file": "src/game/appraisal/types.ts",
+      "sha256": "082d9e63fb0eee479f864a378f595ae36800d45e614bf534ce673bff6ceb4d9b",
+      "lines": 364
+    },
+    {
+      "file": "src/game/appraisal/views.ts",
+      "sha256": "f6675475bc684341cdff6124bfe41851b3d71bfa8135c1fc3ec98b385aa0b1e5",
+      "lines": 64
+    },
+    {
+      "file": "src/game/appraisal/wishlist-rules.ts",
+      "sha256": "9157cc6f7636ed765494f6fc0ae7a5c1c54cad42036728d1288853e257aa3c30",
+      "lines": 33
+    },
+    {
+      "file": "src/game/appraisal/wishlist.ts",
+      "sha256": "335080d7252080ffdd373d0d452a8f999d2d0305c8ae35da673972d6794b4167",
+      "lines": 108
+    },
+    {
+      "file": "src/game/random.ts",
+      "sha256": "ec6facfcf36a0bb9cc137ffb4fe897ce1edb6cdad9763fb090adcaa1de8330d0",
+      "lines": 15
+    },
+    {
+      "file": "src/shared/item-rarity.ts",
+      "sha256": "bf190d3345ba346f6cb9be496e85c6d471b470d7b243f7a7447ba1a1d5e48d1e",
+      "lines": 87
+    },
+    {
+      "file": "src/shared/rarity-power.ts",
+      "sha256": "337e80b7cd349c7e4f075df0e45a695e7f9c8d4eb5f598191eb9ceac8582e097",
+      "lines": 30
+    },
+    {
+      "file": "src/shared/appraisal-protocol.ts",
+      "sha256": "fc466f14f54cced6c40ed5c934a69d7a2c99b1f927195956560bf344f3c073b7",
+      "lines": 54
+    },
+    {
+      "file": "src/server/appraisal-rooms.ts",
+      "sha256": "589661b0aeb77b7da6ba3394a4868f6cb085af383ecf8f7d359e8981658549c5",
+      "lines": 192
+    },
+    {
+      "file": "src/server/appraisal-messages.ts",
+      "sha256": "1641544b9440fe060f026c35997671ec1179ffdfc4473f7cd45bd63b302737f9",
+      "lines": 163
+    },
+    {
+      "file": "src/server/appraisal-main.ts",
+      "sha256": "6af8d2ab0a6678a0c0521908cf6539823626ed16323fe38942729249a8d6497c",
+      "lines": 11
+    },
+    {
+      "file": "src/server/room-lifecycle.ts",
+      "sha256": "6428c3c8dc9f94dfd881ac52925f28811843c52b9844cfde11608ff4eb69a673",
+      "lines": 169
+    },
+    {
+      "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+      "sha256": "4741d9dfad3d695b8615d0c00c5dc11a6e14ba8543bde6228471eb0a5c962989",
+      "lines": 78
+    },
+    {
+      "file": "apps/comic/src/game/appraisal/ghost-tracking.ts",
+      "sha256": "1a179d345d9aac40a5122a68f376017e384284f487fcd8c369795bd0a7f9242f",
+      "lines": 14
+    }
+  ],
+  "summary": {
+    "events": 132,
+    "statuses": 51,
+    "omens": 22,
+    "omenPacks": {
+      "polish": 7,
+      "core2": 15
+    },
+    "merchants": 8,
+    "abilities": 8,
+    "choiceVariants": 314,
+    "encounterModels": 6,
+    "phases": 5,
+    "actions": 56,
+    "configKeys": 53,
+    "parameters": 67,
+    "functions": 444,
+    "codeSymbols": 577,
+    "policies": 197,
+    "randomRules": 95,
+    "legacyGateSites": 21,
+    "logSites": 105,
+    "logTopics": 92,
+    "validationSites": 429,
+    "dynamicStatusOperations": 28,
+    "schemas": 112,
+    "propertyWriteSites": 509
+  },
+  "outputHashes": [
+    {
+      "file": "docs/game-design/system-atlas/README.md",
+      "sha256": "d97e0a3b3acdd5cd1a32c683d2775b59b5e3b8206530e6f28c28a2e6c8ccb9e4"
+    },
+    {
+      "file": "docs/game-design/system-atlas/actions-logs.md",
+      "sha256": "df5a1d0166e226bf366104898e5408f1dad1c295501021263458c9fafc87706d"
+    },
+    {
+      "file": "docs/game-design/system-atlas/coverage.md",
+      "sha256": "ca4162c85dd8b39d455285ff51193e26f73e482152108589841d281c3f8a85ee"
+    },
+    {
+      "file": "docs/game-design/system-atlas/data.json",
+      "sha256": "ce7888735ca4574763d9f3f954b8dbed3975237a5bd90c0fb12a05c83ea718e2"
+    },
+    {
+      "file": "docs/game-design/system-atlas/edges.csv",
+      "sha256": "f04455604c4392a5c5a88007b43085a84e4d64576567df6580458e168eda60c1"
+    },
+    {
+      "file": "docs/game-design/system-atlas/encounters-config.md",
+      "sha256": "96225ab9d533288f705bc5510b807dc56cdbba89c94b4bc16fb6ba77483fe6ba"
+    },
+    {
+      "file": "docs/game-design/system-atlas/events.md",
+      "sha256": "592f484db4dbefe7d1d7cf013ad800fbe3888916f41245897d4607fc88fe1665"
+    },
+    {
+      "file": "docs/game-design/system-atlas/graph.json",
+      "sha256": "8a6e771e3d37b149b73bbbbf0cf0625837e76c7ee397bdd6958c01b9f7e1c198"
+    },
+    {
+      "file": "docs/game-design/system-atlas/merchants.md",
+      "sha256": "e59f3e42189b91ea5a79baad575314d81970e0bed2d8541680ba15f5ba3fe88e"
+    },
+    {
+      "file": "docs/game-design/system-atlas/nodes.csv",
+      "sha256": "92332b6edf729d9b8491b18ef627283ae496c4ce4b4d19d232149cc9e68b9227"
+    },
+    {
+      "file": "docs/game-design/system-atlas/screens.json",
+      "sha256": "24e97f8feb1c431fab021d10f7831f6d114cd136aee8c7674ff953e34d4d13fc"
+    },
+    {
+      "file": "docs/game-design/system-atlas/state-schema.md",
+      "sha256": "4110f145723b2c1ad1b1f0335c5b8c5e8b3b28b30d1a5b7640f9726564f932c7"
+    },
+    {
+      "file": "docs/game-design/system-atlas/statuses-omens.md",
+      "sha256": "0b8d0cf0f118a43e7fa22a59e751a0f096915eb559b748360ad4db0a0cdf3662"
+    },
+    {
+      "file": "docs/game-design/system-atlas/systems.md",
+      "sha256": "0d7320626217f6e2cd3a542d474cbd69b280494db14dcaa24ef49692919d594d"
+    },
+    {
+      "file": "docs/game-design/system-atlas/verification.md",
+      "sha256": "04ec6dc60b7716d71b84954716483f02d6aee2d662eb595a05fc985410963906"
+    },
+    {
+      "file": "docs/game-design/screen-flow.html",
+      "sha256": "43be3b1c0bf1718db78330bb7d25a9054005db7908e9181cdc06382f1a1ba55e"
+    },
+    {
+      "file": "docs/game-design/logic-item-relations.html",
+      "sha256": "0eaad60794606ab8bfc7aef76e52affe3a3d5b29fa632fef500b7da545414681"
+    }
+  ],
+  "retrievalExample": "git show 9f0a972:docs/game-design/system-atlas/data.json",
+  "preservation": "Exact historical outputs remain in Git; no duplicate multi-megabyte snapshot tree. Root src implementation remains preserved separately.",
+  "verifiedAgainstGit": true
+}

@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "status": "approved-experimental-pilot",
+  "date": "2026-10-31",
+  "originalRevision": "9f0a972",
+  "originalProposalSha256": "ec70ac9f55770ff3866b54cb55131f5703058faafbc921970cb7519c4924b0a1",
+  "userReply": "อนุมัติสเปกและค่าทดลอง 8 ชิ้น",
+  "questionItemId": "call_5a8391eea9bf4e20aad894370da165c2",
+  "scope": "Approved items/globalRules/requiredTests as eight-item experimental runtime pilot; not release balance, optional effects or remaining48",
+  "approvedItemIds": [
+    "orc-tusk-shield",
+    "vampire-nocturne-signet",
+    "autometa-torque-caliper",
+    "alien-thought-translator",
+    "darkone-crossing-token",
+    "deepsea-tide-compass",
+    "swarm-brood-hammer",
+    "beast-riftfang-sword"
+  ]
+}

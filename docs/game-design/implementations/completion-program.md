@@ -8,7 +8,8 @@ Goal: complete active Comic against confirmed user rules, not just the latest su
 - [x] RULE-02 forced timeout checkpoint: engine/rooms/parser/client/bot versioned fallback + round-token/reconnect/idempotency/replay verified; active Comic duel approved and measured. See forced-rps-plan.md / forced-rps-verification.json.
 - [ ] RULE-02 remaining UX: reconcile legacy target picker and closed-result expanding history with no-scroll shared UI; current target actions preserved.
 - [ ] STRAT-01 and RULE-04: propose concrete goals/progress/counters/bonuses/ties per victory path and award, obtain material rule approval before runtime. Simultaneous Collector resolution already approved.
-- [ ] ITEM-01: audit new56 catalog and relation/effect proposals; approve exact trigger/target/magnitude/stack/cap/copy semantics, then stable runtime IDs. Relations are not bindings.
+- [x] ITEM-01 design gate: new56 art/relations audited; exact8 pilot values/common rules approved2026-10-31 and pinned in new56-pilot-approval.json.
+- [ ] ITEM-01 runtime contract: add stable typed IDs/capabilities/predicates for approved pilot; keep historical audits compatible. Relations/approval are not runtime bindings.
 - [ ] ITEM-02: eight-item pilot, one per merchant; full spawn/inspect/buy/hold/use/sell/copy/Collector lifecycle and unknown-fact privacy.
 - [ ] RULE-03: finalize Collector3+2 turn schedule, purchase rights/pricing/duplicate/timeout rules; implement all concealed views and payment/custody/reconnect.
 - [ ] ITEM-03: remaining48 and event/encounter/omen predicates; zero unexplained legacy targets, Comic art only.
@@ -28,3 +29,9 @@ Browser authorization2026-10-31: user explicitly permits opening/recontrolling v
 
 
 2026-10-31 ITEM-01 checkpoint: catalog/art audit and concrete8-item pilot specification prepared; new56-readiness.json proves0 new IDs in active compiled catalog, not lifecycle support. Numeric/common pilot rules await explicit user approval; no runtime work may infer it. Review generated new56-pilot-proposal.html. Main HTML source status now uses actual merchant-expression implementation status instead of stale hardcoded pending label. Next independent task while rule questions are pending: reconcile Atlas extraction with full active Comic and preserve legacy evidence, then complete remaining approved no-scroll UX.
+
+
+2026-10-31 user approved exact pilot8 experimental specs from9f0a972; new56-pilot-approval.json records original SHA/user reply. Earlier pending-pilot notes are superseded. STRAT-01 is still pending. Finish CTX-02 active source verification then implement pilot directly without re-requesting same approval. No optional effects, remaining48 or release balance approval inferred.
+
+
+CTX-02 complete: active Comic appraisal modules plus explicit support/server/bot now parsed semantically; root hybrid Atlas pinned at9f0a972 with verified output hashes. No mixed root code nodes. Source contracts/ghost actions/RPS flag and source navigation checked. See active-comic-atlas-plan.md and active-comic-atlas-verification.json. Next concrete task is approved pilot runtime contract/implementation, without further numeric approval.

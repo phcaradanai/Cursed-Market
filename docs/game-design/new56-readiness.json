@@ -1,19 +1,34 @@
 {
   "version": 1,
+  "pilot": {
+    "status": "approved-experimental-pilot",
+    "itemIds": [
+      "orc-tusk-shield",
+      "vampire-nocturne-signet",
+      "autometa-torque-caliper",
+      "alien-thought-translator",
+      "darkone-crossing-token",
+      "deepsea-tide-compass",
+      "swarm-brood-hammer",
+      "beast-riftfang-sword"
+    ],
+    "scope": "approval is not runtime/lifecycle proof"
+  },
   "asOf": "2026-10-31",
-  "observedRevision": "ab2c1a1eb606e9d6d02596e8b0ae18237a7e354a",
+  "observedRevision": "9f0a9721358df70cdfb7862f9da54ccdb93f64a7",
   "scope": "Active Comic art/catalog IDs and proposal edges only; no causal execution or balance claim",
   "sources": {
     "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/catalog.json": "1aba59f2a0e8fb48f49865fdb22c89fd7a17044537f7140f322952f66a7c2b44",
     "docs/game-design/logic-item-relations.json": "983d130078b1b6f6f1569dd05f295190a73523c1abaa0aa59bc29e0a6693b801",
-    "docs/game-design/new56-pilot-proposal.json": "ec70ac9f55770ff3866b54cb55131f5703058faafbc921970cb7519c4924b0a1",
+    "docs/game-design/new56-pilot-proposal.json": "6881755d843c45dd294fd629802321601fd3c596dc5d7bb771d9230a6ce406c5",
+    "docs/game-design/new56-pilot-approval.json": "cdcf630f60c8ed07db87008cd7c845575b3d304bdd0c7167abbf899a5e3b5d65",
     "apps/comic/src/game/appraisal/content.ts": "769c0ed9bbe0ac774647f39bfdb1a2febc0d9f48e03e774de45e408c513cdc18",
     "apps/comic/src/game/appraisal/types.ts": "edc5f1cf4165ffd7366457defe41acb880ca9d95a39942dfa4fecb6ae2687ea0",
     "apps/comic/src/game/appraisal/item-effects.ts": "c2ff1cbae837a24e19f6a5c81f56d27b986f870d7c277fd5d787d70728c63abd",
     "apps/comic/src/game/appraisal/passives.ts": "4c698f61577c48d58ff945546be159f49945e1e6279c85456ae8d7e1c0d8a2ab",
     "apps/comic/src/game/appraisal/copy-effects.ts": "908b28f89ad8de7212adbd4636fdef6b2daaca230f97c41050ac2e436f4942f9",
     "apps/comic/dist/src/game/appraisal/content.js": "bba7bad996a2c82ad6be7b7b64f3f7d89a83e12d3a1053da0243364331cb9b54",
-    "docs/game-design/scripts/audit-new56.mjs": "faee047cc6bea6dff252c16af02e9a7de27a449e557d7c417efdb6d6f7e0e80d"
+    "docs/game-design/scripts/audit-new56.mjs": "3a3bbc9af2d370ae9e247b47d8d47c2d7f75a11f98df3a6f5ae750e27797aac5"
   },
   "summary": {
     "merchants": 8,
@@ -1755,7 +1770,7 @@
   ],
   "limitations": [
     "Compiled module ID membership is verified, not lifecycle/effect coverage. Build command and source/compiled hashes accompany this report.",
-    "Effect IDs are design namespaces effect:E##, not event:E##. Numeric triggers, magnitudes, caps, copy and rarity semantics need approval.",
+    "Effect IDs are design namespaces effect:E##, not event:E##. Semantics outside the explicitly approved eight-item pilot still need approval.",
     "No old item alias, generator, effect, event predicate or live server config was changed by this audit."
   ]
 }

@@ -1,0 +1,20 @@
+✔ real sockets preserve sealed hands, independent clocks, resume and round-token idempotency (373.041417ms)
+✔ phase deadline cannot refuse a valid hand; duel expiry preserves it and a tie starts a fresh reconnectable clock (201.060666ms)
+✔ an accepted hand retry after phase expiry is acknowledged without replaying the action (64.805792ms)
+✔ untimed rooms still resolve a disconnected participant on the independent duel deadline once (19.165459ms)
+✔ timeout fills both missing hands deterministically and resolves without a cancellation or extra cost (156.127292ms)
+✔ timeout preserves a submitted hand and cannot fill a newly tied round (34.518292ms)
+✔ the expired phase clock defers active forced duels to the independent round clock (8.586875ms)
+✔ old audits retain cancelled timeout and genuinely moved targets still invalidate new duels (38.009709ms)
+✔ new-rule hand commands reject missing or stale round tokens while historical commands remain valid (40.26475ms)
+✔ NPC keeps its sealed hand and timeout uses normal defeat consequences (10.24975ms)
+✔ autofilled outcomes use the same transfer, seal and compensation consequences exactly once (21.462417ms)
+✔ command-only acquisition, forced expiry and full run strictly replay with no injected stock (103.75525ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1014.687334

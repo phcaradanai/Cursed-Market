@@ -11,19 +11,17 @@ Encounter เป็นการสร้างตาม seed และ state ไ
   "id": "generation",
   "name": "สร้าง encounter/ประตู/สต็อก",
   "functionNames": [
-    "initialiseAppraisalRun",
-    "generatePortals",
+    "createAppraisalRun",
     "spawnStockItem",
     "rerollPortal",
     "makeMarket"
   ],
   "note": "เป็นโมเดลสร้างตาม seed ผู้เล่น ช่วง พ่อค้า ความไว้ใจ และ config ไม่ใช่รายชื่อ encounter ตายตัวทั้งหมด",
   "functionRefs": [
-    "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
-    "code:src/game/appraisal/engine.ts:generatePortals",
-    "code:src/game/appraisal/engine.ts:spawnStockItem",
-    "code:src/game/appraisal/engine.ts:rerollPortal",
-    "code:src/game/appraisal/engine.ts:makeMarket"
+    "code:apps/comic/src/game/appraisal/engine.ts:createAppraisalRun",
+    "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
+    "code:apps/comic/src/game/appraisal/engine.ts:rerollPortal",
+    "code:apps/comic/src/game/appraisal/engine.ts:makeMarket"
   ]
 }
 ```
@@ -47,14 +45,14 @@ generic entry draw ใช้ randomAt < .55; ความถี่ของ even
   ],
   "note": "generic entry draw ใช้ randomAt < .55; ความถี่ของ event รายตัวต้องผ่าน pool และ eligibility ก่อน ไม่ใช่ 55% ต่อ event",
   "functionRefs": [
-    "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
-    "code:src/game/appraisal/events.ts:drawEvent",
-    "code:src/game/appraisal/events.ts:drawPersonalNpcEvent",
-    "code:src/game/appraisal/events.ts:drawBondEvent",
-    "code:src/game/appraisal/events.ts:drawWishEvent",
-    "code:src/game/appraisal/wishlist.ts:drawWishEvent",
-    "code:src/game/appraisal/events.ts:drawExpansionEvent",
-    "code:src/game/appraisal/events.ts:drawPolishEvent"
+    "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+    "code:apps/comic/src/game/appraisal/events.ts:drawEvent",
+    "code:apps/comic/src/game/appraisal/events.ts:drawPersonalNpcEvent",
+    "code:apps/comic/src/game/appraisal/events.ts:drawBondEvent",
+    "code:apps/comic/src/game/appraisal/events.ts:drawWishEvent",
+    "code:apps/comic/src/game/appraisal/wishlist.ts:drawWishEvent",
+    "code:apps/comic/src/game/appraisal/events.ts:drawExpansionEvent",
+    "code:apps/comic/src/game/appraisal/events.ts:drawPolishEvent"
   ]
 }
 ```
@@ -86,14 +84,14 @@ generic entry draw ใช้ randomAt < .55; ความถี่ของ even
   ],
   "note": "เลือกอันแรกที่สำเร็จตาม short-circuit; ไม่ได้สุ่มทุกตระกูลอิสระพร้อมกัน",
   "functionRefs": [
-    "code:src/game/appraisal/engine.ts:progress",
-    "code:src/game/appraisal/events.ts:drawPersonalNpcEvent",
-    "code:src/game/appraisal/events.ts:drawBondEvent",
-    "code:src/game/appraisal/events.ts:drawWishEvent",
-    "code:src/game/appraisal/wishlist.ts:drawWishEvent",
-    "code:src/game/appraisal/events.ts:drawExpansionEvent",
-    "code:src/game/appraisal/events.ts:drawPolishEvent",
-    "code:src/game/appraisal/events.ts:drawEvent"
+    "code:apps/comic/src/game/appraisal/engine.ts:progress",
+    "code:apps/comic/src/game/appraisal/events.ts:drawPersonalNpcEvent",
+    "code:apps/comic/src/game/appraisal/events.ts:drawBondEvent",
+    "code:apps/comic/src/game/appraisal/events.ts:drawWishEvent",
+    "code:apps/comic/src/game/appraisal/wishlist.ts:drawWishEvent",
+    "code:apps/comic/src/game/appraisal/events.ts:drawExpansionEvent",
+    "code:apps/comic/src/game/appraisal/events.ts:drawPolishEvent",
+    "code:apps/comic/src/game/appraisal/events.ts:drawEvent"
   ]
 }
 ```
@@ -117,13 +115,13 @@ source guards and call order determine actual application; do not add damage fro
   ],
   "note": "source guards and call order determine actual application; do not add damage from all branches simultaneously",
   "functionRefs": [
-    "code:src/game/appraisal/engine.ts:settleEncounter",
-    "code:src/game/appraisal/core2-rules.ts:applyCore2Settlement",
-    "code:src/game/appraisal/core2-rules.ts:applyDread",
-    "code:src/game/appraisal/mechanics.ts:mendWithShards",
-    "code:src/game/appraisal/survival.ts:collectorDue",
-    "code:src/game/appraisal/survival.ts:collectRun",
-    "code:src/game/appraisal/round-rewards.ts:openRoundRewards"
+    "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
+    "code:apps/comic/src/game/appraisal/core2-rules.ts:applyCore2Settlement",
+    "code:apps/comic/src/game/appraisal/core2-rules.ts:applyDread",
+    "code:apps/comic/src/game/appraisal/mechanics.ts:mendWithShards",
+    "code:apps/comic/src/game/appraisal/survival.ts:collectorDue",
+    "code:apps/comic/src/game/appraisal/survival.ts:collectRun",
+    "code:apps/comic/src/game/appraisal/round-rewards.ts:openRoundRewards"
   ]
 }
 ```
@@ -146,19 +144,19 @@ source guards and call order determine actual application; do not add damage fro
   ],
   "note": "รันใหม่ vaultInterestRules:1 ใช้เงินต้นครบช่วง 10%; audit ไม่มี flag รักษา 4% เดิม",
   "functionRefs": [
-    "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
-    "code:src/game/appraisal/secure-storage.ts:settleLoansBeforeAdvance",
-    "code:src/game/appraisal/theft.ts:collectCompensations",
-    "code:src/game/appraisal/secure-storage.ts:payVaultInterest",
-    "code:src/game/appraisal/seals.ts:closeSealOffers",
-    "code:src/game/appraisal/core2-rules.ts:resetCore2Encounter"
+    "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+    "code:apps/comic/src/game/appraisal/secure-storage.ts:settleLoansBeforeAdvance",
+    "code:apps/comic/src/game/appraisal/theft.ts:collectCompensations",
+    "code:apps/comic/src/game/appraisal/secure-storage.ts:payVaultInterest",
+    "code:apps/comic/src/game/appraisal/seals.ts:closeSealOffers",
+    "code:apps/comic/src/game/appraisal/core2-rules.ts:resetCore2Encounter"
   ]
 }
 ```
 
 ## นาฬิกา phase/ดวลและ default action
 
-ดวลหมดเวลาปัจจุบันยกเลิกได้ ยังต่างจากกฎใหม่ห้ามปฏิเสธ
+Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือที่ยังไม่ส่งตาม deadline ตา30วินาที; audit ไม่มีflagคงยกเลิกแบบเก่า; phaseหมดเวลาไม่ล้ำเข้ารีตาใหม่
 
 ```json
 {
@@ -171,13 +169,13 @@ source guards and call order determine actual application; do not add damage fro
     "defaultEvent",
     "expireTheftDuel"
   ],
-  "note": "ดวลหมดเวลาปัจจุบันยกเลิกได้ ยังต่างจากกฎใหม่ห้ามปฏิเสธ",
+  "note": "Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือที่ยังไม่ส่งตาม deadline ตา30วินาที; audit ไม่มีflagคงยกเลิกแบบเก่า; phaseหมดเวลาไม่ล้ำเข้ารีตาใหม่",
   "functionRefs": [
-    "code:src/server/appraisal-rooms.ts:AppraisalRoomService.sweep",
-    "code:src/server/appraisal-rooms.ts:AppraisalRoomService.timeout",
-    "code:src/game/appraisal/engine.ts:defaultAppraisalAction",
-    "code:src/game/appraisal/events.ts:defaultEvent",
-    "code:src/game/appraisal/theft.ts:expireTheftDuel"
+    "code:apps/comic/src/server/appraisal-rooms.ts:AppraisalRoomService.sweep",
+    "code:apps/comic/src/server/appraisal-rooms.ts:AppraisalRoomService.timeout",
+    "code:apps/comic/src/game/appraisal/engine.ts:defaultAppraisalAction",
+    "code:apps/comic/src/game/appraisal/events.ts:defaultEvent",
+    "code:apps/comic/src/game/appraisal/theft.ts:expireTheftDuel"
   ]
 }
 ```
@@ -191,11 +189,11 @@ source guards and call order determine actual application; do not add damage fro
       "assignments": [
         {
           "phase": "PORTALS",
-          "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+          "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
           "source": {
-            "file": "src/game/appraisal/engine.ts",
-            "line": 420,
-            "endLine": 420
+            "file": "apps/comic/src/game/appraisal/engine.ts",
+            "line": 431,
+            "endLine": 431
           },
           "guards": [],
           "expression": "state.phase='PORTALS'"
@@ -208,11 +206,11 @@ source guards and call order determine actual application; do not add damage fro
       "assignments": [
         {
           "phase": "APPRAISAL",
-          "owner": "code:src/game/appraisal/engine.ts:progress",
+          "owner": "code:apps/comic/src/game/appraisal/engine.ts:progress",
           "source": {
-            "file": "src/game/appraisal/engine.ts",
-            "line": 216,
-            "endLine": 216
+            "file": "apps/comic/src/game/appraisal/engine.ts",
+            "line": 220,
+            "endLine": 220
           },
           "guards": [
             "state.phase==='PORTALS'"
@@ -227,11 +225,11 @@ source guards and call order determine actual application; do not add damage fro
       "assignments": [
         {
           "phase": "TRADE",
-          "owner": "code:src/game/appraisal/engine.ts:progress",
+          "owner": "code:apps/comic/src/game/appraisal/engine.ts:progress",
           "source": {
-            "file": "src/game/appraisal/engine.ts",
-            "line": 219,
-            "endLine": 219
+            "file": "apps/comic/src/game/appraisal/engine.ts",
+            "line": 223,
+            "endLine": 223
           },
           "guards": [
             "NOT state.phase==='PORTALS'",
@@ -247,11 +245,11 @@ source guards and call order determine actual application; do not add damage fro
       "assignments": [
         {
           "phase": "REVEAL",
-          "owner": "code:src/game/appraisal/engine.ts:settleEncounter",
+          "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
           "source": {
-            "file": "src/game/appraisal/engine.ts",
-            "line": 209,
-            "endLine": 209
+            "file": "apps/comic/src/game/appraisal/engine.ts",
+            "line": 213,
+            "endLine": 213
           },
           "guards": [
             "NOT state.config.survival && (state.players.every(p=>p.life===0) || collectorDue(state))"
@@ -260,9 +258,9 @@ source guards and call order determine actual application; do not add damage fro
         },
         {
           "phase": "REVEAL",
-          "owner": "code:src/game/appraisal/survival.ts:collectRun",
+          "owner": "code:apps/comic/src/game/appraisal/survival.ts:collectRun",
           "source": {
-            "file": "src/game/appraisal/survival.ts",
+            "file": "apps/comic/src/game/appraisal/survival.ts",
             "line": 19,
             "endLine": 19
           },
@@ -280,11 +278,11 @@ source guards and call order determine actual application; do not add damage fro
       "assignments": [
         {
           "phase": "RESULTS",
-          "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+          "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
           "source": {
-            "file": "src/game/appraisal/engine.ts",
-            "line": 419,
-            "endLine": 419
+            "file": "apps/comic/src/game/appraisal/engine.ts",
+            "line": 430,
+            "endLine": 430
           },
           "guards": [
             "!state.config.survival && state.encounter===state.config.encounters"
@@ -293,11 +291,11 @@ source guards and call order determine actual application; do not add damage fro
         },
         {
           "phase": "RESULTS",
-          "owner": "code:src/game/appraisal/survival.ts:collectRun",
+          "owner": "code:apps/comic/src/game/appraisal/survival.ts:collectRun",
           "source": {
-            "file": "src/game/appraisal/survival.ts",
-            "line": 33,
-            "endLine": 33
+            "file": "apps/comic/src/game/appraisal/survival.ts",
+            "line": 34,
+            "endLine": 34
           },
           "guards": [],
           "expression": "state.phase='RESULTS'"
@@ -315,7 +313,7 @@ source guards and call order determine actual application; do not add damage fro
         "REVEAL": 30000
       },
       "source": {
-        "file": "src/server/appraisal-rooms.ts",
+        "file": "apps/comic/src/server/appraisal-rooms.ts",
         "line": 14,
         "endLine": 16
       }
@@ -323,7 +321,7 @@ source guards and call order determine actual application; do not add damage fro
     "BOT_RETIRE_ENCOUNTER": {
       "value": 12,
       "source": {
-        "file": "src/server/appraisal-rooms.ts",
+        "file": "apps/comic/src/server/appraisal-rooms.ts",
         "line": 18,
         "endLine": 18
       }
@@ -331,7 +329,7 @@ source guards and call order determine actual application; do not add damage fro
     "APPRAISAL_DUEL_MS": {
       "value": 30000,
       "source": {
-        "file": "src/server/appraisal-rooms.ts",
+        "file": "apps/comic/src/server/appraisal-rooms.ts",
         "line": 20,
         "endLine": 20
       }
@@ -607,6 +605,7 @@ source guards and call order determine actual application; do not add damage fro
       },
       "loanEndSettlement": true,
       "vaultInterestRules": 1,
+      "theftTimeoutRules": 1,
       "collectorDeadline": 15,
       "eventChoiceRules": 1,
       "statusLinks": 1,
@@ -637,9 +636,9 @@ source guards and call order determine actual application; do not add damage fro
       "marketQuota": 1
     },
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 31,
-      "endLine": 38
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 33,
+      "endLine": 40
     }
   },
   {
@@ -654,7 +653,7 @@ source guards and call order determine actual application; do not add damage fro
       }
     },
     "source": {
-      "file": "src/server/appraisal-rooms.ts",
+      "file": "apps/comic/src/server/appraisal-rooms.ts",
       "line": 25
     }
   },
@@ -663,7 +662,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "Server entry overrides",
     "expression": "{secureEconomy:true,brokerage:BROKERAGE_RULES,polish:true,npcEvents:true,core2:true,survival:SURVIVAL_RULES}",
     "source": {
-      "file": "src/server/appraisal-main.ts",
+      "file": "apps/comic/src/server/appraisal-main.ts",
       "line": 8
     },
     "note": "Do not treat engine defaults alone as the live room profile; read the server overrides and room mode.",
@@ -948,6 +947,7 @@ source guards and call order determine actual application; do not add damage fro
       },
       "loanEndSettlement": true,
       "vaultInterestRules": 1,
+      "theftTimeoutRules": 1,
       "collectorDeadline": 15,
       "eventChoiceRules": 1,
       "statusLinks": 1,
@@ -992,7 +992,7 @@ source guards and call order determine actual application; do not add damage fro
       }
     },
     "source": {
-      "file": "src/server/appraisal-main.ts",
+      "file": "apps/comic/src/server/appraisal-main.ts",
       "line": 8
     },
     "note": "Actual room options/mode can still adjust this profile; this is not a live-room read."
@@ -1009,33 +1009,33 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "bankReserve",
-        "owner": "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 95,
-          "endLine": 95
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 98,
+          "endLine": 98
         },
         "expression": "config.bankReserve",
         "guards": []
       },
       {
         "key": "bankReserve",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 461,
-          "endLine": 461
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 473,
+          "endLine": 473
         },
         "expression": "state.config.bankReserve",
         "guards": []
       },
       {
         "key": "bankReserve",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 463,
-          "endLine": 463
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 475,
+          "endLine": 475
         },
         "expression": "state.config.bankReserve",
         "guards": []
@@ -1049,9 +1049,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "brokerage",
-        "owner": "code:src/game/appraisal/brokerage.ts:bondEligible",
+        "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:bondEligible",
         "source": {
-          "file": "src/game/appraisal/brokerage.ts",
+          "file": "apps/comic/src/game/appraisal/brokerage.ts",
           "line": 45,
           "endLine": 45
         },
@@ -1060,9 +1060,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "brokerage",
-        "owner": "code:src/game/appraisal/brokerage.ts:unsoldItems",
+        "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:unsoldItems",
         "source": {
-          "file": "src/game/appraisal/brokerage.ts",
+          "file": "apps/comic/src/game/appraisal/brokerage.ts",
           "line": 116,
           "endLine": 116
         },
@@ -1071,9 +1071,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "brokerage",
-        "owner": "code:src/game/appraisal/brokerage.ts:vaultSale",
+        "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:vaultSale",
         "source": {
-          "file": "src/game/appraisal/brokerage.ts",
+          "file": "apps/comic/src/game/appraisal/brokerage.ts",
           "line": 190,
           "endLine": 190
         },
@@ -1082,9 +1082,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "brokerage",
-        "owner": "code:src/game/appraisal/brokerage.ts:auctionLots",
+        "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:auctionLots",
         "source": {
-          "file": "src/game/appraisal/brokerage.ts",
+          "file": "apps/comic/src/game/appraisal/brokerage.ts",
           "line": 194,
           "endLine": 194
         },
@@ -1093,22 +1093,22 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "brokerage",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 78,
-          "endLine": 78
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 81,
+          "endLine": 81
         },
         "expression": "config.brokerage",
         "guards": []
       },
       {
         "key": "brokerage",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 79,
-          "endLine": 79
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 82,
+          "endLine": 82
         },
         "expression": "config.brokerage",
         "guards": [
@@ -1117,75 +1117,75 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "brokerage",
-        "owner": "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 96,
-          "endLine": 96
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 99,
+          "endLine": 99
         },
         "expression": "config.brokerage",
         "guards": []
       },
       {
         "key": "brokerage",
-        "owner": "code:src/game/appraisal/engine.ts:makeMarket",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 160,
-          "endLine": 160
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 164,
+          "endLine": 164
         },
         "expression": "state.config.brokerage",
         "guards": []
       },
       {
         "key": "brokerage",
-        "owner": "code:src/game/appraisal/engine.ts:settleEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 188,
-          "endLine": 188
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 192,
+          "endLine": 192
         },
         "expression": "state.config.brokerage",
         "guards": []
       },
       {
         "key": "brokerage",
-        "owner": "code:src/game/appraisal/engine.ts:applyAppraisalAction",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 395,
-          "endLine": 395
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 406,
+          "endLine": 406
         },
         "expression": "state.config.brokerage",
         "guards": []
       },
       {
         "key": "brokerage",
-        "owner": "code:src/game/appraisal/engine.ts:applyAppraisalAction",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 396,
-          "endLine": 396
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 407,
+          "endLine": 407
         },
         "expression": "state.config.brokerage",
         "guards": []
       },
       {
         "key": "brokerage",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 492,
-          "endLine": 492
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 504,
+          "endLine": 504
         },
         "expression": "state.config.brokerage",
         "guards": []
       },
       {
         "key": "brokerage",
-        "owner": "code:src/game/appraisal/events.ts:polishEligible",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:polishEligible",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 65,
           "endLine": 65
         },
@@ -1194,9 +1194,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "brokerage",
-        "owner": "code:src/game/appraisal/events.ts:drawBondEvent",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:drawBondEvent",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 288,
           "endLine": 288
         },
@@ -1205,9 +1205,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "brokerage",
-        "owner": "code:src/game/appraisal/mechanics.ts:marketSell",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 527,
           "endLine": 527
         },
@@ -1216,9 +1216,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "brokerage",
-        "owner": "code:src/game/appraisal/npc-events.ts:statusPool",
+        "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:statusPool",
         "source": {
-          "file": "src/game/appraisal/npc-events.ts",
+          "file": "apps/comic/src/game/appraisal/npc-events.ts",
           "line": 65,
           "endLine": 65
         },
@@ -1227,11 +1227,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "brokerage",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 57,
-          "endLine": 57
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 59,
+          "endLine": 59
         },
         "expression": "state.config.brokerage",
         "guards": [
@@ -1247,75 +1247,75 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "catalogVersion",
-        "owner": "code:src/game/appraisal/content.ts:expansionActive",
+        "owner": "code:apps/comic/src/game/appraisal/content.ts:expansionActive",
         "source": {
-          "file": "src/game/appraisal/content.ts",
-          "line": 742,
-          "endLine": 742
+          "file": "apps/comic/src/game/appraisal/content.ts",
+          "line": 745,
+          "endLine": 745
         },
         "expression": "config.catalogVersion",
         "guards": []
       },
       {
         "key": "catalogVersion",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 67,
-          "endLine": 67
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 70,
+          "endLine": 70
         },
         "expression": "config.catalogVersion",
         "guards": []
       },
       {
         "key": "catalogVersion",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 67,
-          "endLine": 67
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 70,
+          "endLine": 70
         },
         "expression": "config.catalogVersion",
         "guards": []
       },
       {
         "key": "catalogVersion",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 67,
-          "endLine": 67
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 70,
+          "endLine": 70
         },
         "expression": "config.catalogVersion",
         "guards": []
       },
       {
         "key": "catalogVersion",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 67,
-          "endLine": 67
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 70,
+          "endLine": 70
         },
         "expression": "config.catalogVersion",
         "guards": []
       },
       {
         "key": "catalogVersion",
-        "owner": "code:src/game/appraisal/engine.ts:spawnStockItem",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 114,
-          "endLine": 114
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 118,
+          "endLine": 118
         },
         "expression": "config.catalogVersion",
         "guards": []
       },
       {
         "key": "catalogVersion",
-        "owner": "code:src/game/appraisal/merchant-abilities.ts:makeCandidate",
+        "owner": "code:apps/comic/src/game/appraisal/merchant-abilities.ts:makeCandidate",
         "source": {
-          "file": "src/game/appraisal/merchant-abilities.ts",
+          "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
           "line": 33,
           "endLine": 33
         },
@@ -1324,9 +1324,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "catalogVersion",
-        "owner": "code:src/game/appraisal/passives.ts:passivesEnabled",
+        "owner": "code:apps/comic/src/game/appraisal/passives.ts:passivesEnabled",
         "source": {
-          "file": "src/game/appraisal/passives.ts",
+          "file": "apps/comic/src/game/appraisal/passives.ts",
           "line": 39,
           "endLine": 39
         },
@@ -1335,9 +1335,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "catalogVersion",
-        "owner": "code:src/game/appraisal/wishlist.ts:wishPick",
+        "owner": "code:apps/comic/src/game/appraisal/wishlist.ts:wishPick",
         "source": {
-          "file": "src/game/appraisal/wishlist.ts",
+          "file": "apps/comic/src/game/appraisal/wishlist.ts",
           "line": 18,
           "endLine": 18
         },
@@ -1348,9 +1348,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "catalogVersion",
-        "owner": "code:src/game/appraisal/wishlist.ts:wishPick",
+        "owner": "code:apps/comic/src/game/appraisal/wishlist.ts:wishPick",
         "source": {
-          "file": "src/game/appraisal/wishlist.ts",
+          "file": "apps/comic/src/game/appraisal/wishlist.ts",
           "line": 18,
           "endLine": 18
         },
@@ -1368,55 +1368,55 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "challenge",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 57,
-          "endLine": 57
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 60,
+          "endLine": 60
         },
         "expression": "config.challenge",
         "guards": []
       },
       {
         "key": "challenge",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 57,
-          "endLine": 57
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 60,
+          "endLine": 60
         },
         "expression": "config.challenge",
         "guards": []
       },
       {
         "key": "challenge",
-        "owner": "code:src/game/appraisal/engine.ts:spawnStockItem",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 114,
-          "endLine": 114
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 118,
+          "endLine": 118
         },
         "expression": "config.challenge",
         "guards": []
       },
       {
         "key": "challenge",
-        "owner": "code:src/game/appraisal/engine.ts:share",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:share",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 234,
-          "endLine": 234
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 238,
+          "endLine": 238
         },
         "expression": "state.config.challenge",
         "guards": []
       },
       {
         "key": "challenge",
-        "owner": "code:src/game/appraisal/engine.ts:propose",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:propose",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 251,
-          "endLine": 251
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 255,
+          "endLine": 255
         },
         "expression": "state.config.challenge",
         "guards": [
@@ -1425,9 +1425,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "challenge",
-        "owner": "code:src/game/appraisal/merchant-abilities.ts:makeCandidate",
+        "owner": "code:apps/comic/src/game/appraisal/merchant-abilities.ts:makeCandidate",
         "source": {
-          "file": "src/game/appraisal/merchant-abilities.ts",
+          "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
           "line": 33,
           "endLine": 33
         },
@@ -1436,11 +1436,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "challenge",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 52,
-          "endLine": 52
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 53,
+          "endLine": 53
         },
         "expression": "state.config.challenge",
         "guards": [
@@ -1449,9 +1449,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "challenge",
-        "owner": "code:src/game/appraisal/wishlist.ts:wishPick",
+        "owner": "code:apps/comic/src/game/appraisal/wishlist.ts:wishPick",
         "source": {
-          "file": "src/game/appraisal/wishlist.ts",
+          "file": "apps/comic/src/game/appraisal/wishlist.ts",
           "line": 18,
           "endLine": 18
         },
@@ -1469,9 +1469,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "cleanse",
-        "owner": "code:src/game/appraisal/cleanse.ts:shopNpc",
+        "owner": "code:apps/comic/src/game/appraisal/cleanse.ts:shopNpc",
         "source": {
-          "file": "src/game/appraisal/cleanse.ts",
+          "file": "apps/comic/src/game/appraisal/cleanse.ts",
           "line": 9,
           "endLine": 9
         },
@@ -1482,33 +1482,33 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "cleanse",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 60,
-          "endLine": 60
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 63,
+          "endLine": 63
         },
         "expression": "config.cleanse",
         "guards": []
       },
       {
         "key": "cleanse",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 60,
-          "endLine": 60
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 63,
+          "endLine": 63
         },
         "expression": "config.cleanse",
         "guards": []
       },
       {
         "key": "cleanse",
-        "owner": "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 104,
-          "endLine": 104
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 107,
+          "endLine": 107
         },
         "expression": "config.cleanse",
         "guards": [
@@ -1517,20 +1517,20 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "cleanse",
-        "owner": "code:src/game/appraisal/engine.ts:spawnStockItem",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 114,
-          "endLine": 114
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 118,
+          "endLine": 118
         },
         "expression": "config.cleanse",
         "guards": []
       },
       {
         "key": "cleanse",
-        "owner": "code:src/game/appraisal/merchant-abilities.ts:makeCandidate",
+        "owner": "code:apps/comic/src/game/appraisal/merchant-abilities.ts:makeCandidate",
         "source": {
-          "file": "src/game/appraisal/merchant-abilities.ts",
+          "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
           "line": 33,
           "endLine": 33
         },
@@ -1539,11 +1539,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "cleanse",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 52,
-          "endLine": 52
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 53,
+          "endLine": 53
         },
         "expression": "state.config.cleanse",
         "guards": [
@@ -1552,9 +1552,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "cleanse",
-        "owner": "code:src/game/appraisal/wishlist.ts:wishPick",
+        "owner": "code:apps/comic/src/game/appraisal/wishlist.ts:wishPick",
         "source": {
-          "file": "src/game/appraisal/wishlist.ts",
+          "file": "apps/comic/src/game/appraisal/wishlist.ts",
           "line": 18,
           "endLine": 18
         },
@@ -1572,53 +1572,53 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "collectorDeadline",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 48,
-          "endLine": 48
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 51,
+          "endLine": 51
         },
         "expression": "config.collectorDeadline",
         "guards": []
       },
       {
         "key": "collectorDeadline",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 48,
-          "endLine": 48
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 51,
+          "endLine": 51
         },
         "expression": "config.collectorDeadline",
         "guards": []
       },
       {
         "key": "collectorDeadline",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 48,
-          "endLine": 48
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 51,
+          "endLine": 51
         },
         "expression": "config.collectorDeadline",
         "guards": []
       },
       {
         "key": "collectorDeadline",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 48,
-          "endLine": 48
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 51,
+          "endLine": 51
         },
         "expression": "config.collectorDeadline",
         "guards": []
       },
       {
         "key": "collectorDeadline",
-        "owner": "code:src/game/appraisal/survival.ts:collectorDue",
+        "owner": "code:apps/comic/src/game/appraisal/survival.ts:collectorDue",
         "source": {
-          "file": "src/game/appraisal/survival.ts",
+          "file": "apps/comic/src/game/appraisal/survival.ts",
           "line": 13,
           "endLine": 13
         },
@@ -1627,9 +1627,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "collectorDeadline",
-        "owner": "code:src/game/appraisal/survival.ts:collectorDue",
+        "owner": "code:apps/comic/src/game/appraisal/survival.ts:collectorDue",
         "source": {
-          "file": "src/game/appraisal/survival.ts",
+          "file": "apps/comic/src/game/appraisal/survival.ts",
           "line": 13,
           "endLine": 13
         },
@@ -1638,11 +1638,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "collectorDeadline",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 57,
-          "endLine": 57
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 59,
+          "endLine": 59
         },
         "expression": "state.config.collectorDeadline",
         "guards": [
@@ -1652,11 +1652,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "collectorDeadline",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 57,
-          "endLine": 57
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 59,
+          "endLine": 59
         },
         "expression": "state.config.collectorDeadline",
         "guards": [
@@ -1666,13 +1666,24 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "collectorDeadline",
-        "owner": "code:src/server/appraisal-rooms.ts:AppraisalRoomService.afterChange",
+        "owner": "code:apps/comic/src/server/appraisal-rooms.ts:AppraisalRoomService.afterChange",
         "source": {
-          "file": "src/server/appraisal-rooms.ts",
-          "line": 152,
-          "endLine": 152
+          "file": "apps/comic/src/server/appraisal-rooms.ts",
+          "line": 162,
+          "endLine": 162
         },
         "expression": "current.config.collectorDeadline",
+        "guards": []
+      },
+      {
+        "key": "collectorDeadline",
+        "owner": "code:apps/comic/src/simulation/appraisal.ts:simulateAppraisalRun",
+        "source": {
+          "file": "apps/comic/src/simulation/appraisal.ts",
+          "line": 234,
+          "endLine": 234
+        },
+        "expression": "state.config.collectorDeadline",
         "guards": []
       }
     ]
@@ -1684,33 +1695,33 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "commerce",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 53,
-          "endLine": 53
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 56,
+          "endLine": 56
         },
         "expression": "config.commerce",
         "guards": []
       },
       {
         "key": "commerce",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 53,
-          "endLine": 53
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 56,
+          "endLine": 56
         },
         "expression": "config.commerce",
         "guards": []
       },
       {
         "key": "commerce",
-        "owner": "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 104,
-          "endLine": 104
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 107,
+          "endLine": 107
         },
         "expression": "config.commerce",
         "guards": [
@@ -1719,11 +1730,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "commerce",
-        "owner": "code:src/game/appraisal/engine.ts:makeMarket",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 167,
-          "endLine": 167
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 171,
+          "endLine": 171
         },
         "expression": "state.config.commerce",
         "guards": [
@@ -1732,20 +1743,20 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "commerce",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 469,
-          "endLine": 469
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 481,
+          "endLine": 481
         },
         "expression": "state.config.commerce",
         "guards": []
       },
       {
         "key": "commerce",
-        "owner": "code:src/game/appraisal/mechanics.ts:stockBonus",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:stockBonus",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 55,
           "endLine": 55
         },
@@ -1756,9 +1767,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "commerce",
-        "owner": "code:src/game/appraisal/mechanics.ts:stockBonus",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:stockBonus",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 56,
           "endLine": 56
         },
@@ -1767,9 +1778,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "commerce",
-        "owner": "code:src/game/appraisal/mechanics.ts:appraise",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 264,
           "endLine": 264
         },
@@ -1778,9 +1789,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "commerce",
-        "owner": "code:src/game/appraisal/mechanics.ts:appraise",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 277,
           "endLine": 277
         },
@@ -1789,9 +1800,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "commerce",
-        "owner": "code:src/game/appraisal/mechanics.ts:completeAppraisedSale",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:completeAppraisedSale",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 296,
           "endLine": 296
         },
@@ -1800,9 +1811,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "commerce",
-        "owner": "code:src/game/appraisal/mechanics.ts:inheritKnowledge",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inheritKnowledge",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 322,
           "endLine": 322
         },
@@ -1811,9 +1822,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "commerce",
-        "owner": "code:src/game/appraisal/mechanics.ts:noteRepeatBuy",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:noteRepeatBuy",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 334,
           "endLine": 334
         },
@@ -1822,11 +1833,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "commerce",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 58,
-          "endLine": 58
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 60,
+          "endLine": 60
         },
         "expression": "state.config.commerce",
         "guards": [
@@ -1835,11 +1846,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "commerce",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 58,
-          "endLine": 58
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 60,
+          "endLine": 60
         },
         "expression": "state.config.commerce",
         "guards": [
@@ -1855,9 +1866,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "common",
-        "owner": "code:src/shared/rarity-power.ts:validateRarityEconomy",
+        "owner": "code:apps/comic/src/shared/rarity-power.ts:validateRarityEconomy",
         "source": {
-          "file": "src/shared/rarity-power.ts",
+          "file": "apps/comic/src/shared/rarity-power.ts",
           "line": 19,
           "endLine": 19
         },
@@ -1866,9 +1877,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "common",
-        "owner": "code:src/shared/rarity-power.ts:validateRarityEconomy",
+        "owner": "code:apps/comic/src/shared/rarity-power.ts:validateRarityEconomy",
         "source": {
-          "file": "src/shared/rarity-power.ts",
+          "file": "apps/comic/src/shared/rarity-power.ts",
           "line": 19,
           "endLine": 19
         },
@@ -1884,9 +1895,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/brokerage.ts:consign",
+        "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:consign",
         "source": {
-          "file": "src/game/appraisal/brokerage.ts",
+          "file": "apps/comic/src/game/appraisal/brokerage.ts",
           "line": 143,
           "endLine": 143
         },
@@ -1895,9 +1906,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/core2-actions.ts:startTheft",
+        "owner": "code:apps/comic/src/game/appraisal/core2-actions.ts:startTheft",
         "source": {
-          "file": "src/game/appraisal/core2-actions.ts",
+          "file": "apps/comic/src/game/appraisal/core2-actions.ts",
           "line": 13,
           "endLine": 13
         },
@@ -1906,9 +1917,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/core2-actions.ts:skillOpen",
+        "owner": "code:apps/comic/src/game/appraisal/core2-actions.ts:skillOpen",
         "source": {
-          "file": "src/game/appraisal/core2-actions.ts",
+          "file": "apps/comic/src/game/appraisal/core2-actions.ts",
           "line": 99,
           "endLine": 99
         },
@@ -1917,9 +1928,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/core2-events.ts:core2EventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:core2EventEligible",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 47,
           "endLine": 47
         },
@@ -1928,9 +1939,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/core2-rules.ts:applyDread",
+        "owner": "code:apps/comic/src/game/appraisal/core2-rules.ts:applyDread",
         "source": {
-          "file": "src/game/appraisal/core2-rules.ts",
+          "file": "apps/comic/src/game/appraisal/core2-rules.ts",
           "line": 17,
           "endLine": 17
         },
@@ -1939,9 +1950,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/core2-rules.ts:applyOmenPressure",
+        "owner": "code:apps/comic/src/game/appraisal/core2-rules.ts:applyOmenPressure",
         "source": {
-          "file": "src/game/appraisal/core2-rules.ts",
+          "file": "apps/comic/src/game/appraisal/core2-rules.ts",
           "line": 41,
           "endLine": 41
         },
@@ -1950,9 +1961,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/core2.ts:core2On",
+        "owner": "code:apps/comic/src/game/appraisal/core2.ts:core2On",
         "source": {
-          "file": "src/game/appraisal/core2.ts",
+          "file": "apps/comic/src/game/appraisal/core2.ts",
           "line": 10,
           "endLine": 10
         },
@@ -1961,9 +1972,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/core2.ts:anchorOf",
+        "owner": "code:apps/comic/src/game/appraisal/core2.ts:anchorOf",
         "source": {
-          "file": "src/game/appraisal/core2.ts",
+          "file": "apps/comic/src/game/appraisal/core2.ts",
           "line": 46,
           "endLine": 46
         },
@@ -1972,9 +1983,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/core2.ts:linkedStatuses",
+        "owner": "code:apps/comic/src/game/appraisal/core2.ts:linkedStatuses",
         "source": {
-          "file": "src/game/appraisal/core2.ts",
+          "file": "apps/comic/src/game/appraisal/core2.ts",
           "line": 79,
           "endLine": 79
         },
@@ -1985,77 +1996,77 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 52,
-          "endLine": 52
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 55,
+          "endLine": 55
         },
         "expression": "config.core2",
         "guards": []
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 52,
-          "endLine": 52
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 55,
+          "endLine": 55
         },
         "expression": "config.core2",
         "guards": []
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/engine.ts:rerollPortal",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:rerollPortal",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 142,
-          "endLine": 142
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 146,
+          "endLine": 146
         },
         "expression": "state.config.core2",
         "guards": []
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/engine.ts:makeMarket",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 161,
-          "endLine": 161
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 165,
+          "endLine": 165
         },
         "expression": "state.config.core2",
         "guards": []
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/engine.ts:settleEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 197,
-          "endLine": 197
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 201,
+          "endLine": 201
         },
         "expression": "state.config.core2",
         "guards": []
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/engine.ts:settleEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 203,
-          "endLine": 203
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 207,
+          "endLine": 207
         },
         "expression": "state.config.core2",
         "guards": []
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/engine.ts:settleEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 204,
-          "endLine": 204
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 208,
+          "endLine": 208
         },
         "expression": "state.config.core2",
         "guards": [
@@ -2065,20 +2076,20 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/engine.ts:applyAppraisalAction",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 388,
-          "endLine": 388
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 399,
+          "endLine": 399
         },
         "expression": "state.config.core2",
         "guards": []
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/events.ts:eventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 98,
           "endLine": 98
         },
@@ -2087,9 +2098,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/events.ts:drawEvent",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:drawEvent",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 254,
           "endLine": 254
         },
@@ -2100,9 +2111,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/events.ts:drawBacklashEvent",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:drawBacklashEvent",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 441,
           "endLine": 441
         },
@@ -2111,9 +2122,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/events.ts:drawTheftEvent",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:drawTheftEvent",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 446,
           "endLine": 446
         },
@@ -2122,9 +2133,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/mechanics.ts:recoveryOffer",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:recoveryOffer",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 147,
           "endLine": 147
         },
@@ -2133,9 +2144,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/mechanics.ts:appraise",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 266,
           "endLine": 266
         },
@@ -2146,9 +2157,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/mechanics.ts:completeAppraisedSale",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:completeAppraisedSale",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 304,
           "endLine": 304
         },
@@ -2159,9 +2170,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/mechanics.ts:noteScrap",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:noteScrap",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 345,
           "endLine": 345
         },
@@ -2170,9 +2181,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/omens.ts:omenOf",
+        "owner": "code:apps/comic/src/game/appraisal/omens.ts:omenOf",
         "source": {
-          "file": "src/game/appraisal/omens.ts",
+          "file": "apps/comic/src/game/appraisal/omens.ts",
           "line": 12,
           "endLine": 12
         },
@@ -2181,9 +2192,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/passives.ts:inspectionLimit",
+        "owner": "code:apps/comic/src/game/appraisal/passives.ts:inspectionLimit",
         "source": {
-          "file": "src/game/appraisal/passives.ts",
+          "file": "apps/comic/src/game/appraisal/passives.ts",
           "line": 62,
           "endLine": 62
         },
@@ -2194,9 +2205,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/theft.ts:startTheftDuel",
+        "owner": "code:apps/comic/src/game/appraisal/theft.ts:startTheftDuel",
         "source": {
-          "file": "src/game/appraisal/theft.ts",
+          "file": "apps/comic/src/game/appraisal/theft.ts",
           "line": 128,
           "endLine": 128
         },
@@ -2205,11 +2216,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 52,
-          "endLine": 52
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 53,
+          "endLine": 53
         },
         "expression": "state.config.core2",
         "guards": [
@@ -2218,11 +2229,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "core2",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 58,
-          "endLine": 58
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 60,
+          "endLine": 60
         },
         "expression": "state.config.core2",
         "guards": [
@@ -2238,31 +2249,31 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "curseSight",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 64,
-          "endLine": 64
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 67,
+          "endLine": 67
         },
         "expression": "config.curseSight",
         "guards": []
       },
       {
         "key": "curseSight",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 64,
-          "endLine": 64
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 67,
+          "endLine": 67
         },
         "expression": "config.curseSight",
         "guards": []
       },
       {
         "key": "curseSight",
-        "owner": "code:src/game/appraisal/events.ts:effectsUnknown",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:effectsUnknown",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 28,
           "endLine": 28
         },
@@ -2273,9 +2284,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "curseSight",
-        "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 341,
           "endLine": 341
         },
@@ -2286,9 +2297,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "curseSight",
-        "owner": "code:src/game/appraisal/mechanics.ts:inspect",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 217,
           "endLine": 217
         },
@@ -2301,9 +2312,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "curseSight",
-        "owner": "code:src/game/appraisal/mechanics.ts:inspect",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 236,
           "endLine": 236
         },
@@ -2315,9 +2326,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "curseSight",
-        "owner": "code:src/game/appraisal/mechanics.ts:inspect",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 242,
           "endLine": 242
         },
@@ -2326,9 +2337,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "curseSight",
-        "owner": "code:src/game/appraisal/mechanics.ts:activate",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 454,
           "endLine": 454
         },
@@ -2337,11 +2348,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "curseSight",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 52,
-          "endLine": 52
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 53,
+          "endLine": 53
         },
         "expression": "state.config.curseSight",
         "guards": [
@@ -2357,9 +2368,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "effect",
-        "owner": "code:src/shared/rarity-power.ts:validateRarityEconomy",
+        "owner": "code:apps/comic/src/shared/rarity-power.ts:validateRarityEconomy",
         "source": {
-          "file": "src/shared/rarity-power.ts",
+          "file": "apps/comic/src/shared/rarity-power.ts",
           "line": 19,
           "endLine": 19
         },
@@ -2375,11 +2386,11 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "encounterLifeCost",
-        "owner": "code:src/game/appraisal/engine.ts:settleEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 204,
-          "endLine": 204
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 208,
+          "endLine": 208
         },
         "expression": "state.config.survival.encounterLifeCost",
         "guards": [
@@ -2396,9 +2407,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "encounters",
-        "owner": "code:src/game/appraisal/core2-events.ts:debtWithoutNext",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:debtWithoutNext",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 19,
           "endLine": 19
         },
@@ -2407,9 +2418,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "encounters",
-        "owner": "code:src/game/appraisal/core2-events.ts:core2EventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:core2EventEligible",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 61,
           "endLine": 61
         },
@@ -2420,33 +2431,33 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "encounters",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 70,
-          "endLine": 70
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 73,
+          "endLine": 73
         },
         "expression": "config.encounters",
         "guards": []
       },
       {
         "key": "encounters",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 70,
-          "endLine": 70
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 73,
+          "endLine": 73
         },
         "expression": "config.encounters",
         "guards": []
       },
       {
         "key": "encounters",
-        "owner": "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 100,
-          "endLine": 100
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 103,
+          "endLine": 103
         },
         "expression": "config.encounters",
         "guards": [
@@ -2455,20 +2466,20 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "encounters",
-        "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 419,
-          "endLine": 419
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 430,
+          "endLine": 430
         },
         "expression": "state.config.encounters",
         "guards": []
       },
       {
         "key": "encounters",
-        "owner": "code:src/game/appraisal/events.ts:eventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 111,
           "endLine": 111
         },
@@ -2477,9 +2488,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "encounters",
-        "owner": "code:src/game/appraisal/mechanics.ts:grant",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:grant",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 88,
           "endLine": 88
         },
@@ -2488,9 +2499,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "encounters",
-        "owner": "code:src/game/appraisal/mechanics.ts:purchase",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 366,
           "endLine": 366
         },
@@ -2499,9 +2510,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "encounters",
-        "owner": "code:src/game/appraisal/npc-events.ts:statusPool",
+        "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:statusPool",
         "source": {
-          "file": "src/game/appraisal/npc-events.ts",
+          "file": "apps/comic/src/game/appraisal/npc-events.ts",
           "line": 66,
           "endLine": 66
         },
@@ -2510,22 +2521,22 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "encounters",
-        "owner": "code:src/game/appraisal/views.ts:appraisalItemView",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 42,
-          "endLine": 42
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 43,
+          "endLine": 43
         },
         "expression": "state.config.encounters",
         "guards": []
       },
       {
         "key": "encounters",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 55,
-          "endLine": 55
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 57,
+          "endLine": 57
         },
         "expression": "state.config.encounters",
         "guards": [
@@ -2541,11 +2552,11 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "entryEnergyCost",
-        "owner": "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 107,
-          "endLine": 107
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 110,
+          "endLine": 110
         },
         "expression": "config.survival.entryEnergyCost",
         "guards": [
@@ -2554,11 +2565,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "entryEnergyCost",
-        "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 435,
-          "endLine": 435
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 446,
+          "endLine": 446
         },
         "expression": "state.config.survival.entryEnergyCost",
         "guards": [
@@ -2574,9 +2585,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "eventChoiceRules",
-        "owner": "code:src/game/appraisal/brokerage.ts:bondEligible",
+        "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:bondEligible",
         "source": {
-          "file": "src/game/appraisal/brokerage.ts",
+          "file": "apps/comic/src/game/appraisal/brokerage.ts",
           "line": 53,
           "endLine": 53
         },
@@ -2585,9 +2596,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "eventChoiceRules",
-        "owner": "code:src/game/appraisal/core2-events.ts:debtWithoutNext",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:debtWithoutNext",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 19,
           "endLine": 19
         },
@@ -2596,9 +2607,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "eventChoiceRules",
-        "owner": "code:src/game/appraisal/core2-events.ts:core2EventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:core2EventEligible",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 61,
           "endLine": 61
         },
@@ -2609,31 +2620,31 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "eventChoiceRules",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 43,
-          "endLine": 43
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 45,
+          "endLine": 45
         },
         "expression": "config.eventChoiceRules",
         "guards": []
       },
       {
         "key": "eventChoiceRules",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 43,
-          "endLine": 43
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 45,
+          "endLine": 45
         },
         "expression": "config.eventChoiceRules",
         "guards": []
       },
       {
         "key": "eventChoiceRules",
-        "owner": "code:src/game/appraisal/events.ts:reworked",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:reworked",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 40,
           "endLine": 40
         },
@@ -2642,11 +2653,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "eventChoiceRules",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 53,
-          "endLine": 53
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 54,
+          "endLine": 54
         },
         "expression": "state.config.eventChoiceRules",
         "guards": [
@@ -2655,11 +2666,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "eventChoiceRules",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 53,
-          "endLine": 53
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 54,
+          "endLine": 54
         },
         "expression": "state.config.eventChoiceRules",
         "guards": [
@@ -2675,42 +2686,42 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "expansion",
-        "owner": "code:src/game/appraisal/content.ts:expansionActive",
+        "owner": "code:apps/comic/src/game/appraisal/content.ts:expansionActive",
         "source": {
-          "file": "src/game/appraisal/content.ts",
-          "line": 742,
-          "endLine": 742
+          "file": "apps/comic/src/game/appraisal/content.ts",
+          "line": 745,
+          "endLine": 745
         },
         "expression": "config.expansion",
         "guards": []
       },
       {
         "key": "expansion",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 56,
-          "endLine": 56
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 59,
+          "endLine": 59
         },
         "expression": "config.expansion",
         "guards": []
       },
       {
         "key": "expansion",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 56,
-          "endLine": 56
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 59,
+          "endLine": 59
         },
         "expression": "config.expansion",
         "guards": []
       },
       {
         "key": "expansion",
-        "owner": "code:src/game/appraisal/npc-events.ts:statusPool",
+        "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:statusPool",
         "source": {
-          "file": "src/game/appraisal/npc-events.ts",
+          "file": "apps/comic/src/game/appraisal/npc-events.ts",
           "line": 64,
           "endLine": 64
         },
@@ -2719,9 +2730,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "expansion",
-        "owner": "code:src/game/appraisal/wishlist.ts:wishPick",
+        "owner": "code:apps/comic/src/game/appraisal/wishlist.ts:wishPick",
         "source": {
-          "file": "src/game/appraisal/wishlist.ts",
+          "file": "apps/comic/src/game/appraisal/wishlist.ts",
           "line": 18,
           "endLine": 18
         },
@@ -2739,31 +2750,31 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "fakeEffect",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 61,
-          "endLine": 61
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 64,
+          "endLine": 64
         },
         "expression": "config.fakeEffect",
         "guards": []
       },
       {
         "key": "fakeEffect",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 61,
-          "endLine": 61
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 64,
+          "endLine": 64
         },
         "expression": "config.fakeEffect",
         "guards": []
       },
       {
         "key": "fakeEffect",
-        "owner": "code:src/game/appraisal/mechanics.ts:activate",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 407,
           "endLine": 407
         },
@@ -2772,11 +2783,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "fakeEffect",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 52,
-          "endLine": 52
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 53,
+          "endLine": 53
         },
         "expression": "state.config.fakeEffect",
         "guards": [
@@ -2792,9 +2803,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "filter",
-        "owner": "code:src/game/appraisal/core2-events.ts:core2EventChoices",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:core2EventChoices",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 33,
           "endLine": 33
         },
@@ -2803,22 +2814,22 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "filter",
-        "owner": "code:src/game/appraisal/engine.ts:rerollPortal",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:rerollPortal",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 146,
-          "endLine": 146
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 150,
+          "endLine": 150
         },
         "expression": "activeNpcs(state.config).filter",
         "guards": []
       },
       {
         "key": "filter",
-        "owner": "code:src/game/appraisal/engine.ts:rerollPortal",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:rerollPortal",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 147,
-          "endLine": 147
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 151,
+          "endLine": 151
         },
         "expression": "activeNpcs(state.config).filter",
         "guards": [
@@ -2827,9 +2838,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "filter",
-        "owner": "code:src/game/appraisal/events.ts:boonPool",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:boonPool",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 55,
           "endLine": 55
         },
@@ -2838,9 +2849,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "filter",
-        "owner": "code:src/game/appraisal/events.ts:drawEvent",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:drawEvent",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 254,
           "endLine": 254
         },
@@ -2849,9 +2860,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "filter",
-        "owner": "code:src/game/appraisal/npc-events.ts:statusPool",
+        "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:statusPool",
         "source": {
-          "file": "src/game/appraisal/npc-events.ts",
+          "file": "apps/comic/src/game/appraisal/npc-events.ts",
           "line": 63,
           "endLine": 63
         },
@@ -2867,9 +2878,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "find",
-        "owner": "code:src/game/appraisal/core2-events.ts:resolveCore2Event",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:resolveCore2Event",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 81,
           "endLine": 81
         },
@@ -2887,31 +2898,31 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "freeBuy",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 63,
-          "endLine": 63
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 66,
+          "endLine": 66
         },
         "expression": "config.freeBuy",
         "guards": []
       },
       {
         "key": "freeBuy",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 63,
-          "endLine": 63
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 66,
+          "endLine": 66
         },
         "expression": "config.freeBuy",
         "guards": []
       },
       {
         "key": "freeBuy",
-        "owner": "code:src/game/appraisal/mechanics.ts:purchase",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 375,
           "endLine": 375
         },
@@ -2922,11 +2933,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "freeBuy",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 52,
-          "endLine": 52
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 53,
+          "endLine": 53
         },
         "expression": "state.config.freeBuy",
         "guards": [
@@ -2942,42 +2953,42 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "freeMerchantAction",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 62,
-          "endLine": 62
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 65,
+          "endLine": 65
         },
         "expression": "config.freeMerchantAction",
         "guards": []
       },
       {
         "key": "freeMerchantAction",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 62,
-          "endLine": 62
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 65,
+          "endLine": 65
         },
         "expression": "config.freeMerchantAction",
         "guards": []
       },
       {
         "key": "freeMerchantAction",
-        "owner": "code:src/game/appraisal/engine.ts:pauseIfNeeded",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:pauseIfNeeded",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 180,
-          "endLine": 180
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 184,
+          "endLine": 184
         },
         "expression": "state.config.freeMerchantAction",
         "guards": []
       },
       {
         "key": "freeMerchantAction",
-        "owner": "code:src/game/appraisal/mechanics.ts:merchantActionFree",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:merchantActionFree",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 208,
           "endLine": 208
         },
@@ -2986,11 +2997,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "freeMerchantAction",
-        "owner": "code:src/game/appraisal/views.ts:appraisalItemView",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 33,
-          "endLine": 33
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 34,
+          "endLine": 34
         },
         "expression": "state.config.freeMerchantAction",
         "guards": [
@@ -3006,31 +3017,31 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "itemEffects",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 50,
-          "endLine": 50
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 53,
+          "endLine": 53
         },
         "expression": "config.itemEffects",
         "guards": []
       },
       {
         "key": "itemEffects",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 50,
-          "endLine": 50
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 53,
+          "endLine": 53
         },
         "expression": "config.itemEffects",
         "guards": []
       },
       {
         "key": "itemEffects",
-        "owner": "code:src/game/appraisal/mechanics.ts:activate",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 402,
           "endLine": 402
         },
@@ -3041,9 +3052,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "itemEffects",
-        "owner": "code:src/game/appraisal/mechanics.ts:activate",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 438,
           "endLine": 438
         },
@@ -3055,9 +3066,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "itemEffects",
-        "owner": "code:src/game/appraisal/mechanics.ts:activationNote",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activationNote",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 464,
           "endLine": 464
         },
@@ -3068,9 +3079,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "itemEffects",
-        "owner": "code:src/game/appraisal/mechanics.ts:activationNote",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activationNote",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 472,
           "endLine": 472
         },
@@ -3083,9 +3094,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "itemEffects",
-        "owner": "code:src/game/appraisal/passives.ts:passiveBonuses",
+        "owner": "code:apps/comic/src/game/appraisal/passives.ts:passiveBonuses",
         "source": {
-          "file": "src/game/appraisal/passives.ts",
+          "file": "apps/comic/src/game/appraisal/passives.ts",
           "line": 56,
           "endLine": 56
         },
@@ -3094,9 +3105,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "itemEffects",
-        "owner": "code:src/game/appraisal/passives.ts:passiveBonuses",
+        "owner": "code:apps/comic/src/game/appraisal/passives.ts:passiveBonuses",
         "source": {
-          "file": "src/game/appraisal/passives.ts",
+          "file": "apps/comic/src/game/appraisal/passives.ts",
           "line": 57,
           "endLine": 57
         },
@@ -3107,11 +3118,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "itemEffects",
-        "owner": "code:src/game/appraisal/views.ts:appraisalItemView",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 33,
-          "endLine": 33
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 34,
+          "endLine": 34
         },
         "expression": "state.config.itemEffects",
         "guards": [
@@ -3120,11 +3131,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "itemEffects",
-        "owner": "code:src/game/appraisal/views.ts:appraisalItemView",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 40,
-          "endLine": 40
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 41,
+          "endLine": 41
         },
         "expression": "state.config.itemEffects",
         "guards": [
@@ -3133,11 +3144,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "itemEffects",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 51,
-          "endLine": 51
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 52,
+          "endLine": 52
         },
         "expression": "state.config.itemEffects",
         "guards": [
@@ -3153,33 +3164,33 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "loanEndSettlement",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 47,
-          "endLine": 47
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 50,
+          "endLine": 50
         },
         "expression": "config.loanEndSettlement",
         "guards": []
       },
       {
         "key": "loanEndSettlement",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 47,
-          "endLine": 47
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 50,
+          "endLine": 50
         },
         "expression": "config.loanEndSettlement",
         "guards": []
       },
       {
         "key": "loanEndSettlement",
-        "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 419,
-          "endLine": 419
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 430,
+          "endLine": 430
         },
         "expression": "state.config.loanEndSettlement",
         "guards": [
@@ -3188,9 +3199,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "loanEndSettlement",
-        "owner": "code:src/game/appraisal/survival.ts:collectRun",
+        "owner": "code:apps/comic/src/game/appraisal/survival.ts:collectRun",
         "source": {
-          "file": "src/game/appraisal/survival.ts",
+          "file": "apps/comic/src/game/appraisal/survival.ts",
           "line": 19,
           "endLine": 19
         },
@@ -3208,9 +3219,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "map",
-        "owner": "code:src/game/appraisal/core2-events.ts:core2EventChoices",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:core2EventChoices",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 33,
           "endLine": 40
         },
@@ -3219,11 +3230,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "map",
-        "owner": "code:src/game/appraisal/engine.ts:makeMarket",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 167,
-          "endLine": 167
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 171,
+          "endLine": 171
         },
         "expression": "Object.values(state.config.rarityEconomy.tiers).map",
         "guards": [
@@ -3232,9 +3243,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "map",
-        "owner": "code:src/shared/item-rarity.ts:rollAppearance",
+        "owner": "code:apps/comic/src/shared/item-rarity.ts:rollAppearance",
         "source": {
-          "file": "src/shared/item-rarity.ts",
+          "file": "apps/comic/src/shared/item-rarity.ts",
           "line": 57,
           "endLine": 57
         },
@@ -3250,22 +3261,22 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "marketMaxOrders",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 71,
-          "endLine": 71
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 74,
+          "endLine": 74
         },
         "expression": "config.marketMaxOrders",
         "guards": []
       },
       {
         "key": "marketMaxOrders",
-        "owner": "code:src/game/appraisal/engine.ts:makeMarket",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 163,
-          "endLine": 163
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 167,
+          "endLine": 167
         },
         "expression": "state.config.marketMaxOrders",
         "guards": []
@@ -3279,44 +3290,44 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "marketProbability",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 71,
-          "endLine": 71
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 74,
+          "endLine": 74
         },
         "expression": "config.marketProbability",
         "guards": []
       },
       {
         "key": "marketProbability",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 71,
-          "endLine": 71
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 74,
+          "endLine": 74
         },
         "expression": "config.marketProbability",
         "guards": []
       },
       {
         "key": "marketProbability",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 71,
-          "endLine": 71
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 74,
+          "endLine": 74
         },
         "expression": "config.marketProbability",
         "guards": []
       },
       {
         "key": "marketProbability",
-        "owner": "code:src/game/appraisal/engine.ts:makeMarket",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 161,
-          "endLine": 161
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 165,
+          "endLine": 165
         },
         "expression": "state.config.marketProbability",
         "guards": []
@@ -3330,33 +3341,33 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "marketQuota",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 71,
-          "endLine": 71
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 74,
+          "endLine": 74
         },
         "expression": "config.marketQuota",
         "guards": []
       },
       {
         "key": "marketQuota",
-        "owner": "code:src/game/appraisal/engine.ts:makeMarket",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 167,
-          "endLine": 167
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 171,
+          "endLine": 171
         },
         "expression": "state.config.marketQuota",
         "guards": []
       },
       {
         "key": "marketQuota",
-        "owner": "code:src/game/appraisal/engine.ts:makeMarket",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 168,
-          "endLine": 168
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 172,
+          "endLine": 172
         },
         "expression": "state.config.marketQuota",
         "guards": []
@@ -3370,9 +3381,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "maxEnergy",
-        "owner": "code:src/game/appraisal/core2-events.ts:core2EventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:core2EventEligible",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 57,
           "endLine": 57
         },
@@ -3385,33 +3396,33 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "maxEnergy",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 70,
-          "endLine": 70
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 73,
+          "endLine": 73
         },
         "expression": "config.maxEnergy",
         "guards": []
       },
       {
         "key": "maxEnergy",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 70,
-          "endLine": 70
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 73,
+          "endLine": 73
         },
         "expression": "config.maxEnergy",
         "guards": []
       },
       {
         "key": "maxEnergy",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 76,
-          "endLine": 76
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 79,
+          "endLine": 79
         },
         "expression": "config.maxEnergy",
         "guards": [
@@ -3420,20 +3431,20 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "maxEnergy",
-        "owner": "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 104,
-          "endLine": 104
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 107,
+          "endLine": 107
         },
         "expression": "config.maxEnergy",
         "guards": []
       },
       {
         "key": "maxEnergy",
-        "owner": "code:src/game/appraisal/mechanics.ts:maxEnergyOf",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:maxEnergyOf",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 40,
           "endLine": 40
         },
@@ -3442,11 +3453,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "maxEnergy",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 57,
-          "endLine": 57
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 59,
+          "endLine": 59
         },
         "expression": "state.config.maxEnergy",
         "guards": [
@@ -3462,9 +3473,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "maxLife",
-        "owner": "code:src/game/appraisal/core2-events.ts:affordable",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:affordable",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 28,
           "endLine": 28
         },
@@ -3475,9 +3486,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "maxLife",
-        "owner": "code:src/game/appraisal/core2-events.ts:core2EventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:core2EventEligible",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 57,
           "endLine": 57
         },
@@ -3490,11 +3501,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "maxLife",
-        "owner": "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 104,
-          "endLine": 104
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 107,
+          "endLine": 107
         },
         "expression": "config.survival.maxLife",
         "guards": [
@@ -3503,9 +3514,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "maxLife",
-        "owner": "code:src/game/appraisal/mechanics.ts:maxLifeOf",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:maxLifeOf",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 43,
           "endLine": 43
         },
@@ -3523,44 +3534,44 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "multiCoinRewards",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 65,
-          "endLine": 65
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 68,
+          "endLine": 68
         },
         "expression": "config.multiCoinRewards",
         "guards": []
       },
       {
         "key": "multiCoinRewards",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 65,
-          "endLine": 65
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 68,
+          "endLine": 68
         },
         "expression": "config.multiCoinRewards",
         "guards": []
       },
       {
         "key": "multiCoinRewards",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 458,
-          "endLine": 458
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 470,
+          "endLine": 470
         },
         "expression": "state.config.multiCoinRewards",
         "guards": []
       },
       {
         "key": "multiCoinRewards",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 474,
-          "endLine": 474
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 486,
+          "endLine": 486
         },
         "expression": "state.config.multiCoinRewards",
         "guards": [
@@ -3570,9 +3581,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "multiCoinRewards",
-        "owner": "code:src/game/appraisal/round-rewards.ts:openRoundRewards",
+        "owner": "code:apps/comic/src/game/appraisal/round-rewards.ts:openRoundRewards",
         "source": {
-          "file": "src/game/appraisal/round-rewards.ts",
+          "file": "apps/comic/src/game/appraisal/round-rewards.ts",
           "line": 18,
           "endLine": 18
         },
@@ -3581,9 +3592,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "multiCoinRewards",
-        "owner": "code:src/game/appraisal/round-rewards.ts:raiseRoundReward",
+        "owner": "code:apps/comic/src/game/appraisal/round-rewards.ts:raiseRoundReward",
         "source": {
-          "file": "src/game/appraisal/round-rewards.ts",
+          "file": "apps/comic/src/game/appraisal/round-rewards.ts",
           "line": 23,
           "endLine": 23
         },
@@ -3592,9 +3603,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "multiCoinRewards",
-        "owner": "code:src/game/appraisal/round-rewards.ts:flipRoundReward",
+        "owner": "code:apps/comic/src/game/appraisal/round-rewards.ts:flipRoundReward",
         "source": {
-          "file": "src/game/appraisal/round-rewards.ts",
+          "file": "apps/comic/src/game/appraisal/round-rewards.ts",
           "line": 36,
           "endLine": 36
         },
@@ -3610,33 +3621,33 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "npcEvents",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 51,
-          "endLine": 51
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 54,
+          "endLine": 54
         },
         "expression": "config.npcEvents",
         "guards": []
       },
       {
         "key": "npcEvents",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 51,
-          "endLine": 51
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 54,
+          "endLine": 54
         },
         "expression": "config.npcEvents",
         "guards": []
       },
       {
         "key": "npcEvents",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 487,
-          "endLine": 487
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 499,
+          "endLine": 499
         },
         "expression": "state.config.npcEvents",
         "guards": [
@@ -3645,9 +3656,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "npcEvents",
-        "owner": "code:src/game/appraisal/events.ts:drawPersonalNpcEvent",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:drawPersonalNpcEvent",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 274,
           "endLine": 274
         },
@@ -3656,9 +3667,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "npcEvents",
-        "owner": "code:src/game/appraisal/mechanics.ts:purchase",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 370,
           "endLine": 370
         },
@@ -3667,9 +3678,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "npcEvents",
-        "owner": "code:src/game/appraisal/npc-events.ts:npcEventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:npcEventEligible",
         "source": {
-          "file": "src/game/appraisal/npc-events.ts",
+          "file": "apps/comic/src/game/appraisal/npc-events.ts",
           "line": 20,
           "endLine": 20
         },
@@ -3678,9 +3689,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "npcEvents",
-        "owner": "code:src/game/appraisal/npc-events.ts:redeemNpcContracts",
+        "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:redeemNpcContracts",
         "source": {
-          "file": "src/game/appraisal/npc-events.ts",
+          "file": "apps/comic/src/game/appraisal/npc-events.ts",
           "line": 131,
           "endLine": 131
         },
@@ -3689,9 +3700,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "npcEvents",
-        "owner": "code:src/game/appraisal/npc-events.ts:closeNpcContracts",
+        "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:closeNpcContracts",
         "source": {
-          "file": "src/game/appraisal/npc-events.ts",
+          "file": "apps/comic/src/game/appraisal/npc-events.ts",
           "line": 155,
           "endLine": 155
         },
@@ -3707,9 +3718,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/brokerage.ts:unsoldPenalty",
+        "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:unsoldPenalty",
         "source": {
-          "file": "src/game/appraisal/brokerage.ts",
+          "file": "apps/comic/src/game/appraisal/brokerage.ts",
           "line": 129,
           "endLine": 129
         },
@@ -3718,9 +3729,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/brokerage.ts:unsoldPenalty",
+        "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:unsoldPenalty",
         "source": {
-          "file": "src/game/appraisal/brokerage.ts",
+          "file": "apps/comic/src/game/appraisal/brokerage.ts",
           "line": 129,
           "endLine": 129
         },
@@ -3729,9 +3740,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/brokerage.ts:consign",
+        "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:consign",
         "source": {
-          "file": "src/game/appraisal/brokerage.ts",
+          "file": "apps/comic/src/game/appraisal/brokerage.ts",
           "line": 152,
           "endLine": 152
         },
@@ -3745,9 +3756,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/brokerage.ts:consign",
+        "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:consign",
         "source": {
-          "file": "src/game/appraisal/brokerage.ts",
+          "file": "apps/comic/src/game/appraisal/brokerage.ts",
           "line": 163,
           "endLine": 163
         },
@@ -3760,9 +3771,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/brokerage.ts:settleAuction",
+        "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:settleAuction",
         "source": {
-          "file": "src/game/appraisal/brokerage.ts",
+          "file": "apps/comic/src/game/appraisal/brokerage.ts",
           "line": 218,
           "endLine": 218
         },
@@ -3771,9 +3782,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/cleanse.ts:quote",
+        "owner": "code:apps/comic/src/game/appraisal/cleanse.ts:quote",
         "source": {
-          "file": "src/game/appraisal/cleanse.ts",
+          "file": "apps/comic/src/game/appraisal/cleanse.ts",
           "line": 18,
           "endLine": 18
         },
@@ -3784,9 +3795,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/cleanse.ts:cleanseItem",
+        "owner": "code:apps/comic/src/game/appraisal/cleanse.ts:cleanseItem",
         "source": {
-          "file": "src/game/appraisal/cleanse.ts",
+          "file": "apps/comic/src/game/appraisal/cleanse.ts",
           "line": 38,
           "endLine": 38
         },
@@ -3795,42 +3806,42 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 55,
-          "endLine": 55
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 58,
+          "endLine": 58
         },
         "expression": "config.polish",
         "guards": []
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 55,
-          "endLine": 55
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 58,
+          "endLine": 58
         },
         "expression": "config.polish",
         "guards": []
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/engine.ts:spawnStockItem",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 114,
-          "endLine": 114
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 118,
+          "endLine": 118
         },
         "expression": "config.polish",
         "guards": []
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/events.ts:polishEligible",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:polishEligible",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 63,
           "endLine": 63
         },
@@ -3839,9 +3850,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/events.ts:expansionEligible",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:expansionEligible",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 73,
           "endLine": 73
         },
@@ -3852,9 +3863,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/events.ts:eventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 106,
           "endLine": 106
         },
@@ -3865,9 +3876,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/events.ts:preferUnseen",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:preferUnseen",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 263,
           "endLine": 263
         },
@@ -3876,9 +3887,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/events.ts:drawPolishEvent",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:drawPolishEvent",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 268,
           "endLine": 268
         },
@@ -3887,9 +3898,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/events.ts:drawExpansionEvent",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:drawExpansionEvent",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 283,
           "endLine": 283
         },
@@ -3900,9 +3911,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/mechanics.ts:salePercent",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:salePercent",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 69,
           "endLine": 69
         },
@@ -3911,9 +3922,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/mechanics.ts:salePercent",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:salePercent",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 70,
           "endLine": 70
         },
@@ -3924,9 +3935,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/mechanics.ts:saleApply",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:saleApply",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 78,
           "endLine": 78
         },
@@ -3935,9 +3946,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/mechanics.ts:feeSurcharge",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:feeSurcharge",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 82,
           "endLine": 82
         },
@@ -3948,9 +3959,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/merchant-abilities.ts:makeCandidate",
+        "owner": "code:apps/comic/src/game/appraisal/merchant-abilities.ts:makeCandidate",
         "source": {
-          "file": "src/game/appraisal/merchant-abilities.ts",
+          "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
           "line": 33,
           "endLine": 33
         },
@@ -3959,9 +3970,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/npc-events.ts:statusPool",
+        "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:statusPool",
         "source": {
-          "file": "src/game/appraisal/npc-events.ts",
+          "file": "apps/comic/src/game/appraisal/npc-events.ts",
           "line": 64,
           "endLine": 64
         },
@@ -3970,9 +3981,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/omens.ts:omenOf",
+        "owner": "code:apps/comic/src/game/appraisal/omens.ts:omenOf",
         "source": {
-          "file": "src/game/appraisal/omens.ts",
+          "file": "apps/comic/src/game/appraisal/omens.ts",
           "line": 11,
           "endLine": 11
         },
@@ -3981,9 +3992,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/round-rewards.ts:openRoundRewards",
+        "owner": "code:apps/comic/src/game/appraisal/round-rewards.ts:openRoundRewards",
         "source": {
-          "file": "src/game/appraisal/round-rewards.ts",
+          "file": "apps/comic/src/game/appraisal/round-rewards.ts",
           "line": 15,
           "endLine": 15
         },
@@ -3992,11 +4003,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 52,
-          "endLine": 52
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 53,
+          "endLine": 53
         },
         "expression": "state.config.polish",
         "guards": [
@@ -4005,11 +4016,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 52,
-          "endLine": 52
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 53,
+          "endLine": 53
         },
         "expression": "state.config.polish",
         "guards": [
@@ -4018,11 +4029,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 58,
-          "endLine": 58
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 60,
+          "endLine": 60
         },
         "expression": "state.config.polish",
         "guards": [
@@ -4031,9 +4042,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/wishlist.ts:wishPick",
+        "owner": "code:apps/comic/src/game/appraisal/wishlist.ts:wishPick",
         "source": {
-          "file": "src/game/appraisal/wishlist.ts",
+          "file": "apps/comic/src/game/appraisal/wishlist.ts",
           "line": 18,
           "endLine": 18
         },
@@ -4044,9 +4055,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "polish",
-        "owner": "code:src/game/appraisal/wishlist.ts:wishSell",
+        "owner": "code:apps/comic/src/game/appraisal/wishlist.ts:wishSell",
         "source": {
-          "file": "src/game/appraisal/wishlist.ts",
+          "file": "apps/comic/src/game/appraisal/wishlist.ts",
           "line": 94,
           "endLine": 94
         },
@@ -4292,11 +4303,11 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "rarity",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 40,
-          "endLine": 40
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 42,
+          "endLine": 42
         },
         "expression": "config.rarity",
         "guards": [
@@ -4305,22 +4316,22 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "rarity",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 41,
-          "endLine": 41
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 43,
+          "endLine": 43
         },
         "expression": "config.rarity",
         "guards": []
       },
       {
         "key": "rarity",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 41,
-          "endLine": 41
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 43,
+          "endLine": 43
         },
         "expression": "config.rarity",
         "guards": [
@@ -4329,11 +4340,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "rarity",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 451,
-          "endLine": 451
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 463,
+          "endLine": 463
         },
         "expression": "state.config.rarity",
         "guards": [
@@ -4342,9 +4353,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "rarity",
-        "owner": "code:src/game/appraisal/rarity.ts:ensureItemAppearance",
+        "owner": "code:apps/comic/src/game/appraisal/rarity.ts:ensureItemAppearance",
         "source": {
-          "file": "src/game/appraisal/rarity.ts",
+          "file": "apps/comic/src/game/appraisal/rarity.ts",
           "line": 11,
           "endLine": 11
         },
@@ -4353,9 +4364,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "rarity",
-        "owner": "code:src/game/appraisal/rarity.ts:ensureItemAppearance",
+        "owner": "code:apps/comic/src/game/appraisal/rarity.ts:ensureItemAppearance",
         "source": {
-          "file": "src/game/appraisal/rarity.ts",
+          "file": "apps/comic/src/game/appraisal/rarity.ts",
           "line": 13,
           "endLine": 13
         },
@@ -4401,22 +4412,22 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "rarityEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 40,
-          "endLine": 40
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 42,
+          "endLine": 42
         },
         "expression": "config.rarityEconomy",
         "guards": []
       },
       {
         "key": "rarityEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 40,
-          "endLine": 40
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 42,
+          "endLine": 42
         },
         "expression": "config.rarityEconomy",
         "guards": [
@@ -4425,11 +4436,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "rarityEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:makeMarket",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 167,
-          "endLine": 167
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 171,
+          "endLine": 171
         },
         "expression": "state.config.rarityEconomy",
         "guards": [
@@ -4438,11 +4449,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "rarityEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:makeMarket",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 167,
-          "endLine": 167
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 171,
+          "endLine": 171
         },
         "expression": "state.config.rarityEconomy",
         "guards": [
@@ -4451,11 +4462,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "rarityEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 450,
-          "endLine": 450
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 462,
+          "endLine": 462
         },
         "expression": "state.config.rarityEconomy",
         "guards": [
@@ -4464,11 +4475,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "rarityEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 488,
-          "endLine": 488
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 500,
+          "endLine": 500
         },
         "expression": "state.config.rarityEconomy",
         "guards": [
@@ -4477,9 +4488,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "rarityEconomy",
-        "owner": "code:src/game/appraisal/mechanics.ts:activate",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 440,
           "endLine": 440
         },
@@ -4492,9 +4503,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "rarityEconomy",
-        "owner": "code:src/game/appraisal/mechanics.ts:activate",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 443,
           "endLine": 443
         },
@@ -4507,9 +4518,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "rarityEconomy",
-        "owner": "code:src/game/appraisal/mechanics.ts:marketSell",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 502,
           "endLine": 502
         },
@@ -4518,9 +4529,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "rarityEconomy",
-        "owner": "code:src/game/appraisal/rarity.ts:ensureItemAppearance",
+        "owner": "code:apps/comic/src/game/appraisal/rarity.ts:ensureItemAppearance",
         "source": {
-          "file": "src/game/appraisal/rarity.ts",
+          "file": "apps/comic/src/game/appraisal/rarity.ts",
           "line": 15,
           "endLine": 15
         },
@@ -4529,9 +4540,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "rarityEconomy",
-        "owner": "code:src/game/appraisal/rarity.ts:ensureItemAppearance",
+        "owner": "code:apps/comic/src/game/appraisal/rarity.ts:ensureItemAppearance",
         "source": {
-          "file": "src/game/appraisal/rarity.ts",
+          "file": "apps/comic/src/game/appraisal/rarity.ts",
           "line": 16,
           "endLine": 16
         },
@@ -4542,9 +4553,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "rarityEconomy",
-        "owner": "code:src/game/appraisal/wishlist.ts:wishOffer",
+        "owner": "code:apps/comic/src/game/appraisal/wishlist.ts:wishOffer",
         "source": {
-          "file": "src/game/appraisal/wishlist.ts",
+          "file": "apps/comic/src/game/appraisal/wishlist.ts",
           "line": 81,
           "endLine": 81
         },
@@ -4562,9 +4573,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "rates",
-        "owner": "code:src/shared/item-rarity.ts:validateRarityConfig",
+        "owner": "code:apps/comic/src/shared/item-rarity.ts:validateRarityConfig",
         "source": {
-          "file": "src/shared/item-rarity.ts",
+          "file": "apps/comic/src/shared/item-rarity.ts",
           "line": 30,
           "endLine": 30
         },
@@ -4573,9 +4584,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "rates",
-        "owner": "code:src/shared/item-rarity.ts:validateRarityConfig",
+        "owner": "code:apps/comic/src/shared/item-rarity.ts:validateRarityConfig",
         "source": {
-          "file": "src/shared/item-rarity.ts",
+          "file": "apps/comic/src/shared/item-rarity.ts",
           "line": 33,
           "endLine": 33
         },
@@ -4584,9 +4595,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "rates",
-        "owner": "code:src/shared/item-rarity.ts:rollAppearance",
+        "owner": "code:apps/comic/src/shared/item-rarity.ts:rollAppearance",
         "source": {
-          "file": "src/shared/item-rarity.ts",
+          "file": "apps/comic/src/shared/item-rarity.ts",
           "line": 56,
           "endLine": 56
         },
@@ -4602,33 +4613,33 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "recoveryEnergy",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 70,
-          "endLine": 70
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 73,
+          "endLine": 73
         },
         "expression": "config.recoveryEnergy",
         "guards": []
       },
       {
         "key": "recoveryEnergy",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 70,
-          "endLine": 70
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 73,
+          "endLine": 73
         },
         "expression": "config.recoveryEnergy",
         "guards": []
       },
       {
         "key": "recoveryEnergy",
-        "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 436,
-          "endLine": 436
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 447,
+          "endLine": 447
         },
         "expression": "state.config.recoveryEnergy",
         "guards": [
@@ -4645,9 +4656,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "reduce",
-        "owner": "code:src/game/appraisal/mechanics.ts:stockBonus",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:stockBonus",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 57,
           "endLine": 57
         },
@@ -4665,44 +4676,44 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "roundRewards",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 66,
-          "endLine": 66
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 69,
+          "endLine": 69
         },
         "expression": "config.roundRewards",
         "guards": []
       },
       {
         "key": "roundRewards",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 66,
-          "endLine": 66
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 69,
+          "endLine": 69
         },
         "expression": "config.roundRewards",
         "guards": []
       },
       {
         "key": "roundRewards",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 456,
-          "endLine": 456
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 468,
+          "endLine": 468
         },
         "expression": "state.config.roundRewards",
         "guards": []
       },
       {
         "key": "roundRewards",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 479,
-          "endLine": 479
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 491,
+          "endLine": 491
         },
         "expression": "state.config.roundRewards",
         "guards": [
@@ -4711,9 +4722,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "roundRewards",
-        "owner": "code:src/game/appraisal/round-rewards.ts:openRoundRewards",
+        "owner": "code:apps/comic/src/game/appraisal/round-rewards.ts:openRoundRewards",
         "source": {
-          "file": "src/game/appraisal/round-rewards.ts",
+          "file": "apps/comic/src/game/appraisal/round-rewards.ts",
           "line": 9,
           "endLine": 9
         },
@@ -4722,11 +4733,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "roundRewards",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 56,
-          "endLine": 56
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 58,
+          "endLine": 58
         },
         "expression": "state.config.roundRewards",
         "guards": [
@@ -4742,9 +4753,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/brokerage.ts:resolveBond",
+        "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:resolveBond",
         "source": {
-          "file": "src/game/appraisal/brokerage.ts",
+          "file": "apps/comic/src/game/appraisal/brokerage.ts",
           "line": 83,
           "endLine": 83
         },
@@ -4753,9 +4764,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/core2-actions.ts:core2ActionsOf",
+        "owner": "code:apps/comic/src/game/appraisal/core2-actions.ts:core2ActionsOf",
         "source": {
-          "file": "src/game/appraisal/core2-actions.ts",
+          "file": "apps/comic/src/game/appraisal/core2-actions.ts",
           "line": 133,
           "endLine": 133
         },
@@ -4766,145 +4777,145 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 42,
-          "endLine": 42
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 44,
+          "endLine": 44
         },
         "expression": "config.secureEconomy",
         "guards": []
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 42,
-          "endLine": 42
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 44,
+          "endLine": 44
         },
         "expression": "config.secureEconomy",
         "guards": []
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 97,
-          "endLine": 97
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 100,
+          "endLine": 100
         },
         "expression": "config.secureEconomy",
         "guards": []
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 106,
-          "endLine": 106
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 109,
+          "endLine": 109
         },
         "expression": "config.secureEconomy",
         "guards": []
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:pauseIfNeeded",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:pauseIfNeeded",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 179,
-          "endLine": 179
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 183,
+          "endLine": 183
         },
         "expression": "state.config.secureEconomy",
         "guards": []
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:settleEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 210,
-          "endLine": 210
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 214,
+          "endLine": 214
         },
         "expression": "state.config.secureEconomy",
         "guards": []
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:respond",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:respond",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 300,
-          "endLine": 300
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 304,
+          "endLine": 304
         },
         "expression": "state.config.secureEconomy",
         "guards": []
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:applyAppraisalAction",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 334,
-          "endLine": 334
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 340,
+          "endLine": 340
         },
         "expression": "state.config.secureEconomy",
         "guards": []
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:applyAppraisalAction",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 344,
-          "endLine": 344
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 351,
+          "endLine": 351
         },
         "expression": "state.config.secureEconomy",
         "guards": [
-          "financeAction || action.type==='theft-hand' || action.type==='theft-expire'"
+          "financeAction || action.type==='theft-hand' || action.type==='theft-expire' || forcedTimeout"
         ]
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:applyAppraisalAction",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 357,
-          "endLine": 357
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 368,
+          "endLine": 368
         },
         "expression": "state.config.secureEconomy",
         "guards": []
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:applyAppraisalAction",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 386,
-          "endLine": 386
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 397,
+          "endLine": 397
         },
         "expression": "state.config.secureEconomy",
         "guards": []
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:applyAppraisalAction",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 387,
-          "endLine": 387
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 398,
+          "endLine": 398
         },
         "expression": "state.config.secureEconomy",
         "guards": []
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:applyAppraisalAction",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 404,
-          "endLine": 404
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 415,
+          "endLine": 415
         },
         "expression": "state.config.secureEconomy",
         "guards": [
@@ -4913,31 +4924,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:applyAppraisalAction",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 407,
-          "endLine": 407
-        },
-        "expression": "state.config.secureEconomy",
-        "guards": []
-      },
-      {
-        "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:applyAppraisalAction",
-        "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 411,
-          "endLine": 411
-        },
-        "expression": "state.config.secureEconomy",
-        "guards": []
-      },
-      {
-        "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
-        "source": {
-          "file": "src/game/appraisal/engine.ts",
+          "file": "apps/comic/src/game/appraisal/engine.ts",
           "line": 418,
           "endLine": 418
         },
@@ -4946,11 +4935,33 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 419,
-          "endLine": 419
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 422,
+          "endLine": 422
+        },
+        "expression": "state.config.secureEconomy",
+        "guards": []
+      },
+      {
+        "key": "secureEconomy",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 429,
+          "endLine": 429
+        },
+        "expression": "state.config.secureEconomy",
+        "guards": []
+      },
+      {
+        "key": "secureEconomy",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 430,
+          "endLine": 430
         },
         "expression": "state.config.secureEconomy",
         "guards": [
@@ -4959,22 +4970,22 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 421,
-          "endLine": 421
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 432,
+          "endLine": 432
         },
         "expression": "state.config.secureEconomy",
         "guards": []
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:defaultAppraisalAction",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:defaultAppraisalAction",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 447,
-          "endLine": 447
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 459,
+          "endLine": 459
         },
         "expression": "state.config.secureEconomy",
         "guards": [
@@ -4983,22 +4994,22 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 452,
-          "endLine": 452
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 464,
+          "endLine": 464
         },
         "expression": "state.config.secureEconomy",
         "guards": []
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 463,
-          "endLine": 463
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 475,
+          "endLine": 475
         },
         "expression": "state.config.secureEconomy",
         "guards": [
@@ -5007,20 +5018,20 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 465,
-          "endLine": 465
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 477,
+          "endLine": 477
         },
         "expression": "state.config.secureEconomy",
         "guards": []
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/events.ts:eventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 161,
           "endLine": 161
         },
@@ -5029,9 +5040,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 374,
           "endLine": 374
         },
@@ -5040,9 +5051,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/mechanics.ts:purchase",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 359,
           "endLine": 359
         },
@@ -5051,9 +5062,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/price-integrity.ts:auditItemPrice",
+        "owner": "code:apps/comic/src/game/appraisal/price-integrity.ts:auditItemPrice",
         "source": {
-          "file": "src/game/appraisal/price-integrity.ts",
+          "file": "apps/comic/src/game/appraisal/price-integrity.ts",
           "line": 15,
           "endLine": 15
         },
@@ -5062,9 +5073,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/price-integrity.ts:recordItemTrade",
+        "owner": "code:apps/comic/src/game/appraisal/price-integrity.ts:recordItemTrade",
         "source": {
-          "file": "src/game/appraisal/price-integrity.ts",
+          "file": "apps/comic/src/game/appraisal/price-integrity.ts",
           "line": 27,
           "endLine": 27
         },
@@ -5073,9 +5084,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/price-integrity.ts:systemSaleQuote",
+        "owner": "code:apps/comic/src/game/appraisal/price-integrity.ts:systemSaleQuote",
         "source": {
-          "file": "src/game/appraisal/price-integrity.ts",
+          "file": "apps/comic/src/game/appraisal/price-integrity.ts",
           "line": 35,
           "endLine": 35
         },
@@ -5086,9 +5097,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/price-integrity.ts:liquidateOwnedItem",
+        "owner": "code:apps/comic/src/game/appraisal/price-integrity.ts:liquidateOwnedItem",
         "source": {
-          "file": "src/game/appraisal/price-integrity.ts",
+          "file": "apps/comic/src/game/appraisal/price-integrity.ts",
           "line": 45,
           "endLine": 45
         },
@@ -5097,9 +5108,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/price-integrity.ts:reappraiseOwnedItem",
+        "owner": "code:apps/comic/src/game/appraisal/price-integrity.ts:reappraiseOwnedItem",
         "source": {
-          "file": "src/game/appraisal/price-integrity.ts",
+          "file": "apps/comic/src/game/appraisal/price-integrity.ts",
           "line": 57,
           "endLine": 57
         },
@@ -5108,9 +5119,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/price-integrity.ts:integrityItemView",
+        "owner": "code:apps/comic/src/game/appraisal/price-integrity.ts:integrityItemView",
         "source": {
-          "file": "src/game/appraisal/price-integrity.ts",
+          "file": "apps/comic/src/game/appraisal/price-integrity.ts",
           "line": 77,
           "endLine": 77
         },
@@ -5119,9 +5130,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/seals.ts:handleSealAction",
+        "owner": "code:apps/comic/src/game/appraisal/seals.ts:handleSealAction",
         "source": {
-          "file": "src/game/appraisal/seals.ts",
+          "file": "apps/comic/src/game/appraisal/seals.ts",
           "line": 160,
           "endLine": 160
         },
@@ -5130,9 +5141,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/secure-storage.ts:enabled",
+        "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:enabled",
         "source": {
-          "file": "src/game/appraisal/secure-storage.ts",
+          "file": "apps/comic/src/game/appraisal/secure-storage.ts",
           "line": 35,
           "endLine": 35
         },
@@ -5141,9 +5152,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/secure-storage.ts:settleLoansBeforeAdvance",
+        "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:settleLoansBeforeAdvance",
         "source": {
-          "file": "src/game/appraisal/secure-storage.ts",
+          "file": "apps/comic/src/game/appraisal/secure-storage.ts",
           "line": 179,
           "endLine": 179
         },
@@ -5152,9 +5163,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/secure-storage.ts:payVaultInterest",
+        "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:payVaultInterest",
         "source": {
-          "file": "src/game/appraisal/secure-storage.ts",
+          "file": "apps/comic/src/game/appraisal/secure-storage.ts",
           "line": 197,
           "endLine": 197
         },
@@ -5163,9 +5174,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/secure-storage.ts:secureStorageInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:secureStorageInvariants",
         "source": {
-          "file": "src/game/appraisal/secure-storage.ts",
+          "file": "apps/comic/src/game/appraisal/secure-storage.ts",
           "line": 220,
           "endLine": 220
         },
@@ -5174,9 +5185,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/secure-storage.ts:secureStorageInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:secureStorageInvariants",
         "source": {
-          "file": "src/game/appraisal/secure-storage.ts",
+          "file": "apps/comic/src/game/appraisal/secure-storage.ts",
           "line": 225,
           "endLine": 225
         },
@@ -5185,9 +5196,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/secure-storage.ts:ownedAssetItemIds",
+        "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:ownedAssetItemIds",
         "source": {
-          "file": "src/game/appraisal/secure-storage.ts",
+          "file": "apps/comic/src/game/appraisal/secure-storage.ts",
           "line": 239,
           "endLine": 239
         },
@@ -5198,9 +5209,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/survival.ts:collectRun",
+        "owner": "code:apps/comic/src/game/appraisal/survival.ts:collectRun",
         "source": {
-          "file": "src/game/appraisal/survival.ts",
+          "file": "apps/comic/src/game/appraisal/survival.ts",
           "line": 19,
           "endLine": 19
         },
@@ -5209,11 +5220,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/views.ts:appraisalItemView",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 33,
-          "endLine": 33
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 34,
+          "endLine": 34
         },
         "expression": "state.config.secureEconomy",
         "guards": [
@@ -5222,11 +5233,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 49,
-          "endLine": 49
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 50,
+          "endLine": 50
         },
         "expression": "state.config.secureEconomy",
         "guards": [
@@ -5235,9 +5246,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "secureEconomy",
-        "owner": "code:src/game/appraisal/wishlist.ts:wishSell",
+        "owner": "code:apps/comic/src/game/appraisal/wishlist.ts:wishSell",
         "source": {
-          "file": "src/game/appraisal/wishlist.ts",
+          "file": "apps/comic/src/game/appraisal/wishlist.ts",
           "line": 86,
           "endLine": 86
         },
@@ -5253,44 +5264,44 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "startingCredits",
-        "owner": "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 104,
-          "endLine": 104
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 107,
+          "endLine": 107
         },
         "expression": "config.startingCredits",
         "guards": []
       },
       {
         "key": "startingCredits",
-        "owner": "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 104,
-          "endLine": 104
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 107,
+          "endLine": 107
         },
         "expression": "config.startingCredits",
         "guards": []
       },
       {
         "key": "startingCredits",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 461,
-          "endLine": 461
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 473,
+          "endLine": 473
         },
         "expression": "state.config.startingCredits",
         "guards": []
       },
       {
         "key": "startingCredits",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 463,
-          "endLine": 463
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 475,
+          "endLine": 475
         },
         "expression": "state.config.startingCredits",
         "guards": []
@@ -5304,9 +5315,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "statusLinks",
-        "owner": "code:src/game/appraisal/core2-events.ts:core2EventChoices",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:core2EventChoices",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 35,
           "endLine": 35
         },
@@ -5315,9 +5326,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "statusLinks",
-        "owner": "code:src/game/appraisal/core2-events.ts:core2EventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:core2EventEligible",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 59,
           "endLine": 59
         },
@@ -5328,9 +5339,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "statusLinks",
-        "owner": "code:src/game/appraisal/core2-events.ts:core2EventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:core2EventEligible",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 62,
           "endLine": 62
         },
@@ -5342,9 +5353,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "statusLinks",
-        "owner": "code:src/game/appraisal/core2-events.ts:core2EventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:core2EventEligible",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 66,
           "endLine": 66
         },
@@ -5355,9 +5366,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "statusLinks",
-        "owner": "code:src/game/appraisal/core2.ts:linkedStatuses",
+        "owner": "code:apps/comic/src/game/appraisal/core2.ts:linkedStatuses",
         "source": {
-          "file": "src/game/appraisal/core2.ts",
+          "file": "apps/comic/src/game/appraisal/core2.ts",
           "line": 79,
           "endLine": 79
         },
@@ -5368,31 +5379,31 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "statusLinks",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 44,
-          "endLine": 44
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 46,
+          "endLine": 46
         },
         "expression": "config.statusLinks",
         "guards": []
       },
       {
         "key": "statusLinks",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 44,
-          "endLine": 44
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 46,
+          "endLine": 46
         },
         "expression": "config.statusLinks",
         "guards": []
       },
       {
         "key": "statusLinks",
-        "owner": "code:src/game/appraisal/merchant-abilities.ts:merchantAbilityViews",
+        "owner": "code:apps/comic/src/game/appraisal/merchant-abilities.ts:merchantAbilityViews",
         "source": {
-          "file": "src/game/appraisal/merchant-abilities.ts",
+          "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
           "line": 26,
           "endLine": 26
         },
@@ -5403,9 +5414,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "statusLinks",
-        "owner": "code:src/game/appraisal/theft.ts:startTheftDuel",
+        "owner": "code:apps/comic/src/game/appraisal/theft.ts:startTheftDuel",
         "source": {
-          "file": "src/game/appraisal/theft.ts",
+          "file": "apps/comic/src/game/appraisal/theft.ts",
           "line": 148,
           "endLine": 148
         },
@@ -5414,22 +5425,22 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "statusLinks",
-        "owner": "code:src/game/appraisal/theft.ts:merchantFailure",
+        "owner": "code:apps/comic/src/game/appraisal/theft.ts:merchantFailure",
         "source": {
-          "file": "src/game/appraisal/theft.ts",
-          "line": 237,
-          "endLine": 237
+          "file": "apps/comic/src/game/appraisal/theft.ts",
+          "line": 248,
+          "endLine": 248
         },
         "expression": "state.config.statusLinks",
         "guards": []
       },
       {
         "key": "statusLinks",
-        "owner": "code:src/game/appraisal/theft.ts:chooseTheftHand",
+        "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
         "source": {
-          "file": "src/game/appraisal/theft.ts",
-          "line": 256,
-          "endLine": 256
+          "file": "apps/comic/src/game/appraisal/theft.ts",
+          "line": 267,
+          "endLine": 267
         },
         "expression": "state.config.statusLinks",
         "guards": [
@@ -5439,11 +5450,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "statusLinks",
-        "owner": "code:src/game/appraisal/theft.ts:theftViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/theft.ts:theftViewFor",
         "source": {
-          "file": "src/game/appraisal/theft.ts",
-          "line": 331,
-          "endLine": 331
+          "file": "apps/comic/src/game/appraisal/theft.ts",
+          "line": 342,
+          "endLine": 342
         },
         "expression": "state.config.statusLinks",
         "guards": [
@@ -5452,11 +5463,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "statusLinks",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 54,
-          "endLine": 54
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 55,
+          "endLine": 55
         },
         "expression": "state.config.statusLinks",
         "guards": [
@@ -5465,11 +5476,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "statusLinks",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 54,
-          "endLine": 54
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 55,
+          "endLine": 55
         },
         "expression": "state.config.statusLinks",
         "guards": [
@@ -5485,9 +5496,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/audit.ts:replayAppraisalAudit",
+        "owner": "code:apps/comic/src/game/appraisal/audit.ts:replayAppraisalAudit",
         "source": {
-          "file": "src/game/appraisal/audit.ts",
+          "file": "apps/comic/src/game/appraisal/audit.ts",
           "line": 26,
           "endLine": 26
         },
@@ -5496,9 +5507,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/audit.ts:replayAppraisalAudit",
+        "owner": "code:apps/comic/src/game/appraisal/audit.ts:replayAppraisalAudit",
         "source": {
-          "file": "src/game/appraisal/audit.ts",
+          "file": "apps/comic/src/game/appraisal/audit.ts",
           "line": 30,
           "endLine": 30
         },
@@ -5507,9 +5518,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/brokerage.ts:applyGain",
+        "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:applyGain",
         "source": {
-          "file": "src/game/appraisal/brokerage.ts",
+          "file": "apps/comic/src/game/appraisal/brokerage.ts",
           "line": 74,
           "endLine": 74
         },
@@ -5518,9 +5529,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/brokerage.ts:unsoldPenalty",
+        "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:unsoldPenalty",
         "source": {
-          "file": "src/game/appraisal/brokerage.ts",
+          "file": "apps/comic/src/game/appraisal/brokerage.ts",
           "line": 128,
           "endLine": 128
         },
@@ -5529,9 +5540,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/brokerage.ts:unsoldPenalty",
+        "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:unsoldPenalty",
         "source": {
-          "file": "src/game/appraisal/brokerage.ts",
+          "file": "apps/comic/src/game/appraisal/brokerage.ts",
           "line": 137,
           "endLine": 137
         },
@@ -5540,9 +5551,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/core2-actions.ts:skillPayable",
+        "owner": "code:apps/comic/src/game/appraisal/core2-actions.ts:skillPayable",
         "source": {
-          "file": "src/game/appraisal/core2-actions.ts",
+          "file": "apps/comic/src/game/appraisal/core2-actions.ts",
           "line": 92,
           "endLine": 92
         },
@@ -5551,9 +5562,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/core2-actions.ts:useSkill",
+        "owner": "code:apps/comic/src/game/appraisal/core2-actions.ts:useSkill",
         "source": {
-          "file": "src/game/appraisal/core2-actions.ts",
+          "file": "apps/comic/src/game/appraisal/core2-actions.ts",
           "line": 105,
           "endLine": 105
         },
@@ -5562,9 +5573,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/core2-events.ts:debtWithoutNext",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:debtWithoutNext",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 19,
           "endLine": 19
         },
@@ -5573,9 +5584,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/core2-events.ts:affordable",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:affordable",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 25,
           "endLine": 25
         },
@@ -5584,9 +5595,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/core2-events.ts:affordable",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:affordable",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 28,
           "endLine": 28
         },
@@ -5595,9 +5606,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/core2-events.ts:affordable",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:affordable",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 28,
           "endLine": 28
         },
@@ -5608,9 +5619,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/core2-events.ts:core2EventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:core2EventEligible",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 57,
           "endLine": 57
         },
@@ -5622,9 +5633,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/core2-events.ts:core2EventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:core2EventEligible",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 57,
           "endLine": 57
         },
@@ -5637,9 +5648,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/core2-events.ts:core2EventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:core2EventEligible",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 61,
           "endLine": 61
         },
@@ -5650,9 +5661,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/core2-events.ts:resolveCore2Event",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:resolveCore2Event",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 94,
           "endLine": 94
         },
@@ -5663,9 +5674,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/core2-rules.ts:applyDread",
+        "owner": "code:apps/comic/src/game/appraisal/core2-rules.ts:applyDread",
         "source": {
-          "file": "src/game/appraisal/core2-rules.ts",
+          "file": "apps/comic/src/game/appraisal/core2-rules.ts",
           "line": 17,
           "endLine": 17
         },
@@ -5674,9 +5685,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/core2-rules.ts:applyOmenPressure",
+        "owner": "code:apps/comic/src/game/appraisal/core2-rules.ts:applyOmenPressure",
         "source": {
-          "file": "src/game/appraisal/core2-rules.ts",
+          "file": "apps/comic/src/game/appraisal/core2-rules.ts",
           "line": 42,
           "endLine": 42
         },
@@ -5685,9 +5696,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/core2-rules.ts:applyCore2Settlement",
+        "owner": "code:apps/comic/src/game/appraisal/core2-rules.ts:applyCore2Settlement",
         "source": {
-          "file": "src/game/appraisal/core2-rules.ts",
+          "file": "apps/comic/src/game/appraisal/core2-rules.ts",
           "line": 48,
           "endLine": 48
         },
@@ -5696,9 +5707,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/core2-rules.ts:applyCore2Settlement",
+        "owner": "code:apps/comic/src/game/appraisal/core2-rules.ts:applyCore2Settlement",
         "source": {
-          "file": "src/game/appraisal/core2-rules.ts",
+          "file": "apps/comic/src/game/appraisal/core2-rules.ts",
           "line": 52,
           "endLine": 52
         },
@@ -5709,9 +5720,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/core2-rules.ts:applyCore2Settlement",
+        "owner": "code:apps/comic/src/game/appraisal/core2-rules.ts:applyCore2Settlement",
         "source": {
-          "file": "src/game/appraisal/core2-rules.ts",
+          "file": "apps/comic/src/game/appraisal/core2-rules.ts",
           "line": 56,
           "endLine": 56
         },
@@ -5720,9 +5731,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/core2-rules.ts:applyCore2Settlement",
+        "owner": "code:apps/comic/src/game/appraisal/core2-rules.ts:applyCore2Settlement",
         "source": {
-          "file": "src/game/appraisal/core2-rules.ts",
+          "file": "apps/comic/src/game/appraisal/core2-rules.ts",
           "line": 59,
           "endLine": 59
         },
@@ -5733,9 +5744,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/core2.ts:anchorOf",
+        "owner": "code:apps/comic/src/game/appraisal/core2.ts:anchorOf",
         "source": {
-          "file": "src/game/appraisal/core2.ts",
+          "file": "apps/comic/src/game/appraisal/core2.ts",
           "line": 48,
           "endLine": 48
         },
@@ -5746,66 +5757,66 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 72,
-          "endLine": 72
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 75,
+          "endLine": 75
         },
         "expression": "config.survival",
         "guards": []
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 72,
-          "endLine": 72
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 75,
+          "endLine": 75
         },
         "expression": "config.survival",
         "guards": []
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 72,
-          "endLine": 72
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 75,
+          "endLine": 75
         },
         "expression": "config.survival",
         "guards": []
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 72,
-          "endLine": 72
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 75,
+          "endLine": 75
         },
         "expression": "config.survival",
         "guards": []
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 73,
-          "endLine": 73
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 76,
+          "endLine": 76
         },
         "expression": "config.survival",
         "guards": []
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 74,
-          "endLine": 74
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 77,
+          "endLine": 77
         },
         "expression": "config.survival",
         "guards": [
@@ -5814,11 +5825,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 95,
-          "endLine": 95
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 98,
+          "endLine": 98
         },
         "expression": "config.survival",
         "guards": [
@@ -5827,11 +5838,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 100,
-          "endLine": 100
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 103,
+          "endLine": 103
         },
         "expression": "config.survival",
         "guards": [
@@ -5840,46 +5851,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 104,
-          "endLine": 104
-        },
-        "expression": "config.survival",
-        "guards": [
-          "config.survival"
-        ]
-      },
-      {
-        "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
-        "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 104,
-          "endLine": 104
-        },
-        "expression": "config.survival",
-        "guards": [
-          "config.survival"
-        ]
-      },
-      {
-        "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
-        "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 107,
-          "endLine": 107
-        },
-        "expression": "config.survival",
-        "guards": []
-      },
-      {
-        "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
-        "source": {
-          "file": "src/game/appraisal/engine.ts",
+          "file": "apps/comic/src/game/appraisal/engine.ts",
           "line": 107,
           "endLine": 107
         },
@@ -5890,11 +5864,48 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:makeMarket",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 167,
-          "endLine": 167
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 107,
+          "endLine": 107
+        },
+        "expression": "config.survival",
+        "guards": [
+          "config.survival"
+        ]
+      },
+      {
+        "key": "survival",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 110,
+          "endLine": 110
+        },
+        "expression": "config.survival",
+        "guards": []
+      },
+      {
+        "key": "survival",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 110,
+          "endLine": 110
+        },
+        "expression": "config.survival",
+        "guards": [
+          "config.survival"
+        ]
+      },
+      {
+        "key": "survival",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 171,
+          "endLine": 171
         },
         "expression": "state.config.survival",
         "guards": [
@@ -5903,33 +5914,33 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:pauseIfNeeded",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:pauseIfNeeded",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 180,
-          "endLine": 180
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 184,
+          "endLine": 184
         },
         "expression": "state.config.survival",
         "guards": []
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:settleEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 190,
-          "endLine": 190
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 194,
+          "endLine": 194
         },
         "expression": "state.config.survival",
         "guards": []
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:settleEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 200,
-          "endLine": 200
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 204,
+          "endLine": 204
         },
         "expression": "state.config.survival",
         "guards": [
@@ -5938,33 +5949,33 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:settleEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 203,
-          "endLine": 203
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 207,
+          "endLine": 207
         },
         "expression": "state.config.survival",
         "guards": []
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:settleEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 204,
-          "endLine": 204
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 208,
+          "endLine": 208
         },
         "expression": "state.config.survival",
         "guards": []
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:settleEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 204,
-          "endLine": 204
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 208,
+          "endLine": 208
         },
         "expression": "state.config.survival",
         "guards": [
@@ -5974,53 +5985,42 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:settleEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 208,
-          "endLine": 208
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 212,
+          "endLine": 212
         },
         "expression": "state.config.survival",
         "guards": []
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:forceBuy",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:forceBuy",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 268,
-          "endLine": 268
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 272,
+          "endLine": 272
         },
         "expression": "state.config.survival",
         "guards": []
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:respond",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:respond",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 286,
-          "endLine": 286
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 290,
+          "endLine": 290
         },
         "expression": "state.config.survival",
         "guards": []
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 419,
-          "endLine": 419
-        },
-        "expression": "state.config.survival",
-        "guards": []
-      },
-      {
-        "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
-        "source": {
-          "file": "src/game/appraisal/engine.ts",
+          "file": "apps/comic/src/game/appraisal/engine.ts",
           "line": 430,
           "endLine": 430
         },
@@ -6029,33 +6029,44 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 432,
-          "endLine": 432
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 441,
+          "endLine": 441
         },
         "expression": "state.config.survival",
         "guards": []
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 435,
-          "endLine": 435
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 443,
+          "endLine": 443
         },
         "expression": "state.config.survival",
         "guards": []
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 435,
-          "endLine": 435
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 446,
+          "endLine": 446
+        },
+        "expression": "state.config.survival",
+        "guards": []
+      },
+      {
+        "key": "survival",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 446,
+          "endLine": 446
         },
         "expression": "state.config.survival",
         "guards": [
@@ -6064,42 +6075,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 482,
-          "endLine": 482
-        },
-        "expression": "state.config.survival",
-        "guards": []
-      },
-      {
-        "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
-        "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 484,
-          "endLine": 484
-        },
-        "expression": "state.config.survival",
-        "guards": []
-      },
-      {
-        "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
-        "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 488,
-          "endLine": 488
-        },
-        "expression": "state.config.survival",
-        "guards": []
-      },
-      {
-        "key": "survival",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
-        "source": {
-          "file": "src/game/appraisal/engine.ts",
+          "file": "apps/comic/src/game/appraisal/engine.ts",
           "line": 494,
           "endLine": 494
         },
@@ -6108,9 +6086,42 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/events.ts:expansionEligible",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 496,
+          "endLine": 496
+        },
+        "expression": "state.config.survival",
+        "guards": []
+      },
+      {
+        "key": "survival",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 500,
+          "endLine": 500
+        },
+        "expression": "state.config.survival",
+        "guards": []
+      },
+      {
+        "key": "survival",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 506,
+          "endLine": 506
+        },
+        "expression": "state.config.survival",
+        "guards": []
+      },
+      {
+        "key": "survival",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:expansionEligible",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 71,
           "endLine": 71
         },
@@ -6119,9 +6130,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/events.ts:eventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 111,
           "endLine": 111
         },
@@ -6130,9 +6141,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/events.ts:eventChoices",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:eventChoices",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 191,
           "endLine": 191
         },
@@ -6144,9 +6155,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 328,
           "endLine": 328
         },
@@ -6155,9 +6166,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 400,
           "endLine": 400
         },
@@ -6166,9 +6177,20 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/mechanics.ts:maxEnergyOf",
+        "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+          "line": 25,
+          "endLine": 25
+        },
+        "expression": "s.config.survival",
+        "guards": []
+      },
+      {
+        "key": "survival",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:maxEnergyOf",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 40,
           "endLine": 40
         },
@@ -6179,9 +6201,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/mechanics.ts:maxLifeOf",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:maxLifeOf",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 43,
           "endLine": 43
         },
@@ -6192,9 +6214,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/mechanics.ts:maxLifeOf",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:maxLifeOf",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 43,
           "endLine": 43
         },
@@ -6205,9 +6227,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/mechanics.ts:grant",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:grant",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 88,
           "endLine": 88
         },
@@ -6216,9 +6238,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/mechanics.ts:healLife",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:healLife",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 129,
           "endLine": 129
         },
@@ -6227,9 +6249,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/mechanics.ts:recoveryOffer",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:recoveryOffer",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 143,
           "endLine": 143
         },
@@ -6238,9 +6260,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/mechanics.ts:completeAppraisedSale",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:completeAppraisedSale",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 298,
           "endLine": 298
         },
@@ -6249,9 +6271,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/mechanics.ts:friendAppraised",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:friendAppraised",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 318,
           "endLine": 318
         },
@@ -6260,9 +6282,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/mechanics.ts:purchase",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 366,
           "endLine": 366
         },
@@ -6271,9 +6293,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/mechanics.ts:purchase",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 393,
           "endLine": 393
         },
@@ -6282,9 +6304,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/mechanics.ts:activate",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 437,
           "endLine": 437
         },
@@ -6295,9 +6317,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/mechanics.ts:activate",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 448,
           "endLine": 448
         },
@@ -6306,9 +6328,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/mechanics.ts:activationNote",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activationNote",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 468,
           "endLine": 468
         },
@@ -6319,9 +6341,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/mechanics.ts:kill",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:kill",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 481,
           "endLine": 481
         },
@@ -6332,9 +6354,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/mechanics.ts:marketSell",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 498,
           "endLine": 498
         },
@@ -6346,9 +6368,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/mechanics.ts:marketSell",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 510,
           "endLine": 510
         },
@@ -6362,9 +6384,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/npc-events.ts:livingOthers",
+        "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:livingOthers",
         "source": {
-          "file": "src/game/appraisal/npc-events.ts",
+          "file": "apps/comic/src/game/appraisal/npc-events.ts",
           "line": 13,
           "endLine": 13
         },
@@ -6373,9 +6395,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/npc-events.ts:npcEventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:npcEventEligible",
         "source": {
-          "file": "src/game/appraisal/npc-events.ts",
+          "file": "apps/comic/src/game/appraisal/npc-events.ts",
           "line": 24,
           "endLine": 24
         },
@@ -6384,9 +6406,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/npc-events.ts:npcEventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:npcEventEligible",
         "source": {
-          "file": "src/game/appraisal/npc-events.ts",
+          "file": "apps/comic/src/game/appraisal/npc-events.ts",
           "line": 26,
           "endLine": 26
         },
@@ -6395,9 +6417,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/npc-events.ts:personalNpcOffer",
+        "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:personalNpcOffer",
         "source": {
-          "file": "src/game/appraisal/npc-events.ts",
+          "file": "apps/comic/src/game/appraisal/npc-events.ts",
           "line": 47,
           "endLine": 47
         },
@@ -6408,9 +6430,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/npc-events.ts:statusPool",
+        "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:statusPool",
         "source": {
-          "file": "src/game/appraisal/npc-events.ts",
+          "file": "apps/comic/src/game/appraisal/npc-events.ts",
           "line": 66,
           "endLine": 66
         },
@@ -6419,9 +6441,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/npc-events.ts:payLife",
+        "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:payLife",
         "source": {
-          "file": "src/game/appraisal/npc-events.ts",
+          "file": "apps/comic/src/game/appraisal/npc-events.ts",
           "line": 75,
           "endLine": 75
         },
@@ -6430,9 +6452,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/npc-events.ts:resolvePersonalNpcEvent",
+        "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:resolvePersonalNpcEvent",
         "source": {
-          "file": "src/game/appraisal/npc-events.ts",
+          "file": "apps/comic/src/game/appraisal/npc-events.ts",
           "line": 110,
           "endLine": 110
         },
@@ -6441,9 +6463,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/npc-events.ts:redeemNpcContracts",
+        "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:redeemNpcContracts",
         "source": {
-          "file": "src/game/appraisal/npc-events.ts",
+          "file": "apps/comic/src/game/appraisal/npc-events.ts",
           "line": 136,
           "endLine": 136
         },
@@ -6455,9 +6477,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/round-rewards.ts:openRoundRewards",
+        "owner": "code:apps/comic/src/game/appraisal/round-rewards.ts:openRoundRewards",
         "source": {
-          "file": "src/game/appraisal/round-rewards.ts",
+          "file": "apps/comic/src/game/appraisal/round-rewards.ts",
           "line": 11,
           "endLine": 11
         },
@@ -6466,9 +6488,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/seals.ts:offerSeal",
+        "owner": "code:apps/comic/src/game/appraisal/seals.ts:offerSeal",
         "source": {
-          "file": "src/game/appraisal/seals.ts",
+          "file": "apps/comic/src/game/appraisal/seals.ts",
           "line": 82,
           "endLine": 82
         },
@@ -6477,9 +6499,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/survival.ts:collectorDue",
+        "owner": "code:apps/comic/src/game/appraisal/survival.ts:collectorDue",
         "source": {
-          "file": "src/game/appraisal/survival.ts",
+          "file": "apps/comic/src/game/appraisal/survival.ts",
           "line": 13,
           "endLine": 13
         },
@@ -6488,9 +6510,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/survival.ts:collectRun",
+        "owner": "code:apps/comic/src/game/appraisal/survival.ts:collectRun",
         "source": {
-          "file": "src/game/appraisal/survival.ts",
+          "file": "apps/comic/src/game/appraisal/survival.ts",
           "line": 15,
           "endLine": 15
         },
@@ -6499,11 +6521,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/views.ts:appraisalItemView",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 26,
-          "endLine": 26
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 27,
+          "endLine": 27
         },
         "expression": "state.config.survival",
         "guards": [
@@ -6512,11 +6534,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/views.ts:appraisalItemView",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 40,
-          "endLine": 40
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 41,
+          "endLine": 41
         },
         "expression": "state.config.survival",
         "guards": [
@@ -6525,11 +6547,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/views.ts:appraisalItemView",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 40,
-          "endLine": 40
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 41,
+          "endLine": 41
         },
         "expression": "state.config.survival",
         "guards": [
@@ -6538,11 +6560,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/views.ts:appraisalItemView",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 41,
-          "endLine": 41
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 42,
+          "endLine": 42
         },
         "expression": "state.config.survival",
         "guards": [
@@ -6551,11 +6573,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/views.ts:appraisalItemView",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 41,
-          "endLine": 41
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 42,
+          "endLine": 42
         },
         "expression": "state.config.survival",
         "guards": [
@@ -6564,22 +6586,22 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/views.ts:appraisalItemView",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 42,
-          "endLine": 42
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 43,
+          "endLine": 43
         },
         "expression": "state.config.survival",
         "guards": []
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 52,
-          "endLine": 52
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 53,
+          "endLine": 53
         },
         "expression": "state.config.survival",
         "guards": [
@@ -6589,11 +6611,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 55,
-          "endLine": 55
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 56,
+          "endLine": 56
         },
         "expression": "state.config.survival",
         "guards": [
@@ -6602,9 +6624,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
+          "file": "apps/comic/src/game/appraisal/views.ts",
           "line": 57,
           "endLine": 57
         },
@@ -6615,11 +6637,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 57,
-          "endLine": 57
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 59,
+          "endLine": 59
         },
         "expression": "state.config.survival",
         "guards": [
@@ -6628,11 +6650,24 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 58,
-          "endLine": 58
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 59,
+          "endLine": 59
+        },
+        "expression": "state.config.survival",
+        "guards": [
+          "state.config.survival"
+        ]
+      },
+      {
+        "key": "survival",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 60,
+          "endLine": 60
         },
         "expression": "state.config.survival",
         "guards": [
@@ -6641,11 +6676,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 58,
-          "endLine": 58
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 60,
+          "endLine": 60
         },
         "expression": "state.config.survival",
         "guards": [
@@ -6654,11 +6689,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 61,
-          "endLine": 61
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 63,
+          "endLine": 63
         },
         "expression": "state.config.survival",
         "guards": [
@@ -6667,9 +6702,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/server/appraisal-rooms.ts:AppraisalRoomService.modeOf",
+        "owner": "code:apps/comic/src/server/appraisal-rooms.ts:AppraisalRoomService.modeOf",
         "source": {
-          "file": "src/server/appraisal-rooms.ts",
+          "file": "apps/comic/src/server/appraisal-rooms.ts",
           "line": 52,
           "endLine": 52
         },
@@ -6681,33 +6716,33 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/server/appraisal-rooms.ts:AppraisalRoomService.matchMessage",
+        "owner": "code:apps/comic/src/server/appraisal-rooms.ts:AppraisalRoomService.matchMessage",
         "source": {
-          "file": "src/server/appraisal-rooms.ts",
-          "line": 112,
-          "endLine": 112
+          "file": "apps/comic/src/server/appraisal-rooms.ts",
+          "line": 122,
+          "endLine": 122
         },
         "expression": "room.game.config.survival",
         "guards": []
       },
       {
         "key": "survival",
-        "owner": "code:src/server/appraisal-rooms.ts:AppraisalRoomService.revealDone",
+        "owner": "code:apps/comic/src/server/appraisal-rooms.ts:AppraisalRoomService.revealDone",
         "source": {
-          "file": "src/server/appraisal-rooms.ts",
-          "line": 130,
-          "endLine": 130
+          "file": "apps/comic/src/server/appraisal-rooms.ts",
+          "line": 140,
+          "endLine": 140
         },
         "expression": "room.game?.config.survival",
         "guards": []
       },
       {
         "key": "survival",
-        "owner": "code:src/server/appraisal-rooms.ts:AppraisalRoomService.afterChange",
+        "owner": "code:apps/comic/src/server/appraisal-rooms.ts:AppraisalRoomService.afterChange",
         "source": {
-          "file": "src/server/appraisal-rooms.ts",
-          "line": 140,
-          "endLine": 140
+          "file": "apps/comic/src/server/appraisal-rooms.ts",
+          "line": 150,
+          "endLine": 150
         },
         "expression": "game.config.survival",
         "guards": [
@@ -6716,35 +6751,35 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "survival",
-        "owner": "code:src/server/appraisal-rooms.ts:AppraisalRoomService.afterChange",
+        "owner": "code:apps/comic/src/server/appraisal-rooms.ts:AppraisalRoomService.afterChange",
         "source": {
-          "file": "src/server/appraisal-rooms.ts",
-          "line": 151,
-          "endLine": 151
+          "file": "apps/comic/src/server/appraisal-rooms.ts",
+          "line": 161,
+          "endLine": 161
         },
         "expression": "current.config.survival",
         "guards": []
       },
       {
         "key": "survival",
-        "owner": "code:src/server/appraisal-rooms.ts:AppraisalRoomService.afterChange",
+        "owner": "code:apps/comic/src/server/appraisal-rooms.ts:AppraisalRoomService.afterChange",
         "source": {
-          "file": "src/server/appraisal-rooms.ts",
-          "line": 152,
-          "endLine": 152
+          "file": "apps/comic/src/server/appraisal-rooms.ts",
+          "line": 162,
+          "endLine": 162
         },
         "expression": "current.config.survival",
         "guards": []
       },
       {
         "key": "survival",
-        "owner": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
+        "owner": "code:apps/comic/src/simulation/appraisal.ts:simulateAppraisalRun",
         "source": {
-          "file": "apps/comic/src/game/appraisal/ghost-service.ts",
-          "line": 25,
-          "endLine": 25
+          "file": "apps/comic/src/simulation/appraisal.ts",
+          "line": 234,
+          "endLine": 234
         },
-        "expression": "s.config.survival",
+        "expression": "state.config.survival",
         "guards": []
       }
     ]
@@ -6756,9 +6791,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "systemLinks",
-        "owner": "code:src/game/appraisal/core2-events.ts:affordable",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:affordable",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 28,
           "endLine": 28
         },
@@ -6769,9 +6804,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "systemLinks",
-        "owner": "code:src/game/appraisal/core2-events.ts:core2EventChoices",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:core2EventChoices",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 35,
           "endLine": 35
         },
@@ -6780,9 +6815,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "systemLinks",
-        "owner": "code:src/game/appraisal/core2-events.ts:core2EventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:core2EventEligible",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 57,
           "endLine": 57
         },
@@ -6795,9 +6830,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "systemLinks",
-        "owner": "code:src/game/appraisal/core2-events.ts:core2EventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:core2EventEligible",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 57,
           "endLine": 57
         },
@@ -6810,9 +6845,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "systemLinks",
-        "owner": "code:src/game/appraisal/core2-events.ts:core2EventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:core2EventEligible",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 62,
           "endLine": 62
         },
@@ -6824,9 +6859,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "systemLinks",
-        "owner": "code:src/game/appraisal/core2-events.ts:resolveCore2Event",
+        "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:resolveCore2Event",
         "source": {
-          "file": "src/game/appraisal/core2-events.ts",
+          "file": "apps/comic/src/game/appraisal/core2-events.ts",
           "line": 83,
           "endLine": 83
         },
@@ -6838,31 +6873,31 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "systemLinks",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 45,
-          "endLine": 45
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 47,
+          "endLine": 47
         },
         "expression": "config.systemLinks",
         "guards": []
       },
       {
         "key": "systemLinks",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 45,
-          "endLine": 45
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 47,
+          "endLine": 47
         },
         "expression": "config.systemLinks",
         "guards": []
       },
       {
         "key": "systemLinks",
-        "owner": "code:src/game/appraisal/events.ts:eventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 122,
           "endLine": 122
         },
@@ -6871,9 +6906,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "systemLinks",
-        "owner": "code:src/game/appraisal/events.ts:eventChoices",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:eventChoices",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 190,
           "endLine": 190
         },
@@ -6884,9 +6919,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "systemLinks",
-        "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 328,
           "endLine": 328
         },
@@ -6895,9 +6930,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "systemLinks",
-        "owner": "code:src/game/appraisal/events.ts:defaultEvent",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:defaultEvent",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 413,
           "endLine": 413
         },
@@ -6915,14 +6950,121 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "th",
-        "owner": "code:src/game/appraisal/views.ts:appraisalItemView",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 40,
-          "endLine": 40
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 41,
+          "endLine": 41
         },
         "expression": "(ABILITY_ITEM_TEXT[item.kind as keyof typeof ABILITY_ITEM_TEXT]??(state.config.trustAbilities?MODERN_ACTIVATIONS[item.kind as keyof typeof MODERN_ACTIVATIONS]:undefined))?.th",
         "guards": []
+      }
+    ]
+  },
+  {
+    "key": "theftTimeoutRules",
+    "default": 1,
+    "defaultPresent": true,
+    "reads": [
+      {
+        "key": "theftTimeoutRules",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 48,
+          "endLine": 48
+        },
+        "expression": "config.theftTimeoutRules",
+        "guards": []
+      },
+      {
+        "key": "theftTimeoutRules",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 48,
+          "endLine": 48
+        },
+        "expression": "config.theftTimeoutRules",
+        "guards": []
+      },
+      {
+        "key": "theftTimeoutRules",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 349,
+          "endLine": 349
+        },
+        "expression": "state.config.theftTimeoutRules",
+        "guards": []
+      },
+      {
+        "key": "theftTimeoutRules",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 357,
+          "endLine": 357
+        },
+        "expression": "state.config.theftTimeoutRules",
+        "guards": [
+          "financeAction || action.type==='theft-hand' || action.type==='theft-expire' || forcedTimeout",
+          "NOT storageAction",
+          "NOT loanAction",
+          "NOT sealAction",
+          "NOT action.type==='crime-clear'",
+          "action.type==='theft-hand'"
+        ]
+      },
+      {
+        "key": "theftTimeoutRules",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:defaultAppraisalAction",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 458,
+          "endLine": 458
+        },
+        "expression": "state.config.theftTimeoutRules",
+        "guards": []
+      },
+      {
+        "key": "theftTimeoutRules",
+        "owner": "code:apps/comic/src/game/appraisal/theft.ts:expireTheftDuel",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/theft.ts",
+          "line": 186,
+          "endLine": 186
+        },
+        "expression": "state.config.theftTimeoutRules",
+        "guards": []
+      },
+      {
+        "key": "theftTimeoutRules",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 50,
+          "endLine": 50
+        },
+        "expression": "state.config.theftTimeoutRules",
+        "guards": [
+          "state.config.secureEconomy",
+          "state.config.theftTimeoutRules===1"
+        ]
+      },
+      {
+        "key": "theftTimeoutRules",
+        "owner": "code:apps/comic/src/server/appraisal-rooms.ts:AppraisalRoomService.matchMessage",
+        "source": {
+          "file": "apps/comic/src/server/appraisal-rooms.ts",
+          "line": 64,
+          "endLine": 64
+        },
+        "expression": "room.game?.config.theftTimeoutRules",
+        "guards": [
+          "message.type==='action'&&message.action.type==='theft-hand'&&message.matchId===room.matchId&&room.game?.config.theftTimeoutRules===1"
+        ]
       }
     ]
   },
@@ -6933,9 +7075,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "themes",
-        "owner": "code:src/shared/item-rarity.ts:validateRarityConfig",
+        "owner": "code:apps/comic/src/shared/item-rarity.ts:validateRarityConfig",
         "source": {
-          "file": "src/shared/item-rarity.ts",
+          "file": "apps/comic/src/shared/item-rarity.ts",
           "line": 30,
           "endLine": 30
         },
@@ -6944,9 +7086,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "themes",
-        "owner": "code:src/shared/item-rarity.ts:validateRarityConfig",
+        "owner": "code:apps/comic/src/shared/item-rarity.ts:validateRarityConfig",
         "source": {
-          "file": "src/shared/item-rarity.ts",
+          "file": "apps/comic/src/shared/item-rarity.ts",
           "line": 34,
           "endLine": 34
         },
@@ -6955,9 +7097,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "themes",
-        "owner": "code:src/shared/item-rarity.ts:rollAppearance",
+        "owner": "code:apps/comic/src/shared/item-rarity.ts:rollAppearance",
         "source": {
-          "file": "src/shared/item-rarity.ts",
+          "file": "apps/comic/src/shared/item-rarity.ts",
           "line": 57,
           "endLine": 57
         },
@@ -6973,11 +7115,11 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "tiers",
-        "owner": "code:src/game/appraisal/engine.ts:makeMarket",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 167,
-          "endLine": 167
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 171,
+          "endLine": 171
         },
         "expression": "state.config.rarityEconomy.tiers",
         "guards": [
@@ -6986,9 +7128,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "tiers",
-        "owner": "code:src/shared/rarity-power.ts:validateRarityEconomy",
+        "owner": "code:apps/comic/src/shared/rarity-power.ts:validateRarityEconomy",
         "source": {
-          "file": "src/shared/rarity-power.ts",
+          "file": "apps/comic/src/shared/rarity-power.ts",
           "line": 13,
           "endLine": 13
         },
@@ -6997,9 +7139,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "tiers",
-        "owner": "code:src/shared/rarity-power.ts:validateRarityEconomy",
+        "owner": "code:apps/comic/src/shared/rarity-power.ts:validateRarityEconomy",
         "source": {
-          "file": "src/shared/rarity-power.ts",
+          "file": "apps/comic/src/shared/rarity-power.ts",
           "line": 15,
           "endLine": 15
         },
@@ -7008,9 +7150,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "tiers",
-        "owner": "code:src/shared/rarity-power.ts:validateRarityEconomy",
+        "owner": "code:apps/comic/src/shared/rarity-power.ts:validateRarityEconomy",
         "source": {
-          "file": "src/shared/rarity-power.ts",
+          "file": "apps/comic/src/shared/rarity-power.ts",
           "line": 19,
           "endLine": 19
         },
@@ -7019,9 +7161,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "tiers",
-        "owner": "code:src/shared/rarity-power.ts:validateRarityEconomy",
+        "owner": "code:apps/comic/src/shared/rarity-power.ts:validateRarityEconomy",
         "source": {
-          "file": "src/shared/rarity-power.ts",
+          "file": "apps/comic/src/shared/rarity-power.ts",
           "line": 19,
           "endLine": 19
         },
@@ -7030,9 +7172,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "tiers",
-        "owner": "code:src/shared/rarity-power.ts:rarityPowerFor",
+        "owner": "code:apps/comic/src/shared/rarity-power.ts:rarityPowerFor",
         "source": {
-          "file": "src/shared/rarity-power.ts",
+          "file": "apps/comic/src/shared/rarity-power.ts",
           "line": 22,
           "endLine": 22
         },
@@ -7048,31 +7190,31 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "totalTrustStock",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 54,
-          "endLine": 54
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 57,
+          "endLine": 57
         },
         "expression": "config.totalTrustStock",
         "guards": []
       },
       {
         "key": "totalTrustStock",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 54,
-          "endLine": 54
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 57,
+          "endLine": 57
         },
         "expression": "config.totalTrustStock",
         "guards": []
       },
       {
         "key": "totalTrustStock",
-        "owner": "code:src/game/appraisal/mechanics.ts:stockBonus",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:stockBonus",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 56,
           "endLine": 56
         },
@@ -7081,11 +7223,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "totalTrustStock",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 58,
-          "endLine": 58
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 60,
+          "endLine": 60
         },
         "expression": "state.config.totalTrustStock",
         "guards": [
@@ -7102,9 +7244,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/core2-actions.ts:core2ActionsOf",
+        "owner": "code:apps/comic/src/game/appraisal/core2-actions.ts:core2ActionsOf",
         "source": {
-          "file": "src/game/appraisal/core2-actions.ts",
+          "file": "apps/comic/src/game/appraisal/core2-actions.ts",
           "line": 132,
           "endLine": 132
         },
@@ -7115,77 +7257,77 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 49,
-          "endLine": 49
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 52,
+          "endLine": 52
         },
         "expression": "config.trustAbilities",
         "guards": []
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 49,
-          "endLine": 49
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 52,
+          "endLine": 52
         },
         "expression": "config.trustAbilities",
         "guards": []
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/engine.ts:spawnStockItem",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 114,
-          "endLine": 114
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 118,
+          "endLine": 118
         },
         "expression": "config.trustAbilities",
         "guards": []
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/engine.ts:spawnStockItem",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 115,
-          "endLine": 115
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 119,
+          "endLine": 119
         },
         "expression": "config.trustAbilities",
         "guards": []
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/engine.ts:applyAppraisalAction",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 390,
-          "endLine": 390
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 401,
+          "endLine": 401
         },
         "expression": "state.config.trustAbilities",
         "guards": []
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 425,
-          "endLine": 425
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 436,
+          "endLine": 436
         },
         "expression": "state.config.trustAbilities",
         "guards": []
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 467,
-          "endLine": 467
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 479,
+          "endLine": 479
         },
         "expression": "state.config.trustAbilities",
         "guards": [
@@ -7194,20 +7336,20 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/engine.ts:assertAppraisalInvariants",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 471,
-          "endLine": 471
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 483,
+          "endLine": 483
         },
         "expression": "state.config.trustAbilities",
         "guards": []
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/events.ts:eventEligible",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 91,
           "endLine": 91
         },
@@ -7218,9 +7360,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/events.ts:drawEvent",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:drawEvent",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 254,
           "endLine": 254
         },
@@ -7231,9 +7373,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 313,
           "endLine": 313
         },
@@ -7244,9 +7386,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/mechanics.ts:purchase",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 371,
           "endLine": 371
         },
@@ -7257,9 +7399,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/mechanics.ts:activate",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 409,
           "endLine": 409
         },
@@ -7270,9 +7412,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/mechanics.ts:activate",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 420,
           "endLine": 420
         },
@@ -7284,9 +7426,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/mechanics.ts:activate",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 440,
           "endLine": 440
         },
@@ -7299,9 +7441,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/mechanics.ts:activate",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 443,
           "endLine": 443
         },
@@ -7314,9 +7456,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/mechanics.ts:activationNote",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activationNote",
         "source": {
-          "file": "src/game/appraisal/mechanics.ts",
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
           "line": 465,
           "endLine": 465
         },
@@ -7327,9 +7469,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/merchant-abilities.ts:makeCandidate",
+        "owner": "code:apps/comic/src/game/appraisal/merchant-abilities.ts:makeCandidate",
         "source": {
-          "file": "src/game/appraisal/merchant-abilities.ts",
+          "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
           "line": 33,
           "endLine": 33
         },
@@ -7338,9 +7480,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/merchant-abilities.ts:useMerchantAbility",
+        "owner": "code:apps/comic/src/game/appraisal/merchant-abilities.ts:useMerchantAbility",
         "source": {
-          "file": "src/game/appraisal/merchant-abilities.ts",
+          "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
           "line": 82,
           "endLine": 82
         },
@@ -7349,11 +7491,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/views.ts:appraisalItemView",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 33,
-          "endLine": 33
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 34,
+          "endLine": 34
         },
         "expression": "state.config.trustAbilities",
         "guards": [
@@ -7362,11 +7504,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/views.ts:appraisalItemView",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 40,
-          "endLine": 40
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 41,
+          "endLine": 41
         },
         "expression": "state.config.trustAbilities",
         "guards": [
@@ -7375,11 +7517,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 50,
-          "endLine": 50
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 51,
+          "endLine": 51
         },
         "expression": "state.config.trustAbilities",
         "guards": [
@@ -7388,11 +7530,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 58,
-          "endLine": 58
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 60,
+          "endLine": 60
         },
         "expression": "state.config.trustAbilities",
         "guards": [
@@ -7401,9 +7543,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "trustAbilities",
-        "owner": "code:src/game/appraisal/wishlist.ts:wishPick",
+        "owner": "code:apps/comic/src/game/appraisal/wishlist.ts:wishPick",
         "source": {
-          "file": "src/game/appraisal/wishlist.ts",
+          "file": "apps/comic/src/game/appraisal/wishlist.ts",
           "line": 18,
           "endLine": 18
         },
@@ -7421,9 +7563,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "value",
-        "owner": "code:src/shared/rarity-power.ts:validateRarityEconomy",
+        "owner": "code:apps/comic/src/shared/rarity-power.ts:validateRarityEconomy",
         "source": {
-          "file": "src/shared/rarity-power.ts",
+          "file": "apps/comic/src/shared/rarity-power.ts",
           "line": 19,
           "endLine": 19
         },
@@ -7439,31 +7581,31 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "vaultInterestRules",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 46,
-          "endLine": 46
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 49,
+          "endLine": 49
         },
         "expression": "config.vaultInterestRules",
         "guards": []
       },
       {
         "key": "vaultInterestRules",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 46,
-          "endLine": 46
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 49,
+          "endLine": 49
         },
         "expression": "config.vaultInterestRules",
         "guards": []
       },
       {
         "key": "vaultInterestRules",
-        "owner": "code:src/game/appraisal/secure-storage.ts:nextVaultInterest",
+        "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:nextVaultInterest",
         "source": {
-          "file": "src/game/appraisal/secure-storage.ts",
+          "file": "apps/comic/src/game/appraisal/secure-storage.ts",
           "line": 8,
           "endLine": 8
         },
@@ -7474,9 +7616,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "vaultInterestRules",
-        "owner": "code:src/game/appraisal/secure-storage.ts:handleStorageAction",
+        "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleStorageAction",
         "source": {
-          "file": "src/game/appraisal/secure-storage.ts",
+          "file": "apps/comic/src/game/appraisal/secure-storage.ts",
           "line": 93,
           "endLine": 93
         },
@@ -7485,9 +7627,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "vaultInterestRules",
-        "owner": "code:src/game/appraisal/secure-storage.ts:payVaultInterest",
+        "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:payVaultInterest",
         "source": {
-          "file": "src/game/appraisal/secure-storage.ts",
+          "file": "apps/comic/src/game/appraisal/secure-storage.ts",
           "line": 201,
           "endLine": 201
         },
@@ -7496,9 +7638,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "vaultInterestRules",
-        "owner": "code:src/game/appraisal/secure-storage.ts:payVaultInterest",
+        "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:payVaultInterest",
         "source": {
-          "file": "src/game/appraisal/secure-storage.ts",
+          "file": "apps/comic/src/game/appraisal/secure-storage.ts",
           "line": 206,
           "endLine": 206
         },
@@ -7509,9 +7651,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "vaultInterestRules",
-        "owner": "code:src/game/appraisal/secure-storage.ts:payVaultInterest",
+        "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:payVaultInterest",
         "source": {
-          "file": "src/game/appraisal/secure-storage.ts",
+          "file": "apps/comic/src/game/appraisal/secure-storage.ts",
           "line": 210,
           "endLine": 210
         },
@@ -7522,11 +7664,25 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "vaultInterestRules",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 58,
-          "endLine": 58
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 50,
+          "endLine": 50
+        },
+        "expression": "state.config.vaultInterestRules",
+        "guards": [
+          "state.config.secureEconomy",
+          "state.config.vaultInterestRules===1"
+        ]
+      },
+      {
+        "key": "vaultInterestRules",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 60,
+          "endLine": 60
         },
         "expression": "state.config.vaultInterestRules",
         "guards": [
@@ -7543,9 +7699,9 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "version",
-        "owner": "code:src/shared/item-rarity.ts:validateRarityConfig",
+        "owner": "code:apps/comic/src/shared/item-rarity.ts:validateRarityConfig",
         "source": {
-          "file": "src/shared/item-rarity.ts",
+          "file": "apps/comic/src/shared/item-rarity.ts",
           "line": 30,
           "endLine": 30
         },
@@ -7554,9 +7710,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "version",
-        "owner": "code:src/shared/rarity-power.ts:validateRarityEconomy",
+        "owner": "code:apps/comic/src/shared/rarity-power.ts:validateRarityEconomy",
         "source": {
-          "file": "src/shared/rarity-power.ts",
+          "file": "apps/comic/src/shared/rarity-power.ts",
           "line": 13,
           "endLine": 13
         },
@@ -7572,33 +7728,33 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "wishContract",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 58,
-          "endLine": 58
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 61,
+          "endLine": 61
         },
         "expression": "config.wishContract",
         "guards": []
       },
       {
         "key": "wishContract",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 58,
-          "endLine": 58
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 61,
+          "endLine": 61
         },
         "expression": "config.wishContract",
         "guards": []
       },
       {
         "key": "wishContract",
-        "owner": "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 104,
-          "endLine": 104
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 107,
+          "endLine": 107
         },
         "expression": "config.wishContract",
         "guards": [
@@ -7607,9 +7763,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "wishContract",
-        "owner": "code:src/game/appraisal/events.ts:eventChoices",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:eventChoices",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 205,
           "endLine": 205
         },
@@ -7620,9 +7776,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "wishContract",
-        "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+        "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
         "source": {
-          "file": "src/game/appraisal/events.ts",
+          "file": "apps/comic/src/game/appraisal/events.ts",
           "line": 320,
           "endLine": 320
         },
@@ -7634,11 +7790,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "wishContract",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 52,
-          "endLine": 52
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 53,
+          "endLine": 53
         },
         "expression": "state.config.wishContract",
         "guards": [
@@ -7647,9 +7803,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "wishContract",
-        "owner": "code:src/game/appraisal/wishlist.ts:contractOn",
+        "owner": "code:apps/comic/src/game/appraisal/wishlist.ts:contractOn",
         "source": {
-          "file": "src/game/appraisal/wishlist.ts",
+          "file": "apps/comic/src/game/appraisal/wishlist.ts",
           "line": 23,
           "endLine": 23
         },
@@ -7665,33 +7821,33 @@ source guards and call order determine actual application; do not add damage fro
     "reads": [
       {
         "key": "wishlist",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 59,
-          "endLine": 59
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 62,
+          "endLine": 62
         },
         "expression": "config.wishlist",
         "guards": []
       },
       {
         "key": "wishlist",
-        "owner": "code:src/game/appraisal/engine.ts:validateConfig",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 59,
-          "endLine": 59
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 62,
+          "endLine": 62
         },
         "expression": "config.wishlist",
         "guards": []
       },
       {
         "key": "wishlist",
-        "owner": "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
-          "file": "src/game/appraisal/engine.ts",
-          "line": 104,
-          "endLine": 104
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 107,
+          "endLine": 107
         },
         "expression": "config.wishlist",
         "guards": [
@@ -7700,11 +7856,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "wishlist",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 52,
-          "endLine": 52
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 53,
+          "endLine": 53
         },
         "expression": "state.config.wishlist",
         "guards": [
@@ -7713,11 +7869,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "wishlist",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 52,
-          "endLine": 52
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 53,
+          "endLine": 53
         },
         "expression": "state.config.wishlist",
         "guards": [
@@ -7726,11 +7882,11 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "wishlist",
-        "owner": "code:src/game/appraisal/views.ts:appraisalViewFor",
+        "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
         "source": {
-          "file": "src/game/appraisal/views.ts",
-          "line": 58,
-          "endLine": 58
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "line": 60,
+          "endLine": 60
         },
         "expression": "state.config.wishlist",
         "guards": [
@@ -7739,9 +7895,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "wishlist",
-        "owner": "code:src/game/appraisal/wishlist.ts:contractOn",
+        "owner": "code:apps/comic/src/game/appraisal/wishlist.ts:contractOn",
         "source": {
-          "file": "src/game/appraisal/wishlist.ts",
+          "file": "apps/comic/src/game/appraisal/wishlist.ts",
           "line": 23,
           "endLine": 23
         },
@@ -7750,9 +7906,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "wishlist",
-        "owner": "code:src/game/appraisal/wishlist.ts:wishEligible",
+        "owner": "code:apps/comic/src/game/appraisal/wishlist.ts:wishEligible",
         "source": {
-          "file": "src/game/appraisal/wishlist.ts",
+          "file": "apps/comic/src/game/appraisal/wishlist.ts",
           "line": 35,
           "endLine": 35
         },
@@ -7761,9 +7917,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "wishlist",
-        "owner": "code:src/game/appraisal/wishlist.ts:drawWishEvent",
+        "owner": "code:apps/comic/src/game/appraisal/wishlist.ts:drawWishEvent",
         "source": {
-          "file": "src/game/appraisal/wishlist.ts",
+          "file": "apps/comic/src/game/appraisal/wishlist.ts",
           "line": 67,
           "endLine": 67
         },
@@ -7772,9 +7928,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "wishlist",
-        "owner": "code:src/game/appraisal/wishlist.ts:wishOffer",
+        "owner": "code:apps/comic/src/game/appraisal/wishlist.ts:wishOffer",
         "source": {
-          "file": "src/game/appraisal/wishlist.ts",
+          "file": "apps/comic/src/game/appraisal/wishlist.ts",
           "line": 77,
           "endLine": 77
         },
@@ -7783,9 +7939,9 @@ source guards and call order determine actual application; do not add damage fro
       },
       {
         "key": "wishlist",
-        "owner": "code:src/game/appraisal/wishlist.ts:wishSell",
+        "owner": "code:apps/comic/src/game/appraisal/wishlist.ts:wishSell",
         "source": {
-          "file": "src/game/appraisal/wishlist.ts",
+          "file": "apps/comic/src/game/appraisal/wishlist.ts",
           "line": 87,
           "endLine": 87
         },
@@ -7815,7 +7971,7 @@ source guards and call order determine actual application; do not add damage fro
       "fee": 2
     },
     "source": {
-      "file": "src/game/appraisal/content.ts",
+      "file": "apps/comic/src/game/appraisal/content.ts",
       "line": 400,
       "endLine": 400
     }
@@ -7829,9 +7985,9 @@ source guards and call order determine actual application; do not add damage fro
       "swarm"
     ],
     "source": {
-      "file": "src/game/appraisal/content.ts",
-      "line": 741,
-      "endLine": 741
+      "file": "apps/comic/src/game/appraisal/content.ts",
+      "line": 744,
+      "endLine": 744
     }
   },
   {
@@ -7911,7 +8067,7 @@ source guards and call order determine actual application; do not add damage fro
       }
     },
     "source": {
-      "file": "src/game/appraisal/content.ts",
+      "file": "apps/comic/src/game/appraisal/content.ts",
       "line": 389,
       "endLine": 398
     }
@@ -8181,6 +8337,7 @@ source guards and call order determine actual application; do not add damage fro
       },
       "loanEndSettlement": true,
       "vaultInterestRules": 1,
+      "theftTimeoutRules": 1,
       "collectorDeadline": 15,
       "eventChoiceRules": 1,
       "statusLinks": 1,
@@ -8211,9 +8368,9 @@ source guards and call order determine actual application; do not add damage fro
       "marketQuota": 1
     },
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 31,
-      "endLine": 38
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 33,
+      "endLine": 40
     }
   },
   {
@@ -8222,7 +8379,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "CORE2_EVENT_NAMES",
     "value": {},
     "source": {
-      "file": "src/game/appraisal/core2-content.ts",
+      "file": "apps/comic/src/game/appraisal/core2-content.ts",
       "line": 34,
       "endLine": 34
     }
@@ -8239,7 +8396,7 @@ source guards and call order determine actual application; do not add damage fro
       ]
     },
     "source": {
-      "file": "src/game/appraisal/core2-specs.ts",
+      "file": "apps/comic/src/game/appraisal/core2-specs.ts",
       "line": 71,
       "endLine": 71
     }
@@ -8297,7 +8454,7 @@ source guards and call order determine actual application; do not add damage fro
       }
     },
     "source": {
-      "file": "src/game/appraisal/core2.ts",
+      "file": "apps/comic/src/game/appraisal/core2.ts",
       "line": 12,
       "endLine": 36
     }
@@ -8308,7 +8465,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "ENERGY_DEAL_CREDITS2",
     "value": 3,
     "source": {
-      "file": "src/game/appraisal/core2.ts",
+      "file": "apps/comic/src/game/appraisal/core2.ts",
       "line": 74,
       "endLine": 74
     }
@@ -8323,7 +8480,7 @@ source guards and call order determine actual application; do not add damage fro
       "E122"
     ],
     "source": {
-      "file": "src/game/appraisal/core2-events.ts",
+      "file": "apps/comic/src/game/appraisal/core2-events.ts",
       "line": 14,
       "endLine": 14
     }
@@ -8343,7 +8500,7 @@ source guards and call order determine actual application; do not add damage fro
       "E129"
     ],
     "source": {
-      "file": "src/game/appraisal/core2-events.ts",
+      "file": "apps/comic/src/game/appraisal/core2-events.ts",
       "line": 13,
       "endLine": 13
     }
@@ -8360,7 +8517,7 @@ source guards and call order determine actual application; do not add damage fro
       ]
     },
     "source": {
-      "file": "src/game/appraisal/core2-specs.ts",
+      "file": "apps/comic/src/game/appraisal/core2-specs.ts",
       "line": 71,
       "endLine": 71
     }
@@ -8376,7 +8533,7 @@ source guards and call order determine actual application; do not add damage fro
       "swarm"
     ],
     "source": {
-      "file": "src/game/appraisal/pulse.ts",
+      "file": "apps/comic/src/game/appraisal/pulse.ts",
       "line": 9,
       "endLine": 9
     }
@@ -8393,7 +8550,7 @@ source guards and call order determine actual application; do not add damage fro
       "bankCap": 5
     },
     "source": {
-      "file": "src/game/appraisal/pulse.ts",
+      "file": "apps/comic/src/game/appraisal/pulse.ts",
       "line": 5,
       "endLine": 5
     }
@@ -8408,7 +8565,7 @@ source guards and call order determine actual application; do not add damage fro
       "extra": 1
     },
     "source": {
-      "file": "src/game/appraisal/pulse.ts",
+      "file": "apps/comic/src/game/appraisal/pulse.ts",
       "line": 23,
       "endLine": 23
     }
@@ -8424,7 +8581,7 @@ source guards and call order determine actual application; do not add damage fro
       "ticketsToForce": 3
     },
     "source": {
-      "file": "src/game/appraisal/pulse.ts",
+      "file": "apps/comic/src/game/appraisal/pulse.ts",
       "line": 7,
       "endLine": 7
     }
@@ -8439,7 +8596,7 @@ source guards and call order determine actual application; do not add damage fro
       "bondProbability": 0.65
     },
     "source": {
-      "file": "src/game/appraisal/survival.ts",
+      "file": "apps/comic/src/game/appraisal/survival.ts",
       "line": 11,
       "endLine": 11
     }
@@ -8454,7 +8611,7 @@ source guards and call order determine actual application; do not add damage fro
       "entryEnergyCost": 0
     },
     "source": {
-      "file": "src/game/appraisal/survival.ts",
+      "file": "apps/comic/src/game/appraisal/survival.ts",
       "line": 9,
       "endLine": 9
     }
@@ -8465,7 +8622,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "WISH_BASE_CHANCE",
     "value": 85,
     "source": {
-      "file": "src/game/appraisal/wishlist-rules.ts",
+      "file": "apps/comic/src/game/appraisal/wishlist-rules.ts",
       "line": 10,
       "endLine": 10
     }
@@ -8476,7 +8633,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "WISH_CAP",
     "value": 95,
     "source": {
-      "file": "src/game/appraisal/wishlist-rules.ts",
+      "file": "apps/comic/src/game/appraisal/wishlist-rules.ts",
       "line": 14,
       "endLine": 14
     }
@@ -8487,7 +8644,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "WISH_DECAY_SHARE",
     "value": 0.2,
     "source": {
-      "file": "src/game/appraisal/wishlist-rules.ts",
+      "file": "apps/comic/src/game/appraisal/wishlist-rules.ts",
       "line": 27,
       "endLine": 27
     }
@@ -8498,7 +8655,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "WISH_ENERGY",
     "value": 2,
     "source": {
-      "file": "src/game/appraisal/wishlist-rules.ts",
+      "file": "apps/comic/src/game/appraisal/wishlist-rules.ts",
       "line": 24,
       "endLine": 24
     }
@@ -8509,7 +8666,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "WISH_FLOOR",
     "value": 5,
     "source": {
-      "file": "src/game/appraisal/wishlist-rules.ts",
+      "file": "apps/comic/src/game/appraisal/wishlist-rules.ts",
       "line": 15,
       "endLine": 15
     }
@@ -8526,7 +8683,7 @@ source guards and call order determine actual application; do not add damage fro
       40
     ],
     "source": {
-      "file": "src/game/appraisal/wishlist-rules.ts",
+      "file": "apps/comic/src/game/appraisal/wishlist-rules.ts",
       "line": 9,
       "endLine": 9
     }
@@ -8537,7 +8694,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "WISH_MARKUP_PENALTY",
     "value": 0.7,
     "source": {
-      "file": "src/game/appraisal/wishlist-rules.ts",
+      "file": "apps/comic/src/game/appraisal/wishlist-rules.ts",
       "line": 11,
       "endLine": 11
     }
@@ -8548,7 +8705,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "WISH_MAX_ACTIVE",
     "value": 2,
     "source": {
-      "file": "src/game/appraisal/wishlist-rules.ts",
+      "file": "apps/comic/src/game/appraisal/wishlist-rules.ts",
       "line": 25,
       "endLine": 25
     }
@@ -8559,7 +8716,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "WISH_PREMIUM",
     "value": 1.6,
     "source": {
-      "file": "src/game/appraisal/wishlist-rules.ts",
+      "file": "apps/comic/src/game/appraisal/wishlist-rules.ts",
       "line": 5,
       "endLine": 5
     }
@@ -8570,7 +8727,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "WISH_PROBABILITY",
     "value": 0.6,
     "source": {
-      "file": "src/game/appraisal/wishlist-rules.ts",
+      "file": "apps/comic/src/game/appraisal/wishlist-rules.ts",
       "line": 7,
       "endLine": 7
     }
@@ -8581,7 +8738,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "WISH_STATUS_STEP",
     "value": 4,
     "source": {
-      "file": "src/game/appraisal/wishlist-rules.ts",
+      "file": "apps/comic/src/game/appraisal/wishlist-rules.ts",
       "line": 13,
       "endLine": 13
     }
@@ -8592,7 +8749,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "WISH_TRUST_BONUS",
     "value": 3,
     "source": {
-      "file": "src/game/appraisal/wishlist-rules.ts",
+      "file": "apps/comic/src/game/appraisal/wishlist-rules.ts",
       "line": 12,
       "endLine": 12
     }
@@ -8603,7 +8760,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "CLEANSE_CAP",
     "value": 95,
     "source": {
-      "file": "src/game/appraisal/cleanse-rules.ts",
+      "file": "apps/comic/src/game/appraisal/cleanse-rules.ts",
       "line": 22,
       "endLine": 22
     }
@@ -8671,7 +8828,7 @@ source guards and call order determine actual application; do not add damage fro
       }
     },
     "source": {
-      "file": "src/game/appraisal/cleanse-rules.ts",
+      "file": "apps/comic/src/game/appraisal/cleanse-rules.ts",
       "line": 12,
       "endLine": 21
     }
@@ -8693,7 +8850,7 @@ source guards and call order determine actual application; do not add damage fro
       }
     },
     "source": {
-      "file": "src/game/appraisal/cleanse-rules.ts",
+      "file": "apps/comic/src/game/appraisal/cleanse-rules.ts",
       "line": 5,
       "endLine": 8
     }
@@ -8704,7 +8861,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "CLEANSE_TRUST_CHANCE",
     "value": 2,
     "source": {
-      "file": "src/game/appraisal/cleanse-rules.ts",
+      "file": "apps/comic/src/game/appraisal/cleanse-rules.ts",
       "line": 24,
       "endLine": 24
     }
@@ -8715,7 +8872,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "CLEANSE_TRUST_PRICE",
     "value": 3,
     "source": {
-      "file": "src/game/appraisal/cleanse-rules.ts",
+      "file": "apps/comic/src/game/appraisal/cleanse-rules.ts",
       "line": 23,
       "endLine": 23
     }
@@ -8726,7 +8883,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "CHALLENGE_CAP",
     "value": 90,
     "source": {
-      "file": "src/game/appraisal/challenge-rules.ts",
+      "file": "apps/comic/src/game/appraisal/challenge-rules.ts",
       "line": 5,
       "endLine": 5
     }
@@ -8737,7 +8894,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "CHALLENGE_LENS_BONUS",
     "value": 10,
     "source": {
-      "file": "src/game/appraisal/challenge-rules.ts",
+      "file": "apps/comic/src/game/appraisal/challenge-rules.ts",
       "line": 4,
       "endLine": 4
     }
@@ -8748,7 +8905,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "CHALLENGE_PCT",
     "value": 50,
     "source": {
-      "file": "src/game/appraisal/challenge-rules.ts",
+      "file": "apps/comic/src/game/appraisal/challenge-rules.ts",
       "line": 2,
       "endLine": 2
     }
@@ -8766,7 +8923,7 @@ source guards and call order determine actual application; do not add damage fro
       }
     },
     "source": {
-      "file": "src/game/appraisal/challenge-rules.ts",
+      "file": "apps/comic/src/game/appraisal/challenge-rules.ts",
       "line": 14,
       "endLine": 17
     }
@@ -8780,7 +8937,7 @@ source guards and call order determine actual application; do not add damage fro
       "cursed"
     ],
     "source": {
-      "file": "src/game/appraisal/challenge-rules.ts",
+      "file": "apps/comic/src/game/appraisal/challenge-rules.ts",
       "line": 8,
       "endLine": 8
     }
@@ -8791,7 +8948,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "FAKE_EFFECT_CHANCE",
     "value": 0.4,
     "source": {
-      "file": "src/game/appraisal/scoring.ts",
+      "file": "apps/comic/src/game/appraisal/scoring.ts",
       "line": 12,
       "endLine": 12
     }
@@ -8802,7 +8959,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "PROVENANCE_PERCENT",
     "value": 15,
     "source": {
-      "file": "src/game/appraisal/scoring.ts",
+      "file": "apps/comic/src/game/appraisal/scoring.ts",
       "line": 6,
       "endLine": 6
     }
@@ -8813,7 +8970,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "PVP_COMPENSATION_INSTALLMENTS",
     "value": 4,
     "source": {
-      "file": "src/game/appraisal/theft.ts",
+      "file": "apps/comic/src/game/appraisal/theft.ts",
       "line": 80,
       "endLine": 80
     }
@@ -8824,7 +8981,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "PVP_COMPENSATION_PERCENT",
     "value": 5,
     "source": {
-      "file": "src/game/appraisal/theft.ts",
+      "file": "apps/comic/src/game/appraisal/theft.ts",
       "line": 79,
       "endLine": 79
     }
@@ -8835,7 +8992,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "VAULT_INTEREST_PERCENT",
     "value": 10,
     "source": {
-      "file": "src/game/appraisal/secure-storage.ts",
+      "file": "apps/comic/src/game/appraisal/secure-storage.ts",
       "line": 4,
       "endLine": 4
     }
@@ -8846,7 +9003,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "REDEMPTION_CHOICES",
     "value": 3,
     "source": {
-      "file": "src/game/appraisal/seals.ts",
+      "file": "apps/comic/src/game/appraisal/seals.ts",
       "line": 8,
       "endLine": 8
     }
@@ -8857,7 +9014,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "SEALS_PER_REDEMPTION",
     "value": 2,
     "source": {
-      "file": "src/game/appraisal/seals.ts",
+      "file": "apps/comic/src/game/appraisal/seals.ts",
       "line": 7,
       "endLine": 7
     }
@@ -8868,7 +9025,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "TRUST_CAP",
     "value": 10,
     "source": {
-      "file": "src/game/appraisal/market-contracts.ts",
+      "file": "apps/comic/src/game/appraisal/market-contracts.ts",
       "line": 3,
       "endLine": 3
     }
@@ -8879,7 +9036,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "BOON_EVENT_ID",
     "value": "E108",
     "source": {
-      "file": "src/game/appraisal/types.ts",
+      "file": "apps/comic/src/game/appraisal/types.ts",
       "line": 14,
       "endLine": 14
     }
@@ -8890,7 +9047,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "WISH_EVENT_ID",
     "value": "E73",
     "source": {
-      "file": "src/game/appraisal/types.ts",
+      "file": "apps/comic/src/game/appraisal/types.ts",
       "line": 22,
       "endLine": 22
     }
@@ -8910,7 +9067,7 @@ source guards and call order determine actual application; do not add damage fro
       "swarm": "E116"
     },
     "source": {
-      "file": "src/game/appraisal/npc-events.ts",
+      "file": "apps/comic/src/game/appraisal/npc-events.ts",
       "line": 9,
       "endLine": 9
     }
@@ -8921,7 +9078,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "HELD_STACK_CAP",
     "value": 5,
     "source": {
-      "file": "src/game/appraisal/passives.ts",
+      "file": "apps/comic/src/game/appraisal/passives.ts",
       "line": 42,
       "endLine": 42
     }
@@ -8932,7 +9089,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "MAX_ENERGY_CAP",
     "value": 20,
     "source": {
-      "file": "src/game/appraisal/passives.ts",
+      "file": "apps/comic/src/game/appraisal/passives.ts",
       "line": 69,
       "endLine": 69
     }
@@ -8943,7 +9100,7 @@ source guards and call order determine actual application; do not add damage fro
     "name": "MAX_LIFE_BONUS_CAP",
     "value": 6,
     "source": {
-      "file": "src/game/appraisal/passives.ts",
+      "file": "apps/comic/src/game/appraisal/passives.ts",
       "line": 69,
       "endLine": 69
     }
@@ -8954,14 +9111,14 @@ source guards and call order determine actual application; do not add damage fro
     "name": "WISH_SLOT_CAP",
     "value": 4,
     "source": {
-      "file": "src/game/appraisal/passives.ts",
+      "file": "apps/comic/src/game/appraisal/passives.ts",
       "line": 69,
       "endLine": 69
     }
   },
   {
-    "id": "parameter:source:src/game/appraisal/ability-rules.ts:MERCHANT_ABILITIES",
-    "module": "src/game/appraisal/ability-rules.ts",
+    "id": "parameter:source:apps/comic/src/game/appraisal/ability-rules.ts:MERCHANT_ABILITIES",
+    "module": "apps/comic/src/game/appraisal/ability-rules.ts",
     "name": "MERCHANT_ABILITIES",
     "value": {
       "orc": {
@@ -9014,15 +9171,15 @@ source guards and call order determine actual application; do not add damage fro
       }
     },
     "source": {
-      "file": "src/game/appraisal/ability-rules.ts",
+      "file": "apps/comic/src/game/appraisal/ability-rules.ts",
       "line": 3,
       "endLine": 12
     },
     "extraction": "static literal/expression; unresolved expressions are tagged"
   },
   {
-    "id": "parameter:source:src/game/appraisal/core2-specs.ts:CORE2_SPECS",
-    "module": "src/game/appraisal/core2-specs.ts",
+    "id": "parameter:source:apps/comic/src/game/appraisal/core2-specs.ts:CORE2_SPECS",
+    "module": "apps/comic/src/game/appraisal/core2-specs.ts",
     "name": "CORE2_SPECS",
     "value": {
       "E117": {
@@ -9344,15 +9501,15 @@ source guards and call order determine actual application; do not add damage fro
       }
     },
     "source": {
-      "file": "src/game/appraisal/core2-specs.ts",
+      "file": "apps/comic/src/game/appraisal/core2-specs.ts",
       "line": 19,
       "endLine": 46
     },
     "extraction": "static literal/expression; unresolved expressions are tagged"
   },
   {
-    "id": "parameter:source:src/game/appraisal/core2-specs.ts:CORE2_CHOICES_V2",
-    "module": "src/game/appraisal/core2-specs.ts",
+    "id": "parameter:source:apps/comic/src/game/appraisal/core2-specs.ts:CORE2_CHOICES_V2",
+    "module": "apps/comic/src/game/appraisal/core2-specs.ts",
     "name": "CORE2_CHOICES_V2",
     "value": {
       "E119": [
@@ -9407,15 +9564,15 @@ source guards and call order determine actual application; do not add damage fro
       ]
     },
     "source": {
-      "file": "src/game/appraisal/core2-specs.ts",
+      "file": "apps/comic/src/game/appraisal/core2-specs.ts",
       "line": 51,
       "endLine": 55
     },
     "extraction": "static literal/expression; unresolved expressions are tagged"
   },
   {
-    "id": "parameter:source:src/game/appraisal/core2-specs.ts:CORE2_CHOICES_LINKED",
-    "module": "src/game/appraisal/core2-specs.ts",
+    "id": "parameter:source:apps/comic/src/game/appraisal/core2-specs.ts:CORE2_CHOICES_LINKED",
+    "module": "apps/comic/src/game/appraisal/core2-specs.ts",
     "name": "CORE2_CHOICES_LINKED",
     "value": {
       "E120": [
@@ -9505,15 +9662,15 @@ source guards and call order determine actual application; do not add damage fro
       ]
     },
     "source": {
-      "file": "src/game/appraisal/core2-specs.ts",
+      "file": "apps/comic/src/game/appraisal/core2-specs.ts",
       "line": 61,
       "endLine": 66
     },
     "extraction": "static literal/expression; unresolved expressions are tagged"
   },
   {
-    "id": "parameter:source:src/game/appraisal/core2.ts:LIFE_DEALS2",
-    "module": "src/game/appraisal/core2.ts",
+    "id": "parameter:source:apps/comic/src/game/appraisal/core2.ts:LIFE_DEALS2",
+    "module": "apps/comic/src/game/appraisal/core2.ts",
     "name": "LIFE_DEALS2",
     "value": [
       {
@@ -9536,27 +9693,27 @@ source guards and call order determine actual application; do not add damage fro
       }
     ],
     "source": {
-      "file": "src/game/appraisal/core2.ts",
+      "file": "apps/comic/src/game/appraisal/core2.ts",
       "line": 72,
       "endLine": 72
     },
     "extraction": "static literal/expression; unresolved expressions are tagged"
   },
   {
-    "id": "parameter:source:src/game/appraisal/engine.ts:MARKET_BANK_SHARE",
-    "module": "src/game/appraisal/engine.ts",
+    "id": "parameter:source:apps/comic/src/game/appraisal/engine.ts:MARKET_BANK_SHARE",
+    "module": "apps/comic/src/game/appraisal/engine.ts",
     "name": "MARKET_BANK_SHARE",
     "value": 0.5,
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 156,
-      "endLine": 156
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 160,
+      "endLine": 160
     },
     "extraction": "static literal/expression; unresolved expressions are tagged"
   },
   {
-    "id": "parameter:source:src/game/appraisal/pulse.ts:LIFE_DEALS",
-    "module": "src/game/appraisal/pulse.ts",
+    "id": "parameter:source:apps/comic/src/game/appraisal/pulse.ts:LIFE_DEALS",
+    "module": "apps/comic/src/game/appraisal/pulse.ts",
     "name": "LIFE_DEALS",
     "value": [
       {
@@ -9579,27 +9736,27 @@ source guards and call order determine actual application; do not add damage fro
       }
     ],
     "source": {
-      "file": "src/game/appraisal/pulse.ts",
+      "file": "apps/comic/src/game/appraisal/pulse.ts",
       "line": 11,
       "endLine": 11
     },
     "extraction": "static literal/expression; unresolved expressions are tagged"
   },
   {
-    "id": "parameter:source:src/game/appraisal/theft.ts:PVP_COOLDOWN_ENCOUNTERS",
-    "module": "src/game/appraisal/theft.ts",
+    "id": "parameter:source:apps/comic/src/game/appraisal/theft.ts:PVP_COOLDOWN_ENCOUNTERS",
+    "module": "apps/comic/src/game/appraisal/theft.ts",
     "name": "PVP_COOLDOWN_ENCOUNTERS",
     "value": 2,
     "source": {
-      "file": "src/game/appraisal/theft.ts",
+      "file": "apps/comic/src/game/appraisal/theft.ts",
       "line": 78,
       "endLine": 78
     },
     "extraction": "static literal/expression; unresolved expressions are tagged"
   },
   {
-    "id": "parameter:source:src/shared/item-rarity.ts:HUES",
-    "module": "src/shared/item-rarity.ts",
+    "id": "parameter:source:apps/comic/src/shared/item-rarity.ts:HUES",
+    "module": "apps/comic/src/shared/item-rarity.ts",
     "name": "HUES",
     "value": {
       "plain": [
@@ -9754,27 +9911,27 @@ source guards and call order determine actual application; do not add damage fro
       ]
     },
     "source": {
-      "file": "src/shared/item-rarity.ts",
+      "file": "apps/comic/src/shared/item-rarity.ts",
       "line": 64,
       "endLine": 69
     },
     "extraction": "static literal/expression; unresolved expressions are tagged"
   },
   {
-    "id": "parameter:source:src/shared/rarity-power.ts:MAX_RARITY_MULTIPLIER",
-    "module": "src/shared/rarity-power.ts",
+    "id": "parameter:source:apps/comic/src/shared/rarity-power.ts:MAX_RARITY_MULTIPLIER",
+    "module": "apps/comic/src/shared/rarity-power.ts",
     "name": "MAX_RARITY_MULTIPLIER",
     "value": 8,
     "source": {
-      "file": "src/shared/rarity-power.ts",
+      "file": "apps/comic/src/shared/rarity-power.ts",
       "line": 8,
       "endLine": 8
     },
     "extraction": "static literal/expression; unresolved expressions are tagged"
   },
   {
-    "id": "parameter:source:src/server/appraisal-rooms.ts:APPRAISAL_PHASE_MS",
-    "module": "src/server/appraisal-rooms.ts",
+    "id": "parameter:source:apps/comic/src/server/appraisal-rooms.ts:APPRAISAL_PHASE_MS",
+    "module": "apps/comic/src/server/appraisal-rooms.ts",
     "name": "APPRAISAL_PHASE_MS",
     "value": {
       "PORTALS": 30000,
@@ -9783,33 +9940,84 @@ source guards and call order determine actual application; do not add damage fro
       "REVEAL": 30000
     },
     "source": {
-      "file": "src/server/appraisal-rooms.ts",
+      "file": "apps/comic/src/server/appraisal-rooms.ts",
       "line": 14,
       "endLine": 16
     },
     "extraction": "static literal/expression; unresolved expressions are tagged"
   },
   {
-    "id": "parameter:source:src/server/appraisal-rooms.ts:BOT_RETIRE_ENCOUNTER",
-    "module": "src/server/appraisal-rooms.ts",
+    "id": "parameter:source:apps/comic/src/server/appraisal-rooms.ts:BOT_RETIRE_ENCOUNTER",
+    "module": "apps/comic/src/server/appraisal-rooms.ts",
     "name": "BOT_RETIRE_ENCOUNTER",
     "value": 12,
     "source": {
-      "file": "src/server/appraisal-rooms.ts",
+      "file": "apps/comic/src/server/appraisal-rooms.ts",
       "line": 18,
       "endLine": 18
     },
     "extraction": "static literal/expression; unresolved expressions are tagged"
   },
   {
-    "id": "parameter:source:src/server/appraisal-rooms.ts:APPRAISAL_DUEL_MS",
-    "module": "src/server/appraisal-rooms.ts",
+    "id": "parameter:source:apps/comic/src/server/appraisal-rooms.ts:APPRAISAL_DUEL_MS",
+    "module": "apps/comic/src/server/appraisal-rooms.ts",
     "name": "APPRAISAL_DUEL_MS",
     "value": 30000,
     "source": {
-      "file": "src/server/appraisal-rooms.ts",
+      "file": "apps/comic/src/server/appraisal-rooms.ts",
       "line": 20,
       "endLine": 20
+    },
+    "extraction": "static literal/expression; unresolved expressions are tagged"
+  },
+  {
+    "id": "parameter:source:apps/comic/src/simulation/appraisal.ts:BUY_MARGIN",
+    "module": "apps/comic/src/simulation/appraisal.ts",
+    "name": "BUY_MARGIN",
+    "value": {
+      "aggressive": -3,
+      "trader": 0,
+      "collector": 2,
+      "cautious": 5
+    },
+    "source": {
+      "file": "apps/comic/src/simulation/appraisal.ts",
+      "line": 64,
+      "endLine": 64
+    },
+    "extraction": "static literal/expression; unresolved expressions are tagged"
+  },
+  {
+    "id": "parameter:source:apps/comic/src/simulation/appraisal.ts:SELL_FLOOR",
+    "module": "apps/comic/src/simulation/appraisal.ts",
+    "name": "SELL_FLOOR",
+    "value": {
+      "trader": 0.45,
+      "aggressive": 0.5,
+      "cautious": 0.6,
+      "collector": 0.8
+    },
+    "source": {
+      "file": "apps/comic/src/simulation/appraisal.ts",
+      "line": 65,
+      "endLine": 65
+    },
+    "extraction": "static literal/expression; unresolved expressions are tagged"
+  },
+  {
+    "id": "parameter:source:apps/comic/src/simulation/appraisal.ts:BUY_RATIO",
+    "module": "apps/comic/src/simulation/appraisal.ts",
+    "name": "BUY_RATIO",
+    "value": {
+      "aggressive": 0.6,
+      "trader": 0.7,
+      "collector": 0.72,
+      "cautious": 0.74
+    },
+    "source": {
+      "file": "apps/comic/src/simulation/appraisal.ts",
+      "line": 66,
+      "endLine": 66
     },
     "extraction": "static literal/expression; unresolved expressions are tagged"
   }
@@ -9819,34 +10027,34 @@ source guards and call order determine actual application; do not add damage fro
 ```json
 [
   {
-    "id": "rng:src/game/appraisal/brokerage.ts:104:7548",
-    "owner": "code:src/game/appraisal/brokerage.ts:resolveBond",
+    "id": "rng:apps/comic/src/game/appraisal/brokerage.ts:104:7548",
+    "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:resolveBond",
     "key": "`${offer.key}:bond-risk`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/brokerage.ts",
+      "file": "apps/comic/src/game/appraisal/brokerage.ts",
       "line": 104,
       "endLine": 104
     },
     "expression": "randomAt(state.seed,`${offer.key}:bond-risk`)"
   },
   {
-    "id": "rng:src/game/appraisal/brokerage.ts:140:9789",
-    "owner": "code:src/game/appraisal/brokerage.ts:consign",
+    "id": "rng:apps/comic/src/game/appraisal/brokerage.ts:140:9789",
+    "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:consign",
     "key": "`${state.encounter}:${p.id}:${item.id}:consign`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/brokerage.ts",
+      "file": "apps/comic/src/game/appraisal/brokerage.ts",
       "line": 140,
       "endLine": 140
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${item.id}:consign`)"
   },
   {
-    "id": "rng:src/game/appraisal/brokerage.ts:153:10901",
-    "owner": "code:src/game/appraisal/brokerage.ts:consign",
+    "id": "rng:apps/comic/src/game/appraisal/brokerage.ts:153:10901",
+    "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:consign",
     "key": "`${state.encounter}:${p.id}:${item.id}:consign-debuff`",
     "seed": "state.seed",
     "guards": [
@@ -9855,15 +10063,15 @@ source guards and call order determine actual application; do not add damage fro
       "roll>=CORE2.consign.cleanBelow"
     ],
     "source": {
-      "file": "src/game/appraisal/brokerage.ts",
+      "file": "apps/comic/src/game/appraisal/brokerage.ts",
       "line": 153,
       "endLine": 153
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${item.id}:consign-debuff`)"
   },
   {
-    "id": "rng:src/game/appraisal/brokerage.ts:164:11740",
-    "owner": "code:src/game/appraisal/brokerage.ts:consign",
+    "id": "rng:apps/comic/src/game/appraisal/brokerage.ts:164:11740",
+    "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:consign",
     "key": "`${state.encounter}:${p.id}:${item.id}:consign-debuff`",
     "seed": "state.seed",
     "guards": [
@@ -9871,1188 +10079,606 @@ source guards and call order determine actual application; do not add damage fro
       "roll>=CONSIGN_RULES.cleanBelow"
     ],
     "source": {
-      "file": "src/game/appraisal/brokerage.ts",
+      "file": "apps/comic/src/game/appraisal/brokerage.ts",
       "line": 164,
       "endLine": 164
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${item.id}:consign-debuff`)"
   },
   {
-    "id": "rng:src/game/appraisal/brokerage.ts:195:13367",
-    "owner": "code:src/game/appraisal/brokerage.ts:auctionLots",
+    "id": "rng:apps/comic/src/game/appraisal/brokerage.ts:195:13367",
+    "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:auctionLots",
     "key": "`${state.encounter}:auction:open`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/brokerage.ts",
+      "file": "apps/comic/src/game/appraisal/brokerage.ts",
       "line": 195,
       "endLine": 195
     },
     "expression": "randomAt(state.seed,`${state.encounter}:auction:open`)"
   },
   {
-    "id": "rng:src/game/appraisal/brokerage.ts:196:13502",
-    "owner": "code:src/game/appraisal/brokerage.ts:auctionLots",
+    "id": "rng:apps/comic/src/game/appraisal/brokerage.ts:196:13502",
+    "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:auctionLots",
     "key": "`${state.encounter}:auction:${itemId}:rank`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/brokerage.ts",
+      "file": "apps/comic/src/game/appraisal/brokerage.ts",
       "line": 196,
       "endLine": 196
     },
     "expression": "randomAt(state.seed,`${state.encounter}:auction:${itemId}:rank`)"
   },
   {
-    "id": "rng:src/game/appraisal/brokerage.ts:213:14785",
-    "owner": "code:src/game/appraisal/brokerage.ts:settleAuction",
+    "id": "rng:apps/comic/src/game/appraisal/brokerage.ts:213:14785",
+    "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:settleAuction",
     "key": "`${lot.id}:${id}:tie`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/brokerage.ts",
+      "file": "apps/comic/src/game/appraisal/brokerage.ts",
       "line": 213,
       "endLine": 213
     },
     "expression": "randomAt(state.seed,`${lot.id}:${id}:tie`)"
   },
   {
-    "id": "rng:src/game/appraisal/challenge.ts:20:1548",
-    "owner": "code:src/game/appraisal/challenge.ts:settleChallenge",
+    "id": "rng:apps/comic/src/game/appraisal/challenge.ts:20:1548",
+    "owner": "code:apps/comic/src/game/appraisal/challenge.ts:settleChallenge",
     "key": "`${state.encounter}:${offer.id}:copy-seal`",
     "seed": "state.seed",
     "guards": [
       "claim===undefined || claim===truth"
     ],
     "source": {
-      "file": "src/game/appraisal/challenge.ts",
+      "file": "apps/comic/src/game/appraisal/challenge.ts",
       "line": 20,
       "endLine": 20
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${offer.id}:copy-seal`)"
   },
   {
-    "id": "rng:src/game/appraisal/cleanse.ts:19:1503",
-    "owner": "code:src/game/appraisal/cleanse.ts:quote",
+    "id": "rng:apps/comic/src/game/appraisal/cleanse.ts:19:1503",
+    "owner": "code:apps/comic/src/game/appraisal/cleanse.ts:quote",
     "key": "`${state.encounter}:${p.id}:${itemId}:cleanse-price`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/cleanse.ts",
+      "file": "apps/comic/src/game/appraisal/cleanse.ts",
       "line": 19,
       "endLine": 19
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:cleanse-price`)"
   },
   {
-    "id": "rng:src/game/appraisal/cleanse.ts:44:3320",
-    "owner": "code:src/game/appraisal/cleanse.ts:cleanseItem",
+    "id": "rng:apps/comic/src/game/appraisal/cleanse.ts:44:3320",
+    "owner": "code:apps/comic/src/game/appraisal/cleanse.ts:cleanseItem",
     "key": "`${state.encounter}:${p.id}:${itemId}:cleanse-roll`",
     "seed": "state.seed",
     "guards": [
       "NOT !wasCursed"
     ],
     "source": {
-      "file": "src/game/appraisal/cleanse.ts",
+      "file": "apps/comic/src/game/appraisal/cleanse.ts",
       "line": 44,
       "endLine": 44
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:cleanse-roll`)"
   },
   {
-    "id": "rng:src/game/appraisal/core2-actions.ts:30:1949",
-    "owner": "code:src/game/appraisal/core2-actions.ts:stealShop",
+    "id": "rng:apps/comic/src/game/appraisal/core2-actions.ts:30:1949",
+    "owner": "code:apps/comic/src/game/appraisal/core2-actions.ts:stealShop",
     "key": "`${state.encounter}:${p.id}:steal:${itemId}`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/core2-actions.ts",
+      "file": "apps/comic/src/game/appraisal/core2-actions.ts",
       "line": 30,
       "endLine": 30
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:steal:${itemId}`)"
   },
   {
-    "id": "rng:src/game/appraisal/core2-actions.ts:50:3130",
-    "owner": "code:src/game/appraisal/core2-actions.ts:pickpocket",
+    "id": "rng:apps/comic/src/game/appraisal/core2-actions.ts:50:3130",
+    "owner": "code:apps/comic/src/game/appraisal/core2-actions.ts:pickpocket",
     "key": "`${state.encounter}:${p.id}:pickpocket:${victimId}`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/core2-actions.ts",
+      "file": "apps/comic/src/game/appraisal/core2-actions.ts",
       "line": 50,
       "endLine": 50
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:pickpocket:${victimId}`)"
   },
   {
-    "id": "rng:src/game/appraisal/core2-actions.ts:70:4385",
-    "owner": "code:src/game/appraisal/core2-actions.ts:barter",
+    "id": "rng:apps/comic/src/game/appraisal/core2-actions.ts:70:4385",
+    "owner": "code:apps/comic/src/game/appraisal/core2-actions.ts:barter",
     "key": "`${state.encounter}:${p.id}:barter:${itemId}`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/core2-actions.ts",
+      "file": "apps/comic/src/game/appraisal/core2-actions.ts",
       "line": 70,
       "endLine": 70
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:barter:${itemId}`)"
   },
   {
-    "id": "rng:src/game/appraisal/core2-events.ts:73:5099",
-    "owner": "code:src/game/appraisal/core2-events.ts:pickBacklash",
+    "id": "rng:apps/comic/src/game/appraisal/core2-events.ts:73:5099",
+    "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:pickBacklash",
     "key": "`${state.encounter}:${p.id}:backlash:pick`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/core2-events.ts",
+      "file": "apps/comic/src/game/appraisal/core2-events.ts",
       "line": 73,
       "endLine": 73
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:backlash:pick`)"
   },
   {
-    "id": "rng:src/game/appraisal/core2-events.ts:98:6792",
-    "owner": "code:src/game/appraisal/core2-events.ts:resolveCore2Event",
+    "id": "rng:apps/comic/src/game/appraisal/core2-events.ts:98:6792",
+    "owner": "code:apps/comic/src/game/appraisal/core2-events.ts:resolveCore2Event",
     "key": "`${offer.key}:gamble`",
     "seed": "state.seed",
     "guards": [
       "picked.gamble"
     ],
     "source": {
-      "file": "src/game/appraisal/core2-events.ts",
+      "file": "apps/comic/src/game/appraisal/core2-events.ts",
       "line": 98,
       "endLine": 98
     },
     "expression": "randomAt(state.seed,`${offer.key}:gamble`)"
   },
   {
-    "id": "rng:src/game/appraisal/core2-rules.ts:19:1120",
-    "owner": "code:src/game/appraisal/core2-rules.ts:applyDread",
+    "id": "rng:apps/comic/src/game/appraisal/core2-rules.ts:19:1120",
+    "owner": "code:apps/comic/src/game/appraisal/core2-rules.ts:applyDread",
     "key": "`${state.encounter}:${p.id}:dread`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/core2-rules.ts",
+      "file": "apps/comic/src/game/appraisal/core2-rules.ts",
       "line": 19,
       "endLine": 19
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:dread`)"
   },
   {
-    "id": "rng:src/game/appraisal/core2-rules.ts:22:1341",
-    "owner": "code:src/game/appraisal/core2-rules.ts:applyDread",
+    "id": "rng:apps/comic/src/game/appraisal/core2-rules.ts:22:1341",
+    "owner": "code:apps/comic/src/game/appraisal/core2-rules.ts:applyDread",
     "key": "`${state.encounter}:${p.id}:dread:kind`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/core2-rules.ts",
+      "file": "apps/comic/src/game/appraisal/core2-rules.ts",
       "line": 22,
       "endLine": 22
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:dread:kind`)"
   },
   {
-    "id": "rng:src/game/appraisal/core2-rules.ts:27:1766",
-    "owner": "code:src/game/appraisal/core2-rules.ts:applyDread",
+    "id": "rng:apps/comic/src/game/appraisal/core2-rules.ts:27:1766",
+    "owner": "code:apps/comic/src/game/appraisal/core2-rules.ts:applyDread",
     "key": "`${state.encounter}:${p.id}:dread:item`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/core2-rules.ts",
+      "file": "apps/comic/src/game/appraisal/core2-rules.ts",
       "line": 27,
       "endLine": 27
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:dread:item`)"
   },
   {
-    "id": "rng:src/game/appraisal/engine.ts:109:11851",
-    "owner": "code:src/game/appraisal/engine.ts:initialiseAppraisalRun",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:112:12115",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
     "key": "`${state.encounter}:${p.id}:entry-event`",
     "seed": "seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 109,
-      "endLine": 109
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 112,
+      "endLine": 112
     },
     "expression": "randomAt(seed,`${state.encounter}:${p.id}:entry-event`)"
   },
   {
-    "id": "rng:src/game/appraisal/engine.ts:117:12790",
-    "owner": "code:src/game/appraisal/engine.ts:spawnStockItem",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:121:13290",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
     "key": "`${itemId}:kind`",
     "seed": "seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 117,
-      "endLine": 117
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 121,
+      "endLine": 121
     },
     "expression": "randomAt(seed,`${itemId}:kind`)"
   },
   {
-    "id": "rng:src/game/appraisal/engine.ts:118:12948",
-    "owner": "code:src/game/appraisal/engine.ts:spawnStockItem",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:122:13448",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
     "key": "`${itemId}:base`",
     "seed": "seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 118,
-      "endLine": 118
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 122,
+      "endLine": 122
     },
     "expression": "randomAt(seed,`${itemId}:base`)"
   },
   {
-    "id": "rng:src/game/appraisal/engine.ts:120:13095",
-    "owner": "code:src/game/appraisal/engine.ts:spawnStockItem",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:124:13595",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
     "key": "`${itemId}:ask`",
     "seed": "seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 120,
-      "endLine": 120
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 124,
+      "endLine": 124
     },
     "expression": "randomAt(seed,`${itemId}:ask`)"
   },
   {
-    "id": "rng:src/game/appraisal/engine.ts:121:13210",
-    "owner": "code:src/game/appraisal/engine.ts:spawnStockItem",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:125:13710",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
     "key": "`${itemId}:reservation`",
     "seed": "seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 121,
-      "endLine": 121
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 125,
+      "endLine": 125
     },
     "expression": "randomAt(seed,`${itemId}:reservation`)"
   },
   {
-    "id": "rng:src/game/appraisal/engine.ts:123:13312",
-    "owner": "code:src/game/appraisal/engine.ts:spawnStockItem",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:127:13812",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
     "key": "`${itemId}:genuine`",
     "seed": "seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 123,
-      "endLine": 123
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 127,
+      "endLine": 127
     },
     "expression": "randomAt(seed,`${itemId}:genuine`)"
   },
   {
-    "id": "rng:src/game/appraisal/engine.ts:124:13363",
-    "owner": "code:src/game/appraisal/engine.ts:spawnStockItem",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:128:13863",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
     "key": "`${itemId}:curse`",
     "seed": "seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 124,
-      "endLine": 124
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 128,
+      "endLine": 128
     },
     "expression": "randomAt(seed,`${itemId}:curse`)"
   },
   {
-    "id": "rng:src/game/appraisal/engine.ts:125:13476",
-    "owner": "code:src/game/appraisal/engine.ts:spawnStockItem",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:129:13976",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
     "key": "`${itemId}:certificate`",
     "seed": "seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 125,
-      "endLine": 125
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 129,
+      "endLine": 129
     },
     "expression": "randomAt(seed,`${itemId}:certificate`)"
   },
   {
-    "id": "rng:src/game/appraisal/engine.ts:133:13872",
-    "owner": "code:src/game/appraisal/engine.ts:generatePortals",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:137:14372",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:generatePortals",
     "key": "`${encounter}:${seat}:${npc}:portal`",
     "seed": "seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 133,
-      "endLine": 133
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 137,
+      "endLine": 137
     },
     "expression": "randomAt(seed,`${encounter}:${seat}:${npc}:portal`)"
   },
   {
-    "id": "rng:src/game/appraisal/engine.ts:151:15214",
-    "owner": "code:src/game/appraisal/engine.ts:rerollPortal",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:155:15714",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:rerollPortal",
     "key": "`${state.encounter}:${seat}:${npc}:portal:reroll${done+1}`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 151,
-      "endLine": 151
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 155,
+      "endLine": 155
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${seat}:${npc}:portal:reroll${done+1}`)"
   },
   {
-    "id": "rng:src/game/appraisal/engine.ts:161:15979",
-    "owner": "code:src/game/appraisal/engine.ts:makeMarket",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:165:16479",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
     "key": "`${state.encounter}:market:open`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 161,
-      "endLine": 161
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 165,
+      "endLine": 165
     },
     "expression": "randomAt(state.seed,`${state.encounter}:market:open`)"
   },
   {
-    "id": "rng:src/game/appraisal/engine.ts:163:16185",
-    "owner": "code:src/game/appraisal/engine.ts:makeMarket",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:167:16685",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
     "key": "`${state.encounter}:market:count`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 163,
-      "endLine": 163
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 167,
+      "endLine": 167
     },
     "expression": "randomAt(state.seed,`${state.encounter}:market:count`)"
   },
   {
-    "id": "rng:src/game/appraisal/engine.ts:164:16335",
-    "owner": "code:src/game/appraisal/engine.ts:makeMarket",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:168:16835",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
     "key": "`${state.encounter}:market:${kind}:rank`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 164,
-      "endLine": 164
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 168,
+      "endLine": 168
     },
     "expression": "randomAt(state.seed,`${state.encounter}:market:${kind}:rank`)"
   },
   {
-    "id": "rng:src/game/appraisal/engine.ts:166:16528",
-    "owner": "code:src/game/appraisal/engine.ts:makeMarket",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:170:17028",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
     "key": "`${state.encounter}:market:${kind}:price`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 166,
-      "endLine": 166
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 170,
+      "endLine": 170
     },
     "expression": "randomAt(state.seed,`${state.encounter}:market:${kind}:price`)"
   },
   {
-    "id": "rng:src/game/appraisal/engine.ts:167:16938",
-    "owner": "code:src/game/appraisal/engine.ts:makeMarket",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:171:17438",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
     "key": "`${state.encounter}:market:${kind}:contract:${key}`",
     "seed": "state.seed",
     "guards": [
       "state.config.commerce"
     ],
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 167,
-      "endLine": 167
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 171,
+      "endLine": 171
     },
     "expression": "randomAt(state.seed,`${state.encounter}:market:${kind}:contract:${key}`)"
   },
   {
-    "id": "rng:src/game/appraisal/engine.ts:442:43065",
-    "owner": "code:src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:453:44759",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "key": "`${state.encounter}:${p.id}:entry-event`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/engine.ts",
-      "line": 442,
-      "endLine": 442
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 453,
+      "endLine": 453
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:entry-event`)"
   },
   {
-    "id": "rng:src/game/appraisal/events.ts:58:5367",
-    "owner": "code:src/game/appraisal/events.ts:draftBoons",
+    "id": "rng:apps/comic/src/game/appraisal/events.ts:58:5367",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:draftBoons",
     "key": "`${key}:boon:${id}`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 58,
       "endLine": 58
     },
     "expression": "randomAt(state.seed,`${key}:boon:${id}`)"
   },
   {
-    "id": "rng:src/game/appraisal/events.ts:257:21040",
-    "owner": "code:src/game/appraisal/events.ts:drawEvent",
+    "id": "rng:apps/comic/src/game/appraisal/events.ts:257:21040",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:drawEvent",
     "key": "`${state.encounter}:${p.id}:${state.phase}:${p.offerSlots}:${p.consequenceSlots}:event`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 257,
       "endLine": 257
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${state.phase}:${p.offerSlots}:${p.consequenceSlots}:event`)"
   },
   {
-    "id": "rng:src/game/appraisal/events.ts:270:22060",
-    "owner": "code:src/game/appraisal/events.ts:drawPolishEvent",
+    "id": "rng:apps/comic/src/game/appraisal/events.ts:270:22060",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:drawPolishEvent",
     "key": "`${state.encounter}:${p.id}:${state.phase}:polish`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 270,
       "endLine": 270
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${state.phase}:polish`)"
   },
   {
-    "id": "rng:src/game/appraisal/events.ts:271:22217",
-    "owner": "code:src/game/appraisal/events.ts:drawPolishEvent",
+    "id": "rng:apps/comic/src/game/appraisal/events.ts:271:22217",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:drawPolishEvent",
     "key": "`${state.encounter}:${p.id}:${state.phase}:polish:pick`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 271,
       "endLine": 271
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${state.phase}:polish:pick`)"
   },
   {
-    "id": "rng:src/game/appraisal/events.ts:276:22598",
-    "owner": "code:src/game/appraisal/events.ts:drawPersonalNpcEvent",
+    "id": "rng:apps/comic/src/game/appraisal/events.ts:276:22598",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:drawPersonalNpcEvent",
     "key": "`${state.encounter}:${p.id}:personal-npc`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 276,
       "endLine": 276
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:personal-npc`)"
   },
   {
-    "id": "rng:src/game/appraisal/events.ts:283:23118",
-    "owner": "code:src/game/appraisal/events.ts:drawExpansionEvent",
+    "id": "rng:apps/comic/src/game/appraisal/events.ts:283:23118",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:drawExpansionEvent",
     "key": "`${state.encounter}:${p.id}:${state.phase}:expansion`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 283,
       "endLine": 283
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${state.phase}:expansion`)"
   },
   {
-    "id": "rng:src/game/appraisal/events.ts:284:23300",
-    "owner": "code:src/game/appraisal/events.ts:drawExpansionEvent",
+    "id": "rng:apps/comic/src/game/appraisal/events.ts:284:23300",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:drawExpansionEvent",
     "key": "`${state.encounter}:${p.id}:${state.phase}:expansion:pick`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 284,
       "endLine": 284
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${state.phase}:expansion:pick`)"
   },
   {
-    "id": "rng:src/game/appraisal/events.ts:291:23832",
-    "owner": "code:src/game/appraisal/events.ts:drawBondEvent",
+    "id": "rng:apps/comic/src/game/appraisal/events.ts:291:23832",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:drawBondEvent",
     "key": "`${state.encounter}:${p.id}:bond`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 291,
       "endLine": 291
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:bond`)"
   },
   {
-    "id": "rng:src/game/appraisal/events.ts:292:23963",
-    "owner": "code:src/game/appraisal/events.ts:drawBondEvent",
+    "id": "rng:apps/comic/src/game/appraisal/events.ts:292:23963",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:drawBondEvent",
     "key": "`${state.encounter}:${p.id}:bond:pick`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 292,
       "endLine": 292
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:bond:pick`)"
   },
   {
-    "id": "rng:src/game/appraisal/events.ts:342:31282",
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "id": "rng:apps/comic/src/game/appraisal/events.ts:342:31282",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "key": "`${offer.key}:narrow`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 342,
       "endLine": 342
     },
     "expression": "randomAt(state.seed,`${offer.key}:narrow`)"
   },
   {
-    "id": "rng:src/game/appraisal/events.ts:358:33315",
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "id": "rng:apps/comic/src/game/appraisal/events.ts:358:33315",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "key": "`${offer.key}:${v}:copy-key`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 358,
       "endLine": 358
     },
     "expression": "randomAt(state.seed,`${offer.key}:${v}:copy-key`)"
   },
   {
-    "id": "rng:src/game/appraisal/events.ts:360:33952",
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "id": "rng:apps/comic/src/game/appraisal/events.ts:360:33952",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "key": "`${offer.key}:${v}:copy-potion`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 360,
       "endLine": 360
     },
     "expression": "randomAt(state.seed,`${offer.key}:${v}:copy-potion`)"
   },
   {
-    "id": "rng:src/game/appraisal/events.ts:382:37909",
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "id": "rng:apps/comic/src/game/appraisal/events.ts:382:37909",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "key": "`${offer.key}:ledger`",
     "seed": "state.seed",
     "guards": [
       "reworked(state)"
     ],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 382,
       "endLine": 382
     },
     "expression": "randomAt(state.seed,`${offer.key}:ledger`)"
   },
   {
-    "id": "rng:src/game/appraisal/events.ts:396:39199",
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "id": "rng:apps/comic/src/game/appraisal/events.ts:396:39199",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "key": "`${offer.key}:pearl-dive`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 396,
       "endLine": 396
     },
     "expression": "randomAt(state.seed,`${offer.key}:pearl-dive`)"
   },
   {
-    "id": "rng:src/game/appraisal/events.ts:402:40167",
-    "owner": "code:src/game/appraisal/events.ts:resolveEvent",
+    "id": "rng:apps/comic/src/game/appraisal/events.ts:402:40167",
+    "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "key": "`${offer.key}:old-nest`",
     "seed": "state.seed",
     "guards": [],
     "source": {
-      "file": "src/game/appraisal/events.ts",
+      "file": "apps/comic/src/game/appraisal/events.ts",
       "line": 402,
       "endLine": 402
     },
     "expression": "randomAt(state.seed,`${offer.key}:old-nest`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/mechanics.ts:85:6218",
-    "owner": "code:src/game/appraisal/mechanics.ts:grant",
-    "key": "`${state.encounter}:${p.id}:${p.activated.at(-1)}:${id}:copy-status`",
-    "seed": "state.seed",
-    "guards": [
-      "power<1 && !['B03','B04','B05','B09','B10','B12','B13','B14','B15','B16','B17','B18','B19','D01','D03','D04','D05','D06','D08','D10','D11','D12','D13','D16','D17','D18','D19','D20','B25','D25'].includes(id)"
-    ],
-    "source": {
-      "file": "src/game/appraisal/mechanics.ts",
-      "line": 85,
-      "endLine": 85
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${p.activated.at(-1)}:${id}:copy-status`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/mechanics.ts:157:12024",
-    "owner": "code:src/game/appraisal/mechanics.ts:recoveryAmount",
-    "key": "`${state.encounter}:${p.id}:recovery-roll`",
-    "seed": "state.seed",
-    "guards": [],
-    "source": {
-      "file": "src/game/appraisal/mechanics.ts",
-      "line": 157,
-      "endLine": 157
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:recovery-roll`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/mechanics.ts:232:17364",
-    "owner": "code:src/game/appraisal/mechanics.ts:inspect",
-    "key": "`${item.id}:narrow`",
-    "seed": "state.seed",
-    "guards": [
-      "property === 'price'",
-      "NOT status(p,'B01') && !status(p,'D02')"
-    ],
-    "source": {
-      "file": "src/game/appraisal/mechanics.ts",
-      "line": 232,
-      "endLine": 232
-    },
-    "expression": "randomAt(state.seed,`${item.id}:narrow`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/mechanics.ts:262:19581",
-    "owner": "code:src/game/appraisal/mechanics.ts:appraise",
-    "key": "`${state.encounter}:${p.id}:${itemId}:detection`",
-    "seed": "state.seed",
-    "guards": [],
-    "source": {
-      "file": "src/game/appraisal/mechanics.ts",
-      "line": 262,
-      "endLine": 262
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:detection`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/mechanics.ts:264:19805",
-    "owner": "code:src/game/appraisal/mechanics.ts:appraise",
-    "key": "`${state.encounter}:${p.id}:${itemId}:trust-accept:${counter?p.counters:0}`",
-    "seed": "state.seed",
-    "guards": [],
-    "source": {
-      "file": "src/game/appraisal/mechanics.ts",
-      "line": 264,
-      "endLine": 264
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:trust-accept:${counter?p.counters:0}`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/mechanics.ts:268:20289",
-    "owner": "code:src/game/appraisal/mechanics.ts:appraise",
-    "key": "`${state.encounter}:${p.id}:${itemId}:overvalue:${counter?p.counters:0}`",
-    "seed": "state.seed",
-    "guards": [],
-    "source": {
-      "file": "src/game/appraisal/mechanics.ts",
-      "line": 268,
-      "endLine": 268
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:overvalue:${counter?p.counters:0}`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/mechanics.ts:407:32362",
-    "owner": "code:src/game/appraisal/mechanics.ts:activate",
-    "key": "`${state.encounter}:${p.id}:${itemId}:fake-effect`",
-    "seed": "state.seed",
-    "guards": [],
-    "source": {
-      "file": "src/game/appraisal/mechanics.ts",
-      "line": 407,
-      "endLine": 407
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:fake-effect`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/mechanics.ts:423:33940",
-    "owner": "code:src/game/appraisal/mechanics.ts:activate",
-    "key": "`${state.encounter}:${item.id}:copy-insight`",
-    "seed": "state.seed",
-    "guards": [
-      "works",
-      "NOT state.config.trustAbilities && (ABILITY_ITEM_IDS as readonly string[]).includes(item.kind)",
-      "state.config.trustAbilities && item.kind in MODERN_ACTIVATIONS",
-      "NOT operation==='energy-for-delay'"
-    ],
-    "source": {
-      "file": "src/game/appraisal/mechanics.ts",
-      "line": 423,
-      "endLine": 423
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${item.id}:copy-insight`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/mechanics.ts:427:34388",
-    "owner": "code:src/game/appraisal/mechanics.ts:activate",
-    "key": "`${state.encounter}:${item.id}:scan-price`",
-    "seed": "state.seed",
-    "guards": [
-      "works",
-      "NOT state.config.trustAbilities && (ABILITY_ITEM_IDS as readonly string[]).includes(item.kind)",
-      "state.config.trustAbilities && item.kind in MODERN_ACTIVATIONS",
-      "NOT operation==='energy-for-delay'",
-      "power===1 || randomAt(state.seed,`${state.encounter}:${item.id}:copy-insight`)<power",
-      "operation==='scan-shop-price'",
-      "pool.length"
-    ],
-    "source": {
-      "file": "src/game/appraisal/mechanics.ts",
-      "line": 427,
-      "endLine": 427
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${item.id}:scan-price`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/mechanics.ts:430:34819",
-    "owner": "code:src/game/appraisal/mechanics.ts:activate",
-    "key": "`${state.encounter}:${item.id}:recall-fact`",
-    "seed": "state.seed",
-    "guards": [
-      "works",
-      "NOT state.config.trustAbilities && (ABILITY_ITEM_IDS as readonly string[]).includes(item.kind)",
-      "state.config.trustAbilities && item.kind in MODERN_ACTIVATIONS",
-      "NOT operation==='energy-for-delay'",
-      "power===1 || randomAt(state.seed,`${state.encounter}:${item.id}:copy-insight`)<power",
-      "NOT operation==='scan-shop-price'",
-      "options.length"
-    ],
-    "source": {
-      "file": "src/game/appraisal/mechanics.ts",
-      "line": 430,
-      "endLine": 430
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${item.id}:recall-fact`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/mechanics.ts:435:35280",
-    "owner": "code:src/game/appraisal/mechanics.ts:activate",
-    "key": "`${state.encounter}:${item.id}:copy-key`",
-    "seed": "state.seed",
-    "guards": [
-      "works",
-      "NOT state.config.trustAbilities && (ABILITY_ITEM_IDS as readonly string[]).includes(item.kind)",
-      "NOT state.config.trustAbilities && item.kind in MODERN_ACTIVATIONS",
-      "NOT itemFamily(item.kind) === 'orb'",
-      "itemFamily(item.kind) === 'key' && status(p,'D07')"
-    ],
-    "source": {
-      "file": "src/game/appraisal/mechanics.ts",
-      "line": 435,
-      "endLine": 435
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${item.id}:copy-key`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/merchant-abilities.ts:37:3892",
-    "owner": "code:src/game/appraisal/merchant-abilities.ts:makeCandidate",
-    "key": "`${key}:${slot}:kind`",
-    "seed": "state.seed",
-    "guards": [],
-    "source": {
-      "file": "src/game/appraisal/merchant-abilities.ts",
-      "line": 37,
-      "endLine": 37
-    },
-    "expression": "randomAt(state.seed,`${key}:${slot}:kind`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/merchant-abilities.ts:40:4089",
-    "owner": "code:src/game/appraisal/merchant-abilities.ts:makeCandidate",
-    "key": "`${id}:base`",
-    "seed": "state.seed",
-    "guards": [],
-    "source": {
-      "file": "src/game/appraisal/merchant-abilities.ts",
-      "line": 40,
-      "endLine": 40
-    },
-    "expression": "randomAt(state.seed,`${id}:base`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/merchant-abilities.ts:41:4190",
-    "owner": "code:src/game/appraisal/merchant-abilities.ts:makeCandidate",
-    "key": "`${id}:ask`",
-    "seed": "state.seed",
-    "guards": [],
-    "source": {
-      "file": "src/game/appraisal/merchant-abilities.ts",
-      "line": 41,
-      "endLine": 41
-    },
-    "expression": "randomAt(state.seed,`${id}:ask`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/merchant-abilities.ts:42:4281",
-    "owner": "code:src/game/appraisal/merchant-abilities.ts:makeCandidate",
-    "key": "`${id}:genuine`",
-    "seed": "state.seed",
-    "guards": [],
-    "source": {
-      "file": "src/game/appraisal/merchant-abilities.ts",
-      "line": 42,
-      "endLine": 42
-    },
-    "expression": "randomAt(state.seed,`${id}:genuine`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/merchant-abilities.ts:42:4329",
-    "owner": "code:src/game/appraisal/merchant-abilities.ts:makeCandidate",
-    "key": "`${id}:cursed`",
-    "seed": "state.seed",
-    "guards": [],
-    "source": {
-      "file": "src/game/appraisal/merchant-abilities.ts",
-      "line": 42,
-      "endLine": 42
-    },
-    "expression": "randomAt(state.seed,`${id}:cursed`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/npc-events.ts:15:1429",
-    "owner": "code:src/game/appraisal/npc-events.ts:pick",
-    "key": "key",
-    "seed": "state.seed",
-    "guards": [],
-    "source": {
-      "file": "src/game/appraisal/npc-events.ts",
-      "line": 15,
-      "endLine": 15
-    },
-    "expression": "randomAt(state.seed,key)"
-  },
-  {
-    "id": "rng:src/game/appraisal/npc-events.ts:42:3211",
-    "owner": "code:src/game/appraisal/npc-events.ts:personalNpcOffer",
-    "key": "`${key}:loan-size`",
-    "seed": "state.seed",
-    "guards": [
-      "id==='E110'"
-    ],
-    "source": {
-      "file": "src/game/appraisal/npc-events.ts",
-      "line": 42,
-      "endLine": 42
-    },
-    "expression": "randomAt(state.seed,`${key}:loan-size`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/npc-events.ts:48:3699",
-    "owner": "code:src/game/appraisal/npc-events.ts:personalNpcOffer",
-    "key": "`${key}:cost:${cost}`",
-    "seed": "state.seed",
-    "guards": [
-      "id==='E111'"
-    ],
-    "source": {
-      "file": "src/game/appraisal/npc-events.ts",
-      "line": 48,
-      "endLine": 48
-    },
-    "expression": "randomAt(state.seed,`${key}:cost:${cost}`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/npc-events.ts:49:3802",
-    "owner": "code:src/game/appraisal/npc-events.ts:personalNpcOffer",
-    "key": "`${key}:cost-count`",
-    "seed": "state.seed",
-    "guards": [
-      "id==='E111'"
-    ],
-    "source": {
-      "file": "src/game/appraisal/npc-events.ts",
-      "line": 49,
-      "endLine": 49
-    },
-    "expression": "randomAt(state.seed,`${key}:cost-count`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/npc-events.ts:50:3978",
-    "owner": "code:src/game/appraisal/npc-events.ts:personalNpcOffer",
-    "key": "`${key}:credits`",
-    "seed": "state.seed",
-    "guards": [
-      "id==='E111'",
-      "cost==='credits'"
-    ],
-    "source": {
-      "file": "src/game/appraisal/npc-events.ts",
-      "line": 50,
-      "endLine": 50
-    },
-    "expression": "randomAt(state.seed,`${key}:credits`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/npc-events.ts:147:12718",
-    "owner": "code:src/game/appraisal/npc-events.ts:redeemNpcContracts",
-    "key": "`${loan.key}:credits`",
-    "seed": "state.seed",
-    "guards": [
-      "npc==='alien' && loan && state.encounter>=loan.dueAt"
-    ],
-    "source": {
-      "file": "src/game/appraisal/npc-events.ts",
-      "line": 147,
-      "endLine": 147
-    },
-    "expression": "randomAt(state.seed,`${loan.key}:credits`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/npc-events.ts:147:12784",
-    "owner": "code:src/game/appraisal/npc-events.ts:redeemNpcContracts",
-    "key": "`${loan.key}:energy`",
-    "seed": "state.seed",
-    "guards": [
-      "npc==='alien' && loan && state.encounter>=loan.dueAt"
-    ],
-    "source": {
-      "file": "src/game/appraisal/npc-events.ts",
-      "line": 147,
-      "endLine": 147
-    },
-    "expression": "randomAt(state.seed,`${loan.key}:energy`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/omens.ts:8:343",
-    "owner": "code:src/game/appraisal/omens.ts:pick",
-    "key": "`${encounter}:omen`",
-    "seed": "seed",
-    "guards": [],
-    "source": {
-      "file": "src/game/appraisal/omens.ts",
-      "line": 8,
-      "endLine": 8
-    },
-    "expression": "randomAt(seed,`${encounter}:omen`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/omens.ts:16:840",
-    "owner": "code:src/game/appraisal/omens.ts:omenOf",
-    "key": "`${e}:omen:shift`",
-    "seed": "seed",
-    "guards": [
-      "next===index"
-    ],
-    "source": {
-      "file": "src/game/appraisal/omens.ts",
-      "line": 16,
-      "endLine": 16
-    },
-    "expression": "randomAt(seed,`${e}:omen:shift`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/omens.ts:33:1608",
-    "owner": "code:src/game/appraisal/omens.ts:core2Omen",
-    "key": "`${e}:omen2`",
-    "seed": "seed",
-    "guards": [],
-    "source": {
-      "file": "src/game/appraisal/omens.ts",
-      "line": 33,
-      "endLine": 33
-    },
-    "expression": "randomAt(seed,`${e}:omen2`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/price-integrity.ts:20:993",
-    "owner": "code:src/game/appraisal/price-integrity.ts:auditItemPrice",
-    "key": "`${state.encounter}:${item.id}:price-integrity:${sourceKey}:${integrity.audits}`",
-    "seed": "state.seed",
-    "guards": [],
-    "source": {
-      "file": "src/game/appraisal/price-integrity.ts",
-      "line": 20,
-      "endLine": 20
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${item.id}:price-integrity:${sourceKey}:${integrity.audits}`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/rarity.ts:12:614",
-    "owner": "code:src/game/appraisal/rarity.ts:ensureItemAppearance",
-    "key": "`${item.id}:appearance:v1`",
-    "seed": "state.seed",
-    "guards": [
-      "state.config.rarity && !item.appearance"
-    ],
-    "source": {
-      "file": "src/game/appraisal/rarity.ts",
-      "line": 12,
-      "endLine": 12
-    },
-    "expression": "randomAt(state.seed,`${item.id}:appearance:v1`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/round-rewards.ts:42:3155",
-    "owner": "code:src/game/appraisal/round-rewards.ts:flipRoundReward",
-    "key": "`${state.encounter}:${p.id}:round-coin:${attempt}${suffix}`",
-    "seed": "state.seed",
-    "guards": [
-      "state.config.multiCoinRewards",
-      "randomAt(state.seed,`${state.encounter}:${p.id}:round-coin:${attempt}${suffix}`)<.5"
-    ],
-    "source": {
-      "file": "src/game/appraisal/round-rewards.ts",
-      "line": 42,
-      "endLine": 42
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:round-coin:${attempt}${suffix}`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/round-rewards.ts:44:3328",
-    "owner": "code:src/game/appraisal/round-rewards.ts:flipRoundReward",
-    "key": "`${state.encounter}:${p.id}:round-coin-luck:${attempt}${suffix}`",
-    "seed": "state.seed",
-    "guards": [
-      "state.config.multiCoinRewards"
-    ],
-    "source": {
-      "file": "src/game/appraisal/round-rewards.ts",
-      "line": 44,
-      "endLine": 44
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:round-coin-luck:${attempt}${suffix}`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/round-rewards.ts:45:3477",
-    "owner": "code:src/game/appraisal/round-rewards.ts:flipRoundReward",
-    "key": "`${state.encounter}:${p.id}:round-coin-unluck:${attempt}${suffix}`",
-    "seed": "state.seed",
-    "guards": [
-      "state.config.multiCoinRewards"
-    ],
-    "source": {
-      "file": "src/game/appraisal/round-rewards.ts",
-      "line": 45,
-      "endLine": 45
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:round-coin-unluck:${attempt}${suffix}`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/round-rewards.ts:57:4282",
-    "owner": "code:src/game/appraisal/round-rewards.ts:flipRoundReward",
-    "key": "`${state.encounter}:${p.id}:round-coin:${attempt}`",
-    "seed": "state.seed",
-    "guards": [
-      "randomAt(state.seed,`${state.encounter}:${p.id}:round-coin:${attempt}`)<.5"
-    ],
-    "source": {
-      "file": "src/game/appraisal/round-rewards.ts",
-      "line": 57,
-      "endLine": 57
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:round-coin:${attempt}`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/round-rewards.ts:58:4418",
-    "owner": "code:src/game/appraisal/round-rewards.ts:flipRoundReward",
-    "key": "`${state.encounter}:${p.id}:round-coin-luck:${attempt}`",
-    "seed": "state.seed",
-    "guards": [],
-    "source": {
-      "file": "src/game/appraisal/round-rewards.ts",
-      "line": 58,
-      "endLine": 58
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:round-coin-luck:${attempt}`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/seals.ts:132:7995",
-    "owner": "code:src/game/appraisal/seals.ts:redeem",
-    "key": "`${state.encounter}:${id}:${i}:seal-pick`",
-    "seed": "state.seed",
-    "guards": [],
-    "source": {
-      "file": "src/game/appraisal/seals.ts",
-      "line": 132,
-      "endLine": 132
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${id}:${i}:seal-pick`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/theft.ts:115:4971",
-    "owner": "code:src/game/appraisal/theft.ts:npcHand",
-    "key": "`${duel.id}:round:${duel.round}:npc`",
-    "seed": "state.seed",
-    "guards": [],
-    "source": {
-      "file": "src/game/appraisal/theft.ts",
-      "line": 115,
-      "endLine": 115
-    },
-    "expression": "randomAt(state.seed,`${duel.id}:round:${duel.round}:npc`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/theft.ts:139:6616",
-    "owner": "code:src/game/appraisal/theft.ts:startTheftDuel",
-    "key": "`${state.encounter}:${p.id}:${victim.id}:theft-item`",
-    "seed": "state.seed",
-    "guards": [
-      "target.victimId"
-    ],
-    "source": {
-      "file": "src/game/appraisal/theft.ts",
-      "line": 139,
-      "endLine": 139
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${victim.id}:theft-item`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/wishlist.ts:19:1684",
-    "owner": "code:src/game/appraisal/wishlist.ts:wishPick",
-    "key": "`${state.encounter}:${p.id}:${npc}:wish-kind${nonce?`:${nonce}`:''}`",
-    "seed": "state.seed",
-    "guards": [],
-    "source": {
-      "file": "src/game/appraisal/wishlist.ts",
-      "line": 19,
-      "endLine": 19
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${npc}:wish-kind${nonce?`:${nonce}`:''}`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/wishlist.ts:68:5715",
-    "owner": "code:src/game/appraisal/wishlist.ts:drawWishEvent",
-    "key": "`${state.encounter}:${p.id}:wish`",
-    "seed": "state.seed",
-    "guards": [],
-    "source": {
-      "file": "src/game/appraisal/wishlist.ts",
-      "line": 68,
-      "endLine": 68
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:wish`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/wishlist.ts:94:8424",
-    "owner": "code:src/game/appraisal/wishlist.ts:wishSell",
-    "key": "`${state.encounter}:${p.id}:${itemId}:wish-fake`",
-    "seed": "state.seed",
-    "guards": [],
-    "source": {
-      "file": "src/game/appraisal/wishlist.ts",
-      "line": 94,
-      "endLine": 94
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:wish-fake`)"
-  },
-  {
-    "id": "rng:src/game/appraisal/wishlist.ts:98:8963",
-    "owner": "code:src/game/appraisal/wishlist.ts:wishSell",
-    "key": "`${state.encounter}:${p.id}:${itemId}:wish-deal`",
-    "seed": "state.seed",
-    "guards": [
-      "NOT !item.genuine && randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:wish-fake`)<Math.min(.9,Math.max(.05,.4*NPC_SPECS[npc].sensitivity+(state.config.polish?statusMagnitude(p,'D03',.1)-statusMagnitude(p,'B04',.1):0)))"
-    ],
-    "source": {
-      "file": "src/game/appraisal/wishlist.ts",
-      "line": 98,
-      "endLine": 98
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:wish-deal`)"
   },
   {
     "id": "rng:apps/comic/src/game/appraisal/ghost-service.ts:12:1345",
@@ -11131,6 +10757,603 @@ source guards and call order determine actual application; do not add damage fro
       "endLine": 54
     },
     "expression": "randomAt(s.seed,`${itemId}:curse`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:85:6218",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:grant",
+    "key": "`${state.encounter}:${p.id}:${p.activated.at(-1)}:${id}:copy-status`",
+    "seed": "state.seed",
+    "guards": [
+      "power<1 && !['B03','B04','B05','B09','B10','B12','B13','B14','B15','B16','B17','B18','B19','D01','D03','D04','D05','D06','D08','D10','D11','D12','D13','D16','D17','D18','D19','D20','B25','D25'].includes(id)"
+    ],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
+      "line": 85,
+      "endLine": 85
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${p.activated.at(-1)}:${id}:copy-status`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:157:12024",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:recoveryAmount",
+    "key": "`${state.encounter}:${p.id}:recovery-roll`",
+    "seed": "state.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
+      "line": 157,
+      "endLine": 157
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:recovery-roll`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:232:17364",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
+    "key": "`${item.id}:narrow`",
+    "seed": "state.seed",
+    "guards": [
+      "property === 'price'",
+      "NOT status(p,'B01') && !status(p,'D02')"
+    ],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
+      "line": 232,
+      "endLine": 232
+    },
+    "expression": "randomAt(state.seed,`${item.id}:narrow`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:262:19581",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
+    "key": "`${state.encounter}:${p.id}:${itemId}:detection`",
+    "seed": "state.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
+      "line": 262,
+      "endLine": 262
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:detection`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:264:19805",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
+    "key": "`${state.encounter}:${p.id}:${itemId}:trust-accept:${counter?p.counters:0}`",
+    "seed": "state.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
+      "line": 264,
+      "endLine": 264
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:trust-accept:${counter?p.counters:0}`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:268:20289",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
+    "key": "`${state.encounter}:${p.id}:${itemId}:overvalue:${counter?p.counters:0}`",
+    "seed": "state.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
+      "line": 268,
+      "endLine": 268
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:overvalue:${counter?p.counters:0}`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:407:32362",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
+    "key": "`${state.encounter}:${p.id}:${itemId}:fake-effect`",
+    "seed": "state.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
+      "line": 407,
+      "endLine": 407
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:fake-effect`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:423:33940",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
+    "key": "`${state.encounter}:${item.id}:copy-insight`",
+    "seed": "state.seed",
+    "guards": [
+      "works",
+      "NOT state.config.trustAbilities && (ABILITY_ITEM_IDS as readonly string[]).includes(item.kind)",
+      "state.config.trustAbilities && item.kind in MODERN_ACTIVATIONS",
+      "NOT operation==='energy-for-delay'"
+    ],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
+      "line": 423,
+      "endLine": 423
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${item.id}:copy-insight`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:427:34388",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
+    "key": "`${state.encounter}:${item.id}:scan-price`",
+    "seed": "state.seed",
+    "guards": [
+      "works",
+      "NOT state.config.trustAbilities && (ABILITY_ITEM_IDS as readonly string[]).includes(item.kind)",
+      "state.config.trustAbilities && item.kind in MODERN_ACTIVATIONS",
+      "NOT operation==='energy-for-delay'",
+      "power===1 || randomAt(state.seed,`${state.encounter}:${item.id}:copy-insight`)<power",
+      "operation==='scan-shop-price'",
+      "pool.length"
+    ],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
+      "line": 427,
+      "endLine": 427
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${item.id}:scan-price`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:430:34819",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
+    "key": "`${state.encounter}:${item.id}:recall-fact`",
+    "seed": "state.seed",
+    "guards": [
+      "works",
+      "NOT state.config.trustAbilities && (ABILITY_ITEM_IDS as readonly string[]).includes(item.kind)",
+      "state.config.trustAbilities && item.kind in MODERN_ACTIVATIONS",
+      "NOT operation==='energy-for-delay'",
+      "power===1 || randomAt(state.seed,`${state.encounter}:${item.id}:copy-insight`)<power",
+      "NOT operation==='scan-shop-price'",
+      "options.length"
+    ],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
+      "line": 430,
+      "endLine": 430
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${item.id}:recall-fact`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:435:35280",
+    "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
+    "key": "`${state.encounter}:${item.id}:copy-key`",
+    "seed": "state.seed",
+    "guards": [
+      "works",
+      "NOT state.config.trustAbilities && (ABILITY_ITEM_IDS as readonly string[]).includes(item.kind)",
+      "NOT state.config.trustAbilities && item.kind in MODERN_ACTIVATIONS",
+      "NOT itemFamily(item.kind) === 'orb'",
+      "itemFamily(item.kind) === 'key' && status(p,'D07')"
+    ],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/mechanics.ts",
+      "line": 435,
+      "endLine": 435
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${item.id}:copy-key`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/merchant-abilities.ts:37:3892",
+    "owner": "code:apps/comic/src/game/appraisal/merchant-abilities.ts:makeCandidate",
+    "key": "`${key}:${slot}:kind`",
+    "seed": "state.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
+      "line": 37,
+      "endLine": 37
+    },
+    "expression": "randomAt(state.seed,`${key}:${slot}:kind`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/merchant-abilities.ts:40:4089",
+    "owner": "code:apps/comic/src/game/appraisal/merchant-abilities.ts:makeCandidate",
+    "key": "`${id}:base`",
+    "seed": "state.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
+      "line": 40,
+      "endLine": 40
+    },
+    "expression": "randomAt(state.seed,`${id}:base`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/merchant-abilities.ts:41:4190",
+    "owner": "code:apps/comic/src/game/appraisal/merchant-abilities.ts:makeCandidate",
+    "key": "`${id}:ask`",
+    "seed": "state.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
+      "line": 41,
+      "endLine": 41
+    },
+    "expression": "randomAt(state.seed,`${id}:ask`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/merchant-abilities.ts:42:4281",
+    "owner": "code:apps/comic/src/game/appraisal/merchant-abilities.ts:makeCandidate",
+    "key": "`${id}:genuine`",
+    "seed": "state.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
+      "line": 42,
+      "endLine": 42
+    },
+    "expression": "randomAt(state.seed,`${id}:genuine`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/merchant-abilities.ts:42:4329",
+    "owner": "code:apps/comic/src/game/appraisal/merchant-abilities.ts:makeCandidate",
+    "key": "`${id}:cursed`",
+    "seed": "state.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
+      "line": 42,
+      "endLine": 42
+    },
+    "expression": "randomAt(state.seed,`${id}:cursed`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/npc-events.ts:15:1429",
+    "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:pick",
+    "key": "key",
+    "seed": "state.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/npc-events.ts",
+      "line": 15,
+      "endLine": 15
+    },
+    "expression": "randomAt(state.seed,key)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/npc-events.ts:42:3211",
+    "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:personalNpcOffer",
+    "key": "`${key}:loan-size`",
+    "seed": "state.seed",
+    "guards": [
+      "id==='E110'"
+    ],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/npc-events.ts",
+      "line": 42,
+      "endLine": 42
+    },
+    "expression": "randomAt(state.seed,`${key}:loan-size`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/npc-events.ts:48:3699",
+    "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:personalNpcOffer",
+    "key": "`${key}:cost:${cost}`",
+    "seed": "state.seed",
+    "guards": [
+      "id==='E111'"
+    ],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/npc-events.ts",
+      "line": 48,
+      "endLine": 48
+    },
+    "expression": "randomAt(state.seed,`${key}:cost:${cost}`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/npc-events.ts:49:3802",
+    "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:personalNpcOffer",
+    "key": "`${key}:cost-count`",
+    "seed": "state.seed",
+    "guards": [
+      "id==='E111'"
+    ],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/npc-events.ts",
+      "line": 49,
+      "endLine": 49
+    },
+    "expression": "randomAt(state.seed,`${key}:cost-count`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/npc-events.ts:50:3978",
+    "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:personalNpcOffer",
+    "key": "`${key}:credits`",
+    "seed": "state.seed",
+    "guards": [
+      "id==='E111'",
+      "cost==='credits'"
+    ],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/npc-events.ts",
+      "line": 50,
+      "endLine": 50
+    },
+    "expression": "randomAt(state.seed,`${key}:credits`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/npc-events.ts:147:12718",
+    "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:redeemNpcContracts",
+    "key": "`${loan.key}:credits`",
+    "seed": "state.seed",
+    "guards": [
+      "npc==='alien' && loan && state.encounter>=loan.dueAt"
+    ],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/npc-events.ts",
+      "line": 147,
+      "endLine": 147
+    },
+    "expression": "randomAt(state.seed,`${loan.key}:credits`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/npc-events.ts:147:12784",
+    "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:redeemNpcContracts",
+    "key": "`${loan.key}:energy`",
+    "seed": "state.seed",
+    "guards": [
+      "npc==='alien' && loan && state.encounter>=loan.dueAt"
+    ],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/npc-events.ts",
+      "line": 147,
+      "endLine": 147
+    },
+    "expression": "randomAt(state.seed,`${loan.key}:energy`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/omens.ts:8:343",
+    "owner": "code:apps/comic/src/game/appraisal/omens.ts:pick",
+    "key": "`${encounter}:omen`",
+    "seed": "seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/omens.ts",
+      "line": 8,
+      "endLine": 8
+    },
+    "expression": "randomAt(seed,`${encounter}:omen`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/omens.ts:16:840",
+    "owner": "code:apps/comic/src/game/appraisal/omens.ts:omenOf",
+    "key": "`${e}:omen:shift`",
+    "seed": "seed",
+    "guards": [
+      "next===index"
+    ],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/omens.ts",
+      "line": 16,
+      "endLine": 16
+    },
+    "expression": "randomAt(seed,`${e}:omen:shift`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/omens.ts:33:1608",
+    "owner": "code:apps/comic/src/game/appraisal/omens.ts:core2Omen",
+    "key": "`${e}:omen2`",
+    "seed": "seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/omens.ts",
+      "line": 33,
+      "endLine": 33
+    },
+    "expression": "randomAt(seed,`${e}:omen2`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/price-integrity.ts:20:993",
+    "owner": "code:apps/comic/src/game/appraisal/price-integrity.ts:auditItemPrice",
+    "key": "`${state.encounter}:${item.id}:price-integrity:${sourceKey}:${integrity.audits}`",
+    "seed": "state.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/price-integrity.ts",
+      "line": 20,
+      "endLine": 20
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${item.id}:price-integrity:${sourceKey}:${integrity.audits}`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/rarity.ts:12:614",
+    "owner": "code:apps/comic/src/game/appraisal/rarity.ts:ensureItemAppearance",
+    "key": "`${item.id}:appearance:v1`",
+    "seed": "state.seed",
+    "guards": [
+      "state.config.rarity && !item.appearance"
+    ],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/rarity.ts",
+      "line": 12,
+      "endLine": 12
+    },
+    "expression": "randomAt(state.seed,`${item.id}:appearance:v1`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/round-rewards.ts:42:3155",
+    "owner": "code:apps/comic/src/game/appraisal/round-rewards.ts:flipRoundReward",
+    "key": "`${state.encounter}:${p.id}:round-coin:${attempt}${suffix}`",
+    "seed": "state.seed",
+    "guards": [
+      "state.config.multiCoinRewards",
+      "randomAt(state.seed,`${state.encounter}:${p.id}:round-coin:${attempt}${suffix}`)<.5"
+    ],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/round-rewards.ts",
+      "line": 42,
+      "endLine": 42
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:round-coin:${attempt}${suffix}`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/round-rewards.ts:44:3328",
+    "owner": "code:apps/comic/src/game/appraisal/round-rewards.ts:flipRoundReward",
+    "key": "`${state.encounter}:${p.id}:round-coin-luck:${attempt}${suffix}`",
+    "seed": "state.seed",
+    "guards": [
+      "state.config.multiCoinRewards"
+    ],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/round-rewards.ts",
+      "line": 44,
+      "endLine": 44
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:round-coin-luck:${attempt}${suffix}`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/round-rewards.ts:45:3477",
+    "owner": "code:apps/comic/src/game/appraisal/round-rewards.ts:flipRoundReward",
+    "key": "`${state.encounter}:${p.id}:round-coin-unluck:${attempt}${suffix}`",
+    "seed": "state.seed",
+    "guards": [
+      "state.config.multiCoinRewards"
+    ],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/round-rewards.ts",
+      "line": 45,
+      "endLine": 45
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:round-coin-unluck:${attempt}${suffix}`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/round-rewards.ts:57:4282",
+    "owner": "code:apps/comic/src/game/appraisal/round-rewards.ts:flipRoundReward",
+    "key": "`${state.encounter}:${p.id}:round-coin:${attempt}`",
+    "seed": "state.seed",
+    "guards": [
+      "randomAt(state.seed,`${state.encounter}:${p.id}:round-coin:${attempt}`)<.5"
+    ],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/round-rewards.ts",
+      "line": 57,
+      "endLine": 57
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:round-coin:${attempt}`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/round-rewards.ts:58:4418",
+    "owner": "code:apps/comic/src/game/appraisal/round-rewards.ts:flipRoundReward",
+    "key": "`${state.encounter}:${p.id}:round-coin-luck:${attempt}`",
+    "seed": "state.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/round-rewards.ts",
+      "line": 58,
+      "endLine": 58
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:round-coin-luck:${attempt}`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/seals.ts:132:7995",
+    "owner": "code:apps/comic/src/game/appraisal/seals.ts:redeem",
+    "key": "`${state.encounter}:${id}:${i}:seal-pick`",
+    "seed": "state.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/seals.ts",
+      "line": 132,
+      "endLine": 132
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${id}:${i}:seal-pick`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/theft.ts:115:4971",
+    "owner": "code:apps/comic/src/game/appraisal/theft.ts:npcHand",
+    "key": "`${duel.id}:round:${duel.round}:npc`",
+    "seed": "state.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/theft.ts",
+      "line": 115,
+      "endLine": 115
+    },
+    "expression": "randomAt(state.seed,`${duel.id}:round:${duel.round}:npc`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/theft.ts:139:6616",
+    "owner": "code:apps/comic/src/game/appraisal/theft.ts:startTheftDuel",
+    "key": "`${state.encounter}:${p.id}:${victim.id}:theft-item`",
+    "seed": "state.seed",
+    "guards": [
+      "target.victimId"
+    ],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/theft.ts",
+      "line": 139,
+      "endLine": 139
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${victim.id}:theft-item`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/theft.ts:192:9571",
+    "owner": "code:apps/comic/src/game/appraisal/theft.ts:expireTheftDuel",
+    "key": "`${duel.id}:round:${round}:timeout:${id}`",
+    "seed": "state.seed",
+    "guards": [
+      "state.config.theftTimeoutRules===1"
+    ],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/theft.ts",
+      "line": 192,
+      "endLine": 192
+    },
+    "expression": "randomAt(state.seed,`${duel.id}:round:${round}:timeout:${id}`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/wishlist.ts:19:1684",
+    "owner": "code:apps/comic/src/game/appraisal/wishlist.ts:wishPick",
+    "key": "`${state.encounter}:${p.id}:${npc}:wish-kind${nonce?`:${nonce}`:''}`",
+    "seed": "state.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/wishlist.ts",
+      "line": 19,
+      "endLine": 19
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${npc}:wish-kind${nonce?`:${nonce}`:''}`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/wishlist.ts:68:5715",
+    "owner": "code:apps/comic/src/game/appraisal/wishlist.ts:drawWishEvent",
+    "key": "`${state.encounter}:${p.id}:wish`",
+    "seed": "state.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/wishlist.ts",
+      "line": 68,
+      "endLine": 68
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:wish`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/wishlist.ts:94:8424",
+    "owner": "code:apps/comic/src/game/appraisal/wishlist.ts:wishSell",
+    "key": "`${state.encounter}:${p.id}:${itemId}:wish-fake`",
+    "seed": "state.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/wishlist.ts",
+      "line": 94,
+      "endLine": 94
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:wish-fake`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/wishlist.ts:98:8963",
+    "owner": "code:apps/comic/src/game/appraisal/wishlist.ts:wishSell",
+    "key": "`${state.encounter}:${p.id}:${itemId}:wish-deal`",
+    "seed": "state.seed",
+    "guards": [
+      "NOT !item.genuine && randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:wish-fake`)<Math.min(.9,Math.max(.05,.4*NPC_SPECS[npc].sensitivity+(state.config.polish?statusMagnitude(p,'D03',.1)-statusMagnitude(p,'B04',.1):0)))"
+    ],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/wishlist.ts",
+      "line": 98,
+      "endLine": 98
+    },
+    "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:wish-deal`)"
   }
 ]
 ```

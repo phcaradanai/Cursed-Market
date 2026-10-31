@@ -87,12 +87,14 @@
     {
       "id": "RULE-02",
       "system": "ขโมยและ forced RPS",
-      "status": "มีระบบ — ยังต้องยืนยันความครบตามกฎ",
-      "remaining": "ผู้ใช้ยืนยันแล้ว: หมดเวลา/หลุดเกมสุ่มเฉพาะมือที่ยังไม่ส่ง เก็บมือเดิมและตัดสินตามปกติ; ยังต้องเชื่อมและทดสอบ timeout/disconnect/retry",
+      "status": "forced timeout + Comic duel ตรวจแล้ว — selector เดิมยังค้าง",
+      "remaining": "สุ่มเฉพาะมือที่ยังไม่ส่ง รองรับ reconnect/stale round/idempotency/replay; functional73/73 network1/1 timers10/10 UI3sizes baseline14/14 menus18/18 ผ่าน; จุดเลือกเป้าหมายและผลดวลเดิมยังต้องปรับให้ไม่มี expanding list จึงไม่ถือว่าระบบ UX ครบทั้งชุด",
       "evidence": [
         "apps/comic/src/game/appraisal/theft.ts",
         "apps/comic/src/server/appraisal-rooms.ts",
-        "docs/game-design/PROJECT-CONTEXT.md"
+        "docs/game-design/PROJECT-CONTEXT.md",
+        "docs/game-design/implementations/forced-rps-plan.md",
+        "docs/game-design/implementations/forced-rps-ui-proposal.md"
       ]
     },
     {

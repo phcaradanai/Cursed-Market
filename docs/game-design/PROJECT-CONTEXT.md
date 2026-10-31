@@ -166,3 +166,8 @@ GHOST-01 is implemented through real authenticated commands, replay and shared U
 ## Whole-game goal active — 2026-10-31
 
 ดู [completion program](implementations/completion-program.md). ต้องทำครบกฎ/สินค้าใหม่/UXและหลักฐานทั้งเกมก่อนปิด goal ไม่ถือว่าแต่ละ checkpointคือจบทั้งเกม กฎforced-RPS missing handsยืนยันแล้ว เดินงานส่วนที่กฎชัดต่อได้
+
+
+### 2026-10-31 RULE-02 checkpoint
+
+Comic new runs use theftTimeoutRules:1. Missing hands only are server-seeded at the independent30s deadline; submitted/NPC hands remain sealed, ties start a fresh round; late hands require matching round, accepted retries remain idempotent. Historical flagless audit timeout remains cancelled. Active duel uses approved shared Comic frame; six utility menus do not reset it. Functional/network/replay and geometry evidence: `../ui-system/forced-rps-verification.json`. Target picker/closed history still legacy; no claim whole-game complete.

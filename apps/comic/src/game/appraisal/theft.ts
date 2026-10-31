@@ -179,10 +179,21 @@ export function cancelTheftDuels(state: AppraisalState): void {
   }
 }
 
-/** A duel nobody finished in time is cancelled like a moved target: the attempt and its energy stay spent, and no penalty applies. */
+/** New runs settle absent hands; historical audits retain cancelled timeout behavior. */
 export function expireTheftDuel(state: AppraisalState, p: Appraiser, duelId: string): void {
   const duel = (state as TheftState).theftDuels?.find(d => d.id === duelId);
   check(duel && duel.status === 'open' && [duel.thiefId,duel.victimId].includes(p.id),'theft-duel','ไม่มีการเป่ายิ้งฉุบที่หมดเวลา');
+  if(state.config.theftTimeoutRules===1){
+    if(!stillEligible(state,duel)){cancelTheftDuels(state);return;}
+    const round=duel.round,missing=[duel.thiefId,duel.victimId].filter((id):id is string=>!!id&&!duel.hands[id]);
+    for(const id of missing){
+      if(duel.status!=='open'||duel.round!==round)break;
+      const actor=state.players.find(seat=>seat.id===id)!;
+      chooseTheftHand(state,actor,duel.id,hands[Math.floor(randomAt(state.seed,`${duel.id}:round:${round}:timeout:${id}`)*hands.length)]!);
+      note(actor,'เป่ายิ้งฉุบหมดเวลา ระบบสุ่มเฉพาะมือที่ยังไม่ส่ง');
+    }
+    trace(state,p,'theft-timeout-resolved',{duelId:duel.id,round,filled:missing});return;
+  }
   duel.status = 'cancelled'; duel.hands = {};
   for(const id of [duel.thiefId,duel.victimId]) {
     const seat = id ? state.players.find(v => v.id === id) : undefined;

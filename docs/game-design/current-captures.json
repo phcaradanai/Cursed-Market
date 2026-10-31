@@ -211,11 +211,11 @@
     "warning": "Comic UI is in separate build and differs from canonical UI source. Logic links are references, not proof every latest backend rule has matching UI."
   },
   "summary": {
-    "capturedImages": 38,
-    "capturedScreenGroups": 20,
+    "capturedImages": 39,
+    "capturedScreenGroups": 21,
     "registeredScreens": 30,
     "liveImages": 5,
-    "fixtureImages": 33
+    "fixtureImages": 34
   },
   "style": {
     "observedViewport": "1440×722 (browser native viewport; image dimensions recorded per file)",
@@ -2102,6 +2102,75 @@
       "eventIds": [],
       "actions": [
         "Open ghost preview; measure shared frame and equal columns"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      }
+    },
+    {
+      "id": "C39",
+      "screenId": "A02",
+      "title": "เป่ายิ้งฉุบ · บังคับดวลและส่งมือ",
+      "phase": "APPRAISAL",
+      "image": "captures/forced-rps-2026-10-31/theft-1440x722.png",
+      "sha256": "644043e2558f9aca68890914e4ad983d552ae920c6d727a28bcf1f321e8eec2f",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:3192/?preview=theft",
+      "capturedAtUTC": "2026-10-31T00:19:18.267Z",
+      "clientDate": "2026-10-31",
+      "notes": "Approved layout direction; actual candidate capture is not automatically a pixel baseline. Geometry/menu checks pass3 desktop widths. Settlement/replay tested separately.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/SecureEconomy.tsx",
+        "apps/comic/src/appraisal-client/theft-concept.css",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/ComicUI.tsx",
+        "apps/comic/src/appraisal-client/main.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/SecureEconomy.tsx",
+          "sha256": "5fedf08593c2b4feac691286e434389f302bf1bb1cf86eddaf074f8e321970a6"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/theft-concept.css",
+          "sha256": "4b7db5b882ab943b89090e2a824610e511d8de2aa00dcc6f0019449ba771f347"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "a3a10419c67be6e109d97f02fe3947a91c0fc9b4a63696fe2a9ba4c6324bebb3"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "cf0692c9a5b02565bd31730af9e413076091921165cb9cd2455e31bc993a6a6c"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "e18c8da5a158ae9c2038fc556ed40191abd94131b2dd353808458474bbabee28"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "e96260ab8715d1b308d35e2e23215af927681fe4",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [
+        "Compare inventory frame, equal halves/buttons/gaps; open/close all6 utility menus without resetting round timer"
       ],
       "observedViewport": {
         "width": 1440,

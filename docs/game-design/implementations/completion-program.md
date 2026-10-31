@@ -5,7 +5,8 @@ Goal: complete active Comic against confirmed user rules, not just the latest su
 ## Delivery order
 
 - [x] RULE-01 Comic aged10%: migrate approved root rule with old-audit compatibility; see comic-aged-interest-plan.md.
-- [ ] RULE-02 forced theft: missing-hand timeout/disconnect rule approved2026-10-31: server-seeded fallback only for missing hands, retain submitted hands, resolve normally. Implement engine/room/UI/replay verification.
+- [x] RULE-02 forced timeout checkpoint: engine/rooms/parser/client/bot versioned fallback + round-token/reconnect/idempotency/replay verified; active Comic duel approved and measured. See forced-rps-plan.md / forced-rps-verification.json.
+- [ ] RULE-02 remaining UX: reconcile legacy target picker and closed-result expanding history with no-scroll shared UI; current target actions preserved.
 - [ ] STRAT-01 and RULE-04: propose concrete goals/progress/counters/bonuses/ties per victory path and award, obtain material rule approval before runtime. Simultaneous Collector resolution already approved.
 - [ ] ITEM-01: audit new56 catalog and relation/effect proposals; approve exact trigger/target/magnitude/stack/cap/copy semantics, then stable runtime IDs. Relations are not bindings.
 - [ ] ITEM-02: eight-item pilot, one per merchant; full spawn/inspect/buy/hold/use/sell/copy/Collector lifecycle and unknown-fact privacy.

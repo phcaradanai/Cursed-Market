@@ -96,3 +96,8 @@ Documentation-only follow-up: added `game-design/game-status.json` to the main H
 ## Whole-game checkpoint RULE-01 — 2026-10-31
 
 Comic now uses approved10% aged principal in new runs; no-flag audits retain4%. See comic-interest-verification.json and raw comic-interest-test-results.txt.54focused cases and nearest ghost2socket1pass;11interest cases include full phase-to-results strict replay and empty/missing-vault Thai/English rule copy. Server/client builds, UI contracts10, approved visual14 and menus18 pass. Fresh CLI receipts match latest reports. No new baseline or layout style. Goal remains active; next forced-RPS missing-hand rule is user-approved but not yet implemented. Browser space10 remains active under explicit continuous-verification authorization; Ego upgrade remains separate.
+
+
+## 2026-10-31 — forced RPS checkpoint
+
+Approved active-duel Comic frame is implemented with shared inventory bounds. [Report](forced-rps-verification.json): focused73/73, two-socket1/1, timers10/10 (Comic cwd), UIcontracts10/10, source375, baseline14/14, menu18/18, new-duel geometry3widths. Fresh detailed visual/menu reports match their invocation receipts; no baseline replacement. C39 is a fixture capture with source hashes, not a new approved pixel reference. Initial browser harness navigation collision/ambiguous selector and timer wrong-cwd failure are recorded; sequential reruns pass. Target selection/closed results retain old expanding layout and remain an explicit UX gap. Whole-game completion/balance is still unverified.

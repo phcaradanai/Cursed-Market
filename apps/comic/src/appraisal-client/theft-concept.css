@@ -1,0 +1,15 @@
+/* A02 shares inventory geometry; only the symmetric content tracks are local. */
+#game-main .screen .theft-duel-screen{display:flex;flex-direction:column;padding:0;gap:0;min-width:0;background:#090d0ef5;border:2px solid var(--comic-line);border-image:none;box-shadow:none;overflow:hidden;color:var(--comic-white);font:inherit}
+#game-main .theft-duel-spread{flex:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:48px minmax(0,1fr) 96px;gap:var(--layout-space) var(--layout-space-large);padding:var(--layout-space-large);min-height:0}
+#game-main .theft-duel-half{display:grid;grid-row:1 / span 3;grid-template-rows:subgrid;min-width:0;min-height:0;text-align:center;gap:var(--layout-space)}
+#game-main .theft-duel-half h3{margin:0;align-self:center;font:inherit;font-size:clamp(20px,2vw,30px);font-weight:700;color:var(--comic-white);text-shadow:none}
+#game-main .theft-duel-focus{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;gap:var(--layout-space)}
+#game-main .theft-duel-focus strong{font-size:clamp(28px,3vw,48px);line-height:1.3}
+#game-main .theft-duel-screen p{margin:0;max-width:50ch;overflow-wrap:anywhere;font-size:16px;line-height:1.5}
+#game-main .theft-duel-history{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--layout-space-small);min-height:0}
+#game-main .theft-duel-hands{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--layout-space);align-items:center;min-width:0}
+#game-main .theft-duel-hands .comic-button{min-width:0;width:100%;height:var(--layout-row);padding:6px;font-size:20px}
+@media(max-height:760px){#game-main .theft-duel-spread{padding:var(--comic-menu-inset);grid-template-rows:40px minmax(0,1fr) 80px}}
+@media(max-width:760px){#game-main .theft-duel-spread{padding:12px;gap:12px;grid-template-rows:48px minmax(0,1fr) 96px}#game-main .theft-duel-screen p{font-size:12px}#game-main .theft-duel-hands{gap:6px}#game-main .theft-duel-hands .comic-button{font-size:14px}}
+
+#game-main .theft-duel-screen .term-wrap > button{display:inline-flex;align-items:center;justify-content:center;height:var(--comic-menu-control-height);padding:6px 16px;border:1px solid var(--comic-line);background:#0c1011;color:var(--comic-white);text-decoration:none}

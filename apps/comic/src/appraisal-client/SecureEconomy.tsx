@@ -1,5 +1,5 @@
-import {ComicButton,CompactPager} from './ComicUI.js';
-import {MinusIcon,PlusIcon} from './icons.js';
+import {ComicButton,ComicPhaseFrame,CompactPager} from './ComicUI.js';
+import {HandshakeIcon,MinusIcon,PlusIcon} from './icons.js';
 import {Peek} from './lore.js';
 import {itemName} from './catalog-text.js';
 import { ItemVisual } from './ItemVisual.js';
@@ -12,7 +12,7 @@ import {pick} from './i18n.js';
 
 type Props=Actions & {playerNames?:Record<string,string>};
 /** Seconds left on a server clock, corrected for the gap between this device and the server. */
-function DuelClock({deadline,serverTime}:{deadline:number;serverTime:number}) {
+function DuelClock({deadline,serverTime,autoMissing=false}:{deadline:number;serverTime:number;autoMissing?:boolean}) {
   // serverTime was stamped when the state left the server, so it doubles as the clock offset.
   const left=(offset:number)=>Math.max(0,Math.ceil((deadline-Date.now()-offset)/1000));
   const [remaining,setRemaining]=useState(()=>left(serverTime-Date.now()));
@@ -21,7 +21,7 @@ function DuelClock({deadline,serverTime}:{deadline:number;serverTime:number}) {
     const update=()=>setRemaining(left(offset));
     update();const timer=setInterval(update,250);return()=>clearInterval(timer);
   },[deadline,serverTime]);
-  return <p className="why" role="timer">{pick(`ส่งมือภายใน ${remaining} วินาที ไม่เช่นนั้นการดวลถูกยกเลิก`,`Play a hand within ${remaining}s or the duel is cancelled`)}</p>;
+  return <p className="why" role="timer">{pick(`ส่งมือภายใน ${remaining} วินาที ${autoMissing?'หมดเวลาจะสุ่มเฉพาะมือที่ยังไม่ส่ง':'ไม่เช่นนั้นการดวลถูกยกเลิก'}`,`Play a hand within ${remaining}s ${autoMissing?'or missing hands are chosen automatically':'or the duel is cancelled'}`)}</p>;
 }
 const hands:RpsHand[]=['rock','paper','scissors'];
 const handName=(hand:RpsHand)=>hand==='rock'?pick('ค้อน','Rock'):hand==='paper'?pick('กระดาษ','Paper'):pick('กรรไกร','Scissors');
@@ -37,6 +37,38 @@ function Amount({label,value,onChange,min=1,max,disabled=false}:{label:string;va
   return <label className="secure-amount" htmlFor={id}><span>{label}</span><input id={id} type="number" inputMode="numeric" min={min} max={max} step="1" value={value} onChange={event=>onChange(event.target.value)} disabled={disabled}/></label>;
 }
 
+type DuelView=NonNullable<AppraisalView['theft']>['duels'][number];
+function ActiveTheftDuel({game,submit,disabled,playerNames={},duel,deadline,serverTime}:{duel:DuelView;deadline:number|undefined;serverTime:number}&Props) {
+  const [historyPage,setHistoryPage]=useState(0);
+  const own=duel.thiefId===game.self.id;
+  const opponent=own?(duel.victimId?playerNames[duel.victimId]??duel.victimId:duel.npc?npcName(duel.npc):pick('พ่อค้า','Merchant')):playerNames[duel.thiefId]??duel.thiefId;
+  const rounds=duel.revealed,at=Math.min(historyPage,Math.max(0,rounds.length-1)),round=rounds[at];
+  return <ComicPhaseFrame className="theft-duel-screen" title={pick('เป่ายิ้งฉุบ','Rock, paper, scissors')} icon={<HandshakeIcon/>} tools={<span>{pick(`ตาที่ ${duel.round}`,`Round ${duel.round}`)}</span>}>
+    <div className="theft-duel-spread">
+      <section className="theft-duel-half" aria-label={pick('คู่ดวลและผลเดิมพัน','Opponent and stakes')}>
+        <h3>{own?pick('ฉกของจาก','Steal from'):pick('ป้องกันของจาก','Defend against')}</h3>
+        <div className="theft-duel-focus"><strong>{opponent}</strong><p>{own?pick('จ่ายแล้ว 1 พลัง · เสมอไม่เสียเพิ่ม','1 energy paid · No extra cost for draws'):pick('การดวลนี้ปฏิเสธไม่ได้ · ไม่เสียพลังในการป้องกัน','This duel cannot be refused · Defense costs no energy')}</p>
+          <Peek tone="rule" label={pick('ผลเดิมพัน','Stakes')} card={<p>{duel.npc?pick('ชนะได้รับสินค้าที่เลือก แพ้เสียความไว้ใจ 2 และเพิ่มโทษห้ามค้าหนึ่งช่วง','Win the selected good. Losing costs 2 trust and adds one encounter of merchant trade ban'):pick('ผู้ขโมยชนะได้รับของที่ยังคว่ำหนึ่งชิ้น หากแพ้ ผู้ป้องกันได้ตราคนบาปและค่าชดเชย 5% ของราคาซื้อขายล่าสุด 4 ช่วง ผู้ขโมยห้ามเลือกคนเดิมอีก 2 ช่วง','A winning thief takes one concealed good. A losing thief grants a sinner seal and 5% of the last sale price for 4 encounters, and cannot target this player for 2 more encounters.')}</p>}/>
+        </div>
+        <div className="theft-duel-history">
+          {duel.npcTell&&<p>{pick(duel.npcTell.text,`Merchant tell: favors ${handName(duel.npcTell.preferredHand).toLowerCase()}.`)}</p>}
+          {duel.tieGoesTo&&<p>{duel.tieGoesTo==='you'?pick('เสมอนับเป็นของคุณ','Ties go to you'):pick('เสมอนับเป็นของอีกฝ่าย','Ties go to your opponent')}</p>}
+          {round?<><p>{pick(`ตา ${at+1}: คุณออก `,`Round ${at+1}: you played `)}{handName(own?round.thief:round.opponent)} · {opponent} {handName(own?round.opponent:round.thief)}{round.thief===round.opponent?pick(' · เสมอ',' · Draw'):''}</p><CompactPager page={at} pages={rounds.length} onChange={setHistoryPage} label={pick('ประวัติการดวล','Duel history')}/></>:<p>{pick('ยังไม่มีตาที่เปิดมือ','No hands have been revealed')}</p>}
+        </div>
+      </section>
+      <section className="theft-duel-half" aria-label={pick('เลือกมือของคุณ','Choose your hand')}>
+        <h3>{pick('เปิดพร้อมกันทั้งสองฝ่าย','Both hands reveal together')}</h3>
+        <div className="theft-duel-focus">
+          {deadline!==undefined&&<DuelClock deadline={deadline} serverTime={serverTime} autoMissing={game.theftTimeoutRules===1}/>}
+          <p role="status">{duel.submitted?pick('ส่งมือแล้ว ล็อกคำตอบไว้ รออีกฝ่าย','Hand sealed. Waiting for your opponent.'):pick('เลือกมือของคุณ','Choose your hand')}</p>
+          {game.theftTimeoutRules===1&&<Peek tone="rule" label={pick('เมื่อหมดเวลา','On timeout')} card={<p>{pick('ระบบสุ่มเฉพาะมือที่ยังไม่ส่ง มือที่ส่งแล้วคงเดิมและตัดสินตามปกติ','Only missing hands are chosen automatically. Submitted hands stay sealed; normal results apply.')}</p>}/>}
+        </div>
+        <div className="theft-duel-hands" role="group" aria-label={pick('เลือกมือเป่ายิ้งฉุบ','Choose a hand')}>{hands.map(hand=><ComicButton key={hand} disabled={disabled||!duel.needsChoice} onClick={()=>submit({type:'theft-hand',duelId:duel.id,...(game.theftTimeoutRules===1?{round:duel.round}:{}),hand})}>{handName(hand)}</ComicButton>)}</div>
+      </section>
+    </div>
+  </ComicPhaseFrame>;
+}
+
 export function TheftPanel({game,submit,disabled,playerNames={},deadlines={},serverTime=Date.now()}:Props & {deadlines?:Record<string,number>|undefined;serverTime?:number}) {
   if(!game.secureEconomy || !game.theft || !['APPRAISAL','TRADE'].includes(game.phase) || !alive(game))return null;
   const theft=game.theft,p=game.self,name=(id:string)=>playerNames[id]??id;
@@ -44,6 +76,8 @@ export function TheftPanel({game,submit,disabled,playerNames={},deadlines={},ser
   const spent=!!p.stealTried?.length;
   const attackingBlocked=disabled || !!p.paused || p.done || !!p.eventOffer || spent || open || p.energy<1;
   const crime=theft.crime;
+  const active=theft.duels.find(duel=>duel.status==='open');
+  if(active)return <ActiveTheftDuel key={active.id} game={game} submit={submit} disabled={disabled} playerNames={playerNames} duel={active} deadline={deadlines[active.id]} serverTime={serverTime}/>;
   return <section className="secure-economy theft-table" aria-label={pick('เป่ายิ้งฉุบขโมยของ','Theft duel')}>
     <h2>{pick('เดิมพันด้วยมือเดียว','One hand, one heist')}</h2>
     <p className="supporting">{pick('ขโมยได้ครั้งเดียวต่อช่วง · ใช้ 1 พลัง · เสมอเลือกมือใหม่โดยไม่เสียพลังเพิ่ม','One theft per encounter · 1 energy · Draws cost no extra energy')}</p>
@@ -58,9 +92,9 @@ export function TheftPanel({game,submit,disabled,playerNames={},deadlines={},ser
         {duel.npcTell && <p className="supporting">{pick(duel.npcTell.text,`Merchant tell: favors ${handName(duel.npcTell.preferredHand).toLowerCase()}.`)}</p>}
         {duel.tieGoesTo && <p className={duel.tieGoesTo==='you'?'positive-text':'danger-text'}>{duel.tieGoesTo==='you'?pick('ถ้าออกมือเสมอ ตานั้นนับเป็นของคุณ','A tied round goes to you'):pick('ถ้าออกมือเสมอ ตานั้นนับเป็นของอีกฝ่าย','A tied round goes to your opponent')}</p>}
         {duel.status==='open' && <>
-          <p className="supporting">{duel.submitted?pick('ส่งมือแล้ว ล็อกคำตอบไว้ รออีกฝ่าย','Hand sealed. Waiting for your opponent.'):pick('เลือกมือของคุณ ทั้งสองฝ่ายจะเปิดพร้อมกัน','Choose your hand. Both hands are revealed together.')}</p>
-          {deadlines[duel.id]!==undefined && <DuelClock deadline={deadlines[duel.id]!} serverTime={serverTime}/>}
-          {duel.needsChoice && <div className="secure-hands" role="group" aria-label={pick('เลือกมือเป่ายิ้งฉุบ','Choose a hand')}>{hands.map(hand=><button key={hand} disabled={disabled} onClick={()=>submit({type:'theft-hand',duelId:duel.id,hand})}>{handName(hand)}</button>)}</div>}
+          <p className="supporting">{duel.submitted?pick('ส่งมือแล้ว ล็อกคำตอบไว้ รออีกฝ่าย','Hand sealed. Waiting for your opponent.'):pick('เลือกมือของคุณ ทั้งสองฝ่ายจะเปิดพร้อมกัน','Choose your hand. Both hands are revealed together.')} {game.theftTimeoutRules===1&&<Peek tone="rule" label={pick('เมื่อหมดเวลา','On timeout')} card={<p>{pick('ระบบสุ่มเฉพาะมือที่ยังไม่ส่ง มือที่ส่งแล้วคงเดิมและตัดสินตามปกติ','Only missing hands are chosen automatically. Submitted hands stay sealed; normal results apply.')}</p>}/>}</p>
+          {deadlines[duel.id]!==undefined && <DuelClock deadline={deadlines[duel.id]!} serverTime={serverTime} autoMissing={game.theftTimeoutRules===1}/>}
+          {duel.needsChoice && <div className="secure-hands" role="group" aria-label={pick('เลือกมือเป่ายิ้งฉุบ','Choose a hand')}>{hands.map(hand=><button key={hand} disabled={disabled} onClick={()=>submit({type:'theft-hand',duelId:duel.id,...(game.theftTimeoutRules===1?{round:duel.round}:{}),hand})}>{handName(hand)}</button>)}</div>}
         </>}
         {duel.revealed.length>0 && <ol className="secure-duel-rounds">{duel.revealed.map((round,index)=><li key={index}>{pick(`ตา ${index+1}: คุณออก `,`Round ${index+1}: you played `)}{handName(ownTheft?round.thief:round.opponent)} · {opponent} {handName(ownTheft?round.opponent:round.thief)}{round.thief===round.opponent?pick(' · เสมอ',' · Draw'):''}</li>)}</ol>}
       </article>;

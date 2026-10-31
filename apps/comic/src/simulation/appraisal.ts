@@ -142,7 +142,7 @@ function tradeDecision(v:AppraisalView,policy:AppraisalPolicy):Body {
 }
 export function appraisalBotDecision(v:AppraisalView,policy:AppraisalPolicy):Body {
   const p=v.self;const duel=v.theft?.duels.find(d=>d.needsChoice);
-  if(duel)return {type:'theft-hand',duelId:duel.id,hand:(['rock','paper','scissors'] as const)[(v.encounter+duel.round)%3]!};
+  if(duel)return {type:'theft-hand',duelId:duel.id,...(v.theftTimeoutRules===1?{round:duel.round}:{}),hand:(['rock','paper','scissors'] as const)[(v.encounter+duel.round)%3]!};
   if(p.eventOffer) return eventAction(v,policy);
   if(v.market.open && policy==='trader') {
     const item=p.inventory.find(i=>i.lockedUntil===null && !i.stolen && v.market.orders.some(o=>o.kind===i.kind && (o.quota[p.id]??0)>0));

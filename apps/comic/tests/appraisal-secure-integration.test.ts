@@ -40,10 +40,10 @@ test('last-energy theft can resolve; done cannot evade RPS; timeout is rejected 
   s=act(s,{type:'theft-start',itemId:s.players[0]!.stock[0]!});
   assert.equal(s.players[0]!.energy,0);assert.equal(s.players[0]!.paused,null);
   assert.throws(()=>act(s,{type:'done'}),/เป่ายิ้งฉุบ/);
-  const timeout=defaultAppraisalAction(s,'alice','timeout-test')!;assert.equal(timeout.type,'theft-timeout');
+  assert.equal(defaultAppraisalAction(s,'alice','timeout-test'),null);
   assert.throws(()=>parseAppraisalMessage({type:'action',matchId:'match',action:{type:'theft-timeout',encounter:1,requestId:'forged'}}));
   const d=s.theftDuels![0]!,hand=d.hands.npc!,beat={rock:'paper',paper:'scissors',scissors:'rock'} as const;
-  s=act(s,{type:'theft-hand',duelId:d.id,hand:beat[hand]});
+  s=act(s,{type:'theft-hand',duelId:d.id,round:d.round,hand:beat[hand]});
   assert.equal(s.theftDuels![0]!.status,'won');assert.equal(s.players[0]!.paused,'exhausted');assertAppraisalInvariants(s);
 });
 test('secured funding, installments and maturity work through authoritative actions',()=>{
@@ -93,6 +93,6 @@ test('RPS participants cannot move goods or bypass an unresolved merchant choice
   assert.throws(()=>act(s,{type:'activate',itemId},'bob'),/เป่ายิ้งฉุบ/);
   assert.throws(()=>act(s,{type:'crime-clear'}),/เป่ายิ้งฉุบ/);
   const duelId=s.theftDuels![0]!.id;
-  s=act(s,{type:'theft-hand',duelId,hand:'paper'});s=act(s,{type:'theft-hand',duelId,hand:'rock'},'bob');
+  s=act(s,{type:'theft-hand',duelId,round:s.theftDuels!.find(d=>d.id===duelId)!.round,hand:'paper'});s=act(s,{type:'theft-hand',duelId,round:s.theftDuels!.find(d=>d.id===duelId)!.round,hand:'rock'},'bob');
   assert.equal(s.items[itemId]!.owner,'alice');assertAppraisalInvariants(s);
 });

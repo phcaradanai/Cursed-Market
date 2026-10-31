@@ -20,7 +20,7 @@ const BOT_RETIRE_ENCOUNTER = 12;
 export const APPRAISAL_DUEL_MS = 30000;
 export class AppraisalRoomService extends RoomLifecycle<AppraisalState, AppraisalClientMessage, AppraisalServerMessage> {
   private readonly durations: typeof APPRAISAL_PHASE_MS;
-  /** Per room: `${duelId}:${round}` -> server time the round is cancelled. Server-only, never part of the replayable run. */
+  /** Per room: `${duelId}:${round}` -> server time the round expires. Server-only, never part of the replayable run. */
   private readonly duelClocks = new WeakMap<Room, Map<string, number>>();
   constructor(now: () => number = Date.now, durations: Partial<typeof APPRAISAL_PHASE_MS> = {}, idleMs = 30 * 60 * 1000, private readonly runConfig:Partial<AppraisalConfig> = {survival:SURVIVAL_RULES}, private readonly duelMs = APPRAISAL_DUEL_MS) {
     super(now, idleMs); this.durations = { ...APPRAISAL_PHASE_MS, ...durations };
@@ -61,9 +61,16 @@ export class AppraisalRoomService extends RoomLifecycle<AppraisalState, Appraisa
   }
   protected advanceGame(game: AppraisalState): AppraisalState { return advanceAppraisalEncounter(game); }
   protected matchMessage(room: Room, seat: Seat, peer: LifecyclePeer<AppraisalServerMessage>, message: AppraisalClientMessage): void {
-    if ((message.type === 'action' || message.type === 'reveal-ready') && room.deadline !== null && this.now() >= room.deadline) {
+    const hand=message.type==='action'&&message.action.type==='theft-hand'&&message.matchId===room.matchId&&room.game?.config.theftTimeoutRules===1?message.action:undefined;
+    const acceptedHand=hand&&room.game?.accepted[`${seat.id}:${hand.requestId}`];
+    const duel=hand&&room.game?.theftDuels?.find(d=>d.id===hand.duelId&&d.status==='open'&&d.round===hand.round&&d.encounter===hand.encounter&&[d.thiefId,d.victimId].includes(seat.id));
+    if(duel&&!acceptedHand){
+      const deadline=this.duelDeadlines(room).get(`${duel.id}:${duel.round}`)!;
+      if(this.now()>=deadline){if(this.sweep(room,this.now()))this.afterChange(room);this.broadcast(room);insist(false,'duel-expired','รอบเป่ายิ้งฉุบหมดเวลาแล้ว ใช้สถานะล่าสุด');}
+    }
+    if (!acceptedHand && (message.type === 'action' || message.type === 'reveal-ready') && room.deadline !== null && this.now() >= room.deadline) {
       this.timeout(room, this.now()); this.broadcast(room);
-      insist(false, 'phase-expired', 'หมดเวลาช่วงนี้แล้ว ใช้สถานะล่าสุด');
+      insist(!!duel, 'phase-expired', 'หมดเวลาช่วงนี้แล้ว ใช้สถานะล่าสุด');
     }
     switch (message.type) {
       case 'timer-settings': {

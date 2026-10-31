@@ -1284,8 +1284,8 @@
       "title": "ขโมยและเป่ายิ้งฉุบ",
       "phase": null,
       "kind": "interaction",
-      "implementation": "mixed",
-      "trigger": "มี duel ค้าง; forced RPS ยืนยันแล้วแต่ timeout runtime ยังมีช่องว่าง",
+      "implementation": "runtime",
+      "trigger": "APPRAISAL/TRADE มี duel ค้าง: กรอบ Comic กลาง บังคับส่งมือหรือสุ่มเฉพาะมือที่ยังไม่ส่งตาม deadline แยกของตา; เมนูดูได้ไม่ยกเลิกดวล",
       "logicIds": [
         "L13",
         "L14",
@@ -1296,15 +1296,22 @@
         "theft-hand"
       ],
       "nextIds": [],
-      "conceptStatus": "planned",
+      "conceptStatus": "implemented",
       "currentImage": null,
       "approvedImage": null,
       "variants": [],
       "mustShow": [],
       "mustNotShow": [],
-      "captures": [],
-      "captureStatus": "not-captured-yet",
-      "captureNote": "Not captured is not proof this screen is absent."
+      "captures": [
+        {
+          "id": "C39",
+          "image": "captures/forced-rps-2026-10-31/theft-1440x722.png",
+          "title": "เป่ายิ้งฉุบ · บังคับดวลและส่งมือ",
+          "origin": "existing-component-preview-fixture"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureNote": "C39 current fixture; functional/network/replay proof separate; target selector legacy layout still needs reconciliation."
     },
     {
       "id": "A03",

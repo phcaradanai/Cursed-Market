@@ -31,4 +31,5 @@ import './item-sale.css';
 import './reward-concept.css';
 import './vault-concept.css';
 import './ghost-world.css';
+import './theft-concept.css';
 import './comic-frame.css';

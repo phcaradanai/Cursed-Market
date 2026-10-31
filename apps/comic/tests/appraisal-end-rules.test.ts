@@ -39,7 +39,7 @@ const endPhase = (state: AppraisalState): AppraisalState => {
 };
 
 test('an expired duel is cancelled without ending either seat\'s phase or adding a penalty', () => {
-  let s = table('APPRAISAL', { encounters: 3 });
+  let s = table('APPRAISAL', { encounters: 3 });delete s.config.theftTimeoutRules;
   const victimItem = give(s, 'bob');
   s = act(s, 'alice', { type: 'theft-start', victimId: 'bob' });
   const duel = s.theftDuels![0]!;
@@ -139,7 +139,7 @@ test('an untimed room cancels a stalled duel on its own clock and the table can 
   let n = 0;
   const send = (c: Client, body: Record<string, unknown>) => rooms.receive(c, { type: 'action', matchId: c.room.matchId, action: { ...body, requestId: `duel-${++n}`, encounter: c.room.game!.encounter } as AppraisalSeatAction });
   // Skip the door events: put both seats at their first merchant, as the engine tests do.
-  const live = rooms.state(host.room.code);
+  const live = rooms.state(host.room.code);delete live.config.theftTimeoutRules;
   live.phase = 'APPRAISAL';
   for (const p of live.players) { p.stock = [...p.portals[0]!.stock]; p.selectedPortalId = p.portals[0]!.id; p.done = false; p.eventOffer = null; p.energy = 8; }
   assert.equal(host.room.deadline, null, 'the room is untimed');

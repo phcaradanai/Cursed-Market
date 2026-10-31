@@ -1409,13 +1409,13 @@
   &quot;captureStatus&quot;: &quot;not-captured-yet&quot;,
   &quot;captureNote&quot;: &quot;Not captured is not proof this screen is absent.&quot;,
   &quot;sourceRefs&quot;: []
-}</pre></details></article><article id="A02" data-kind="interaction"><header><b>A02 · ขโมยและเป่ายิ้งฉุบ</b><span>ตามเงื่อนไข · mixed · capture: not-captured-yet · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>มี duel ค้าง; forced RPS ยืนยันแล้วแต่ timeout runtime ยังมีช่องว่าง</p><small>Logic: L13, L14, L15 · Actions: theft-start, theft-hand</small><p></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+}</pre></details></article><article id="A02" data-kind="interaction"><header><b>A02 · ขโมยและเป่ายิ้งฉุบ</b><span>ตามเงื่อนไข · runtime · capture: captured-existing · concept: implemented</span></header><div class="placeholder">รอภาพ concept · implemented</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>APPRAISAL/TRADE มี duel ค้าง: กรอบ Comic กลาง บังคับส่งมือหรือสุ่มเฉพาะมือที่ยังไม่ส่งตาม deadline แยกของตา; เมนูดูได้ไม่ยกเลิกดวล</p><small>Logic: L13, L14, L15 · Actions: theft-start, theft-hand</small><p></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
   &quot;id&quot;: &quot;A02&quot;,
   &quot;title&quot;: &quot;ขโมยและเป่ายิ้งฉุบ&quot;,
   &quot;phase&quot;: null,
   &quot;kind&quot;: &quot;interaction&quot;,
-  &quot;implementation&quot;: &quot;mixed&quot;,
-  &quot;trigger&quot;: &quot;มี duel ค้าง; forced RPS ยืนยันแล้วแต่ timeout runtime ยังมีช่องว่าง&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;APPRAISAL/TRADE มี duel ค้าง: กรอบ Comic กลาง บังคับส่งมือหรือสุ่มเฉพาะมือที่ยังไม่ส่งตาม deadline แยกของตา; เมนูดูได้ไม่ยกเลิกดวล&quot;,
   &quot;logicIds&quot;: [
     &quot;L13&quot;,
     &quot;L14&quot;,
@@ -1426,15 +1426,22 @@
     &quot;theft-hand&quot;
   ],
   &quot;nextIds&quot;: [],
-  &quot;conceptStatus&quot;: &quot;planned&quot;,
+  &quot;conceptStatus&quot;: &quot;implemented&quot;,
   &quot;currentImage&quot;: null,
   &quot;approvedImage&quot;: null,
   &quot;variants&quot;: [],
   &quot;mustShow&quot;: [],
   &quot;mustNotShow&quot;: [],
-  &quot;captures&quot;: [],
-  &quot;captureStatus&quot;: &quot;not-captured-yet&quot;,
-  &quot;captureNote&quot;: &quot;Not captured is not proof this screen is absent.&quot;,
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C39&quot;,
+      &quot;image&quot;: &quot;captures/forced-rps-2026-10-31/theft-1440x722.png&quot;,
+      &quot;title&quot;: &quot;เป่ายิ้งฉุบ · บังคับดวลและส่งมือ&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureNote&quot;: &quot;C39 current fixture; functional/network/replay proof separate; target selector legacy layout still needs reconciliation.&quot;,
   &quot;sourceRefs&quot;: []
 }</pre></details></article><article id="A03" data-kind="interaction"><header><b>A03 · ตราบาปและแลกคืน</b><span>ตามเงื่อนไข · runtime · capture: not-captured-yet · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>ผู้เล่นมีสิทธิ์ตาม seal offer/redeem</p><small>Logic: L19, L33 · Actions: seal-offer, seal-respond, seal-redeem, seal-pick</small><p></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
   &quot;id&quot;: &quot;A03&quot;,

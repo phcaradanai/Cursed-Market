@@ -13,7 +13,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/App.tsx",
-      "sha256": "9d1c3999da001442b5f5f155e3f43d89bd914416252663e9fa4c17dd1f08c50e"
+      "sha256": "a3a10419c67be6e109d97f02fe3947a91c0fc9b4a63696fe2a9ba4c6324bebb3"
     },
     {
       "file": "apps/comic/src/appraisal-client/BloodPactEvent.tsx",
@@ -21,7 +21,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
-      "sha256": "bdbc07da2cd3c32183539dac153b80f78b6a8ab91e4ab1ea832c949ba13278fa"
+      "sha256": "cf0692c9a5b02565bd31730af9e413076091921165cb9cd2455e31bc993a6a6c"
     },
     {
       "file": "apps/comic/src/appraisal-client/ComicTooltip.tsx",
@@ -93,7 +93,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/SecureEconomy.tsx",
-      "sha256": "6536d31c08779f44078b97a26ec864eca65951d1429ac41ae780d3d2c58d704a"
+      "sha256": "5fedf08593c2b4feac691286e434389f302bf1bb1cf86eddaf074f8e321970a6"
     },
     {
       "file": "apps/comic/src/appraisal-client/SinnerSeals.tsx",
@@ -237,7 +237,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/main.tsx",
-      "sha256": "f6cc4f1ad3a46d299e86b62ea13388187fa1dd21d9abcb15327f313884ddf4ca"
+      "sha256": "e18c8da5a158ae9c2038fc556ed40191abd94131b2dd353808458474bbabee28"
     },
     {
       "file": "apps/comic/src/appraisal-client/market-concept.css",
@@ -848,6 +848,10 @@
       "sha256": "60e2cd97aec0f5c445f89d333a85879a6001b5a65b797af00fb51c06dc023241"
     },
     {
+      "file": "apps/comic/src/appraisal-client/theft-concept.css",
+      "sha256": "4b7db5b882ab943b89090e2a824610e511d8de2aa00dcc6f0019449ba771f347"
+    },
+    {
       "file": "apps/comic/src/appraisal-client/trade-concept.css",
       "sha256": "b89798c4393e0709a8c39657cddd5045c7e05f42acc505a29fe70f2006a7a674"
     },
@@ -981,7 +985,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "sha256": "fb64b397d07a84be90fbeffccc5f29991c88cb93c0c6cd6d3504dfb6e995de0b"
+      "sha256": "d5f0adfd033d6c3698ae383146b154ee1709a50178ca6e22c62069dc58e2a0b3"
     },
     {
       "file": "apps/comic/src/game/appraisal/events.ts",
@@ -1073,15 +1077,15 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/theft.ts",
-      "sha256": "83a321cd2cad805547d35298ef5fc21abd93dc3b0f1c6f3914d426def30247db"
+      "sha256": "738233a2f3785e6a9f0006d5e772de455e706f2720967865fa8275ca2a62490f"
     },
     {
       "file": "apps/comic/src/game/appraisal/types.ts",
-      "sha256": "a6a46eec57c495c24daee4b6b8a8d86f51eab02001d8e07670ede4ebd06407ea"
+      "sha256": "edc5f1cf4165ffd7366457defe41acb880ca9d95a39942dfa4fecb6ae2687ea0"
     },
     {
       "file": "apps/comic/src/game/appraisal/views.ts",
-      "sha256": "c1c334d81c1e57ef759fbb51ab35a0a21ed5f52155d3c59d1277ea5e814f7801"
+      "sha256": "f87c5f567a98bb7ee2ea9a63dc9b1aaa6c197e0b2d013f0b0cd6627ec1acb5de"
     },
     {
       "file": "apps/comic/src/game/appraisal/wishlist-rules.ts",
@@ -1149,11 +1153,11 @@
     },
     {
       "file": "apps/comic/src/server/appraisal-messages.ts",
-      "sha256": "e54b6a08f5d8d793be4e930a826b1abb824d11f50d51c5c91d1beae13aadb3a6"
+      "sha256": "43bead71aec99546c4cfa2439e6a940243fe52bd93fc78976b3301c2f22fc731"
     },
     {
       "file": "apps/comic/src/server/appraisal-rooms.ts",
-      "sha256": "9254b9431ded373a3feaed35cd9a9fb42b7673a6cb3adc32f034b83d14ff0984"
+      "sha256": "fbbb977aab52ea62bd8d790271c1d3f2e16d5d4337a5444337af63e172f57dc4"
     },
     {
       "file": "apps/comic/src/server/main.ts",
@@ -1193,7 +1197,7 @@
     },
     {
       "file": "apps/comic/src/simulation/appraisal.ts",
-      "sha256": "33bca7fd3bf022b7a2ed9e2608612910d9593a1467cb55b65eeb3928e7eb7640"
+      "sha256": "385b3fc9d494a668ae394d2f7565985725dfe58ac96fa5a820d3808666fd778a"
     },
     {
       "file": "apps/comic/src/simulation/balance.ts",
@@ -1265,7 +1269,7 @@
     },
     {
       "file": "apps/comic/tests/appraisal-end-rules.test.ts",
-      "sha256": "802b8b14d05e49108546e835a845e97ecf9ffb08b6dc74f0cca7bdeec2c4f9aa"
+      "sha256": "458d38aa88c2a70eef55edba21d4f3e10da49330a36266dcb8ee4295e098728d"
     },
     {
       "file": "apps/comic/tests/appraisal-event-choices.test.ts",
@@ -1278,6 +1282,18 @@
     {
       "file": "apps/comic/tests/appraisal-expansion.test.ts",
       "sha256": "a3883149bfe9a4bcd54cf290065b4fd321d221911ee5067483b724820ef730f3"
+    },
+    {
+      "file": "apps/comic/tests/appraisal-forced-rps-network.test.ts",
+      "sha256": "ae1c0dee1557cb367c5ec22f859e82a8c8f42617bfb9e885ce02789793764441"
+    },
+    {
+      "file": "apps/comic/tests/appraisal-forced-rps-room.test.ts",
+      "sha256": "bea515ac12610498f4e54f64b3b2a7a5e9f2c43922d9738a575db902363a6146"
+    },
+    {
+      "file": "apps/comic/tests/appraisal-forced-rps.test.ts",
+      "sha256": "779bf6c0e48f409fa137e11b7ecc139388afdec966a13d682ec57dfb928ee249"
     },
     {
       "file": "apps/comic/tests/appraisal-free-actions.test.ts",
@@ -1349,11 +1365,11 @@
     },
     {
       "file": "apps/comic/tests/appraisal-secure-client.test.ts",
-      "sha256": "c564a32a8c1701a1971c2e2e73b6c3b00fbbec7158a69db6dd8c535824fc4ffa"
+      "sha256": "b3c12e337b38f03a894b0cc2a061d4a983c6ce44641edb1cc05b992273acd6a4"
     },
     {
       "file": "apps/comic/tests/appraisal-secure-integration.test.ts",
-      "sha256": "07751e96f605315633bc3529ccac130671cac397ea8ab10dceecffc2f90e62c0"
+      "sha256": "c8c9b2e91b64b73b3678946a1501292000fe64a9e849d40bad1dd1b7a4d2b6cc"
     },
     {
       "file": "apps/comic/tests/appraisal-secure-seals.test.ts",

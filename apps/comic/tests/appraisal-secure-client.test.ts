@@ -23,13 +23,14 @@ test('theft duel shows sealed hand choices, translated player names and draw his
   const html=renderToStaticMarkup(createElement(TheftPanel,{game,submit,disabled:false,playerNames:{bob:'บ๊อบ'}}));
   assert.match(html,/ป้องกันของจาก/);assert.match(html,/บ๊อบ/);
   for(const hand of ['ค้อน','กระดาษ','กรรไกร'])assert.match(html,new RegExp(hand));
-  assert.match(html,/เสมอ/);assert.doesNotMatch(html,/%|<select|disabled=""/);
+  assert.match(html,/comic-main-frame comic-phase-frame theft-duel-screen/);assert.doesNotMatch(html,/<details|secure-economy theft-table/);assert.match(html,/เสมอ/);assert.doesNotMatch(html,/โอกาสชนะ|<select/);assert.doesNotMatch(html.match(/class="theft-duel-hands"[\s\S]*?<\/div>/)?.[0]??'',/disabled=""/);
   game.theft.duels[0]!.submitted=true;game.theft.duels[0]!.needsChoice=false;
   const waiting=renderToStaticMarkup(createElement(TheftPanel,{game,submit,disabled:false}));
-  assert.match(waiting,/ส่งมือแล้ว/);assert.doesNotMatch(waiting,/secure-hands/);
+  assert.match(waiting,/ส่งมือแล้ว/);assert.equal((waiting.match(/class="theft-duel-hands"[\s\S]*?<\/div>/)?.[0].match(/disabled=""/g)??[]).length,3);assert.doesNotMatch(waiting,/secure-hands/);
+  assert.match(html,/ระบบสุ่มเฉพาะมือที่ยังไม่ส่ง/);
   const now=Date.now();
   const clocked=renderToStaticMarkup(createElement(TheftPanel,{game,submit,disabled:false,deadlines:{duel:now+20000},serverTime:now}));
-  assert.match(clocked,/role="timer"/);assert.match(clocked,/ส่งมือภายใน (19|20) วินาที/);
+  assert.match(clocked,/role="timer"/);assert.match(clocked,/หมดเวลาจะสุ่มเฉพาะมือที่ยังไม่ส่ง/);assert.doesNotMatch(clocked,/การดวลถูกยกเลิก/);assert.match(clocked,/ส่งมือภายใน (19|20) วินาที/);
   setLang('en');assert.match(renderToStaticMarkup(createElement(TheftPanel,{game,submit,disabled:false,deadlines:{duel:now+20000},serverTime:now})),/Play a hand within (19|20)s/);setLang('th');
   assert.doesNotMatch(renderToStaticMarkup(createElement(TheftPanel,{game,submit,disabled:false,deadlines:{},serverTime:now})),/role="timer"/);
 });
@@ -118,4 +119,14 @@ test('settled destination has one ready action, no duplicate reward, and respect
 test('settled reward may be hidden by its phase owner without another payment control',async()=>{
  const {RoundReward}=await import('../src/appraisal-client/RoundReward.js');
  const html=renderToStaticMarkup(createElement(RoundReward,{reward:{encounter:1,base:10,amount:10,flips:0,settled:true},submit,disabled:false,onTossing:()=>{},hideSettled:true}));assert.equal(html,'');
+});
+
+
+test('forced duel replaces duplicate phase content while keeping utility navigation',async()=>{
+ const {GameTable}=await import('../src/appraisal-client/App.js');const {previewRooms}=await import('../src/appraisal-client/comic-preview-data.js');
+ const room=structuredClone(previewRooms.inspection!),game=room.game!;game.phase='APPRAISAL';game.secureEconomy=true;game.self.eventOffer=null;
+ game.theft={duels:[{id:'forced',thiefId:'other',victimId:game.self.id,round:1,status:'open',needsChoice:true,submitted:false,revealed:[]}],targets:[],seals:[],compensation:[]};
+ const html=renderToStaticMarkup(createElement(GameTable,{room,submit,send:()=>true,disabled:false}));
+ assert(html.includes('theft-duel-screen'));assert(!html.includes('appraisal-stage'));assert(!html.includes('trade-screen'));
+ for(const label of ['กระเป๋า','สถานะ','ตลาดมืด','บันทึก','กติกา','ตั้งค่า'])assert(html.includes(label));
 });

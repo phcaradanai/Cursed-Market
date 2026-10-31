@@ -61,9 +61,9 @@ function action(value: unknown): AppraisalSeatAction {
       if((body.itemId===undefined)===(body.victimId===undefined))throw new MessageError();
       return {type:'theft-start',...base,...(body.itemId===undefined?{victimId:string(body.victimId,32)}:{itemId:string(body.itemId)})};
     case 'theft-hand':
-      keys(body,[...fields,'duelId','hand']);
+      keys(body,[...fields,'duelId','hand','round']);
       if(body.hand!=='rock' && body.hand!=='paper' && body.hand!=='scissors')throw new MessageError();
-      return {type:'theft-hand',...base,duelId:string(body.duelId),hand:body.hand};
+      return {type:'theft-hand',...base,duelId:string(body.duelId),...(body.round===undefined?{}:{round:integer(body.round)}),hand:body.hand};
     case 'enter': keys(body, [...fields, 'portalId']); return { type: 'enter', ...base, portalId: string(body.portalId) };
     case 'inspect':
       keys(body, [...fields, 'itemId', 'property']);

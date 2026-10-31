@@ -44,6 +44,8 @@ export interface AppraisalConfig {
   loanEndSettlement?:boolean;
   /** Absent in old audits: preserve 4% whole-balance interest. 1 uses aged principal at 10%. */
   vaultInterestRules?:1;
+  /** Missing in historical audits: cancel timeout instead of choosing absent hands. */
+  theftTimeoutRules?:1;
   /** Survival only. Absent in saved audits: the run ends only when every life is gone. Otherwise the Collector arrives after this encounter settles, whoever is still alive. */
   collectorDeadline?:number;
   /** Absent in saved audits: keep the original event choices. 1 removes pointless decline buttons, turns E37/E40 into mishaps you handle, reprices E119/E121/E127 and gives E47 an effect. */
@@ -248,7 +250,7 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
   | import('./secure-storage.js').LoanAction
   | import('./seals.js').SealAction
   | {type:'theft-start';itemId?:string;victimId?:string}
-  | {type:'theft-hand';duelId:string;hand:import('./theft.js').RpsHand}
+  | {type:'theft-hand';duelId:string;round?:number;hand:import('./theft.js').RpsHand}
   /** Internal timer command; never accepted by the client message parser. */
   | {type:'theft-timeout'}
   /** Internal duel clock: cancels one open duel and keeps the phase going. Never accepted by the client message parser. */
@@ -326,6 +328,7 @@ export interface ItemView {
 }
 export interface Core2Actions { skill?:{npc:NpcId;name:string;needsItem:boolean;strong:boolean}; stealChance?:number; pickpocketChance?:number; theftUsed:boolean; trustForSkill:number }
 export interface AppraisalView {
+  theftTimeoutRules?:1;
   vaultInterestPercent?:number;
   ghosts?:ReturnType<typeof import('./ghost-service.js').ghostView>;
   secureEconomy?:boolean;

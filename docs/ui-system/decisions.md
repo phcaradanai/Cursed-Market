@@ -16,3 +16,8 @@ Material changes need a concrete comparison and approval: altering information v
 ### Spirit delivery settlement and continuity — 2026-10-30
 
 Confirmed: buyer death cancels pending work with no charge/bonus; no remaining jobs requires a new tracking-game win. Displayed quote identity is checked on hiring and private accepted terms remain fixed through delivery. Special income adds1point per earned credit once at Collector. See `implementations/ghost-delivery-progress.md` (game-design) and `ghost-functional-verification.json` (ui-system) for evidence and limits.
+
+
+### 2026-10-31 — active forced RPS uses existing Comic frame (approved)
+
+User approved forced-rps-ui-proposal.md: inventory-sized ComicPhaseFrame, equal opponent/stakes and hand-choice tracks; hide duplicate appraisal/trade behind active duel. No refusal/close while unresolved. Utility menus remain read-only and return to same server round/deadline. New screenshot C39 is implementation evidence, not approval to replace the sealed14 references.

@@ -142,3 +142,6 @@ CONTINUITY-01 closure2026-10-30: source gap resolved by explicitly approved sepa
 Confirmed rules are closed, including buyer death and floor/tie/end handling. S11/G01–G04 are now integrated in apps/comic: server card clock, contracts, independent RPS slots, atomic delivery and bonus scoring. Earlier design-only paragraph is historical. Current evidence/limits: implementations/ghost-delivery-progress.md and ../ui-system/ghost-functional-verification.json. New56 binding, full-game balance and remaining strategic-path/content rules are separate tasks; do not imply a whole-game completion from this milestone.
 
 2026-10-31 whole-game program active: implementations/completion-program.md. RULE-01 Comic verified:54focusedtests, ghost network1, visual14, menus18 and UI contracts10 pass. RULE-02 missing-hand behavior approved: server seeded fallback only for absent hands, retain submitted hands, normal resolution.
+
+
+2026-10-31 RULE-02 checkpoint: approved missing-hand fallback + active Comic frame verified; see implementations/forced-rps-plan.md and ../ui-system/forced-rps-verification.json. Legacy target selector/closed history remains UX work. Whole-game catalog56/strategic paths/Collector/statistical awards remain open; this checkpoint does not supersede the status table.

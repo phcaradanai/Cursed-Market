@@ -4,7 +4,7 @@ import {previewRooms} from './comic-preview-data.js';
 import type {AppraisalRoomView} from '../shared/appraisal-protocol.js';
 import type {Decision} from './model.js';
 
-const previewScenes=[['merchants','เลือกพ่อค้า'],['inspection','ประเมินสินค้า'],['event-blood-pact','เหตุการณ์ · สัญญาเลือด'],['trade','ซื้อขาย'],['reveal','รับเครดิต'],['reward-multi','หลายเหรียญ'],['reward-settled','รับเครดิตแล้ว'],['vault-full','คลังเต็ม'],['vault-empty','คลังว่าง'],['ghost','วิญญาณ'],['ghost-busy','งานวิญญาณ'],['ghost-working','ตามหาของ'],['ghost-lost','แพ้ครบช่อง'],['ghost-funds','รอเครดิต'],['results','ผลเกม'],['inventory','กระเป๋า'],['status','สถานะ'],['market','ตลาดมืด'],['market-demo','ตลาดมืด · ตัวอย่างครบ'],['ledger','บันทึก'],['rules','กติกา'],['settings','ตั้งค่า']] as const;
+const previewScenes=[['merchants','เลือกพ่อค้า'],['inspection','ประเมินสินค้า'],['event-blood-pact','เหตุการณ์ · สัญญาเลือด'],['trade','ซื้อขาย'],['reveal','รับเครดิต'],['reward-multi','หลายเหรียญ'],['reward-settled','รับเครดิตแล้ว'],['vault-full','คลังเต็ม'],['vault-empty','คลังว่าง'],['theft','ขโมย/RPS'],['ghost','วิญญาณ'],['ghost-busy','งานวิญญาณ'],['ghost-working','ตามหาของ'],['ghost-lost','แพ้ครบช่อง'],['ghost-funds','รอเครดิต'],['results','ผลเกม'],['inventory','กระเป๋า'],['status','สถานะ'],['market','ตลาดมืด'],['market-demo','ตลาดมืด · ตัวอย่างครบ'],['ledger','บันทึก'],['rules','กติกา'],['settings','ตั้งค่า']] as const;
 const drawerScenes={inventory:'bag',status:'effects',market:'market','market-demo':'market',ledger:'ledger',rules:'rules'} as const;
 
 export function ComicPreview(){
@@ -16,6 +16,10 @@ export function ComicPreview(){
     const base=structuredClone(previewRooms[scene]??previewRooms.inspection!) as AppraisalRoomView;
     if(['ghost','ghost-busy','ghost-working','ghost-lost','ghost-funds'].includes(scene)){const game=base.game!;game.self.life=0;game.self.paused='dead';game.self.eventOffer=null;
      if(scene!=='ghost'){base.matchSeats=base.matchSeats.filter(s=>s.id===game.self.id);game.players=game.players.filter(s=>s.id===game.self.id);game.players.push(...[0,1,2].map(i=>({...game.players[0]!,id:`buyer-${i}`,life:6,paused:null,credits:scene==='ghost-funds'&&i===0?0:200})));base.matchSeats.push(...[0,1,2].map(i=>({id:`buyer-${i}`,name:`ผู้ว่าจ้าง ${i+1}`})));const kinds=[...game.self.inventory,...game.self.stock].slice(0,3).map(i=>i.kind);game.ghosts={services:[],jobs:kinds.map((kind,i)=>({id:`preview-job-${i}`,buyerId:`buyer-${i}`,ghostId:game.self.id,kind,price:20,fee:2,status:scene==='ghost-busy'?'offered':'accepted'})),self:{startedAt:0,cards:kinds,round:1,available:true,swaps:[],tracking:'available',slots:kinds.map(kind=>({kind,lost:scene==='ghost-lost'})),encounter:game.encounter,bonus:0}};}
+    }
+    if(scene==='theft'){
+      const game=base.game!,other=base.matchSeats.find(seat=>seat.id!==game.self.id)!;game.phase='APPRAISAL';game.self.eventOffer=null;game.self.done=false;game.self.paused=null;game.secureEconomy=true;game.theftTimeoutRules=1;
+      game.theft={duels:[{id:'preview-duel',thiefId:other.id,victimId:game.self.id,round:1,status:'open',needsChoice:true,submitted:false,revealed:[]}],targets:[],seals:[],compensation:[]};base.duelDeadlines={'preview-duel':time.current+30000};
     }
     if(scene==='event-blood-pact') {
       const game=base.game!;

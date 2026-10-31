@@ -1,0 +1,1430 @@
+{
+  "mode": "compare",
+  "startedAt": "2026-10-30T18:29:43.482Z",
+  "baseUrl": "http://127.0.0.1:3192",
+  "taskSpaceId": 10,
+  "checks": [
+    {
+      "id": "inventory-1440x722",
+      "screenId": "M01",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "renderState": {
+          "visibility": "visible",
+          "focused": true,
+          "scale": 1,
+          "art": [
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/potion.png",
+              "rect": [
+                -0.6040802001953125,
+                272.0786437988281,
+                339.0909423828125,
+                115.81146240234375
+              ],
+              "natural": [
+                1298,
+                1212
+              ],
+              "filter": "drop-shadow(rgb(5, 5, 5) 1px 0px 0px) drop-shadow(rgb(5, 5, 5) -1px 0px 0px) drop-shadow(rgb(5, 5, 5) 0px 1px 0px) drop-shadow(rgba(0, 0, 0, 0.667) 0px 9px 3px)",
+              "transform": "matrix(1.357, 0, 0, 1.357, 0, -8)"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/amulet.png",
+              "rect": [
+                261.27734375,
+                272.0786437988281,
+                339.1015625,
+                115.81146240234375
+              ],
+              "natural": [
+                1374,
+                1145
+              ],
+              "filter": "drop-shadow(rgb(5, 5, 5) 1px 0px 0px) drop-shadow(rgb(5, 5, 5) -1px 0px 0px) drop-shadow(rgb(5, 5, 5) 0px 1px 0px) drop-shadow(rgba(0, 0, 0, 0.667) 0px 9px 3px)",
+              "transform": "matrix(1.357, 0, 0, 1.357, 0, -8)"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/mask.png",
+              "rect": [
+                523.1693725585938,
+                272.0786437988281,
+                339.0909423828125,
+                115.81146240234375
+              ],
+              "natural": [
+                1536,
+                1024
+              ],
+              "filter": "drop-shadow(rgb(5, 5, 5) 1px 0px 0px) drop-shadow(rgb(5, 5, 5) -1px 0px 0px) drop-shadow(rgb(5, 5, 5) 0px 1px 0px) drop-shadow(rgba(0, 0, 0, 0.667) 0px 9px 3px)",
+              "transform": "matrix(1.357, 0, 0, 1.357, 0, -8)"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/key.png",
+              "rect": [
+                -0.6040802001953125,
+                415.4223937988281,
+                339.0909423828125,
+                115.81149291992188
+              ],
+              "natural": [
+                1254,
+                1254
+              ],
+              "filter": "drop-shadow(rgb(5, 5, 5) 1px 0px 0px) drop-shadow(rgb(5, 5, 5) -1px 0px 0px) drop-shadow(rgb(5, 5, 5) 0px 1px 0px) drop-shadow(rgba(0, 0, 0, 0.667) 0px 9px 3px)",
+              "transform": "matrix(1.357, 0, 0, 1.357, 0, -8)"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/mirror.png",
+              "rect": [
+                261.27734375,
+                415.4223937988281,
+                339.1015625,
+                115.81149291992188
+              ],
+              "natural": [
+                1254,
+                1254
+              ],
+              "filter": "drop-shadow(rgb(5, 5, 5) 1px 0px 0px) drop-shadow(rgb(5, 5, 5) -1px 0px 0px) drop-shadow(rgb(5, 5, 5) 0px 1px 0px) drop-shadow(rgba(0, 0, 0, 0.667) 0px 9px 3px)",
+              "transform": "matrix(1.357, 0, 0, 1.357, 0, -8)"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/orb.png",
+              "rect": [
+                523.1693725585938,
+                415.4223937988281,
+                339.0909423828125,
+                115.81149291992188
+              ],
+              "natural": [
+                1254,
+                1254
+              ],
+              "filter": "drop-shadow(rgb(5, 5, 5) 1px 0px 0px) drop-shadow(rgb(5, 5, 5) -1px 0px 0px) drop-shadow(rgb(5, 5, 5) 0px 1px 0px) drop-shadow(rgba(0, 0, 0, 0.667) 0px 9px 3px)",
+              "transform": "matrix(1.357, 0, 0, 1.357, 0, -8)"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/potion.png",
+              "rect": [
+                784.203125,
+                154.49069213867188,
+                682.25,
+                186.21194458007812
+              ],
+              "natural": [
+                1298,
+                1212
+              ],
+              "filter": "drop-shadow(rgb(5, 5, 5) 1px 0px 0px) drop-shadow(rgb(5, 5, 5) -1px 0px 0px) drop-shadow(rgba(0, 0, 0, 0.667) 0px 10px 4px)",
+              "transform": "matrix(1.265, 0, 0, 1.265, 0, -18)"
+            }
+          ]
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      },
+      "pixels": {
+        "changed": 0,
+        "checked": 1032218,
+        "ratio": 0,
+        "maxDelta": 1
+      }
+    },
+    {
+      "id": "status-1440x722",
+      "screenId": "M02",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "renderState": {
+          "visibility": "visible",
+          "focused": true,
+          "scale": 1,
+          "art": [
+            {
+              "src": "http://127.0.0.1:3192/art/comic/merchants/orc/idle.png",
+              "rect": [
+                39,
+                352,
+                360.71875,
+                127.5
+              ],
+              "natural": [
+                1374,
+                1145
+              ],
+              "filter": "drop-shadow(rgb(5, 7, 7) 2px 0px 0px) drop-shadow(rgb(5, 7, 7) -2px 0px 0px) drop-shadow(rgba(0, 0, 0, 0.733) 0px 3px 2px)",
+              "transform": "none"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/merchants/vampire/idle.png",
+              "rect": [
+                721,
+                352,
+                360.71875,
+                127.5
+              ],
+              "natural": [
+                1145,
+                1374
+              ],
+              "filter": "drop-shadow(rgb(5, 7, 7) 2px 0px 0px) drop-shadow(rgb(5, 7, 7) -2px 0px 0px) drop-shadow(rgba(0, 0, 0, 0.733) 0px 3px 2px)",
+              "transform": "none"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/merchants/autometa/idle.png",
+              "rect": [
+                358.28125,
+                467.5,
+                360.71875,
+                127.5
+              ],
+              "natural": [
+                1145,
+                1374
+              ],
+              "filter": "drop-shadow(rgb(5, 7, 7) 2px 0px 0px) drop-shadow(rgb(5, 7, 7) -2px 0px 0px) drop-shadow(rgba(0, 0, 0, 0.733) 0px 3px 2px)",
+              "transform": "none"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/merchants/alien/idle.png",
+              "rect": [
+                1040.28125,
+                467.5,
+                360.71875,
+                127.5
+              ],
+              "natural": [
+                1287,
+                1222
+              ],
+              "filter": "drop-shadow(rgb(5, 7, 7) 2px 0px 0px) drop-shadow(rgb(5, 7, 7) -2px 0px 0px) drop-shadow(rgba(0, 0, 0, 0.733) 0px 3px 2px)",
+              "transform": "none"
+            }
+          ]
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      },
+      "pixels": {
+        "changed": 0,
+        "checked": 1032218,
+        "ratio": 0,
+        "maxDelta": 2
+      }
+    },
+    {
+      "id": "market-1440x722",
+      "screenId": "M03",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "renderState": {
+          "visibility": "visible",
+          "focused": true,
+          "scale": 1,
+          "art": [
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/potion-v2.png",
+              "rect": [
+                209.41134643554688,
+                190.5328826904297,
+                721.13818359375,
+                381.1373291015625
+              ],
+              "natural": [
+                1254,
+                1254
+              ],
+              "filter": "drop-shadow(rgb(6, 7, 8) 2px 0px 0px) drop-shadow(rgb(6, 7, 8) -2px 0px 0px) drop-shadow(rgba(0, 0, 0, 0.6) 0px 6px 3px)",
+              "transform": "matrix(1.07, 0, 0, 1.07, 0, -5)"
+            }
+          ]
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      },
+      "pixels": {
+        "changed": 0,
+        "checked": 1032218,
+        "ratio": 0,
+        "maxDelta": 2
+      }
+    },
+    {
+      "id": "ledger-1440x722",
+      "screenId": "M04",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "renderState": {
+          "visibility": "visible",
+          "focused": true,
+          "scale": 1,
+          "art": [
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/potion-v2.png",
+              "rect": [
+                1018.5390625,
+                154,
+                250,
+                250
+              ],
+              "natural": [
+                1254,
+                1254
+              ],
+              "filter": "drop-shadow(rgb(5, 6, 7) 8px 12px 0px)",
+              "transform": "none"
+            }
+          ]
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      },
+      "pixels": {
+        "changed": 0,
+        "checked": 1032218,
+        "ratio": 0,
+        "maxDelta": 2
+      }
+    },
+    {
+      "id": "rules-1440x722",
+      "screenId": "M05",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "renderState": {
+          "visibility": "visible",
+          "focused": true,
+          "scale": 1,
+          "art": []
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      },
+      "pixels": {
+        "changed": 0,
+        "checked": 1032218,
+        "ratio": 0,
+        "maxDelta": 2
+      }
+    },
+    {
+      "id": "settings-1440x722",
+      "screenId": "M06",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "renderState": {
+          "visibility": "visible",
+          "focused": true,
+          "scale": 1,
+          "art": []
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      },
+      "pixels": {
+        "changed": 82,
+        "checked": 1032218,
+        "ratio": 0.00007944058328763885,
+        "maxDelta": 57
+      }
+    },
+    {
+      "id": "trade-1440x722",
+      "screenId": "S06",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "renderState": {
+          "visibility": "visible",
+          "focused": true,
+          "scale": 1,
+          "art": [
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/amulet.png",
+              "rect": [
+                228,
+                218.8515625,
+                472,
+                223.8125
+              ],
+              "natural": [
+                1374,
+                1145
+              ],
+              "filter": "drop-shadow(rgb(0, 0, 0) 2px 2px 0px) drop-shadow(rgba(0, 0, 0, 0.733) 5px 12px 4px)",
+              "transform": "none"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/potion.png",
+              "rect": [
+                740,
+                218.8515625,
+                472,
+                223.8125
+              ],
+              "natural": [
+                1298,
+                1212
+              ],
+              "filter": "drop-shadow(rgb(0, 0, 0) 2px 2px 0px) drop-shadow(rgba(0, 0, 0, 0.733) 5px 12px 4px)",
+              "transform": "none"
+            }
+          ]
+        },
+        "header": null
+      },
+      "pixels": {
+        "changed": 0,
+        "checked": 1032218,
+        "ratio": 0,
+        "maxDelta": 7
+      }
+    },
+    {
+      "id": "item-sale-1440x722",
+      "screenId": "S06",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1135,
+            "y": 10,
+            "width": 287,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "renderState": {
+          "visibility": "visible",
+          "focused": true,
+          "scale": 1,
+          "art": [
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/potion.png",
+              "rect": [
+                109.796875,
+                145,
+                526.3984375,
+                329
+              ],
+              "natural": [
+                1298,
+                1212
+              ],
+              "filter": "drop-shadow(rgb(0, 0, 0) 1px 1px 0px) drop-shadow(rgba(0, 0, 0, 0.6) 4px 6px 3px)",
+              "transform": "none"
+            }
+          ]
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "columnWidths": [
+          694,
+          694
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "actionWidths": [
+          323,
+          323
+        ],
+        "stepperCentre": 1067,
+        "actionsCentre": 1067,
+        "inputCentre": 1067,
+        "stepperGaps": [
+          12,
+          12
+        ],
+        "stepperWidths": [
+          40,
+          40
+        ],
+        "stepperHeights": [
+          40,
+          40,
+          40
+        ],
+        "knownFacts": [
+          "?",
+          "?",
+          "?"
+        ],
+        "saleDisabled": true,
+        "rebateDisabled": true
+      },
+      "pixels": {
+        "changed": 0,
+        "checked": 1032218,
+        "ratio": 0,
+        "maxDelta": 2
+      }
+    },
+    {
+      "id": "inventory-1024x800",
+      "screenId": "M01",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 896,
+            "y": 10,
+            "width": 118,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "renderState": {
+          "visibility": "visible",
+          "focused": true,
+          "scale": 1,
+          "art": [
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/potion.png",
+              "rect": [
+                13.834892272949219,
+                252.42977905273438,
+                229.3223876953125,
+                176.63262939453125
+              ],
+              "natural": [
+                1298,
+                1212
+              ],
+              "filter": "drop-shadow(rgb(5, 5, 5) 1px 0px 0px) drop-shadow(rgb(5, 5, 5) -1px 0px 0px) drop-shadow(rgb(5, 5, 5) 0px 1px 0px) drop-shadow(rgba(0, 0, 0, 0.667) 0px 9px 3px)",
+              "transform": "matrix(1.357, 0, 0, 1.357, 0, -8)"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/amulet.png",
+              "rect": [
+                194.82568359375,
+                252.42977905273438,
+                229.3330078125,
+                176.63262939453125
+              ],
+              "natural": [
+                1374,
+                1145
+              ],
+              "filter": "drop-shadow(rgb(5, 5, 5) 1px 0px 0px) drop-shadow(rgb(5, 5, 5) -1px 0px 0px) drop-shadow(rgb(5, 5, 5) 0px 1px 0px) drop-shadow(rgba(0, 0, 0, 0.667) 0px 9px 3px)",
+              "transform": "matrix(1.357, 0, 0, 1.357, 0, -8)"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/mask.png",
+              "rect": [
+                375.82708740234375,
+                252.42977905273438,
+                229.3223876953125,
+                176.63262939453125
+              ],
+              "natural": [
+                1536,
+                1024
+              ],
+              "filter": "drop-shadow(rgb(5, 5, 5) 1px 0px 0px) drop-shadow(rgb(5, 5, 5) -1px 0px 0px) drop-shadow(rgb(5, 5, 5) 0px 1px 0px) drop-shadow(rgba(0, 0, 0, 0.667) 0px 9px 3px)",
+              "transform": "matrix(1.357, 0, 0, 1.357, 0, -8)"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/key.png",
+              "rect": [
+                13.834892272949219,
+                440.5924377441406,
+                229.3223876953125,
+                176.64328002929688
+              ],
+              "natural": [
+                1254,
+                1254
+              ],
+              "filter": "drop-shadow(rgb(5, 5, 5) 1px 0px 0px) drop-shadow(rgb(5, 5, 5) -1px 0px 0px) drop-shadow(rgb(5, 5, 5) 0px 1px 0px) drop-shadow(rgba(0, 0, 0, 0.667) 0px 9px 3px)",
+              "transform": "matrix(1.357, 0, 0, 1.357, 0, -8)"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/mirror.png",
+              "rect": [
+                194.82568359375,
+                440.5924377441406,
+                229.3330078125,
+                176.64328002929688
+              ],
+              "natural": [
+                1254,
+                1254
+              ],
+              "filter": "drop-shadow(rgb(5, 5, 5) 1px 0px 0px) drop-shadow(rgb(5, 5, 5) -1px 0px 0px) drop-shadow(rgb(5, 5, 5) 0px 1px 0px) drop-shadow(rgba(0, 0, 0, 0.667) 0px 9px 3px)",
+              "transform": "matrix(1.357, 0, 0, 1.357, 0, -8)"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/orb.png",
+              "rect": [
+                375.82708740234375,
+                440.5924377441406,
+                229.3223876953125,
+                176.64328002929688
+              ],
+              "natural": [
+                1254,
+                1254
+              ],
+              "filter": "drop-shadow(rgb(5, 5, 5) 1px 0px 0px) drop-shadow(rgb(5, 5, 5) -1px 0px 0px) drop-shadow(rgb(5, 5, 5) 0px 1px 0px) drop-shadow(rgba(0, 0, 0, 0.667) 0px 9px 3px)",
+              "transform": "matrix(1.357, 0, 0, 1.357, 0, -8)"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/potion.png",
+              "rect": [
+                564.4971923828125,
+                131.96400451660156,
+                462.989990234375,
+                293.48004150390625
+              ],
+              "natural": [
+                1298,
+                1212
+              ],
+              "filter": "drop-shadow(rgb(5, 5, 5) 1px 0px 0px) drop-shadow(rgb(5, 5, 5) -1px 0px 0px) drop-shadow(rgba(0, 0, 0, 0.667) 0px 10px 4px)",
+              "transform": "matrix(1.265, 0, 0, 1.265, 0, -18)"
+            }
+          ]
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      },
+      "pixels": {
+        "changed": 26,
+        "checked": 816132,
+        "ratio": 0.000031857591664093556,
+        "maxDelta": 15
+      }
+    },
+    {
+      "id": "status-1024x800",
+      "screenId": "M02",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 896,
+            "y": 10,
+            "width": 118,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "renderState": {
+          "visibility": "visible",
+          "focused": true,
+          "scale": 1,
+          "art": [
+            {
+              "src": "http://127.0.0.1:3192/art/comic/merchants/orc/idle.png",
+              "rect": [
+                39,
+                352,
+                248.3984375,
+                166.5
+              ],
+              "natural": [
+                1374,
+                1145
+              ],
+              "filter": "drop-shadow(rgb(5, 7, 7) 2px 0px 0px) drop-shadow(rgb(5, 7, 7) -2px 0px 0px) drop-shadow(rgba(0, 0, 0, 0.733) 0px 3px 2px)",
+              "transform": "none"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/merchants/vampire/idle.png",
+              "rect": [
+                513,
+                352,
+                248.3984375,
+                166.5
+              ],
+              "natural": [
+                1145,
+                1374
+              ],
+              "filter": "drop-shadow(rgb(5, 7, 7) 2px 0px 0px) drop-shadow(rgb(5, 7, 7) -2px 0px 0px) drop-shadow(rgba(0, 0, 0, 0.733) 0px 3px 2px)",
+              "transform": "none"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/merchants/autometa/idle.png",
+              "rect": [
+                262.6015625,
+                506.5,
+                248.3984375,
+                166.5
+              ],
+              "natural": [
+                1145,
+                1374
+              ],
+              "filter": "drop-shadow(rgb(5, 7, 7) 2px 0px 0px) drop-shadow(rgb(5, 7, 7) -2px 0px 0px) drop-shadow(rgba(0, 0, 0, 0.733) 0px 3px 2px)",
+              "transform": "none"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/merchants/alien/idle.png",
+              "rect": [
+                736.6015625,
+                506.5,
+                248.3984375,
+                166.5
+              ],
+              "natural": [
+                1287,
+                1222
+              ],
+              "filter": "drop-shadow(rgb(5, 7, 7) 2px 0px 0px) drop-shadow(rgb(5, 7, 7) -2px 0px 0px) drop-shadow(rgba(0, 0, 0, 0.733) 0px 3px 2px)",
+              "transform": "none"
+            }
+          ]
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      },
+      "pixels": {
+        "changed": 2,
+        "checked": 816132,
+        "ratio": 0.0000024505839741610425,
+        "maxDelta": 25
+      }
+    },
+    {
+      "id": "item-sale-1024x800",
+      "screenId": "S06",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 896,
+            "y": 10,
+            "width": 118,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "renderState": {
+          "visibility": "visible",
+          "focused": true,
+          "scale": 1,
+          "art": [
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/potion.png",
+              "rect": [
+                84.203125,
+                139,
+                369.59375,
+                419
+              ],
+              "natural": [
+                1298,
+                1212
+              ],
+              "filter": "drop-shadow(rgb(0, 0, 0) 1px 1px 0px) drop-shadow(rgba(0, 0, 0, 0.6) 4px 6px 3px)",
+              "transform": "none"
+            }
+          ]
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "columnWidths": [
+          486,
+          486
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "actionWidths": [
+          225,
+          225
+        ],
+        "stepperCentre": 755,
+        "actionsCentre": 755,
+        "inputCentre": 755,
+        "stepperGaps": [
+          12,
+          12
+        ],
+        "stepperWidths": [
+          40,
+          40
+        ],
+        "stepperHeights": [
+          40,
+          40,
+          40
+        ],
+        "knownFacts": [
+          "?",
+          "?",
+          "?"
+        ],
+        "saleDisabled": true,
+        "rebateDisabled": true
+      },
+      "pixels": {
+        "changed": 0,
+        "checked": 816132,
+        "ratio": 0,
+        "maxDelta": 2
+      }
+    },
+    {
+      "id": "inventory-1920x800",
+      "screenId": "M01",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1920,
+          800
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1516,
+            "y": 10,
+            "width": 386,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "renderState": {
+          "visibility": "visible",
+          "focused": true,
+          "scale": 1,
+          "art": [
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/potion.png",
+              "rect": [
+                192.3404998779297,
+                266.95526123046875,
+                362.3189697265625,
+                167.5894775390625
+              ],
+              "natural": [
+                1298,
+                1212
+              ],
+              "filter": "drop-shadow(rgb(5, 5, 5) 1px 0px 0px) drop-shadow(rgb(5, 5, 5) -1px 0px 0px) drop-shadow(rgb(5, 5, 5) 0px 1px 0px) drop-shadow(rgba(0, 0, 0, 0.667) 0px 9px 3px)",
+              "transform": "matrix(1.357, 0, 0, 1.357, 0, -8)"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/amulet.png",
+              "rect": [
+                471.34051513671875,
+                266.95526123046875,
+                362.3189697265625,
+                167.5894775390625
+              ],
+              "natural": [
+                1374,
+                1145
+              ],
+              "filter": "drop-shadow(rgb(5, 5, 5) 1px 0px 0px) drop-shadow(rgb(5, 5, 5) -1px 0px 0px) drop-shadow(rgb(5, 5, 5) 0px 1px 0px) drop-shadow(rgba(0, 0, 0, 0.667) 0px 9px 3px)",
+              "transform": "matrix(1.357, 0, 0, 1.357, 0, -8)"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/mask.png",
+              "rect": [
+                750.3405151367188,
+                266.95526123046875,
+                362.31890869140625,
+                167.5894775390625
+              ],
+              "natural": [
+                1536,
+                1024
+              ],
+              "filter": "drop-shadow(rgb(5, 5, 5) 1px 0px 0px) drop-shadow(rgb(5, 5, 5) -1px 0px 0px) drop-shadow(rgb(5, 5, 5) 0px 1px 0px) drop-shadow(rgba(0, 0, 0, 0.667) 0px 9px 3px)",
+              "transform": "matrix(1.357, 0, 0, 1.357, 0, -8)"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/key.png",
+              "rect": [
+                192.3404998779297,
+                448.45526123046875,
+                362.3189697265625,
+                167.5894775390625
+              ],
+              "natural": [
+                1254,
+                1254
+              ],
+              "filter": "drop-shadow(rgb(5, 5, 5) 1px 0px 0px) drop-shadow(rgb(5, 5, 5) -1px 0px 0px) drop-shadow(rgb(5, 5, 5) 0px 1px 0px) drop-shadow(rgba(0, 0, 0, 0.667) 0px 9px 3px)",
+              "transform": "matrix(1.357, 0, 0, 1.357, 0, -8)"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/mirror.png",
+              "rect": [
+                471.34051513671875,
+                448.45526123046875,
+                362.3189697265625,
+                167.5894775390625
+              ],
+              "natural": [
+                1254,
+                1254
+              ],
+              "filter": "drop-shadow(rgb(5, 5, 5) 1px 0px 0px) drop-shadow(rgb(5, 5, 5) -1px 0px 0px) drop-shadow(rgb(5, 5, 5) 0px 1px 0px) drop-shadow(rgba(0, 0, 0, 0.667) 0px 9px 3px)",
+              "transform": "matrix(1.357, 0, 0, 1.357, 0, -8)"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/orb.png",
+              "rect": [
+                750.3405151367188,
+                448.45526123046875,
+                362.31890869140625,
+                167.5894775390625
+              ],
+              "natural": [
+                1254,
+                1254
+              ],
+              "filter": "drop-shadow(rgb(5, 5, 5) 1px 0px 0px) drop-shadow(rgb(5, 5, 5) -1px 0px 0px) drop-shadow(rgb(5, 5, 5) 0px 1px 0px) drop-shadow(rgba(0, 0, 0, 0.667) 0px 9px 3px)",
+              "transform": "matrix(1.357, 0, 0, 1.357, 0, -8)"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/potion.png",
+              "rect": [
+                1026.679931640625,
+                140.02169799804688,
+                728.64013671875,
+                284.8819580078125
+              ],
+              "natural": [
+                1298,
+                1212
+              ],
+              "filter": "drop-shadow(rgb(5, 5, 5) 1px 0px 0px) drop-shadow(rgb(5, 5, 5) -1px 0px 0px) drop-shadow(rgba(0, 0, 0, 0.667) 0px 10px 4px)",
+              "transform": "matrix(1.265, 0, 0, 1.265, 0, -18)"
+            }
+          ]
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      },
+      "pixels": {
+        "changed": 0,
+        "checked": 1525964,
+        "ratio": 0,
+        "maxDelta": 1
+      }
+    },
+    {
+      "id": "status-1920x800",
+      "screenId": "M02",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1920,
+          800
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1516,
+            "y": 10,
+            "width": 386,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "renderState": {
+          "visibility": "visible",
+          "focused": true,
+          "scale": 1,
+          "art": [
+            {
+              "src": "http://127.0.0.1:3192/art/comic/merchants/orc/idle.png",
+              "rect": [
+                235,
+                352,
+                384.4765625,
+                166.5
+              ],
+              "natural": [
+                1374,
+                1145
+              ],
+              "filter": "drop-shadow(rgb(5, 7, 7) 2px 0px 0px) drop-shadow(rgb(5, 7, 7) -2px 0px 0px) drop-shadow(rgba(0, 0, 0, 0.733) 0px 3px 2px)",
+              "transform": "none"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/merchants/vampire/idle.png",
+              "rect": [
+                961,
+                352,
+                384.4765625,
+                166.5
+              ],
+              "natural": [
+                1145,
+                1374
+              ],
+              "filter": "drop-shadow(rgb(5, 7, 7) 2px 0px 0px) drop-shadow(rgb(5, 7, 7) -2px 0px 0px) drop-shadow(rgba(0, 0, 0, 0.733) 0px 3px 2px)",
+              "transform": "none"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/merchants/autometa/idle.png",
+              "rect": [
+                574.5234375,
+                506.5,
+                384.4765625,
+                166.5
+              ],
+              "natural": [
+                1145,
+                1374
+              ],
+              "filter": "drop-shadow(rgb(5, 7, 7) 2px 0px 0px) drop-shadow(rgb(5, 7, 7) -2px 0px 0px) drop-shadow(rgba(0, 0, 0, 0.733) 0px 3px 2px)",
+              "transform": "none"
+            },
+            {
+              "src": "http://127.0.0.1:3192/art/comic/merchants/alien/idle.png",
+              "rect": [
+                1300.5234375,
+                506.5,
+                384.4765625,
+                166.5
+              ],
+              "natural": [
+                1287,
+                1222
+              ],
+              "filter": "drop-shadow(rgb(5, 7, 7) 2px 0px 0px) drop-shadow(rgb(5, 7, 7) -2px 0px 0px) drop-shadow(rgba(0, 0, 0, 0.733) 0px 3px 2px)",
+              "transform": "none"
+            }
+          ]
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        }
+      },
+      "pixels": {
+        "changed": 0,
+        "checked": 1525964,
+        "ratio": 0,
+        "maxDelta": 2
+      }
+    },
+    {
+      "id": "item-sale-1920x800",
+      "screenId": "S06",
+      "passed": true,
+      "metrics": {
+        "viewport": [
+          1920,
+          800
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "imagesReady": true,
+        "masks": [
+          {
+            "x": 1516,
+            "y": 10,
+            "width": 386,
+            "height": 26
+          }
+        ],
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "dpr": 1
+        },
+        "renderState": {
+          "visibility": "visible",
+          "focused": true,
+          "scale": 1,
+          "art": [
+            {
+              "src": "http://127.0.0.1:3192/art/comic/items/potion.png",
+              "rect": [
+                310.203125,
+                145,
+                561.59375,
+                407
+              ],
+              "natural": [
+                1298,
+                1212
+              ],
+              "filter": "drop-shadow(rgb(0, 0, 0) 1px 1px 0px) drop-shadow(rgba(0, 0, 0, 0.6) 4px 6px 3px)",
+              "transform": "none"
+            }
+          ]
+        },
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "columnWidths": [
+          738,
+          738
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "actionWidths": [
+          345,
+          345
+        ],
+        "stepperCentre": 1329,
+        "actionsCentre": 1329,
+        "inputCentre": 1329,
+        "stepperGaps": [
+          12,
+          12
+        ],
+        "stepperWidths": [
+          40,
+          40
+        ],
+        "stepperHeights": [
+          40,
+          40,
+          40
+        ],
+        "knownFacts": [
+          "?",
+          "?",
+          "?"
+        ],
+        "saleDisabled": true,
+        "rebateDisabled": true
+      },
+      "pixels": {
+        "changed": 6,
+        "checked": 1525964,
+        "ratio": 0.000003931940727304183,
+        "maxDelta": 25
+      }
+    }
+  ],
+  "failures": [],
+  "readiness": {
+    "maxSamples": 10,
+    "paintFramesBetweenSamples": 2,
+    "referenceComparisonsPerCase": 1
+  },
+  "finishedAt": "2026-10-30T18:30:40.945Z",
+  "passed": true
+}

@@ -1,0 +1,20 @@
+(node:46367) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ timer parser strictly accepts booleans and whole 1–900 second values for all four phases (4.94975ms)
+✔ only lobby host changes settings, resets readiness, persists through join/resume/host transfer and rematch (186.198041ms)
+✔ untimed 2-seat run has no expiry, waits for manual completion and exports replayable audit without timeouts (46.867208ms)
+✔ untimed 3-seat run has no expiry, waits for manual completion and exports replayable audit without timeouts (77.788458ms)
+✔ untimed 4-seat run has no expiry, waits for manual completion and exports replayable audit without timeouts (152.57975ms)
+✔ custom phase deadlines expire once, do not extend on action, and differ between rooms (74.294084ms)
+✔ untimed disconnect retains pending seat and safe resume without inventing timeout actions (6.9225ms)
+✔ settings controls disclose units and untimed waits, are host-only, and preserve old server compatibility (19.85075ms)
+✔ Dark Market renders existing family image paths for every one of the 30 products (98.329625ms)
+✔ done-state waiting copy promises timeout only when the room has timers enabled (71.155333ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1299.476583

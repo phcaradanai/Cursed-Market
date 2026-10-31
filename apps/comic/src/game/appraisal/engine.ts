@@ -33,7 +33,7 @@ import type { AppraisalAction, AppraisalConfig, AppraisalState, Appraiser, DarkM
 export const DEFAULT_APPRAISAL_CONFIG: AppraisalConfig = {
   rarityEconomy:defaultRarityEconomy(),
   rarity:defaultRarityConfig(),
-  loanEndSettlement:true, vaultInterestRules:1, collectorDeadline:CORE2.collectorEncounter, eventChoiceRules:1, statusLinks:1, systemLinks:1,
+  loanEndSettlement:true, vaultInterestRules:1, theftTimeoutRules:1, collectorDeadline:CORE2.collectorEncounter, eventChoiceRules:1, statusLinks:1, systemLinks:1,
   trustAbilities:true, catalogVersion:3, itemEffects:true, roundRewards:true, multiCoinRewards:true, commerce:true, totalTrustStock:true, curseSight:true, freeBuy:true, freeMerchantAction:true, fakeEffect:true, cleanse:true, wishlist:true, wishContract:true, challenge:true, expansion:true,
   encounters:3, startingCredits:40, maxEnergy:10, recoveryEnergy:4,
   bankReserve:2000, marketProbability:1, marketMaxOrders:3, marketQuota:1,
@@ -45,6 +45,7 @@ function validateConfig(config:AppraisalConfig):void {
   check(config.eventChoiceRules===undefined || config.eventChoiceRules===1,'config','กติกาตัวเลือกเหตุการณ์ไม่ถูกต้อง');
   check(config.statusLinks===undefined || config.statusLinks===1,'config','กติกาเชื่อมสถานะไม่ถูกต้อง');
   check(config.systemLinks===undefined || config.systemLinks===1,'config','กติกาเชื่อมระบบไม่ถูกต้อง');
+  check(config.theftTimeoutRules===undefined || config.theftTimeoutRules===1,'config','กติกาหมดเวลาเป่ายิ้งฉุบไม่ถูกต้อง');
   check(config.vaultInterestRules===undefined || config.vaultInterestRules===1,'config','กติกาดอกเบี้ยไม่ถูกต้อง');
   check(config.loanEndSettlement===undefined || typeof config.loanEndSettlement==='boolean','config','กติกาปิดสัญญากู้ตอนจบไม่ถูกต้อง');
   check(config.collectorDeadline===undefined || Number.isSafeInteger(config.collectorDeadline) && config.collectorDeadline>=1 && config.collectorDeadline<=100,'config','ช่วงที่ Collector มาไม่ถูกต้อง');
@@ -345,14 +346,19 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
     else bankRoundReward(state,p);
     state.revision++;state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);reconcileGhostJobs(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;
   }
-  if(financeAction || action.type==='theft-hand' || action.type==='theft-expire') {
+  const forcedTimeout=action.type==='theft-timeout'&&state.config.theftTimeoutRules===1;
+  if(financeAction || action.type==='theft-hand' || action.type==='theft-expire' || forcedTimeout) {
     check(state.config.secureEconomy && p.life!==0 && p.paused!=='dead','inactive','ผู้เล่นที่หมดชีวิตทำรายการไม่ได้');
     if(storageAction)handleStorageAction(state,p,action as import('./secure-storage.js').StorageAction);
     else if(loanAction)handleLoanAction(state,p,action as import('./secure-storage.js').LoanAction);
     else if(sealAction)handleSealAction(state,p,action as import('./seals.js').SealAction);
     else if(action.type==='crime-clear')clearCrime(state,p);
-    else if(action.type==='theft-hand')chooseTheftHand(state,p,action.duelId,action.hand);
+    else if(action.type==='theft-hand'){
+      if(state.config.theftTimeoutRules===1)check(Number.isSafeInteger(action.round)&&action.round===state.theftDuels?.find(d=>d.id===action.duelId)?.round,'theft-round','รอบเป่ายิ้งฉุบผ่านไปแล้ว ใช้สถานะล่าสุด');
+      chooseTheftHand(state,p,action.duelId,action.hand);
+    }
     else if(action.type==='theft-expire')expireTheftDuel(state,p,action.duelId);
+    else if(action.type==='theft-timeout')for(const duel of state.theftDuels??[])if(duel.status==='open'&&[duel.thiefId,duel.victimId].includes(p.id))expireTheftDuel(state,p,duel.id);
     cancelTheftDuels(state);for(const seat of state.players)pauseIfNeeded(state,seat);progress(state);expireUnavailableOffers(state);
     state.revision++;state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);reconcileGhostJobs(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;
   }
@@ -449,6 +455,7 @@ export function advanceAppraisalEncounter(previous:AppraisalState):AppraisalStat
 }
 export function defaultAppraisalAction(state:AppraisalState,playerId:string,requestId:string):AppraisalAction | null {
   const p=player(state,playerId);if(p.paused || p.done || ['RESULTS','REVEAL'].includes(state.phase)) return null;
+  if(state.config.theftTimeoutRules===1&&state.theftDuels?.some(d=>d.status==='open'&&[d.thiefId,d.victimId].includes(p.id)))return null;
   return {type:state.config.secureEconomy && state.theftDuels?.some(d=>d.status==='open' && [d.thiefId,d.victimId].includes(p.id))?'theft-timeout':'done',playerId,requestId,encounter:state.encounter};
 }
 export function assertAppraisalInvariants(state:AppraisalState):void {

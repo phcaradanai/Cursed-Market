@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-31",
+  "scope": "RULE-02 forced missing-hand settlement and approved active-duel Comic view; not whole-game completion",
+  "functional": {
+    "command": "node --test --test-name-pattern=^(?!survival runs end) (9 focused Comic files, see forced-rps-test-results.txt)",
+    "passed": 73,
+    "failed": 0,
+    "excluded": "CPU-bound survival runs end case, per existing verification policy"
+  },
+  "network": {
+    "command": "node --test apps/comic/dist/tests/appraisal-forced-rps-network.test.js",
+    "passed": 1,
+    "failed": 0,
+    "scope": "two real WebSockets; fixture initial phase/item; deadline, hidden hand, disconnect/resume, stale round, transfer/idempotency"
+  },
+  "timers": {
+    "command": "node --test dist/tests/appraisal-timers.test.js",
+    "cwd": "apps/comic",
+    "passed": 10,
+    "failed": 0
+  },
+  "builds": [
+    "Comic build:server PASS",
+    "Comic build:appraisal PASS (existing >500kB bundle advisory)"
+  ],
+  "ui": {
+    "check": "375 fingerprints PASS",
+    "contracts": "10/10 PASS",
+    "visual": "14/14 PASS; fresh matching invocation receipt",
+    "menus": "18/18 PASS; fresh matching invocation receipt",
+    "newDuel": "forced-rps-ui-verification.json:1024/1440/1920 equal frame/halves/buttons/gaps, no overflow,6menu switches, no round reset"
+  },
+  "atlas": "139 source inputs; full root baseline+scoped Comic evidence, not a full active-Comic extraction",
+  "knownLimits": [
+    "target selector and resolved history still legacy expanding layout; reconciliation pending",
+    "new capture C39 not a human-approved pixel baseline",
+    "no whole-game balance/full CPU-bound simulation claim",
+    "first browser run had overlapping harness navigation and ambiguous selector; rerun sequentially passed",
+    "first timer run from root failed asset-relative cwd; Comic cwd passes10/10"
+  ],
+  "environment": [
+    "Ego update notice; upgrade not authorized/performed; goal space10 kept active under user continuous authorization",
+    "Ego space10 later disappeared (confirmed list contains only5/6); final extra keyboard assertion retry failed before browser bootstrap; prior completed14/18/3-width reports remain timestamped evidence.",
+    "Under standing continuous-check authorization opened replacement space11 after10 was confirmed absent; full3-width duel rerun including explicit keyboard focus assertion passes.14/18 prior reports retain their own space10 receipts."
+  ],
+  "legacy": "root source preserved; unrelated root test and .impeccable changes unstaged"
+}

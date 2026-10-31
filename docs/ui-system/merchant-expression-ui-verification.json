@@ -1,0 +1,738 @@
+{
+  "startedAt": "2026-10-31T00:34:38.547Z",
+  "spaceId": 11,
+  "baseUrl": "http://127.0.0.1:3193",
+  "scope": "mounted GameTable with explicit public DTO fixtures; not engine settlement proof",
+  "transitions": [
+    {
+      "width": 1024,
+      "height": 800,
+      "entry": {
+        "reaction": "entry",
+        "images": [
+          "http://127.0.0.1:3193/art/comic/merchants/orc/smile.png",
+          "http://127.0.0.1:3193/art/comic/merchants/vampire/angry.png",
+          "http://127.0.0.1:3193/art/comic/merchants/autometa/angry.png"
+        ],
+        "buttons": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "clock": "เหลือ 80 วินาที"
+      },
+      "idle": {
+        "image": "http://127.0.0.1:3193/art/comic/merchants/orc/idle.png",
+        "clock": "เหลือ 78 วินาที"
+      },
+      "metrics": {
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "image": [
+          58.078125,
+          60,
+          203.4375,
+          227
+        ],
+        "window": [
+          58.078125,
+          60,
+          203.4375,
+          227
+        ],
+        "clip": "inset(-800px -1024px 0px)"
+      },
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "height": 722,
+      "entry": {
+        "reaction": "entry",
+        "images": [
+          "http://127.0.0.1:3193/art/comic/merchants/orc/smile.png",
+          "http://127.0.0.1:3193/art/comic/merchants/vampire/angry.png",
+          "http://127.0.0.1:3193/art/comic/merchants/autometa/angry.png"
+        ],
+        "buttons": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "clock": "เหลือ 80 วินาที"
+      },
+      "idle": {
+        "image": "http://127.0.0.1:3193/art/comic/merchants/orc/idle.png",
+        "clock": "เหลือ 79 วินาที"
+      },
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "image": [
+          76.796875,
+          60,
+          293.3984375,
+          227
+        ],
+        "window": [
+          76.796875,
+          60,
+          293.3984375,
+          227
+        ],
+        "clip": "inset(-722px -1440px 0px)"
+      },
+      "passed": true
+    },
+    {
+      "width": 1920,
+      "height": 800,
+      "entry": {
+        "reaction": "entry",
+        "images": [
+          "http://127.0.0.1:3193/art/comic/merchants/orc/smile.png",
+          "http://127.0.0.1:3193/art/comic/merchants/vampire/angry.png",
+          "http://127.0.0.1:3193/art/comic/merchants/autometa/angry.png"
+        ],
+        "buttons": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "clock": "เหลือ 80 วินาที"
+      },
+      "idle": {
+        "image": "http://127.0.0.1:3193/art/comic/merchants/orc/idle.png",
+        "clock": "เหลือ 78 วินาที"
+      },
+      "metrics": {
+        "viewport": [
+          1920,
+          800
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "image": [
+          84,
+          60,
+          408,
+          227
+        ],
+        "window": [
+          84,
+          60,
+          408,
+          227
+        ],
+        "clip": "inset(-800px -1920px 0px)"
+      },
+      "passed": true
+    }
+  ],
+  "poses": [
+    {
+      "npc": "orc",
+      "mood": "idle",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/orc/idle.png",
+      "natural": [
+        1374,
+        1145
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "orc",
+      "mood": "smile",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/orc/smile.png",
+      "natural": [
+        1374,
+        1145
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "orc",
+      "mood": "angry",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/orc/angry.png",
+      "natural": [
+        1374,
+        1145
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "vampire",
+      "mood": "idle",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/vampire/idle.png",
+      "natural": [
+        1145,
+        1374
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "vampire",
+      "mood": "smile",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/vampire/smile.png",
+      "natural": [
+        1145,
+        1374
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "vampire",
+      "mood": "angry",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/vampire/angry.png",
+      "natural": [
+        1145,
+        1374
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "autometa",
+      "mood": "idle",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/autometa/idle.png",
+      "natural": [
+        1145,
+        1374
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "autometa",
+      "mood": "smile",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/autometa/smile.png",
+      "natural": [
+        1145,
+        1374
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "autometa",
+      "mood": "angry",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/autometa/angry.png",
+      "natural": [
+        1145,
+        1374
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "alien",
+      "mood": "idle",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/alien/idle.png",
+      "natural": [
+        1287,
+        1222
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "alien",
+      "mood": "smile",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/alien/smile.png",
+      "natural": [
+        1287,
+        1222
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "alien",
+      "mood": "angry",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/alien/angry.png",
+      "natural": [
+        1128,
+        1394
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "beast",
+      "mood": "idle",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/beast/idle.png",
+      "natural": [
+        1213,
+        1296
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "beast",
+      "mood": "smile",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/beast/smile.png",
+      "natural": [
+        1278,
+        1230
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "beast",
+      "mood": "angry",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/beast/angry.png",
+      "natural": [
+        1278,
+        1230
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "swarm",
+      "mood": "idle",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/swarm/idle.png",
+      "natural": [
+        1199,
+        1312
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "swarm",
+      "mood": "smile",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/swarm/smile.png",
+      "natural": [
+        1199,
+        1312
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "swarm",
+      "mood": "angry",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/swarm/angry.png",
+      "natural": [
+        1199,
+        1312
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "deepsea",
+      "mood": "idle",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/deepsea/idle.png",
+      "natural": [
+        1323,
+        1189
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "deepsea",
+      "mood": "smile",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/deepsea/smile.png",
+      "natural": [
+        1323,
+        1189
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "deepsea",
+      "mood": "angry",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/deepsea/angry.png",
+      "natural": [
+        1323,
+        1189
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "darkone",
+      "mood": "idle",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/darkone/idle.png",
+      "natural": [
+        1326,
+        1187
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "darkone",
+      "mood": "smile",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/darkone/smile.png",
+      "natural": [
+        1326,
+        1187
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    },
+    {
+      "npc": "darkone",
+      "mood": "angry",
+      "src": "http://127.0.0.1:3193/art/comic/merchants/darkone/angry.png",
+      "natural": [
+        1326,
+        1187
+      ],
+      "rect": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "window": [
+        76.796875,
+        60,
+        293.3984375,
+        227
+      ],
+      "fit": "cover",
+      "clip": "inset(-722px -1440px 0px)",
+      "passed": true
+    }
+  ],
+  "reducedMotion": {
+    "appraisal": true,
+    "passed": true
+  },
+  "finishedAt": "2026-10-31T00:34:54.494Z"
+}

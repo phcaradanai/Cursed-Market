@@ -21,3 +21,8 @@ Confirmed: buyer death cancels pending work with no charge/bonus; no remaining j
 ### 2026-10-31 — active forced RPS uses existing Comic frame (approved)
 
 User approved forced-rps-ui-proposal.md: inventory-sized ComicPhaseFrame, equal opponent/stakes and hand-choice tracks; hide duplicate appraisal/trade behind active duel. No refusal/close while unresolved. Utility menus remain read-only and return to same server round/deadline. New screenshot C39 is implementation evidence, not approval to replace the sealed14 references.
+
+
+### 2026-10-31 — confirmed merchant expressions, existing presentation
+
+Implement approved2026-10-29 idle/smile/angry behavior through merchant-reactions.ts.650ms confirmed-entry display reuses portals without delaying commands/clocks; no optimistic smiles. Reduced motion skips hold. Selected item appraisalAccepted controls appraisal mood, independent of accumulated trust. Reuse current frame/CSS/assets;24 existing poses checked for load/rectangle/bottom clipping. Candidates C40/C41 do not alter approved14-image references.

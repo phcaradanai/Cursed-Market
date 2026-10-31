@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-31",
+  "scope": "Approved S02/S04 merchant reactions only; whole game remains active",
+  "sourceBase": "a2102fb",
+  "implementation": [
+    "shared merchant-reactions.ts pure mood rules + confirmed650ms portal-display hook",
+    "No engine/rule/money/clock changes; root legacy untouched; existing CSS/assets unchanged",
+    "Reduced motion skips display hold; duplicate/initial reconnect state does not replay selection"
+  ],
+  "functional": {
+    "command": "node --test dist/tests/merchant-expressions.test.js dist/tests/comic-continuity.test.js dist/tests/appraisal-secure-client.test.js",
+    "cwd": "apps/comic",
+    "passed": 20,
+    "failed": 0,
+    "evidence": "merchant-expression-test-results.txt",
+    "includes": "Actual command-driven entry + declining real merchant event + accepted/refused appraisal outcomes; public DTOs feed rules"
+  },
+  "broader": {
+    "tests": 120,
+    "passed": 118,
+    "failed": 2,
+    "evidence": "merchant-expression-broad-results.txt",
+    "beforeSource": "a2102fb App.tsx transpiled into disposable dist module; same unchanged components/tests",
+    "beforeTests": 2,
+    "beforePassed": 0,
+    "beforeFailed": 2,
+    "beforeEvidence": "merchant-expression-parent-results.txt",
+    "knownFailures": [
+      "empty cabinet exit test expects obsolete label จบการประเมิน ไปต่อรอง",
+      "Dark One history test splits removed details.notes markup; TypeError before assertion"
+    ],
+    "newRegressionClaim": false
+  },
+  "browser": {
+    "evidence": "merchant-expression-ui-verification.json",
+    "transitions": 3,
+    "poses": 24,
+    "reducedMotion": "PASS",
+    "scope": "Mounted actual GameTable with explicit public DTO fixture; geometry/menus/clock continuity, not network settlement proof"
+  },
+  "gates": {
+    "buildServer": "PASS",
+    "buildAppraisal": "PASS; existing bundle-size advisory",
+    "uiTest": "10/10 PASS",
+    "visual": "14/14 PASS, fresh matching invocation receipt; no rebaseline",
+    "menuSmoke": "18/18 PASS, fresh matching receipt",
+    "uiCheck": "378 fingerprints PASS",
+    "atlas": "143 source inputs, outputs/check PASS; root baseline+scoped Comic, not full active-Comic extraction"
+  },
+  "limitations": [
+    "Fixed existing frame uses cover + bottom clip; no new anatomical/head-anchor calibration of24 source poses",
+    "Event portrait idle-only calibration unchanged; arbitrary new event reaction mappings were not invented",
+    "C40/C41 are capture candidates, not new approved pixel baselines",
+    "STRAT-01 structure question pending;56 catalog/Collector/awards and full-game balance still unfinished"
+  ],
+  "environment": [
+    "Ego update notice unchanged; no upgrade performed",
+    "Whole-goal browser space11 remains active under standing user authorization"
+  ]
+}

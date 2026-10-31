@@ -539,6 +539,18 @@
           "image": "captures/current-comic-2026-10-29/inspection-merchant-offer.png",
           "title": "ประเมิน · ข้อเสนอพ่อค้า",
           "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C40",
+          "image": "captures/merchant-expressions-2026-10-31/vampire-smile.png",
+          "title": "พ่อค้ายอมรับราคาประเมิน",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C41",
+          "image": "captures/merchant-expressions-2026-10-31/vampire-angry.png",
+          "title": "พ่อค้าปฏิเสธราคาประเมิน",
+          "origin": "existing-component-preview-fixture"
         }
       ],
       "captureStatus": "captured-existing",
@@ -1824,7 +1836,7 @@
   ],
   "merchantExpressionRules": {
     "id": "MERCHANT-EXPRESSION-01",
-    "status": "confirmed-design-not-implemented",
+    "status": "implemented-S02-S04-verified",
     "confirmedOn": "2026-10-29",
     "summary": "ใช้ท่าพ่อค้าเพื่อสะท้อนบริบทและผลการตัดสินใจ โดยใช้ component กลางร่วมกัน",
     "poses": [
@@ -1871,11 +1883,13 @@
     ],
     "constraints": [
       "ใช้ผลยืนยันจริงจากเกม ไม่แสดงผลล่วงหน้าหรือเปิดข้อมูลที่ยังไม่รู้",
-      "สัดส่วนและฐานรูปใช้ MerchantEventPortrait component กลาง; ปุ่ม spacing radius และ tooltip ใช้ component/token กลาง",
+      "Event ใช้ MerchantEventPortrait เดิม; S02/S04 ใช้ card/window เดิมและอารมณ์จาก merchant-reactions.ts กลาง; ปุ่ม spacing radius และ tooltip ใช้ component/token กลาง",
       "แสดงปฏิกิริยาโดยไม่บล็อกเมนู ไม่เปลี่ยนต้นทุน logic หรือรีเซ็ตเวลา",
-      "ยังต้องกำหนดระยะเวลาเปลี่ยนเฟรม เงื่อนไข timeout/reconnect และลด motion ก่อนลง implementation",
-      "ตรวจสัดส่วน smile/angry ทุกคนก่อนใช้; ใช้เพียง 3 ท่าที่มี ไม่ต้องหาท่ายื่นมือ"
+      "ตรวจสัดส่วน smile/angry ทุกคนก่อนใช้; ใช้เพียง 3 ท่าที่มี ไม่ต้องหาท่ายื่นมือ",
+      "650ms เฉพาะภาพหลังยืนยันเข้าประตู; reduced-motion ข้ามการค้างภาพ; ไม่หยุด server clock; duplicate/reconnect initial state ไม่เล่นซ้ำ",
+      "Appraisal อ้าง appraisalAccepted ของของที่เลือก; null=idle, true=smile, false=angry; ไม่อ้าง trust"
     ],
-    "source": "ผู้ใช้ยืนยัน 2026-10-29"
+    "source": "ผู้ใช้ยืนยัน 2026-10-29",
+    "verification": "../ui-system/merchant-expression-verification.json"
   }
 }

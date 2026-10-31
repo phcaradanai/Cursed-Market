@@ -145,3 +145,6 @@ Confirmed rules are closed, including buyer death and floor/tie/end handling. S1
 
 
 2026-10-31 RULE-02 checkpoint: approved missing-hand fallback + active Comic frame verified; see implementations/forced-rps-plan.md and ../ui-system/forced-rps-verification.json. Legacy target selector/closed history remains UX work. Whole-game catalog56/strategic paths/Collector/statistical awards remain open; this checkpoint does not supersede the status table.
+
+
+2026-10-31 MERCHANT-EXPRESSION-01: S02/S04 confirmed three-frame behavior implemented and verified (shared helper/hook,20/20 focused,3width/24pose). See merchant-expression-rules.md and ../ui-system/merchant-expression-verification.json. Existing frame/cropping is preserved; further context rules and head-anchor art calibration are not claimed newly implemented. STRAT-01 structure proposal awaits a user decision; do not silently select a scoring architecture.

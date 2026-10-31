@@ -100,11 +100,13 @@
     {
       "id": "MERCHANT-EXPRESSION-01",
       "system": "อารมณ์พ่อค้าตามบริบท",
-      "status": "กฎและภาพมี — ยังไม่เชื่อมครบ",
-      "remaining": "idle/smile/angry มีและมีกฎแล้ว แต่ยังไม่ครบทุกการเลือกประตู/ยอมรับ/ปฏิเสธ; ใช้ component กลางเดิม",
+      "status": "S02/S04 เชื่อมและตรวจแล้ว",
+      "remaining": "idle ก่อนเลือก; ยืนยันเลือก smile/รายอื่น angry; appraisalAccepted กำหนด smile/angry; component rules กลาง,650ms ภาพเท่านั้นไม่หยุดเวลา;24pose/3width/reduced-motion ผ่าน; กรอบภาพคงเดิมไม่แก้ asset; บริบทใหม่ต้องผูกผลจริงผ่าน helper เดิม ไม่เดาอารมณ์จาก trust",
       "evidence": [
         "docs/game-design/merchant-expression-rules.md",
-        "docs/game-design/PROJECT-CONTEXT.md"
+        "docs/game-design/PROJECT-CONTEXT.md",
+        "apps/comic/src/appraisal-client/merchant-reactions.ts",
+        "docs/ui-system/merchant-expression-verification.json"
       ]
     },
     {

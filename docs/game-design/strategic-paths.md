@@ -43,3 +43,8 @@
 ## การตัดสินใจที่ยืนยัน
 
 2026-10-28 ผู้ใช้เลือก “ตัดสินพร้อมกันตอนจบ” จากคำถามเรื่องจบเมื่อ Collector เทียบกับครบเป้าแล้วชนะทันที การยืนยันนี้ไม่รวมจำนวนคะแนน threshold แต่ละสาย หรือกฎเสมอ และยังไม่เปลี่ยน runtime ให้มีเงื่อนไขชัยชนะหลายสาย
+
+
+## Pending structure decision — 2026-10-31
+
+Question sent to user: allow switching paths through actual play and award only the best completed path per player at Collector, versus multiple-path bonuses with an aggregate cap, versus independent victory conditions. No response is recorded yet; no choice, numeric target, bonus or tie rule has been implemented from this proposal. Simultaneous endgame timing remains approved. Continue independent approved work while waiting.

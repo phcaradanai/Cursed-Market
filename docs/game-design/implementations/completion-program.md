@@ -12,7 +12,8 @@ Goal: complete active Comic against confirmed user rules, not just the latest su
 - [ ] ITEM-02: eight-item pilot, one per merchant; full spawn/inspect/buy/hold/use/sell/copy/Collector lifecycle and unknown-fact privacy.
 - [ ] RULE-03: finalize Collector3+2 turn schedule, purchase rights/pricing/duplicate/timeout rules; implement all concealed views and payment/custody/reconnect.
 - [ ] ITEM-03: remaining48 and event/encounter/omen predicates; zero unexplained legacy targets, Comic art only.
-- [ ] UX continuity: merchant expressions, required S07/Collector/results presentation, strategic status; inspect existing implementations before creating screens. Keep inventory geometry/tokens, no scrolling, costs/known gains visible.
+- [x] MERCHANT-EXPRESSION-01 approved S02/S04 contexts: shared confirmed-choice/result rules,650ms presentation-only hold, reduced-motion and24 existing poses verified.
+- [ ] UX continuity: required S07/Collector/results presentation, strategic status; inspect existing implementations before creating screens. Keep inventory geometry/tokens, no scrolling, costs/known gains visible.
 - [ ] PLAY-01/BAL-02: bounded reproducible full-game simulations and real multiplayer flows, surviving/dead players, loan/vault/auction/RPS/Collector/reconnect/replay; compare policies and report coverage before tuning.
 - [ ] Final whole-game acceptance audit and fresh review: functionality, UI gates, central HTML/Atlas current, durable Git export, open gaps resolved explicitly. Do not mark this program complete because one stage passes.
 
@@ -21,3 +22,6 @@ Goal: complete active Comic against confirmed user rules, not just the latest su
 Proceed on approved independent work while rule questions remain pending; no elapsed-time assumption counts as approval. Each subsystem gets a concrete plan/tests before code. Reuse approved existing implementations, not copied whole root modules over Comic. Record test receipts and actual failed evidence; never rebaseline failures. Checkpoints keep only intended files.
 
 Browser authorization2026-10-31: user explicitly permits opening/recontrolling verification pages continuously throughout this goal. Previous test space9 completed; use a new continuing verification space and record its ID, not repeated permission requests. Ego upgrade is separate and remains unauthorized.
+
+
+2026-10-31 MERCHANT-EXPRESSION checkpoint: approved S02/S04 rules are wired through shared merchant-reactions.ts.650ms confirmed-only display does not alter engine clocks; read-only utility switching stays available. See merchant-expression-plan.md and ../ui-system/merchant-expression-verification.json. Idle-only event portrait calibration and further unspecified context mappings are not claimed redesigned. Prior goal turn a2102fb was progress, not no-progress. STRAT-01 structure question is pending; do not assume approval from elapsed time.

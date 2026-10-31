@@ -1,0 +1,34 @@
+(node:52641) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ theft duel shows sealed hand choices, translated player names and draw history without percentage odds (136.047166ms)
+✔ vault appears after payout only, explains suppressed effects and deferred interest, and shows slot price (12.117375ms)
+✔ finance offers one notice at portals that clears every case (26.44875ms)
+✔ loan contract exposes deadline, installments and custom terms as inert text, with no dropdown (22.671833ms)
+✔ secure economy surfaces have English copy and remain absent in legacy runs (18.204334ms)
+✔ vault custody notifications do not report destroyed goods or lost money (18.251916ms)
+✔ seal panel shows face-down redemption cards with no item identity, plain-text terms and compensation (5.970541ms)
+✔ vault pages carried/stored goods without expansion, keeps full/locked reasons, and renders no cash-out (20.188875ms)
+✔ settled destination has one ready action, no duplicate reward, and respects readiness/spectators (223.122625ms)
+✔ settled reward may be hidden by its phase owner without another payment control (3.552834ms)
+✔ forced duel replaces duplicate phase content while keeping utility navigation (11.519417ms)
+(node:52642) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ unknown NPC facts stay unknown and unappraised sale is disabled (126.730084ms)
+✔ appraised shop can list, owned item has no seller claims (25.448125ms)
+✔ locked owned item and invalid listing rebate remain blocked (41.636583ms)
+✔ live table can SSR without window or CSS module imports (87.182041ms)
+(node:52643) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ unselected portals stay idle regardless of trust or closed state (281.356834ms)
+✔ confirmed portal selection smiles and unselected merchants become angry (39.15275ms)
+✔ appraisal portrait follows the known merchant result, never accumulated trust (68.54975ms)
+✔ reaction snapshot needs a newly confirmed legal entry; duplicate/reconnect/late context does not replay it (6.248791ms)
+✔ command-driven entry and both appraisal outcomes feed the shared public mood rules (111.554042ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1113.94425

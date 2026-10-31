@@ -2833,3 +2833,5 @@
 "capture:C37","capture","G04 · ส่งมอบสินค้าเป้าหมาย","source-snapshot"
 "capture:C38","capture","G04 · ส่งมอบ · รอผู้ว่าจ้างเติมเครดิต","source-snapshot"
 "capture:C39","capture","A02 · เป่ายิ้งฉุบ · บังคับดวลและส่งมือ","source-snapshot"
+"capture:C40","capture","S04 · พ่อค้ายอมรับราคาประเมิน","source-snapshot"
+"capture:C41","capture","S04 · พ่อค้าปฏิเสธราคาประเมิน","source-snapshot"

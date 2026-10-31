@@ -101,3 +101,8 @@ Comic now uses approved10% aged principal in new runs; no-flag audits retain4%. 
 ## 2026-10-31 — forced RPS checkpoint
 
 Approved active-duel Comic frame is implemented with shared inventory bounds. [Report](forced-rps-verification.json): focused73/73, two-socket1/1, timers10/10 (Comic cwd), UIcontracts10/10, source375, baseline14/14, menu18/18, new-duel geometry3widths. Fresh detailed visual/menu reports match their invocation receipts; no baseline replacement. C39 is a fixture capture with source hashes, not a new approved pixel reference. Initial browser harness navigation collision/ambiguous selector and timer wrong-cwd failure are recorded; sequential reruns pass. Target selection/closed results retain old expanding layout and remain an explicit UX gap. Whole-game completion/balance is still unverified.
+
+
+## 2026-10-31 — merchant expressions S02/S04
+
+Shared rules now use confirmed portal selection and public appraisalAccepted, not trust.650ms portal response is presentation only; reduced-motion skips it, duplicate/current selected snapshots do not replay it, and server deadlines continue. [Report](merchant-expression-verification.json):20/20 targeted including command-driven outcomes;3 mounted sequences/24poses/reduced-motion,14/14 approved visual comparisons and18/18 menu flows. Broader suite118/120 has2 old tests reproduced against parent a2102fb (obsolete exit label; removed details.notes history markup). Do not report this broad suite as passing or treat these failures as new. Existing cover/bottom clipping unchanged; no new anatomical pose calibration.

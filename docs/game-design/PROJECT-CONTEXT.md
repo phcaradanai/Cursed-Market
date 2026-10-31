@@ -171,3 +171,8 @@ GHOST-01 is implemented through real authenticated commands, replay and shared U
 ### 2026-10-31 RULE-02 checkpoint
 
 Comic new runs use theftTimeoutRules:1. Missing hands only are server-seeded at the independent30s deadline; submitted/NPC hands remain sealed, ties start a fresh round; late hands require matching round, accepted retries remain idempotent. Historical flagless audit timeout remains cancelled. Active duel uses approved shared Comic frame; six utility menus do not reset it. Functional/network/replay and geometry evidence: `../ui-system/forced-rps-verification.json`. Target picker/closed history still legacy; no claim whole-game complete.
+
+
+### 2026-10-31 MERCHANT-EXPRESSION S02/S04
+
+Shared `merchant-reactions.ts` now links confirmed choice/result to3 existing frames; no trust-based mood guesses.650ms read-only portal reaction is presentation only and skips under reduced motion. Current frame/CSS/assets retained;24pose geometry and3width sequences verified. Full evidence and2 parent-reproduced old broad-test failures: `../ui-system/merchant-expression-verification.json`. STRAT-01 path-bonus structure question is pending; no new numeric scoring approval is implied.

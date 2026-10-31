@@ -1,0 +1,1761 @@
+{
+  "version": 1,
+  "asOf": "2026-10-31",
+  "observedRevision": "ab2c1a1eb606e9d6d02596e8b0ae18237a7e354a",
+  "scope": "Active Comic art/catalog IDs and proposal edges only; no causal execution or balance claim",
+  "sources": {
+    "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/catalog.json": "1aba59f2a0e8fb48f49865fdb22c89fd7a17044537f7140f322952f66a7c2b44",
+    "docs/game-design/logic-item-relations.json": "983d130078b1b6f6f1569dd05f295190a73523c1abaa0aa59bc29e0a6693b801",
+    "docs/game-design/new56-pilot-proposal.json": "ec70ac9f55770ff3866b54cb55131f5703058faafbc921970cb7519c4924b0a1",
+    "apps/comic/src/game/appraisal/content.ts": "769c0ed9bbe0ac774647f39bfdb1a2febc0d9f48e03e774de45e408c513cdc18",
+    "apps/comic/src/game/appraisal/types.ts": "edc5f1cf4165ffd7366457defe41acb880ca9d95a39942dfa4fecb6ae2687ea0",
+    "apps/comic/src/game/appraisal/item-effects.ts": "c2ff1cbae837a24e19f6a5c81f56d27b986f870d7c277fd5d787d70728c63abd",
+    "apps/comic/src/game/appraisal/passives.ts": "4c698f61577c48d58ff945546be159f49945e1e6279c85456ae8d7e1c0d8a2ab",
+    "apps/comic/src/game/appraisal/copy-effects.ts": "908b28f89ad8de7212adbd4636fdef6b2daaca230f97c41050ac2e436f4942f9",
+    "apps/comic/dist/src/game/appraisal/content.js": "bba7bad996a2c82ad6be7b7b64f3f7d89a83e12d3a1053da0243364331cb9b54",
+    "docs/game-design/scripts/audit-new56.mjs": "faee047cc6bea6dff252c16af02e9a7de27a449e557d7c417efdb6d6f7e0e80d"
+  },
+  "summary": {
+    "merchants": 8,
+    "items": 56,
+    "verifiedDistinctPngs": 56,
+    "primaryProposals": 56,
+    "optionalProposals": 57,
+    "effectCandidates": 75,
+    "runtimeCatalogKinds": 66,
+    "newIdsInRuntime": 0,
+    "overTwoDirectSystems": [
+      "autometa-data-prism",
+      "alien-star-chart-membrane",
+      "deepsea-lanternfish-cage"
+    ]
+  },
+  "typeCoverage": [
+    {
+      "type": "sword",
+      "merchants": [
+        "orc",
+        "vampire",
+        "darkone",
+        "beast"
+      ],
+      "count": 4
+    },
+    {
+      "type": "shield",
+      "merchants": [
+        "orc"
+      ],
+      "count": 1
+    },
+    {
+      "type": "armor",
+      "merchants": [
+        "orc",
+        "autometa",
+        "deepsea",
+        "swarm"
+      ],
+      "count": 4
+    },
+    {
+      "type": "salve",
+      "merchants": [
+        "orc"
+      ],
+      "count": 1
+    },
+    {
+      "type": "instrument",
+      "merchants": [
+        "orc",
+        "vampire",
+        "deepsea",
+        "beast"
+      ],
+      "count": 4
+    },
+    {
+      "type": "beads",
+      "merchants": [
+        "orc"
+      ],
+      "count": 1
+    },
+    {
+      "type": "smithing-tool",
+      "merchants": [
+        "orc"
+      ],
+      "count": 1
+    },
+    {
+      "type": "garment",
+      "merchants": [
+        "vampire",
+        "alien",
+        "beast"
+      ],
+      "count": 3
+    },
+    {
+      "type": "signet-ring",
+      "merchants": [
+        "vampire"
+      ],
+      "count": 1
+    },
+    {
+      "type": "decanter",
+      "merchants": [
+        "vampire"
+      ],
+      "count": 1
+    },
+    {
+      "type": "atomizer",
+      "merchants": [
+        "vampire"
+      ],
+      "count": 1
+    },
+    {
+      "type": "invitation",
+      "merchants": [
+        "vampire"
+      ],
+      "count": 1
+    },
+    {
+      "type": "gun",
+      "merchants": [
+        "autometa"
+      ],
+      "count": 1
+    },
+    {
+      "type": "clockwork-construct",
+      "merchants": [
+        "autometa"
+      ],
+      "count": 1
+    },
+    {
+      "type": "data-prism",
+      "merchants": [
+        "autometa"
+      ],
+      "count": 1
+    },
+    {
+      "type": "canister",
+      "merchants": [
+        "autometa"
+      ],
+      "count": 1
+    },
+    {
+      "type": "measuring-tool",
+      "merchants": [
+        "autometa"
+      ],
+      "count": 1
+    },
+    {
+      "type": "beacon",
+      "merchants": [
+        "autometa"
+      ],
+      "count": 1
+    },
+    {
+      "type": "lantern",
+      "merchants": [
+        "alien"
+      ],
+      "count": 1
+    },
+    {
+      "type": "star-chart",
+      "merchants": [
+        "alien"
+      ],
+      "count": 1
+    },
+    {
+      "type": "seedpod",
+      "merchants": [
+        "alien"
+      ],
+      "count": 1
+    },
+    {
+      "type": "translator",
+      "merchants": [
+        "alien"
+      ],
+      "count": 1
+    },
+    {
+      "type": "phase-dial",
+      "merchants": [
+        "alien"
+      ],
+      "count": 1
+    },
+    {
+      "type": "staff",
+      "merchants": [
+        "alien"
+      ],
+      "count": 1
+    },
+    {
+      "type": "book",
+      "merchants": [
+        "darkone"
+      ],
+      "count": 1
+    },
+    {
+      "type": "chain",
+      "merchants": [
+        "darkone"
+      ],
+      "count": 1
+    },
+    {
+      "type": "censer",
+      "merchants": [
+        "darkone"
+      ],
+      "count": 1
+    },
+    {
+      "type": "seal",
+      "merchants": [
+        "darkone"
+      ],
+      "count": 1
+    },
+    {
+      "type": "token",
+      "merchants": [
+        "darkone"
+      ],
+      "count": 1
+    },
+    {
+      "type": "snuffer",
+      "merchants": [
+        "darkone"
+      ],
+      "count": 1
+    },
+    {
+      "type": "trident",
+      "merchants": [
+        "deepsea"
+      ],
+      "count": 1
+    },
+    {
+      "type": "compass",
+      "merchants": [
+        "deepsea"
+      ],
+      "count": 1
+    },
+    {
+      "type": "saddle",
+      "merchants": [
+        "deepsea",
+        "beast"
+      ],
+      "count": 2
+    },
+    {
+      "type": "buoy",
+      "merchants": [
+        "deepsea"
+      ],
+      "count": 1
+    },
+    {
+      "type": "cage",
+      "merchants": [
+        "deepsea"
+      ],
+      "count": 1
+    },
+    {
+      "type": "hammer",
+      "merchants": [
+        "swarm"
+      ],
+      "count": 1
+    },
+    {
+      "type": "sprayer",
+      "merchants": [
+        "swarm"
+      ],
+      "count": 1
+    },
+    {
+      "type": "egg-cluster",
+      "merchants": [
+        "swarm"
+      ],
+      "count": 1
+    },
+    {
+      "type": "resin-spool",
+      "merchants": [
+        "swarm"
+      ],
+      "count": 1
+    },
+    {
+      "type": "glider",
+      "merchants": [
+        "swarm"
+      ],
+      "count": 1
+    },
+    {
+      "type": "cradle",
+      "merchants": [
+        "swarm"
+      ],
+      "count": 1
+    },
+    {
+      "type": "scent-disc",
+      "merchants": [
+        "beast"
+      ],
+      "count": 1
+    },
+    {
+      "type": "trap",
+      "merchants": [
+        "beast"
+      ],
+      "count": 1
+    },
+    {
+      "type": "lasso",
+      "merchants": [
+        "beast"
+      ],
+      "count": 1
+    }
+  ],
+  "items": [
+    {
+      "id": "orc-oath-sword",
+      "name": "ดาบสาบานเผ่า",
+      "merchantId": "orc",
+      "type": "sword",
+      "category": "weapon",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/orc-oath-sword.png",
+      "imageSha256": "2308648392ff1519dce679c6ce27fa5241a11b4c5b4f2a758beeba392780fcdc",
+      "bytes": 1933558,
+      "width": 1024,
+      "height": 1536,
+      "palette": [
+        "เขียวมอส",
+        "งาช้าง",
+        "เหล็กดำ",
+        "ทองแดงเก่า"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E28",
+      "optionalEffects": [
+        "E38"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "orc-tusk-shield",
+      "name": "โล่เขี้ยวออร์ก",
+      "merchantId": "orc",
+      "type": "shield",
+      "category": "defense",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/orc-tusk-shield.png",
+      "imageSha256": "6d44150878d6525ece6488cd777d1e51259e163802838049a8840ff807e4a9e9",
+      "bytes": 2649324,
+      "width": 1295,
+      "height": 1214,
+      "palette": [
+        "เขียวมอส",
+        "งาช้าง",
+        "เหล็กดำ",
+        "ทองแดงเก่า"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E62",
+      "optionalEffects": [
+        "E40"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "orc-ironroot-greaves",
+      "name": "สนับแข้งรากเหล็ก",
+      "merchantId": "orc",
+      "type": "armor",
+      "category": "defense",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/orc-ironroot-greaves.png",
+      "imageSha256": "bb7ad07765f1028223b6d36d1f12d94aee4b1584d9af9fef9377dba2571a6155",
+      "bytes": 2311554,
+      "width": 1294,
+      "height": 1216,
+      "palette": [
+        "เขียวมอส",
+        "งาช้าง",
+        "เหล็กดำ",
+        "ทองแดงเก่า"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E61",
+      "optionalEffects": [],
+      "directLogicCount": 1,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "orc-ember-salve",
+      "name": "ยาทาเถ้าร้อน",
+      "merchantId": "orc",
+      "type": "salve",
+      "category": "consumable",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/orc-ember-salve.png",
+      "imageSha256": "3a6b35df418ad3c9d2fdc9fd5995e0d35363599c2f2758e1e1d0f1c9149bb8e2",
+      "bytes": 2225664,
+      "width": 1312,
+      "height": 1199,
+      "palette": [
+        "เขียวมอส",
+        "งาช้าง",
+        "เหล็กดำ",
+        "ทองแดงเก่า"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E63",
+      "optionalEffects": [
+        "E71"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "orc-bone-war-drum",
+      "name": "กลองศึกกระดูก",
+      "merchantId": "orc",
+      "type": "instrument",
+      "category": "signal",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/orc-bone-war-drum.png",
+      "imageSha256": "281177376a5c9eff72ed40a8121efc02e7514eec3562cceaaf6c2819028413ba",
+      "bytes": 2913863,
+      "width": 1374,
+      "height": 1145,
+      "palette": [
+        "เขียวมอส",
+        "งาช้าง",
+        "เหล็กดำ",
+        "ทองแดงเก่า"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E16",
+      "optionalEffects": [
+        "E64"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "orc-tally-beads",
+      "name": "ลูกปัดนับชัย",
+      "merchantId": "orc",
+      "type": "beads",
+      "category": "trade",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/orc-tally-beads.png",
+      "imageSha256": "404917eee84a37464881a4dba62114498f410ad746d0d257bf567f1e156e47ee",
+      "bytes": 2204931,
+      "width": 1536,
+      "height": 1024,
+      "palette": [
+        "เขียวมอส",
+        "งาช้าง",
+        "เหล็กดำ",
+        "ทองแดงเก่า"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E13",
+      "optionalEffects": [
+        "E24"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "orc-clan-forge-tongs",
+      "name": "คีมตีเหล็กเผ่า",
+      "merchantId": "orc",
+      "type": "smithing-tool",
+      "category": "tool",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/orc-clan-forge-tongs.png",
+      "imageSha256": "26867f05de1af2773c9ca8c14efc70747eae842efc597d85984c2ce41154b0d1",
+      "bytes": 2381615,
+      "width": 1536,
+      "height": 1024,
+      "palette": [
+        "เขียวมอส",
+        "งาช้าง",
+        "เหล็กดำ",
+        "ทองแดงเก่า"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E07",
+      "optionalEffects": [
+        "E14"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "vampire-mist-cloak",
+      "name": "เสื้อคลุมหมอก",
+      "merchantId": "vampire",
+      "type": "garment",
+      "category": "wearable",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/vampire-mist-cloak.png",
+      "imageSha256": "c3386c75fdab2ad0b0164ce05bb89be1fc444ce1ba1fed385b20b8682c8b39a4",
+      "bytes": 2615369,
+      "width": 1214,
+      "height": 1295,
+      "palette": [
+        "ถ่านดำ",
+        "เงินจันทร์",
+        "พลัมเข้ม",
+        "แดงเลือดหม่น"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E42",
+      "optionalEffects": [
+        "E43"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "vampire-nocturne-signet",
+      "name": "แหวนตราราตรี",
+      "merchantId": "vampire",
+      "type": "signet-ring",
+      "category": "accessory",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/vampire-nocturne-signet.png",
+      "imageSha256": "d183c1a132725596ee14d28c18c9859f537603d4f33e823c165c045b5c53ccda",
+      "bytes": 2490936,
+      "width": 1312,
+      "height": 1199,
+      "palette": [
+        "ถ่านดำ",
+        "เงินจันทร์",
+        "พลัมเข้ม",
+        "แดงเลือดหม่น"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E46",
+      "optionalEffects": [
+        "E50"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "vampire-shadow-wine-decanter",
+      "name": "ขวดรินไวน์เงา",
+      "merchantId": "vampire",
+      "type": "decanter",
+      "category": "vessel",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/vampire-shadow-wine-decanter.png",
+      "imageSha256": "2e00aeef673e1d403583e3dd982421cf42885636cf19cd225e2ee37440d668ee",
+      "bytes": 1623315,
+      "width": 1024,
+      "height": 1536,
+      "palette": [
+        "ถ่านดำ",
+        "เงินจันทร์",
+        "พลัมเข้ม",
+        "แดงเลือดหม่น"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E58",
+      "optionalEffects": [
+        "E63"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "vampire-gloam-violin",
+      "name": "ไวโอลินสนธยา",
+      "merchantId": "vampire",
+      "type": "instrument",
+      "category": "signal",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/vampire-gloam-violin.png",
+      "imageSha256": "971511fee21a1b386abb9fb83641bfde749b2017da06f51dc1722c0c304830e3",
+      "bytes": 2104468,
+      "width": 1024,
+      "height": 1536,
+      "palette": [
+        "ถ่านดำ",
+        "เงินจันทร์",
+        "พลัมเข้ม",
+        "แดงเลือดหม่น"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E11",
+      "optionalEffects": [
+        "E29"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "vampire-mist-atomizer",
+      "name": "เครื่องพ่นละอองหมอก",
+      "merchantId": "vampire",
+      "type": "atomizer",
+      "category": "device",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/vampire-mist-atomizer.png",
+      "imageSha256": "1ad5c52ce225fc5f806a95266b2510c625640a2bde4881620f35e710950c32ef",
+      "bytes": 2063949,
+      "width": 1312,
+      "height": 1199,
+      "palette": [
+        "ถ่านดำ",
+        "เงินจันทร์",
+        "พลัมเข้ม",
+        "แดงเลือดหม่น"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E06",
+      "optionalEffects": [
+        "E20"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "vampire-midnight-invitation",
+      "name": "บัตรเชิญเที่ยงคืน",
+      "merchantId": "vampire",
+      "type": "invitation",
+      "category": "document",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/vampire-midnight-invitation.png",
+      "imageSha256": "d0e01bcbff23fa4167877bcc11e3c289d7db12b3cfb5abdbf848d29da3334496",
+      "bytes": 2107821,
+      "width": 1536,
+      "height": 1024,
+      "palette": [
+        "ถ่านดำ",
+        "เงินจันทร์",
+        "พลัมเข้ม",
+        "แดงเลือดหม่น"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E22",
+      "optionalEffects": [
+        "E55"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "vampire-mooncut-sword",
+      "name": "ดาบจันทร์แหว่ง",
+      "merchantId": "vampire",
+      "type": "sword",
+      "category": "weapon",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/vampire-mooncut-sword.png",
+      "imageSha256": "ce01b9af0b0cb0137ae9d264c7e0ee85926824e7ec2f5f11de66e9019e8e48fe",
+      "bytes": 1261597,
+      "width": 1024,
+      "height": 1536,
+      "palette": [
+        "ถ่านดำ",
+        "เงินจันทร์",
+        "พลัมเข้ม",
+        "แดงเลือดหม่น"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E38",
+      "optionalEffects": [
+        "E75"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "autometa-coil-repeater",
+      "name": "เครื่องยิงขดลวด",
+      "merchantId": "autometa",
+      "type": "gun",
+      "category": "weapon",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/autometa-coil-repeater.png",
+      "imageSha256": "f6f8d51c8f932868acc8d8933bb5261aa31c5ad0e2c134d681a446f8697d9336",
+      "bytes": 2190763,
+      "width": 1536,
+      "height": 1024,
+      "palette": [
+        "ทองเหลืองเก่า",
+        "เขียวอมฟ้า",
+        "เหล็กเข้ม",
+        "งาช้าง"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E05",
+      "optionalEffects": [
+        "E06"
+      ],
+      "directLogicCount": 1,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "autometa-clockwork-sentry",
+      "name": "ยามกลไกไขลาน",
+      "merchantId": "autometa",
+      "type": "clockwork-construct",
+      "category": "construct",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/autometa-clockwork-sentry.png",
+      "imageSha256": "148a235b6e01bb902f0f3235037ae4607655a7620e8b45103a9fc3a0f330274e",
+      "bytes": 1483727,
+      "width": 1312,
+      "height": 1199,
+      "palette": [
+        "ทองเหลืองเก่า",
+        "เขียวอมฟ้า",
+        "เหล็กเข้ม",
+        "งาช้าง"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E40",
+      "optionalEffects": [
+        "E68"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "autometa-data-prism",
+      "name": "ปริซึมบันทึกข้อมูล",
+      "merchantId": "autometa",
+      "type": "data-prism",
+      "category": "artifact",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/autometa-data-prism.png",
+      "imageSha256": "0c7cce6c6afdc0ecd506870f3407cfdc436770ddb8c574896f366d12cb6b6a88",
+      "bytes": 1737365,
+      "width": 1312,
+      "height": 1199,
+      "palette": [
+        "ทองเหลืองเก่า",
+        "เขียวอมฟ้า",
+        "เหล็กเข้ม",
+        "งาช้าง"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E02",
+      "optionalEffects": [
+        "E04",
+        "E23"
+      ],
+      "directLogicCount": 3,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "autometa-coolant-canister",
+      "name": "กระป๋องสารหล่อเย็น",
+      "merchantId": "autometa",
+      "type": "canister",
+      "category": "vessel",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/autometa-coolant-canister.png",
+      "imageSha256": "ed36d8cdbde7d3e5899d9313e6418e386e9149782f3c503a2c3b414e7e495877",
+      "bytes": 2850076,
+      "width": 1312,
+      "height": 1199,
+      "palette": [
+        "ทองเหลืองเก่า",
+        "เขียวอมฟ้า",
+        "เหล็กเข้ม",
+        "งาช้าง"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E31",
+      "optionalEffects": [
+        "E61"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "autometa-torque-caliper",
+      "name": "คาลิเปอร์วัดแรงบิด",
+      "merchantId": "autometa",
+      "type": "measuring-tool",
+      "category": "tool",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/autometa-torque-caliper.png",
+      "imageSha256": "6be56f9bdd954b5fab205673a552139aaf23a11facb43b536c29eed35c3635dc",
+      "bytes": 1904523,
+      "width": 1536,
+      "height": 1024,
+      "palette": [
+        "ทองเหลืองเก่า",
+        "เขียวอมฟ้า",
+        "เหล็กเข้ม",
+        "งาช้าง"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E01",
+      "optionalEffects": [
+        "E05"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "autometa-folding-beacon",
+      "name": "สัญญาณไฟพับได้",
+      "merchantId": "autometa",
+      "type": "beacon",
+      "category": "device",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/autometa-folding-beacon.png",
+      "imageSha256": "ed9065f2a9f98afd157ee786f0b512ac85d1ff354b2d9434aa026e0d355c625b",
+      "bytes": 1768724,
+      "width": 1024,
+      "height": 1536,
+      "palette": [
+        "ทองเหลืองเก่า",
+        "เขียวอมฟ้า",
+        "เหล็กเข้ม",
+        "งาช้าง"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E35",
+      "optionalEffects": [
+        "E23"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "autometa-servo-harness",
+      "name": "สายรัดเซอร์โว",
+      "merchantId": "autometa",
+      "type": "armor",
+      "category": "defense",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/autometa-servo-harness.png",
+      "imageSha256": "32cbec36662e6053e6dac63459fbc19b98868c1052fdf60488473a883edefafd",
+      "bytes": 2342734,
+      "width": 1312,
+      "height": 1199,
+      "palette": [
+        "ทองเหลืองเก่า",
+        "เขียวอมฟ้า",
+        "เหล็กเข้ม",
+        "งาช้าง"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E61",
+      "optionalEffects": [
+        "E47"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "alien-spore-lantern",
+      "name": "ตะเกียงสปอร์",
+      "merchantId": "alien",
+      "type": "lantern",
+      "category": "light",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/alien-spore-lantern.png",
+      "imageSha256": "e3517f78ff582da5b6076218132a2a692605d10dddef870fa5769cc0dd3c553d",
+      "bytes": 2359800,
+      "width": 1024,
+      "height": 1536,
+      "palette": [
+        "ฟ้าไซแอน",
+        "คราม",
+        "ลาเวนเดอร์",
+        "มุกเหลือบ"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E67",
+      "optionalEffects": [
+        "E35"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "alien-echoweave-shawl",
+      "name": "ผ้าคลุมเสียงสะท้อน",
+      "merchantId": "alien",
+      "type": "garment",
+      "category": "wearable",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/alien-echoweave-shawl.png",
+      "imageSha256": "8c88727a778c56751a788ef042d71b0386b5e7d9c49a5798e442be3f3e3e70b5",
+      "bytes": 2489920,
+      "width": 1312,
+      "height": 1199,
+      "palette": [
+        "ฟ้าไซแอน",
+        "คราม",
+        "ลาเวนเดอร์",
+        "มุกเหลือบ"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E72",
+      "optionalEffects": [
+        "E16"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "alien-star-chart-membrane",
+      "name": "แผนที่ดาวเยื่อชีวภาพ",
+      "merchantId": "alien",
+      "type": "star-chart",
+      "category": "navigation",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/alien-star-chart-membrane.png",
+      "imageSha256": "436be8b94e7618b8d059ecaa591c61122c308608a5c421b8e0986ab3050ff556",
+      "bytes": 2369868,
+      "width": 1536,
+      "height": 1024,
+      "palette": [
+        "ฟ้าไซแอน",
+        "คราม",
+        "ลาเวนเดอร์",
+        "มุกเหลือบ"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E25",
+      "optionalEffects": [
+        "E35",
+        "E32"
+      ],
+      "directLogicCount": 3,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "alien-biobright-seedpod",
+      "name": "ฝักเมล็ดเรืองแสง",
+      "merchantId": "alien",
+      "type": "seedpod",
+      "category": "living",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/alien-biobright-seedpod.png",
+      "imageSha256": "c1c429077b270185c1241e7efb2217e167f0c4ac8190de477baf2e9dbcf0f865",
+      "bytes": 2071452,
+      "width": 1312,
+      "height": 1199,
+      "palette": [
+        "ฟ้าไซแอน",
+        "คราม",
+        "ลาเวนเดอร์",
+        "มุกเหลือบ"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E61",
+      "optionalEffects": [
+        "E65"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "alien-thought-translator",
+      "name": "เครื่องแปลความคิด",
+      "merchantId": "alien",
+      "type": "translator",
+      "category": "device",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/alien-thought-translator.png",
+      "imageSha256": "5d1b13e96b6227b522c39d22b46257d513f898d75c679cb5ef64ea7e20286b39",
+      "bytes": 2039905,
+      "width": 1374,
+      "height": 1145,
+      "palette": [
+        "ฟ้าไซแอน",
+        "คราม",
+        "ลาเวนเดอร์",
+        "มุกเหลือบ"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E11",
+      "optionalEffects": [
+        "E17"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "alien-phase-dial",
+      "name": "หน้าปัดระยะเฟส",
+      "merchantId": "alien",
+      "type": "phase-dial",
+      "category": "navigation",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/alien-phase-dial.png",
+      "imageSha256": "e54a351a81f7dc8bacb59fe607fb6d5048cae40d281ace7876881b69cb7c8e0f",
+      "bytes": 1893522,
+      "width": 1234,
+      "height": 1275,
+      "palette": [
+        "ฟ้าไซแอน",
+        "คราม",
+        "ลาเวนเดอร์",
+        "มุกเหลือบ"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E31",
+      "optionalEffects": [
+        "E34"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "alien-phase-staff",
+      "name": "คทาเคลื่อนเฟส",
+      "merchantId": "alien",
+      "type": "staff",
+      "category": "weapon",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/alien-phase-staff.png",
+      "imageSha256": "4386f7ee2816df8c9aa5074e88728e3de81fb6333fdaee491cc9b038f9b3fe2e",
+      "bytes": 1469525,
+      "width": 1024,
+      "height": 1536,
+      "palette": [
+        "ฟ้าไซแอน",
+        "คราม",
+        "ลาเวนเดอร์",
+        "มุกเหลือบ"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E57",
+      "optionalEffects": [
+        "E60"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "darkone-null-sword",
+      "name": "ดาบสุญญะ",
+      "merchantId": "darkone",
+      "type": "sword",
+      "category": "weapon",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/darkone-null-sword.png",
+      "imageSha256": "4ba33707971e1c497fdbd8bc72568026f8f32afb43b22caeddc6d1c5392d5101",
+      "bytes": 1434371,
+      "width": 1024,
+      "height": 1536,
+      "palette": [
+        "ถ่านดำ",
+        "เถ้า",
+        "เขียวมอสเข้ม",
+        "เหลืองดินหม่น"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E71",
+      "optionalEffects": [
+        "E40"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "darkone-null-testament",
+      "name": "คัมภีร์สุญญะ",
+      "merchantId": "darkone",
+      "type": "book",
+      "category": "document",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/darkone-null-testament.png",
+      "imageSha256": "bf1e34421a1bda281295e2edaf3d0d579918d517e1425f5db3a84b7e382b6311",
+      "bytes": 2408076,
+      "width": 1536,
+      "height": 1024,
+      "palette": [
+        "ถ่านดำ",
+        "เถ้า",
+        "เขียวมอสเข้ม",
+        "เหลืองดินหม่น"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E69",
+      "optionalEffects": [
+        "E72"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "darkone-debt-chain",
+      "name": "โซ่พันธะหนี้",
+      "merchantId": "darkone",
+      "type": "chain",
+      "category": "restraint",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/darkone-debt-chain.png",
+      "imageSha256": "9e081971edebf2789c3f8ca211ad25606d0f55360a37d040e290ce0182e862a8",
+      "bytes": 1922160,
+      "width": 1536,
+      "height": 1024,
+      "palette": [
+        "ถ่านดำ",
+        "เถ้า",
+        "เขียวมอสเข้ม",
+        "เหลืองดินหม่น"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E49",
+      "optionalEffects": [
+        "E44"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "darkone-omen-censer",
+      "name": "กระถางกำยานลางร้าย",
+      "merchantId": "darkone",
+      "type": "censer",
+      "category": "ritual",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/darkone-omen-censer.png",
+      "imageSha256": "641a3db505a0441b11eb228ea81335d7a230397ccae81aa7b59e5c4856662ff2",
+      "bytes": 2218650,
+      "width": 1402,
+      "height": 1122,
+      "palette": [
+        "ถ่านดำ",
+        "เถ้า",
+        "เขียวมอสเข้ม",
+        "เหลืองดินหม่น"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E67",
+      "optionalEffects": [
+        "E70"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "darkone-ash-seal",
+      "name": "ตราประทับเถ้าถ่าน",
+      "merchantId": "darkone",
+      "type": "seal",
+      "category": "document",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/darkone-ash-seal.png",
+      "imageSha256": "e70a6c990328457b9c373389eec6b76c36fd7fd1f6c4f048ba02621b6e458c01",
+      "bytes": 2365713,
+      "width": 1536,
+      "height": 1024,
+      "palette": [
+        "ถ่านดำ",
+        "เถ้า",
+        "เขียวมอสเข้ม",
+        "เหลืองดินหม่น"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E53",
+      "optionalEffects": [
+        "E18"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "darkone-crossing-token",
+      "name": "เหรียญผ่านแดน",
+      "merchantId": "darkone",
+      "type": "token",
+      "category": "trade",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/darkone-crossing-token.png",
+      "imageSha256": "cfd348a9e24effbf8ff623dea1078459763452c1fca25aec64a58ca9a791e061",
+      "bytes": 3069977,
+      "width": 1295,
+      "height": 1214,
+      "palette": [
+        "ถ่านดำ",
+        "เถ้า",
+        "เขียวมอสเข้ม",
+        "เหลืองดินหม่น"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E43",
+      "optionalEffects": [
+        "E34"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "darkone-silence-snuffer",
+      "name": "ที่ครอบดับเสียง",
+      "merchantId": "darkone",
+      "type": "snuffer",
+      "category": "tool",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/darkone-silence-snuffer.png",
+      "imageSha256": "f472567e130f1a9ce24dc703845aab2fa38667cd488aa2925ce9e37afc6f056f",
+      "bytes": 1414033,
+      "width": 1536,
+      "height": 1024,
+      "palette": [
+        "ถ่านดำ",
+        "เถ้า",
+        "เขียวมอสเข้ม",
+        "เหลืองดินหม่น"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E71",
+      "optionalEffects": [
+        "E09"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "deepsea-abyss-trident",
+      "name": "ตรีศูลห้วงลึก",
+      "merchantId": "deepsea",
+      "type": "trident",
+      "category": "weapon",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/deepsea-abyss-trident.png",
+      "imageSha256": "1c7e519e91c6eec298a29cf048353f5c50d896b513e555498b0e2d477fdc105f",
+      "bytes": 1830645,
+      "width": 1024,
+      "height": 1536,
+      "palette": [
+        "น้ำเงินห้วงลึก",
+        "เขียวน้ำทะเล",
+        "มุก",
+        "แก้วทะเล"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E07",
+      "optionalEffects": [
+        "E05"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "deepsea-pressure-cuirass",
+      "name": "เกราะแรงดันใต้ทะเล",
+      "merchantId": "deepsea",
+      "type": "armor",
+      "category": "defense",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/deepsea-pressure-cuirass.png",
+      "imageSha256": "981f06ba9f145b831c586c51c04963cc0453ba091231cede8556b24ee3f6dfc5",
+      "bytes": 2831074,
+      "width": 1214,
+      "height": 1295,
+      "palette": [
+        "น้ำเงินห้วงลึก",
+        "เขียวน้ำทะเล",
+        "มุก",
+        "แก้วทะเล"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E62",
+      "optionalEffects": [
+        "E67"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "deepsea-tide-compass",
+      "name": "เข็มทิศกระแสน้ำ",
+      "merchantId": "deepsea",
+      "type": "compass",
+      "category": "navigation",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/deepsea-tide-compass.png",
+      "imageSha256": "3e503a6b857aef5aa72ead0ce40bea4f9e42bf1111124c53c35cb97f953317e1",
+      "bytes": 2277912,
+      "width": 1312,
+      "height": 1199,
+      "palette": [
+        "น้ำเงินห้วงลึก",
+        "เขียวน้ำทะเล",
+        "มุก",
+        "แก้วทะเล"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E34",
+      "optionalEffects": [
+        "E57"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "deepsea-kelp-saddle",
+      "name": "อานสาหร่าย",
+      "merchantId": "deepsea",
+      "type": "saddle",
+      "category": "mount-gear",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/deepsea-kelp-saddle.png",
+      "imageSha256": "ee610c515e4378fd5a201297fac4bfbcf7379605ce6ff64513095298335318ac",
+      "bytes": 2605772,
+      "width": 1536,
+      "height": 1024,
+      "palette": [
+        "น้ำเงินห้วงลึก",
+        "เขียวน้ำทะเล",
+        "มุก",
+        "แก้วทะเล"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E16",
+      "optionalEffects": [
+        "E64"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "deepsea-tideglass-buoy",
+      "name": "ทุ่นแก้วคลื่น",
+      "merchantId": "deepsea",
+      "type": "buoy",
+      "category": "signal",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/deepsea-tideglass-buoy.png",
+      "imageSha256": "49b5ad1dae02f434d111b028c4f1eea3c47d2109430f6f38b01371a1f18b2c03",
+      "bytes": 1631009,
+      "width": 1024,
+      "height": 1536,
+      "palette": [
+        "น้ำเงินห้วงลึก",
+        "เขียวน้ำทะเล",
+        "มุก",
+        "แก้วทะเล"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E46",
+      "optionalEffects": [
+        "E42"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "deepsea-lanternfish-cage",
+      "name": "กรงปลาโคม",
+      "merchantId": "deepsea",
+      "type": "cage",
+      "category": "container",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/deepsea-lanternfish-cage.png",
+      "imageSha256": "af42332d40f6738c769cbdc3a41f4c7656776f7bda451aa84f70ac4ea01273c1",
+      "bytes": 2162246,
+      "width": 1312,
+      "height": 1199,
+      "palette": [
+        "น้ำเงินห้วงลึก",
+        "เขียวน้ำทะเล",
+        "มุก",
+        "แก้วทะเล"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E35",
+      "optionalEffects": [
+        "E02",
+        "E23"
+      ],
+      "directLogicCount": 3,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "deepsea-whale-conch-horn",
+      "name": "แตรสังข์วาฬ",
+      "merchantId": "deepsea",
+      "type": "instrument",
+      "category": "signal",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/deepsea-whale-conch-horn.png",
+      "imageSha256": "3f260f9435cf5f52bab91466339f551868aec50fbf86fc1ed2d1340da26fe3a9",
+      "bytes": 2248443,
+      "width": 1536,
+      "height": 1024,
+      "palette": [
+        "น้ำเงินห้วงลึก",
+        "เขียวน้ำทะเล",
+        "มุก",
+        "แก้วทะเล"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E63",
+      "optionalEffects": [
+        "E55"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "swarm-brood-hammer",
+      "name": "ค้อนรัง",
+      "merchantId": "swarm",
+      "type": "hammer",
+      "category": "weapon",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/swarm-brood-hammer.png",
+      "imageSha256": "523f3cbd35f3fd278e4fe74a1488dd53401d1f5256c9a97d02df7c8c4962a8a5",
+      "bytes": 1520515,
+      "width": 1223,
+      "height": 1286,
+      "palette": [
+        "เขียวมะกอก",
+        "ไคตินเข้ม",
+        "อำพัน",
+        "ม่วงหม่น"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E47",
+      "optionalEffects": [
+        "E14"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "swarm-pheromone-sprayer",
+      "name": "เครื่องพ่นฟีโรโมน",
+      "merchantId": "swarm",
+      "type": "sprayer",
+      "category": "device",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/swarm-pheromone-sprayer.png",
+      "imageSha256": "fea433096f549be8b4c643bd89a80205ace5300b3dbcff8a9741c9b848471df2",
+      "bytes": 2090606,
+      "width": 1312,
+      "height": 1199,
+      "palette": [
+        "เขียวมะกอก",
+        "ไคตินเข้ม",
+        "อำพัน",
+        "ม่วงหม่น"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E11",
+      "optionalEffects": [
+        "E16"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "swarm-hive-egg-cluster",
+      "name": "กลุ่มไข่รัง",
+      "merchantId": "swarm",
+      "type": "egg-cluster",
+      "category": "living",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/swarm-hive-egg-cluster.png",
+      "imageSha256": "2c0b096c2c4933148eaf92f1168cef4359c16f68e9f0a2f4063c9a11ac5433de",
+      "bytes": 2143784,
+      "width": 1149,
+      "height": 1369,
+      "palette": [
+        "เขียวมะกอก",
+        "ไคตินเข้ม",
+        "อำพัน",
+        "ม่วงหม่น"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E33",
+      "optionalEffects": [],
+      "directLogicCount": 1,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "swarm-resin-spool",
+      "name": "หลอดม้วนยางไม้",
+      "merchantId": "swarm",
+      "type": "resin-spool",
+      "category": "material",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/swarm-resin-spool.png",
+      "imageSha256": "93f9ec905ed85b3a724c054e49785841497c34a15162ad283c0e9821260f8ec7",
+      "bytes": 2851547,
+      "width": 1536,
+      "height": 1024,
+      "palette": [
+        "เขียวมะกอก",
+        "ไคตินเข้ม",
+        "อำพัน",
+        "ม่วงหม่น"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E52",
+      "optionalEffects": [
+        "E44"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "swarm-wing-membrane-glider",
+      "name": "เครื่องร่อนเยื่อปีก",
+      "merchantId": "swarm",
+      "type": "glider",
+      "category": "transport",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/swarm-wing-membrane-glider.png",
+      "imageSha256": "7097a76388086b8da8fe73d4046859e5bdc7cd0d60a2d23863a69d0e98ae29cd",
+      "bytes": 2485178,
+      "width": 1536,
+      "height": 1024,
+      "palette": [
+        "เขียวมะกอก",
+        "ไคตินเข้ม",
+        "อำพัน",
+        "ม่วงหม่น"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E34",
+      "optionalEffects": [
+        "E37"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "swarm-pupa-cradle",
+      "name": "แท่นรองดักแด้",
+      "merchantId": "swarm",
+      "type": "cradle",
+      "category": "container",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/swarm-pupa-cradle.png",
+      "imageSha256": "6f7e67a964ac9a3e8575a30e0367dc84a814494e38d16f6e06ae7f4c78ce01fe",
+      "bytes": 2394014,
+      "width": 1024,
+      "height": 1536,
+      "palette": [
+        "เขียวมะกอก",
+        "ไคตินเข้ม",
+        "อำพัน",
+        "ม่วงหม่น"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E59",
+      "optionalEffects": [
+        "E65"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "swarm-chitin-cuirass",
+      "name": "เกราะไคติน",
+      "merchantId": "swarm",
+      "type": "armor",
+      "category": "defense",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/swarm-chitin-cuirass.png",
+      "imageSha256": "733c2c22f7b8c974d760194a0471c72de1ff19934f3233f42ed9e51bca2bedaf",
+      "bytes": 2885432,
+      "width": 1144,
+      "height": 1375,
+      "palette": [
+        "เขียวมะกอก",
+        "ไคตินเข้ม",
+        "อำพัน",
+        "ม่วงหม่น"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E62",
+      "optionalEffects": [
+        "E68"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "beast-trail-scent-disc",
+      "name": "แผ่นกลิ่นสะกดรอย",
+      "merchantId": "beast",
+      "type": "scent-disc",
+      "category": "tracking",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/beast-trail-scent-disc.png",
+      "imageSha256": "4d3365f61c0a075138224157d5e1f23f59e10cdac6ab79396dc26b4597a12fd7",
+      "bytes": 2718661,
+      "width": 1312,
+      "height": 1199,
+      "palette": [
+        "หินทราย",
+        "อำพัน",
+        "งาช้าง",
+        "สีขนธรรมชาติ"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E25",
+      "optionalEffects": [
+        "E35"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "beast-tracker-horn",
+      "name": "เขาส่งสัญญาณ",
+      "merchantId": "beast",
+      "type": "instrument",
+      "category": "signal",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/beast-tracker-horn.png",
+      "imageSha256": "1ff42a465b8d7e2418b624efb0ea179abae0ddf331027cbe0467dd8bfc3e9d53",
+      "bytes": 2447693,
+      "width": 1536,
+      "height": 1024,
+      "palette": [
+        "หินทราย",
+        "อำพัน",
+        "งาช้าง",
+        "สีขนธรรมชาติ"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E32",
+      "optionalEffects": [
+        "E28"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "beast-rift-saddle",
+      "name": "อานข้ามรอยแยก",
+      "merchantId": "beast",
+      "type": "saddle",
+      "category": "mount-gear",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/beast-rift-saddle.png",
+      "imageSha256": "aca6ed044fd72bb83ca3b9f5932544a88fa553de829358a2259fea8bb8fb5c4d",
+      "bytes": 2576739,
+      "width": 1536,
+      "height": 1024,
+      "palette": [
+        "หินทราย",
+        "อำพัน",
+        "งาช้าง",
+        "สีขนธรรมชาติ"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E36",
+      "optionalEffects": [
+        "E21"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "beast-springjaw-trap",
+      "name": "กับดักกรามดีด",
+      "merchantId": "beast",
+      "type": "trap",
+      "category": "capture",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/beast-springjaw-trap.png",
+      "imageSha256": "527c6875819a360dd58b7c5f4231ad6d48ae19f1bbfc7eb42b2a25c798e018c8",
+      "bytes": 2957054,
+      "width": 1536,
+      "height": 1024,
+      "palette": [
+        "หินทราย",
+        "อำพัน",
+        "งาช้าง",
+        "สีขนธรรมชาติ"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E53",
+      "optionalEffects": [
+        "E40"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "beast-amber-fur-mantle",
+      "name": "เสื้อคลุมขนอำพัน",
+      "merchantId": "beast",
+      "type": "garment",
+      "category": "wearable",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/beast-amber-fur-mantle.png",
+      "imageSha256": "ffe71f5a0293f05ca411e6d7b22efb7a66bd637e5c7409c2d10e9083a7a9def3",
+      "bytes": 3020204,
+      "width": 1536,
+      "height": 1024,
+      "palette": [
+        "หินทราย",
+        "อำพัน",
+        "งาช้าง",
+        "สีขนธรรมชาติ"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E68",
+      "optionalEffects": [
+        "E63"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "beast-fangline-lasso",
+      "name": "บ่วงเส้นเขี้ยว",
+      "merchantId": "beast",
+      "type": "lasso",
+      "category": "capture",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/beast-fangline-lasso.png",
+      "imageSha256": "a61396f2cd3e47c874109860027ce4d34de3a00efbdb3dd754f4c2187f52ba1a",
+      "bytes": 2306660,
+      "width": 1536,
+      "height": 1024,
+      "palette": [
+        "หินทราย",
+        "อำพัน",
+        "งาช้าง",
+        "สีขนธรรมชาติ"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E37",
+      "optionalEffects": [
+        "E45"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    },
+    {
+      "id": "beast-riftfang-sword",
+      "name": "ดาบเขี้ยวรอยแยก",
+      "merchantId": "beast",
+      "type": "sword",
+      "category": "weapon",
+      "image": "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/beast-riftfang-sword.png",
+      "imageSha256": "7a1e348998ff76e4a5cc3c29dccaed9176fe468a2f9d96759114c33140675b5b",
+      "bytes": 1682657,
+      "width": 1536,
+      "height": 1024,
+      "palette": [
+        "หินทราย",
+        "อำพัน",
+        "งาช้าง",
+        "สีขนธรรมชาติ"
+      ],
+      "runtimeIdPresent": false,
+      "primaryEffect": "E38",
+      "optionalEffects": [
+        "E27"
+      ],
+      "directLogicCount": 2,
+      "status": "proposal-not-runtime"
+    }
+  ],
+  "limitations": [
+    "Compiled module ID membership is verified, not lifecycle/effect coverage. Build command and source/compiled hashes accompany this report.",
+    "Effect IDs are design namespaces effect:E##, not event:E##. Numeric triggers, magnitudes, caps, copy and rarity semantics need approval.",
+    "No old item alias, generator, effect, event predicate or live server config was changed by this audit."
+  ]
+}

@@ -13,6 +13,8 @@ assert(g.nodes.some(n=>n.id==='effect:E01'));assert(g.nodes.some(n=>n.id==='even
 for(const e of d.events){assert(e.handlerRefs.length>0);assert(e.choiceRefs.every(id=>ids.has(id)));assert(e.sourceDefinitions.length>0)}
 assert(d.legacyTargetGates.length>0);assert(d.dynamicOperations.length>0);assert(d.logSites.length>0);assert(d.validations.length>0);
 const html=fs.readFileSync(path.join(dir,'logic-item-relations.html'),'utf8');for(const id of ['system-atlas-data','data','graph-data','matrix-view'])assert(html.includes('id="'+id+'"'));assert.equal((html.match(/<!-- SYSTEM-ATLAS-START -->/g)??[]).length,1);
+const flow=read('screen-flow.json');
+if(flow.merchantExpressionRules?.status==='implemented-S02-S04-verified')assert(/<summary>กฎท่าทางพ่อค้า[^<]+S02\/S04 เชื่อมและตรวจแล้ว/.test(html),'Merchant expression summary still claims pending implementation');
 const status=read('game-status.json');assert.equal(status.activeSource,'apps/comic');assert(html.includes('id="game-status"')&&html.includes(status.headline));
 for(const row of status.systems){assert(html.includes(row.remaining));for(const file of row.evidence)assert(fs.existsSync(path.join(root,file)),'Missing status evidence '+file);}
 const vaultRate=file=>Number(fs.readFileSync(path.join(root,file),'utf8').match(/VAULT_INTEREST_PERCENT=(\d+)/)?.[1]);

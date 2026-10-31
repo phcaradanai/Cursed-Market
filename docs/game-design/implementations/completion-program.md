@@ -25,3 +25,6 @@ Browser authorization2026-10-31: user explicitly permits opening/recontrolling v
 
 
 2026-10-31 MERCHANT-EXPRESSION checkpoint: approved S02/S04 rules are wired through shared merchant-reactions.ts.650ms confirmed-only display does not alter engine clocks; read-only utility switching stays available. See merchant-expression-plan.md and ../ui-system/merchant-expression-verification.json. Idle-only event portrait calibration and further unspecified context mappings are not claimed redesigned. Prior goal turn a2102fb was progress, not no-progress. STRAT-01 structure question is pending; do not assume approval from elapsed time.
+
+
+2026-10-31 ITEM-01 checkpoint: catalog/art audit and concrete8-item pilot specification prepared; new56-readiness.json proves0 new IDs in active compiled catalog, not lifecycle support. Numeric/common pilot rules await explicit user approval; no runtime work may infer it. Review generated new56-pilot-proposal.html. Main HTML source status now uses actual merchant-expression implementation status instead of stale hardcoded pending label. Next independent task while rule questions are pending: reconcile Atlas extraction with full active Comic and preserve legacy evidence, then complete remaining approved no-scroll UX.

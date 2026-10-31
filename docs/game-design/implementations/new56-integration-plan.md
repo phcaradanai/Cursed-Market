@@ -1,0 +1,28 @@
+# ITEM-01–03 — new56 integration plan / audit 2026-10-31
+
+Runtime base ab2c1a1; active source apps/comic. Previous goal turn was progress (merchant reactions committed/verified), not a no-progress wait. No runtime item, default config, existing artwork or legacy root code is changed in this checkpoint.
+
+## Verified inventory, not assumed bindings
+
+Fresh Comic build + scripts/audit-new56.mjs validates portable catalog SHA against relation source,8 merchants×7,56 distinct PNG paths/hash/byte counts/signatures, item/type/merchant identity, type presence in at most4 merchants and one primary proposed link per item. There are56 primary +57 optional proposed links,75 effect candidates. Compiled active ITEM_SPECS has66 old kinds and0 new IDs. This membership check does not prove lifecycle support; output is new56-readiness.json with source and compiled hashes.
+
+Three products exceed2 direct proposed systems: autometa-data-prism, alien-star-chart-membrane, deepsea-lanternfish-cage. Do not enable their optional effects automatically. effect:E## is distinct from event:E##; static links are not causal execution.
+
+## Reviewable pilot (awaiting user approval)
+
+[new56-pilot-proposal.html](../new56-pilot-proposal.html) is generated from JSON by the auditor. Eight rows, one per merchant, specify anchor/trigger/cost/magnitude/cap/copy/rarity/known-information guards. Values are proposed experimental parameters, not approved release balance. Optional effects remain explicitly deferred, not discarded from full56 scope. Never treat absence of an answer as approval.
+
+Pilot covers active damage protection, aged vault interest, inspection rights, merchant acceptance, crime fees, portal rerolls, vault expansion and public tie advantage. The shield has an explicit activation lifecycle; non-activatable tools/items must reject generic old activation without side effects. Further48 need their own active/consumable/predicate coverage before full rollout.
+
+## Runtime transition after decisions
+
+1. Add new catalog version for new runs, keeping historical66-kind audits/versioned generators replayable. Use stable new IDs and their own art/specs; no new-ID→old-kind alias, generic old buff/drawback injection or root→Comic file copying.
+2. Separate visual type (sword/gun/staff/etc) from explicit mechanical capabilities/predicates. Inventory all active Comic kind/family consumers in generator, effects, view/labels, copy/use, market/auction/loan/vault/Collector, events/encounters/omens and bots. Old predicate rewrites need explicit semantics, not inferred similarity.
+3. Approve pilot numbers and common trigger/ownership/age/charge rules; wire eight items with tests first. Unknown truth remains private; held bonuses use public kind and actual custody, while activation reuses approved truth/curse handling.
+4. Verify actual spawn→inspect/appraise→buy→hold→activate/reject→trade/copy/loan/vault/auction→Collector; charges cannot reset on transfers/copies. Validate retries, timeout/disconnect/resume and strict audit replay. Frozen duel edge must announce new item effect without leaking hidden guard.
+5. Run bounded seed/config/policy baseline vs candidate. No win-share target or balance claim until measured. Then integrate remaining48 and reviewed event/encounter/omen predicates; switch new-run default to full56 only when complete and verified.
+6. Refresh source/captures/UI gates as applicable, then rebuild/check main Atlas/context. Keep approved14 pixel references; changed snapshots require actual review.
+
+## Current limits / next
+
+Audit/report and concrete pilot proposal are complete. Runtime binding is still0 and ITEMS remain art-only. Numeric pilot approval and STRAT-01 structure response are pending. Continue independent approved UX/system work while waiting; do not close the whole-game goal.

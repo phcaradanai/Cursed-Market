@@ -1,7 +1,7 @@
 {
   "asOf": "2026-10-31",
   "activeSource": "apps/comic",
-  "revision": "51d89ea",
+  "revision": "ab2c1a1",
   "headline": "ยังไม่ครบตามกฎและขอบเขตเกมที่ตกลงทั้งหมด",
   "summary": "วงจรเดิมและตลาดวิญญาณเล่นได้ แต่การย้ายกฎ/สินค้าใหม่และบาลานซ์ทั้งเกมยังค้าง ภาพหน้าจอหรือกราฟครบไม่ได้แปลว่า runtime ครบ",
   "atlasScope": "Atlas ฐานยังสกัด runtime root และเพิ่ม Comic ghost แบบระบุไฟล์ ไม่ใช่สำเนาเต็มของ active Comic ทุกระบบ ต้องอ่าน source path และตารางนี้ประกอบ โดยเฉพาะดอกเบี้ย4%/10%",
@@ -44,11 +44,15 @@
       "id": "ITEM-01–03",
       "system": "สินค้าใหม่56ชิ้นและ effect",
       "status": "ยังไม่เชื่อม runtime",
-      "remaining": "56ชิ้นมี catalog/ภาพ/ข้อเสนอ relation แต่ dedicated binding ใน runtime ที่ตรวจพบเป็น0; ต้องกำหนด trigger/target/stack/cap แล้วทดลอง8ชิ้น ก่อนย้ายครบพร้อม event/omen",
+      "remaining": "Audit active Comic:ภาพ56/56 hashตรงและไม่ซ้ำ,8×7,ประเภทไม่เกิน4พ่อค้า; primary56+optional57ยังเป็นข้อเสนอ; runtimeมี66ชนิดเดิมและ0 IDใหม่; สเปก8ชิ้นพร้อมค่าทดลองรออนุมัติ ไม่ใช่รับรอง balance",
       "evidence": [
         "docs/game-design/logic-item-relations.json",
         "docs/game-design/system-atlas/coverage.md",
-        "docs/game-design/development-roadmap.md"
+        "docs/game-design/development-roadmap.md",
+        "docs/game-design/new56-readiness.json",
+        "docs/game-design/new56-pilot-proposal.html",
+        "docs/game-design/new56-pilot-proposal.json",
+        "docs/game-design/implementations/new56-integration-plan.md"
       ]
     },
     {

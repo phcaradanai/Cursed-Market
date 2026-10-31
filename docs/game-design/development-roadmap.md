@@ -12,8 +12,8 @@
 | 2 RULE-01 | Vault เงินต้นตามอายุและดอกเบี้ย 10% | root+Comic implemented/verified | BAL-01, D02 | ฝาก/ถอนบางส่วน/เติม/ฝากซ้ำ/ข้ามช่วง/settle ซ้ำถูกต้อง; ไม่มีดอกเบี้ยย้อนหลัง |
 | 2 RULE-02 | ขโมยและ forced RPS ครบวงจร | prepare | BAL-01, D01 | ทั้ง UI/timeout/disconnect/retry ไม่มีช่องปฏิเสธหรือ settle ซ้ำ |
 | 3 STRAT-01 | เส้นทางชนะหลายแบบและเป้าหมายต่อสาย | design in progress | BAL-01; วิธีจบยืนยันแล้ว: Collector | มี progress/cost/counter ต่อสายและผลทดสอบแยก policy; ดู strategic-paths.md |
-| 3 ITEM-01 | สัญญาข้อมูล runtime ของสินค้าใหม่ 56 | ready for design | CTX-01, STRAT-01, D05 | stable IDs, merchant/type/palette, trigger/target/scale/stack/cap, legacy predicates แต่ละตัวมี mapping หรือระบุเลิกใช้ |
-| 4 ITEM-02 | กลุ่มทดลอง 8 ชิ้น คนละพ่อค้า | queued | ITEM-01 | ครบ spawn/ซื้อ/ตรวจ/ถือ/ใช้/ขาย/สำเนา/จบเกม; ใช้งานบน comic จริง ไม่มี realistic fallback |
+| 3 ITEM-01 | สัญญาข้อมูล runtime ของสินค้าใหม่ 56 | audited; pilot spec awaiting approval | CTX-01, STRAT-01, D05 | stable IDs, merchant/type/palette, trigger/target/scale/stack/cap, legacy predicates แต่ละตัวมี mapping หรือระบุเลิกใช้ |
+| 4 ITEM-02 | กลุ่มทดลอง 8 ชิ้น คนละพ่อค้า | proposed8; runtime queued | ITEM-01 | ครบ spawn/ซื้อ/ตรวจ/ถือ/ใช้/ขาย/สำเนา/จบเกม; ใช้งานบน comic จริง ไม่มี realistic fallback |
 | 5 RULE-03 | Collector Wishlist แบบ 3+2 | prepare | ITEM-02, D03 | timeline จัดส่ง/ปกปิด/เปิดหนึ่ง/จ่ายซื้อ/reconnect ทดสอบครบ; ไม่สับสนกับ E73 |
 | 5 RULE-04 | คะแนนพิเศษและ rarity กลุ่ม | prepare | ITEM-02, D04 | ตัวนับอ้าง audit ได้; คะแนน ×2/×3 ถูกต้อง; tie policy ชัดและ deterministic |
 | 6 ITEM-03 | ย้ายครบ 56 พร้อม event/encounter/omen | queued | ITEM-02, RULE-01–04 | ไม่เหลือ target predicate ที่อ้างชนิดเก่าโดยไม่มีคำอธิบาย; action/เหตุการณ์ใช้ได้กับของใหม่ |
@@ -148,3 +148,6 @@ Confirmed rules are closed, including buyer death and floor/tie/end handling. S1
 
 
 2026-10-31 MERCHANT-EXPRESSION-01: S02/S04 confirmed three-frame behavior implemented and verified (shared helper/hook,20/20 focused,3width/24pose). See merchant-expression-rules.md and ../ui-system/merchant-expression-verification.json. Existing frame/cropping is preserved; further context rules and head-anchor art calibration are not claimed newly implemented. STRAT-01 structure proposal awaits a user decision; do not silently select a scoring architecture.
+
+
+2026-10-31 ITEM-01 audit: new56-readiness.json verifies56 unique PNG paths/content hashes and catalog constraints against active compiled Comic (66 existing kinds,0 new IDs). Generated new56-pilot-proposal.html/JSON gives8 concrete experimental specs, awaiting user approval. No runtime item/effect/default changed. Main HTML links both data and proposal; see implementations/new56-integration-plan.md. Full active-Comic Atlas extraction remains a separate evidence gap; static root baseline does not prove active bindings.

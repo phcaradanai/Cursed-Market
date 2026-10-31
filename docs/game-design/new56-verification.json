@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-31",
+  "sourceBase": "ab2c1a1",
+  "scope": "read-only catalog/runtime-ID audit, reviewable design proposal and central context renderer correction",
+  "commands": {
+    "npm run build:server --prefix apps/comic": "PASS",
+    "node docs/game-design/scripts/audit-new56.mjs": "PASS",
+    "node docs/game-design/scripts/audit-new56.mjs --check": "PASS",
+    "node --check docs/game-design/scripts/audit-new56.mjs": "PASS",
+    "npm run ui:check": "378 source fingerprints + frozen14 reference hashes PASS; runtime/client source unchanged",
+    "npm run ui:test": "10/10 PASS",
+    "node docs/game-design/scripts/build-system-atlas.mjs": "PASS147inputs",
+    "node docs/game-design/scripts/check-system-atlas.mjs": "PASS; new targeted summary assertion failed before renderer correction"
+  },
+  "summary": {
+    "merchants": 8,
+    "items": 56,
+    "verifiedDistinctPngs": 56,
+    "primaryProposals": 56,
+    "optionalProposals": 57,
+    "effectCandidates": 75,
+    "runtimeCatalogKinds": 66,
+    "newIdsInRuntime": 0,
+    "overTwoDirectSystems": [
+      "autometa-data-prism",
+      "alien-star-chart-membrane",
+      "deepsea-lanternfish-cage"
+    ]
+  },
+  "proposal": {
+    "status": "awaiting-user-approval",
+    "file": "new56-pilot-proposal.json",
+    "sha256": "ec70ac9f55770ff3866b54cb55131f5703058faafbc921970cb7519c4924b0a1",
+    "scope": "only proposed experimental8 specs; no release balance or optional effects approval"
+  },
+  "documentBrowser": "new56-review-verification.json:8 rows/8 images loaded, pending status; main HTML links proposal and corrected merchant status observed",
+  "preserved": [
+    "No apps/comic source/test/art/config files changed in this checkpoint",
+    "Root legacy/unrelated dirty changes not staged",
+    "No pixel baseline re-recording or image generation",
+    "Relations remain proposals; runtime new bindings remain0"
+  ],
+  "limits": [
+    "Compiled catalog membership is not full spawn/effect/lifecycle proof",
+    "New56 pilot values and strategy structure both await user decisions",
+    "Current Atlas remains root baseline + scoped Comic evidence, not full active-Comic extraction",
+    "No full-game simulation/balance claim from this audit"
+  ]
+}

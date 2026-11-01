@@ -124,3 +124,6 @@ S06/item-sale v02: ผู้ใช้ขอcomicขึ้น ทำภาพedit
 ### S11/G01–G04 runtime handoff (2026-10-30)
 
 One GhostWorld composite uses inventory-frame geometry and existing controls. Tracking, pending offers, active RPS search, three-lost and insufficient-funds states are registered with actual captures C34–C38. No page scrolling; one job/provider per shared pager. Backend workflow evidence is separate from preview images. See implementations/ghost-delivery-progress.md and ../ui-system/ghost-functional-verification.json. Historical concepts remain drafts rather than automatically approved baselines.
+
+
+2026-11-02 A02 targets/history now use bounded shared ComicMenu from the HUD handshake, not permanent expanding theft-table. Actual public DTO fixture captures and source hashes: ../ui-system/theft-desk-verification.json. Active duel/utility navigation unchanged; no new phase/dock entry or human baseline approval.

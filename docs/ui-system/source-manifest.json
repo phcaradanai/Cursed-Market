@@ -13,7 +13,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/App.tsx",
-      "sha256": "8c588a8351e621e636c67bb9104bf281e704317907ef8c25848f4ec6404e5f18"
+      "sha256": "a922078c03d2ba41fde95f0776bc47fd08f3f6f6f9802120002775a7a9d91696"
     },
     {
       "file": "apps/comic/src/appraisal-client/BloodPactEvent.tsx",
@@ -93,7 +93,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/SecureEconomy.tsx",
-      "sha256": "8c11566780b24c723ef6d2e8b783ff8d0d9d7b949212c6bfb8306bf9189cbaaf"
+      "sha256": "cf7323f59d79043ae49b35a9fcfdeb9e588383ce55575270d99a5a0ba9648ced"
     },
     {
       "file": "apps/comic/src/appraisal-client/SinnerSeals.tsx",
@@ -853,7 +853,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/theft-concept.css",
-      "sha256": "4b7db5b882ab943b89090e2a824610e511d8de2aa00dcc6f0019449ba771f347"
+      "sha256": "aece1425ff53da35a5217f081a68f58c3a98b92bb6762e25188c7d76b63115d3"
     },
     {
       "file": "apps/comic/src/appraisal-client/trade-concept.css",
@@ -873,7 +873,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/validation/pilot-item-fixture.tsx",
-      "sha256": "547f2588701e9906d9b78be1f60ba64f31b1ec73c362092de3bdc8d0c8c890d4"
+      "sha256": "8669d6031ca964265e7b79bd8fd6fa1930776f45644a8b4a0a16e6d17a68b70f"
     },
     {
       "file": "apps/comic/src/appraisal-client/vault-concept.css",
@@ -1522,6 +1522,10 @@
     {
       "file": "apps/comic/tests/support/appraisal-fixture.ts",
       "sha256": "4e68c7aa8ef3475d366fffe0fefdb452002c302cb40a69ba7f9ac2307b429054"
+    },
+    {
+      "file": "apps/comic/tests/theft-desk.test.ts",
+      "sha256": "920c32f7ed6fb5dc58ce70d610ac3d9a5c76b87741a6391926b202da5c6e8199"
     },
     {
       "file": "apps/comic/tests/wagers.test.ts",

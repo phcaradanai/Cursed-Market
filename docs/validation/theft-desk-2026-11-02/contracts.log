@@ -1,0 +1,22 @@
+
+> cursed-market@0.1.0 ui:test
+> node --test scripts/ui/contracts.test.mjs
+
+✔ approved frame and inner symmetry contract passes (3.234416ms)
+✔ the reported unequal minus/plus gaps fail, even with centred input (1.7875ms)
+✔ asymmetric centre, hidden facts and frame drift each fail (0.833333ms)
+✔ pixel comparison detects colour change and honours declared timer masks (10.640666ms)
+✔ capture waits for repeated artwork pixels and rejects unstable raster (18.213833ms)
+✔ countdown masks scale with screenshot DPR, not CSS geometry (0.790291ms)
+✔ shared headers reject per-menu height or border drift (1.920708ms)
+✔ record cannot overwrite a human-approved baseline (35.120333ms)
+✔ failed browser invocation cannot be mistaken for an older green report (13.998167ms)
+✔ readiness allows deferred paint without retrying against the baseline (5.54025ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 315.542166

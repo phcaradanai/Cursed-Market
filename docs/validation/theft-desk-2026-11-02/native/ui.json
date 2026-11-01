@@ -1,0 +1,479 @@
+{
+  "startedAt": "2026-11-01T23:44:51.767Z",
+  "spaceId": 14,
+  "baseUrl": "http://127.0.0.1:3193",
+  "scope": "public DTO fixtures rendered by real GameTable/Inventory, not a live command test or approved baseline",
+  "checks": [
+    {
+      "kind": "orc-tusk-shield",
+      "width": 1440,
+      "height": 722,
+      "viewport": [
+        1440,
+        722
+      ],
+      "page": [
+        1440,
+        722
+      ],
+      "frame": [
+        24,
+        60,
+        1392,
+        562
+      ],
+      "images": [
+        "/art/comic/items/merchant-set-v1/orc-tusk-shield.png",
+        "/art/comic/items/merchant-set-v1/orc-tusk-shield.png"
+      ],
+      "activate": true,
+      "actions": [
+        {
+          "text": "เปิดใช้ · 1",
+          "rect": [
+            854.6640625,
+            502,
+            264.6640625,
+            46
+          ]
+        },
+        {
+          "text": "เสนอขาย",
+          "rect": [
+            1131.328125,
+            502,
+            264.6640625,
+            46
+          ]
+        },
+        {
+          "text": "รายละเอียดผลการใช้งาน›",
+          "rect": [
+            854.6640625,
+            560,
+            541.328125,
+            42
+          ]
+        }
+      ],
+      "text": "กระเป๋าของคุณปิดของที่คุณเก็บไว้ 1 ชิ้นราคาซื้อทั้งหมดของแท้คำสาปยังไม่รู้—?โล่เขี้ยวออร์ก‹1 / 1›โล่เขี้ยวออร์กราคาประเมินยังไม่ประเมินความแท้ตรวจ · 1คำสาปตรวจ · 1เปิดใช้ · 1เสนอขายรายละเอียดผลการใช้งาน›",
+      "capture": "orc-tusk-shield-1440.png"
+    },
+    {
+      "kind": "vampire-nocturne-signet",
+      "width": 1440,
+      "height": 722,
+      "viewport": [
+        1440,
+        722
+      ],
+      "page": [
+        1440,
+        722
+      ],
+      "frame": [
+        24,
+        60,
+        1392,
+        562
+      ],
+      "images": [
+        "/art/comic/items/merchant-set-v1/vampire-nocturne-signet.png",
+        "/art/comic/items/merchant-set-v1/vampire-nocturne-signet.png"
+      ],
+      "activate": false,
+      "actions": [
+        {
+          "text": "เสนอขาย",
+          "rect": [
+            1131.328125,
+            502,
+            264.6640625,
+            46
+          ]
+        },
+        {
+          "text": "รายละเอียดผลการใช้งาน›",
+          "rect": [
+            854.6640625,
+            560,
+            541.328125,
+            42
+          ]
+        }
+      ],
+      "text": "กระเป๋าของคุณปิดของที่คุณเก็บไว้ 1 ชิ้นราคาซื้อทั้งหมดของแท้คำสาปยังไม่รู้—?แหวนตราราตรี‹1 / 1›แหวนตราราตรีราคาประเมินยังไม่ประเมินความแท้ตรวจ · 1คำสาปตรวจ · 1ถือแหวนชิ้นเดิมตั้งแต่ต้นจนจบช่วงเสนอขายรายละเอียดผลการใช้งาน›",
+      "capture": "vampire-nocturne-signet-1440.png"
+    },
+    {
+      "kind": "autometa-torque-caliper",
+      "width": 1440,
+      "height": 722,
+      "viewport": [
+        1440,
+        722
+      ],
+      "page": [
+        1440,
+        722
+      ],
+      "frame": [
+        24,
+        60,
+        1392,
+        562
+      ],
+      "images": [
+        "/art/comic/items/merchant-set-v1/autometa-torque-caliper.png",
+        "/art/comic/items/merchant-set-v1/autometa-torque-caliper.png"
+      ],
+      "activate": false,
+      "actions": [
+        {
+          "text": "เสนอขาย",
+          "rect": [
+            1131.328125,
+            495.203125,
+            264.6640625,
+            46
+          ]
+        },
+        {
+          "text": "รายละเอียดผลการใช้งาน›",
+          "rect": [
+            854.6640625,
+            560,
+            541.328125,
+            42
+          ]
+        }
+      ],
+      "text": "กระเป๋าของคุณปิดของที่คุณเก็บไว้ 1 ชิ้นราคาซื้อทั้งหมดของแท้คำสาปยังไม่รู้—?คาลิเปอร์วัดแรงบิด‹1 / 1›คาลิเปอร์วัดแรงบิดราคาประเมินยังไม่ประเมินความแท้ตรวจ · 1คำสาปตรวจ · 1ใช้ผ่านปุ่มตรวจราคาเดิม · ไม่ต้องเปิดใช้แยกเสนอขายรายละเอียดผลการใช้งาน›",
+      "capture": "autometa-torque-caliper-1440.png"
+    },
+    {
+      "kind": "alien-thought-translator",
+      "width": 1440,
+      "height": 722,
+      "viewport": [
+        1440,
+        722
+      ],
+      "page": [
+        1440,
+        722
+      ],
+      "frame": [
+        24,
+        60,
+        1392,
+        562
+      ],
+      "images": [
+        "/art/comic/items/merchant-set-v1/alien-thought-translator.png",
+        "/art/comic/items/merchant-set-v1/alien-thought-translator.png"
+      ],
+      "activate": false,
+      "actions": [
+        {
+          "text": "เสนอขาย",
+          "rect": [
+            1131.328125,
+            502,
+            264.6640625,
+            46
+          ]
+        },
+        {
+          "text": "รายละเอียดผลการใช้งาน›",
+          "rect": [
+            854.6640625,
+            560,
+            541.328125,
+            42
+          ]
+        }
+      ],
+      "text": "กระเป๋าของคุณปิดของที่คุณเก็บไว้ 1 ชิ้นราคาซื้อทั้งหมดของแท้คำสาปยังไม่รู้—?เครื่องแปลความคิด‹1 / 1›เครื่องแปลความคิดราคาประเมินยังไม่ประเมินความแท้ตรวจ · 1คำสาปตรวจ · 1ทำงานขณะถือและเป็นเจ้าของเสนอขายรายละเอียดผลการใช้งาน›",
+      "capture": "alien-thought-translator-1440.png"
+    },
+    {
+      "kind": "darkone-crossing-token",
+      "width": 1440,
+      "height": 722,
+      "viewport": [
+        1440,
+        722
+      ],
+      "page": [
+        1440,
+        722
+      ],
+      "frame": [
+        24,
+        60,
+        1392,
+        562
+      ],
+      "images": [
+        "/art/comic/items/merchant-set-v1/darkone-crossing-token.png",
+        "/art/comic/items/merchant-set-v1/darkone-crossing-token.png"
+      ],
+      "activate": false,
+      "actions": [
+        {
+          "text": "เสนอขาย",
+          "rect": [
+            1131.328125,
+            502,
+            264.6640625,
+            46
+          ]
+        },
+        {
+          "text": "รายละเอียดผลการใช้งาน›",
+          "rect": [
+            854.6640625,
+            560,
+            541.328125,
+            42
+          ]
+        }
+      ],
+      "text": "กระเป๋าของคุณปิดของที่คุณเก็บไว้ 1 ชิ้นราคาซื้อทั้งหมดของแท้คำสาปยังไม่รู้—?เหรียญผ่านแดน‹1 / 1›เหรียญผ่านแดนราคาประเมินยังไม่ประเมินความแท้ตรวจ · 1คำสาปตรวจ · 1ตอนจ่ายค่าล้างประวัติหลังจบดวลเสนอขายรายละเอียดผลการใช้งาน›",
+      "capture": "darkone-crossing-token-1440.png"
+    },
+    {
+      "kind": "deepsea-tide-compass",
+      "width": 1440,
+      "height": 722,
+      "viewport": [
+        1440,
+        722
+      ],
+      "page": [
+        1440,
+        722
+      ],
+      "frame": [
+        24,
+        60,
+        1392,
+        562
+      ],
+      "images": [
+        "/art/comic/items/merchant-set-v1/deepsea-tide-compass.png",
+        "/art/comic/items/merchant-set-v1/deepsea-tide-compass.png"
+      ],
+      "activate": false,
+      "actions": [
+        {
+          "text": "เสนอขาย",
+          "rect": [
+            1131.328125,
+            502,
+            264.6640625,
+            46
+          ]
+        },
+        {
+          "text": "รายละเอียดผลการใช้งาน›",
+          "rect": [
+            854.6640625,
+            560,
+            541.328125,
+            42
+          ]
+        }
+      ],
+      "text": "กระเป๋าของคุณปิดของที่คุณเก็บไว้ 1 ชิ้นราคาซื้อทั้งหมดของแท้คำสาปยังไม่รู้—?เข็มทิศกระแสน้ำ‹1 / 1›เข็มทิศกระแสน้ำราคาประเมินยังไม่ประเมินความแท้ตรวจ · 1คำสาปตรวจ · 1ตอนเปลี่ยนประตูที่เปิดได้เสนอขายรายละเอียดผลการใช้งาน›",
+      "capture": "deepsea-tide-compass-1440.png"
+    },
+    {
+      "kind": "swarm-brood-hammer",
+      "width": 1440,
+      "height": 722,
+      "viewport": [
+        1440,
+        722
+      ],
+      "page": [
+        1440,
+        722
+      ],
+      "frame": [
+        24,
+        60,
+        1392,
+        562
+      ],
+      "images": [
+        "/art/comic/items/merchant-set-v1/swarm-brood-hammer.png",
+        "/art/comic/items/merchant-set-v1/swarm-brood-hammer.png"
+      ],
+      "activate": false,
+      "actions": [
+        {
+          "text": "เสนอขาย",
+          "rect": [
+            1131.328125,
+            502,
+            264.6640625,
+            46
+          ]
+        },
+        {
+          "text": "รายละเอียดผลการใช้งาน›",
+          "rect": [
+            854.6640625,
+            560,
+            541.328125,
+            42
+          ]
+        }
+      ],
+      "text": "กระเป๋าของคุณปิดของที่คุณเก็บไว้ 1 ชิ้นราคาซื้อทั้งหมดของแท้คำสาปยังไม่รู้—?ค้อนรัง‹1 / 1›ค้อนรังราคาประเมินยังไม่ประเมินความแท้ตรวจ · 1คำสาปตรวจ · 1ตอนจ่ายเพิ่มช่องคลังเสนอขายรายละเอียดผลการใช้งาน›",
+      "capture": "swarm-brood-hammer-1440.png"
+    },
+    {
+      "kind": "beast-riftfang-sword",
+      "width": 1440,
+      "height": 722,
+      "viewport": [
+        1440,
+        722
+      ],
+      "page": [
+        1440,
+        722
+      ],
+      "frame": [
+        24,
+        60,
+        1392,
+        562
+      ],
+      "images": [
+        "/art/comic/items/merchant-set-v1/beast-riftfang-sword.png",
+        "/art/comic/items/merchant-set-v1/beast-riftfang-sword.png"
+      ],
+      "activate": false,
+      "actions": [
+        {
+          "text": "เสนอขาย",
+          "rect": [
+            1131.328125,
+            502,
+            264.6640625,
+            46
+          ]
+        },
+        {
+          "text": "รายละเอียดผลการใช้งาน›",
+          "rect": [
+            854.6640625,
+            560,
+            541.328125,
+            42
+          ]
+        }
+      ],
+      "text": "กระเป๋าของคุณปิดของที่คุณเก็บไว้ 1 ชิ้นราคาซื้อทั้งหมดของแท้คำสาปยังไม่รู้—?ดาบเขี้ยวรอยแยก‹1 / 1›ดาบเขี้ยวรอยแยกราคาประเมินยังไม่ประเมินความแท้ตรวจ · 1คำสาปตรวจ · 1ประกาศเมื่อเข้าดวล · มีสิทธิ์ต่อชิ้นต่อช่วงเสนอขายรายละเอียดผลการใช้งาน›",
+      "capture": "beast-riftfang-sword-1440.png"
+    },
+    {
+      "kind": "autometa-torque-caliper",
+      "width": 1024,
+      "height": 800,
+      "viewport": [
+        1024,
+        800
+      ],
+      "page": [
+        1024,
+        800
+      ],
+      "frame": [
+        24,
+        60,
+        976,
+        640
+      ],
+      "images": [
+        "/art/comic/items/merchant-set-v1/autometa-torque-caliper.png",
+        "/art/comic/items/merchant-set-v1/autometa-torque-caliper.png"
+      ],
+      "activate": false,
+      "actions": [
+        {
+          "text": "เสนอขาย",
+          "rect": [
+            801.9921875,
+            573.203125,
+            178,
+            46
+          ]
+        },
+        {
+          "text": "รายละเอียดผลการใช้งาน›",
+          "rect": [
+            611.9921875,
+            638,
+            368,
+            42
+          ]
+        }
+      ],
+      "text": "กระเป๋าของคุณปิดของที่คุณเก็บไว้ 1 ชิ้นราคาซื้อทั้งหมดของแท้คำสาปยังไม่รู้—?คาลิเปอร์วัดแรงบิด‹1 / 1›คาลิเปอร์วัดแรงบิดราคาประเมินยังไม่ประเมินความแท้ตรวจ · 1คำสาปตรวจ · 1ใช้ผ่านปุ่มตรวจราคาเดิม · ไม่ต้องเปิดใช้แยกเสนอขายรายละเอียดผลการใช้งาน›",
+      "capture": "autometa-torque-caliper-1024.png"
+    },
+    {
+      "kind": "autometa-torque-caliper",
+      "width": 1920,
+      "height": 800,
+      "viewport": [
+        1920,
+        800
+      ],
+      "page": [
+        1920,
+        800
+      ],
+      "frame": [
+        220,
+        60,
+        1480,
+        640
+      ],
+      "images": [
+        "/art/comic/items/merchant-set-v1/autometa-torque-caliper.png",
+        "/art/comic/items/merchant-set-v1/autometa-torque-caliper.png"
+      ],
+      "activate": false,
+      "actions": [
+        {
+          "text": "เสนอขาย",
+          "rect": [
+            1397,
+            580,
+            283,
+            46
+          ]
+        },
+        {
+          "text": "รายละเอียดผลการใช้งาน›",
+          "rect": [
+            1102,
+            638,
+            578,
+            42
+          ]
+        }
+      ],
+      "text": "กระเป๋าของคุณปิดของที่คุณเก็บไว้ 1 ชิ้นราคาซื้อทั้งหมดของแท้คำสาปยังไม่รู้—?คาลิเปอร์วัดแรงบิด‹1 / 1›คาลิเปอร์วัดแรงบิดราคาประเมินยังไม่ประเมินความแท้ตรวจ · 1คำสาปตรวจ · 1ใช้ผ่านปุ่มตรวจราคาเดิม · ไม่ต้องเปิดใช้แยกเสนอขายรายละเอียดผลการใช้งาน›",
+      "capture": "autometa-torque-caliper-1920.png"
+    }
+  ],
+  "finishedAt": "2026-11-01T23:45:18.896Z",
+  "passed": true
+}

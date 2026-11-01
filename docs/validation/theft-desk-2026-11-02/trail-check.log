@@ -1,0 +1,93 @@
+⚠ the diff is over 400 KB; only the first 400 KB is checked
+checking 500 changed files against 114 learnings and 0 skills
+
+✗ .impeccable/design.json:6
+  brings back inset cabinet tab, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 24: A tall inset cabinet with small merchant and
+  neutral tabs failed the first independent finish review.
+✗ .impeccable/design.json:6
+  brings back system cost claim, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 28: Red life loss from a blood contract is a
+  contextual system cost, not a claim that owning the connected wine
+  item causes damage; E58 reduces that existing cost.
+✗ .impeccable/design.json:7
+  brings back src appraisal client, which Phcaradanai's learning ruled out
+  Phcaradanai · Nov 1: Vite root serves validation fixtures at
+  /validation/, not /src/appraisal-client/validation/.
+✗ .impeccable/design.json:9
+  brings back source art exact, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 28: Source catalog is art-only and exact new IDs
+  were absent in inspected build runtime .ts/.tsx/.js, so observed
+  dedicated runtime bindings for new products remain zero.
+✗ .impeccable/design.json:9
+  brings back source item leave, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 22: Do not remove activated benefits when the
+  consumed source item leaves inventory.
+✗ .impeccable/design.json:9
+  brings back source target gate, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 31: Source refs are static possibilities, not
+  execution/frequency proof. legacyTargetGates still covers
+  kindOwned/ownKind calls only, not all predicates.
+✗ .impeccable/design.json:13
+  brings back actual game browser, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 30: Actual GameTable synthetic DTO browser test
+  verifies tossing is visible before S09 and S09 appears afterward.
+✗ .impeccable/design.json:13
+  brings back browser current game, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 23: The earlier E01/E08/E10-only fix and its browser
+  checks missed the events used by the current Survival game.
+✗ .impeccable/design.json:13
+  brings back modal outside game, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 29: EventModal is a sibling outside .screen in comic
+  GameTable.
+✗ .impeccable/design.json:17
+  brings back outside min width, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 29: Move decoration outside and set min-width:0.
+✗ .impeccable/design.json:17
+  brings back width capture, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 29: Same-width DPR2 captures matched, but full
+  cross-width comparison still drifted (10/14 pass) and double loads
+  did not fix it.
+✗ .impeccable/design.json:21
+  brings back item json rule, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 31: Numeric8-item pilot JSON/HTML is a reviewable
+  candidate awaiting user approval, not authorized runtime rules or
+  balanced release.
+✗ .impeccable/design.json:21
+  brings back exist item art, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 29: Do not treat existing chrome reference's old
+  item art as new56 runtime catalog.
+✗ .impeccable/design.json:27
+  brings back exist art font, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 24: Reuse existing art and fonts for structure
+  studies rather than generating a new visual identity.
+✗ .impeccable/design.json:30
+  brings back pend reconnect path, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 22: Do not allow rerolling pending Beast/Alien
+  choices by reconnecting, duplicating copies, laundering copy value
+  via unconditional swaps, or applying full-strength copy effects
+  through event/special-tool paths.
+✗ .impeccable/design.json:43
+  brings back control setting state, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 26: Do not add invented volume/graphics controls or
+  new settings state.
+✗ .impeccable/design.json:57
+  brings back exist animation, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 30: Reuse existing coin animation; no new image
+  generation.
+✗ .impeccable/design.json:74
+  brings back actual test real, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 31: Actual command test must resolve the real
+  merchant-entry event; no event-free appraisal state exists by merely
+  disabling npcEvents.
+✗ .impeccable/hook.cache.json:1
+  brings back html user rule, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 31: Numeric8-item pilot JSON/HTML is a reviewable
+  candidate awaiting user approval, not authorized runtime rules or
+  balanced release.
+✗ .impeccable/hook.cache.json:1
+  brings back cabinet note test, which Phcaradanai's learning ruled out
+  Phcaradanai · Oct 31: Old cabinet exit label and details.notes tests
+  fail identically on parent a2102fb; no product regression claim.
+
+· 20 conflicts · fix them, or say why in the commit message or PR description

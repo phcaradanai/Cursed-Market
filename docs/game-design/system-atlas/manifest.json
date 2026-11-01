@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "asOf": "2026-11-01",
-  "revision": "f351be5caa898016b91d47ee8893d3351fc7d08c",
+  "asOf": "2026-11-02",
+  "revision": "707da16cc67217f54b5eddddea73e23e7c2cd711",
   "inputs": {
     "apps/comic/src/game/appraisal/ability-content.ts": "ff33530545a771c4e686640f2fca5db996ef3612f9602da6ddbf68c12377127e",
     "apps/comic/src/game/appraisal/ability-rules.ts": "3e9f33f54b34c91fb26f6d0926f9df83e646dc3623a7c8bbf3beed5cedbc9139",
@@ -120,21 +120,25 @@
     "docs/game-design/concepts/S10-waiting-v01.png": "de560f8bda104459d5ab4c753ec18d88f10b8b2823ca462b5315a3765a38016b",
     "docs/game-design/concepts/S11-death-v02.png": "71dabbe08860067f252885a5699e86881b76135b9691a0a33b180587b19c2252",
     "docs/game-design/concepts/S11-death-v01.png": "d6d89e6c43637a2aa73cc93f04728e38ea39ed2b6b1dce2888ba995b6f2e2456",
-    "docs/game-design/new56-pilot-verification.json": "2cca56c1e0664fe8b572ec18c63fcae922e256af7559c077f21a50959f8925f3",
+    "docs/ui-system/theft-desk-verification.json": "d1a9a08b17f1afd22166d96e3e159f3c4392ead74b97930c00b326eebbe135e7",
+    "docs/game-design/implementations/theft-desk-plan.md": "e66a785f2f5fda5beb6537b9c052e57403072971f024ac29c8232baeae8def5c",
+    "apps/comic/src/appraisal-client/SecureEconomy.tsx": "cf7323f59d79043ae49b35a9fcfdeb9e588383ce55575270d99a5a0ba9648ced",
+    "apps/comic/src/appraisal-client/theft-concept.css": "aece1425ff53da35a5217f081a68f58c3a98b92bb6762e25188c7d76b63115d3",
+    "docs/game-design/new56-pilot-verification.json": "841a5443e8c1a8d43ac6e884f01488d7bbb001c09eea192e559e2ebf23ed3c23",
     "docs/game-design/new56-pilot-approval.json": "cdcf630f60c8ed07db87008cd7c845575b3d304bdd0c7167abbf899a5e3b5d65",
     "docs/game-design/legacy-atlas-baseline.json": "1e00021f34041d15a12d397b4af96dbe22673bf3c1fc1f73a7448e44bb3453ec",
     "docs/game-design/new56-readiness.json": "0f1eebd4d852afcd9ace0f4320f403847a193bd6b01837373b456308b754591b",
     "docs/game-design/new56-pilot-proposal.json": "6881755d843c45dd294fd629802321601fd3c596dc5d7bb771d9230a6ce406c5",
     "docs/game-design/new56-pilot-proposal.html": "ad92e41944e7e0fab59efe792985f2fa98ae0b4ca38029340d0ef53034db610d",
     "docs/game-design/scripts/audit-new56.mjs": "c69f651bf543aea6b2a2203df536e651bc4f01e9a94091e6501a5a2d9e00b34a",
-    "apps/comic/src/appraisal-client/App.tsx": "8c588a8351e621e636c67bb9104bf281e704317907ef8c25848f4ec6404e5f18",
+    "apps/comic/src/appraisal-client/App.tsx": "a922078c03d2ba41fde95f0776bc47fd08f3f6f6f9802120002775a7a9d91696",
     "apps/comic/src/appraisal-client/merchant-reactions.ts": "a0dd1c61ebc4b8d8a63fbe316070fe6b0da639581bf9f91f54e1d045dc0dd8a2",
-    "docs/game-design/game-status.json": "ac8f0ca5e0660d764a175e82f5b8896f465465067388062f9d0fe9226960964f",
-    "docs/game-design/PROJECT-CONTEXT.md": "87589f419273006087531b31adf1b710ad4c59a9765b00e58daeb1ad81ad76b7",
-    "docs/game-design/development-roadmap.md": "04d26ba07ef122d52978e35e64ab1375ea4b4c99089a627d3e50fee9cdd00002",
+    "docs/game-design/game-status.json": "3d14f2d840bd71dcb46b4de1bec04c8cca7449fe86f439d2d30fa4f73591d484",
+    "docs/game-design/PROJECT-CONTEXT.md": "c8e2155bf7cb00db4e0bb664f0a2a061750fe0f6c6a5ccf7a537308f569c5d29",
+    "docs/game-design/development-roadmap.md": "afc03fcd4d4fa1da3c30e3236da41bc65ca0ed7195b282d351005323f367035e",
     "docs/game-design/current-captures.json": "bf6263c98d05525996a91d4ce7e9c7901770e161c443830e2d1b99a0e2f26685",
     "docs/game-design/scripts/current-capture-render.mjs": "a467b4cf446c7b05b3e581162bf03a153b6f5f2dc617411812d7b213e77135e7",
-    "docs/game-design/screen-flow.json": "d835cfa46af9d837ff5b5c36e07c0d9e99d3c96e4fa16389b289aeabe7bb3e5b",
+    "docs/game-design/screen-flow.json": "08d79af16df63f9b6471d97f9ce6f6a35889fc34987b52feacd21947ab0737da",
     "docs/game-design/scripts/screen-flow-render.mjs": "cfcee395152816e83b753af8f0b9e06a1fd012713d0d51e0cfd843fef0b768c8",
     "docs/game-design/logic-item-relations.json": "983d130078b1b6f6f1569dd05f295190a73523c1abaa0aa59bc29e0a6693b801",
     "docs/game-design/logic-item-graph.json": "84016a430feb3ff4c34a268cb3caa37eaceeacfeb582c1a8dd552e5d4aeaa030",
@@ -144,12 +148,12 @@
     "docs/game-design/scripts/system-atlas-view.js": "041d3fb5f7bc85a19e56193b31243e071bf3d3909e279ff955adbc2f43c348e4",
     "docs/game-design/scripts/system-atlas-view.css": "ca47fb89530d6902468e68bafab7754e3f430fca07c4bbd38520d91d94759992",
     "docs/game-design/scripts/system-atlas-view.html": "78b7c2e0739761fe5e82d155c8ea58f0260df5b571ce68098b588dfc19f64d9d",
-    "docs/game-design/scripts/build-system-atlas.mjs": "3858b827fca307e69503667c487b2ee422aa8d68fc0056f5cc80b96b18964d3c"
+    "docs/game-design/scripts/build-system-atlas.mjs": "adf4d421fbb92f47b9e6c85edde6ed53ed68417b2258205ee4a160348ff716a0"
   },
   "outputs": [
     {
       "file": "docs/game-design/system-atlas/README.md",
-      "sha256": "49a8e9e4de48edbf2506260194560f8620cd258f59ee95c5a84560db15e94e38"
+      "sha256": "0d4d7e9d2e58eba6148b678190defe9bbee31fd06c35e338fd04fb506001e69a"
     },
     {
       "file": "docs/game-design/system-atlas/actions-logs.md",
@@ -161,7 +165,7 @@
     },
     {
       "file": "docs/game-design/system-atlas/data.json",
-      "sha256": "031f6dcec82e51dea88e4dc525ea7dbba9bd6c17687afd781a346785431b04eb"
+      "sha256": "b1ae35550b3e342977b16fbeed08a37759bd5b83746872c711601105c0fde2c5"
     },
     {
       "file": "docs/game-design/system-atlas/edges.csv",
@@ -189,7 +193,7 @@
     },
     {
       "file": "docs/game-design/system-atlas/screens.json",
-      "sha256": "ca77403622666f69aee5b9bdba7b29dbc4766d50de13ed834d59f2c14ac6ecf1"
+      "sha256": "ac4e5c32defcaab50ed6141c0e41e9e313021ea4e6c6786c4832d5716bb265a9"
     },
     {
       "file": "docs/game-design/system-atlas/state-schema.md",
@@ -209,11 +213,11 @@
     },
     {
       "file": "docs/game-design/screen-flow.html",
-      "sha256": "7c19355de1f60db9542b52bf1f25c220b0cca51b1bcd97f0f8bce319edeb029c"
+      "sha256": "d5ceed069a5b86f7ca8d39a91e39c027a04a72ad8f4f5022db33fa95ebae755b"
     },
     {
       "file": "docs/game-design/logic-item-relations.html",
-      "sha256": "3d5ab515cafe094b2ec94e9e4985a7633f17e99224be95669acf508c78201aad"
+      "sha256": "9eba6d682f6cc12847d7b7859ca1aed1235ec90c1830460171eca3540b3a6b23"
     }
   ],
   "summary": {

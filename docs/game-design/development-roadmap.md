@@ -154,3 +154,6 @@ Confirmed rules are closed, including buyer death and floor/tie/end handling. S1
 
 
 2026-10-31 user approved exact pilot8 specs/experimental values; see new56-pilot-approval.json. Only STRAT-01 structure remains pending among those two questions. CTX-02 switches semantic extraction to active Comic modules/support/bot, preserving9f0a972 legacy evidence; continue actual pilot wiring next, not more approval for the same numbers.
+
+
+2026-11-02 RULE-02 remaining UX verified: shared Comic target/history menu, fixed stock/duel/round pages, public-target privacy, phase-boundary cleanup. See ../ui-system/theft-desk-verification.json.78focused/174related/socket1,3width picker+duel,4boundaries,baseline14/menu18/native10 pass. Whole-game gaps remain; no engine or default change. ITEM pilot8 runtime checkpoint707da16 supersedes earlier pending-runtime notes.

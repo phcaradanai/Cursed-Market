@@ -1,0 +1,12 @@
+[ego-browser:notice] Ego Lite update is available (current 0.6.1.13). Finish the current browser task, then ask the user before running `ego-browser upgrade`; re-read the ego-browser Skill afterward.
+1920 mounted
+1920 target geometry/tooltip/page PASS
+1920 bounded history PASS
+1920 menu [data-drawer="bag"] PASS
+1920 menu [data-drawer="effects"] PASS
+1920 menu [data-drawer="market"] PASS
+1920 menu [data-drawer="ledger"] PASS
+1920 menu [data-drawer="rules"] PASS
+1920 menu .hud-settings PASS
+1920 targets/history/navigation PASS
+{ passed: true }

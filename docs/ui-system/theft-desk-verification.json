@@ -1,0 +1,66 @@
+{
+  "asOf": "2026-11-02",
+  "scope": "Approved forced theft target/history Comic reconciliation; UI/navigation only, no engine/default/rule change. Whole-game goal remains active. New captures are evidence, not human baseline approval.",
+  "sourceFingerprints": {
+    "apps/comic/src/appraisal-client/App.tsx": "a922078c03d2ba41fde95f0776bc47fd08f3f6f6f9802120002775a7a9d91696",
+    "apps/comic/src/appraisal-client/SecureEconomy.tsx": "cf7323f59d79043ae49b35a9fcfdeb9e588383ce55575270d99a5a0ba9648ced",
+    "apps/comic/src/appraisal-client/theft-concept.css": "aece1425ff53da35a5217f081a68f58c3a98b92bb6762e25188c7d76b63115d3",
+    "apps/comic/src/appraisal-client/validation/pilot-item-fixture.tsx": "8669d6031ca964265e7b79bd8fd6fa1930776f45644a8b4a0a16e6d17a68b70f",
+    "apps/comic/tests/theft-desk.test.ts": "920c32f7ed6fb5dc58ce70d610ac3d9a5c76b87741a6391926b202da5c6e8199",
+    "scripts/ui/theft-desk-smoke.mjs": "45d6a72547e6ce6d6a899df87817c7f98444bddd12701aaef1c1c1879c12d6f8",
+    "scripts/ui/theft-boundary-smoke.mjs": "89db03f05672cc641d46ea55d1e6b7a9f7986011bcc09a70e456a4f101019bad",
+    "scripts/ui/forced-rps-smoke.mjs": "90c2c449f24dc195a471e4111d95a696e2e2c2e6cf2e8426ae4d610e6854bad3"
+  },
+  "checks": {
+    "serverBuild": "PASS",
+    "clientBuild": "PASS; existing chunk-size advisory",
+    "functional": "78/78 PASS (includes29 native pilot cases), functional.log",
+    "relatedRegression": "174/174 PASS; simulation/long-run/1000-name cases excluded;45.3s bounded run, regression.log",
+    "network": "1/1 PASS real forced-RPS sockets/reconnect/idempotency; unchanged engine, network.log",
+    "contracts": "10/10 PASS",
+    "targetHistory": "3/3 widths1024/1440/1920; current source hashes, ui.json",
+    "phaseBoundary": "4/4 mounted public-DTO transitions; no engine actions, boundary.json",
+    "forcedDuel": "3/3 widths incl keyboard/utilities, forced-ui.json",
+    "baseline": "14/14 PASS unchanged approved references; compare + fresh exit0 invocation",
+    "menus": "18/18 PASS; menu-smoke + fresh exit0 invocation",
+    "nativeCompatibility": "10/10 GameTable/Inventory public DTO states, native/ui.json; prior707da16 network/paired-survival evidence retained separately",
+    "sourceCheck": "386 fingerprints/shared frame/14 baseline hashes/dependency parity PASS",
+    "atlas": "146 inputs; generated HTML/flow/Atlas freshness and namespace/source guards PASS",
+    "new56Audit": "56 unique hashed PNGs,8x7,type<=4;8 runtime new IDs; unchanged proposals"
+  },
+  "captureFingerprints": {
+    "docs/validation/theft-desk-2026-11-02/crime-1440.png": "b2a5321a35bc420cec51386df19acd276a38d48590c952ca5459e017b02c8b7c",
+    "docs/validation/theft-desk-2026-11-02/forced/theft-1024x800.png": "a0972fb1ff55523120ebdd697149a003f8589cac0e6c49d588172d53bf3afc10",
+    "docs/validation/theft-desk-2026-11-02/forced/theft-1440x722.png": "e62859b1cf66d2410686816b5451b38ac33a8cdb30ad8c273d57e70ab3c4ec6d",
+    "docs/validation/theft-desk-2026-11-02/forced/theft-1920x800.png": "f36f7e7023b5bf9d0b58b04346f9f23f098477c1691424f1daa6d6b288343bca",
+    "docs/validation/theft-desk-2026-11-02/history-1024.png": "1d4c223c005b07fb2b904c21a9b97c6a6317f6a27fa159556ca1591976f4a2db",
+    "docs/validation/theft-desk-2026-11-02/history-1440.png": "ab98c74eaa8ae2f296c2947e12d71798ff7e6213b3d2614190cfa5ad9da7f52f",
+    "docs/validation/theft-desk-2026-11-02/history-1920.png": "a442400e49beee37b3f9e5dbc935d4a4578307771c115a7262b84cc763d7e6ce",
+    "docs/validation/theft-desk-2026-11-02/native/alien-thought-translator-1440.png": "fb414cdb3391b498a42c286c753025bca483869b6173a3cea68513b793b57ac3",
+    "docs/validation/theft-desk-2026-11-02/native/autometa-torque-caliper-1024.png": "56af84a069b2898c830057b94839c382c4432961fba3c2de5dc5638354dc1f42",
+    "docs/validation/theft-desk-2026-11-02/native/autometa-torque-caliper-1440.png": "7d0b5b0cbd6c29a4fe8010f755003fee51af172c6354f5392bdfe53ad4d0ba34",
+    "docs/validation/theft-desk-2026-11-02/native/autometa-torque-caliper-1920.png": "f2539d237533b4909bf913410b72c3cf484bc72f484d0141e9006e1b94726d08",
+    "docs/validation/theft-desk-2026-11-02/native/beast-riftfang-sword-1440.png": "33ebb82181676ae72c03bf067a63e4b9e12a2ecb06d7b756c8cb19e3e099af22",
+    "docs/validation/theft-desk-2026-11-02/native/darkone-crossing-token-1440.png": "3ca5591d6fcc23039f1584729ea1207040d1675431a6f7c1b1d33bac7f6d9ee9",
+    "docs/validation/theft-desk-2026-11-02/native/deepsea-tide-compass-1440.png": "e8c9c2e009b8e3fed8f332c0f4c1217ac57bf8ab494e63ee3801aafb97b83e72",
+    "docs/validation/theft-desk-2026-11-02/native/orc-tusk-shield-1440.png": "689e438c2a948861380395dfa0377bf58bb9d0665477a60e21c6da34b43cdaf9",
+    "docs/validation/theft-desk-2026-11-02/native/swarm-brood-hammer-1440.png": "c8f9a1184ce8df6d4b25de3295e5f777e618164ebd531a65ee6d26c4aeb981da",
+    "docs/validation/theft-desk-2026-11-02/native/vampire-nocturne-signet-1440.png": "dc86062cb22cc0a87d094f772aa977e9aa056f5a92dc416386f5bbfcaf6d0df1",
+    "docs/validation/theft-desk-2026-11-02/targets-1024.png": "44a6641509fdedfdaa5bd10949e8ab926334be433c0cba6e5643e8242a08a94b",
+    "docs/validation/theft-desk-2026-11-02/targets-1440.png": "7cc1a2b6c8e139ae9588f05b36aff966320ffe59a4eab24681922b8b1afbb032",
+    "docs/validation/theft-desk-2026-11-02/targets-1920.png": "a2a6985806cf0816378b45768f3572602a083369608a56be5bb1f7c45a02cb1f"
+  },
+  "evidenceDir": "docs/validation/theft-desk-2026-11-02",
+  "environment": [
+    "Earlier multi-size CDP Input.dispatchMouseEvent timeouts were inspected in the same page before retry. Fresh single-size checks passed.",
+    "Default sandbox Ego bootstrap failed twice; existing space14 was present. Authorized escalated continuation passed. No alternate browser or upgrade.",
+    "One wrapper read returned.passed from void forced runner after all3 checks; corrected caller, fresh complete run exit0.",
+    "Historical pilot fixture import evidence remains preserved in707da16; this follow-up does not claim new backend balance coverage."
+  ],
+  "knownLimits": [
+    "No full CPU-bound simulation, mobile or release balance verification.",
+    "Only pilot8 native; remaining48, strategic decision, Collector3+2 and awards remain open.",
+    "Baseline14 omits secure theft; explicit secure/core2 fixtures cover the new desk.",
+    "Trail reports20 lexical conflicts only in unrelated excluded .impeccable design/cache changes; these files are not part of this checkpoint."
+  ]
+}

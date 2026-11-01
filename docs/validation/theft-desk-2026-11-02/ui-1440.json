@@ -1,0 +1,114 @@
+{
+  "sourceFingerprints": {
+    "apps/comic/src/appraisal-client/App.tsx": "a922078c03d2ba41fde95f0776bc47fd08f3f6f6f9802120002775a7a9d91696",
+    "apps/comic/src/appraisal-client/SecureEconomy.tsx": "cf7323f59d79043ae49b35a9fcfdeb9e588383ce55575270d99a5a0ba9648ced",
+    "apps/comic/src/appraisal-client/theft-concept.css": "aece1425ff53da35a5217f081a68f58c3a98b92bb6762e25188c7d76b63115d3",
+    "apps/comic/src/appraisal-client/validation/pilot-item-fixture.tsx": "8669d6031ca964265e7b79bd8fd6fa1930776f45644a8b4a0a16e6d17a68b70f",
+    "scripts/ui/theft-desk-smoke.mjs": "45d6a72547e6ce6d6a899df87817c7f98444bddd12701aaef1c1c1879c12d6f8"
+  },
+  "startedAt": "2026-11-01T23:35:38.447Z",
+  "spaceId": 14,
+  "baseUrl": "http://127.0.0.1:3193",
+  "scope": "public DTO fixture using actual GameTable handlers; not network settlement or baseline approval",
+  "checks": [
+    {
+      "width": 1440,
+      "height": 722,
+      "initial": {
+        "energy": "พลัง7 / 10",
+        "permanent": false,
+        "height": 562,
+        "seconds": 90
+      },
+      "metrics": {
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "header": {
+          "height": 65,
+          "border": "1px"
+        },
+        "imagesReady": true,
+        "halves": [
+          {
+            "rect": [
+              62,
+              163,
+              646,
+              421
+            ],
+            "scroll": [
+              646,
+              421
+            ]
+          },
+          {
+            "rect": [
+              732,
+              163,
+              646,
+              421
+            ],
+            "scroll": [
+              646,
+              421
+            ]
+          }
+        ],
+        "details": 0,
+        "playerImages": 0,
+        "targets": [
+          {
+            "rect": [
+              62,
+              225.5,
+              317,
+              240
+            ],
+            "disabled": false
+          },
+          {
+            "rect": [
+              391,
+              225.5,
+              317,
+              240
+            ],
+            "disabled": false
+          }
+        ],
+        "playerDisabled": [
+          false,
+          true,
+          true
+        ],
+        "actions": []
+      },
+      "history": {
+        "text": "ขโมยและผลดวลเลือกเป้าหมายปิดผู้เล่นชื่อยาวทดลองถูกขโมยของหนึ่งชิ้นตัดสินในตาที่ 12‹1 / 2›มือที่เปิดแล้วตาที่ 12ค้อน · ค้อนมือคุณ · มือคู่ดวล · ออกมือเสมอ‹12 / 12›",
+        "round": "‹12 / 12›",
+        "lists": 0
+      },
+      "merchantPage": "‹2 / 4›",
+      "afterSeconds": 71,
+      "crime": {
+        "text": "ขโมยและผลดวลเลือกเป้าหมายปิดผลดวลยังไม่มีผลดวลโทษห้ามค้าช่วง 1–3 · ใบประกาศ 24 เครดิตมือที่เปิดแล้วยังไม่มีตาที่เปิดมือ",
+        "requests": []
+      },
+      "passed": true
+    }
+  ],
+  "finishedAt": "2026-11-01T23:36:01.083Z",
+  "passed": true
+}

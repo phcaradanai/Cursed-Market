@@ -14,12 +14,12 @@
   ],
   "sourceFingerprints": {
     "apps/comic/scripts/new56-pilot-experiment.mjs": "765044c9febc45ae3e2f3c50e572304b40bd14c2bbad471deba4280a9d88123e",
-    "apps/comic/src/appraisal-client/App.tsx": "8c588a8351e621e636c67bb9104bf281e704317907ef8c25848f4ec6404e5f18",
-    "apps/comic/src/appraisal-client/SecureEconomy.tsx": "8c11566780b24c723ef6d2e8b783ff8d0d9d7b949212c6bfb8306bf9189cbaaf",
+    "apps/comic/src/appraisal-client/App.tsx": "a922078c03d2ba41fde95f0776bc47fd08f3f6f6f9802120002775a7a9d91696",
+    "apps/comic/src/appraisal-client/SecureEconomy.tsx": "cf7323f59d79043ae49b35a9fcfdeb9e588383ce55575270d99a5a0ba9648ced",
     "apps/comic/src/appraisal-client/components.tsx": "b4564c5667bdb3eaa375b2a8f87389216c67108433c2f06074910d9b75c4d362",
     "apps/comic/src/appraisal-client/lore.tsx": "189390c4d9ceb246c2f1a5aa4e4891b7a91d2023348ac49f91b8029d2f788354",
     "apps/comic/src/appraisal-client/model.ts": "1ca8356d67a69e286c161177f71ffd1738a487ec2c2e26a30fea01b54ac33b40",
-    "apps/comic/src/appraisal-client/validation/pilot-item-fixture.tsx": "547f2588701e9906d9b78be1f60ba64f31b1ec73c362092de3bdc8d0c8c890d4",
+    "apps/comic/src/appraisal-client/validation/pilot-item-fixture.tsx": "8669d6031ca964265e7b79bd8fd6fa1930776f45644a8b4a0a16e6d17a68b70f",
     "apps/comic/src/game/appraisal/content.ts": "71887f52012d6f855c1e130e0339c6785b3f91abe8f9efa5e2b8b2a181d3a20b",
     "apps/comic/src/game/appraisal/core2-actions.ts": "9b93824543a822b9f58d4b07269af6bcb780d7a1475cd5726bea1d450796fc9b",
     "apps/comic/src/game/appraisal/core2-events.ts": "bb9531af0ffe6a6ea068f049d286b2b1d0fe37deb24a44bcfe3dfa58a08424f8",
@@ -110,5 +110,25 @@
     "Initial network proof incorrectly requested private audit mid-game; production correctly denied it. Test now verifies denial then finishes the run before audit.",
     "Initial native UI fixture import used the pre-migration module URL; corrected to Vite root /validation/.",
     "Initial old-art tests expected JPEG paths and all-kind legacy status mechanics; updated to approved Comic PNG/family compatibility and separate native effect contracts."
-  ]
+  ],
+  "uiCompatibilityFollowup": {
+    "asOf": "2026-11-02",
+    "previousCheckpoint": "707da16",
+    "changedSources": {
+      "apps/comic/src/appraisal-client/App.tsx": {
+        "previous": "8c588a8351e621e636c67bb9104bf281e704317907ef8c25848f4ec6404e5f18",
+        "current": "a922078c03d2ba41fde95f0776bc47fd08f3f6f6f9802120002775a7a9d91696"
+      },
+      "apps/comic/src/appraisal-client/SecureEconomy.tsx": {
+        "previous": "8c11566780b24c723ef6d2e8b783ff8d0d9d7b949212c6bfb8306bf9189cbaaf",
+        "current": "cf7323f59d79043ae49b35a9fcfdeb9e588383ce55575270d99a5a0ba9648ced"
+      },
+      "apps/comic/src/appraisal-client/validation/pilot-item-fixture.tsx": {
+        "previous": "547f2588701e9906d9b78be1f60ba64f31b1ec73c362092de3bdc8d0c8c890d4",
+        "current": "8669d6031ca964265e7b79bd8fd6fa1930776f45644a8b4a0a16e6d17a68b70f"
+      }
+    },
+    "verification": "docs/ui-system/theft-desk-verification.json",
+    "scope": "UI navigation/fixture only; gameplay source hashes unchanged;29 native cases rerun inside78, related174, native10/baseline14/menu18 freshly pass. Original backend/network/paired evidence retains original date and scope."
+  }
 }

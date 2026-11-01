@@ -30,3 +30,8 @@ Implement approved2026-10-29 idle/smile/angry behavior through merchant-reaction
 ## 2026-11-01 — approved pilot8 integration, no new visual identity
 
 Use native new56 IDs/own merchant-palette PNGs in experimental catalog4 for the eight explicitly approved items. Seven non-activatable tools use existing supporting text in the existing inventory action area; no forged generic activation is allowed. Quotes/available price-check rights come from the server DTO. Sword edge is separately declared without revealing private guards. Inventory/GameTable/Comic controls, HUD/dock, spacing and all14 approved references remain unchanged.10 new fixture captures are evidence, not human baseline approval. Default3/full56 migration remains deferred pending completion/verification. See ../game-design/new56-pilot-verification.json.
+
+
+## 2026-11-02 — finish approved forced-theft navigation
+
+The existing approved RPS reconciliation extends to target selection and closed results. Reuse ComicMenu/ComicButton/CompactPager/Peek and inventory bounds; two equal tracks, fixed pagination, no expanding details. The phase-title handshake action opens a read-only internal drawer, not a seventh bottom-dock menu. Merchant choices submit exact visible item IDs; player choices use public player IDs only. Never reveal concealed goods or submitted hands. Active forced duel remains non-dismissible; utilities preserve round/deadline. When the drawer becomes unavailable on a phase/result transition, clear that navigation state so the main pane does not remain inert. Existing core2 gates, pending choices and server validation remain authoritative. No engine/rule/default/baseline changes. See theft-desk verification for current evidence.

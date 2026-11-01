@@ -1,5 +1,5 @@
-import {ComicButton,ComicPhaseFrame,CompactPager} from './ComicUI.js';
-import {HandshakeIcon,MinusIcon,PlusIcon} from './icons.js';
+import {ComicButton,ComicPhaseFrame,ComicMenu,CompactPager} from './ComicUI.js';
+import {HandshakeIcon,MinusIcon,PlusIcon,EnergyIcon} from './icons.js';
 import {Peek} from './lore.js';
 import {itemName} from './catalog-text.js';
 import { ItemVisual } from './ItemVisual.js';
@@ -69,44 +69,36 @@ function ActiveTheftDuel({game,submit,disabled,playerNames={},duel,deadline,serv
   </ComicPhaseFrame>;
 }
 
-export function TheftPanel({game,submit,disabled,playerNames={},deadlines={},serverTime=Date.now()}:Props & {deadlines?:Record<string,number>|undefined;serverTime?:number}) {
+export function TheftPanel({game,submit,disabled,playerNames={},deadlines={},serverTime=Date.now(),deskOpen=false,onDeskClose=()=>{},suspended=false}:Props & {deadlines?:Record<string,number>|undefined;serverTime?:number;deskOpen?:boolean;onDeskClose?:()=>void;suspended?:boolean}) {
+  const [page,setPage]=useState<'targets'|'history'>('targets'),[stockPage,setStockPage]=useState(0),[duelPage,setDuelPage]=useState(0),[roundPage,setRoundPage]=useState<number|null>(null);
   if(!game.secureEconomy || !game.theft || !['APPRAISAL','TRADE'].includes(game.phase) || !alive(game))return null;
-  const theft=game.theft,p=game.self,name=(id:string)=>playerNames[id]??id;
-  const open=theft.duels.some(duel=>duel.status==='open');
-  const spent=!!p.stealTried?.length;
-  const attackingBlocked=disabled || !!p.paused || p.done || !!p.eventOffer || spent || open || p.energy<1;
-  const crime=theft.crime;
-  const active=theft.duels.find(duel=>duel.status==='open');
-  if(active)return <ActiveTheftDuel key={active.id} game={game} submit={submit} disabled={disabled} playerNames={playerNames} duel={active} deadline={deadlines[active.id]} serverTime={serverTime}/>;
-  return <section className="secure-economy theft-table" aria-label={pick('เป่ายิ้งฉุบขโมยของ','Theft duel')}>
-    <h2>{pick('เดิมพันด้วยมือเดียว','One hand, one heist')}</h2>
-    <p className="supporting">{pick('ขโมยได้ครั้งเดียวต่อช่วง · ใช้ 1 พลัง · เสมอเลือกมือใหม่โดยไม่เสียพลังเพิ่ม','One theft per encounter · 1 energy · Draws cost no extra energy')}</p>
-    {crime && <p className={crime.active?'danger-text':'supporting'}>{crime.active?pick(`ถูกห้ามค้ากับพ่อค้าทั้งหมดถึงจบช่วง ${crime.banUntilEncounter}`,`All merchant trade is banned through encounter ${crime.banUntilEncounter}`):game.encounter<crime.banStartsEncounter?pick(`โทษห้ามค้าช่วง ${crime.banStartsEncounter}–${crime.banUntilEncounter}`,`Merchant ban: encounters ${crime.banStartsEncounter}–${crime.banUntilEncounter}`):pick('ยังมีประวัติคดี ซื้อใบประกาศที่โต๊ะการเงินเพื่อล้างประวัติ','A criminal record remains. Clear it at the finance desk.')}</p>}
-    {theft.duels.map(duel=>{
-      const ownTheft=duel.thiefId===p.id;
-      const opponent=ownTheft?(duel.victimId?name(duel.victimId):duel.npc?npcName(duel.npc):pick('พ่อค้า','Merchant')):name(duel.thiefId);
-      const result=duel.status==='cancelled'?pick('ยกเลิก: เป้าหมายไม่พร้อมแล้ว','Cancelled: target is no longer available'):duel.status==='open'?pick('กำลังดวล','Duel in progress'):(duel.status==='won')===ownTheft?pick(ownTheft?'ขโมยสำเร็จ':'ป้องกันสำเร็จ',ownTheft?'Theft succeeded':'Defense succeeded'):pick(ownTheft?'ขโมยไม่สำเร็จ':'ถูกขโมยของหนึ่งชิ้น',ownTheft?'Theft failed':'One carried item was stolen');
-      return <article className="secure-duel" key={duel.id} aria-label={pick(`ดวลกับ ${opponent}`,`Duel with ${opponent}`)}>
-        <h3>{ownTheft?pick('ฉกของจาก ','Steal from '):pick('ป้องกันของจาก ','Defend against ')}{opponent}</h3>
-        <p role="status">{result} · {pick(`ตาที่ ${duel.round}`,`Round ${duel.round}`)}</p>
-        {duel.npcTell && <p className="supporting">{pick(duel.npcTell.text,`Merchant tell: favors ${handName(duel.npcTell.preferredHand).toLowerCase()}.`)}</p>}
-        {duel.publicSwords&&(duel.publicSwords.you||duel.publicSwords.opponent)&&<p>{pick('ดาบเขี้ยวรอยแยก: เสมอตาแรก +1 · คุณ ', 'Riftfang: first tie +1 · You ')}{duel.publicSwords.you?1:0} / {pick('คู่ดวล ','Opponent ')}{duel.publicSwords.opponent?1:0}</p>}{duel.tieGoesTo && <p className={duel.tieGoesTo==='you'?'positive-text':'danger-text'}>{duel.tieGoesTo==='you'?pick('ถ้าออกมือเสมอ ตานั้นนับเป็นของคุณ','A tied round goes to you'):pick('ถ้าออกมือเสมอ ตานั้นนับเป็นของอีกฝ่าย','A tied round goes to your opponent')}</p>}
-        {duel.status==='open' && <>
-          <p className="supporting">{duel.submitted?pick('ส่งมือแล้ว ล็อกคำตอบไว้ รออีกฝ่าย','Hand sealed. Waiting for your opponent.'):pick('เลือกมือของคุณ ทั้งสองฝ่ายจะเปิดพร้อมกัน','Choose your hand. Both hands are revealed together.')} {game.theftTimeoutRules===1&&<Peek tone="rule" label={pick('เมื่อหมดเวลา','On timeout')} card={<p>{pick('ระบบสุ่มเฉพาะมือที่ยังไม่ส่ง มือที่ส่งแล้วคงเดิมและตัดสินตามปกติ','Only missing hands are chosen automatically. Submitted hands stay sealed; normal results apply.')}</p>}/>}</p>
-          {deadlines[duel.id]!==undefined && <DuelClock deadline={deadlines[duel.id]!} serverTime={serverTime} autoMissing={game.theftTimeoutRules===1}/>}
-          {duel.needsChoice && <div className="secure-hands" role="group" aria-label={pick('เลือกมือเป่ายิ้งฉุบ','Choose a hand')}>{hands.map(hand=><button key={hand} disabled={disabled} onClick={()=>submit({type:'theft-hand',duelId:duel.id,...(game.theftTimeoutRules===1?{round:duel.round}:{}),hand})}>{handName(hand)}</button>)}</div>}
-        </>}
-        {duel.revealed.length>0 && <ol className="secure-duel-rounds">{duel.revealed.map((round,index)=><li key={index}>{pick(`ตา ${index+1}: คุณออก `,`Round ${index+1}: you played `)}{handName(ownTheft?round.thief:round.opponent)} · {opponent} {handName(ownTheft?round.opponent:round.thief)}{round.thief===round.opponent?pick(' · เสมอ',' · Draw'):''}</li>)}</ol>}
-      </article>;
-    })}
-    {!open && <details className="info-fold"><summary>{spent?pick('ใช้โอกาสขโมยช่วงนี้แล้ว','Theft attempt spent'):pick('เลือกเป้าหมายขโมย','Choose a theft target')}</summary>
-      {p.stock.length>0 && <><h3>{pick('สินค้าหน้าร้าน','Merchant goods')}</h3><p className="supporting">{pick('แพ้: ความเชื่อใจพ่อค้าคนนี้ −2 และเพิ่มโทษห้ามค้าหนึ่งช่วง','Lose: −2 trust with this merchant and one more encounter of merchant trade ban')}</p><div className="secure-items">{p.stock.map(item=><button className="secure-item" key={item.id} disabled={attackingBlocked} onClick={()=>submit({type:'theft-start',itemId:item.id})}><ItemArt item={item}/><small>{pick('ขโมยชิ้นนี้','Steal this item')}</small></button>)}</div></>}
-      <h3>{pick('ของที่ผู้เล่นถืออยู่','Carried player goods')}</h3><p className="supporting">{pick('ของเป้าหมายยังคว่ำอยู่ คุณจะไม่เห็นว่าเป็นชิ้นไหนก่อนชนะ','The target item stays concealed until you win.')}</p><p className="supporting">{pick('แพ้: เหยื่อได้ตราคนบาปของคุณ 1 ใบ ขโมยคนเดิมไม่ได้อีก 2 ช่วง และต้องจ่ายชดเชย 5% ของราคาซื้อขายล่าสุดของชิ้นนั้น 4 ช่วงถัดไป','Lose: the victim gets one of your sinner seals, you cannot target them for 2 more encounters, and you pay 5% of that good\'s last trade price at the start of each of the next 4 encounters.')}</p>
-      <div className="actions">{theft.targets.map(target=>{const blocked=target.blockedUntilEncounter!==undefined;return <button key={target.playerId} disabled={attackingBlocked || blocked} onClick={()=>submit({type:'theft-start',victimId:target.playerId})}>{pick('ขโมยจาก ','Steal from ')}{name(target.playerId)}{blocked && <small>{pick(` · ห้ามจนจบช่วง ${target.blockedUntilEncounter}`,` · blocked through encounter ${target.blockedUntilEncounter}`)}</small>}</button>})}</div>
-      {!theft.targets.length && <p className="supporting">{pick('ยังไม่มีผู้เล่นที่พร้อมเป็นเป้าหมาย','No player targets are available.')}</p>}
-      {p.energy<1 && <p className="why">{pick('ต้องมีอย่างน้อย 1 พลัง','Requires at least 1 energy')}</p>}
-    </details>}
-  </section>;
+  const theft=game.theft,p=game.self,name=(id:string)=>playerNames[id]??id,active=theft.duels.find(d=>d.status==='open');
+  if(active)return <div inert={suspended}><ActiveTheftDuel key={active.id} game={game} submit={submit} disabled={disabled||suspended} playerNames={playerNames} duel={active} deadline={deadlines[active.id]} serverTime={serverTime}/></div>;
+  const spent=!!p.stealTried?.length,blocked=!game.core2||disabled||!!p.paused||p.done||!!p.eventOffer||!!p.abilityChoice||spent||p.energy<1;
+  const why=!game.core2?pick('ห้องนี้ไม่ได้เปิดการขโมย','Theft is not enabled in this room'):p.abilityChoice?pick('เลือกสินค้าที่พ่อค้าเสนอให้ก่อน','Choose the pending merchant item first'):spent?pick('ใช้โอกาสขโมยช่วงนี้แล้ว','Theft attempt spent'):p.energy<1?pick('ต้องมีอย่างน้อย 1 พลัง','Requires at least 1 energy'):p.eventOffer?pick('ตอบเหตุการณ์ก่อน','Resolve the event first'):disabled||p.paused||p.done?pick('ยังเริ่มขโมยไม่ได้ในตอนนี้','Cannot start theft right now'):pick('ใช้ 1 พลัง · ขโมยได้ครั้งเดียวต่อช่วง','1 energy · One theft per encounter');
+  const stockPages=Math.max(1,Math.ceil(p.stock.length/2)),stockAt=Math.min(stockPage,stockPages-1);
+  const duels=[...theft.duels].reverse(),duelAt=Math.min(duelPage,Math.max(0,duels.length-1)),duel=duels[duelAt];
+  const own=duel?.thiefId===p.id,opponent=duel?(own?(duel.victimId?name(duel.victimId):duel.npc?npcName(duel.npc):pick('พ่อค้า','Merchant')):name(duel.thiefId)):'';
+  const result=!duel?'':duel.status==='cancelled'?pick('เป้าหมายไม่พร้อมแล้ว','Target became unavailable'):(duel.status==='won')===own?pick(own?'ขโมยสำเร็จ':'ป้องกันสำเร็จ',own?'Theft succeeded':'Defense succeeded'):pick(own?'ขโมยไม่สำเร็จ':'ถูกขโมยของหนึ่งชิ้น',own?'Theft failed':'One carried item was stolen');
+  const rounds=duel?.revealed??[],roundAt=Math.min(roundPage??Math.max(0,rounds.length-1),Math.max(0,rounds.length-1)),round=rounds[roundAt];
+  const toggle=()=>{setPage(page==='targets'?'history':'targets');setRoundPage(null);};
+  return <ComicMenu id="theft-desk" open={deskOpen&&!suspended} title={pick('ขโมยและผลดวล','Theft and duel history')} icon={<HandshakeIcon/>} className="theft-desk" onClose={onDeskClose} action={<ComicButton disabled={page==='targets'&&!duels.length&&!theft.crime} onClick={toggle}>{page==='targets'?pick('ดูผลดวล','Duel history'):pick('เลือกเป้าหมาย','Choose a target')}</ComicButton>}>
+    <div className="theft-duel-spread theft-desk-spread">
+      {page==='targets'?<>
+        <section className="theft-duel-half" aria-label={pick('สินค้าหน้าร้าน','Merchant goods')}><h3>{pick('สินค้าหน้าร้าน','Merchant goods')}</h3>
+          <div className="theft-desk-stock">{p.stock.slice(stockAt*2,stockAt*2+2).map(item=><ComicButton key={item.id} className="theft-target-item" disabled={!!blocked} onClick={()=>submit({type:'theft-start',itemId:item.id})}><ItemArt item={item}/><small>{pick('ขโมยชิ้นนี้','Steal this item')} · 1 <EnergyIcon/></small></ComicButton>)}{!p.stock.length&&<p>{pick('ไม่มีสินค้าหน้าร้านให้ขโมย','No merchant goods available')}</p>}</div>
+          <div className="theft-desk-footer">{stockPages>1?<CompactPager page={stockAt} pages={stockPages} onChange={setStockPage} label={pick('หน้าสินค้าที่ขโมยได้','Merchant target pages')}/>:<p>{why}</p>}<Peek tone="rule" label={pick('ผลเมื่อแพ้พ่อค้า','Merchant loss consequences')} card={<p>{pick('แพ้: ความเชื่อใจพ่อค้าคนนี้ −2 และเพิ่มโทษห้ามค้าหนึ่งช่วง ใช้ 1 พลังต่อการเริ่มขโมย สิทธิ์ใช้แล้วไม่คืนเมื่อเป้าหมายไม่พร้อม','Lose: −2 trust with this merchant and one more encounter of merchant trade ban. Starting theft costs 1 energy; cancelled targets do not refund the attempt.')}</p>}/></div>
+        </section>
+        <section className="theft-duel-half" aria-label={pick('ของที่ผู้เล่นถืออยู่','Carried player goods')}><h3>{pick('ของที่ผู้เล่นถืออยู่','Carried player goods')}</h3>
+          <div className="theft-desk-players">{theft.targets.map(target=>{const empty=game.players.find(s=>s.id===target.playerId)?.itemCount===0,cooldown=target.blockedUntilEncounter!==undefined;return <ComicButton key={target.playerId} disabled={!!blocked||empty||cooldown} onClick={()=>submit({type:'theft-start',victimId:target.playerId})}>{pick('ขโมยจาก ','Steal from ')}{name(target.playerId)}{empty?<small>{pick('ยังไม่มีของที่ถืออยู่','No carried goods')}</small>:cooldown?<small>{pick(`ห้ามจนจบช่วง ${target.blockedUntilEncounter}`,`Blocked through encounter ${target.blockedUntilEncounter}`)}</small>:<small>1 <EnergyIcon/></small>}</ComicButton>})}{!theft.targets.length&&<p>{pick('ยังไม่มีผู้เล่นที่พร้อมเป็นเป้าหมาย','No player targets are available.')}</p>}</div>
+          <div className="theft-desk-footer"><p>{why}</p><Peek tone="rule" label={pick('ข้อมูลเป้าหมายและผลเมื่อแพ้','Concealed target and loss consequences')} card={<p>{pick('ของเป้าหมายยังคว่ำอยู่ คุณจะไม่เห็นว่าเป็นชิ้นไหนก่อนชนะ แพ้: เหยื่อได้ตราคนบาปของคุณ 1 ใบ ขโมยคนเดิมไม่ได้อีก 2 ช่วง และจ่ายชดเชย 5% ของราคาซื้อขายล่าสุดของชิ้นนั้น 4 ช่วงถัดไป','The target item stays concealed until you win. Lose: the victim gets one of your sinner seals, you cannot target them for 2 more encounters, and you pay 5% of the good’s last trade price at each of the next 4 encounter starts.')}</p>}/></div>
+        </section>
+      </>:<>
+        <section className="theft-duel-half"><h3>{opponent||pick('ผลดวล','Duel result')}</h3><div className="theft-duel-focus"><strong role="status">{result||pick('ยังไม่มีผลดวล','No duel results yet')}</strong>{duel&&<p>{pick(`ตัดสินในตาที่ ${duel.round}`,`Resolved in round ${duel.round}`)}</p>}{theft.crime&&<p className={theft.crime.active?'danger-text':'supporting'}>{pick(`โทษห้ามค้าช่วง ${theft.crime.banStartsEncounter}–${theft.crime.banUntilEncounter} · ใบประกาศ ${credits(theft.crime.noticePrice)}`,`Merchant ban: encounters ${theft.crime.banStartsEncounter}–${theft.crime.banUntilEncounter} · Notice ${credits(theft.crime.noticePrice)}`)}</p>}</div><div className="theft-desk-footer">{duels.length>1&&<CompactPager page={duelAt} pages={duels.length} onChange={at=>{setDuelPage(at);setRoundPage(null);}} label={pick('ประวัติการดวล','Duel history pages')}/>}</div></section>
+        <section className="theft-duel-half"><h3>{pick('มือที่เปิดแล้ว','Revealed hands')}</h3><div className="theft-duel-focus">{round?<><p>{pick(`ตาที่ ${roundAt+1}`,`Round ${roundAt+1}`)}</p><strong>{handName(own?round.thief:round.opponent)} · {handName(own?round.opponent:round.thief)}</strong><p>{pick('มือคุณ · มือคู่ดวล','Your hand · Opponent hand')}{round.thief===round.opponent?pick(' · ออกมือเสมอ',' · Matching hands'):''}</p></>:<p>{pick('ยังไม่มีตาที่เปิดมือ','No hands have been revealed')}</p>}</div><div className="theft-desk-footer">{rounds.length>1&&<CompactPager page={roundAt} pages={rounds.length} onChange={setRoundPage} label={pick('ตาที่เปิดมือ','Revealed rounds')}/>}</div></section>
+      </>}
+    </div>
+  </ComicMenu>;
 }
 
 export function VaultPanel({game,submit,disabled}:Props) {

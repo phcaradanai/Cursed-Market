@@ -12,4 +12,21 @@
 @media(max-height:760px){#game-main .theft-duel-spread{padding:var(--comic-menu-inset);grid-template-rows:40px minmax(0,1fr) 80px}}
 @media(max-width:760px){#game-main .theft-duel-spread{padding:12px;gap:12px;grid-template-rows:48px minmax(0,1fr) 96px}#game-main .theft-duel-screen p{font-size:12px}#game-main .theft-duel-hands{gap:6px}#game-main .theft-duel-hands .comic-button{font-size:14px}}
 
-#game-main .theft-duel-screen .term-wrap > button{display:inline-flex;align-items:center;justify-content:center;height:var(--comic-menu-control-height);padding:6px 16px;border:1px solid var(--comic-line);background:#0c1011;color:var(--comic-white);text-decoration:none}
+#game-main :is(.theft-duel-screen,.theft-desk) .term-wrap > button{display:inline-flex;align-items:center;justify-content:center;height:var(--comic-menu-control-height);padding:6px 16px;border:1px solid var(--comic-line);background:#0c1011;color:var(--comic-white);text-decoration:none}
+
+/* The read-only desk uses existing HUD/menu controls, never phase height. */
+#game-main .phase-heading{display:flex;align-items:center;justify-content:space-between;gap:var(--layout-space);min-width:0}
+#game-main .phase-heading .cabinet-brand{min-width:0}
+#game-main .theft-desk-launch{width:var(--comic-menu-control-height);height:var(--comic-menu-control-height);min-width:var(--comic-menu-control-height);padding:8px}
+#game-main .theft-desk .drawer-body{padding:0;overflow:hidden}
+#game-main .theft-desk-spread{height:100%;grid-template-rows:40px minmax(0,1fr) 96px;box-sizing:border-box}
+#game-main .theft-desk-stock{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:center;gap:var(--layout-space);min-height:0}
+#game-main .theft-target-item{display:flex;flex-direction:column;justify-content:center;gap:var(--layout-space-small);height:100%;min-width:0;max-height:240px;padding:var(--layout-space)}
+#game-main .theft-target-item .item-visual{width:96px;height:96px;flex:0 0 auto}
+#game-main .theft-target-item small{display:flex;align-items:center;justify-content:center;gap:4px}
+#game-main .theft-desk-players{display:grid;grid-auto-rows:minmax(48px,64px);align-content:center;gap:var(--layout-space);min-height:0}
+#game-main .theft-desk-players .comic-button{display:flex;align-items:center;justify-content:space-between;gap:var(--layout-space);min-width:0}
+#game-main .theft-desk-players small{display:flex;align-items:center;gap:4px}
+#game-main .theft-desk-footer{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--layout-space-small);min-height:0;text-align:center}
+#game-main .theft-desk .theft-duel-half>h3{font-size:clamp(16px,1.6vw,24px)}
+#game-main .theft-desk p{margin:0;font-size:14px;line-height:1.4}

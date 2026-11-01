@@ -192,3 +192,8 @@ Atlas now extracts active Comic appraisal modules and explicit support/server/bo
 ## Pilot8 runtime checkpoint — 2026-11-01
 
 `apps/comic/src/game/appraisal/pilot-catalog.ts` owns native IDs/spec metadata; `pilot-effects.ts` owns held/custody/instance+encounter rights and cost/age helpers. `effect:E##` is separate from event:E##. No old-kind aliases or generic status injection. config4 is opt-in with `COMIC_CATALOG=pilot8`; historical generators/default3 remain unchanged. New56 integration is8/56, not74 new products. See [runtime handoff](implementations/new56-pilot-runtime.md), [evidence](new56-pilot-verification.json). STRAT structure decision remains pending; full goal active.
+
+
+## RULE-02 target/history checkpoint — 2026-11-02
+
+Approved Comic reconciliation now includes target/history in the shared inventory-sized menu. HUD handshake opens read-only;6 dock menus remain unchanged. Known costs/targets, fixed pagination, unknown goods privacy and active forced-duel precedence preserved. Phase changes clear unavailable drawers, preventing invisible inert main panes. Evidence: ../ui-system/theft-desk-verification.json (78 focused,174 related, socket1, target3width, boundary4, forced3width, baseline14, menus18, native10). No engine/default change or full-game/balance completion. Next unresolved work remains STRAT structure, Collector3+2, awards and remaining48.

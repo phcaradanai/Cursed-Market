@@ -6,11 +6,11 @@ Goal: complete active Comic against confirmed user rules, not just the latest su
 
 - [x] RULE-01 Comic aged10%: migrate approved root rule with old-audit compatibility; see comic-aged-interest-plan.md.
 - [x] RULE-02 forced timeout checkpoint: engine/rooms/parser/client/bot versioned fallback + round-token/reconnect/idempotency/replay verified; active Comic duel approved and measured. See forced-rps-plan.md / forced-rps-verification.json.
-- [ ] RULE-02 remaining UX: reconcile legacy target picker and closed-result expanding history with no-scroll shared UI; current target actions preserved.
+- [x] RULE-02 remaining UX checkpoint: bounded Comic target/history drawer, phase-boundary cleanup, current handlers/privacy preserved; verified3widths/4transitions, forced3, baseline14/menu18. See theft-desk-plan.md and ../../ui-system/theft-desk-verification.json.
 - [ ] STRAT-01 and RULE-04: propose concrete goals/progress/counters/bonuses/ties per victory path and award, obtain material rule approval before runtime. Simultaneous Collector resolution already approved.
 - [x] ITEM-01 design gate: new56 art/relations audited; exact8 pilot values/common rules approved2026-10-31 and pinned in new56-pilot-approval.json.
-- [ ] ITEM-01 runtime contract: add stable typed IDs/capabilities/predicates for approved pilot; keep historical audits compatible. Relations/approval are not runtime bindings.
-- [ ] ITEM-02: eight-item pilot, one per merchant; full spawn/inspect/buy/hold/use/sell/copy/Collector lifecycle and unknown-fact privacy.
+- [x] ITEM-01 pilot runtime contract:8 native typed IDs/primary effects, opt-in version4 and legacy replay preserved. Committed707da16; remaining48 are not included. See new56-pilot-runtime.md.
+- [x] ITEM-02 experimental pilot checkpoint:8 items, one per merchant; spawn/inspect/buy/hold/use/sell/copy/Collector/privacy verified in707da16. Experimental acceptance only, release balance remains open. See ../new56-pilot-verification.json.
 - [ ] RULE-03: finalize Collector3+2 turn schedule, purchase rights/pricing/duplicate/timeout rules; implement all concealed views and payment/custody/reconnect.
 - [ ] ITEM-03: remaining48 and event/encounter/omen predicates; zero unexplained legacy targets, Comic art only.
 - [x] MERCHANT-EXPRESSION-01 approved S02/S04 contexts: shared confirmed-choice/result rules,650ms presentation-only hold, reduced-motion and24 existing poses verified.

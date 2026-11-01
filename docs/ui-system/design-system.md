@@ -40,3 +40,8 @@ Derived from implemented inventory/status/market/ledger/rules/settings and lates
 No per-screen brush ribbons, offwhite form controls, ornamental borders or repeated dividers unless the user explicitly approves a product change after seeing the existing peer screen. Comic atmosphere comes chiefly from existing art, hierarchy and shared black/red UI.
 
 S09 also uses ComicPhaseFrame with the inventory outer bounds and65px shared header. PostRewardScreen owns only content; VaultPanel retains custody actions; ReadyForNext shares the existing command across S09/classic/survival. Use equal44px stepper and transfer controls with common gaps, paged2-item shelves, and a48px footer action. Solid empty-slot lines, no extra section boxes/dropdowns. This does not authorize redesigning other screens or migrating root interest rules.
+
+
+### Forced theft target/history navigation
+
+Use the same inventory-sized ComicMenu and shared phase-frame two-track grid. Keep repeated target cards/pagers inside fixed tracks; select one closed duel and one revealed round at a time. The HUD handshake entry is a read-only utility; the six dock entries remain unchanged. Active duel takes precedence over the target drawer. Clear unavailable drawers on phase transitions to avoid an invisible inert overlay.

@@ -2,8 +2,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 // Fixture geometry/navigation only; socket settlement is tested separately.
-export async function run({page,repo,spaceId,url}) {
- const file=path.join(repo,'docs/ui-system/forced-rps-ui-verification.json'),dir=path.join(repo,'docs/game-design/captures/forced-rps-2026-10-31');await fs.mkdir(dir,{recursive:true});
+export async function run({page,repo,spaceId,url,outputDir,reportFile}) {
+ const file=reportFile??path.join(repo,'docs/ui-system/forced-rps-ui-verification.json'),dir=outputDir??path.join(repo,'docs/game-design/captures/forced-rps-2026-10-31');await fs.mkdir(dir,{recursive:true});
  const report={startedAt:new Date().toISOString(),spaceId,url,scope:'public fixture; no transaction claims',checks:[]};
  const save=()=>fs.writeFile(file,JSON.stringify(report,null,2)+'\n');await save();
  const close=(a,b)=>assert(Math.abs(a-b)<=1,`${a} vs ${b}`);

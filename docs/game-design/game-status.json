@@ -1,7 +1,7 @@
 {
-  "asOf": "2026-11-01",
+  "asOf": "2026-11-02",
   "activeSource": "apps/comic",
-  "revision": "f351be5 + pilot8 worktree (source fingerprints in new56-pilot-verification.json)",
+  "revision": "707da16 + theft desk UI follow-up (pinned in docs/ui-system/theft-desk-verification.json)",
   "headline": "ยังไม่ครบตามกฎและขอบเขตเกมที่ตกลงทั้งหมด",
   "summary": "วงจรเดิมและตลาดวิญญาณเล่นได้ แต่การย้ายกฎ/สินค้าใหม่และบาลานซ์ทั้งเกมยังค้าง ภาพหน้าจอหรือกราฟครบไม่ได้แปลว่า runtime ครบ",
   "atlasScope": "Atlas สกัดทุก module ของ apps/comic/src/game/appraisal พร้อม random/rarity/protocol/server lifecycle และ bot ที่ระบุ; graph เป็น static dependency ไม่ใช่ execution proof; UI ใช้ capture/flow registry แยก; รุ่นเก่าตรึง9f0a972ใน legacy-atlas-baseline.json",
@@ -94,14 +94,16 @@
     {
       "id": "RULE-02",
       "system": "ขโมยและ forced RPS",
-      "status": "forced timeout + Comic duel ตรวจแล้ว — selector เดิมยังค้าง",
-      "remaining": "สุ่มเฉพาะมือที่ยังไม่ส่ง รองรับ reconnect/stale round/idempotency/replay; functional73/73 network1/1 timers10/10 UI3sizes baseline14/14 menus18/18 ผ่าน; จุดเลือกเป้าหมายและผลดวลเดิมยังต้องปรับให้ไม่มี expanding list จึงไม่ถือว่าระบบ UX ครบทั้งชุด",
+      "status": "forced timeout + Comic duel + target/history เชื่อมและตรวจแล้ว",
+      "remaining": "เลือกเป้าหมาย/ผลดวลใช้ ComicMenu ขนาดกลาง ไม่มี expanding list; public DTO UI3ขนาด + phase-boundary4 + forced UI3 + baseline14 + menus18 ผ่าน. Functional78/78 และrelated174/174 พร้อมsocket1/1; กฎเดิม/engineไม่เปลี่ยน. ยังไม่ใช่ full-game balance acceptance",
       "evidence": [
         "apps/comic/src/game/appraisal/theft.ts",
         "apps/comic/src/server/appraisal-rooms.ts",
         "docs/game-design/PROJECT-CONTEXT.md",
         "docs/game-design/implementations/forced-rps-plan.md",
-        "docs/game-design/implementations/forced-rps-ui-proposal.md"
+        "docs/game-design/implementations/forced-rps-ui-proposal.md",
+        "docs/game-design/implementations/theft-desk-plan.md",
+        "docs/ui-system/theft-desk-verification.json"
       ]
     },
     {

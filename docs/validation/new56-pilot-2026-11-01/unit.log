@@ -1,0 +1,39 @@
+✔ catalog4 spawns native approved pilot IDs and exact art for each merchant, never an old-kind alias (99.092209ms)
+✔ catalog3 retains its existing seeded kinds after native registration (40.802083ms)
+✔ native item public views preserve unknown truth and display their own effect contract (38.096208ms)
+✔ sword declares both edges without guard leak, cancels/spends both on a real tie, not on submission (64.725125ms)
+✔ one sword wins a real tie once; a low-strength copy has no binary edge (21.108458ms)
+✔ crime discount uses the full current notice and clears once with no trust refund (31.377167ms)
+✔ shield and caliper used-instance state survives transfers and copied provenance (15.031125ms)
+✔ taking a ring out of custody invalidates its interval even if returned before settlement (22.879584ms)
+✔ reroll discount uses real advancing base cost and request retry is idempotent (53.092958ms)
+✔ translator gives measurable acceptance without changing the shared seeded roll or hidden truths (237.613667ms)
+✔ timeout fills only the missing hand and consumes the frozen sword only when it creates a real tie (22.554542ms)
+✔ a fractional copied shield never rounds protection up, and old encounter guards expire (18.813041ms)
+✔ shield guards the next damage, never its activation curse or mandatory life payments (101.570125ms)
+✔ non-activatable pilot items reject before spending or recording activation (36.343ms)
+✔ caliper pays one price check, respects merchant-free rights and inspection quota (28.986ms)
+✔ ring interest intersects aged principal with the same held instance, caps aggregate and floors once (19.721458ms)
+✔ late ring grants no interest retrospectively and vault-held rings do not count (31.027041ms)
+✔ hammer discount is quoted and charged identically, bounded by half of base (75.042917ms)
+✔ translator raises merchant acceptance only, and does not bypass overvalue backlash (21.516417ms)
+✔ caliper and portal quotations match the server effect without leaking truth (26.155958ms)
+(node:69342) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ orc-tusk-shield: actual stock, knowledge, purchase, copy, vault, collateral, auction and Collector keep native identity (355.301125ms)
+✔ vampire-nocturne-signet: actual stock, knowledge, purchase, copy, vault, collateral, auction and Collector keep native identity (9.637959ms)
+✔ autometa-torque-caliper: actual stock, knowledge, purchase, copy, vault, collateral, auction and Collector keep native identity (6.332083ms)
+✔ alien-thought-translator: actual stock, knowledge, purchase, copy, vault, collateral, auction and Collector keep native identity (31.25875ms)
+✔ darkone-crossing-token: actual stock, knowledge, purchase, copy, vault, collateral, auction and Collector keep native identity (3.849834ms)
+✔ deepsea-tide-compass: actual stock, knowledge, purchase, copy, vault, collateral, auction and Collector keep native identity (52.536584ms)
+✔ swarm-brood-hammer: actual stock, knowledge, purchase, copy, vault, collateral, auction and Collector keep native identity (5.084041ms)
+✔ beast-riftfang-sword: actual stock, knowledge, purchase, copy, vault, collateral, auction and Collector keep native identity (9.544792ms)
+✔ native inventory uses established controls, no separate activation for held tools, exact inspection quote (29.050709ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 29
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1451.706208

@@ -325,7 +325,7 @@ export function resolveEvent(state:AppraisalState,p:Appraiser,command:Extract<Ap
     case 'E132': if(choice==='compass')grant(state,p,'B26');else {const selected=item();stockItem(state,p,selected);check(known(state,p,selected).genuine===undefined,'known','รู้ความแท้แล้ว');spend(state,p,0,1,id);learn(p,selected,{genuine:state.items[selected]!.genuine});}break;
     case 'E01': if(choice==='stay') spend(state,p,0,1,id); else p.portals[0]!.disabled=true; break;
     case 'E02': p.honorJob=true; break;
-    case 'E03': check(state.config.systemLinks!==1 || eventChoices(state,p,id).includes(choice),'event-cost','ตัวเลือกนี้ไม่มีต้นทุนเพิ่มแล้ว'); if(choice==='pay') spend(state,p,2,0,id); else grant(state,p,'D10'); recover(state,p,3,id); if(state.config.survival && choice==='debt')damageLife(state,p,1,'blood-pact'); break;
+    case 'E03': check(state.config.systemLinks!==1 || eventChoices(state,p,id).includes(choice),'event-cost','ตัวเลือกนี้ไม่มีต้นทุนเพิ่มแล้ว'); if(choice==='pay') spend(state,p,2,0,id); else grant(state,p,'D10'); recover(state,p,3,id); if(state.config.survival && choice==='debt')damageLife(state,p,1,'blood-pact',false); break;
     case 'E04': spend(state,p,1,0,id); grant(state,p,'B01'); break;
     case 'E05': spend(state,p,0,1,id); grant(state,p,'B02'); break;
     case 'E06': {const selected=chooseStatus(offer,command); const next=choice==='interest'?'D04':'D07'; check(selected.startsWith('D') && selected!==next && status(p,selected),'event-target','ล้างสถานะที่เลือกไม่ได้'); removeStatus(p,selected); grant(state,p,next); break;}
@@ -397,7 +397,7 @@ export function resolveEvent(state:AppraisalState,p:Appraiser,command:Extract<Ap
     case 'E88': {const selected=chooseStatus(offer,command); check(NEW_DEBUFFS.includes(selected) && status(p,selected),'status','เลือกผลเสียจากฝูงหรือห้วงลึกที่ติดตัว'); spend(state,p,1,0,id); removeStatus(p,selected); break;}
     case 'E89': grant(state,p,'B11'); grant(state,p,'D14'); break;
     case 'E90': grant(state,p,'B13'); grant(state,p,'D11'); break;
-    case 'E91': {if(state.config.survival){check(p.life!>1,'life','ชีวิตไม่พอ');damageLife(state,p,1,id);} else spend(state,p,0,2,id); grant(state,p,'B16'); grant(state,p,'B14'); grant(state,p,'D16'); break;}
+    case 'E91': {if(state.config.survival){check(p.life!>1,'life','ชีวิตไม่พอ');damageLife(state,p,1,id,false);} else spend(state,p,0,2,id); grant(state,p,'B16'); grant(state,p,'B14'); grant(state,p,'D16'); break;}
     case 'E92': reward(state,p,2,id); grant(state,p,'D13'); break;
     case 'E93': {spend(state,p,0,1,id); if(randomAt(state.seed,`${offer.key}:old-nest`)<.6){reward(state,p,1,id);grant(state,p,'B15');p.notes.push('ค้นรังร้างเจอของเหลือ ได้ 1 เครดิตและสายสัมพันธ์ของรัง');}else{grant(state,p,'D15');p.notes.push('รังร้างมีใยค้างอยู่ ติดใยพันขา');} p.notes=p.notes.slice(-30); break;}
     case 'E48': if(choice==='pay') spend(state,p,2,0,id); else if(choice==='item') penaltyItem(state,p,item()); else {check(p.credits<2 && !p.inventory.length,'penalty','ต้องเลือกค่าปรับที่ยังจ่ายได้'); p.energy=Math.max(0,p.energy-2);} break;

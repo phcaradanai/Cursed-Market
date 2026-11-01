@@ -55,8 +55,8 @@
       "kind": "TypeAliasDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/content.ts",
-        "line": 310,
-        "endLine": 310
+        "line": 311,
+        "endLine": 311
       },
       "text": "export type BondMode = 'swap'|'sell'|'tribute'|'show'|'reveal';"
     },
@@ -66,8 +66,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/content.ts",
-        "line": 312,
-        "endLine": 318
+        "line": 313,
+        "endLine": 319
       },
       "text": "export interface BondSpec {\n  id:EventId; npc:NpcId; name:string; when:string; description:string; mode:BondMode;\n  families?:ItemFamily[]; kinds?:ItemKind[]; exclude?:ItemKind[]; known?:'cursed'|'fake';\n  buffs?:StatusId[]; debuffs?:StatusId[]; cleanse?:'D10'|'debuffs'; energy?:number; life?:number;\n  energyCost?:number; reveal?:Array<'base'|'genuine'|'cursed'|'effectsKnown'>; price?:number;\n  genuineOnly?:boolean; risk?:number;\n}"
     },
@@ -77,10 +77,10 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/content.ts",
-        "line": 687,
-        "endLine": 687
+        "line": 688,
+        "endLine": 688
       },
-      "text": "export interface ItemSpec { name:string;anchor:number;buff:StatusId;drawback:StatusId;consumable:boolean;family?:ItemFamily;energyRecovery?:number }"
+      "text": "export interface ItemSpec { name:string;anchor:number;buff?:StatusId;drawback?:StatusId;nativeEffect?:`effect:E${number}`;merchant?:NpcId;explicitActivation?:boolean;benefit?:string;usage?:string;exclusions?:string;consumable:boolean;family?:ItemFamily;energyRecovery?:number }"
     },
     {
       "id": "schema:apps/comic/src/game/appraisal/content.ts:NpcMood",
@@ -88,8 +88,8 @@
       "kind": "TypeAliasDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/content.ts",
-        "line": 737,
-        "endLine": 737
+        "line": 739,
+        "endLine": 739
       },
       "text": "export type NpcMood='smile'|'angry'|'idle';"
     },
@@ -330,10 +330,10 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 6,
-        "endLine": 6
+        "line": 7,
+        "endLine": 7
       },
-      "text": "export interface PersonalVault {items:string[]; credits:number; slots:number; interest?:{principal:number;encounter:number}}"
+      "text": "export interface PersonalVault {items:string[]; credits:number; slots:number; interest?:{principal:number;encounter:number;rings?:Record<string,number>}}"
     },
     {
       "id": "schema:apps/comic/src/game/appraisal/secure-storage.ts:SecuredLoan",
@@ -341,8 +341,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 10,
-        "endLine": 16
+        "line": 13,
+        "endLine": 19
       },
       "text": "export interface SecuredLoan {\n  id:string; borrowerId:string; lenderId:string; itemId:string;\n  /** Agreed item value and deadline never change after funding. */\n  collateralValue:number; principal:number; repaid:number; proposedAt:number;\n  firstPayoutAt:number; dueAt:number; fundedAt?:number; settledAt?:number;\n  terms:string; status:'proposed'|'countered'|'active'|'repaid'|'foreclosed'|'cancelled';\n}"
     },
@@ -352,8 +352,8 @@
       "kind": "TypeAliasDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 17,
-        "endLine": 20
+        "line": 20,
+        "endLine": 23
       },
       "text": "export type StorageAction =\n  | {type:'vault-deposit-item'|'vault-withdraw-item';itemId:string}\n  | {type:'vault-deposit-credits'|'vault-withdraw-credits';amount:number}\n  | {type:'vault-expand'};"
     },
@@ -363,8 +363,8 @@
       "kind": "TypeAliasDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 21,
-        "endLine": 26
+        "line": 24,
+        "endLine": 29
       },
       "text": "export type LoanAction =\n  | {type:'loan-propose';lenderId:string;itemId:string;principal:number;terms?:string}\n  | {type:'loan-counter';loanId:string;principal:number;terms?:string}\n  | {type:'loan-respond';loanId:string;accept:boolean}\n  | {type:'loan-cancel';loanId:string}\n  | {type:'loan-repay';loanId:string;amount:number};"
     },
@@ -374,8 +374,8 @@
       "kind": "TypeAliasDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 6,
-        "endLine": 6
+        "line": 7,
+        "endLine": 7
       },
       "text": "export type RpsHand = 'rock' | 'paper' | 'scissors';"
     },
@@ -385,8 +385,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 7,
-        "endLine": 12
+        "line": 8,
+        "endLine": 13
       },
       "text": "export interface CrimeRecord {\n  failures: number;\n  banStartsEncounter: number;\n  banUntilEncounter: number;\n  cases: Array<{itemId: string; ask: number; npc: NpcId}>;\n}"
     },
@@ -396,8 +396,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 14,
-        "endLine": 20
+        "line": 15,
+        "endLine": 21
       },
       "text": "export interface SinnerSeal {\n  id: string;\n  thiefId: string;\n  holderId: string;\n  duelId: string;\n  issuedEncounter: number;\n}"
     },
@@ -407,8 +407,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 22,
-        "endLine": 32
+        "line": 23,
+        "endLine": 33
       },
       "text": "export interface PvpCompensation {\n  id: string;\n  duelId: string;\n  thiefId: string;\n  victimId: string;\n  itemId: string;\n  snapshot: number;\n  amount: number;\n  dueEncounters: number[];\n  settled: Array<{encounter: number; paid: number}>;\n}"
     },
@@ -418,10 +418,10 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 33,
-        "endLine": 45
+        "line": 34,
+        "endLine": 47
       },
-      "text": "export interface TheftDuel {\n  id: string;\n  encounter: number;\n  thiefId: string;\n  victimId?: string;\n  npc?: NpcId;\n  itemId: string;\n  ask: number;\n  hands: Record<string, RpsHand>;\n  round: number;\n  status: 'open' | 'won' | 'lost' | 'cancelled';\n  revealed: Array<{thief: RpsHand; opponent: RpsHand}>;\n}"
+      "text": "export interface TheftDuel {\n  id: string;\n  encounter: number;\n  thiefId: string;\n  victimId?: string;\n  npc?: NpcId;\n  itemId: string;\n  ask: number;\n  swordIds?:Record<string,string>;\n  hands: Record<string, RpsHand>;\n  round: number;\n  status: 'open' | 'won' | 'lost' | 'cancelled';\n  revealed: Array<{thief: RpsHand; opponent: RpsHand}>;\n}"
     },
     {
       "id": "schema:apps/comic/src/game/appraisal/theft.ts:TheftDuelView",
@@ -429,10 +429,10 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 46,
-        "endLine": 59
+        "line": 48,
+        "endLine": 62
       },
-      "text": "export interface TheftDuelView {\n  id: string;\n  thiefId: string;\n  victimId?: string;\n  npc?: NpcId;\n  npcTell?: {preferredHand: RpsHand; text: string};\n  round: number;\n  status: TheftDuel['status'];\n  needsChoice: boolean;\n  submitted: boolean;\n  /** Status links: who a tied round goes to, from this seat's own statuses and the omen only. */\n  tieGoesTo?: 'you' | 'opponent';\n  revealed: TheftDuel['revealed'];\n}"
+      "text": "export interface TheftDuelView {\n  id: string;\n  thiefId: string;\n  victimId?: string;\n  npc?: NpcId;\n  npcTell?: {preferredHand: RpsHand; text: string};\n  round: number;\n  status: TheftDuel['status'];\n  needsChoice: boolean;\n  submitted: boolean;\n  /** Status links: who a tied round goes to, from this seat's own statuses and the omen only. */\n  tieGoesTo?: 'you' | 'opponent';\n  publicSwords?:{you:boolean;opponent:boolean};\n  revealed: TheftDuel['revealed'];\n}"
     },
     {
       "id": "schema:apps/comic/src/game/appraisal/theft.ts:TheftView",
@@ -440,8 +440,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 60,
-        "endLine": 73
+        "line": 63,
+        "endLine": 76
       },
       "text": "export interface TheftView {\n  duels: TheftDuelView[];\n  targets: Array<{playerId: string; blockedUntilEncounter?: number}>;\n  seals: Array<{id: string; thiefId: string}>;\n  compensation: Array<{id: string; role: 'payer' | 'receiver'; otherId: string; amount: number; remaining: number[]; paid: number}>;\n  crime?: {\n    failures: number;\n    banStartsEncounter: number;\n    banUntilEncounter: number;\n    active: boolean;\n    noticePrice: number;\n    cases: number;\n  };\n}"
     },
@@ -451,8 +451,8 @@
       "kind": "TypeAliasDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 75,
-        "endLine": 75
+        "line": 78,
+        "endLine": 78
       },
       "text": "type TheftState = AppraisalState & {theftDuels?: TheftDuel[]; sinnerSeals?: SinnerSeal[]; compensations?: PvpCompensation[]};"
     },
@@ -462,8 +462,8 @@
       "kind": "TypeAliasDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 77,
-        "endLine": 77
+        "line": 80,
+        "endLine": 80
       },
       "text": "type Thief = Appraiser & {crime?: CrimeRecord; pvpBlocks?: Record<string, number>};"
     },
@@ -501,15 +501,15 @@
       "text": "export type NpcId = 'orc' | 'vampire' | 'autometa' | 'alien' | 'darkone' | 'beast' | 'deepsea' | 'swarm';"
     },
     {
-      "id": "schema:apps/comic/src/game/appraisal/types.ts:ItemFamily",
-      "name": "ItemFamily",
+      "id": "schema:apps/comic/src/game/appraisal/types.ts:LegacyItemFamily",
+      "name": "LegacyItemFamily",
       "kind": "TypeAliasDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
         "line": 25,
         "endLine": 25
       },
-      "text": "export type ItemFamily = 'mirror' | 'orb' | 'key' | 'mask' | 'potion' | 'battery' | 'amulet' | 'blade' | 'scanner' | 'food';"
+      "text": "export type LegacyItemFamily = 'mirror' | 'orb' | 'key' | 'mask' | 'potion' | 'battery' | 'amulet' | 'blade' | 'scanner' | 'food';"
     },
     {
       "id": "schema:apps/comic/src/game/appraisal/types.ts:PassiveKind",
@@ -534,15 +534,37 @@
       "text": "export type InspectionProperty='price'|'authenticity'|'effects';"
     },
     {
+      "id": "schema:apps/comic/src/game/appraisal/types.ts:ItemFamily",
+      "name": "ItemFamily",
+      "kind": "TypeAliasDeclaration",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/types.ts",
+        "line": 30,
+        "endLine": 30
+      },
+      "text": "export type ItemFamily = LegacyItemFamily | 'shield' | 'ring' | 'caliper' | 'translator' | 'token' | 'compass' | 'hammer' | 'sword';"
+    },
+    {
+      "id": "schema:apps/comic/src/game/appraisal/types.ts:PilotItemKind",
+      "name": "PilotItemKind",
+      "kind": "TypeAliasDeclaration",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/types.ts",
+        "line": 32,
+        "endLine": 32
+      },
+      "text": "export type PilotItemKind = typeof PILOT_ITEM_IDS[number];"
+    },
+    {
       "id": "schema:apps/comic/src/game/appraisal/types.ts:ItemKind",
       "name": "ItemKind",
       "kind": "TypeAliasDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 30,
-        "endLine": 34
+        "line": 33,
+        "endLine": 37
       },
-      "text": "export type ItemKind = ItemFamily | 'memory-mirror' | 'rift-mirror' | 'blood-orb' | 'storm-orb' |\n  'bone-key' | 'clockwork-key' | 'bone-mask' | 'void-mask' | 'blood-tonic' | 'dream-tonic' |\n  'sun-cell' | 'void-cell' | 'oath-charm' | 'echo-charm' | 'bone-blade' | 'eclipse-blade' |\n  'truth-lens' | 'curse-meter' | 'ember-feed' | 'moon-feed' | 'smith-hammer' | 'whetstone' | 'doubt-lens' | 'void-seal' |\n  'abyss-pearl' | 'tide-lantern' | 'kraken-ink' | 'siren-conch' | 'hive-comb' | 'chitin-blade' | 'larva-cell' | 'compound-mirror' | PassiveKind | typeof ABILITY_ITEM_IDS[number];"
+      "text": "export type ItemKind = LegacyItemFamily | PilotItemKind | 'memory-mirror' | 'rift-mirror' | 'blood-orb' | 'storm-orb' |\n  'bone-key' | 'clockwork-key' | 'bone-mask' | 'void-mask' | 'blood-tonic' | 'dream-tonic' |\n  'sun-cell' | 'void-cell' | 'oath-charm' | 'echo-charm' | 'bone-blade' | 'eclipse-blade' |\n  'truth-lens' | 'curse-meter' | 'ember-feed' | 'moon-feed' | 'smith-hammer' | 'whetstone' | 'doubt-lens' | 'void-seal' |\n  'abyss-pearl' | 'tide-lantern' | 'kraken-ink' | 'siren-conch' | 'hive-comb' | 'chitin-blade' | 'larva-cell' | 'compound-mirror' | PassiveKind | typeof ABILITY_ITEM_IDS[number];"
     },
     {
       "id": "schema:apps/comic/src/game/appraisal/types.ts:AppraisalPhase",
@@ -550,8 +572,8 @@
       "kind": "TypeAliasDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 35,
-        "endLine": 35
+        "line": 38,
+        "endLine": 38
       },
       "text": "export type AppraisalPhase = 'PORTALS' | 'APPRAISAL' | 'TRADE' | 'REVEAL' | 'RESULTS';"
     },
@@ -561,10 +583,10 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 36,
-        "endLine": 101
+        "line": 39,
+        "endLine": 104
       },
-      "text": "export interface AppraisalConfig {\n  /** Absent in visual-only/old audits: no price or effect scaling. */\n  rarityEconomy?:import('../../shared/rarity-power.js').RarityEconomyConfig;\n  /** Optional in old audits. Appearance-only RNG; no hidden truths or economic multipliers. */\n  rarity?:import('../../shared/item-rarity.js').RarityConfig;\n  /** Absent in saved audits: preserve the original theft, custody and pricing rules. */\n  secureEconomy?:boolean;\n  /** Absent in saved audits: active loans stay open when the match ends. New runs foreclose them so the lender keeps the collateral. */\n  loanEndSettlement?:boolean;\n  /** Absent in old audits: preserve 4% whole-balance interest. 1 uses aged principal at 10%. */\n  vaultInterestRules?:1;\n  /** Missing in historical audits: cancel timeout instead of choosing absent hands. */\n  theftTimeoutRules?:1;\n  /** Survival only. Absent in saved audits: the run ends only when every life is gone. Otherwise the Collector arrives after this encounter settles, whoever is still alive. */\n  collectorDeadline?:number;\n  /** Absent in saved audits: keep the original event choices. 1 removes pointless decline buttons, turns E37/E40 into mishaps you handle, reprices E119/E121/E127 and gives E47 an effect. */\n  eventChoiceRules?:1;\n  /** Absent in saved audits: v0.6 statuses B21–B24/D21–D24 stay unreachable and theft buffs keep their old chance-based meaning. 1 gives every status a source and makes B21/B22/D21 and the thieves' night omen settle tied theft duels. */\n  statusLinks?:1;\n  /** Absent in saved audits: preserve historical event eligibility and defaults. 1 revalidates core2 defaults, links healing/guard choices to their requirements and excludes costless blood-pact debt. */\n  systemLinks?:1;\n  /** Absent in historical runs: keep original skills, catalogs and RNG pools exactly. */\n  trustAbilities?:boolean;\n  /** Absent in saved audits: preserve historical item effects and activation costs. */\n  itemEffects?: boolean;\n  /** Absent in original v0.4 audits: retain the original 10-item generation pool. */\n  catalogVersion?: 1 | 2 | 3;\n  /** Absent in historical audits: preserve their original economy. */\n  roundRewards?: boolean;\n  /** Absent in saved runs: retain the original single-coin, lose-all wager. */\n  multiCoinRewards?: boolean;\n  /** Absent in saved runs: retain the pre-commission/trust/market-contract rules. */\n  commerce?: boolean;\n  /** Absent in saved runs: retain the one-item bonus for trusting every merchant. */\n  totalTrustStock?: boolean;\n  /** Absent in saved runs: retain the old effects check where only B02 could reveal a curse. */\n  curseSight?: boolean;\n  /** Absent in saved runs: buying from an NPC still costs energy there. */\n  freeBuy?: boolean;\n  /** Absent in saved audits: inspections and appraisals keep their original costs. */\n  freeMerchantAction?: boolean;\n  /** Absent in saved runs: fake items never produce their good effect there. */\n  fakeEffect?: boolean;\n  /** Absent in saved runs: merchants do not clean curses and the smith tools are never stocked. */\n  cleanse?: boolean;\n  /** Absent in saved runs: merchants never announce wishes. */\n  wishlist?: boolean;\n  /** Absent in saved runs: wishes cost no energy, have no cap and never lose value. */\n  wishContract?: boolean;\n  /** Absent in saved runs: listings carry no appraiser claims and the challenge tools are never stocked. */\n  challenge?: boolean;\n  /** Absent in saved runs: the Deep Sea Monster and The Swarm never appear and their items, statuses and events stay out of play. */\n  expansion?: boolean;\n  /** Absent in saved runs: no omens, sale/fee/life modifiers beyond the original market rules, capacity relics or polish events. */\n  polish?: boolean;\n  /** Absent in saved runs: no personal merchant contracts or delayed repayments. */\n  npcEvents?: boolean;\n  /** Absent in saved runs: the v0.6 core (rebalanced prices, door tolls, overvaluation backlash, escalating survival pressure with a Collector deadline, scrap energy, merchant skills, theft, barter and the extra statuses, events and omens). */\n  core2?: boolean;\n  encounters: number; startingCredits: number; maxEnergy: number; recoveryEnergy: number;\n  bankReserve: number; marketProbability: number; marketMaxOrders: number; marketQuota: number;\n  /** Absent in v0.4: retain encounter recovery and historical scoring exactly. */\n  survival?: { maxLife:number; encounterLifeCost:number; entryEnergyCost:number };\n  /** Absent in v0.4/v0.5 audits: unsold-appraisal duty, Dark Market vault auctions and NPC × held-item events. */\n  brokerage?: { auctionProbability:number; maxLots:number; bondProbability:number };\n}"
+      "text": "export interface AppraisalConfig {\n  /** Absent in visual-only/old audits: no price or effect scaling. */\n  rarityEconomy?:import('../../shared/rarity-power.js').RarityEconomyConfig;\n  /** Optional in old audits. Appearance-only RNG; no hidden truths or economic multipliers. */\n  rarity?:import('../../shared/item-rarity.js').RarityConfig;\n  /** Absent in saved audits: preserve the original theft, custody and pricing rules. */\n  secureEconomy?:boolean;\n  /** Absent in saved audits: active loans stay open when the match ends. New runs foreclose them so the lender keeps the collateral. */\n  loanEndSettlement?:boolean;\n  /** Absent in old audits: preserve 4% whole-balance interest. 1 uses aged principal at 10%. */\n  vaultInterestRules?:1;\n  /** Missing in historical audits: cancel timeout instead of choosing absent hands. */\n  theftTimeoutRules?:1;\n  /** Survival only. Absent in saved audits: the run ends only when every life is gone. Otherwise the Collector arrives after this encounter settles, whoever is still alive. */\n  collectorDeadline?:number;\n  /** Absent in saved audits: keep the original event choices. 1 removes pointless decline buttons, turns E37/E40 into mishaps you handle, reprices E119/E121/E127 and gives E47 an effect. */\n  eventChoiceRules?:1;\n  /** Absent in saved audits: v0.6 statuses B21–B24/D21–D24 stay unreachable and theft buffs keep their old chance-based meaning. 1 gives every status a source and makes B21/B22/D21 and the thieves' night omen settle tied theft duels. */\n  statusLinks?:1;\n  /** Absent in saved audits: preserve historical event eligibility and defaults. 1 revalidates core2 defaults, links healing/guard choices to their requirements and excludes costless blood-pact debt. */\n  systemLinks?:1;\n  /** Absent in historical runs: keep original skills, catalogs and RNG pools exactly. */\n  trustAbilities?:boolean;\n  /** Absent in saved audits: preserve historical item effects and activation costs. */\n  itemEffects?: boolean;\n  /** Absent in original v0.4 audits: retain the original 10-item generation pool. */\n  catalogVersion?: 1 | 2 | 3 | 4;\n  /** Absent in historical audits: preserve their original economy. */\n  roundRewards?: boolean;\n  /** Absent in saved runs: retain the original single-coin, lose-all wager. */\n  multiCoinRewards?: boolean;\n  /** Absent in saved runs: retain the pre-commission/trust/market-contract rules. */\n  commerce?: boolean;\n  /** Absent in saved runs: retain the one-item bonus for trusting every merchant. */\n  totalTrustStock?: boolean;\n  /** Absent in saved runs: retain the old effects check where only B02 could reveal a curse. */\n  curseSight?: boolean;\n  /** Absent in saved runs: buying from an NPC still costs energy there. */\n  freeBuy?: boolean;\n  /** Absent in saved audits: inspections and appraisals keep their original costs. */\n  freeMerchantAction?: boolean;\n  /** Absent in saved runs: fake items never produce their good effect there. */\n  fakeEffect?: boolean;\n  /** Absent in saved runs: merchants do not clean curses and the smith tools are never stocked. */\n  cleanse?: boolean;\n  /** Absent in saved runs: merchants never announce wishes. */\n  wishlist?: boolean;\n  /** Absent in saved runs: wishes cost no energy, have no cap and never lose value. */\n  wishContract?: boolean;\n  /** Absent in saved runs: listings carry no appraiser claims and the challenge tools are never stocked. */\n  challenge?: boolean;\n  /** Absent in saved runs: the Deep Sea Monster and The Swarm never appear and their items, statuses and events stay out of play. */\n  expansion?: boolean;\n  /** Absent in saved runs: no omens, sale/fee/life modifiers beyond the original market rules, capacity relics or polish events. */\n  polish?: boolean;\n  /** Absent in saved runs: no personal merchant contracts or delayed repayments. */\n  npcEvents?: boolean;\n  /** Absent in saved runs: the v0.6 core (rebalanced prices, door tolls, overvaluation backlash, escalating survival pressure with a Collector deadline, scrap energy, merchant skills, theft, barter and the extra statuses, events and omens). */\n  core2?: boolean;\n  encounters: number; startingCredits: number; maxEnergy: number; recoveryEnergy: number;\n  bankReserve: number; marketProbability: number; marketMaxOrders: number; marketQuota: number;\n  /** Absent in v0.4: retain encounter recovery and historical scoring exactly. */\n  survival?: { maxLife:number; encounterLifeCost:number; entryEnergyCost:number };\n  /** Absent in v0.4/v0.5 audits: unsold-appraisal duty, Dark Market vault auctions and NPC × held-item events. */\n  brokerage?: { auctionProbability:number; maxLots:number; bondProbability:number };\n}"
     },
     {
       "id": "schema:apps/comic/src/game/appraisal/types.ts:UnsoldChoice",
@@ -572,8 +594,8 @@
       "kind": "TypeAliasDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 102,
-        "endLine": 102
+        "line": 105,
+        "endLine": 105
       },
       "text": "export type UnsoldChoice = 'buy'|'penalty'|'consign';"
     },
@@ -583,8 +605,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 103,
-        "endLine": 103
+        "line": 106,
+        "endLine": 106
       },
       "text": "export interface CleanseOffer { npc:NpcId; items:Array<{itemId:string;price:number;chance:number;done:boolean}>; stoneBonus:number }"
     },
@@ -594,8 +616,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 104,
-        "endLine": 104
+        "line": 107,
+        "endLine": 107
       },
       "text": "export interface WishBookRow { npc:NpcId; kind:ItemKind; price:number; initial:number; floor:number; next:number; age:number }"
     },
@@ -605,8 +627,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 105,
-        "endLine": 105
+        "line": 108,
+        "endLine": 108
       },
       "text": "export interface WishDesk { npc:NpcId; cost:number; cap:number; book:WishBookRow[]; replaces:NpcId|null; replaceable:NpcId[] }"
     },
@@ -616,8 +638,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 106,
-        "endLine": 106
+        "line": 109,
+        "endLine": 109
       },
       "text": "export interface WishOffer { npc:NpcId; kind:ItemKind; price:number; initial:number; floor:number; next:number; age:number; trust:number; buffs:number; debuffs:number; tried:boolean; options:Array<{markup:number;price:number;chance:number}>; itemIds:string[]; itemQuotes?:Record<string,Array<{markup:number;price:number}>> }"
     },
@@ -627,8 +649,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 108,
-        "endLine": 108
+        "line": 111,
+        "endLine": 111
       },
       "text": "export interface RecoveryOffer { target:'energy'|'life'; credits:number; amount:number; min?:number }"
     },
@@ -638,8 +660,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 109,
-        "endLine": 112
+        "line": 112,
+        "endLine": 115
       },
       "text": "export interface CollectorResult {\n  playerId:string; credits:number; itemValue:number; modifierPercent:number; statusIds:StatusId[]; score:number;\n  items:Array<{id:string;kind:ItemKind;base:number;genuine:boolean;cursed:boolean;value:number;certified?:boolean}>;\n}"
     },
@@ -649,8 +671,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 113,
-        "endLine": 113
+        "line": 116,
+        "endLine": 116
       },
       "text": "export interface Status { power?:number; id: StatusId; expires: number; charges: number; targetItemId?: string; starts: number }"
     },
@@ -660,8 +682,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 114,
-        "endLine": 114
+        "line": 117,
+        "endLine": 117
       },
       "text": "export interface Knowledge { range?: [number,number]; base?: number; genuine?: boolean; cursed?: boolean; effectsKnown?: boolean; activationKnown?: boolean; certificate?: boolean; comparison?: string }"
     },
@@ -671,10 +693,10 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 115,
-        "endLine": 133
+        "line": 118,
+        "endLine": 137
       },
-      "text": "export interface AppraisalItem {\n  rarityPower?:import('../../shared/rarity-power.js').RarityPower;\n  appearance?:import('../../shared/item-rarity.js').ItemAppearance;\n  lastTradePrice?:number;\n  priceIntegrity?:{overpriced:boolean;audits:number;lastReappraisedEncounter?:number;certifiedPrice?:number};\n  /** Public copy provenance; restrictions live on the source and survive ownership changes. */\n  copy?:{sourceId:string;number:number;valuePercent:number};\n  copyConsumed?:boolean;\n  preserved?:boolean;\n  id: string; kind: ItemKind; base: number; genuine: boolean; cursed: boolean; ask: number;\n  owner: string; npcOwnerId: string; npc: NpcId; encounter: number; certificate: boolean;\n  lastAppraisal: number | null;\n  appraisedBy?:string; commissionPaid?:boolean;\n  /** Laid out by the trust bonus rather than the merchant's usual two goods. */\n  bonus?:boolean;\n  /** Core v0.6: taken without paying. */\n  stolen?:boolean;\n  reservation: number; lastAccepted: boolean | null;\n}"
+      "text": "export interface AppraisalItem {\n  rarityPower?:import('../../shared/rarity-power.js').RarityPower;\n  appearance?:import('../../shared/item-rarity.js').ItemAppearance;\n  lastTradePrice?:number;\n  priceIntegrity?:{overpriced:boolean;audits:number;lastReappraisedEncounter?:number;certifiedPrice?:number};\n  /** Public copy provenance; restrictions live on the source and survive ownership changes. */\n  copy?:{sourceId:string;number:number;valuePercent:number};\n  pilotUsedAt?:number;pilotUses?:number;\n  copyConsumed?:boolean;\n  preserved?:boolean;\n  id: string; kind: ItemKind; base: number; genuine: boolean; cursed: boolean; ask: number;\n  owner: string; npcOwnerId: string; npc: NpcId; encounter: number; certificate: boolean;\n  lastAppraisal: number | null;\n  appraisedBy?:string; commissionPaid?:boolean;\n  /** Laid out by the trust bonus rather than the merchant's usual two goods. */\n  bonus?:boolean;\n  /** Core v0.6: taken without paying. */\n  stolen?:boolean;\n  reservation: number; lastAccepted: boolean | null;\n}"
     },
     {
       "id": "schema:apps/comic/src/game/appraisal/types.ts:Portal",
@@ -682,8 +704,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 134,
-        "endLine": 134
+        "line": 138,
+        "endLine": 138
       },
       "text": "export interface Portal { id: string; npc: NpcId; stock: string[]; disabled: boolean }"
     },
@@ -693,8 +715,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 135,
-        "endLine": 135
+        "line": 139,
+        "endLine": 139
       },
       "text": "export interface Valuation { value: number; accuracy: boolean; caught: boolean; accepted: boolean }"
     },
@@ -704,8 +726,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 136,
-        "endLine": 147
+        "line": 140,
+        "endLine": 151
       },
       "text": "export interface EventOffer {\n  id: EventId; key: string; choices: string[]; itemIds: string[]; statusIds: StatusId[];\n  otherPlayerIds: string[]; quotedPrices: Record<string,number>;\n  facts: Record<string,Knowledge>; targetKinds: Record<string,ItemKind>;\n  /** Held item a bond swap hands to the NPC; fixed when the offer opens. */\n  giveItemId?: string;\n  /** The three buffs of a boon draft (E108), fixed when the offer opens. */\n  boons?: StatusId[];\n  /** What a merchant announces in E73. */\n  wish?: {kind:ItemKind;price:number};\n  npcTerms?: {credits:number;energy:number;life:number;items:number;loanMax?:number};\n}"
     },
@@ -715,8 +737,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 148,
-        "endLine": 151
+        "line": 152,
+        "endLine": 155
       },
       "text": "export interface NpcContracts {\n  vampire?: {signedAt:number};\n  alien?: {lentAt:number;dueAt:number;itemIds:string[];key:string;reservedCredits:number};\n}"
     },
@@ -726,8 +748,8 @@
       "kind": "TypeAliasDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 152,
-        "endLine": 152
+        "line": 156,
+        "endLine": 156
       },
       "text": "export type CoinSide = 'heads' | 'tails';"
     },
@@ -737,8 +759,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 153,
-        "endLine": 158
+        "line": 157,
+        "endLine": 162
       },
       "text": "export interface RoundReward {\n  encounter:number; base:number; amount:number; flips:number; settled:boolean;\n  incomeBonus?:number; winBonus?:number; winChance?:number;\n  coinCount?:number; staked?:number; net?:number;\n  lastFlip?:{guess:CoinSide; side:CoinSide; correct:boolean; coins?:Array<{guess:CoinSide;side:CoinSide;correct:boolean}>; delta?:number};\n}"
     },
@@ -748,10 +770,10 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 159,
-        "endLine": 224
+        "line": 163,
+        "endLine": 229
       },
-      "text": "export interface Appraiser {\n  journal?: JournalEntry[];\n  personalVault?:import('./secure-storage.js').PersonalVault;\n  crime?:import('./theft.js').CrimeRecord;\n  abilityReady?:Partial<Record<NpcId,number>>;\n  abilityLastUsed?:Partial<Record<NpcId,number>>;\n  abilityAdjusted?:Partial<Record<NpcId,number>>;\n  abilityChoice?:{npc:'alien'|'beast';sourceId:string;itemIds:string[]};\n  preserveItemId?:string;\n  orcDeal?:{itemId:string;percent:number;encounter:number};\n  abilityItemUsed?:ItemKind[];\n  /** Extra activated-item bonuses; reset after the round reward is banked. */\n  itemUseBonuses?:import('./item-effects.js').UseBonuses;\n  /** Successful activation bonus sources this encounter: same kind never adds twice. */\n  itemUseKinds?:ItemKind[];\n  itemUseStrength?:Partial<Record<ItemKind,number>>;\n  npcContracts?: NpcContracts;\n  vampireDiscount?: {encounter:number};\n  passiveUses?:Partial<Record<InspectionProperty,number>>;\n  /** Merchant items whose shared free inspection/appraisal was spent this encounter. */\n  merchantActionsUsed?:string[];\n  roundReward?:RoundReward;\n  npcTrust?:Partial<Record<NpcId,number>>;\n  id: string; credits: number; energy: number; inventory: string[]; statuses: Status[];\n  life?:number; recoveryUsed?:boolean;\n  /** Survival commerce: pulse shards earned when another seat buys goods this seat appraised; 3 mend 1 life. */\n  pulseShards?:number;\n  /** Core v0.6: goods other seats appraised that this seat bought toward the next energy refund. */\n  scraps?:number;\n  /** Core v0.6: energy refunds paid this encounter. */\n  scrapPaid?:number;\n  /** Core v0.6: an overvalued appraisal drew a merchant backlash this encounter. */\n  inflated?:boolean;\n  /** Core v0.6: items and seats this seat already tried to steal from this encounter. */\n  stealTried?:string[];\n  /** Core v0.6: merchant doors this seat rerolled this encounter; each reroll costs one more energy than the last. */\n  portalRerolls?:number;\n  /** Core v0.6: the merchant skill was used this encounter. */\n  skillUsed?:boolean;\n  /** Core v0.6: a failed theft waiting for its penalty event; `victim` is the seat that was robbed. */\n  theft?:{kind:'shop'|'player';victim?:string};\n  /** Dark order tickets won at the Dark Market auction; enough of them force a sale (see TRUST_RULES). */\n  darkTickets?:number;\n  /** The merchants of this seat's last purchases of goods other seats appraised; three of one merchant in a row pay trust, then the log clears. */\n  buyLog?:NpcId[];\n  /** Net credits this seat paid for each item it holds (price, fee, minus any rebate); kept off the item so audits keep their shape. */\n  paid?:Record<string,number>;\n  /** The only seat this one has traded with since `since`; a long exclusive run makes merchants wary. */\n  tradeLink?:{partner:string;since:number};\n  paused: 'dead' | 'exhausted' | null; done: boolean; portals: Portal[]; selectedPortalId: string | null;\n  stock: string[]; knowledge: Record<string,Knowledge>; valuations: Record<string,Valuation>;\n  inspections: number; counters: number; activated: string[]; score: number;\n  startWealth: number; accuracyBonus: number; eventOffer: EventOffer | null;\n  seenEvents: EventId[]; resolvedEvents: EventId[]; offerSlots: number; consequenceSlots: number;\n  honorJob: boolean; honestyReward: 'B03' | 'B04' | null; acceptedDanger: boolean;\n  caught: boolean; subsidy: boolean; revealedInfo: string[];\n  dealMode: 'any'|'cash'|'condition';\n  /** Items a merchant already tried to cleanse this encounter; present only with cleanse rules. */\n  cleansed?: string[];\n  /** What each merchant said it wants; kept until sold. Present only with wishlist rules. */\n  wishes?: Partial<Record<NpcId,{kind:ItemKind;price:number;set?:number}>>;\n  wishTried?: boolean;\n  /** How many wishes this seat requested; keeps each re-roll different. */\n  wishRolls?: number;\n  notes: string[];\n}"
+      "text": "export interface Appraiser {\n  journal?: JournalEntry[];\n  personalVault?:import('./secure-storage.js').PersonalVault;\n  crime?:import('./theft.js').CrimeRecord;\n  abilityReady?:Partial<Record<NpcId,number>>;\n  abilityLastUsed?:Partial<Record<NpcId,number>>;\n  abilityAdjusted?:Partial<Record<NpcId,number>>;\n  abilityChoice?:{npc:'alien'|'beast';sourceId:string;itemIds:string[]};\n  preserveItemId?:string;\n  orcDeal?:{itemId:string;percent:number;encounter:number};\n  abilityItemUsed?:ItemKind[];\n  /** Extra activated-item bonuses; reset after the round reward is banked. */\n  itemUseBonuses?:import('./item-effects.js').UseBonuses;\n  /** Successful activation bonus sources this encounter: same kind never adds twice. */\n  itemUseKinds?:ItemKind[];\n  itemUseStrength?:Partial<Record<ItemKind,number>>;\n  npcContracts?: NpcContracts;\n  vampireDiscount?: {encounter:number};\n  passiveUses?:Partial<Record<InspectionProperty,number>>;\n  /** Merchant items whose shared free inspection/appraisal was spent this encounter. */\n  merchantActionsUsed?:string[];\n  roundReward?:RoundReward;\n  npcTrust?:Partial<Record<NpcId,number>>;\n  id: string; credits: number; energy: number; inventory: string[]; statuses: Status[];\n  life?:number; recoveryUsed?:boolean;\n  /** Survival commerce: pulse shards earned when another seat buys goods this seat appraised; 3 mend 1 life. */\n  pulseShards?:number;\n  /** Core v0.6: goods other seats appraised that this seat bought toward the next energy refund. */\n  scraps?:number;\n  /** Core v0.6: energy refunds paid this encounter. */\n  scrapPaid?:number;\n  /** Core v0.6: an overvalued appraisal drew a merchant backlash this encounter. */\n  inflated?:boolean;\n  /** Core v0.6: items and seats this seat already tried to steal from this encounter. */\n  stealTried?:string[];\n  /** Core v0.6: merchant doors this seat rerolled this encounter; each reroll costs one more energy than the last. */\n  portalRerolls?:number;\n  /** Core v0.6: the merchant skill was used this encounter. */\n  skillUsed?:boolean;\n  /** Core v0.6: a failed theft waiting for its penalty event; `victim` is the seat that was robbed. */\n  theft?:{kind:'shop'|'player';victim?:string};\n  /** Dark order tickets won at the Dark Market auction; enough of them force a sale (see TRUST_RULES). */\n  darkTickets?:number;\n  /** The merchants of this seat's last purchases of goods other seats appraised; three of one merchant in a row pay trust, then the log clears. */\n  buyLog?:NpcId[];\n  /** Net credits this seat paid for each item it holds (price, fee, minus any rebate); kept off the item so audits keep their shape. */\n  paid?:Record<string,number>;\n  /** The only seat this one has traded with since `since`; a long exclusive run makes merchants wary. */\n  tradeLink?:{partner:string;since:number};\n  paused: 'dead' | 'exhausted' | null; done: boolean; portals: Portal[]; selectedPortalId: string | null;\n  stock: string[]; knowledge: Record<string,Knowledge>; valuations: Record<string,Valuation>;\n  pilotGuard?:{encounter:number;amount:number};\n  inspections: number; counters: number; activated: string[]; score: number;\n  startWealth: number; accuracyBonus: number; eventOffer: EventOffer | null;\n  seenEvents: EventId[]; resolvedEvents: EventId[]; offerSlots: number; consequenceSlots: number;\n  honorJob: boolean; honestyReward: 'B03' | 'B04' | null; acceptedDanger: boolean;\n  caught: boolean; subsidy: boolean; revealedInfo: string[];\n  dealMode: 'any'|'cash'|'condition';\n  /** Items a merchant already tried to cleanse this encounter; present only with cleanse rules. */\n  cleansed?: string[];\n  /** What each merchant said it wants; kept until sold. Present only with wishlist rules. */\n  wishes?: Partial<Record<NpcId,{kind:ItemKind;price:number;set?:number}>>;\n  wishTried?: boolean;\n  /** How many wishes this seat requested; keeps each re-roll different. */\n  wishRolls?: number;\n  notes: string[];\n}"
     },
     {
       "id": "schema:apps/comic/src/game/appraisal/types.ts:MarketContract",
@@ -759,8 +781,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 225,
-        "endLine": 229
+        "line": 230,
+        "endLine": 234
       },
       "text": "export interface MarketContract {\n  requirements:Array<{property:'genuine'|'cursed';value:boolean}>;\n  bonus:{kind:'credits';amount:number}|{kind:'energy';amount:number}|{kind:'life';amount:number}|{kind:'buff';statusId:Extract<StatusId,`B${string}`>};\n  fullPriceCost:{kind:'energy';amount:number}|{kind:'life';amount:number}|{kind:'debuff';statusId:Extract<StatusId,`D${string}`>};\n}"
     },
@@ -770,8 +792,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 230,
-        "endLine": 230
+        "line": 235,
+        "endLine": 235
       },
       "text": "export interface MarketOrder { rarityReserveMultiplier?:number; id: string; kind: ItemKind; price: number; quota: Record<string,number>; contract?:MarketContract }"
     },
@@ -781,8 +803,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 231,
-        "endLine": 231
+        "line": 236,
+        "endLine": 236
       },
       "text": "export interface AuctionLot { id: string; itemId: string; minimum: number; bids: Record<string,number>; winnerId?: string | null; price?: number }"
     },
@@ -792,8 +814,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 232,
-        "endLine": 232
+        "line": 237,
+        "endLine": 237
       },
       "text": "export interface DarkMarket { encounter: number; open: boolean; budget: number; orders: MarketOrder[]; lots?: AuctionLot[] }"
     },
@@ -803,8 +825,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 233,
-        "endLine": 233
+        "line": 238,
+        "endLine": 238
       },
       "text": "export interface AuctionLotView { id: string; itemId: string; minimum: number; item: ItemView; yourBid: number | null; bidCount: number; winnerId?: string | null; price?: number }"
     },
@@ -814,8 +836,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 234,
-        "endLine": 242
+        "line": 239,
+        "endLine": 247
       },
       "text": "export interface TradeOffer {\n  id: string; buyerId: string; sellerId: string; itemId: string; swapItemId: string | null;\n  credits: number; source: 'inventory' | 'npc'; encounter: number; status: 'open'|'accepted'|'rejected';\n  condition: boolean;\n  /** Buyer calls this claim on the listing a lie; settled when the seller accepts. */\n  challenge?: 'genuine'|'cursed';\n  /** Void seal staked on the challenge: cancels the penalty if the buyer is wrong. */\n  sealId?: string;\n}"
     },
@@ -825,8 +847,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 243,
-        "endLine": 243
+        "line": 248,
+        "endLine": 248
       },
       "text": "export interface LedgerEntry { from: string; to: string; amount: number; reason: string; encounter: number }"
     },
@@ -836,8 +858,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 244,
-        "endLine": 244
+        "line": 249,
+        "endLine": 249
       },
       "text": "export interface TraceEntry { type: string; encounter: number; playerId: string; details: Record<string,unknown> }"
     },
@@ -847,8 +869,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 245,
-        "endLine": 245
+        "line": 250,
+        "endLine": 250
       },
       "text": "export interface JournalEntry { id:number; encounter:number; phase:AppraisalPhase; action:string; cause:string; changes:string[]; choice?:string; itemKind?:ItemKind }"
     },
@@ -858,8 +880,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 246,
-        "endLine": 246
+        "line": 251,
+        "endLine": 251
       },
       "text": "export interface EncounterResult { encounter: number; playerId: string; gain: number; accuracy: number; score: number; paused: Appraiser['paused'] }"
     },
@@ -869,8 +891,8 @@
       "kind": "TypeAliasDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 247,
-        "endLine": 288
+        "line": 252,
+        "endLine": 293
       },
       "text": "export type AppraisalAction = { playerId: string; requestId: string; encounter: number } & (\n  | import('./ghost-service.js').GhostAction\n  | import('./secure-storage.js').StorageAction\n  | import('./secure-storage.js').LoanAction\n  | import('./seals.js').SealAction\n  | {type:'theft-start';itemId?:string;victimId?:string}\n  | {type:'theft-hand';duelId:string;round?:number;hand:import('./theft.js').RpsHand}\n  /** Internal timer command; never accepted by the client message parser. */\n  | {type:'theft-timeout'}\n  /** Internal duel clock: cancels one open duel and keeps the phase going. Never accepted by the client message parser. */\n  | {type:'theft-expire';duelId:string}\n  | {type:'crime-clear'}\n  | {type:'reappraise-owned';itemId:string;value:number}\n  | {type:'liquidate';itemId:string}\n  | { type: 'enter'; portalId: string }\n  | { type: 'reroll-portal'; portalId: string }\n  | { type: 'inspect'; itemId: string; property: 'price'|'authenticity'|'effects' }\n  | { type: 'appraise'|'counter'; itemId: string; value: number; acceptDanger?: boolean }\n  | { type: 'buy'; itemIds: string[]; condition: boolean }\n  | { type: 'activate'; itemId: string; npc?:NpcId; otherNpc?:NpcId }\n  | { type: 'event'; key: string; choice: string; itemId?: string; itemIds?:string[]; statusId?: StatusId; otherPlayerId?: string; fact?: 'base'|'genuine'|'cursed'; guess?: boolean }\n  | { type: 'market-sell'; itemId: string; orderId: string; resolution?:'discount'|'sacrifice' }\n  | { type: 'share'; itemId: string; allow: boolean; purchase: boolean; claims?: { genuine?: boolean; cursed?: boolean }; rebate?: number }\n  | { type: 'force-buy'; sellerId: string; itemId: string }\n  | { type: 'propose'; sellerId: string; itemId: string; credits: number; swapItemId?: string; condition?: boolean; challenge?: 'genuine'|'cursed'; sealId?: string }\n  | { type: 'respond'; offerId: string; accept: boolean }\n  | { type: 'round-flip'; guess:CoinSide; guesses?:CoinSide[]; attempt:number }\n  | { type: 'round-raise'; coinCount:number; attempt:number }\n  | { type: 'round-bank' }\n  | { type: 'done' }\n  | { type:'recover-resource'; target:'energy'|'life' }\n  | { type:'wish-sell'; itemId:string; markup:number }\n  | { type:'wish-new'; replaceNpc?:NpcId }\n  | { type:'cleanse'; itemId:string; stoneId?:string }\n  | { type:'unsold'; itemId:string; choice:UnsoldChoice }\n  | { type:'bid'; lotId:string; credits:number }\n  | { type:'steal'; itemId:string }\n  | { type:'pickpocket'; victimId:string }\n  | { type:'barter'; itemId:string; targetItemId:string }\n  | { type:'skill'; itemId?:string }\n  | { type:'merchant-ability'; npc:NpcId; itemId?:string; statusId?:StatusId; choiceId?:string }\n);"
     },
@@ -880,8 +902,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 290,
-        "endLine": 290
+        "line": 295,
+        "endLine": 295
       },
       "text": "export interface SharedListing { ownerId: string; itemId: string; purchase: boolean; claims?: { genuine?: boolean; cursed?: boolean }; rebate?: number }"
     },
@@ -891,8 +913,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 291,
-        "endLine": 305
+        "line": 296,
+        "endLine": 310
       },
       "text": "export interface AppraisalState {\n  ghosts?:Record<string,import('./ghost-service.js').GhostState>;\n  theftDuels?:import('./theft.js').TheftDuel[];\n  loans?:import('./secure-storage.js').SecuredLoan[];\n  version: 4 | 5; seed: string; config: AppraisalConfig; encounter: number; phase: AppraisalPhase;\n  revision: number; players: Appraiser[]; items: Record<string,AppraisalItem>;\n  reservedRewards: number;\n  schedule: Record<string,Portal[][]>; bank: number; market: DarkMarket;\n  listings: SharedListing[]; publicKnowledge: Record<string,Knowledge>; trades: TradeOffer[];\n  ledger: LedgerEntry[]; trace: TraceEntry[]; history: EncounterResult[];\n  accepted: Record<string,string>; commands: Array<AppraisalAction | { type: 'advance' }>;\n  collector?:CollectorResult[];\n  /** Items the Dark Market bought or took on consignment; present only with brokerage rules. */\n  vault?: string[];\n}"
     },
@@ -902,10 +924,10 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 306,
-        "endLine": 328
+        "line": 311,
+        "endLine": 334
       },
-      "text": "export interface ItemView {\n  rarityPower?:import('../../shared/rarity-power.js').RarityPower;\n  appearance?:import('../../shared/item-rarity.js').ItemAppearance;\n  lastTradePrice?:number;\n  overpriced?:boolean;\n  lastReappraisedEncounter?:number;\n  reappraisalUsed?:boolean;\n  liquidationPrice?:number;\n  copy?:{sourceId:string;sourceName:string;number:number;valuePercent:number};\n  /** This seat can inspect or appraise this merchant item once without energy. */\n  freeMerchantAction?:boolean;\n  itemEffects?:boolean;\n  trustAbilities?:boolean;\n  id: string; kind: ItemKind; name: string; image: string; owner: string;\n  npc: NpcId;\n  range?: [number,number]; ask: number; appraisal: number | null; lockedUntil: number | null;\n  price: number; appraisalAccepted: boolean | null;\n  appraisedBy?:string; commissionPaid?:boolean;\n  /** Only the owner sees what they paid. */\n  paid?:number; bonus?:boolean; stolen?:boolean;\n  knowledge: Knowledge; certificate: boolean; possibleBenefit: string; possibleDrawback: string;\n  condition: {statusId:StatusId;discount:number;available:boolean;required:boolean};\n}"
+      "text": "export interface ItemView {\n  pilotUses?:number;\n  rarityPower?:import('../../shared/rarity-power.js').RarityPower;\n  appearance?:import('../../shared/item-rarity.js').ItemAppearance;\n  lastTradePrice?:number;\n  overpriced?:boolean;\n  lastReappraisedEncounter?:number;\n  reappraisalUsed?:boolean;\n  liquidationPrice?:number;\n  copy?:{sourceId:string;sourceName:string;number:number;valuePercent:number};\n  /** This seat can inspect or appraise this merchant item once without energy. */\n  freeMerchantAction?:boolean;\n  itemEffects?:boolean;\n  trustAbilities?:boolean;\n  id: string; kind: ItemKind; name: string; image: string; owner: string;\n  npc: NpcId;\n  range?: [number,number]; ask: number; appraisal: number | null; lockedUntil: number | null;\n  price: number; appraisalAccepted: boolean | null;\n  appraisedBy?:string; commissionPaid?:boolean;\n  /** Only the owner sees what they paid. */\n  paid?:number; bonus?:boolean; stolen?:boolean;\n  knowledge: Knowledge; certificate: boolean; possibleBenefit: string; possibleDrawback: string;\n  condition: {statusId:StatusId;discount:number;available:boolean;required:boolean};\n}"
     },
     {
       "id": "schema:apps/comic/src/game/appraisal/types.ts:Core2Actions",
@@ -913,8 +935,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 329,
-        "endLine": 329
+        "line": 335,
+        "endLine": 335
       },
       "text": "export interface Core2Actions { skill?:{npc:NpcId;name:string;needsItem:boolean;strong:boolean}; stealChance?:number; pickpocketChance?:number; theftUsed:boolean; trustForSkill:number }"
     },
@@ -924,10 +946,10 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 330,
-        "endLine": 368
+        "line": 336,
+        "endLine": 375
       },
-      "text": "export interface AppraisalView {\n  theftTimeoutRules?:1;\n  vaultInterestPercent?:number;\n  ghosts?:ReturnType<typeof import('./ghost-service.js').ghostView>;\n  secureEconomy?:boolean;\n  theft?:ReturnType<typeof import('./theft.js').theftViewFor>;\n  sealMarket?:import('./seals.js').SealMarketView;\n  loans?:Array<import('./secure-storage.js').SecuredLoan & {item:ItemView}>;\n  trustAbilities?:boolean;\n  itemEffects?:boolean;\n  version: 4 | 5; phase: AppraisalPhase; encounter: number; encounterCount: number | null; revision: number;\n  eventChoiceRules?:1;\n  statusLinks?:1;\n  survival?:NonNullable<AppraisalConfig['survival']>; core2?:boolean; collectorAt?:number; dread?:number; curseSight?:boolean; freeBuy?:boolean; fakeEffect?:boolean; cleanse?:boolean; wishlist?:boolean; wishContract?:boolean; challenge?:boolean; polish?:boolean; omen?:{id:string;name:string;text:string}; salePct?:number; fee?:number; maxEnergy?:number; collector?:CollectorResult[]; brokerage?:boolean; roundRewardBase?:number; passives?:boolean;\n  self: Omit<Appraiser,'personalVault'|'knowledge'|'portals'|'stock'|'inventory'|'valuations'|'startWealth'|'acceptedDanger'|'seenEvents'|'resolvedEvents'> & {\n    personalVault?:{items:ItemView[];credits:number;slots:number;nextSlotPrice:number;nextInterest:number;interestPercent?:number};\n    loanItems?:ItemView[];\n    inventory: ItemView[]; stock: ItemView[]; portals: Array<{id:string; npc:NpcId; hint:ItemKind; disabled:boolean}>;\n    counterLimit: number;\n    /** Per-seat caps once held relics apply (polish rules). */\n    maxEnergy?: number; maxLife?: number;\n    recoveryOffer?:RecoveryOffer;\n    /** Core v0.6: what the seat can do beyond buying: the merchant's skill, theft odds and whether this encounter's one attempt is spent. */\n    core2Actions?:Core2Actions;\n    merchantAbilities?:MerchantAbilityView[];\n    abilityChoices?:ItemView[];\n    pulse?:{shards:number;perLife:number;perSale:number;wary:boolean};\n    /** Shop bonus and its threshold. `total` selects pooled trust; absent keeps the historical all-merchant rule. */\n    stockBonus?:{tier:number;extra:number;need:number;npcs:NpcId[];total?:number};\n    cleanseOffer?:CleanseOffer;\n    wishOffer?:WishOffer;\n    wishDesk?:WishDesk;\n    /** Every open wish with its current price, in any phase, so the seat can recall what to buy. */\n    wishBook?:WishBookRow[];\n  };\n  players: Array<{id:string;credits:number;energy:number;score:number;paused:Appraiser['paused'];done:boolean;itemCount:number;life?:number}>;\n  market: Omit<DarkMarket,'lots'> & { lots?: AuctionLotView[] }; listings: Array<SharedListing & { item: ItemView }>;\n  trades: Array<TradeOffer & {item:ItemView;swapItem:ItemView|null}>; history: EncounterResult[];\n}"
+      "text": "export interface AppraisalView {\n  theftTimeoutRules?:1;\n  vaultInterestPercent?:number;\n  ghosts?:ReturnType<typeof import('./ghost-service.js').ghostView>;\n  secureEconomy?:boolean;\n  theft?:ReturnType<typeof import('./theft.js').theftViewFor>;\n  sealMarket?:import('./seals.js').SealMarketView;\n  loans?:Array<import('./secure-storage.js').SecuredLoan & {item:ItemView}>;\n  trustAbilities?:boolean;\n  itemEffects?:boolean;\n  version: 4 | 5; phase: AppraisalPhase; encounter: number; encounterCount: number | null; revision: number;\n  eventChoiceRules?:1;\n  statusLinks?:1;\n  survival?:NonNullable<AppraisalConfig['survival']>; core2?:boolean; collectorAt?:number; dread?:number; curseSight?:boolean; freeBuy?:boolean; fakeEffect?:boolean; cleanse?:boolean; wishlist?:boolean; wishContract?:boolean; challenge?:boolean; polish?:boolean; omen?:{id:string;name:string;text:string}; salePct?:number; fee?:number; maxEnergy?:number; collector?:CollectorResult[]; brokerage?:boolean; roundRewardBase?:number; passives?:boolean;\n  self: Omit<Appraiser,'personalVault'|'knowledge'|'portals'|'stock'|'inventory'|'valuations'|'startWealth'|'acceptedDanger'|'seenEvents'|'resolvedEvents'> & {\n    personalVault?:{items:ItemView[];credits:number;slots:number;nextSlotPrice:number;nextInterest:number;interestPercent?:number};\n    loanItems?:ItemView[];\n    inventory: ItemView[]; stock: ItemView[]; portals: Array<{id:string; npc:NpcId; hint:ItemKind; disabled:boolean}>;\n    portalRerollCost?:number;pilotPriceChecks?:number;pilotAcceptancePercent?:number;\n    counterLimit: number;\n    /** Per-seat caps once held relics apply (polish rules). */\n    maxEnergy?: number; maxLife?: number;\n    recoveryOffer?:RecoveryOffer;\n    /** Core v0.6: what the seat can do beyond buying: the merchant's skill, theft odds and whether this encounter's one attempt is spent. */\n    core2Actions?:Core2Actions;\n    merchantAbilities?:MerchantAbilityView[];\n    abilityChoices?:ItemView[];\n    pulse?:{shards:number;perLife:number;perSale:number;wary:boolean};\n    /** Shop bonus and its threshold. `total` selects pooled trust; absent keeps the historical all-merchant rule. */\n    stockBonus?:{tier:number;extra:number;need:number;npcs:NpcId[];total?:number};\n    cleanseOffer?:CleanseOffer;\n    wishOffer?:WishOffer;\n    wishDesk?:WishDesk;\n    /** Every open wish with its current price, in any phase, so the seat can recall what to buy. */\n    wishBook?:WishBookRow[];\n  };\n  players: Array<{id:string;credits:number;energy:number;score:number;paused:Appraiser['paused'];done:boolean;itemCount:number;life?:number}>;\n  market: Omit<DarkMarket,'lots'> & { lots?: AuctionLotView[] }; listings: Array<SharedListing & { item: ItemView }>;\n  trades: Array<TradeOffer & {item:ItemView;swapItem:ItemView|null}>; history: EncounterResult[];\n}"
     },
     {
       "id": "schema:apps/comic/src/game/appraisal/types.ts:MerchantAbilityView",
@@ -935,8 +957,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 369,
-        "endLine": 372
+        "line": 376,
+        "endLine": 379
       },
       "text": "export interface MerchantAbilityView {\n  npc:NpcId; name:string; description:string; trust:number; tier:number; cooldown:number; remaining:number;\n  ready:boolean; reason:string|null; target:'stock'|'inventory'|'consumable'|'debuff'|'none'; itemIds:string[]; statusIds:StatusId[];\n}"
     },
@@ -1265,8 +1287,8 @@
       "kind": "TypeAliasDeclaration",
       "source": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 10,
-        "endLine": 10
+        "line": 11,
+        "endLine": 11
       },
       "text": "export type AppraisalPolicy=typeof APPRAISAL_POLICIES[number];"
     },
@@ -1276,8 +1298,8 @@
       "kind": "TypeAliasDeclaration",
       "source": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 11,
-        "endLine": 11
+        "line": 12,
+        "endLine": 12
       },
       "text": "type Body=AppraisalAction extends infer A ? A extends AppraisalAction ? Omit<A,'playerId'|'requestId'|'encounter'> : never : never;"
     },
@@ -1287,8 +1309,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 87,
-        "endLine": 87
+        "line": 88,
+        "endLine": 88
       },
       "text": "interface Deal {listing:AppraisalView['listings'][number];net:number;ok:boolean;npcSource:boolean;fee:number}"
     }
@@ -1944,8 +1966,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 99,
-        "endLine": 99
+        "line": 100,
+        "endLine": 100
       },
       "guards": [
         "config.brokerage"
@@ -1958,8 +1980,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 100,
-        "endLine": 100
+        "line": 101,
+        "endLine": 101
       },
       "guards": [
         "config.secureEconomy"
@@ -1972,8 +1994,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 100,
-        "endLine": 100
+        "line": 101,
+        "endLine": 101
       },
       "guards": [
         "config.secureEconomy"
@@ -1986,8 +2008,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 106,
-        "endLine": 106
+        "line": 107,
+        "endLine": 107
       },
       "guards": []
     },
@@ -1998,8 +2020,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 109,
-        "endLine": 109
+        "line": 110,
+        "endLine": 110
       },
       "guards": [
         "config.secureEconomy"
@@ -2012,8 +2034,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 111,
-        "endLine": 111
+        "line": 112,
+        "endLine": 112
       },
       "guards": []
     },
@@ -2024,8 +2046,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 113,
-        "endLine": 113
+        "line": 114,
+        "endLine": 114
       },
       "guards": []
     },
@@ -2036,8 +2058,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 126,
-        "endLine": 132
+        "line": 127,
+        "endLine": 133
       },
       "guards": []
     },
@@ -2048,8 +2070,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:rerollPortal",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 157,
-        "endLine": 157
+        "line": 158,
+        "endLine": 158
       },
       "guards": []
     },
@@ -2060,8 +2082,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:rerollPortal",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 158,
-        "endLine": 158
+        "line": 159,
+        "endLine": 159
       },
       "guards": []
     },
@@ -2072,8 +2094,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 164,
-        "endLine": 164
+        "line": 165,
+        "endLine": 165
       },
       "guards": [
         "state.config.brokerage"
@@ -2086,8 +2108,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 177,
-        "endLine": 177
+        "line": 178,
+        "endLine": 178
       },
       "guards": []
     },
@@ -2098,8 +2120,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 179,
-        "endLine": 179
+        "line": 180,
+        "endLine": 180
       },
       "guards": [
         "!market.orders.length",
@@ -2113,8 +2135,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 180,
-        "endLine": 180
+        "line": 181,
+        "endLine": 181
       },
       "guards": []
     },
@@ -2125,8 +2147,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:pauseIfNeeded",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 187,
-        "endLine": 187
+        "line": 188,
+        "endLine": 188
       },
       "guards": [
         "!state.config.survival && p.energy===0 && !p.paused && !(state.config.freeMerchantAction && (p.selectedPortalId===null || p.stock.some(id=>merchantActionFree(state,p,id))))",
@@ -2140,8 +2162,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:pauseIfNeeded",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 187,
-        "endLine": 187
+        "line": 188,
+        "endLine": 188
       },
       "guards": [
         "!state.config.survival && p.energy===0 && !p.paused && !(state.config.freeMerchantAction && (p.selectedPortalId===null || p.stock.some(id=>merchantActionFree(state,p,id))))",
@@ -2155,8 +2177,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:pauseIfNeeded",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 187,
-        "endLine": 187
+        "line": 188,
+        "endLine": 188
       },
       "guards": [
         "!state.config.survival && p.energy===0 && !p.paused && !(state.config.freeMerchantAction && (p.selectedPortalId===null || p.stock.some(id=>merchantActionFree(state,p,id))))",
@@ -2170,8 +2192,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:pauseIfNeeded",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 189,
-        "endLine": 189
+        "line": 190,
+        "endLine": 190
       },
       "guards": [
         "p.paused"
@@ -2184,8 +2206,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:pauseIfNeeded",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 189,
-        "endLine": 189
+        "line": 190,
+        "endLine": 190
       },
       "guards": [
         "p.paused"
@@ -2198,8 +2220,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 195,
-        "endLine": 195
+        "line": 196,
+        "endLine": 196
       },
       "guards": [
         "state.config.survival && p.life===0",
@@ -2212,8 +2234,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 195,
-        "endLine": 195
+        "line": 196,
+        "endLine": 196
       },
       "guards": [
         "state.config.survival && p.life===0",
@@ -2227,8 +2249,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 198,
-        "endLine": 198
+        "line": 199,
+        "endLine": 199
       },
       "guards": [
         "status(p,'D05')"
@@ -2241,8 +2263,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 199,
-        "endLine": 199
+        "line": 200,
+        "endLine": 200
       },
       "guards": [
         "status(p,'D11')"
@@ -2255,8 +2277,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 200,
-        "endLine": 200
+        "line": 201,
+        "endLine": 201
       },
       "guards": [
         "omenNow(state)?.settleEnergy"
@@ -2269,8 +2291,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 205,
-        "endLine": 205
+        "line": 206,
+        "endLine": 206
       },
       "guards": []
     },
@@ -2281,8 +2303,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 206,
-        "endLine": 206
+        "line": 207,
+        "endLine": 207
       },
       "guards": [
         "p.subsidy"
@@ -2294,8 +2316,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 206,
-        "endLine": 206
+        "line": 207,
+        "endLine": 207
       },
       "guards": [
         "p.subsidy"
@@ -2308,8 +2330,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 210,
-        "endLine": 210
+        "line": 211,
+        "endLine": 211
       },
       "guards": []
     },
@@ -2320,8 +2342,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 210,
-        "endLine": 210
+        "line": 211,
+        "endLine": 211
       },
       "guards": []
     },
@@ -2332,8 +2354,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 211,
-        "endLine": 211
+        "line": 212,
+        "endLine": 212
       },
       "guards": [
         "offer.status==='open'"
@@ -2346,8 +2368,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 213,
-        "endLine": 213
+        "line": 214,
+        "endLine": 214
       },
       "guards": [
         "NOT state.config.survival && (state.players.every(p=>p.life===0) || collectorDue(state))"
@@ -2360,8 +2382,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:progress",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 220,
-        "endLine": 220
+        "line": 221,
+        "endLine": 221
       },
       "guards": [
         "state.phase==='PORTALS'"
@@ -2374,8 +2396,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:progress",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 221,
-        "endLine": 221
+        "line": 222,
+        "endLine": 222
       },
       "guards": [
         "state.phase==='PORTALS'"
@@ -2388,8 +2410,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:progress",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 223,
-        "endLine": 223
+        "line": 224,
+        "endLine": 224
       },
       "guards": [
         "NOT state.phase==='PORTALS'",
@@ -2403,8 +2425,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:progress",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 224,
-        "endLine": 224
+        "line": 225,
+        "endLine": 225
       },
       "guards": [
         "NOT state.phase==='PORTALS'",
@@ -2418,8 +2440,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:share",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 240,
-        "endLine": 240
+        "line": 241,
+        "endLine": 241
       },
       "guards": []
     },
@@ -2430,8 +2452,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:forceBuy",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 273,
-        "endLine": 273
+        "line": 274,
+        "endLine": 274
       },
       "guards": []
     },
@@ -2442,8 +2464,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:forceBuy",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 275,
-        "endLine": 275
+        "line": 276,
+        "endLine": 276
       },
       "guards": []
     },
@@ -2454,8 +2476,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:forceBuy",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 276,
-        "endLine": 276
+        "line": 277,
+        "endLine": 277
       },
       "guards": []
     },
@@ -2466,8 +2488,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:forceBuy",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 278,
-        "endLine": 278
+        "line": 279,
+        "endLine": 279
       },
       "guards": []
     },
@@ -2478,8 +2500,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:forceBuy",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 279,
-        "endLine": 279
+        "line": 280,
+        "endLine": 280
       },
       "guards": []
     },
@@ -2490,8 +2512,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:respond",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 285,
-        "endLine": 285
+        "line": 286,
+        "endLine": 286
       },
       "guards": [
         "!accept"
@@ -2504,8 +2526,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:respond",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 300,
-        "endLine": 300
+        "line": 301,
+        "endLine": 301
       },
       "guards": [
         "NOT offer.source==='npc'"
@@ -2518,8 +2540,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:respond",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 300,
-        "endLine": 300
+        "line": 301,
+        "endLine": 301
       },
       "guards": [
         "NOT offer.source==='npc'"
@@ -2532,8 +2554,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:respond",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 301,
-        "endLine": 301
+        "line": 302,
+        "endLine": 302
       },
       "guards": [
         "NOT offer.source==='npc'",
@@ -2547,8 +2569,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:respond",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 301,
-        "endLine": 301
+        "line": 302,
+        "endLine": 302
       },
       "guards": [
         "NOT offer.source==='npc'",
@@ -2562,8 +2584,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:respond",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 307,
-        "endLine": 307
+        "line": 308,
+        "endLine": 308
       },
       "guards": []
     },
@@ -2574,8 +2596,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:respond",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 308,
-        "endLine": 308
+        "line": 309,
+        "endLine": 309
       },
       "guards": []
     },
@@ -2586,8 +2608,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:respond",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 309,
-        "endLine": 309
+        "line": 310,
+        "endLine": 310
       },
       "guards": []
     },
@@ -2598,8 +2620,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:respond",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 310,
-        "endLine": 310
+        "line": 311,
+        "endLine": 311
       },
       "guards": [
         "party.subsidy"
@@ -2611,8 +2633,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:respond",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 310,
-        "endLine": 310
+        "line": 311,
+        "endLine": 311
       },
       "guards": [
         "party.subsidy"
@@ -2625,8 +2647,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:expireUnavailableOffers",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 322,
-        "endLine": 322
+        "line": 323,
+        "endLine": 323
       },
       "guards": [
         "!listed || !available || !swapAvailable || seller.paused || buyer.paused || seller.done || buyer.done"
@@ -2638,8 +2660,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 339,
-        "endLine": 339
+        "line": 340,
+        "endLine": 340
       },
       "guards": [
         "ghostAction"
@@ -2652,8 +2674,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 339,
-        "endLine": 339
+        "line": 340,
+        "endLine": 340
       },
       "guards": [
         "ghostAction"
@@ -2665,8 +2687,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 347,
-        "endLine": 347
+        "line": 348,
+        "endLine": 348
       },
       "guards": [
         "roundAction"
@@ -2679,8 +2701,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 347,
-        "endLine": 347
+        "line": 348,
+        "endLine": 348
       },
       "guards": [
         "roundAction"
@@ -2692,8 +2714,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 363,
-        "endLine": 363
+        "line": 364,
+        "endLine": 364
       },
       "guards": [
         "financeAction || action.type==='theft-hand' || action.type==='theft-expire' || forcedTimeout"
@@ -2706,8 +2728,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 363,
-        "endLine": 363
+        "line": 364,
+        "endLine": 364
       },
       "guards": [
         "financeAction || action.type==='theft-hand' || action.type==='theft-expire' || forcedTimeout"
@@ -2720,8 +2742,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 374,
-        "endLine": 374
+        "line": 375,
+        "endLine": 375
       },
       "guards": []
     },
@@ -2732,8 +2754,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 374,
-        "endLine": 374
+        "line": 375,
+        "endLine": 375
       },
       "guards": []
     },
@@ -2744,8 +2766,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 377,
-        "endLine": 377
+        "line": 378,
+        "endLine": 378
       },
       "guards": []
     },
@@ -2756,8 +2778,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 391,
-        "endLine": 391
+        "line": 392,
+        "endLine": 392
       },
       "guards": []
     },
@@ -2768,8 +2790,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 393,
-        "endLine": 393
+        "line": 394,
+        "endLine": 394
       },
       "guards": [
         "offer.target==='life'"
@@ -2782,8 +2804,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 416,
-        "endLine": 416
+        "line": 417,
+        "endLine": 417
       },
       "guards": [
         "action.type==='theft-timeout'",
@@ -2797,8 +2819,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 416,
-        "endLine": 416
+        "line": 417,
+        "endLine": 417
       },
       "guards": [
         "action.type==='theft-timeout'",
@@ -2812,8 +2834,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 419,
-        "endLine": 419
+        "line": 420,
+        "endLine": 420
       },
       "guards": []
     },
@@ -2824,8 +2846,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 419,
-        "endLine": 419
+        "line": 420,
+        "endLine": 420
       },
       "guards": [
         "offer.status==='open' && [offer.buyerId,offer.sellerId].includes(p.id)"
@@ -2837,8 +2859,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 422,
-        "endLine": 422
+        "line": 423,
+        "endLine": 423
       },
       "guards": []
     },
@@ -2849,8 +2871,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 423,
-        "endLine": 423
+        "line": 424,
+        "endLine": 424
       },
       "guards": []
     },
@@ -2860,8 +2882,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 427,
-        "endLine": 427
+        "line": 428,
+        "endLine": 428
       },
       "guards": []
     },
@@ -2872,8 +2894,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 430,
-        "endLine": 430
+        "line": 431,
+        "endLine": 431
       },
       "guards": [
         "!state.config.survival && state.encounter===state.config.encounters"
@@ -2885,8 +2907,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 431,
-        "endLine": 431
+        "line": 432,
+        "endLine": 432
       },
       "guards": []
     },
@@ -2897,8 +2919,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 431,
-        "endLine": 431
+        "line": 432,
+        "endLine": 432
       },
       "guards": []
     },
@@ -2909,8 +2931,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 431,
-        "endLine": 431
+        "line": 432,
+        "endLine": 432
       },
       "guards": []
     },
@@ -2921,8 +2943,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 431,
-        "endLine": 431
+        "line": 432,
+        "endLine": 432
       },
       "guards": []
     },
@@ -2933,8 +2955,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 436,
-        "endLine": 436
+        "line": 437,
+        "endLine": 437
       },
       "guards": [
         "state.config.trustAbilities"
@@ -2947,8 +2969,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 442,
-        "endLine": 442
+        "line": 443,
+        "endLine": 443
       },
       "guards": [
         "passivesEnabled(state.config)"
@@ -2961,8 +2983,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 443,
-        "endLine": 443
+        "line": 444,
+        "endLine": 444
       },
       "guards": [
         "state.config.survival"
@@ -2975,8 +2997,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 445,
+        "endLine": 445
       },
       "guards": []
     },
@@ -2987,8 +3009,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 445,
+        "endLine": 445
       },
       "guards": []
     },
@@ -2999,8 +3021,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 445,
+        "endLine": 445
       },
       "guards": []
     },
@@ -3011,8 +3033,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 445,
+        "endLine": 445
       },
       "guards": []
     },
@@ -3023,8 +3045,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 445,
+        "endLine": 445
       },
       "guards": []
     },
@@ -3035,8 +3057,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 445,
+        "endLine": 445
       },
       "guards": []
     },
@@ -3047,8 +3069,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 445,
+        "endLine": 445
       },
       "guards": []
     },
@@ -3059,8 +3081,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 445,
+        "endLine": 445
       },
       "guards": []
     },
@@ -3071,8 +3093,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 445,
+        "endLine": 445
       },
       "guards": []
     },
@@ -3083,8 +3105,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 445,
+        "endLine": 445
       },
       "guards": []
     },
@@ -3095,8 +3117,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 445,
+        "endLine": 445
       },
       "guards": []
     },
@@ -3107,8 +3129,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 445,
+        "endLine": 445
       },
       "guards": []
     },
@@ -3119,8 +3141,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 445,
+        "endLine": 445
       },
       "guards": []
     },
@@ -3131,8 +3153,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 445,
+        "endLine": 445
       },
       "guards": []
     },
@@ -3143,8 +3165,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 445,
+        "endLine": 445
       },
       "guards": []
     },
@@ -3155,8 +3177,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 445,
+        "endLine": 445
       },
       "guards": []
     },
@@ -3167,8 +3189,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 445,
+        "endLine": 445
       },
       "guards": []
     },
@@ -3179,8 +3201,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 445,
+        "endLine": 445
       },
       "guards": []
     },
@@ -3191,8 +3213,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 445,
+        "endLine": 445
       },
       "guards": [
         "p.cleansed"
@@ -3205,8 +3227,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 445,
+        "endLine": 445
       },
       "guards": [
         "p.wishes"
@@ -3219,8 +3241,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 445,
-        "endLine": 445
+        "line": 446,
+        "endLine": 446
       },
       "guards": []
     },
@@ -3231,8 +3253,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 445,
-        "endLine": 445
+        "line": 446,
+        "endLine": 446
       },
       "guards": []
     },
@@ -3243,8 +3265,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 450,
-        "endLine": 450
+        "line": 451,
+        "endLine": 451
       },
       "guards": [
         "status(p,'D07')?.starts===state.encounter"
@@ -3257,8 +3279,8 @@
       "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
-        "line": 452,
-        "endLine": 452
+        "line": 453,
+        "endLine": 453
       },
       "guards": []
     },
@@ -4028,8 +4050,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:consumeStatus",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 35,
-        "endLine": 35
+        "line": 36,
+        "endLine": 36
       },
       "guards": [
         "s"
@@ -4042,8 +4064,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:consumeStatus",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 35,
-        "endLine": 35
+        "line": 36,
+        "endLine": 36
       },
       "guards": []
     },
@@ -4054,8 +4076,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:removeStatus",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 37,
-        "endLine": 37
+        "line": 38,
+        "endLine": 38
       },
       "guards": []
     },
@@ -4066,8 +4088,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:enforceCaps",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 49,
-        "endLine": 49
+        "line": 50,
+        "endLine": 50
       },
       "guards": []
     },
@@ -4078,8 +4100,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:enforceCaps",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 50,
-        "endLine": 50
+        "line": 51,
+        "endLine": 51
       },
       "guards": [
         "p.life!==undefined && p.life>0"
@@ -4092,8 +4114,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:grant",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 94,
-        "endLine": 94
+        "line": 95,
+        "endLine": 95
       },
       "guards": [
         "old"
@@ -4106,8 +4128,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:grant",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 94,
-        "endLine": 94
+        "line": 95,
+        "endLine": 95
       },
       "guards": [
         "old"
@@ -4120,8 +4142,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:grant",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 94,
-        "endLine": 94
+        "line": 95,
+        "endLine": 95
       },
       "guards": [
         "old",
@@ -4135,8 +4157,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:spend",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 101,
-        "endLine": 101
+        "line": 102,
+        "endLine": 102
       },
       "guards": []
     },
@@ -4147,8 +4169,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:spend",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 101,
-        "endLine": 101
+        "line": 102,
+        "endLine": 102
       },
       "guards": []
     },
@@ -4159,8 +4181,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:spend",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 101,
-        "endLine": 101
+        "line": 102,
+        "endLine": 102
       },
       "guards": []
     },
@@ -4171,8 +4193,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:reward",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 108,
-        "endLine": 108
+        "line": 109,
+        "endLine": 109
       },
       "guards": []
     },
@@ -4183,8 +4205,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:reward",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 108,
-        "endLine": 108
+        "line": 109,
+        "endLine": 109
       },
       "guards": []
     },
@@ -4195,8 +4217,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:transfer",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 113,
-        "endLine": 113
+        "line": 114,
+        "endLine": 114
       },
       "guards": []
     },
@@ -4207,8 +4229,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:transfer",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 113,
-        "endLine": 113
+        "line": 114,
+        "endLine": 114
       },
       "guards": []
     },
@@ -4219,8 +4241,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:fundPassive",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 119,
-        "endLine": 119
+        "line": 120,
+        "endLine": 120
       },
       "guards": []
     },
@@ -4231,8 +4253,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:recover",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 125,
-        "endLine": 125
+        "line": 126,
+        "endLine": 126
       },
       "guards": []
     },
@@ -4243,8 +4265,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:healLife",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 130,
-        "endLine": 130
+        "line": 131,
+        "endLine": 131
       },
       "guards": []
     },
@@ -4255,8 +4277,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:damageLife",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 138,
-        "endLine": 138
+        "line": 140,
+        "endLine": 140
       },
       "guards": []
     },
@@ -4267,8 +4289,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:damageLife",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 140,
-        "endLine": 140
+        "line": 142,
+        "endLine": 142
       },
       "guards": [
         "p.life===0 && !p.paused"
@@ -4281,8 +4303,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:damageLife",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 140,
-        "endLine": 140
+        "line": 142,
+        "endLine": 142
       },
       "guards": [
         "p.life===0 && !p.paused"
@@ -4295,8 +4317,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:damageLife",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 140,
-        "endLine": 140
+        "line": 142,
+        "endLine": 142
       },
       "guards": [
         "p.life===0 && !p.paused"
@@ -4309,8 +4331,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:mendWithShards",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 164,
-        "endLine": 164
+        "line": 166,
+        "endLine": 166
       },
       "guards": [
         "p.pulseShards!==undefined"
@@ -4323,8 +4345,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:gainShards",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 168,
-        "endLine": 168
+        "line": 170,
+        "endLine": 170
       },
       "guards": []
     },
@@ -4335,8 +4357,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:gainShards",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 172,
-        "endLine": 172
+        "line": 174,
+        "endLine": 174
       },
       "guards": []
     },
@@ -4347,8 +4369,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:retire",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 183,
-        "endLine": 183
+        "line": 185,
+        "endLine": 185
       },
       "guards": []
     },
@@ -4359,8 +4381,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:retire",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 184,
-        "endLine": 184
+        "line": 186,
+        "endLine": 186
       },
       "guards": [
         "item.copy"
@@ -4373,8 +4395,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:retire",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 185,
-        "endLine": 185
+        "line": 187,
+        "endLine": 187
       },
       "guards": []
     },
@@ -4385,8 +4407,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:retire",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 185,
-        "endLine": 185
+        "line": 187,
+        "endLine": 187
       },
       "guards": []
     },
@@ -4397,8 +4419,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:retire",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 186,
-        "endLine": 186
+        "line": 188,
+        "endLine": 188
       },
       "guards": []
     },
@@ -4409,8 +4431,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:learn",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 203,
-        "endLine": 203
+        "line": 205,
+        "endLine": 205
       },
       "guards": []
     },
@@ -4421,8 +4443,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 223,
-        "endLine": 223
+        "line": 226,
+        "endLine": 226
       },
       "guards": [
         "merchantFree"
@@ -4435,8 +4457,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 224,
-        "endLine": 224
+        "line": 227,
+        "endLine": 227
       },
       "guards": [
         "NOT merchantFree",
@@ -4450,8 +4472,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 224,
-        "endLine": 224
+        "line": 227,
+        "endLine": 227
       },
       "guards": [
         "NOT merchantFree",
@@ -4464,8 +4486,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 228,
-        "endLine": 228
+        "line": 232,
+        "endLine": 232
       },
       "guards": [
         "!merchantFree"
@@ -4478,8 +4500,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 258,
-        "endLine": 258
+        "line": 262,
+        "endLine": 262
       },
       "guards": [
         "merchantFree"
@@ -4491,8 +4513,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 259,
-        "endLine": 259
+        "line": 263,
+        "endLine": 263
       },
       "guards": [
         "counter"
@@ -4505,8 +4527,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 260,
-        "endLine": 260
+        "line": 264,
+        "endLine": 264
       },
       "guards": []
     },
@@ -4517,8 +4539,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 270,
-        "endLine": 270
+        "line": 274,
+        "endLine": 274
       },
       "guards": [
         "overChance>0 && randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:overvalue:${counter?p.counters:0}`)<overChance",
@@ -4532,8 +4554,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 273,
-        "endLine": 273
+        "line": 277,
+        "endLine": 277
       },
       "guards": [
         "accuracy && !previous?.accuracy"
@@ -4546,8 +4568,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 274,
-        "endLine": 274
+        "line": 278,
+        "endLine": 278
       },
       "guards": [
         "!accuracy && previous?.accuracy"
@@ -4560,8 +4582,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 275,
-        "endLine": 275
+        "line": 279,
+        "endLine": 279
       },
       "guards": []
     },
@@ -4572,8 +4594,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 276,
-        "endLine": 276
+        "line": 280,
+        "endLine": 280
       },
       "guards": []
     },
@@ -4584,8 +4606,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 276,
-        "endLine": 276
+        "line": 280,
+        "endLine": 280
       },
       "guards": []
     },
@@ -4596,8 +4618,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 277,
-        "endLine": 277
+        "line": 281,
+        "endLine": 281
       },
       "guards": [
         "state.config.commerce"
@@ -4610,8 +4632,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 282,
-        "endLine": 282
+        "line": 286,
+        "endLine": 286
       },
       "guards": [
         "caught",
@@ -4625,8 +4647,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 284,
-        "endLine": 284
+        "line": 288,
+        "endLine": 288
       },
       "guards": []
     },
@@ -4637,8 +4659,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 286,
-        "endLine": 286
+        "line": 290,
+        "endLine": 290
       },
       "guards": []
     },
@@ -4649,8 +4671,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 287,
-        "endLine": 287
+        "line": 291,
+        "endLine": 291
       },
       "guards": []
     },
@@ -4661,8 +4683,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 289,
-        "endLine": 289
+        "line": 293,
+        "endLine": 293
       },
       "guards": []
     },
@@ -4673,8 +4695,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:completeAppraisedSale",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 297,
-        "endLine": 297
+        "line": 301,
+        "endLine": 301
       },
       "guards": []
     },
@@ -4685,8 +4707,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:completeAppraisedSale",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 304,
-        "endLine": 304
+        "line": 308,
+        "endLine": 308
       },
       "guards": []
     },
@@ -4697,8 +4719,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:completeAppraisedSale",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 305,
-        "endLine": 305
+        "line": 309,
+        "endLine": 309
       },
       "guards": []
     },
@@ -4709,8 +4731,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:payRebate",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 313,
-        "endLine": 313
+        "line": 317,
+        "endLine": 317
       },
       "guards": [
         "paid"
@@ -4723,8 +4745,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inheritKnowledge",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 328,
-        "endLine": 328
+        "line": 332,
+        "endLine": 332
       },
       "guards": []
     },
@@ -4735,8 +4757,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:noteRepeatBuy",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 337,
-        "endLine": 337
+        "line": 341,
+        "endLine": 341
       },
       "guards": [
         "log.length<TRUST_RULES.repeatBuys || log.some(entry=>entry!==npc)"
@@ -4749,8 +4771,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:noteRepeatBuy",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 339,
-        "endLine": 339
+        "line": 343,
+        "endLine": 343
       },
       "guards": []
     },
@@ -4761,8 +4783,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:noteRepeatBuy",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 340,
-        "endLine": 340
+        "line": 344,
+        "endLine": 344
       },
       "guards": []
     },
@@ -4773,8 +4795,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:noteScrap",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 348,
-        "endLine": 348
+        "line": 352,
+        "endLine": 352
       },
       "guards": []
     },
@@ -4785,8 +4807,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:noteScrap",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 350,
-        "endLine": 350
+        "line": 354,
+        "endLine": 354
       },
       "guards": []
     },
@@ -4797,8 +4819,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:noteScrap",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 350,
-        "endLine": 350
+        "line": 354,
+        "endLine": 354
       },
       "guards": []
     },
@@ -4809,8 +4831,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:noteScrap",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 352,
-        "endLine": 352
+        "line": 356,
+        "endLine": 356
       },
       "guards": []
     },
@@ -4821,8 +4843,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:noteScrap",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 355,
-        "endLine": 355
+        "line": 359,
+        "endLine": 359
       },
       "guards": [
         "(buyer.scrapPaid??0)>=CORE2.scrap.cap"
@@ -4835,8 +4857,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:noteScrap",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 356,
-        "endLine": 356
+        "line": 360,
+        "endLine": 360
       },
       "guards": [
         "NOT (buyer.scrapPaid??0)>=CORE2.scrap.cap"
@@ -4849,8 +4871,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 388,
-        "endLine": 388
+        "line": 392,
+        "endLine": 392
       },
       "guards": []
     },
@@ -4861,8 +4883,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 389,
-        "endLine": 389
+        "line": 393,
+        "endLine": 393
       },
       "guards": []
     },
@@ -4873,8 +4895,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 389,
-        "endLine": 389
+        "line": 393,
+        "endLine": 393
       },
       "guards": []
     },
@@ -4885,15 +4907,15 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 390,
-        "endLine": 390
+        "line": 394,
+        "endLine": 394
       },
       "guards": []
     },
     {
-      "target": "p.abilityReady![otherNpc!]",
+      "target": "p.pilotGuard",
       "operator": "=",
-      "value": "Math.round((p.abilityReady![otherNpc!]!+reduced)*100)/100",
+      "value": "{encounter:state.encounter,amount:Math.max(amount,p.pilotGuard?.encounter===state.encounter?p.pilotGuard.amount:0)}",
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
@@ -4902,6 +4924,23 @@
       },
       "guards": [
         "works",
+        "spec.nativeEffect==='effect:E62'",
+        "amount>0"
+      ]
+    },
+    {
+      "target": "p.abilityReady![otherNpc!]",
+      "operator": "=",
+      "value": "Math.round((p.abilityReady![otherNpc!]!+reduced)*100)/100",
+      "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/mechanics.ts",
+        "line": 422,
+        "endLine": 422
+      },
+      "guards": [
+        "works",
+        "NOT spec.nativeEffect==='effect:E62'",
         "state.config.trustAbilities && (ABILITY_ITEM_IDS as readonly string[]).includes(item.kind)",
         "item.kind==='chrono-gear' || item.kind==='burden-hourglass'",
         "item.kind==='burden-hourglass'"
@@ -4914,11 +4953,12 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 418,
-        "endLine": 418
+        "line": 425,
+        "endLine": 425
       },
       "guards": [
         "works",
+        "NOT spec.nativeEffect==='effect:E62'",
         "state.config.trustAbilities && (ABILITY_ITEM_IDS as readonly string[]).includes(item.kind)"
       ]
     },
@@ -4929,8 +4969,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 442,
-        "endLine": 442
+        "line": 449,
+        "endLine": 449
       },
       "guards": [
         "works",
@@ -4945,8 +4985,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 443,
-        "endLine": 443
+        "line": 450,
+        "endLine": 450
       },
       "guards": [
         "works",
@@ -4962,8 +5002,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 443,
-        "endLine": 443
+        "line": 450,
+        "endLine": 450
       },
       "guards": [
         "works",
@@ -4979,8 +5019,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 451,
+        "endLine": 451
       },
       "guards": [
         "works",
@@ -4995,8 +5035,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 444,
-        "endLine": 444
+        "line": 451,
+        "endLine": 451
       },
       "guards": [
         "works",
@@ -5011,8 +5051,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 450,
-        "endLine": 450
+        "line": 457,
+        "endLine": 457
       },
       "guards": [
         "spec.consumable",
@@ -5026,8 +5066,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 451,
-        "endLine": 451
+        "line": 458,
+        "endLine": 458
       },
       "guards": [
         "spec.consumable",
@@ -5042,8 +5082,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 457,
-        "endLine": 457
+        "line": 464,
+        "endLine": 464
       },
       "guards": [
         "state.config.curseSight"
@@ -5056,8 +5096,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:kill",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 480,
-        "endLine": 480
+        "line": 487,
+        "endLine": 487
       },
       "guards": [
         "status(p,'B08')"
@@ -5070,8 +5110,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:kill",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 482,
-        "endLine": 482
+        "line": 489,
+        "endLine": 489
       },
       "guards": [
         "NOT status(p,'B08')",
@@ -5085,8 +5125,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:kill",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 482,
-        "endLine": 482
+        "line": 489,
+        "endLine": 489
       },
       "guards": [
         "NOT status(p,'B08')",
@@ -5100,8 +5140,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:kill",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 482,
-        "endLine": 482
+        "line": 489,
+        "endLine": 489
       },
       "guards": [
         "NOT status(p,'B08')",
@@ -5115,8 +5155,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 517,
-        "endLine": 517
+        "line": 524,
+        "endLine": 524
       },
       "guards": []
     },
@@ -5127,8 +5167,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 525,
-        "endLine": 525
+        "line": 532,
+        "endLine": 532
       },
       "guards": [
         "contract || gearBonus"
@@ -5141,8 +5181,8 @@
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 527,
-        "endLine": 527
+        "line": 534,
+        "endLine": 534
       },
       "guards": [
         "state.config.brokerage"
@@ -5821,6 +5861,30 @@
       "guards": [
         "!['commission','luck','acceptance','mitigation'].includes(key)"
       ]
+    },
+    {
+      "target": "item.pilotUsedAt",
+      "operator": "=",
+      "value": "state.encounter",
+      "owner": "code:apps/comic/src/game/appraisal/pilot-effects.ts:usePilot",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/pilot-effects.ts",
+        "line": 12,
+        "endLine": 12
+      },
+      "guards": []
+    },
+    {
+      "target": "item.pilotUses",
+      "operator": "=",
+      "value": "used+1",
+      "owner": "code:apps/comic/src/game/appraisal/pilot-effects.ts:usePilot",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/pilot-effects.ts",
+        "line": 12,
+        "endLine": 12
+      },
+      "guards": []
     },
     {
       "target": "item.priceIntegrity",
@@ -6511,8 +6575,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:removeFromHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 50,
-        "endLine": 50
+        "line": 53,
+        "endLine": 53
       },
       "guards": []
     },
@@ -6523,8 +6587,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:removeFromHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 50,
-        "endLine": 50
+        "line": 53,
+        "endLine": 53
       },
       "guards": []
     },
@@ -6535,8 +6599,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:removeFromHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 51,
-        "endLine": 51
+        "line": 54,
+        "endLine": 54
       },
       "guards": []
     },
@@ -6547,8 +6611,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleStorageAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 82,
-        "endLine": 82
+        "line": 85,
+        "endLine": 85
       },
       "guards": []
     },
@@ -6559,8 +6623,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleStorageAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 83,
-        "endLine": 83
+        "line": 86,
+        "endLine": 86
       },
       "guards": []
     },
@@ -6571,8 +6635,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleStorageAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 87,
-        "endLine": 87
+        "line": 90,
+        "endLine": 90
       },
       "guards": []
     },
@@ -6583,8 +6647,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleStorageAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 87,
-        "endLine": 87
+        "line": 90,
+        "endLine": 90
       },
       "guards": []
     },
@@ -6595,8 +6659,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleStorageAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 92,
-        "endLine": 92
+        "line": 95,
+        "endLine": 95
       },
       "guards": []
     },
@@ -6607,8 +6671,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleStorageAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 92,
-        "endLine": 92
+        "line": 95,
+        "endLine": 95
       },
       "guards": []
     },
@@ -6619,8 +6683,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleStorageAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 93,
-        "endLine": 93
+        "line": 96,
+        "endLine": 96
       },
       "guards": [
         "state.config.vaultInterestRules===1 && vault.interest"
@@ -6632,8 +6696,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleStorageAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 98,
-        "endLine": 98
+        "line": 101,
+        "endLine": 101
       },
       "guards": []
     },
@@ -6644,8 +6708,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleStorageAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 101,
-        "endLine": 101
+        "line": 104,
+        "endLine": 104
       },
       "guards": []
     },
@@ -6656,8 +6720,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:returnCollateral",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 124,
-        "endLine": 124
+        "line": 127,
+        "endLine": 127
       },
       "guards": []
     },
@@ -6668,8 +6732,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleLoanAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 135,
-        "endLine": 135
+        "line": 138,
+        "endLine": 138
       },
       "guards": [
         "action.type==='loan-propose'"
@@ -6682,8 +6746,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleLoanAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 144,
-        "endLine": 144
+        "line": 147,
+        "endLine": 147
       },
       "guards": [
         "action.type==='loan-counter'"
@@ -6696,8 +6760,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleLoanAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 144,
-        "endLine": 144
+        "line": 147,
+        "endLine": 147
       },
       "guards": [
         "action.type==='loan-counter'"
@@ -6710,8 +6774,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleLoanAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 144,
-        "endLine": 144
+        "line": 147,
+        "endLine": 147
       },
       "guards": [
         "action.type==='loan-counter'"
@@ -6724,8 +6788,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleLoanAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 146,
-        "endLine": 146
+        "line": 149,
+        "endLine": 149
       },
       "guards": [
         "NOT action.type==='loan-counter'",
@@ -6739,8 +6803,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleLoanAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 146,
-        "endLine": 146
+        "line": 149,
+        "endLine": 149
       },
       "guards": [
         "NOT action.type==='loan-counter'",
@@ -6754,8 +6818,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleLoanAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 150,
-        "endLine": 150
+        "line": 153,
+        "endLine": 153
       },
       "guards": [
         "NOT action.type==='loan-counter'",
@@ -6771,8 +6835,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleLoanAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 150,
-        "endLine": 150
+        "line": 153,
+        "endLine": 153
       },
       "guards": [
         "NOT action.type==='loan-counter'",
@@ -6788,8 +6852,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleLoanAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 161,
-        "endLine": 161
+        "line": 164,
+        "endLine": 164
       },
       "guards": [
         "NOT action.type==='loan-counter'",
@@ -6805,8 +6869,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleLoanAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 161,
-        "endLine": 161
+        "line": 164,
+        "endLine": 164
       },
       "guards": [
         "NOT action.type==='loan-counter'",
@@ -6822,8 +6886,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleLoanAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 161,
-        "endLine": 161
+        "line": 164,
+        "endLine": 164
       },
       "guards": [
         "NOT action.type==='loan-counter'",
@@ -6839,8 +6903,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleLoanAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 161,
-        "endLine": 161
+        "line": 164,
+        "endLine": 164
       },
       "guards": [
         "NOT action.type==='loan-counter'",
@@ -6856,8 +6920,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleLoanAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 169,
-        "endLine": 169
+        "line": 172,
+        "endLine": 172
       },
       "guards": [
         "NOT action.type==='loan-counter'",
@@ -6873,8 +6937,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleLoanAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 170,
-        "endLine": 170
+        "line": 173,
+        "endLine": 173
       },
       "guards": [
         "NOT action.type==='loan-counter'",
@@ -6891,8 +6955,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleLoanAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 170,
-        "endLine": 170
+        "line": 173,
+        "endLine": 173
       },
       "guards": [
         "NOT action.type==='loan-counter'",
@@ -6909,8 +6973,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:settleLoansBeforeAdvance",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 185,
-        "endLine": 185
+        "line": 188,
+        "endLine": 188
       },
       "guards": [
         "loan.status==='active' && (final || state.phase==='REVEAL' && state.encounter>=loan.dueAt)"
@@ -6923,8 +6987,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:settleLoansBeforeAdvance",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 185,
-        "endLine": 185
+        "line": 188,
+        "endLine": 188
       },
       "guards": [
         "loan.status==='active' && (final || state.phase==='REVEAL' && state.encounter>=loan.dueAt)"
@@ -6937,8 +7001,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:settleLoansBeforeAdvance",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 188,
-        "endLine": 188
+        "line": 191,
+        "endLine": 191
       },
       "guards": [
         "NOT loan.status==='active' && (final || state.phase==='REVEAL' && state.encounter>=loan.dueAt)",
@@ -6952,8 +7016,8 @@
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:settleLoansBeforeAdvance",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 188,
-        "endLine": 188
+        "line": 191,
+        "endLine": 191
       },
       "guards": [
         "NOT loan.status==='active' && (final || state.phase==='REVEAL' && state.encounter>=loan.dueAt)",
@@ -6963,12 +7027,12 @@
     {
       "target": "vault.interest",
       "operator": "=",
-      "value": "{principal:vault.credits,encounter:state.encounter}",
+      "value": "{principal:vault.credits,encounter:state.encounter,...(state.config.catalogVersion===4?{rings:heldInterestRings(state,p)}:{})}",
       "owner": "code:apps/comic/src/game/appraisal/secure-storage.ts:payVaultInterest",
       "source": {
         "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-        "line": 204,
-        "endLine": 204
+        "line": 208,
+        "endLine": 208
       },
       "guards": [
         "state.config.vaultInterestRules===1"
@@ -7110,25 +7174,13 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:note",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 101,
-        "endLine": 101
+        "line": 104,
+        "endLine": 104
       },
       "guards": []
     },
     {
       "target": "p.stealTried",
-      "operator": "??=",
-      "value": "[]",
-      "owner": "code:apps/comic/src/game/appraisal/theft.ts:startTheftDuel",
-      "source": {
-        "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 146,
-        "endLine": 146
-      },
-      "guards": []
-    },
-    {
-      "target": "(state as TheftState).theftDuels",
       "operator": "??=",
       "value": "[]",
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:startTheftDuel",
@@ -7140,14 +7192,55 @@
       "guards": []
     },
     {
+      "target": "(state as TheftState).theftDuels",
+      "operator": "??=",
+      "value": "[]",
+      "owner": "code:apps/comic/src/game/appraisal/theft.ts:startTheftDuel",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/theft.ts",
+        "line": 152,
+        "endLine": 152
+      },
+      "guards": []
+    },
+    {
+      "target": "duel.swordIds",
+      "operator": "=",
+      "value": "{}",
+      "owner": "code:apps/comic/src/game/appraisal/theft.ts:startTheftDuel",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/theft.ts",
+        "line": 159,
+        "endLine": 159
+      },
+      "guards": [
+        "state.config.catalogVersion===4"
+      ]
+    },
+    {
+      "target": "duel.swordIds[seat.id]",
+      "operator": "=",
+      "value": "sword.id",
+      "owner": "code:apps/comic/src/game/appraisal/theft.ts:startTheftDuel",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/theft.ts",
+        "line": 159,
+        "endLine": 159
+      },
+      "guards": [
+        "state.config.catalogVersion===4",
+        "sword"
+      ]
+    },
+    {
       "target": "duel.hands.npc",
       "operator": "=",
       "value": "npcHand(state,duel)",
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:startTheftDuel",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 156,
-        "endLine": 156
+        "line": 160,
+        "endLine": 160
       },
       "guards": [
         "!victim"
@@ -7160,8 +7253,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:cancelTheftDuels",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 177,
-        "endLine": 177
+        "line": 181,
+        "endLine": 181
       },
       "guards": [
         "duel.status === 'open' && !stillEligible(state,duel)"
@@ -7174,8 +7267,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:cancelTheftDuels",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 177,
-        "endLine": 177
+        "line": 181,
+        "endLine": 181
       },
       "guards": [
         "duel.status === 'open' && !stillEligible(state,duel)"
@@ -7188,8 +7281,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:expireTheftDuel",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 197,
-        "endLine": 197
+        "line": 201,
+        "endLine": 201
       },
       "guards": []
     },
@@ -7200,8 +7293,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:expireTheftDuel",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 197,
-        "endLine": 197
+        "line": 201,
+        "endLine": 201
       },
       "guards": []
     },
@@ -7212,8 +7305,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:playerFailure",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 208,
-        "endLine": 208
+        "line": 212,
+        "endLine": 212
       },
       "guards": []
     },
@@ -7224,8 +7317,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:playerFailure",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 208,
-        "endLine": 208
+        "line": 212,
+        "endLine": 212
       },
       "guards": []
     },
@@ -7236,8 +7329,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:playerFailure",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 209,
-        "endLine": 209
+        "line": 213,
+        "endLine": 213
       },
       "guards": []
     },
@@ -7248,8 +7341,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:playerFailure",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 214,
-        "endLine": 214
+        "line": 218,
+        "endLine": 218
       },
       "guards": [
         "amount > 0"
@@ -7262,8 +7355,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:merchantFailure",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 239,
-        "endLine": 239
+        "line": 243,
+        "endLine": 243
       },
       "guards": []
     },
@@ -7274,8 +7367,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:merchantFailure",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 239,
-        "endLine": 239
+        "line": 243,
+        "endLine": 243
       },
       "guards": []
     },
@@ -7286,8 +7379,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:merchantFailure",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 241,
-        "endLine": 246
+        "line": 245,
+        "endLine": 250
       },
       "guards": []
     },
@@ -7298,8 +7391,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 256,
-        "endLine": 256
+        "line": 260,
+        "endLine": 260
       },
       "guards": [
         "!stillEligible(state,duel)"
@@ -7312,8 +7405,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 256,
-        "endLine": 256
+        "line": 260,
+        "endLine": 260
       },
       "guards": [
         "!stillEligible(state,duel)"
@@ -7326,8 +7419,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 258,
-        "endLine": 258
+        "line": 262,
+        "endLine": 262
       },
       "guards": []
     },
@@ -7338,8 +7431,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 263,
-        "endLine": 263
+        "line": 267,
+        "endLine": 267
       },
       "guards": []
     },
@@ -7349,8 +7442,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 269,
-        "endLine": 269
+        "line": 275,
+        "endLine": 275
       },
       "guards": [
         "thiefHand === opponentHand",
@@ -7364,8 +7457,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 270,
-        "endLine": 270
+        "line": 276,
+        "endLine": 276
       },
       "guards": [
         "thiefHand === opponentHand",
@@ -7380,8 +7473,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 275,
-        "endLine": 275
+        "line": 281,
+        "endLine": 281
       },
       "guards": []
     },
@@ -7392,8 +7485,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 280,
-        "endLine": 280
+        "line": 286,
+        "endLine": 286
       },
       "guards": [
         "won",
@@ -7407,8 +7500,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 283,
-        "endLine": 283
+        "line": 289,
+        "endLine": 289
       },
       "guards": [
         "won",
@@ -7422,8 +7515,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 284,
-        "endLine": 284
+        "line": 290,
+        "endLine": 290
       },
       "guards": [
         "won"
@@ -7436,8 +7529,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 286,
-        "endLine": 286
+        "line": 292,
+        "endLine": 292
       },
       "guards": [
         "won"
@@ -7450,8 +7543,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 288,
-        "endLine": 288
+        "line": 294,
+        "endLine": 294
       },
       "guards": [
         "won"
@@ -8032,8 +8125,8 @@
       "owner": "code:apps/comic/src/simulation/appraisal.ts:runAppraisalScenarios",
       "source": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 255,
-        "endLine": 255
+        "line": 256,
+        "endLine": 256
       },
       "guards": [
         "t.type==='portal-entered'"

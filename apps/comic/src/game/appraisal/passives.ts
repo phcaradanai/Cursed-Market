@@ -36,7 +36,7 @@ export const PASSIVE_ITEMS={
   'wish-ledger':{name:'สมุดคำสัญญาพ่อค้า',family:'key',anchor:20,buff:'B18',drawback:'D19',consumable:false,passive:{effect:'wishSlots',amount:1,text:'ทำสัญญาตามหาของพร้อมกันได้เพิ่ม 1 รายการต่อชิ้น (รวมสูงสุด 4 รายการ)'}},
   'inspector-notebook':{name:'สมุดนัดผู้ตรวจ',family:'mirror',anchor:18,buff:'B01',drawback:'D05',consumable:false,passive:{effect:'inspections',amount:1,text:'ตรวจสินค้าได้เพิ่ม 1 ครั้งต่อช่วงต่อชิ้น ค่าใช้พลังคิดตามประเภทการตรวจ'}},
 } satisfies Record<PassiveKind,PassiveSpec>;
-export const passivesEnabled=(config:Pick<AppraisalConfig,'catalogVersion'>)=>config.catalogVersion===3;
+export const passivesEnabled=(config:Pick<AppraisalConfig,'catalogVersion'>)=>config.catalogVersion===3 || config.catalogVersion===4;
 export function passiveSpec(kind:ItemKind):PassiveSpec|undefined {return PASSIVE_ITEMS[kind as PassiveKind];}
 /** Effects depend on the known kind and ownership, never hidden authenticity or curse. */
 export const HELD_STACK_CAP=5;

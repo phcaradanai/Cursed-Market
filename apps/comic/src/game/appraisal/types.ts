@@ -22,12 +22,15 @@ export const ABILITY_EVENT_IDS = ['E130','E131','E132'] as const;
 export const WISH_EVENT_ID = 'E73' as const;
 export type EventId = typeof EVENT_IDS[number] | typeof BOND_EVENT_IDS[number] | typeof WISH_EVENT_ID | typeof EXPANSION_EVENT_IDS[number] | typeof POLISH_EVENT_IDS[number] | typeof BOON_EVENT_ID | typeof NPC_EVENT_IDS[number] | typeof CORE2_EVENT_IDS[number] | typeof ABILITY_EVENT_IDS[number];
 export type NpcId = 'orc' | 'vampire' | 'autometa' | 'alien' | 'darkone' | 'beast' | 'deepsea' | 'swarm';
-export type ItemFamily = 'mirror' | 'orb' | 'key' | 'mask' | 'potion' | 'battery' | 'amulet' | 'blade' | 'scanner' | 'food';
+export type LegacyItemFamily = 'mirror' | 'orb' | 'key' | 'mask' | 'potion' | 'battery' | 'amulet' | 'blade' | 'scanner' | 'food';
 export const PASSIVE_ITEM_IDS=['inspection-warrant','tax-order','noble-seal','gambler-hat','lucky-die','merchant-ledger','friendship-ring','negotiator-gloves','guild-badge','light-satchel','surveyor-lens','curse-compass','market-pass','authenticity-seal','smuggler-cloak','merchant-canteen','healing-brooch','inspector-notebook','vital-flask','life-relic','wish-ledger'] as const;
 export type PassiveKind=typeof PASSIVE_ITEM_IDS[number];
 export type InspectionProperty='price'|'authenticity'|'effects';
 export const ABILITY_ITEM_IDS=['chrono-gear','burden-hourglass','shifting-compass'] as const;
-export type ItemKind = ItemFamily | 'memory-mirror' | 'rift-mirror' | 'blood-orb' | 'storm-orb' |
+export type ItemFamily = LegacyItemFamily | 'shield' | 'ring' | 'caliper' | 'translator' | 'token' | 'compass' | 'hammer' | 'sword';
+export const PILOT_ITEM_IDS = ['orc-tusk-shield','vampire-nocturne-signet','autometa-torque-caliper','alien-thought-translator','darkone-crossing-token','deepsea-tide-compass','swarm-brood-hammer','beast-riftfang-sword'] as const;
+export type PilotItemKind = typeof PILOT_ITEM_IDS[number];
+export type ItemKind = LegacyItemFamily | PilotItemKind | 'memory-mirror' | 'rift-mirror' | 'blood-orb' | 'storm-orb' |
   'bone-key' | 'clockwork-key' | 'bone-mask' | 'void-mask' | 'blood-tonic' | 'dream-tonic' |
   'sun-cell' | 'void-cell' | 'oath-charm' | 'echo-charm' | 'bone-blade' | 'eclipse-blade' |
   'truth-lens' | 'curse-meter' | 'ember-feed' | 'moon-feed' | 'smith-hammer' | 'whetstone' | 'doubt-lens' | 'void-seal' |
@@ -59,7 +62,7 @@ export interface AppraisalConfig {
   /** Absent in saved audits: preserve historical item effects and activation costs. */
   itemEffects?: boolean;
   /** Absent in original v0.4 audits: retain the original 10-item generation pool. */
-  catalogVersion?: 1 | 2 | 3;
+  catalogVersion?: 1 | 2 | 3 | 4;
   /** Absent in historical audits: preserve their original economy. */
   roundRewards?: boolean;
   /** Absent in saved runs: retain the original single-coin, lose-all wager. */
@@ -119,6 +122,7 @@ export interface AppraisalItem {
   priceIntegrity?:{overpriced:boolean;audits:number;lastReappraisedEncounter?:number;certifiedPrice?:number};
   /** Public copy provenance; restrictions live on the source and survive ownership changes. */
   copy?:{sourceId:string;number:number;valuePercent:number};
+  pilotUsedAt?:number;pilotUses?:number;
   copyConsumed?:boolean;
   preserved?:boolean;
   id: string; kind: ItemKind; base: number; genuine: boolean; cursed: boolean; ask: number;
@@ -207,6 +211,7 @@ export interface Appraiser {
   tradeLink?:{partner:string;since:number};
   paused: 'dead' | 'exhausted' | null; done: boolean; portals: Portal[]; selectedPortalId: string | null;
   stock: string[]; knowledge: Record<string,Knowledge>; valuations: Record<string,Valuation>;
+  pilotGuard?:{encounter:number;amount:number};
   inspections: number; counters: number; activated: string[]; score: number;
   startWealth: number; accuracyBonus: number; eventOffer: EventOffer | null;
   seenEvents: EventId[]; resolvedEvents: EventId[]; offerSlots: number; consequenceSlots: number;
@@ -304,6 +309,7 @@ export interface AppraisalState {
   vault?: string[];
 }
 export interface ItemView {
+  pilotUses?:number;
   rarityPower?:import('../../shared/rarity-power.js').RarityPower;
   appearance?:import('../../shared/item-rarity.js').ItemAppearance;
   lastTradePrice?:number;
@@ -345,6 +351,7 @@ export interface AppraisalView {
     personalVault?:{items:ItemView[];credits:number;slots:number;nextSlotPrice:number;nextInterest:number;interestPercent?:number};
     loanItems?:ItemView[];
     inventory: ItemView[]; stock: ItemView[]; portals: Array<{id:string; npc:NpcId; hint:ItemKind; disabled:boolean}>;
+    portalRerollCost?:number;pilotPriceChecks?:number;pilotAcceptancePercent?:number;
     counterLimit: number;
     /** Per-seat caps once held relics apply (polish rules). */
     maxEnergy?: number; maxLife?: number;

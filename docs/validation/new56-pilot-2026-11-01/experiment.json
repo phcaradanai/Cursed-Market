@@ -1,0 +1,2647 @@
+{
+  "asOf": "2026-11-01T13:23:25.795Z",
+  "observedRevision": "f351be5caa898016b91d47ee8893d3351fc7d08c",
+  "scope": "8 paired survival runs, 2/3 seats, 2 policies, one seed, Collector at3; each strict replayed by simulator. No statistical balance claim.",
+  "cases": [
+    {
+      "count": 2,
+      "policy": "cautious",
+      "seed": "pilot-paired-0",
+      "catalogVersion": 3,
+      "config": {
+        "rarityEconomy": {
+          "version": 1,
+          "tiers": {
+            "common": {
+              "value": 1,
+              "effect": 1
+            },
+            "uncommon": {
+              "value": 2,
+              "effect": 2
+            },
+            "rare": {
+              "value": 3,
+              "effect": 3
+            },
+            "epic": {
+              "value": 4,
+              "effect": 4
+            },
+            "legendary": {
+              "value": 6,
+              "effect": 6
+            },
+            "mythic": {
+              "value": 8,
+              "effect": 8
+            }
+          }
+        },
+        "rarity": {
+          "version": 1,
+          "rates": {
+            "common": 0.6,
+            "uncommon": 0.25,
+            "rare": 0.1,
+            "epic": 0.035,
+            "legendary": 0.013,
+            "mythic": 0.002
+          },
+          "themes": {
+            "common": [
+              {
+                "theme": "plain",
+                "weight": 1
+              }
+            ],
+            "uncommon": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "rare": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "epic": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "legendary": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "mythic": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "loanEndSettlement": true,
+        "vaultInterestRules": 1,
+        "theftTimeoutRules": 1,
+        "collectorDeadline": 3,
+        "eventChoiceRules": 1,
+        "statusLinks": 1,
+        "systemLinks": 1,
+        "trustAbilities": true,
+        "catalogVersion": 3,
+        "itemEffects": true,
+        "roundRewards": true,
+        "multiCoinRewards": true,
+        "commerce": true,
+        "totalTrustStock": true,
+        "curseSight": true,
+        "freeBuy": true,
+        "freeMerchantAction": true,
+        "fakeEffect": true,
+        "cleanse": true,
+        "wishlist": true,
+        "wishContract": true,
+        "challenge": true,
+        "expansion": true,
+        "encounters": 3,
+        "startingCredits": 40,
+        "maxEnergy": 10,
+        "recoveryEnergy": 4,
+        "bankReserve": 2000,
+        "marketProbability": 1,
+        "marketMaxOrders": 3,
+        "marketQuota": 1,
+        "secureEconomy": true,
+        "core2": true,
+        "survival": {
+          "maxLife": 6,
+          "encounterLifeCost": 1,
+          "entryEnergyCost": 0
+        }
+      },
+      "commands": 81,
+      "ms": 822,
+      "audit": "catalog3-2-cautious.json",
+      "sha256": "ed8fbba86e91bdc4623e57a5a75a10524613f636cf993fa2f40de711b4de1494",
+      "final": [
+        {
+          "id": "seat0",
+          "credits": 30,
+          "energy": 4,
+          "inventory": [],
+          "score": 52,
+          "life": 4
+        },
+        {
+          "id": "seat1",
+          "credits": 4,
+          "energy": 3,
+          "inventory": [],
+          "score": 56,
+          "life": 3
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "policy": "cautious",
+      "seed": "pilot-paired-0",
+      "catalogVersion": 4,
+      "config": {
+        "rarityEconomy": {
+          "version": 1,
+          "tiers": {
+            "common": {
+              "value": 1,
+              "effect": 1
+            },
+            "uncommon": {
+              "value": 2,
+              "effect": 2
+            },
+            "rare": {
+              "value": 3,
+              "effect": 3
+            },
+            "epic": {
+              "value": 4,
+              "effect": 4
+            },
+            "legendary": {
+              "value": 6,
+              "effect": 6
+            },
+            "mythic": {
+              "value": 8,
+              "effect": 8
+            }
+          }
+        },
+        "rarity": {
+          "version": 1,
+          "rates": {
+            "common": 0.6,
+            "uncommon": 0.25,
+            "rare": 0.1,
+            "epic": 0.035,
+            "legendary": 0.013,
+            "mythic": 0.002
+          },
+          "themes": {
+            "common": [
+              {
+                "theme": "plain",
+                "weight": 1
+              }
+            ],
+            "uncommon": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "rare": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "epic": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "legendary": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "mythic": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "loanEndSettlement": true,
+        "vaultInterestRules": 1,
+        "theftTimeoutRules": 1,
+        "collectorDeadline": 3,
+        "eventChoiceRules": 1,
+        "statusLinks": 1,
+        "systemLinks": 1,
+        "trustAbilities": true,
+        "catalogVersion": 4,
+        "itemEffects": true,
+        "roundRewards": true,
+        "multiCoinRewards": true,
+        "commerce": true,
+        "totalTrustStock": true,
+        "curseSight": true,
+        "freeBuy": true,
+        "freeMerchantAction": true,
+        "fakeEffect": true,
+        "cleanse": true,
+        "wishlist": true,
+        "wishContract": true,
+        "challenge": true,
+        "expansion": true,
+        "encounters": 3,
+        "startingCredits": 40,
+        "maxEnergy": 10,
+        "recoveryEnergy": 4,
+        "bankReserve": 2000,
+        "marketProbability": 1,
+        "marketMaxOrders": 3,
+        "marketQuota": 1,
+        "secureEconomy": true,
+        "core2": true,
+        "survival": {
+          "maxLife": 6,
+          "encounterLifeCost": 1,
+          "entryEnergyCost": 0
+        }
+      },
+      "commands": 73,
+      "ms": 212,
+      "audit": "catalog4-2-cautious.json",
+      "sha256": "3d6bd641f45a544f95764bb79b273b8ce38a5c5b3770ec08ce83bfb6b881585c",
+      "final": [
+        {
+          "id": "seat0",
+          "credits": 16,
+          "energy": 3,
+          "inventory": [],
+          "score": 52,
+          "life": 4
+        },
+        {
+          "id": "seat1",
+          "credits": 3,
+          "energy": 3,
+          "inventory": [],
+          "score": 59,
+          "life": 3
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "policy": "trader",
+      "seed": "pilot-paired-0",
+      "catalogVersion": 3,
+      "config": {
+        "rarityEconomy": {
+          "version": 1,
+          "tiers": {
+            "common": {
+              "value": 1,
+              "effect": 1
+            },
+            "uncommon": {
+              "value": 2,
+              "effect": 2
+            },
+            "rare": {
+              "value": 3,
+              "effect": 3
+            },
+            "epic": {
+              "value": 4,
+              "effect": 4
+            },
+            "legendary": {
+              "value": 6,
+              "effect": 6
+            },
+            "mythic": {
+              "value": 8,
+              "effect": 8
+            }
+          }
+        },
+        "rarity": {
+          "version": 1,
+          "rates": {
+            "common": 0.6,
+            "uncommon": 0.25,
+            "rare": 0.1,
+            "epic": 0.035,
+            "legendary": 0.013,
+            "mythic": 0.002
+          },
+          "themes": {
+            "common": [
+              {
+                "theme": "plain",
+                "weight": 1
+              }
+            ],
+            "uncommon": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "rare": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "epic": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "legendary": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "mythic": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "loanEndSettlement": true,
+        "vaultInterestRules": 1,
+        "theftTimeoutRules": 1,
+        "collectorDeadline": 3,
+        "eventChoiceRules": 1,
+        "statusLinks": 1,
+        "systemLinks": 1,
+        "trustAbilities": true,
+        "catalogVersion": 3,
+        "itemEffects": true,
+        "roundRewards": true,
+        "multiCoinRewards": true,
+        "commerce": true,
+        "totalTrustStock": true,
+        "curseSight": true,
+        "freeBuy": true,
+        "freeMerchantAction": true,
+        "fakeEffect": true,
+        "cleanse": true,
+        "wishlist": true,
+        "wishContract": true,
+        "challenge": true,
+        "expansion": true,
+        "encounters": 3,
+        "startingCredits": 40,
+        "maxEnergy": 10,
+        "recoveryEnergy": 4,
+        "bankReserve": 2000,
+        "marketProbability": 1,
+        "marketMaxOrders": 3,
+        "marketQuota": 1,
+        "secureEconomy": true,
+        "core2": true,
+        "survival": {
+          "maxLife": 6,
+          "encounterLifeCost": 1,
+          "entryEnergyCost": 0
+        }
+      },
+      "commands": 105,
+      "ms": 261,
+      "audit": "catalog3-2-trader.json",
+      "sha256": "b2e33fcade90727e179c7f87a7482d89a9b21b9cdddd8836bb2129c5eb2e3b47",
+      "final": [
+        {
+          "id": "seat0",
+          "credits": 21,
+          "energy": 8,
+          "inventory": [],
+          "score": 51,
+          "life": 4
+        },
+        {
+          "id": "seat1",
+          "credits": 12,
+          "energy": 7,
+          "inventory": [],
+          "score": 30,
+          "life": 3
+        }
+      ]
+    },
+    {
+      "count": 2,
+      "policy": "trader",
+      "seed": "pilot-paired-0",
+      "catalogVersion": 4,
+      "config": {
+        "rarityEconomy": {
+          "version": 1,
+          "tiers": {
+            "common": {
+              "value": 1,
+              "effect": 1
+            },
+            "uncommon": {
+              "value": 2,
+              "effect": 2
+            },
+            "rare": {
+              "value": 3,
+              "effect": 3
+            },
+            "epic": {
+              "value": 4,
+              "effect": 4
+            },
+            "legendary": {
+              "value": 6,
+              "effect": 6
+            },
+            "mythic": {
+              "value": 8,
+              "effect": 8
+            }
+          }
+        },
+        "rarity": {
+          "version": 1,
+          "rates": {
+            "common": 0.6,
+            "uncommon": 0.25,
+            "rare": 0.1,
+            "epic": 0.035,
+            "legendary": 0.013,
+            "mythic": 0.002
+          },
+          "themes": {
+            "common": [
+              {
+                "theme": "plain",
+                "weight": 1
+              }
+            ],
+            "uncommon": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "rare": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "epic": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "legendary": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "mythic": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "loanEndSettlement": true,
+        "vaultInterestRules": 1,
+        "theftTimeoutRules": 1,
+        "collectorDeadline": 3,
+        "eventChoiceRules": 1,
+        "statusLinks": 1,
+        "systemLinks": 1,
+        "trustAbilities": true,
+        "catalogVersion": 4,
+        "itemEffects": true,
+        "roundRewards": true,
+        "multiCoinRewards": true,
+        "commerce": true,
+        "totalTrustStock": true,
+        "curseSight": true,
+        "freeBuy": true,
+        "freeMerchantAction": true,
+        "fakeEffect": true,
+        "cleanse": true,
+        "wishlist": true,
+        "wishContract": true,
+        "challenge": true,
+        "expansion": true,
+        "encounters": 3,
+        "startingCredits": 40,
+        "maxEnergy": 10,
+        "recoveryEnergy": 4,
+        "bankReserve": 2000,
+        "marketProbability": 1,
+        "marketMaxOrders": 3,
+        "marketQuota": 1,
+        "secureEconomy": true,
+        "core2": true,
+        "survival": {
+          "maxLife": 6,
+          "encounterLifeCost": 1,
+          "entryEnergyCost": 0
+        }
+      },
+      "commands": 113,
+      "ms": 297,
+      "audit": "catalog4-2-trader.json",
+      "sha256": "7519d909530b127d02106f605d955777ecf0eebcb0cb68f5bd32dc9bcf09d88b",
+      "final": [
+        {
+          "id": "seat0",
+          "credits": 6,
+          "energy": 6,
+          "inventory": [],
+          "score": 65,
+          "life": 4
+        },
+        {
+          "id": "seat1",
+          "credits": 54,
+          "energy": 7,
+          "inventory": [],
+          "score": 102,
+          "life": 3
+        }
+      ]
+    },
+    {
+      "count": 3,
+      "policy": "cautious",
+      "seed": "pilot-paired-0",
+      "catalogVersion": 3,
+      "config": {
+        "rarityEconomy": {
+          "version": 1,
+          "tiers": {
+            "common": {
+              "value": 1,
+              "effect": 1
+            },
+            "uncommon": {
+              "value": 2,
+              "effect": 2
+            },
+            "rare": {
+              "value": 3,
+              "effect": 3
+            },
+            "epic": {
+              "value": 4,
+              "effect": 4
+            },
+            "legendary": {
+              "value": 6,
+              "effect": 6
+            },
+            "mythic": {
+              "value": 8,
+              "effect": 8
+            }
+          }
+        },
+        "rarity": {
+          "version": 1,
+          "rates": {
+            "common": 0.6,
+            "uncommon": 0.25,
+            "rare": 0.1,
+            "epic": 0.035,
+            "legendary": 0.013,
+            "mythic": 0.002
+          },
+          "themes": {
+            "common": [
+              {
+                "theme": "plain",
+                "weight": 1
+              }
+            ],
+            "uncommon": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "rare": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "epic": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "legendary": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "mythic": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "loanEndSettlement": true,
+        "vaultInterestRules": 1,
+        "theftTimeoutRules": 1,
+        "collectorDeadline": 3,
+        "eventChoiceRules": 1,
+        "statusLinks": 1,
+        "systemLinks": 1,
+        "trustAbilities": true,
+        "catalogVersion": 3,
+        "itemEffects": true,
+        "roundRewards": true,
+        "multiCoinRewards": true,
+        "commerce": true,
+        "totalTrustStock": true,
+        "curseSight": true,
+        "freeBuy": true,
+        "freeMerchantAction": true,
+        "fakeEffect": true,
+        "cleanse": true,
+        "wishlist": true,
+        "wishContract": true,
+        "challenge": true,
+        "expansion": true,
+        "encounters": 3,
+        "startingCredits": 40,
+        "maxEnergy": 10,
+        "recoveryEnergy": 4,
+        "bankReserve": 2000,
+        "marketProbability": 1,
+        "marketMaxOrders": 3,
+        "marketQuota": 1,
+        "secureEconomy": true,
+        "core2": true,
+        "survival": {
+          "maxLife": 6,
+          "encounterLifeCost": 1,
+          "entryEnergyCost": 0
+        }
+      },
+      "commands": 116,
+      "ms": 272,
+      "audit": "catalog3-3-cautious.json",
+      "sha256": "c69dad8cb3a2d0c2617638f557f0abf92bfb5170f2db02d5834b4e8cc5aa1233",
+      "final": [
+        {
+          "id": "seat0",
+          "credits": 30,
+          "energy": 4,
+          "inventory": [],
+          "score": 52,
+          "life": 4
+        },
+        {
+          "id": "seat1",
+          "credits": 8,
+          "energy": 3,
+          "inventory": [],
+          "score": 57,
+          "life": 3
+        },
+        {
+          "id": "seat2",
+          "credits": 26,
+          "energy": 3,
+          "inventory": [],
+          "score": 59,
+          "life": 3
+        }
+      ]
+    },
+    {
+      "count": 3,
+      "policy": "cautious",
+      "seed": "pilot-paired-0",
+      "catalogVersion": 4,
+      "config": {
+        "rarityEconomy": {
+          "version": 1,
+          "tiers": {
+            "common": {
+              "value": 1,
+              "effect": 1
+            },
+            "uncommon": {
+              "value": 2,
+              "effect": 2
+            },
+            "rare": {
+              "value": 3,
+              "effect": 3
+            },
+            "epic": {
+              "value": 4,
+              "effect": 4
+            },
+            "legendary": {
+              "value": 6,
+              "effect": 6
+            },
+            "mythic": {
+              "value": 8,
+              "effect": 8
+            }
+          }
+        },
+        "rarity": {
+          "version": 1,
+          "rates": {
+            "common": 0.6,
+            "uncommon": 0.25,
+            "rare": 0.1,
+            "epic": 0.035,
+            "legendary": 0.013,
+            "mythic": 0.002
+          },
+          "themes": {
+            "common": [
+              {
+                "theme": "plain",
+                "weight": 1
+              }
+            ],
+            "uncommon": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "rare": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "epic": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "legendary": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "mythic": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "loanEndSettlement": true,
+        "vaultInterestRules": 1,
+        "theftTimeoutRules": 1,
+        "collectorDeadline": 3,
+        "eventChoiceRules": 1,
+        "statusLinks": 1,
+        "systemLinks": 1,
+        "trustAbilities": true,
+        "catalogVersion": 4,
+        "itemEffects": true,
+        "roundRewards": true,
+        "multiCoinRewards": true,
+        "commerce": true,
+        "totalTrustStock": true,
+        "curseSight": true,
+        "freeBuy": true,
+        "freeMerchantAction": true,
+        "fakeEffect": true,
+        "cleanse": true,
+        "wishlist": true,
+        "wishContract": true,
+        "challenge": true,
+        "expansion": true,
+        "encounters": 3,
+        "startingCredits": 40,
+        "maxEnergy": 10,
+        "recoveryEnergy": 4,
+        "bankReserve": 2000,
+        "marketProbability": 1,
+        "marketMaxOrders": 3,
+        "marketQuota": 1,
+        "secureEconomy": true,
+        "core2": true,
+        "survival": {
+          "maxLife": 6,
+          "encounterLifeCost": 1,
+          "entryEnergyCost": 0
+        }
+      },
+      "commands": 114,
+      "ms": 413,
+      "audit": "catalog4-3-cautious.json",
+      "sha256": "2f0406e152942f15c5202e4c2edf6cb741b6a7310acaba7beaa99bc3553c41f2",
+      "final": [
+        {
+          "id": "seat0",
+          "credits": 22,
+          "energy": 4,
+          "inventory": [],
+          "score": 50,
+          "life": 4
+        },
+        {
+          "id": "seat1",
+          "credits": 3,
+          "energy": 3,
+          "inventory": [],
+          "score": 59,
+          "life": 3
+        },
+        {
+          "id": "seat2",
+          "credits": 1,
+          "energy": 3,
+          "inventory": [],
+          "score": 37,
+          "life": 4
+        }
+      ]
+    },
+    {
+      "count": 3,
+      "policy": "trader",
+      "seed": "pilot-paired-0",
+      "catalogVersion": 3,
+      "config": {
+        "rarityEconomy": {
+          "version": 1,
+          "tiers": {
+            "common": {
+              "value": 1,
+              "effect": 1
+            },
+            "uncommon": {
+              "value": 2,
+              "effect": 2
+            },
+            "rare": {
+              "value": 3,
+              "effect": 3
+            },
+            "epic": {
+              "value": 4,
+              "effect": 4
+            },
+            "legendary": {
+              "value": 6,
+              "effect": 6
+            },
+            "mythic": {
+              "value": 8,
+              "effect": 8
+            }
+          }
+        },
+        "rarity": {
+          "version": 1,
+          "rates": {
+            "common": 0.6,
+            "uncommon": 0.25,
+            "rare": 0.1,
+            "epic": 0.035,
+            "legendary": 0.013,
+            "mythic": 0.002
+          },
+          "themes": {
+            "common": [
+              {
+                "theme": "plain",
+                "weight": 1
+              }
+            ],
+            "uncommon": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "rare": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "epic": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "legendary": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "mythic": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "loanEndSettlement": true,
+        "vaultInterestRules": 1,
+        "theftTimeoutRules": 1,
+        "collectorDeadline": 3,
+        "eventChoiceRules": 1,
+        "statusLinks": 1,
+        "systemLinks": 1,
+        "trustAbilities": true,
+        "catalogVersion": 3,
+        "itemEffects": true,
+        "roundRewards": true,
+        "multiCoinRewards": true,
+        "commerce": true,
+        "totalTrustStock": true,
+        "curseSight": true,
+        "freeBuy": true,
+        "freeMerchantAction": true,
+        "fakeEffect": true,
+        "cleanse": true,
+        "wishlist": true,
+        "wishContract": true,
+        "challenge": true,
+        "expansion": true,
+        "encounters": 3,
+        "startingCredits": 40,
+        "maxEnergy": 10,
+        "recoveryEnergy": 4,
+        "bankReserve": 2000,
+        "marketProbability": 1,
+        "marketMaxOrders": 3,
+        "marketQuota": 1,
+        "secureEconomy": true,
+        "core2": true,
+        "survival": {
+          "maxLife": 6,
+          "encounterLifeCost": 1,
+          "entryEnergyCost": 0
+        }
+      },
+      "commands": 179,
+      "ms": 531,
+      "audit": "catalog3-3-trader.json",
+      "sha256": "e7bdac74e9ef1a335b73e11b8af5e100e0197c523e2db3dc0ce3b875828fc926",
+      "final": [
+        {
+          "id": "seat0",
+          "credits": 13,
+          "energy": 6,
+          "inventory": [],
+          "score": 35,
+          "life": 2
+        },
+        {
+          "id": "seat1",
+          "credits": 5,
+          "energy": 7,
+          "inventory": [],
+          "score": 14,
+          "life": 3
+        },
+        {
+          "id": "seat2",
+          "credits": 14,
+          "energy": 5,
+          "inventory": [],
+          "score": 65,
+          "life": 3
+        }
+      ]
+    },
+    {
+      "count": 3,
+      "policy": "trader",
+      "seed": "pilot-paired-0",
+      "catalogVersion": 4,
+      "config": {
+        "rarityEconomy": {
+          "version": 1,
+          "tiers": {
+            "common": {
+              "value": 1,
+              "effect": 1
+            },
+            "uncommon": {
+              "value": 2,
+              "effect": 2
+            },
+            "rare": {
+              "value": 3,
+              "effect": 3
+            },
+            "epic": {
+              "value": 4,
+              "effect": 4
+            },
+            "legendary": {
+              "value": 6,
+              "effect": 6
+            },
+            "mythic": {
+              "value": 8,
+              "effect": 8
+            }
+          }
+        },
+        "rarity": {
+          "version": 1,
+          "rates": {
+            "common": 0.6,
+            "uncommon": 0.25,
+            "rare": 0.1,
+            "epic": 0.035,
+            "legendary": 0.013,
+            "mythic": 0.002
+          },
+          "themes": {
+            "common": [
+              {
+                "theme": "plain",
+                "weight": 1
+              }
+            ],
+            "uncommon": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "rare": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "epic": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "legendary": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "mythic": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "loanEndSettlement": true,
+        "vaultInterestRules": 1,
+        "theftTimeoutRules": 1,
+        "collectorDeadline": 3,
+        "eventChoiceRules": 1,
+        "statusLinks": 1,
+        "systemLinks": 1,
+        "trustAbilities": true,
+        "catalogVersion": 4,
+        "itemEffects": true,
+        "roundRewards": true,
+        "multiCoinRewards": true,
+        "commerce": true,
+        "totalTrustStock": true,
+        "curseSight": true,
+        "freeBuy": true,
+        "freeMerchantAction": true,
+        "fakeEffect": true,
+        "cleanse": true,
+        "wishlist": true,
+        "wishContract": true,
+        "challenge": true,
+        "expansion": true,
+        "encounters": 3,
+        "startingCredits": 40,
+        "maxEnergy": 10,
+        "recoveryEnergy": 4,
+        "bankReserve": 2000,
+        "marketProbability": 1,
+        "marketMaxOrders": 3,
+        "marketQuota": 1,
+        "secureEconomy": true,
+        "core2": true,
+        "survival": {
+          "maxLife": 6,
+          "encounterLifeCost": 1,
+          "entryEnergyCost": 0
+        }
+      },
+      "commands": 170,
+      "ms": 483,
+      "audit": "catalog4-3-trader.json",
+      "sha256": "dff2beec257ab0534bac3e5e2a6dbc7a23cb42307a282bbf568cb5296ec97a43",
+      "final": [
+        {
+          "id": "seat0",
+          "credits": 23,
+          "energy": 8,
+          "inventory": [],
+          "score": 69,
+          "life": 4
+        },
+        {
+          "id": "seat1",
+          "credits": 7,
+          "energy": 7,
+          "inventory": [],
+          "score": 74,
+          "life": 3
+        },
+        {
+          "id": "seat2",
+          "credits": 10,
+          "energy": 5,
+          "inventory": [],
+          "score": 15,
+          "life": 4
+        }
+      ]
+    }
+  ]
+}

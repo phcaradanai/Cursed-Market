@@ -1,11 +1,14 @@
+import {heldInterestRings,ringInterestBasisPoints,pilotExpansionCost} from './pilot-effects.js';
 import type {AppraisalItem, AppraisalState, Appraiser} from './types.js';
 import {check, ownedItem, player, reward, spend, trace, transfer} from './mechanics.js';
 
 export const VAULT_INTEREST_PERCENT=10;
 export const vaultInterestOf=(credits:number,percent=VAULT_INTEREST_PERCENT):number=>percent===10?Math.floor(credits/10):Math.floor(credits*percent/100);
-export interface PersonalVault {items:string[]; credits:number; slots:number; interest?:{principal:number;encounter:number}}
+export interface PersonalVault {items:string[]; credits:number; slots:number; interest?:{principal:number;encounter:number;rings?:Record<string,number>}}
 export function nextVaultInterest(state:AppraisalState,vault:PersonalVault):number {
-  return state.config.vaultInterestRules===1?vaultInterestOf(vault.interest?.encounter===state.encounter?vault.interest.principal:0):vaultInterestOf(vault.credits,4);
+  const p=state.players.find(p=>p.personalVault===vault);
+  const bonus=p?ringInterestBasisPoints(state,p,vault.interest?.rings):0;
+  return state.config.vaultInterestRules===1?Math.floor((vault.interest?.encounter===state.encounter?vault.interest.principal:0)*(1000+bonus)/10000):vaultInterestOf(vault.credits,4);
 }
 export interface SecuredLoan {
   id:string; borrowerId:string; lenderId:string; itemId:string;
@@ -94,7 +97,7 @@ export function handleStorageAction(state:AppraisalState,p:Appraiser,action:Stor
       state.ledger.push({from:`vault:${p.id}`,to:p.id,amount:action.amount,reason:'vault-withdraw',encounter:state.encounter});break;
     }
     case 'vault-expand':{
-      const amount=quoteVaultExpansion(vault.slots);check(p.credits>=amount,'credits','เครดิตไม่พอเพิ่มช่องคลัง');
+      const amount=pilotExpansionCost(state,p,quoteVaultExpansion(vault.slots));check(p.credits>=amount,'credits','เครดิตไม่พอเพิ่มช่องคลัง');
       addable(vault.slots,1);spend(state,p,amount,0,'vault-expand');vault.slots++;break;
     }
   }
@@ -197,13 +200,14 @@ export function payVaultInterest(state:AppraisalState):void {
   if(!state.config.secureEconomy)return;
   for(const p of state.players){
     const vault=p.personalVault;if(!vault || p.paused==='dead' || p.life===0)continue;
-    let principal=vault.credits;
+    let principal=vault.credits,bonus=0;
     if(state.config.vaultInterestRules===1){
       if(vault.interest && vault.interest.encounter>=state.encounter)continue;
       principal=vault.interest?.encounter===state.encounter-1?vault.interest.principal:0;
-      vault.interest={principal:vault.credits,encounter:state.encounter};
+      if(principal>0)bonus=ringInterestBasisPoints(state,p,vault.interest?.rings);
+      vault.interest={principal:vault.credits,encounter:state.encounter,...(state.config.catalogVersion===4?{rings:heldInterestRings(state,p)}:{})};
     }
-    const owed=vaultInterestOf(principal,state.config.vaultInterestRules===1?10:4);
+    const owed=state.config.vaultInterestRules===1?Math.floor(principal*(1000+bonus)/10000):vaultInterestOf(principal,4);
     const amount=Math.min(owed,Math.max(0,state.bank-state.market.budget-state.reservedRewards));
     if(amount<=0)continue;
     reward(state,p,amount,'vault-interest');

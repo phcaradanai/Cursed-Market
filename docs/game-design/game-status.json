@@ -1,7 +1,7 @@
 {
-  "asOf": "2026-10-31",
+  "asOf": "2026-11-01",
   "activeSource": "apps/comic",
-  "revision": "9f0a972",
+  "revision": "f351be5 + pilot8 worktree (source fingerprints in new56-pilot-verification.json)",
   "headline": "ยังไม่ครบตามกฎและขอบเขตเกมที่ตกลงทั้งหมด",
   "summary": "วงจรเดิมและตลาดวิญญาณเล่นได้ แต่การย้ายกฎ/สินค้าใหม่และบาลานซ์ทั้งเกมยังค้าง ภาพหน้าจอหรือกราฟครบไม่ได้แปลว่า runtime ครบ",
   "atlasScope": "Atlas สกัดทุก module ของ apps/comic/src/game/appraisal พร้อม random/rarity/protocol/server lifecycle และ bot ที่ระบุ; graph เป็น static dependency ไม่ใช่ execution proof; UI ใช้ capture/flow registry แยก; รุ่นเก่าตรึง9f0a972ใน legacy-atlas-baseline.json",
@@ -43,8 +43,8 @@
     {
       "id": "ITEM-01–03",
       "system": "สินค้าใหม่56ชิ้นและ effect",
-      "status": "pilot8 อนุมัติแล้ว — ยังไม่เชื่อม runtime",
-      "remaining": "Audit active Comic:ภาพ56/56 hashตรงและไม่ซ้ำ,8×7,ประเภทไม่เกิน4พ่อค้า; primary56+optional57ยังเป็นข้อเสนอ; runtimeมี66ชนิดเดิมและ0 IDใหม่; ผู้ใช้อนุมัติสเปก/ค่าทดลอง8ชิ้นแล้ว รอเชื่อมและทดสอบ lifecycle ไม่ใช่รับรอง balance",
+      "status": "pilot8 เชื่อมและตรวจค่าทดลองแล้ว — อีก48ยังไม่ลง runtime",
+      "remaining": "catalogVersion4 ใช้ ID/PNG ใหม่โดยตรง8ชิ้น/8พ่อค้า พร้อม primary effects ที่อนุมัติ; default ยังเป็น version3 เดิม66ชนิดจนย้ายครบ56. ผ่าน29 unit/lifecycle,168 regression,actual network+reconnect+duplicate+จบรัน+strict replay1,paired survival8รัน และnative UI10สถานะ; ยังไม่ใช่บาลานซ์รุ่นเปิดเล่น อีก48/optional effects และlegacy event predicates ยังต้องทำต่อ",
       "evidence": [
         "docs/game-design/logic-item-relations.json",
         "docs/game-design/system-atlas/coverage.md",
@@ -53,7 +53,9 @@
         "docs/game-design/new56-pilot-proposal.html",
         "docs/game-design/new56-pilot-proposal.json",
         "docs/game-design/implementations/new56-integration-plan.md",
-        "docs/game-design/new56-pilot-approval.json"
+        "docs/game-design/new56-pilot-approval.json",
+        "docs/game-design/new56-pilot-verification.json",
+        "docs/validation/new56-pilot-2026-11-01/experiment.json"
       ]
     },
     {
@@ -127,15 +129,17 @@
     }
   ],
   "next": [
-    "เชื่อม forced-RPS ตามกฎสุ่มเฉพาะมือที่ยังไม่ส่ง ซึ่งยืนยันแล้ว2026-10-31",
-    "ปิดเป้าหมาย/โบนัสเส้นทางและสัญญาข้อมูลสินค้าใหม่ แล้วทดลอง8ชิ้น",
-    "ทำ Wishlist3+2 และรางวัลสถิติ/rarityตามกติกาที่ปิดรายละเอียดแล้ว",
-    "ย้ายครบ56 ผูกevent/encounter/omen แล้วทดสอบเต็มเกมและบาลานซ์"
+    "ปิด selector/ผลลัพธ์ RPS เดิมตามกรอบ Comic ที่อนุมัติ",
+    "ออกสเปกค่าทดลองอีก48ชิ้นและขออนุมัติ; STRAT-01 ยังรอวิธีรวมโบนัสที่ถามไว้",
+    "ทำ Wishlist Collector3+2 และรางวัลสถิติ/rarityหลังปิดรายละเอียด",
+    "ย้ายครบ56 ผูกevent/encounter/omen ตรวจเต็มเกม/หลายคน/reconnect/replay แล้วบาลานซ์"
   ],
   "verification": "Whole-game goal เปิดแล้ว ดู implementations/completion-program.md; งานแต่ละส่วนมีผลตรวจเฉพาะส่วน ไม่ใช่คำรับรองครบทั้งเกม",
   "runtimeFacts": {
     "comicVaultInterestPercent": 10,
     "rootVaultInterestPercent": 10,
-    "new56DedicatedBindings": 0
+    "new56DedicatedBindings": 8,
+    "comicDefaultCatalogVersion": 3,
+    "comicExperimentalCatalogVersion": 4
   }
 }

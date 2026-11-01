@@ -44,7 +44,7 @@ const STRONG_BUFFS:readonly StatusId[]=['B06','B07','B08','B19'];
 export function anchorOf(config:Pick<AppraisalConfig,'core2'|'survival'>,kind:ItemKind):number {
   const spec=ITEM_SPECS[kind];
   if(!config.core2)return spec.anchor;
-  const tier=WEAK_BUFFS.includes(spec.buff)?.85:STRONG_BUFFS.includes(spec.buff)?1.15:1;
+  const tier=!!spec.buff && WEAK_BUFFS.includes(spec.buff)?.85:!!spec.buff && STRONG_BUFFS.includes(spec.buff)?1.15:1;
   const healing=!!config.survival && ['food','potion'].includes(itemFamily(kind))?CORE2.restorativePremium:0;
   return Math.max(4,Math.round(spec.anchor*tier)+healing);
 }

@@ -1,0 +1,114 @@
+{
+  "asOf": "2026-11-01",
+  "status": "experimental-pilot-tested",
+  "scope": "8 approved primary effects only; opt-in catalogVersion4; default catalogVersion3 unchanged. Not full56, full-game acceptance, release balance, or human screenshot approval.",
+  "approvedItemIds": [
+    "orc-tusk-shield",
+    "vampire-nocturne-signet",
+    "autometa-torque-caliper",
+    "alien-thought-translator",
+    "darkone-crossing-token",
+    "deepsea-tide-compass",
+    "swarm-brood-hammer",
+    "beast-riftfang-sword"
+  ],
+  "sourceFingerprints": {
+    "apps/comic/scripts/new56-pilot-experiment.mjs": "765044c9febc45ae3e2f3c50e572304b40bd14c2bbad471deba4280a9d88123e",
+    "apps/comic/src/appraisal-client/App.tsx": "8c588a8351e621e636c67bb9104bf281e704317907ef8c25848f4ec6404e5f18",
+    "apps/comic/src/appraisal-client/SecureEconomy.tsx": "8c11566780b24c723ef6d2e8b783ff8d0d9d7b949212c6bfb8306bf9189cbaaf",
+    "apps/comic/src/appraisal-client/components.tsx": "b4564c5667bdb3eaa375b2a8f87389216c67108433c2f06074910d9b75c4d362",
+    "apps/comic/src/appraisal-client/lore.tsx": "189390c4d9ceb246c2f1a5aa4e4891b7a91d2023348ac49f91b8029d2f788354",
+    "apps/comic/src/appraisal-client/model.ts": "1ca8356d67a69e286c161177f71ffd1738a487ec2c2e26a30fea01b54ac33b40",
+    "apps/comic/src/appraisal-client/validation/pilot-item-fixture.tsx": "547f2588701e9906d9b78be1f60ba64f31b1ec73c362092de3bdc8d0c8c890d4",
+    "apps/comic/src/game/appraisal/content.ts": "71887f52012d6f855c1e130e0339c6785b3f91abe8f9efa5e2b8b2a181d3a20b",
+    "apps/comic/src/game/appraisal/core2-actions.ts": "9b93824543a822b9f58d4b07269af6bcb780d7a1475cd5726bea1d450796fc9b",
+    "apps/comic/src/game/appraisal/core2-events.ts": "bb9531af0ffe6a6ea068f049d286b2b1d0fe37deb24a44bcfe3dfa58a08424f8",
+    "apps/comic/src/game/appraisal/core2.ts": "d9c7ac292898c29d471bc6d9bb0a7ae0557bd394a79d77978e6e1eed5b71bd17",
+    "apps/comic/src/game/appraisal/engine.ts": "10204e39d68f62f1873667a9e22086eb7e2b1985905124e2e2d0c3196514cd2d",
+    "apps/comic/src/game/appraisal/events.ts": "c4bd10912200be5fb50c13e7d6ba8f5fda16f777f61d4d18d51b76e768e00794",
+    "apps/comic/src/game/appraisal/mechanics.ts": "64e94197d33b21d65dfbab7d815d624653c44cafe7d52cb28c22a0683654d27e",
+    "apps/comic/src/game/appraisal/passives.ts": "ef49c5ade780d0f68a7422a8e8a3b433237525311ef1c555d3aed61c45bc99bf",
+    "apps/comic/src/game/appraisal/pilot-catalog.ts": "ad8dbb487623f3b8d0486c87fe86c5fe72c0d50c553a7a34bc526c52579e8c62",
+    "apps/comic/src/game/appraisal/pilot-effects.ts": "ab8d8201a7abd4fbca4f96ee6223ded049937d43dac7a2f4dfa72db793e29029",
+    "apps/comic/src/game/appraisal/secure-storage.ts": "92396ce974a8854fafd1e724a5e5fd34d2c8f35390375b9d0be75fc458740ab0",
+    "apps/comic/src/game/appraisal/theft.ts": "8c3008d57a681ceec9a9e4ea02b24867b5a18a65b6e424906cd24bb4b58e65e7",
+    "apps/comic/src/game/appraisal/types.ts": "3865b6620a94487cec6fdb30df36fad381a00ad9f9ca4a53671afe777f5229ac",
+    "apps/comic/src/game/appraisal/views.ts": "0a279137723014d9a3b4a3ff1b29d449af661024e2372036bb73460d3c6aed8e",
+    "apps/comic/src/server/appraisal-main.ts": "76e3edf36ad88c1f8ba67a395e07ee91502b19d9d9bec6d7d7b4bd6e54e6156b",
+    "apps/comic/src/simulation/appraisal.ts": "505393b813145217139b2e37b6c1a5ecc9ef2784c4be9bcd5c35ccad25c1c714",
+    "apps/comic/tests/appraisal-expansion.test.ts": "49241ac61183d38be5a1321ad7bc9a8a4241748dcff559f351c79517df5aecb0",
+    "apps/comic/tests/appraisal-item-effects.test.ts": "09e53c6f8169d41c6dbde39e750e70cd2c142f56be61f990caa86df939b87125",
+    "apps/comic/tests/appraisal-merchant-abilities.test.ts": "e0e1229c90b062137b4a63879e62daccf86f7002b5a7c13b9fc3ac602878b818",
+    "apps/comic/tests/appraisal-network.test.ts": "21aeafee1bda2fc8adf91cbd566069e7357a8f7a8e75fcb8b913932c7b9404b4",
+    "apps/comic/tests/appraisal-passives.test.ts": "3d7a2e70217b18ff31d08538e00bac3ab14ce1f943be51daf2aa636e80a4a382",
+    "apps/comic/tests/appraisal-status-links.test.ts": "1569d94b22294ac24496a4cc0bb669479415bc5f11f772f248b1c609f45c8603",
+    "apps/comic/tests/new56-pilot-catalog.test.ts": "569b560da781586f4cd2ae988e774ff74daa45e131e0f3f696119aab2926362d",
+    "apps/comic/tests/new56-pilot-custody.test.ts": "b2cd8cc9507fa849da757c87659ab9bfc0d683531b110de7e21d7656bd43c3f2",
+    "apps/comic/tests/new56-pilot-effects.test.ts": "f9e56a31b6c8c16e22fde21d30a626fa6635a9c0321162a79359e00cd04e4668",
+    "apps/comic/tests/new56-pilot-lifecycle.test.ts": "7c74bdc20895696200a6339ad16622f071e11d1fbde1cbe63f1cabe492807375",
+    "scripts/ui/pilot-items-smoke.mjs": "5b0fcf1dccaaef77e06440ff3c5348432385ac7acbf064da94e044eb713309f2"
+  },
+  "checks": {
+    "pilotUnitLifecycle": {
+      "passed": 29,
+      "log": "docs/validation/new56-pilot-2026-11-01/unit.log"
+    },
+    "relatedRegression": {
+      "passed": 168,
+      "log": "docs/validation/new56-pilot-2026-11-01/regression.log",
+      "excluded": "CPU-heavy simulation/long-run test names; not a full-suite claim"
+    },
+    "actualNetwork": {
+      "passed": 1,
+      "log": "docs/validation/new56-pilot-2026-11-01/network.log",
+      "audit": "docs/validation/new56-pilot-2026-11-01/pilot8-network-audit.json",
+      "scope": "actual sockets; purchase; reconnect; duplicate request; early audit denied; play3 encounters to RESULTS; strict audit replay"
+    },
+    "pairedSurvival": {
+      "passed": 8,
+      "report": "docs/validation/new56-pilot-2026-11-01/experiment.json",
+      "scope": "2/3 seats, cautious/trader, catalog3/4 same seed; Collector at3; strict replay each; not statistical balance"
+    },
+    "nativeUi": {
+      "passed": 10,
+      "report": "docs/validation/new56-pilot-2026-11-01/ui.json",
+      "scope": "8 native inventory states at1440; caliper also1024/1920; same GameTable; fixture captures not baseline approval"
+    },
+    "approvedBaseline": {
+      "passed": 14,
+      "report": "docs/validation/new56-pilot-2026-11-01/baseline.json",
+      "invocation": "docs/validation/new56-pilot-2026-11-01/baseline-invocation.json",
+      "scope": "unchanged approved references; no re-record"
+    },
+    "sharedMenus": {
+      "passed": 18,
+      "report": "docs/validation/new56-pilot-2026-11-01/menu-smoke.json",
+      "invocation": "docs/validation/new56-pilot-2026-11-01/menu-invocation.json"
+    },
+    "uiSourceCheck": {
+      "passed": true,
+      "fingerprints": 385,
+      "log": "docs/validation/new56-pilot-2026-11-01/ui-check.log"
+    },
+    "uiContracts": {
+      "passed": 10,
+      "log": "docs/validation/new56-pilot-2026-11-01/ui-test.log"
+    },
+    "clientBuild": {
+      "passed": true,
+      "log": "docs/validation/new56-pilot-2026-11-01/client-build.log",
+      "warning": "existing >500kB bundle size warning"
+    }
+  },
+  "knownLimits": [
+    "Remaining48 not integrated or numerically approved; optional effects deferred.",
+    "Old event/encounter/omen predicates are preserved, not comprehensively remapped for full56.",
+    "Legacy root app is unchanged; primary app defaults still version3 until complete rollout.",
+    "No mobile, sustained-load, win-share or complete game acceptance claim."
+  ],
+  "failedAttempts": [
+    "Initial network proof incorrectly requested private audit mid-game; production correctly denied it. Test now verifies denial then finishes the run before audit.",
+    "Initial native UI fixture import used the pre-migration module URL; corrected to Vite root /validation/.",
+    "Initial old-art tests expected JPEG paths and all-kind legacy status mechanics; updated to approved Comic PNG/family compatibility and separate native effect contracts."
+  ]
+}

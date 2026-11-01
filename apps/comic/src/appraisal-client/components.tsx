@@ -345,17 +345,17 @@ export function AppraisalDesk({game,item,submit,disabled,merchant,stockSelector,
 function AppraisalItemDetails({game,item}:{game:AppraisalView;item:ItemView}) {
   const passive=game.passives && passiveSpec(item.kind)?passiveText(item.kind,game.itemEffects,item):null;
   const benefit=possibleBenefitText(game,item);
-  const explanation=benefit.includes(statusName(ITEM_SPECS[item.kind].buff))?readable(statusDescription(ITEM_SPECS[item.kind].buff)):null;
+  const explanation=ITEM_SPECS[item.kind].buff && benefit.includes(statusName(ITEM_SPECS[item.kind].buff!))?readable(statusDescription(ITEM_SPECS[item.kind].buff!)):null;
   const drawback=possibleDrawbackText(game,item);
-  const riskExplanation=drawback.includes(statusName(ITEM_SPECS[item.kind].drawback))?readable(statusDescription(ITEM_SPECS[item.kind].drawback)):null;
+  const riskExplanation=ITEM_SPECS[item.kind].drawback && drawback.includes(statusName(ITEM_SPECS[item.kind].drawback!))?readable(statusDescription(ITEM_SPECS[item.kind].drawback!)):null;
   return <div className="item-detail-pages"><Pager label={pick('รายละเอียดสินค้า','Item details')}>
     <section className="item-mechanics"><h3><BuffIcon/>{pick('ผลของสินค้า','Item effects')}</h3>
       {passive && <p>{passive}</p>}
       <p>{readable(benefit)}{explanation?` · ${explanation}`:''}</p>
       <h3><InfoIcon/>{pick('วิธีใช้','How to use')}</h3>
-      <p>{pick('ซื้อเก็บไว้ แล้วเปิดใช้จากกระเป๋า','Buy the item, then activate it from your bag.')}</p>
+      <p>{ITEM_SPECS[item.kind].usage??pick('ซื้อเก็บไว้ แล้วเปิดใช้จากกระเป๋า','Buy the item, then activate it from your bag.')}</p>
       {passive && <p>{pick('ผลสะสมมีผลขณะถือสินค้า','Collection effects apply while holding the item.')}</p>}
-      <p className="supporting">{game.itemEffects && ITEM_SPECS[item.kind].consumable?pick('เปิดใช้ไม่เสียพลัง · ใช้แล้วหมดไป','Activation costs no energy; consumed on use.'):pick('เปิดใช้ใช้ 1 พลัง · ชิ้นละหนึ่งครั้งต่อช่วง','Activation costs 1 energy; once per item per encounter.')}</p>
+      <p className="supporting">{ITEM_SPECS[item.kind].nativeEffect?ITEM_SPECS[item.kind].exclusions:game.itemEffects && ITEM_SPECS[item.kind].consumable?pick('เปิดใช้ไม่เสียพลัง · ใช้แล้วหมดไป','Activation costs no energy; consumed on use.'):pick('เปิดใช้ใช้ 1 พลัง · ชิ้นละหนึ่งครั้งต่อช่วง','Activation costs 1 energy; once per item per encounter.')}</p>
     </section>
     <section className="item-mechanics"><h3><InfoIcon/>{pick('เงื่อนไขและความเสี่ยง','Conditions and risks')}</h3><p>{readable(drawback)}{riskExplanation?` · ${riskExplanation}`:''}</p><p>{activationOutcome(item.knowledge)}</p></section>
   </Pager></div>;
@@ -546,8 +546,8 @@ function InventoryUsageDetails({game,item,submit,disabled,onBack,backRef}:{game:
   const titleId=useId();
   const effectsDone=effectsKnownFor(game,item.knowledge);
   const benefit=possibleBenefitText(game,item),risk=possibleDrawbackText(game,item);
-  const benefitExplanation=benefit.includes(statusName(ITEM_SPECS[item.kind].buff))?statusDescription(ITEM_SPECS[item.kind].buff):null;
-  const riskExplanation=risk.includes(statusName(ITEM_SPECS[item.kind].drawback))?statusDescription(ITEM_SPECS[item.kind].drawback):null;
+  const benefitExplanation=ITEM_SPECS[item.kind].buff && benefit.includes(statusName(ITEM_SPECS[item.kind].buff!))?statusDescription(ITEM_SPECS[item.kind].buff!):null;
+  const riskExplanation=ITEM_SPECS[item.kind].drawback && risk.includes(statusName(ITEM_SPECS[item.kind].drawback!))?statusDescription(ITEM_SPECS[item.kind].drawback!):null;
   const passive=game.passives&&passiveSpec(item.kind)?passiveText(item.kind,game.itemEffects,item):null;
   return <section className="inventory-usage-page" aria-labelledby={titleId}>
     <header className="inventory-effect-head"><button ref={backRef} type="button" className="inventory-effect-back" onClick={onBack}><span aria-hidden="true">←</span>{pick('กลับไปกระเป๋า','Back to bag')}</button><h3 id={titleId}>{pick('ข้อมูลและผลการใช้งาน','Facts and use effects')}</h3></header>
@@ -604,7 +604,7 @@ export function Inventory({game,submit,disabled,drawer=false}:Actions&{drawer?:b
         {item.lockedUntil!==null&&<p className="inventory-lock-note">{t('ขายหรือแลกไม่ได้จนจบช่วง {n} ยังเปิดใช้ได้',{n:item.lockedUntil})}</p>}
         <div className="inventory-actions">
           {playing&&<div className="inventory-main-actions"><div className="inventory-use">
-            {game.trustAbilities&&(ABILITY_ITEM_IDS as readonly string[]).includes(item.kind)?<AbilityItemControls game={game} item={item} submit={submit} disabled={disabled}/>:((()=>{const why=activationBlock(game,item.id,disabled);return <button type="button" className="primary inventory-activate" disabled={disabled||!!why} title={tip(disabled&&locked,why)} onClick={()=>submit({type:'activate',itemId:item.id})}>{pick('เปิดใช้','Activate')} · {game.itemEffects&&ITEM_SPECS[item.kind].consumable?0:1}<EnergyIcon/></button>;})())}
+            {ITEM_SPECS[item.kind].nativeEffect&&!ITEM_SPECS[item.kind].explicitActivation?<span className="supporting">{ITEM_SPECS[item.kind].usage}</span>:game.trustAbilities&&(ABILITY_ITEM_IDS as readonly string[]).includes(item.kind)?<AbilityItemControls game={game} item={item} submit={submit} disabled={disabled}/>:((()=>{const why=activationBlock(game,item.id,disabled);return <button type="button" className="primary inventory-activate" disabled={disabled||!!why} title={tip(disabled&&locked,why)} onClick={()=>submit({type:'activate',itemId:item.id})}>{pick('เปิดใช้','Activate')} · {game.itemEffects&&ITEM_SPECS[item.kind].consumable?0:1}<EnergyIcon/></button>;})())}
           </div><button type="button" className="inventory-sell" disabled={game.phase!=='TRADE'} title={game.phase!=='TRADE'?pick('เสนอขายได้ในช่วงซื้อขาย','Available during trading'):undefined} aria-expanded={saleFor===item.id} aria-controls="inventory-sale-options" onClick={()=>setSaleFor(saleFor===item.id?null:item.id)}><AppraiseIcon/>{pick('เสนอขาย','Offer for sale')}</button></div>}
           {playing&&game.phase==='TRADE'&&saleFor===item.id&&<section id="inventory-sale-options" className="inventory-sale" aria-label={pick('กำหนดข้อเสนอขาย','Set sale terms')}><Share game={game} item={item} submit={submit} disabled={disabled}/></section>}
           <button ref={effectButton} type="button" className="inventory-effect-details" aria-expanded={showingEffects} onClick={()=>setEffectsFor(showingEffects?null:item.id)}><BookIcon/>{pick('รายละเอียดผลการใช้งาน','Usage details')}<span aria-hidden="true">{showingEffects?'×':'›'}</span></button>

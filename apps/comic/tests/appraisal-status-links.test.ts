@@ -26,7 +26,7 @@ function producers(config: AppraisalConfig): Set<StatusId> {
   const out = new Set<StatusId>();
   for (const m of source.matchAll(/grant\(\s*state\s*,\s*[\w!.]+\s*,\s*'([BD]\d\d)'/g)) out.add(m[1] as StatusId);
   for (const m of source.matchAll(/statusId:'([BD]\d\d)'/g)) out.add(m[1] as StatusId);
-  for (const spec of Object.values(ITEM_SPECS)) { out.add(spec.buff); out.add(spec.drawback); }
+  for (const spec of Object.values(ITEM_SPECS)) { if(spec.buff)out.add(spec.buff); if(spec.drawback)out.add(spec.drawback); }
   for (const npc of Object.values(NPC_SPECS)) out.add(npc.condition);
   for (const spec of Object.values(POLISH_EVENTS)) spec.grant.forEach(s => out.add(s));
   for (const id of Object.keys(CORE2_SPECS) as EventId[]) for (const c of core2Choices(id, config)) [...(c.grant ?? []), ...(c.gamble?.win ?? []), ...(c.gamble?.lose ?? [])].forEach(s => out.add(s));

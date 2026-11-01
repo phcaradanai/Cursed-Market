@@ -1,10 +1,12 @@
-import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';
+import crypto from 'node:crypto';import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';
 import {renderScreenFlow} from './screen-flow-render.mjs';
 import {renderCurrentCaptures} from './current-capture-render.mjs';
 export async function renderAtlas({ROOT,DOC,OUT,data,baseGraph}){
 const nodes=baseGraph.nodes.map(n=>({...n})),edges=baseGraph.edges.map(e=>({...e})),records={},unresolvedReferences=[],ids=new Set(nodes.map(n=>n.id));
+const pilotVerification=JSON.parse(fs.readFileSync(path.join(DOC,'new56-pilot-verification.json'),'utf8'));
+for(const [file,hash] of Object.entries(pilotVerification.sourceFingerprints))assert.equal(data.provenance.sourceFiles.find(s=>s.file===file)?.sha256??crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT,file))).digest('hex'),hash,'Pilot verification stale: '+file);
 const pilot=JSON.parse(fs.readFileSync(path.join(DOC,'new56-pilot-proposal.json'),'utf8'));
-if(pilot.status==='approved-experimental-pilot')for(const spec of pilot.items){const node=nodes.find(n=>n.id==='item:'+spec.id);if(node){node.pilot={status:pilot.status,spec,approval:'new56-pilot-approval.json',runtime:'not inferred from approval; inspect registered IDs and lifecycle evidence'};node.pilot.runtimeIdRegistered=data.productScope.registeredNewItemIds.includes(spec.id);node.status=node.pilot.runtimeIdRegistered?'approved-pilot-ID-registered-lifecycle-unverified':'approved-pilot-runtime-unbound';}}
+if(pilot.status==='approved-experimental-pilot')for(const spec of pilot.items){const node=nodes.find(n=>n.id==='item:'+spec.id);if(node){node.pilot={status:pilot.status,spec,approval:'new56-pilot-approval.json',runtime:'not inferred from approval; inspect registered IDs and lifecycle evidence'};node.pilot.runtimeIdRegistered=data.productScope.registeredNewItemIds.includes(spec.id);node.pilot.verification='new56-pilot-verification.json';node.status=node.pilot.runtimeIdRegistered&&pilotVerification.status==='experimental-pilot-tested'&&pilotVerification.approvedItemIds.includes(spec.id)?'approved-pilot-tested-experimental':node.pilot.runtimeIdRegistered?'approved-pilot-ID-registered-lifecycle-unverified':'approved-pilot-runtime-unbound';}}
 const add=(id,label,kind,record)=>{records[id]=record;if(!ids.has(id)){ids.add(id);nodes.push({id,label:label||id,kind,status:'source-snapshot'})}return id};
 const link=(source,target,kind,label,evidence=null)=>{if(ids.has(source)&&ids.has(target))edges.push({id:'atlas-edge:'+edges.length,source,target,kind,label,evidence,status:'static-source',description:'Possible dependency; check guards, configuration and state in the linked record.'});else unresolvedReferences.push({source,target,kind,label,evidence})};
 for(const s of data.symbols)add(s.id,s.name,'code',{...s,propertyWrites:data.propertyWrites.filter(w=>w.owner===s.id)});

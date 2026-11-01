@@ -26,3 +26,7 @@ User approved forced-rps-ui-proposal.md: inventory-sized ComicPhaseFrame, equal 
 ### 2026-10-31 — confirmed merchant expressions, existing presentation
 
 Implement approved2026-10-29 idle/smile/angry behavior through merchant-reactions.ts.650ms confirmed-entry display reuses portals without delaying commands/clocks; no optimistic smiles. Reduced motion skips hold. Selected item appraisalAccepted controls appraisal mood, independent of accumulated trust. Reuse current frame/CSS/assets;24 existing poses checked for load/rectangle/bottom clipping. Candidates C40/C41 do not alter approved14-image references.
+
+## 2026-11-01 — approved pilot8 integration, no new visual identity
+
+Use native new56 IDs/own merchant-palette PNGs in experimental catalog4 for the eight explicitly approved items. Seven non-activatable tools use existing supporting text in the existing inventory action area; no forged generic activation is allowed. Quotes/available price-check rights come from the server DTO. Sword edge is separately declared without revealing private guards. Inventory/GameTable/Comic controls, HUD/dock, spacing and all14 approved references remain unchanged.10 new fixture captures are evidence, not human baseline approval. Default3/full56 migration remains deferred pending completion/verification. See ../game-design/new56-pilot-verification.json.

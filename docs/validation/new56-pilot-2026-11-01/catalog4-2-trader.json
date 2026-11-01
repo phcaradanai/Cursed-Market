@@ -1,0 +1,4684 @@
+{
+  "schemaVersion": 5,
+  "playerIds": [
+    "seat0",
+    "seat1"
+  ],
+  "seed": "pilot-paired-0",
+  "config": {
+    "rarityEconomy": {
+      "version": 1,
+      "tiers": {
+        "common": {
+          "value": 1,
+          "effect": 1
+        },
+        "uncommon": {
+          "value": 2,
+          "effect": 2
+        },
+        "rare": {
+          "value": 3,
+          "effect": 3
+        },
+        "epic": {
+          "value": 4,
+          "effect": 4
+        },
+        "legendary": {
+          "value": 6,
+          "effect": 6
+        },
+        "mythic": {
+          "value": 8,
+          "effect": 8
+        }
+      }
+    },
+    "rarity": {
+      "version": 1,
+      "rates": {
+        "common": 0.6,
+        "uncommon": 0.25,
+        "rare": 0.1,
+        "epic": 0.035,
+        "legendary": 0.013,
+        "mythic": 0.002
+      },
+      "themes": {
+        "common": [
+          {
+            "theme": "plain",
+            "weight": 1
+          }
+        ],
+        "uncommon": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "rare": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "epic": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "legendary": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "mythic": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ]
+      }
+    },
+    "loanEndSettlement": true,
+    "vaultInterestRules": 1,
+    "theftTimeoutRules": 1,
+    "collectorDeadline": 3,
+    "eventChoiceRules": 1,
+    "statusLinks": 1,
+    "systemLinks": 1,
+    "trustAbilities": true,
+    "catalogVersion": 4,
+    "itemEffects": true,
+    "roundRewards": true,
+    "multiCoinRewards": true,
+    "commerce": true,
+    "totalTrustStock": true,
+    "curseSight": true,
+    "freeBuy": true,
+    "freeMerchantAction": true,
+    "fakeEffect": true,
+    "cleanse": true,
+    "wishlist": true,
+    "wishContract": true,
+    "challenge": true,
+    "expansion": true,
+    "encounters": 3,
+    "startingCredits": 40,
+    "maxEnergy": 10,
+    "recoveryEnergy": 4,
+    "bankReserve": 2000,
+    "marketProbability": 1,
+    "marketMaxOrders": 3,
+    "marketQuota": 1,
+    "secureEconomy": true,
+    "core2": true,
+    "survival": {
+      "maxLife": 6,
+      "encounterLifeCost": 1,
+      "entryEnergyCost": 0
+    }
+  },
+  "commands": [
+    {
+      "type": "event",
+      "key": "1:seat0:E119:0:0",
+      "choice": "pay",
+      "playerId": "seat0",
+      "requestId": "sim-0",
+      "encounter": 1
+    },
+    {
+      "type": "enter",
+      "portalId": "portal-1-1-1",
+      "playerId": "seat1",
+      "requestId": "sim-1",
+      "encounter": 1
+    },
+    {
+      "type": "enter",
+      "portalId": "portal-1-0-0",
+      "playerId": "seat0",
+      "requestId": "sim-2",
+      "encounter": 1
+    },
+    {
+      "type": "event",
+      "key": "1:seat1:E73:0:0",
+      "choice": "accept",
+      "itemId": "item-1-1-1-0",
+      "playerId": "seat1",
+      "requestId": "sim-3",
+      "encounter": 1
+    },
+    {
+      "type": "event",
+      "key": "1:seat0:E73:1:0",
+      "choice": "accept",
+      "itemId": "item-1-0-0-0",
+      "playerId": "seat0",
+      "requestId": "sim-4",
+      "encounter": 1
+    },
+    {
+      "type": "appraise",
+      "itemId": "item-1-1-1-0",
+      "value": 26,
+      "acceptDanger": true,
+      "playerId": "seat1",
+      "requestId": "sim-5",
+      "encounter": 1
+    },
+    {
+      "type": "appraise",
+      "itemId": "item-1-0-0-0",
+      "value": 50,
+      "acceptDanger": true,
+      "playerId": "seat0",
+      "requestId": "sim-6",
+      "encounter": 1
+    },
+    {
+      "type": "appraise",
+      "itemId": "item-1-1-1-1",
+      "value": 78,
+      "acceptDanger": true,
+      "playerId": "seat1",
+      "requestId": "sim-7",
+      "encounter": 1
+    },
+    {
+      "type": "appraise",
+      "itemId": "item-1-0-0-1",
+      "value": 24,
+      "acceptDanger": true,
+      "playerId": "seat0",
+      "requestId": "sim-8",
+      "encounter": 1
+    },
+    {
+      "type": "buy",
+      "itemIds": [
+        "item-1-1-1-0"
+      ],
+      "condition": false,
+      "playerId": "seat1",
+      "requestId": "sim-9",
+      "encounter": 1
+    },
+    {
+      "type": "buy",
+      "itemIds": [
+        "item-1-0-0-1"
+      ],
+      "condition": false,
+      "playerId": "seat0",
+      "requestId": "sim-10",
+      "encounter": 1
+    },
+    {
+      "type": "market-sell",
+      "itemId": "item-1-1-1-0",
+      "orderId": "quote-1-beast-riftfang-sword",
+      "playerId": "seat1",
+      "requestId": "sim-11",
+      "encounter": 1
+    },
+    {
+      "type": "market-sell",
+      "itemId": "item-1-0-0-1",
+      "orderId": "quote-1-beast-riftfang-sword",
+      "playerId": "seat0",
+      "requestId": "sim-12",
+      "encounter": 1
+    },
+    {
+      "type": "buy",
+      "itemIds": [
+        "item-1-0-0-0"
+      ],
+      "condition": false,
+      "playerId": "seat0",
+      "requestId": "sim-13",
+      "encounter": 1
+    },
+    {
+      "type": "done",
+      "playerId": "seat1",
+      "requestId": "sim-14",
+      "encounter": 1
+    },
+    {
+      "type": "done",
+      "playerId": "seat0",
+      "requestId": "sim-15",
+      "encounter": 1
+    },
+    {
+      "type": "event",
+      "key": "1:seat1:E42:1:0",
+      "choice": "energy",
+      "itemId": "item-1-1-1-1",
+      "playerId": "seat1",
+      "requestId": "sim-16",
+      "encounter": 1
+    },
+    {
+      "type": "share",
+      "itemId": "item-1-0-0-0",
+      "allow": true,
+      "purchase": true,
+      "playerId": "seat0",
+      "requestId": "sim-17",
+      "encounter": 1
+    },
+    {
+      "type": "share",
+      "itemId": "item-1-1-1-1",
+      "allow": true,
+      "purchase": true,
+      "playerId": "seat1",
+      "requestId": "sim-18",
+      "encounter": 1
+    },
+    {
+      "type": "propose",
+      "sellerId": "seat0",
+      "itemId": "item-1-0-0-0",
+      "credits": 21,
+      "playerId": "seat1",
+      "requestId": "sim-19",
+      "encounter": 1
+    },
+    {
+      "type": "respond",
+      "offerId": "trade-1-seat1-sim-19",
+      "accept": true,
+      "playerId": "seat0",
+      "requestId": "sim-20",
+      "encounter": 1
+    },
+    {
+      "type": "share",
+      "itemId": "item-1-0-0-0",
+      "allow": true,
+      "purchase": true,
+      "playerId": "seat1",
+      "requestId": "sim-21",
+      "encounter": 1
+    },
+    {
+      "type": "propose",
+      "sellerId": "seat1",
+      "itemId": "item-1-0-0-0",
+      "credits": 18,
+      "playerId": "seat0",
+      "requestId": "sim-22",
+      "encounter": 1
+    },
+    {
+      "type": "respond",
+      "offerId": "trade-1-seat0-sim-22",
+      "accept": false,
+      "playerId": "seat1",
+      "requestId": "sim-23",
+      "encounter": 1
+    },
+    {
+      "type": "done",
+      "playerId": "seat0",
+      "requestId": "sim-24",
+      "encounter": 1
+    },
+    {
+      "type": "done",
+      "playerId": "seat1",
+      "requestId": "sim-25",
+      "encounter": 1
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "enter",
+      "portalId": "portal-2-0-1",
+      "playerId": "seat0",
+      "requestId": "sim-27",
+      "encounter": 2
+    },
+    {
+      "type": "event",
+      "key": "2:seat1:E117:0:0",
+      "choice": "pay",
+      "playerId": "seat1",
+      "requestId": "sim-28",
+      "encounter": 2
+    },
+    {
+      "type": "enter",
+      "portalId": "portal-2-1-0",
+      "playerId": "seat1",
+      "requestId": "sim-29",
+      "encounter": 2
+    },
+    {
+      "type": "event",
+      "key": "2:seat0:E73:0:0",
+      "choice": "accept",
+      "itemId": "item-2-0-1-0",
+      "playerId": "seat0",
+      "requestId": "sim-30",
+      "encounter": 2
+    },
+    {
+      "type": "event",
+      "key": "2:seat1:E73:1:0",
+      "choice": "accept",
+      "itemId": "item-2-1-0-0",
+      "playerId": "seat1",
+      "requestId": "sim-31",
+      "encounter": 2
+    },
+    {
+      "type": "merchant-ability",
+      "npc": "beast",
+      "itemId": "item-2-0-1-0",
+      "playerId": "seat0",
+      "requestId": "sim-32",
+      "encounter": 2
+    },
+    {
+      "type": "merchant-ability",
+      "npc": "beast",
+      "itemId": "item-2-1-0-0",
+      "playerId": "seat1",
+      "requestId": "sim-33",
+      "encounter": 2
+    },
+    {
+      "type": "merchant-ability",
+      "npc": "beast",
+      "choiceId": "ability-2-seat0-beast-0",
+      "playerId": "seat0",
+      "requestId": "sim-34",
+      "encounter": 2
+    },
+    {
+      "type": "merchant-ability",
+      "npc": "beast",
+      "choiceId": "ability-2-seat1-beast-0",
+      "playerId": "seat1",
+      "requestId": "sim-35",
+      "encounter": 2
+    },
+    {
+      "type": "appraise",
+      "itemId": "ability-2-seat0-beast-0",
+      "value": 25,
+      "acceptDanger": true,
+      "playerId": "seat0",
+      "requestId": "sim-36",
+      "encounter": 2
+    },
+    {
+      "type": "appraise",
+      "itemId": "ability-2-seat1-beast-0",
+      "value": 32,
+      "acceptDanger": true,
+      "playerId": "seat1",
+      "requestId": "sim-37",
+      "encounter": 2
+    },
+    {
+      "type": "appraise",
+      "itemId": "item-2-0-1-1",
+      "value": 75,
+      "acceptDanger": true,
+      "playerId": "seat0",
+      "requestId": "sim-38",
+      "encounter": 2
+    },
+    {
+      "type": "appraise",
+      "itemId": "item-2-1-0-1",
+      "value": 20,
+      "acceptDanger": true,
+      "playerId": "seat1",
+      "requestId": "sim-39",
+      "encounter": 2
+    },
+    {
+      "type": "buy",
+      "itemIds": [
+        "ability-2-seat0-beast-0"
+      ],
+      "condition": false,
+      "playerId": "seat0",
+      "requestId": "sim-40",
+      "encounter": 2
+    },
+    {
+      "type": "buy",
+      "itemIds": [
+        "ability-2-seat1-beast-0"
+      ],
+      "condition": false,
+      "playerId": "seat1",
+      "requestId": "sim-41",
+      "encounter": 2
+    },
+    {
+      "type": "market-sell",
+      "itemId": "ability-2-seat0-beast-0",
+      "orderId": "quote-2-swarm-brood-hammer",
+      "playerId": "seat0",
+      "requestId": "sim-42",
+      "encounter": 2
+    },
+    {
+      "type": "done",
+      "playerId": "seat1",
+      "requestId": "sim-43",
+      "encounter": 2
+    },
+    {
+      "type": "done",
+      "playerId": "seat0",
+      "requestId": "sim-44",
+      "encounter": 2
+    },
+    {
+      "type": "share",
+      "itemId": "item-2-1-0-1",
+      "allow": true,
+      "purchase": true,
+      "playerId": "seat1",
+      "requestId": "sim-45",
+      "encounter": 2
+    },
+    {
+      "type": "event",
+      "key": "2:seat0:E46:1:0",
+      "choice": "decline",
+      "itemId": "item-2-0-1-1",
+      "guess": true,
+      "playerId": "seat0",
+      "requestId": "sim-46",
+      "encounter": 2
+    },
+    {
+      "type": "share",
+      "itemId": "item-1-0-0-0",
+      "allow": true,
+      "purchase": true,
+      "playerId": "seat1",
+      "requestId": "sim-47",
+      "encounter": 2
+    },
+    {
+      "type": "share",
+      "itemId": "item-2-0-1-1",
+      "allow": true,
+      "purchase": true,
+      "playerId": "seat0",
+      "requestId": "sim-48",
+      "encounter": 2
+    },
+    {
+      "type": "share",
+      "itemId": "ability-2-seat1-beast-0",
+      "allow": true,
+      "purchase": true,
+      "playerId": "seat1",
+      "requestId": "sim-49",
+      "encounter": 2
+    },
+    {
+      "type": "propose",
+      "sellerId": "seat1",
+      "itemId": "ability-2-seat1-beast-0",
+      "credits": 13,
+      "playerId": "seat0",
+      "requestId": "sim-50",
+      "encounter": 2
+    },
+    {
+      "type": "respond",
+      "offerId": "trade-2-seat0-sim-50",
+      "accept": true,
+      "playerId": "seat1",
+      "requestId": "sim-51",
+      "encounter": 2
+    },
+    {
+      "type": "share",
+      "itemId": "ability-2-seat1-beast-0",
+      "allow": true,
+      "purchase": true,
+      "playerId": "seat0",
+      "requestId": "sim-52",
+      "encounter": 2
+    },
+    {
+      "type": "propose",
+      "sellerId": "seat0",
+      "itemId": "ability-2-seat1-beast-0",
+      "credits": 11,
+      "playerId": "seat1",
+      "requestId": "sim-53",
+      "encounter": 2
+    },
+    {
+      "type": "respond",
+      "offerId": "trade-2-seat1-sim-53",
+      "accept": false,
+      "playerId": "seat0",
+      "requestId": "sim-54",
+      "encounter": 2
+    },
+    {
+      "type": "propose",
+      "sellerId": "seat1",
+      "itemId": "item-2-1-0-1",
+      "credits": 1,
+      "condition": false,
+      "playerId": "seat0",
+      "requestId": "sim-55",
+      "encounter": 2
+    },
+    {
+      "type": "respond",
+      "offerId": "trade-2-seat0-sim-55",
+      "accept": true,
+      "playerId": "seat1",
+      "requestId": "sim-56",
+      "encounter": 2
+    },
+    {
+      "type": "share",
+      "itemId": "item-2-1-0-1",
+      "allow": true,
+      "purchase": true,
+      "playerId": "seat0",
+      "requestId": "sim-57",
+      "encounter": 2
+    },
+    {
+      "type": "propose",
+      "sellerId": "seat0",
+      "itemId": "item-2-1-0-1",
+      "credits": 7,
+      "playerId": "seat1",
+      "requestId": "sim-58",
+      "encounter": 2
+    },
+    {
+      "type": "respond",
+      "offerId": "trade-2-seat1-sim-58",
+      "accept": true,
+      "playerId": "seat0",
+      "requestId": "sim-59",
+      "encounter": 2
+    },
+    {
+      "type": "share",
+      "itemId": "item-2-1-0-1",
+      "allow": true,
+      "purchase": true,
+      "playerId": "seat1",
+      "requestId": "sim-60",
+      "encounter": 2
+    },
+    {
+      "type": "done",
+      "playerId": "seat0",
+      "requestId": "sim-61",
+      "encounter": 2
+    },
+    {
+      "type": "done",
+      "playerId": "seat1",
+      "requestId": "sim-62",
+      "encounter": 2
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "event",
+      "key": "3:seat0:E131:0:0",
+      "choice": "haste",
+      "playerId": "seat0",
+      "requestId": "sim-64",
+      "encounter": 3
+    },
+    {
+      "type": "market-sell",
+      "itemId": "item-1-0-0-0",
+      "orderId": "quote-3-beast-riftfang-sword",
+      "playerId": "seat1",
+      "requestId": "sim-65",
+      "encounter": 3
+    },
+    {
+      "type": "enter",
+      "portalId": "portal-3-0-1",
+      "playerId": "seat0",
+      "requestId": "sim-66",
+      "encounter": 3
+    },
+    {
+      "type": "enter",
+      "portalId": "portal-3-1-0",
+      "playerId": "seat1",
+      "requestId": "sim-67",
+      "encounter": 3
+    },
+    {
+      "type": "event",
+      "key": "3:seat0:E17:1:0",
+      "choice": "decline",
+      "itemId": "item-3-0-1-0",
+      "playerId": "seat0",
+      "requestId": "sim-68",
+      "encounter": 3
+    },
+    {
+      "type": "event",
+      "key": "3:seat1:E86:0:0",
+      "choice": "accept",
+      "itemId": "item-3-1-0-0",
+      "playerId": "seat1",
+      "requestId": "sim-69",
+      "encounter": 3
+    },
+    {
+      "type": "merchant-ability",
+      "npc": "swarm",
+      "itemId": "ability-2-seat1-beast-0",
+      "playerId": "seat0",
+      "requestId": "sim-70",
+      "encounter": 3
+    },
+    {
+      "type": "merchant-ability",
+      "npc": "autometa",
+      "itemId": "item-3-1-0-0",
+      "playerId": "seat1",
+      "requestId": "sim-71",
+      "encounter": 3
+    },
+    {
+      "type": "recover-resource",
+      "target": "life",
+      "playerId": "seat0",
+      "requestId": "sim-72",
+      "encounter": 3
+    },
+    {
+      "type": "recover-resource",
+      "target": "life",
+      "playerId": "seat1",
+      "requestId": "sim-73",
+      "encounter": 3
+    },
+    {
+      "type": "appraise",
+      "itemId": "item-3-0-1-0",
+      "value": 54,
+      "acceptDanger": true,
+      "playerId": "seat0",
+      "requestId": "sim-74",
+      "encounter": 3
+    },
+    {
+      "type": "appraise",
+      "itemId": "item-3-1-0-0",
+      "value": 32,
+      "acceptDanger": true,
+      "playerId": "seat1",
+      "requestId": "sim-75",
+      "encounter": 3
+    },
+    {
+      "type": "appraise",
+      "itemId": "item-3-0-1-1",
+      "value": 25,
+      "acceptDanger": true,
+      "playerId": "seat0",
+      "requestId": "sim-76",
+      "encounter": 3
+    },
+    {
+      "type": "appraise",
+      "itemId": "item-3-1-0-1",
+      "value": 23,
+      "acceptDanger": true,
+      "playerId": "seat1",
+      "requestId": "sim-77",
+      "encounter": 3
+    },
+    {
+      "type": "appraise",
+      "itemId": "item-3-0-1-2",
+      "value": 24,
+      "acceptDanger": true,
+      "playerId": "seat0",
+      "requestId": "sim-78",
+      "encounter": 3
+    },
+    {
+      "type": "appraise",
+      "itemId": "item-3-1-0-2",
+      "value": 22,
+      "acceptDanger": true,
+      "playerId": "seat1",
+      "requestId": "sim-79",
+      "encounter": 3
+    },
+    {
+      "type": "event",
+      "key": "3:seat0:E48:2:0",
+      "choice": "pay",
+      "itemId": "ability-2-seat1-beast-0",
+      "playerId": "seat0",
+      "requestId": "sim-80",
+      "encounter": 3
+    },
+    {
+      "type": "buy",
+      "itemIds": [
+        "item-3-1-0-0"
+      ],
+      "condition": false,
+      "playerId": "seat1",
+      "requestId": "sim-81",
+      "encounter": 3
+    },
+    {
+      "type": "buy",
+      "itemIds": [
+        "item-3-0-1-1"
+      ],
+      "condition": false,
+      "playerId": "seat0",
+      "requestId": "sim-82",
+      "encounter": 3
+    },
+    {
+      "type": "buy",
+      "itemIds": [
+        "item-3-1-0-1"
+      ],
+      "condition": false,
+      "playerId": "seat1",
+      "requestId": "sim-83",
+      "encounter": 3
+    },
+    {
+      "type": "market-sell",
+      "itemId": "item-3-0-1-1",
+      "orderId": "quote-3-beast-riftfang-sword",
+      "playerId": "seat0",
+      "requestId": "sim-84",
+      "encounter": 3
+    },
+    {
+      "type": "buy",
+      "itemIds": [
+        "item-3-1-0-2"
+      ],
+      "condition": false,
+      "playerId": "seat1",
+      "requestId": "sim-85",
+      "encounter": 3
+    },
+    {
+      "type": "buy",
+      "itemIds": [
+        "item-3-0-1-2"
+      ],
+      "condition": false,
+      "playerId": "seat0",
+      "requestId": "sim-86",
+      "encounter": 3
+    },
+    {
+      "type": "done",
+      "playerId": "seat1",
+      "requestId": "sim-87",
+      "encounter": 3
+    },
+    {
+      "type": "done",
+      "playerId": "seat0",
+      "requestId": "sim-88",
+      "encounter": 3
+    },
+    {
+      "type": "event",
+      "key": "3:seat1:E44:1:0",
+      "choice": "accept",
+      "itemId": "item-2-1-0-1",
+      "playerId": "seat1",
+      "requestId": "sim-89",
+      "encounter": 3
+    },
+    {
+      "type": "share",
+      "itemId": "item-3-0-1-0",
+      "allow": true,
+      "purchase": true,
+      "playerId": "seat0",
+      "requestId": "sim-90",
+      "encounter": 3
+    },
+    {
+      "type": "share",
+      "itemId": "item-3-1-0-0",
+      "allow": true,
+      "purchase": true,
+      "playerId": "seat1",
+      "requestId": "sim-91",
+      "encounter": 3
+    },
+    {
+      "type": "share",
+      "itemId": "ability-2-seat1-beast-0",
+      "allow": true,
+      "purchase": true,
+      "playerId": "seat0",
+      "requestId": "sim-92",
+      "encounter": 3
+    },
+    {
+      "type": "share",
+      "itemId": "item-3-1-0-1",
+      "allow": true,
+      "purchase": true,
+      "playerId": "seat1",
+      "requestId": "sim-93",
+      "encounter": 3
+    },
+    {
+      "type": "share",
+      "itemId": "copy-ability-2-seat1-beast-0-1",
+      "allow": true,
+      "purchase": true,
+      "playerId": "seat0",
+      "requestId": "sim-94",
+      "encounter": 3
+    },
+    {
+      "type": "share",
+      "itemId": "item-3-1-0-2",
+      "allow": true,
+      "purchase": true,
+      "playerId": "seat1",
+      "requestId": "sim-95",
+      "encounter": 3
+    },
+    {
+      "type": "share",
+      "itemId": "item-3-0-1-2",
+      "allow": true,
+      "purchase": true,
+      "playerId": "seat0",
+      "requestId": "sim-96",
+      "encounter": 3
+    },
+    {
+      "type": "propose",
+      "sellerId": "seat0",
+      "itemId": "item-3-0-1-2",
+      "credits": 10,
+      "playerId": "seat1",
+      "requestId": "sim-97",
+      "encounter": 3
+    },
+    {
+      "type": "respond",
+      "offerId": "trade-3-seat1-sim-97",
+      "accept": true,
+      "playerId": "seat0",
+      "requestId": "sim-98",
+      "encounter": 3
+    },
+    {
+      "type": "share",
+      "itemId": "item-3-0-1-2",
+      "allow": true,
+      "purchase": true,
+      "playerId": "seat1",
+      "requestId": "sim-99",
+      "encounter": 3
+    },
+    {
+      "type": "propose",
+      "sellerId": "seat1",
+      "itemId": "item-3-1-0-0",
+      "credits": 20,
+      "playerId": "seat0",
+      "requestId": "sim-100",
+      "encounter": 3
+    },
+    {
+      "type": "respond",
+      "offerId": "trade-3-seat0-sim-100",
+      "accept": true,
+      "playerId": "seat1",
+      "requestId": "sim-101",
+      "encounter": 3
+    },
+    {
+      "type": "share",
+      "itemId": "item-3-1-0-0",
+      "allow": true,
+      "purchase": true,
+      "playerId": "seat0",
+      "requestId": "sim-102",
+      "encounter": 3
+    },
+    {
+      "type": "propose",
+      "sellerId": "seat0",
+      "itemId": "item-3-1-0-0",
+      "credits": 11,
+      "playerId": "seat1",
+      "requestId": "sim-103",
+      "encounter": 3
+    },
+    {
+      "type": "respond",
+      "offerId": "trade-3-seat1-sim-103",
+      "accept": false,
+      "playerId": "seat0",
+      "requestId": "sim-104",
+      "encounter": 3
+    },
+    {
+      "type": "propose",
+      "sellerId": "seat0",
+      "itemId": "copy-ability-2-seat1-beast-0-1",
+      "credits": 2,
+      "playerId": "seat1",
+      "requestId": "sim-105",
+      "encounter": 3
+    },
+    {
+      "type": "respond",
+      "offerId": "trade-3-seat1-sim-105",
+      "accept": true,
+      "playerId": "seat0",
+      "requestId": "sim-106",
+      "encounter": 3
+    },
+    {
+      "type": "share",
+      "itemId": "copy-ability-2-seat1-beast-0-1",
+      "allow": true,
+      "purchase": true,
+      "playerId": "seat1",
+      "requestId": "sim-107",
+      "encounter": 3
+    },
+    {
+      "type": "propose",
+      "sellerId": "seat1",
+      "itemId": "copy-ability-2-seat1-beast-0-1",
+      "credits": 2,
+      "playerId": "seat0",
+      "requestId": "sim-108",
+      "encounter": 3
+    },
+    {
+      "type": "respond",
+      "offerId": "trade-3-seat0-sim-108",
+      "accept": true,
+      "playerId": "seat1",
+      "requestId": "sim-109",
+      "encounter": 3
+    },
+    {
+      "type": "share",
+      "itemId": "copy-ability-2-seat1-beast-0-1",
+      "allow": true,
+      "purchase": true,
+      "playerId": "seat0",
+      "requestId": "sim-110",
+      "encounter": 3
+    },
+    {
+      "type": "done",
+      "playerId": "seat1",
+      "requestId": "sim-111",
+      "encounter": 3
+    },
+    {
+      "type": "done",
+      "playerId": "seat0",
+      "requestId": "sim-112",
+      "encounter": 3
+    }
+  ],
+  "ledger": [
+    {
+      "from": "seat0",
+      "to": "bank",
+      "amount": 2,
+      "reason": "E119",
+      "encounter": 1
+    },
+    {
+      "from": "seat1",
+      "to": "bank",
+      "amount": 26,
+      "reason": "npc-purchase",
+      "encounter": 1
+    },
+    {
+      "from": "bank",
+      "to": "seat1",
+      "amount": 2,
+      "reason": "appraisal-commission",
+      "encounter": 1
+    },
+    {
+      "from": "seat0",
+      "to": "bank",
+      "amount": 24,
+      "reason": "npc-purchase",
+      "encounter": 1
+    },
+    {
+      "from": "bank",
+      "to": "seat0",
+      "amount": 2,
+      "reason": "appraisal-commission",
+      "encounter": 1
+    },
+    {
+      "from": "bank",
+      "to": "seat1",
+      "amount": 40,
+      "reason": "dark-market",
+      "encounter": 1
+    },
+    {
+      "from": "bank",
+      "to": "seat0",
+      "amount": 40,
+      "reason": "dark-market",
+      "encounter": 1
+    },
+    {
+      "from": "seat0",
+      "to": "bank",
+      "amount": 50,
+      "reason": "npc-purchase",
+      "encounter": 1
+    },
+    {
+      "from": "bank",
+      "to": "seat0",
+      "amount": 5,
+      "reason": "appraisal-commission",
+      "encounter": 1
+    },
+    {
+      "from": "seat1",
+      "to": "seat0",
+      "amount": 21,
+      "reason": "p2p",
+      "encounter": 1
+    },
+    {
+      "from": "@round-fund",
+      "to": "seat0",
+      "amount": 10,
+      "reason": "round-reward",
+      "encounter": 1
+    },
+    {
+      "from": "@round-fund",
+      "to": "seat1",
+      "amount": 10,
+      "reason": "round-reward",
+      "encounter": 1
+    },
+    {
+      "from": "seat1",
+      "to": "bank",
+      "amount": 2,
+      "reason": "E117",
+      "encounter": 2
+    },
+    {
+      "from": "seat0",
+      "to": "bank",
+      "amount": 25,
+      "reason": "npc-purchase",
+      "encounter": 2
+    },
+    {
+      "from": "bank",
+      "to": "seat0",
+      "amount": 2,
+      "reason": "appraisal-commission",
+      "encounter": 2
+    },
+    {
+      "from": "seat1",
+      "to": "bank",
+      "amount": 32,
+      "reason": "npc-purchase",
+      "encounter": 2
+    },
+    {
+      "from": "bank",
+      "to": "seat1",
+      "amount": 3,
+      "reason": "appraisal-commission",
+      "encounter": 2
+    },
+    {
+      "from": "bank",
+      "to": "seat0",
+      "amount": 28,
+      "reason": "dark-market",
+      "encounter": 2
+    },
+    {
+      "from": "seat0",
+      "to": "seat1",
+      "amount": 13,
+      "reason": "p2p",
+      "encounter": 2
+    },
+    {
+      "from": "seat0",
+      "to": "bank",
+      "amount": 20,
+      "reason": "npc-purchase",
+      "encounter": 2
+    },
+    {
+      "from": "bank",
+      "to": "seat1",
+      "amount": 2,
+      "reason": "appraisal-commission",
+      "encounter": 2
+    },
+    {
+      "from": "seat0",
+      "to": "seat1",
+      "amount": 1,
+      "reason": "cross-shop-fee",
+      "encounter": 2
+    },
+    {
+      "from": "seat1",
+      "to": "seat0",
+      "amount": 7,
+      "reason": "p2p",
+      "encounter": 2
+    },
+    {
+      "from": "@round-fund",
+      "to": "seat0",
+      "amount": 15,
+      "reason": "round-reward",
+      "encounter": 2
+    },
+    {
+      "from": "@round-fund",
+      "to": "seat1",
+      "amount": 15,
+      "reason": "round-reward",
+      "encounter": 2
+    },
+    {
+      "from": "bank",
+      "to": "seat1",
+      "amount": 65,
+      "reason": "dark-market",
+      "encounter": 3
+    },
+    {
+      "from": "bank",
+      "to": "seat1",
+      "amount": 3,
+      "reason": "E86",
+      "encounter": 3
+    },
+    {
+      "from": "seat0",
+      "to": "bank",
+      "amount": 4,
+      "reason": "recovery-deal",
+      "encounter": 3
+    },
+    {
+      "from": "seat1",
+      "to": "bank",
+      "amount": 3,
+      "reason": "recovery-deal",
+      "encounter": 3
+    },
+    {
+      "from": "seat0",
+      "to": "bank",
+      "amount": 2,
+      "reason": "E48",
+      "encounter": 3
+    },
+    {
+      "from": "seat1",
+      "to": "bank",
+      "amount": 32,
+      "reason": "npc-purchase",
+      "encounter": 3
+    },
+    {
+      "from": "bank",
+      "to": "seat1",
+      "amount": 1,
+      "reason": "appraisal-commission",
+      "encounter": 3
+    },
+    {
+      "from": "seat0",
+      "to": "bank",
+      "amount": 25,
+      "reason": "npc-purchase",
+      "encounter": 3
+    },
+    {
+      "from": "bank",
+      "to": "seat0",
+      "amount": 2,
+      "reason": "appraisal-commission",
+      "encounter": 3
+    },
+    {
+      "from": "seat1",
+      "to": "bank",
+      "amount": 23,
+      "reason": "npc-purchase",
+      "encounter": 3
+    },
+    {
+      "from": "bank",
+      "to": "seat1",
+      "amount": 2,
+      "reason": "appraisal-commission",
+      "encounter": 3
+    },
+    {
+      "from": "bank",
+      "to": "seat0",
+      "amount": 32,
+      "reason": "dark-market",
+      "encounter": 3
+    },
+    {
+      "from": "seat1",
+      "to": "bank",
+      "amount": 22,
+      "reason": "npc-purchase",
+      "encounter": 3
+    },
+    {
+      "from": "bank",
+      "to": "seat1",
+      "amount": 2,
+      "reason": "appraisal-commission",
+      "encounter": 3
+    },
+    {
+      "from": "seat0",
+      "to": "bank",
+      "amount": 24,
+      "reason": "npc-purchase",
+      "encounter": 3
+    },
+    {
+      "from": "bank",
+      "to": "seat0",
+      "amount": 2,
+      "reason": "appraisal-commission",
+      "encounter": 3
+    },
+    {
+      "from": "bank",
+      "to": "seat1",
+      "amount": 13,
+      "reason": "E44",
+      "encounter": 3
+    },
+    {
+      "from": "seat1",
+      "to": "seat0",
+      "amount": 10,
+      "reason": "p2p",
+      "encounter": 3
+    },
+    {
+      "from": "seat0",
+      "to": "seat1",
+      "amount": 20,
+      "reason": "p2p",
+      "encounter": 3
+    },
+    {
+      "from": "seat1",
+      "to": "seat0",
+      "amount": 2,
+      "reason": "p2p",
+      "encounter": 3
+    },
+    {
+      "from": "seat0",
+      "to": "seat1",
+      "amount": 2,
+      "reason": "p2p",
+      "encounter": 3
+    }
+  ],
+  "history": [
+    {
+      "encounter": 1,
+      "playerId": "seat0",
+      "gain": 0,
+      "accuracy": 10,
+      "score": 0,
+      "paused": null
+    },
+    {
+      "encounter": 1,
+      "playerId": "seat1",
+      "gain": 6,
+      "accuracy": 0,
+      "score": 0,
+      "paused": null
+    },
+    {
+      "encounter": 2,
+      "playerId": "seat0",
+      "gain": 14,
+      "accuracy": 0,
+      "score": 0,
+      "paused": null
+    },
+    {
+      "encounter": 2,
+      "playerId": "seat1",
+      "gain": 0,
+      "accuracy": 5,
+      "score": 0,
+      "paused": null
+    },
+    {
+      "encounter": 3,
+      "playerId": "seat0",
+      "gain": 0,
+      "accuracy": 5,
+      "score": 0,
+      "paused": null
+    },
+    {
+      "encounter": 3,
+      "playerId": "seat1",
+      "gain": 32,
+      "accuracy": 10,
+      "score": 0,
+      "paused": null
+    }
+  ],
+  "trace": [
+    {
+      "type": "event-offered",
+      "encounter": 1,
+      "playerId": "seat0",
+      "details": {
+        "id": "E119",
+        "key": "1:seat0:E119:0:0",
+        "choices": [
+          "pay",
+          "interest",
+          "switch"
+        ]
+      }
+    },
+    {
+      "type": "core2-event",
+      "encounter": 1,
+      "playerId": "seat0",
+      "details": {
+        "id": "E119",
+        "choice": "pay"
+      }
+    },
+    {
+      "type": "event-resolved",
+      "encounter": 1,
+      "playerId": "seat0",
+      "details": {
+        "id": "E119",
+        "choice": "pay"
+      }
+    },
+    {
+      "type": "portal-entered",
+      "encounter": 1,
+      "playerId": "seat1",
+      "details": {
+        "portalId": "portal-1-1-1",
+        "npc": "beast"
+      }
+    },
+    {
+      "type": "portal-entered",
+      "encounter": 1,
+      "playerId": "seat0",
+      "details": {
+        "portalId": "portal-1-0-0",
+        "npc": "beast"
+      }
+    },
+    {
+      "type": "event-offered",
+      "encounter": 1,
+      "playerId": "seat0",
+      "details": {
+        "id": "E73",
+        "key": "1:seat0:E73:1:0",
+        "choices": [
+          "accept",
+          "decline"
+        ]
+      }
+    },
+    {
+      "type": "event-offered",
+      "encounter": 1,
+      "playerId": "seat1",
+      "details": {
+        "id": "E73",
+        "key": "1:seat1:E73:0:0",
+        "choices": [
+          "accept",
+          "decline"
+        ]
+      }
+    },
+    {
+      "type": "energy-spent",
+      "encounter": 1,
+      "playerId": "seat1",
+      "details": {
+        "energy": 2,
+        "reason": "wish-contract"
+      }
+    },
+    {
+      "type": "event-resolved",
+      "encounter": 1,
+      "playerId": "seat1",
+      "details": {
+        "id": "E73",
+        "choice": "accept"
+      }
+    },
+    {
+      "type": "energy-spent",
+      "encounter": 1,
+      "playerId": "seat0",
+      "details": {
+        "energy": 2,
+        "reason": "wish-contract"
+      }
+    },
+    {
+      "type": "event-resolved",
+      "encounter": 1,
+      "playerId": "seat0",
+      "details": {
+        "id": "E73",
+        "choice": "accept"
+      }
+    },
+    {
+      "encounter": 1,
+      "playerId": "npc:seat1:1",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-1-1-1-0",
+        "value": 26,
+        "source": "appraisal:0",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "appraised",
+      "encounter": 1,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-1-1-1-0",
+        "value": 26,
+        "risk": 0.03870967741935483,
+        "caught": false,
+        "counter": false,
+        "accepted": true
+      }
+    },
+    {
+      "encounter": 1,
+      "playerId": "npc:seat0:1",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-1-0-0-0",
+        "value": 50,
+        "source": "appraisal:0",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "appraised",
+      "encounter": 1,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "item-1-0-0-0",
+        "value": 50,
+        "risk": 0,
+        "caught": false,
+        "counter": false,
+        "accepted": true
+      }
+    },
+    {
+      "encounter": 1,
+      "playerId": "npc:seat1:1",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-1-1-1-1",
+        "value": 78,
+        "source": "appraisal:0",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "appraised",
+      "encounter": 1,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-1-1-1-1",
+        "value": 78,
+        "risk": 0,
+        "caught": false,
+        "counter": false,
+        "accepted": true
+      }
+    },
+    {
+      "encounter": 1,
+      "playerId": "npc:seat0:1",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-1-0-0-1",
+        "value": 24,
+        "source": "appraisal:0",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "appraised",
+      "encounter": 1,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "item-1-0-0-1",
+        "value": 24,
+        "risk": 0,
+        "caught": false,
+        "counter": false,
+        "accepted": true
+      }
+    },
+    {
+      "type": "appraisal-commission",
+      "encounter": 1,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-1-1-1-0",
+        "npc": "beast",
+        "salePrice": 26,
+        "commission": 2,
+        "trust": 1
+      }
+    },
+    {
+      "encounter": 1,
+      "playerId": "npc:seat1:1",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-1-1-1-0",
+        "value": 26,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "npc-purchased",
+      "encounter": 1,
+      "playerId": "seat1",
+      "details": {
+        "itemIds": [
+          "item-1-1-1-0"
+        ],
+        "shopId": "seat1",
+        "price": 26,
+        "energy": 0,
+        "condition": false
+      }
+    },
+    {
+      "type": "appraisal-commission",
+      "encounter": 1,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "item-1-0-0-1",
+        "npc": "beast",
+        "salePrice": 24,
+        "commission": 2,
+        "trust": 1
+      }
+    },
+    {
+      "encounter": 1,
+      "playerId": "npc:seat0:1",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-1-0-0-1",
+        "value": 24,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "npc-purchased",
+      "encounter": 1,
+      "playerId": "seat0",
+      "details": {
+        "itemIds": [
+          "item-1-0-0-1"
+        ],
+        "shopId": "seat0",
+        "price": 24,
+        "energy": 0,
+        "condition": false
+      }
+    },
+    {
+      "type": "life-restored",
+      "encounter": 1,
+      "playerId": "seat1",
+      "details": {
+        "amount": 0,
+        "reason": "market-condition"
+      }
+    },
+    {
+      "encounter": 1,
+      "playerId": "seat1",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-1-1-1-0",
+        "value": 40,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "item-removed",
+      "encounter": 1,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-1-1-1-0",
+        "reason": "dark-market"
+      }
+    },
+    {
+      "type": "market-sale",
+      "encounter": 1,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-1-1-1-0",
+        "orderId": "quote-1-beast-riftfang-sword",
+        "price": 40,
+        "matched": true,
+        "resolution": "discount",
+        "bonus": {
+          "kind": "life",
+          "amount": 1
+        }
+      }
+    },
+    {
+      "type": "life-restored",
+      "encounter": 1,
+      "playerId": "seat0",
+      "details": {
+        "amount": 0,
+        "reason": "market-condition"
+      }
+    },
+    {
+      "encounter": 1,
+      "playerId": "seat0",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-1-0-0-1",
+        "value": 40,
+        "source": "trade",
+        "chance": 0.25,
+        "flagged": false
+      }
+    },
+    {
+      "type": "item-removed",
+      "encounter": 1,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "item-1-0-0-1",
+        "reason": "dark-market"
+      }
+    },
+    {
+      "type": "market-sale",
+      "encounter": 1,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "item-1-0-0-1",
+        "orderId": "quote-1-beast-riftfang-sword",
+        "price": 40,
+        "matched": true,
+        "resolution": "discount",
+        "bonus": {
+          "kind": "life",
+          "amount": 1
+        }
+      }
+    },
+    {
+      "type": "appraisal-commission",
+      "encounter": 1,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "item-1-0-0-0",
+        "npc": "beast",
+        "salePrice": 50,
+        "commission": 5,
+        "trust": 2
+      }
+    },
+    {
+      "encounter": 1,
+      "playerId": "npc:seat0:1",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-1-0-0-0",
+        "value": 50,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "npc-purchased",
+      "encounter": 1,
+      "playerId": "seat0",
+      "details": {
+        "itemIds": [
+          "item-1-0-0-0"
+        ],
+        "shopId": "seat0",
+        "price": 50,
+        "energy": 0,
+        "condition": false
+      }
+    },
+    {
+      "type": "event-offered",
+      "encounter": 1,
+      "playerId": "seat1",
+      "details": {
+        "id": "E42",
+        "key": "1:seat1:E42:1:0",
+        "choices": [
+          "energy"
+        ]
+      }
+    },
+    {
+      "type": "energy-restored",
+      "encounter": 1,
+      "playerId": "seat1",
+      "details": {
+        "amount": 2,
+        "reason": "E42"
+      }
+    },
+    {
+      "type": "event-resolved",
+      "encounter": 1,
+      "playerId": "seat1",
+      "details": {
+        "id": "E42",
+        "choice": "energy"
+      }
+    },
+    {
+      "type": "listing-shared",
+      "encounter": 1,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "item-1-0-0-0",
+        "allow": true,
+        "purchase": true
+      }
+    },
+    {
+      "type": "listing-shared",
+      "encounter": 1,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-1-1-1-1",
+        "allow": true,
+        "purchase": true
+      }
+    },
+    {
+      "encounter": 1,
+      "playerId": "seat1",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-1-0-0-0",
+        "value": 21,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "trade-completed",
+      "encounter": 1,
+      "playerId": "seat0",
+      "details": {
+        "offerId": "trade-1-seat1-sim-19",
+        "itemId": "item-1-0-0-0",
+        "buyerId": "seat1",
+        "credits": 21,
+        "source": "inventory"
+      }
+    },
+    {
+      "type": "listing-shared",
+      "encounter": 1,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-1-0-0-0",
+        "allow": true,
+        "purchase": true
+      }
+    },
+    {
+      "type": "life-lost",
+      "encounter": 1,
+      "playerId": "seat0",
+      "details": {
+        "amount": 1,
+        "reason": "dimensional-decay"
+      }
+    },
+    {
+      "type": "life-lost",
+      "encounter": 1,
+      "playerId": "seat1",
+      "details": {
+        "amount": 1,
+        "reason": "dimensional-decay"
+      }
+    },
+    {
+      "type": "round-reward-banked",
+      "encounter": 1,
+      "playerId": "seat0",
+      "details": {
+        "amount": 10,
+        "flips": 0
+      }
+    },
+    {
+      "type": "round-reward-banked",
+      "encounter": 1,
+      "playerId": "seat1",
+      "details": {
+        "amount": 10,
+        "flips": 0
+      }
+    },
+    {
+      "type": "event-offered",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "id": "E117",
+        "key": "2:seat1:E117:0:0",
+        "choices": [
+          "pay",
+          "fog",
+          "burden"
+        ]
+      }
+    },
+    {
+      "type": "portal-entered",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "portalId": "portal-2-0-1",
+        "npc": "swarm"
+      }
+    },
+    {
+      "type": "energy-spent",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "energy": 1,
+        "reason": "E117"
+      }
+    },
+    {
+      "type": "core2-event",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "id": "E117",
+        "choice": "pay"
+      }
+    },
+    {
+      "type": "event-resolved",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "id": "E117",
+        "choice": "pay"
+      }
+    },
+    {
+      "type": "portal-entered",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "portalId": "portal-2-1-0",
+        "npc": "autometa"
+      }
+    },
+    {
+      "type": "event-offered",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "id": "E73",
+        "key": "2:seat0:E73:0:0",
+        "choices": [
+          "accept",
+          "decline"
+        ]
+      }
+    },
+    {
+      "type": "event-offered",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "id": "E73",
+        "key": "2:seat1:E73:1:0",
+        "choices": [
+          "accept",
+          "decline"
+        ]
+      }
+    },
+    {
+      "type": "energy-spent",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "energy": 2,
+        "reason": "wish-contract"
+      }
+    },
+    {
+      "type": "event-resolved",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "id": "E73",
+        "choice": "accept"
+      }
+    },
+    {
+      "type": "energy-spent",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "energy": 2,
+        "reason": "wish-contract"
+      }
+    },
+    {
+      "type": "event-resolved",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "id": "E73",
+        "choice": "accept"
+      }
+    },
+    {
+      "type": "merchant-ability-used",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "npc": "beast",
+        "tier": 0,
+        "itemId": "item-2-0-1-0",
+        "readyAt": 5
+      }
+    },
+    {
+      "type": "merchant-ability-used",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "npc": "beast",
+        "tier": 0,
+        "itemId": "item-2-1-0-0",
+        "readyAt": 5
+      }
+    },
+    {
+      "type": "ability-choice-selected",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "npc": "beast",
+        "sourceId": "item-2-0-1-0",
+        "choiceId": "ability-2-seat0-beast-0"
+      }
+    },
+    {
+      "type": "ability-choice-selected",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "npc": "beast",
+        "sourceId": "item-2-1-0-0",
+        "choiceId": "ability-2-seat1-beast-0"
+      }
+    },
+    {
+      "encounter": 2,
+      "playerId": "npc:seat0:2",
+      "type": "price-audited",
+      "details": {
+        "itemId": "ability-2-seat0-beast-0",
+        "value": 25,
+        "source": "appraisal:0",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "appraised",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "ability-2-seat0-beast-0",
+        "value": 25,
+        "risk": 0,
+        "caught": false,
+        "counter": false,
+        "accepted": true
+      }
+    },
+    {
+      "encounter": 2,
+      "playerId": "npc:seat1:2",
+      "type": "price-audited",
+      "details": {
+        "itemId": "ability-2-seat1-beast-0",
+        "value": 32,
+        "source": "appraisal:0",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "appraised",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "ability-2-seat1-beast-0",
+        "value": 32,
+        "risk": 0.06666666666666668,
+        "caught": false,
+        "counter": false,
+        "accepted": false
+      }
+    },
+    {
+      "encounter": 2,
+      "playerId": "npc:seat0:2",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-2-0-1-1",
+        "value": 75,
+        "source": "appraisal:0",
+        "chance": 0.25,
+        "flagged": false
+      }
+    },
+    {
+      "type": "appraised",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "item-2-0-1-1",
+        "value": 75,
+        "risk": 0,
+        "caught": false,
+        "counter": false,
+        "accepted": true
+      }
+    },
+    {
+      "encounter": 2,
+      "playerId": "npc:seat1:2",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-2-1-0-1",
+        "value": 20,
+        "source": "appraisal:0",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "appraised",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-2-1-0-1",
+        "value": 20,
+        "risk": 0,
+        "caught": false,
+        "counter": false,
+        "accepted": true
+      }
+    },
+    {
+      "type": "appraisal-commission",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "ability-2-seat0-beast-0",
+        "npc": "swarm",
+        "salePrice": 25,
+        "commission": 2,
+        "trust": 1
+      }
+    },
+    {
+      "encounter": 2,
+      "playerId": "npc:seat0:2",
+      "type": "price-audited",
+      "details": {
+        "itemId": "ability-2-seat0-beast-0",
+        "value": 25,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "npc-purchased",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "itemIds": [
+          "ability-2-seat0-beast-0"
+        ],
+        "shopId": "seat0",
+        "price": 25,
+        "energy": 0,
+        "condition": false
+      }
+    },
+    {
+      "type": "appraisal-commission",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "ability-2-seat1-beast-0",
+        "npc": "autometa",
+        "salePrice": 32,
+        "commission": 3,
+        "trust": 1
+      }
+    },
+    {
+      "encounter": 2,
+      "playerId": "npc:seat1:2",
+      "type": "price-audited",
+      "details": {
+        "itemId": "ability-2-seat1-beast-0",
+        "value": 32,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "npc-purchased",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "itemIds": [
+          "ability-2-seat1-beast-0"
+        ],
+        "shopId": "seat1",
+        "price": 32,
+        "energy": 0,
+        "condition": false
+      }
+    },
+    {
+      "encounter": 2,
+      "playerId": "seat0",
+      "type": "price-audited",
+      "details": {
+        "itemId": "ability-2-seat0-beast-0",
+        "value": 28,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "item-removed",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "ability-2-seat0-beast-0",
+        "reason": "dark-market"
+      }
+    },
+    {
+      "type": "market-sale",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "ability-2-seat0-beast-0",
+        "orderId": "quote-2-swarm-brood-hammer",
+        "price": 28,
+        "matched": false,
+        "resolution": "discount",
+        "bonus": null
+      }
+    },
+    {
+      "type": "event-offered",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "id": "E46",
+        "key": "2:seat0:E46:1:0",
+        "choices": [
+          "accept",
+          "decline"
+        ]
+      }
+    },
+    {
+      "type": "listing-shared",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-2-1-0-1",
+        "allow": true,
+        "purchase": true
+      }
+    },
+    {
+      "type": "event-declined",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "id": "E46"
+      }
+    },
+    {
+      "type": "listing-shared",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-1-0-0-0",
+        "allow": true,
+        "purchase": true
+      }
+    },
+    {
+      "type": "listing-shared",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "item-2-0-1-1",
+        "allow": true,
+        "purchase": true
+      }
+    },
+    {
+      "type": "listing-shared",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "ability-2-seat1-beast-0",
+        "allow": true,
+        "purchase": true
+      }
+    },
+    {
+      "encounter": 2,
+      "playerId": "seat0",
+      "type": "price-audited",
+      "details": {
+        "itemId": "ability-2-seat1-beast-0",
+        "value": 13,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "trade-completed",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "offerId": "trade-2-seat0-sim-50",
+        "itemId": "ability-2-seat1-beast-0",
+        "buyerId": "seat0",
+        "credits": 13,
+        "source": "inventory"
+      }
+    },
+    {
+      "type": "listing-shared",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "ability-2-seat1-beast-0",
+        "allow": true,
+        "purchase": true
+      }
+    },
+    {
+      "type": "appraisal-commission",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-2-1-0-1",
+        "npc": "autometa",
+        "salePrice": 20,
+        "commission": 2,
+        "trust": 2
+      }
+    },
+    {
+      "encounter": 2,
+      "playerId": "npc:seat1:2",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-2-1-0-1",
+        "value": 20,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "pulse-shards",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "gained": 1,
+        "wary": false
+      }
+    },
+    {
+      "type": "npc-purchased",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "itemIds": [
+          "item-2-1-0-1"
+        ],
+        "shopId": "seat1",
+        "price": 20,
+        "energy": 0,
+        "condition": false
+      }
+    },
+    {
+      "type": "trade-completed",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "offerId": "trade-2-seat0-sim-55",
+        "itemId": "item-2-1-0-1",
+        "buyerId": "seat0",
+        "credits": 1,
+        "source": "npc"
+      }
+    },
+    {
+      "type": "listing-shared",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "item-2-1-0-1",
+        "allow": true,
+        "purchase": true
+      }
+    },
+    {
+      "encounter": 2,
+      "playerId": "seat1",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-2-1-0-1",
+        "value": 7,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "trade-completed",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "offerId": "trade-2-seat1-sim-58",
+        "itemId": "item-2-1-0-1",
+        "buyerId": "seat1",
+        "credits": 7,
+        "source": "inventory"
+      }
+    },
+    {
+      "type": "listing-shared",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-2-1-0-1",
+        "allow": true,
+        "purchase": true
+      }
+    },
+    {
+      "type": "life-lost",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "amount": 1,
+        "reason": "dimensional-decay"
+      }
+    },
+    {
+      "type": "life-lost",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "amount": 1,
+        "reason": "dimensional-decay"
+      }
+    },
+    {
+      "type": "round-reward-banked",
+      "encounter": 2,
+      "playerId": "seat0",
+      "details": {
+        "amount": 15,
+        "flips": 0
+      }
+    },
+    {
+      "type": "round-reward-banked",
+      "encounter": 2,
+      "playerId": "seat1",
+      "details": {
+        "amount": 15,
+        "flips": 0
+      }
+    },
+    {
+      "type": "event-offered",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "id": "E131",
+        "key": "3:seat0:E131:0:0",
+        "choices": [
+          "haste",
+          "credits"
+        ]
+      }
+    },
+    {
+      "type": "status-granted",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "id": "B25",
+        "expires": 4,
+        "charges": 1
+      }
+    },
+    {
+      "type": "event-resolved",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "id": "E131",
+        "choice": "haste"
+      }
+    },
+    {
+      "encounter": 3,
+      "playerId": "seat1",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-1-0-0-0",
+        "value": 65,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "item-removed",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-1-0-0-0",
+        "reason": "dark-market"
+      }
+    },
+    {
+      "type": "market-sale",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-1-0-0-0",
+        "orderId": "quote-3-beast-riftfang-sword",
+        "price": 65,
+        "matched": false,
+        "resolution": "discount",
+        "bonus": null
+      }
+    },
+    {
+      "type": "portal-entered",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "portalId": "portal-3-0-1",
+        "npc": "beast"
+      }
+    },
+    {
+      "type": "portal-entered",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "portalId": "portal-3-1-0",
+        "npc": "beast"
+      }
+    },
+    {
+      "type": "event-offered",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "id": "E17",
+        "key": "3:seat0:E17:1:0",
+        "choices": [
+          "accept",
+          "decline"
+        ]
+      }
+    },
+    {
+      "type": "event-offered",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "id": "E86",
+        "key": "3:seat1:E86:0:0",
+        "choices": [
+          "accept",
+          "decline"
+        ]
+      }
+    },
+    {
+      "type": "event-declined",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "id": "E17"
+      }
+    },
+    {
+      "type": "status-granted",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "id": "D15",
+        "expires": 4,
+        "charges": 1
+      }
+    },
+    {
+      "type": "event-resolved",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "id": "E86",
+        "choice": "accept"
+      }
+    },
+    {
+      "type": "merchant-ability-used",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "npc": "swarm",
+        "tier": 0,
+        "itemId": "ability-2-seat1-beast-0",
+        "readyAt": 7
+      }
+    },
+    {
+      "type": "merchant-ability-used",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "npc": "autometa",
+        "tier": 0,
+        "itemId": "item-3-1-0-0",
+        "readyAt": 6
+      }
+    },
+    {
+      "type": "life-restored",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "amount": 1,
+        "reason": "recovery-deal"
+      }
+    },
+    {
+      "encounter": 3,
+      "playerId": "npc:seat0:3",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-3-0-1-0",
+        "value": 54,
+        "source": "appraisal:0",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "appraised",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "item-3-0-1-0",
+        "value": 54,
+        "risk": 0,
+        "caught": false,
+        "counter": false,
+        "accepted": true
+      }
+    },
+    {
+      "encounter": 3,
+      "playerId": "npc:seat1:3",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-3-1-0-0",
+        "value": 32,
+        "source": "appraisal:0",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "appraised",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-3-1-0-0",
+        "value": 32,
+        "risk": 0,
+        "caught": false,
+        "counter": false,
+        "accepted": true
+      }
+    },
+    {
+      "encounter": 3,
+      "playerId": "npc:seat0:3",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-3-0-1-1",
+        "value": 25,
+        "source": "appraisal:0",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "appraised",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "item-3-0-1-1",
+        "value": 25,
+        "risk": 0.017777777777777778,
+        "caught": false,
+        "counter": false,
+        "accepted": true
+      }
+    },
+    {
+      "encounter": 3,
+      "playerId": "npc:seat1:3",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-3-1-0-1",
+        "value": 23,
+        "source": "appraisal:0",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "appraised",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-3-1-0-1",
+        "value": 23,
+        "risk": 0.0276923076923077,
+        "caught": false,
+        "counter": false,
+        "accepted": true
+      }
+    },
+    {
+      "type": "trust-lost",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "npc": "beast",
+        "lost": 1,
+        "trust": 1
+      }
+    },
+    {
+      "encounter": 3,
+      "playerId": "npc:seat0:3",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-3-0-1-2",
+        "value": 24,
+        "source": "appraisal:0",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "appraised",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "item-3-0-1-2",
+        "value": 24,
+        "risk": 0.02666666666666668,
+        "caught": true,
+        "counter": false,
+        "accepted": true
+      }
+    },
+    {
+      "type": "event-offered",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "id": "E48",
+        "key": "3:seat0:E48:2:0",
+        "choices": [
+          "pay",
+          "item"
+        ]
+      }
+    },
+    {
+      "encounter": 3,
+      "playerId": "npc:seat1:3",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-3-1-0-2",
+        "value": 22,
+        "source": "appraisal:0",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "appraised",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-3-1-0-2",
+        "value": 22,
+        "risk": 0,
+        "caught": false,
+        "counter": false,
+        "accepted": true
+      }
+    },
+    {
+      "type": "event-resolved",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "id": "E48",
+        "choice": "pay"
+      }
+    },
+    {
+      "type": "appraisal-commission",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-3-1-0-0",
+        "npc": "beast",
+        "salePrice": 32,
+        "commission": 1,
+        "trust": 2
+      }
+    },
+    {
+      "encounter": 3,
+      "playerId": "npc:seat1:3",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-3-1-0-0",
+        "value": 32,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "npc-purchased",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "itemIds": [
+          "item-3-1-0-0"
+        ],
+        "shopId": "seat1",
+        "price": 32,
+        "energy": 0,
+        "condition": false
+      }
+    },
+    {
+      "type": "appraisal-commission",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "item-3-0-1-1",
+        "npc": "beast",
+        "salePrice": 25,
+        "commission": 2,
+        "trust": 2
+      }
+    },
+    {
+      "encounter": 3,
+      "playerId": "npc:seat0:3",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-3-0-1-1",
+        "value": 25,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "npc-purchased",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "itemIds": [
+          "item-3-0-1-1"
+        ],
+        "shopId": "seat0",
+        "price": 25,
+        "energy": 0,
+        "condition": false
+      }
+    },
+    {
+      "type": "appraisal-commission",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-3-1-0-1",
+        "npc": "beast",
+        "salePrice": 23,
+        "commission": 2,
+        "trust": 3
+      }
+    },
+    {
+      "encounter": 3,
+      "playerId": "npc:seat1:3",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-3-1-0-1",
+        "value": 23,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "npc-purchased",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "itemIds": [
+          "item-3-1-0-1"
+        ],
+        "shopId": "seat1",
+        "price": 23,
+        "energy": 0,
+        "condition": false
+      }
+    },
+    {
+      "encounter": 3,
+      "playerId": "seat0",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-3-0-1-1",
+        "value": 32,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "item-removed",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "item-3-0-1-1",
+        "reason": "dark-market"
+      }
+    },
+    {
+      "type": "market-sale",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "item-3-0-1-1",
+        "orderId": "quote-3-beast-riftfang-sword",
+        "price": 32,
+        "matched": false,
+        "resolution": "discount",
+        "bonus": null
+      }
+    },
+    {
+      "type": "appraisal-commission",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-3-1-0-2",
+        "npc": "beast",
+        "salePrice": 22,
+        "commission": 2,
+        "trust": 4
+      }
+    },
+    {
+      "encounter": 3,
+      "playerId": "npc:seat1:3",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-3-1-0-2",
+        "value": 22,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "npc-purchased",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "itemIds": [
+          "item-3-1-0-2"
+        ],
+        "shopId": "seat1",
+        "price": 22,
+        "energy": 0,
+        "condition": false
+      }
+    },
+    {
+      "type": "appraisal-commission",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "item-3-0-1-2",
+        "npc": "beast",
+        "salePrice": 24,
+        "commission": 2,
+        "trust": 3
+      }
+    },
+    {
+      "encounter": 3,
+      "playerId": "npc:seat0:3",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-3-0-1-2",
+        "value": 24,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "npc-purchased",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "itemIds": [
+          "item-3-0-1-2"
+        ],
+        "shopId": "seat0",
+        "price": 24,
+        "energy": 0,
+        "condition": false
+      }
+    },
+    {
+      "type": "event-offered",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "id": "E44",
+        "key": "3:seat1:E44:1:0",
+        "choices": [
+          "accept",
+          "decline"
+        ]
+      }
+    },
+    {
+      "encounter": 3,
+      "playerId": "seat1",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-2-1-0-1",
+        "value": 13,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "item-removed",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-2-1-0-1",
+        "reason": "E44"
+      }
+    },
+    {
+      "type": "event-resolved",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "id": "E44",
+        "choice": "accept"
+      }
+    },
+    {
+      "type": "listing-shared",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "item-3-0-1-0",
+        "allow": true,
+        "purchase": true
+      }
+    },
+    {
+      "type": "listing-shared",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-3-1-0-0",
+        "allow": true,
+        "purchase": true
+      }
+    },
+    {
+      "type": "listing-shared",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "ability-2-seat1-beast-0",
+        "allow": true,
+        "purchase": true
+      }
+    },
+    {
+      "type": "listing-shared",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-3-1-0-1",
+        "allow": true,
+        "purchase": true
+      }
+    },
+    {
+      "type": "listing-shared",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "copy-ability-2-seat1-beast-0-1",
+        "allow": true,
+        "purchase": true
+      }
+    },
+    {
+      "type": "listing-shared",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-3-1-0-2",
+        "allow": true,
+        "purchase": true
+      }
+    },
+    {
+      "type": "listing-shared",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "item-3-0-1-2",
+        "allow": true,
+        "purchase": true
+      }
+    },
+    {
+      "encounter": 3,
+      "playerId": "seat1",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-3-0-1-2",
+        "value": 10,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "trade-completed",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "offerId": "trade-3-seat1-sim-97",
+        "itemId": "item-3-0-1-2",
+        "buyerId": "seat1",
+        "credits": 10,
+        "source": "inventory"
+      }
+    },
+    {
+      "type": "listing-shared",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "item-3-0-1-2",
+        "allow": true,
+        "purchase": true
+      }
+    },
+    {
+      "encounter": 3,
+      "playerId": "seat0",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-3-1-0-0",
+        "value": 20,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "trade-completed",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "offerId": "trade-3-seat0-sim-100",
+        "itemId": "item-3-1-0-0",
+        "buyerId": "seat0",
+        "credits": 20,
+        "source": "inventory"
+      }
+    },
+    {
+      "type": "listing-shared",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "item-3-1-0-0",
+        "allow": true,
+        "purchase": true
+      }
+    },
+    {
+      "encounter": 3,
+      "playerId": "seat1",
+      "type": "price-audited",
+      "details": {
+        "itemId": "copy-ability-2-seat1-beast-0-1",
+        "value": 2,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "trade-completed",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "offerId": "trade-3-seat1-sim-105",
+        "itemId": "copy-ability-2-seat1-beast-0-1",
+        "buyerId": "seat1",
+        "credits": 2,
+        "source": "inventory"
+      }
+    },
+    {
+      "type": "listing-shared",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "itemId": "copy-ability-2-seat1-beast-0-1",
+        "allow": true,
+        "purchase": true
+      }
+    },
+    {
+      "encounter": 3,
+      "playerId": "seat0",
+      "type": "price-audited",
+      "details": {
+        "itemId": "copy-ability-2-seat1-beast-0-1",
+        "value": 2,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "trade-completed",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "offerId": "trade-3-seat0-sim-108",
+        "itemId": "copy-ability-2-seat1-beast-0-1",
+        "buyerId": "seat0",
+        "credits": 2,
+        "source": "inventory"
+      }
+    },
+    {
+      "type": "listing-shared",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "itemId": "copy-ability-2-seat1-beast-0-1",
+        "allow": true,
+        "purchase": true
+      }
+    },
+    {
+      "type": "life-lost",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "amount": 1,
+        "reason": "dimensional-decay"
+      }
+    },
+    {
+      "type": "life-lost",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "amount": 1,
+        "reason": "dimensional-decay"
+      }
+    },
+    {
+      "type": "collector-scored",
+      "encounter": 3,
+      "playerId": "seat0",
+      "details": {
+        "credits": 6,
+        "itemValue": 59,
+        "modifierPercent": 0,
+        "score": 65,
+        "itemIds": [
+          "ability-2-seat1-beast-0",
+          "item-3-1-0-0",
+          "copy-ability-2-seat1-beast-0-1"
+        ],
+        "statusIds": []
+      }
+    },
+    {
+      "type": "collector-scored",
+      "encounter": 3,
+      "playerId": "seat1",
+      "details": {
+        "credits": 54,
+        "itemValue": 48,
+        "modifierPercent": 0,
+        "score": 102,
+        "itemIds": [
+          "item-3-1-0-1",
+          "item-3-1-0-2",
+          "item-3-0-1-2"
+        ],
+        "statusIds": []
+      }
+    }
+  ],
+  "items": {
+    "item-1-0-0-0": {
+      "id": "item-1-0-0-0",
+      "kind": "beast-riftfang-sword",
+      "base": 46,
+      "ask": 50,
+      "genuine": false,
+      "cursed": false,
+      "owner": "removed",
+      "npcOwnerId": "seat0",
+      "npc": "beast",
+      "encounter": 1,
+      "certificate": true,
+      "lastAppraisal": 50,
+      "lastAccepted": true,
+      "reservation": 24,
+      "appearance": {
+        "version": 1,
+        "rarity": "uncommon",
+        "theme": "prism",
+        "visualSeed": 411083668
+      },
+      "rarityPower": {
+        "version": 1,
+        "valueMultiplier": 2,
+        "effectMultiplier": 2
+      },
+      "appraisedBy": "seat0",
+      "priceIntegrity": {
+        "overpriced": false,
+        "audits": 4
+      },
+      "commissionPaid": true,
+      "lastTradePrice": 65
+    },
+    "item-1-0-0-1": {
+      "id": "item-1-0-0-1",
+      "kind": "beast-riftfang-sword",
+      "base": 24,
+      "ask": 24,
+      "genuine": false,
+      "cursed": true,
+      "owner": "removed",
+      "npcOwnerId": "seat0",
+      "npc": "beast",
+      "encounter": 1,
+      "certificate": false,
+      "lastAppraisal": 24,
+      "lastAccepted": true,
+      "reservation": 12,
+      "appearance": {
+        "version": 1,
+        "rarity": "common",
+        "theme": "plain",
+        "visualSeed": 3743164395
+      },
+      "rarityPower": {
+        "version": 1,
+        "valueMultiplier": 1,
+        "effectMultiplier": 1
+      },
+      "appraisedBy": "seat0",
+      "priceIntegrity": {
+        "overpriced": false,
+        "audits": 3
+      },
+      "commissionPaid": true,
+      "lastTradePrice": 40
+    },
+    "item-1-0-1-0": {
+      "id": "item-1-0-1-0",
+      "kind": "swarm-brood-hammer",
+      "base": 20,
+      "ask": 24,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:seat0:1",
+      "npcOwnerId": "seat0",
+      "npc": "swarm",
+      "encounter": 1,
+      "certificate": false,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 12
+    },
+    "item-1-0-1-1": {
+      "id": "item-1-0-1-1",
+      "kind": "swarm-brood-hammer",
+      "base": 25,
+      "ask": 23,
+      "genuine": false,
+      "cursed": true,
+      "owner": "npc:seat0:1",
+      "npcOwnerId": "seat0",
+      "npc": "swarm",
+      "encounter": 1,
+      "certificate": false,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 13
+    },
+    "item-1-0-2-0": {
+      "id": "item-1-0-2-0",
+      "kind": "darkone-crossing-token",
+      "base": 19,
+      "ask": 18,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:seat0:1",
+      "npcOwnerId": "seat0",
+      "npc": "darkone",
+      "encounter": 1,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 6
+    },
+    "item-1-0-2-1": {
+      "id": "item-1-0-2-1",
+      "kind": "darkone-crossing-token",
+      "base": 23,
+      "ask": 16,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:seat0:1",
+      "npcOwnerId": "seat0",
+      "npc": "darkone",
+      "encounter": 1,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 10
+    },
+    "item-1-1-0-0": {
+      "id": "item-1-1-0-0",
+      "kind": "vampire-nocturne-signet",
+      "base": 15,
+      "ask": 20,
+      "genuine": false,
+      "cursed": false,
+      "owner": "npc:seat1:1",
+      "npcOwnerId": "seat1",
+      "npc": "vampire",
+      "encounter": 1,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 9
+    },
+    "item-1-1-0-1": {
+      "id": "item-1-1-0-1",
+      "kind": "vampire-nocturne-signet",
+      "base": 19,
+      "ask": 22,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:seat1:1",
+      "npcOwnerId": "seat1",
+      "npc": "vampire",
+      "encounter": 1,
+      "certificate": false,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 10
+    },
+    "item-1-1-1-0": {
+      "id": "item-1-1-1-0",
+      "kind": "beast-riftfang-sword",
+      "base": 31,
+      "ask": 26,
+      "genuine": true,
+      "cursed": true,
+      "owner": "removed",
+      "npcOwnerId": "seat1",
+      "npc": "beast",
+      "encounter": 1,
+      "certificate": true,
+      "lastAppraisal": 26,
+      "lastAccepted": true,
+      "reservation": 15,
+      "appearance": {
+        "version": 1,
+        "rarity": "common",
+        "theme": "plain",
+        "visualSeed": 3574208277
+      },
+      "rarityPower": {
+        "version": 1,
+        "valueMultiplier": 1,
+        "effectMultiplier": 1
+      },
+      "appraisedBy": "seat1",
+      "priceIntegrity": {
+        "overpriced": false,
+        "audits": 3
+      },
+      "commissionPaid": true,
+      "lastTradePrice": 40
+    },
+    "item-1-1-1-1": {
+      "id": "item-1-1-1-1",
+      "kind": "beast-riftfang-sword",
+      "base": 69,
+      "ask": 78,
+      "genuine": false,
+      "cursed": false,
+      "owner": "npc:seat1:1",
+      "npcOwnerId": "seat1",
+      "npc": "beast",
+      "encounter": 1,
+      "certificate": true,
+      "lastAppraisal": 78,
+      "lastAccepted": true,
+      "reservation": 27,
+      "appearance": {
+        "version": 1,
+        "rarity": "rare",
+        "theme": "prism",
+        "visualSeed": 3810532235
+      },
+      "rarityPower": {
+        "version": 1,
+        "valueMultiplier": 3,
+        "effectMultiplier": 3
+      },
+      "appraisedBy": "seat1",
+      "priceIntegrity": {
+        "overpriced": false,
+        "audits": 1
+      }
+    },
+    "item-1-1-2-0": {
+      "id": "item-1-1-2-0",
+      "kind": "autometa-torque-caliper",
+      "base": 23,
+      "ask": 18,
+      "genuine": true,
+      "cursed": true,
+      "owner": "npc:seat1:1",
+      "npcOwnerId": "seat1",
+      "npc": "autometa",
+      "encounter": 1,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 18
+    },
+    "item-1-1-2-1": {
+      "id": "item-1-1-2-1",
+      "kind": "autometa-torque-caliper",
+      "base": 20,
+      "ask": 21,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:seat1:1",
+      "npcOwnerId": "seat1",
+      "npc": "autometa",
+      "encounter": 1,
+      "certificate": false,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 16
+    },
+    "item-2-0-0-0": {
+      "id": "item-2-0-0-0",
+      "kind": "beast-riftfang-sword",
+      "base": 24,
+      "ask": 23,
+      "genuine": true,
+      "cursed": true,
+      "owner": "npc:seat0:2",
+      "npcOwnerId": "seat0",
+      "npc": "beast",
+      "encounter": 2,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 11
+    },
+    "item-2-0-0-1": {
+      "id": "item-2-0-0-1",
+      "kind": "beast-riftfang-sword",
+      "base": 32,
+      "ask": 23,
+      "genuine": false,
+      "cursed": true,
+      "owner": "npc:seat0:2",
+      "npcOwnerId": "seat0",
+      "npc": "beast",
+      "encounter": 2,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 18
+    },
+    "item-2-0-1-0": {
+      "id": "item-2-0-1-0",
+      "kind": "swarm-brood-hammer",
+      "base": 20,
+      "ask": 22,
+      "genuine": true,
+      "cursed": false,
+      "owner": "retired",
+      "npcOwnerId": "seat0",
+      "npc": "swarm",
+      "encounter": 2,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 16,
+      "appearance": {
+        "version": 1,
+        "rarity": "common",
+        "theme": "plain",
+        "visualSeed": 3595399098
+      },
+      "rarityPower": {
+        "version": 1,
+        "valueMultiplier": 1,
+        "effectMultiplier": 1
+      }
+    },
+    "item-2-0-1-1": {
+      "id": "item-2-0-1-1",
+      "kind": "swarm-brood-hammer",
+      "base": 45,
+      "ask": 75,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:seat0:2",
+      "npcOwnerId": "seat0",
+      "npc": "swarm",
+      "encounter": 2,
+      "certificate": true,
+      "lastAppraisal": 75,
+      "lastAccepted": true,
+      "reservation": 24,
+      "appearance": {
+        "version": 1,
+        "rarity": "rare",
+        "theme": "spirit",
+        "visualSeed": 1496514778
+      },
+      "rarityPower": {
+        "version": 1,
+        "valueMultiplier": 3,
+        "effectMultiplier": 3
+      },
+      "appraisedBy": "seat0",
+      "priceIntegrity": {
+        "overpriced": false,
+        "audits": 1
+      }
+    },
+    "item-2-0-2-0": {
+      "id": "item-2-0-2-0",
+      "kind": "deepsea-tide-compass",
+      "base": 18,
+      "ask": 20,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:seat0:2",
+      "npcOwnerId": "seat0",
+      "npc": "deepsea",
+      "encounter": 2,
+      "certificate": false,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 6
+    },
+    "item-2-0-2-1": {
+      "id": "item-2-0-2-1",
+      "kind": "deepsea-tide-compass",
+      "base": 21,
+      "ask": 16,
+      "genuine": true,
+      "cursed": true,
+      "owner": "npc:seat0:2",
+      "npcOwnerId": "seat0",
+      "npc": "deepsea",
+      "encounter": 2,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 8
+    },
+    "item-2-1-0-0": {
+      "id": "item-2-1-0-0",
+      "kind": "autometa-torque-caliper",
+      "base": 20,
+      "ask": 20,
+      "genuine": true,
+      "cursed": false,
+      "owner": "retired",
+      "npcOwnerId": "seat1",
+      "npc": "autometa",
+      "encounter": 2,
+      "certificate": false,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 18,
+      "appearance": {
+        "version": 1,
+        "rarity": "common",
+        "theme": "plain",
+        "visualSeed": 3480296956
+      },
+      "rarityPower": {
+        "version": 1,
+        "valueMultiplier": 1,
+        "effectMultiplier": 1
+      }
+    },
+    "item-2-1-0-1": {
+      "id": "item-2-1-0-1",
+      "kind": "autometa-torque-caliper",
+      "base": 20,
+      "ask": 20,
+      "genuine": true,
+      "cursed": false,
+      "owner": "removed",
+      "npcOwnerId": "seat1",
+      "npc": "autometa",
+      "encounter": 2,
+      "certificate": false,
+      "lastAppraisal": 20,
+      "lastAccepted": true,
+      "reservation": 15,
+      "appearance": {
+        "version": 1,
+        "rarity": "common",
+        "theme": "plain",
+        "visualSeed": 3227832091
+      },
+      "rarityPower": {
+        "version": 1,
+        "valueMultiplier": 1,
+        "effectMultiplier": 1
+      },
+      "appraisedBy": "seat1",
+      "priceIntegrity": {
+        "overpriced": false,
+        "audits": 4
+      },
+      "commissionPaid": true,
+      "lastTradePrice": 13
+    },
+    "item-2-1-1-0": {
+      "id": "item-2-1-1-0",
+      "kind": "darkone-crossing-token",
+      "base": 12,
+      "ask": 19,
+      "genuine": true,
+      "cursed": true,
+      "owner": "npc:seat1:2",
+      "npcOwnerId": "seat1",
+      "npc": "darkone",
+      "encounter": 2,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 4
+    },
+    "item-2-1-1-1": {
+      "id": "item-2-1-1-1",
+      "kind": "darkone-crossing-token",
+      "base": 15,
+      "ask": 21,
+      "genuine": true,
+      "cursed": true,
+      "owner": "npc:seat1:2",
+      "npcOwnerId": "seat1",
+      "npc": "darkone",
+      "encounter": 2,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 8
+    },
+    "item-2-1-2-0": {
+      "id": "item-2-1-2-0",
+      "kind": "alien-thought-translator",
+      "base": 25,
+      "ask": 23,
+      "genuine": true,
+      "cursed": true,
+      "owner": "npc:seat1:2",
+      "npcOwnerId": "seat1",
+      "npc": "alien",
+      "encounter": 2,
+      "certificate": false,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 21
+    },
+    "item-2-1-2-1": {
+      "id": "item-2-1-2-1",
+      "kind": "alien-thought-translator",
+      "base": 23,
+      "ask": 22,
+      "genuine": false,
+      "cursed": false,
+      "owner": "npc:seat1:2",
+      "npcOwnerId": "seat1",
+      "npc": "alien",
+      "encounter": 2,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 19
+    },
+    "ability-2-seat0-beast-0": {
+      "id": "ability-2-seat0-beast-0",
+      "kind": "swarm-brood-hammer",
+      "base": 20,
+      "ask": 25,
+      "genuine": false,
+      "cursed": false,
+      "owner": "removed",
+      "npcOwnerId": "seat0",
+      "npc": "swarm",
+      "encounter": 2,
+      "certificate": false,
+      "lastAppraisal": 25,
+      "lastAccepted": true,
+      "reservation": 8,
+      "appearance": {
+        "version": 1,
+        "rarity": "common",
+        "theme": "plain",
+        "visualSeed": 3033115448
+      },
+      "rarityPower": {
+        "version": 1,
+        "valueMultiplier": 1,
+        "effectMultiplier": 1
+      },
+      "appraisedBy": "seat0",
+      "priceIntegrity": {
+        "overpriced": false,
+        "audits": 3
+      },
+      "commissionPaid": true,
+      "lastTradePrice": 28
+    },
+    "ability-2-seat1-beast-0": {
+      "id": "ability-2-seat1-beast-0",
+      "kind": "autometa-torque-caliper",
+      "base": 48,
+      "ask": 32,
+      "genuine": true,
+      "cursed": true,
+      "owner": "collector",
+      "npcOwnerId": "seat1",
+      "npc": "autometa",
+      "encounter": 2,
+      "certificate": false,
+      "lastAppraisal": 32,
+      "lastAccepted": false,
+      "reservation": 34,
+      "appearance": {
+        "version": 1,
+        "rarity": "uncommon",
+        "theme": "clockwork",
+        "visualSeed": 779347253
+      },
+      "rarityPower": {
+        "version": 1,
+        "valueMultiplier": 2,
+        "effectMultiplier": 2
+      },
+      "appraisedBy": "seat1",
+      "priceIntegrity": {
+        "overpriced": false,
+        "audits": 5
+      },
+      "commissionPaid": true,
+      "lastTradePrice": 13
+    },
+    "item-3-0-0-0": {
+      "id": "item-3-0-0-0",
+      "kind": "vampire-nocturne-signet",
+      "base": 21,
+      "ask": 23,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:seat0:3",
+      "npcOwnerId": "seat0",
+      "npc": "vampire",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 12
+    },
+    "item-3-0-0-1": {
+      "id": "item-3-0-0-1",
+      "kind": "vampire-nocturne-signet",
+      "base": 14,
+      "ask": 18,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:seat0:3",
+      "npcOwnerId": "seat0",
+      "npc": "vampire",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 6
+    },
+    "item-3-0-1-0": {
+      "id": "item-3-0-1-0",
+      "kind": "beast-riftfang-sword",
+      "base": 46,
+      "ask": 54,
+      "genuine": true,
+      "cursed": true,
+      "owner": "npc:seat0:3",
+      "npcOwnerId": "seat0",
+      "npc": "beast",
+      "encounter": 3,
+      "certificate": false,
+      "lastAppraisal": 54,
+      "lastAccepted": true,
+      "reservation": 26,
+      "appearance": {
+        "version": 1,
+        "rarity": "uncommon",
+        "theme": "clockwork",
+        "visualSeed": 2214756912
+      },
+      "rarityPower": {
+        "version": 1,
+        "valueMultiplier": 2,
+        "effectMultiplier": 2
+      },
+      "appraisedBy": "seat0",
+      "priceIntegrity": {
+        "overpriced": false,
+        "audits": 1
+      }
+    },
+    "item-3-0-1-1": {
+      "id": "item-3-0-1-1",
+      "kind": "beast-riftfang-sword",
+      "base": 27,
+      "ask": 25,
+      "genuine": false,
+      "cursed": false,
+      "owner": "removed",
+      "npcOwnerId": "seat0",
+      "npc": "beast",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": 25,
+      "lastAccepted": true,
+      "reservation": 13,
+      "appearance": {
+        "version": 1,
+        "rarity": "common",
+        "theme": "plain",
+        "visualSeed": 4064423948
+      },
+      "rarityPower": {
+        "version": 1,
+        "valueMultiplier": 1,
+        "effectMultiplier": 1
+      },
+      "appraisedBy": "seat0",
+      "priceIntegrity": {
+        "overpriced": false,
+        "audits": 3
+      },
+      "commissionPaid": true,
+      "lastTradePrice": 32
+    },
+    "item-3-0-2-0": {
+      "id": "item-3-0-2-0",
+      "kind": "darkone-crossing-token",
+      "base": 19,
+      "ask": 16,
+      "genuine": true,
+      "cursed": true,
+      "owner": "npc:seat0:3",
+      "npcOwnerId": "seat0",
+      "npc": "darkone",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 10
+    },
+    "item-3-0-2-1": {
+      "id": "item-3-0-2-1",
+      "kind": "darkone-crossing-token",
+      "base": 18,
+      "ask": 19,
+      "genuine": false,
+      "cursed": false,
+      "owner": "npc:seat0:3",
+      "npcOwnerId": "seat0",
+      "npc": "darkone",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 8
+    },
+    "item-3-1-0-0": {
+      "id": "item-3-1-0-0",
+      "kind": "beast-riftfang-sword",
+      "base": 32,
+      "ask": 48,
+      "genuine": false,
+      "cursed": false,
+      "owner": "collector",
+      "npcOwnerId": "seat1",
+      "npc": "beast",
+      "encounter": 3,
+      "certificate": false,
+      "lastAppraisal": 32,
+      "lastAccepted": true,
+      "reservation": 16,
+      "appearance": {
+        "version": 1,
+        "rarity": "uncommon",
+        "theme": "clockwork",
+        "visualSeed": 1272274015
+      },
+      "rarityPower": {
+        "version": 1,
+        "valueMultiplier": 2,
+        "effectMultiplier": 2
+      },
+      "appraisedBy": "seat1",
+      "priceIntegrity": {
+        "overpriced": false,
+        "audits": 3
+      },
+      "commissionPaid": true,
+      "lastTradePrice": 20
+    },
+    "item-3-1-0-1": {
+      "id": "item-3-1-0-1",
+      "kind": "beast-riftfang-sword",
+      "base": 26,
+      "ask": 23,
+      "genuine": true,
+      "cursed": true,
+      "owner": "collector",
+      "npcOwnerId": "seat1",
+      "npc": "beast",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": 23,
+      "lastAccepted": true,
+      "reservation": 15,
+      "appearance": {
+        "version": 1,
+        "rarity": "common",
+        "theme": "plain",
+        "visualSeed": 1613577651
+      },
+      "rarityPower": {
+        "version": 1,
+        "valueMultiplier": 1,
+        "effectMultiplier": 1
+      },
+      "appraisedBy": "seat1",
+      "priceIntegrity": {
+        "overpriced": false,
+        "audits": 2
+      },
+      "commissionPaid": true,
+      "lastTradePrice": 23
+    },
+    "item-3-1-1-0": {
+      "id": "item-3-1-1-0",
+      "kind": "vampire-nocturne-signet",
+      "base": 19,
+      "ask": 19,
+      "genuine": true,
+      "cursed": true,
+      "owner": "npc:seat1:3",
+      "npcOwnerId": "seat1",
+      "npc": "vampire",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 8
+    },
+    "item-3-1-1-1": {
+      "id": "item-3-1-1-1",
+      "kind": "vampire-nocturne-signet",
+      "base": 15,
+      "ask": 23,
+      "genuine": true,
+      "cursed": true,
+      "owner": "npc:seat1:3",
+      "npcOwnerId": "seat1",
+      "npc": "vampire",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 7
+    },
+    "item-3-1-2-0": {
+      "id": "item-3-1-2-0",
+      "kind": "deepsea-tide-compass",
+      "base": 17,
+      "ask": 20,
+      "genuine": true,
+      "cursed": true,
+      "owner": "npc:seat1:3",
+      "npcOwnerId": "seat1",
+      "npc": "deepsea",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 6
+    },
+    "item-3-1-2-1": {
+      "id": "item-3-1-2-1",
+      "kind": "deepsea-tide-compass",
+      "base": 19,
+      "ask": 17,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:seat1:3",
+      "npcOwnerId": "seat1",
+      "npc": "deepsea",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 15
+    },
+    "item-3-0-1-2": {
+      "id": "item-3-0-1-2",
+      "kind": "beast-riftfang-sword",
+      "base": 27,
+      "ask": 24,
+      "genuine": false,
+      "cursed": false,
+      "owner": "collector",
+      "npcOwnerId": "seat0",
+      "npc": "beast",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": 24,
+      "lastAccepted": true,
+      "reservation": 15,
+      "bonus": true,
+      "appearance": {
+        "version": 1,
+        "rarity": "common",
+        "theme": "plain",
+        "visualSeed": 2934803259
+      },
+      "rarityPower": {
+        "version": 1,
+        "valueMultiplier": 1,
+        "effectMultiplier": 1
+      },
+      "appraisedBy": "seat0",
+      "priceIntegrity": {
+        "overpriced": false,
+        "audits": 3
+      },
+      "commissionPaid": true,
+      "lastTradePrice": 10
+    },
+    "item-3-1-0-2": {
+      "id": "item-3-1-0-2",
+      "kind": "beast-riftfang-sword",
+      "base": 22,
+      "ask": 22,
+      "genuine": true,
+      "cursed": false,
+      "owner": "collector",
+      "npcOwnerId": "seat1",
+      "npc": "beast",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": 22,
+      "lastAccepted": true,
+      "reservation": 9,
+      "bonus": true,
+      "appearance": {
+        "version": 1,
+        "rarity": "common",
+        "theme": "plain",
+        "visualSeed": 1662620717
+      },
+      "rarityPower": {
+        "version": 1,
+        "valueMultiplier": 1,
+        "effectMultiplier": 1
+      },
+      "appraisedBy": "seat1",
+      "priceIntegrity": {
+        "overpriced": false,
+        "audits": 2
+      },
+      "commissionPaid": true,
+      "lastTradePrice": 22
+    },
+    "copy-ability-2-seat1-beast-0-1": {
+      "id": "copy-ability-2-seat1-beast-0-1",
+      "kind": "autometa-torque-caliper",
+      "base": 12,
+      "ask": 8,
+      "genuine": true,
+      "cursed": true,
+      "owner": "collector",
+      "npcOwnerId": "seat1",
+      "npc": "autometa",
+      "encounter": 2,
+      "certificate": false,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 0,
+      "appearance": {
+        "version": 1,
+        "rarity": "uncommon",
+        "theme": "clockwork",
+        "visualSeed": 779347253
+      },
+      "rarityPower": {
+        "version": 1,
+        "valueMultiplier": 2,
+        "effectMultiplier": 2
+      },
+      "priceIntegrity": {
+        "overpriced": false,
+        "audits": 5
+      },
+      "lastTradePrice": 2,
+      "copy": {
+        "sourceId": "ability-2-seat1-beast-0",
+        "number": 1,
+        "valuePercent": 25
+      }
+    }
+  },
+  "final": [
+    {
+      "id": "seat0",
+      "credits": 6,
+      "energy": 6,
+      "inventory": [],
+      "score": 65,
+      "life": 4
+    },
+    {
+      "id": "seat1",
+      "credits": 54,
+      "energy": 7,
+      "inventory": [],
+      "score": 102,
+      "life": 3
+    }
+  ],
+  "collector": [
+    {
+      "playerId": "seat0",
+      "credits": 6,
+      "itemValue": 59,
+      "modifierPercent": 0,
+      "statusIds": [],
+      "score": 65,
+      "items": [
+        {
+          "id": "ability-2-seat1-beast-0",
+          "kind": "autometa-torque-caliper",
+          "base": 48,
+          "genuine": true,
+          "cursed": true,
+          "value": 41,
+          "certified": true
+        },
+        {
+          "id": "item-3-1-0-0",
+          "kind": "beast-riftfang-sword",
+          "base": 32,
+          "genuine": false,
+          "cursed": false,
+          "value": 9,
+          "certified": true
+        },
+        {
+          "id": "copy-ability-2-seat1-beast-0-1",
+          "kind": "autometa-torque-caliper",
+          "base": 12,
+          "genuine": true,
+          "cursed": true,
+          "value": 9
+        }
+      ]
+    },
+    {
+      "playerId": "seat1",
+      "credits": 54,
+      "itemValue": 48,
+      "modifierPercent": 0,
+      "statusIds": [],
+      "score": 102,
+      "items": [
+        {
+          "id": "item-3-1-0-1",
+          "kind": "beast-riftfang-sword",
+          "base": 26,
+          "genuine": true,
+          "cursed": true,
+          "value": 19
+        },
+        {
+          "id": "item-3-1-0-2",
+          "kind": "beast-riftfang-sword",
+          "base": 22,
+          "genuine": true,
+          "cursed": false,
+          "value": 22
+        },
+        {
+          "id": "item-3-0-1-2",
+          "kind": "beast-riftfang-sword",
+          "base": 27,
+          "genuine": false,
+          "cursed": false,
+          "value": 7,
+          "certified": true
+        }
+      ]
+    }
+  ]
+}

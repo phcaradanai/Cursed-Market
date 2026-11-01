@@ -1,6 +1,6 @@
 # Cursed Market — Context กลางสำหรับพัฒนาเกม
 
-อัปเดตสถานะ 2026-10-31 · Active comic: `apps/comic/`
+อัปเดตสถานะ 2026-11-01 · Active comic: `apps/comic/`
 
 เริ่ม session ที่ [UI continuity](../ui-system/README.md) และ [decisions](../ui-system/decisions.md). ข้อความเส้นทาง external ด้านล่างเป็นประวัติ; อย่าแก้ backup แทน source ใน repo.
 
@@ -10,7 +10,7 @@
 
 - ตลาดวิญญาณ S11/G01–G04 ทำและตรวจแล้วใน commit51d89ea; ดู ghost-service-contracts.md และ ../ui-system/ghost-functional-verification.json
 - จุดตกหล่นสำคัญ: RULE-01 ดอกเบี้ย10%พร้อมอายุเงินต้นเชื่อมเข้า Comic รันใหม่แล้ว ตรวจผ่านแล้ว; รันเก่าไม่มีflagรักษา4% ดู implementations/comic-aged-interest-plan.md
-- สินค้าใหม่56และeffect ยังเป็น catalog/ข้อเสนอ ไม่ใช่ dedicated runtime bindings; ไม่ถือว่าของเดิมที่ยังรันอยู่คือชุดใหม่แล้ว
+- สินค้าใหม่เชื่อมแล้ว8/56 ใน catalogVersion4 แบบทดลอง พร้อม primary effects ที่อนุมัติและวงจรซื้อ/สำเนา/คลัง/ค้ำประกัน/ประมูล/Collector; default ยังเป็น version3 เดิม66ชนิด อีก48และoptional effectsยังไม่เชื่อม ดู new56-pilot-verification.json ไม่ใช่คำรับรอง balance หรือทั้งเกมครบ
 - เส้นทางชนะหลายสาย, Wishlist Collector3+2 และรางวัลสถิติ/rarityยังไม่ครบ ต้องปิดรายละเอียดและเชื่อมระบบ
 - ขโมย/RPSมี runtime แต่การตรวจให้ครบกฎ forced/timeout/disconnect ยังไม่ปิด; อารมณ์พ่อค้ายังไม่เชื่อมครบทุกบริบท
 - ยังไม่ผ่าน PLAY-01/BAL-02: ไม่มีคำรับรองครบทั้งเกม/บาลานซ์/มือถือ; มีเทสต์เก่า Dark One แสดงชื่อผู้เล่นเสียหนึ่งข้อ
@@ -188,3 +188,7 @@ Portable catalog/art verified56/56 distinct paths and content hashes,8×7,type�
 User explicitly approved the8 experimental specs from9f0a972 (original proposal SHA ec70ac9f55770ff3866b54cb55131f5703058faafbc921970cb7519c4924b0a1). See new56-pilot-approval.json; numeric/global rules unchanged and checked against that Git version. This supersedes earlier pending-pilot notes, not the unanswered STRAT-01 structure question. Proceed runtime pilot integration after current context verification; optional/remaining48/release balance are not approved by this reply.
 
 Atlas now extracts active Comic appraisal modules and explicit support/server/bot AST/data exports, including ghost schemas/actions and new forced-timeout flag. Legacy outputs are pinned by hashes/Git reference. Counts/guards are static evidence; new56 lifecycle remains unfinished.
+
+## Pilot8 runtime checkpoint — 2026-11-01
+
+`apps/comic/src/game/appraisal/pilot-catalog.ts` owns native IDs/spec metadata; `pilot-effects.ts` owns held/custody/instance+encounter rights and cost/age helpers. `effect:E##` is separate from event:E##. No old-kind aliases or generic status injection. config4 is opt-in with `COMIC_CATALOG=pilot8`; historical generators/default3 remain unchanged. New56 integration is8/56, not74 new products. See [runtime handoff](implementations/new56-pilot-runtime.md), [evidence](new56-pilot-verification.json). STRAT structure decision remains pending; full goal active.

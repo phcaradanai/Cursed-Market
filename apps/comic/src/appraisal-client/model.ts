@@ -51,11 +51,11 @@ export function hasStatus(game:AppraisalView,id:StatusId):boolean {
   return game.self.statuses.some(s=>s.id===id && s.starts<=game.encounter && s.expires>=game.encounter && s.charges>0);
 }
 export const playerPassives=(game:AppraisalView,exclude?:string)=>game.self.life===0?emptyPassives():addUseBonuses(game.passives?heldPassives(game.self.inventory.filter(i=>i.id!==exclude),!!game.itemEffects):emptyPassives(),game.itemEffects?game.self.itemUseBonuses:undefined);
-export const npcAcceptanceChance=(game:AppraisalView,npc:NpcId)=>Math.min(95,(game.self.npcTrust?.[npc]??0)*5+playerPassives(game).acceptance);
+export const npcAcceptanceChance=(game:AppraisalView,npc:NpcId)=>Math.min(95,(game.self.npcTrust?.[npc]??0)*5+playerPassives(game).acceptance+(game.self.pilotAcceptancePercent??0));
 export const inspectionQuota=(game:AppraisalView)=>2+playerPassives(game).inspections;
 export const freeInspectionRemaining=(game:AppraisalView,property:InspectionProperty)=>freeInspectionCount(playerPassives(game),game.self,property);
 export const appraisalCost=(item:ItemView)=>item.appraisal===null && item.freeMerchantAction?0:1;
-export const inspectionCost = (game:AppraisalView,property:InspectionProperty='price',item?:ItemView) => item?.freeMerchantAction || freeInspectionRemaining(game,property)>0?0:Math.max(0,1+integerEffect(statusMagnitude(game.self,'D01',1))-integerEffect(statusMagnitude(game.self,'B05',1)))*Number(!hasStatus(game,'B11'));
+export const inspectionCost = (game:AppraisalView,property:InspectionProperty='price',item?:ItemView) => item?.freeMerchantAction || freeInspectionRemaining(game,property)>0 || property==='price' && (game.self.pilotPriceChecks??0)>0?0:Math.max(0,1+integerEffect(statusMagnitude(game.self,'D01',1))-integerEffect(statusMagnitude(game.self,'B05',1)))*Number(!hasStatus(game,'B11'));
 /** Survival: goods a friend appraised and the merchant accepted cost no energy to buy. Mirrors friendAppraised in the engine. */
 export const friendGoods = (game:AppraisalView, items:ItemView[]) => !!game.survival && items.length>0 && items.every(i=>i.appraisedBy!==undefined && i.appraisedBy!==game.self.id && i.appraisalAccepted===true && i.owner.startsWith(`npc:${i.appraisedBy}:`));
 export const purchaseEnergy = (game:AppraisalView, items:ItemView[]=[]) => Math.max(0,(game.freeBuy || friendGoods(game,items)?0:1)+integerEffect(statusMagnitude(game.self,'D06',1))-playerPassives(game).buyEnergy);
@@ -82,6 +82,8 @@ export function purchaseBlock(game:AppraisalView,total:number,quiet:boolean):str
 /** Mirror of the server's activation cost and preconditions. */
 export const activationEnergy=(game:AppraisalView,item:ItemView)=>game.itemEffects && ITEM_SPECS[item.kind].consumable?0:1;
 export function activationBlock(game:AppraisalView,itemId:string,quiet:boolean):string|null {
+  const nativeItem=game.self.inventory.find(i=>i.id===itemId);
+  if(nativeItem && ITEM_SPECS[nativeItem.kind].nativeEffect){if(!ITEM_SPECS[nativeItem.kind].explicitActivation)return ITEM_SPECS[nativeItem.kind].usage??null;if(nativeItem.pilotUses)return pick('สินค้าชิ้นนี้ใช้ในช่วงนี้แล้ว','This item was used this encounter');}
   if(game.self.abilityChoice)return pick('เลือกสินค้าที่พ่อค้าเสนอให้ก่อน','Choose the pending merchant offer first');
   if(game.self.abilityItemUsed?.includes(game.self.inventory.find(i=>i.id===itemId)?.kind as never))return pick('สินค้าชนิดนี้ใช้ในช่วงนี้แล้ว','This item kind was used this encounter');
   if(game.self.eventOffer) return t('ตอบเหตุการณ์ก่อน จึงเปิดใช้ได้');
@@ -99,15 +101,17 @@ export function possibleBenefitText(game:AppraisalView,item:ItemView):string {
   const power=item.rarityPower?itemEffectScale(item):1;
   const strength=power!==1?pick(` · ความแรงตัวเลข ×${power}`,` · Numerical strength ×${power}`):'';
   const custom=ABILITY_ITEM_TEXT[item.kind as keyof typeof ABILITY_ITEM_TEXT]??(game.trustAbilities?MODERN_ACTIVATIONS[item.kind as keyof typeof MODERN_ACTIVATIONS]:undefined);if(custom)return pick(custom.th,custom.en)+strength;
+  if(spec.nativeEffect)return item.possibleBenefit+strength;
   const base=itemFamily(item.kind)==='orb'?t('อาจฟื้นพลัง {n} เมื่อเปิดใช้',{n:integerEffect((spec.energyRecovery??3)*power)}):
     itemFamily(item.kind)==='key' && hasStatus(game,'D07')?t('อาจล้างสถานะปิดประตูที่มีอยู่ การใช้ครั้งนี้เป็นการปลดประตู'):
-    k.effectsKnown?statusDescription(spec.buff):t('อาจได้รับ {name}',{name:statusName(spec.buff)});
+    spec.buff?(k.effectsKnown?statusDescription(spec.buff):t('อาจได้รับ {name}',{name:statusName(spec.buff)})):'';
   const extra=game.itemEffects?activationBonusText(item.kind,item):'';
   return base+strength+(extra?` · ${extra}`:'')+(game.survival && ['food','potion'].includes(itemFamily(item.kind))?t(' · ของแท้ฟื้นชีวิต {n}',{n:integerEffect(2*power)}):'')+(game.survival && spec.buff==='B10'?t(' · ขณะมีสิทธิ์เหลือ Collector เพิ่มคะแนน {n}%',{n:integerEffect(20*power)}):'');
 }
 export function possibleDrawbackText(game:AppraisalView,item:ItemView):string {
   const spec=ITEM_SPECS[item.kind];const k=item.knowledge;const power=item.rarityPower?itemDrawbackScale(item):1;
-  return (k.effectsKnown?statusDescription(spec.drawback):t('อาจได้รับ {name}',{name:statusName(spec.drawback)}))+(game.survival?t(' · หากมีคำสาป เปิดใช้เสียชีวิต {n}',{n:integerEffect(power)}):'')+(game.survival && spec.drawback==='D10'?t(' · ขณะสถานะยังอยู่ Collector ลดคะแนน {n}%',{n:integerEffect(20*power)}):'');
+  if(spec.nativeEffect)return item.possibleDrawback;
+  return (spec.drawback?(k.effectsKnown?statusDescription(spec.drawback):t('อาจได้รับ {name}',{name:statusName(spec.drawback)})):'')+(game.survival?t(' · หากมีคำสาป เปิดใช้เสียชีวิต {n}',{n:integerEffect(power)}):'')+(game.survival && spec.drawback==='D10'?t(' · ขณะสถานะยังอยู่ Collector ลดคะแนน {n}%',{n:integerEffect(20*power)}):'');
 }
 /** A preview uses only the seat DTO. Hidden base/reservation and RNG never enter this module. */
 export function riskRange(game:AppraisalView,item:ItemView,value:number):[number,number] | null {

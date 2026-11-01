@@ -1,3 +1,4 @@
+import {ITEM_SPECS} from '../game/appraisal/content.js';
 import { reducibleCooldown } from '../game/appraisal/ability-rules.js';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -195,7 +196,7 @@ export function appraisalBotDecision(v:AppraisalView,policy:AppraisalPolicy):Bod
     const toBuy=p.stock.find(i=>p.credits>=buyPrice(v,i) && !(knownBad(i) && policy!=='aggressive') && worth(v,i)>=buyPrice(v,i)*BUY_RATIO[policy]);
     if(toBuy && p.energy>=npcEnergy(v)) return {type:'buy',itemIds:[toBuy.id],condition:false};
     if(policy==='collector' && p.energy>=4) {
-      const item=p.inventory.find(i=>!p.activated.includes(i.id) && !p.abilityItemUsed?.includes(i.kind) && !['chrono-gear','burden-hourglass'].includes(i.kind));if(item) return {type:'activate',itemId:item.id};
+      const item=p.inventory.find(i=>!p.activated.includes(i.id) && !p.abilityItemUsed?.includes(i.kind) && !['chrono-gear','burden-hourglass'].includes(i.kind) && (!ITEM_SPECS[i.kind].nativeEffect || ITEM_SPECS[i.kind].explicitActivation && !i.pilotUses));if(item) return {type:'activate',itemId:item.id};
       const source=p.merchantAbilities?.find(a=>a.trust>=1&&reducibleCooldown(p,a.npc,v.encounter)>0);
       const gear=p.inventory.find(i=>i.kind==='chrono-gear'&&!p.activated.includes(i.id)&&!p.abilityItemUsed?.includes(i.kind));
       if(source&&gear)return {type:'activate',itemId:gear.id,npc:source.npc};

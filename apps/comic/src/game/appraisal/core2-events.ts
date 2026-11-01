@@ -90,7 +90,7 @@ export function resolveCore2Event(state:AppraisalState,p:Appraiser,offer:EventOf
     if(victim)transfer(state,p,victim,picked.credits,spec.id);else spend(state,p,picked.credits,0,spec.id);
   }
   if(picked.energy)spend(state,p,0,picked.energy,spec.id);
-  if(picked.life)damageLife(state,p,picked.life,spec.id);
+  if(picked.life)damageLife(state,p,picked.life,spec.id,false);
   if(picked.heal){if(state.config.survival)healLife(state,p,picked.heal,spec.id);else recover(state,p,3,spec.id);}
   if(picked.reward)reward(state,p,picked.reward,spec.id);
   for(const s of picked.grant??[])grant(state,p,s);

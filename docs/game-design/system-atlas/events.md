@@ -8,7 +8,7 @@
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: ก่อนเข้าประตู; มีตัวเลือกสำรอง
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:8](../../../apps/comic/src/game/appraisal/content.ts#L8)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:9](../../../apps/comic/src/game/appraisal/content.ts#L9)
 - ทางเลือก: switch (source-dependent), stay (source-dependent), decline (source-dependent)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:174, policy:apps/comic/src/game/appraisal/events.ts:189, policy:apps/comic/src/game/appraisal/events.ts:326, policy:apps/comic/src/game/appraisal/events.ts:if:8164, policy:apps/comic/src/game/appraisal/events.ts:if:9454, policy:apps/comic/src/game/appraisal/events.ts:if:25843
 - Operations: operation:apps/comic/src/game/appraisal/events.ts:28547
@@ -30,7 +30,7 @@
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: พบออร์ก; ก่อนประเมิน
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:14](../../../apps/comic/src/game/appraisal/content.ts#L14)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:15](../../../apps/comic/src/game/appraisal/content.ts#L15)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:121, policy:apps/comic/src/game/appraisal/events.ts:327
 - Operations: data-driven / generic handler; see handlerRefs
@@ -52,9 +52,9 @@ Vampire เสนอฟื้นพลัง 3 จ่าย 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: พบ Vampire; พลังไม่เต็ม
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:20](../../../apps/comic/src/game/appraisal/content.ts#L20)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:21](../../../apps/comic/src/game/appraisal/content.ts#L21)
 - ทางเลือก: decline (source-dependent), pay (source-dependent), debt (source-dependent)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:122, policy:apps/comic/src/game/appraisal/events.ts:190, policy:apps/comic/src/game/appraisal/events.ts:328, policy:apps/comic/src/simulation/appraisal.ts:if:3073
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:122, policy:apps/comic/src/game/appraisal/events.ts:190, policy:apps/comic/src/game/appraisal/events.ts:328, policy:apps/comic/src/simulation/appraisal.ts:if:3130
 - Operations: operation:apps/comic/src/game/appraisal/events.ts:28815, operation:apps/comic/src/game/appraisal/events.ts:28843, operation:apps/comic/src/game/appraisal/events.ts:28865, operation:apps/comic/src/game/appraisal/events.ts:28933
 
 ```json
@@ -74,10 +74,10 @@ Autometa สอบเทียบเครื่องให้ จ่าย 1 �
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: พบ Autometa; มีสินค้าที่ยังไม่ทราบราคา
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:26](../../../apps/comic/src/game/appraisal/content.ts#L26)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:27](../../../apps/comic/src/game/appraisal/content.ts#L27)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:123, policy:apps/comic/src/game/appraisal/events.ts:329
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:28991, operation:apps/comic/src/game/appraisal/events.ts:29014
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:28997, operation:apps/comic/src/game/appraisal/events.ts:29020
 
 ```json
 {
@@ -96,10 +96,10 @@ Autometa สอบเทียบเครื่องให้ จ่าย 1 �
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: พบ alien; ยังมีข้อมูลผลสินค้าที่ยังไม่รู้
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:32](../../../apps/comic/src/game/appraisal/content.ts#L32)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:33](../../../apps/comic/src/game/appraisal/content.ts#L33)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:124, policy:apps/comic/src/game/appraisal/events.ts:330
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:29059, operation:apps/comic/src/game/appraisal/events.ts:29082
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:29065, operation:apps/comic/src/game/appraisal/events.ts:29088
 
 ```json
 {
@@ -118,10 +118,10 @@ Autometa สอบเทียบเครื่องให้ จ่าย 1 �
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: พบ dark one; มี debuff และมี encounter ถัดไป
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:38](../../../apps/comic/src/game/appraisal/content.ts#L38)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:39](../../../apps/comic/src/game/appraisal/content.ts#L39)
 - ทางเลือก: decline (source-dependent), interest (source-dependent), seal (source-dependent)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:125, policy:apps/comic/src/game/appraisal/events.ts:193, policy:apps/comic/src/game/appraisal/events.ts:331, policy:apps/comic/src/simulation/appraisal.ts:if:3846
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:29331, operation:apps/comic/src/game/appraisal/events.ts:29357
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:125, policy:apps/comic/src/game/appraisal/events.ts:193, policy:apps/comic/src/game/appraisal/events.ts:331, policy:apps/comic/src/simulation/appraisal.ts:if:3903
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:29337, operation:apps/comic/src/game/appraisal/events.ts:29363
 
 ```json
 {
@@ -140,10 +140,10 @@ Autometa สอบเทียบเครื่องให้ จ่าย 1 �
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: ผู้มาเยือนเป็นสัตว์; ยังตรวจได้อย่างน้อยหนึ่งครั้ง
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:44](../../../apps/comic/src/game/appraisal/content.ts#L44)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:45](../../../apps/comic/src/game/appraisal/content.ts#L45)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:126, policy:apps/comic/src/game/appraisal/events.ts:332, policy:apps/comic/src/game/appraisal/events.ts:if:18265
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:29467, operation:apps/comic/src/game/appraisal/events.ts:29488
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:29473, operation:apps/comic/src/game/appraisal/events.ts:29494
 
 ```json
 {
@@ -180,8 +180,8 @@ Autometa สอบเทียบเครื่องให้ จ่าย 1 �
         "food"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 29412,
-      "end": 29427
+      "start": 29418,
+      "end": 29433
     }
   ]
 }
@@ -193,7 +193,7 @@ Autometa สอบเทียบเครื่องให้ จ่าย 1 �
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: ก่อนพบ NPC; มีข้อเสนอสองชุด
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:50](../../../apps/comic/src/game/appraisal/content.ts#L50)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:51](../../../apps/comic/src/game/appraisal/content.ts#L51)
 - ทางเลือก: cash (source-dependent), condition (source-dependent), decline (source-dependent)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:194, policy:apps/comic/src/game/appraisal/events.ts:333, policy:apps/comic/src/game/appraisal/events.ts:if:8164, policy:apps/comic/src/game/appraisal/events.ts:if:8238, policy:apps/comic/src/game/appraisal/events.ts:if:9454
 - Operations: data-driven / generic handler; see handlerRefs
@@ -215,9 +215,9 @@ Autometa สอบเทียบเครื่องให้ จ่าย 1 �
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: พบ NPC; ยังมีสิทธิ์ต่อรอง
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:56](../../../apps/comic/src/game/appraisal/content.ts#L56)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:57](../../../apps/comic/src/game/appraisal/content.ts#L57)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:127, policy:apps/comic/src/game/appraisal/events.ts:334, policy:apps/comic/src/simulation/appraisal.ts:if:4845
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:127, policy:apps/comic/src/game/appraisal/events.ts:334, policy:apps/comic/src/simulation/appraisal.ts:if:4902
 - Operations: data-driven / generic handler; see handlerRefs
 
 ```json
@@ -237,10 +237,10 @@ Autometa สอบเทียบเครื่องให้ จ่าย 1 �
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: ก่อนพบ NPC; ยังมีข้อมูลราคาไม่ทราบ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:62](../../../apps/comic/src/game/appraisal/content.ts#L62)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:63](../../../apps/comic/src/game/appraisal/content.ts#L63)
 - ทางเลือก: fog (source-dependent), switch (source-dependent), pay (source-dependent), decline (source-dependent)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:175, policy:apps/comic/src/game/appraisal/events.ts:195, policy:apps/comic/src/game/appraisal/events.ts:335, policy:apps/comic/src/game/appraisal/events.ts:if:8164, policy:apps/comic/src/game/appraisal/events.ts:if:9454, policy:apps/comic/src/game/appraisal/events.ts:if:25843
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:29758, operation:apps/comic/src/game/appraisal/events.ts:29805
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:29764, operation:apps/comic/src/game/appraisal/events.ts:29811
 
 ```json
 {
@@ -259,10 +259,10 @@ Autometa สอบเทียบเครื่องให้ จ่าย 1 �
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: สินค้ายังไม่ทราบความแท้
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:68](../../../apps/comic/src/game/appraisal/content.ts#L68)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:69](../../../apps/comic/src/game/appraisal/content.ts#L69)
 - ทางเลือก: careful (source-dependent), force (source-dependent), decline (source-dependent)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:128, policy:apps/comic/src/game/appraisal/events.ts:196, policy:apps/comic/src/game/appraisal/events.ts:336, policy:apps/comic/src/game/appraisal/events.ts:if:17939, policy:apps/comic/src/simulation/appraisal.ts:if:3385
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:29964, operation:apps/comic/src/game/appraisal/events.ts:30069
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:128, policy:apps/comic/src/game/appraisal/events.ts:196, policy:apps/comic/src/game/appraisal/events.ts:336, policy:apps/comic/src/game/appraisal/events.ts:if:17939, policy:apps/comic/src/simulation/appraisal.ts:if:3442
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:29970, operation:apps/comic/src/game/appraisal/events.ts:30075
 
 ```json
 {
@@ -281,10 +281,10 @@ Autometa สอบเทียบเครื่องให้ จ่าย 1 �
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: NPC มีคำรับรองที่ตรวจเทียบได้
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:74](../../../apps/comic/src/game/appraisal/content.ts#L74)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:75](../../../apps/comic/src/game/appraisal/content.ts#L75)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:129, policy:apps/comic/src/game/appraisal/events.ts:337, policy:apps/comic/src/game/appraisal/events.ts:if:18021
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:30252
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:30258
 
 ```json
 {
@@ -303,10 +303,10 @@ Autometa สอบเทียบเครื่องให้ จ่าย 1 �
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: NPC เสนอสินค้าสองชิ้นที่ยังไม่ทราบราคา
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:80](../../../apps/comic/src/game/appraisal/content.ts#L80)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:81](../../../apps/comic/src/game/appraisal/content.ts#L81)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:130, policy:apps/comic/src/game/appraisal/events.ts:338
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:30494
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:30500
 
 ```json
 {
@@ -325,10 +325,10 @@ Autometa สอบเทียบเครื่องให้ จ่าย 1 �
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: มีประวัติซื้อขาย family เดียวกันที่เปิดเผยได้
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:86](../../../apps/comic/src/game/appraisal/content.ts#L86)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:87](../../../apps/comic/src/game/appraisal/content.ts#L87)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:131, policy:apps/comic/src/game/appraisal/events.ts:339
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:30728
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:30734
 
 ```json
 {
@@ -347,10 +347,10 @@ Autometa สอบเทียบเครื่องให้ จ่าย 1 �
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: ยังตรวจได้; มีข้อมูลไม่ทราบ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:92](../../../apps/comic/src/game/appraisal/content.ts#L92)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:93](../../../apps/comic/src/game/appraisal/content.ts#L93)
 - ทางเลือก: price (source-dependent), curse (source-dependent), decline (source-dependent)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:132, policy:apps/comic/src/game/appraisal/events.ts:197, policy:apps/comic/src/game/appraisal/events.ts:340
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:30901, operation:apps/comic/src/game/appraisal/events.ts:30924
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:30907, operation:apps/comic/src/game/appraisal/events.ts:30930
 
 ```json
 {
@@ -369,10 +369,10 @@ Autometa สอบเทียบเครื่องให้ จ่าย 1 �
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: สินค้ามี buff/debuff ที่ยังไม่ทราบจังหวะ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:98](../../../apps/comic/src/game/appraisal/content.ts#L98)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:99](../../../apps/comic/src/game/appraisal/content.ts#L99)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:133, policy:apps/comic/src/game/appraisal/events.ts:341, policy:apps/comic/src/simulation/appraisal.ts:if:3514
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:31009
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:133, policy:apps/comic/src/game/appraisal/events.ts:341, policy:apps/comic/src/simulation/appraisal.ts:if:3571
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:31015
 
 ```json
 {
@@ -391,10 +391,10 @@ Autometa สอบเทียบเครื่องให้ จ่าย 1 �
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: มีข้อมูลราคาเป็นช่วงและ NPC เสนอการตรวจเพิ่ม
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:104](../../../apps/comic/src/game/appraisal/content.ts#L104)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:105](../../../apps/comic/src/game/appraisal/content.ts#L105)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:134, policy:apps/comic/src/game/appraisal/events.ts:342, policy:apps/comic/src/simulation/appraisal.ts:if:3675
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:31328
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:134, policy:apps/comic/src/game/appraisal/events.ts:342, policy:apps/comic/src/simulation/appraisal.ts:if:3732
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:31334
 
 ```json
 {
@@ -413,10 +413,10 @@ Autometa สอบเทียบเครื่องให้ จ่าย 1 �
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: NPC เสนองานประเมินและไม่ใช่การค้ากับผู้เล่น
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:110](../../../apps/comic/src/game/appraisal/content.ts#L110)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:111](../../../apps/comic/src/game/appraisal/content.ts#L111)
 - ทางเลือก: discount (source-dependent), risk (source-dependent), decline (source-dependent)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:135, policy:apps/comic/src/game/appraisal/events.ts:198, policy:apps/comic/src/game/appraisal/events.ts:343
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:31473
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:31479
 
 ```json
 {
@@ -435,10 +435,10 @@ Autometa สอบเทียบเครื่องให้ จ่าย 1 �
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: ตรวจพบว่าสินค้าเป็นของปลอมแล้ว; NPC มีงบรางวัล
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:116](../../../apps/comic/src/game/appraisal/content.ts#L116)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:117](../../../apps/comic/src/game/appraisal/content.ts#L117)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:136, policy:apps/comic/src/game/appraisal/events.ts:344, policy:apps/comic/src/game/appraisal/events.ts:if:18138
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:31778
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:31784
 
 ```json
 {
@@ -457,10 +457,10 @@ Autometa สอบเทียบเครื่องให้ จ่าย 1 �
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: มีสินค้าเปิดใช้ได้และยังไม่ทราบเงื่อนไขเปิดใช้
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:122](../../../apps/comic/src/game/appraisal/content.ts#L122)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:123](../../../apps/comic/src/game/appraisal/content.ts#L123)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:137, policy:apps/comic/src/game/appraisal/events.ts:345, policy:apps/comic/src/simulation/appraisal.ts:if:3514
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:31824
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:137, policy:apps/comic/src/game/appraisal/events.ts:345, policy:apps/comic/src/simulation/appraisal.ts:if:3571
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:31830
 
 ```json
 {
@@ -479,10 +479,10 @@ Autometa สอบเทียบเครื่องให้ จ่าย 1 �
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: NPC มีสินค้าสองชิ้นพร้อมขาย
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:128](../../../apps/comic/src/game/appraisal/content.ts#L128)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:129](../../../apps/comic/src/game/appraisal/content.ts#L129)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:138, policy:apps/comic/src/game/appraisal/events.ts:346, policy:apps/comic/src/simulation/appraisal.ts:if:5090
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:31904
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:138, policy:apps/comic/src/game/appraisal/events.ts:346, policy:apps/comic/src/simulation/appraisal.ts:if:5147
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:31910
 
 ```json
 {
@@ -501,10 +501,10 @@ Autometa สอบเทียบเครื่องให้ จ่าย 1 �
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: ไม่มี B07 ที่ใช้งาน; มีความเสี่ยง NPC ยึดของ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:134](../../../apps/comic/src/game/appraisal/content.ts#L134)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:135](../../../apps/comic/src/game/appraisal/content.ts#L135)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:139, policy:apps/comic/src/game/appraisal/events.ts:347
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:32015, operation:apps/comic/src/game/appraisal/events.ts:32038
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:32021, operation:apps/comic/src/game/appraisal/events.ts:32044
 
 ```json
 {
@@ -523,10 +523,10 @@ Autometa สอบเทียบเครื่องให้ จ่าย 1 �
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: ยังมีพลังยื่นข้อเสนอ; อยู่ในช่วง NPC ต่อรอง
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:140](../../../apps/comic/src/game/appraisal/content.ts#L140)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:141](../../../apps/comic/src/game/appraisal/content.ts#L141)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:140, policy:apps/comic/src/game/appraisal/events.ts:348
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:32083, operation:apps/comic/src/game/appraisal/events.ts:32106
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:32089, operation:apps/comic/src/game/appraisal/events.ts:32112
 
 ```json
 {
@@ -545,9 +545,9 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: พบ Vampire; มีสินค้าพร้อมซื้อ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:146](../../../apps/comic/src/game/appraisal/content.ts#L146)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:147](../../../apps/comic/src/game/appraisal/content.ts#L147)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:141, policy:apps/comic/src/game/appraisal/events.ts:349, policy:apps/comic/src/simulation/appraisal.ts:if:4845
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:141, policy:apps/comic/src/game/appraisal/events.ts:349, policy:apps/comic/src/simulation/appraisal.ts:if:4902
 - Operations: data-driven / generic handler; see handlerRefs
 
 ```json
@@ -567,10 +567,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: มีสินค้าที่ NPC ต้องการใน inventory และโอนได้
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:152](../../../apps/comic/src/game/appraisal/content.ts#L152)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:153](../../../apps/comic/src/game/appraisal/content.ts#L153)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:142, policy:apps/comic/src/game/appraisal/events.ts:350, policy:apps/comic/src/game/appraisal/events.ts:if:17464
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:32376
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:32382
 
 ```json
 {
@@ -589,10 +589,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: มี encounter ถัดไป
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:158](../../../apps/comic/src/game/appraisal/content.ts#L158)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:159](../../../apps/comic/src/game/appraisal/content.ts#L159)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:143, policy:apps/comic/src/game/appraisal/events.ts:351
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:32487, operation:apps/comic/src/game/appraisal/events.ts:32510
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:32493, operation:apps/comic/src/game/appraisal/events.ts:32516
 
 ```json
 {
@@ -611,9 +611,9 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: มี encounter ถัดไปและสินค้าพร้อมซื้อ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:164](../../../apps/comic/src/game/appraisal/content.ts#L164)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:165](../../../apps/comic/src/game/appraisal/content.ts#L165)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:144, policy:apps/comic/src/game/appraisal/events.ts:352, policy:apps/comic/src/simulation/appraisal.ts:if:4845
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:144, policy:apps/comic/src/game/appraisal/events.ts:352, policy:apps/comic/src/simulation/appraisal.ts:if:4902
 - Operations: data-driven / generic handler; see handlerRefs
 
 ```json
@@ -633,10 +633,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: มี NPC ที่ขอบเขตผลเสียระบุว่าตายได้; ไม่มี B08
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:170](../../../apps/comic/src/game/appraisal/content.ts#L170)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:171](../../../apps/comic/src/game/appraisal/content.ts#L171)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:145, policy:apps/comic/src/game/appraisal/events.ts:353
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:32592, operation:apps/comic/src/game/appraisal/events.ts:32615
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:32598, operation:apps/comic/src/game/appraisal/events.ts:32621
 
 ```json
 {
@@ -655,9 +655,9 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: มีสินค้าซื้อได้; ไม่มี D09 สำหรับชิ้นนั้น
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:176](../../../apps/comic/src/game/appraisal/content.ts#L176)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:177](../../../apps/comic/src/game/appraisal/content.ts#L177)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:146, policy:apps/comic/src/game/appraisal/events.ts:354, policy:apps/comic/src/simulation/appraisal.ts:if:4845
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:146, policy:apps/comic/src/game/appraisal/events.ts:354, policy:apps/comic/src/simulation/appraisal.ts:if:4902
 - Operations: data-driven / generic handler; see handlerRefs
 
 ```json
@@ -677,9 +677,9 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: NPC เสนอทางเลือกที่อาจให้ debuff; ไม่มี B06
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:182](../../../apps/comic/src/game/appraisal/content.ts#L182)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:183](../../../apps/comic/src/game/appraisal/content.ts#L183)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:147, policy:apps/comic/src/game/appraisal/events.ts:355, policy:apps/comic/src/simulation/appraisal.ts:if:4845
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:147, policy:apps/comic/src/game/appraisal/events.ts:355, policy:apps/comic/src/simulation/appraisal.ts:if:4902
 - Operations: data-driven / generic handler; see handlerRefs
 
 ```json
@@ -699,10 +699,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: ถือกระจกที่มีคุณสมบัตินี้
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:188](../../../apps/comic/src/game/appraisal/content.ts#L188)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:189](../../../apps/comic/src/game/appraisal/content.ts#L189)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:148, policy:apps/comic/src/game/appraisal/events.ts:356
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:32811, operation:apps/comic/src/game/appraisal/events.ts:32855, operation:apps/comic/src/game/appraisal/events.ts:32922
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:32817, operation:apps/comic/src/game/appraisal/events.ts:32861, operation:apps/comic/src/game/appraisal/events.ts:32928
 
 ```json
 {
@@ -739,8 +739,8 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
         "mirror"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 32754,
-      "end": 32771
+      "start": 32760,
+      "end": 32777
     }
   ]
 }
@@ -752,10 +752,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: ถือไอเทมใช้แล้วหมด; พลังไม่เต็ม
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:194](../../../apps/comic/src/game/appraisal/content.ts#L194)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:195](../../../apps/comic/src/game/appraisal/content.ts#L195)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:149, policy:apps/comic/src/game/appraisal/events.ts:357
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:33048, operation:apps/comic/src/game/appraisal/events.ts:33075, operation:apps/comic/src/game/appraisal/events.ts:33098
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:33054, operation:apps/comic/src/game/appraisal/events.ts:33081, operation:apps/comic/src/game/appraisal/events.ts:33104
 
 ```json
 {
@@ -792,8 +792,8 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
         "orb"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 32994,
-      "end": 33008
+      "start": 33000,
+      "end": 33014
     }
   ]
 }
@@ -805,10 +805,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: ถือกุญแจใช้แล้วหมดและมี D07
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:200](../../../apps/comic/src/game/appraisal/content.ts#L200)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:201](../../../apps/comic/src/game/appraisal/content.ts#L201)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:150, policy:apps/comic/src/game/appraisal/events.ts:358
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:33274, operation:apps/comic/src/game/appraisal/events.ts:33371
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:33280, operation:apps/comic/src/game/appraisal/events.ts:33377
 
 ```json
 {
@@ -845,8 +845,8 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
         "key"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 33220,
-      "end": 33234
+      "start": 33226,
+      "end": 33240
     }
   ]
 }
@@ -858,10 +858,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: ถือหน้ากาก; มี buff ที่ยังใช้งาน
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:206](../../../apps/comic/src/game/appraisal/content.ts#L206)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:207](../../../apps/comic/src/game/appraisal/content.ts#L207)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:151, policy:apps/comic/src/game/appraisal/events.ts:359, policy:apps/comic/src/simulation/appraisal.ts:if:4622
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:33592, operation:apps/comic/src/game/appraisal/events.ts:33618
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:151, policy:apps/comic/src/game/appraisal/events.ts:359, policy:apps/comic/src/simulation/appraisal.ts:if:4679
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:33598, operation:apps/comic/src/game/appraisal/events.ts:33624
 
 ```json
 {
@@ -898,8 +898,8 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
         "mask"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 33426,
-      "end": 33441
+      "start": 33432,
+      "end": 33447
     }
   ]
 }
@@ -911,10 +911,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: ถือยาใช้แล้วหมดและมี D01 หรือ D05
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:212](../../../apps/comic/src/game/appraisal/content.ts#L212)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:213](../../../apps/comic/src/game/appraisal/content.ts#L213)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:152, policy:apps/comic/src/game/appraisal/events.ts:360, policy:apps/comic/src/simulation/appraisal.ts:if:4714
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:33911, operation:apps/comic/src/game/appraisal/events.ts:34011
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:152, policy:apps/comic/src/game/appraisal/events.ts:360, policy:apps/comic/src/simulation/appraisal.ts:if:4771
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:33917, operation:apps/comic/src/game/appraisal/events.ts:34017
 
 ```json
 {
@@ -951,8 +951,8 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
         "potion"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 33854,
-      "end": 33871
+      "start": 33860,
+      "end": 33877
     }
   ]
 }
@@ -964,10 +964,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: ถือแบตเตอรี่เปิดใช้ได้; ยังตรวจได้อย่างน้อยหนึ่งครั้ง
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:218](../../../apps/comic/src/game/appraisal/content.ts#L218)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:219](../../../apps/comic/src/game/appraisal/content.ts#L219)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:153, policy:apps/comic/src/game/appraisal/events.ts:361
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:34089, operation:apps/comic/src/game/appraisal/events.ts:34133
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:34095, operation:apps/comic/src/game/appraisal/events.ts:34139
 
 ```json
 {
@@ -1004,8 +1004,8 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
         "battery"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 34070,
-      "end": 34088
+      "start": 34076,
+      "end": 34094
     }
   ]
 }
@@ -1017,10 +1017,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: ถือของอย่างน้อย 3 ชิ้น; อยู่ก่อนการซื้อจาก NPC
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:224](../../../apps/comic/src/game/appraisal/content.ts#L224)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:225](../../../apps/comic/src/game/appraisal/content.ts#L225)
 - ทางเลือก: burden (source-dependent), pay (source-dependent), drop (source-dependent), decline (source-dependent)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:154, policy:apps/comic/src/game/appraisal/events.ts:176, policy:apps/comic/src/game/appraisal/events.ts:199, policy:apps/comic/src/game/appraisal/events.ts:362, policy:apps/comic/src/game/appraisal/events.ts:if:18348
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:34241, operation:apps/comic/src/game/appraisal/events.ts:34332, operation:apps/comic/src/game/appraisal/events.ts:34359
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:34247, operation:apps/comic/src/game/appraisal/events.ts:34338, operation:apps/comic/src/game/appraisal/events.ts:34365
 
 ```json
 {
@@ -1039,10 +1039,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: ถือเครื่องรางที่มีคุณสมบัตินี้
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:230](../../../apps/comic/src/game/appraisal/content.ts#L230)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:231](../../../apps/comic/src/game/appraisal/content.ts#L231)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:155, policy:apps/comic/src/game/appraisal/events.ts:363
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:34432, operation:apps/comic/src/game/appraisal/events.ts:34476, operation:apps/comic/src/game/appraisal/events.ts:34541
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:34438, operation:apps/comic/src/game/appraisal/events.ts:34482, operation:apps/comic/src/game/appraisal/events.ts:34547
 
 ```json
 {
@@ -1079,8 +1079,8 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
         "amulet"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 34414,
-      "end": 34431
+      "start": 34420,
+      "end": 34437
     }
   ]
 }
@@ -1092,10 +1092,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: ถือสินค้าที่มีคุณสมบัตินี้; ยังมีการประเมิน NPC
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:236](../../../apps/comic/src/game/appraisal/content.ts#L236)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:237](../../../apps/comic/src/game/appraisal/content.ts#L237)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:156, policy:apps/comic/src/game/appraisal/events.ts:364
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:34657, operation:apps/comic/src/game/appraisal/events.ts:34701, operation:apps/comic/src/game/appraisal/events.ts:34766
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:34663, operation:apps/comic/src/game/appraisal/events.ts:34707, operation:apps/comic/src/game/appraisal/events.ts:34772
 
 ```json
 {
@@ -1132,8 +1132,8 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
         "blade"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 34640,
-      "end": 34656
+      "start": 34646,
+      "end": 34662
     }
   ]
 }
@@ -1145,10 +1145,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: ถือเครื่องตรวจจาก Autometa ที่เปิดเผยความเสี่ยงขัดข้องไว้
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:242](../../../apps/comic/src/game/appraisal/content.ts#L242)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:243](../../../apps/comic/src/game/appraisal/content.ts#L243)
 - ทางเลือก: discard (source-dependent), endure (source-dependent), repair (source-dependent), fog (source-dependent), decline (source-dependent)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:157, policy:apps/comic/src/game/appraisal/events.ts:177, policy:apps/comic/src/game/appraisal/events.ts:200, policy:apps/comic/src/game/appraisal/events.ts:365, policy:apps/comic/src/game/appraisal/events.ts:if:18387
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:34907, operation:apps/comic/src/game/appraisal/events.ts:34929, operation:apps/comic/src/game/appraisal/events.ts:34958, operation:apps/comic/src/game/appraisal/events.ts:35119, operation:apps/comic/src/game/appraisal/events.ts:35170, operation:apps/comic/src/game/appraisal/events.ts:35220
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:34913, operation:apps/comic/src/game/appraisal/events.ts:34935, operation:apps/comic/src/game/appraisal/events.ts:34964, operation:apps/comic/src/game/appraisal/events.ts:35125, operation:apps/comic/src/game/appraisal/events.ts:35176, operation:apps/comic/src/game/appraisal/events.ts:35226
 
 ```json
 {
@@ -1200,8 +1200,8 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
         "scanner"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 35186,
-      "end": 35204
+      "start": 35192,
+      "end": 35210
     }
   ]
 }
@@ -1213,10 +1213,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: มี debuff ที่ล้างได้
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:248](../../../apps/comic/src/game/appraisal/content.ts#L248)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:249](../../../apps/comic/src/game/appraisal/content.ts#L249)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:158, policy:apps/comic/src/game/appraisal/events.ts:370
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:35395, operation:apps/comic/src/game/appraisal/events.ts:35418
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:35401, operation:apps/comic/src/game/appraisal/events.ts:35424
 
 ```json
 {
@@ -1235,10 +1235,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: พลังไม่เต็มหรือมี D10
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:254](../../../apps/comic/src/game/appraisal/content.ts#L254)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:255](../../../apps/comic/src/game/appraisal/content.ts#L255)
 - ทางเลือก: energy (source-dependent), cleanse (source-dependent), decline (source-dependent)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:159, policy:apps/comic/src/game/appraisal/events.ts:178, policy:apps/comic/src/game/appraisal/events.ts:201, policy:apps/comic/src/game/appraisal/events.ts:372, policy:apps/comic/src/simulation/appraisal.ts:if:3177
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:35616, operation:apps/comic/src/game/appraisal/events.ts:35706
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:159, policy:apps/comic/src/game/appraisal/events.ts:178, policy:apps/comic/src/game/appraisal/events.ts:201, policy:apps/comic/src/game/appraisal/events.ts:372, policy:apps/comic/src/simulation/appraisal.ts:if:3234
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:35622, operation:apps/comic/src/game/appraisal/events.ts:35712
 
 ```json
 {
@@ -1257,7 +1257,7 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: ช่วงซื้อขายระหว่างผู้เล่น; ยังไม่รับรางวัลนี้; ตลาดมีงบ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:260](../../../apps/comic/src/game/appraisal/content.ts#L260)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:261](../../../apps/comic/src/game/appraisal/content.ts#L261)
 - ทางเลือก: accept (source-dependent)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:160, policy:apps/comic/src/game/appraisal/events.ts:179, policy:apps/comic/src/game/appraisal/events.ts:373
 - Operations: data-driven / generic handler; see handlerRefs
@@ -1279,10 +1279,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: ถือของอย่างน้อยสองชิ้นที่โอนได้; NPC มีงบซื้อ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:266](../../../apps/comic/src/game/appraisal/content.ts#L266)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:267](../../../apps/comic/src/game/appraisal/content.ts#L267)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:161, policy:apps/comic/src/game/appraisal/events.ts:374, policy:apps/comic/src/game/appraisal/events.ts:if:17618
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:36317, operation:apps/comic/src/game/appraisal/events.ts:36376
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:36323, operation:apps/comic/src/game/appraisal/events.ts:36382
 
 ```json
 {
@@ -1301,10 +1301,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: มีผลตรวจส่วนตัวที่ server รับรองและยังไม่เผยแพร่
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:272](../../../apps/comic/src/game/appraisal/content.ts#L272)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:273](../../../apps/comic/src/game/appraisal/content.ts#L273)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:162, policy:apps/comic/src/game/appraisal/events.ts:375, policy:apps/comic/src/game/appraisal/events.ts:if:17751, policy:apps/comic/src/game/appraisal/events.ts:if:18859
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:36857
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:36863
 
 ```json
 {
@@ -1323,10 +1323,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: NPC เสนอสินค้าที่มีคุณสมบัติยังไม่ทราบ; มีพลังพอ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:278](../../../apps/comic/src/game/appraisal/content.ts#L278)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:279](../../../apps/comic/src/game/appraisal/content.ts#L279)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:163, policy:apps/comic/src/game/appraisal/events.ts:376, policy:apps/comic/src/simulation/appraisal.ts:if:3385
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:37077, operation:apps/comic/src/game/appraisal/events.ts:37158, operation:apps/comic/src/game/appraisal/events.ts:37180
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:163, policy:apps/comic/src/game/appraisal/events.ts:376, policy:apps/comic/src/simulation/appraisal.ts:if:3442
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:37083, operation:apps/comic/src/game/appraisal/events.ts:37164, operation:apps/comic/src/game/appraisal/events.ts:37186
 
 ```json
 {
@@ -1345,10 +1345,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: มีรายการ NPC ที่นักประเมินคนอื่นประเมินไว้และยอมเปิดให้ชม
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:284](../../../apps/comic/src/game/appraisal/content.ts#L284)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:285](../../../apps/comic/src/game/appraisal/content.ts#L285)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:164, policy:apps/comic/src/game/appraisal/events.ts:377, policy:apps/comic/src/game/appraisal/events.ts:if:17802, policy:apps/comic/src/game/appraisal/events.ts:if:18444
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:37968, operation:apps/comic/src/game/appraisal/events.ts:37999
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:37974, operation:apps/comic/src/game/appraisal/events.ts:38005
 
 ```json
 {
@@ -1367,10 +1367,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: Server บันทึกว่าถูก NPC จับได้แล้ว และขอบเขตผลเสียประกาศไว้
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:290](../../../apps/comic/src/game/appraisal/content.ts#L290)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:291](../../../apps/comic/src/game/appraisal/content.ts#L291)
 - ทางเลือก: pay (source-dependent), item (source-dependent), energy (source-dependent)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:202, policy:apps/comic/src/game/appraisal/events.ts:403, policy:apps/comic/src/game/appraisal/events.ts:if:17618
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:40475, operation:apps/comic/src/game/appraisal/events.ts:40523
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:40487, operation:apps/comic/src/game/appraisal/events.ts:40535
 
 ```json
 {
@@ -1389,10 +1389,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: ถูก NPC จับได้แล้ว; ยังมี encounter ถัดไป; ประกาศผลนี้ไว้
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:296](../../../apps/comic/src/game/appraisal/content.ts#L296)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:297](../../../apps/comic/src/game/appraisal/content.ts#L297)
 - ทางเลือก: oath (source-dependent), pay (source-dependent)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:203, policy:apps/comic/src/game/appraisal/events.ts:404
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:40719, operation:apps/comic/src/game/appraisal/events.ts:40747
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:40731, operation:apps/comic/src/game/appraisal/events.ts:40759
 
 ```json
 {
@@ -1411,10 +1411,10 @@ Vampire ลดราคาของที่เลือก 2 เครดิต
 
 - ตระกูล: base; flags: base + global gates
 - จังหวะ: รับสัญญา NPC ที่เปิดเผยว่าตายได้และถูกจับผิดตามสัญญาแล้ว
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:302](../../../apps/comic/src/game/appraisal/content.ts#L302)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:303](../../../apps/comic/src/game/appraisal/content.ts#L303)
 - ทางเลือก: die (source-dependent), surrender (source-dependent)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:206, policy:apps/comic/src/game/appraisal/events.ts:405, policy:apps/comic/src/game/appraisal/events.ts:if:17618
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:40817, operation:apps/comic/src/game/appraisal/events.ts:40855
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:40829, operation:apps/comic/src/game/appraisal/events.ts:40867
 
 ```json
 {
@@ -1433,7 +1433,7 @@ Vampire ขอแลกของเลือดที่คุณถือกั
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ Vampire; ถือลูกแก้วชีพจรโลหิตหรือน้ำยาเลือดคืนชีพ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:320](../../../apps/comic/src/game/appraisal/content.ts#L320)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:321](../../../apps/comic/src/game/appraisal/content.ts#L321)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -1467,7 +1467,7 @@ Vampire ขอแลกของเลือดที่คุณถือกั
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบออร์ก; ถือดาบ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:321](../../../apps/comic/src/game/appraisal/content.ts#L321)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:322](../../../apps/comic/src/game/appraisal/content.ts#L322)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -1502,7 +1502,7 @@ Vampire ขอแลกของเลือดที่คุณถือกั
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบออร์ก; ถือเครื่องรางคำสัตย์ออร์กหรือเครื่องรางเฝ้าจิต
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:322](../../../apps/comic/src/game/appraisal/content.ts#L322)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:323](../../../apps/comic/src/game/appraisal/content.ts#L323)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -1538,7 +1538,7 @@ Vampire ขอแลกของเลือดที่คุณถือกั
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบออร์ก; ถืออาหาร
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:323](../../../apps/comic/src/game/appraisal/content.ts#L323)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:324](../../../apps/comic/src/game/appraisal/content.ts#L324)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -1572,7 +1572,7 @@ Vampire ซื้อกระจกหนึ่งชิ้นในราคา
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ Vampire; ถือกระจก; ธนาคารมีงบพอ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:324](../../../apps/comic/src/game/appraisal/content.ts#L324)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:325](../../../apps/comic/src/game/appraisal/content.ts#L325)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -1605,7 +1605,7 @@ Vampire ซื้อกระจกหนึ่งชิ้นในราคา
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ Vampire; ถือลูกแก้วที่ไม่ใช่ลูกแก้วชีพจรโลหิต
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:325](../../../apps/comic/src/game/appraisal/content.ts#L325)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:326](../../../apps/comic/src/game/appraisal/content.ts#L326)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -1642,7 +1642,7 @@ Autometa ขอแลกแบตเตอรี่ที่คุณถือ�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ Autometa; ถือแบตเตอรี่
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:326](../../../apps/comic/src/game/appraisal/content.ts#L326)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:327](../../../apps/comic/src/game/appraisal/content.ts#L327)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -1674,7 +1674,7 @@ Autometa ขอแลกแบตเตอรี่ที่คุณถือ�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ Autometa; ถือเครื่องตรวจราคา
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:327](../../../apps/comic/src/game/appraisal/content.ts#L327)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:328](../../../apps/comic/src/game/appraisal/content.ts#L328)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -1711,7 +1711,7 @@ Autometa อ่านรหัสกุญแจแล้วยอมต่อ�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ Autometa; ถือกุญแจ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:328](../../../apps/comic/src/game/appraisal/content.ts#L328)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:329](../../../apps/comic/src/game/appraisal/content.ts#L329)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -1746,7 +1746,7 @@ Autometa อ่านรหัสกุญแจแล้วยอมต่อ�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ Alien; ถือหน้ากาก
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:329](../../../apps/comic/src/game/appraisal/content.ts#L329)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:330](../../../apps/comic/src/game/appraisal/content.ts#L330)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -1782,7 +1782,7 @@ Alien ซื้อยาหนึ่งชิ้นไปศึกษาใน�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ Alien; ถือยา; ธนาคารมีงบพอ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:330](../../../apps/comic/src/game/appraisal/content.ts#L330)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:331](../../../apps/comic/src/game/appraisal/content.ts#L331)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -1815,7 +1815,7 @@ Alien ปรับคลื่นลูกแก้วให้ ฟื้นพ�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ Alien; ถือลูกแก้ว
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:331](../../../apps/comic/src/game/appraisal/content.ts#L331)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:332](../../../apps/comic/src/game/appraisal/content.ts#L332)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -1851,7 +1851,7 @@ Alien ปรับคลื่นลูกแก้วให้ ฟื้นพ�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ Dark One; ถือกุญแจ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:332](../../../apps/comic/src/game/appraisal/content.ts#L332)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:333](../../../apps/comic/src/game/appraisal/content.ts#L333)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -1886,7 +1886,7 @@ Alien ปรับคลื่นลูกแก้วให้ ฟื้นพ�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ Dark One; ถือเครื่องราง; มี debuff
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:333](../../../apps/comic/src/game/appraisal/content.ts#L333)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:334](../../../apps/comic/src/game/appraisal/content.ts#L334)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -1919,7 +1919,7 @@ Dark One ขอแลกหน้ากากที่คุณถือกั�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ Dark One; ถือหน้ากาก
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:334](../../../apps/comic/src/game/appraisal/content.ts#L334)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:335](../../../apps/comic/src/game/appraisal/content.ts#L335)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -1951,7 +1951,7 @@ Dark One ขอแลกหน้ากากที่คุณถือกั�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบสัตว์นำทาง; ถืออาหาร
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:335](../../../apps/comic/src/game/appraisal/content.ts#L335)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:336](../../../apps/comic/src/game/appraisal/content.ts#L336)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -1983,7 +1983,7 @@ Dark One ขอแลกหน้ากากที่คุณถือกั�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบสัตว์นำทาง; ถือยา
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:336](../../../apps/comic/src/game/appraisal/content.ts#L336)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:337](../../../apps/comic/src/game/appraisal/content.ts#L337)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -2019,7 +2019,7 @@ Dark One ขอแลกหน้ากากที่คุณถือกั�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบสัตว์นำทาง; ถือดาบ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:337](../../../apps/comic/src/game/appraisal/content.ts#L337)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:338](../../../apps/comic/src/game/appraisal/content.ts#L338)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -2057,7 +2057,7 @@ Dark One ซื้อของต้องสาปหนึ่งชิ้น�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ Dark One; ถือของที่คุณรู้ว่ามีคำสาป; ธนาคารมีงบพอ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:338](../../../apps/comic/src/game/appraisal/content.ts#L338)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:339](../../../apps/comic/src/game/appraisal/content.ts#L339)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -2088,7 +2088,7 @@ Dark One ซื้อของต้องสาปหนึ่งชิ้น�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ Alien; ถือของที่คุณรู้ว่าเป็นของปลอม
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:339](../../../apps/comic/src/game/appraisal/content.ts#L339)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:340](../../../apps/comic/src/game/appraisal/content.ts#L340)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -2119,7 +2119,7 @@ Dark One ซื้อของต้องสาปหนึ่งชิ้น�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบออร์ก; ถือหน้ากาก
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:340](../../../apps/comic/src/game/appraisal/content.ts#L340)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:341](../../../apps/comic/src/game/appraisal/content.ts#L341)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -2154,7 +2154,7 @@ Autometa ใช้กระจกของคุณสอบเทียบเ�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ Autometa; ถือกระจก
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:341](../../../apps/comic/src/game/appraisal/content.ts#L341)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:342](../../../apps/comic/src/game/appraisal/content.ts#L342)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -2189,9 +2189,9 @@ Autometa ใช้กระจกของคุณสอบเทียบเ�
 
 - ตระกูล: npc-wishlist; flags: wishlist
 - จังหวะ: พบพ่อค้าที่ยังไม่เคยบอกของที่อยากได้
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:386](../../../apps/comic/src/game/appraisal/content.ts#L386)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:387](../../../apps/comic/src/game/appraisal/content.ts#L387)
 - ทางเลือก: decline (source-dependent), accept (source-dependent)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:205, policy:apps/comic/src/game/appraisal/events.ts:if:8508, policy:apps/comic/src/game/appraisal/events.ts:if:26985, policy:apps/comic/src/simulation/appraisal.ts:if:2952
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:205, policy:apps/comic/src/game/appraisal/events.ts:if:8508, policy:apps/comic/src/game/appraisal/events.ts:if:26985, policy:apps/comic/src/simulation/appraisal.ts:if:3009
 - Operations: data-driven / generic handler; see handlerRefs
 
 ```json
@@ -2211,7 +2211,7 @@ Autometa ใช้กระจกของคุณสอบเทียบเ�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบอสูรใต้ทะเลลึก; ถือไข่มุกห้วงลึก
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:342](../../../apps/comic/src/game/appraisal/content.ts#L342)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:343](../../../apps/comic/src/game/appraisal/content.ts#L343)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -2244,7 +2244,7 @@ Autometa ใช้กระจกของคุณสอบเทียบเ�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบอสูรใต้ทะเลลึก; ถือหมึกยักษ์ดำ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:343](../../../apps/comic/src/game/appraisal/content.ts#L343)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:344](../../../apps/comic/src/game/appraisal/content.ts#L344)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -2281,7 +2281,7 @@ Autometa ใช้กระจกของคุณสอบเทียบเ�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบอสูรใต้ทะเลลึก; ถือเครื่องราง
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:344](../../../apps/comic/src/game/appraisal/content.ts#L344)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:345](../../../apps/comic/src/game/appraisal/content.ts#L345)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -2316,7 +2316,7 @@ Autometa ใช้กระจกของคุณสอบเทียบเ�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบอสูรใต้ทะเลลึก; ถือหน้ากาก; ธนาคารมีงบพอ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:345](../../../apps/comic/src/game/appraisal/content.ts#L345)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:346](../../../apps/comic/src/game/appraisal/content.ts#L346)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -2349,7 +2349,7 @@ Autometa ใช้กระจกของคุณสอบเทียบเ�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบอสูรใต้ทะเลลึก; ถืออาหาร
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:346](../../../apps/comic/src/game/appraisal/content.ts#L346)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:347](../../../apps/comic/src/game/appraisal/content.ts#L347)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -2385,7 +2385,7 @@ Autometa ใช้กระจกของคุณสอบเทียบเ�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ The Swarm; ถือดาบ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:347](../../../apps/comic/src/game/appraisal/content.ts#L347)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:348](../../../apps/comic/src/game/appraisal/content.ts#L348)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -2423,7 +2423,7 @@ The Swarm ขออาหารที่คุณถือไปเลี้ย�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ The Swarm; ถืออาหาร
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:348](../../../apps/comic/src/game/appraisal/content.ts#L348)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:349](../../../apps/comic/src/game/appraisal/content.ts#L349)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -2455,7 +2455,7 @@ The Swarm ขออาหารที่คุณถือไปเลี้ย�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ The Swarm; ถือยา; มี debuff
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:349](../../../apps/comic/src/game/appraisal/content.ts#L349)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:350](../../../apps/comic/src/game/appraisal/content.ts#L350)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -2488,7 +2488,7 @@ The Swarm ขออาหารที่คุณถือไปเลี้ย�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ The Swarm; ถือเครื่องตรวจ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:350](../../../apps/comic/src/game/appraisal/content.ts#L350)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:351](../../../apps/comic/src/game/appraisal/content.ts#L351)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -2525,7 +2525,7 @@ The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไ�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ The Swarm; ถือแบตเตอรี่; ธนาคารมีงบพอ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:351](../../../apps/comic/src/game/appraisal/content.ts#L351)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:352](../../../apps/comic/src/game/appraisal/content.ts#L352)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -2558,10 +2558,10 @@ The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไ�
 
 - ตระกูล: expansion; flags: expansion
 - จังหวะ: พบอสูรใต้ทะเลลึก; มีพลัง 1
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:376](../../../apps/comic/src/game/appraisal/content.ts#L376)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:377](../../../apps/comic/src/game/appraisal/content.ts#L377)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:76, policy:apps/comic/src/game/appraisal/events.ts:393
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:38968, operation:apps/comic/src/game/appraisal/events.ts:38991
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:38974, operation:apps/comic/src/game/appraisal/events.ts:38997
 
 ```json
 {
@@ -2580,10 +2580,10 @@ The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไ�
 
 - ตระกูล: expansion; flags: expansion
 - จังหวะ: พบ The Swarm; มีเครดิต 1
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:377](../../../apps/comic/src/game/appraisal/content.ts#L377)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:378](../../../apps/comic/src/game/appraisal/content.ts#L378)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:77, policy:apps/comic/src/game/appraisal/events.ts:394
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:39036, operation:apps/comic/src/game/appraisal/events.ts:39059
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:39042, operation:apps/comic/src/game/appraisal/events.ts:39065
 
 ```json
 {
@@ -2602,10 +2602,10 @@ The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไ�
 
 - ตระกูล: expansion; flags: expansion
 - จังหวะ: ธนาคารมีงบ 3 เครดิต
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:378](../../../apps/comic/src/game/appraisal/content.ts#L378)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:379](../../../apps/comic/src/game/appraisal/content.ts#L379)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:78, policy:apps/comic/src/game/appraisal/events.ts:395
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:39104, operation:apps/comic/src/game/appraisal/events.ts:39126
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:39110, operation:apps/comic/src/game/appraisal/events.ts:39132
 
 ```json
 {
@@ -2624,10 +2624,10 @@ The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไ�
 
 - ตระกูล: expansion; flags: expansion
 - จังหวะ: มีพลัง 2; ธนาคารมีงบ 6 เครดิต
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:379](../../../apps/comic/src/game/appraisal/content.ts#L379)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:380](../../../apps/comic/src/game/appraisal/content.ts#L380)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:79, policy:apps/comic/src/game/appraisal/events.ts:396
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:39173, operation:apps/comic/src/game/appraisal/events.ts:39250, operation:apps/comic/src/game/appraisal/events.ts:39271, operation:apps/comic/src/game/appraisal/events.ts:39360
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:39179, operation:apps/comic/src/game/appraisal/events.ts:39256, operation:apps/comic/src/game/appraisal/events.ts:39277, operation:apps/comic/src/game/appraisal/events.ts:39366
 
 ```json
 {
@@ -2646,10 +2646,10 @@ The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไ�
 
 - ตระกูล: expansion; flags: expansion
 - จังหวะ: มีผลเสียจากฝูงหรือห้วงลึกติดตัว; มีเครดิต 1
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:380](../../../apps/comic/src/game/appraisal/content.ts#L380)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:381](../../../apps/comic/src/game/appraisal/content.ts#L381)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:80, policy:apps/comic/src/game/appraisal/events.ts:397, policy:apps/comic/src/simulation/appraisal.ts:if:4512
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:39656, operation:apps/comic/src/game/appraisal/events.ts:39679
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:80, policy:apps/comic/src/game/appraisal/events.ts:397, policy:apps/comic/src/simulation/appraisal.ts:if:4569
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:39662, operation:apps/comic/src/game/appraisal/events.ts:39685
 
 ```json
 {
@@ -2668,10 +2668,10 @@ The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไ�
 
 - ตระกูล: expansion; flags: expansion
 - จังหวะ: ยังไม่มี B11 และ D14
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:381](../../../apps/comic/src/game/appraisal/content.ts#L381)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:382](../../../apps/comic/src/game/appraisal/content.ts#L382)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:81, policy:apps/comic/src/game/appraisal/events.ts:398
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:39729, operation:apps/comic/src/game/appraisal/events.ts:39751
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:39735, operation:apps/comic/src/game/appraisal/events.ts:39757
 
 ```json
 {
@@ -2690,10 +2690,10 @@ The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไ�
 
 - ตระกูล: expansion; flags: expansion
 - จังหวะ: พบ The Swarm
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:382](../../../apps/comic/src/game/appraisal/content.ts#L382)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:383](../../../apps/comic/src/game/appraisal/content.ts#L383)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:82, policy:apps/comic/src/game/appraisal/events.ts:399
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:39796, operation:apps/comic/src/game/appraisal/events.ts:39818
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:39802, operation:apps/comic/src/game/appraisal/events.ts:39824
 
 ```json
 {
@@ -2712,10 +2712,10 @@ The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไ�
 
 - ตระกูล: expansion; flags: expansion
 - จังหวะ: พบอสูรใต้ทะเลลึก; มีพลัง 2 หรือชีวิตเกิน 1
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:383](../../../apps/comic/src/game/appraisal/content.ts#L383)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:384](../../../apps/comic/src/game/appraisal/content.ts#L384)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:83, policy:apps/comic/src/game/appraisal/events.ts:400
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:39928, operation:apps/comic/src/game/appraisal/events.ts:39959, operation:apps/comic/src/game/appraisal/events.ts:39982, operation:apps/comic/src/game/appraisal/events.ts:40004, operation:apps/comic/src/game/appraisal/events.ts:40026
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:39934, operation:apps/comic/src/game/appraisal/events.ts:39971, operation:apps/comic/src/game/appraisal/events.ts:39994, operation:apps/comic/src/game/appraisal/events.ts:40016, operation:apps/comic/src/game/appraisal/events.ts:40038
 
 ```json
 {
@@ -2734,10 +2734,10 @@ The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไ�
 
 - ตระกูล: expansion; flags: expansion
 - จังหวะ: ช่วงต่อรอง; ธนาคารมีงบ 2 เครดิต
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:384](../../../apps/comic/src/game/appraisal/content.ts#L384)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:385](../../../apps/comic/src/game/appraisal/content.ts#L385)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:401, policy:apps/comic/src/game/appraisal/events.ts:if:6403
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:40072, operation:apps/comic/src/game/appraisal/events.ts:40094
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:40084, operation:apps/comic/src/game/appraisal/events.ts:40106
 
 ```json
 {
@@ -2756,10 +2756,10 @@ The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไ�
 
 - ตระกูล: expansion; flags: expansion
 - จังหวะ: มีพลัง 1; ธนาคารมีงบ 1 เครดิต
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:385](../../../apps/comic/src/game/appraisal/content.ts#L385)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:386](../../../apps/comic/src/game/appraisal/content.ts#L386)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:84, policy:apps/comic/src/game/appraisal/events.ts:402
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:40141, operation:apps/comic/src/game/appraisal/events.ts:40216, operation:apps/comic/src/game/appraisal/events.ts:40237, operation:apps/comic/src/game/appraisal/events.ts:40335
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:40153, operation:apps/comic/src/game/appraisal/events.ts:40228, operation:apps/comic/src/game/appraisal/events.ts:40249, operation:apps/comic/src/game/appraisal/events.ts:40347
 
 ```json
 {
@@ -2778,10 +2778,10 @@ The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไ�
 
 - ตระกูล: polish; flags: polish
 - จังหวะ: ยังไม่มี B17 หรือ D17; มีเครดิต 2
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:368](../../../apps/comic/src/game/appraisal/content.ts#L368)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:369](../../../apps/comic/src/game/appraisal/content.ts#L369)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:388
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:38535, operation:apps/comic/src/game/appraisal/events.ts:38607, operation:apps/comic/src/game/appraisal/events.ts:38666
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:38541, operation:apps/comic/src/game/appraisal/events.ts:38613, operation:apps/comic/src/game/appraisal/events.ts:38672
 
 ```json
 {
@@ -2810,10 +2810,10 @@ The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไ�
 
 - ตระกูล: polish; flags: polish
 - จังหวะ: ยังไม่มี B17 หรือ D17; ธนาคารมีงบ 3 เครดิต
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:369](../../../apps/comic/src/game/appraisal/content.ts#L369)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:370](../../../apps/comic/src/game/appraisal/content.ts#L370)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:388
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:38535, operation:apps/comic/src/game/appraisal/events.ts:38607, operation:apps/comic/src/game/appraisal/events.ts:38666
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:38541, operation:apps/comic/src/game/appraisal/events.ts:38613, operation:apps/comic/src/game/appraisal/events.ts:38672
 
 ```json
 {
@@ -2842,10 +2842,10 @@ The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไ�
 
 - ตระกูล: polish; flags: polish
 - จังหวะ: ยังไม่มี B18 หรือ D19; มีพลัง 1
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:370](../../../apps/comic/src/game/appraisal/content.ts#L370)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:371](../../../apps/comic/src/game/appraisal/content.ts#L371)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:388
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:38535, operation:apps/comic/src/game/appraisal/events.ts:38607, operation:apps/comic/src/game/appraisal/events.ts:38666
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:38541, operation:apps/comic/src/game/appraisal/events.ts:38613, operation:apps/comic/src/game/appraisal/events.ts:38672
 
 ```json
 {
@@ -2874,10 +2874,10 @@ The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไ�
 
 - ตระกูล: polish; flags: polish
 - จังหวะ: ห้องมีระบบประมูลตลาดเงา; มีเครดิต 2
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:371](../../../apps/comic/src/game/appraisal/content.ts#L371)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:372](../../../apps/comic/src/game/appraisal/content.ts#L372)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:388
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:38535, operation:apps/comic/src/game/appraisal/events.ts:38607, operation:apps/comic/src/game/appraisal/events.ts:38666
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:38541, operation:apps/comic/src/game/appraisal/events.ts:38613, operation:apps/comic/src/game/appraisal/events.ts:38672
 
 ```json
 {
@@ -2906,10 +2906,10 @@ The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไ�
 
 - ตระกูล: polish; flags: polish
 - จังหวะ: ยังไม่มี B19 หรือ D20; มีพลัง 1
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:372](../../../apps/comic/src/game/appraisal/content.ts#L372)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:373](../../../apps/comic/src/game/appraisal/content.ts#L373)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:388
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:38535, operation:apps/comic/src/game/appraisal/events.ts:38607, operation:apps/comic/src/game/appraisal/events.ts:38666
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:38541, operation:apps/comic/src/game/appraisal/events.ts:38613, operation:apps/comic/src/game/appraisal/events.ts:38672
 
 ```json
 {
@@ -2938,10 +2938,10 @@ The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไ�
 
 - ตระกูล: polish; flags: polish
 - จังหวะ: ยังไม่มี B19 หรือ D20; ธนาคารมีงบ 4 เครดิต
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:373](../../../apps/comic/src/game/appraisal/content.ts#L373)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:374](../../../apps/comic/src/game/appraisal/content.ts#L374)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:388
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:38535, operation:apps/comic/src/game/appraisal/events.ts:38607, operation:apps/comic/src/game/appraisal/events.ts:38666
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:38541, operation:apps/comic/src/game/appraisal/events.ts:38613, operation:apps/comic/src/game/appraisal/events.ts:38672
 
 ```json
 {
@@ -2970,10 +2970,10 @@ The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไ�
 
 - ตระกูล: polish; flags: polish
 - จังหวะ: ยังไม่มี D18; ธนาคารมีงบ 2 เครดิต
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:374](../../../apps/comic/src/game/appraisal/content.ts#L374)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:375](../../../apps/comic/src/game/appraisal/content.ts#L375)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:388
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:38535, operation:apps/comic/src/game/appraisal/events.ts:38607, operation:apps/comic/src/game/appraisal/events.ts:38666
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:38541, operation:apps/comic/src/game/appraisal/events.ts:38613, operation:apps/comic/src/game/appraisal/events.ts:38672
 
 ```json
 {
@@ -3001,10 +3001,10 @@ The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไ�
 
 - ตระกูล: polish; flags: polish
 - จังหวะ: ช่วงต่อรอง; ไม่มี B17 D17 D18; มีเครดิต 1
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:375](../../../apps/comic/src/game/appraisal/content.ts#L375)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:376](../../../apps/comic/src/game/appraisal/content.ts#L376)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/events.ts:388
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:38535, operation:apps/comic/src/game/appraisal/events.ts:38607, operation:apps/comic/src/game/appraisal/events.ts:38666
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:38541, operation:apps/comic/src/game/appraisal/events.ts:38613, operation:apps/comic/src/game/appraisal/events.ts:38672
 
 ```json
 {
@@ -3035,7 +3035,7 @@ The Swarm ซื้อแบตเตอรี่หนึ่งชิ้นไ�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบออร์ก; ถือขวดพลังสำรอง
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:352](../../../apps/comic/src/game/appraisal/content.ts#L352)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:353](../../../apps/comic/src/game/appraisal/content.ts#L353)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -3070,7 +3070,7 @@ Alien อ่านสมุดคำสัญญาของคุณและ�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ Alien; ถือสมุดคำสัญญาพ่อค้า
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:353](../../../apps/comic/src/game/appraisal/content.ts#L353)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:354](../../../apps/comic/src/game/appraisal/content.ts#L354)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -3106,7 +3106,7 @@ Alien อ่านสมุดคำสัญญาของคุณและ�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ Autometa; ถือขวดพลังสำรอง
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:354](../../../apps/comic/src/game/appraisal/content.ts#L354)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:355](../../../apps/comic/src/game/appraisal/content.ts#L355)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -3142,7 +3142,7 @@ Alien อ่านสมุดคำสัญญาของคุณและ�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบสัตว์นำทาง; ถือศิลาชีพจรเก่า
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:355](../../../apps/comic/src/game/appraisal/content.ts#L355)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:356](../../../apps/comic/src/game/appraisal/content.ts#L356)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -3177,7 +3177,7 @@ Dark One ซื้อสมุดคำสัญญาหนึ่งเล่�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบ Dark One; ถือสมุดคำสัญญาพ่อค้า; ธนาคารมีงบพอ
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:356](../../../apps/comic/src/game/appraisal/content.ts#L356)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:357](../../../apps/comic/src/game/appraisal/content.ts#L357)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -3210,7 +3210,7 @@ Dark One ซื้อสมุดคำสัญญาหนึ่งเล่�
 
 - ตระกูล: merchant-bond; flags: brokerage
 - จังหวะ: พบอสูรใต้ทะเลลึก; ถือศิลาชีพจรเก่า
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:357](../../../apps/comic/src/game/appraisal/content.ts#L357)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:358](../../../apps/comic/src/game/appraisal/content.ts#L358)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: 
 - Operations: data-driven / generic handler; see handlerRefs
@@ -3243,10 +3243,10 @@ Dark One ซื้อสมุดคำสัญญาหนึ่งเล่�
 
 - ตระกูล: boon; flags: polish
 - จังหวะ: ช่วงประเมิน; มีผลดีที่ยังไม่ติดตัวอย่างน้อย 3 อย่าง
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:368](../../../apps/comic/src/game/appraisal/content.ts#L368)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:369](../../../apps/comic/src/game/appraisal/content.ts#L369)
 - ทางเลือก: pick (source-dependent), decline (source-dependent)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:180, policy:apps/comic/src/game/appraisal/events.ts:204, policy:apps/comic/src/game/appraisal/events.ts:392, policy:apps/comic/src/simulation/appraisal.ts:if:3966
-- Operations: operation:apps/comic/src/game/appraisal/events.ts:38864
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:180, policy:apps/comic/src/game/appraisal/events.ts:204, policy:apps/comic/src/game/appraisal/events.ts:392, policy:apps/comic/src/simulation/appraisal.ts:if:4023
+- Operations: operation:apps/comic/src/game/appraisal/events.ts:38870
 
 ```json
 {
@@ -3265,9 +3265,9 @@ Dark One ซื้อสมุดคำสัญญาหนึ่งเล่�
 
 - ตระกูล: personal-npc; flags: npcEvents
 - จังหวะ: พบ Vampire; ชีวิตเกิน 2 และไม่มีสัญญาเลือดค้าง
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:360](../../../apps/comic/src/game/appraisal/content.ts#L360)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:361](../../../apps/comic/src/game/appraisal/content.ts#L361)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:24, policy:apps/comic/src/game/appraisal/npc-events.ts:93, policy:apps/comic/src/game/appraisal/npc-events.ts:if:3104, policy:apps/comic/src/simulation/appraisal.ts:if:4174
+- Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:24, policy:apps/comic/src/game/appraisal/npc-events.ts:93, policy:apps/comic/src/game/appraisal/npc-events.ts:if:3104, policy:apps/comic/src/simulation/appraisal.ts:if:4231
 - Operations: data-driven / generic handler; see handlerRefs
 
 ```json
@@ -3287,7 +3287,7 @@ Alien ขอยืมของ 1–3 ชิ้น เลือกจำนวน
 
 - ตระกูล: personal-npc; flags: npcEvents
 - จังหวะ: พบ Alien; มีสินค้าที่ให้ยืมได้และไม่มีสัญญายืมค้าง
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:361](../../../apps/comic/src/game/appraisal/content.ts#L361)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:362](../../../apps/comic/src/game/appraisal/content.ts#L362)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:25, policy:apps/comic/src/game/appraisal/npc-events.ts:94, policy:apps/comic/src/game/appraisal/npc-events.ts:if:3135
 - Operations: data-driven / generic handler; see handlerRefs
@@ -3309,7 +3309,7 @@ Dark One สุ่มขอค่าตอบแทน 1–3 ประเภท�
 
 - ตระกูล: personal-npc; flags: npcEvents
 - จังหวะ: พบ Dark One; มีทรัพยากรจ่ายและมีเป้าหมาย
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:362](../../../apps/comic/src/game/appraisal/content.ts#L362)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:363](../../../apps/comic/src/game/appraisal/content.ts#L363)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:26, policy:apps/comic/src/game/appraisal/npc-events.ts:104, policy:apps/comic/src/game/appraisal/npc-events.ts:if:3373
 - Operations: operation:apps/comic/src/game/appraisal/npc-events.ts:8884, operation:apps/comic/src/game/appraisal/npc-events.ts:9141
@@ -3331,7 +3331,7 @@ Dark One สุ่มขอค่าตอบแทน 1–3 ประเภท�
 
 - ตระกูล: personal-npc; flags: npcEvents
 - จังหวะ: พบ Autometa; มีสินค้าให้แลกหรือมีพลัง 2
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:363](../../../apps/comic/src/game/appraisal/content.ts#L363)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:364](../../../apps/comic/src/game/appraisal/content.ts#L364)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:27, policy:apps/comic/src/game/appraisal/npc-events.ts:108, policy:apps/comic/src/game/appraisal/npc-events.ts:if:4200
 - Operations: data-driven / generic handler; see handlerRefs
@@ -3353,7 +3353,7 @@ Dark One สุ่มขอค่าตอบแทน 1–3 ประเภท�
 
 - ตระกูล: personal-npc; flags: npcEvents
 - จังหวะ: พบ Orc; มีพลัง 2
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:364](../../../apps/comic/src/game/appraisal/content.ts#L364)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:365](../../../apps/comic/src/game/appraisal/content.ts#L365)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:28, policy:apps/comic/src/game/appraisal/npc-events.ts:109, policy:apps/comic/src/game/appraisal/npc-events.ts:if:4311
 - Operations: data-driven / generic handler; see handlerRefs
@@ -3375,7 +3375,7 @@ Dark One สุ่มขอค่าตอบแทน 1–3 ประเภท�
 
 - ตระกูล: personal-npc; flags: npcEvents
 - จังหวะ: พบ Beast; มีสินค้าที่ส่งให้ได้
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:365](../../../apps/comic/src/game/appraisal/content.ts#L365)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:366](../../../apps/comic/src/game/appraisal/content.ts#L366)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:29, policy:apps/comic/src/game/appraisal/npc-events.ts:110, policy:apps/comic/src/game/appraisal/npc-events.ts:if:4344
 - Operations: operation:apps/comic/src/game/appraisal/npc-events.ts:9577, operation:apps/comic/src/game/appraisal/npc-events.ts:9631
@@ -3397,7 +3397,7 @@ Dark One สุ่มขอค่าตอบแทน 1–3 ประเภท�
 
 - ตระกูล: personal-npc; flags: npcEvents
 - จังหวะ: พบ Deep Sea Monster; มีเครดิต 3 และยังมีข้อมูลสินค้าไม่รู้
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:366](../../../apps/comic/src/game/appraisal/content.ts#L366)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:367](../../../apps/comic/src/game/appraisal/content.ts#L367)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:31, policy:apps/comic/src/game/appraisal/npc-events.ts:111, policy:apps/comic/src/game/appraisal/npc-events.ts:if:4391
 - Operations: operation:apps/comic/src/game/appraisal/npc-events.ts:10139
@@ -3419,7 +3419,7 @@ Dark One สุ่มขอค่าตอบแทน 1–3 ประเภท�
 
 - ตระกูล: personal-npc; flags: npcEvents
 - จังหวะ: พบ The Swarm; มีสินค้าที่ส่งให้ได้
-- แหล่ง: [apps/comic/src/game/appraisal/content.ts:367](../../../apps/comic/src/game/appraisal/content.ts#L367)
+- แหล่ง: [apps/comic/src/game/appraisal/content.ts:368](../../../apps/comic/src/game/appraisal/content.ts#L368)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
 - Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:30, policy:apps/comic/src/game/appraisal/npc-events.ts:117, policy:apps/comic/src/game/appraisal/npc-events.ts:if:4344
 - Operations: data-driven / generic handler; see handlerRefs
@@ -3729,7 +3729,7 @@ Dark One สุ่มขอค่าตอบแทน 1–3 ประเภท�
 - จังหวะ: มีสกิลที่ยังรออยู่
 - แหล่ง: [apps/comic/src/game/appraisal/ability-content.ts:20](../../../apps/comic/src/game/appraisal/ability-content.ts#L20)
 - ทางเลือก: wind (source-dependent), decline (source-dependent)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:186, policy:apps/comic/src/game/appraisal/events.ts:323, policy:apps/comic/src/game/appraisal/events.ts:if:7692, policy:apps/comic/src/simulation/appraisal.ts:if:1280
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:186, policy:apps/comic/src/game/appraisal/events.ts:323, policy:apps/comic/src/game/appraisal/events.ts:if:7692, policy:apps/comic/src/simulation/appraisal.ts:if:1337
 - Operations: operation:apps/comic/src/game/appraisal/events.ts:28040, operation:apps/comic/src/game/appraisal/events.ts:28062
 
 ```json
@@ -3751,7 +3751,7 @@ Dark One สุ่มขอค่าตอบแทน 1–3 ประเภท�
 - จังหวะ: มีพ่อค้าที่ไว้ใจอย่างน้อยหนึ่งราย
 - แหล่ง: [apps/comic/src/game/appraisal/ability-content.ts:21](../../../apps/comic/src/game/appraisal/ability-content.ts#L21)
 - ทางเลือก: haste (source-dependent), credits (source-dependent), decline (source-dependent)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:181, policy:apps/comic/src/game/appraisal/events.ts:187, policy:apps/comic/src/game/appraisal/events.ts:324, policy:apps/comic/src/game/appraisal/events.ts:if:7855, policy:apps/comic/src/simulation/appraisal.ts:if:1280
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:181, policy:apps/comic/src/game/appraisal/events.ts:187, policy:apps/comic/src/game/appraisal/events.ts:324, policy:apps/comic/src/game/appraisal/events.ts:if:7855, policy:apps/comic/src/simulation/appraisal.ts:if:1337
 - Operations: operation:apps/comic/src/game/appraisal/events.ts:28154, operation:apps/comic/src/game/appraisal/events.ts:28181, operation:apps/comic/src/game/appraisal/events.ts:28202
 
 ```json
@@ -3773,7 +3773,7 @@ Dark One สุ่มขอค่าตอบแทน 1–3 ประเภท�
 - จังหวะ: มีสินค้าจากพ่อค้าที่ไว้ใจ
 - แหล่ง: [apps/comic/src/game/appraisal/ability-content.ts:22](../../../apps/comic/src/game/appraisal/ability-content.ts#L22)
 - ทางเลือก: compass (source-dependent), survey (source-dependent), decline (source-dependent)
-- Policies: policy:apps/comic/src/game/appraisal/events.ts:182, policy:apps/comic/src/game/appraisal/events.ts:188, policy:apps/comic/src/game/appraisal/events.ts:325, policy:apps/comic/src/game/appraisal/events.ts:if:17380, policy:apps/comic/src/simulation/appraisal.ts:if:1280
+- Policies: policy:apps/comic/src/game/appraisal/events.ts:182, policy:apps/comic/src/game/appraisal/events.ts:188, policy:apps/comic/src/game/appraisal/events.ts:325, policy:apps/comic/src/game/appraisal/events.ts:if:17380, policy:apps/comic/src/simulation/appraisal.ts:if:1337
 - Operations: operation:apps/comic/src/game/appraisal/events.ts:28270, operation:apps/comic/src/game/appraisal/events.ts:28423, operation:apps/comic/src/game/appraisal/events.ts:28445
 
 ```json

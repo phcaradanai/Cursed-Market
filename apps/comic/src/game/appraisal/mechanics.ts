@@ -1,3 +1,4 @@
+import {priceCaliper,usePilot,pilotUses,pilotStrength} from './pilot-effects.js';
 import { itemPriceRange } from './rarity.js';
 import { rarityValue } from '../../shared/rarity-power.js';
 import { ownedAssetItemIds } from './secure-storage.js';
@@ -130,9 +131,10 @@ export function healLife(state:AppraisalState,p:Appraiser,amount:number,reason:s
   const before=p.life;p.life=Math.min(maxLifeOf(state,p)!,p.life+amount);
   trace(state,p,'life-restored',{amount:p.life-before,reason});
 }
-export function damageLife(state:AppraisalState,p:Appraiser,amount:number,reason:string):void {
+export function damageLife(state:AppraisalState,p:Appraiser,amount:number,reason:string,shieldable=true):void {
   check(p.life!==undefined,'life','กติกานี้ไม่มีชีวิตแยก');
   let hit=amount;
+  if(hit>0 && shieldable && !['blood-pact','dark-one-contract','market-condition','vampire-rite','darkone-pact'].includes(reason) && state.config.catalogVersion===4 && p.pilotGuard?.encounter===state.encounter){const before=hit;hit=Math.max(0,hit-p.pilotGuard.amount);delete p.pilotGuard;trace(state,p,'pilot-guard-absorbed',{amount:before-hit,reason});}
   if(hit>0 && status(p,'B19')){hit=Math.max(0,hit-integerEffect(statusMagnitude(p,'B19',1)));consumeStatus(p,'B19');}
   if(hit>0 && status(p,'D20')){hit+=integerEffect(statusMagnitude(p,'D20',1));consumeStatus(p,'D20');}
   const before=p.life;p.life=Math.max(0,p.life-hit);
@@ -218,10 +220,12 @@ export function inspect(state: AppraisalState, p: Appraiser, itemId: string, pro
   const cost = Math.max(0,1 + integerEffect(statusMagnitude(p,'D01',1)) - integerEffect(statusMagnitude(p,'B05',1)));
   const free=!merchantFree && cost>0 && freeInspectionCount(passiveBonuses(state,p),p,property)>0;
   const insight=!merchantFree && cost>0 && !free && p.inspections===0 && !!omenNow(state)?.firstInspectFree;
-  const compoundEyes=!merchantFree && cost>0 && !free && !insight && !!status(p,'B11');
-  spend(state,p,0,merchantFree||free||compoundEyes||insight?0:cost,'inspect');
+  const caliper=!merchantFree && cost>0 && !free && !insight && property==='price'?priceCaliper(state,p):undefined;
+  const compoundEyes=!merchantFree && cost>0 && !free && !insight && !caliper && !!status(p,'B11');
+  spend(state,p,0,merchantFree||free||compoundEyes||insight||caliper?0:cost,'inspect');
   if(merchantFree)(p.merchantActionsUsed??=[]).push(itemId);
   else if(free){p.passiveUses??={};p.passiveUses[property]=(p.passiveUses[property]??0)+1;}
+  else if(caliper){usePilot(state,caliper);trace(state,p,'pilot-price-check',{sourceItemId:caliper.id,itemId,savedEnergy:cost});}
   else if(insight) {/* the omen pays for it */}
   else if(compoundEyes) consumeStatus(p,'B11');
   else {consumeStatus(p,'B05');consumeStatus(p,'D01');}
@@ -261,7 +265,7 @@ export function appraise(state: AppraisalState, p: Appraiser, itemId: string, va
   const risk = detectionRisk(p,item,value);
   const caught = randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:detection`) < risk;
   const accuracy = Math.abs(value-item.base) <= item.base*.1;
-  let accepted = value >= item.reservation || !!state.config.commerce && value>0 && randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:trust-accept:${counter?p.counters:0}`)<Math.min(.95,trustAcceptanceBonus(p,item.npc)+passiveBonuses(state,p).acceptance/100+statusMagnitude(p,'B12',.25)+(omenNow(state)?.accept??0)/100);
+  let accepted = value >= item.reservation || !!state.config.commerce && value>0 && randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:trust-accept:${counter?p.counters:0}`)<Math.min(.95,trustAcceptanceBonus(p,item.npc)+passiveBonuses(state,p).acceptance/100+pilotStrength(state,p,'alien-thought-translator')*.02+statusMagnitude(p,'B12',.25)+(omenNow(state)?.accept??0)/100);
   // v0.6: pricing far above the merchant's own asking price rings alarm bells; the merchant refuses and may take revenge.
   const overChance=state.config.core2?overvalueChance(value,item.ask):0;
   let backlash=false;
@@ -399,14 +403,17 @@ export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraise
 export function activate(state: AppraisalState, p: Appraiser, itemId: string, npc?:NpcId, otherNpc?:NpcId): void {
   const item = ownedItem(state,p,itemId); check(!p.activated.includes(itemId),'activated','เปิดใช้ชิ้นนี้ใน encounter แล้ว');
   const spec = ITEM_SPECS[item.kind];
+  if(spec.nativeEffect){check(state.config.catalogVersion===4 && spec.explicitActivation,'activation','สินค้านี้ทำงานผ่านระบบที่ระบุ ไม่เปิดใช้แยก');check(pilotUses(state,item)===0,'activated','สินค้าชิ้นนี้ใช้ในช่วงนี้แล้ว');}
   spend(state,p,0,state.config.itemEffects && spec.consumable?0:1,'activate'); p.activated.push(itemId);
   const power=itemEffectScale(item);
-  const shielded = !!status(p,'B06') && spec.drawback.startsWith('D');
-  if (item.cursed) grant(state,p,spec.drawback,undefined,itemDrawbackScale(item));
+  if(spec.nativeEffect)usePilot(state,item);
+  const shielded = !!status(p,'B06') && !!spec.drawback?.startsWith('D');
+  if (item.cursed && spec.drawback) grant(state,p,spec.drawback,undefined,itemDrawbackScale(item));
   const fogged = !!status(p,'D14'); consumeStatus(p,'D14');
   const works = !fogged && item.genuine || !fogged && (!!state.config.fakeEffect && randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:fake-effect`) < FAKE_EFFECT_CHANCE);
   if (works) {
-    if(state.config.trustAbilities && (ABILITY_ITEM_IDS as readonly string[]).includes(item.kind)){
+    if(spec.nativeEffect==='effect:E62'){const amount=Math.min(2,integerEffect(power));if(amount>0)p.pilotGuard={encounter:state.encounter,amount:Math.max(amount,p.pilotGuard?.encounter===state.encounter?p.pilotGuard.amount:0)};}
+    else if(state.config.trustAbilities && (ABILITY_ITEM_IDS as readonly string[]).includes(item.kind)){
       check(!p.abilityItemUsed?.includes(item.kind),'ability-item','สินค้าชนิดนี้ใช้ได้ครั้งเดียวต่อช่วง');
       if(item.kind==='chrono-gear' || item.kind==='burden-hourglass'){
         check(npc && Object.hasOwn(MERCHANT_ABILITIES,npc) && (p.npcTrust?.[npc]??0)>=1 && reducibleCooldown(p,npc,state.encounter)>0,'ability-cooldown','เลือกสกิลที่ยังลดเวลารอได้');
@@ -433,7 +440,7 @@ export function activate(state: AppraisalState, p: Appraiser, itemId: string, np
     }
     else if (itemFamily(item.kind) === 'orb') recover(state,p,integerEffect((spec.energyRecovery??3)*power),'orb');
     else if (itemFamily(item.kind) === 'key' && status(p,'D07')) {if(power===1 || randomAt(state.seed,`${state.encounter}:${item.id}:copy-key`)<power)removeStatus(p,'D07');}
-    else grant(state,p,spec.buff,undefined,power);
+    else if(spec.buff)grant(state,p,spec.buff,undefined,power);
     if(state.config.survival && ['food','potion'].includes(itemFamily(item.kind)))healLife(state,p,integerEffect(2*power),'restorative-item');
     const bonus=state.config.itemEffects?ITEM_USE_EFFECTS[item.kind]:undefined;
     if(bonus) {
@@ -445,7 +452,7 @@ export function activate(state: AppraisalState, p: Appraiser, itemId: string, np
       }
     }
   }
-  if(state.config.survival && item.cursed)damageLife(state,p,integerEffect(itemDrawbackScale(item)),'cursed-activation');
+  if(state.config.survival && item.cursed)damageLife(state,p,integerEffect(itemDrawbackScale(item)),'cursed-activation',spec.nativeEffect!=='effect:E62');
   if (spec.consumable) {
     if(p.preserveItemId===item.id && !item.copy && !item.preserved){item.preserved=true;delete p.preserveItemId;}
     else {if(item.copy)state.items[item.copy.sourceId]!.copyConsumed=true;retire(state,p,itemId,'consumed',false);}
@@ -463,9 +470,9 @@ export function activationNote(state:AppraisalState,item:AppraisalItem,shielded:
   const spec = ITEM_SPECS[item.kind]; const name = item.copy?`สำเนา #${item.copy.number} ของ ${spec.name}`:spec.name;
   const extra=state.config.itemEffects?ITEM_USE_EFFECTS[item.kind]?.text:undefined;
   const custom=ABILITY_ITEM_TEXT[item.kind as keyof typeof ABILITY_ITEM_TEXT]??(state.config.trustAbilities?MODERN_ACTIVATIONS[item.kind as keyof typeof MODERN_ACTIVATIONS]:undefined);
-  const buff = custom?custom.th:(itemFamily(item.kind) === 'orb' ? `ฟื้นพลัง ${spec.energyRecovery ?? 3}` : STATUS_CATALOG.find(s => s.id === spec.buff)!.name)+(extra?` · ${extra}`:'');
-  const drawback = STATUS_CATALOG.find(s => s.id === spec.drawback)!.name;
-  const curse = `คำสาปทำงาน ${shielded ? `${drawback}ถูก${STATUS_CATALOG.find(s => s.id === 'B06')!.name}กันไว้` : `รับ ${drawback}`}${state.config.survival ? ' และเสียชีวิต 1' : ''}`;
+  const buff = spec.benefit??(custom?custom.th:(itemFamily(item.kind) === 'orb' ? `ฟื้นพลัง ${spec.energyRecovery ?? 3}` : STATUS_CATALOG.find(s => s.id === spec.buff)!.name)+(extra?` · ${extra}`:''));
+  const drawback = spec.nativeEffect?(spec.exclusions??''):STATUS_CATALOG.find(s => s.id === spec.drawback)!.name;
+  const curse = spec.nativeEffect?`คำสาปทำงาน${state.config.survival?' และเสียชีวิต 1':''}`:`คำสาปทำงาน ${shielded ? `${drawback}ถูก${STATUS_CATALOG.find(s => s.id === 'B06')!.name}กันไว้` : `รับ ${drawback}`}${state.config.survival ? ' และเสียชีวิต 1' : ''}`;
   if (fogged) return `เปิดใช้ ${name}: ${item.genuine ? 'ของแท้' : 'ของปลอม'}แต่หมอกวิกลจริตทำให้ผลดีไม่ออกฤทธิ์${item.cursed ? ` · ${curse}` : ''}`;
   if (item.genuine) return item.cursed ? `เปิดใช้ ${name}: ของแท้แต่มีคำสาป ได้ ${buff} · ${curse}` : `เปิดใช้ ${name}: ของแท้ ไม่มีคำสาป ได้ ${buff}`;
   const fake = worked ? `ของปลอมแต่ยังออกฤทธิ์ได้ ได้ ${buff}` : 'ของปลอม ผลดีไม่ออกฤทธิ์';
@@ -478,7 +485,7 @@ export function penaltyItem(state: AppraisalState, p: Appraiser, itemId: string)
 }
 export function kill(state: AppraisalState, p: Appraiser): void {
   if (status(p,'B08')) { consumeStatus(p,'B08'); p.energy = Math.max(0,p.energy-2); trace(state,p,'death-blocked'); }
-  else if(state.config.survival)damageLife(state,p,p.life!,'dark-one-contract');
+  else if(state.config.survival)damageLife(state,p,p.life!,'dark-one-contract',false);
   else { p.paused = 'dead'; p.done = true; p.eventOffer = null; trace(state,p,'death'); }
 }
 export function marketSell(state: AppraisalState, p: Appraiser, itemId: string, orderId: string, resolution:'discount'|'sacrifice'='discount'): void {
@@ -507,7 +514,7 @@ export function marketSell(state: AppraisalState, p: Appraiser, itemId: string, 
     else {
       const cost=contract.fullPriceCost;
       if(cost.kind==='energy')spend(state,p,0,cost.amount,'market-condition');
-      else if(cost.kind==='life') {check(state.config.survival && p.life!>cost.amount,'life','ต้องเหลือชีวิตอย่างน้อย 1 หลังจ่าย');damageLife(state,p,cost.amount,'market-condition');}
+      else if(cost.kind==='life') {check(state.config.survival && p.life!>cost.amount,'life','ต้องเหลือชีวิตอย่างน้อย 1 หลังจ่าย');damageLife(state,p,cost.amount,'market-condition',false);}
       else grant(state,p,cost.statusId);
     }
   }

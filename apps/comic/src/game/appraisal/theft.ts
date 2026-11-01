@@ -1,3 +1,4 @@
+import {pilotCrimeCost,swordForDuel,pilotUses,usePilot} from './pilot-effects.js';
 import { randomAt } from '../random.js';
 import { CORE2 } from './core2.js';
 import { check, consumeStatus, grant, omenNow, spend, status, stockItem, trace, transfer, unlocked } from './mechanics.js';
@@ -38,6 +39,7 @@ export interface TheftDuel {
   npc?: NpcId;
   itemId: string;
   ask: number;
+  swordIds?:Record<string,string>;
   hands: Record<string, RpsHand>;
   round: number;
   status: 'open' | 'won' | 'lost' | 'cancelled';
@@ -55,6 +57,7 @@ export interface TheftDuelView {
   submitted: boolean;
   /** Status links: who a tied round goes to, from this seat's own statuses and the omen only. */
   tieGoesTo?: 'you' | 'opponent';
+  publicSwords?:{you:boolean;opponent:boolean};
   revealed: TheftDuel['revealed'];
 }
 export interface TheftView {
@@ -153,6 +156,7 @@ export function startTheftDuel(state: AppraisalState, p: Appraiser, target: {ite
     ...(victim ? {victimId: victim.id} : {npc: item.npc}),
     hands: {}, round: 1, status: 'open', revealed: [],
   };
+  if(state.config.catalogVersion===4){duel.swordIds={};for(const seat of [p,...(victim?[victim]:[])]){const sword=swordForDuel(state,seat);if(sword)duel.swordIds[seat.id]=sword.id;}}
   if(!victim)duel.hands.npc = npcHand(state,duel);
   duels.push(duel);
   trace(state,p,'theft-started',{duelId:duel.id,...(victim ? {victimId:victim.id} : {itemId:item.id,npc:item.npc})});
@@ -264,7 +268,9 @@ export function chooseTheftHand(state: AppraisalState, p: Appraiser, duelId: str
   const thief = state.players.find(v => v.id === duel.thiefId)!;
   let won: boolean;
   if(thiefHand === opponentHand) {
-    const edge = state.config.statusLinks === 1 ? breakTie(state,duel,thief) : 0;
+    let swordEdge=0;
+    for(const [id,itemId] of Object.entries(duel.swordIds??{})){const item=state.items[itemId]!;if(pilotUses(state,item)===0){swordEdge+=id===duel.thiefId?1:-1;usePilot(state,item);trace(state,thief,'pilot-sword-used',{duelId:duel.id,playerId:id,itemId});}}
+    const edge = swordEdge+(state.config.statusLinks === 1 ? breakTie(state,duel,thief) : 0);
     if(edge === 0) {
       duel.round++;
       if(!duel.victimId)duel.hands.npc = npcHand(state,duel);
@@ -318,7 +324,7 @@ const noticePrice = (crime: CrimeRecord) => 2*crime.cases.reduce((sum,c) => sum+
 export function clearCrime(state: AppraisalState, p: Appraiser): void {
   const crime = (p as Thief).crime;
   check(crime && crime.cases.length > 0,'crime','ไม่มีโทษให้ล้าง');
-  const price = noticePrice(crime);
+  const price = pilotCrimeCost(state,p,noticePrice(crime));
   spend(state,p,price,0,'criminal-notice');
   delete (p as Thief).crime;
   note(p,`ซื้อใบประกาศอาชญากร ${price} เครดิต ล้างทุกคดีและโทษห้ามค้าขายทันที`);
@@ -340,6 +346,7 @@ export function theftViewFor(state: AppraisalState, p: Appraiser): TheftView {
       ...(d.npc ? {npcTell:npcTheftTell(d.npc)} : {}),
       round:d.round, status:d.status, needsChoice:d.status === 'open' && !d.hands[p.id], submitted:!!d.hands[p.id],
       ...(state.config.statusLinks === 1 && d.status === 'open' ? tieView(state,d,p) : {}),
+      ...(d.swordIds?{publicSwords:{you:!!d.swordIds[p.id] && pilotUses(state,state.items[d.swordIds[p.id]!]!)===0,opponent:!!d.swordIds[d.thiefId===p.id?d.victimId??'npc':d.thiefId] && pilotUses(state,state.items[d.swordIds[d.thiefId===p.id?d.victimId??'npc':d.thiefId]!]!)===0}}:{}),
       revealed:d.revealed.map(r => ({...r})),
     })),
     targets: state.players.filter(v => v.id !== p.id && !v.paused && !v.done).map(v => {
@@ -351,6 +358,6 @@ export function theftViewFor(state: AppraisalState, p: Appraiser): TheftView {
       amount:c.amount,remaining:c.dueEncounters.filter(e => !c.settled.some(s => s.encounter === e)),paid:c.settled.reduce((sum,s) => sum+s.paid,0),
     })),
     seals: ((state as TheftState).sinnerSeals ?? []).filter(seal => seal.holderId === p.id).map(seal => ({id:seal.id,thiefId:seal.thiefId})),
-    ...(crime ? {crime:{failures:crime.failures,banStartsEncounter:crime.banStartsEncounter,banUntilEncounter:crime.banUntilEncounter,active:merchantTradeBanned(state,p),noticePrice:noticePrice(crime),cases:crime.cases.length}} : {}),
+    ...(crime ? {crime:{failures:crime.failures,banStartsEncounter:crime.banStartsEncounter,banUntilEncounter:crime.banUntilEncounter,active:merchantTradeBanned(state,p),noticePrice:pilotCrimeCost(state,p,noticePrice(crime)),cases:crime.cases.length}} : {}),
   };
 }

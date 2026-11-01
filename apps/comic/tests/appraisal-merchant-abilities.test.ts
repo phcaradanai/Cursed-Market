@@ -171,7 +171,7 @@ test('new products have different mechanics and unique name-to-image mappings; l
   const fingerprints=new Set<string>(),hashes=new Set<string>();
   for(const [kind,spec] of Object.entries(ABILITY_ITEMS)){
     const text=ABILITY_ITEM_TEXT[kind as keyof typeof ABILITY_ITEM_TEXT].en;assert(!fingerprints.has(text));fingerprints.add(text);
-    assert.equal(ITEM_SPECS[kind as ItemKind].name,spec.name);const bytes=readFileSync(`src/appraisal-client/public${itemImage(kind as ItemKind)}`);assert.equal(bytes.subarray(0,3).toString('hex'),'ffd8ff');hashes.add(createHash('sha256').update(bytes).digest('hex'));
+    assert.equal(ITEM_SPECS[kind as ItemKind].name,spec.name);const bytes=readFileSync(`src/appraisal-client/public${itemImage(kind as ItemKind)}`);assert.equal(bytes.subarray(0,8).toString('hex'),'89504e470d0a1a0a');hashes.add(createHash('sha256').update(bytes).digest('hex'));
     for(const npc of Object.keys(NPC_SPECS) as NpcId[]){assert(!merchantKinds(npc,3,true,true,true,true).includes(kind as ItemKind));}
   }
   assert.equal(hashes.size,3);const reachable=new Set((Object.keys(NPC_SPECS) as NpcId[]).flatMap(n=>merchantKinds(n,3,true,true,true,true,true)));for(const kind of Object.keys(ABILITY_ITEMS))assert(reachable.has(kind as ItemKind));
@@ -233,10 +233,10 @@ test('the full new-run catalog has no mechanically identical profiles after igno
   for(const [kind,spec] of Object.entries(ITEM_SPECS)){
     const held=(PASSIVE_ITEMS as Record<string,{passive:{effect:string;amount:number}}>)[kind]?.passive??EXTRA_HELD_EFFECTS[kind as ItemKind],use=ITEM_USE_EFFECTS[kind as ItemKind];
     const modern=MODERN_ACTIVATIONS[kind as keyof typeof MODERN_ACTIVATIONS];
-    const profile=JSON.stringify({active:modern?.operation??spec.buff,drawback:spec.drawback,consumable:spec.consumable,energyRecovery:spec.energyRecovery??(spec.family==='orb'||kind==='orb'?3:0),held:held?[held.effect,held.amount]:null,use:use?[use.effect,use.amount]:null,tool:['smith-hammer','whetstone','doubt-lens','void-seal','chrono-gear','burden-hourglass','shifting-compass'].includes(kind)?kind:null});
+    const profile=JSON.stringify({active:spec.nativeEffect??modern?.operation??spec.buff,drawback:spec.drawback,consumable:spec.consumable,energyRecovery:spec.energyRecovery??(spec.family==='orb'||kind==='orb'?3:0),held:held?[held.effect,held.amount]:null,use:use?[use.effect,use.amount]:null,tool:['smith-hammer','whetstone','doubt-lens','void-seal','chrono-gear','burden-hourglass','shifting-compass'].includes(kind)?kind:null});
     assert.equal(profiles.has(profile),false,`${kind} duplicates ${profiles.get(profile)}`);profiles.set(profile,kind);
   }
-  assert.equal(profiles.size,66);
+  assert.equal(profiles.size,74);
 });
 
 test('previously duplicated scanner, memory mirror and void cell now change different decisions',()=>{

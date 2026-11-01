@@ -1,3 +1,4 @@
+import {PILOT_ITEMS} from './pilot-catalog.js';
 import { ABILITY_ITEMS, ABILITY_EVENT_CATALOG, ABILITY_STATUS_CATALOG } from './ability-content.js';
 import { ABILITY_ITEM_IDS } from './types.js';
 import { PASSIVE_ITEMS, passiveSpec } from './passives.js';
@@ -684,7 +685,7 @@ export const STATUS_CATALOG: ReadonlyArray<{id:StatusId;name:string;description:
 
 /** Every status, original and v0.6. STATUS_CATALOG alone stays the original forty so saved runs and their tests are unchanged. */
 export const ALL_STATUS_CATALOG: ReadonlyArray<{id:StatusId;name:string;description:string;duration:string;source:string}> = [...STATUS_CATALOG, ...CORE2_STATUS_CATALOG, ...ABILITY_STATUS_CATALOG];
-export interface ItemSpec { name:string;anchor:number;buff:StatusId;drawback:StatusId;consumable:boolean;family?:ItemFamily;energyRecovery?:number }
+export interface ItemSpec { name:string;anchor:number;buff?:StatusId;drawback?:StatusId;nativeEffect?:`effect:E${number}`;merchant?:NpcId;explicitActivation?:boolean;benefit?:string;usage?:string;exclusions?:string;consumable:boolean;family?:ItemFamily;energyRecovery?:number }
 export const ITEM_SPECS: Record<ItemKind,ItemSpec> = {
   mirror:{name:'กระจกจันทรา',anchor:24,buff:'B01',drawback:'D05',consumable:false},
   orb:{name:'ลูกแก้วแลกแรง',anchor:14,buff:'B09',drawback:'D10',consumable:true},
@@ -730,10 +731,11 @@ export const ITEM_SPECS: Record<ItemKind,ItemSpec> = {
   'compound-mirror':{name:'กระจกตารวม',family:'mirror',anchor:22,buff:'B11',drawback:'D15',consumable:false},
   ...PASSIVE_ITEMS,
   ...ABILITY_ITEMS,
+  ...PILOT_ITEMS,
 };
 export function itemFamily(kind:ItemKind):ItemFamily { return ITEM_SPECS[kind].family ?? kind as ItemFamily; }
 /** Comic-build item art is shared by family; rarity remains a runtime visual effect. */
-export function itemImage(kind:ItemKind):string { return `/art/comic/items/${itemFamily(kind)}-v2.png`; }
+export function itemImage(kind:ItemKind):string { return kind in PILOT_ITEMS ? `/art/comic/items/merchant-set-v1/${kind}.png` : `/art/comic/items/${itemFamily(kind)}-v2.png`; }
 export type NpcMood='smile'|'angry'|'idle';
 export function npcImage(npc:NpcId):string;
 export function npcImage(npc:NpcId,mood:NpcMood):string;
@@ -742,12 +744,13 @@ export function npcImage(npc:NpcId,mood:NpcMood='idle'):string { return `/art/co
 const CLEANSE_KINDS:ItemKind[]=['smith-hammer','whetstone'],CHALLENGE_KINDS:ItemKind[]=['doubt-lens','void-seal'];
 /** Merchants and items that exist only when the expansion rules are on (catalog version 3). */
 export const EXPANSION_NPCS:NpcId[]=['deepsea','swarm'];
-export const expansionActive=(config:{catalogVersion?:1|2|3;expansion?:boolean})=>config.catalogVersion===3 && !!config.expansion;
+export const expansionActive=(config:{catalogVersion?:1|2|3|4;expansion?:boolean})=>(config.catalogVersion===3 || config.catalogVersion===4) && !!config.expansion;
 export const POLISH_KINDS:ItemKind[]=['vital-flask','life-relic','wish-ledger'];
 export const EXPANSION_KINDS:ItemKind[]=['abyss-pearl','tide-lantern','kraken-ink','siren-conch','hive-comb','chitin-blade','larva-cell','compound-mirror'];
-export function merchantKinds(npc:NpcId,catalogVersion:1|2|3=1,cleanse=false,challenge=false,expansion=false,polish=false,trustAbilities=false):ItemKind[] {
+export function merchantKinds(npc:NpcId,catalogVersion:1|2|3|4=1,cleanse=false,challenge=false,expansion=false,polish=false,trustAbilities=false):ItemKind[] {
+  if(catalogVersion===4)return (Object.keys(PILOT_ITEMS) as Array<keyof typeof PILOT_ITEMS>).filter(kind=>PILOT_ITEMS[kind].merchant===npc);
   const favorites=NPC_SPECS[npc].favorite;
-  return catalogVersion===1 ? favorites : (Object.keys(ITEM_SPECS) as ItemKind[]).filter(kind=>(trustAbilities && catalogVersion===3 || !(ABILITY_ITEM_IDS as readonly string[]).includes(kind)) && (catalogVersion===3 && cleanse || !CLEANSE_KINDS.includes(kind)) && (catalogVersion===3 && challenge || !CHALLENGE_KINDS.includes(kind)) && (catalogVersion===3 && expansion || !EXPANSION_KINDS.includes(kind)) && (catalogVersion===3 && polish || !POLISH_KINDS.includes(kind)) && (catalogVersion===3 || !passiveSpec(kind)) && favorites.includes(itemFamily(kind)));
+  return catalogVersion===1 ? favorites : (Object.keys(ITEM_SPECS) as ItemKind[]).filter(kind=>!(kind in PILOT_ITEMS) && (trustAbilities && catalogVersion===3 || !(ABILITY_ITEM_IDS as readonly string[]).includes(kind)) && (catalogVersion===3 && cleanse || !CLEANSE_KINDS.includes(kind)) && (catalogVersion===3 && challenge || !CHALLENGE_KINDS.includes(kind)) && (catalogVersion===3 && expansion || !EXPANSION_KINDS.includes(kind)) && (catalogVersion===3 && polish || !POLISH_KINDS.includes(kind)) && (catalogVersion===3 || !passiveSpec(kind)) && favorites.some(f=>f===itemFamily(kind)));
 }
 export const NPC_SPECS: Record<NpcId,{name:string;sensitivity:number;condition:StatusId;discount:number;reservation:[number,number];favorite:ItemKind[];hint:string}> = {
   orc:{name:'ออร์กผู้รักษาเกียรติ',sensitivity:1,condition:'D03',discount:2,reservation:[.45,.8],favorite:['blade','amulet','food'],hint:'ราคาที่ดูถูกอาจทำให้เสียทรัพย์'},

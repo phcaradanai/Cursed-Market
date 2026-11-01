@@ -14,21 +14,23 @@
     ],
     "scope": "approval is not runtime/lifecycle proof"
   },
-  "asOf": "2026-10-31",
-  "observedRevision": "9f0a9721358df70cdfb7862f9da54ccdb93f64a7",
+  "asOf": "2026-11-01",
+  "observedRevision": "f351be5caa898016b91d47ee8893d3351fc7d08c",
   "scope": "Active Comic art/catalog IDs and proposal edges only; no causal execution or balance claim",
   "sources": {
+    "apps/comic/src/game/appraisal/pilot-catalog.ts": "ad8dbb487623f3b8d0486c87fe86c5fe72c0d50c553a7a34bc526c52579e8c62",
+    "apps/comic/src/game/appraisal/pilot-effects.ts": "ab8d8201a7abd4fbca4f96ee6223ded049937d43dac7a2f4dfa72db793e29029",
     "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/catalog.json": "1aba59f2a0e8fb48f49865fdb22c89fd7a17044537f7140f322952f66a7c2b44",
     "docs/game-design/logic-item-relations.json": "983d130078b1b6f6f1569dd05f295190a73523c1abaa0aa59bc29e0a6693b801",
     "docs/game-design/new56-pilot-proposal.json": "6881755d843c45dd294fd629802321601fd3c596dc5d7bb771d9230a6ce406c5",
     "docs/game-design/new56-pilot-approval.json": "cdcf630f60c8ed07db87008cd7c845575b3d304bdd0c7167abbf899a5e3b5d65",
-    "apps/comic/src/game/appraisal/content.ts": "769c0ed9bbe0ac774647f39bfdb1a2febc0d9f48e03e774de45e408c513cdc18",
-    "apps/comic/src/game/appraisal/types.ts": "edc5f1cf4165ffd7366457defe41acb880ca9d95a39942dfa4fecb6ae2687ea0",
+    "apps/comic/src/game/appraisal/content.ts": "71887f52012d6f855c1e130e0339c6785b3f91abe8f9efa5e2b8b2a181d3a20b",
+    "apps/comic/src/game/appraisal/types.ts": "3865b6620a94487cec6fdb30df36fad381a00ad9f9ca4a53671afe777f5229ac",
     "apps/comic/src/game/appraisal/item-effects.ts": "c2ff1cbae837a24e19f6a5c81f56d27b986f870d7c277fd5d787d70728c63abd",
-    "apps/comic/src/game/appraisal/passives.ts": "4c698f61577c48d58ff945546be159f49945e1e6279c85456ae8d7e1c0d8a2ab",
+    "apps/comic/src/game/appraisal/passives.ts": "ef49c5ade780d0f68a7422a8e8a3b433237525311ef1c555d3aed61c45bc99bf",
     "apps/comic/src/game/appraisal/copy-effects.ts": "908b28f89ad8de7212adbd4636fdef6b2daaca230f97c41050ac2e436f4942f9",
-    "apps/comic/dist/src/game/appraisal/content.js": "bba7bad996a2c82ad6be7b7b64f3f7d89a83e12d3a1053da0243364331cb9b54",
-    "docs/game-design/scripts/audit-new56.mjs": "3a3bbc9af2d370ae9e247b47d8d47c2d7f75a11f98df3a6f5ae750e27797aac5"
+    "apps/comic/dist/src/game/appraisal/content.js": "d86b046d48ed1677df59d08232d0d66763ae1f46ffbe95a3573511ac648c1347",
+    "docs/game-design/scripts/audit-new56.mjs": "c69f651bf543aea6b2a2203df536e651bc4f01e9a94091e6501a5a2d9e00b34a"
   },
   "summary": {
     "merchants": 8,
@@ -37,8 +39,8 @@
     "primaryProposals": 56,
     "optionalProposals": 57,
     "effectCandidates": 75,
-    "runtimeCatalogKinds": 66,
-    "newIdsInRuntime": 0,
+    "runtimeCatalogKinds": 74,
+    "newIdsInRuntime": 8,
     "overTwoDirectSystems": [
       "autometa-data-prism",
       "alien-star-chart-membrane",
@@ -410,7 +412,7 @@
         "เหล็กดำ",
         "ทองแดงเก่า"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E62",
       "optionalEffects": [
         "E40"
@@ -583,7 +585,7 @@
         "พลัมเข้ม",
         "แดงเลือดหม่น"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E46",
       "optionalEffects": [
         "E50"
@@ -834,7 +836,7 @@
         "เหล็กเข้ม",
         "งาช้าง"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E01",
       "optionalEffects": [
         "E05"
@@ -1010,7 +1012,7 @@
         "ลาเวนเดอร์",
         "มุกเหลือบ"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E11",
       "optionalEffects": [
         "E17"
@@ -1210,7 +1212,7 @@
         "เขียวมอสเข้ม",
         "เหลืองดินหม่น"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E43",
       "optionalEffects": [
         "E34"
@@ -1310,7 +1312,7 @@
         "มุก",
         "แก้วทะเล"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E34",
       "optionalEffects": [
         "E57"
@@ -1436,7 +1438,7 @@
         "อำพัน",
         "ม่วงหม่น"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E47",
       "optionalEffects": [
         "E14"
@@ -1759,7 +1761,7 @@
         "งาช้าง",
         "สีขนธรรมชาติ"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E38",
       "optionalEffects": [
         "E27"

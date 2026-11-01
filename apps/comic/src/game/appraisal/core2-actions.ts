@@ -107,14 +107,14 @@ export function useSkill(state:AppraisalState,p:Appraiser,itemId?:string):void {
   switch(npc) {
     case 'orc': {const item=target();spend(state,p,0,1,'skill');learn(p,item.id,{base:item.base,...(strong?{genuine:item.genuine}:{})});break;}
     case 'vampire': {
-      if(life){check(p.life!>1,'skill','ชีวิตไม่พอ');damageLife(state,p,1,'vampire-rite');}else spend(state,p,2,0,'vampire-rite');
+      if(life){check(p.life!>1,'skill','ชีวิตไม่พอ');damageLife(state,p,1,'vampire-rite',false);}else spend(state,p,2,0,'vampire-rite');
       recover(state,p,strong?4:3,'vampire-rite');break;
     }
     case 'autometa': {const item=target();spend(state,p,0,1,'skill');learn(p,item.id,{genuine:item.genuine,...(strong?{effectsKnown:true}:{})});break;}
     case 'alien': {const item=target();spend(state,p,0,1,'skill');learn(p,item.id,{effectsKnown:true,cursed:item.cursed,...(strong?{genuine:item.genuine}:{})});break;}
     case 'darkone': {
       const debuff=p.statuses.find(s=>s.id.startsWith('D'));check(debuff,'skill','ไม่มี debuff ให้ลบ');
-      if(life){check(p.life!>1,'skill','ชีวิตไม่พอ');damageLife(state,p,1,'darkone-pact');}else spend(state,p,3,0,'darkone-pact');
+      if(life){check(p.life!>1,'skill','ชีวิตไม่พอ');damageLife(state,p,1,'darkone-pact',false);}else spend(state,p,3,0,'darkone-pact');
       removeStatus(p,debuff.id);if(strong)grant(state,p,'B06');break;
     }
     case 'beast': spend(state,p,0,1,'skill');grant(state,p,'B05');if(strong)grant(state,p,'B11');break;

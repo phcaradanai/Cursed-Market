@@ -1,0 +1,12 @@
+[ego-browser:notice] Ego Lite update is available (current 0.6.1.13). Finish the current browser task, then ask the user before running `ego-browser upgrade`; re-read the ego-browser Skill afterward.
+orc-tusk-shield 1440 PASS
+vampire-nocturne-signet 1440 PASS
+autometa-torque-caliper 1440 PASS
+alien-thought-translator 1440 PASS
+darkone-crossing-token 1440 PASS
+deepsea-tide-compass 1440 PASS
+swarm-brood-hammer 1440 PASS
+beast-riftfang-sword 1440 PASS
+autometa-torque-caliper 1024 PASS
+autometa-torque-caliper 1920 PASS
+{ passed: true, checks: 10 }

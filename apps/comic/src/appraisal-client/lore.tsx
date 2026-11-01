@@ -66,7 +66,7 @@ export function ItemCard({kind,item}:{kind:ItemKind;item?:ItemView|undefined}) {
   const spec=ITEM_SPECS[kind];const k=item?.knowledge;
   const power=item?.rarityPower?itemEffectScale(item):1;
   const custom=ABILITY_ITEM_TEXT[kind as keyof typeof ABILITY_ITEM_TEXT]??(item?.trustAbilities?MODERN_ACTIVATIONS[kind as keyof typeof MODERN_ACTIVATIONS]:undefined);
-  const benefit=custom?pick(custom.th,custom.en):itemFamily(kind)==='orb'?t('ฟื้นพลัง {n}',{n:integerEffect((spec.energyRecovery??3)*power)}):statusName(spec.buff);
+  const benefit=spec.benefit??(custom?pick(custom.th,custom.en):itemFamily(kind)==='orb'?t('ฟื้นพลัง {n}',{n:integerEffect((spec.energyRecovery??3)*power)}):spec.buff?statusName(spec.buff):'');
   const tool=kind in CHALLENGE_TOOLS?toolText(kind,CHALLENGE_TOOLS[kind as keyof typeof CHALLENGE_TOOLS].text):kind in CLEANSE_TOOLS?toolText(kind,CLEANSE_TOOLS[kind as keyof typeof CLEANSE_TOOLS].text):'';
   return <>
     {item?<ItemVisual item={item} width={72} height={72}/>:<img src={itemImage(kind)} alt="" width="72" height="72"/>}
@@ -77,7 +77,7 @@ export function ItemCard({kind,item}:{kind:ItemKind;item?:ItemView|undefined}) {
       {item && <span>{knownText(item)}</span>}
       {tool && <span>{kind in CHALLENGE_TOOLS?t('ท้าทายคำระบุ · {text}',{text:tool}):t('ล้างคำสาป · {text}',{text:tool})}</span>}
       {passiveText(kind,item?.itemEffects,item) && <span>{item?.copy&&!item.rarityPower?pick('ค่าต้นฉบับขณะถือ: ','Original held effect: '):''}{t('ขณะถือ · สะสมได้: {text}',{text:passiveText(kind,item?.itemEffects,item)})}</span>}
-      <span>{t('เปิดใช้อาจได้ {benefit} · เสี่ยง {drawback}',{benefit,drawback:statusName(spec.drawback)})}{spec.consumable?t(' · ใช้แล้วหมด'):''}</span>
+      <span>{spec.nativeEffect?`${spec.usage} · ${benefit} · ${spec.exclusions}`:t('เปิดใช้อาจได้ {benefit} · เสี่ยง {drawback}',{benefit,drawback:spec.drawback?statusName(spec.drawback):spec.exclusions??''})}{spec.consumable?t(' · ใช้แล้วหมด'):''}</span>
       {item?.itemEffects && activationBonusText(kind,item) && <span>{item?.copy&&!item.rarityPower?pick('ค่าต้นฉบับ: ','Original strength: '):''}{t('เมื่อเปิดใช้สำเร็จ เพิ่มเติม: {text}',{text:activationBonusText(kind,item)})}</span>}
       {item?.itemEffects && spec.consumable && <span>{t('ของใช้แล้วหมด · เปิดใช้ฟรี ไม่เสียพลัง')}</span>}
     </span>

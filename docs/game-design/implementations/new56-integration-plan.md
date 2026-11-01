@@ -23,6 +23,10 @@ Pilot covers active damage protection, aged vault interest, inspection rights, m
 5. Run bounded seed/config/policy baseline vs candidate. No win-share target or balance claim until measured. Then integrate remaining48 and reviewed event/encounter/omen predicates; switch new-run default to full56 only when complete and verified.
 6. Refresh source/captures/UI gates as applicable, then rebuild/check main Atlas/context. Keep approved14 pixel references; changed snapshots require actual review.
 
-## Current limits / next
+## Historical limits at approval / next
 
 Audit/report and concrete pilot proposal are complete. Runtime binding is still0 and ITEMS remain art-only. Pilot specs are approved; runtime work may proceed. STRAT-01 structure response remains pending. Continue independent approved UX/system work while waiting; do not close the whole-game goal.
+
+## Runtime checkpoint 2026-11-01
+
+Pilot8 is now native in experimental catalogVersion4, with approved primary effects and no legacy status aliases. Default version3/legacy audits stay intact. See [runtime handoff](new56-pilot-runtime.md) and [verification](../new56-pilot-verification.json). Registration is8, not0; lifecycle/commands/replay/fixture UI have separate evidence. Remaining48, optional effects, comprehensive predicate mapping, strategy and full balance remain open.

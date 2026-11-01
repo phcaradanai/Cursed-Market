@@ -52,7 +52,7 @@ function ActiveTheftDuel({game,submit,disabled,playerNames={},duel,deadline,serv
         </div>
         <div className="theft-duel-history">
           {duel.npcTell&&<p>{pick(duel.npcTell.text,`Merchant tell: favors ${handName(duel.npcTell.preferredHand).toLowerCase()}.`)}</p>}
-          {duel.tieGoesTo&&<p>{duel.tieGoesTo==='you'?pick('เสมอนับเป็นของคุณ','Ties go to you'):pick('เสมอนับเป็นของอีกฝ่าย','Ties go to your opponent')}</p>}
+          {duel.publicSwords&&(duel.publicSwords.you||duel.publicSwords.opponent)&&<p>{pick('ดาบเขี้ยวรอยแยก: เสมอตาแรก +1 · คุณ ', 'Riftfang: first tie +1 · You ')}{duel.publicSwords.you?1:0} / {pick('คู่ดวล ','Opponent ')}{duel.publicSwords.opponent?1:0}</p>}{duel.tieGoesTo&&<p>{duel.tieGoesTo==='you'?pick('เสมอนับเป็นของคุณ','Ties go to you'):pick('เสมอนับเป็นของอีกฝ่าย','Ties go to your opponent')}</p>}
           {round?<><p>{pick(`ตา ${at+1}: คุณออก `,`Round ${at+1}: you played `)}{handName(own?round.thief:round.opponent)} · {opponent} {handName(own?round.opponent:round.thief)}{round.thief===round.opponent?pick(' · เสมอ',' · Draw'):''}</p><CompactPager page={at} pages={rounds.length} onChange={setHistoryPage} label={pick('ประวัติการดวล','Duel history')}/></>:<p>{pick('ยังไม่มีตาที่เปิดมือ','No hands have been revealed')}</p>}
         </div>
       </section>
@@ -90,7 +90,7 @@ export function TheftPanel({game,submit,disabled,playerNames={},deadlines={},ser
         <h3>{ownTheft?pick('ฉกของจาก ','Steal from '):pick('ป้องกันของจาก ','Defend against ')}{opponent}</h3>
         <p role="status">{result} · {pick(`ตาที่ ${duel.round}`,`Round ${duel.round}`)}</p>
         {duel.npcTell && <p className="supporting">{pick(duel.npcTell.text,`Merchant tell: favors ${handName(duel.npcTell.preferredHand).toLowerCase()}.`)}</p>}
-        {duel.tieGoesTo && <p className={duel.tieGoesTo==='you'?'positive-text':'danger-text'}>{duel.tieGoesTo==='you'?pick('ถ้าออกมือเสมอ ตานั้นนับเป็นของคุณ','A tied round goes to you'):pick('ถ้าออกมือเสมอ ตานั้นนับเป็นของอีกฝ่าย','A tied round goes to your opponent')}</p>}
+        {duel.publicSwords&&(duel.publicSwords.you||duel.publicSwords.opponent)&&<p>{pick('ดาบเขี้ยวรอยแยก: เสมอตาแรก +1 · คุณ ', 'Riftfang: first tie +1 · You ')}{duel.publicSwords.you?1:0} / {pick('คู่ดวล ','Opponent ')}{duel.publicSwords.opponent?1:0}</p>}{duel.tieGoesTo && <p className={duel.tieGoesTo==='you'?'positive-text':'danger-text'}>{duel.tieGoesTo==='you'?pick('ถ้าออกมือเสมอ ตานั้นนับเป็นของคุณ','A tied round goes to you'):pick('ถ้าออกมือเสมอ ตานั้นนับเป็นของอีกฝ่าย','A tied round goes to your opponent')}</p>}
         {duel.status==='open' && <>
           <p className="supporting">{duel.submitted?pick('ส่งมือแล้ว ล็อกคำตอบไว้ รออีกฝ่าย','Hand sealed. Waiting for your opponent.'):pick('เลือกมือของคุณ ทั้งสองฝ่ายจะเปิดพร้อมกัน','Choose your hand. Both hands are revealed together.')} {game.theftTimeoutRules===1&&<Peek tone="rule" label={pick('เมื่อหมดเวลา','On timeout')} card={<p>{pick('ระบบสุ่มเฉพาะมือที่ยังไม่ส่ง มือที่ส่งแล้วคงเดิมและตัดสินตามปกติ','Only missing hands are chosen automatically. Submitted hands stay sealed; normal results apply.')}</p>}/>}</p>
           {deadlines[duel.id]!==undefined && <DuelClock deadline={deadlines[duel.id]!} serverTime={serverTime} autoMissing={game.theftTimeoutRules===1}/>}

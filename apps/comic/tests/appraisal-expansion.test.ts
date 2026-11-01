@@ -5,7 +5,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { BROKERAGE_RULES } from '../src/game/appraisal/index.js';
 import { simulateAppraisalRun } from '../src/simulation/appraisal.js';
 import { applyAppraisalAction, appraisalViewFor, createAppraisalRun, SURVIVAL_RULES } from '../src/game/appraisal/index.js';
-import { EXPANSION_KINDS, ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, expansionActive, itemImage, merchantKinds, npcImage } from '../src/game/appraisal/content.js';
+import { EXPANSION_KINDS, ITEM_SPECS, NPC_SPECS, STATUS_CATALOG, expansionActive, itemImage, itemFamily, merchantKinds, npcImage } from '../src/game/appraisal/content.js';
 import { eventEligible, offerEvent } from '../src/game/appraisal/events.js';
 import { grant, recoveryOffer, status } from '../src/game/appraisal/mechanics.js';
 import { cleanseChance } from '../src/game/appraisal/cleanse-rules.js';
@@ -28,7 +28,7 @@ test('two new merchants exist only with the expansion rules, and their stock mat
   assert.equal(Object.keys(NPC_SPECS).length,8);
   for(const npc of ['deepsea','swarm'] as const) {
     const pool=merchantKinds(npc,3,true,true,true);assert(pool.length>0);
-    assert(pool.every(kind=>NPC_SPECS[npc].favorite.includes(ITEM_SPECS[kind].family??kind as ItemKind)));
+    assert(pool.every(kind=>NPC_SPECS[npc].favorite.some(f=>f===(ITEM_SPECS[kind].family??kind))));
     assert(pool.some(kind=>EXPANSION_KINDS.includes(kind)),`${npc} sells at least one new item`);
   }
   for(const npc of Object.keys(NPC_SPECS) as NpcId[]) assert(merchantKinds(npc,3,true,true,false).every(kind=>!EXPANSION_KINDS.includes(kind)));
@@ -44,7 +44,7 @@ test('twelve new statuses (6 buffs, 6 debuffs) are in the catalog and unique',()
   const ids=['B11','B12','B13','B14','B15','B16','D11','D12','D13','D14','D15','D16'];
   assert.equal(STATUS_IDS.length,40);for(const id of ids){assert(STATUS_IDS.includes(id as never));const spec=STATUS_CATALOG.find(s=>s.id===id)!;assert(spec.name && spec.description.length>10);}
   assert.equal(new Set(STATUS_CATALOG.map(s=>s.name)).size,40);
-  assert(Object.values(ITEM_SPECS).filter(spec=>EXPANSION_KINDS.some(k=>ITEM_SPECS[k]===spec)).every(spec=>ids.includes(spec.buff) && ids.includes(spec.drawback)));
+  assert(Object.values(ITEM_SPECS).filter(spec=>EXPANSION_KINDS.some(k=>ITEM_SPECS[k]===spec)).every(spec=>spec.buff && ids.includes(spec.buff) && spec.drawback && ids.includes(spec.drawback)));
 });
 test('B11 compound eyes: two free inspections, still counted; D12 raises the next purchase price once',()=>{
   let state=table();state.config.catalogVersion=2;const p=state.players[0]!;grant(state,p,'B11');const energy=p.energy,stock=p.stock[0]!;
@@ -126,16 +126,12 @@ test('D11 swarm venom drains one energy per settlement for two settlements',()=>
   for(let steps=0;steps<30 && state.phase!=='REVEAL';steps++){const p=state.players.find(v=>!v.done && !v.paused);if(!p)break;state=act(state,p.id,{type:'done'});}
   assert.equal(state.phase,'REVEAL');assert(state.players.every(p=>p.energy<=7),'venom drained energy');assert(state.players.every(p=>status(p,'D11')?.charges===1));
 });
-test('every item kind and merchant has its own artwork file; no two names share one picture',()=>{
-  const kinds=Object.keys(ITEM_SPECS) as ItemKind[];const paths=kinds.map(itemImage);
-  assert.equal(new Set(paths).size,kinds.length,'one path per kind');
+test('Comic preserves shared legacy family PNGs while native items and merchant portraits have distinct art',()=>{
+  const kinds=Object.keys(ITEM_SPECS) as ItemKind[],native=kinds.filter(k=>ITEM_SPECS[k].nativeEffect),legacy=kinds.filter(k=>!ITEM_SPECS[k].nativeEffect);
+  assert.equal(native.length,8);assert.equal(legacy.length,66);assert.equal(new Set(legacy.map(itemImage)).size,10);
+  for(const kind of legacy)assert.equal(itemImage(kind),`/art/comic/items/${itemFamily(kind)}-v2.png`);
   const hashes=new Set<string>();
-  for(const kind of kinds){const file=`src/appraisal-client/public${itemImage(kind)}`;assert(existsSync(file),file);const bytes=readFileSync(file);
-    assert.equal(itemImage(kind),`/art/item-${kind}.jpg`);assert.equal(bytes.subarray(0,3).toString('hex'),'ffd8ff','every item, including capacity relics, must have a real painted raster');
-    hashes.add(createHash('sha256').update(bytes).digest('hex'));}
-  assert.equal(hashes.size,kinds.length,'no byte-identical pictures under different names');
-  const npcs=Object.keys(NPC_SPECS) as NpcId[];assert.equal(new Set(npcs.map(npcImage)).size,npcs.length);
-  const npcHashes=new Set<string>();
-  for(const npc of npcs){assert.equal(npcImage(npc),`/art/npc-${npc}.jpg`);const bytes=readFileSync(`src/appraisal-client/public${npcImage(npc)}`);assert.equal(bytes.subarray(0,3).toString('hex'),'ffd8ff');npcHashes.add(createHash('sha256').update(bytes).digest('hex'));}
-  assert.equal(npcHashes.size,npcs.length,'each merchant has a different portrait');
+  for(const path of new Set(kinds.map(itemImage))){const file=`src/appraisal-client/public${path}`;assert(existsSync(file),file);const bytes=readFileSync(file);assert.equal(bytes.subarray(0,8).toString('hex'),'89504e470d0a1a0a');hashes.add(createHash('sha256').update(bytes).digest('hex'));}
+  assert.equal(hashes.size,18,'ten established family cutouts and eight distinct native items');
+  const portraits=new Set<string>();for(const npc of Object.keys(NPC_SPECS) as NpcId[]){assert.equal(npcImage(npc),`/art/comic/merchants/${npc}/idle.png`);const bytes=readFileSync(`src/appraisal-client/public${npcImage(npc)}`);assert.equal(bytes.subarray(0,8).toString('hex'),'89504e470d0a1a0a');portraits.add(createHash('sha256').update(bytes).digest('hex'));}assert.equal(portraits.size,8);
 });

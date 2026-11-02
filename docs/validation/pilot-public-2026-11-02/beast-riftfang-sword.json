@@ -1,0 +1,58 @@
+{
+  "kind": "beast-riftfang-sword",
+  "config": {
+    "catalogVersion": 4,
+    "startingCredits": 500,
+    "secureEconomy": true,
+    "core2": true,
+    "survival": {
+      "maxLife": 6,
+      "encounterLifeCost": 1,
+      "entryEnergyCost": 0
+    },
+    "collectorDeadline": 3,
+    "marketProbability": 0,
+    "wishlist": false,
+    "npcEvents": false,
+    "polish": false,
+    "expansion": true
+  },
+  "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+  "trials": [
+    {
+      "n": 2,
+      "seed": "public-pilot-beast-riftfang-sword-2",
+      "status": "effect exposed + both strict replays passed"
+    }
+  ],
+  "passed": true,
+  "metric": {
+    "heldFirstTieStatus": "won",
+    "storedFirstTieStatus": "open",
+    "storedNextRound": 2,
+    "announcedHeldEdge": {
+      "you": true,
+      "opponent": false
+    },
+    "announcedStoredEdge": {
+      "you": false,
+      "opponent": false
+    }
+  },
+  "seed": "public-pilot-beast-riftfang-sword-2",
+  "auditFiles": [
+    {
+      "file": "beast-riftfang-sword-held.audit.json",
+      "sha256": "45212fb309f9a87bf79d2ef9c279699c4a5e9bb537875896bb53d3adc2103c47",
+      "commands": 37,
+      "strictReplay": true
+    },
+    {
+      "file": "beast-riftfang-sword-stored-or-unused.audit.json",
+      "sha256": "dc4f68c9aecf9997a59ccd8e312480d997774cc8156db1d22d5d1290ecb162f2",
+      "commands": 40,
+      "strictReplay": true
+    }
+  ],
+  "finishedAt": "2026-11-02T03:20:57.685Z"
+}

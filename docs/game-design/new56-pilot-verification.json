@@ -130,5 +130,12 @@
     },
     "verification": "docs/ui-system/theft-desk-verification.json",
     "scope": "UI navigation/fixture only; gameplay source hashes unchanged;29 native cases rerun inside78, related174, native10/baseline14/menu18 freshly pass. Original backend/network/paired evidence retains original date and scope."
+  },
+  "publicCommandFollowup": {
+    "asOf": "2026-11-02",
+    "report": "docs/validation/pilot-public-2026-11-02/public-effects.json",
+    "handoff": "docs/game-design/balance-reports/2026-11-02-pilot-public.md",
+    "checks": "8 actual effect pairs,16 full command runs,32 strict replay checks (scenario+aggregate)",
+    "scope": "New separate public-view command proof with legal custody counterfactual. Supported starting500 fixture,2players,selected seeds,cooperative PvP. Not40-credit balance,organic sampling,full56 or a fresh network/UI run."
   }
 }

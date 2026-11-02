@@ -27,7 +27,10 @@ Actual socket test: buy, reconnect, exact duplicate receipt, early private audit
 
 10 native UI fixture states cover8 items at1440 and caliper at1024/1920; existing14 approved pixel references and18 menu switching contracts are checked separately. Captures are experimental evidence, not human approval or new screens. First import attempt used the old Vite URL; corrected /validation/ path after inspecting the served response.
 
-Remaining:48 exact specs/primary effects, optional effects, full event/encounter/omen capability mapping, strategic paths, Collector3+2, awards, remaining forced-RPS panels, broad multiplayer/load/balance. Do not close the whole-game goal or call the default game migrated.
+Remaining:48 exact specs/primary effects, optional effects, full event/encounter/omen capability mapping, strategic paths, Collector3+2, awards, broad multiplayer/load/balance (forced-RPS target/history completed518d702). Do not close the whole-game goal or call the default game migrated.
 
 
 Replay continuity: catalogVersion4 is the frozen eight-item experimental generator. Do not silently add the remaining48 to this same version: recorded audits regenerate the pool from config/seed. Use a new version or explicit frozen migration when the full56 specs are approved.
+
+
+2026-11-02 follow-up:8public-command mechanism pairs now exercise all8effects,16complete runs/32strictreplaychecks. No state injection or hidden-hand actor. Starting500/2seats/fixedboundaryseeds are explicit; notdefault40balance. Evidence: ../balance-reports/2026-11-02-pilot-public.md. Collector experimental spec is approved in ../collector-wishlist-approval.json; implement via collector-wishlist-plan.md without re-asking. No new Collector runtime yet.

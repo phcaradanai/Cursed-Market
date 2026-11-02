@@ -1,0 +1,529 @@
+{
+  "startedAt": "2026-11-02T03:20:53.122Z",
+  "observedRevision": "5a44a7a021c0df8cf2d7b647d5081d4fea5987fd",
+  "scope": "8 targeted, supported-config public-command mechanism pairs;16 full runs with strict replays. Initial500credits, not default40 budget or release balance. Counterfactual uses real vault custody or skipped activation. Fixed cooperative PvP hands; no hidden-hand policy. Seeds selected for eligibility/outcome boundary, not random sampling.",
+  "sourceFingerprints": {
+    "apps/comic/scripts/pilot-public-scenarios.mjs": "06651716423ece13dabf8b9baefd4771141e12cacc21b1dcb9ffff9c7c6b1fba",
+    "apps/comic/scripts/pilot-public-run.mjs": "3868307b90cad06f8d189e3dbb07556a26af0d3f19143c1a24b0e4219b93d086",
+    "apps/comic/src/game/random.ts": "ec6facfcf36a0bb9cc137ffb4fe897ce1edb6cdad9763fb090adcaa1de8330d0",
+    "apps/comic/src/simulation/appraisal.ts": "505393b813145217139b2e37b6c1a5ecc9ef2784c4be9bcd5c35ccad25c1c714",
+    "apps/comic/src/game/appraisal/ability-content.ts": "ff33530545a771c4e686640f2fca5db996ef3612f9602da6ddbf68c12377127e",
+    "apps/comic/src/game/appraisal/ability-rules.ts": "3e9f33f54b34c91fb26f6d0926f9df83e646dc3623a7c8bbf3beed5cedbc9139",
+    "apps/comic/src/game/appraisal/audit.ts": "352f047f66b8b3744f3feeb72c45bf371423c0defc5a95ef31241548ae35e0c6",
+    "apps/comic/src/game/appraisal/brokerage.ts": "df01497aef38dd46cec5384a53cfdc55b1d43daf9e9014ad0f78a3bd40a00894",
+    "apps/comic/src/game/appraisal/challenge-rules.ts": "74cfbe2083106078cdc44e96caefc9e959d999f4e1cb9319dc0e363375aa7e55",
+    "apps/comic/src/game/appraisal/challenge.ts": "35a2d880e49702b24560eae95fa6b2194c2e02f474f9a8ec2842e0114f3c6fec",
+    "apps/comic/src/game/appraisal/cleanse-rules.ts": "6fb69a3f4a4aa870670248255e02eb81d3fc527dbd4d9c975ba14eac81915cd1",
+    "apps/comic/src/game/appraisal/cleanse.ts": "2195402df17b9c929a06ca65ca766bbe6f7f7e37db0f2e098e9554e523e08de5",
+    "apps/comic/src/game/appraisal/content.ts": "71887f52012d6f855c1e130e0339c6785b3f91abe8f9efa5e2b8b2a181d3a20b",
+    "apps/comic/src/game/appraisal/copy-effects.ts": "908b28f89ad8de7212adbd4636fdef6b2daaca230f97c41050ac2e436f4942f9",
+    "apps/comic/src/game/appraisal/core2-actions.ts": "9b93824543a822b9f58d4b07269af6bcb780d7a1475cd5726bea1d450796fc9b",
+    "apps/comic/src/game/appraisal/core2-content.ts": "e96206fa8c7d638c3b0ccbc756a8d6bf2977a84308c6c423956b63340cf789b9",
+    "apps/comic/src/game/appraisal/core2-events.ts": "bb9531af0ffe6a6ea068f049d286b2b1d0fe37deb24a44bcfe3dfa58a08424f8",
+    "apps/comic/src/game/appraisal/core2-rules.ts": "c512cac29fda1d586afcc82ece3ac15a0411650283d1226ae12787c76bfce0ea",
+    "apps/comic/src/game/appraisal/core2-specs.ts": "399d270a4c3c8d170ae2c9a995dfff13863aeba2ebce98b70b78a5f2a1ce5316",
+    "apps/comic/src/game/appraisal/core2.ts": "d9c7ac292898c29d471bc6d9bb0a7ae0557bd394a79d77978e6e1eed5b71bd17",
+    "apps/comic/src/game/appraisal/engine.ts": "10204e39d68f62f1873667a9e22086eb7e2b1985905124e2e2d0c3196514cd2d",
+    "apps/comic/src/game/appraisal/events.ts": "c4bd10912200be5fb50c13e7d6ba8f5fda16f777f61d4d18d51b76e768e00794",
+    "apps/comic/src/game/appraisal/ghost-service.ts": "4741d9dfad3d695b8615d0c00c5dc11a6e14ba8543bde6228471eb0a5c962989",
+    "apps/comic/src/game/appraisal/ghost-tracking.ts": "1a179d345d9aac40a5122a68f376017e384284f487fcd8c369795bd0a7f9242f",
+    "apps/comic/src/game/appraisal/index.ts": "7867d91af9702cce970b74c8c6ae4d28f1f932139e439bcc86c471d293fbd557",
+    "apps/comic/src/game/appraisal/item-effects.ts": "c2ff1cbae837a24e19f6a5c81f56d27b986f870d7c277fd5d787d70728c63abd",
+    "apps/comic/src/game/appraisal/journal.ts": "458c6d094b0ba120d1b52a84ab92415fdbef80897b97cc547cc3db9c807cc047",
+    "apps/comic/src/game/appraisal/market-contracts.ts": "aef568c8fd9288c26fa6f74d696cd310f0949fddeefd4155af5c8a38db76ff9c",
+    "apps/comic/src/game/appraisal/mechanics.ts": "64e94197d33b21d65dfbab7d815d624653c44cafe7d52cb28c22a0683654d27e",
+    "apps/comic/src/game/appraisal/merchant-abilities.ts": "e90c4ea9b0c2f302ec3e005efef4d61e73c9d239a460d8aeb8859c394b226b09",
+    "apps/comic/src/game/appraisal/npc-events.ts": "28a925726df336b668b542630cdcee012b64e17a20dfdf3e519d9a7652ec89bf",
+    "apps/comic/src/game/appraisal/omen-table.ts": "8b6ab850d3722a62f735726aef4d3c9b17a40a9791fff31e284a1a90df862106",
+    "apps/comic/src/game/appraisal/omens.ts": "23bf7f701d39d380ec315aaf5050602540ee662b232006bfc51fba7561f3019d",
+    "apps/comic/src/game/appraisal/passives.ts": "ef49c5ade780d0f68a7422a8e8a3b433237525311ef1c555d3aed61c45bc99bf",
+    "apps/comic/src/game/appraisal/pilot-catalog.ts": "ad8dbb487623f3b8d0486c87fe86c5fe72c0d50c553a7a34bc526c52579e8c62",
+    "apps/comic/src/game/appraisal/pilot-effects.ts": "ab8d8201a7abd4fbca4f96ee6223ded049937d43dac7a2f4dfa72db793e29029",
+    "apps/comic/src/game/appraisal/polish-events.ts": "b79b7d4c1fcc159aad0d319ed3542844d28c22479637a2a70306570c01abfbb6",
+    "apps/comic/src/game/appraisal/price-integrity.ts": "e2198294f78ee5def8be05631082eb23f2ba819fe6cdc2d8d89f75dc85501268",
+    "apps/comic/src/game/appraisal/pulse.ts": "a2850ad9e52e5e4e8f2122affb24e8d8e9ac7fa015b249c61b6ec93076fe712d",
+    "apps/comic/src/game/appraisal/rarity.ts": "3672184a63c2899151c92ed7a413a0881ec5df613fc10d0ca16f01090936cbd6",
+    "apps/comic/src/game/appraisal/round-rewards.ts": "0cc05a064ee355cf102ecbebd8bb8754c33d7bdc3d500f1f7196182cedfcaa5d",
+    "apps/comic/src/game/appraisal/scoring.ts": "82cd3af13438d22f426f5dc9b79741b7f0d22511fdd1728ac8a87911e018df3a",
+    "apps/comic/src/game/appraisal/seals.ts": "89e1b53c5f9d9d7aa010fe00bc84e8b3e37f8f83cbeb2f28895704e7e7532807",
+    "apps/comic/src/game/appraisal/secure-storage.ts": "92396ce974a8854fafd1e724a5e5fd34d2c8f35390375b9d0be75fc458740ab0",
+    "apps/comic/src/game/appraisal/survival.ts": "6591734cc8e42fa1c60fe381e5cb28e6b910e509ae2c3add7e383ef045fcd365",
+    "apps/comic/src/game/appraisal/theft.ts": "8c3008d57a681ceec9a9e4ea02b24867b5a18a65b6e424906cd24bb4b58e65e7",
+    "apps/comic/src/game/appraisal/types.ts": "3865b6620a94487cec6fdb30df36fad381a00ad9f9ca4a53671afe777f5229ac",
+    "apps/comic/src/game/appraisal/views.ts": "0a279137723014d9a3b4a3ff1b29d449af661024e2372036bb73460d3c6aed8e",
+    "apps/comic/src/game/appraisal/wishlist-rules.ts": "9157cc6f7636ed765494f6fc0ae7a5c1c54cad42036728d1288853e257aa3c30",
+    "apps/comic/src/game/appraisal/wishlist.ts": "335080d7252080ffdd373d0d452a8f999d2d0305c8ae35da673972d6794b4167",
+    "apps/comic/src/shared/appraisal-protocol.ts": "fc466f14f54cced6c40ed5c934a69d7a2c99b1f927195956560bf344f3c073b7",
+    "apps/comic/src/shared/item-rarity.ts": "bf190d3345ba346f6cb9be496e85c6d471b470d7b243f7a7447ba1a1d5e48d1e",
+    "apps/comic/src/shared/protocol.ts": "662c38b865368d8cbcaa888cfec36a05ce2d61a3c588f6e94417cb6a01129bc1",
+    "apps/comic/src/shared/rarity-power.ts": "337e80b7cd349c7e4f075df0e45a695e7f9c8d4eb5f598191eb9ceac8582e097",
+    "apps/comic/src/shared/rarity-renderer.ts": "db81272375ca01e8396c8bfee506b330e6354b165f91ae26a5bfe216d098f81b"
+  },
+  "compiledFingerprints": {
+    "apps/comic/dist/src/game/random.js": "00b027f8536134a7c19137505c8d2653415b1e8d5ea43750054298984ca2f96f",
+    "apps/comic/dist/src/simulation/appraisal.js": "3f3e9d9025fb11250b2f0ba310c16cc372ebef22d91076e197e2c8427f745c0f",
+    "apps/comic/dist/src/game/appraisal/ability-content.js": "7cbd3351cabae93eb0be017c592e80b34655a5cbc0aab7c040133728b3b265aa",
+    "apps/comic/dist/src/game/appraisal/ability-rules.js": "457755c8c4e6436411e62a704b5b783d16b0ca94603c3a1ecae52882df31be27",
+    "apps/comic/dist/src/game/appraisal/audit.js": "88593d44564c86d41425e7bb99f494d4aa470af9875afb9e462d430a7c4efd7f",
+    "apps/comic/dist/src/game/appraisal/brokerage.js": "a84304e2c0ba5d696a7cab22c0f2a9655778b527737c7920bbcf01a147f66b58",
+    "apps/comic/dist/src/game/appraisal/challenge-rules.js": "91579b3855ef32b04aec1c7982482c01151af8520025f98ffabd2aa26049104a",
+    "apps/comic/dist/src/game/appraisal/challenge.js": "0402af86e4bd4f9f2f800e8362fd0c94d7ba221b23382fe3665914b0bfbe13ac",
+    "apps/comic/dist/src/game/appraisal/cleanse-rules.js": "3a15104abbf00400df0b8266eadc69d59d707d1057faa8049c427ff9ecc580d9",
+    "apps/comic/dist/src/game/appraisal/cleanse.js": "e3aea9ccd483be8ab9b0aa96b279f499430a6d62cf4bf19777214476be9be954",
+    "apps/comic/dist/src/game/appraisal/content.js": "d86b046d48ed1677df59d08232d0d66763ae1f46ffbe95a3573511ac648c1347",
+    "apps/comic/dist/src/game/appraisal/copy-effects.js": "d077c59b4112e8d3e2f394cb72a210a8084c374cbbe8d2f51c693590633710e3",
+    "apps/comic/dist/src/game/appraisal/core2-actions.js": "f0ff5f3db8055589f4c62ef71804338a9a77b1196c3cad4b7a7b9fb0bb91f413",
+    "apps/comic/dist/src/game/appraisal/core2-content.js": "070a43ab791d0f21e6e5397679c7c81e1f806b60295f65b89b28969d69c9d564",
+    "apps/comic/dist/src/game/appraisal/core2-events.js": "7f748e939c1fd19159ef85c5edb2a4c33382a467e78d4b7d9ffcfefbb59866c1",
+    "apps/comic/dist/src/game/appraisal/core2-rules.js": "93d60728b9a6eeb7247323044a33982c96f7c8f473f0e8ef91a3293321183ba4",
+    "apps/comic/dist/src/game/appraisal/core2-specs.js": "1db4efb228dfb75ce4d93bc896608af3062ba10094c0630348a5f73964365033",
+    "apps/comic/dist/src/game/appraisal/core2.js": "170809b030f3f772a9020d14d386bc038c2ed0a6bf5c6e861b29ccbb9c68e560",
+    "apps/comic/dist/src/game/appraisal/engine.js": "9a2b1f1d95729a1fa7b11d09075fcf628d95391577c4c80e6dc068276b9125ad",
+    "apps/comic/dist/src/game/appraisal/events.js": "1cd1db40708514841964bb3ff36be7bb6e161e64b36d9d4c472fd5c282979a09",
+    "apps/comic/dist/src/game/appraisal/ghost-service.js": "61f45722a83e8e29fbb260d69b20a6a88251b89be31b6d382ef2628d61340ee9",
+    "apps/comic/dist/src/game/appraisal/ghost-tracking.js": "2fe1600c50d316bcb32a3bd1c82c3014cc08369c3132802334863000a116786d",
+    "apps/comic/dist/src/game/appraisal/index.js": "42b0629f2d13e0c903eced4c0949002ca32823f92d86233fe98321e05eecded2",
+    "apps/comic/dist/src/game/appraisal/item-effects.js": "8f617ebf5892563e33d0485899c8d5ca371eb1d479347e9b0eba4269f4e2484b",
+    "apps/comic/dist/src/game/appraisal/journal.js": "6dfb62bc23f7bb6385d900a6955d8d67315e41fa94e27ef101fef158dcb2d4c3",
+    "apps/comic/dist/src/game/appraisal/market-contracts.js": "64b71a4578cc8171b95cac0be1b9c3eebbf4d713299db5f418ba0b373888f377",
+    "apps/comic/dist/src/game/appraisal/mechanics.js": "7ab4e63fed1c0051c308770513e547311477a609950d3b2e29df65aadd8ef83a",
+    "apps/comic/dist/src/game/appraisal/merchant-abilities.js": "61dcfc01d88963a66a5d1bdb4df91678e9f39f7d3c3117072768f42ad96633df",
+    "apps/comic/dist/src/game/appraisal/npc-events.js": "cc6b6b666e0e435452df96578b0c7aa51a7ce914ff1380cc818c74d98d9c57bb",
+    "apps/comic/dist/src/game/appraisal/omen-table.js": "86294d594f9aa59ffa23b54184583cd734a615ddf87d90706cd6ec55745ec7ba",
+    "apps/comic/dist/src/game/appraisal/omens.js": "5ad5c044f3d97aa731d24da0c00a3092530a873dfad96c9eb9ee946628a75ed7",
+    "apps/comic/dist/src/game/appraisal/passives.js": "fd3c0c82d248e9dfaf5e2108f24a0c8e540d227d5f3b6876505c5fec2e62ce8a",
+    "apps/comic/dist/src/game/appraisal/pilot-catalog.js": "477cd3fbf6cc7f36495306f1eedd7ee1c8f82dcd40da2550aecb368d906d0282",
+    "apps/comic/dist/src/game/appraisal/pilot-effects.js": "f5f0cf450ed63f702fc185923d42731fcb66535569b80679ca085573b6a3d601",
+    "apps/comic/dist/src/game/appraisal/polish-events.js": "46fb478e6b4d24b9c9c5b408ec36d4276cdeaf920dcf54696169c4ab3f5bcf54",
+    "apps/comic/dist/src/game/appraisal/price-integrity.js": "b91de2acb1069ac8aa3a283511ae21d84f36128bffed701c0049e29004112591",
+    "apps/comic/dist/src/game/appraisal/pulse.js": "4ff06044ebc927963fe8086fa9a5cafa14be6c52ab300b93f95761ec24a3998c",
+    "apps/comic/dist/src/game/appraisal/rarity.js": "76870924a5cf51a757107b84febbd4ee9fa3b4e756128ee23d05c5a2657b705a",
+    "apps/comic/dist/src/game/appraisal/round-rewards.js": "cd7f284044c02d0c5f4b763e05f6800f5212a453b79370b210ad540354c04b27",
+    "apps/comic/dist/src/game/appraisal/scoring.js": "a32af582134c9ae04eade86d8105922ca3b3de2ddc82ee0b3b1aa89e20685075",
+    "apps/comic/dist/src/game/appraisal/seals.js": "74e3fb082a69681cdb3dfe42cbb682d9cef482ade19da2f14c73ba4b45c45a68",
+    "apps/comic/dist/src/game/appraisal/secure-storage.js": "6bb82860752195604eba370f26bab073732d348f7247c11e56565f99060b6175",
+    "apps/comic/dist/src/game/appraisal/survival.js": "3ae6aa955605cc66e53bb8817fb6b8a306f6856e54755e648e4ad6bbb50685ba",
+    "apps/comic/dist/src/game/appraisal/theft.js": "cd4ed201da1030aed97d12517ea839a275d5558b3ed5134985400adb90f0d1cb",
+    "apps/comic/dist/src/game/appraisal/types.js": "73fd42ba6637f6903a9822447849e6c2183763aa78463d9debe66c9de1f4ae4a",
+    "apps/comic/dist/src/game/appraisal/views.js": "e07af53f554487329b365852e8deb66ae5ce0edb1943ca64d06b684653131c40",
+    "apps/comic/dist/src/game/appraisal/wishlist-rules.js": "51754c1b3a0d24b093444185f210c5ef6a55a800329535f6f134492a281c3e28",
+    "apps/comic/dist/src/game/appraisal/wishlist.js": "5a51798b49b49b576cd3b43040af01821809b0209fc08b4c3717efbcb9d83458",
+    "apps/comic/dist/src/shared/appraisal-protocol.js": "7c107db856a967cba05893018069b1ea10805d940f0579ac30ff14293ca8599c",
+    "apps/comic/dist/src/shared/item-rarity.js": "3b5083c66515bbd4174ec517577f159ef0a137ab73f5c85a1a72b6d7b0936369",
+    "apps/comic/dist/src/shared/protocol.js": "b5ab69287989be4a830cf388cb3030d92eb9659a48f3e37ce718ba7282bd6417",
+    "apps/comic/dist/src/shared/rarity-power.js": "56921599862d8ec073236388022f07a2b94c145354577b3171af337ea086103f",
+    "apps/comic/dist/src/shared/rarity-renderer.js": "381f0bf7b4847f684dac506da23aa6cdc102015c528df9c00ed09ef0f8abdb1c"
+  },
+  "cases": [
+    {
+      "kind": "orc-tusk-shield",
+      "seed": "public-pilot-orc-tusk-shield-1",
+      "metric": {
+        "activation": {
+          "action": {
+            "type": "activate",
+            "itemId": "item-1-0-2-0"
+          },
+          "before": {
+            "credits": 456,
+            "energy": 8,
+            "life": 6
+          },
+          "after": {
+            "credits": 456,
+            "energy": 7,
+            "life": 6
+          },
+          "creditsSpent": 0,
+          "energySpent": 1
+        },
+        "naturalLossWithShield": 0,
+        "naturalLossWithoutShield": 1,
+        "savedLife": 1
+      },
+      "audits": [
+        {
+          "file": "orc-tusk-shield-held.audit.json",
+          "sha256": "3e836a19b1b088885828c7daf9e973ccf0d691ba2338277fac332de7abadc15a",
+          "commands": 36,
+          "strictReplay": true
+        },
+        {
+          "file": "orc-tusk-shield-stored-or-unused.audit.json",
+          "sha256": "dacc7e564b029bf96e596ac2ab379c9714aeea92468c92b1358abda4ea493f38",
+          "commands": 35,
+          "strictReplay": true
+        }
+      ],
+      "resultFile": "orc-tusk-shield.json",
+      "passed": true
+    },
+    {
+      "kind": "vampire-nocturne-signet",
+      "seed": "public-pilot-vampire-nocturne-signet-1",
+      "metric": {
+        "principal": 100,
+        "heldQuote": 12,
+        "storedQuote": 10,
+        "heldPaid": 12,
+        "storedPaid": 10,
+        "bonusCredits": 2
+      },
+      "audits": [
+        {
+          "file": "vampire-nocturne-signet-held.audit.json",
+          "sha256": "8f9f7777883c3a12ecd10ddc77ffc700b0be4a1cfebc9dd41935c23a1f509b62",
+          "commands": 35,
+          "strictReplay": true
+        },
+        {
+          "file": "vampire-nocturne-signet-stored-or-unused.audit.json",
+          "sha256": "181c5f38210fe2883b7885aec14b1d30583d4e54a6dc500165a7ef95807a5db8",
+          "commands": 36,
+          "strictReplay": true
+        }
+      ],
+      "resultFile": "vampire-nocturne-signet.json",
+      "passed": true
+    },
+    {
+      "kind": "autometa-torque-caliper",
+      "seed": "public-pilot-autometa-torque-caliper-0",
+      "metric": {
+        "withItem": {
+          "action": {
+            "type": "inspect",
+            "itemId": "item-2-0-0-0",
+            "property": "price"
+          },
+          "before": {
+            "credits": 492,
+            "energy": 10,
+            "life": 5
+          },
+          "after": {
+            "credits": 492,
+            "energy": 10,
+            "life": 5
+          },
+          "creditsSpent": 0,
+          "energySpent": 0
+        },
+        "withoutItem": {
+          "action": {
+            "type": "inspect",
+            "itemId": "item-2-0-0-0",
+            "property": "price"
+          },
+          "before": {
+            "credits": 492,
+            "energy": 10,
+            "life": 5
+          },
+          "after": {
+            "credits": 492,
+            "energy": 9,
+            "life": 5
+          },
+          "creditsSpent": 0,
+          "energySpent": 1
+        },
+        "savedEnergy": 1
+      },
+      "audits": [
+        {
+          "file": "autometa-torque-caliper-held.audit.json",
+          "sha256": "5c277b9f0f5f68c78a91432f97729bdd778aea1b835f2faa487a86e12e0825d2",
+          "commands": 35,
+          "strictReplay": true
+        },
+        {
+          "file": "autometa-torque-caliper-stored-or-unused.audit.json",
+          "sha256": "64c914b6d8cc28b2265e98fd661eb92a9a38305babe6b1284cbbf7e7489a271d",
+          "commands": 36,
+          "strictReplay": true
+        }
+      ],
+      "resultFile": "autometa-torque-caliper.json",
+      "passed": true
+    },
+    {
+      "kind": "alien-thought-translator",
+      "seed": "public-pilot-alien-thought-translator-233",
+      "metric": {
+        "action": {
+          "type": "appraise",
+          "itemId": "item-2-0-0-0",
+          "value": 10,
+          "acceptDanger": true
+        },
+        "withItem": {
+          "action": {
+            "type": "appraise",
+            "itemId": "item-2-0-0-0",
+            "value": 10,
+            "acceptDanger": true
+          },
+          "before": {
+            "credits": 423,
+            "energy": 10,
+            "life": 5
+          },
+          "after": {
+            "credits": 423,
+            "energy": 10,
+            "life": 5
+          },
+          "creditsSpent": 0,
+          "energySpent": 0
+        },
+        "withoutItem": {
+          "action": {
+            "type": "appraise",
+            "itemId": "item-2-0-0-0",
+            "value": 10,
+            "acceptDanger": true
+          },
+          "before": {
+            "credits": 423,
+            "energy": 10,
+            "life": 5
+          },
+          "after": {
+            "credits": 423,
+            "energy": 10,
+            "life": 5
+          },
+          "creditsSpent": 0,
+          "energySpent": 0
+        },
+        "heldAccepted": true,
+        "storedAccepted": false
+      },
+      "audits": [
+        {
+          "file": "alien-thought-translator-held.audit.json",
+          "sha256": "c8628b5a55cd564e0159deae743e17fd3e25359eee2e547d4e5f1d24226df81f",
+          "commands": 35,
+          "strictReplay": true
+        },
+        {
+          "file": "alien-thought-translator-stored-or-unused.audit.json",
+          "sha256": "88f8ff32ed3fc56144b9e431588c29ea6b419d2fe32c19199f03e00cb4b8c41e",
+          "commands": 36,
+          "strictReplay": true
+        }
+      ],
+      "resultFile": "alien-thought-translator.json",
+      "passed": true
+    },
+    {
+      "kind": "darkone-crossing-token",
+      "seed": "public-pilot-darkone-crossing-token-7",
+      "metric": {
+        "withItem": {
+          "action": {
+            "type": "crime-clear"
+          },
+          "before": {
+            "credits": 475,
+            "energy": 9,
+            "life": 5
+          },
+          "after": {
+            "credits": 437,
+            "energy": 9,
+            "life": 5
+          },
+          "creditsSpent": 38,
+          "energySpent": 0
+        },
+        "withoutItem": {
+          "action": {
+            "type": "crime-clear"
+          },
+          "before": {
+            "credits": 475,
+            "energy": 9,
+            "life": 5
+          },
+          "after": {
+            "credits": 427,
+            "energy": 9,
+            "life": 5
+          },
+          "creditsSpent": 48,
+          "energySpent": 0
+        },
+        "savedCredits": 10
+      },
+      "audits": [
+        {
+          "file": "darkone-crossing-token-held.audit.json",
+          "sha256": "b4eebe1cad2ca25a65c2cbf37ecf9a5d67fc45d28981205aa644766f01cba809",
+          "commands": 39,
+          "strictReplay": true
+        },
+        {
+          "file": "darkone-crossing-token-stored-or-unused.audit.json",
+          "sha256": "4d86d64e69af8d0bd04c9bbc9bf7e7e3694b344e0eed5f6ec194efaf5fa38936",
+          "commands": 40,
+          "strictReplay": true
+        }
+      ],
+      "resultFile": "darkone-crossing-token.json",
+      "passed": true
+    },
+    {
+      "kind": "deepsea-tide-compass",
+      "seed": "public-pilot-deepsea-tide-compass-1",
+      "metric": {
+        "withItem": {
+          "action": {
+            "type": "reroll-portal",
+            "portalId": "portal-2-0-0r1"
+          },
+          "before": {
+            "credits": 490,
+            "energy": 9,
+            "life": 5
+          },
+          "after": {
+            "credits": 490,
+            "energy": 7,
+            "life": 5
+          },
+          "creditsSpent": 0,
+          "energySpent": 2
+        },
+        "withoutItem": {
+          "action": {
+            "type": "reroll-portal",
+            "portalId": "portal-2-0-0r1"
+          },
+          "before": {
+            "credits": 490,
+            "energy": 8,
+            "life": 5
+          },
+          "after": {
+            "credits": 490,
+            "energy": 5,
+            "life": 5
+          },
+          "creditsSpent": 0,
+          "energySpent": 3
+        },
+        "savedEnergy": 1
+      },
+      "audits": [
+        {
+          "file": "deepsea-tide-compass-held.audit.json",
+          "sha256": "d839f5a1b24358f2023159d25abc7fcaa3040b94c4b3a3a356061cefd9bc74e5",
+          "commands": 33,
+          "strictReplay": true
+        },
+        {
+          "file": "deepsea-tide-compass-stored-or-unused.audit.json",
+          "sha256": "1e032dc42b41e7b8704d7aa946eb2f06bb2c059bba5946ad1e62e7be937371bf",
+          "commands": 34,
+          "strictReplay": true
+        }
+      ],
+      "resultFile": "deepsea-tide-compass.json",
+      "passed": true
+    },
+    {
+      "kind": "swarm-brood-hammer",
+      "seed": "public-pilot-swarm-brood-hammer-1",
+      "metric": {
+        "withItem": {
+          "action": {
+            "type": "vault-expand"
+          },
+          "before": {
+            "credits": 460,
+            "energy": 10,
+            "life": 4
+          },
+          "after": {
+            "credits": 454,
+            "energy": 10,
+            "life": 4
+          },
+          "creditsSpent": 6,
+          "energySpent": 0
+        },
+        "withoutItem": {
+          "action": {
+            "type": "vault-expand"
+          },
+          "before": {
+            "credits": 460,
+            "energy": 10,
+            "life": 4
+          },
+          "after": {
+            "credits": 450,
+            "energy": 10,
+            "life": 4
+          },
+          "creditsSpent": 10,
+          "energySpent": 0
+        },
+        "savedCredits": 4
+      },
+      "audits": [
+        {
+          "file": "swarm-brood-hammer-held.audit.json",
+          "sha256": "3e19bbb4133d3b2fd87c3a67eadc8735caeab1304bf43f36e8b544affd6095e3",
+          "commands": 31,
+          "strictReplay": true
+        },
+        {
+          "file": "swarm-brood-hammer-stored-or-unused.audit.json",
+          "sha256": "d31d529b90e9e262b9efa5e213fa0f3cc42747f899a7583a92da447ba9448427",
+          "commands": 32,
+          "strictReplay": true
+        }
+      ],
+      "resultFile": "swarm-brood-hammer.json",
+      "passed": true
+    },
+    {
+      "kind": "beast-riftfang-sword",
+      "seed": "public-pilot-beast-riftfang-sword-2",
+      "metric": {
+        "heldFirstTieStatus": "won",
+        "storedFirstTieStatus": "open",
+        "storedNextRound": 2,
+        "announcedHeldEdge": {
+          "you": true,
+          "opponent": false
+        },
+        "announcedStoredEdge": {
+          "you": false,
+          "opponent": false
+        }
+      },
+      "audits": [
+        {
+          "file": "beast-riftfang-sword-held.audit.json",
+          "sha256": "45212fb309f9a87bf79d2ef9c279699c4a5e9bb537875896bb53d3adc2103c47",
+          "commands": 37,
+          "strictReplay": true
+        },
+        {
+          "file": "beast-riftfang-sword-stored-or-unused.audit.json",
+          "sha256": "dc4f68c9aecf9997a59ccd8e312480d997774cc8156db1d22d5d1290ecb162f2",
+          "commands": 40,
+          "strictReplay": true
+        }
+      ],
+      "resultFile": "beast-riftfang-sword.json",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "finishedAt": "2026-11-02T03:20:57.752Z"
+}

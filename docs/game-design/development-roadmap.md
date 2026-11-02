@@ -14,7 +14,7 @@
 | 3 STRAT-01 | เส้นทางชนะหลายแบบและเป้าหมายต่อสาย | design in progress | BAL-01; วิธีจบยืนยันแล้ว: Collector | มี progress/cost/counter ต่อสายและผลทดสอบแยก policy; ดู strategic-paths.md |
 | 3 ITEM-01 | สัญญาข้อมูล runtime ของสินค้าใหม่ 56 | pilot8 native contract implemented;48 pending | CTX-01, STRAT-01, D05 | stable IDs, merchant/type/palette, trigger/target/scale/stack/cap, legacy predicates แต่ละตัวมี mapping หรือระบุเลิกใช้ |
 | 4 ITEM-02 | กลุ่มทดลอง 8 ชิ้น คนละพ่อค้า | pilot8 implemented/tested experimentally; balance pending | ITEM-01 | ครบ spawn/ซื้อ/ตรวจ/ถือ/ใช้/ขาย/สำเนา/จบเกม; ใช้งานบน comic จริง ไม่มี realistic fallback |
-| 5 RULE-03 | Collector Wishlist แบบ 3+2 | concrete proposal awaiting approval | ITEM-02, D03 | timeline จัดส่ง/ปกปิด/เปิดหนึ่ง/จ่ายซื้อ/reconnect ทดสอบครบ; ไม่สับสนกับ E73 |
+| 5 RULE-03 | Collector Wishlist แบบ 3+2 | approved experimental spec; implementation starting | ITEM-02, D03 | timeline จัดส่ง/ปกปิด/เปิดหนึ่ง/จ่ายซื้อ/reconnect ทดสอบครบ; ไม่สับสนกับ E73 |
 | 5 RULE-04 | คะแนนพิเศษและ rarity กลุ่ม | prepare | ITEM-02, D04 | ตัวนับอ้าง audit ได้; คะแนน ×2/×3 ถูกต้อง; tie policy ชัดและ deterministic |
 | 6 ITEM-03 | ย้ายครบ 56 พร้อม event/encounter/omen | queued | ITEM-02, RULE-01–04 | ไม่เหลือ target predicate ที่อ้างชนิดเก่าโดยไม่มีคำอธิบาย; action/เหตุการณ์ใช้ได้กับของใหม่ |
 | 7 BAL-02 | ปรับเศรษฐกิจ/ความเสี่ยง/พ่อค้า | queued | ITEM-03 | รายงานเทียบ baseline แบบ seed เดียวกัน แยกตาม merchant/rarity/จำนวนคน |
@@ -160,3 +160,8 @@ Confirmed rules are closed, including buyer death and floor/tie/end handling. S1
 
 
 2026-11-02 RULE-03: concrete proposal in proposals/collector-wishlist-v1.md. Builder review resolved purchase hooks/energy, trade-ban and escrow-closure gaps in the proposal; still awaiting user approval, A05 remains design-only. No new runtime rule. BAL-02 coverage audit verifies hashes of8 historical paired runs and pinned runtime; none proves all required native triggers. Most native tools are never exercised by those policies. See balance-reports/2026-11-02-pilot-coverage.md/JSON and scripts/pilot-coverage.mjs --check.29 lifecycle cases remain separate evidence. Next: public-view bounded effect scenarios, not premature numeric tuning.
+
+
+2026-11-02 public pilot evidence:8effects/16complete command-driven runs/32strict replay checks pass with public actors and legalheld-versus-vault/unused counterfactuals. No directstateinjection or RNGhandoracle; starting500 is an explicit mechanismfixture, not40-credit balance. Source/compiled/audit hashes: ../validation/pilot-public-2026-11-02/public-effects.json; plan and human summary in implementations/pilot-public-scenarios-plan.md / balance-reports/2026-11-02-pilot-public.md. Supersedes only the exposure gap, not the old8audit scope or release balance.
+
+User approved Collector experimental spec on2026-11-02. collector-wishlist-approval.json pins original5a44a7a proposalSHA; prior pending-approval notes are superseded. Implement directly via implementations/collector-wishlist-plan.md; no repeated approval for same rules. STRATstructure/remaining48/awards remain separately unresolved.

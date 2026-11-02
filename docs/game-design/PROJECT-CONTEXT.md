@@ -204,3 +204,10 @@ Approved Comic reconciliation now includes target/history in the shared inventor
 RULE-03 now has a concrete unapproved proposal: proposals/collector-wishlist-v1.md, distinct from NPC wanted contracts and final Collector. User question sent against that document; no implementation/default/price approval inferred while pending. Proposed uniform shared quote prevents slot-identity inference but still reveals aggregate reference value. Costs/status hooks, merchant ban, escrow closure and turn expiry are explicit proposals.
 
 Read-only analyzer scripts/pilot-coverage.mjs checks the8 sealed old paired audits against original hashes/current pinned game sources. It proves short flow/snapshot coverage, not8 effect exposures. No activation/vault/notice/reroll/theft actions in native policy runs; inspections are authenticity-only. See balance-reports/2026-11-02-pilot-coverage.md/JSON. Keep29 native lifecycle tests and old strict-replay claims separately scoped. Add actual public-view effect scenarios before balance tuning. No product/UI change in this checkpoint.
+
+
+## 2026-11-02 — eight public effect pairs and Collector approval
+
+New evidence:8mechanism pairs/16complete command runs with onlypublicviewactors; legitimatebuy/custody and strictreplay32checks. Full source+compiled+audithashes in ../validation/pilot-public-2026-11-02/public-effects.json. Effects measured:shield1HP,ring12vs10,caliper0vs1energy,translatoracceptanceboundarysame10price,notice38vs48,reroll2vs3energy,vault6vs10credits,swordtie+1vsnext round. No productcodechange. These useconfigstarting500/selectedseeds/cooperativehands, notdefault40balance; old8genericpolicy gaps remain accurately scoped.
+
+User explicitly approvedCollector proposal. collector-wishlist-approval.json pins5a44a7a:d7e79e71d6fcb61919c91beaea34b123d1676a4745be97aa88f87bd36462d98f and reply“อนุมัติสเปกทดลองนี้”. Originalproposalfrozenasapprovalsource; progress/plan in implementations/collector-wishlist-plan.md. Supersedes prior“pendingCollector” notes; no newruntimeyet and no repeatedapproval. STRATstructure stillpending. Whole-gamegoalactive.

@@ -40,5 +40,9 @@ const vaultRate=file=>Number(fs.readFileSync(path.join(root,file),'utf8').match(
 assert.equal(status.runtimeFacts.comicVaultInterestPercent,vaultRate('apps/comic/src/game/appraisal/secure-storage.ts'));
 assert.equal(status.runtimeFacts.rootVaultInterestPercent,vaultRate('src/game/appraisal/secure-storage.ts'));
 assert.equal(status.runtimeFacts.new56DedicatedBindings,d.productScope.runtimeDedicatedBindings);
+const collectorApproval=read('collector-wishlist-approval.json');assert.equal(collectorApproval.status,'approved-experimental');assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,collectorApproval.proposal))).digest('hex'),collectorApproval.proposalSha256,'Approved Collector spec changed');
+const publicProof=read('../validation/pilot-public-2026-11-02/public-effects.json');assert(publicProof.passed&&publicProof.cases.length===8,'Public pilot evidence incomplete');
+for(const [file,hash] of Object.entries({...publicProof.sourceFingerprints,...publicProof.compiledFingerprints}))assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex'),hash,'Public pilot proof stale: '+file);
+for(const c of publicProof.cases){assert(c.passed&&c.audits.length===2);for(const a of c.audits)assert(a.strictReplay&&crypto.createHash('sha256').update(fs.readFileSync(path.join(dir,'../validation/pilot-public-2026-11-02',a.file))).digest('hex')===a.sha256,'Public pilot audit changed: '+a.file);}
 execFileSync(process.execPath,['docs/game-design/scripts/build-system-atlas.mjs','--check'],{cwd:root,stdio:'inherit'});
 console.log('PASS: catalog coverage, namespaces, new56-only products, source guards, rule gaps, generic actions, profiles, original views and freshness.');

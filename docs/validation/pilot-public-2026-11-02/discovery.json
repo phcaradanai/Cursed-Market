@@ -1,0 +1,1473 @@
+{
+  "scope": "Public-action discovery before final fixed-seed replay. Failed/ineligible trials do not count as proof. Discovery harness evolved; final script/source hashes are in public-effects.json. Seed233 is selected at an acceptance boundary; not unbiased sampling.",
+  "attempts": [
+    {
+      "kind": "alien-thought-translator",
+      "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+      "trials": [
+        {
+          "n": 0,
+          "seed": "public-pilot-alien-thought-translator-0",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 1,
+          "seed": "public-pilot-alien-thought-translator-1",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 2,
+          "seed": "public-pilot-alien-thought-translator-2",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 3,
+          "seed": "public-pilot-alien-thought-translator-3",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 4,
+          "seed": "public-pilot-alien-thought-translator-4",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 5,
+          "seed": "public-pilot-alien-thought-translator-5",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 6,
+          "seed": "public-pilot-alien-thought-translator-6",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 7,
+          "seed": "public-pilot-alien-thought-translator-7",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 8,
+          "seed": "public-pilot-alien-thought-translator-8",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 9,
+          "seed": "public-pilot-alien-thought-translator-9",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 10,
+          "seed": "public-pilot-alien-thought-translator-10",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 11,
+          "seed": "public-pilot-alien-thought-translator-11",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 12,
+          "seed": "public-pilot-alien-thought-translator-12",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 13,
+          "seed": "public-pilot-alien-thought-translator-13",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 14,
+          "seed": "public-pilot-alien-thought-translator-14",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 15,
+          "seed": "public-pilot-alien-thought-translator-15",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 16,
+          "seed": "public-pilot-alien-thought-translator-16",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 17,
+          "seed": "public-pilot-alien-thought-translator-17",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 18,
+          "seed": "public-pilot-alien-thought-translator-18",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 19,
+          "seed": "public-pilot-alien-thought-translator-19",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 20,
+          "seed": "public-pilot-alien-thought-translator-20",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 21,
+          "seed": "public-pilot-alien-thought-translator-21",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 22,
+          "seed": "public-pilot-alien-thought-translator-22",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 23,
+          "seed": "public-pilot-alien-thought-translator-23",
+          "status": "public merchant absent"
+        }
+      ]
+    },
+    {
+      "kind": "autometa-torque-caliper",
+      "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+      "trials": [
+        {
+          "n": 0,
+          "seed": "public-pilot-autometa-torque-caliper-0",
+          "status": "effect exposed + both strict replays passed"
+        }
+      ]
+    },
+    {
+      "kind": "beast-riftfang-sword",
+      "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+      "trials": [
+        {
+          "n": 0,
+          "seed": "public-pilot-beast-riftfang-sword-0",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 1,
+          "seed": "public-pilot-beast-riftfang-sword-1",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 2,
+          "seed": "public-pilot-beast-riftfang-sword-2",
+          "status": "effect exposed + both strict replays passed"
+        }
+      ]
+    },
+    {
+      "kind": "darkone-crossing-token",
+      "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+      "trials": [
+        {
+          "n": 0,
+          "seed": "public-pilot-darkone-crossing-token-0",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 1,
+          "seed": "public-pilot-darkone-crossing-token-1",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 2,
+          "seed": "public-pilot-darkone-crossing-token-2",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 3,
+          "seed": "public-pilot-darkone-crossing-token-3",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 4,
+          "seed": "public-pilot-darkone-crossing-token-4",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 5,
+          "seed": "public-pilot-darkone-crossing-token-5",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 6,
+          "seed": "public-pilot-darkone-crossing-token-6",
+          "status": "not proved",
+          "reason": "NPC theft did not fail in this trial"
+        },
+        {
+          "n": 7,
+          "seed": "public-pilot-darkone-crossing-token-7",
+          "status": "effect exposed + both strict replays passed"
+        }
+      ]
+    },
+    {
+      "kind": "deepsea-tide-compass",
+      "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+      "trials": [
+        {
+          "n": 0,
+          "seed": "public-pilot-deepsea-tide-compass-0",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 1,
+          "seed": "public-pilot-deepsea-tide-compass-1",
+          "status": "effect exposed + both strict replays passed"
+        }
+      ]
+    },
+    {
+      "kind": "orc-tusk-shield",
+      "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+      "trials": [
+        {
+          "n": 0,
+          "seed": "public-pilot-orc-tusk-shield-0",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 1,
+          "seed": "public-pilot-orc-tusk-shield-1",
+          "status": "effect exposed + both strict replays passed"
+        }
+      ]
+    },
+    {
+      "kind": "swarm-brood-hammer",
+      "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+      "trials": [
+        {
+          "n": 0,
+          "seed": "public-pilot-swarm-brood-hammer-0",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 1,
+          "seed": "public-pilot-swarm-brood-hammer-1",
+          "status": "effect exposed + both strict replays passed"
+        }
+      ]
+    },
+    {
+      "kind": "vampire-nocturne-signet",
+      "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+      "trials": [
+        {
+          "n": 0,
+          "seed": "public-pilot-vampire-nocturne-signet-0",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 1,
+          "seed": "public-pilot-vampire-nocturne-signet-1",
+          "status": "effect exposed + both strict replays passed"
+        }
+      ]
+    },
+    {
+      "kind": "alien-thought-translator",
+      "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+      "trials": [
+        {
+          "n": 24,
+          "seed": "public-pilot-alien-thought-translator-24",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 25,
+          "seed": "public-pilot-alien-thought-translator-25",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 26,
+          "seed": "public-pilot-alien-thought-translator-26",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 27,
+          "seed": "public-pilot-alien-thought-translator-27",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 28,
+          "seed": "public-pilot-alien-thought-translator-28",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 29,
+          "seed": "public-pilot-alien-thought-translator-29",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 30,
+          "seed": "public-pilot-alien-thought-translator-30",
+          "status": "not proved",
+          "reason": "Required public merchant not available"
+        },
+        {
+          "n": 31,
+          "seed": "public-pilot-alien-thought-translator-31",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 32,
+          "seed": "public-pilot-alien-thought-translator-32",
+          "status": "not proved",
+          "reason": "Required public merchant not available"
+        },
+        {
+          "n": 33,
+          "seed": "public-pilot-alien-thought-translator-33",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 34,
+          "seed": "public-pilot-alien-thought-translator-34",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 35,
+          "seed": "public-pilot-alien-thought-translator-35",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 36,
+          "seed": "public-pilot-alien-thought-translator-36",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 37,
+          "seed": "public-pilot-alien-thought-translator-37",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 38,
+          "seed": "public-pilot-alien-thought-translator-38",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 39,
+          "seed": "public-pilot-alien-thought-translator-39",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 40,
+          "seed": "public-pilot-alien-thought-translator-40",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 41,
+          "seed": "public-pilot-alien-thought-translator-41",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 42,
+          "seed": "public-pilot-alien-thought-translator-42",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 43,
+          "seed": "public-pilot-alien-thought-translator-43",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 44,
+          "seed": "public-pilot-alien-thought-translator-44",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 45,
+          "seed": "public-pilot-alien-thought-translator-45",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 46,
+          "seed": "public-pilot-alien-thought-translator-46",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 47,
+          "seed": "public-pilot-alien-thought-translator-47",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        }
+      ]
+    },
+    {
+      "kind": "alien-thought-translator",
+      "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+      "trials": [
+        {
+          "n": 48,
+          "seed": "public-pilot-alien-thought-translator-48",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 49,
+          "seed": "public-pilot-alien-thought-translator-49",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 50,
+          "seed": "public-pilot-alien-thought-translator-50",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 51,
+          "seed": "public-pilot-alien-thought-translator-51",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 52,
+          "seed": "public-pilot-alien-thought-translator-52",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 53,
+          "seed": "public-pilot-alien-thought-translator-53",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 54,
+          "seed": "public-pilot-alien-thought-translator-54",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 55,
+          "seed": "public-pilot-alien-thought-translator-55",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 56,
+          "seed": "public-pilot-alien-thought-translator-56",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 57,
+          "seed": "public-pilot-alien-thought-translator-57",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 58,
+          "seed": "public-pilot-alien-thought-translator-58",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 59,
+          "seed": "public-pilot-alien-thought-translator-59",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 60,
+          "seed": "public-pilot-alien-thought-translator-60",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 61,
+          "seed": "public-pilot-alien-thought-translator-61",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 62,
+          "seed": "public-pilot-alien-thought-translator-62",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 63,
+          "seed": "public-pilot-alien-thought-translator-63",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 64,
+          "seed": "public-pilot-alien-thought-translator-64",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 65,
+          "seed": "public-pilot-alien-thought-translator-65",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 66,
+          "seed": "public-pilot-alien-thought-translator-66",
+          "status": "not proved",
+          "reason": "Required public merchant not available"
+        },
+        {
+          "n": 67,
+          "seed": "public-pilot-alien-thought-translator-67",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 68,
+          "seed": "public-pilot-alien-thought-translator-68",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 69,
+          "seed": "public-pilot-alien-thought-translator-69",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 70,
+          "seed": "public-pilot-alien-thought-translator-70",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 71,
+          "seed": "public-pilot-alien-thought-translator-71",
+          "status": "public merchant absent"
+        }
+      ]
+    },
+    {
+      "kind": "alien-thought-translator",
+      "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+      "trials": [
+        {
+          "n": 72,
+          "seed": "public-pilot-alien-thought-translator-72",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 73,
+          "seed": "public-pilot-alien-thought-translator-73",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 74,
+          "seed": "public-pilot-alien-thought-translator-74",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 75,
+          "seed": "public-pilot-alien-thought-translator-75",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 76,
+          "seed": "public-pilot-alien-thought-translator-76",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 77,
+          "seed": "public-pilot-alien-thought-translator-77",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 78,
+          "seed": "public-pilot-alien-thought-translator-78",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 79,
+          "seed": "public-pilot-alien-thought-translator-79",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 80,
+          "seed": "public-pilot-alien-thought-translator-80",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 81,
+          "seed": "public-pilot-alien-thought-translator-81",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 82,
+          "seed": "public-pilot-alien-thought-translator-82",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 83,
+          "seed": "public-pilot-alien-thought-translator-83",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 84,
+          "seed": "public-pilot-alien-thought-translator-84",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 85,
+          "seed": "public-pilot-alien-thought-translator-85",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 86,
+          "seed": "public-pilot-alien-thought-translator-86",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 87,
+          "seed": "public-pilot-alien-thought-translator-87",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 88,
+          "seed": "public-pilot-alien-thought-translator-88",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 89,
+          "seed": "public-pilot-alien-thought-translator-89",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 90,
+          "seed": "public-pilot-alien-thought-translator-90",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 91,
+          "seed": "public-pilot-alien-thought-translator-91",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 92,
+          "seed": "public-pilot-alien-thought-translator-92",
+          "status": "not proved",
+          "reason": "Required public merchant not available"
+        },
+        {
+          "n": 93,
+          "seed": "public-pilot-alien-thought-translator-93",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 94,
+          "seed": "public-pilot-alien-thought-translator-94",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 95,
+          "seed": "public-pilot-alien-thought-translator-95",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        }
+      ]
+    },
+    {
+      "kind": "alien-thought-translator",
+      "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+      "trials": [
+        {
+          "n": 96,
+          "seed": "public-pilot-alien-thought-translator-96",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 97,
+          "seed": "public-pilot-alien-thought-translator-97",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 98,
+          "seed": "public-pilot-alien-thought-translator-98",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 99,
+          "seed": "public-pilot-alien-thought-translator-99",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 100,
+          "seed": "public-pilot-alien-thought-translator-100",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 101,
+          "seed": "public-pilot-alien-thought-translator-101",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 102,
+          "seed": "public-pilot-alien-thought-translator-102",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 103,
+          "seed": "public-pilot-alien-thought-translator-103",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 104,
+          "seed": "public-pilot-alien-thought-translator-104",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 105,
+          "seed": "public-pilot-alien-thought-translator-105",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 106,
+          "seed": "public-pilot-alien-thought-translator-106",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 107,
+          "seed": "public-pilot-alien-thought-translator-107",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 108,
+          "seed": "public-pilot-alien-thought-translator-108",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 109,
+          "seed": "public-pilot-alien-thought-translator-109",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 110,
+          "seed": "public-pilot-alien-thought-translator-110",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 111,
+          "seed": "public-pilot-alien-thought-translator-111",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 112,
+          "seed": "public-pilot-alien-thought-translator-112",
+          "status": "not proved",
+          "reason": "Required public merchant not available"
+        },
+        {
+          "n": 113,
+          "seed": "public-pilot-alien-thought-translator-113",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 114,
+          "seed": "public-pilot-alien-thought-translator-114",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 115,
+          "seed": "public-pilot-alien-thought-translator-115",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 116,
+          "seed": "public-pilot-alien-thought-translator-116",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 117,
+          "seed": "public-pilot-alien-thought-translator-117",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 118,
+          "seed": "public-pilot-alien-thought-translator-118",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 119,
+          "seed": "public-pilot-alien-thought-translator-119",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        }
+      ]
+    },
+    {
+      "kind": "alien-thought-translator",
+      "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+      "trials": [
+        {
+          "n": 120,
+          "seed": "public-pilot-alien-thought-translator-120",
+          "status": "not proved",
+          "reason": "Required public merchant not available"
+        },
+        {
+          "n": 121,
+          "seed": "public-pilot-alien-thought-translator-121",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 122,
+          "seed": "public-pilot-alien-thought-translator-122",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 123,
+          "seed": "public-pilot-alien-thought-translator-123",
+          "status": "not proved",
+          "reason": "Required public merchant not available"
+        },
+        {
+          "n": 124,
+          "seed": "public-pilot-alien-thought-translator-124",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 125,
+          "seed": "public-pilot-alien-thought-translator-125",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 126,
+          "seed": "public-pilot-alien-thought-translator-126",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 127,
+          "seed": "public-pilot-alien-thought-translator-127",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 128,
+          "seed": "public-pilot-alien-thought-translator-128",
+          "status": "not proved",
+          "reason": "Required public merchant not available"
+        },
+        {
+          "n": 129,
+          "seed": "public-pilot-alien-thought-translator-129",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 130,
+          "seed": "public-pilot-alien-thought-translator-130",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 131,
+          "seed": "public-pilot-alien-thought-translator-131",
+          "status": "not proved",
+          "reason": "Required public merchant not available"
+        },
+        {
+          "n": 132,
+          "seed": "public-pilot-alien-thought-translator-132",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 133,
+          "seed": "public-pilot-alien-thought-translator-133",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 134,
+          "seed": "public-pilot-alien-thought-translator-134",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 135,
+          "seed": "public-pilot-alien-thought-translator-135",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 136,
+          "seed": "public-pilot-alien-thought-translator-136",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 137,
+          "seed": "public-pilot-alien-thought-translator-137",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 138,
+          "seed": "public-pilot-alien-thought-translator-138",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 139,
+          "seed": "public-pilot-alien-thought-translator-139",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 140,
+          "seed": "public-pilot-alien-thought-translator-140",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 141,
+          "seed": "public-pilot-alien-thought-translator-141",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 142,
+          "seed": "public-pilot-alien-thought-translator-142",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 143,
+          "seed": "public-pilot-alien-thought-translator-143",
+          "status": "public merchant absent"
+        }
+      ]
+    },
+    {
+      "kind": "alien-thought-translator",
+      "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+      "trials": [
+        {
+          "n": 144,
+          "seed": "public-pilot-alien-thought-translator-144",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 145,
+          "seed": "public-pilot-alien-thought-translator-145",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 146,
+          "seed": "public-pilot-alien-thought-translator-146",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 147,
+          "seed": "public-pilot-alien-thought-translator-147",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 148,
+          "seed": "public-pilot-alien-thought-translator-148",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 149,
+          "seed": "public-pilot-alien-thought-translator-149",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 150,
+          "seed": "public-pilot-alien-thought-translator-150",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 151,
+          "seed": "public-pilot-alien-thought-translator-151",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 152,
+          "seed": "public-pilot-alien-thought-translator-152",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 153,
+          "seed": "public-pilot-alien-thought-translator-153",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 154,
+          "seed": "public-pilot-alien-thought-translator-154",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 155,
+          "seed": "public-pilot-alien-thought-translator-155",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 156,
+          "seed": "public-pilot-alien-thought-translator-156",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 157,
+          "seed": "public-pilot-alien-thought-translator-157",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 158,
+          "seed": "public-pilot-alien-thought-translator-158",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 159,
+          "seed": "public-pilot-alien-thought-translator-159",
+          "status": "not proved",
+          "reason": "Required public merchant not available"
+        },
+        {
+          "n": 160,
+          "seed": "public-pilot-alien-thought-translator-160",
+          "status": "not proved",
+          "reason": "Required public merchant not available"
+        },
+        {
+          "n": 161,
+          "seed": "public-pilot-alien-thought-translator-161",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 162,
+          "seed": "public-pilot-alien-thought-translator-162",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 163,
+          "seed": "public-pilot-alien-thought-translator-163",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 164,
+          "seed": "public-pilot-alien-thought-translator-164",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 165,
+          "seed": "public-pilot-alien-thought-translator-165",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 166,
+          "seed": "public-pilot-alien-thought-translator-166",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        },
+        {
+          "n": 167,
+          "seed": "public-pilot-alien-thought-translator-167",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed by this trial"
+        }
+      ]
+    },
+    {
+      "kind": "alien-thought-translator",
+      "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+      "trials": [
+        {
+          "n": 168,
+          "seed": "public-pilot-alien-thought-translator-168",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 169,
+          "seed": "public-pilot-alien-thought-translator-169",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=true,stored=true,value=10,kind=vampire-nocturne-signet"
+        },
+        {
+          "n": 170,
+          "seed": "public-pilot-alien-thought-translator-170",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 171,
+          "seed": "public-pilot-alien-thought-translator-171",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 172,
+          "seed": "public-pilot-alien-thought-translator-172",
+          "status": "not proved",
+          "reason": "Required public merchant not available"
+        },
+        {
+          "n": 173,
+          "seed": "public-pilot-alien-thought-translator-173",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=false,stored=false,value=11,kind=swarm-brood-hammer"
+        },
+        {
+          "n": 174,
+          "seed": "public-pilot-alien-thought-translator-174",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 175,
+          "seed": "public-pilot-alien-thought-translator-175",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 176,
+          "seed": "public-pilot-alien-thought-translator-176",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=true,stored=true,value=21,kind=vampire-nocturne-signet"
+        },
+        {
+          "n": 177,
+          "seed": "public-pilot-alien-thought-translator-177",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 178,
+          "seed": "public-pilot-alien-thought-translator-178",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=true,stored=true,value=18,kind=darkone-crossing-token"
+        },
+        {
+          "n": 179,
+          "seed": "public-pilot-alien-thought-translator-179",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=false,stored=false,value=19,kind=alien-thought-translator"
+        },
+        {
+          "n": 180,
+          "seed": "public-pilot-alien-thought-translator-180",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 181,
+          "seed": "public-pilot-alien-thought-translator-181",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 182,
+          "seed": "public-pilot-alien-thought-translator-182",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=false,stored=false,value=40,kind=orc-tusk-shield"
+        },
+        {
+          "n": 183,
+          "seed": "public-pilot-alien-thought-translator-183",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=false,stored=false,value=12,kind=swarm-brood-hammer"
+        },
+        {
+          "n": 184,
+          "seed": "public-pilot-alien-thought-translator-184",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=true,stored=true,value=18,kind=darkone-crossing-token"
+        },
+        {
+          "n": 185,
+          "seed": "public-pilot-alien-thought-translator-185",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 186,
+          "seed": "public-pilot-alien-thought-translator-186",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 187,
+          "seed": "public-pilot-alien-thought-translator-187",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 188,
+          "seed": "public-pilot-alien-thought-translator-188",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=false,stored=false,value=44,kind=beast-riftfang-sword"
+        },
+        {
+          "n": 189,
+          "seed": "public-pilot-alien-thought-translator-189",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 190,
+          "seed": "public-pilot-alien-thought-translator-190",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 191,
+          "seed": "public-pilot-alien-thought-translator-191",
+          "status": "public merchant absent"
+        }
+      ]
+    },
+    {
+      "kind": "alien-thought-translator",
+      "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+      "trials": [
+        {
+          "n": 192,
+          "seed": "public-pilot-alien-thought-translator-192",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 193,
+          "seed": "public-pilot-alien-thought-translator-193",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 194,
+          "seed": "public-pilot-alien-thought-translator-194",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 195,
+          "seed": "public-pilot-alien-thought-translator-195",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 196,
+          "seed": "public-pilot-alien-thought-translator-196",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=false,stored=false,value=26,kind=orc-tusk-shield"
+        },
+        {
+          "n": 197,
+          "seed": "public-pilot-alien-thought-translator-197",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=true,stored=true,value=12,kind=beast-riftfang-sword"
+        },
+        {
+          "n": 198,
+          "seed": "public-pilot-alien-thought-translator-198",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 199,
+          "seed": "public-pilot-alien-thought-translator-199",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=true,stored=true,value=8,kind=darkone-crossing-token"
+        },
+        {
+          "n": 200,
+          "seed": "public-pilot-alien-thought-translator-200",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 201,
+          "seed": "public-pilot-alien-thought-translator-201",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=false,stored=false,value=10,kind=swarm-brood-hammer"
+        },
+        {
+          "n": 202,
+          "seed": "public-pilot-alien-thought-translator-202",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 203,
+          "seed": "public-pilot-alien-thought-translator-203",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 204,
+          "seed": "public-pilot-alien-thought-translator-204",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 205,
+          "seed": "public-pilot-alien-thought-translator-205",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=false,stored=false,value=13,kind=orc-tusk-shield"
+        },
+        {
+          "n": 206,
+          "seed": "public-pilot-alien-thought-translator-206",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 207,
+          "seed": "public-pilot-alien-thought-translator-207",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 208,
+          "seed": "public-pilot-alien-thought-translator-208",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 209,
+          "seed": "public-pilot-alien-thought-translator-209",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=false,stored=false,value=9,kind=vampire-nocturne-signet"
+        },
+        {
+          "n": 210,
+          "seed": "public-pilot-alien-thought-translator-210",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 211,
+          "seed": "public-pilot-alien-thought-translator-211",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 212,
+          "seed": "public-pilot-alien-thought-translator-212",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 213,
+          "seed": "public-pilot-alien-thought-translator-213",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=false,stored=false,value=23,kind=alien-thought-translator"
+        },
+        {
+          "n": 214,
+          "seed": "public-pilot-alien-thought-translator-214",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=true,stored=true,value=8,kind=darkone-crossing-token"
+        },
+        {
+          "n": 215,
+          "seed": "public-pilot-alien-thought-translator-215",
+          "status": "not proved",
+          "reason": "Required public merchant not available"
+        }
+      ]
+    },
+    {
+      "kind": "alien-thought-translator",
+      "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+      "trials": [
+        {
+          "n": 216,
+          "seed": "public-pilot-alien-thought-translator-216",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 217,
+          "seed": "public-pilot-alien-thought-translator-217",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 218,
+          "seed": "public-pilot-alien-thought-translator-218",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=false,stored=false,value=20,kind=vampire-nocturne-signet"
+        },
+        {
+          "n": 219,
+          "seed": "public-pilot-alien-thought-translator-219",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=true,stored=true,value=10,kind=swarm-brood-hammer"
+        },
+        {
+          "n": 220,
+          "seed": "public-pilot-alien-thought-translator-220",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 221,
+          "seed": "public-pilot-alien-thought-translator-221",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 222,
+          "seed": "public-pilot-alien-thought-translator-222",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=true,stored=true,value=8,kind=deepsea-tide-compass"
+        },
+        {
+          "n": 223,
+          "seed": "public-pilot-alien-thought-translator-223",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 224,
+          "seed": "public-pilot-alien-thought-translator-224",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 225,
+          "seed": "public-pilot-alien-thought-translator-225",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=true,stored=true,value=33,kind=vampire-nocturne-signet"
+        },
+        {
+          "n": 226,
+          "seed": "public-pilot-alien-thought-translator-226",
+          "status": "not proved",
+          "reason": "No acceptance boundary crossed: held=false,stored=false,value=9,kind=alien-thought-translator"
+        },
+        {
+          "n": 227,
+          "seed": "public-pilot-alien-thought-translator-227",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 228,
+          "seed": "public-pilot-alien-thought-translator-228",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 229,
+          "seed": "public-pilot-alien-thought-translator-229",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 230,
+          "seed": "public-pilot-alien-thought-translator-230",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 231,
+          "seed": "public-pilot-alien-thought-translator-231",
+          "status": "public merchant absent"
+        },
+        {
+          "n": 232,
+          "seed": "public-pilot-alien-thought-translator-232",
+          "status": "not proved",
+          "reason": "Required public merchant not available"
+        },
+        {
+          "n": 233,
+          "seed": "public-pilot-alien-thought-translator-233",
+          "status": "effect exposed + both strict replays passed"
+        }
+      ]
+    }
+  ],
+  "harnessCorrections": [
+    "Initial separate24-seed probe disabled expansion and could not offer Swarm/Deepsea; final supported config keeps expansion enabled.",
+    "Translator public result field is appraisalAccepted; no private truth/RNG used by actor.",
+    "Sword announcement is captured before the tied hand consumes it, not from the closed result.",
+    "Additional translator parity guard initially compared full merchant-ability target lists; storing the tool is supposed to change those lists. Final guard compares statuses, public trust/omen, normalized pre-appraisal command prefix and unchanged detection risk/caught result, preserving the causal counterfactual."
+  ]
+}

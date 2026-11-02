@@ -38,3 +38,6 @@ CTX-02 complete: active Comic appraisal modules plus explicit support/server/bot
 
 
 2026-11-02 continuation: previous turn518d702 was verified progress, not a wait. RULE-03 concrete proposed details reviewed and sent for user approval; not implemented. BAL-02 now has repeatable coverage analysis of8 sealed historical audits: none proves native effect exposure, despite successful flow. Add public-view exercise scenarios before tuning, see ../balance-reports/2026-11-02-pilot-coverage.md. No new gameplay or visual identity; remaining48/STRAT/Collector/awards/full acceptance stay open.
+
+
+2026-11-02: new publiceffect verification8pairs/16fullruns/32strictreplaychecks completes the targetedexposure checkpoint (notstatistical/default40balance). UserapprovedCollectorconcretespec; approvalJSONpinsoriginalSHA andimplementationplanready. ProceedwithCollectorengine/protocol/UI perplan; do notrequestthe sameapprovalagain. Originalproposalremainsfrozen,historicalpendingnotes superseded.

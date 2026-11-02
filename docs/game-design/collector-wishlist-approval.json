@@ -1,0 +1,10 @@
+{
+  "status": "approved-experimental",
+  "date": "2026-11-02",
+  "proposal": "docs/game-design/proposals/collector-wishlist-v1.md",
+  "proposalRevision": "5a44a7a",
+  "proposalSha256": "d7e79e71d6fcb61919c91beaea34b123d1676a4745be97aa88f87bd36462d98f",
+  "userReply": "อนุมัติสเปกทดลองนี้",
+  "scope": "Exact Collector3+2 experimental specification including same-slot price, original purchase modifiers/fees/energy, private batches, schedule, expiry, trade-ban and custody. Not release balance, remaining48 or STRAT-01 approval.",
+  "runtimeStatus": "not yet implemented; finish current public-pilot evidence then implement this approved specification without re-requesting it."
+}

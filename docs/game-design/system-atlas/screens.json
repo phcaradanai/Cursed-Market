@@ -1559,7 +1559,7 @@
       "phase": null,
       "kind": "interaction",
       "implementation": "design-only",
-      "trigger": "Wishlist 3+2 ที่ผู้ใช้ยืนยัน ยังไม่มี dedicated runtime; ไม่ใช่ E73",
+      "trigger": "Collector3+2 experimental spec approved2026-11-02; dedicated runtime pending implementation, not NPC E73",
       "logicIds": [
         "L21"
       ],
@@ -1573,7 +1573,7 @@
       "mustNotShow": [],
       "captures": [],
       "captureStatus": "design-only-not-captured",
-      "captureNote": "",
+      "captureNote": "Approved spec pinned in collector-wishlist-approval.json; implementation plan collector-wishlist-plan.md. No new UI/capture/runtime yet.",
       "sourceRefs": []
     },
     {

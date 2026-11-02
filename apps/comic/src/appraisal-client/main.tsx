@@ -15,6 +15,7 @@ import './appraisal-concept.css';
 import './inventory-concept.css';
 import './utility-navigation.css';
 import './comic-ui.css';
+import './collector-wishlist.css';
 import './market-concept.css';
 import './event-concept.css';
 

@@ -1508,27 +1508,150 @@
   &quot;captureStatus&quot;: &quot;not-captured-yet&quot;,
   &quot;captureNote&quot;: &quot;Not captured is not proof this screen is absent.&quot;,
   &quot;sourceRefs&quot;: []
-}</pre></details></article><article id="A05" data-kind="interaction"><header><b>A05 · Collector Wishlist</b><span>ตามเงื่อนไข · design-only · capture: design-only-not-captured · concept: planned</span></header><div class="placeholder">รอภาพ concept · planned</div><nav aria-label="ภาพแต่ละสถานะ"></nav><p>Collector3+2 experimental spec approved2026-11-02; dedicated runtime pending implementation, not NPC E73</p><small>Logic: L21 · Actions: ยังไม่กำหนด/ไม่มี action ใหม่</small><p></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
+}</pre></details></article><article id="A05" data-kind="interaction"><header><b>A05 · Collector Wishlist</b><span>ตามเงื่อนไข · runtime · capture: captured-existing · concept: implemented</span></header><a href="captures/collector-2026-11-02/request-1440.png"><img src="captures/collector-2026-11-02/request-1440.png" alt="A05 Collector Wishlist concept implemented"></a><nav aria-label="ภาพแต่ละสถานะ"></nav><p>Version1 private Collector: request at even encounters before own appraisal completion, delivery+2; main new rooms enabled. Historical no-flag runs unchanged. Not NPC E73.</p><small>Logic: L21 · Actions: collector-wish-request, collector-wish-peek, collector-wish-buy, collector-wish-skip</small><p><a href="#S02">ไป S02</a> · <a href="#S04">ไป S04</a> · <a href="#M01">ไป M01</a> · <a href="#M04">ไป M04</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
   &quot;id&quot;: &quot;A05&quot;,
   &quot;title&quot;: &quot;Collector Wishlist&quot;,
   &quot;phase&quot;: null,
   &quot;kind&quot;: &quot;interaction&quot;,
-  &quot;implementation&quot;: &quot;design-only&quot;,
-  &quot;trigger&quot;: &quot;Collector3+2 experimental spec approved2026-11-02; dedicated runtime pending implementation, not NPC E73&quot;,
+  &quot;implementation&quot;: &quot;runtime&quot;,
+  &quot;trigger&quot;: &quot;Version1 private Collector: request at even encounters before own appraisal completion, delivery+2; main new rooms enabled. Historical no-flag runs unchanged. Not NPC E73.&quot;,
   &quot;logicIds&quot;: [
     &quot;L21&quot;
   ],
-  &quot;actionIds&quot;: [],
-  &quot;nextIds&quot;: [],
-  &quot;conceptStatus&quot;: &quot;planned&quot;,
-  &quot;currentImage&quot;: null,
+  &quot;actionIds&quot;: [
+    &quot;collector-wish-request&quot;,
+    &quot;collector-wish-peek&quot;,
+    &quot;collector-wish-buy&quot;,
+    &quot;collector-wish-skip&quot;
+  ],
+  &quot;nextIds&quot;: [
+    &quot;S02&quot;,
+    &quot;S04&quot;,
+    &quot;M01&quot;,
+    &quot;M04&quot;
+  ],
+  &quot;conceptStatus&quot;: &quot;implemented&quot;,
+  &quot;currentImage&quot;: &quot;captures/collector-2026-11-02/request-1440.png&quot;,
   &quot;approvedImage&quot;: null,
-  &quot;variants&quot;: [],
-  &quot;mustShow&quot;: [],
-  &quot;mustNotShow&quot;: [],
-  &quot;captures&quot;: [],
-  &quot;captureStatus&quot;: &quot;design-only-not-captured&quot;,
-  &quot;captureNote&quot;: &quot;Approved spec pinned in collector-wishlist-approval.json; implementation plan collector-wishlist-plan.md. No new UI/capture/runtime yet.&quot;,
+  &quot;variants&quot;: [
+    {
+      &quot;id&quot;: &quot;request&quot;,
+      &quot;purpose&quot;: &quot;3 distinct active kinds / paged choices&quot;,
+      &quot;status&quot;: &quot;implemented&quot;
+    },
+    {
+      &quot;id&quot;: &quot;waiting&quot;,
+      &quot;purpose&quot;: &quot;due+2 / saved request&quot;,
+      &quot;status&quot;: &quot;implemented&quot;
+    },
+    {
+      &quot;id&quot;: &quot;delivery&quot;,
+      &quot;purpose&quot;: &quot;5 hidden slots / common final bill&quot;,
+      &quot;status&quot;: &quot;implemented&quot;
+    },
+    {
+      &quot;id&quot;: &quot;peek&quot;,
+      &quot;purpose&quot;: &quot;one public name/art/rarity / no truth&quot;,
+      &quot;status&quot;: &quot;implemented&quot;
+    },
+    {
+      &quot;id&quot;: &quot;confirmation&quot;,
+      &quot;purpose&quot;: &quot;latest quote / explicit purchase&quot;,
+      &quot;status&quot;: &quot;implemented&quot;
+    },
+    {
+      &quot;id&quot;: &quot;closed&quot;,
+      &quot;purpose&quot;: &quot;close stale drawer / no phantom rights&quot;,
+      &quot;status&quot;: &quot;implemented&quot;
+    }
+  ],
+  &quot;mustShow&quot;: [
+    &quot;actual price + fee = total and energy&quot;,
+    &quot;due encounter and current rights&quot;,
+    &quot;clear finish-appraisal expiry warning&quot;,
+    &quot;known funding/energy/trade-ban blockers&quot;
+  ],
+  &quot;mustNotShow&quot;: [
+    &quot;hidden slot mapping or instance IDs&quot;,
+    &quot;unknown truth before ownership&quot;,
+    &quot;new dock item, scroll, new phase or reset clocks&quot;
+  ],
+  &quot;captures&quot;: [
+    {
+      &quot;id&quot;: &quot;C42&quot;,
+      &quot;image&quot;: &quot;captures/collector-2026-11-02/request-1024.png&quot;,
+      &quot;title&quot;: &quot;Collector request 1024&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C43&quot;,
+      &quot;image&quot;: &quot;captures/collector-2026-11-02/waiting-1024.png&quot;,
+      &quot;title&quot;: &quot;Collector waiting 1024&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C44&quot;,
+      &quot;image&quot;: &quot;captures/collector-2026-11-02/delivery-1024.png&quot;,
+      &quot;title&quot;: &quot;Collector delivery 1024&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C45&quot;,
+      &quot;image&quot;: &quot;captures/collector-2026-11-02/peek-1024.png&quot;,
+      &quot;title&quot;: &quot;Collector peek 1024&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C46&quot;,
+      &quot;image&quot;: &quot;captures/collector-2026-11-02/request-1440.png&quot;,
+      &quot;title&quot;: &quot;Collector request 1440&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C47&quot;,
+      &quot;image&quot;: &quot;captures/collector-2026-11-02/waiting-1440.png&quot;,
+      &quot;title&quot;: &quot;Collector waiting 1440&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C48&quot;,
+      &quot;image&quot;: &quot;captures/collector-2026-11-02/delivery-1440.png&quot;,
+      &quot;title&quot;: &quot;Collector delivery 1440&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C49&quot;,
+      &quot;image&quot;: &quot;captures/collector-2026-11-02/peek-1440.png&quot;,
+      &quot;title&quot;: &quot;Collector peek 1440&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C50&quot;,
+      &quot;image&quot;: &quot;captures/collector-2026-11-02/request-1920.png&quot;,
+      &quot;title&quot;: &quot;Collector request 1920&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C51&quot;,
+      &quot;image&quot;: &quot;captures/collector-2026-11-02/waiting-1920.png&quot;,
+      &quot;title&quot;: &quot;Collector waiting 1920&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C52&quot;,
+      &quot;image&quot;: &quot;captures/collector-2026-11-02/delivery-1920.png&quot;,
+      &quot;title&quot;: &quot;Collector delivery 1920&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    },
+    {
+      &quot;id&quot;: &quot;C53&quot;,
+      &quot;image&quot;: &quot;captures/collector-2026-11-02/peek-1920.png&quot;,
+      &quot;title&quot;: &quot;Collector peek 1920&quot;,
+      &quot;origin&quot;: &quot;existing-component-preview-fixture&quot;
+    }
+  ],
+  &quot;captureStatus&quot;: &quot;captured-existing&quot;,
+  &quot;captureNote&quot;: &quot;Approved experimental specification;12 actual public DTO screenshots and10 mounted checks,25 UI tests,14 approved baselines and18 menu checks pass. Candidates are not newly approved pixel baselines. See collector-wishlist verification files.&quot;,
   &quot;sourceRefs&quot;: []
 }</pre></details></article><article id="G01" data-kind="ghost"><header><b>G01 · วิญญาณติดตามการ์ด</b><span>ตามเงื่อนไข · runtime · capture: captured-existing · concept: draft</span></header><a href="captures/ghost-2026-10-30/ghost-1440x722.png"><img src="captures/ghost-2026-10-30/ghost-1440x722.png" alt="G01 วิญญาณติดตามการ์ด ภาพจับเกมปัจจุบัน"></a><nav aria-label="ภาพแต่ละสถานะ"></nav><p>ตายแล้ว ต้องชนะติดตามการ์ดสี่ใบเพื่อเปิดบริการ</p><small>Logic: L24 · Actions: ghost-start, ghost-guess</small><p><a href="#G02">ไป G02</a></p><details><summary>ข้อมูลสำหรับออกแบบและพัฒนา</summary><pre>{
   &quot;id&quot;: &quot;G01&quot;,

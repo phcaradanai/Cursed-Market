@@ -1,0 +1,32 @@
+(node:2394) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ empty cabinet stock leaves the phase exit available (107.639291ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 589.453584
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/collector-before-cabinet.test.js:30:1
+✖ empty cabinet stock leaves the phase exit available (107.639291ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+    assert(html.includes('จบการประเมิน ไปต่อรอง'))
+
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/collector-before-cabinet.test.js:35:5)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

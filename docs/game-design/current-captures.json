@@ -211,11 +211,11 @@
     "warning": "Comic UI is in separate build and differs from canonical UI source. Logic links are references, not proof every latest backend rule has matching UI."
   },
   "summary": {
-    "capturedImages": 41,
-    "capturedScreenGroups": 21,
+    "capturedImages": 53,
+    "capturedScreenGroups": 22,
     "registeredScreens": 30,
     "liveImages": 5,
-    "fixtureImages": 36
+    "fixtureImages": 48
   },
   "style": {
     "observedViewport": "1440×722 (browser native viewport; image dimensions recorded per file)",
@@ -2295,6 +2295,930 @@
         "height": 722,
         "scrollWidth": 1440,
         "scrollHeight": 722
+      }
+    },
+    {
+      "id": "C42",
+      "screenId": "A05",
+      "title": "Collector request 1024",
+      "phase": "PORTALS",
+      "image": "captures/collector-2026-11-02/request-1024.png",
+      "sha256": "fb7e7ae580cca613a43254797d026c5dc32fa3d45fa9792aae71455b534fc7ed",
+      "dimensions": {
+        "width": 1024,
+        "height": 800
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:3193/?preview=collector-request",
+      "capturedAtUTC": "2026-11-02T09:08:05.011Z",
+      "clientDate": "2026-11-02",
+      "notes": "Actual ComicMenu/GameTable public DTO capture; same inventory bounds. Candidate, not approved pixel baseline or live payment evidence. Actual2-socket audit is separate.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+        "apps/comic/src/appraisal-client/collector-wishlist.css",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/collector-preview-data.ts",
+        "apps/comic/src/appraisal-client/main.tsx",
+        "apps/comic/src/appraisal-client/ComicUI.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/comic-tokens.css"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+          "sha256": "21f0b86c8220b246c34ee61e866d9dc542e17fb77cedd9ff6333551b2a152908"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-wishlist.css",
+          "sha256": "1172c72bf486387fddbe4ed437f416724cf65cb537a764e44e389d813e775630"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "b6183c514966f4014dff710b60d9b1138ff4f0797de0adb9cfdabf662e614e96"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-preview-data.ts",
+          "sha256": "2accf6ac8292d1f0c3c067e82af47604deaca037f4ebebc01c3ebb640355861d"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "42244c377b5b62ac09d78f0f378bf45d8d80bad29caf1552ddebd1654691b8db"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-tokens.css",
+          "sha256": "b746e939edf67d3e14cb5ae0e56db1a27eef3de5b7d5db792bb15d0ae1e0d084"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "f989ddb",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1024,
+        "height": 800,
+        "scrollWidth": 1024,
+        "scrollHeight": 800
+      }
+    },
+    {
+      "id": "C43",
+      "screenId": "A05",
+      "title": "Collector waiting 1024",
+      "phase": "PORTALS",
+      "image": "captures/collector-2026-11-02/waiting-1024.png",
+      "sha256": "456796907f3caf3a2a47b893b1621c8c866e2de3f3a521eb59e70e801cb4b21c",
+      "dimensions": {
+        "width": 1024,
+        "height": 800
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:3193/?preview=collector-waiting",
+      "capturedAtUTC": "2026-11-02T09:08:05.011Z",
+      "clientDate": "2026-11-02",
+      "notes": "Actual ComicMenu/GameTable public DTO capture; same inventory bounds. Candidate, not approved pixel baseline or live payment evidence. Actual2-socket audit is separate.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+        "apps/comic/src/appraisal-client/collector-wishlist.css",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/collector-preview-data.ts",
+        "apps/comic/src/appraisal-client/main.tsx",
+        "apps/comic/src/appraisal-client/ComicUI.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/comic-tokens.css"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+          "sha256": "21f0b86c8220b246c34ee61e866d9dc542e17fb77cedd9ff6333551b2a152908"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-wishlist.css",
+          "sha256": "1172c72bf486387fddbe4ed437f416724cf65cb537a764e44e389d813e775630"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "b6183c514966f4014dff710b60d9b1138ff4f0797de0adb9cfdabf662e614e96"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-preview-data.ts",
+          "sha256": "2accf6ac8292d1f0c3c067e82af47604deaca037f4ebebc01c3ebb640355861d"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "42244c377b5b62ac09d78f0f378bf45d8d80bad29caf1552ddebd1654691b8db"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-tokens.css",
+          "sha256": "b746e939edf67d3e14cb5ae0e56db1a27eef3de5b7d5db792bb15d0ae1e0d084"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "f989ddb",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1024,
+        "height": 800,
+        "scrollWidth": 1024,
+        "scrollHeight": 800
+      }
+    },
+    {
+      "id": "C44",
+      "screenId": "A05",
+      "title": "Collector delivery 1024",
+      "phase": "PORTALS",
+      "image": "captures/collector-2026-11-02/delivery-1024.png",
+      "sha256": "40d9a55980a771a6e3f284719d52491e77c0d3f21554a51f229f6783816e138c",
+      "dimensions": {
+        "width": 1024,
+        "height": 800
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:3193/?preview=collector-delivery",
+      "capturedAtUTC": "2026-11-02T09:08:05.011Z",
+      "clientDate": "2026-11-02",
+      "notes": "Actual ComicMenu/GameTable public DTO capture; same inventory bounds. Candidate, not approved pixel baseline or live payment evidence. Actual2-socket audit is separate.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+        "apps/comic/src/appraisal-client/collector-wishlist.css",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/collector-preview-data.ts",
+        "apps/comic/src/appraisal-client/main.tsx",
+        "apps/comic/src/appraisal-client/ComicUI.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/comic-tokens.css"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+          "sha256": "21f0b86c8220b246c34ee61e866d9dc542e17fb77cedd9ff6333551b2a152908"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-wishlist.css",
+          "sha256": "1172c72bf486387fddbe4ed437f416724cf65cb537a764e44e389d813e775630"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "b6183c514966f4014dff710b60d9b1138ff4f0797de0adb9cfdabf662e614e96"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-preview-data.ts",
+          "sha256": "2accf6ac8292d1f0c3c067e82af47604deaca037f4ebebc01c3ebb640355861d"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "42244c377b5b62ac09d78f0f378bf45d8d80bad29caf1552ddebd1654691b8db"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-tokens.css",
+          "sha256": "b746e939edf67d3e14cb5ae0e56db1a27eef3de5b7d5db792bb15d0ae1e0d084"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "f989ddb",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1024,
+        "height": 800,
+        "scrollWidth": 1024,
+        "scrollHeight": 800
+      }
+    },
+    {
+      "id": "C45",
+      "screenId": "A05",
+      "title": "Collector peek 1024",
+      "phase": "PORTALS",
+      "image": "captures/collector-2026-11-02/peek-1024.png",
+      "sha256": "e03db92ab2b11b06051011777adeba35e4a2e90ada8d924c236d7b52dfbd4622",
+      "dimensions": {
+        "width": 1024,
+        "height": 800
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:3193/?preview=collector-peek",
+      "capturedAtUTC": "2026-11-02T09:08:05.011Z",
+      "clientDate": "2026-11-02",
+      "notes": "Actual ComicMenu/GameTable public DTO capture; same inventory bounds. Candidate, not approved pixel baseline or live payment evidence. Actual2-socket audit is separate.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+        "apps/comic/src/appraisal-client/collector-wishlist.css",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/collector-preview-data.ts",
+        "apps/comic/src/appraisal-client/main.tsx",
+        "apps/comic/src/appraisal-client/ComicUI.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/comic-tokens.css"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+          "sha256": "21f0b86c8220b246c34ee61e866d9dc542e17fb77cedd9ff6333551b2a152908"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-wishlist.css",
+          "sha256": "1172c72bf486387fddbe4ed437f416724cf65cb537a764e44e389d813e775630"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "b6183c514966f4014dff710b60d9b1138ff4f0797de0adb9cfdabf662e614e96"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-preview-data.ts",
+          "sha256": "2accf6ac8292d1f0c3c067e82af47604deaca037f4ebebc01c3ebb640355861d"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "42244c377b5b62ac09d78f0f378bf45d8d80bad29caf1552ddebd1654691b8db"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-tokens.css",
+          "sha256": "b746e939edf67d3e14cb5ae0e56db1a27eef3de5b7d5db792bb15d0ae1e0d084"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "f989ddb",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1024,
+        "height": 800,
+        "scrollWidth": 1024,
+        "scrollHeight": 800
+      }
+    },
+    {
+      "id": "C46",
+      "screenId": "A05",
+      "title": "Collector request 1440",
+      "phase": "PORTALS",
+      "image": "captures/collector-2026-11-02/request-1440.png",
+      "sha256": "ba579806a47640f559fca7519432d793809f0af217f48986c97584f11cf7433a",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:3193/?preview=collector-request",
+      "capturedAtUTC": "2026-11-02T09:08:05.011Z",
+      "clientDate": "2026-11-02",
+      "notes": "Actual ComicMenu/GameTable public DTO capture; same inventory bounds. Candidate, not approved pixel baseline or live payment evidence. Actual2-socket audit is separate.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+        "apps/comic/src/appraisal-client/collector-wishlist.css",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/collector-preview-data.ts",
+        "apps/comic/src/appraisal-client/main.tsx",
+        "apps/comic/src/appraisal-client/ComicUI.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/comic-tokens.css"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+          "sha256": "21f0b86c8220b246c34ee61e866d9dc542e17fb77cedd9ff6333551b2a152908"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-wishlist.css",
+          "sha256": "1172c72bf486387fddbe4ed437f416724cf65cb537a764e44e389d813e775630"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "b6183c514966f4014dff710b60d9b1138ff4f0797de0adb9cfdabf662e614e96"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-preview-data.ts",
+          "sha256": "2accf6ac8292d1f0c3c067e82af47604deaca037f4ebebc01c3ebb640355861d"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "42244c377b5b62ac09d78f0f378bf45d8d80bad29caf1552ddebd1654691b8db"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-tokens.css",
+          "sha256": "b746e939edf67d3e14cb5ae0e56db1a27eef3de5b7d5db792bb15d0ae1e0d084"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "f989ddb",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      }
+    },
+    {
+      "id": "C47",
+      "screenId": "A05",
+      "title": "Collector waiting 1440",
+      "phase": "PORTALS",
+      "image": "captures/collector-2026-11-02/waiting-1440.png",
+      "sha256": "6f44a55c82dd87b1e171df5d5a5e46c4f5617c0e974258133dafb6ae76d86395",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:3193/?preview=collector-waiting",
+      "capturedAtUTC": "2026-11-02T09:08:05.011Z",
+      "clientDate": "2026-11-02",
+      "notes": "Actual ComicMenu/GameTable public DTO capture; same inventory bounds. Candidate, not approved pixel baseline or live payment evidence. Actual2-socket audit is separate.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+        "apps/comic/src/appraisal-client/collector-wishlist.css",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/collector-preview-data.ts",
+        "apps/comic/src/appraisal-client/main.tsx",
+        "apps/comic/src/appraisal-client/ComicUI.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/comic-tokens.css"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+          "sha256": "21f0b86c8220b246c34ee61e866d9dc542e17fb77cedd9ff6333551b2a152908"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-wishlist.css",
+          "sha256": "1172c72bf486387fddbe4ed437f416724cf65cb537a764e44e389d813e775630"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "b6183c514966f4014dff710b60d9b1138ff4f0797de0adb9cfdabf662e614e96"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-preview-data.ts",
+          "sha256": "2accf6ac8292d1f0c3c067e82af47604deaca037f4ebebc01c3ebb640355861d"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "42244c377b5b62ac09d78f0f378bf45d8d80bad29caf1552ddebd1654691b8db"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-tokens.css",
+          "sha256": "b746e939edf67d3e14cb5ae0e56db1a27eef3de5b7d5db792bb15d0ae1e0d084"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "f989ddb",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      }
+    },
+    {
+      "id": "C48",
+      "screenId": "A05",
+      "title": "Collector delivery 1440",
+      "phase": "PORTALS",
+      "image": "captures/collector-2026-11-02/delivery-1440.png",
+      "sha256": "06adc406fa0ca19dee4da9c9344c31e250cc39bf68ed6ce9899d93305b36ed39",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:3193/?preview=collector-delivery",
+      "capturedAtUTC": "2026-11-02T09:08:05.011Z",
+      "clientDate": "2026-11-02",
+      "notes": "Actual ComicMenu/GameTable public DTO capture; same inventory bounds. Candidate, not approved pixel baseline or live payment evidence. Actual2-socket audit is separate.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+        "apps/comic/src/appraisal-client/collector-wishlist.css",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/collector-preview-data.ts",
+        "apps/comic/src/appraisal-client/main.tsx",
+        "apps/comic/src/appraisal-client/ComicUI.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/comic-tokens.css"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+          "sha256": "21f0b86c8220b246c34ee61e866d9dc542e17fb77cedd9ff6333551b2a152908"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-wishlist.css",
+          "sha256": "1172c72bf486387fddbe4ed437f416724cf65cb537a764e44e389d813e775630"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "b6183c514966f4014dff710b60d9b1138ff4f0797de0adb9cfdabf662e614e96"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-preview-data.ts",
+          "sha256": "2accf6ac8292d1f0c3c067e82af47604deaca037f4ebebc01c3ebb640355861d"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "42244c377b5b62ac09d78f0f378bf45d8d80bad29caf1552ddebd1654691b8db"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-tokens.css",
+          "sha256": "b746e939edf67d3e14cb5ae0e56db1a27eef3de5b7d5db792bb15d0ae1e0d084"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "f989ddb",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      }
+    },
+    {
+      "id": "C49",
+      "screenId": "A05",
+      "title": "Collector peek 1440",
+      "phase": "PORTALS",
+      "image": "captures/collector-2026-11-02/peek-1440.png",
+      "sha256": "6850dcbaedf21f188329127348062e78f878e6cc6e22e82b4910583e46da4708",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:3193/?preview=collector-peek",
+      "capturedAtUTC": "2026-11-02T09:08:05.011Z",
+      "clientDate": "2026-11-02",
+      "notes": "Actual ComicMenu/GameTable public DTO capture; same inventory bounds. Candidate, not approved pixel baseline or live payment evidence. Actual2-socket audit is separate.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+        "apps/comic/src/appraisal-client/collector-wishlist.css",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/collector-preview-data.ts",
+        "apps/comic/src/appraisal-client/main.tsx",
+        "apps/comic/src/appraisal-client/ComicUI.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/comic-tokens.css"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+          "sha256": "21f0b86c8220b246c34ee61e866d9dc542e17fb77cedd9ff6333551b2a152908"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-wishlist.css",
+          "sha256": "1172c72bf486387fddbe4ed437f416724cf65cb537a764e44e389d813e775630"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "b6183c514966f4014dff710b60d9b1138ff4f0797de0adb9cfdabf662e614e96"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-preview-data.ts",
+          "sha256": "2accf6ac8292d1f0c3c067e82af47604deaca037f4ebebc01c3ebb640355861d"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "42244c377b5b62ac09d78f0f378bf45d8d80bad29caf1552ddebd1654691b8db"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-tokens.css",
+          "sha256": "b746e939edf67d3e14cb5ae0e56db1a27eef3de5b7d5db792bb15d0ae1e0d084"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "f989ddb",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      }
+    },
+    {
+      "id": "C50",
+      "screenId": "A05",
+      "title": "Collector request 1920",
+      "phase": "PORTALS",
+      "image": "captures/collector-2026-11-02/request-1920.png",
+      "sha256": "a26138aae77bef7300b05dd3fbf8b9fd0b30e254eb9a491ee59c2b594a3503aa",
+      "dimensions": {
+        "width": 1920,
+        "height": 800
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:3193/?preview=collector-request",
+      "capturedAtUTC": "2026-11-02T09:08:05.011Z",
+      "clientDate": "2026-11-02",
+      "notes": "Actual ComicMenu/GameTable public DTO capture; same inventory bounds. Candidate, not approved pixel baseline or live payment evidence. Actual2-socket audit is separate.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+        "apps/comic/src/appraisal-client/collector-wishlist.css",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/collector-preview-data.ts",
+        "apps/comic/src/appraisal-client/main.tsx",
+        "apps/comic/src/appraisal-client/ComicUI.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/comic-tokens.css"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+          "sha256": "21f0b86c8220b246c34ee61e866d9dc542e17fb77cedd9ff6333551b2a152908"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-wishlist.css",
+          "sha256": "1172c72bf486387fddbe4ed437f416724cf65cb537a764e44e389d813e775630"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "b6183c514966f4014dff710b60d9b1138ff4f0797de0adb9cfdabf662e614e96"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-preview-data.ts",
+          "sha256": "2accf6ac8292d1f0c3c067e82af47604deaca037f4ebebc01c3ebb640355861d"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "42244c377b5b62ac09d78f0f378bf45d8d80bad29caf1552ddebd1654691b8db"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-tokens.css",
+          "sha256": "b746e939edf67d3e14cb5ae0e56db1a27eef3de5b7d5db792bb15d0ae1e0d084"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "f989ddb",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1920,
+        "height": 800,
+        "scrollWidth": 1920,
+        "scrollHeight": 800
+      }
+    },
+    {
+      "id": "C51",
+      "screenId": "A05",
+      "title": "Collector waiting 1920",
+      "phase": "PORTALS",
+      "image": "captures/collector-2026-11-02/waiting-1920.png",
+      "sha256": "590587cddacc69410621c1bf8d074bc19248a3df9a8cca1e626dabb50f67a747",
+      "dimensions": {
+        "width": 1920,
+        "height": 800
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:3193/?preview=collector-waiting",
+      "capturedAtUTC": "2026-11-02T09:08:05.011Z",
+      "clientDate": "2026-11-02",
+      "notes": "Actual ComicMenu/GameTable public DTO capture; same inventory bounds. Candidate, not approved pixel baseline or live payment evidence. Actual2-socket audit is separate.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+        "apps/comic/src/appraisal-client/collector-wishlist.css",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/collector-preview-data.ts",
+        "apps/comic/src/appraisal-client/main.tsx",
+        "apps/comic/src/appraisal-client/ComicUI.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/comic-tokens.css"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+          "sha256": "21f0b86c8220b246c34ee61e866d9dc542e17fb77cedd9ff6333551b2a152908"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-wishlist.css",
+          "sha256": "1172c72bf486387fddbe4ed437f416724cf65cb537a764e44e389d813e775630"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "b6183c514966f4014dff710b60d9b1138ff4f0797de0adb9cfdabf662e614e96"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-preview-data.ts",
+          "sha256": "2accf6ac8292d1f0c3c067e82af47604deaca037f4ebebc01c3ebb640355861d"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "42244c377b5b62ac09d78f0f378bf45d8d80bad29caf1552ddebd1654691b8db"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-tokens.css",
+          "sha256": "b746e939edf67d3e14cb5ae0e56db1a27eef3de5b7d5db792bb15d0ae1e0d084"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "f989ddb",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1920,
+        "height": 800,
+        "scrollWidth": 1920,
+        "scrollHeight": 800
+      }
+    },
+    {
+      "id": "C52",
+      "screenId": "A05",
+      "title": "Collector delivery 1920",
+      "phase": "PORTALS",
+      "image": "captures/collector-2026-11-02/delivery-1920.png",
+      "sha256": "ff82c88bc507c7ecbdfc1a64bae9758a6fe448536619f76dbad86bcc6e552f9a",
+      "dimensions": {
+        "width": 1920,
+        "height": 800
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:3193/?preview=collector-delivery",
+      "capturedAtUTC": "2026-11-02T09:08:05.011Z",
+      "clientDate": "2026-11-02",
+      "notes": "Actual ComicMenu/GameTable public DTO capture; same inventory bounds. Candidate, not approved pixel baseline or live payment evidence. Actual2-socket audit is separate.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+        "apps/comic/src/appraisal-client/collector-wishlist.css",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/collector-preview-data.ts",
+        "apps/comic/src/appraisal-client/main.tsx",
+        "apps/comic/src/appraisal-client/ComicUI.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/comic-tokens.css"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+          "sha256": "21f0b86c8220b246c34ee61e866d9dc542e17fb77cedd9ff6333551b2a152908"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-wishlist.css",
+          "sha256": "1172c72bf486387fddbe4ed437f416724cf65cb537a764e44e389d813e775630"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "b6183c514966f4014dff710b60d9b1138ff4f0797de0adb9cfdabf662e614e96"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-preview-data.ts",
+          "sha256": "2accf6ac8292d1f0c3c067e82af47604deaca037f4ebebc01c3ebb640355861d"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "42244c377b5b62ac09d78f0f378bf45d8d80bad29caf1552ddebd1654691b8db"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-tokens.css",
+          "sha256": "b746e939edf67d3e14cb5ae0e56db1a27eef3de5b7d5db792bb15d0ae1e0d084"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "f989ddb",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1920,
+        "height": 800,
+        "scrollWidth": 1920,
+        "scrollHeight": 800
+      }
+    },
+    {
+      "id": "C53",
+      "screenId": "A05",
+      "title": "Collector peek 1920",
+      "phase": "PORTALS",
+      "image": "captures/collector-2026-11-02/peek-1920.png",
+      "sha256": "575a1da16be14531a417fe183716876785b6ce932e2f99cb443482a97874bceb",
+      "dimensions": {
+        "width": 1920,
+        "height": 800
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:3193/?preview=collector-peek",
+      "capturedAtUTC": "2026-11-02T09:08:05.011Z",
+      "clientDate": "2026-11-02",
+      "notes": "Actual ComicMenu/GameTable public DTO capture; same inventory bounds. Candidate, not approved pixel baseline or live payment evidence. Actual2-socket audit is separate.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+        "apps/comic/src/appraisal-client/collector-wishlist.css",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/collector-preview-data.ts",
+        "apps/comic/src/appraisal-client/main.tsx",
+        "apps/comic/src/appraisal-client/ComicUI.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/comic-tokens.css"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+          "sha256": "21f0b86c8220b246c34ee61e866d9dc542e17fb77cedd9ff6333551b2a152908"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-wishlist.css",
+          "sha256": "1172c72bf486387fddbe4ed437f416724cf65cb537a764e44e389d813e775630"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "b6183c514966f4014dff710b60d9b1138ff4f0797de0adb9cfdabf662e614e96"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-preview-data.ts",
+          "sha256": "2accf6ac8292d1f0c3c067e82af47604deaca037f4ebebc01c3ebb640355861d"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/main.tsx",
+          "sha256": "42244c377b5b62ac09d78f0f378bf45d8d80bad29caf1552ddebd1654691b8db"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-tokens.css",
+          "sha256": "b746e939edf67d3e14cb5ae0e56db1a27eef3de5b7d5db792bb15d0ae1e0d084"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "f989ddb",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1920,
+        "height": 800,
+        "scrollWidth": 1920,
+        "scrollHeight": 800
       }
     }
   ],

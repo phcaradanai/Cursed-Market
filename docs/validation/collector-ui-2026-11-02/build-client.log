@@ -1,0 +1,26 @@
+
+> cursed-market-comic@0.1.0 build:appraisal
+> tsc -p tsconfig.appraisal-client.json && vite build --config vite.appraisal.config.mjs
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 125 modules transformed.
+rendering chunks...
+computing gzip size...
+../../dist/appraisal-client/index.html                                                0.50 kB │ gzip:   0.35 kB
+../../dist/appraisal-client/assets/srisakdi-thai-700-normal-ClYfKm-d.woff2           10.51 kB
+../../dist/appraisal-client/assets/srisakdi-thai-700-normal-BPDgklCj.woff            12.93 kB
+../../dist/appraisal-client/assets/srisakdi-latin-700-normal-djYySggx.woff2          15.82 kB
+../../dist/appraisal-client/assets/srisakdi-latin-700-normal-B7lFu79Q.woff           19.41 kB
+../../dist/appraisal-client/assets/im-fell-english-latin-400-normal-BhowGHCQ.woff2   59.88 kB
+../../dist/appraisal-client/assets/im-fell-english-latin-400-normal-CxhBQSzl.woff    69.68 kB
+../../dist/appraisal-client/assets/index-Cy2MxnE-.css                               474.84 kB │ gzip:  79.56 kB
+../../dist/appraisal-client/assets/rarity-renderer-DFptt3zm.js                        8.31 kB │ gzip:   3.85 kB
+../../dist/appraisal-client/assets/ComicPreview-CQPaY36s.js                         141.66 kB │ gzip:   9.46 kB
+../../dist/appraisal-client/assets/index-CyPeMKk4.js                                903.43 kB │ gzip: 239.37 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 3.02s

@@ -1,0 +1,30 @@
+/* Collector composes the existing inventory frame and controls; only its contents differ. */
+#game-main .collector-menu .drawer-body{padding:var(--comic-menu-inset);overflow:hidden;display:flex;min-height:0}
+#game-main .collector-spread{display:grid;grid-template-rows:auto minmax(0,1fr) auto auto;gap:var(--layout-space);width:100%;min-width:0;min-height:0}
+#game-main .collector-heading{display:flex;align-items:center;justify-content:space-between;gap:var(--layout-space);min-width:0}
+#game-main .collector-heading h3,#game-main .collector-summary h4{margin:0;font:inherit;font-weight:700}
+#game-main .collector-heading h3{font-size:clamp(20px,2vw,28px)}
+#game-main .collector-heading p,#game-main .collector-summary p,#game-main .collector-footer p{margin:0;font-size:clamp(13px,1.2vw,17px)}
+#game-main .collector-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:var(--layout-space);min-height:0}
+#game-main .collector-choices .comic-tooltip-anchor{min-width:0;min-height:0;display:flex}
+#game-main .collector-choices button{display:flex;flex:1;min-width:0;min-height:0;height:100%;flex-direction:column;gap:var(--layout-space-small);padding:var(--layout-space);font:inherit}
+#game-main .collector-choices img{width:100%;height:0;flex:1;min-height:0;object-fit:contain;filter:drop-shadow(0 4px 3px #0009)}
+#game-main .collector-choices strong{font-size:clamp(13px,1.3vw,19px);font-weight:600}
+#game-main .collector-slots{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--layout-space);min-height:0}
+#game-main .collector-slot{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;min-height:0;height:100%;gap:var(--layout-space-small);padding:var(--layout-space);font:inherit}
+#game-main .collector-slot img{height:0;min-height:0;width:100%;flex:1;object-fit:contain}
+#game-main .collector-slot strong{font-size:clamp(13px,1.2vw,18px);line-height:1.4}
+#game-main .collector-question{font-size:clamp(40px,8vh,84px);font-weight:700}
+#game-main .collector-spread [aria-pressed=true]{border-color:var(--comic-red);background:color-mix(in srgb,var(--comic-red) 22%,var(--comic-ink))}
+#game-main .collector-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--layout-space-large);align-items:center}
+#game-main .collector-summary>div{min-width:0}
+#game-main .collector-cost{display:grid;grid-template-columns:1fr auto;gap:var(--layout-space-small);text-align:right;font-variant-numeric:tabular-nums}
+#game-main .collector-cost>span{display:flex;align-items:center;justify-content:flex-end;gap:var(--layout-space-small);font-size:clamp(18px,2vw,26px)}
+#game-main .collector-cost small{grid-column:1/-1;font-size:13px}
+#game-main .collector-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--layout-space)}
+#game-main .collector-actions>button,#game-main .collector-footer>button{height:46px;min-height:46px;min-width:0;margin:0;font-size:clamp(15px,1.4vw,20px)}
+#game-main .collector-footer{display:grid;gap:var(--layout-space)}
+#game-main .collector-footer>p{text-align:center;width:100%;max-width:none;justify-self:stretch;box-sizing:border-box}
+#game-main .collector-empty{display:flex;flex:1;flex-direction:column;align-items:center;justify-content:center;gap:var(--layout-space);text-align:center;min-width:0;width:100%}
+#game-main .collector-empty h3,#game-main .collector-empty p{margin:0}
+@media(max-height:720px){#game-main .collector-heading{align-items:flex-start}#game-main .collector-footer{gap:var(--layout-space-small)}}

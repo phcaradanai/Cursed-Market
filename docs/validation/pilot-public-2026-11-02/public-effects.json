@@ -1,6 +1,6 @@
 {
-  "startedAt": "2026-11-02T08:29:48.937Z",
-  "observedRevision": "945dc5775cd9a3eea303b968b0e07130dbabc3f9",
+  "startedAt": "2026-11-02T09:08:02.045Z",
+  "observedRevision": "f989ddb5045c9aa5905f4bda4428f3764a2334b9",
   "scope": "8 targeted, supported-config public-command mechanism pairs;16 full runs with strict replays. Initial500credits, not default40 budget or release balance. Counterfactual uses real vault custody or skipped activation. Fixed cooperative PvP hands; no hidden-hand policy. Seeds selected for eligibility/outcome boundary, not random sampling.",
   "sourceFingerprints": {
     "apps/comic/scripts/pilot-public-scenarios.mjs": "06651716423ece13dabf8b9baefd4771141e12cacc21b1dcb9ffff9c7c6b1fba",
@@ -527,5 +527,5 @@
     }
   ],
   "passed": true,
-  "finishedAt": "2026-11-02T08:29:53.475Z"
+  "finishedAt": "2026-11-02T09:08:07.403Z"
 }

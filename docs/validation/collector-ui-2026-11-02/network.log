@@ -1,0 +1,15 @@
+✔ real sockets preserve sealed hands, independent clocks, resume and round-token idempotency (408.836459ms)
+✔ Collector parser accepts only the four exact public payloads and rejects private fields (12.64125ms)
+✔ Collector bots choose only from the public pool and progress through a bounded decision sequence at real40-credit budget (229.512334ms)
+✔ pending real entry event blocks Collector while reading its DTO never changes revision (14.02875ms)
+✔ named pending-ability fixture blocks Collector and preserves its current window (30.199625ms)
+✔ two actual sockets request2 resume deliver4 isolate batches and charge once then replay RESULTS (666.801166ms)
+✔ two real sockets track cards, agree a job and deliver with no duplicate payment (474.309709ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1512.951917

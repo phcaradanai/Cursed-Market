@@ -1,0 +1,11 @@
+{
+  "id": "inventory-1440x722",
+  "n": 1839,
+  "bounds": [
+    554,
+    633,
+    880,
+    664
+  ],
+  "cause": "New long preview options changed native select intrinsic width. Shorten added labels; no baseline masking/re-record."
+}

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-02",
   "status": "screen-plan-not-runtime-phase-enumeration",
   "style": {
     "theme": "2D comic, red/black/white chrome, merchant/item palette retained",
@@ -1558,22 +1558,145 @@
       "title": "Collector Wishlist",
       "phase": null,
       "kind": "interaction",
-      "implementation": "design-only",
-      "trigger": "Collector3+2 experimental spec approved2026-11-02; dedicated runtime pending implementation, not NPC E73",
+      "implementation": "runtime",
+      "trigger": "Version1 private Collector: request at even encounters before own appraisal completion, delivery+2; main new rooms enabled. Historical no-flag runs unchanged. Not NPC E73.",
       "logicIds": [
         "L21"
       ],
-      "actionIds": [],
-      "nextIds": [],
-      "conceptStatus": "planned",
-      "currentImage": null,
+      "actionIds": [
+        "collector-wish-request",
+        "collector-wish-peek",
+        "collector-wish-buy",
+        "collector-wish-skip"
+      ],
+      "nextIds": [
+        "S02",
+        "S04",
+        "M01",
+        "M04"
+      ],
+      "conceptStatus": "implemented",
+      "currentImage": "captures/collector-2026-11-02/request-1440.png",
       "approvedImage": null,
-      "variants": [],
-      "mustShow": [],
-      "mustNotShow": [],
-      "captures": [],
-      "captureStatus": "design-only-not-captured",
-      "captureNote": "Approved spec pinned in collector-wishlist-approval.json; implementation plan collector-wishlist-plan.md. No new UI/capture/runtime yet.",
+      "variants": [
+        {
+          "id": "request",
+          "purpose": "3 distinct active kinds / paged choices",
+          "status": "implemented"
+        },
+        {
+          "id": "waiting",
+          "purpose": "due+2 / saved request",
+          "status": "implemented"
+        },
+        {
+          "id": "delivery",
+          "purpose": "5 hidden slots / common final bill",
+          "status": "implemented"
+        },
+        {
+          "id": "peek",
+          "purpose": "one public name/art/rarity / no truth",
+          "status": "implemented"
+        },
+        {
+          "id": "confirmation",
+          "purpose": "latest quote / explicit purchase",
+          "status": "implemented"
+        },
+        {
+          "id": "closed",
+          "purpose": "close stale drawer / no phantom rights",
+          "status": "implemented"
+        }
+      ],
+      "mustShow": [
+        "actual price + fee = total and energy",
+        "due encounter and current rights",
+        "clear finish-appraisal expiry warning",
+        "known funding/energy/trade-ban blockers"
+      ],
+      "mustNotShow": [
+        "hidden slot mapping or instance IDs",
+        "unknown truth before ownership",
+        "new dock item, scroll, new phase or reset clocks"
+      ],
+      "captures": [
+        {
+          "id": "C42",
+          "image": "captures/collector-2026-11-02/request-1024.png",
+          "title": "Collector request 1024",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C43",
+          "image": "captures/collector-2026-11-02/waiting-1024.png",
+          "title": "Collector waiting 1024",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C44",
+          "image": "captures/collector-2026-11-02/delivery-1024.png",
+          "title": "Collector delivery 1024",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C45",
+          "image": "captures/collector-2026-11-02/peek-1024.png",
+          "title": "Collector peek 1024",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C46",
+          "image": "captures/collector-2026-11-02/request-1440.png",
+          "title": "Collector request 1440",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C47",
+          "image": "captures/collector-2026-11-02/waiting-1440.png",
+          "title": "Collector waiting 1440",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C48",
+          "image": "captures/collector-2026-11-02/delivery-1440.png",
+          "title": "Collector delivery 1440",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C49",
+          "image": "captures/collector-2026-11-02/peek-1440.png",
+          "title": "Collector peek 1440",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C50",
+          "image": "captures/collector-2026-11-02/request-1920.png",
+          "title": "Collector request 1920",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C51",
+          "image": "captures/collector-2026-11-02/waiting-1920.png",
+          "title": "Collector waiting 1920",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C52",
+          "image": "captures/collector-2026-11-02/delivery-1920.png",
+          "title": "Collector delivery 1920",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C53",
+          "image": "captures/collector-2026-11-02/peek-1920.png",
+          "title": "Collector peek 1920",
+          "origin": "existing-component-preview-fixture"
+        }
+      ],
+      "captureStatus": "captured-existing",
+      "captureNote": "Approved experimental specification;12 actual public DTO screenshots and10 mounted checks,25 UI tests,14 approved baselines and18 menu checks pass. Candidates are not newly approved pixel baselines. See collector-wishlist verification files.",
       "sourceRefs": []
     },
     {

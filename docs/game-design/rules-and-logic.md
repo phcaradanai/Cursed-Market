@@ -255,10 +255,10 @@ Collector ตอนจบยังเป็นอีกหน้าที่ห�
 
 | งาน | สถานะจากการตรวจรอบนี้ |
 |---|---|
-| บังคับ RPS ไม่ให้ใช้ refusal/timeout หลบได้ | มี RPS แล้ว แต่ timeout ยังยกเลิก ต้องออกแบบ fallback |
+| บังคับ RPS ไม่ให้ใช้ refusal/timeout หลบได้ | รันใหม่ theftTimeoutRules1 สุ่มเฉพาะมือที่ยังไม่ส่งตาม deadline; audit เก่าไม่ใส่ flag คงกติกาเดิม ดู forced-rps-verification |
 | ดอกเบี้ย 10% และเงินต้นมีอายุ | รันใหม่ใช้ 10% จากเงินต้นครบช่วง มี snapshot และกันจ่ายซ้ำ; audit เก่าที่ไม่มี flag ใช้ 4% เดิม |
-| Collector Wishlist 3+2 รอ 2 turn | ยังไม่ยืนยันพบระบบนี้; wishlist ที่ตรวจเป็นคำขอรับซื้อของ NPC |
-| สิทธิ์เปิดดู 1 ช่องและจ่ายซื้อ | ต้องพัฒนาร่วมกับ delivery ชุดปกปิดใหม่ |
+| Collector Wishlist 3+2 รอ 2 turn | rules1 เชื่อม engine/protocol/Comic UI แล้ว; main new rooms เปิดใช้; ไม่ใช่ NPC E73 ดู collector-wishlist-verification.json |
+| สิทธิ์เปิดดู 1 ช่องและจ่ายซื้อ | ห้าช่องราคาเดียว เปิด1เมื่อเงินพอ ซื้อ1/ข้าม/หมดสิทธิ์; UI confirm และ server quote ตรวจแล้ว |
 | รางวัลสถิติและผู้นำ rarity แยกกลุ่ม | สูตร scoring ที่ตรวจยังเป็นสูตรฐาน; ต้องเพิ่มสถิติและ award settlement |
 | คลังสินค้าใหม่ 56 แบบ | กำหนดแค็ตตาล็อกใหม่ 8 พ่อค้า × 7 แบบ; มี [ร่าง relation](logic-item-relations.md) สำหรับ review แต่ยังไม่ผูก runtime |
 
@@ -313,3 +313,5 @@ Collector ตอนจบยังเป็นอีกหน้าที่ห�
 ### Collector Wishlist: สเปกทดลองยืนยัน2026-11-02
 
 ผู้ใช้อนุมัติข้อเสนอcollector-wishlist-v1.mdครบตามเวอร์ชัน5a44a7a/SHAในcollector-wishlist-approval.json:3kindต่างกัน+2kindไม่ซ้ำ,ชุดส่วนตัว,ขอช่วง2/4/6ส่ง+2,rawquoteเฉลี่ยrarity-scaledanchorใช้ร่วม5ช่องพร้อมต้นทุนซื้อส่วนกลางตามสเปก,peek1เมื่อเงินพอ,ซื้อ1หรือข้าม,expiryเมื่อจบประเมิน,banยังห้ามซื้อ,death/endcancel. นี่เป็นกฎทดลองที่อนุมัติแล้ว ไม่ใช่แค่proposal; originalfileคงข้อความขณะขออนุมัติเพื่อพิสูจน์SHA. Dedicatedruntimeยังไม่ลง;ติดตามimplementations/collector-wishlist-plan.md ไม่ยืนยันbalance/full56จากการอนุมัตินี้
+
+2026-11-02 runtime followup: Collector3+2 ใช้collectorWishlistRules1 ในComicmainnewrooms; explicit engine config ไม่มีflagยังคงเดิม. Engine/protocol/UI และหลักฐานจริงอยู่collector-wishlist-verification.json; final review pending. สเปกอนุมัติไม่ใช่balanceรุ่นเปิดเล่นหรือfull56.

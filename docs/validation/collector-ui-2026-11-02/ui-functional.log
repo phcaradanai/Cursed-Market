@@ -1,0 +1,43 @@
+(node:2527) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ game settings are named and reachable alongside the cabinet tools (220.663958ms)
+✔ cabinet selection never reveals a hidden value while showing the public selling price (113.603625ms)
+✔ empty cabinet retains appraisal completion in Status without placeholder goods (29.082083ms)
+✔ server rejection is readable inside the active utility dialog (1.08975ms)
+✔ the active utility dialog announces an in-flight decision (0.682ms)
+✔ connection loss and seat recovery remain available above a native modal (2.281792ms)
+(node:2528) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Collector request uses public choices, paired controls and a fixed six-item page without hidden truths (143.490625ms)
+✔ Collector delivery renders five opaque slots, one common bill and no item truth or hidden art (12.764375ms)
+✔ pending and expired views show only their actual rights without fake active controls (4.172042ms)
+✔ finishing appraisal visibly warns on the actual button that remaining Collector rights close (618.926458ms)
+(node:2529) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ unknown NPC facts stay unknown and unappraised sale is disabled (47.848792ms)
+✔ appraised shop can list, owned item has no seller claims (46.823792ms)
+✔ locked owned item and invalid listing rebate remain blocked (41.163417ms)
+✔ live table can SSR without window or CSS module imports (95.830917ms)
+(node:2530) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ unselected portals stay idle regardless of trust or closed state (185.817583ms)
+✔ confirmed portal selection smiles and unselected merchants become angry (51.050917ms)
+✔ appraisal portrait follows the known merchant result, never accumulated trust (100.059333ms)
+✔ reaction snapshot needs a newly confirmed legal entry; duplicate/reconnect/late context does not replay it (2.650583ms)
+✔ command-driven entry and both appraisal outcomes feed the shared public mood rules (129.339917ms)
+(node:2531) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ target desk uses shared fixed menu, shows actual target costs, and never expands a details list (39.456208ms)
+✔ secure game has a read-only theft navigation button instead of a permanent panel below the phase (152.199375ms)
+✔ closed duel history is bounded and has no hand submission or hidden item metadata (3.6245ms)
+✔ a carried crime record remains reviewable when the current encounter has no duel history (5.483833ms)
+✔ secure storage alone does not advertise an unavailable theft action when core2 is off (64.620166ms)
+✔ pending merchant item selection blocks target actions without blocking read-only history (5.093709ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1308.3865

@@ -11,7 +11,7 @@
 - ตลาดวิญญาณ S11/G01–G04 ทำและตรวจแล้วใน commit51d89ea; ดู ghost-service-contracts.md และ ../ui-system/ghost-functional-verification.json
 - จุดตกหล่นสำคัญ: RULE-01 ดอกเบี้ย10%พร้อมอายุเงินต้นเชื่อมเข้า Comic รันใหม่แล้ว ตรวจผ่านแล้ว; รันเก่าไม่มีflagรักษา4% ดู implementations/comic-aged-interest-plan.md
 - สินค้าใหม่เชื่อมแล้ว8/56 ใน catalogVersion4 แบบทดลอง พร้อม primary effects ที่อนุมัติและวงจรซื้อ/สำเนา/คลัง/ค้ำประกัน/ประมูล/Collector; default ยังเป็น version3 เดิม66ชนิด อีก48และoptional effectsยังไม่เชื่อม ดู new56-pilot-verification.json ไม่ใช่คำรับรอง balance หรือทั้งเกมครบ
-- เส้นทางชนะหลายสาย, Wishlist Collector3+2 และรางวัลสถิติ/rarityยังไม่ครบ ต้องปิดรายละเอียดและเชื่อมระบบ
+- Collector3+2 เชื่อม engine/protocol/Comic UI แบบทดลองแล้ว (รอ final review); เส้นทางชนะหลายสายและรางวัลสถิติ/rarityยังไม่ครบ ต้องปิดรายละเอียดและเชื่อมระบบ
 - ขโมย/RPSมี runtime แต่การตรวจให้ครบกฎ forced/timeout/disconnect ยังไม่ปิด; อารมณ์พ่อค้ายังไม่เชื่อมครบทุกบริบท
 - ยังไม่ผ่าน PLAY-01/BAL-02: ไม่มีคำรับรองครบทั้งเกม/บาลานซ์/มือถือ; มีเทสต์เก่า Dark One แสดงชื่อผู้เล่นเสียหนึ่งข้อ
 
@@ -215,3 +215,5 @@ User explicitly approvedCollector proposal. collector-wishlist-approval.json pin
 2026-11-02 Collector Task1: แกน private3+2/schedule/peek/pay/expiry/custody/journal พร้อมแบบ opt-in `collectorWishlistRules:1` เท่านั้น.21 Collector tests และ232 focused cases ผ่าน,2 socket เดิมผ่าน,24 audit เดิม replay ตรง,8 effect pairs รันใหม่ผ่าน. Protocol/bot/UI ยังรอ Tasks2/3; ไม่ใช่เกมครบหรือ default rollout. ดู [engine verification](collector-wishlist-engine-verification.json).
 
 2026-11-02 Collector Task2: protocol/public bots/reconnect/idempotency/audit ผ่าน5checks +2socketเดิม +69related. ชุด2→4ซื้อจริงและstrict replayจบRESULTS; ยังopt-inและComicUI/default rolloutรอTask3. ดูcollector-wishlist-network-verification.json.
+
+2026-11-02 Collector Task3: ใช้ComicMenu/ปุ่มกลาง,เลือก3/รอ2/ห้าช่องปกปิด/peek1/confirmจ่าย/ถอนเอง/หมดสิทธิ์และwarningครบ. main new rooms เปิดcollectorWishlistRules1; explicit no-flag auditsเดิมคงเดิม.25 UI,7 network,12 captures+10 mounted checks,14 baseline,18 menusผ่าน; finalreviewยังรอ. ไม่ใช่เกมครบ/remaining48/STRAT/awards/balance. ดูcollector-wishlist-verification.json และA05ในHTMLกลาง.

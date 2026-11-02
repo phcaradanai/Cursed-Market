@@ -100,7 +100,7 @@
 {
   "id": "collector-wishlist",
   "name": "Collector Wishlist 3+2 / รอ2 / ดู1 / จ่ายจริง",
-  "state": "engine-protocol-tested-opt-in/ui-pending",
+  "state": "runtime-experimental-v1/new-main-rooms",
   "confirmed": "ทุก 2 turn ขอ 3; ส่งอีก 2 turn รวมสุ่ม 2; ปกปิด 5 ช่อง; เปิดดู 1; ต้องจ่ายซื้อ",
   "functionNames": [
     "handleCollectorWishlist",

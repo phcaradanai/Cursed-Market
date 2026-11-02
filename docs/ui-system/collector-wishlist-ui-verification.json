@@ -1,0 +1,816 @@
+{
+  "startedAt": "2026-11-02T09:07:20.057Z",
+  "spaceId": 15,
+  "scope": "Mounted public DTOs and exact UI commands. Runtime payment/replay covered separately by collector-wishlist-network-verification.json; captures are candidates, not baseline approval.",
+  "captures": [
+    {
+      "state": "request",
+      "width": 1024,
+      "height": 800,
+      "file": "docs/game-design/captures/collector-2026-11-02/request-1024.png",
+      "geometry": {
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "body": [
+          26,
+          127,
+          972,
+          571
+        ],
+        "padding": "18px",
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "slots": [],
+        "actions": [
+          [
+            44,
+            634,
+            462,
+            46
+          ],
+          [
+            518,
+            634,
+            462,
+            46
+          ]
+        ],
+        "footer": null,
+        "header": 65
+      }
+    },
+    {
+      "state": "waiting",
+      "width": 1024,
+      "height": 800,
+      "file": "docs/game-design/captures/collector-2026-11-02/waiting-1024.png",
+      "geometry": {
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "body": [
+          26,
+          127,
+          972,
+          571
+        ],
+        "padding": "18px",
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "slots": [],
+        "actions": [],
+        "footer": null,
+        "header": 65
+      }
+    },
+    {
+      "state": "delivery",
+      "width": 1024,
+      "height": 800,
+      "file": "docs/game-design/captures/collector-2026-11-02/delivery-1024.png",
+      "geometry": {
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "body": [
+          26,
+          127,
+          972,
+          571
+        ],
+        "padding": "18px",
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "slots": [
+          [
+            44,
+            190.78125,
+            177.59375,
+            262.375
+          ],
+          [
+            233.59375,
+            190.78125,
+            177.6015625,
+            262.375
+          ],
+          [
+            423.1953125,
+            190.78125,
+            177.6015625,
+            262.375
+          ],
+          [
+            612.796875,
+            190.78125,
+            177.6015625,
+            262.375
+          ],
+          [
+            802.3984375,
+            190.78125,
+            177.6015625,
+            262.375
+          ]
+        ],
+        "actions": [
+          [
+            44,
+            576,
+            462,
+            46
+          ],
+          [
+            518,
+            576,
+            462,
+            46
+          ]
+        ],
+        "footer": [
+          44,
+          543.8515625,
+          936,
+          20.1484375
+        ],
+        "header": 65
+      }
+    },
+    {
+      "state": "peek",
+      "width": 1024,
+      "height": 800,
+      "file": "docs/game-design/captures/collector-2026-11-02/peek-1024.png",
+      "geometry": {
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "body": [
+          26,
+          127,
+          972,
+          571
+        ],
+        "padding": "18px",
+        "viewport": [
+          1024,
+          800
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "slots": [
+          [
+            44,
+            190.78125,
+            177.59375,
+            262.375
+          ],
+          [
+            233.59375,
+            190.78125,
+            177.6015625,
+            262.375
+          ],
+          [
+            423.1953125,
+            190.78125,
+            177.6015625,
+            262.375
+          ],
+          [
+            612.796875,
+            190.78125,
+            177.6015625,
+            262.375
+          ],
+          [
+            802.3984375,
+            190.78125,
+            177.6015625,
+            262.375
+          ]
+        ],
+        "actions": [
+          [
+            44,
+            576,
+            462,
+            46
+          ],
+          [
+            518,
+            576,
+            462,
+            46
+          ]
+        ],
+        "footer": [
+          44,
+          543.8515625,
+          936,
+          20.1484375
+        ],
+        "header": 65
+      }
+    },
+    {
+      "state": "request",
+      "width": 1440,
+      "height": 722,
+      "file": "docs/game-design/captures/collector-2026-11-02/request-1440.png",
+      "geometry": {
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "body": [
+          26,
+          127,
+          1388,
+          493
+        ],
+        "padding": "18px",
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "slots": [],
+        "actions": [
+          [
+            44,
+            556,
+            670,
+            46
+          ],
+          [
+            726,
+            556,
+            670,
+            46
+          ]
+        ],
+        "footer": null,
+        "header": 65
+      }
+    },
+    {
+      "state": "waiting",
+      "width": 1440,
+      "height": 722,
+      "file": "docs/game-design/captures/collector-2026-11-02/waiting-1440.png",
+      "geometry": {
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "body": [
+          26,
+          127,
+          1388,
+          493
+        ],
+        "padding": "18px",
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "slots": [],
+        "actions": [],
+        "footer": null,
+        "header": 65
+      }
+    },
+    {
+      "state": "delivery",
+      "width": 1440,
+      "height": 722,
+      "file": "docs/game-design/captures/collector-2026-11-02/delivery-1440.png",
+      "geometry": {
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "body": [
+          26,
+          127,
+          1388,
+          493
+        ],
+        "padding": "18px",
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "slots": [
+          [
+            44,
+            203.1953125,
+            260.796875,
+            153.375
+          ],
+          [
+            316.796875,
+            203.1953125,
+            260.796875,
+            153.375
+          ],
+          [
+            589.59375,
+            203.1953125,
+            260.8046875,
+            153.375
+          ],
+          [
+            862.3984375,
+            203.1953125,
+            260.796875,
+            153.375
+          ],
+          [
+            1135.1953125,
+            203.1953125,
+            260.796875,
+            153.375
+          ]
+        ],
+        "actions": [
+          [
+            44,
+            498,
+            670,
+            46
+          ],
+          [
+            726,
+            498,
+            670,
+            46
+          ]
+        ],
+        "footer": [
+          44,
+          459.65625,
+          1352,
+          26.34375
+        ],
+        "header": 65
+      }
+    },
+    {
+      "state": "peek",
+      "width": 1440,
+      "height": 722,
+      "file": "docs/game-design/captures/collector-2026-11-02/peek-1440.png",
+      "geometry": {
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "body": [
+          26,
+          127,
+          1388,
+          493
+        ],
+        "padding": "18px",
+        "viewport": [
+          1440,
+          722
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "slots": [
+          [
+            44,
+            203.1953125,
+            260.796875,
+            153.375
+          ],
+          [
+            316.796875,
+            203.1953125,
+            260.796875,
+            153.375
+          ],
+          [
+            589.59375,
+            203.1953125,
+            260.8046875,
+            153.375
+          ],
+          [
+            862.3984375,
+            203.1953125,
+            260.796875,
+            153.375
+          ],
+          [
+            1135.1953125,
+            203.1953125,
+            260.796875,
+            153.375
+          ]
+        ],
+        "actions": [
+          [
+            44,
+            498,
+            670,
+            46
+          ],
+          [
+            726,
+            498,
+            670,
+            46
+          ]
+        ],
+        "footer": [
+          44,
+          459.65625,
+          1352,
+          26.34375
+        ],
+        "header": 65
+      }
+    },
+    {
+      "state": "request",
+      "width": 1920,
+      "height": 800,
+      "file": "docs/game-design/captures/collector-2026-11-02/request-1920.png",
+      "geometry": {
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "body": [
+          222,
+          127,
+          1476,
+          571
+        ],
+        "padding": "18px",
+        "viewport": [
+          1920,
+          800
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "slots": [],
+        "actions": [
+          [
+            240,
+            634,
+            714,
+            46
+          ],
+          [
+            966,
+            634,
+            714,
+            46
+          ]
+        ],
+        "footer": null,
+        "header": 65
+      }
+    },
+    {
+      "state": "waiting",
+      "width": 1920,
+      "height": 800,
+      "file": "docs/game-design/captures/collector-2026-11-02/waiting-1920.png",
+      "geometry": {
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "body": [
+          222,
+          127,
+          1476,
+          571
+        ],
+        "padding": "18px",
+        "viewport": [
+          1920,
+          800
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "slots": [],
+        "actions": [],
+        "footer": null,
+        "header": 65
+      }
+    },
+    {
+      "state": "delivery",
+      "width": 1920,
+      "height": 800,
+      "file": "docs/game-design/captures/collector-2026-11-02/delivery-1920.png",
+      "geometry": {
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "body": [
+          222,
+          127,
+          1476,
+          571
+        ],
+        "padding": "18px",
+        "viewport": [
+          1920,
+          800
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "slots": [
+          [
+            240,
+            203.1953125,
+            278.3984375,
+            231.375
+          ],
+          [
+            530.3984375,
+            203.1953125,
+            278.3984375,
+            231.375
+          ],
+          [
+            820.796875,
+            203.1953125,
+            278.3984375,
+            231.375
+          ],
+          [
+            1111.1953125,
+            203.1953125,
+            278.3984375,
+            231.375
+          ],
+          [
+            1401.59375,
+            203.1953125,
+            278.3984375,
+            231.375
+          ]
+        ],
+        "actions": [
+          [
+            240,
+            576,
+            714,
+            46
+          ],
+          [
+            966,
+            576,
+            714,
+            46
+          ]
+        ],
+        "footer": [
+          240,
+          537.65625,
+          1440,
+          26.34375
+        ],
+        "header": 65
+      }
+    },
+    {
+      "state": "peek",
+      "width": 1920,
+      "height": 800,
+      "file": "docs/game-design/captures/collector-2026-11-02/peek-1920.png",
+      "geometry": {
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "body": [
+          222,
+          127,
+          1476,
+          571
+        ],
+        "padding": "18px",
+        "viewport": [
+          1920,
+          800
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "overflow": [
+          0,
+          0
+        ],
+        "slots": [
+          [
+            240,
+            203.1953125,
+            278.3984375,
+            231.375
+          ],
+          [
+            530.3984375,
+            203.1953125,
+            278.3984375,
+            231.375
+          ],
+          [
+            820.796875,
+            203.1953125,
+            278.3984375,
+            231.375
+          ],
+          [
+            1111.1953125,
+            203.1953125,
+            278.3984375,
+            231.375
+          ],
+          [
+            1401.59375,
+            203.1953125,
+            278.3984375,
+            231.375
+          ]
+        ],
+        "actions": [
+          [
+            240,
+            576,
+            714,
+            46
+          ],
+          [
+            966,
+            576,
+            714,
+            46
+          ]
+        ],
+        "footer": [
+          240,
+          537.65625,
+          1440,
+          26.34375
+        ],
+        "header": 65
+      }
+    }
+  ],
+  "checks": [
+    "three distinct selected kinds submit one exact command",
+    "all six utility switches, reopen and Escape remain read-only; focus restores",
+    "buy and back do not submit; explicit confirm submits current opaque slot and quote",
+    "successful purchase returns to the new request window before expiry",
+    "one revealed art/name/rarity; second reveal disabled",
+    "changed server quote clears local confirmation",
+    "credit/energy/ban/pending phase guards preserve read-only menu",
+    "funding uses an explicit withdrawal command; never auto-withdraws or auto-buys",
+    "expired rights clear the open drawer",
+    "appraisal finish button visibly warns; shared header and close heights preserved at1024"
+  ],
+  "finishedAt": "2026-11-02T09:08:05.011Z",
+  "sourceFingerprints": {
+    "apps/comic/src/appraisal-client/App.tsx": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8",
+    "apps/comic/src/appraisal-client/CollectorWishlist.tsx": "21f0b86c8220b246c34ee61e866d9dc542e17fb77cedd9ff6333551b2a152908",
+    "apps/comic/src/appraisal-client/collector-wishlist.css": "1172c72bf486387fddbe4ed437f416724cf65cb537a764e44e389d813e775630",
+    "apps/comic/src/appraisal-client/ComicPreview.tsx": "b6183c514966f4014dff710b60d9b1138ff4f0797de0adb9cfdabf662e614e96",
+    "apps/comic/src/appraisal-client/collector-preview-data.ts": "2accf6ac8292d1f0c3c067e82af47604deaca037f4ebebc01c3ebb640355861d",
+    "apps/comic/src/appraisal-client/main.tsx": "42244c377b5b62ac09d78f0f378bf45d8d80bad29caf1552ddebd1654691b8db",
+    "apps/comic/src/appraisal-client/ComicUI.tsx": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482",
+    "apps/comic/src/appraisal-client/comic-frame.css": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77",
+    "apps/comic/src/appraisal-client/comic-tokens.css": "b746e939edf67d3e14cb5ae0e56db1a27eef3de5b7d5db792bb15d0ae1e0d084",
+    "apps/comic/src/server/appraisal-main.ts": "344962080ebff735530d1a2c2f1d12ab590f608c0a4cd3dbeb127ba7dd62ccb5",
+    "apps/comic/tests/collector-wishlist-ui.test.ts": "44168084ff7db635fab96eac9c406ede3fbbeef017de2a966776e98a0a70052a",
+    "apps/comic/tests/collector-wishlist-network.test.ts": "97b58fd370eaf0c2f07f93359eec32ec01bacb0bf824ae63adc879d397f97277",
+    "apps/comic/tests/appraisal-cabinet.test.ts": "9ab8e114e04fdc946810f15b6940be3a9a07ce38fac200f5a1d3d3bf12e2f345",
+    "scripts/ui/collector-wishlist-smoke.mjs": "4c6f313b5008419015ce157722ec3c3108548b1da254c2be6fd263ffc6d92076",
+    "apps/comic/scripts/generate-collector-preview.mjs": "f37ff81e7971c2b266a5f09421965a3d4d0a4d23becf9b0d9574337cfea65737"
+  },
+  "captureSourceRevision": "f989ddb + Task3 worktree",
+  "capturedSourceSnapshot": true
+}

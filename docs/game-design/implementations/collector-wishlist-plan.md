@@ -60,9 +60,9 @@
 
 **Interfaces:** public `CollectorWishlistView` plus exactexisting `submit(Decision)`; same openDrawer/navigation/ComicMenu contract, no newdock menu or gameplay mutation whilebrowsing.
 
-- [ ] Mounted tests: choose3kind/compactpages; waitingdue+2;5concealedslots withsharedpayable/energy,onepeekrevealsonlyname/art/rarity; explicitbuyconfirmation; buy/skipoldbefore requestnew; ban/poorwallet/poorenergy/expiry/death. Pairspacing and no duplicatefacts.
-- [ ] Implement minimize/return within sharedframe whileactualportalsremainpeekable; use existing eventblocking precedence and6utility menus. Countdowns/focus/reducedmotion restored; no staleorphanedDrawer on advance/end.
-- [ ] Fresh1024/1440/1920 publicDTOproof and2-seatcommandflow; no page/paneoverflow; screencontextlinks exactsource/capturehashes. Runui:check,ui:test,ui:smoke,ui:visual withmatchingfreshreceipts; baseline14unchanged,noautomaticre-record.
-- [ ] Reverify affectednative/ghost/theftcompatibility and sourcepins; rebuild/checkAtlas. Updategame-status/roadmap/context withactualimplementedstage,logs,failuresandremainingfull56/STRAT/awards/balance. Keepwhole-gamegoalactiveuntilfullacceptance.
+- [x] Mounted tests: choose3kind/compactpages; waitingdue+2;5concealedslots withsharedpayable/energy,onepeekrevealsonlyname/art/rarity; explicitbuyconfirmation; buy/skipoldbefore requestnew; ban/poorwallet/poorenergy/expiry/death. Pairspacing and no duplicatefacts.
+- [x] Implement minimize/return within sharedframe whileactualportalsremainpeekable; use existing eventblocking precedence and6utility menus. Countdowns/focus/reducedmotion restored; no staleorphanedDrawer on advance/end.
+- [x] Fresh1024/1440/1920 publicDTOproof and2-seatcommandflow; no page/paneoverflow; screencontextlinks exactsource/capturehashes. Runui:check,ui:test,ui:smoke,ui:visual withmatchingfreshreceipts; baseline14unchanged,noautomaticre-record.
+- [x] Reverify affectednative/ghost/theftcompatibility and sourcepins; rebuild/checkAtlas. Updategame-status/roadmap/context withactualimplementedstage,logs,failuresandremainingfull56/STRAT/awards/balance. Keepwhole-gamegoalactiveuntilfullacceptance.
 
 Self-review: allapprovedspecsections mapped above; no additional numeric rule inferred. Shared source line spans must be revalidated at execution. The original proposal remains frozen for approval hash; implementation progress lives here and in approval/evidence files.

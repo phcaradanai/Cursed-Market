@@ -14,7 +14,7 @@
   ],
   "sourceFingerprints": {
     "apps/comic/scripts/new56-pilot-experiment.mjs": "765044c9febc45ae3e2f3c50e572304b40bd14c2bbad471deba4280a9d88123e",
-    "apps/comic/src/appraisal-client/App.tsx": "a922078c03d2ba41fde95f0776bc47fd08f3f6f6f9802120002775a7a9d91696",
+    "apps/comic/src/appraisal-client/App.tsx": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8",
     "apps/comic/src/appraisal-client/SecureEconomy.tsx": "cf7323f59d79043ae49b35a9fcfdeb9e588383ce55575270d99a5a0ba9648ced",
     "apps/comic/src/appraisal-client/components.tsx": "b4564c5667bdb3eaa375b2a8f87389216c67108433c2f06074910d9b75c4d362",
     "apps/comic/src/appraisal-client/lore.tsx": "189390c4d9ceb246c2f1a5aa4e4891b7a91d2023348ac49f91b8029d2f788354",
@@ -34,7 +34,7 @@
     "apps/comic/src/game/appraisal/theft.ts": "8c3008d57a681ceec9a9e4ea02b24867b5a18a65b6e424906cd24bb4b58e65e7",
     "apps/comic/src/game/appraisal/types.ts": "2c07c98b7865a6d21b5be8eceace17ec70b96d731f3ca57c716b6f8004d3635a",
     "apps/comic/src/game/appraisal/views.ts": "349677f197da0fd51c2b2402ed810d86bcf4ac96545daddb5e310343fe869116",
-    "apps/comic/src/server/appraisal-main.ts": "76e3edf36ad88c1f8ba67a395e07ee91502b19d9d9bec6d7d7b4bd6e54e6156b",
+    "apps/comic/src/server/appraisal-main.ts": "344962080ebff735530d1a2c2f1d12ab590f608c0a4cd3dbeb127ba7dd62ccb5",
     "apps/comic/src/simulation/appraisal.ts": "278025401318fc01ea5f26187703b569f68b82c41f859b943c0c320bcbe92c66",
     "apps/comic/tests/appraisal-expansion.test.ts": "49241ac61183d38be5a1321ad7bc9a8a4241748dcff559f351c79517df5aecb0",
     "apps/comic/tests/appraisal-item-effects.test.ts": "09e53c6f8169d41c6dbde39e750e70cd2c142f56be61f990caa86df939b87125",
@@ -177,5 +177,21 @@
     },
     "verification": "docs/game-design/collector-wishlist-network-verification.json",
     "scope": "No-flag policy unchanged; all8 public-effect pairs/16 audits/32 replays rerun with byte-identical audit files; original evidence scopes retain historical date. Collector is opt-in and UI pending."
+  },
+  "collectorUiCompatibilityFollowup": {
+    "asOf": "2026-11-02",
+    "previousCheckpoint": "f989ddb",
+    "changedSources": {
+      "apps/comic/src/appraisal-client/App.tsx": {
+        "previous": "a922078c03d2ba41fde95f0776bc47fd08f3f6f6f9802120002775a7a9d91696",
+        "current": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8"
+      },
+      "apps/comic/src/server/appraisal-main.ts": {
+        "previous": "76e3edf36ad88c1f8ba67a395e07ee91502b19d9d9bec6d7d7b4bd6e54e6156b",
+        "current": "344962080ebff735530d1a2c2f1d12ab590f608c0a4cd3dbeb127ba7dd62ccb5"
+      }
+    },
+    "verification": "docs/game-design/collector-wishlist-verification.json",
+    "scope": "UI/gateway changes only; game effect sources unchanged.25 UI tests,7 actual network cases,14 approved baselines and18 menu checks pass; native8/16/32 rerun. Older pilot evidence remains historical, not newly rerun full simulation or balance."
   }
 }

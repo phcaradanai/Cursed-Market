@@ -13,15 +13,19 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/App.tsx",
-      "sha256": "a922078c03d2ba41fde95f0776bc47fd08f3f6f6f9802120002775a7a9d91696"
+      "sha256": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8"
     },
     {
       "file": "apps/comic/src/appraisal-client/BloodPactEvent.tsx",
       "sha256": "dacff89565120fea4efdc804e1fa1ae287443795355993883a40764cf6e8a853"
     },
     {
+      "file": "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+      "sha256": "21f0b86c8220b246c34ee61e866d9dc542e17fb77cedd9ff6333551b2a152908"
+    },
+    {
       "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
-      "sha256": "cf0692c9a5b02565bd31730af9e413076091921165cb9cd2455e31bc993a6a6c"
+      "sha256": "b6183c514966f4014dff710b60d9b1138ff4f0797de0adb9cfdabf662e614e96"
     },
     {
       "file": "apps/comic/src/appraisal-client/ComicTooltip.tsx",
@@ -126,6 +130,14 @@
     {
       "file": "apps/comic/src/appraisal-client/catalog-text.ts",
       "sha256": "1d06306d08200cb57ad1e662d25c20869d26687559bd9f4fde61975da7f32aca"
+    },
+    {
+      "file": "apps/comic/src/appraisal-client/collector-preview-data.ts",
+      "sha256": "2accf6ac8292d1f0c3c067e82af47604deaca037f4ebebc01c3ebb640355861d"
+    },
+    {
+      "file": "apps/comic/src/appraisal-client/collector-wishlist.css",
+      "sha256": "1172c72bf486387fddbe4ed437f416724cf65cb537a764e44e389d813e775630"
     },
     {
       "file": "apps/comic/src/appraisal-client/comic-frame.css",
@@ -237,7 +249,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/main.tsx",
-      "sha256": "e18c8da5a158ae9c2038fc556ed40191abd94131b2dd353808458474bbabee28"
+      "sha256": "42244c377b5b62ac09d78f0f378bf45d8d80bad29caf1552ddebd1654691b8db"
     },
     {
       "file": "apps/comic/src/appraisal-client/market-concept.css",
@@ -1173,7 +1185,7 @@
     },
     {
       "file": "apps/comic/src/server/appraisal-main.ts",
-      "sha256": "76e3edf36ad88c1f8ba67a395e07ee91502b19d9d9bec6d7d7b4bd6e54e6156b"
+      "sha256": "344962080ebff735530d1a2c2f1d12ab590f608c0a4cd3dbeb127ba7dd62ccb5"
     },
     {
       "file": "apps/comic/src/server/appraisal-messages.ts",
@@ -1253,7 +1265,7 @@
     },
     {
       "file": "apps/comic/tests/appraisal-cabinet.test.ts",
-      "sha256": "f1458617ba195015921bc5027acde5b6b11cffd940aa1cf8b9e1b35c945e8c88"
+      "sha256": "9ab8e114e04fdc946810f15b6940be3a9a07ce38fac200f5a1d3d3bf12e2f345"
     },
     {
       "file": "apps/comic/tests/appraisal-catalog.test.ts",
@@ -1449,7 +1461,11 @@
     },
     {
       "file": "apps/comic/tests/collector-wishlist-network.test.ts",
-      "sha256": "940919c9e9c9ab99f0dbfd9c39ab4e4b7d5ccda9497ef0e916cde1c05260d07d"
+      "sha256": "97b58fd370eaf0c2f07f93359eec32ec01bacb0bf824ae63adc879d397f97277"
+    },
+    {
+      "file": "apps/comic/tests/collector-wishlist-ui.test.ts",
+      "sha256": "44168084ff7db635fab96eac9c406ede3fbbeef017de2a966776e98a0a70052a"
     },
     {
       "file": "apps/comic/tests/collector-wishlist.test.ts",

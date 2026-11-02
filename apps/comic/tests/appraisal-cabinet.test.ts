@@ -28,11 +28,12 @@ test('cabinet selection never reveals a hidden value while showing the public se
   assert.match(html,/aria-label="สิ่งที่รู้แล้ว"/);
 });
 
-test('empty cabinet stock leaves the phase exit available',()=>{
+test('empty cabinet retains appraisal completion in Status without placeholder goods',()=>{
   const state=appraisalFixture();state.players[0]!.stock=[];
   const html=render(state);
   assert(html.includes('ไม่มีของเหลือในร้าน'));
-  assert(html.includes('จบการประเมิน ไปต่อรอง'));
+  assert(html.includes('จบการประเมิน</button>'));
+  assert(html.includes('id="drawer-effects"'),'completion stays in the approved Status menu');
   assert(!html.includes('aria-label="สินค้าของพ่อค้า"'),'empty stock does not invent placeholder products');
 });
 

@@ -660,13 +660,14 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
   {
     "id": "server-entry",
     "name": "Server entry overrides",
-    "expression": "{secureEconomy:true,brokerage:BROKERAGE_RULES,polish:true,npcEvents:true,core2:true,survival:SURVIVAL_RULES,...(pilot?{catalogVersion:4 as const}:{})}",
+    "expression": "{collectorWishlistRules:1,secureEconomy:true,brokerage:BROKERAGE_RULES,polish:true,npcEvents:true,core2:true,survival:SURVIVAL_RULES,...(pilot?{catalogVersion:4 as const}:{})}",
     "source": {
       "file": "apps/comic/src/server/appraisal-main.ts",
       "line": 8
     },
     "note": "Do not treat engine defaults alone as the live room profile; read the server overrides and room mode.",
     "values": {
+      "collectorWishlistRules": 1,
       "secureEconomy": true,
       "brokerage": {
         "auctionProbability": 0.5,
@@ -977,6 +978,7 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
       "marketProbability": 1,
       "marketMaxOrders": 3,
       "marketQuota": 1,
+      "collectorWishlistRules": 1,
       "secureEconomy": true,
       "brokerage": {
         "auctionProbability": 0.5,

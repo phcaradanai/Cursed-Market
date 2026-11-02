@@ -1,7 +1,7 @@
 {
   "asOf": "2026-11-02",
   "activeSource": "apps/comic",
-  "revision": "945dc57 + Collector protocol Task2 worktree",
+  "revision": "f989ddb + Collector Task3 worktree (final review pending)",
   "headline": "ยังไม่ครบตามกฎและขอบเขตเกมที่ตกลงทั้งหมด",
   "summary": "วงจรเดิมและตลาดวิญญาณเล่นได้ แต่การย้ายกฎ/สินค้าใหม่และบาลานซ์ทั้งเกมยังค้าง ภาพหน้าจอหรือกราฟครบไม่ได้แปลว่า runtime ครบ",
   "atlasScope": "Atlas สกัดทุก module ของ apps/comic/src/game/appraisal พร้อม random/rarity/protocol/server lifecycle และ bot ที่ระบุ; graph เป็น static dependency ไม่ใช่ execution proof; UI ใช้ capture/flow registry แยก; รุ่นเก่าตรึง9f0a972ใน legacy-atlas-baseline.json",
@@ -72,8 +72,8 @@
     {
       "id": "RULE-03",
       "system": "Collector Wishlist3+2",
-      "status": "engine-protocol-tested-opt-in; ui-pending",
-      "remaining": "Engineและprotocolผ่าน:5Collector checks/2socketเดิม/69related,2คนขอ2รับ4/reconnect/จ่ายครั้งเดียว/replay. ยังไม่เปิดdefaultและยังไม่มีComicUI Task3.",
+      "status": "implemented-experimental-review-pending",
+      "remaining": "Engine/protocol/ComicUIเชื่อมแล้ว;mainnewroomเปิดrules1.25UI/7network/12captures+10mounted/14baseline/18menuผ่าน;รอfinalreview ไม่ใช่balanceหรือเกมครบ.",
       "evidence": [
         "apps/comic/src/game/appraisal/wishlist.ts",
         "docs/game-design/rules-and-logic.md",
@@ -83,7 +83,9 @@
         "docs/game-design/implementations/collector-wishlist-plan.md",
         "apps/comic/src/game/appraisal/collector-wishlist.ts",
         "docs/game-design/collector-wishlist-engine-verification.json",
-        "docs/game-design/collector-wishlist-network-verification.json"
+        "docs/game-design/collector-wishlist-network-verification.json",
+        "docs/ui-system/collector-wishlist-ui-verification.json",
+        "docs/game-design/collector-wishlist-verification.json"
       ]
     },
     {
@@ -142,7 +144,7 @@
     }
   ],
   "next": [
-    "ลงCollector3+2ตามสเปกทดลองที่อนุมัติแล้วและimplementationplan ไม่ถามรายละเอียดชุดเดิมซ้ำ",
+    "ปิด final review Collector3+2 และข้อบกพร่องสำคัญ; แยกจากfull56/STRAT/awardsที่ยังรอรายละเอียด",
     "STRAT-01ยังรอวิธีรวมโบนัสที่ถามไว้; ออกสเปกอีก48ชิ้นและคะแนนสถิติ/rarityที่ยังไม่มีตัวเลข",
     "ต่อยอด8public-effectpairsเป็น40-credit/multiseed/หลายคนพร้อมeconomycoverageก่อนtune",
     "ย้ายครบ56 ผูกevent/encounter/omen ตรวจเต็มเกม/หลายคน/reconnect/replay แล้วbalance"

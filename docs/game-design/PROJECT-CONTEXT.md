@@ -11,7 +11,7 @@
 - ตลาดวิญญาณ S11/G01–G04 ทำและตรวจแล้วใน commit51d89ea; ดู ghost-service-contracts.md และ ../ui-system/ghost-functional-verification.json
 - จุดตกหล่นสำคัญ: RULE-01 ดอกเบี้ย10%พร้อมอายุเงินต้นเชื่อมเข้า Comic รันใหม่แล้ว ตรวจผ่านแล้ว; รันเก่าไม่มีflagรักษา4% ดู implementations/comic-aged-interest-plan.md
 - สินค้าใหม่เชื่อมแล้ว8/56 ใน catalogVersion4 แบบทดลอง พร้อม primary effects ที่อนุมัติและวงจรซื้อ/สำเนา/คลัง/ค้ำประกัน/ประมูล/Collector; default ยังเป็น version3 เดิม66ชนิด อีก48และoptional effectsยังไม่เชื่อม ดู new56-pilot-verification.json ไม่ใช่คำรับรอง balance หรือทั้งเกมครบ
-- Collector3+2 เชื่อม engine/protocol/Comic UI แบบทดลองแล้ว (รอ final review); เส้นทางชนะหลายสายและรางวัลสถิติ/rarityยังไม่ครบ ต้องปิดรายละเอียดและเชื่อมระบบ
+- Collector3+2 เชื่อม engine/protocol/Comic UI แบบทดลองแล้ว (reviewเสร็จ; minorค้าง); เส้นทางชนะหลายสายและรางวัลสถิติ/rarityยังไม่ครบ ต้องปิดรายละเอียดและเชื่อมระบบ
 - ขโมย/RPSมี runtime แต่การตรวจให้ครบกฎ forced/timeout/disconnect ยังไม่ปิด; อารมณ์พ่อค้ายังไม่เชื่อมครบทุกบริบท
 - ยังไม่ผ่าน PLAY-01/BAL-02: ไม่มีคำรับรองครบทั้งเกม/บาลานซ์/มือถือ; มีเทสต์เก่า Dark One แสดงชื่อผู้เล่นเสียหนึ่งข้อ
 
@@ -217,3 +217,5 @@ User explicitly approvedCollector proposal. collector-wishlist-approval.json pin
 2026-11-02 Collector Task2: protocol/public bots/reconnect/idempotency/audit ผ่าน5checks +2socketเดิม +69related. ชุด2→4ซื้อจริงและstrict replayจบRESULTS; ยังopt-inและComicUI/default rolloutรอTask3. ดูcollector-wishlist-network-verification.json.
 
 2026-11-02 Collector Task3: ใช้ComicMenu/ปุ่มกลาง,เลือก3/รอ2/ห้าช่องปกปิด/peek1/confirmจ่าย/ถอนเอง/หมดสิทธิ์และwarningครบ. main new rooms เปิดcollectorWishlistRules1; explicit no-flag auditsเดิมคงเดิม.25 UI,7 network,12 captures+10 mounted checks,14 baseline,18 menusผ่าน; finalreviewยังรอ. ไม่ใช่เกมครบ/remaining48/STRAT/awards/balance. ดูcollector-wishlist-verification.json และA05ในHTMLกลาง.
+
+2026-11-02 Collector review completed (frozen10629f2..7ab2a39); Important public-offer contamination fixed via shared market/Spirit source filter with failure-first tests. 235 scoped regressions,7 actual network cases,24 historical+2 Collector replays,8 native effect pairs/16 runs/32 replays pass. Real App request/peek/confirmed purchase/owned item/RESULTS replay verified with500-credit/20-life fixture, not normal40/6 balance. UI-COLLECTOR-CONTEXT minor deferred: initial event hides request catalog entry until resolved. See collector-offer-isolation-verification.json and implementations/collector-wishlist-review.md. Whole-game goal remains active; remaining48, STRAT, awards and broader normal-budget balance remain open.

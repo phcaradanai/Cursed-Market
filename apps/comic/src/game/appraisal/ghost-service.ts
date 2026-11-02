@@ -2,7 +2,7 @@ import {randomAt} from '../random.js';
 import {startTracking,guessTracking} from './ghost-tracking.js';
 import type {Tracking} from './ghost-tracking.js';
 import type {AppraisalState,AppraisalItem,ItemKind} from './types.js';
-import {check,player,spend} from './mechanics.js';
+import {check,player,spend,publicOfferItems} from './mechanics.js';
 import {ensureItemAppearance} from './rarity.js';
 import {recordItemTrade} from './price-integrity.js';
 export type GhostAction = {type:'ghost-start';startedAt?:number}|{type:'ghost-guess';round:number;position:number}|{type:'ghost-hire';ghostId:string;choice:number;quoteId:string;fee:number}|{type:'ghost-accept';jobId:string;accept:boolean}|{type:'ghost-rps';slot:number;hand:'rock'|'paper'|'scissors'}|{type:'ghost-deliver';jobId:string;slot:number};
@@ -10,13 +10,13 @@ export interface GhostJob {id:string;buyerId:string;kind:ItemKind;price:number;b
 export interface GhostState {round:number;available:boolean;startedAt?:number;tracking?:Tracking;swaps:[number,number][];encounter:number;slots:{kind:ItemKind;lost:boolean}[];jobs:GhostJob[];bonus:number;draws:number;lastRps?:{slot:number;hand:string;opponent:string;result:string}}
 const active=(j:GhostJob)=>j.status==='offered'||j.status==='accepted';
 function draw(s:AppraisalState,g:GhostState,label:string){return randomAt(s.seed,`ghost:${label}:${g.round}:${g.draws++}`);}
-function kinds(s:AppraisalState){return [...new Set(Object.values(s.items).map(i=>i.kind))];}
+function kinds(s:AppraisalState){return [...new Set(publicOfferItems(s).map(i=>i.kind))];}
 function sample(s:AppraisalState,g:GhostState,id:string){const all=kinds(s);return all[Math.floor(draw(s,g,id)*all.length)]!;}
 function resetSlots(s:AppraisalState,g:GhostState,id:string){g.encounter=s.encounter;delete g.lastRps;g.slots=Array.from({length:3},()=>({kind:sample(s,g,id),lost:false}));}
 export function ghostQuotes(s:AppraisalState,ghostId:string,buyerId:string){
  const all=kinds(s),g=s.ghosts?.[ghostId];if(!g?.available)return [];
  return [...all].sort((a,b)=>randomAt(s.seed,`ghost-quote:${s.encounter}:${ghostId}:${buyerId}:${a}`)-randomAt(s.seed,`ghost-quote:${s.encounter}:${ghostId}:${buyerId}:${b}`)).slice(0,3).map(kind=>{
-  const prototype=structuredClone(Object.values(s.items).find(i=>i.kind===kind)!);ensureItemAppearance(s,prototype);const base=prototype.base;
+  const prototype=structuredClone(publicOfferItems(s).find(i=>i.kind===kind)!);ensureItemAppearance(s,prototype);const base=prototype.base;
   const price=Math.ceil(base*.9)+Math.floor(randomAt(s.seed,`ghost-price:${s.encounter}:${ghostId}:${buyerId}:${kind}`)*(Math.floor(base*1.2)-Math.ceil(base*.9)+1));
   return {id:`${s.encounter}:${g.round}:${ghostId}:${buyerId}:${kind}:${price}`,kind,base,prototype,price};
  });
@@ -50,7 +50,7 @@ function handleGhostCommand(s:AppraisalState,id:string,a:GhostAction){
   if(result==='lost')slot.lost=true;if(result==='won')slot.kind=sample(s,g,id);g.lastRps={slot:a.slot,hand:a.hand,opponent:hands[opponent]!,result};return;
  }
  const j=g.jobs.find(j=>j.id===a.jobId);check(j?.status==='accepted'&&j.kind===slot.kind,'ghost-target','ซื้อได้เฉพาะของตามงาน');const buyer=player(s,j.buyerId);check(buyer.life!==0,'ghost-buyer','ผู้ว่าจ้างหมดชีวิตแล้ว');check(buyer.credits>=j.price+j.fee,'credits','รอผู้ว่าจ้างเติมเครดิตก่อนส่งมอบ');
- const source=j.prototype??Object.values(s.items).find(i=>i.kind===j.kind)!;const itemId=`delivery-${j.id}`;check(!s.items[itemId],'ghost-duplicate','ส่งของแล้ว');
+ const source=j.prototype??publicOfferItems(s).find(i=>i.kind===j.kind)!;const itemId=`delivery-${j.id}`;check(!s.items[itemId],'ghost-duplicate','ส่งของแล้ว');
  s.items[itemId]={id:itemId,kind:j.kind,base:j.base,genuine:randomAt(s.seed,`${itemId}:genuine`)<.75,cursed:randomAt(s.seed,`${itemId}:curse`)<.35,ask:j.price,owner:buyer.id,npcOwnerId:buyer.id,npc:source.npc,encounter:s.encounter,lastAppraisal:null,lastAccepted:null,certificate:false,reservation:1,...(source.appearance?{appearance:structuredClone(source.appearance)}:{}),...(source.rarityPower?{rarityPower:structuredClone(source.rarityPower)}:{})};buyer.inventory.push(itemId);
  const commission=Math.floor(j.base*.1);spend(s,buyer,j.price+j.fee,0,'ghost-delivery');buyer.paid={...buyer.paid,[itemId]:j.price+j.fee};recordItemTrade(s,s.items[itemId]!,j.price);g.bonus+=commission+j.fee;j.status='delivered';g.slots[a.slot]={kind:sample(s,g,id),lost:false};
  if(!g.jobs.some(active)){g.available=false;delete g.tracking;}

@@ -1,6 +1,6 @@
 {
   "asOf": "2026-11-02",
-  "status": "implemented-experimental-final-review-pending",
+  "status": "implemented-experimental-reviewed-with-deferred-minor",
   "scope": "Approved Collector3+2 specification only. Main new Comic rooms enable collectorWishlistRules1. Explicit engine configurations without the flag retain historical behavior. Not complete game, remaining48, STRAT, awards or release balance.",
   "approval": "docs/game-design/collector-wishlist-approval.json",
   "plan": "docs/game-design/implementations/collector-wishlist-plan.md",
@@ -21,8 +21,8 @@
     "scripts/ui/collector-wishlist-smoke.mjs": "4c6f313b5008419015ce157722ec3c3108548b1da254c2be6fd263ffc6d92076",
     "apps/comic/scripts/generate-collector-preview.mjs": "f37ff81e7971c2b266a5f09421965a3d4d0a4d23becf9b0d9574337cfea65737",
     "apps/comic/src/game/appraisal/collector-wishlist.ts": "bdf9ff7aeebd8cea20bf61f7de5dff43df5e107e561741a580084f1040b671c1",
-    "apps/comic/src/game/appraisal/engine.ts": "93efbd488a98959aa51c94cfaeb43bb52e768db8ee301d1af446caf97528ed1a",
-    "apps/comic/src/game/appraisal/mechanics.ts": "1cfcaade2a8d801d380eac44d6496aa1de1457c258290436577e25d7cc7e7b31",
+    "apps/comic/src/game/appraisal/engine.ts": "87e6a10adf3bffeb31b6134bdcbf596068c5f8a75ec622dc4552a8536ca6ff70",
+    "apps/comic/src/game/appraisal/mechanics.ts": "a9c850f19c62f8d3564ce01e979a4b028fbc72a210ccded3b286d0000a022b9b",
     "apps/comic/src/game/appraisal/types.ts": "2c07c98b7865a6d21b5be8eceace17ec70b96d731f3ca57c716b6f8004d3635a",
     "apps/comic/src/game/appraisal/views.ts": "349677f197da0fd51c2b2402ed810d86bcf4ac96545daddb5e310343fe869116",
     "apps/comic/src/game/appraisal/secure-storage.ts": "55858a21b2472e5e90076dc92985ee6d0e6f71cd44399d5f03a4ea262bb843ab",
@@ -30,11 +30,14 @@
     "apps/comic/src/game/appraisal/journal.ts": "ad612d764adb70f82db962c6dcdec54df83b57284961d3002bf81b30891456d9",
     "apps/comic/src/server/appraisal-messages.ts": "464a6271525e5378673f85020087eb515840d555e55c316c4283db05a61a31f8",
     "apps/comic/src/simulation/appraisal.ts": "278025401318fc01ea5f26187703b569f68b82c41f859b943c0c320bcbe92c66",
-    "apps/comic/tests/collector-wishlist.test.ts": "efeeb212919afe6cdd0aa594cd95449299a046ee6c4e976642543615236217d6"
+    "apps/comic/tests/collector-wishlist.test.ts": "2d35d161a666859069ffe9cff084e64dab006c428efda54776c3b0ffca363d51",
+    "apps/comic/src/game/appraisal/ghost-service.ts": "53603040058a9f18cc90f2ba572bcc4b24e204d5c7cf2d33e6a7bb72cff3729d",
+    "apps/comic/scripts/collector-ui-server.mjs": "f8a5c923b794bfec4888365528fb788afc7064badd619a9bdad8e197a507fc85",
+    "scripts/ui/collector-live.mjs": "d963f9b00d6f823d60c6b25a82afe6e1f82171850b2d5410eb1a15a9af8b27cd"
   },
   "checks": {
     "uiFunctional": 25,
-    "collectorEngineCases": 21,
+    "collectorEngineCases": 24,
     "collectorProtocolNetworkCases": 5,
     "priorRpsGhostActualSocketCases": 2,
     "relatedEngineRoomTimerNpcWishCasesAtTask2": 69,
@@ -49,11 +52,15 @@
     "clientBuild": "pass; existing bundle advisory",
     "uiSourceFingerprints": 393,
     "uiContracts": 10,
-    "atlasInputs": 179
+    "atlasInputs": 179,
+    "postReviewRelatedCases": 235,
+    "actualAppUiChecks": 5,
+    "actualAppUiCaptures": 5,
+    "historicalNoFlagAuditsReplayed": 24
   },
   "actualNetwork": {
-    "audit": "docs/validation/collector-ui-2026-11-02/match-audit.json",
-    "sha256": "81331e7345da837fab322dd364a65a3d225a2e2d553e2a2aecf22a5ad6bb76b3",
+    "audit": "docs/validation/collector-offer-isolation-2026-11-02/match-audit.json",
+    "sha256": "7140663073b93f6a8cf27898ab244b3eb6d620c28e07e3fb63de97600b1660c8",
     "scope": "Two actual sockets: request2/resume/deliver4/peek/one purchase/duplicate/forged legacy kind and unowned escrow usage denial/cancel future/end strict replay. Supported500-credit/20-life fixture; no state injection."
   },
   "uiVerification": "docs/ui-system/collector-wishlist-ui-verification.json",
@@ -67,13 +74,24 @@
     "Hidden Status-header warning was moved into the actual finish button; meaningful old-label RED and new-label GREEN plus1024 browser geometry checked.",
     "Old cabinet exact phrase assertion also fails against historical10629f2 App; reconciled test with already-approved Status button label/placement, no unrelated product redesign.",
     "Attempted __proto__ engine seat is already rejected by existing ID validation before Collector; no engine change was made.",
-    "Main-server normal40-credit/6-life live QA reached encounter2 and displayed Collector entry; window expired before automation clicked. No live-browser paid purchase claim; mounted exact-command and actual2-socket purchase/replay evidence remain separate."
+    "Main-server normal40-credit/6-life live QA reached encounter2 and displayed Collector entry; window expired before automation clicked. No live-browser paid purchase claim; mounted exact-command and actual2-socket purchase/replay evidence remain separate.",
+    "Independent initial review found private batch pollution of public offer pools; market/Spirit RED reproduced, shared-source fix and235 cases pass. Earlier live-browser gap is now closed for supported500/20 fixture; normal-budget balance is still not established."
   ],
   "limits": [
     "Experimental approved values; no unbiased40-credit/multiseed/win-share/full56/whole-game acceptance.",
     "Candidate Collector screenshots are not newly approved pixel references; sealed14 reference set unchanged.",
     "Remaining48 catalog items/optional effects/strategic paths/statistical awards and broader end-to-end balance still open.",
-    "Ego upgrade notice observed; no browser upgrade performed."
+    "Ego upgrade notice observed; no browser upgrade performed.",
+    "UI-COLLECTOR-CONTEXT remains a disclosed minor: initial entry event hides the new request catalog launch until resolved."
   ],
-  "localQa": "http://127.0.0.1:3196/?preview=collector-request"
+  "localQa": "http://127.0.0.1:3196/?preview=collector-request",
+  "review": "docs/game-design/implementations/collector-wishlist-review.md",
+  "postReviewFix": "docs/game-design/collector-offer-isolation-verification.json",
+  "liveUi": {
+    "report": "docs/validation/collector-offer-isolation-2026-11-02/live-ui.json",
+    "audit": "docs/validation/collector-offer-isolation-2026-11-02/live-ui-audit.json",
+    "auditSha256": "080dd5fda71c2542c3055b1239f18a4fdf39c9fe523fc8fd29ead974b9c4a799",
+    "scope": "Real App + WebSocket + engine, one browser player and built-in public-only cautious bot. Supported500-credit/20-life/deadline5 fixture; ordinary phase setup uses public commands, Collector request/peek/buy uses visible controls. No hidden-state injection; not normal40-credit balance or whole-game acceptance.",
+    "observed": "Real App request/peek/explicit purchase, exact bill/resources, owned bag item, RESULTS and strict replay. Supported500/20/deadline5; not normal40/6-life full-game balance."
+  }
 }

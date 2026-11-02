@@ -1,0 +1,60 @@
+{
+  "asOf": "2026-11-02",
+  "status": "reviewed-important-fixed-experimental",
+  "review": "docs/game-design/implementations/collector-wishlist-review.md",
+  "sourceFingerprints": {
+    "apps/comic/src/game/appraisal/engine.ts": "87e6a10adf3bffeb31b6134bdcbf596068c5f8a75ec622dc4552a8536ca6ff70",
+    "apps/comic/src/game/appraisal/ghost-service.ts": "53603040058a9f18cc90f2ba572bcc4b24e204d5c7cf2d33e6a7bb72cff3729d",
+    "apps/comic/src/game/appraisal/mechanics.ts": "a9c850f19c62f8d3564ce01e979a4b028fbc72a210ccded3b286d0000a022b9b",
+    "apps/comic/src/game/appraisal/collector-wishlist.ts": "bdf9ff7aeebd8cea20bf61f7de5dff43df5e107e561741a580084f1040b671c1",
+    "apps/comic/tests/collector-wishlist.test.ts": "2d35d161a666859069ffe9cff084e64dab006c428efda54776c3b0ffca363d51",
+    "apps/comic/tests/collector-wishlist-network.test.ts": "97b58fd370eaf0c2f07f93359eec32ec01bacb0bf824ae63adc879d397f97277",
+    "apps/comic/scripts/collector-ui-server.mjs": "f8a5c923b794bfec4888365528fb788afc7064badd619a9bdad8e197a507fc85",
+    "scripts/ui/collector-live.mjs": "d963f9b00d6f823d60c6b25a82afe6e1f82171850b2d5410eb1a15a9af8b27cd"
+  },
+  "finding": "Free private Collector request/skip changed future market orders/reserve; same global store changed Spirit offer prototypes/cards.",
+  "fix": "Shared publicOfferItems excludes immutable Collector origin IDs and copies under rules1, independent of current owner. Ordinary supply and copies remain; no-flag pool unchanged.",
+  "checks": {
+    "newRegressionCases": 3,
+    "engineCasesTotal": 24,
+    "enginePlusUiCases": 28,
+    "relatedRegressionIncludingCollector": 235,
+    "actualNetworkCases": 7,
+    "historicalNoFlagAuditsReplayed": 24,
+    "priorCollectorAuditsReplayed": 2,
+    "nativeEffectPairs": 8,
+    "nativeFullCommandRuns": 16,
+    "nativeStrictReplayChecks": 32,
+    "publicUiFixtureBytesUnchanged": true,
+    "serverBuild": "pass",
+    "clientBuild": "pass; existing chunk advisory",
+    "actualAppUiChecks": 5,
+    "actualAppUiCaptures": 5,
+    "finalCollectorEngineProtocolUi": 33,
+    "sourceFingerprints": 393,
+    "uiContracts": 10,
+    "atlasInputs": 189
+  },
+  "redGreen": {
+    "market": "market-red.log -> pool-green.log",
+    "spirit": "spirit-red.log -> pool-green.log",
+    "copyBoundary": "paid originals/copies excluded; ordinary copies retained, direct fixture explicitly labelled"
+  },
+  "liveUi": {
+    "report": "docs/validation/collector-offer-isolation-2026-11-02/live-ui.json",
+    "audit": "docs/validation/collector-offer-isolation-2026-11-02/live-ui-audit.json",
+    "auditSha256": "080dd5fda71c2542c3055b1239f18a4fdf39c9fe523fc8fd29ead974b9c4a799",
+    "scope": "Real App + WebSocket + engine, one browser player and built-in public-only cautious bot. Supported500-credit/20-life/deadline5 fixture; ordinary phase setup uses public commands, Collector request/peek/buy uses visible controls. No hidden-state injection; not normal40-credit balance or whole-game acceptance.",
+    "observed": "Real App request/peek/explicit purchase, exact bill/resources, owned bag item, RESULTS and strict replay. Supported500/20/deadline5; not normal40/6-life full-game balance."
+  },
+  "networkAudit": {
+    "file": "docs/validation/collector-offer-isolation-2026-11-02/match-audit.json",
+    "sha256": "7140663073b93f6a8cf27898ab244b3eb6d620c28e07e3fb63de97600b1660c8"
+  },
+  "remaining": [
+    "UI-COLLECTOR-CONTEXT: initial event hides request catalog launch until resolved; minor deferred from initial review.",
+    "Normal40-credit/6-life full-game UI and statistical balance still need broader evidence.",
+    "Remaining48/strategic paths/leader awards/rarity scores remain outside this Collector completion."
+  ],
+  "reviewProcess": "First reviewer stopped on external quota; replacement completed same frozen initial review. Fix verified by owner with failure-first tests, no second fix review claimed."
+}

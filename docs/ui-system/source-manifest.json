@@ -1013,7 +1013,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "sha256": "93efbd488a98959aa51c94cfaeb43bb52e768db8ee301d1af446caf97528ed1a"
+      "sha256": "87e6a10adf3bffeb31b6134bdcbf596068c5f8a75ec622dc4552a8536ca6ff70"
     },
     {
       "file": "apps/comic/src/game/appraisal/events.ts",
@@ -1021,7 +1021,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/ghost-service.ts",
-      "sha256": "4741d9dfad3d695b8615d0c00c5dc11a6e14ba8543bde6228471eb0a5c962989"
+      "sha256": "53603040058a9f18cc90f2ba572bcc4b24e204d5c7cf2d33e6a7bb72cff3729d"
     },
     {
       "file": "apps/comic/src/game/appraisal/ghost-tracking.ts",
@@ -1045,7 +1045,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "sha256": "1cfcaade2a8d801d380eac44d6496aa1de1457c258290436577e25d7cc7e7b31"
+      "sha256": "a9c850f19c62f8d3564ce01e979a4b028fbc72a210ccded3b286d0000a022b9b"
     },
     {
       "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
@@ -1469,7 +1469,7 @@
     },
     {
       "file": "apps/comic/tests/collector-wishlist.test.ts",
-      "sha256": "efeeb212919afe6cdd0aa594cd95449299a046ee6c4e976642543615236217d6"
+      "sha256": "2d35d161a666859069ffe9cff084e64dab006c428efda54776c3b0ffca363d51"
     },
     {
       "file": "apps/comic/tests/comic-continuity.test.ts",

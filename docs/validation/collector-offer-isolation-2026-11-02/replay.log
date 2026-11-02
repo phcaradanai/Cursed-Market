@@ -1,0 +1,3 @@
+PASS24 historical no-flag audits replay exactly against corrected offer-source engine.
+PASS pre-review Collector fixture audit still replays: docs/validation/collector-network-2026-11-02/match-audit.json
+PASS pre-review Collector fixture audit still replays: docs/validation/collector-ui-2026-11-02/match-audit.json

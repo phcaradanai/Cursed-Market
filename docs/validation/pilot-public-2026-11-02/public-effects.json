@@ -1,6 +1,6 @@
 {
-  "startedAt": "2026-11-02T09:08:02.045Z",
-  "observedRevision": "f989ddb5045c9aa5905f4bda4428f3764a2334b9",
+  "startedAt": "2026-11-02T10:42:09.594Z",
+  "observedRevision": "7ab2a39c48c743cf283acf171c23672877e596aa",
   "scope": "8 targeted, supported-config public-command mechanism pairs;16 full runs with strict replays. Initial500credits, not default40 budget or release balance. Counterfactual uses real vault custody or skipped activation. Fixed cooperative PvP hands; no hidden-hand policy. Seeds selected for eligibility/outcome boundary, not random sampling.",
   "sourceFingerprints": {
     "apps/comic/scripts/pilot-public-scenarios.mjs": "06651716423ece13dabf8b9baefd4771141e12cacc21b1dcb9ffff9c7c6b1fba",
@@ -24,15 +24,15 @@
     "apps/comic/src/game/appraisal/core2-rules.ts": "c512cac29fda1d586afcc82ece3ac15a0411650283d1226ae12787c76bfce0ea",
     "apps/comic/src/game/appraisal/core2-specs.ts": "399d270a4c3c8d170ae2c9a995dfff13863aeba2ebce98b70b78a5f2a1ce5316",
     "apps/comic/src/game/appraisal/core2.ts": "d9c7ac292898c29d471bc6d9bb0a7ae0557bd394a79d77978e6e1eed5b71bd17",
-    "apps/comic/src/game/appraisal/engine.ts": "93efbd488a98959aa51c94cfaeb43bb52e768db8ee301d1af446caf97528ed1a",
+    "apps/comic/src/game/appraisal/engine.ts": "87e6a10adf3bffeb31b6134bdcbf596068c5f8a75ec622dc4552a8536ca6ff70",
     "apps/comic/src/game/appraisal/events.ts": "c4bd10912200be5fb50c13e7d6ba8f5fda16f777f61d4d18d51b76e768e00794",
-    "apps/comic/src/game/appraisal/ghost-service.ts": "4741d9dfad3d695b8615d0c00c5dc11a6e14ba8543bde6228471eb0a5c962989",
+    "apps/comic/src/game/appraisal/ghost-service.ts": "53603040058a9f18cc90f2ba572bcc4b24e204d5c7cf2d33e6a7bb72cff3729d",
     "apps/comic/src/game/appraisal/ghost-tracking.ts": "1a179d345d9aac40a5122a68f376017e384284f487fcd8c369795bd0a7f9242f",
     "apps/comic/src/game/appraisal/index.ts": "7867d91af9702cce970b74c8c6ae4d28f1f932139e439bcc86c471d293fbd557",
     "apps/comic/src/game/appraisal/item-effects.ts": "c2ff1cbae837a24e19f6a5c81f56d27b986f870d7c277fd5d787d70728c63abd",
     "apps/comic/src/game/appraisal/journal.ts": "ad612d764adb70f82db962c6dcdec54df83b57284961d3002bf81b30891456d9",
     "apps/comic/src/game/appraisal/market-contracts.ts": "aef568c8fd9288c26fa6f74d696cd310f0949fddeefd4155af5c8a38db76ff9c",
-    "apps/comic/src/game/appraisal/mechanics.ts": "1cfcaade2a8d801d380eac44d6496aa1de1457c258290436577e25d7cc7e7b31",
+    "apps/comic/src/game/appraisal/mechanics.ts": "a9c850f19c62f8d3564ce01e979a4b028fbc72a210ccded3b286d0000a022b9b",
     "apps/comic/src/game/appraisal/merchant-abilities.ts": "e90c4ea9b0c2f302ec3e005efef4d61e73c9d239a460d8aeb8859c394b226b09",
     "apps/comic/src/game/appraisal/npc-events.ts": "28a925726df336b668b542630cdcee012b64e17a20dfdf3e519d9a7652ec89bf",
     "apps/comic/src/game/appraisal/omen-table.ts": "8b6ab850d3722a62f735726aef4d3c9b17a40a9791fff31e284a1a90df862106",
@@ -80,15 +80,15 @@
     "apps/comic/dist/src/game/appraisal/core2-rules.js": "93d60728b9a6eeb7247323044a33982c96f7c8f473f0e8ef91a3293321183ba4",
     "apps/comic/dist/src/game/appraisal/core2-specs.js": "1db4efb228dfb75ce4d93bc896608af3062ba10094c0630348a5f73964365033",
     "apps/comic/dist/src/game/appraisal/core2.js": "170809b030f3f772a9020d14d386bc038c2ed0a6bf5c6e861b29ccbb9c68e560",
-    "apps/comic/dist/src/game/appraisal/engine.js": "6552718f9b5b066445c37efe3ba7f025a475f95ecbcc896a43dea1c955d41e53",
+    "apps/comic/dist/src/game/appraisal/engine.js": "17348a075338e6d1474fcd4785efc926e30a71fb4021eca27aaad2ba4a0ea91a",
     "apps/comic/dist/src/game/appraisal/events.js": "1cd1db40708514841964bb3ff36be7bb6e161e64b36d9d4c472fd5c282979a09",
-    "apps/comic/dist/src/game/appraisal/ghost-service.js": "61f45722a83e8e29fbb260d69b20a6a88251b89be31b6d382ef2628d61340ee9",
+    "apps/comic/dist/src/game/appraisal/ghost-service.js": "856cafba915ab93baa260ef55326c0aafc62f8d834e895ca8eacfc19a1ba8015",
     "apps/comic/dist/src/game/appraisal/ghost-tracking.js": "2fe1600c50d316bcb32a3bd1c82c3014cc08369c3132802334863000a116786d",
     "apps/comic/dist/src/game/appraisal/index.js": "42b0629f2d13e0c903eced4c0949002ca32823f92d86233fe98321e05eecded2",
     "apps/comic/dist/src/game/appraisal/item-effects.js": "8f617ebf5892563e33d0485899c8d5ca371eb1d479347e9b0eba4269f4e2484b",
     "apps/comic/dist/src/game/appraisal/journal.js": "bcfd6ed7f3af06a5f7b6f90ed3ff7f335c2fb42f424bfb7450c09fe3a310b290",
     "apps/comic/dist/src/game/appraisal/market-contracts.js": "64b71a4578cc8171b95cac0be1b9c3eebbf4d713299db5f418ba0b373888f377",
-    "apps/comic/dist/src/game/appraisal/mechanics.js": "a8590ae0eec1435bba1de10a026922c8da6c955a6f407cd5cac668bd1339979d",
+    "apps/comic/dist/src/game/appraisal/mechanics.js": "b84fdc96952d4ab84c17f3dd5ae941ced7ceb41aa6cabd2b90009a7e19e32cb6",
     "apps/comic/dist/src/game/appraisal/merchant-abilities.js": "61dcfc01d88963a66a5d1bdb4df91678e9f39f7d3c3117072768f42ad96633df",
     "apps/comic/dist/src/game/appraisal/npc-events.js": "cc6b6b666e0e435452df96578b0c7aa51a7ce914ff1380cc818c74d98d9c57bb",
     "apps/comic/dist/src/game/appraisal/omen-table.js": "86294d594f9aa59ffa23b54184583cd734a615ddf87d90706cd6ec55745ec7ba",
@@ -527,5 +527,5 @@
     }
   ],
   "passed": true,
-  "finishedAt": "2026-11-02T09:08:07.403Z"
+  "finishedAt": "2026-11-02T10:42:14.082Z"
 }

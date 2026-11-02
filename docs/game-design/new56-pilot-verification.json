@@ -24,9 +24,9 @@
     "apps/comic/src/game/appraisal/core2-actions.ts": "9b93824543a822b9f58d4b07269af6bcb780d7a1475cd5726bea1d450796fc9b",
     "apps/comic/src/game/appraisal/core2-events.ts": "bb9531af0ffe6a6ea068f049d286b2b1d0fe37deb24a44bcfe3dfa58a08424f8",
     "apps/comic/src/game/appraisal/core2.ts": "d9c7ac292898c29d471bc6d9bb0a7ae0557bd394a79d77978e6e1eed5b71bd17",
-    "apps/comic/src/game/appraisal/engine.ts": "93efbd488a98959aa51c94cfaeb43bb52e768db8ee301d1af446caf97528ed1a",
+    "apps/comic/src/game/appraisal/engine.ts": "87e6a10adf3bffeb31b6134bdcbf596068c5f8a75ec622dc4552a8536ca6ff70",
     "apps/comic/src/game/appraisal/events.ts": "c4bd10912200be5fb50c13e7d6ba8f5fda16f777f61d4d18d51b76e768e00794",
-    "apps/comic/src/game/appraisal/mechanics.ts": "1cfcaade2a8d801d380eac44d6496aa1de1457c258290436577e25d7cc7e7b31",
+    "apps/comic/src/game/appraisal/mechanics.ts": "a9c850f19c62f8d3564ce01e979a4b028fbc72a210ccded3b286d0000a022b9b",
     "apps/comic/src/game/appraisal/passives.ts": "ef49c5ade780d0f68a7422a8e8a3b433237525311ef1c555d3aed61c45bc99bf",
     "apps/comic/src/game/appraisal/pilot-catalog.ts": "ad8dbb487623f3b8d0486c87fe86c5fe72c0d50c553a7a34bc526c52579e8c62",
     "apps/comic/src/game/appraisal/pilot-effects.ts": "ab8d8201a7abd4fbca4f96ee6223ded049937d43dac7a2f4dfa72db793e29029",
@@ -193,5 +193,21 @@
     },
     "verification": "docs/game-design/collector-wishlist-verification.json",
     "scope": "UI/gateway changes only; game effect sources unchanged.25 UI tests,7 actual network cases,14 approved baselines and18 menu checks pass; native8/16/32 rerun. Older pilot evidence remains historical, not newly rerun full simulation or balance."
+  },
+  "collectorOfferIsolationFollowup": {
+    "asOf": "2026-11-02",
+    "previousCheckpoint": "7ab2a39",
+    "changedSources": {
+      "apps/comic/src/game/appraisal/engine.ts": {
+        "previous": "93efbd488a98959aa51c94cfaeb43bb52e768db8ee301d1af446caf97528ed1a",
+        "current": "87e6a10adf3bffeb31b6134bdcbf596068c5f8a75ec622dc4552a8536ca6ff70"
+      },
+      "apps/comic/src/game/appraisal/mechanics.ts": {
+        "previous": "1cfcaade2a8d801d380eac44d6496aa1de1457c258290436577e25d7cc7e7b31",
+        "current": "a9c850f19c62f8d3564ce01e979a4b028fbc72a210ccded3b286d0000a022b9b"
+      }
+    },
+    "verification": "docs/game-design/collector-offer-isolation-verification.json",
+    "scope": "Public-offer source restoration for new Collector flag only.235 focused/7 actualnetwork,24 no-flag+2 priorCollector audits exactreplay,8 nativepairs/16runs/32replays. Frontend and stored public preview input bytes unchanged; existing14pixel/18menu evidence retains its exact UI source scope. No full-budget balance claim."
   }
 }

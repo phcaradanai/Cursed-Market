@@ -211,10 +211,10 @@
     "warning": "Comic UI is in separate build and differs from canonical UI source. Logic links are references, not proof every latest backend rule has matching UI."
   },
   "summary": {
-    "capturedImages": 53,
+    "capturedImages": 58,
     "capturedScreenGroups": 22,
     "registeredScreens": 30,
-    "liveImages": 5,
+    "liveImages": 10,
     "fixtureImages": 48
   },
   "style": {
@@ -3219,6 +3219,546 @@
         "height": 800,
         "scrollWidth": 1920,
         "scrollHeight": 800
+      }
+    },
+    {
+      "id": "C54",
+      "screenId": "A05",
+      "title": "Collector live request",
+      "phase": "PORTALS",
+      "image": "captures/collector-live-2026-11-02/request.png",
+      "sha256": "baf95db87328e1d17511bd984ebe011c83af810d7097db0c57dd39b2d36a44b4",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "live-game",
+      "url": "http://127.0.0.1:3199/",
+      "capturedAtUTC": "2026-11-02T11:08:47.154Z",
+      "clientDate": "2026-11-02",
+      "notes": "Real App/server paid-flow capture, supported500-credit/20-life/deadline5 QA room; regular phase setup used public commands. Not normal-budget balance or approved pixel baseline.",
+      "componentFiles": [
+        "apps/comic/src/game/appraisal/engine.ts",
+        "apps/comic/src/game/appraisal/ghost-service.ts",
+        "apps/comic/src/game/appraisal/mechanics.ts",
+        "apps/comic/src/game/appraisal/collector-wishlist.ts",
+        "apps/comic/tests/collector-wishlist.test.ts",
+        "apps/comic/tests/collector-wishlist-network.test.ts",
+        "apps/comic/scripts/collector-ui-server.mjs",
+        "scripts/ui/collector-live.mjs",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+        "apps/comic/src/appraisal-client/collector-wishlist.css",
+        "apps/comic/src/appraisal-client/ComicUI.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/comic-tokens.css"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "sha256": "87e6a10adf3bffeb31b6134bdcbf596068c5f8a75ec622dc4552a8536ca6ff70"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+          "sha256": "53603040058a9f18cc90f2ba572bcc4b24e204d5c7cf2d33e6a7bb72cff3729d"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
+          "sha256": "a9c850f19c62f8d3564ce01e979a4b028fbc72a210ccded3b286d0000a022b9b"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/collector-wishlist.ts",
+          "sha256": "bdf9ff7aeebd8cea20bf61f7de5dff43df5e107e561741a580084f1040b671c1"
+        },
+        {
+          "file": "apps/comic/tests/collector-wishlist.test.ts",
+          "sha256": "2d35d161a666859069ffe9cff084e64dab006c428efda54776c3b0ffca363d51"
+        },
+        {
+          "file": "apps/comic/tests/collector-wishlist-network.test.ts",
+          "sha256": "97b58fd370eaf0c2f07f93359eec32ec01bacb0bf824ae63adc879d397f97277"
+        },
+        {
+          "file": "apps/comic/scripts/collector-ui-server.mjs",
+          "sha256": "f8a5c923b794bfec4888365528fb788afc7064badd619a9bdad8e197a507fc85"
+        },
+        {
+          "file": "scripts/ui/collector-live.mjs",
+          "sha256": "d963f9b00d6f823d60c6b25a82afe6e1f82171850b2d5410eb1a15a9af8b27cd"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+          "sha256": "21f0b86c8220b246c34ee61e866d9dc542e17fb77cedd9ff6333551b2a152908"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-wishlist.css",
+          "sha256": "1172c72bf486387fddbe4ed437f416724cf65cb537a764e44e389d813e775630"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-tokens.css",
+          "sha256": "b746e939edf67d3e14cb5ae0e56db1a27eef3de5b7d5db792bb15d0ae1e0d084"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "7ab2a39",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [
+        "collector-wish-request",
+        "collector-wish-peek",
+        "collector-wish-buy"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "id": "C55",
+      "screenId": "A05",
+      "title": "Collector live waiting",
+      "phase": "PORTALS",
+      "image": "captures/collector-live-2026-11-02/waiting.png",
+      "sha256": "3f10ac413715a9cdb59a9da84881fdfbf29c69b2d23abbd3240150dcf2fc7876",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "live-game",
+      "url": "http://127.0.0.1:3199/",
+      "capturedAtUTC": "2026-11-02T11:08:48.362Z",
+      "clientDate": "2026-11-02",
+      "notes": "Real App/server paid-flow capture, supported500-credit/20-life/deadline5 QA room; regular phase setup used public commands. Not normal-budget balance or approved pixel baseline.",
+      "componentFiles": [
+        "apps/comic/src/game/appraisal/engine.ts",
+        "apps/comic/src/game/appraisal/ghost-service.ts",
+        "apps/comic/src/game/appraisal/mechanics.ts",
+        "apps/comic/src/game/appraisal/collector-wishlist.ts",
+        "apps/comic/tests/collector-wishlist.test.ts",
+        "apps/comic/tests/collector-wishlist-network.test.ts",
+        "apps/comic/scripts/collector-ui-server.mjs",
+        "scripts/ui/collector-live.mjs",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+        "apps/comic/src/appraisal-client/collector-wishlist.css",
+        "apps/comic/src/appraisal-client/ComicUI.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/comic-tokens.css"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "sha256": "87e6a10adf3bffeb31b6134bdcbf596068c5f8a75ec622dc4552a8536ca6ff70"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+          "sha256": "53603040058a9f18cc90f2ba572bcc4b24e204d5c7cf2d33e6a7bb72cff3729d"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
+          "sha256": "a9c850f19c62f8d3564ce01e979a4b028fbc72a210ccded3b286d0000a022b9b"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/collector-wishlist.ts",
+          "sha256": "bdf9ff7aeebd8cea20bf61f7de5dff43df5e107e561741a580084f1040b671c1"
+        },
+        {
+          "file": "apps/comic/tests/collector-wishlist.test.ts",
+          "sha256": "2d35d161a666859069ffe9cff084e64dab006c428efda54776c3b0ffca363d51"
+        },
+        {
+          "file": "apps/comic/tests/collector-wishlist-network.test.ts",
+          "sha256": "97b58fd370eaf0c2f07f93359eec32ec01bacb0bf824ae63adc879d397f97277"
+        },
+        {
+          "file": "apps/comic/scripts/collector-ui-server.mjs",
+          "sha256": "f8a5c923b794bfec4888365528fb788afc7064badd619a9bdad8e197a507fc85"
+        },
+        {
+          "file": "scripts/ui/collector-live.mjs",
+          "sha256": "d963f9b00d6f823d60c6b25a82afe6e1f82171850b2d5410eb1a15a9af8b27cd"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+          "sha256": "21f0b86c8220b246c34ee61e866d9dc542e17fb77cedd9ff6333551b2a152908"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-wishlist.css",
+          "sha256": "1172c72bf486387fddbe4ed437f416724cf65cb537a764e44e389d813e775630"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-tokens.css",
+          "sha256": "b746e939edf67d3e14cb5ae0e56db1a27eef3de5b7d5db792bb15d0ae1e0d084"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "7ab2a39",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [
+        "collector-wish-request",
+        "collector-wish-peek",
+        "collector-wish-buy"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "id": "C56",
+      "screenId": "A05",
+      "title": "Collector live delivery",
+      "phase": "PORTALS",
+      "image": "captures/collector-live-2026-11-02/delivery.png",
+      "sha256": "93da0dc5f60e6d6f40d4c0b72c40cce38a4ed8fdbd5d54295d16352da1927e62",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "live-game",
+      "url": "http://127.0.0.1:3199/",
+      "capturedAtUTC": "2026-11-02T11:08:51.128Z",
+      "clientDate": "2026-11-02",
+      "notes": "Real App/server paid-flow capture, supported500-credit/20-life/deadline5 QA room; regular phase setup used public commands. Not normal-budget balance or approved pixel baseline.",
+      "componentFiles": [
+        "apps/comic/src/game/appraisal/engine.ts",
+        "apps/comic/src/game/appraisal/ghost-service.ts",
+        "apps/comic/src/game/appraisal/mechanics.ts",
+        "apps/comic/src/game/appraisal/collector-wishlist.ts",
+        "apps/comic/tests/collector-wishlist.test.ts",
+        "apps/comic/tests/collector-wishlist-network.test.ts",
+        "apps/comic/scripts/collector-ui-server.mjs",
+        "scripts/ui/collector-live.mjs",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+        "apps/comic/src/appraisal-client/collector-wishlist.css",
+        "apps/comic/src/appraisal-client/ComicUI.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/comic-tokens.css"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "sha256": "87e6a10adf3bffeb31b6134bdcbf596068c5f8a75ec622dc4552a8536ca6ff70"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+          "sha256": "53603040058a9f18cc90f2ba572bcc4b24e204d5c7cf2d33e6a7bb72cff3729d"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
+          "sha256": "a9c850f19c62f8d3564ce01e979a4b028fbc72a210ccded3b286d0000a022b9b"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/collector-wishlist.ts",
+          "sha256": "bdf9ff7aeebd8cea20bf61f7de5dff43df5e107e561741a580084f1040b671c1"
+        },
+        {
+          "file": "apps/comic/tests/collector-wishlist.test.ts",
+          "sha256": "2d35d161a666859069ffe9cff084e64dab006c428efda54776c3b0ffca363d51"
+        },
+        {
+          "file": "apps/comic/tests/collector-wishlist-network.test.ts",
+          "sha256": "97b58fd370eaf0c2f07f93359eec32ec01bacb0bf824ae63adc879d397f97277"
+        },
+        {
+          "file": "apps/comic/scripts/collector-ui-server.mjs",
+          "sha256": "f8a5c923b794bfec4888365528fb788afc7064badd619a9bdad8e197a507fc85"
+        },
+        {
+          "file": "scripts/ui/collector-live.mjs",
+          "sha256": "d963f9b00d6f823d60c6b25a82afe6e1f82171850b2d5410eb1a15a9af8b27cd"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+          "sha256": "21f0b86c8220b246c34ee61e866d9dc542e17fb77cedd9ff6333551b2a152908"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-wishlist.css",
+          "sha256": "1172c72bf486387fddbe4ed437f416724cf65cb537a764e44e389d813e775630"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-tokens.css",
+          "sha256": "b746e939edf67d3e14cb5ae0e56db1a27eef3de5b7d5db792bb15d0ae1e0d084"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "7ab2a39",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [
+        "collector-wish-request",
+        "collector-wish-peek",
+        "collector-wish-buy"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "id": "C57",
+      "screenId": "A05",
+      "title": "Collector live peek",
+      "phase": "PORTALS",
+      "image": "captures/collector-live-2026-11-02/peek.png",
+      "sha256": "fbd985f0df4fe0c03da117f5ad15d6fdf67b2a74827c5fd8fac5ac80c03b17cd",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "live-game",
+      "url": "http://127.0.0.1:3199/",
+      "capturedAtUTC": "2026-11-02T11:08:53.369Z",
+      "clientDate": "2026-11-02",
+      "notes": "Real App/server paid-flow capture, supported500-credit/20-life/deadline5 QA room; regular phase setup used public commands. Not normal-budget balance or approved pixel baseline.",
+      "componentFiles": [
+        "apps/comic/src/game/appraisal/engine.ts",
+        "apps/comic/src/game/appraisal/ghost-service.ts",
+        "apps/comic/src/game/appraisal/mechanics.ts",
+        "apps/comic/src/game/appraisal/collector-wishlist.ts",
+        "apps/comic/tests/collector-wishlist.test.ts",
+        "apps/comic/tests/collector-wishlist-network.test.ts",
+        "apps/comic/scripts/collector-ui-server.mjs",
+        "scripts/ui/collector-live.mjs",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+        "apps/comic/src/appraisal-client/collector-wishlist.css",
+        "apps/comic/src/appraisal-client/ComicUI.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/comic-tokens.css"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "sha256": "87e6a10adf3bffeb31b6134bdcbf596068c5f8a75ec622dc4552a8536ca6ff70"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+          "sha256": "53603040058a9f18cc90f2ba572bcc4b24e204d5c7cf2d33e6a7bb72cff3729d"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
+          "sha256": "a9c850f19c62f8d3564ce01e979a4b028fbc72a210ccded3b286d0000a022b9b"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/collector-wishlist.ts",
+          "sha256": "bdf9ff7aeebd8cea20bf61f7de5dff43df5e107e561741a580084f1040b671c1"
+        },
+        {
+          "file": "apps/comic/tests/collector-wishlist.test.ts",
+          "sha256": "2d35d161a666859069ffe9cff084e64dab006c428efda54776c3b0ffca363d51"
+        },
+        {
+          "file": "apps/comic/tests/collector-wishlist-network.test.ts",
+          "sha256": "97b58fd370eaf0c2f07f93359eec32ec01bacb0bf824ae63adc879d397f97277"
+        },
+        {
+          "file": "apps/comic/scripts/collector-ui-server.mjs",
+          "sha256": "f8a5c923b794bfec4888365528fb788afc7064badd619a9bdad8e197a507fc85"
+        },
+        {
+          "file": "scripts/ui/collector-live.mjs",
+          "sha256": "d963f9b00d6f823d60c6b25a82afe6e1f82171850b2d5410eb1a15a9af8b27cd"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+          "sha256": "21f0b86c8220b246c34ee61e866d9dc542e17fb77cedd9ff6333551b2a152908"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-wishlist.css",
+          "sha256": "1172c72bf486387fddbe4ed437f416724cf65cb537a764e44e389d813e775630"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-tokens.css",
+          "sha256": "b746e939edf67d3e14cb5ae0e56db1a27eef3de5b7d5db792bb15d0ae1e0d084"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "7ab2a39",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [
+        "collector-wish-request",
+        "collector-wish-peek",
+        "collector-wish-buy"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "id": "C58",
+      "screenId": "M01",
+      "title": "Collector live owned",
+      "phase": "PORTALS",
+      "image": "captures/collector-live-2026-11-02/owned.png",
+      "sha256": "00c1a4b8678b681f8161ae4bb0cca57127ed62a2663f9e9f101d23d8dd57036f",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "live-game",
+      "url": "http://127.0.0.1:3199/",
+      "capturedAtUTC": "2026-11-02T11:08:59.698Z",
+      "clientDate": "2026-11-02",
+      "notes": "Real App/server paid-flow capture, supported500-credit/20-life/deadline5 QA room; regular phase setup used public commands. Not normal-budget balance or approved pixel baseline.",
+      "componentFiles": [
+        "apps/comic/src/game/appraisal/engine.ts",
+        "apps/comic/src/game/appraisal/ghost-service.ts",
+        "apps/comic/src/game/appraisal/mechanics.ts",
+        "apps/comic/src/game/appraisal/collector-wishlist.ts",
+        "apps/comic/tests/collector-wishlist.test.ts",
+        "apps/comic/tests/collector-wishlist-network.test.ts",
+        "apps/comic/scripts/collector-ui-server.mjs",
+        "scripts/ui/collector-live.mjs",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+        "apps/comic/src/appraisal-client/collector-wishlist.css",
+        "apps/comic/src/appraisal-client/ComicUI.tsx",
+        "apps/comic/src/appraisal-client/comic-frame.css",
+        "apps/comic/src/appraisal-client/comic-tokens.css"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "sha256": "87e6a10adf3bffeb31b6134bdcbf596068c5f8a75ec622dc4552a8536ca6ff70"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/ghost-service.ts",
+          "sha256": "53603040058a9f18cc90f2ba572bcc4b24e204d5c7cf2d33e6a7bb72cff3729d"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
+          "sha256": "a9c850f19c62f8d3564ce01e979a4b028fbc72a210ccded3b286d0000a022b9b"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/collector-wishlist.ts",
+          "sha256": "bdf9ff7aeebd8cea20bf61f7de5dff43df5e107e561741a580084f1040b671c1"
+        },
+        {
+          "file": "apps/comic/tests/collector-wishlist.test.ts",
+          "sha256": "2d35d161a666859069ffe9cff084e64dab006c428efda54776c3b0ffca363d51"
+        },
+        {
+          "file": "apps/comic/tests/collector-wishlist-network.test.ts",
+          "sha256": "97b58fd370eaf0c2f07f93359eec32ec01bacb0bf824ae63adc879d397f97277"
+        },
+        {
+          "file": "apps/comic/scripts/collector-ui-server.mjs",
+          "sha256": "f8a5c923b794bfec4888365528fb788afc7064badd619a9bdad8e197a507fc85"
+        },
+        {
+          "file": "scripts/ui/collector-live.mjs",
+          "sha256": "d963f9b00d6f823d60c6b25a82afe6e1f82171850b2d5410eb1a15a9af8b27cd"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/CollectorWishlist.tsx",
+          "sha256": "21f0b86c8220b246c34ee61e866d9dc542e17fb77cedd9ff6333551b2a152908"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/collector-wishlist.css",
+          "sha256": "1172c72bf486387fddbe4ed437f416724cf65cb537a764e44e389d813e775630"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicUI.tsx",
+          "sha256": "6d0c8ee920f7f4b15b7c35cfa7113b54686efe5a702f399db35fc77c78c1f482"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-frame.css",
+          "sha256": "dc3f1bab871d70aa5d0b50e48f56df4317ebf1e2e35210ecaf5a34c8aaa05b77"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/comic-tokens.css",
+          "sha256": "b746e939edf67d3e14cb5ae0e56db1a27eef3de5b7d5db792bb15d0ae1e0d084"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "7ab2a39",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [
+        "collector-wish-request",
+        "collector-wish-peek",
+        "collector-wish-buy"
+      ],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"
       }
     }
   ],

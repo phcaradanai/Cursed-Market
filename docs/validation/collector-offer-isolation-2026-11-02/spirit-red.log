@@ -1,0 +1,48 @@
+✖ named available-ghost fixture excludes private Collector goods from spirit quotes and card pools (307.11925ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 618.9305
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/collector-wishlist.test.js:99:1
+✖ named available-ghost fixture excludes private Collector goods from spirit quotes and card pools (307.11925ms)
+  AssertionError [ERR_ASSERTION]: Spirit card choices cannot disclose unbought private batch types
+  + actual - expected
+  ... Skipped lines
+
+    {
+      jobs: [],
+      self: {
+        available: true,
+        bonus: 0,
+  ...
+            {
+  +           id: '5:1:bob:bob:scanner:75',
+  -           id: '5:1:bob:bob:scanner:15',
+              kind: 'scanner',
+  +           price: 75
+  -           price: 15
+            }
+          ]
+        }
+      ]
+    }
+
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/collector-wishlist.test.js:113:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: { services: [ [Object] ], jobs: [], self: { startedAt: 0, cards: [Array], round: 1, available: true, swaps: [], tracking: undefined, slots: [], encounter: 5, bonus: 0 } },
+    expected: { services: [ [Object] ], jobs: [], self: { startedAt: 0, cards: [Array], round: 1, available: true, swaps: [], tracking: undefined, slots: [], encounter: 5, bonus: 0 } },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

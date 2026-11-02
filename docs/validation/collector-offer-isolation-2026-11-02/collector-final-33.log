@@ -1,0 +1,43 @@
+✔ Collector parser accepts only the four exact public payloads and rejects private fields (5.346ms)
+✔ Collector bots choose only from the public pool and progress through a bounded decision sequence at real40-credit budget (229.109666ms)
+✔ pending real entry event blocks Collector while reading its DTO never changes revision (14.007042ms)
+✔ named pending-ability fixture blocks Collector and preserves its current window (28.749375ms)
+✔ two actual sockets request2 resume deliver4 isolate batches and charge once then replay RESULTS (730.875417ms)
+(node:9772) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Collector request uses public choices, paired controls and a fixed six-item page without hidden truths (58.883209ms)
+✔ Collector delivery renders five opaque slots, one common bill and no item truth or hidden art (7.477459ms)
+✔ pending and expired views show only their actual rights without fake active controls (2.213583ms)
+✔ finishing appraisal visibly warns on the actual button that remaining Collector rights close (415.6735ms)
+✔ Collector exposes a dedicated private request window at encounter2 while preserving NPC wishlist (186.946958ms)
+✔ old no-flag rooms do not expose or accept Collector requests (32.536833ms)
+✔ request3 at2 survives own appraisal done, stays pending at3, delivers5stable concealed slots at4 (105.985292ms)
+✔ peek reveals only one kind/art/rarity, then a different slot can be bought once for the shared quoted cost (59.354791ms)
+✔ invalid request counts/duplicates/unknown kinds and odd windows cannot create a batch (21.659167ms)
+✔ private offers cannot be accessed by another seat and forged slot cannot spend money (47.563417ms)
+✔ a current delivery expires on own appraisal done, while a request for a future encounter does not (69.276333ms)
+✔ being done entering a portal does not expire a delivery before appraisal (53.095792ms)
+✔ Collector window permits only manual credit withdrawal, not deposit or item movement outside salary (49.359083ms)
+✔ request/delivery/peek/purchase causes are present in the private Thai journal without hidden truth (44.893042ms)
+✔ reference quote averages anchors scaled once and never reads item truth (46.468583ms)
+✔ engine receipts preserve one peek/one payment and full request-delivery-purchase-end audit replays (130.763875ms)
+✔ regular settled-salary withdrawal stays available with the new flag even without a Collector offer (8.146334ms)
+✔ a stale purchase quote cannot charge a newly raised price and failed confirmation consumes nothing (30.556333ms)
+✔ Collector per-seat state supports allowed Object-prototype-shaped player IDs without using inherited values (4.932166ms)
+✔ end-game cancellation of a pending future request is explained in the owner journal (51.280042ms)
+✔ purchase applies shared status discounts, surcharge, fee and energy once without merchant trust or peer scraps (63.416041ms)
+✔ merchant ban blocks payment but permits read, funded peek, skip and another request (38.067542ms)
+✔ energy shortage rejects atomically without consuming a quoted discount or opened slot (31.313875ms)
+✔ death cancels a future request or unbought escrow and never grants the goods to a ghost (47.257708ms)
+✔ unit price fixture keeps a Collector good at one credit after a discount larger than its raw quote (41.50325ms)
+✔ a private Collector request and free skip cannot steer the future public Dark Market (143.986667ms)
+✔ named available-ghost fixture excludes private Collector goods from spirit quotes and card pools (147.415542ms)
+✔ public-offer provenance keeps paid Collector originals and copies out while retaining ordinary copies (59.519958ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 33
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1939.673125

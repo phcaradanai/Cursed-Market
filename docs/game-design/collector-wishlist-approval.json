@@ -6,5 +6,5 @@
   "proposalSha256": "d7e79e71d6fcb61919c91beaea34b123d1676a4745be97aa88f87bd36462d98f",
   "userReply": "อนุมัติสเปกทดลองนี้",
   "scope": "Exact Collector3+2 experimental specification including same-slot price, original purchase modifiers/fees/energy, private batches, schedule, expiry, trade-ban and custody. Not release balance, remaining48 or STRAT-01 approval.",
-  "runtimeStatus": "Engine/protocol/Comic UI implemented; new rooms in Comic main enable rules1, historical engine no-flag preserved. Task3 tests pass, final branch review pending. Experimental values, not whole-game balance or full56 approval."
+  "runtimeStatus": "Implemented experimental; independent initial review completed, Important source contamination fixed/tested; UI-COLLECTOR-CONTEXT minor deferred. See collector-offer-isolation-verification.json; whole-game balance/full56 not complete."
 }

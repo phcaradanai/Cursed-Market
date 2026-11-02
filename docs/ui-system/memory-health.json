@@ -28,5 +28,39 @@
     "tags_match": "all",
     "directState": "valid",
     "earlierQueryLimitation": "Mixed Thai/English query without explicit tags_match surfaced unrelated old memories. Exact English fact with all-tag matching retrieved approval and scope. Do not infer that any returned memory is relevant."
+  },
+  "collectorFollowup20261102": {
+    "checkedAt": "2026-11-02T10:38:30.318647+00:00",
+    "retainStatus": "completed",
+    "retainedDocument": "cursed-market-collector-2026-11-02-runtime",
+    "acknowledgedMemoryIds": [
+      "31fac91e-da79-4547-9394-3534d6094a31",
+      "204fe825-04d6-43f0-ad2f-4622169a9099",
+      "5e7614f4-63ab-4f0d-8307-aacab1fa00c7",
+      "1d079139-551f-44d0-8e06-3f503563813c",
+      "ce6881f7-cbc1-4515-98f6-48246e4d5087",
+      "8aab425c-19ed-4587-b1d3-8ebd339e6620",
+      "ddb66a48-9875-48a1-b23c-30428bc078a2"
+    ],
+    "matchingIdsRecalled": true,
+    "tagsRequested": [
+      "cursed-market",
+      "collector-runtime-2026-11-02"
+    ],
+    "tags_match": "all",
+    "scopedFilterReliable": false,
+    "observedFailure": "Recall also returned untagged facts from an unrelated project despite all-tag query; one normalized observation shortened the proposal SHA while the retained full fact was also returned. Do not trust scoped filtering or normalized hashes as authority.",
+    "scope": "Retention acknowledgement and matching new ID retrieval verified. No guarantee of relevance isolation, exact extraction or future availability. Current runtime/review status must come from repository."
+  },
+  "collectorReviewedFollowup20261102": {
+    "status": "acknowledged-and-three-matching-ids-retrieved; tag-filter-unreliable",
+    "documentId": "cursed-market-collector-reviewed-2026-11-02",
+    "memoryIds": [
+      "d4368200-7270-4c06-a6d3-fd58815cbc39",
+      "9d99615b-6fb8-4308-b47f-897b0484f343",
+      "a01f36de-2ebc-4c8d-bbf6-cab76fd4f78f"
+    ],
+    "unrelatedUntaggedResults": 31,
+    "limitation": "Matching retrieval succeeded but facts were shortened; repository receipts remain authoritative, not exact verbatim memory."
   }
 }

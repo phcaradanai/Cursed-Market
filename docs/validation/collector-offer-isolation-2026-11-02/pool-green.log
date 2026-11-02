@@ -1,0 +1,10 @@
+✔ a private Collector request and free skip cannot steer the future public Dark Market (282.351083ms)
+✔ named available-ghost fixture excludes private Collector goods from spirit quotes and card pools (177.332375ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 808.20275

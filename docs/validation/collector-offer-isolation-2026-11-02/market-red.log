@@ -1,0 +1,71 @@
+✖ a private Collector request and free skip cannot steer the future public Dark Market (298.655084ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 625.228334
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/collector-wishlist.test.js:84:1
+✖ a private Collector request and free skip cannot steer the future public Dark Market (298.655084ms)
+  AssertionError [ERR_ASSERTION]: Unbought private goods must not change public demand or reserve
+  + actual - expected
+  ... Skipped lines
+
+    {
+  +   budget: 806,
+  -   budget: 864,
+      encounter: 5,
+      open: true,
+      orders: [
+        {
+          contract: {
+  ...
+            bonus: {
+  +           amount: 3,
+  +           kind: 'credits'
+  -           kind: 'buff',
+  -           statusId: 'B03'
+            },
+            fullPriceCost: {
+  +           kind: 'debuff',
+  +           statusId: 'D01'
+  -           amount: 1,
+  -           kind: 'life'
+            },
+            requirements: [
+              {
+                property: 'genuine',
+  +             value: true
+  -             value: false
+              }
+            ]
+          },
+  +       id: 'quote-5-inspection-warrant',
+  +       kind: 'inspection-warrant',
+  +       price: 22,
+  -       id: 'quote-5-memory-mirror',
+  -       kind: 'memory-mirror',
+  -       price: 26,
+          quota: {
+            alice: 1,
+            bob: 1
+          },
+          rarityReserveMultiplier: 8
+
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/collector-wishlist.test.js:95:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: { encounter: 5, open: true, budget: 806, orders: [ [Object], [Object] ] },
+    expected: { encounter: 5, open: true, budget: 864, orders: [ [Object], [Object] ] },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

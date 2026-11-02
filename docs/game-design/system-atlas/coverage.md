@@ -17,8 +17,8 @@
   "actions": 60,
   "configKeys": 55,
   "parameters": 72,
-  "functions": 493,
-  "codeSymbols": 636,
+  "functions": 494,
+  "codeSymbols": 637,
   "policies": 212,
   "randomRules": 105,
   "legacyGateSites": 21,
@@ -1550,7 +1550,7 @@
     "end": 22578
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:32386",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:32688",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
     "args": [
@@ -1564,15 +1564,15 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 401,
-      "endLine": 401
+      "line": 403,
+      "endLine": 403
     },
     "expression": "grant(state,buyer,options.grantStatus)",
-    "start": 32386,
-    "end": 32425
+    "start": 32688,
+    "end": 32727
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:32451",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:32753",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
     "args": [
@@ -1586,15 +1586,15 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 402,
-      "endLine": 402
+      "line": 404,
+      "endLine": 404
     },
     "expression": "grant(state,buyer,profile.condition)",
-    "start": 32451,
-    "end": 32488
+    "start": 32753,
+    "end": 32790
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:33485",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:33787",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "args": [
@@ -1610,15 +1610,15 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 414,
-      "endLine": 414
+      "line": 416,
+      "endLine": 416
     },
     "expression": "grant(state,p,spec.drawback,undefined,itemDrawbackScale(item))",
-    "start": 33485,
-    "end": 33548
+    "start": 33787,
+    "end": 33850
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:36961",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:37263",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "args": [
@@ -1640,15 +1640,15 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 446,
-      "endLine": 446
+      "line": 448,
+      "endLine": 448
     },
     "expression": "grant(state,p,spec.buff,undefined,power)",
-    "start": 36961,
-    "end": 37001
+    "start": 37263,
+    "end": 37303
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:43465",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:43767",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
     "args": [
@@ -1665,15 +1665,15 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 521,
-      "endLine": 521
+      "line": 523,
+      "endLine": 523
     },
     "expression": "grant(state,p,cost.statusId)",
-    "start": 43465,
-    "end": 43494
+    "start": 43767,
+    "end": 43796
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:44343",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:44645",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
     "args": [
@@ -1690,12 +1690,12 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 533,
-      "endLine": 533
+      "line": 535,
+      "endLine": 535
     },
     "expression": "grant(state,p,bonus.statusId)",
-    "start": 44343,
-    "end": 44372
+    "start": 44645,
+    "end": 44674
   },
   {
     "id": "operation:apps/comic/src/game/appraisal/merchant-abilities.ts:8327",

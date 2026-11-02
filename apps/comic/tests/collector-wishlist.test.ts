@@ -1,13 +1,14 @@
+import {ghostQuotes,ghostView} from '../src/game/appraisal/ghost-service.js';
 import test from 'node:test';import assert from 'node:assert/strict';
 import {createAppraisalRun,applyAppraisalAction,advanceAppraisalEncounter} from '../src/game/appraisal/engine.js';
 import {appraisalViewFor} from '../src/game/appraisal/views.js';
 import {exportAppraisalAudit,replayAppraisalAudit} from '../src/game/appraisal/audit.js';
 import {anchorOf} from '../src/game/appraisal/core2.js';
 import {rarityValue} from '../src/shared/rarity-power.js';
-import {damageLife} from '../src/game/appraisal/mechanics.js';
+import {damageLife,publicOfferItems} from '../src/game/appraisal/mechanics.js';
 import {appraisalBotDecision} from '../src/simulation/appraisal.js';
 import type {AppraisalAction,AppraisalConfig} from '../src/game/appraisal/types.js';
-function run(enabled=true,overrides:Partial<AppraisalConfig>={}){const config:Partial<AppraisalConfig>&{collectorWishlistRules?:1}={catalogVersion:4,startingCredits:500,core2:true,secureEconomy:true,survival:{maxLife:20,encounterLifeCost:1,entryEnergyCost:0},collectorDeadline:5,marketProbability:0,wishlist:false,npcEvents:false,polish:false,...(enabled?{collectorWishlistRules:1}:{}),...overrides};let s=createAppraisalRun(['alice','bob'],'collector-engine-v1',config),seq=0;
+function run(enabled=true,overrides:Partial<AppraisalConfig>={},seed='collector-engine-v1'){const config:Partial<AppraisalConfig>&{collectorWishlistRules?:1}={catalogVersion:4,startingCredits:500,core2:true,secureEconomy:true,survival:{maxLife:20,encounterLifeCost:1,entryEnergyCost:0},collectorDeadline:5,marketProbability:0,wishlist:false,npcEvents:false,polish:false,...(enabled?{collectorWishlistRules:1}:{}),...overrides};let s=createAppraisalRun(['alice','bob'],seed,config),seq=0;
  const view=(id='alice')=>appraisalViewFor(s,id);const act=(id:string,body:Record<string,unknown>)=>{s=applyAppraisalAction(s,{...body,playerId:id,requestId:`cw-${seq++}`,encounter:s.encounter} as AppraisalAction);};
  const events=()=>{for(let n=0;n<32;n++){let found=false;for(const id of ['alice','bob']){const v=view(id);if(v.self.eventOffer||v.self.abilityChoice){act(id,appraisalBotDecision(v,'cautious'));found=true;}}if(!found)return;}throw Error('Event bound');};
  const until=(encounter:number,phase:string)=>{for(let n=0;n<100&&(s.encounter!==encounter||s.phase!==phase);n++){if(s.phase==='REVEAL'){s=advanceAppraisalEncounter(s);continue;}events();const id=s.players.find(p=>!p.done&&!p.paused)?.id;assert(id);act(id,s.phase==='PORTALS'?{type:'enter',portalId:view(id).self.portals.find(p=>!p.disabled)!.id}:{type:'done'});}assert.equal(s.encounter,encounter);assert.equal(s.phase,phase);events();};
@@ -36,3 +37,31 @@ test('merchant ban blocks payment but permits read, funded peek, skip and anothe
 test('energy shortage rejects atomically without consuming a quoted discount or opened slot',()=>{const r=run(true,{freeBuy:false});r.until(2,'PORTALS');request(r);r.until(4,'PORTALS');const p=r.state.players[0]!;p.energy=0;p.statuses=[{id:'B03',charges:1,starts:4,expires:5}];const d=cw(r).delivery!;assert.equal(d.canPeek,true);assert.equal(d.canBuy,false);const before=structuredClone(r.state);assert.throws(()=>r.act('alice',{type:'collector-wish-buy',quoteId:d.quoteId,batchId:d.id,slotId:d.slots[0]!.id}));assert.deepEqual(r.state,before);});
 test('death cancels a future request or unbought escrow and never grants the goods to a ghost',()=>{for(const at of [2,4]){const r=run();r.until(2,'PORTALS');request(r);if(at===4)r.until(4,'PORTALS');const p=r.state.players[0]!;damageLife(r.state,p,p.life!,'blood-pact');r.act('bob',{type:'done'});assert.equal(r.state.collectorWishes!.alice!.pending,undefined);assert.equal(r.view().self.collectorWishlist,undefined);assert(!Object.values(r.state.items).some(i=>i.owner.startsWith('collector-wishlist:')));assert.equal(r.view().self.inventory.length,0);}});
 test('unit price fixture keeps a Collector good at one credit after a discount larger than its raw quote',()=>{const r=run();r.until(2,'PORTALS');request(r);r.until(4,'PORTALS');r.state.collectorWishes!.alice!.offer!.rawQuote=1;r.state.players[0]!.statuses=[{id:'B03',charges:1,starts:4,expires:5,power:8}];const d=cw(r).delivery!;assert.equal(d.cost.price,1);const credits=r.view().self.credits;r.act('alice',{type:'collector-wish-buy',quoteId:d.quoteId,batchId:d.id,slotId:d.slots[0]!.id});assert.equal(r.view().self.credits,credits-d.cost.total);assert.equal(r.view().self.inventory[0]!.paid,1);});
+
+test('a private Collector request and free skip cannot steer the future public Dark Market',()=>{
+ const config:Partial<AppraisalConfig>={catalogVersion:3,marketProbability:1};const control=run(true,config,'review-market-12'),requested=run(true,config,'review-market-12');
+ for(const r of [control,requested])r.until(2,'PORTALS');
+ requested.act('alice',{type:'collector-wish-request',kinds:cw(requested).request.kinds.slice(0,3).map(k=>k.kind)});
+ for(const r of [control,requested])r.until(4,'PORTALS');
+ requested.act('alice',{type:'collector-wish-skip',batchId:cw(requested).delivery!.id});
+ for(const r of [control,requested])r.until(5,'PORTALS');
+ assert.deepEqual(requested.state.market,control.state.market,'Unbought private goods must not change public demand or reserve');
+ assert.deepEqual(requested.state.players.map(p=>p.portals),control.state.players.map(p=>p.portals));
+});
+
+test('named available-ghost fixture excludes private Collector goods from spirit quotes and card pools',()=>{
+ const config:Partial<AppraisalConfig>={catalogVersion:3,marketProbability:1};const control=run(true,config,'review-market-12'),requested=run(true,config,'review-market-12');
+ for(const r of [control,requested])r.until(2,'PORTALS');requested.act('alice',{type:'collector-wish-request',kinds:cw(requested).request.kinds.slice(0,3).map(k=>k.kind)});
+ for(const r of [control,requested])r.until(4,'PORTALS');requested.act('alice',{type:'collector-wish-skip',batchId:cw(requested).delivery!.id});
+ for(const r of [control,requested]){r.until(5,'PORTALS');r.state.ghosts={bob:{round:1,available:true,swaps:[],encounter:5,slots:[],jobs:[],bonus:0,draws:0}};}
+ assert.deepEqual(ghostQuotes(requested.state,'bob','alice'),ghostQuotes(control.state,'bob','alice'),'Private batch cannot change public spirit prices, types or prototypes');
+ assert.deepEqual(ghostView(requested.state,'bob'),ghostView(control.state,'bob'),'Spirit card choices cannot disclose unbought private batch types');
+});
+
+test('public-offer provenance keeps paid Collector originals and copies out while retaining ordinary copies',()=>{
+ const r=run();r.until(2,'PORTALS');request(r);r.until(4,'PORTALS');const d=cw(r).delivery!,regular=publicOfferItems(r.state)[0]!;
+ r.act('alice',{type:'collector-wish-buy',batchId:d.id,slotId:d.slots[0]!.id,quoteId:d.quoteId});const p=r.state.players[0]!,source=r.state.items[p.inventory[0]!]!;
+ // Named copy fixture follows the merchant ability's copy provenance shape; no copy-use claim.
+ for(const [id,item] of [['collector-copy-fixture',source],['ordinary-copy-fixture',regular]] as const){r.state.items[id]={...item,id,owner:p.id,copy:{sourceId:item.id,number:1,valuePercent:40}};p.inventory.push(id);}
+ const ids=publicOfferItems(r.state).map(i=>i.id);assert(!ids.includes(source.id));assert(!ids.includes('collector-copy-fixture'));assert(ids.includes(regular.id));assert(ids.includes('ordinary-copy-fixture'));
+});

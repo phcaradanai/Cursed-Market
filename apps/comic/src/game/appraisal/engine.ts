@@ -19,7 +19,7 @@ import { barter, pickpocket, stealShop, useSkill } from './core2-actions.js';
 import { defaultEvent, drawBacklashEvent, drawTheftEvent, isConsequence, drawBondEvent, drawExpansionEvent, drawPolishEvent, drawWishEvent, drawEvent, drawPersonalNpcEvent, resolveEvent } from './events.js';
 import { closeNpcContracts, redeemNpcContracts } from './npc-events.js';
 import { auctionLots, placeBid, settleAuction, settleRemainingUnsold, settleUnsold } from './brokerage.js';
-import { merchantActionFree, activate, appraise, check, enforceCaps, maxEnergyOf, maxLifeOf, npcQuote, omenNow, consumeStatus, damageLife, healLife, inspect, marketSell, ownedItem, player, purchase, payRebate, stockBonus, recover, recoveryAmount, recoveryOffer, mendWithShards, reward, spend, status, stockItem, trace, transfer, unlocked, wealth } from './mechanics.js';
+import { publicOfferItems, merchantActionFree, activate, appraise, check, enforceCaps, maxEnergyOf, maxLifeOf, npcQuote, omenNow, consumeStatus, damageLife, healLife, inspect, marketSell, ownedItem, player, purchase, payRebate, stockBonus, recover, recoveryAmount, recoveryOffer, mendWithShards, reward, spend, status, stockItem, trace, transfer, unlocked, wealth } from './mechanics.js';
 import { cleanseItem } from './cleanse.js';
 import { recordJournal } from './journal.js';
 import { wishNew, wishSell } from './wishlist.js';
@@ -166,7 +166,7 @@ function makeMarket(state:AppraisalState):DarkMarket {
   // Vault auctions roll independently of the sell-order market.
   if(state.config.brokerage) market.lots=auctionLots(state);
   if(!(state.config.core2 && omenNow(state)?.marketOpen) && randomAt(state.seed,`${state.encounter}:market:open`)>=state.config.marketProbability) return market;
-  const pool=[...new Set(Object.values(state.items).map(item=>item.kind))];
+  const pool=[...new Set(publicOfferItems(state).map(item=>item.kind))];
   const count=1+Math.floor(randomAt(state.seed,`${state.encounter}:market:count`)*Math.min(pool.length,state.config.marketMaxOrders));
   const ranked=pool.map(kind=>({kind,rank:randomAt(state.seed,`${state.encounter}:market:${kind}:rank`)})).sort((a,b)=>a.rank-b.rank);
   const orderFor=(kind:ItemKind)=>{

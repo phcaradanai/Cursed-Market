@@ -359,6 +359,8 @@ export function noteScrap(state:AppraisalState,buyer:Appraiser,items:AppraisalIt
   if((buyer.scrapPaid??0)>=CORE2.scrap.cap)buyer.scraps=Math.min(buyer.scraps,CORE2.scrap.need-1);
   else {buyer.notes.push(`เศษพลัง ${buyer.scraps}/${CORE2.scrap.need}`);buyer.notes=buyer.notes.slice(-30);}
 }
+/** Private Collector batches (and copies) never seed public market or spirit offers. */
+export function publicOfferItems(state:AppraisalState):AppraisalItem[] {return Object.values(state.items).filter(item=>state.config.collectorWishlistRules!==1||!(item.copy?.sourceId??item.id).startsWith('cw-'));}
 export function purchaseModifiers(state:AppraisalState,buyer:Appraiser):{discount:number;fee:number;energyAdjustment:number} {
   const b=passiveBonuses(state,buyer);return {discount:integerEffect(statusMagnitude(buyer,'B03',2))-integerEffect(statusMagnitude(buyer,'D12',2))+b.discount,fee:feeSurcharge(state,buyer),energyAdjustment:integerEffect(statusMagnitude(buyer,'D06',1))-b.buyEnergy};
 }

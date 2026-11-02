@@ -1,7 +1,7 @@
 {
   "asOf": "2026-11-02",
   "activeSource": "apps/comic",
-  "revision": "707da16 + theft desk UI follow-up (pinned in docs/ui-system/theft-desk-verification.json)",
+  "revision": "518d702 + Collector proposal / sealed pilot coverage review",
   "headline": "ยังไม่ครบตามกฎและขอบเขตเกมที่ตกลงทั้งหมด",
   "summary": "วงจรเดิมและตลาดวิญญาณเล่นได้ แต่การย้ายกฎ/สินค้าใหม่และบาลานซ์ทั้งเกมยังค้าง ภาพหน้าจอหรือกราฟครบไม่ได้แปลว่า runtime ครบ",
   "atlasScope": "Atlas สกัดทุก module ของ apps/comic/src/game/appraisal พร้อม random/rarity/protocol/server lifecycle และ bot ที่ระบุ; graph เป็น static dependency ไม่ใช่ execution proof; UI ใช้ capture/flow registry แยก; รุ่นเก่าตรึง9f0a972ใน legacy-atlas-baseline.json",
@@ -72,12 +72,13 @@
     {
       "id": "RULE-03",
       "system": "Collector Wishlist3+2",
-      "status": "ยังไม่ครบกฎใหม่",
-      "remaining": "ระบบ wish ของพ่อค้าเดิมมีอยู่ แต่ไม่ใช่เลือก3ทุก2turn รออีก2turn รวมสุ่ม2 ปิด5ใบ เปิด1และจ่ายซื้อ; ต้องปิดนิยามturn/สิทธิซื้อ/เงินไม่พอ/หมดเวลา",
+      "status": "ข้อเสนอกติกาทดลองพร้อมทบทวน — ยังไม่ลงruntime",
+      "remaining": "กฎ3+2/รอ2ช่วง/peek1/ต้องจ่ายยืนยันแล้ว. สเปกใหม่เสนอชุดส่วนตัวซื้อ1 ราคาอ้างอิงร่วมทุกช่องพร้อมต้นทุนซื้อเดิม จังหวะ2→4 สิทธิ์หมดเมื่อจบประเมิน และmerchant ban; รอผู้ใช้อนุมัติ ห้ามถือเป็นค่าที่ตกลงแล้ว",
       "evidence": [
         "apps/comic/src/game/appraisal/wishlist.ts",
         "docs/game-design/rules-and-logic.md",
-        "docs/game-design/PROJECT-CONTEXT.md"
+        "docs/game-design/PROJECT-CONTEXT.md",
+        "docs/game-design/proposals/collector-wishlist-v1.md"
       ]
     },
     {
@@ -122,18 +123,21 @@
       "id": "BAL-02 / PLAY-01",
       "system": "บาลานซ์และเล่นเต็มเกมตามกฎใหม่",
       "status": "ยังไม่ผ่านเกณฑ์จบ",
-      "remaining": "มีหลักฐานทดสอบเฉพาะส่วน ไม่ใช่ครบทุกระบบ; ยังต้องทดสอบหลายคนเต็มรัน new56/effects/เส้นทาง/คะแนน/reconnect และบาลานซ์; มีเทสต์เก่า Dark One แสดงชื่อผู้เล่นล้มเหลวหนึ่งข้อ",
+      "remaining": "มีหลักฐานทดสอบเฉพาะส่วน ไม่ใช่ครบทุกระบบ; ยังต้องทดสอบหลายคนเต็มรัน new56/effects/เส้นทาง/คะแนน/reconnect และบาลานซ์; มีเทสต์เก่า Dark One แสดงชื่อผู้เล่นล้มเหลวหนึ่งข้อ; ตรวจcoverage8auditเดิมแล้ว: native pairedpoliciesยังไม่พิสูจน์triggerทั้ง8effect (ไม่ใช่สรุปว่าeffectผิด), ต้องเพิ่มpublic-view scenarioก่อนtune",
       "evidence": [
         "docs/ui-system/ghost-functional-verification.json",
         "docs/game-design/balance-workflow.md",
-        "docs/game-design/development-roadmap.md"
+        "docs/game-design/development-roadmap.md",
+        "docs/game-design/balance-reports/2026-11-02-pilot-coverage.md",
+        "docs/game-design/balance-reports/2026-11-02-pilot-coverage.json",
+        "docs/game-design/scripts/pilot-coverage.mjs"
       ]
     }
   ],
   "next": [
-    "ปิด selector/ผลลัพธ์ RPS เดิมตามกรอบ Comic ที่อนุมัติ",
-    "ออกสเปกค่าทดลองอีก48ชิ้นและขออนุมัติ; STRAT-01 ยังรอวิธีรวมโบนัสที่ถามไว้",
-    "ทำ Wishlist Collector3+2 และรางวัลสถิติ/rarityหลังปิดรายละเอียด",
+    "รอข้อยืนยันสเปกCollector3+2ที่พร้อมทบทวน; STRAT-01ยังรอวิธีรวมโบนัสที่ถามไว้",
+    "เพิ่มpublic-view bounded scenariosให้effect8ชิ้นถูกใช้จริงในpolicyก่อนสรุปbalance; baseline8auditเดิมพิสูจน์การจบรันเท่านั้น",
+    "ออกสเปกค่าทดลองอีก48ชิ้นและรางวัลสถิติ/rarity แล้วขออนุมัติส่วนที่ยังไม่มีตัวเลข",
     "ย้ายครบ56 ผูกevent/encounter/omen ตรวจเต็มเกม/หลายคน/reconnect/replay แล้วบาลานซ์"
   ],
   "verification": "Whole-game goal เปิดแล้ว ดู implementations/completion-program.md; งานแต่ละส่วนมีผลตรวจเฉพาะส่วน ไม่ใช่คำรับรองครบทั้งเกม",

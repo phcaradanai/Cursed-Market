@@ -197,3 +197,10 @@ Atlas now extracts active Comic appraisal modules and explicit support/server/bo
 ## RULE-02 target/history checkpoint — 2026-11-02
 
 Approved Comic reconciliation now includes target/history in the shared inventory-sized menu. HUD handshake opens read-only;6 dock menus remain unchanged. Known costs/targets, fixed pagination, unknown goods privacy and active forced-duel precedence preserved. Phase changes clear unavailable drawers, preventing invisible inert main panes. Evidence: ../ui-system/theft-desk-verification.json (78 focused,174 related, socket1, target3width, boundary4, forced3width, baseline14, menus18, native10). No engine/default change or full-game/balance completion. Next unresolved work remains STRAT structure, Collector3+2, awards and remaining48.
+
+
+## 2026-11-02 — Collector proposal / balance exposure
+
+RULE-03 now has a concrete unapproved proposal: proposals/collector-wishlist-v1.md, distinct from NPC wanted contracts and final Collector. User question sent against that document; no implementation/default/price approval inferred while pending. Proposed uniform shared quote prevents slot-identity inference but still reveals aggregate reference value. Costs/status hooks, merchant ban, escrow closure and turn expiry are explicit proposals.
+
+Read-only analyzer scripts/pilot-coverage.mjs checks the8 sealed old paired audits against original hashes/current pinned game sources. It proves short flow/snapshot coverage, not8 effect exposures. No activation/vault/notice/reroll/theft actions in native policy runs; inspections are authenticity-only. See balance-reports/2026-11-02-pilot-coverage.md/JSON. Keep29 native lifecycle tests and old strict-replay claims separately scoped. Add actual public-view effect scenarios before balance tuning. No product/UI change in this checkpoint.

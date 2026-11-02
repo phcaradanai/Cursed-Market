@@ -1,0 +1,1070 @@
+{
+  "asOf": "2026-11-02",
+  "scope": "Read-only analysis of8 sealed historical paired audits; no new run, no current full-game acceptance, no effect/balance/win-share claim. Actual native lifecycle evidence remains separate in new56-pilot-verification.json.",
+  "experimentRevisionLabel": "f351be5caa898016b91d47ee8893d3351fc7d08c",
+  "experimentRevisionCaveat": "Original experiment recorded a worktree revision label; current runtime hashes are verified against the separately pinned pilot evidence, not inferred from that label.",
+  "configCoverage": {
+    "seeds": [
+      "pilot-paired-0"
+    ],
+    "playerCounts": [
+      2,
+      3
+    ],
+    "policies": [
+      "cautious",
+      "trader"
+    ],
+    "catalogs": [
+      3,
+      4
+    ],
+    "collectorDeadline": 3,
+    "missing": [
+      "4-player policy runs",
+      "multiple seeds and confidence/uncertainty",
+      "longer survival and naturally exhausted lives",
+      "ghost mini-games and delivery",
+      "loans/auctions/vault and forced theft policy exposure",
+      "Collector3+2,strategic paths,leader awards and remaining48 runtime"
+    ]
+  },
+  "inputs": {
+    "docs/validation/new56-pilot-2026-11-01/experiment.json": "dc426acdf323a28bac27a8e257f222e5d1437f84a83c7fdd4fd7bbdcc4d6ffda",
+    "docs/validation/new56-pilot-2026-11-01/catalog3-2-cautious.json": "ed8fbba86e91bdc4623e57a5a75a10524613f636cf993fa2f40de711b4de1494",
+    "docs/validation/new56-pilot-2026-11-01/catalog4-2-cautious.json": "3d6bd641f45a544f95764bb79b273b8ce38a5c5b3770ec08ce83bfb6b881585c",
+    "docs/validation/new56-pilot-2026-11-01/catalog3-2-trader.json": "b2e33fcade90727e179c7f87a7482d89a9b21b9cdddd8836bb2129c5eb2e3b47",
+    "docs/validation/new56-pilot-2026-11-01/catalog4-2-trader.json": "7519d909530b127d02106f605d955777ecf0eebcb0cb68f5bd32dc9bcf09d88b",
+    "docs/validation/new56-pilot-2026-11-01/catalog3-3-cautious.json": "c69dad8cb3a2d0c2617638f557f0abf92bfb5170f2db02d5834b4e8cc5aa1233",
+    "docs/validation/new56-pilot-2026-11-01/catalog4-3-cautious.json": "2f0406e152942f15c5202e4c2edf6cb741b6a7310acaba7beaa99bc3553c41f2",
+    "docs/validation/new56-pilot-2026-11-01/catalog3-3-trader.json": "e7bdac74e9ef1a335b73e11b8af5e100e0197c523e2db3dc0ce3b875828fc926",
+    "docs/validation/new56-pilot-2026-11-01/catalog4-3-trader.json": "dff2beec257ab0534bac3e5e2a6dbc7a23cb42307a282bbf568cb5296ec97a43"
+  },
+  "sourceFingerprints": {
+    "apps/comic/src/game/appraisal/content.ts": "71887f52012d6f855c1e130e0339c6785b3f91abe8f9efa5e2b8b2a181d3a20b",
+    "apps/comic/src/game/appraisal/core2-actions.ts": "9b93824543a822b9f58d4b07269af6bcb780d7a1475cd5726bea1d450796fc9b",
+    "apps/comic/src/game/appraisal/core2-events.ts": "bb9531af0ffe6a6ea068f049d286b2b1d0fe37deb24a44bcfe3dfa58a08424f8",
+    "apps/comic/src/game/appraisal/core2.ts": "d9c7ac292898c29d471bc6d9bb0a7ae0557bd394a79d77978e6e1eed5b71bd17",
+    "apps/comic/src/game/appraisal/engine.ts": "10204e39d68f62f1873667a9e22086eb7e2b1985905124e2e2d0c3196514cd2d",
+    "apps/comic/src/game/appraisal/events.ts": "c4bd10912200be5fb50c13e7d6ba8f5fda16f777f61d4d18d51b76e768e00794",
+    "apps/comic/src/game/appraisal/mechanics.ts": "64e94197d33b21d65dfbab7d815d624653c44cafe7d52cb28c22a0683654d27e",
+    "apps/comic/src/game/appraisal/passives.ts": "ef49c5ade780d0f68a7422a8e8a3b433237525311ef1c555d3aed61c45bc99bf",
+    "apps/comic/src/game/appraisal/pilot-catalog.ts": "ad8dbb487623f3b8d0486c87fe86c5fe72c0d50c553a7a34bc526c52579e8c62",
+    "apps/comic/src/game/appraisal/pilot-effects.ts": "ab8d8201a7abd4fbca4f96ee6223ded049937d43dac7a2f4dfa72db793e29029",
+    "apps/comic/src/game/appraisal/secure-storage.ts": "92396ce974a8854fafd1e724a5e5fd34d2c8f35390375b9d0be75fc458740ab0",
+    "apps/comic/src/game/appraisal/theft.ts": "8c3008d57a681ceec9a9e4ea02b24867b5a18a65b6e424906cd24bb4b58e65e7",
+    "apps/comic/src/game/appraisal/types.ts": "3865b6620a94487cec6fdb30df36fad381a00ad9f9ca4a53671afe777f5229ac",
+    "apps/comic/src/game/appraisal/views.ts": "0a279137723014d9a3b4a3ff1b29d449af661024e2372036bb73460d3c6aed8e",
+    "apps/comic/src/simulation/appraisal.ts": "505393b813145217139b2e37b6c1a5ecc9ef2784c4be9bcd5c35ccad25c1c714"
+  },
+  "analyzerSha256": "68ab256dfd5d3a8969f1787c97a8997c2941a9e9279f70379b6ebbdcbf198371",
+  "nativeTotals": {
+    "orc-tusk-shield": {
+      "generated": 8,
+      "npcPurchased": 2,
+      "marketSold": 0,
+      "pvpTransferred": 2,
+      "ownedAtCollector": 2
+    },
+    "vampire-nocturne-signet": {
+      "generated": 29,
+      "npcPurchased": 5,
+      "marketSold": 0,
+      "pvpTransferred": 6,
+      "ownedAtCollector": 5
+    },
+    "autometa-torque-caliper": {
+      "generated": 22,
+      "npcPurchased": 7,
+      "marketSold": 0,
+      "pvpTransferred": 7,
+      "ownedAtCollector": 7
+    },
+    "alien-thought-translator": {
+      "generated": 8,
+      "npcPurchased": 0,
+      "marketSold": 0,
+      "pvpTransferred": 0,
+      "ownedAtCollector": 0
+    },
+    "darkone-crossing-token": {
+      "generated": 28,
+      "npcPurchased": 0,
+      "marketSold": 0,
+      "pvpTransferred": 0,
+      "ownedAtCollector": 0
+    },
+    "deepsea-tide-compass": {
+      "generated": 20,
+      "npcPurchased": 0,
+      "marketSold": 0,
+      "pvpTransferred": 0,
+      "ownedAtCollector": 0
+    },
+    "swarm-brood-hammer": {
+      "generated": 26,
+      "npcPurchased": 2,
+      "marketSold": 1,
+      "pvpTransferred": 5,
+      "ownedAtCollector": 2
+    },
+    "beast-riftfang-sword": {
+      "generated": 49,
+      "npcPurchased": 14,
+      "marketSold": 5,
+      "pvpTransferred": 6,
+      "ownedAtCollector": 9
+    }
+  },
+  "prerequisites": [
+    {
+      "itemId": "orc-tusk-shield",
+      "requiredActionTypes": [
+        "activate"
+      ],
+      "observedCommandCounts": {
+        "activate": 0
+      },
+      "needed": "Activate shield and observe later eligible damage; action alone would not prove mitigation",
+      "effectExposureProven": false,
+      "interpretation": "Observed commands are prerequisites only. These old paired runs do not prove that the item was held at the relevant moment or that its effect triggered."
+    },
+    {
+      "itemId": "vampire-nocturne-signet",
+      "requiredActionTypes": [
+        "vault-deposit-credits"
+      ],
+      "observedCommandCounts": {
+        "vault-deposit-credits": 0
+      },
+      "needed": "Same physical ring held for aged principal settlement; deposit alone would not prove bonus",
+      "effectExposureProven": false,
+      "interpretation": "Observed commands are prerequisites only. These old paired runs do not prove that the item was held at the relevant moment or that its effect triggered."
+    },
+    {
+      "itemId": "autometa-torque-caliper",
+      "requiredActionTypes": [
+        "inspect"
+      ],
+      "observedCommandCounts": {
+        "inspect": 30
+      },
+      "needed": "Price inspection specifically while a charged caliper is held; authenticity inspection is not price-effect evidence",
+      "effectExposureProven": false,
+      "interpretation": "Observed commands are prerequisites only. These old paired runs do not prove that the item was held at the relevant moment or that its effect triggered."
+    },
+    {
+      "itemId": "alien-thought-translator",
+      "requiredActionTypes": [
+        "appraise"
+      ],
+      "observedCommandCounts": {
+        "appraise": 63
+      },
+      "needed": "Acceptance attempt while translator held, same-roll counterfactual and cap; appraise count alone is insufficient",
+      "effectExposureProven": false,
+      "interpretation": "Observed commands are prerequisites only. These old paired runs do not prove that the item was held at the relevant moment or that its effect triggered."
+    },
+    {
+      "itemId": "darkone-crossing-token",
+      "requiredActionTypes": [
+        "crime-clear"
+      ],
+      "observedCommandCounts": {
+        "crime-clear": 0
+      },
+      "needed": "Pay a positive current crime notice while token held; compare atomic bill/clear",
+      "effectExposureProven": false,
+      "interpretation": "Observed commands are prerequisites only. These old paired runs do not prove that the item was held at the relevant moment or that its effect triggered."
+    },
+    {
+      "itemId": "deepsea-tide-compass",
+      "requiredActionTypes": [
+        "reroll-portal"
+      ],
+      "observedCommandCounts": {
+        "reroll-portal": 0
+      },
+      "needed": "Reroll a portal while compass held, compare advancing quote and charged energy",
+      "effectExposureProven": false,
+      "interpretation": "Observed commands are prerequisites only. These old paired runs do not prove that the item was held at the relevant moment or that its effect triggered."
+    },
+    {
+      "itemId": "swarm-brood-hammer",
+      "requiredActionTypes": [
+        "vault-expand"
+      ],
+      "observedCommandCounts": {
+        "vault-expand": 0
+      },
+      "needed": "Expand vault while hammer held, compare actual quote/payment/cap",
+      "effectExposureProven": false,
+      "interpretation": "Observed commands are prerequisites only. These old paired runs do not prove that the item was held at the relevant moment or that its effect triggered."
+    },
+    {
+      "itemId": "beast-riftfang-sword",
+      "requiredActionTypes": [
+        "theft-start",
+        "theft-hand"
+      ],
+      "observedCommandCounts": {
+        "theft-start": 0,
+        "theft-hand": 0
+      },
+      "needed": "First tied duel while eligible sword held, rights/copy/timeout/replay",
+      "effectExposureProven": false,
+      "interpretation": "Observed commands are prerequisites only. These old paired runs do not prove that the item was held at the relevant moment or that its effect triggered."
+    }
+  ],
+  "cases": [
+    {
+      "audit": "docs/validation/new56-pilot-2026-11-01/catalog3-2-cautious.json",
+      "sha256": "ed8fbba86e91bdc4623e57a5a75a10524613f636cf993fa2f40de711b4de1494",
+      "catalogVersion": 3,
+      "players": 2,
+      "policy": "cautious",
+      "seed": "pilot-paired-0",
+      "commands": 81,
+      "actionCounts": {
+        "advance": 2,
+        "appraise": 12,
+        "buy": 4,
+        "done": 12,
+        "enter": 6,
+        "event": 12,
+        "inspect": 12,
+        "merchant-ability": 4,
+        "propose": 2,
+        "recover-resource": 2,
+        "respond": 2,
+        "share": 11
+      },
+      "traceCounts": {
+        "ability-choice-selected": 1,
+        "appraisal-commission": 5,
+        "appraised": 12,
+        "collector-scored": 2,
+        "core2-event": 2,
+        "energy-spent": 13,
+        "event-declined": 8,
+        "event-offered": 12,
+        "event-resolved": 4,
+        "inspected": 12,
+        "knowledge-inherited": 1,
+        "life-lost": 6,
+        "life-restored": 1,
+        "listing-shared": 11,
+        "merchant-ability-used": 3,
+        "npc-purchased": 5,
+        "portal-entered": 6,
+        "price-audited": 17,
+        "pulse-shards": 1,
+        "rebate-paid": 1,
+        "round-reward-banked": 4,
+        "status-granted": 1,
+        "trade-completed": 1
+      },
+      "inspectionProperties": {
+        "authenticity": 12
+      },
+      "portalMerchants": {
+        "autometa": 2,
+        "beast": 3,
+        "vampire": 1
+      },
+      "itemKinds": {
+        "abyss-pearl": 1,
+        "amulet": 1,
+        "battery": 1,
+        "blood-orb": 2,
+        "bone-blade": 1,
+        "bone-key": 1,
+        "chitin-blade": 1,
+        "compound-mirror": 2,
+        "eclipse-blade": 2,
+        "ember-feed": 1,
+        "food": 2,
+        "gambler-hat": 1,
+        "hive-comb": 1,
+        "kraken-ink": 1,
+        "larva-cell": 2,
+        "merchant-canteen": 2,
+        "merchant-ledger": 1,
+        "mirror": 1,
+        "moon-feed": 1,
+        "noble-seal": 1,
+        "orb": 1,
+        "potion": 2,
+        "rift-mirror": 2,
+        "shifting-compass": 1,
+        "storm-orb": 1,
+        "surveyor-lens": 1,
+        "tax-order": 1,
+        "void-cell": 1,
+        "whetstone": 1
+      },
+      "ledgerCreditsByReason": {
+        "E117": 2,
+        "E119": 2,
+        "E43": 1,
+        "appraisal-commission": 9,
+        "gear-commission": 1,
+        "npc-purchase": 97,
+        "recovery-deal": 6,
+        "round-reward": 50,
+        "seller-rebate": 4
+      },
+      "lifeLost": 6,
+      "lifeRestored": 1,
+      "finalScores": [
+        {
+          "playerId": "seat0",
+          "score": 52,
+          "life": 4
+        },
+        {
+          "playerId": "seat1",
+          "score": 56,
+          "life": 3
+        }
+      ],
+      "collectorSettled": true
+    },
+    {
+      "audit": "docs/validation/new56-pilot-2026-11-01/catalog4-2-cautious.json",
+      "sha256": "3d6bd641f45a544f95764bb79b273b8ce38a5c5b3770ec08ce83bfb6b881585c",
+      "catalogVersion": 4,
+      "players": 2,
+      "policy": "cautious",
+      "seed": "pilot-paired-0",
+      "commands": 73,
+      "actionCounts": {
+        "advance": 2,
+        "appraise": 12,
+        "buy": 4,
+        "done": 12,
+        "enter": 6,
+        "event": 12,
+        "inspect": 12,
+        "merchant-ability": 3,
+        "recover-resource": 2,
+        "share": 8
+      },
+      "traceCounts": {
+        "ability-choice-selected": 1,
+        "appraisal-commission": 4,
+        "appraised": 12,
+        "collector-scored": 2,
+        "core2-event": 3,
+        "energy-spent": 14,
+        "event-declined": 7,
+        "event-offered": 12,
+        "event-resolved": 5,
+        "inspected": 12,
+        "life-lost": 6,
+        "life-restored": 1,
+        "listing-shared": 8,
+        "merchant-ability-used": 2,
+        "npc-purchased": 4,
+        "portal-entered": 6,
+        "price-audited": 16,
+        "round-reward-banked": 4
+      },
+      "inspectionProperties": {
+        "authenticity": 12
+      },
+      "portalMerchants": {
+        "autometa": 2,
+        "beast": 3,
+        "vampire": 1
+      },
+      "itemKinds": {
+        "alien-thought-translator": 2,
+        "autometa-torque-caliper": 4,
+        "beast-riftfang-sword": 10,
+        "darkone-crossing-token": 6,
+        "deepsea-tide-compass": 4,
+        "swarm-brood-hammer": 4,
+        "vampire-nocturne-signet": 7
+      },
+      "ledgerCreditsByReason": {
+        "E117": 4,
+        "E119": 2,
+        "appraisal-commission": 9,
+        "npc-purchase": 108,
+        "recovery-deal": 6,
+        "round-reward": 50
+      },
+      "lifeLost": 6,
+      "lifeRestored": 1,
+      "finalScores": [
+        {
+          "playerId": "seat0",
+          "score": 52,
+          "life": 4
+        },
+        {
+          "playerId": "seat1",
+          "score": 59,
+          "life": 3
+        }
+      ],
+      "collectorSettled": true
+    },
+    {
+      "audit": "docs/validation/new56-pilot-2026-11-01/catalog3-2-trader.json",
+      "sha256": "b2e33fcade90727e179c7f87a7482d89a9b21b9cdddd8836bb2129c5eb2e3b47",
+      "catalogVersion": 3,
+      "players": 2,
+      "policy": "trader",
+      "seed": "pilot-paired-0",
+      "commands": 105,
+      "actionCounts": {
+        "advance": 2,
+        "appraise": 13,
+        "buy": 6,
+        "done": 12,
+        "enter": 6,
+        "event": 12,
+        "market-sell": 1,
+        "merchant-ability": 4,
+        "propose": 10,
+        "recover-resource": 2,
+        "respond": 10,
+        "share": 27
+      },
+      "traceCounts": {
+        "ability-choice-selected": 1,
+        "appraisal-commission": 6,
+        "appraised": 13,
+        "collector-scored": 2,
+        "core2-event": 3,
+        "energy-restored": 2,
+        "energy-spent": 5,
+        "event-declined": 2,
+        "event-offered": 12,
+        "event-resolved": 10,
+        "item-removed": 1,
+        "life-lost": 6,
+        "life-restored": 1,
+        "listing-shared": 27,
+        "market-sale": 1,
+        "merchant-ability-used": 3,
+        "npc-purchased": 6,
+        "portal-entered": 6,
+        "price-audited": 29,
+        "round-reward-banked": 4,
+        "status-granted": 3,
+        "trade-completed": 9
+      },
+      "inspectionProperties": {},
+      "portalMerchants": {
+        "autometa": 1,
+        "beast": 3,
+        "vampire": 2
+      },
+      "itemKinds": {
+        "abyss-pearl": 1,
+        "amulet": 1,
+        "battery": 1,
+        "blade": 1,
+        "blood-orb": 2,
+        "bone-blade": 1,
+        "bone-key": 1,
+        "chitin-blade": 1,
+        "compound-mirror": 2,
+        "eclipse-blade": 2,
+        "ember-feed": 1,
+        "food": 2,
+        "gambler-hat": 1,
+        "hive-comb": 1,
+        "kraken-ink": 1,
+        "larva-cell": 2,
+        "merchant-canteen": 2,
+        "merchant-ledger": 1,
+        "mirror": 1,
+        "moon-feed": 1,
+        "noble-seal": 1,
+        "orb": 1,
+        "potion": 2,
+        "rift-mirror": 2,
+        "shifting-compass": 1,
+        "storm-orb": 1,
+        "surveyor-lens": 1,
+        "tax-order": 1,
+        "void-cell": 1,
+        "whetstone": 1
+      },
+      "ledgerCreditsByReason": {
+        "D04": 2,
+        "E117": 2,
+        "E119": 2,
+        "E127": 3,
+        "appraisal-commission": 12,
+        "dark-market": 38,
+        "npc-purchase": 138,
+        "p2p": 74,
+        "recovery-deal": 6,
+        "round-reward": 50
+      },
+      "lifeLost": 6,
+      "lifeRestored": 1,
+      "finalScores": [
+        {
+          "playerId": "seat0",
+          "score": 51,
+          "life": 4
+        },
+        {
+          "playerId": "seat1",
+          "score": 30,
+          "life": 3
+        }
+      ],
+      "collectorSettled": true
+    },
+    {
+      "audit": "docs/validation/new56-pilot-2026-11-01/catalog4-2-trader.json",
+      "sha256": "7519d909530b127d02106f605d955777ecf0eebcb0cb68f5bd32dc9bcf09d88b",
+      "catalogVersion": 4,
+      "players": 2,
+      "policy": "trader",
+      "seed": "pilot-paired-0",
+      "commands": 113,
+      "actionCounts": {
+        "advance": 2,
+        "appraise": 14,
+        "buy": 10,
+        "done": 12,
+        "enter": 6,
+        "event": 13,
+        "market-sell": 5,
+        "merchant-ability": 6,
+        "propose": 11,
+        "recover-resource": 2,
+        "respond": 11,
+        "share": 21
+      },
+      "traceCounts": {
+        "ability-choice-selected": 2,
+        "appraisal-commission": 11,
+        "appraised": 14,
+        "collector-scored": 2,
+        "core2-event": 2,
+        "energy-restored": 1,
+        "energy-spent": 5,
+        "event-declined": 2,
+        "event-offered": 13,
+        "event-resolved": 11,
+        "item-removed": 6,
+        "life-lost": 6,
+        "life-restored": 3,
+        "listing-shared": 21,
+        "market-sale": 5,
+        "merchant-ability-used": 4,
+        "npc-purchased": 11,
+        "portal-entered": 6,
+        "price-audited": 38,
+        "pulse-shards": 1,
+        "round-reward-banked": 4,
+        "status-granted": 2,
+        "trade-completed": 8,
+        "trust-lost": 1
+      },
+      "inspectionProperties": {},
+      "portalMerchants": {
+        "autometa": 1,
+        "beast": 4,
+        "swarm": 1
+      },
+      "itemKinds": {
+        "alien-thought-translator": 2,
+        "autometa-torque-caliper": 6,
+        "beast-riftfang-sword": 12,
+        "darkone-crossing-token": 6,
+        "deepsea-tide-compass": 4,
+        "swarm-brood-hammer": 5,
+        "vampire-nocturne-signet": 6
+      },
+      "ledgerCreditsByReason": {
+        "E117": 2,
+        "E119": 2,
+        "E44": 13,
+        "E48": 2,
+        "E86": 3,
+        "appraisal-commission": 25,
+        "cross-shop-fee": 1,
+        "dark-market": 205,
+        "npc-purchase": 303,
+        "p2p": 75,
+        "recovery-deal": 7,
+        "round-reward": 50
+      },
+      "lifeLost": 6,
+      "lifeRestored": 1,
+      "finalScores": [
+        {
+          "playerId": "seat0",
+          "score": 65,
+          "life": 4
+        },
+        {
+          "playerId": "seat1",
+          "score": 102,
+          "life": 3
+        }
+      ],
+      "collectorSettled": true
+    },
+    {
+      "audit": "docs/validation/new56-pilot-2026-11-01/catalog3-3-cautious.json",
+      "sha256": "c69dad8cb3a2d0c2617638f557f0abf92bfb5170f2db02d5834b4e8cc5aa1233",
+      "catalogVersion": 3,
+      "players": 3,
+      "policy": "cautious",
+      "seed": "pilot-paired-0",
+      "commands": 116,
+      "actionCounts": {
+        "advance": 2,
+        "appraise": 18,
+        "buy": 5,
+        "done": 18,
+        "enter": 9,
+        "event": 18,
+        "inspect": 18,
+        "merchant-ability": 5,
+        "propose": 3,
+        "recover-resource": 2,
+        "respond": 3,
+        "share": 15
+      },
+      "traceCounts": {
+        "ability-choice-selected": 1,
+        "appraisal-commission": 6,
+        "appraised": 18,
+        "collector-scored": 3,
+        "core2-event": 3,
+        "energy-spent": 20,
+        "event-declined": 13,
+        "event-offered": 18,
+        "event-resolved": 5,
+        "inspected": 18,
+        "knowledge-inherited": 1,
+        "life-lost": 9,
+        "life-restored": 1,
+        "listing-shared": 15,
+        "merchant-ability-used": 4,
+        "npc-purchased": 6,
+        "portal-entered": 9,
+        "price-audited": 25,
+        "pulse-shards": 1,
+        "rebate-paid": 2,
+        "round-reward-banked": 6,
+        "status-granted": 1,
+        "trade-completed": 2
+      },
+      "inspectionProperties": {
+        "authenticity": 18
+      },
+      "portalMerchants": {
+        "autometa": 3,
+        "beast": 3,
+        "orc": 1,
+        "vampire": 2
+      },
+      "itemKinds": {
+        "abyss-pearl": 1,
+        "amulet": 1,
+        "battery": 2,
+        "blood-orb": 3,
+        "blood-tonic": 1,
+        "bone-blade": 1,
+        "bone-key": 2,
+        "chitin-blade": 1,
+        "compound-mirror": 2,
+        "eclipse-blade": 3,
+        "ember-feed": 3,
+        "food": 2,
+        "gambler-hat": 1,
+        "hive-comb": 1,
+        "kraken-ink": 1,
+        "larva-cell": 2,
+        "light-satchel": 2,
+        "lucky-die": 1,
+        "merchant-canteen": 2,
+        "merchant-ledger": 1,
+        "mirror": 1,
+        "moon-feed": 1,
+        "noble-seal": 2,
+        "oath-charm": 1,
+        "orb": 2,
+        "potion": 2,
+        "rift-mirror": 2,
+        "shifting-compass": 1,
+        "storm-orb": 1,
+        "surveyor-lens": 1,
+        "tax-order": 1,
+        "void-cell": 4,
+        "void-seal": 1,
+        "whetstone": 2
+      },
+      "ledgerCreditsByReason": {
+        "E117": 4,
+        "E119": 2,
+        "E43": 1,
+        "appraisal-commission": 12,
+        "gear-commission": 1,
+        "npc-purchase": 133,
+        "p2p": 5,
+        "recovery-deal": 6,
+        "round-reward": 75,
+        "seller-rebate": 5
+      },
+      "lifeLost": 9,
+      "lifeRestored": 1,
+      "finalScores": [
+        {
+          "playerId": "seat0",
+          "score": 52,
+          "life": 4
+        },
+        {
+          "playerId": "seat1",
+          "score": 57,
+          "life": 3
+        },
+        {
+          "playerId": "seat2",
+          "score": 59,
+          "life": 3
+        }
+      ],
+      "collectorSettled": true
+    },
+    {
+      "audit": "docs/validation/new56-pilot-2026-11-01/catalog4-3-cautious.json",
+      "sha256": "2f0406e152942f15c5202e4c2edf6cb741b6a7310acaba7beaa99bc3553c41f2",
+      "catalogVersion": 4,
+      "players": 3,
+      "policy": "cautious",
+      "seed": "pilot-paired-0",
+      "commands": 114,
+      "actionCounts": {
+        "advance": 2,
+        "appraise": 18,
+        "buy": 6,
+        "done": 18,
+        "enter": 9,
+        "event": 18,
+        "inspect": 18,
+        "merchant-ability": 3,
+        "propose": 2,
+        "recover-resource": 3,
+        "respond": 2,
+        "share": 15
+      },
+      "traceCounts": {
+        "ability-choice-selected": 1,
+        "appraisal-commission": 7,
+        "appraised": 18,
+        "collector-scored": 3,
+        "core2-event": 3,
+        "energy-spent": 20,
+        "event-declined": 12,
+        "event-offered": 18,
+        "event-resolved": 6,
+        "inspected": 18,
+        "knowledge-inherited": 1,
+        "life-lost": 9,
+        "life-restored": 2,
+        "listing-shared": 15,
+        "merchant-ability-used": 2,
+        "npc-purchased": 7,
+        "portal-entered": 9,
+        "price-audited": 25,
+        "pulse-shards": 1,
+        "rebate-paid": 1,
+        "round-reward-banked": 6,
+        "status-granted": 2,
+        "trade-completed": 1
+      },
+      "inspectionProperties": {
+        "authenticity": 18
+      },
+      "portalMerchants": {
+        "autometa": 3,
+        "beast": 3,
+        "orc": 1,
+        "vampire": 2
+      },
+      "itemKinds": {
+        "alien-thought-translator": 2,
+        "autometa-torque-caliper": 6,
+        "beast-riftfang-sword": 13,
+        "darkone-crossing-token": 8,
+        "deepsea-tide-compass": 6,
+        "orc-tusk-shield": 4,
+        "swarm-brood-hammer": 8,
+        "vampire-nocturne-signet": 8
+      },
+      "ledgerCreditsByReason": {
+        "E117": 4,
+        "E119": 2,
+        "appraisal-commission": 14,
+        "npc-purchase": 168,
+        "recovery-deal": 9,
+        "round-reward": 75,
+        "seller-rebate": 7
+      },
+      "lifeLost": 9,
+      "lifeRestored": 2,
+      "finalScores": [
+        {
+          "playerId": "seat0",
+          "score": 50,
+          "life": 4
+        },
+        {
+          "playerId": "seat1",
+          "score": 59,
+          "life": 3
+        },
+        {
+          "playerId": "seat2",
+          "score": 37,
+          "life": 4
+        }
+      ],
+      "collectorSettled": true
+    },
+    {
+      "audit": "docs/validation/new56-pilot-2026-11-01/catalog3-3-trader.json",
+      "sha256": "e7bdac74e9ef1a335b73e11b8af5e100e0197c523e2db3dc0ce3b875828fc926",
+      "catalogVersion": 3,
+      "players": 3,
+      "policy": "trader",
+      "seed": "pilot-paired-0",
+      "commands": 179,
+      "actionCounts": {
+        "advance": 2,
+        "appraise": 18,
+        "buy": 6,
+        "done": 18,
+        "enter": 9,
+        "event": 18,
+        "merchant-ability": 6,
+        "propose": 26,
+        "recover-resource": 1,
+        "respond": 22,
+        "share": 53
+      },
+      "traceCounts": {
+        "ability-choice-selected": 1,
+        "appraisal-commission": 8,
+        "appraised": 18,
+        "collector-scored": 3,
+        "core2-event": 4,
+        "core2-gamble": 1,
+        "energy-restored": 1,
+        "energy-spent": 8,
+        "event-declined": 2,
+        "event-offered": 18,
+        "event-resolved": 16,
+        "life-lost": 10,
+        "listing-shared": 53,
+        "merchant-ability-used": 5,
+        "npc-purchased": 8,
+        "offer-expired": 4,
+        "portal-entered": 9,
+        "price-audited": 46,
+        "pulse-shards": 2,
+        "round-reward-banked": 6,
+        "status-granted": 5,
+        "trade-completed": 22
+      },
+      "inspectionProperties": {},
+      "portalMerchants": {
+        "autometa": 1,
+        "beast": 3,
+        "orc": 1,
+        "swarm": 1,
+        "vampire": 3
+      },
+      "itemKinds": {
+        "abyss-pearl": 1,
+        "amulet": 1,
+        "battery": 3,
+        "blood-orb": 3,
+        "blood-tonic": 1,
+        "bone-blade": 1,
+        "bone-key": 2,
+        "chitin-blade": 1,
+        "compound-mirror": 2,
+        "eclipse-blade": 3,
+        "ember-feed": 3,
+        "food": 2,
+        "gambler-hat": 1,
+        "hive-comb": 1,
+        "kraken-ink": 1,
+        "larva-cell": 2,
+        "light-satchel": 2,
+        "lucky-die": 1,
+        "merchant-canteen": 2,
+        "merchant-ledger": 1,
+        "mirror": 1,
+        "moon-feed": 1,
+        "noble-seal": 2,
+        "oath-charm": 1,
+        "orb": 2,
+        "potion": 2,
+        "rift-mirror": 2,
+        "shifting-compass": 1,
+        "storm-orb": 1,
+        "surveyor-lens": 1,
+        "tax-order": 1,
+        "void-cell": 4,
+        "void-seal": 1,
+        "whetstone": 2
+      },
+      "ledgerCreditsByReason": {
+        "E117": 4,
+        "E119": 2,
+        "E126": 3,
+        "E130": 3,
+        "E43": 1,
+        "E92": 2,
+        "appraisal-commission": 13,
+        "cross-shop-fee": 2,
+        "gear-commission": 1,
+        "npc-purchase": 165,
+        "p2p": 143,
+        "recovery-deal": 3,
+        "round-reward": 75
+      },
+      "lifeLost": 10,
+      "lifeRestored": 0,
+      "finalScores": [
+        {
+          "playerId": "seat0",
+          "score": 35,
+          "life": 2
+        },
+        {
+          "playerId": "seat1",
+          "score": 14,
+          "life": 3
+        },
+        {
+          "playerId": "seat2",
+          "score": 65,
+          "life": 3
+        }
+      ],
+      "collectorSettled": true
+    },
+    {
+      "audit": "docs/validation/new56-pilot-2026-11-01/catalog4-3-trader.json",
+      "sha256": "dff2beec257ab0534bac3e5e2a6dbc7a23cb42307a282bbf568cb5296ec97a43",
+      "catalogVersion": 4,
+      "players": 3,
+      "policy": "trader",
+      "seed": "pilot-paired-0",
+      "commands": 170,
+      "actionCounts": {
+        "advance": 2,
+        "appraise": 19,
+        "buy": 7,
+        "done": 18,
+        "enter": 9,
+        "event": 18,
+        "market-sell": 1,
+        "merchant-ability": 4,
+        "propose": 20,
+        "recover-resource": 4,
+        "respond": 20,
+        "share": 48
+      },
+      "traceCounts": {
+        "ability-choice-selected": 1,
+        "appraisal-commission": 8,
+        "appraised": 19,
+        "collector-scored": 3,
+        "core2-event": 4,
+        "energy-restored": 1,
+        "energy-spent": 7,
+        "event-declined": 2,
+        "event-offered": 18,
+        "event-resolved": 16,
+        "item-removed": 1,
+        "life-lost": 9,
+        "life-restored": 2,
+        "listing-shared": 48,
+        "market-sale": 1,
+        "merchant-ability-used": 3,
+        "npc-purchased": 8,
+        "portal-entered": 9,
+        "price-audited": 44,
+        "pulse-shards": 1,
+        "round-reward-banked": 6,
+        "status-granted": 6,
+        "trade-completed": 17
+      },
+      "inspectionProperties": {},
+      "portalMerchants": {
+        "autometa": 1,
+        "beast": 4,
+        "orc": 1,
+        "swarm": 1,
+        "vampire": 2
+      },
+      "itemKinds": {
+        "alien-thought-translator": 2,
+        "autometa-torque-caliper": 6,
+        "beast-riftfang-sword": 14,
+        "darkone-crossing-token": 8,
+        "deepsea-tide-compass": 6,
+        "orc-tusk-shield": 4,
+        "swarm-brood-hammer": 9,
+        "vampire-nocturne-signet": 8
+      },
+      "ledgerCreditsByReason": {
+        "D04": 2,
+        "E117": 4,
+        "E119": 2,
+        "E127": 3,
+        "E130": 3,
+        "E43": 1,
+        "E45": 1,
+        "E92": 2,
+        "appraisal-commission": 18,
+        "cross-shop-fee": 1,
+        "dark-market": 44,
+        "npc-purchase": 201,
+        "p2p": 117,
+        "recovery-deal": 12,
+        "round-reward": 75
+      },
+      "lifeLost": 9,
+      "lifeRestored": 2,
+      "finalScores": [
+        {
+          "playerId": "seat0",
+          "score": 69,
+          "life": 4
+        },
+        {
+          "playerId": "seat1",
+          "score": 74,
+          "life": 3
+        },
+        {
+          "playerId": "seat2",
+          "score": 15,
+          "life": 4
+        }
+      ],
+      "collectorSettled": true
+    }
+  ],
+  "conclusion": "Eight short paired runs establish replayable flow toCollector, not coverage of all8 native effects. Inspect actions in cautious runs are authenticity-only; no native vault/theft/reroll/activation commands occurred. Appraisal exists but translator ownership/causality is unproved. Add targeted public-view policies and record actual economic deltas before tuning numbers."
+}

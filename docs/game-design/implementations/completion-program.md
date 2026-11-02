@@ -35,3 +35,6 @@ Browser authorization2026-10-31: user explicitly permits opening/recontrolling v
 
 
 CTX-02 complete: active Comic appraisal modules plus explicit support/server/bot now parsed semantically; root hybrid Atlas pinned at9f0a972 with verified output hashes. No mixed root code nodes. Source contracts/ghost actions/RPS flag and source navigation checked. See active-comic-atlas-plan.md and active-comic-atlas-verification.json. Next concrete task is approved pilot runtime contract/implementation, without further numeric approval.
+
+
+2026-11-02 continuation: previous turn518d702 was verified progress, not a wait. RULE-03 concrete proposed details reviewed and sent for user approval; not implemented. BAL-02 now has repeatable coverage analysis of8 sealed historical audits: none proves native effect exposure, despite successful flow. Add public-view exercise scenarios before tuning, see ../balance-reports/2026-11-02-pilot-coverage.md. No new gameplay or visual identity; remaining48/STRAT/Collector/awards/full acceptance stay open.

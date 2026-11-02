@@ -1832,8 +1832,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/simulation/appraisal.ts:simulateAppraisalRun",
         "source": {
           "file": "apps/comic/src/simulation/appraisal.ts",
-          "line": 235,
-          "endLine": 235
+          "line": 250,
+          "endLine": 250
         },
         "expression": "state.config.collectorDeadline",
         "guards": []
@@ -7089,8 +7089,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/simulation/appraisal.ts:simulateAppraisalRun",
         "source": {
           "file": "apps/comic/src/simulation/appraisal.ts",
-          "line": 235,
-          "endLine": 235
+          "line": 250,
+          "endLine": 250
         },
         "expression": "state.config.survival",
         "guards": []

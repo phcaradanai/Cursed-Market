@@ -213,3 +213,5 @@ New evidence:8mechanism pairs/16complete command runs with onlypublicviewactors;
 User explicitly approvedCollector proposal. collector-wishlist-approval.json pins5a44a7a:d7e79e71d6fcb61919c91beaea34b123d1676a4745be97aa88f87bd36462d98f and reply“อนุมัติสเปกทดลองนี้”. Originalproposalfrozenasapprovalsource; progress/plan in implementations/collector-wishlist-plan.md. Supersedes prior“pendingCollector” notes; no newruntimeyet and no repeatedapproval. STRATstructure stillpending. Whole-gamegoalactive.
 
 2026-11-02 Collector Task1: แกน private3+2/schedule/peek/pay/expiry/custody/journal พร้อมแบบ opt-in `collectorWishlistRules:1` เท่านั้น.21 Collector tests และ232 focused cases ผ่าน,2 socket เดิมผ่าน,24 audit เดิม replay ตรง,8 effect pairs รันใหม่ผ่าน. Protocol/bot/UI ยังรอ Tasks2/3; ไม่ใช่เกมครบหรือ default rollout. ดู [engine verification](collector-wishlist-engine-verification.json).
+
+2026-11-02 Collector Task2: protocol/public bots/reconnect/idempotency/audit ผ่าน5checks +2socketเดิม +69related. ชุด2→4ซื้อจริงและstrict replayจบRESULTS; ยังopt-inและComicUI/default rolloutรอTask3. ดูcollector-wishlist-network-verification.json.

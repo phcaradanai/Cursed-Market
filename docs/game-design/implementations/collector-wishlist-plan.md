@@ -48,11 +48,11 @@
 
 **Interfaces:** Task1 action/view union consumed by existing decisions/parser/room receipts; no client-supplied price/itemtruth/seed. ExistingapplyAppraisalAction idempotency/revision/audit remains soletransactionentry.
 
-- [ ] Failing tests rejectwrongtypes/counts/duplicatekinds/foreignbatch/forgedslot/priceextra/privateactions; oldno-flag audit unchanged. Pendingevent/ability preventsrealcommands whileutilityreadremainsread-only.
-- [ ] Hookreconcileafteradvance/actions/phasechange andclosebeforecollectRun snapshot. Preserve independent RPSclock and normaldeadlines; no new blockingphase or extra timer. Do not expirefuturepending on an unrelated own done.
-- [ ] Two realsockets: request2→disconnect/resume→deliver4→peek→duplicate receipt→buy→duplicate→oneitem/onepayment; forgedsecondpeeknewIDrejected; unboughtsetcancelsonend/death. Earlyprivateauditdenied; fullRESULTS auditstrictreplaypasses. Verifybothpersonalbatches isolated.
-- [ ] Extend public-view bots only with explicitrequest/peek/buy/skip bounded behavior; neverinspectprivate mapping or forcehumanchoices. Addreal-budgetcoverage before anybalanceclaim.
-- [ ] Runfocusednetwork/replay and originalNPCwish/phase/timer tests; commitdurableevidence,default/legacycompatibilityrecorded.
+- [x] Failing tests rejectwrongtypes/counts/duplicatekinds/foreignbatch/forgedslot/priceextra/privateactions; oldno-flag audit unchanged. Pendingevent/ability preventsrealcommands whileutilityreadremainsread-only.
+- [x] Hookreconcileafteradvance/actions/phasechange andclosebeforecollectRun snapshot. Preserve independent RPSclock and normaldeadlines; no new blockingphase or extra timer. Do not expirefuturepending on an unrelated own done.
+- [x] Two realsockets: request2→disconnect/resume→deliver4→peek→duplicate receipt→buy→duplicate→oneitem/onepayment; forgedsecondpeeknewIDrejected; unboughtsetcancelsonend/death. Earlyprivateauditdenied; fullRESULTS auditstrictreplaypasses. Verifybothpersonalbatches isolated.
+- [x] Extend public-view bots only with explicitrequest/peek/buy/skip bounded behavior; neverinspectprivate mapping or forcehumanchoices. Addreal-budgetcoverage before anybalanceclaim.
+- [x] Runfocusednetwork/replay and originalNPCwish/phase/timer tests; commitdurableevidence,default/legacycompatibilityrecorded.
 
 ### Task 3: Shared Comic UX / preview / evidence / central context
 

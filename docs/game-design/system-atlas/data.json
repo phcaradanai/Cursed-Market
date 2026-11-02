@@ -3,7 +3,7 @@
   "asOf": "2026-11-02",
   "scope": "active-comic-appraisal-runtime-plus-confirmed-rules-and-new56-proposals",
   "provenance": {
-    "revision": "10629f2a6c0b029b7de652d3e946a6c692e46039",
+    "revision": "945dc5775cd9a3eea303b968b0e07130dbabc3f9",
     "sourceFiles": [
       {
         "file": "apps/comic/src/game/appraisal/ability-content.ts",
@@ -267,8 +267,8 @@
       },
       {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "sha256": "43bead71aec99546c4cfa2439e6a940243fe52bd93fc78976b3301c2f22fc731",
-        "lines": 169
+        "sha256": "464a6271525e5378673f85020087eb515840d555e55c316c4283db05a61a31f8",
+        "lines": 180
       },
       {
         "file": "apps/comic/src/server/appraisal-main.ts",
@@ -282,8 +282,8 @@
       },
       {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "sha256": "505393b813145217139b2e37b6c1a5ecc9ef2784c4be9bcd5c35ccad25c1c714",
-        "lines": 271
+        "sha256": "278025401318fc01ea5f26187703b569f68b82c41f859b943c0c320bcbe92c66",
+        "lines": 286
       }
     ],
     "method": "Runtime data-only exports in a disposable module tree + TypeScript AST references/branches. No game actions or simulated random encounters executed.",
@@ -15187,8 +15187,8 @@
           "owner": "code:apps/comic/src/simulation/appraisal.ts:simulateAppraisalRun",
           "source": {
             "file": "apps/comic/src/simulation/appraisal.ts",
-            "line": 235,
-            "endLine": 235
+            "line": 250,
+            "endLine": 250
           },
           "expression": "state.config.collectorDeadline",
           "guards": []
@@ -20444,8 +20444,8 @@
           "owner": "code:apps/comic/src/simulation/appraisal.ts:simulateAppraisalRun",
           "source": {
             "file": "apps/comic/src/simulation/appraisal.ts",
-            "line": 235,
-            "endLine": 235
+            "line": 250,
+            "endLine": 250
           },
           "expression": "state.config.survival",
           "guards": []
@@ -24546,7 +24546,7 @@
     {
       "id": "collector-wishlist",
       "name": "Collector Wishlist 3+2 / รอ2 / ดู1 / จ่ายจริง",
-      "state": "engine-tested-opt-in/protocol-ui-pending",
+      "state": "engine-protocol-tested-opt-in/ui-pending",
       "confirmed": "ทุก 2 turn ขอ 3; ส่งอีก 2 turn รวมสุ่ม 2; ปกปิด 5 ช่อง; เปิดดู 1; ต้องจ่ายซื้อ",
       "functionNames": [
         "handleCollectorWishlist",
@@ -47531,12 +47531,12 @@
       "source": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
         "line": 15,
-        "endLine": 146
+        "endLine": 157
       },
       "signature": [
         "value: unknown"
       ],
-      "text": "function action(value: unknown): AppraisalSeatAction {\n  const body = object(value); const requestId = string(body.requestId, 80);\n  if (!/^[a-zA-Z0-9_-]+$/.test(requestId)) throw new MessageError();\n  const base = { requestId, encounter: encounter(body.encounter) };\n  const fields = ['type', 'requestId', 'encounter'];\n  switch (body.type) {\n    case 'ghost-start': keys(body,fields);return {type:body.type,...base};\n    case 'ghost-guess': keys(body,[...fields,'round','position']);return {type:body.type,...base,round:integer(body.round),position:integer(body.position)};\n    case 'ghost-hire': keys(body,[...fields,'ghostId','choice','quoteId','fee']);return {type:body.type,...base,ghostId:string(body.ghostId),choice:integer(body.choice),quoteId:string(body.quoteId,256),fee:integer(body.fee)};\n    case 'ghost-accept': keys(body,[...fields,'jobId','accept']);return {type:body.type,...base,jobId:string(body.jobId),accept:boolean(body.accept)};\n    case 'ghost-deliver': keys(body,[...fields,'jobId','slot']);return {type:body.type,...base,jobId:string(body.jobId),slot:integer(body.slot)};\n    case 'ghost-rps': keys(body,[...fields,'slot','hand']);if(!['rock','paper','scissors'].includes(String(body.hand)))throw new MessageError();return {type:body.type,...base,slot:integer(body.slot),hand:body.hand as 'rock'|'paper'|'scissors'};\n    case 'vault-deposit-item': case 'vault-withdraw-item': case 'liquidate':\n      keys(body,[...fields,'itemId']);return {type:body.type,...base,itemId:string(body.itemId)};\n    case 'vault-deposit-credits': case 'vault-withdraw-credits':\n      keys(body,[...fields,'amount']);return {type:body.type,...base,amount:integer(body.amount)};\n    case 'vault-expand': case 'crime-clear':\n      keys(body,fields);return {type:body.type,...base};\n    case 'reappraise-owned':\n      keys(body,[...fields,'itemId','value']);return {type:body.type,...base,itemId:string(body.itemId),value:integer(body.value)};\n    case 'loan-propose':\n      keys(body,[...fields,'lenderId','itemId','principal','terms']);\n      return {type:'loan-propose',...base,lenderId:string(body.lenderId,32),itemId:string(body.itemId),principal:integer(body.principal),...(body.terms===undefined?{}:{terms:loanTerms(body.terms)})};\n    case 'loan-counter':\n      keys(body,[...fields,'loanId','principal','terms']);\n      return {type:'loan-counter',...base,loanId:string(body.loanId),principal:integer(body.principal),...(body.terms===undefined?{}:{terms:loanTerms(body.terms)})};\n    case 'loan-respond':\n      keys(body,[...fields,'loanId','accept']);return {type:'loan-respond',...base,loanId:string(body.loanId),accept:boolean(body.accept)};\n    case 'loan-cancel':\n      keys(body,[...fields,'loanId']);return {type:'loan-cancel',...base,loanId:string(body.loanId)};\n    case 'loan-repay':\n      keys(body,[...fields,'loanId','amount']);return {type:'loan-repay',...base,loanId:string(body.loanId),amount:integer(body.amount)};\n    case 'seal-offer': {\n      keys(body,[...fields,'sealId','buyerId','credits','energy','life','goods','terms']);\n      return {type:'seal-offer',...base,sealId:string(body.sealId),buyerId:string(body.buyerId,32),credits:integer(body.credits),energy:integer(body.energy),life:integer(body.life),goods:integer(body.goods),...(body.terms===undefined?{}:{terms:loanTerms(body.terms)})};\n    }\n    case 'seal-respond': {\n      keys(body,[...fields,'offerId','accept','itemIds']);\n      if(body.itemIds!==undefined && (!Array.isArray(body.itemIds) || body.itemIds.length>8))throw new MessageError();\n      return {type:'seal-respond',...base,offerId:string(body.offerId),accept:boolean(body.accept),...(body.itemIds===undefined?{}:{itemIds:(body.itemIds as unknown[]).map(id=>string(id))})};\n    }\n    case 'seal-cancel': keys(body,[...fields,'offerId']);return {type:'seal-cancel',...base,offerId:string(body.offerId)};\n    case 'seal-redeem': keys(body,[...fields,'thiefId']);return {type:'seal-redeem',...base,thiefId:string(body.thiefId,32)};\n    case 'seal-pick': keys(body,[...fields,'redemptionId','slot']);return {type:'seal-pick',...base,redemptionId:string(body.redemptionId),slot:integer(body.slot)};\n    case 'theft-start':\n      keys(body,[...fields,'itemId','victimId']);\n      if((body.itemId===undefined)===(body.victimId===undefined))throw new MessageError();\n      return {type:'theft-start',...base,...(body.itemId===undefined?{victimId:string(body.victimId,32)}:{itemId:string(body.itemId)})};\n    case 'theft-hand':\n      keys(body,[...fields,'duelId','hand','round']);\n      if(body.hand!=='rock' && body.hand!=='paper' && body.hand!=='scissors')throw new MessageError();\n      return {type:'theft-hand',...base,duelId:string(body.duelId),...(body.round===undefined?{}:{round:integer(body.round)}),hand:body.hand};\n    case 'enter': keys(body, [...fields, 'portalId']); return { type: 'enter', ...base, portalId: string(body.portalId) };\n    case 'inspect':\n      keys(body, [...fields, 'itemId', 'property']);\n      if (body.property !== 'price' && body.property !== 'authenticity' && body.property !== 'effects') throw new MessageError();\n      return { type: 'inspect', ...base, itemId: string(body.itemId), property: body.property };\n    case 'appraise': case 'counter':\n      keys(body, [...fields, 'itemId', 'value', 'acceptDanger']);\n      return { type: body.type, ...base, itemId: string(body.itemId), value: integer(body.value),\n        ...(body.acceptDanger === undefined ? {} : { acceptDanger: boolean(body.acceptDanger) }) };\n    case 'buy': {\n      keys(body, [...fields, 'itemIds', 'condition']);\n      if (!Array.isArray(body.itemIds) || body.itemIds.length < 1 || body.itemIds.length > 2) throw new MessageError();\n      const itemIds = body.itemIds.map(id => string(id));\n      if (new Set(itemIds).size !== itemIds.length) throw new MessageError();\n      return { type: 'buy', ...base, itemIds, condition: boolean(body.condition) };\n    }\n    case 'activate': {\n      keys(body,[...fields,'itemId','npc','otherNpc']);\n      for(const key of ['npc','otherNpc'] as const)if(body[key]!==undefined && (typeof body[key]!=='string'||!Object.hasOwn(NPC_SPECS,body[key])))throw new MessageError();\n      return {type:'activate',...base,itemId:string(body.itemId),...(body.npc===undefined?{}:{npc:body.npc as keyof typeof NPC_SPECS}),...(body.otherNpc===undefined?{}:{otherNpc:body.otherNpc as keyof typeof NPC_SPECS})};\n    }\n    case 'merchant-ability': {\n      keys(body,[...fields,'npc','itemId','statusId','choiceId']);\n      if(typeof body.npc!=='string'||!Object.hasOwn(NPC_SPECS,body.npc)||body.statusId!==undefined&&!(ALL_STATUS_IDS as readonly unknown[]).includes(body.statusId))throw new MessageError();\n      return {type:'merchant-ability',...base,npc:body.npc as keyof typeof NPC_SPECS,...(body.itemId===undefined?{}:{itemId:string(body.itemId)}),...(body.statusId===undefined?{}:{statusId:body.statusId as StatusId}),...(body.choiceId===undefined?{}:{choiceId:string(body.choiceId)})};\n    }\n    case 'recover-resource': keys(body,[...fields,'target']);if(body.target!=='energy' && body.target!=='life')throw new MessageError();return {type:'recover-resource',...base,target:body.target};\n    case 'wish-new': keys(body,[...fields,'replaceNpc']);return {type:'wish-new',...base,...(body.replaceNpc===undefined?{}:{replaceNpc:string(body.replaceNpc,16) as never})};\n    case 'wish-sell': keys(body,[...fields,'itemId','markup']);return {type:'wish-sell',...base,itemId:string(body.itemId),markup:integer(body.markup)};\n    case 'cleanse': keys(body,[...fields,'itemId','stoneId']);return {type:'cleanse',...base,itemId:string(body.itemId),...(body.stoneId===undefined?{}:{stoneId:string(body.stoneId)})};\n    case 'event': {\n      keys(body, [...fields, 'key', 'choice', 'itemId', 'itemIds', 'statusId', 'otherPlayerId', 'fact', 'guess']);\n      if(body.itemIds!==undefined && (!Array.isArray(body.itemIds) || body.itemIds.length<1 || body.itemIds.length>3 || new Set(body.itemIds).size!==body.itemIds.length))throw new MessageError();\n      if (body.statusId !== undefined && !(ALL_STATUS_IDS as readonly string[]).includes(body.statusId as string)) throw new MessageError();\n      if (body.fact !== undefined && body.fact !== 'base' && body.fact !== 'genuine' && body.fact !== 'cursed') throw new MessageError();\n      return { type: 'event', ...base, key: string(body.key, 256), choice: string(body.choice, 64),\n        ...(body.itemId === undefined ? {} : { itemId: string(body.itemId) }),\n        ...(body.itemIds === undefined ? {} : {itemIds:(body.itemIds as unknown[]).map(id=>string(id))}),\n        ...(body.statusId === undefined ? {} : { statusId: body.statusId as StatusId }),\n        ...(body.otherPlayerId === undefined ? {} : { otherPlayerId: string(body.otherPlayerId, 32) }),\n        ...(body.fact === undefined ? {} : { fact: body.fact as 'base' | 'genuine' | 'cursed' }),\n        ...(body.guess === undefined ? {} : { guess: boolean(body.guess) }) };\n    }\n    case 'market-sell':\n      keys(body,[...fields,'itemId','orderId','resolution']);\n      if(body.resolution!==undefined && body.resolution!=='discount' && body.resolution!=='sacrifice')throw new MessageError();\n      return {type:'market-sell',...base,itemId:string(body.itemId),orderId:string(body.orderId),...(body.resolution===undefined?{}:{resolution:body.resolution})};\n    case 'share': keys(body, [...fields, 'itemId', 'allow', 'purchase', 'claims', 'rebate']); return { type: 'share', ...base, itemId: string(body.itemId), allow: boolean(body.allow), purchase: boolean(body.purchase),\n      ...(body.claims === undefined ? {} : { claims: claims(body.claims) }), ...(body.rebate === undefined ? {} : { rebate: integer(body.rebate) }) };\n    case 'force-buy': keys(body, [...fields, 'sellerId', 'itemId']); return { type: 'force-buy', ...base, sellerId: string(body.sellerId, 32), itemId: string(body.itemId) };\n    case 'propose':\n      keys(body, [...fields, 'sellerId', 'itemId', 'credits', 'swapItemId', 'condition', 'challenge', 'sealId']);\n      if (body.challenge !== undefined && body.challenge !== 'genuine' && body.challenge !== 'cursed') throw new MessageError();\n      return { type: 'propose', ...base, sellerId: string(body.sellerId, 32), itemId: string(body.itemId), credits: integer(body.credits),\n        ...(body.swapItemId === undefined ? {} : { swapItemId: string(body.swapItemId) }),\n        ...(body.condition === undefined ? {} : { condition: boolean(body.condition) }),\n        ...(body.challenge === undefined ? {} : { challenge: body.challenge as 'genuine'|'cursed' }),\n        ...(body.sealId === undefined ? {} : { sealId: string(body.sealId) }) };\n    case 'respond': keys(body, [...fields, 'offerId', 'accept']); return { type: 'respond', ...base, offerId: string(body.offerId), accept: boolean(body.accept) };\n    case 'unsold':\n      keys(body, [...fields, 'itemId', 'choice']);\n      if (body.choice !== 'buy' && body.choice !== 'penalty' && body.choice !== 'consign') throw new MessageError();\n      return { type: 'unsold', ...base, itemId: string(body.itemId), choice: body.choice };\n    case 'bid': keys(body, [...fields, 'lotId', 'credits']); return { type: 'bid', ...base, lotId: string(body.lotId), credits: integer(body.credits) };\n    case 'reroll-portal': keys(body, [...fields, 'portalId']); return { type: 'reroll-portal', ...base, portalId: string(body.portalId) };\n    case 'steal': keys(body, [...fields, 'itemId']); return { type: 'steal', ...base, itemId: string(body.itemId) };\n    case 'pickpocket': keys(body, [...fields, 'victimId']); return { type: 'pickpocket', ...base, victimId: string(body.victimId, 32) };\n    case 'barter': keys(body, [...fields, 'itemId', 'targetItemId']); return { type: 'barter', ...base, itemId: string(body.itemId), targetItemId: string(body.targetItemId) };\n    case 'skill': keys(body, [...fields, 'itemId']); return { type: 'skill', ...base, ...(body.itemId === undefined ? {} : { itemId: string(body.itemId) }) };\n    case 'round-flip':\n      keys(body,[...fields,'guess','guesses','attempt']);\n      if(body.guesses!==undefined && (!Array.isArray(body.guesses) || !body.guesses.length || !body.guesses.every(guess=>guess==='heads' || guess==='tails')))throw new MessageError();\n      if(body.guess!=='heads' && body.guess!=='tails')throw new MessageError();\n      return {type:'round-flip',...base,guess:body.guess,attempt:integer(body.attempt),...(body.guesses===undefined?{}:{guesses:[...body.guesses as Array<'heads'|'tails'>]})};\n    case 'round-raise': keys(body,[...fields,'coinCount','attempt']);return {type:'round-raise',...base,coinCount:integer(body.coinCount),attempt:integer(body.attempt)};\n    case 'round-bank': keys(body,fields);return {type:'round-bank',...base};\n    case 'done': keys(body, fields); return { type: 'done', ...base };\n    default: throw new MessageError();\n  }\n}",
+      "text": "function action(value: unknown): AppraisalSeatAction {\n  const body = object(value); const requestId = string(body.requestId, 80);\n  if (!/^[a-zA-Z0-9_-]+$/.test(requestId)) throw new MessageError();\n  const base = { requestId, encounter: encounter(body.encounter) };\n  const fields = ['type', 'requestId', 'encounter'];\n  switch (body.type) {\n    case 'collector-wish-request': {\n      keys(body,[...fields,'kinds']);\n      if(!Array.isArray(body.kinds)||body.kinds.length!==3||new Set(body.kinds).size!==3||!body.kinds.every(k=>typeof k==='string'&&Object.hasOwn(ITEM_SPECS,k)))throw new MessageError();\n      return {type:body.type,...base,kinds:body.kinds as ItemKind[]};\n    }\n    case 'collector-wish-peek': case 'collector-wish-buy': {\n      keys(body,[...fields,'batchId','slotId',...(body.type==='collector-wish-buy'?['quoteId']:[])]);\n      const slot={batchId:string(body.batchId),slotId:string(body.slotId)};\n      return body.type==='collector-wish-buy'?{type:body.type,...base,...slot,quoteId:string(body.quoteId,256)}:{type:body.type,...base,...slot};\n    }\n    case 'collector-wish-skip': keys(body,[...fields,'batchId']);return {type:body.type,...base,...(body.batchId===undefined?{}:{batchId:string(body.batchId)})};\n    case 'ghost-start': keys(body,fields);return {type:body.type,...base};\n    case 'ghost-guess': keys(body,[...fields,'round','position']);return {type:body.type,...base,round:integer(body.round),position:integer(body.position)};\n    case 'ghost-hire': keys(body,[...fields,'ghostId','choice','quoteId','fee']);return {type:body.type,...base,ghostId:string(body.ghostId),choice:integer(body.choice),quoteId:string(body.quoteId,256),fee:integer(body.fee)};\n    case 'ghost-accept': keys(body,[...fields,'jobId','accept']);return {type:body.type,...base,jobId:string(body.jobId),accept:boolean(body.accept)};\n    case 'ghost-deliver': keys(body,[...fields,'jobId','slot']);return {type:body.type,...base,jobId:string(body.jobId),slot:integer(body.slot)};\n    case 'ghost-rps': keys(body,[...fields,'slot','hand']);if(!['rock','paper','scissors'].includes(String(body.hand)))throw new MessageError();return {type:body.type,...base,slot:integer(body.slot),hand:body.hand as 'rock'|'paper'|'scissors'};\n    case 'vault-deposit-item': case 'vault-withdraw-item': case 'liquidate':\n      keys(body,[...fields,'itemId']);return {type:body.type,...base,itemId:string(body.itemId)};\n    case 'vault-deposit-credits': case 'vault-withdraw-credits':\n      keys(body,[...fields,'amount']);return {type:body.type,...base,amount:integer(body.amount)};\n    case 'vault-expand': case 'crime-clear':\n      keys(body,fields);return {type:body.type,...base};\n    case 'reappraise-owned':\n      keys(body,[...fields,'itemId','value']);return {type:body.type,...base,itemId:string(body.itemId),value:integer(body.value)};\n    case 'loan-propose':\n      keys(body,[...fields,'lenderId','itemId','principal','terms']);\n      return {type:'loan-propose',...base,lenderId:string(body.lenderId,32),itemId:string(body.itemId),principal:integer(body.principal),...(body.terms===undefined?{}:{terms:loanTerms(body.terms)})};\n    case 'loan-counter':\n      keys(body,[...fields,'loanId','principal','terms']);\n      return {type:'loan-counter',...base,loanId:string(body.loanId),principal:integer(body.principal),...(body.terms===undefined?{}:{terms:loanTerms(body.terms)})};\n    case 'loan-respond':\n      keys(body,[...fields,'loanId','accept']);return {type:'loan-respond',...base,loanId:string(body.loanId),accept:boolean(body.accept)};\n    case 'loan-cancel':\n      keys(body,[...fields,'loanId']);return {type:'loan-cancel',...base,loanId:string(body.loanId)};\n    case 'loan-repay':\n      keys(body,[...fields,'loanId','amount']);return {type:'loan-repay',...base,loanId:string(body.loanId),amount:integer(body.amount)};\n    case 'seal-offer': {\n      keys(body,[...fields,'sealId','buyerId','credits','energy','life','goods','terms']);\n      return {type:'seal-offer',...base,sealId:string(body.sealId),buyerId:string(body.buyerId,32),credits:integer(body.credits),energy:integer(body.energy),life:integer(body.life),goods:integer(body.goods),...(body.terms===undefined?{}:{terms:loanTerms(body.terms)})};\n    }\n    case 'seal-respond': {\n      keys(body,[...fields,'offerId','accept','itemIds']);\n      if(body.itemIds!==undefined && (!Array.isArray(body.itemIds) || body.itemIds.length>8))throw new MessageError();\n      return {type:'seal-respond',...base,offerId:string(body.offerId),accept:boolean(body.accept),...(body.itemIds===undefined?{}:{itemIds:(body.itemIds as unknown[]).map(id=>string(id))})};\n    }\n    case 'seal-cancel': keys(body,[...fields,'offerId']);return {type:'seal-cancel',...base,offerId:string(body.offerId)};\n    case 'seal-redeem': keys(body,[...fields,'thiefId']);return {type:'seal-redeem',...base,thiefId:string(body.thiefId,32)};\n    case 'seal-pick': keys(body,[...fields,'redemptionId','slot']);return {type:'seal-pick',...base,redemptionId:string(body.redemptionId),slot:integer(body.slot)};\n    case 'theft-start':\n      keys(body,[...fields,'itemId','victimId']);\n      if((body.itemId===undefined)===(body.victimId===undefined))throw new MessageError();\n      return {type:'theft-start',...base,...(body.itemId===undefined?{victimId:string(body.victimId,32)}:{itemId:string(body.itemId)})};\n    case 'theft-hand':\n      keys(body,[...fields,'duelId','hand','round']);\n      if(body.hand!=='rock' && body.hand!=='paper' && body.hand!=='scissors')throw new MessageError();\n      return {type:'theft-hand',...base,duelId:string(body.duelId),...(body.round===undefined?{}:{round:integer(body.round)}),hand:body.hand};\n    case 'enter': keys(body, [...fields, 'portalId']); return { type: 'enter', ...base, portalId: string(body.portalId) };\n    case 'inspect':\n      keys(body, [...fields, 'itemId', 'property']);\n      if (body.property !== 'price' && body.property !== 'authenticity' && body.property !== 'effects') throw new MessageError();\n      return { type: 'inspect', ...base, itemId: string(body.itemId), property: body.property };\n    case 'appraise': case 'counter':\n      keys(body, [...fields, 'itemId', 'value', 'acceptDanger']);\n      return { type: body.type, ...base, itemId: string(body.itemId), value: integer(body.value),\n        ...(body.acceptDanger === undefined ? {} : { acceptDanger: boolean(body.acceptDanger) }) };\n    case 'buy': {\n      keys(body, [...fields, 'itemIds', 'condition']);\n      if (!Array.isArray(body.itemIds) || body.itemIds.length < 1 || body.itemIds.length > 2) throw new MessageError();\n      const itemIds = body.itemIds.map(id => string(id));\n      if (new Set(itemIds).size !== itemIds.length) throw new MessageError();\n      return { type: 'buy', ...base, itemIds, condition: boolean(body.condition) };\n    }\n    case 'activate': {\n      keys(body,[...fields,'itemId','npc','otherNpc']);\n      for(const key of ['npc','otherNpc'] as const)if(body[key]!==undefined && (typeof body[key]!=='string'||!Object.hasOwn(NPC_SPECS,body[key])))throw new MessageError();\n      return {type:'activate',...base,itemId:string(body.itemId),...(body.npc===undefined?{}:{npc:body.npc as keyof typeof NPC_SPECS}),...(body.otherNpc===undefined?{}:{otherNpc:body.otherNpc as keyof typeof NPC_SPECS})};\n    }\n    case 'merchant-ability': {\n      keys(body,[...fields,'npc','itemId','statusId','choiceId']);\n      if(typeof body.npc!=='string'||!Object.hasOwn(NPC_SPECS,body.npc)||body.statusId!==undefined&&!(ALL_STATUS_IDS as readonly unknown[]).includes(body.statusId))throw new MessageError();\n      return {type:'merchant-ability',...base,npc:body.npc as keyof typeof NPC_SPECS,...(body.itemId===undefined?{}:{itemId:string(body.itemId)}),...(body.statusId===undefined?{}:{statusId:body.statusId as StatusId}),...(body.choiceId===undefined?{}:{choiceId:string(body.choiceId)})};\n    }\n    case 'recover-resource': keys(body,[...fields,'target']);if(body.target!=='energy' && body.target!=='life')throw new MessageError();return {type:'recover-resource',...base,target:body.target};\n    case 'wish-new': keys(body,[...fields,'replaceNpc']);return {type:'wish-new',...base,...(body.replaceNpc===undefined?{}:{replaceNpc:string(body.replaceNpc,16) as never})};\n    case 'wish-sell': keys(body,[...fields,'itemId','markup']);return {type:'wish-sell',...base,itemId:string(body.itemId),markup:integer(body.markup)};\n    case 'cleanse': keys(body,[...fields,'itemId','stoneId']);return {type:'cleanse',...base,itemId:string(body.itemId),...(body.stoneId===undefined?{}:{stoneId:string(body.stoneId)})};\n    case 'event': {\n      keys(body, [...fields, 'key', 'choice', 'itemId', 'itemIds', 'statusId', 'otherPlayerId', 'fact', 'guess']);\n      if(body.itemIds!==undefined && (!Array.isArray(body.itemIds) || body.itemIds.length<1 || body.itemIds.length>3 || new Set(body.itemIds).size!==body.itemIds.length))throw new MessageError();\n      if (body.statusId !== undefined && !(ALL_STATUS_IDS as readonly string[]).includes(body.statusId as string)) throw new MessageError();\n      if (body.fact !== undefined && body.fact !== 'base' && body.fact !== 'genuine' && body.fact !== 'cursed') throw new MessageError();\n      return { type: 'event', ...base, key: string(body.key, 256), choice: string(body.choice, 64),\n        ...(body.itemId === undefined ? {} : { itemId: string(body.itemId) }),\n        ...(body.itemIds === undefined ? {} : {itemIds:(body.itemIds as unknown[]).map(id=>string(id))}),\n        ...(body.statusId === undefined ? {} : { statusId: body.statusId as StatusId }),\n        ...(body.otherPlayerId === undefined ? {} : { otherPlayerId: string(body.otherPlayerId, 32) }),\n        ...(body.fact === undefined ? {} : { fact: body.fact as 'base' | 'genuine' | 'cursed' }),\n        ...(body.guess === undefined ? {} : { guess: boolean(body.guess) }) };\n    }\n    case 'market-sell':\n      keys(body,[...fields,'itemId','orderId','resolution']);\n      if(body.resolution!==undefined && body.resolution!=='discount' && body.resolution!=='sacrifice')throw new MessageError();\n      return {type:'market-sell',...base,itemId:string(body.itemId),orderId:string(body.orderId),...(body.resolution===undefined?{}:{resolution:body.resolution})};\n    case 'share': keys(body, [...fields, 'itemId', 'allow', 'purchase', 'claims', 'rebate']); return { type: 'share', ...base, itemId: string(body.itemId), allow: boolean(body.allow), purchase: boolean(body.purchase),\n      ...(body.claims === undefined ? {} : { claims: claims(body.claims) }), ...(body.rebate === undefined ? {} : { rebate: integer(body.rebate) }) };\n    case 'force-buy': keys(body, [...fields, 'sellerId', 'itemId']); return { type: 'force-buy', ...base, sellerId: string(body.sellerId, 32), itemId: string(body.itemId) };\n    case 'propose':\n      keys(body, [...fields, 'sellerId', 'itemId', 'credits', 'swapItemId', 'condition', 'challenge', 'sealId']);\n      if (body.challenge !== undefined && body.challenge !== 'genuine' && body.challenge !== 'cursed') throw new MessageError();\n      return { type: 'propose', ...base, sellerId: string(body.sellerId, 32), itemId: string(body.itemId), credits: integer(body.credits),\n        ...(body.swapItemId === undefined ? {} : { swapItemId: string(body.swapItemId) }),\n        ...(body.condition === undefined ? {} : { condition: boolean(body.condition) }),\n        ...(body.challenge === undefined ? {} : { challenge: body.challenge as 'genuine'|'cursed' }),\n        ...(body.sealId === undefined ? {} : { sealId: string(body.sealId) }) };\n    case 'respond': keys(body, [...fields, 'offerId', 'accept']); return { type: 'respond', ...base, offerId: string(body.offerId), accept: boolean(body.accept) };\n    case 'unsold':\n      keys(body, [...fields, 'itemId', 'choice']);\n      if (body.choice !== 'buy' && body.choice !== 'penalty' && body.choice !== 'consign') throw new MessageError();\n      return { type: 'unsold', ...base, itemId: string(body.itemId), choice: body.choice };\n    case 'bid': keys(body, [...fields, 'lotId', 'credits']); return { type: 'bid', ...base, lotId: string(body.lotId), credits: integer(body.credits) };\n    case 'reroll-portal': keys(body, [...fields, 'portalId']); return { type: 'reroll-portal', ...base, portalId: string(body.portalId) };\n    case 'steal': keys(body, [...fields, 'itemId']); return { type: 'steal', ...base, itemId: string(body.itemId) };\n    case 'pickpocket': keys(body, [...fields, 'victimId']); return { type: 'pickpocket', ...base, victimId: string(body.victimId, 32) };\n    case 'barter': keys(body, [...fields, 'itemId', 'targetItemId']); return { type: 'barter', ...base, itemId: string(body.itemId), targetItemId: string(body.targetItemId) };\n    case 'skill': keys(body, [...fields, 'itemId']); return { type: 'skill', ...base, ...(body.itemId === undefined ? {} : { itemId: string(body.itemId) }) };\n    case 'round-flip':\n      keys(body,[...fields,'guess','guesses','attempt']);\n      if(body.guesses!==undefined && (!Array.isArray(body.guesses) || !body.guesses.length || !body.guesses.every(guess=>guess==='heads' || guess==='tails')))throw new MessageError();\n      if(body.guess!=='heads' && body.guess!=='tails')throw new MessageError();\n      return {type:'round-flip',...base,guess:body.guess,attempt:integer(body.attempt),...(body.guesses===undefined?{}:{guesses:[...body.guesses as Array<'heads'|'tails'>]})};\n    case 'round-raise': keys(body,[...fields,'coinCount','attempt']);return {type:'round-raise',...base,coinCount:integer(body.coinCount),attempt:integer(body.attempt)};\n    case 'round-bank': keys(body,fields);return {type:'round-bank',...base};\n    case 'done': keys(body, fields); return { type: 'done', ...base };\n    default: throw new MessageError();\n  }\n}",
       "exported": false
     },
     {
@@ -47545,8 +47545,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 148,
-        "endLine": 168
+        "line": 159,
+        "endLine": 179
       },
       "signature": [
         "value: unknown"
@@ -48231,13 +48231,13 @@
       "source": {
         "file": "apps/comic/src/simulation/appraisal.ts",
         "line": 144,
-        "endLine": 208
+        "endLine": 223
       },
       "signature": [
         "v:AppraisalView",
         "policy:AppraisalPolicy"
       ],
-      "text": "export function appraisalBotDecision(v:AppraisalView,policy:AppraisalPolicy):Body {\n  const p=v.self;const duel=v.theft?.duels.find(d=>d.needsChoice);\n  if(duel)return {type:'theft-hand',duelId:duel.id,...(v.theftTimeoutRules===1?{round:duel.round}:{}),hand:(['rock','paper','scissors'] as const)[(v.encounter+duel.round)%3]!};\n  if(p.eventOffer) return eventAction(v,policy);\n  if(v.market.open && policy==='trader') {\n    const item=p.inventory.find(i=>i.lockedUntil===null && !i.stolen && v.market.orders.some(o=>o.kind===i.kind && (o.quota[p.id]??0)>0));\n    if(item) return {type:'market-sell',itemId:item.id,orderId:v.market.orders.find(o=>o.kind===item.kind && (o.quota[p.id]??0)>0)!.id};\n  }\n  const lot=v.market.lots?.find(l=>l.winnerId===undefined && l.yourBid===null && p.credits>=l.minimum+10);\n  const chasing=(p.darkTickets??0)>=1 && (p.darkTickets??0)<TICKETS_TO_FORCE && !!lot && p.credits>=lot.minimum+20;\n  if(lot && (policy==='collector' || policy==='trader' || chasing) && v.phase!=='PORTALS') return {type:'bid',lotId:lot.id,credits:lot.minimum+(policy==='collector'?2:chasing?1:0)};\n  if(v.phase==='PORTALS') {\n    const portals=p.portals.filter(portal=>!portal.disabled);\n    const chosen=policy==='trader'?portals.find(portal=>v.market.orders.some(o=>o.kind===portal.hint)):\n      policy==='collector'?portals.find(portal=>!p.inventory.some(i=>i.kind===portal.hint)):\n      policy==='cautious'?portals.find(portal=>portal.npc==='autometa' || portal.npc==='orc'):portals.find(portal=>portal.npc==='darkone' || portal.npc==='alien');\n    return {type:'enter',portalId:(chosen??portals[0])!.id};\n  }\n  if(p.abilityChoice){const choiceId=p.abilityChoice.itemIds.find(id=>id!==p.abilityChoice!.sourceId)??p.abilityChoice.itemIds[0]!;return {type:'merchant-ability',npc:p.abilityChoice.npc,choiceId};}\n  if(v.trustAbilities && ['APPRAISAL','TRADE'].includes(v.phase) && !p.skillUsed){\n    const abilities=p.merchantAbilities??[];\n    const order=policy==='collector'?['swarm','deepsea','vampire','autometa','orc','darkone','beast','alien']:policy==='cautious'?['deepsea','darkone','autometa','orc','swarm','vampire','beast','alien']:['darkone','orc','autometa','swarm','vampire','beast','deepsea','alien'];\n    for(const npc of order){const a=abilities.find(a=>a.npc===npc&&a.ready);if(!a)continue;\n      if(a.target==='debuff')return {type:'merchant-ability',npc:a.npc,statusId:a.statusIds[0]!};\n      const targets=[...p.stock,...p.inventory].filter(i=>a.itemIds.includes(i.id));\n      const item=a.npc==='deepsea'?targets.find(i=>i.knowledge.cursed===true):a.npc==='autometa'?targets.find(i=>i.knowledge.base===undefined):a.npc==='orc'?targets.find(i=>buyPrice(v,i)<=p.credits):targets[0];\n      if(item)return {type:'merchant-ability',npc:a.npc,itemId:item.id};\n    }\n  }\n  if(v.phase==='APPRAISAL') {\n    const recovery=p.recoveryOffer;\n    if(recovery && p.credits>=recovery.credits && (recovery.target==='life'?p.life!<=v.survival!.maxLife-recovery.amount:p.energy<3))return {type:'recover-resource',target:recovery.target};\n    if(policy==='cautious' && p.inspections<1 && p.energy>=3) {\n      const item=p.stock.find(i=>i.knowledge.genuine===undefined);if(item) return {type:'inspect',itemId:item.id,property:'authenticity'};\n    }\n    const c2=p.core2Actions;\n    if(c2?.skill && p.energy>=3) {\n      const itemId=c2.skill.needsItem?p.stock.find(i=>i.knowledge.base===undefined || i.knowledge.genuine===undefined)?.id:undefined;\n      if(!c2.skill.needsItem || itemId) return {type:'skill',...(itemId?{itemId}:{})};\n    }\n    if(c2 && !c2.theftUsed && policy==='aggressive' && p.energy>=5) {\n      const victim=v.players.find(o=>o.id!==p.id && !o.paused && o.credits>0);\n      if(c2.pickpocketChance && c2.pickpocketChance>=.3 && victim && v.encounter%2===0) return {type:'pickpocket',victimId:victim.id};\n      const loot=p.stock.find(i=>i.appraisal===null);\n      if(c2.stealChance && c2.stealChance>=.4 && loot && v.encounter%2===1) return {type:'steal',itemId:loot.id};\n    }\n    const toAppraise=p.stock.find(i=>i.appraisal===null);\n    if(toAppraise && !p.caught && p.energy>=3) {\n      const [low,high]=toAppraise.range??[toAppraise.price,toAppraise.price];\n      const value=Math.round(policy==='aggressive'?low*.65:policy==='trader'?low:policy==='collector'?(low+high)*.4:(low+high)/2);\n      return {type:'appraise',itemId:toAppraise.id,value,acceptDanger:true};\n    }\n    const toBuy=p.stock.find(i=>p.credits>=buyPrice(v,i) && !(knownBad(i) && policy!=='aggressive') && worth(v,i)>=buyPrice(v,i)*BUY_RATIO[policy]);\n    if(toBuy && p.energy>=npcEnergy(v)) return {type:'buy',itemIds:[toBuy.id],condition:false};\n    if(policy==='collector' && p.energy>=4) {\n      const item=p.inventory.find(i=>!p.activated.includes(i.id) && !p.abilityItemUsed?.includes(i.kind) && !['chrono-gear','burden-hourglass'].includes(i.kind) && (!ITEM_SPECS[i.kind].nativeEffect || ITEM_SPECS[i.kind].explicitActivation && !i.pilotUses));if(item) return {type:'activate',itemId:item.id};\n      const source=p.merchantAbilities?.find(a=>a.trust>=1&&reducibleCooldown(p,a.npc,v.encounter)>0);\n      const gear=p.inventory.find(i=>i.kind==='chrono-gear'&&!p.activated.includes(i.id)&&!p.abilityItemUsed?.includes(i.kind));\n      if(source&&gear)return {type:'activate',itemId:gear.id,npc:source.npc};\n    }\n    return {type:'done'};\n  }\n  if(v.phase==='TRADE') return tradeDecision(v,policy);\n  return {type:'done'};\n}",
+      "text": "export function appraisalBotDecision(v:AppraisalView,policy:AppraisalPolicy):Body {\n  const p=v.self;const duel=v.theft?.duels.find(d=>d.needsChoice);\n  if(duel)return {type:'theft-hand',duelId:duel.id,...(v.theftTimeoutRules===1?{round:duel.round}:{}),hand:(['rock','paper','scissors'] as const)[(v.encounter+duel.round)%3]!};\n  if(p.eventOffer) return eventAction(v,policy);\n  const collector=p.collectorWishlist;\n  if(collector&&!p.done&&!p.paused&&!p.abilityChoice&&['PORTALS','APPRAISAL'].includes(v.phase)){\n    const d=collector.delivery;\n    if(d?.status==='open'){\n      if(policy==='cautious'||!d.canBuy)return {type:'collector-wish-skip',batchId:d.id};\n      const seen=d.slots.find(s=>s.peek),slot=seen??d.slots[0]!;\n      if(!seen&&d.canPeek)return {type:'collector-wish-peek',batchId:d.id,slotId:slot.id};\n      return {type:'collector-wish-buy',batchId:d.id,slotId:slot.id,quoteId:d.quoteId};\n    }\n    if(collector.request.available){\n      if(policy==='cautious')return {type:'collector-wish-skip'};\n      const choices=[...collector.request.kinds].sort((a,b)=>Number(p.inventory.some(i=>i.kind===a.kind))-Number(p.inventory.some(i=>i.kind===b.kind)));\n      return {type:'collector-wish-request',kinds:choices.slice(0,3).map(k=>k.kind)};\n    }\n  }\n  if(v.market.open && policy==='trader') {\n    const item=p.inventory.find(i=>i.lockedUntil===null && !i.stolen && v.market.orders.some(o=>o.kind===i.kind && (o.quota[p.id]??0)>0));\n    if(item) return {type:'market-sell',itemId:item.id,orderId:v.market.orders.find(o=>o.kind===item.kind && (o.quota[p.id]??0)>0)!.id};\n  }\n  const lot=v.market.lots?.find(l=>l.winnerId===undefined && l.yourBid===null && p.credits>=l.minimum+10);\n  const chasing=(p.darkTickets??0)>=1 && (p.darkTickets??0)<TICKETS_TO_FORCE && !!lot && p.credits>=lot.minimum+20;\n  if(lot && (policy==='collector' || policy==='trader' || chasing) && v.phase!=='PORTALS') return {type:'bid',lotId:lot.id,credits:lot.minimum+(policy==='collector'?2:chasing?1:0)};\n  if(v.phase==='PORTALS') {\n    const portals=p.portals.filter(portal=>!portal.disabled);\n    const chosen=policy==='trader'?portals.find(portal=>v.market.orders.some(o=>o.kind===portal.hint)):\n      policy==='collector'?portals.find(portal=>!p.inventory.some(i=>i.kind===portal.hint)):\n      policy==='cautious'?portals.find(portal=>portal.npc==='autometa' || portal.npc==='orc'):portals.find(portal=>portal.npc==='darkone' || portal.npc==='alien');\n    return {type:'enter',portalId:(chosen??portals[0])!.id};\n  }\n  if(p.abilityChoice){const choiceId=p.abilityChoice.itemIds.find(id=>id!==p.abilityChoice!.sourceId)??p.abilityChoice.itemIds[0]!;return {type:'merchant-ability',npc:p.abilityChoice.npc,choiceId};}\n  if(v.trustAbilities && ['APPRAISAL','TRADE'].includes(v.phase) && !p.skillUsed){\n    const abilities=p.merchantAbilities??[];\n    const order=policy==='collector'?['swarm','deepsea','vampire','autometa','orc','darkone','beast','alien']:policy==='cautious'?['deepsea','darkone','autometa','orc','swarm','vampire','beast','alien']:['darkone','orc','autometa','swarm','vampire','beast','deepsea','alien'];\n    for(const npc of order){const a=abilities.find(a=>a.npc===npc&&a.ready);if(!a)continue;\n      if(a.target==='debuff')return {type:'merchant-ability',npc:a.npc,statusId:a.statusIds[0]!};\n      const targets=[...p.stock,...p.inventory].filter(i=>a.itemIds.includes(i.id));\n      const item=a.npc==='deepsea'?targets.find(i=>i.knowledge.cursed===true):a.npc==='autometa'?targets.find(i=>i.knowledge.base===undefined):a.npc==='orc'?targets.find(i=>buyPrice(v,i)<=p.credits):targets[0];\n      if(item)return {type:'merchant-ability',npc:a.npc,itemId:item.id};\n    }\n  }\n  if(v.phase==='APPRAISAL') {\n    const recovery=p.recoveryOffer;\n    if(recovery && p.credits>=recovery.credits && (recovery.target==='life'?p.life!<=v.survival!.maxLife-recovery.amount:p.energy<3))return {type:'recover-resource',target:recovery.target};\n    if(policy==='cautious' && p.inspections<1 && p.energy>=3) {\n      const item=p.stock.find(i=>i.knowledge.genuine===undefined);if(item) return {type:'inspect',itemId:item.id,property:'authenticity'};\n    }\n    const c2=p.core2Actions;\n    if(c2?.skill && p.energy>=3) {\n      const itemId=c2.skill.needsItem?p.stock.find(i=>i.knowledge.base===undefined || i.knowledge.genuine===undefined)?.id:undefined;\n      if(!c2.skill.needsItem || itemId) return {type:'skill',...(itemId?{itemId}:{})};\n    }\n    if(c2 && !c2.theftUsed && policy==='aggressive' && p.energy>=5) {\n      const victim=v.players.find(o=>o.id!==p.id && !o.paused && o.credits>0);\n      if(c2.pickpocketChance && c2.pickpocketChance>=.3 && victim && v.encounter%2===0) return {type:'pickpocket',victimId:victim.id};\n      const loot=p.stock.find(i=>i.appraisal===null);\n      if(c2.stealChance && c2.stealChance>=.4 && loot && v.encounter%2===1) return {type:'steal',itemId:loot.id};\n    }\n    const toAppraise=p.stock.find(i=>i.appraisal===null);\n    if(toAppraise && !p.caught && p.energy>=3) {\n      const [low,high]=toAppraise.range??[toAppraise.price,toAppraise.price];\n      const value=Math.round(policy==='aggressive'?low*.65:policy==='trader'?low:policy==='collector'?(low+high)*.4:(low+high)/2);\n      return {type:'appraise',itemId:toAppraise.id,value,acceptDanger:true};\n    }\n    const toBuy=p.stock.find(i=>p.credits>=buyPrice(v,i) && !(knownBad(i) && policy!=='aggressive') && worth(v,i)>=buyPrice(v,i)*BUY_RATIO[policy]);\n    if(toBuy && p.energy>=npcEnergy(v)) return {type:'buy',itemIds:[toBuy.id],condition:false};\n    if(policy==='collector' && p.energy>=4) {\n      const item=p.inventory.find(i=>!p.activated.includes(i.id) && !p.abilityItemUsed?.includes(i.kind) && !['chrono-gear','burden-hourglass'].includes(i.kind) && (!ITEM_SPECS[i.kind].nativeEffect || ITEM_SPECS[i.kind].explicitActivation && !i.pilotUses));if(item) return {type:'activate',itemId:item.id};\n      const source=p.merchantAbilities?.find(a=>a.trust>=1&&reducibleCooldown(p,a.npc,v.encounter)>0);\n      const gear=p.inventory.find(i=>i.kind==='chrono-gear'&&!p.activated.includes(i.id)&&!p.abilityItemUsed?.includes(i.kind));\n      if(source&&gear)return {type:'activate',itemId:gear.id,npc:source.npc};\n    }\n    return {type:'done'};\n  }\n  if(v.phase==='TRADE') return tradeDecision(v,policy);\n  return {type:'done'};\n}",
       "exported": true
     },
     {
@@ -48246,8 +48246,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 213,
-        "endLine": 224
+        "line": 228,
+        "endLine": 239
       },
       "signature": [
         "state:AppraisalState",
@@ -48263,8 +48263,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 225,
-        "endLine": 241
+        "line": 240,
+        "endLine": 256
       },
       "signature": [
         "count:number",
@@ -48281,8 +48281,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 242,
-        "endLine": 264
+        "line": 257,
+        "endLine": 279
       },
       "signature": [
         "runs:number",
@@ -102569,12 +102569,23 @@
     },
     {
       "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
+      "target": "code:apps/comic/src/game/appraisal/content.ts:ITEM_SPECS",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/server/appraisal-messages.ts",
+        "line": 23,
+        "endLine": 23
+      },
+      "description": "ITEM_SPECS"
+    },
+    {
+      "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
       "target": "code:apps/comic/src/server/appraisal-messages.ts:boolean",
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 24,
-        "endLine": 24
+        "line": 35,
+        "endLine": 35
       },
       "description": "boolean"
     },
@@ -102584,8 +102595,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 24,
-        "endLine": 24
+        "line": 35,
+        "endLine": 35
       },
       "description": "boolean"
     },
@@ -102595,8 +102606,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 37,
-        "endLine": 37
+        "line": 48,
+        "endLine": 48
       },
       "description": "loanTerms"
     },
@@ -102606,8 +102617,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 37,
-        "endLine": 37
+        "line": 48,
+        "endLine": 48
       },
       "description": "loanTerms"
     },
@@ -102617,8 +102628,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 40,
-        "endLine": 40
+        "line": 51,
+        "endLine": 51
       },
       "description": "loanTerms"
     },
@@ -102628,8 +102639,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 40,
-        "endLine": 40
+        "line": 51,
+        "endLine": 51
       },
       "description": "loanTerms"
     },
@@ -102639,8 +102650,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 42,
-        "endLine": 42
+        "line": 53,
+        "endLine": 53
       },
       "description": "boolean"
     },
@@ -102650,8 +102661,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 42,
-        "endLine": 42
+        "line": 53,
+        "endLine": 53
       },
       "description": "boolean"
     },
@@ -102661,8 +102672,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 49,
-        "endLine": 49
+        "line": 60,
+        "endLine": 60
       },
       "description": "loanTerms"
     },
@@ -102672,8 +102683,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 49,
-        "endLine": 49
+        "line": 60,
+        "endLine": 60
       },
       "description": "loanTerms"
     },
@@ -102683,8 +102694,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 54,
-        "endLine": 54
+        "line": 65,
+        "endLine": 65
       },
       "description": "boolean"
     },
@@ -102694,8 +102705,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 54,
-        "endLine": 54
+        "line": 65,
+        "endLine": 65
       },
       "description": "boolean"
     },
@@ -102705,64 +102716,53 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 75,
-        "endLine": 75
+        "line": 86,
+        "endLine": 86
       },
       "description": "boolean"
     },
     {
       "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
       "target": "code:apps/comic/src/server/appraisal-messages.ts:boolean",
-      "kind": "code-reference",
-      "evidence": {
-        "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 75,
-        "endLine": 75
-      },
-      "description": "boolean"
-    },
-    {
-      "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
-      "target": "code:apps/comic/src/server/appraisal-messages.ts:boolean",
-      "kind": "code-call",
-      "evidence": {
-        "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 81,
-        "endLine": 81
-      },
-      "description": "boolean"
-    },
-    {
-      "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
-      "target": "code:apps/comic/src/server/appraisal-messages.ts:boolean",
-      "kind": "code-reference",
-      "evidence": {
-        "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 81,
-        "endLine": 81
-      },
-      "description": "boolean"
-    },
-    {
-      "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
-      "target": "code:apps/comic/src/game/appraisal/content.ts:NPC_SPECS",
-      "kind": "code-reference",
-      "evidence": {
-        "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 85,
-        "endLine": 85
-      },
-      "description": "NPC_SPECS"
-    },
-    {
-      "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
-      "target": "code:apps/comic/src/game/appraisal/content.ts:NPC_SPECS",
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
         "line": 86,
         "endLine": 86
       },
+      "description": "boolean"
+    },
+    {
+      "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
+      "target": "code:apps/comic/src/server/appraisal-messages.ts:boolean",
+      "kind": "code-call",
+      "evidence": {
+        "file": "apps/comic/src/server/appraisal-messages.ts",
+        "line": 92,
+        "endLine": 92
+      },
+      "description": "boolean"
+    },
+    {
+      "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
+      "target": "code:apps/comic/src/server/appraisal-messages.ts:boolean",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/server/appraisal-messages.ts",
+        "line": 92,
+        "endLine": 92
+      },
+      "description": "boolean"
+    },
+    {
+      "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
+      "target": "code:apps/comic/src/game/appraisal/content.ts:NPC_SPECS",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/server/appraisal-messages.ts",
+        "line": 96,
+        "endLine": 96
+      },
       "description": "NPC_SPECS"
     },
     {
@@ -102771,8 +102771,19 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 90,
-        "endLine": 90
+        "line": 97,
+        "endLine": 97
+      },
+      "description": "NPC_SPECS"
+    },
+    {
+      "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
+      "target": "code:apps/comic/src/game/appraisal/content.ts:NPC_SPECS",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/server/appraisal-messages.ts",
+        "line": 101,
+        "endLine": 101
       },
       "description": "NPC_SPECS"
     },
@@ -102782,8 +102793,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 90,
-        "endLine": 90
+        "line": 101,
+        "endLine": 101
       },
       "description": "ALL_STATUS_IDS"
     },
@@ -102793,8 +102804,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 91,
-        "endLine": 91
+        "line": 102,
+        "endLine": 102
       },
       "description": "NPC_SPECS"
     },
@@ -102804,8 +102815,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 100,
-        "endLine": 100
+        "line": 111,
+        "endLine": 111
       },
       "description": "ALL_STATUS_IDS"
     },
@@ -102815,8 +102826,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 108,
-        "endLine": 108
+        "line": 119,
+        "endLine": 119
       },
       "description": "boolean"
     },
@@ -102826,74 +102837,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 108,
-        "endLine": 108
-      },
-      "description": "boolean"
-    },
-    {
-      "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
-      "target": "code:apps/comic/src/server/appraisal-messages.ts:boolean",
-      "kind": "code-call",
-      "evidence": {
-        "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 114,
-        "endLine": 114
-      },
-      "description": "boolean"
-    },
-    {
-      "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
-      "target": "code:apps/comic/src/server/appraisal-messages.ts:boolean",
-      "kind": "code-reference",
-      "evidence": {
-        "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 114,
-        "endLine": 114
-      },
-      "description": "boolean"
-    },
-    {
-      "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
-      "target": "code:apps/comic/src/server/appraisal-messages.ts:claims",
-      "kind": "code-call",
-      "evidence": {
-        "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 115,
-        "endLine": 115
-      },
-      "description": "claims"
-    },
-    {
-      "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
-      "target": "code:apps/comic/src/server/appraisal-messages.ts:claims",
-      "kind": "code-reference",
-      "evidence": {
-        "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 115,
-        "endLine": 115
-      },
-      "description": "claims"
-    },
-    {
-      "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
-      "target": "code:apps/comic/src/server/appraisal-messages.ts:boolean",
-      "kind": "code-call",
-      "evidence": {
-        "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 122,
-        "endLine": 122
-      },
-      "description": "boolean"
-    },
-    {
-      "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
-      "target": "code:apps/comic/src/server/appraisal-messages.ts:boolean",
-      "kind": "code-reference",
-      "evidence": {
-        "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 122,
-        "endLine": 122
+        "line": 119,
+        "endLine": 119
       },
       "description": "boolean"
     },
@@ -102916,6 +102861,72 @@
         "file": "apps/comic/src/server/appraisal-messages.ts",
         "line": 125,
         "endLine": 125
+      },
+      "description": "boolean"
+    },
+    {
+      "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
+      "target": "code:apps/comic/src/server/appraisal-messages.ts:claims",
+      "kind": "code-call",
+      "evidence": {
+        "file": "apps/comic/src/server/appraisal-messages.ts",
+        "line": 126,
+        "endLine": 126
+      },
+      "description": "claims"
+    },
+    {
+      "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
+      "target": "code:apps/comic/src/server/appraisal-messages.ts:claims",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/server/appraisal-messages.ts",
+        "line": 126,
+        "endLine": 126
+      },
+      "description": "claims"
+    },
+    {
+      "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
+      "target": "code:apps/comic/src/server/appraisal-messages.ts:boolean",
+      "kind": "code-call",
+      "evidence": {
+        "file": "apps/comic/src/server/appraisal-messages.ts",
+        "line": 133,
+        "endLine": 133
+      },
+      "description": "boolean"
+    },
+    {
+      "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
+      "target": "code:apps/comic/src/server/appraisal-messages.ts:boolean",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/server/appraisal-messages.ts",
+        "line": 133,
+        "endLine": 133
+      },
+      "description": "boolean"
+    },
+    {
+      "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
+      "target": "code:apps/comic/src/server/appraisal-messages.ts:boolean",
+      "kind": "code-call",
+      "evidence": {
+        "file": "apps/comic/src/server/appraisal-messages.ts",
+        "line": 136,
+        "endLine": 136
+      },
+      "description": "boolean"
+    },
+    {
+      "source": "code:apps/comic/src/server/appraisal-messages.ts:action",
+      "target": "code:apps/comic/src/server/appraisal-messages.ts:boolean",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/server/appraisal-messages.ts",
+        "line": 136,
+        "endLine": 136
       },
       "description": "boolean"
     },
@@ -102925,8 +102936,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 151,
-        "endLine": 151
+        "line": 162,
+        "endLine": 162
       },
       "description": "APPRAISAL_BOT_POLICIES"
     },
@@ -102936,8 +102947,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 160,
-        "endLine": 160
+        "line": 171,
+        "endLine": 171
       },
       "description": "validTimerSettings"
     },
@@ -102947,8 +102958,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 160,
-        "endLine": 160
+        "line": 171,
+        "endLine": 171
       },
       "description": "validTimerSettings"
     },
@@ -102958,8 +102969,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 163,
-        "endLine": 163
+        "line": 174,
+        "endLine": 174
       },
       "description": "action"
     },
@@ -102969,8 +102980,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 163,
-        "endLine": 163
+        "line": 174,
+        "endLine": 174
       },
       "description": "action"
     },
@@ -102980,8 +102991,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 164,
-        "endLine": 164
+        "line": 175,
+        "endLine": 175
       },
       "description": "encounter"
     },
@@ -102991,8 +103002,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/server/appraisal-messages.ts",
-        "line": 164,
-        "endLine": 164
+        "line": 175,
+        "endLine": 175
       },
       "description": "encounter"
     },
@@ -104267,8 +104278,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 153,
-        "endLine": 153
+        "line": 168,
+        "endLine": 168
       },
       "description": "TICKETS_TO_FORCE"
     },
@@ -104278,8 +104289,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 169,
-        "endLine": 169
+        "line": 184,
+        "endLine": 184
       },
       "description": "buyPrice"
     },
@@ -104289,8 +104300,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 169,
-        "endLine": 169
+        "line": 184,
+        "endLine": 184
       },
       "description": "buyPrice"
     },
@@ -104300,8 +104311,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 196,
-        "endLine": 196
+        "line": 211,
+        "endLine": 211
       },
       "description": "buyPrice"
     },
@@ -104311,8 +104322,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 196,
-        "endLine": 196
+        "line": 211,
+        "endLine": 211
       },
       "description": "buyPrice"
     },
@@ -104322,8 +104333,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 196,
-        "endLine": 196
+        "line": 211,
+        "endLine": 211
       },
       "description": "knownBad"
     },
@@ -104333,8 +104344,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 196,
-        "endLine": 196
+        "line": 211,
+        "endLine": 211
       },
       "description": "knownBad"
     },
@@ -104344,8 +104355,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 196,
-        "endLine": 196
+        "line": 211,
+        "endLine": 211
       },
       "description": "worth"
     },
@@ -104355,8 +104366,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 196,
-        "endLine": 196
+        "line": 211,
+        "endLine": 211
       },
       "description": "worth"
     },
@@ -104366,8 +104377,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 196,
-        "endLine": 196
+        "line": 211,
+        "endLine": 211
       },
       "description": "BUY_RATIO"
     },
@@ -104377,8 +104388,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 197,
-        "endLine": 197
+        "line": 212,
+        "endLine": 212
       },
       "description": "npcEnergy"
     },
@@ -104388,8 +104399,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 197,
-        "endLine": 197
+        "line": 212,
+        "endLine": 212
       },
       "description": "npcEnergy"
     },
@@ -104399,8 +104410,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 199,
-        "endLine": 199
+        "line": 214,
+        "endLine": 214
       },
       "description": "ITEM_SPECS"
     },
@@ -104410,8 +104421,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 200,
-        "endLine": 200
+        "line": 215,
+        "endLine": 215
       },
       "description": "reducibleCooldown"
     },
@@ -104421,8 +104432,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 200,
-        "endLine": 200
+        "line": 215,
+        "endLine": 215
       },
       "description": "reducibleCooldown"
     },
@@ -104432,8 +104443,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 206,
-        "endLine": 206
+        "line": 221,
+        "endLine": 221
       },
       "description": "tradeDecision"
     },
@@ -104443,8 +104454,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 206,
-        "endLine": 206
+        "line": 221,
+        "endLine": 221
       },
       "description": "tradeDecision"
     },
@@ -104454,8 +104465,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 217,
-        "endLine": 217
+        "line": 232,
+        "endLine": 232
       },
       "description": "appraisalBotDecision"
     },
@@ -104465,8 +104476,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 217,
-        "endLine": 217
+        "line": 232,
+        "endLine": 232
       },
       "description": "appraisalBotDecision"
     },
@@ -104476,8 +104487,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 217,
-        "endLine": 217
+        "line": 232,
+        "endLine": 232
       },
       "description": "appraisalViewFor"
     },
@@ -104487,8 +104498,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 217,
-        "endLine": 217
+        "line": 232,
+        "endLine": 232
       },
       "description": "appraisalViewFor"
     },
@@ -104498,8 +104509,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 226,
-        "endLine": 226
+        "line": 241,
+        "endLine": 241
       },
       "description": "createAppraisalRun"
     },
@@ -104509,8 +104520,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 226,
-        "endLine": 226
+        "line": 241,
+        "endLine": 241
       },
       "description": "createAppraisalRun"
     },
@@ -104520,8 +104531,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 229,
-        "endLine": 229
+        "line": 244,
+        "endLine": 244
       },
       "description": "advanceAppraisalEncounter"
     },
@@ -104531,8 +104542,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 229,
-        "endLine": 229
+        "line": 244,
+        "endLine": 244
       },
       "description": "advanceAppraisalEncounter"
     },
@@ -104542,8 +104553,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 235,
-        "endLine": 235
+        "line": 250,
+        "endLine": 250
       },
       "description": "appraisalBotTurn"
     },
@@ -104553,8 +104564,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 235,
-        "endLine": 235
+        "line": 250,
+        "endLine": 250
       },
       "description": "appraisalBotTurn"
     },
@@ -104564,8 +104575,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 237,
-        "endLine": 237
+        "line": 252,
+        "endLine": 252
       },
       "description": "applyAppraisalAction"
     },
@@ -104575,8 +104586,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 237,
-        "endLine": 237
+        "line": 252,
+        "endLine": 252
       },
       "description": "applyAppraisalAction"
     },
@@ -104586,8 +104597,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 240,
-        "endLine": 240
+        "line": 255,
+        "endLine": 255
       },
       "description": "exportAppraisalAudit"
     },
@@ -104597,8 +104608,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 240,
-        "endLine": 240
+        "line": 255,
+        "endLine": 255
       },
       "description": "exportAppraisalAudit"
     },
@@ -104608,8 +104619,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 240,
-        "endLine": 240
+        "line": 255,
+        "endLine": 255
       },
       "description": "replayAppraisalAudit"
     },
@@ -104619,8 +104630,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 240,
-        "endLine": 240
+        "line": 255,
+        "endLine": 255
       },
       "description": "replayAppraisalAudit"
     },
@@ -104630,8 +104641,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 244,
-        "endLine": 244
+        "line": 259,
+        "endLine": 259
       },
       "description": "APPRAISAL_POLICIES"
     },
@@ -104641,8 +104652,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 248,
-        "endLine": 248
+        "line": 263,
+        "endLine": 263
       },
       "description": "simulateAppraisalRun"
     },
@@ -104652,8 +104663,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 248,
-        "endLine": 248
+        "line": 263,
+        "endLine": 263
       },
       "description": "simulateAppraisalRun"
     }
@@ -136489,8 +136500,8 @@
       "owner": "code:apps/comic/src/simulation/appraisal.ts:runAppraisalScenarios",
       "source": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 256,
-        "endLine": 256
+        "line": 271,
+        "endLine": 271
       },
       "guards": [
         "t.type==='portal-entered'"

@@ -1177,7 +1177,7 @@
     },
     {
       "file": "apps/comic/src/server/appraisal-messages.ts",
-      "sha256": "43bead71aec99546c4cfa2439e6a940243fe52bd93fc78976b3301c2f22fc731"
+      "sha256": "464a6271525e5378673f85020087eb515840d555e55c316c4283db05a61a31f8"
     },
     {
       "file": "apps/comic/src/server/appraisal-rooms.ts",
@@ -1221,7 +1221,7 @@
     },
     {
       "file": "apps/comic/src/simulation/appraisal.ts",
-      "sha256": "505393b813145217139b2e37b6c1a5ecc9ef2784c4be9bcd5c35ccad25c1c714"
+      "sha256": "278025401318fc01ea5f26187703b569f68b82c41f859b943c0c320bcbe92c66"
     },
     {
       "file": "apps/comic/src/simulation/balance.ts",
@@ -1446,6 +1446,10 @@
     {
       "file": "apps/comic/tests/appraisal.test.ts",
       "sha256": "0c44b3fe73330b8ae2c9e61f989aadca6a10a678a202fbf7912df658285e4ec5"
+    },
+    {
+      "file": "apps/comic/tests/collector-wishlist-network.test.ts",
+      "sha256": "940919c9e9c9ab99f0dbfd9c39ab4e4b7d5ccda9497ef0e916cde1c05260d07d"
     },
     {
       "file": "apps/comic/tests/collector-wishlist.test.ts",

@@ -8363,8 +8363,8 @@
       "owner": "code:apps/comic/src/simulation/appraisal.ts:runAppraisalScenarios",
       "source": {
         "file": "apps/comic/src/simulation/appraisal.ts",
-        "line": 256,
-        "endLine": 256
+        "line": 271,
+        "endLine": 271
       },
       "guards": [
         "t.type==='portal-entered'"

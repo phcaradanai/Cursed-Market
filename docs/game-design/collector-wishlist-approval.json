@@ -6,5 +6,5 @@
   "proposalSha256": "d7e79e71d6fcb61919c91beaea34b123d1676a4745be97aa88f87bd36462d98f",
   "userReply": "อนุมัติสเปกทดลองนี้",
   "scope": "Exact Collector3+2 experimental specification including same-slot price, original purchase modifiers/fees/energy, private batches, schedule, expiry, trade-ban and custody. Not release balance, remaining48 or STRAT-01 approval.",
-  "runtimeStatus": "Task1 engine implemented and tested opt-in collectorWishlistRules:1; protocol/public bots and Comic UI pending Tasks2/3. See collector-wishlist-engine-verification.json."
+  "runtimeStatus": "Engine and protocol/public bots tested opt-in collectorWishlistRules:1; Comic UI and default rollout pending Task3. See collector-wishlist-network-verification.json."
 }

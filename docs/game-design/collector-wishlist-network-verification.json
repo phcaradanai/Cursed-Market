@@ -1,0 +1,38 @@
+{
+  "asOf": "2026-11-02",
+  "status": "protocol-tested-opt-in-ui-pending",
+  "sourceFingerprints": {
+    "apps/comic/src/server/appraisal-messages.ts": "464a6271525e5378673f85020087eb515840d555e55c316c4283db05a61a31f8",
+    "apps/comic/src/simulation/appraisal.ts": "278025401318fc01ea5f26187703b569f68b82c41f859b943c0c320bcbe92c66",
+    "apps/comic/tests/collector-wishlist-network.test.ts": "940919c9e9c9ab99f0dbfd9c39ab4e4b7d5ccda9497ef0e916cde1c05260d07d",
+    "apps/comic/src/game/appraisal/collector-wishlist.ts": "bdf9ff7aeebd8cea20bf61f7de5dff43df5e107e561741a580084f1040b671c1"
+  },
+  "checks": {
+    "collectorFocusedCases": 5,
+    "priorActualSocketCases": 2,
+    "relatedCasesIncludingTask1": 69,
+    "serverBuild": "pass",
+    "clientBuild": "pass with existing bundle advisory",
+    "nativePublicPairs": 8,
+    "nativePublicRuns": 16,
+    "nativeStrictReplays": 32
+  },
+  "actualNetwork": {
+    "audit": "docs/validation/collector-network-2026-11-02/match-audit.json",
+    "sha256": "93c4b85eb48384cfcf81e6d372449b87cc34372c7dc92c8f6fb60622974d6242",
+    "scope": "Actual2 sockets, real commands2\u21924\u2192RESULTS5,500 initial credits/20 life declared config, early audit denial, separate batches, resume, one peek, foreign slot/batch denial, duplicates no-op, one payment, future cancellation and strict replay. No state injection."
+  },
+  "publicPolicy": {
+    "scope": "Collector bounded request/peek/buy/request sequence from public DTO at40 initial credits, normal earned salaries,20 life/deadline5. Cautious declines blind purchase. Not statistical balance."
+  },
+  "failures": [
+    "Initial test exported audit during play; production correctly denied it. Duplicate proof now snapshots state internally only; wire audit fetched at RESULTS.",
+    "Initial test entered Alice while Bob still had entry event; fixed harness to resolve all pending events before target phase assertion.",
+    "Initial test referenced wrapper.game; actual audit payload uses wrapper.run. Clean typed build then RED parser/bot assertions recorded."
+  ],
+  "limits": [
+    "No production room/default flag until Comic UX exists. Task3 pending.",
+    "No new screenshot check or baseline approval claimed.",
+    "Remaining48/STRAT/awards/statistical balance remain separate."
+  ]
+}

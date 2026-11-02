@@ -1,0 +1,5 @@
+
+> cursed-market@0.1.0 ui:check
+> node scripts/ui/check.mjs
+
+PASS: 389 source fingerprints, shared token/frame/SSR rules, 14 baseline hashes, dependency parity. Pixel approval: approved by user 2026-10-30; image reference set only

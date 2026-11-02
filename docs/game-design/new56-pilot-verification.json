@@ -35,7 +35,7 @@
     "apps/comic/src/game/appraisal/types.ts": "2c07c98b7865a6d21b5be8eceace17ec70b96d731f3ca57c716b6f8004d3635a",
     "apps/comic/src/game/appraisal/views.ts": "349677f197da0fd51c2b2402ed810d86bcf4ac96545daddb5e310343fe869116",
     "apps/comic/src/server/appraisal-main.ts": "76e3edf36ad88c1f8ba67a395e07ee91502b19d9d9bec6d7d7b4bd6e54e6156b",
-    "apps/comic/src/simulation/appraisal.ts": "505393b813145217139b2e37b6c1a5ecc9ef2784c4be9bcd5c35ccad25c1c714",
+    "apps/comic/src/simulation/appraisal.ts": "278025401318fc01ea5f26187703b569f68b82c41f859b943c0c320bcbe92c66",
     "apps/comic/tests/appraisal-expansion.test.ts": "49241ac61183d38be5a1321ad7bc9a8a4241748dcff559f351c79517df5aecb0",
     "apps/comic/tests/appraisal-item-effects.test.ts": "09e53c6f8169d41c6dbde39e750e70cd2c142f56be61f990caa86df939b87125",
     "apps/comic/tests/appraisal-merchant-abilities.test.ts": "e0e1229c90b062137b4a63879e62daccf86f7002b5a7c13b9fc3ac602878b818",
@@ -165,5 +165,17 @@
     },
     "verification": "docs/game-design/collector-wishlist-engine-verification.json",
     "scope": "Original Nov1 backend/UI evidence keeps its date and scope. Current opt-in Collector engine passed232 focused cases,21 Collector cases included,2 prior actual socket tests,24 unchanged historical audit replays and fresh8 public-effect pairs/16 full runs/32 replay checks. No new UI pixel or full-game balance claim."
+  },
+  "collectorProtocolCompatibilityFollowup": {
+    "asOf": "2026-11-02",
+    "previousCheckpoint": "945dc57",
+    "changedSources": {
+      "apps/comic/src/simulation/appraisal.ts": {
+        "previous": "505393b813145217139b2e37b6c1a5ecc9ef2784c4be9bcd5c35ccad25c1c714",
+        "current": "278025401318fc01ea5f26187703b569f68b82c41f859b943c0c320bcbe92c66"
+      }
+    },
+    "verification": "docs/game-design/collector-wishlist-network-verification.json",
+    "scope": "No-flag policy unchanged; all8 public-effect pairs/16 audits/32 replays rerun with byte-identical audit files; original evidence scopes retain historical date. Collector is opt-in and UI pending."
   }
 }

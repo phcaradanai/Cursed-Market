@@ -43,3 +43,5 @@ Discoveryพบการตั้งexpansion=falseทำให้Swarm/Deepsea�
 Comicserverbuildผ่าน;fixedrunnerexit0ครบ8cases/16audits/32strictreplaychecks; Atlaschecker160inputsรวมapprovedproposalSHA/publicproofsource+compiled+auditSHAผ่าน; oldcoverage/new56freshnesschecksผ่าน; ui:check386และui:test10ผ่าน. ไม่มีproductUI/CSSเปลี่ยนจึงไม่อ้างfreshscreenshot/menu/networkrunรอบนี้; หลักฐานUIล่าสุดคง518d702ตามวันที่จริง. Trail20lexicalconflictsยังเป็นไฟล์.impeccableเดิมที่ไม่นำเข้าcommitนี้
 
 Collector-engine compatibility followup2026-11-02: reran all8 pairs/16 full command runs/32 strict replays against Task1 engine worktree, feature disabled. Audit bytes remain identical to10629f2; public-effects.json pins this newer source/compiled set. Original evidence remains in10629f2. No claim that Collector lifecycle itself was exercised by these native scenarios.
+
+Collector-protocol followup: reran the same8/16/32 after public-policy opt-in branch; original no-flag audits remain byte-identical. Current fingerprints now include Task2 policy changes. Collector network proof is separate incollector-wishlist-network-verification.json, not inferred fromnative tests.

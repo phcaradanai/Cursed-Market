@@ -167,3 +167,5 @@ Confirmed rules are closed, including buyer death and floor/tie/end handling. S1
 User approved Collector experimental spec on2026-11-02. collector-wishlist-approval.json pins original5a44a7a proposalSHA; prior pending-approval notes are superseded. Implement directly via implementations/collector-wishlist-plan.md; no repeated approval for same rules. STRATstructure/remaining48/awards remain separately unresolved.
 
 2026-11-02 Collector Task1: แกน private3+2/schedule/peek/pay/expiry/custody/journal พร้อมแบบ opt-in `collectorWishlistRules:1` เท่านั้น.21 Collector tests และ232 focused cases ผ่าน,2 socket เดิมผ่าน,24 audit เดิม replay ตรง,8 effect pairs รันใหม่ผ่าน. Protocol/bot/UI ยังรอ Tasks2/3; ไม่ใช่เกมครบหรือ default rollout. ดู [engine verification](collector-wishlist-engine-verification.json).
+
+2026-11-02 Collector Task2: protocol/public bots/reconnect/idempotency/audit ผ่าน5checks +2socketเดิม +69related. ชุด2→4ซื้อจริงและstrict replayจบRESULTS; ยังopt-inและComicUI/default rolloutรอTask3. ดูcollector-wishlist-network-verification.json.

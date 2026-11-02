@@ -1,12 +1,12 @@
 {
-  "startedAt": "2026-11-02T08:07:34.288Z",
-  "observedRevision": "10629f2a6c0b029b7de652d3e946a6c692e46039",
+  "startedAt": "2026-11-02T08:29:48.937Z",
+  "observedRevision": "945dc5775cd9a3eea303b968b0e07130dbabc3f9",
   "scope": "8 targeted, supported-config public-command mechanism pairs;16 full runs with strict replays. Initial500credits, not default40 budget or release balance. Counterfactual uses real vault custody or skipped activation. Fixed cooperative PvP hands; no hidden-hand policy. Seeds selected for eligibility/outcome boundary, not random sampling.",
   "sourceFingerprints": {
     "apps/comic/scripts/pilot-public-scenarios.mjs": "06651716423ece13dabf8b9baefd4771141e12cacc21b1dcb9ffff9c7c6b1fba",
     "apps/comic/scripts/pilot-public-run.mjs": "3868307b90cad06f8d189e3dbb07556a26af0d3f19143c1a24b0e4219b93d086",
     "apps/comic/src/game/random.ts": "ec6facfcf36a0bb9cc137ffb4fe897ce1edb6cdad9763fb090adcaa1de8330d0",
-    "apps/comic/src/simulation/appraisal.ts": "505393b813145217139b2e37b6c1a5ecc9ef2784c4be9bcd5c35ccad25c1c714",
+    "apps/comic/src/simulation/appraisal.ts": "278025401318fc01ea5f26187703b569f68b82c41f859b943c0c320bcbe92c66",
     "apps/comic/src/game/appraisal/ability-content.ts": "ff33530545a771c4e686640f2fca5db996ef3612f9602da6ddbf68c12377127e",
     "apps/comic/src/game/appraisal/ability-rules.ts": "3e9f33f54b34c91fb26f6d0926f9df83e646dc3623a7c8bbf3beed5cedbc9139",
     "apps/comic/src/game/appraisal/audit.ts": "352f047f66b8b3744f3feeb72c45bf371423c0defc5a95ef31241548ae35e0c6",
@@ -62,7 +62,7 @@
   },
   "compiledFingerprints": {
     "apps/comic/dist/src/game/random.js": "00b027f8536134a7c19137505c8d2653415b1e8d5ea43750054298984ca2f96f",
-    "apps/comic/dist/src/simulation/appraisal.js": "3f3e9d9025fb11250b2f0ba310c16cc372ebef22d91076e197e2c8427f745c0f",
+    "apps/comic/dist/src/simulation/appraisal.js": "32e4e8e4f0b75939d9176c0fe74fee80f6e690b185f561939364b3e2f3bfaa4c",
     "apps/comic/dist/src/game/appraisal/ability-content.js": "7cbd3351cabae93eb0be017c592e80b34655a5cbc0aab7c040133728b3b265aa",
     "apps/comic/dist/src/game/appraisal/ability-rules.js": "457755c8c4e6436411e62a704b5b783d16b0ca94603c3a1ecae52882df31be27",
     "apps/comic/dist/src/game/appraisal/audit.js": "88593d44564c86d41425e7bb99f494d4aa470af9875afb9e462d430a7c4efd7f",
@@ -527,5 +527,5 @@
     }
   ],
   "passed": true,
-  "finishedAt": "2026-11-02T08:07:38.844Z"
+  "finishedAt": "2026-11-02T08:29:53.475Z"
 }

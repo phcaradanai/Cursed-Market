@@ -145,6 +145,21 @@ export function appraisalBotDecision(v:AppraisalView,policy:AppraisalPolicy):Bod
   const p=v.self;const duel=v.theft?.duels.find(d=>d.needsChoice);
   if(duel)return {type:'theft-hand',duelId:duel.id,...(v.theftTimeoutRules===1?{round:duel.round}:{}),hand:(['rock','paper','scissors'] as const)[(v.encounter+duel.round)%3]!};
   if(p.eventOffer) return eventAction(v,policy);
+  const collector=p.collectorWishlist;
+  if(collector&&!p.done&&!p.paused&&!p.abilityChoice&&['PORTALS','APPRAISAL'].includes(v.phase)){
+    const d=collector.delivery;
+    if(d?.status==='open'){
+      if(policy==='cautious'||!d.canBuy)return {type:'collector-wish-skip',batchId:d.id};
+      const seen=d.slots.find(s=>s.peek),slot=seen??d.slots[0]!;
+      if(!seen&&d.canPeek)return {type:'collector-wish-peek',batchId:d.id,slotId:slot.id};
+      return {type:'collector-wish-buy',batchId:d.id,slotId:slot.id,quoteId:d.quoteId};
+    }
+    if(collector.request.available){
+      if(policy==='cautious')return {type:'collector-wish-skip'};
+      const choices=[...collector.request.kinds].sort((a,b)=>Number(p.inventory.some(i=>i.kind===a.kind))-Number(p.inventory.some(i=>i.kind===b.kind)));
+      return {type:'collector-wish-request',kinds:choices.slice(0,3).map(k=>k.kind)};
+    }
+  }
   if(v.market.open && policy==='trader') {
     const item=p.inventory.find(i=>i.lockedUntil===null && !i.stolen && v.market.orders.some(o=>o.kind===i.kind && (o.quota[p.id]??0)>0));
     if(item) return {type:'market-sell',itemId:item.id,orderId:v.market.orders.find(o=>o.kind===item.kind && (o.quota[p.id]??0)>0)!.id};

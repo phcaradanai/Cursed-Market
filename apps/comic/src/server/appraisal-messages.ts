@@ -1,6 +1,6 @@
-import { NPC_SPECS } from '../game/appraisal/content.js';
+import { ITEM_SPECS, NPC_SPECS } from '../game/appraisal/content.js';
 import { ALL_STATUS_IDS } from '../game/appraisal/types.js';
-import type { StatusId } from '../game/appraisal/types.js';
+import type { ItemKind, StatusId } from '../game/appraisal/types.js';
 import type { AppraisalBotPolicy, AppraisalClientMessage, AppraisalSeatAction } from '../shared/appraisal-protocol.js';
 import { APPRAISAL_BOT_POLICIES, validTimerSettings } from '../shared/appraisal-protocol.js';
 import { integer, keys, MessageError, object, parseMessage, string } from './messages.js';
@@ -18,6 +18,17 @@ function action(value: unknown): AppraisalSeatAction {
   const base = { requestId, encounter: encounter(body.encounter) };
   const fields = ['type', 'requestId', 'encounter'];
   switch (body.type) {
+    case 'collector-wish-request': {
+      keys(body,[...fields,'kinds']);
+      if(!Array.isArray(body.kinds)||body.kinds.length!==3||new Set(body.kinds).size!==3||!body.kinds.every(k=>typeof k==='string'&&Object.hasOwn(ITEM_SPECS,k)))throw new MessageError();
+      return {type:body.type,...base,kinds:body.kinds as ItemKind[]};
+    }
+    case 'collector-wish-peek': case 'collector-wish-buy': {
+      keys(body,[...fields,'batchId','slotId',...(body.type==='collector-wish-buy'?['quoteId']:[])]);
+      const slot={batchId:string(body.batchId),slotId:string(body.slotId)};
+      return body.type==='collector-wish-buy'?{type:body.type,...base,...slot,quoteId:string(body.quoteId,256)}:{type:body.type,...base,...slot};
+    }
+    case 'collector-wish-skip': keys(body,[...fields,'batchId']);return {type:body.type,...base,...(body.batchId===undefined?{}:{batchId:string(body.batchId)})};
     case 'ghost-start': keys(body,fields);return {type:body.type,...base};
     case 'ghost-guess': keys(body,[...fields,'round','position']);return {type:body.type,...base,round:integer(body.round),position:integer(body.position)};
     case 'ghost-hire': keys(body,[...fields,'ghostId','choice','quoteId','fee']);return {type:body.type,...base,ghostId:string(body.ghostId),choice:integer(body.choice),quoteId:string(body.quoteId,256),fee:integer(body.fee)};

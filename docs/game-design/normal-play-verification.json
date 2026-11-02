@@ -1,0 +1,44 @@
+{
+  "asOf": "2026-11-02",
+  "status": "normal-main-flow-proved; partial-system-coverage-not-balance",
+  "liveReport": "docs/validation/collector-normal-2026-11-02/live-ui.json",
+  "liveAudit": "docs/validation/collector-normal-2026-11-02/live-ui-audit.json",
+  "liveAuditSha256": "d7389a0a1311be11a87c5a5184e0f305e21b10f8273743fe1c5f1f2011d014c7",
+  "liveChecks": 5,
+  "liveCaptures": 5,
+  "normalBudget": 40,
+  "maxLife": 6,
+  "collectorDeadline": 15,
+  "liveActualEnd": 6,
+  "matrixReport": "docs/validation/normal-play-2026-11-02/report.json",
+  "matrixCases": 8,
+  "matrixPass": 8,
+  "matrixFailures": 0,
+  "sourceFingerprints": {
+    "scripts/ui/collector-normal-live.mjs": "88f4a97b5b45dd0c7d63402bd8dc61f793908006569dd2bd561caf38aab7c1af",
+    "apps/comic/src/appraisal-client/App.tsx": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8",
+    "apps/comic/src/appraisal-client/CollectorWishlist.tsx": "21f0b86c8220b246c34ee61e866d9dc542e17fb77cedd9ff6333551b2a152908",
+    "apps/comic/src/appraisal-client/collector-wishlist.css": "1172c72bf486387fddbe4ed437f416724cf65cb537a764e44e389d813e775630",
+    "apps/comic/src/game/appraisal/engine.ts": "87e6a10adf3bffeb31b6134bdcbf596068c5f8a75ec622dc4552a8536ca6ff70",
+    "apps/comic/src/game/appraisal/collector-wishlist.ts": "bdf9ff7aeebd8cea20bf61f7de5dff43df5e107e561741a580084f1040b671c1",
+    "apps/comic/src/server/appraisal-main.ts": "344962080ebff735530d1a2c2f1d12ab590f608c0a4cd3dbeb127ba7dd62ccb5",
+    "apps/comic/src/server/appraisal-rooms.ts": "a4e65e4f57521d6c4eedb24fe348ce7d2a4974ea8539b2618b200fc33681f3d8",
+    "apps/comic/src/simulation/appraisal.ts": "278025401318fc01ea5f26187703b569f68b82c41f859b943c0c320bcbe92c66"
+  },
+  "limitations": [
+    "Human spending held untilCollector4; later cautious public policy. One random main-room seed plus one matrix seed, no release balance or survival target claim.",
+    "2/4-seat matrix covers NPC/trades/auction/Collector but not vault interest, player loans, forced RPS or ghost minigame/service.",
+    "All matrix tables ended with deaths at5–8; diagnoses policy exposure, not a numeric tuning decision.",
+    "Catalog3 default preserved; catalog4 only8 approved pilot items. Remaining48/STRAT/awards still open.",
+    "Production/UI unchanged; existing reviewed pixel references not re-recorded or rerun for test/docs-only work.",
+    "Preliminary harness failed on legitimate later skip actions; tightened first-three UI action assertion and requires only cautious skips afterward. No product change."
+  ],
+  "checks": {
+    "sourceFingerprints": 393,
+    "uiContracts": 10,
+    "approvedBaselineHashesUnchanged": 14,
+    "atlasInputs": 200,
+    "artifactHashChecks": "live5captures/audit/source and8distinct matrix cases/audit hashes/source pass"
+  },
+  "trailCheck": "20 existing conflicts restricted to unrelated .impeccable cache/design files excluded;400KB cap, not full-branch review evidence"
+}

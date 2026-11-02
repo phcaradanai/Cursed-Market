@@ -1074,6 +1074,12 @@
           "image": "captures/collector-live-2026-11-02/owned.png",
           "title": "Collector live owned",
           "origin": "live-game"
+        },
+        {
+          "id": "C63",
+          "image": "../validation/collector-normal-2026-11-02/captures/owned.png",
+          "title": "Collector normal40 owned",
+          "origin": "live-game"
         }
       ],
       "captureStatus": "captured-existing",
@@ -1548,10 +1554,34 @@
           "image": "captures/collector-live-2026-11-02/peek.png",
           "title": "Collector live peek",
           "origin": "live-game"
+        },
+        {
+          "id": "C59",
+          "image": "../validation/collector-normal-2026-11-02/captures/request.png",
+          "title": "Collector normal40 request",
+          "origin": "live-game"
+        },
+        {
+          "id": "C60",
+          "image": "../validation/collector-normal-2026-11-02/captures/waiting.png",
+          "title": "Collector normal40 waiting",
+          "origin": "live-game"
+        },
+        {
+          "id": "C61",
+          "image": "../validation/collector-normal-2026-11-02/captures/delivery.png",
+          "title": "Collector normal40 delivery",
+          "origin": "live-game"
+        },
+        {
+          "id": "C62",
+          "image": "../validation/collector-normal-2026-11-02/captures/peek.png",
+          "title": "Collector normal40 peek",
+          "origin": "live-game"
         }
       ],
       "captureStatus": "captured-existing",
-      "captureNote": "Approved experimental spec;12 public DTO screenshots plus4 real App captures (owned result inM01). Supported real App paid-flow/replay verified; normal-budget balance remains open. UI-COLLECTOR-CONTEXT minor still deferred. Candidate captures, not new pixel baseline approval."
+      "captureNote": "Approved experimental spec;12 public DTO screenshots plus4 real App captures (owned result inM01). Supported real App paid-flow/replay verified; normal-budget balance remains open. UI-COLLECTOR-CONTEXT minor still deferred. Candidate captures, not new pixel baseline approval. Normal40/6 main App request/peek/payment/owned/RESULTS strict replay now proved, C59–C63 (ownedM01); one random seed, not balance."
     },
     {
       "id": "G01",

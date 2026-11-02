@@ -11,7 +11,7 @@ Goal: complete active Comic against confirmed user rules, not just the latest su
 - [x] ITEM-01 design gate: new56 art/relations audited; exact8 pilot values/common rules approved2026-10-31 and pinned in new56-pilot-approval.json.
 - [x] ITEM-01 pilot runtime contract:8 native typed IDs/primary effects, opt-in version4 and legacy replay preserved. Committed707da16; remaining48 are not included. See new56-pilot-runtime.md.
 - [x] ITEM-02 experimental pilot checkpoint:8 items, one per merchant; spawn/inspect/buy/hold/use/sell/copy/Collector/privacy verified in707da16. Experimental acceptance only, release balance remains open. See ../new56-pilot-verification.json.
-- [ ] RULE-03: finalize Collector3+2 turn schedule, purchase rights/pricing/duplicate/timeout rules; implement all concealed views and payment/custody/reconnect.
+- [x] RULE-03 experimental checkpoint: approved Collector3+2 implemented/versioned/private/paid/reconnect; reviewed Important pool fix4088f6e, minor UI-COLLECTOR-CONTEXT deferred. Normal40/6 paid+RESULTS flow verified; not release balance.
 - [ ] ITEM-03: remaining48 and event/encounter/omen predicates; zero unexplained legacy targets, Comic art only.
 - [x] MERCHANT-EXPRESSION-01 approved S02/S04 contexts: shared confirmed-choice/result rules,650ms presentation-only hold, reduced-motion and24 existing poses verified.
 - [ ] UX continuity: required S07/Collector/results presentation, strategic status; inspect existing implementations before creating screens. Keep inventory geometry/tokens, no scrolling, costs/known gains visible.
@@ -41,3 +41,5 @@ CTX-02 complete: active Comic appraisal modules plus explicit support/server/bot
 
 
 2026-11-02: new publiceffect verification8pairs/16fullruns/32strictreplaychecks completes the targetedexposure checkpoint (notstatistical/default40balance). UserapprovedCollectorconcretespec; approvalJSONpinsoriginalSHA andimplementationplanready. ProceedwithCollectorengine/protocol/UI perplan; do notrequestthe sameapprovalagain. Originalproposalremainsfrozen,historicalpendingnotes superseded.
+
+2026-11-02 normal main evidence: realApp40credit/6life/defaultclock request2/delivery4/peek1/confirmedbuy/owneditem/RESULTS6 strictreplay pass; public setup held spending beforedelivery. Matrix8 normal-config runs (2/4 seats,cautious/trader,catalog3/4,same deterministicseed) allRESULTS/replay, ends5–8.5Collectorpaid,8auctionwins andPvPtrades observed; no vault/interest/PvPloan/forcedRPS/ghost-service coverage. No balance/numeric change. See normal-play-verification.json and balance-reports/2026-11-02-normal-play.md. Whole goal active, remaining48/STRAT/awards pending.

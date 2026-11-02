@@ -2998,3 +2998,8 @@
 "capture:C56","capture","A05 · Collector live delivery","source-snapshot"
 "capture:C57","capture","A05 · Collector live peek","source-snapshot"
 "capture:C58","capture","M01 · Collector live owned","source-snapshot"
+"capture:C59","capture","A05 · Collector normal40 request","source-snapshot"
+"capture:C60","capture","A05 · Collector normal40 waiting","source-snapshot"
+"capture:C61","capture","A05 · Collector normal40 delivery","source-snapshot"
+"capture:C62","capture","A05 · Collector normal40 peek","source-snapshot"
+"capture:C63","capture","M01 · Collector normal40 owned","source-snapshot"

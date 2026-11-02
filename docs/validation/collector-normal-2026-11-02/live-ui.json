@@ -1,0 +1,475 @@
+{
+  "derivedFrom": "scripts/ui/collector-live.mjs@4088f6e; normal main scope separated from supported fixture",
+  "startedAt": "2026-11-02T11:29:52.073Z",
+  "spaceId": 16,
+  "baseUrl": "http://127.0.0.1:3196",
+  "scope": "Real App + WebSocket + engine, one browser player and built-in public-only cautious bot. Actual Comic main pilot8 opt-in, normal40-credit/6-life/defaultdeadline15/defaultclocks; one browser player plus cautious built-in bot. Public setup holds human spending beforeCollector4; afterpurchase public cautious policy with recovery. Collector actions through visible App controls; one run is not balance acceptance.",
+  "checks": [
+    "real App room starts normal40credit/6life main config with two seats",
+    "visible three-kind request reaches server and waits for encounter4",
+    "one real reveal is free and exposes one slot only",
+    "explicit App confirmation charges exact credits/energy once and receives one owned item",
+    "actual UI-paid run reaches RESULTS and strict audit replay matches"
+  ],
+  "captures": [
+    {
+      "state": "request",
+      "file": "docs/validation/collector-normal-2026-11-02/captures/request.png",
+      "sha256": "5333fe9508a89ffdcf22cf6355bf24e8ac3da2b0ee193df2bfda0a8c4d59f4f5",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"
+      },
+      "capturedAt": "2026-11-02T11:30:01.047Z"
+    },
+    {
+      "state": "waiting",
+      "file": "docs/validation/collector-normal-2026-11-02/captures/waiting.png",
+      "sha256": "5ebb3e167280ef57322fbd19db05184ee22a05eb4b391b7fa4c8bf62ee92805c",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"
+      },
+      "capturedAt": "2026-11-02T11:30:02.271Z"
+    },
+    {
+      "state": "delivery",
+      "file": "docs/validation/collector-normal-2026-11-02/captures/delivery.png",
+      "sha256": "ea6468d45cd74fa245e9dbc63d4fe1d8821ad2e462775353b97d5e43b5300b01",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"
+      },
+      "capturedAt": "2026-11-02T11:30:04.263Z"
+    },
+    {
+      "state": "peek",
+      "file": "docs/validation/collector-normal-2026-11-02/captures/peek.png",
+      "sha256": "ec6cb5a2b37745fe95ba81cd8dec992faf1b0305e8ed1ff82e850974aa5cbc75",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"
+      },
+      "capturedAt": "2026-11-02T11:30:05.486Z"
+    },
+    {
+      "state": "owned",
+      "file": "docs/validation/collector-normal-2026-11-02/captures/owned.png",
+      "sha256": "64a91d80d807411c918bdba546d717f65519f5b73d480b85faf21ed1141d05d9",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722,
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"
+      },
+      "capturedAt": "2026-11-02T11:30:10.721Z"
+    }
+  ],
+  "config": {
+    "rarityEconomy": {
+      "version": 1,
+      "tiers": {
+        "common": {
+          "value": 1,
+          "effect": 1
+        },
+        "uncommon": {
+          "value": 2,
+          "effect": 2
+        },
+        "rare": {
+          "value": 3,
+          "effect": 3
+        },
+        "epic": {
+          "value": 4,
+          "effect": 4
+        },
+        "legendary": {
+          "value": 6,
+          "effect": 6
+        },
+        "mythic": {
+          "value": 8,
+          "effect": 8
+        }
+      }
+    },
+    "rarity": {
+      "version": 1,
+      "rates": {
+        "common": 0.6,
+        "uncommon": 0.25,
+        "rare": 0.1,
+        "epic": 0.035,
+        "legendary": 0.013,
+        "mythic": 0.002
+      },
+      "themes": {
+        "common": [
+          {
+            "theme": "plain",
+            "weight": 1
+          }
+        ],
+        "uncommon": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "rare": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "epic": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "legendary": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "mythic": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ]
+      }
+    },
+    "loanEndSettlement": true,
+    "vaultInterestRules": 1,
+    "theftTimeoutRules": 1,
+    "collectorDeadline": 15,
+    "eventChoiceRules": 1,
+    "statusLinks": 1,
+    "systemLinks": 1,
+    "trustAbilities": true,
+    "catalogVersion": 4,
+    "itemEffects": true,
+    "roundRewards": true,
+    "multiCoinRewards": true,
+    "commerce": true,
+    "totalTrustStock": true,
+    "curseSight": true,
+    "freeBuy": true,
+    "freeMerchantAction": true,
+    "fakeEffect": true,
+    "cleanse": true,
+    "wishlist": true,
+    "wishContract": true,
+    "challenge": true,
+    "expansion": true,
+    "encounters": 3,
+    "startingCredits": 40,
+    "maxEnergy": 10,
+    "recoveryEnergy": 4,
+    "bankReserve": 2000,
+    "marketProbability": 1,
+    "marketMaxOrders": 3,
+    "marketQuota": 1,
+    "collectorWishlistRules": 1,
+    "secureEconomy": true,
+    "brokerage": {
+      "auctionProbability": 0.5,
+      "maxLots": 2,
+      "bondProbability": 0.65
+    },
+    "polish": true,
+    "npcEvents": true,
+    "core2": true,
+    "survival": {
+      "maxLife": 6,
+      "encounterLifeCost": 1,
+      "entryEnergyCost": 0
+    }
+  },
+  "seed": "397f7a44db962888993a18d3f515df8dab0dd9fb0080338ad82bb34e1dd8c359",
+  "final": [
+    {
+      "id": "2a2162596bf22584",
+      "credits": 4,
+      "energy": 2,
+      "inventory": [],
+      "score": 120,
+      "life": 0
+    },
+    {
+      "id": "ae4df1f926bb75ca",
+      "credits": 24,
+      "energy": 2,
+      "inventory": [],
+      "score": 77,
+      "life": 0
+    }
+  ],
+  "collectorCommands": [
+    {
+      "type": "collector-wish-request",
+      "kinds": [
+        "orc-tusk-shield",
+        "vampire-nocturne-signet",
+        "autometa-torque-caliper"
+      ],
+      "encounter": 2,
+      "requestId": "b3c477041a229e2a6827111135f30a43"
+    },
+    {
+      "type": "collector-wish-peek",
+      "batchId": "cw-2a2162596bf22584-2",
+      "slotId": "s0",
+      "encounter": 4,
+      "requestId": "320b4d500699d86a5e85c91a34c2efa6"
+    },
+    {
+      "type": "collector-wish-buy",
+      "batchId": "cw-2a2162596bf22584-2",
+      "slotId": "s1",
+      "quoteId": "cw-2a2162596bf22584-2:26:1:0",
+      "encounter": 4,
+      "requestId": "7252342e7bc20bf147a2a5b5e37d1cde"
+    },
+    {
+      "type": "collector-wish-skip",
+      "requestId": "ui-live-1793619010945-21",
+      "encounter": 4
+    },
+    {
+      "type": "collector-wish-skip",
+      "requestId": "ui-live-1793619014257-48",
+      "encounter": 6
+    }
+  ],
+  "encounter": 6,
+  "finishedAt": "2026-11-02T11:30:15.865Z",
+  "sourceFingerprints": {
+    "scripts/ui/collector-normal-live.mjs": "88f4a97b5b45dd0c7d63402bd8dc61f793908006569dd2bd561caf38aab7c1af",
+    "apps/comic/src/appraisal-client/App.tsx": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8",
+    "apps/comic/src/appraisal-client/CollectorWishlist.tsx": "21f0b86c8220b246c34ee61e866d9dc542e17fb77cedd9ff6333551b2a152908",
+    "apps/comic/src/appraisal-client/collector-wishlist.css": "1172c72bf486387fddbe4ed437f416724cf65cb537a764e44e389d813e775630",
+    "apps/comic/src/game/appraisal/engine.ts": "87e6a10adf3bffeb31b6134bdcbf596068c5f8a75ec622dc4552a8536ca6ff70",
+    "apps/comic/src/game/appraisal/collector-wishlist.ts": "bdf9ff7aeebd8cea20bf61f7de5dff43df5e107e561741a580084f1040b671c1",
+    "apps/comic/src/server/appraisal-main.ts": "344962080ebff735530d1a2c2f1d12ab590f608c0a4cd3dbeb127ba7dd62ccb5",
+    "apps/comic/src/server/appraisal-rooms.ts": "a4e65e4f57521d6c4eedb24fe348ce7d2a4974ea8539b2618b200fc33681f3d8",
+    "apps/comic/src/simulation/appraisal.ts": "278025401318fc01ea5f26187703b569f68b82c41f859b943c0c320bcbe92c66"
+  },
+  "observedRevision": "4088f6e",
+  "sourceSnapshotRecordedAfterRun": true,
+  "invocation": "ego-browser nodejs; taskSpace16/p1; scripts/ui/collector-normal-live.mjs; baseUrl3196",
+  "auditSha256": "d7389a0a1311be11a87c5a5184e0f305e21b10f8273743fe1c5f1f2011d014c7"
+}

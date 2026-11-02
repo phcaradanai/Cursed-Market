@@ -1,0 +1,150 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  [
+    'collector-wish-request',
+    'collector-wish-peek',
+    'collector-wish-buy',
++   'collector-wish-skip'
+  ]
+
+    at run (file:///private/tmp/collector-normal-live.mjs:33:126)
+    at async file:////[eval2]:1:95
+[ego-browser:notice] Ego Lite update is available (current 0.6.1.13). Finish the current browser task, then ask the user before running `ego-browser upgrade`; re-read the ego-browser Skill afterward.
+[p1 "Cursed Market — นักประเมินต่างมิติ" | space "Cursed Market Collector approved goal"(16): 1 managed, 0 untracked — p1* "Cursed Market — นักประเมินต่างมิติ"]
+root
+  container
+    container
+      container
+        heading
+          text "จบการเดินทาง"
+        unordered_list
+          container
+            list_item
+              svg_root
+              text "เครดิต"
+            list_item
+              text "20"
+          container
+            list_item
+              svg_root
+              text "พลัง"
+            list_item
+              text "5"
+              container
+                text "/"
+                text "10"
+          container
+            list_item
+              svg_root
+              text "ชีวิต"
+            list_item
+              text "0"
+              container
+                text "/"
+                text "6"
+        container "สมุดและกระเป๋า"
+          button "สมุดบันทึก · เงินกู้และใบประกาศ" [ref=8]
+            svg_root
+            text "บันทึก"
+          button "กติกา" [ref=9, loc=css:button[aria-label="กติกา"]]
+            svg_root
+            text "กติกา"
+          button "ตั้งค่า" [ref=10, loc=css:button[aria-label="ตั้งค่า"]]
+            svg_root
+            text "ตั้งค่า"
+      container
+        heading
+          text "Collector มารับของ · ผู้ได้คะแนนสูงสุด: Bot 1"
+        paragraph
+          text "ทุกคนชีวิตหมดแล้ว Collector รับสินค้าที่เหลือและรวมเครดิต คิดคะแนนครั้งเดี�..."
+        container
+          text "คะแนนสุดท้ายจากสินค้า + เครดิต และผลสถานะ"
+          container
+            container
+              text "1"
+              text "Bot 1"
+              container
+                text "สินค้า"
+                text "41"
+                text "·"
+              container
+                text "เครดิต"
+                text "9"
+                text "·"
+              container
+                text "รวมก่อนปรับ"
+                text "50"
+                text "·"
+              container
+                text "ผลคะแนน"
+                text "+"
+                text "0"
+                text "%"
+              text "50"
+            container
+              text "2"
+              text "Collector UI QA"
+              container
+                text "สินค้า"
+                text "22"
+                text "·"
+              container
+                text "เครดิต"
+                text "20"
+                text "·"
+              container
+                text "รวมก่อนปรับ"
+                text "42"
+                text "·"
+              container
+                text "ผลคะแนน"
+                text "+"
+                text "0"
+                text "%"
+              text "42"
+        container [ref=11]
+          text "ของที่ Collector รับจาก Bot 1 · 2 ชิ้น"
+        container [ref=12]
+          text "ของที่ Collector รับจาก Collector UI QA · 1 ชิ้น"
+        container
+          button [ref=13]
+            text "กลับห้องเพื่อเล่นเส้นทางใหม่"
+          button [ref=14]
+            text "ดาวน์โหลดบันทึกเกม"
+          button [ref=15]
+            text "ออกจากห้อง"
+    ordered_list "ผลที่เพิ่งเกิด"
+      list_item
+        svg_root
+        text "โล่เขี้ยวออร์ก"
+        text "ขายไม่ออก:"
+        text "ออร์ก"
+        text "เสียหน้า ยึดเครดิต 3 เท่าที่มี"
+        unordered_list
+          list_item
+            text "−3 เครดิต"
+        button "ปิดการแจ้งเตือน" [ref=16]
+          svg_root
+      list_item
+        svg_root
+        text "จบการเดินทาง"
+        unordered_list
+          list_item
+            text "พายุมิติซัดใส่: เสียชีวิต 1"
+          list_item
+            text "เสีย"
+            text "ค้อนรัง"
+          list_item
+            text "หมดผล"
+            svg_root
+            text "พิษฝูง"
+          list_item
+            text "−1 พลัง"
+          list_item
+            text "−2 ชีวิต"
+        button "ปิดการแจ้งเตือน" [ref=17]
+          svg_root
+
+
+ego's nodejs process exited with code 1.

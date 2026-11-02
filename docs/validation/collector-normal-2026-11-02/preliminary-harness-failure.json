@@ -1,0 +1,17 @@
+{
+  "startedAt": "2026-11-02T11:28:13.507Z",
+  "spaceId": 16,
+  "baseUrl": "http://127.0.0.1:3196",
+  "scope": "Real App + WebSocket + engine, one browser player and built-in public-only cautious bot. Actual Comic main pilot8 opt-in, normal40-credit/6-life/defaultdeadline15/defaultclocks; one browser player plus cautious built-in bot. Public setup holds human spending beforeCollector4; afterpurchase public cautious policy with recovery. Collector actions through visible App controls; one run is not balance acceptance.",
+  "checks": [
+    "real App room starts normal40credit/6life main config with two seats",
+    "visible three-kind request reaches server and waits for encounter4",
+    "one real reveal is free and exposes one slot only",
+    "explicit App confirmation charges exact credits/energy once and receives one owned item",
+    "actual UI-paid run reaches RESULTS and strict audit replay matches"
+  ],
+  "captures": [],
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    'collector-wish-request',\n    'collector-wish-peek',\n    'collector-wish-buy',\n+   'collector-wish-skip'\n  ]\n",
+  "failedAt": "2026-11-02T11:28:39.346Z",
+  "artifactNote": "Preliminary failed harness assumption only: expected exactly3 Collector actions over full run; legitimate later cautious skips occurred. Images at shared paths were replaced by successful second run; no preliminary image evidence retained."
+}

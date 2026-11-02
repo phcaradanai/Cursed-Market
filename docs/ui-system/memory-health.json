@@ -62,5 +62,16 @@
     ],
     "unrelatedUntaggedResults": 31,
     "limitation": "Matching retrieval succeeded but facts were shortened; repository receipts remain authoritative, not exact verbatim memory."
+  },
+  "normalPlayFollowup20261102": {
+    "status": "sync retain acknowledged;4 matching IDs retrieved; tag filtering unreliable",
+    "memoryIds": [
+      "d9017a03-c9f0-435d-9318-f152842a7119",
+      "59bdfd65-584a-4336-b494-8cc4bfb75926",
+      "298160b4-680b-456a-a497-5695dbbff128",
+      "8d1d2e68-4b35-40bd-a4bf-3d604c900748"
+    ],
+    "unrelatedResults": 10,
+    "authority": "Version-controlled normal-play-verification.json and raw audit/report sources"
   }
 }

@@ -1,0 +1,18 @@
+// Bounded diagnostic matrix using the actual main-room config, never a balance verdict.
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';import assert from 'node:assert/strict';import {execFileSync} from 'node:child_process';import {fileURLToPath} from 'node:url';
+import {simulateAppraisalRun} from '../dist/src/simulation/appraisal.js';
+const root=fileURLToPath(new URL('../../..',import.meta.url)),script=fileURLToPath(import.meta.url),sha=f=>crypto.createHash('sha256').update(fs.readFileSync(path.join(root,f))).digest('hex');
+if(process.argv[2]==='--case'){
+ const c=JSON.parse(process.argv[3]),audit=simulateAppraisalRun(c.count,c.policy,c.seed,c.config);assert.equal(audit.collector.length,c.count);assert.equal(audit.final.length,c.count);assert(audit.commands.length<1500);fs.writeFileSync(c.output,JSON.stringify(audit,null,2)+'\n');console.log('RESULTS + simulator strict replay');
+}else{
+ const input='docs/validation/collector-normal-2026-11-02/live-ui-audit.json',baseline=JSON.parse(fs.readFileSync(path.join(root,input))).run;assert.equal(baseline.config.startingCredits,40);assert.equal(baseline.config.survival.maxLife,6);assert.equal(baseline.config.collectorDeadline,15);assert.equal(baseline.config.collectorWishlistRules,1);
+ const out=path.resolve(process.argv[2]??path.join(root,'docs/validation/normal-play-2026-11-02'));fs.mkdirSync(out,{recursive:true});const report={startedAt:new Date().toISOString(),revision:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),scope:'Eight bounded diagnostic runs, one deterministic seed,2/4 seats,cautious/trader,catalog3/4,exact40credit/6life/deadline15 main config from live audit; no numeric changes, ghost service player actions or statistical balance claim.',input,sourceFingerprints:Object.fromEntries([input,'apps/comic/src/server/appraisal-main.ts','apps/comic/src/game/appraisal/engine.ts','apps/comic/src/simulation/appraisal.ts','apps/comic/scripts/normal-play-probe.mjs'].map(f=>[f,sha(f)])),cases:[]};
+ for(const count of [2,4])for(const policy of ['cautious','trader'])for(const catalogVersion of [3,4]){
+  const id=`c${catalogVersion}-${count}-${policy}`,config={...baseline.config,catalogVersion},file=id+'.audit.json',output=path.join(out,file),c={id,count,policy,seed:'normal-main-0',config,output},start=Date.now();let error;
+  try{execFileSync(process.execPath,[script,'--case',JSON.stringify(c)],{cwd:root,timeout:12000,killSignal:'SIGKILL',stdio:'pipe'});}catch(e){error=String(e.stderr??e.message).slice(-3500);}
+  const result={id,count,policy,seed:c.seed,catalogVersion,wallMs:Date.now()-start,status:error?'failed':'pass',...(error?{error}:{audit:file,sha256:crypto.createHash('sha256').update(fs.readFileSync(output)).digest('hex')})};
+  if(!error){const a=JSON.parse(fs.readFileSync(output));result.encounter=Math.max(...a.trace.map(t=>t.encounter));result.commands=a.commands.length;result.final=a.final;result.traceCounts=Object.fromEntries([...new Set(a.trace.map(t=>t.type))].sort().map(type=>[type,a.trace.filter(t=>t.type===type).length]));}
+  report.cases.push(result);report.updatedAt=new Date().toISOString();fs.writeFileSync(path.join(out,'report.json'),JSON.stringify(report,null,2)+'\n');console.log(id,result.status,result.wallMs+'ms');
+ }
+ report.finishedAt=new Date().toISOString();report.passed=report.cases.filter(c=>c.status==='pass').length;report.failed=report.cases.length-report.passed;fs.writeFileSync(path.join(out,'report.json'),JSON.stringify(report,null,2)+'\n');console.log({passed:report.passed,failed:report.failed});
+}

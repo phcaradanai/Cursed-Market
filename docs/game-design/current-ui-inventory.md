@@ -4,8 +4,8 @@
 
 ## ขอบเขตที่ตรวจพบ
 
-- 58 ภาพ ครอบคลุม 22 กลุ่มหน้าจอ/เมนู/เหตุการณ์
-- 10 ภาพมาจากห้องเกมที่รันจริง; 48 ภาพใช้ public preview fixture; ไม่ใช่หลักฐานจ่ายเงินจริงทุกภาพ
+- 63 ภาพ ครอบคลุม 22 กลุ่มหน้าจอ/เมนู/เหตุการณ์
+- 15 ภาพมาจากห้องเกมที่รันจริง; 48 ภาพใช้ public preview fixture; ไม่ใช่หลักฐานจ่ายเงินจริงทุกภาพ
 - ทะเบียน30รายการรวมหน้าที่ยังเป็นแผน จึงไม่ใช่30หน้าที่ทำแล้ว และภาพหลายแท็บของหน้าเดียวไม่นับเป็นหน้าใหม่
 - ชุดแรก25ภาพไม่ได้แก้ UI/logic เกม; C26 เพิ่มหลังลง UI E109 ตาม concept v05 เป็นภาพจับ component จริงด้วย fixture ไม่ใช่ภาพ AI ไม่ได้แก้กฎเกม
 
@@ -38,7 +38,7 @@
 | A02 | ขโมยและเป่ายิ้งฉุบ | 0 | mixed | ยังไม่จับ ไม่ใช่ข้อสรุปว่าไม่มี |
 | A03 | ตราบาปและแลกคืน | 0 | runtime | ยังไม่จับ ไม่ใช่ข้อสรุปว่าไม่มี |
 | A04 | ของขายไม่ออก | 0 | runtime | ยังไม่จับ ไม่ใช่ข้อสรุปว่าไม่มี |
-| A05 | Collector Wishlist | 16 | runtime | ขอ3/รอ2/เปิด1/จ่ายจริง; main rooms v1; candidate captures |
+| A05 | Collector Wishlist | 20 | runtime | ขอ3/รอ2/เปิด1/จ่ายจริง; main rooms v1; candidate captures |
 | G01 | วิญญาณติดตามการ์ด | 1 | runtime (shared composite state) | [ดูภาพ](captures/ghost-2026-10-30/ghost-1440x722.png) |
 | G02 | เรียกบริการและตกลงสัญญาวิญญาณ | 1 | runtime (shared composite state) | [ดูภาพ](captures/ghost-2026-10-30/ghost-busy-1440x722.png) |
 | G03 | ร้าน Skeleton และ RPS แยกสามช่อง | 1 | runtime (shared composite state) | [ดูภาพ](captures/ghost-2026-10-30/ghost-lost-1440x722.png) |
@@ -84,3 +84,5 @@ S11/G01 share the same tracking view. G02–G04 are substates of GhostWorld, not
 2026-11-02 A05: Collector reused ComicMenu/controls,12 captures at1024/1440/1920 with source hashes; no images generated or old screens recreated. Runtime audit/payment and UI fixture evidence are separate.
 
 Post-review: C54–C58 are real App paid-flow captures at declared500-credit/20-life fixture config; C58 owned bag belongsM01. Hidden source pool isolation fixed; minor initial-event request-catalog access remains tracked.
+
+2026-11-02 normal main: C59–C63 แยกจาก500-credit fixture;40เครดิต/6ชีวิต request2→delivery4→buy→RESULTS6/replay ผ่าน5checks. ดูnormal-play-verification.json; ไม่รับรองbalance.

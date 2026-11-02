@@ -144,8 +144,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 385,
-      "endLine": 385
+      "line": 388,
+      "endLine": 388
     },
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
     "guards": []
@@ -362,8 +362,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 483,
-      "endLine": 483
+      "line": 486,
+      "endLine": 486
     },
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:penaltyItem",
     "guards": [
@@ -397,8 +397,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 487,
-      "endLine": 487
+      "line": 490,
+      "endLine": 490
     },
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:kill",
     "guards": [
@@ -422,8 +422,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 450,
-      "endLine": 450
+      "line": 453,
+      "endLine": 453
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
@@ -434,8 +434,8 @@
     "operation": "recover",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 450,
-      "endLine": 450
+      "line": 453,
+      "endLine": 453
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
@@ -663,8 +663,8 @@
     "operation": "spend",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 449,
-      "endLine": 449
+      "line": 452,
+      "endLine": 452
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
@@ -675,8 +675,8 @@
     "operation": "spend",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 449,
-      "endLine": 449
+      "line": 452,
+      "endLine": 452
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
@@ -687,8 +687,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 449,
-      "endLine": 449
+      "line": 452,
+      "endLine": 452
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
@@ -712,8 +712,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 199,
-      "endLine": 199
+      "line": 201,
+      "endLine": 201
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
     "guards": [
@@ -760,8 +760,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 385,
-      "endLine": 385
+      "line": 388,
+      "endLine": 388
     },
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
     "guards": []
@@ -783,8 +783,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 451,
-      "endLine": 451
+      "line": 454,
+      "endLine": 454
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
@@ -807,8 +807,8 @@
     "operation": "removeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 442,
-      "endLine": 442
+      "line": 445,
+      "endLine": 445
     },
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "guards": [
@@ -863,8 +863,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 400,
-      "endLine": 400
+      "line": 403,
+      "endLine": 403
     },
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
     "guards": [
@@ -1271,8 +1271,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 200,
-      "endLine": 200
+      "line": 202,
+      "endLine": 202
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
     "guards": [
@@ -1318,8 +1318,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 385,
-      "endLine": 385
+      "line": 388,
+      "endLine": 388
     },
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
     "guards": []
@@ -1386,8 +1386,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 412,
-      "endLine": 412
+      "line": 415,
+      "endLine": 415
     },
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "guards": []
@@ -1914,8 +1914,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 424,
-      "endLine": 424
+      "line": 427,
+      "endLine": 427
     },
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "guards": [
@@ -1966,8 +1966,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 429,
-      "endLine": 429
+      "line": 432,
+      "endLine": 432
     },
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "guards": [

@@ -1,7 +1,7 @@
 {
   "asOf": "2026-11-02",
   "activeSource": "apps/comic",
-  "revision": "5a44a7a + public pilot command proof / approved Collector spec worktree",
+  "revision": "10629f2 + Collector engine Task1 worktree",
   "headline": "ยังไม่ครบตามกฎและขอบเขตเกมที่ตกลงทั้งหมด",
   "summary": "วงจรเดิมและตลาดวิญญาณเล่นได้ แต่การย้ายกฎ/สินค้าใหม่และบาลานซ์ทั้งเกมยังค้าง ภาพหน้าจอหรือกราฟครบไม่ได้แปลว่า runtime ครบ",
   "atlasScope": "Atlas สกัดทุก module ของ apps/comic/src/game/appraisal พร้อม random/rarity/protocol/server lifecycle และ bot ที่ระบุ; graph เป็น static dependency ไม่ใช่ execution proof; UI ใช้ capture/flow registry แยก; รุ่นเก่าตรึง9f0a972ใน legacy-atlas-baseline.json",
@@ -72,15 +72,17 @@
     {
       "id": "RULE-03",
       "system": "Collector Wishlist3+2",
-      "status": "สเปกทดลองอนุมัติแล้ว — กำลังเริ่มimplementation",
-      "remaining": "ผู้ใช้อนุมัติcollector-wishlist-v1.mdตามSHAที่ตรึงแล้ว: ชุดส่วนตัว3+2 ราคาอ้างอิงร่วม/ต้นทุนเดิม ซื้อ1หรือข้าม peek1 schedule2→4 expiry/ban/custodyครบ. ยังไม่มีdedicatedruntime; ดำเนินตามcollector-wishlist-plan.md ไม่ถามอนุมัติชุดเดิมซ้ำ",
+      "status": "engine-tested-opt-in; protocol-ui-pending",
+      "remaining": "Task1 engine opt-inผ่าน21Collector/232focused/2socketเดิม/24replayเดิม; Task2protocol/botและTask3ComicUIยังไม่ทำ. ดูcollector-wishlist-engine-verification.json",
       "evidence": [
         "apps/comic/src/game/appraisal/wishlist.ts",
         "docs/game-design/rules-and-logic.md",
         "docs/game-design/PROJECT-CONTEXT.md",
         "docs/game-design/proposals/collector-wishlist-v1.md",
         "docs/game-design/collector-wishlist-approval.json",
-        "docs/game-design/implementations/collector-wishlist-plan.md"
+        "docs/game-design/implementations/collector-wishlist-plan.md",
+        "apps/comic/src/game/appraisal/collector-wishlist.ts",
+        "docs/game-design/collector-wishlist-engine-verification.json"
       ]
     },
     {

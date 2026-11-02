@@ -359,6 +359,9 @@ export function noteScrap(state:AppraisalState,buyer:Appraiser,items:AppraisalIt
   if((buyer.scrapPaid??0)>=CORE2.scrap.cap)buyer.scraps=Math.min(buyer.scraps,CORE2.scrap.need-1);
   else {buyer.notes.push(`เศษพลัง ${buyer.scraps}/${CORE2.scrap.need}`);buyer.notes=buyer.notes.slice(-30);}
 }
+export function purchaseModifiers(state:AppraisalState,buyer:Appraiser):{discount:number;fee:number;energyAdjustment:number} {
+  const b=passiveBonuses(state,buyer);return {discount:integerEffect(statusMagnitude(buyer,'B03',2))-integerEffect(statusMagnitude(buyer,'D12',2))+b.discount,fee:feeSurcharge(state,buyer),energyAdjustment:integerEffect(statusMagnitude(buyer,'D06',1))-b.buyEnergy};
+}
 export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraiser, itemIds: string[], options: {discount?:number;condition?:boolean;grantStatus?:StatusId;lock?:boolean;barterItemId?:string} = {}): void {
   check(!state.config.secureEconomy || !merchantTradeBanned(state,buyer) && !merchantTradeBanned(state,shop),'merchant-banned','ยังถูกห้ามค้าขายกับพ่อค้า');
   check(Array.isArray(itemIds) && itemIds.length > 0 && itemIds.length<=2 && itemIds.every(id=>typeof id==='string') && new Set(itemIds).size === itemIds.length,'bundle','ชุดสินค้าไม่ถูกต้อง');
@@ -369,14 +372,14 @@ export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraise
   check(items.every(item => item.npc === items[0]!.npc),'bundle','สินค้าไม่ได้อยู่ร้านเดียวกัน');
   check(!options.condition || !['D04','D07'].includes(profile.condition) || !!state.config.survival || state.encounter < state.config.encounters,'condition','เงื่อนไขนี้ไม่มี encounter ถัดไป');
   const basePrice = items.reduce((sum,item) => sum + npcQuote(shop,item),0);
-  const b=passiveBonuses(state,buyer);const commissionBonuses=new Map(state.players.map(p=>[p.id,passiveBonuses(state,p)]));
-  const discount = (options.discount ?? 0) + integerEffect(statusMagnitude(buyer,'B03',2)) - integerEffect(statusMagnitude(buyer,'D12',2)) + (options.condition ? profile.discount : 0)+b.discount;
+  const common=purchaseModifiers(state,buyer);const commissionBonuses=new Map(state.players.map(p=>[p.id,passiveBonuses(state,p)]));
+  const discount = (options.discount ?? 0) + common.discount + (options.condition ? profile.discount : 0);
   const bloodDiscount=!!state.config.npcEvents && buyer.id===shop.id && items[0]!.npc==='vampire' && buyer.vampireDiscount?.encounter===state.encounter && !options.barterItemId;
   const orc=state.config.trustAbilities && buyer.orcDeal?.encounter===state.encounter && itemIds.includes(buyer.orcDeal.itemId)?buyer.orcDeal:undefined;
   const orcDiscount=orc?Math.floor(Math.max(0,Math.min(npcQuote(shop,items.find(i=>i.id===orc.itemId)!),basePrice-discount))*orc.percent/100):0;
   const price = options.barterItemId ? 0 : Math.max(0,Math.floor(Math.max(0,basePrice-discount)*(bloodDiscount?.5:1))-orcDiscount);
-  const fee = options.barterItemId ? 0 : feeSurcharge(state,buyer);
-  const energy = Math.max(0,(state.config.freeBuy || friendAppraised(state,buyer,shop,items) ? 0 : 1) + integerEffect(statusMagnitude(buyer,'D06',1))-b.buyEnergy);
+  const fee = options.barterItemId ? 0 : common.fee;
+  const energy = Math.max(0,(state.config.freeBuy || friendAppraised(state,buyer,shop,items) ? 0 : 1) + common.energyAdjustment);
   if (options.barterItemId) ownedItem(state,buyer,options.barterItemId,true);
   spend(state,buyer,price+fee,energy,'npc-purchase');
   if(bloodDiscount)delete buyer.vampireDiscount;

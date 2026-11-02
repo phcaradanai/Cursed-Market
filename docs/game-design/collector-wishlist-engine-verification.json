@@ -1,0 +1,42 @@
+{
+  "asOf": "2026-11-02",
+  "status": "engine-tested-opt-in",
+  "flag": "collectorWishlistRules:1",
+  "approval": "docs/game-design/collector-wishlist-approval.json",
+  "scope": "Task1 engine only. Protocol, bot policy and Comic UX pending. No default rollout or full-game completion. Named unit fixtures explicitly mutate costs/life/status only for boundaries; request2-delivery4-buy-end replay uses actual commands.",
+  "sourceFingerprints": {
+    "apps/comic/src/game/appraisal/collector-wishlist.ts": "bdf9ff7aeebd8cea20bf61f7de5dff43df5e107e561741a580084f1040b671c1",
+    "apps/comic/src/game/appraisal/engine.ts": "93efbd488a98959aa51c94cfaeb43bb52e768db8ee301d1af446caf97528ed1a",
+    "apps/comic/src/game/appraisal/types.ts": "2c07c98b7865a6d21b5be8eceace17ec70b96d731f3ca57c716b6f8004d3635a",
+    "apps/comic/src/game/appraisal/views.ts": "349677f197da0fd51c2b2402ed810d86bcf4ac96545daddb5e310343fe869116",
+    "apps/comic/src/game/appraisal/mechanics.ts": "1cfcaade2a8d801d380eac44d6496aa1de1457c258290436577e25d7cc7e7b31",
+    "apps/comic/src/game/appraisal/secure-storage.ts": "55858a21b2472e5e90076dc92985ee6d0e6f71cd44399d5f03a4ea262bb843ab",
+    "apps/comic/src/game/appraisal/survival.ts": "deb7de5bae0ad0e84a761f25e31bb083dcf7445cbc433c78e25b71873d82d147",
+    "apps/comic/src/game/appraisal/journal.ts": "ad612d764adb70f82db962c6dcdec54df83b57284961d3002bf81b30891456d9",
+    "apps/comic/tests/collector-wishlist.test.ts": "efeeb212919afe6cdd0aa594cd95449299a046ee6c4e976642543615236217d6"
+  },
+  "checks": {
+    "collector": 21,
+    "focusedIncludingCollector": 232,
+    "priorNetworkActualSockets": 2,
+    "historicalAuditReplays": 24,
+    "nativePublicEffectPairs": 8,
+    "nativePublicRuns": 16,
+    "nativeStrictReplayChecks": 32,
+    "serverBuild": "pass",
+    "clientBuild": "pass; existing bundle advisory",
+    "uiSourceFingerprints": 388,
+    "uiContracts": 10,
+    "atlasInputs": 162
+  },
+  "evidenceDirectory": "docs/validation/collector-engine-2026-11-02",
+  "failures": [
+    "Initial actual socket launch failed listen EPERM in restricted execution; rerun with local port permission passed2/2.",
+    "TDD failures covered absent window/journal, salary withdrawal regression, stale quote, prototype-shaped seat and end cancellation before fixes."
+  ],
+  "limits": [
+    "Protocol rejects new actions until Task2. UI has no Collector panel until Task3.",
+    "Default catalog3 and pilot catalog4 pools unchanged. New rule not enabled by default.",
+    "No fresh screenshot claim for backend-only edits; prior approved baselines not overwritten."
+  ]
+}

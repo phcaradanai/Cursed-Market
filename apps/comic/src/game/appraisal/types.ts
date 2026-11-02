@@ -37,6 +37,8 @@ export type ItemKind = LegacyItemFamily | PilotItemKind | 'memory-mirror' | 'rif
   'abyss-pearl' | 'tide-lantern' | 'kraken-ink' | 'siren-conch' | 'hive-comb' | 'chitin-blade' | 'larva-cell' | 'compound-mirror' | PassiveKind | typeof ABILITY_ITEM_IDS[number];
 export type AppraisalPhase = 'PORTALS' | 'APPRAISAL' | 'TRADE' | 'REVEAL' | 'RESULTS';
 export interface AppraisalConfig {
+  /** Dedicated personal Collector purchases; absent in historical audits. */
+  collectorWishlistRules?:1;
   /** Absent in visual-only/old audits: no price or effect scaling. */
   rarityEconomy?:import('../../shared/rarity-power.js').RarityEconomyConfig;
   /** Optional in old audits. Appearance-only RNG; no hidden truths or economic multipliers. */
@@ -250,6 +252,7 @@ export interface TraceEntry { type: string; encounter: number; playerId: string;
 export interface JournalEntry { id:number; encounter:number; phase:AppraisalPhase; action:string; cause:string; changes:string[]; choice?:string; itemKind?:ItemKind }
 export interface EncounterResult { encounter: number; playerId: string; gain: number; accuracy: number; score: number; paused: Appraiser['paused'] }
 export type AppraisalAction = { playerId: string; requestId: string; encounter: number } & (
+  | import('./collector-wishlist.js').CollectorWishlistAction
   | import('./ghost-service.js').GhostAction
   | import('./secure-storage.js').StorageAction
   | import('./secure-storage.js').LoanAction
@@ -294,6 +297,7 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
 /** `rebate` is credits the owner pays the buyer when the sale completes, so a poor item can still find a price. */
 export interface SharedListing { ownerId: string; itemId: string; purchase: boolean; claims?: { genuine?: boolean; cursed?: boolean }; rebate?: number }
 export interface AppraisalState {
+  collectorWishes?:Record<string,import('./collector-wishlist.js').CollectorWishlistState>;
   ghosts?:Record<string,import('./ghost-service.js').GhostState>;
   theftDuels?:import('./theft.js').TheftDuel[];
   loans?:import('./secure-storage.js').SecuredLoan[];
@@ -348,7 +352,8 @@ export interface AppraisalView {
   statusLinks?:1;
   survival?:NonNullable<AppraisalConfig['survival']>; core2?:boolean; collectorAt?:number; dread?:number; curseSight?:boolean; freeBuy?:boolean; fakeEffect?:boolean; cleanse?:boolean; wishlist?:boolean; wishContract?:boolean; challenge?:boolean; polish?:boolean; omen?:{id:string;name:string;text:string}; salePct?:number; fee?:number; maxEnergy?:number; collector?:CollectorResult[]; brokerage?:boolean; roundRewardBase?:number; passives?:boolean;
   self: Omit<Appraiser,'personalVault'|'knowledge'|'portals'|'stock'|'inventory'|'valuations'|'startWealth'|'acceptedDanger'|'seenEvents'|'resolvedEvents'> & {
-    personalVault?:{items:ItemView[];credits:number;slots:number;nextSlotPrice:number;nextInterest:number;interestPercent?:number};
+    collectorWishlist?:import('./collector-wishlist.js').CollectorWishlistView;
+    personalVault?:{items:ItemView[];credits:number;slots:number;nextSlotPrice:number;nextInterest:number;interestPercent?:number;canWithdrawCredits?:boolean};
     loanItems?:ItemView[];
     inventory: ItemView[]; stock: ItemView[]; portals: Array<{id:string; npc:NpcId; hint:ItemKind; disabled:boolean}>;
     portalRerollCost?:number;pilotPriceChecks?:number;pilotAcceptancePercent?:number;

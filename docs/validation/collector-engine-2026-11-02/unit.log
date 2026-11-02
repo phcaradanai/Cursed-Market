@@ -1,0 +1,29 @@
+✔ Collector exposes a dedicated private request window at encounter2 while preserving NPC wishlist (125.731917ms)
+✔ old no-flag rooms do not expose or accept Collector requests (26.5605ms)
+✔ request3 at2 survives own appraisal done, stays pending at3, delivers5stable concealed slots at4 (63.732166ms)
+✔ peek reveals only one kind/art/rarity, then a different slot can be bought once for the shared quoted cost (46.398083ms)
+✔ invalid request counts/duplicates/unknown kinds and odd windows cannot create a batch (15.165917ms)
+✔ private offers cannot be accessed by another seat and forged slot cannot spend money (36.60125ms)
+✔ a current delivery expires on own appraisal done, while a request for a future encounter does not (49.668875ms)
+✔ being done entering a portal does not expire a delivery before appraisal (44.271375ms)
+✔ Collector window permits only manual credit withdrawal, not deposit or item movement outside salary (44.527833ms)
+✔ request/delivery/peek/purchase causes are present in the private Thai journal without hidden truth (35.224375ms)
+✔ reference quote averages anchors scaled once and never reads item truth (38.815625ms)
+✔ engine receipts preserve one peek/one payment and full request-delivery-purchase-end audit replays (112.92825ms)
+✔ regular settled-salary withdrawal stays available with the new flag even without a Collector offer (7.61225ms)
+✔ a stale purchase quote cannot charge a newly raised price and failed confirmation consumes nothing (25.911334ms)
+✔ Collector per-seat state supports allowed Object-prototype-shaped player IDs without using inherited values (4.400708ms)
+✔ end-game cancellation of a pending future request is explained in the owner journal (45.914125ms)
+✔ purchase applies shared status discounts, surcharge, fee and energy once without merchant trust or peer scraps (56.107292ms)
+✔ merchant ban blocks payment but permits read, funded peek, skip and another request (36.326917ms)
+✔ energy shortage rejects atomically without consuming a quoted discount or opened slot (28.608209ms)
+✔ death cancels a future request or unbought escrow and never grants the goods to a ghost (41.329292ms)
+✔ unit price fixture keeps a Collector good at one credit after a discount larger than its raw quote (33.245458ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1344.771791

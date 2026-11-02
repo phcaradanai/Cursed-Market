@@ -54,12 +54,13 @@
 - code:apps/comic/src/game/appraisal/mechanics.ts:inheritKnowledge ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":325,"endLine":334})
 - code:apps/comic/src/game/appraisal/mechanics.ts:noteRepeatBuy ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":336,"endLine":346})
 - code:apps/comic/src/game/appraisal/mechanics.ts:noteScrap ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":348,"endLine":361})
-- code:apps/comic/src/game/appraisal/mechanics.ts:purchase ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":362,"endLine":402})
-- code:apps/comic/src/game/appraisal/mechanics.ts:activate ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":403,"endLine":467})
-- code:apps/comic/src/game/appraisal/mechanics.ts:activationNote ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":469,"endLine":480})
-- code:apps/comic/src/game/appraisal/mechanics.ts:penaltyItem ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":481,"endLine":485})
-- code:apps/comic/src/game/appraisal/mechanics.ts:kill ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":486,"endLine":490})
-- code:apps/comic/src/game/appraisal/mechanics.ts:marketSell ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":491,"endLine":536})
+- code:apps/comic/src/game/appraisal/mechanics.ts:purchaseModifiers ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":362,"endLine":364})
+- code:apps/comic/src/game/appraisal/mechanics.ts:purchase ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":365,"endLine":405})
+- code:apps/comic/src/game/appraisal/mechanics.ts:activate ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":406,"endLine":470})
+- code:apps/comic/src/game/appraisal/mechanics.ts:activationNote ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":472,"endLine":483})
+- code:apps/comic/src/game/appraisal/mechanics.ts:penaltyItem ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":484,"endLine":488})
+- code:apps/comic/src/game/appraisal/mechanics.ts:kill ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":489,"endLine":493})
+- code:apps/comic/src/game/appraisal/mechanics.ts:marketSell ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":494,"endLine":539})
 - code:apps/comic/src/game/appraisal/mechanics.ts:inspect ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":212,"endLine":248})
 - code:apps/comic/src/game/appraisal/price-integrity.ts:auditItemPrice ({"file":"apps/comic/src/game/appraisal/price-integrity.ts","line":14,"endLine":23})
 
@@ -116,12 +117,13 @@
 - code:apps/comic/src/game/appraisal/mechanics.ts:inheritKnowledge ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":325,"endLine":334})
 - code:apps/comic/src/game/appraisal/mechanics.ts:noteRepeatBuy ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":336,"endLine":346})
 - code:apps/comic/src/game/appraisal/mechanics.ts:noteScrap ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":348,"endLine":361})
-- code:apps/comic/src/game/appraisal/mechanics.ts:purchase ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":362,"endLine":402})
-- code:apps/comic/src/game/appraisal/mechanics.ts:activate ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":403,"endLine":467})
-- code:apps/comic/src/game/appraisal/mechanics.ts:activationNote ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":469,"endLine":480})
-- code:apps/comic/src/game/appraisal/mechanics.ts:penaltyItem ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":481,"endLine":485})
-- code:apps/comic/src/game/appraisal/mechanics.ts:kill ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":486,"endLine":490})
-- code:apps/comic/src/game/appraisal/mechanics.ts:marketSell ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":491,"endLine":536})
+- code:apps/comic/src/game/appraisal/mechanics.ts:purchaseModifiers ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":362,"endLine":364})
+- code:apps/comic/src/game/appraisal/mechanics.ts:purchase ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":365,"endLine":405})
+- code:apps/comic/src/game/appraisal/mechanics.ts:activate ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":406,"endLine":470})
+- code:apps/comic/src/game/appraisal/mechanics.ts:activationNote ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":472,"endLine":483})
+- code:apps/comic/src/game/appraisal/mechanics.ts:penaltyItem ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":484,"endLine":488})
+- code:apps/comic/src/game/appraisal/mechanics.ts:kill ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":489,"endLine":493})
+- code:apps/comic/src/game/appraisal/mechanics.ts:marketSell ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":494,"endLine":539})
 - code:apps/comic/src/game/appraisal/challenge.ts:settleChallenge ({"file":"apps/comic/src/game/appraisal/challenge.ts","line":13,"endLine":33})
 
 ## logic:L03 คำสาปและการชำระ
@@ -181,12 +183,13 @@
 - code:apps/comic/src/game/appraisal/mechanics.ts:inheritKnowledge ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":325,"endLine":334})
 - code:apps/comic/src/game/appraisal/mechanics.ts:noteRepeatBuy ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":336,"endLine":346})
 - code:apps/comic/src/game/appraisal/mechanics.ts:noteScrap ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":348,"endLine":361})
-- code:apps/comic/src/game/appraisal/mechanics.ts:purchase ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":362,"endLine":402})
-- code:apps/comic/src/game/appraisal/mechanics.ts:activate ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":403,"endLine":467})
-- code:apps/comic/src/game/appraisal/mechanics.ts:activationNote ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":469,"endLine":480})
-- code:apps/comic/src/game/appraisal/mechanics.ts:penaltyItem ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":481,"endLine":485})
-- code:apps/comic/src/game/appraisal/mechanics.ts:kill ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":486,"endLine":490})
-- code:apps/comic/src/game/appraisal/mechanics.ts:marketSell ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":491,"endLine":536})
+- code:apps/comic/src/game/appraisal/mechanics.ts:purchaseModifiers ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":362,"endLine":364})
+- code:apps/comic/src/game/appraisal/mechanics.ts:purchase ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":365,"endLine":405})
+- code:apps/comic/src/game/appraisal/mechanics.ts:activate ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":406,"endLine":470})
+- code:apps/comic/src/game/appraisal/mechanics.ts:activationNote ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":472,"endLine":483})
+- code:apps/comic/src/game/appraisal/mechanics.ts:penaltyItem ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":484,"endLine":488})
+- code:apps/comic/src/game/appraisal/mechanics.ts:kill ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":489,"endLine":493})
+- code:apps/comic/src/game/appraisal/mechanics.ts:marketSell ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":494,"endLine":539})
 - code:apps/comic/src/game/appraisal/cleanse.ts:cleanseOffer ({"file":"apps/comic/src/game/appraisal/cleanse.ts","line":23,"endLine":27})
 
 ## logic:L04 ซื้อและต่อรอง NPC
@@ -241,14 +244,15 @@
 - code:apps/comic/src/game/appraisal/mechanics.ts:inheritKnowledge ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":325,"endLine":334})
 - code:apps/comic/src/game/appraisal/mechanics.ts:noteRepeatBuy ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":336,"endLine":346})
 - code:apps/comic/src/game/appraisal/mechanics.ts:noteScrap ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":348,"endLine":361})
-- code:apps/comic/src/game/appraisal/mechanics.ts:purchase ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":362,"endLine":402})
-- code:apps/comic/src/game/appraisal/mechanics.ts:activate ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":403,"endLine":467})
-- code:apps/comic/src/game/appraisal/mechanics.ts:activationNote ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":469,"endLine":480})
-- code:apps/comic/src/game/appraisal/mechanics.ts:penaltyItem ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":481,"endLine":485})
-- code:apps/comic/src/game/appraisal/mechanics.ts:kill ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":486,"endLine":490})
-- code:apps/comic/src/game/appraisal/mechanics.ts:marketSell ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":491,"endLine":536})
+- code:apps/comic/src/game/appraisal/mechanics.ts:purchaseModifiers ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":362,"endLine":364})
+- code:apps/comic/src/game/appraisal/mechanics.ts:purchase ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":365,"endLine":405})
+- code:apps/comic/src/game/appraisal/mechanics.ts:activate ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":406,"endLine":470})
+- code:apps/comic/src/game/appraisal/mechanics.ts:activationNote ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":472,"endLine":483})
+- code:apps/comic/src/game/appraisal/mechanics.ts:penaltyItem ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":484,"endLine":488})
+- code:apps/comic/src/game/appraisal/mechanics.ts:kill ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":489,"endLine":493})
+- code:apps/comic/src/game/appraisal/mechanics.ts:marketSell ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":494,"endLine":539})
 - code:apps/comic/src/game/appraisal/market-contracts.ts:trustAcceptanceBonus ({"file":"apps/comic/src/game/appraisal/market-contracts.ts","line":4,"endLine":4})
-- code:apps/comic/src/game/appraisal/mechanics.ts:purchase ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":362,"endLine":402})
+- code:apps/comic/src/game/appraisal/mechanics.ts:purchase ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":365,"endLine":405})
 
 ## logic:L05 ขาย/ค่านายหน้า/ระบาย
 
@@ -260,8 +264,8 @@
 
 คู่ค้า การแลกของ ข้อมูลรับรองและการรับข้อเสนอ
 
-- code:apps/comic/src/game/appraisal/engine.ts:propose ({"file":"apps/comic/src/game/appraisal/engine.ts","line":245,"endLine":263})
-- code:apps/comic/src/game/appraisal/engine.ts:respond ({"file":"apps/comic/src/game/appraisal/engine.ts","line":283,"endLine":314})
+- code:apps/comic/src/game/appraisal/engine.ts:propose ({"file":"apps/comic/src/game/appraisal/engine.ts","line":247,"endLine":265})
+- code:apps/comic/src/game/appraisal/engine.ts:respond ({"file":"apps/comic/src/game/appraisal/engine.ts","line":285,"endLine":316})
 
 ## logic:L07 ตลาดมืดและของค้าง
 
@@ -272,8 +276,8 @@
 - code:apps/comic/src/game/appraisal/market-contracts.ts:marketOrderReserve ({"file":"apps/comic/src/game/appraisal/market-contracts.ts","line":5,"endLine":5})
 - code:apps/comic/src/game/appraisal/market-contracts.ts:marketConditionMatch ({"file":"apps/comic/src/game/appraisal/market-contracts.ts","line":7,"endLine":10})
 - code:apps/comic/src/game/appraisal/market-contracts.ts:makeMarketContract ({"file":"apps/comic/src/game/appraisal/market-contracts.ts","line":11,"endLine":22})
-- code:apps/comic/src/game/appraisal/engine.ts:makeMarket ({"file":"apps/comic/src/game/appraisal/engine.ts","line":162,"endLine":182})
-- code:apps/comic/src/game/appraisal/views.ts:marketView ({"file":"apps/comic/src/game/appraisal/views.ts","line":22,"endLine":25})
+- code:apps/comic/src/game/appraisal/engine.ts:makeMarket ({"file":"apps/comic/src/game/appraisal/engine.ts","line":164,"endLine":184})
+- code:apps/comic/src/game/appraisal/views.ts:marketView ({"file":"apps/comic/src/game/appraisal/views.ts","line":23,"endLine":26})
 
 ## logic:L08 ประมูล
 
@@ -318,8 +322,8 @@
 
 เปลี่ยน/เปิดประตูและเบาะแสก่อนเลือก
 
-- code:apps/comic/src/game/appraisal/engine.ts:generatePortals ({"file":"apps/comic/src/game/appraisal/engine.ts","line":136,"endLine":144})
-- code:apps/comic/src/game/appraisal/engine.ts:rerollPortal ({"file":"apps/comic/src/game/appraisal/engine.ts","line":146,"endLine":160})
+- code:apps/comic/src/game/appraisal/engine.ts:generatePortals ({"file":"apps/comic/src/game/appraisal/engine.ts","line":138,"endLine":146})
+- code:apps/comic/src/game/appraisal/engine.ts:rerollPortal ({"file":"apps/comic/src/game/appraisal/engine.ts","line":148,"endLine":162})
 
 ## logic:L13 ขโมยเชิงรุก RPS
 
@@ -428,73 +432,73 @@
 
 นับเฉพาะเงินก้อนเดิมครบช่วง ถอน/เติมใหม่ห้ามรับทันที
 
-- code:apps/comic/src/game/appraisal/secure-storage.ts:VAULT_INTEREST_PERCENT ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":5,"endLine":5})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:vaultInterestOf ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":6,"endLine":6})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:nextVaultInterest ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":8,"endLine":12})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:positive ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":31,"endLine":33})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:addable ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":34,"endLine":36})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:enabled ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":37,"endLine":40})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:afterReward ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":41,"endLine":43})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:loanWindow ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":44,"endLine":47})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:movable ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":48,"endLine":51})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:removeFromHand ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":52,"endLine":55})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:quoteVaultExpansion ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":56,"endLine":59})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:quoteLoanDeadline ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":61,"endLine":68})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:firstPayout ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":69,"endLine":72})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:handleStorageAction ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":73,"endLine":105})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:loanOf ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":106,"endLine":109})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:pending ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":110,"endLine":112})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:termsOf ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":113,"endLine":115})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:validPrincipal ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":116,"endLine":118})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:collateral ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":119,"endLine":123})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:returnCollateral ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":124,"endLine":128})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:handleLoanAction ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":129,"endLine":176})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:settleLoansBeforeAdvance ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":181,"endLine":194})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:payVaultInterest ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":199,"endLine":216})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:loanViewFor ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":217,"endLine":219})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:secureStorageInvariants ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":220,"endLine":239})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:ownedAssetItemIds ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":242,"endLine":244})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:vaultInterestOf ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":6,"endLine":6})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:payVaultInterest ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":199,"endLine":216})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:VAULT_INTEREST_PERCENT ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":6,"endLine":6})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:vaultInterestOf ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":7,"endLine":7})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:nextVaultInterest ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":9,"endLine":13})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:positive ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":32,"endLine":34})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:addable ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":35,"endLine":37})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:enabled ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":38,"endLine":41})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:afterReward ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":42,"endLine":44})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:loanWindow ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":45,"endLine":48})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:movable ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":49,"endLine":52})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:removeFromHand ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":53,"endLine":56})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:quoteVaultExpansion ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":57,"endLine":60})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:quoteLoanDeadline ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":62,"endLine":69})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:firstPayout ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":70,"endLine":73})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:handleStorageAction ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":74,"endLine":106})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:loanOf ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":107,"endLine":110})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:pending ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":111,"endLine":113})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:termsOf ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":114,"endLine":116})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:validPrincipal ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":117,"endLine":119})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:collateral ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":120,"endLine":124})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:returnCollateral ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":125,"endLine":129})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:handleLoanAction ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":130,"endLine":177})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:settleLoansBeforeAdvance ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":182,"endLine":195})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:payVaultInterest ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":200,"endLine":217})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:loanViewFor ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":218,"endLine":220})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:secureStorageInvariants ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":221,"endLine":240})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:ownedAssetItemIds ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":243,"endLine":245})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:vaultInterestOf ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":7,"endLine":7})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:payVaultInterest ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":200,"endLine":217})
 
 ## logic:L17 พื้นที่และการขยาย Vault
 
 ราคาขยายและจำนวนช่อง ไม่รวมดอกเบี้ย
 
-- code:apps/comic/src/game/appraisal/secure-storage.ts:VAULT_INTEREST_PERCENT ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":5,"endLine":5})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:vaultInterestOf ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":6,"endLine":6})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:nextVaultInterest ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":8,"endLine":12})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:positive ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":31,"endLine":33})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:addable ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":34,"endLine":36})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:enabled ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":37,"endLine":40})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:afterReward ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":41,"endLine":43})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:loanWindow ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":44,"endLine":47})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:movable ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":48,"endLine":51})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:removeFromHand ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":52,"endLine":55})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:quoteVaultExpansion ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":56,"endLine":59})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:quoteLoanDeadline ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":61,"endLine":68})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:firstPayout ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":69,"endLine":72})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:handleStorageAction ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":73,"endLine":105})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:loanOf ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":106,"endLine":109})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:pending ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":110,"endLine":112})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:termsOf ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":113,"endLine":115})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:validPrincipal ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":116,"endLine":118})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:collateral ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":119,"endLine":123})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:returnCollateral ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":124,"endLine":128})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:handleLoanAction ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":129,"endLine":176})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:settleLoansBeforeAdvance ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":181,"endLine":194})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:payVaultInterest ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":199,"endLine":216})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:loanViewFor ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":217,"endLine":219})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:secureStorageInvariants ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":220,"endLine":239})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:ownedAssetItemIds ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":242,"endLine":244})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:quoteVaultExpansion ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":56,"endLine":59})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:VAULT_INTEREST_PERCENT ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":6,"endLine":6})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:vaultInterestOf ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":7,"endLine":7})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:nextVaultInterest ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":9,"endLine":13})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:positive ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":32,"endLine":34})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:addable ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":35,"endLine":37})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:enabled ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":38,"endLine":41})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:afterReward ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":42,"endLine":44})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:loanWindow ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":45,"endLine":48})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:movable ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":49,"endLine":52})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:removeFromHand ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":53,"endLine":56})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:quoteVaultExpansion ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":57,"endLine":60})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:quoteLoanDeadline ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":62,"endLine":69})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:firstPayout ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":70,"endLine":73})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:handleStorageAction ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":74,"endLine":106})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:loanOf ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":107,"endLine":110})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:pending ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":111,"endLine":113})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:termsOf ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":114,"endLine":116})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:validPrincipal ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":117,"endLine":119})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:collateral ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":120,"endLine":124})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:returnCollateral ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":125,"endLine":129})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:handleLoanAction ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":130,"endLine":177})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:settleLoansBeforeAdvance ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":182,"endLine":195})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:payVaultInterest ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":200,"endLine":217})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:loanViewFor ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":218,"endLine":220})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:secureStorageInvariants ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":221,"endLine":240})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:ownedAssetItemIds ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":243,"endLine":245})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:quoteVaultExpansion ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":57,"endLine":60})
 
 ## logic:L18 เงินกู้มีหลักประกัน
 
 เงินต้น คืนครบ ผลตอบแทนและกำหนดที่ทั้งคู่ยอมรับ
 
-- code:apps/comic/src/game/appraisal/secure-storage.ts:handleLoanAction ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":129,"endLine":176})
-- code:apps/comic/src/game/appraisal/secure-storage.ts:settleLoansBeforeAdvance ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":181,"endLine":194})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:handleLoanAction ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":130,"endLine":177})
+- code:apps/comic/src/game/appraisal/secure-storage.ts:settleLoansBeforeAdvance ({"file":"apps/comic/src/game/appraisal/secure-storage.ts","line":182,"endLine":195})
 
 ## logic:L19 ตราบาป
 
@@ -591,14 +595,14 @@ NPC ขอซื้อของจากผู้เล่น; ไม่ใช�
 
 ความเสียหาย ดีลฟื้นชีวิตและการตาย
 
-- code:apps/comic/src/game/appraisal/survival.ts:SURVIVAL_RULES ({"file":"apps/comic/src/game/appraisal/survival.ts","line":9,"endLine":9})
-- code:apps/comic/src/game/appraisal/survival.ts:BROKERAGE_RULES ({"file":"apps/comic/src/game/appraisal/survival.ts","line":11,"endLine":11})
-- code:apps/comic/src/game/appraisal/survival.ts:collectorDue ({"file":"apps/comic/src/game/appraisal/survival.ts","line":13,"endLine":13})
-- code:apps/comic/src/game/appraisal/survival.ts:collectRun ({"file":"apps/comic/src/game/appraisal/survival.ts","line":14,"endLine":35})
+- code:apps/comic/src/game/appraisal/survival.ts:SURVIVAL_RULES ({"file":"apps/comic/src/game/appraisal/survival.ts","line":10,"endLine":10})
+- code:apps/comic/src/game/appraisal/survival.ts:BROKERAGE_RULES ({"file":"apps/comic/src/game/appraisal/survival.ts","line":12,"endLine":12})
+- code:apps/comic/src/game/appraisal/survival.ts:collectorDue ({"file":"apps/comic/src/game/appraisal/survival.ts","line":14,"endLine":14})
+- code:apps/comic/src/game/appraisal/survival.ts:collectRun ({"file":"apps/comic/src/game/appraisal/survival.ts","line":15,"endLine":36})
 - code:apps/comic/src/game/appraisal/mechanics.ts:healLife ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":129,"endLine":133})
 - code:apps/comic/src/game/appraisal/mechanics.ts:damageLife ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":134,"endLine":143})
 - code:apps/comic/src/game/appraisal/mechanics.ts:retire ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":184,"endLine":190})
-- code:apps/comic/src/game/appraisal/mechanics.ts:kill ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":486,"endLine":490})
+- code:apps/comic/src/game/appraisal/mechanics.ts:kill ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":489,"endLine":493})
 
 ## logic:L25 เศษชีพจรและคู่ค้า
 
@@ -685,7 +689,7 @@ NPC ขอซื้อของจากผู้เล่น; ไม่ใช�
 - code:apps/comic/src/game/appraisal/scoring.ts:collectorTotal ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":8,"endLine":10})
 - code:apps/comic/src/game/appraisal/scoring.ts:FAKE_EFFECT_CHANCE ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":12,"endLine":12})
 - code:apps/comic/src/game/appraisal/scoring.ts:collectorTotal ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":8,"endLine":10})
-- code:apps/comic/src/game/appraisal/survival.ts:collectRun ({"file":"apps/comic/src/game/appraisal/survival.ts","line":14,"endLine":35})
+- code:apps/comic/src/game/appraisal/survival.ts:collectRun ({"file":"apps/comic/src/game/appraisal/survival.ts","line":15,"endLine":36})
 
 ## logic:L30 คะแนนพิเศษผู้นำ
 
@@ -711,7 +715,7 @@ NPC ขอซื้อของจากผู้เล่น; ไม่ใช�
 - code:apps/comic/src/game/appraisal/audit.ts:exportAppraisalAudit ({"file":"apps/comic/src/game/appraisal/audit.ts","line":21,"endLine":24})
 - code:apps/comic/src/game/appraisal/audit.ts:replayAppraisalAudit ({"file":"apps/comic/src/game/appraisal/audit.ts","line":25,"endLine":33})
 - code:apps/comic/src/game/appraisal/mechanics.ts:trace ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":31,"endLine":33})
-- code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor ({"file":"apps/comic/src/game/appraisal/views.ts","line":48,"endLine":67})
+- code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor ({"file":"apps/comic/src/game/appraisal/views.ts","line":49,"endLine":68})
 
 ## logic:L33 เจ้าของ/คลัง/หลักประกัน
 

@@ -1,3 +1,4 @@
+import {collectorCanWithdraw} from './collector-wishlist.js';
 import {heldInterestRings,ringInterestBasisPoints,pilotExpansionCost} from './pilot-effects.js';
 import type {AppraisalItem, AppraisalState, Appraiser} from './types.js';
 import {check, ownedItem, player, reward, spend, trace, transfer} from './mechanics.js';
@@ -71,7 +72,7 @@ function firstPayout(state:AppraisalState):number {
   return state.encounter+(state.phase==='REVEAL'?1:0);
 }
 export function handleStorageAction(state:AppraisalState,p:Appraiser,action:StorageAction):void {
-  enabled(state,p);afterReward(state,p);
+  enabled(state,p);if(!(action.type==='vault-withdraw-credits'&&collectorCanWithdraw(state,p)))afterReward(state,p);
   const vault:PersonalVault=p.personalVault??{items:[],credits:0,slots:2};
   switch(action.type){
     case 'vault-deposit-item':{

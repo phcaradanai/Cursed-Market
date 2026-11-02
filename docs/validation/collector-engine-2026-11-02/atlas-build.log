@@ -1,0 +1,29 @@
+Atlas graph: 2981 nodes / 11653 edges; assertions passed
+{
+  "events": 132,
+  "statuses": 51,
+  "omens": 22,
+  "omenPacks": {
+    "polish": 7,
+    "core2": 15
+  },
+  "merchants": 8,
+  "abilities": 8,
+  "choiceVariants": 314,
+  "encounterModels": 6,
+  "phases": 5,
+  "actions": 60,
+  "configKeys": 55,
+  "parameters": 72,
+  "functions": 493,
+  "codeSymbols": 636,
+  "policies": 212,
+  "randomRules": 105,
+  "legacyGateSites": 21,
+  "logSites": 118,
+  "logTopics": 103,
+  "validationSites": 457,
+  "dynamicStatusOperations": 29,
+  "schemas": 124,
+  "propertyWriteSites": 535
+}

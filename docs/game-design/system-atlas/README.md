@@ -1,6 +1,6 @@
 # แผนที่ระบบเกมทั้งหมด
 
-Snapshot 2026-11-02; revision 5a44a7a021c0df8cf2d7b647d5081d4fea5987fd (รวม working tree fingerprint ใน manifest)
+Snapshot 2026-11-02; revision 10629f2a6c0b029b7de652d3e946a6c692e46039 (รวม working tree fingerprint ใน manifest)
 
 Active source: `apps/comic/src` — Every game/appraisal module plus explicit random/rarity/protocol/server lifecycle and bot sources; UI uses separate capture/flow registry
 
@@ -29,20 +29,20 @@ Active source: `apps/comic/src` — Every game/appraisal module plus explicit ra
   "choiceVariants": 314,
   "encounterModels": 6,
   "phases": 5,
-  "actions": 56,
-  "configKeys": 54,
+  "actions": 60,
+  "configKeys": 55,
   "parameters": 72,
-  "functions": 476,
-  "codeSymbols": 618,
+  "functions": 493,
+  "codeSymbols": 636,
   "policies": 212,
-  "randomRules": 96,
+  "randomRules": 105,
   "legacyGateSites": 21,
-  "logSites": 109,
-  "logTopics": 96,
-  "validationSites": 435,
-  "dynamicStatusOperations": 28,
-  "schemas": 119,
-  "propertyWriteSites": 521
+  "logSites": 118,
+  "logTopics": 103,
+  "validationSites": 457,
+  "dynamicStatusOperations": 29,
+  "schemas": 124,
+  "propertyWriteSites": 535
 }
 ```
 ## สืบต่อเมื่อเพิ่ม logic

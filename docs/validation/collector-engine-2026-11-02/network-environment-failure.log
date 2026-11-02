@@ -1,0 +1,38 @@
+✖ real sockets preserve sealed hands, independent clocks, resume and round-token idempotency (32.620208ms)
+✖ two real sockets track cards, agree a job and deliver with no duplicate payment (32.002541ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 613.67275
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/appraisal-forced-rps-network.test.js:27:1
+✖ real sockets preserve sealed hands, independent clocks, resume and round-token idempotency (32.620208ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:2368:21)
+      at listenInCluster (node:net:2499:12)
+      at node:net:2728:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+test at apps/comic/dist/tests/ghost-network.test.js:14:1
+✖ two real sockets track cards, agree a job and deliver with no duplicate payment (32.002541ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:2368:21)
+      at listenInCluster (node:net:2499:12)
+      at node:net:2728:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }

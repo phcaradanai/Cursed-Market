@@ -14,20 +14,20 @@
   "choiceVariants": 314,
   "encounterModels": 6,
   "phases": 5,
-  "actions": 56,
-  "configKeys": 54,
+  "actions": 60,
+  "configKeys": 55,
   "parameters": 72,
-  "functions": 476,
-  "codeSymbols": 618,
+  "functions": 493,
+  "codeSymbols": 636,
   "policies": 212,
-  "randomRules": 96,
+  "randomRules": 105,
   "legacyGateSites": 21,
-  "logSites": 109,
-  "logTopics": 96,
-  "validationSites": 435,
-  "dynamicStatusOperations": 28,
-  "schemas": 119,
-  "propertyWriteSites": 521
+  "logSites": 118,
+  "logTopics": 103,
+  "validationSites": 457,
+  "dynamicStatusOperations": 29,
+  "schemas": 124,
+  "propertyWriteSites": 535
 }
 ```
 ## กฎยืนยันและสถานะ runtime
@@ -100,9 +100,13 @@
 {
   "id": "collector-wishlist",
   "name": "Collector Wishlist 3+2 / รอ2 / ดู1 / จ่ายจริง",
-  "state": "confirmed-rule/not-runtime-bound",
+  "state": "engine-tested-opt-in/protocol-ui-pending",
   "confirmed": "ทุก 2 turn ขอ 3; ส่งอีก 2 turn รวมสุ่ม 2; ปกปิด 5 ช่อง; เปิดดู 1; ต้องจ่ายซื้อ",
-  "functionNames": [],
+  "functionNames": [
+    "handleCollectorWishlist",
+    "reconcileCollectorWishlist",
+    "collectorWishlistView"
+  ],
   "logicIds": [
     "L21"
   ],
@@ -112,7 +116,11 @@
     "wishSell"
   ],
   "evidence": "docs/game-design/rules-and-logic.md",
-  "functionRefs": []
+  "functionRefs": [
+    "code:apps/comic/src/game/appraisal/collector-wishlist.ts:handleCollectorWishlist",
+    "code:apps/comic/src/game/appraisal/collector-wishlist.ts:reconcileCollectorWishlist",
+    "code:apps/comic/src/game/appraisal/collector-wishlist.ts:collectorWishlistView"
+  ]
 }
 ```
 ### คะแนนผู้นำและ rarity รายกลุ่ม
@@ -1168,7 +1176,7 @@
 - E01 as a proposal effect differs from event:E01; namespaces are mandatory.
 - Source references are static dependencies, not proof a function executes on every action.
 - Mode/config variants and latest confirmed rules must be distinguished from current runtime values.
-- Dynamic status operations 28 จุด: payload/ตัวเลือก/state เป็นตัวกำหนดผล ไม่ขยายเป็นผลจริงทั้งหมด
+- Dynamic status operations 29 จุด: payload/ตัวเลือก/state เป็นตัวกำหนดผล ไม่ขยายเป็นผลจริงทั้งหมด
 - การอ้างตัวอักษร / code-call แสดง dependency เท่านั้น ไม่รับประกันการ execute
 - ตัวเลขใน parameter เป็น runtime snapshot; กฎใหม่มีอำนาจเหนือค่าเก่า แต่เอกสารไม่ได้เปลี่ยน runtime
 - การวิเคราะห์ความถี่จริงต้องจำลอง seed/config/player state และเก็บผล; งานนี้ไม่อ้างว่าได้จำลองแล้ว
@@ -1281,6 +1289,25 @@
     "expression": "grant(state,p,debuff)",
     "start": 11831,
     "end": 11857
+  },
+  {
+    "id": "operation:apps/comic/src/game/appraisal/collector-wishlist.ts:10854",
+    "name": "consumeStatus",
+    "owner": "code:apps/comic/src/game/appraisal/collector-wishlist.ts:handleCollectorWishlist",
+    "args": [
+      "p",
+      "id"
+    ],
+    "statusIds": [],
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/collector-wishlist.ts",
+      "line": 69,
+      "endLine": 69
+    },
+    "expression": "consumeStatus(p,id)",
+    "start": 10854,
+    "end": 10873
   },
   {
     "id": "operation:apps/comic/src/game/appraisal/core2-actions.ts:7741",
@@ -1523,7 +1550,7 @@
     "end": 22578
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:32122",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:32386",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
     "args": [
@@ -1537,15 +1564,15 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 398,
-      "endLine": 398
+      "line": 401,
+      "endLine": 401
     },
     "expression": "grant(state,buyer,options.grantStatus)",
-    "start": 32122,
-    "end": 32161
+    "start": 32386,
+    "end": 32425
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:32187",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:32451",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
     "args": [
@@ -1559,15 +1586,15 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 399,
-      "endLine": 399
+      "line": 402,
+      "endLine": 402
     },
     "expression": "grant(state,buyer,profile.condition)",
-    "start": 32187,
-    "end": 32224
+    "start": 32451,
+    "end": 32488
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:33221",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:33485",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "args": [
@@ -1583,15 +1610,15 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 411,
-      "endLine": 411
+      "line": 414,
+      "endLine": 414
     },
     "expression": "grant(state,p,spec.drawback,undefined,itemDrawbackScale(item))",
-    "start": 33221,
-    "end": 33284
+    "start": 33485,
+    "end": 33548
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:36697",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:36961",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "args": [
@@ -1613,15 +1640,15 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 443,
-      "endLine": 443
+      "line": 446,
+      "endLine": 446
     },
     "expression": "grant(state,p,spec.buff,undefined,power)",
-    "start": 36697,
-    "end": 36737
+    "start": 36961,
+    "end": 37001
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:43201",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:43465",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
     "args": [
@@ -1638,15 +1665,15 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 518,
-      "endLine": 518
+      "line": 521,
+      "endLine": 521
     },
     "expression": "grant(state,p,cost.statusId)",
-    "start": 43201,
-    "end": 43230
+    "start": 43465,
+    "end": 43494
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:44079",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:44343",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
     "args": [
@@ -1663,12 +1690,12 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 530,
-      "endLine": 530
+      "line": 533,
+      "endLine": 533
     },
     "expression": "grant(state,p,bonus.statusId)",
-    "start": 44079,
-    "end": 44108
+    "start": 44343,
+    "end": 44372
   },
   {
     "id": "operation:apps/comic/src/game/appraisal/merchant-abilities.ts:8327",

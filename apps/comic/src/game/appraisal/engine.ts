@@ -1,3 +1,4 @@
+import {handleCollectorWishlist,reconcileCollectorWishlist,assertCollectorWishlistInvariants} from './collector-wishlist.js';
 import {pilotRerollCost,reconcilePilotCustody} from './pilot-effects.js';
 import {handleGhostAction,reconcileGhostJobs} from './ghost-service.js';
 import { integerEffect, statusMagnitude } from './copy-effects.js';
@@ -40,6 +41,7 @@ export const DEFAULT_APPRAISAL_CONFIG: AppraisalConfig = {
   bankReserve:2000, marketProbability:1, marketMaxOrders:3, marketQuota:1,
 };
 function validateConfig(config:AppraisalConfig):void {
+  check(config.collectorWishlistRules===undefined||config.collectorWishlistRules===1,'config','กติกา Collector ไม่ถูกต้อง');
   if(config.rarityEconomy!==undefined){validateRarityEconomy(config.rarityEconomy);check(!!config.rarity,'config','Rarity economy requires rarity generation');}
   if(config.rarity!==undefined)validateRarityConfig(config.rarity);
   check(config.secureEconomy===undefined || typeof config.secureEconomy==='boolean','config','กติกาคลังและสัญญาไม่ถูกต้อง');
@@ -112,7 +114,7 @@ function initialiseAppraisalRun(playerIds:string[],seed:string,config:AppraisalC
   state.market=makeMarket(state);
   for(const p of state.players) if(randomAt(seed,`${state.encounter}:${p.id}:entry-event`)<.55) drawEvent(state,p);
   for(const p of state.players)p.journal=[{id:0,encounter:1,phase:'PORTALS',action:'เริ่มการเดินทาง',cause:'ทรัพยากรตั้งต้นของห้อง',changes:[`เครดิต +${p.credits}`,`พลัง +${p.energy}`,...(p.life!==undefined?[`ชีวิต +${p.life}`]:[])]}];
-  assertAppraisalInvariants(state); return state;
+  reconcileCollectorWishlist(state);assertAppraisalInvariants(state); return state;
 }
 /** One merchant item; the same recipe fills the portals up front and the extra slots earned through trust. */
 function spawnStockItem(state:AppraisalState,id:string,seat:number,encounter:number,index:number|string,slot:number,npc:NpcId):string {
@@ -337,7 +339,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
   const financeAction=storageAction || loanAction || sealAction || action.type==='crime-clear';
   check(ghostAction?previous.phase!=='RESULTS':roundAction?previous.phase==='REVEAL':financeAction?previous.phase!=='RESULTS':!['REVEAL','RESULTS'].includes(previous.phase),'phase','ช่วงนี้ไม่รับ action');
   const state=structuredClone(previous); const p=player(state,action.playerId);
-  if(ghostAction){handleGhostAction(state,p.id,action as import('./ghost-service.js').GhostAction);enforceCaps(state);state.revision++;state.accepted[key]=signature;state.commands.push(structuredClone(action));reconcileGhostJobs(state);reconcilePilotCustody(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;}
+  if(ghostAction){handleGhostAction(state,p.id,action as import('./ghost-service.js').GhostAction);enforceCaps(state);state.revision++;state.accepted[key]=signature;state.commands.push(structuredClone(action));reconcileGhostJobs(state);reconcilePilotCustody(state);reconcileCollectorWishlist(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;}
   const duelling=state.config.secureEconomy && state.theftDuels?.some(d=>d.status==='open' && [d.thiefId,d.victimId].includes(p.id));
   check(!duelling || action.type==='theft-hand' || action.type==='theft-timeout' || action.type==='theft-expire','theft-pending','เลือกมือเป่ายิ้งฉุบให้เสร็จก่อน');
   check(!p.abilityChoice || action.type==='merchant-ability' && !!action.choiceId || action.type==='done' || action.type==='theft-timeout' || action.type==='theft-expire','ability-choice','เลือกสินค้าที่พ่อค้าเสนอให้ก่อน');
@@ -345,7 +347,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
     if(action.type==='round-flip')flipRoundReward(state,p,action.guess,action.attempt,action.guesses);
     else if(action.type==='round-raise')raiseRoundReward(state,p,action.coinCount,action.attempt);
     else bankRoundReward(state,p);
-    state.revision++;state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);reconcileGhostJobs(state);reconcilePilotCustody(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;
+    state.revision++;state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);reconcileGhostJobs(state);reconcilePilotCustody(state);reconcileCollectorWishlist(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;
   }
   const forcedTimeout=action.type==='theft-timeout'&&state.config.theftTimeoutRules===1;
   if(financeAction || action.type==='theft-hand' || action.type==='theft-expire' || forcedTimeout) {
@@ -361,11 +363,12 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
     else if(action.type==='theft-expire')expireTheftDuel(state,p,action.duelId);
     else if(action.type==='theft-timeout')for(const duel of state.theftDuels??[])if(duel.status==='open'&&[duel.thiefId,duel.victimId].includes(p.id))expireTheftDuel(state,p,duel.id);
     cancelTheftDuels(state);for(const seat of state.players)pauseIfNeeded(state,seat);progress(state);expireUnavailableOffers(state);
-    state.revision++;state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);reconcileGhostJobs(state);reconcilePilotCustody(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;
+    state.revision++;state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);reconcileGhostJobs(state);reconcilePilotCustody(state);reconcileCollectorWishlist(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;
   }
   check(!p.paused && !p.done,'inactive','ผู้เล่นพักหรือจบช่วงแล้ว');
   check(!p.eventOffer || !isConsequence(p.eventOffer.id) || action.type==='event' || action.type==='done' || action.type==='theft-timeout','consequence','resolve ผล NPC ก่อน');
   switch(action.type) {
+    case 'collector-wish-request': case 'collector-wish-peek': case 'collector-wish-buy': case 'collector-wish-skip':handleCollectorWishlist(state,p,action);break;
     case 'theft-start': check(state.config.secureEconomy && ['APPRAISAL','TRADE'].includes(state.phase) && !p.eventOffer,'phase','ตอบเหตุการณ์ก่อนขโมย');startTheftDuel(state,p,action);break;
     case 'reappraise-owned': check(['APPRAISAL','TRADE'].includes(state.phase) && !p.eventOffer,'phase','ตอบเหตุการณ์ก่อนประเมินใหม่');reappraiseOwnedItem(state,p,action.itemId,action.value);break;
     case 'liquidate': check(['APPRAISAL','TRADE'].includes(state.phase) && !p.eventOffer,'phase','ตอบเหตุการณ์ก่อนขายของ');liquidateOwnedItem(state,p,action.itemId);break;
@@ -421,14 +424,14 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
     default: check(false,'action-type','ไม่รู้จักคำสั่ง');
   }
   pauseIfNeeded(state,p); progress(state); if(state.config.secureEconomy)cancelTheftDuels(state);expireUnavailableOffers(state); state.revision++;
-  state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);reconcileGhostJobs(state);reconcilePilotCustody(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;
+  state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);reconcileGhostJobs(state);reconcilePilotCustody(state);reconcileCollectorWishlist(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;
 }
 export function advanceAppraisalEncounter(previous:AppraisalState):AppraisalState {
   check(previous.phase==='REVEAL','phase','ต้องเปิดผลก่อน');
   const state=structuredClone(previous);state.commands.push({type:'advance'});state.revision++;
   for(const p of state.players)if(p.roundReward && !p.roundReward.settled)bankRoundReward(state,p);
   if(state.config.secureEconomy)settleLoansBeforeAdvance(state);
-  if(!state.config.survival && state.encounter===state.config.encounters) {if(state.config.secureEconomy && state.config.loanEndSettlement)settleLoansBeforeAdvance(state,true);closeNpcContracts(state);state.phase='RESULTS';enforceCaps(state);reconcileGhostJobs(state);reconcilePilotCustody(state);recordJournal(previous,state,{type:'advance'});assertAppraisalInvariants(state);return state;}
+  if(!state.config.survival && state.encounter===state.config.encounters) {if(state.config.secureEconomy && state.config.loanEndSettlement)settleLoansBeforeAdvance(state,true);closeNpcContracts(state);state.phase='RESULTS';enforceCaps(state);reconcileGhostJobs(state);reconcilePilotCustody(state);reconcileCollectorWishlist(state);recordJournal(previous,state,{type:'advance'});assertAppraisalInvariants(state);return state;}
   state.encounter++;state.phase='PORTALS';state.listings=[];state.market={encounter:state.encounter,open:false,budget:0,orders:[]};
   if(state.config.secureEconomy){cancelTheftDuels(state);collectCompensations(state);payVaultInterest(state);closeSealOffers(state);}
   for(const p of state.players) {
@@ -452,7 +455,7 @@ export function advanceAppraisalEncounter(previous:AppraisalState):AppraisalStat
   }
   state.market=makeMarket(state);
   for(const p of state.players) if(randomAt(state.seed,`${state.encounter}:${p.id}:entry-event`)<.55) drawEvent(state,p);
-  enforceCaps(state);reconcileGhostJobs(state);reconcilePilotCustody(state);recordJournal(previous,state,{type:'advance'});assertAppraisalInvariants(state);return state;
+  enforceCaps(state);reconcileGhostJobs(state);reconcilePilotCustody(state);reconcileCollectorWishlist(state);recordJournal(previous,state,{type:'advance'});assertAppraisalInvariants(state);return state;
 }
 export function defaultAppraisalAction(state:AppraisalState,playerId:string,requestId:string):AppraisalAction | null {
   const p=player(state,playerId);if(p.paused || p.done || ['RESULTS','REVEAL'].includes(state.phase)) return null;
@@ -460,6 +463,7 @@ export function defaultAppraisalAction(state:AppraisalState,playerId:string,requ
   return {type:state.config.secureEconomy && state.theftDuels?.some(d=>d.status==='open' && [d.thiefId,d.victimId].includes(p.id))?'theft-timeout':'done',playerId,requestId,encounter:state.encounter};
 }
 export function assertAppraisalInvariants(state:AppraisalState):void {
+  assertCollectorWishlistInvariants(state);
   for(const item of Object.values(state.items))if(item.rarityPower){check(!!state.config.rarityEconomy&&!!item.appearance,'rarity','พลัง rarity ไม่มีที่มา');validateRarityPower(item.rarityPower);}
   for(const item of Object.values(state.items))if(item.appearance){check(!!state.config.rarity,'rarity','รูปลักษณ์สินค้าไม่มี config');validateItemAppearance(item.appearance);}
   if(state.config.secureEconomy){secureStorageInvariants(state);sealInvariants(state);}

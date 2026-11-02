@@ -1,3 +1,4 @@
+import {closeCollectorWishlists} from './collector-wishlist.js';
 import { ownedAssetItemIds, settleLoansBeforeAdvance } from './secure-storage.js';
 import { statusMagnitude } from './copy-effects.js';
 import { check, status, trace } from './mechanics.js';
@@ -14,7 +15,7 @@ export const collectorDue=(state:AppraisalState):boolean=>!!state.config.surviva
 export function collectRun(state:AppraisalState):void {
   check(state.config.survival && (state.players.every(p=>p.life===0) || collectorDue(state)),'collector','Collector รับของเมื่อทุกคนชีวิตหมดหรือถึงช่วงที่ Collector มาเท่านั้น');
   check(!state.collector,'collector','Collector คิดคะแนนแล้ว');
-  closeNpcContracts(state);
+  closeCollectorWishlists(state);closeNpcContracts(state);
   // Saved audits keep the original settlement; new runs close every active loan at the end.
   if(state.config.secureEconomy){if(state.config.loanEndSettlement)settleLoansBeforeAdvance(state,true);else {state.phase='REVEAL';settleLoansBeforeAdvance(state);}}
   const results:CollectorResult[]=state.players.map(p=>{

@@ -964,6 +964,10 @@
       "sha256": "2195402df17b9c929a06ca65ca766bbe6f7f7e37db0f2e098e9554e523e08de5"
     },
     {
+      "file": "apps/comic/src/game/appraisal/collector-wishlist.ts",
+      "sha256": "bdf9ff7aeebd8cea20bf61f7de5dff43df5e107e561741a580084f1040b671c1"
+    },
+    {
       "file": "apps/comic/src/game/appraisal/content.ts",
       "sha256": "71887f52012d6f855c1e130e0339c6785b3f91abe8f9efa5e2b8b2a181d3a20b"
     },
@@ -997,7 +1001,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "sha256": "10204e39d68f62f1873667a9e22086eb7e2b1985905124e2e2d0c3196514cd2d"
+      "sha256": "93efbd488a98959aa51c94cfaeb43bb52e768db8ee301d1af446caf97528ed1a"
     },
     {
       "file": "apps/comic/src/game/appraisal/events.ts",
@@ -1021,7 +1025,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/journal.ts",
-      "sha256": "458c6d094b0ba120d1b52a84ab92415fdbef80897b97cc547cc3db9c807cc047"
+      "sha256": "ad612d764adb70f82db962c6dcdec54df83b57284961d3002bf81b30891456d9"
     },
     {
       "file": "apps/comic/src/game/appraisal/market-contracts.ts",
@@ -1029,7 +1033,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "sha256": "64e94197d33b21d65dfbab7d815d624653c44cafe7d52cb28c22a0683654d27e"
+      "sha256": "1cfcaade2a8d801d380eac44d6496aa1de1457c258290436577e25d7cc7e7b31"
     },
     {
       "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
@@ -1089,11 +1093,11 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-      "sha256": "92396ce974a8854fafd1e724a5e5fd34d2c8f35390375b9d0be75fc458740ab0"
+      "sha256": "55858a21b2472e5e90076dc92985ee6d0e6f71cd44399d5f03a4ea262bb843ab"
     },
     {
       "file": "apps/comic/src/game/appraisal/survival.ts",
-      "sha256": "6591734cc8e42fa1c60fe381e5cb28e6b910e509ae2c3add7e383ef045fcd365"
+      "sha256": "deb7de5bae0ad0e84a761f25e31bb083dcf7445cbc433c78e25b71873d82d147"
     },
     {
       "file": "apps/comic/src/game/appraisal/theft.ts",
@@ -1101,11 +1105,11 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/types.ts",
-      "sha256": "3865b6620a94487cec6fdb30df36fad381a00ad9f9ca4a53671afe777f5229ac"
+      "sha256": "2c07c98b7865a6d21b5be8eceace17ec70b96d731f3ca57c716b6f8004d3635a"
     },
     {
       "file": "apps/comic/src/game/appraisal/views.ts",
-      "sha256": "0a279137723014d9a3b4a3ff1b29d449af661024e2372036bb73460d3c6aed8e"
+      "sha256": "349677f197da0fd51c2b2402ed810d86bcf4ac96545daddb5e310343fe869116"
     },
     {
       "file": "apps/comic/src/game/appraisal/wishlist-rules.ts",
@@ -1442,6 +1446,10 @@
     {
       "file": "apps/comic/tests/appraisal.test.ts",
       "sha256": "0c44b3fe73330b8ae2c9e61f989aadca6a10a678a202fbf7912df658285e4ec5"
+    },
+    {
+      "file": "apps/comic/tests/collector-wishlist.test.ts",
+      "sha256": "efeeb212919afe6cdd0aa594cd95449299a046ee6c4e976642543615236217d6"
     },
     {
       "file": "apps/comic/tests/comic-continuity.test.ts",

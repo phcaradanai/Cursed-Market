@@ -1,0 +1,10 @@
+✔ real sockets preserve sealed hands, independent clocks, resume and round-token idempotency (348.309959ms)
+✔ two real sockets track cards, agree a job and deliver with no duplicate payment (380.858292ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 831.1055

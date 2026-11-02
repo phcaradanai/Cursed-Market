@@ -29,20 +29,20 @@
 
 ---
 
-### Task1: Private lifecycle / redacted view / pricing
+### Task 1: Private lifecycle / redacted view / pricing
 
-**Files:** create apps/comic/src/game/appraisal/collector-wishlist.ts; modify types.ts,engine.ts,views.ts,mechanics.ts only for shared-cost extraction where identical; tests/collector-wishlist.test.ts (Comic paths).
+**Files:** create apps/comic/src/game/appraisal/collector-wishlist.ts; modify types.ts,engine.ts,views.ts,secure-storage.ts,journal.ts,mechanics.ts only for shared-cost extraction where identical; tests/collector-wishlist.test.ts (Comic paths).
 
-**Interfaces:** `CollectorWishlistAction` union: collector-wish-request{kinds},collector-wish-peek{batchId,slotId},collector-wish-buy{batchId,slotId},collector-wish-skip{batchId?}. Dedicated `CollectorWishlistState` and `CollectorWishlistView`. `handleCollectorWishlist(state,p,action):void`, `reconcileCollectorWishlist(state):void`, `closeCollectorWishlists(state):void`, `collectorWishlistView(state,p):CollectorWishlistView|undefined`, `assertCollectorWishlistInvariants(state):void` exported only when a caller needs them.
+**Interfaces:** `CollectorWishlistAction` union: collector-wish-request{kinds},collector-wish-peek{batchId,slotId},collector-wish-buy{batchId,slotId,quoteId},collector-wish-skip{batchId?}. Dedicated `CollectorWishlistState` and `CollectorWishlistView`. `handleCollectorWishlist(state,p,action):void`, `reconcileCollectorWishlist(state):void`, `closeCollectorWishlists(state):void`, `collectorWishlistView(state,p):CollectorWishlistView|undefined`, `assertCollectorWishlistInvariants(state):void` exported only when a caller needs them.
 
-- [ ] Trace current callers of dispatcher/advance/purchase/collectRun before editing;inspect exactspans,not just this plan. Decide smallest state shape containing pending request, current private delivery,spentpeek andcurrentevenwindow; no parallel historyframework (journal already exists).
-- [ ] Write failing tests: request3distinct at2; no requestat1/3; due4not3; extra2exclude3; fiveopaqueIDs; publicJSONcontainsno hiddenitemkind/ID/mapping; no seededrerollonview. Own doneat2keepsdue4; own doneat4expiresunboughtoffer; death/end cancelsboth.
-- [ ] Add versioned flag,new-run initialization and isolated RNG generation using existing activeNpcs/merchantKinds/anchor/priceRange/rarity helpers. Do not widen catalog4 or reuseNPCwish state. Register explicitCollectorescrow owner in invariants; never temporarilygrantunboughtgoods.
-- [ ] Write failing price/cost tests: raw20/30/40/10/50→30 shared; rarityonce; truthchangesdonotchangequote; B03/D12/helddiscount/fee/currentD06/freeBuy/buyEnergy exact;min1;notappraiserwaiver. Banpreventsbuy,read/request/peek/skipremain; failedspendneverconsumesstatus. Quotescannotleakslotidentity.
-- [ ] Share identical purchase-cost calculations at existing responsible layer ifneeded; keep originalNPCstock/condition/trust/commission paths unchanged. SuccessfulCollectorbuyspendsatomiccurrency/energy,recordItemTrade/paid/custody/streak exactlyonce;nopeerscrap/shard/commission because no appraiser.
-- [ ] Run Comic focused build/tests and existing buy/interest/pilot/forcedtheft/ghost lifecycle cases. Commit only verified Task1 checkpoint; do notlabelwholeCollectorreadyyet.
+- [x] Trace current callers of dispatcher/advance/purchase/collectRun before editing;inspect exactspans,not just this plan. Decide smallest state shape containing pending request, current private delivery,spentpeek andcurrentevenwindow; no parallel historyframework (journal already exists).
+- [x] Write failing tests: request3distinct at2; no requestat1/3; due4not3; extra2exclude3; fiveopaqueIDs; publicJSONcontainsno hiddenitemkind/ID/mapping; no seededrerollonview. Own doneat2keepsdue4; own doneat4expiresunboughtoffer; death/end cancelsboth.
+- [x] Add versioned flag,new-run initialization and isolated RNG generation using existing activeNpcs/merchantKinds/anchor/priceRange/rarity helpers. Do not widen catalog4 or reuseNPCwish state. Register explicitCollectorescrow owner in invariants; never temporarilygrantunboughtgoods.
+- [x] Write failing price/cost tests: raw20/30/40/10/50→30 shared; rarityonce; truthchangesdonotchangequote; B03/D12/helddiscount/fee/currentD06/freeBuy/buyEnergy exact;min1;notappraiserwaiver. Banpreventsbuy,read/request/peek/skipremain; failedspendneverconsumesstatus. Quotescannotleakslotidentity.
+- [x] Share identical purchase-cost calculations at existing responsible layer ifneeded; keep originalNPCstock/condition/trust/commission paths unchanged. SuccessfulCollectorbuyspendsatomiccurrency/energy,recordItemTrade/paid/custody/streak exactlyonce;nopeerscrap/shard/commission because no appraiser.
+- [x] Run Comic focused build/tests and existing buy/interest/pilot/forcedtheft/ghost lifecycle cases. Commit only verified Task1 checkpoint; do notlabelwholeCollectorreadyyet.
 
-### Task2: Protocol / room lifecycle / audit / public-only bot policy
+### Task 2: Protocol / room lifecycle / audit / public-only bot policy
 
 **Files:** modify shared/appraisal-protocol.ts,server/appraisal-messages.ts,server/appraisal-rooms.ts,game/appraisal/engine.ts,survival.ts,audit.ts ifneeded,simulation/appraisal.ts; test collector-wishlist-network.test.ts and focused replay tests.
 
@@ -54,7 +54,7 @@
 - [ ] Extend public-view bots only with explicitrequest/peek/buy/skip bounded behavior; neverinspectprivate mapping or forcehumanchoices. Addreal-budgetcoverage before anybalanceclaim.
 - [ ] Runfocusednetwork/replay and originalNPCwish/phase/timer tests; commitdurableevidence,default/legacycompatibilityrecorded.
 
-### Task3: Shared Comic UX / preview / evidence / central context
+### Task 3: Shared Comic UX / preview / evidence / central context
 
 **Files:** new appraisal-client/CollectorWishlist.tsx; sharedComicUI reused;modify App.tsx,model/protocol-derivedtypes,comic-preview-data.ts and scopedCSS importedinmain.tsx asneeded. Update screen-flow/currentcaptures sources,docs/verification/mainAtlas throughgenerator. Browserproof script in scripts/ui/.
 

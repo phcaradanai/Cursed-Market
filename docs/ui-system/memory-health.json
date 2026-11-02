@@ -73,5 +73,16 @@
     ],
     "unrelatedResults": 10,
     "authority": "Version-controlled normal-play-verification.json and raw audit/report sources"
+  },
+  "personalScoring20261102": {
+    "status": "sync retain acknowledged;matching direction/sale/trust facts retrieved",
+    "memoryIds": [
+      "f6066d98-b96f-4ca0-a4db-00c16733efce",
+      "23ae46de-a7f8-4d72-aaed-c43e1ce459d1",
+      "9a85512f-5251-4817-b0c0-1046e939e537",
+      "3fca536d-6965-4e5c-8228-8728369a040e"
+    ],
+    "authority": "personal-scoring-direction.json; direction/units approved not weights/runtime",
+    "limitation": "Known unreliable tag scoping persists; repository authoritative"
   }
 }

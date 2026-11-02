@@ -1,0 +1,56 @@
+✔ full action pipeline conserves wallet/vault ledger, suppresses held effects and redacts other custody (325.441ms)
+✔ last-energy theft can resolve; done cannot evade RPS; timeout is rejected on the wire (28.395083ms)
+✔ secured funding, installments and maturity work through authoritative actions (57.465041ms)
+✔ due collateral transfers on advance after the payout repayment window (42.526958ms)
+✔ Collector includes vault assets without activating their held effects (16.496084ms)
+✔ network contracts accept omitted or blank loan terms and reject forged fields (1.632416ms)
+✔ RPS participants cannot move goods or bypass an unresolved merchant choice (22.997917ms)
+✔ vault opens only after own payout and rejects dead players (110.723416ms)
+✔ vault has two free item slots, removes held effects, and enforces ownership and locks (20.357333ms)
+✔ vault expansion costs 10 then 15 then 20, and money transfers conserve total without interest (37.021166ms)
+✔ deadline uses frozen collateral value, alternating base payouts, and starting encounter parity (3.820584ms)
+✔ loan needs both parties, can be countered, and transfers lender cash with collateral escrow (40.492292ms)
+✔ loan pricing and collateral checks reject zero history, underfunding, inflated and locked goods (38.117208ms)
+✔ acceptance revalidates ownership, price and collateral integrity without moving any money on failure (19.357708ms)
+✔ installments return item only when fully repaid, and reject overpayments or third-party actions (15.637375ms)
+✔ deadline permits final payout repayment before foreclosure, preserving original price and principal independence (23.738ms)
+✔ borrower death keeps escrow until deadline, and loan views remain private detached copies (8.90025ms)
+✔ vault and loan invariants detect orphaned escrow and duplicate storage ownership (7.082917ms)
+(node:14678) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ fresh deposit matures only after a complete encounter, pays 10 percent to wallet once (126.839625ms)
+✔ new topup does not increase mature interest; withdrawals spend new money first (36.545583ms)
+✔ withdrawal of old principal reduces entitlement; redeposit cannot restore it (62.694459ms)
+✔ floor aggregate eligible principal and do not compound wallet interest automatically (24.296667ms)
+✔ legacy balance without age evidence starts fresh and cannot claim retroactive interest (43.577875ms)
+✔ bank shortage cannot be retried in the same encounter to claim a second payment (9.512625ms)
+✔ age metadata stays private and invalid principal is rejected (34.553916ms)
+✔ historical configs keep whole-balance 4 percent without age metadata (20.6965ms)
+✔ large safe-integer principal uses exact integer tenth; dead seats earn nothing (8.015542ms)
+✔ real phase advances mature deposits once and the complete command audit replays (124.966709ms)
+✔ vault without a deposit explains the active rule; historical DTO still reports four percent (162.431375ms)
+✔ command-only death, card unlock, agreed job, RPS search, delivery and Collector strictly replay (779.3885ms)
+(node:14680) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ living cannot start ghost game; dead can retry and view never contains answer (146.033875ms)
+✔ delivery waits for funds then charges once, grants one item and bonus; duplicate is rejected (113.993417ms)
+✔ engine integrates ghost actions with idempotency and conservation (32.404209ms)
+✔ Collector adds earned ghost bonus and cancels unfinished jobs without payment (5.247167ms)
+✔ buyer death cancels unpaid work and requires a new minigame (29.714042ms)
+✔ next-encounter slot preview equals the slots used by the next action and hides item truth (43.97875ms)
+✔ RPS ties retry, losses lock each slot independently, no minigame reset until next encounter (17.270875ms)
+✔ living phase advances while a ghost is still tracking cards (4.825875ms)
+✔ status estimate adds spirit earnings once after ordinary score modifiers (56.301958ms)
+✔ multiple buyers share a service batch; declining the last offer after a delivery relocks hiring (50.761167ms)
+✔ a stale or forged displayed quote cannot create a differently priced contract (31.569917ms)
+✔ quotes apply rarity once on a private clone and delivery keeps the accepted prototype (39.53175ms)
+✔ tracking keeps answer private, rejects invalid guesses, permits retries and unlocks on success (2.344458ms)
+✔ tracking validates every permutation boundary without mutating the server round (2.344417ms)
+ℹ tests 44
+ℹ suites 0
+ℹ pass 44
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1311.36325

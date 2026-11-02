@@ -1,0 +1,22 @@
+{
+  "asOf": "2026-11-02",
+  "status": "approved-direction-and-sale-trust-units; numeric-rules-pending",
+  "source": "explicit user replies in active goal",
+  "decisions": {
+    "structure": "Every player earns additive personal system contributions, not best-path-only or only leader",
+    "saleUnits": [
+      "successful sold item quantity",
+      "gross sales credits received"
+    ],
+    "trustUnit": "cumulative positive merchant trust gained over entire game, not ending balance",
+    "presentation": "Sequential system reveal; colored bars grow into individual totals, No Time to Relax user reference",
+    "timing": "all resolve together at end; existing confirmed Collector timing"
+  },
+  "notApproved": [
+    "numeric weights/caps/anti-farming rules",
+    "old leader bonus coexistence or replacement",
+    "new56 remaining48 effects/numbers",
+    "runtime scoring implementation or final visual baseline"
+  ],
+  "proposal": "docs/game-design/proposals/personal-system-scoring-v1.md"
+}

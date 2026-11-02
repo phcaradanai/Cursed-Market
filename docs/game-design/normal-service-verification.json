@@ -1,0 +1,37 @@
+{
+  "asOf": "2026-11-02",
+  "status": "normal-resource-targeted-engine-journey-proved; combined-live-flow-still-open",
+  "report": "docs/validation/normal-service-2026-11-02/report.json",
+  "audit": "docs/validation/normal-service-2026-11-02/journey.audit.json",
+  "auditSha256": "d7fee8e5602e3e97d688afbf742f74c3d85c28aecae83a97694ab4ac64fa768b",
+  "assertChecks": 9,
+  "commands": 196,
+  "end": 7,
+  "ghostBonus": 2,
+  "relatedTests": 44,
+  "networkTests": 1,
+  "networkScope": "200credit death/slot fixtures; clock/duplicate/resume verified, not normal-resource end-to-end",
+  "sourceFingerprints": {
+    "docs/validation/collector-normal-2026-11-02/live-ui-audit.json": "d7389a0a1311be11a87c5a5184e0f305e21b10f8273743fe1c5f1f2011d014c7",
+    "apps/comic/scripts/normal-service-journey.mjs": "da64ad3b22015c60244604bfa0b862e29656e9793468f461301d91ab8802e6cd",
+    "apps/comic/src/game/appraisal/engine.ts": "87e6a10adf3bffeb31b6134bdcbf596068c5f8a75ec622dc4552a8536ca6ff70",
+    "apps/comic/src/game/appraisal/ghost-service.ts": "53603040058a9f18cc90f2ba572bcc4b24e204d5c7cf2d33e6a7bb72cff3729d",
+    "apps/comic/src/game/appraisal/secure-storage.ts": "55858a21b2472e5e90076dc92985ee6d0e6f71cd44399d5f03a4ea262bb843ab",
+    "apps/comic/src/game/appraisal/views.ts": "349677f197da0fd51c2b2402ed810d86bcf4ac96545daddb5e310343fe869116",
+    "apps/comic/src/simulation/appraisal.ts": "278025401318fc01ea5f26187703b569f68b82c41f859b943c0c320bcbe92c66"
+  },
+  "remaining": [
+    "Normal-resource browser/socket combined ghost service and loan/vault flow",
+    "Broader seed/policy balance; selected cooperative seed not representative",
+    "Personal-system scoring weights/anti-farming/rules remain unapproved; sale count/gross credits and cumulative trust units approved",
+    "Remaining48 items still need specifications"
+  ],
+  "checks": {
+    "uiSourceFingerprints": 393,
+    "uiContracts": 10,
+    "approvedBaselineHashesUnchanged": 14,
+    "atlasInputs": 207,
+    "normalJourneySourceAuditHashes": "pass"
+  },
+  "trailCheck": "20 pre-existing conflicts only unrelated .impeccable cache/design excluded;400KB diff cap, not full-branch review"
+}

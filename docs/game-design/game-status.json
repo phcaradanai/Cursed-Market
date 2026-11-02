@@ -1,7 +1,7 @@
 {
   "asOf": "2026-11-02",
   "activeSource": "apps/comic",
-  "revision": "4088f6e + normal-main diagnostic evidence",
+  "revision": "2a42280 + normal-service evidence and approved personal-scoring direction",
   "headline": "ยังไม่ครบตามกฎและขอบเขตเกมที่ตกลงทั้งหมด",
   "summary": "วงจรเดิมและตลาดวิญญาณเล่นได้ แต่การย้ายกฎ/สินค้าใหม่และบาลานซ์ทั้งเกมยังค้าง ภาพหน้าจอหรือกราฟครบไม่ได้แปลว่า runtime ครบ",
   "atlasScope": "Atlas สกัดทุก module ของ apps/comic/src/game/appraisal พร้อม random/rarity/protocol/server lifecycle และ bot ที่ระบุ; graph เป็น static dependency ไม่ใช่ execution proof; UI ใช้ capture/flow registry แยก; รุ่นเก่าตรึง9f0a972ใน legacy-atlas-baseline.json",
@@ -60,13 +60,15 @@
     },
     {
       "id": "STRAT-01",
-      "system": "ชนะได้หลายเส้นทาง",
-      "status": "ยังเป็นแบบออกแบบ",
-      "remaining": "ยืนยันตัดสินพร้อมกันตอน Collector แล้ว แต่เป้าหมาย โบนัส progress และกฎเสมอต่อสายยังไม่ลงระบบ",
+      "system": "คะแนนผลงานทุกคนหลายระบบ",
+      "status": "ทิศทางและหน่วยขาย/ความไว้ใจยืนยันแล้ว — ยังไม่ลงสูตรใหม่",
+      "remaining": "ทุกคนได้คะแนนผลงานหลายระบบ ไม่ใช่เฉพาะbestpath. แยกจำนวนขาย/เครดิตขาย;ความไว้ใจสะสมตลอดเกม. ต้องกำหนดน้ำหนัก/เพดาน/กันปั๊มและกราฟสรุปก่อนลงruntime.",
       "evidence": [
         "docs/game-design/strategic-paths.md",
         "apps/comic/src/game/appraisal/survival.ts",
-        "apps/comic/src/game/appraisal/scoring.ts"
+        "apps/comic/src/game/appraisal/scoring.ts",
+        "docs/game-design/personal-scoring-direction.json",
+        "docs/game-design/proposals/personal-system-scoring-v1.md"
       ]
     },
     {
@@ -93,11 +95,12 @@
       "id": "RULE-04",
       "system": "รางวัลสถิติและกลุ่ม rarity",
       "status": "ยังไม่ลงครบ",
-      "remaining": "ซื้อ/ขายมากสุด เสียพลังชีวิตสะสม ของตอนจบ ความไว้ใจ และrarity×2/×3 ยังต้องกำหนดรางวัล/กฎเสมอและตัวนับกันปั๊ม; คะแนนวิญญาณที่ทำแล้วเป็นคนละระบบ",
+      "remaining": "ปรับให้สอดคล้องคะแนนผลงานทุกคน2026-11-02. รางวัลผู้นำเดิม/rarity×2/×3และกฎเสมอ/กันปั๊มต้องสรุปแยก ไม่ตีความเป็น20/40ต่อชิ้นเอง.",
       "evidence": [
         "apps/comic/src/game/appraisal/survival.ts",
         "docs/game-design/rules-and-logic.md",
-        "docs/game-design/development-roadmap.md"
+        "docs/game-design/development-roadmap.md",
+        "docs/game-design/personal-scoring-direction.json"
       ]
     },
     {
@@ -131,7 +134,7 @@
       "id": "BAL-02 / PLAY-01",
       "system": "บาลานซ์และเล่นเต็มเกมตามกฎใหม่",
       "status": "ยังไม่ผ่านเกณฑ์จบ",
-      "remaining": "มีหลักฐานเฉพาะส่วน ไม่ใช่balanceครบเกม.8pairedauditเดิมไม่พิสูจน์nativeeffectexposure; ชุดใหม่8targetedpairs/16fullcommandruns/strictreplayผ่านและวัดผลก่อนหลังครบ8ชิ้น. ใช้starting500/2คน/seedที่เลือก boundary/cooperativehands ไม่ใช่ห้องปกติ40หรือmultiseedwinshare. ยังต้องfull56/Collector3+2/strategy/awards/หลายคน/ตลาดวิญญาณ/loan/auctionและbalance Normal40/6:actualApp1run+matrix8runs/2and4seats/catalog3and4/replayผ่าน;ยังไม่มีinterest/PvPloan/forcedRPS/ghost-serviceexposureในmatrix. จบ5–8ทุกcase ไม่ใช่balanceapproval.",
+      "remaining": "มีหลักฐานเฉพาะส่วน ไม่ใช่balanceครบเกม.8pairedauditเดิมไม่พิสูจน์nativeeffectexposure; ชุดใหม่8targetedpairs/16fullcommandruns/strictreplayผ่านและวัดผลก่อนหลังครบ8ชิ้น. ใช้starting500/2คน/seedที่เลือก boundary/cooperativehands ไม่ใช่ห้องปกติ40หรือmultiseedwinshare. ยังต้องfull56/Collector3+2/strategy/awards/หลายคน/ตลาดวิญญาณ/loan/auctionและbalance Normal40/6:actualApp1run+matrix8runs/2and4seats/catalog3and4/replayผ่าน;ยังไม่มีinterest/PvPloan/forcedRPS/ghost-serviceexposureในmatrix. จบ5–8ทุกcase ไม่ใช่balanceapproval. อีก1targetedenginejourney40/6:ดอกเบี้ย/กู้คืน/วิญญาณส่งมอบ/คะแนน/จบรันผ่าน9checks,ไม่ใช่normalcombinedbrowser/socketหรือbalance.",
       "evidence": [
         "docs/ui-system/ghost-functional-verification.json",
         "docs/game-design/balance-workflow.md",
@@ -142,15 +145,17 @@
         "docs/game-design/balance-reports/2026-11-02-pilot-public.md",
         "docs/validation/pilot-public-2026-11-02/public-effects.json",
         "docs/game-design/normal-play-verification.json",
-        "docs/game-design/balance-reports/2026-11-02-normal-play.md"
+        "docs/game-design/balance-reports/2026-11-02-normal-play.md",
+        "docs/game-design/normal-service-verification.json",
+        "docs/game-design/balance-reports/2026-11-02-normal-service.md"
       ]
     }
   ],
   "next": [
-    "ตรวจnormal-resource ghost/vault/loan/RPS fullflow และติดตาม UI-COLLECTOR-CONTEXT; Collector40/6 paid+RESULTS1run verifiedแล้ว",
-    "STRAT-01ยังรอวิธีรวมโบนัสที่ถามไว้; ออกสเปกอีก48ชิ้นและคะแนนสถิติ/rarityที่ยังไม่มีตัวเลข",
-    "ต่อยอด8public-effectpairsเป็น40-credit/multiseed/หลายคนพร้อมeconomycoverageก่อนtune",
-    "ย้ายครบ56 ผูกevent/encounter/omen ตรวจเต็มเกม/หลายคน/reconnect/replay แล้วbalance"
+    "เสนอน้ำหนัก/กันปั๊มสำหรับคะแนนผลงานทุกคน: จำนวนขายและเครดิตขายแยก;ความไว้ใจสะสม;กราฟแท่งแยกสีตอนจบ",
+    "เตรียมสเปกสินค้าใหม่อีก48ชิ้นและevent predicatesให้ตรวจ ไม่ขยายcatalog4หรือใส่ค่าที่ยังไม่อนุมัติเอง",
+    "ต่อnormal-resource engine journeyเป็นbrowser/socketร่วมจริง และหลายseed/policyก่อนtune",
+    "รักษางานUI-COLLECTOR-CONTEXT minorและfull-game acceptanceเป็นงานค้าง ไม่เรียกsubsystemว่าเกมเสร็จ"
   ],
   "verification": "Whole-game goal เปิดแล้ว ดู implementations/completion-program.md; งานแต่ละส่วนมีผลตรวจเฉพาะส่วน ไม่ใช่คำรับรองครบทั้งเกม",
   "runtimeFacts": {

@@ -1,6 +1,6 @@
 # Strategic paths — หลายเส้นทางสู่ชัยชนะ
 
-สถานะ: ผู้ใช้ยืนยันว่าต้องการเกมวางแผนที่เลือกเส้นทางเองและชนะได้หลายทาง คล้าย Civilization; รายละเอียดต่อไปนี้เป็นข้อเสนอ ยังไม่ใช่เงื่อนไขชนะที่ลง runtime
+สถานะล่าสุด2026-11-02: ผู้ใช้ยืนยันคะแนนจากผลงานหลายระบบของทุกคน คิดพร้อมกันตอนจบ ไม่เลือกเฉพาะสายสูงสุด; ดู proposals/personal-system-scoring-v1.md และ personal-scoring-direction.json. แยกคะแนนจำนวนขาย/ยอดเครดิตขาย และใช้ความไว้ใจสะสมที่ได้รับตลอดเกม น้ำหนัก/กันปั๊มยังต้องกำหนด ส่วนเนื้อหาสายเดิมด้านล่างเป็นประวัติออกแบบ ไม่ใช่ runtime ที่ทำแล้ว.
 
 ## หลักออกแบบ
 
@@ -45,6 +45,8 @@
 2026-10-28 ผู้ใช้เลือก “ตัดสินพร้อมกันตอนจบ” จากคำถามเรื่องจบเมื่อ Collector เทียบกับครบเป้าแล้วชนะทันที การยืนยันนี้ไม่รวมจำนวนคะแนน threshold แต่ละสาย หรือกฎเสมอ และยังไม่เปลี่ยน runtime ให้มีเงื่อนไขชัยชนะหลายสาย
 
 
-## Pending structure decision — 2026-10-31
+## Historical structure question — 2026-10-31; superseded2026-11-02
 
 Question sent to user: allow switching paths through actual play and award only the best completed path per player at Collector, versus multiple-path bonuses with an aggregate cap, versus independent victory conditions. No response is recorded yet; no choice, numeric target, bonus or tie rule has been implemented from this proposal. Simultaneous endgame timing remains approved. Continue independent approved work while waiting.
+
+2026-11-02: คำตอบผู้ใช้แทนคำถามโครงสร้างเดิมแล้ว ทุกคนได้คะแนนผลงานหลายระบบ มีกราฟแยกสีไล่เพิ่มทีละระบบ ไม่รอถามว่าจะใช้เฉพาะbestpathซ้ำอีก. ตัวเลข/ความหมายของระบบอื่นและรางวัลผู้นำเดิมยังแยกพิจารณา.

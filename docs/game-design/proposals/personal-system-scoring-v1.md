@@ -53,3 +53,7 @@ Server ต้องส่ง breakdown ที่ตัดสินแล้ว�
 ## สัญญาข้อมูลที่ต้องออกแบบต่อ
 
 เก็บ raw accomplishments แยกจากคะแนนที่มีสิทธิ์หลังน้ำหนัก/กันปั๊ม: salesQuantity, salesGrossCredits และ trustGainedByMerchant เป็นคนละข้อมูล ยอดขายต้องเป็นเงินที่ส่งมอบ/settleแล้ว ยกเลิกหรือ retry ไม่บวกซ้ำ ความไว้ใจนับเฉพาะจำนวนที่เพิ่มจริงหลังcap ไม่ใช่amountที่ร้องขอ และต้องไม่ทำpositive gainหายในคำสั่งที่มีทั้งการเพิ่มและลด การหักความไว้ใจภายหลังไม่ลบประวัติที่เคยได้ เกณฑ์กันปั๊มหากมีต้องอธิบายในbreakdown ไม่ปลอมrawสถิติเป็นค่าคงเหลือ. Final DTO ต้องแยก raw/eligible/weight/points ให้ตรวจที่มาของแต่ละส่วนได้.
+
+## ชุดตัวเลขทดลองพร้อมทบทวน
+
+ดู [กติกาเต็ม](personal-scoring-rules-v1.md), [ค่าตัวเลข](personal-scoring-weights-v1.json), [ผลตรวจสเปก](personal-scoring-builder-check.md) และ [เทียบข้อมูลจริงบางส่วน](../balance-reports/2026-11-02-personal-scoring-calibration.md). ทั้งชุดยังเป็นproposal ไม่ใช่runtimeหรือคะแนนที่รับรองbalanceแล้ว. ทิศทางและหน่วยที่ผู้ใช้ยืนยันแล้วไม่ถูกถามซ้ำ.

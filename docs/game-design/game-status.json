@@ -1,7 +1,7 @@
 {
   "asOf": "2026-11-02",
   "activeSource": "apps/comic",
-  "revision": "2a42280 + normal-service evidence and approved personal-scoring direction",
+  "revision": "54ff4a6 + concrete personal-scoring experiment proposal",
   "headline": "ยังไม่ครบตามกฎและขอบเขตเกมที่ตกลงทั้งหมด",
   "summary": "วงจรเดิมและตลาดวิญญาณเล่นได้ แต่การย้ายกฎ/สินค้าใหม่และบาลานซ์ทั้งเกมยังค้าง ภาพหน้าจอหรือกราฟครบไม่ได้แปลว่า runtime ครบ",
   "atlasScope": "Atlas สกัดทุก module ของ apps/comic/src/game/appraisal พร้อม random/rarity/protocol/server lifecycle และ bot ที่ระบุ; graph เป็น static dependency ไม่ใช่ execution proof; UI ใช้ capture/flow registry แยก; รุ่นเก่าตรึง9f0a972ใน legacy-atlas-baseline.json",
@@ -62,13 +62,17 @@
       "id": "STRAT-01",
       "system": "คะแนนผลงานทุกคนหลายระบบ",
       "status": "ทิศทางและหน่วยขาย/ความไว้ใจยืนยันแล้ว — ยังไม่ลงสูตรใหม่",
-      "remaining": "ทุกคนได้คะแนนผลงานหลายระบบ ไม่ใช่เฉพาะbestpath. แยกจำนวนขาย/เครดิตขาย;ความไว้ใจสะสมตลอดเกม. ต้องกำหนดน้ำหนัก/เพดาน/กันปั๊มและกราฟสรุปก่อนลงruntime.",
+      "remaining": "ชุดทดลองตัวเลข/กันปั๊ม/ข้อมูลส่งกราฟพร้อมแล้ว รออนุมัติ package; ทิศทาง/จำนวนขาย+เครดิตขาย/trustสะสมยืนยันแล้ว. Offline5audits14playersเป็นpartialillustrationไม่ใช่คะแนนruntime.",
       "evidence": [
         "docs/game-design/strategic-paths.md",
         "apps/comic/src/game/appraisal/survival.ts",
         "apps/comic/src/game/appraisal/scoring.ts",
         "docs/game-design/personal-scoring-direction.json",
-        "docs/game-design/proposals/personal-system-scoring-v1.md"
+        "docs/game-design/proposals/personal-system-scoring-v1.md",
+        "docs/game-design/proposals/personal-scoring-rules-v1.md",
+        "docs/game-design/proposals/personal-scoring-weights-v1.json",
+        "docs/game-design/proposals/personal-scoring-builder-check.md",
+        "docs/game-design/balance-reports/2026-11-02-personal-scoring-calibration.md"
       ]
     },
     {
@@ -152,7 +156,7 @@
     }
   ],
   "next": [
-    "เสนอน้ำหนัก/กันปั๊มสำหรับคะแนนผลงานทุกคน: จำนวนขายและเครดิตขายแยก;ความไว้ใจสะสม;กราฟแท่งแยกสีตอนจบ",
+    "รออนุมัติชุดทดลอง personal-scoring-rules-v1 แล้วทำplan/canonicalcounters+scorebreakdown+กราฟ; ไม่ถามโครงสร้าง/หน่วยที่ยืนยันแล้วซ้ำ",
     "เตรียมสเปกสินค้าใหม่อีก48ชิ้นและevent predicatesให้ตรวจ ไม่ขยายcatalog4หรือใส่ค่าที่ยังไม่อนุมัติเอง",
     "ต่อnormal-resource engine journeyเป็นbrowser/socketร่วมจริง และหลายseed/policyก่อนtune",
     "รักษางานUI-COLLECTOR-CONTEXT minorและfull-game acceptanceเป็นงานค้าง ไม่เรียกsubsystemว่าเกมเสร็จ"

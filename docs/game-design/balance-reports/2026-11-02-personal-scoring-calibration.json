@@ -1,0 +1,307 @@
+{
+  "asOf": "2026-11-02T14:00:33.093Z",
+  "status": "partial-offline-proposal-analysis-not-runtime-balance",
+  "proposal": "docs/game-design/proposals/personal-scoring-weights-v1.json",
+  "proposalSha256": "9e9b8c055ea1ea12e02e479f1605f12948b70a8a39b9a5e799bd96b5418eec12",
+  "sourceFingerprints": {
+    "docs/game-design/scripts/calibrate-personal-scoring.mjs": "35119a30f48574f24066ca7154894c6d044a01b49e757de4a5295a566f712c8e",
+    "apps/comic/src/game/appraisal/engine.ts": "87e6a10adf3bffeb31b6134bdcbf596068c5f8a75ec622dc4552a8536ca6ff70",
+    "apps/comic/src/game/appraisal/mechanics.ts": "a9c850f19c62f8d3564ce01e979a4b028fbc72a210ccded3b286d0000a022b9b",
+    "apps/comic/src/game/appraisal/survival.ts": "deb7de5bae0ad0e84a761f25e31bb083dcf7445cbc433c78e25b71873d82d147"
+  },
+  "limitations": "Only sale quantity/volume and per-command positive trust deltas measured; delta is a lower bound, not actual cumulative gross trust. Does not implement new scoring or all eligibility/metrics/modifier. Repeated/copy sales excluded only from proposal eligible sales. Selected policy/seed audits, no release balance claim.",
+  "cases": [
+    {
+      "file": "docs/validation/normal-play-2026-11-02/c3-2-trader.audit.json",
+      "sha256": "7f89014c54b488c9e968658ee6c3f71b7c46756dee98ed490f07ee0ee46cb0a3",
+      "catalog": 3,
+      "seed": "normal-main-0",
+      "players": [
+        {
+          "id": "seat0",
+          "currentScore": 161,
+          "rawSoldQuantity": 7,
+          "rawSalesCredits": 66,
+          "eligibleQuantity": 6,
+          "eligibleCredits": 65,
+          "saleQuantityPoints": 30,
+          "saleCreditPoints": 6,
+          "trustDeltaLowerBound": 5,
+          "trustDeltaIllustrativePoints": 15,
+          "unfilteredPartialIllustration": 51,
+          "notComputed": [
+            "other proposal metrics",
+            "within-command gross trust gains/eligibility",
+            "proposed modifier or new final score"
+          ]
+        },
+        {
+          "id": "seat1",
+          "currentScore": 139,
+          "rawSoldQuantity": 7,
+          "rawSalesCredits": 75,
+          "eligibleQuantity": 6,
+          "eligibleCredits": 74,
+          "saleQuantityPoints": 30,
+          "saleCreditPoints": 7,
+          "trustDeltaLowerBound": 4,
+          "trustDeltaIllustrativePoints": 12,
+          "unfilteredPartialIllustration": 49,
+          "notComputed": [
+            "other proposal metrics",
+            "within-command gross trust gains/eligibility",
+            "proposed modifier or new final score"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "docs/validation/normal-play-2026-11-02/c4-2-trader.audit.json",
+      "sha256": "1c611d3f71d5f96d0b833581514066211ac9680d261af346e90c870264aad5f0",
+      "catalog": 4,
+      "seed": "normal-main-0",
+      "players": [
+        {
+          "id": "seat0",
+          "currentScore": 20,
+          "rawSoldQuantity": 10,
+          "rawSalesCredits": 182,
+          "eligibleQuantity": 9,
+          "eligibleCredits": 181,
+          "saleQuantityPoints": 45,
+          "saleCreditPoints": 18,
+          "trustDeltaLowerBound": 7,
+          "trustDeltaIllustrativePoints": 21,
+          "unfilteredPartialIllustration": 84,
+          "notComputed": [
+            "other proposal metrics",
+            "within-command gross trust gains/eligibility",
+            "proposed modifier or new final score"
+          ]
+        },
+        {
+          "id": "seat1",
+          "currentScore": 284,
+          "rawSoldQuantity": 15,
+          "rawSalesCredits": 267,
+          "eligibleQuantity": 13,
+          "eligibleCredits": 248,
+          "saleQuantityPoints": 65,
+          "saleCreditPoints": 24,
+          "trustDeltaLowerBound": 16,
+          "trustDeltaIllustrativePoints": 48,
+          "unfilteredPartialIllustration": 137,
+          "notComputed": [
+            "other proposal metrics",
+            "within-command gross trust gains/eligibility",
+            "proposed modifier or new final score"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "docs/validation/normal-play-2026-11-02/c3-4-trader.audit.json",
+      "sha256": "0b3a1d53c2d9dee6bb25ffd7099aabaae780b8b88ddc2c9f78fe9ca50c5084c2",
+      "catalog": 3,
+      "seed": "normal-main-0",
+      "players": [
+        {
+          "id": "seat0",
+          "currentScore": 7,
+          "rawSoldQuantity": 10,
+          "rawSalesCredits": 78,
+          "eligibleQuantity": 8,
+          "eligibleCredits": 70,
+          "saleQuantityPoints": 40,
+          "saleCreditPoints": 7,
+          "trustDeltaLowerBound": 1,
+          "trustDeltaIllustrativePoints": 3,
+          "unfilteredPartialIllustration": 50,
+          "notComputed": [
+            "other proposal metrics",
+            "within-command gross trust gains/eligibility",
+            "proposed modifier or new final score"
+          ]
+        },
+        {
+          "id": "seat1",
+          "currentScore": 21,
+          "rawSoldQuantity": 18,
+          "rawSalesCredits": 148,
+          "eligibleQuantity": 14,
+          "eligibleCredits": 138,
+          "saleQuantityPoints": 70,
+          "saleCreditPoints": 13,
+          "trustDeltaLowerBound": 4,
+          "trustDeltaIllustrativePoints": 12,
+          "unfilteredPartialIllustration": 95,
+          "notComputed": [
+            "other proposal metrics",
+            "within-command gross trust gains/eligibility",
+            "proposed modifier or new final score"
+          ]
+        },
+        {
+          "id": "seat2",
+          "currentScore": 28,
+          "rawSoldQuantity": 9,
+          "rawSalesCredits": 78,
+          "eligibleQuantity": 8,
+          "eligibleCredits": 70,
+          "saleQuantityPoints": 40,
+          "saleCreditPoints": 7,
+          "trustDeltaLowerBound": 3,
+          "trustDeltaIllustrativePoints": 9,
+          "unfilteredPartialIllustration": 56,
+          "notComputed": [
+            "other proposal metrics",
+            "within-command gross trust gains/eligibility",
+            "proposed modifier or new final score"
+          ]
+        },
+        {
+          "id": "seat3",
+          "currentScore": 149,
+          "rawSoldQuantity": 12,
+          "rawSalesCredits": 110,
+          "eligibleQuantity": 10,
+          "eligibleCredits": 103,
+          "saleQuantityPoints": 50,
+          "saleCreditPoints": 10,
+          "trustDeltaLowerBound": 7,
+          "trustDeltaIllustrativePoints": 21,
+          "unfilteredPartialIllustration": 81,
+          "notComputed": [
+            "other proposal metrics",
+            "within-command gross trust gains/eligibility",
+            "proposed modifier or new final score"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "docs/validation/normal-play-2026-11-02/c4-4-trader.audit.json",
+      "sha256": "89f5f478d585081e3b18d0c9f601fa6260a21f80a5973d559b109e48631468ee",
+      "catalog": 4,
+      "seed": "normal-main-0",
+      "players": [
+        {
+          "id": "seat0",
+          "currentScore": 68,
+          "rawSoldQuantity": 17,
+          "rawSalesCredits": 276,
+          "eligibleQuantity": 15,
+          "eligibleCredits": 245,
+          "saleQuantityPoints": 75,
+          "saleCreditPoints": 24,
+          "trustDeltaLowerBound": 8,
+          "trustDeltaIllustrativePoints": 24,
+          "unfilteredPartialIllustration": 123,
+          "notComputed": [
+            "other proposal metrics",
+            "within-command gross trust gains/eligibility",
+            "proposed modifier or new final score"
+          ]
+        },
+        {
+          "id": "seat1",
+          "currentScore": 32,
+          "rawSoldQuantity": 11,
+          "rawSalesCredits": 126,
+          "eligibleQuantity": 10,
+          "eligibleCredits": 123,
+          "saleQuantityPoints": 50,
+          "saleCreditPoints": 12,
+          "trustDeltaLowerBound": 6,
+          "trustDeltaIllustrativePoints": 18,
+          "unfilteredPartialIllustration": 80,
+          "notComputed": [
+            "other proposal metrics",
+            "within-command gross trust gains/eligibility",
+            "proposed modifier or new final score"
+          ]
+        },
+        {
+          "id": "seat2",
+          "currentScore": 234,
+          "rawSoldQuantity": 25,
+          "rawSalesCredits": 431,
+          "eligibleQuantity": 21,
+          "eligibleCredits": 381,
+          "saleQuantityPoints": 75,
+          "saleCreditPoints": 38,
+          "trustDeltaLowerBound": 10,
+          "trustDeltaIllustrativePoints": 30,
+          "unfilteredPartialIllustration": 143,
+          "notComputed": [
+            "other proposal metrics",
+            "within-command gross trust gains/eligibility",
+            "proposed modifier or new final score"
+          ]
+        },
+        {
+          "id": "seat3",
+          "currentScore": 103,
+          "rawSoldQuantity": 17,
+          "rawSalesCredits": 252,
+          "eligibleQuantity": 16,
+          "eligibleCredits": 249,
+          "saleQuantityPoints": 75,
+          "saleCreditPoints": 24,
+          "trustDeltaLowerBound": 7,
+          "trustDeltaIllustrativePoints": 21,
+          "unfilteredPartialIllustration": 120,
+          "notComputed": [
+            "other proposal metrics",
+            "within-command gross trust gains/eligibility",
+            "proposed modifier or new final score"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "docs/validation/normal-service-2026-11-02/journey.audit.json",
+      "sha256": "d7fee8e5602e3e97d688afbf742f74c3d85c28aecae83a97694ab4ac64fa768b",
+      "catalog": 4,
+      "seed": "normal-service-2",
+      "players": [
+        {
+          "id": "spirit",
+          "currentScore": 92,
+          "rawSoldQuantity": 0,
+          "rawSalesCredits": 0,
+          "eligibleQuantity": 0,
+          "eligibleCredits": 0,
+          "saleQuantityPoints": 0,
+          "saleCreditPoints": 0,
+          "trustDeltaLowerBound": 0,
+          "trustDeltaIllustrativePoints": 0,
+          "unfilteredPartialIllustration": 0,
+          "notComputed": [
+            "other proposal metrics",
+            "within-command gross trust gains/eligibility",
+            "proposed modifier or new final score"
+          ]
+        },
+        {
+          "id": "buyer",
+          "currentScore": 357,
+          "rawSoldQuantity": 6,
+          "rawSalesCredits": 157,
+          "eligibleQuantity": 5,
+          "eligibleCredits": 126,
+          "saleQuantityPoints": 25,
+          "saleCreditPoints": 12,
+          "trustDeltaLowerBound": 12,
+          "trustDeltaIllustrativePoints": 36,
+          "unfilteredPartialIllustration": 73,
+          "notComputed": [
+            "other proposal metrics",
+            "within-command gross trust gains/eligibility",
+            "proposed modifier or new final score"
+          ]
+        }
+      ]
+    }
+  ]
+}

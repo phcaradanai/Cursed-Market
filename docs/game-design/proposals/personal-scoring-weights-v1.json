@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "status": "proposal-not-approved-not-runtime",
+  "direction": "personal-scoring-direction.json",
+  "ordinaryModifier": "floor((assetScore + performancePoints) * (100 + B10 - D10) / 100)",
+  "final": "modifiedOrdinaryScore + unchangedGhostBonus",
+  "leaderAwards": "proposal: replace unimplemented leader-only bonuses with personal contributions; no extra leader bonus",
+  "rounding": "floor once per metric after aggregating eligible integer units; then cap; ordinary modifier floors once; no floating-point fractional points",
+  "metrics": [
+    {
+      "id": "bought",
+      "group": "commerce",
+      "unit": "unique original bought item",
+      "numerator": 2,
+      "denominator": 1,
+      "cap": 40
+    },
+    {
+      "id": "soldQuantity",
+      "group": "commerce",
+      "unit": "eligible successful sale item",
+      "numerator": 5,
+      "denominator": 1,
+      "cap": 75
+    },
+    {
+      "id": "soldGrossCredits",
+      "group": "commerce",
+      "unit": "eligible completed gross sale credits excluding fees/rebates/commissions",
+      "numerator": 1,
+      "denominator": 10,
+      "cap": 100
+    },
+    {
+      "id": "trustGained",
+      "group": "relations",
+      "unit": "actual positive merchant trust gained after cap; cumulative, never subtract later losses",
+      "numerator": 3,
+      "denominator": 1,
+      "cap": 120
+    },
+    {
+      "id": "inspection",
+      "group": "knowledge",
+      "unit": "new personally inspected item facet",
+      "numerator": 1,
+      "denominator": 1,
+      "cap": 24
+    },
+    {
+      "id": "accurateAppraisal",
+      "group": "knowledge",
+      "unit": "first submitted appraisal per origin within20percent of true rarity-scaled base",
+      "numerator": 2,
+      "denominator": 1,
+      "cap": 40
+    },
+    {
+      "id": "npcContract",
+      "group": "relations",
+      "unit": "fulfilled NPC contract id",
+      "numerator": 4,
+      "denominator": 1,
+      "cap": 32
+    },
+    {
+      "id": "interest",
+      "group": "finance",
+      "unit": "aged interest credits actually paid to wallet",
+      "numerator": 1,
+      "denominator": 1,
+      "cap": 30
+    },
+    {
+      "id": "loanRepaid",
+      "group": "finance",
+      "unit": "fully repaid real funded loan surviving at least one full encounter",
+      "numerator": 5,
+      "denominator": 1,
+      "cap": 20
+    },
+    {
+      "id": "survived",
+      "group": "journey",
+      "unit": "completed encounter with life above0 after settlement",
+      "numerator": 2,
+      "denominator": 1,
+      "cap": 30
+    },
+    {
+      "id": "lifeLost",
+      "group": "journey",
+      "unit": "actual HP removed, including voluntary costs, excluding overkill/death count",
+      "numerator": 1,
+      "denominator": 1,
+      "cap": 12
+    },
+    {
+      "id": "theft",
+      "group": "journey",
+      "unit": "successful theft with actual asset transfer",
+      "numerator": 4,
+      "denominator": 1,
+      "cap": 20
+    },
+    {
+      "id": "rarity",
+      "group": "collection",
+      "unit": "final original goods in actual Collector custody",
+      "byRarity": {
+        "common": 0,
+        "uncommon": 4,
+        "rare": 8,
+        "epic": 12,
+        "legendary": 20,
+        "mythic": 28
+      },
+      "cap": 80
+    },
+    {
+      "id": "ghost",
+      "group": "ghost",
+      "unit": "previously approved earned credit bonus",
+      "numerator": 1,
+      "denominator": 1,
+      "cap": null
+    }
+  ],
+  "scopeLimits": [
+    "Weights/caps/leader replacement/modifier extension are proposals awaiting explicit approval",
+    "No extra score for moving money, accepting a loan, listing, rejected offers, cancelled jobs, card/RPS retries, or arbitrary event clicks",
+    "Genuine new event/omen objectives can be added only with defined completion receipts and rules; generic event completion is not assumed",
+    "Preserve default catalogue3 and experimental catalogue4pilot8; this does not approve remaining48"
+  ],
+  "trustEligibilityKey": [
+    "playerId",
+    "originId",
+    "merchantId"
+  ],
+  "deathScope": "Action-performance counters stop at death; final asset and rarity custody evaluation applies to everyone including dead after loan settlement. Proposal, not approved."
+}

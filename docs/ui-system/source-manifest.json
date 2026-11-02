@@ -1013,7 +1013,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "sha256": "87e6a10adf3bffeb31b6134bdcbf596068c5f8a75ec622dc4552a8536ca6ff70"
+      "sha256": "06583691fd2e092a249a8b1c7744b82c0efe7771aa58988d6d2b7f53d247e9f5"
     },
     {
       "file": "apps/comic/src/game/appraisal/events.ts",
@@ -1068,6 +1068,10 @@
       "sha256": "ef49c5ade780d0f68a7422a8e8a3b433237525311ef1c555d3aed61c45bc99bf"
     },
     {
+      "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+      "sha256": "e489642d597f167606115e5b700375ab7bb9cb0c6034123e721f5d306f6d5b7e"
+    },
+    {
       "file": "apps/comic/src/game/appraisal/pilot-catalog.ts",
       "sha256": "ad8dbb487623f3b8d0486c87fe86c5fe72c0d50c553a7a34bc526c52579e8c62"
     },
@@ -1117,7 +1121,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/types.ts",
-      "sha256": "2c07c98b7865a6d21b5be8eceace17ec70b96d731f3ca57c716b6f8004d3635a"
+      "sha256": "d55675080936dc829a1c3fd443014a7f25fc54b90b86bc96faedf1281e969bc1"
     },
     {
       "file": "apps/comic/src/game/appraisal/views.ts",
@@ -1530,6 +1534,10 @@
     {
       "file": "apps/comic/tests/new56-pilot-lifecycle.test.ts",
       "sha256": "7c74bdc20895696200a6339ad16622f071e11d1fbde1cbe63f1cabe492807375"
+    },
+    {
+      "file": "apps/comic/tests/personal-scoring.test.ts",
+      "sha256": "c77980ac5688ba80ff05963a5371c58e820b1ba5cb6141f45426728545c85112"
     },
     {
       "file": "apps/comic/tests/playtest.test.ts",

@@ -1,0 +1,45 @@
+✔ approved ordinary achievements change the first example total to183 (9.946667ms)
+✔ second approved example141 and unchanged ghost addition after modifier (1.199208ms)
+✔ aggregate sale credits floor once, independently from sale quantity (0.228333ms)
+✔ real repeated raw sales and copies remain visible without repeated eligible points (3.35275ms)
+✔ raw cumulative trust is independent of ending trust and source tuple eligibility (0.942875ms)
+✔ receipt duplicate is idempotent, conflicting identity and malformed facts reject (2.75625ms)
+✔ flagless receipt recording creates no state and actor separation prevents leaking totals (6.050834ms)
+✔ all activity caps and fractional modifiers preserve exact approved behavior (1.937042ms)
+✔ rarity originals use approved six tiers and collection cap without adding ghost to ordinary points (1.606542ms)
+✔ approved weight manifest matches serialized metric definitions (14.858292ms)
+✔ unsafe score input and unknown facts reject without mutating caller arrays (2.256541ms)
+✖ engine initializes only explicit scoring1 and rejects unsupported versions and missing or corrupt ledger (116.25925ms)
+✔ zero eligible gains do not consume a future positive source and odd player identities stay isolated (0.957958ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 12
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 414.319166
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/personal-scoring.test.js:27:1
+✖ engine initializes only explicit scoring1 and rejects unsupported versions and missing or corrupt ledger (116.25925ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + undefined
+  - {
+  -   facts: [],
+  -   version: 1
+  - }
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:27:359)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: { version: 1, facts: [] },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

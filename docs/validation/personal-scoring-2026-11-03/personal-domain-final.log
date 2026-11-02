@@ -1,0 +1,21 @@
+✔ approved ordinary achievements change the first example total to183 (10.20225ms)
+✔ second approved example141 and unchanged ghost addition after modifier (1.194083ms)
+✔ aggregate sale credits floor once, independently from sale quantity (0.219583ms)
+✔ real repeated raw sales and copies remain visible without repeated eligible points (2.167292ms)
+✔ raw cumulative trust is independent of ending trust and source tuple eligibility (1.064459ms)
+✔ receipt duplicate is idempotent, conflicting identity and malformed facts reject (2.755916ms)
+✔ flagless receipt recording creates no state and actor separation prevents leaking totals (4.889125ms)
+✔ all activity caps and fractional modifiers preserve exact approved behavior (3.511417ms)
+✔ rarity originals use approved six tiers and collection cap without adding ghost to ordinary points (3.241625ms)
+✔ approved weight manifest matches serialized metric definitions (12.088459ms)
+✔ unsafe score input and unknown facts reject without mutating caller arrays (1.568583ms)
+✔ engine initializes only explicit scoring1 and rejects unsupported versions and missing or corrupt ledger (145.3795ms)
+✔ zero eligible gains do not consume a future positive source and odd player identities stay isolated (5.519709ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 444.964625

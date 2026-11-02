@@ -1,0 +1,18 @@
+{
+  "asOf": "2026-11-02",
+  "status": "approved-experimental",
+  "approvalReply": "อนุมัติชุดทดลองตามเอกสาร",
+  "proposalCommit": "1551908",
+  "approvedFiles": {
+    "docs/game-design/proposals/personal-scoring-rules-v1.md": "600bb7d3b94d8e52d102332448b858003f240a8a77f241da2388e39dcbbd5f48",
+    "docs/game-design/proposals/personal-scoring-weights-v1.json": "9e9b8c055ea1ea12e02e479f1605f12948b70a8a39b9a5e799bd96b5418eec12"
+  },
+  "scope": "Exact14metric weights/caps/eligibility, every-player contributions; sale count/grosscredits separate; cumulative trust gains; leader replacement; B10D10 ordinary performance; finalcustody rarity includingdead; unchanged ghost1credit1point",
+  "notImplied": [
+    "release balance",
+    "remaining48 item numeric approval",
+    "new image generation or baseline promotion"
+  ],
+  "runtimeStatus": "Task1 receipt domain/calculator/config init verified; canonical producers, final hook/DTO and Comic graph pending. New-room default off.",
+  "evidence": "docs/validation/personal-scoring-2026-11-03/checkpoint.json"
+}

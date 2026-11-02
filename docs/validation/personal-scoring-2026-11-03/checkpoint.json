@@ -1,0 +1,84 @@
+{
+  "asOf": "2026-11-03",
+  "status": "domain-compatible-runtime-not-integrated",
+  "proposalCommit": "1551908",
+  "goalStatusObserved": "active (user resumed after usage limit)",
+  "domainTests": {
+    "passed": 13,
+    "failed": 0,
+    "log": "docs/validation/personal-scoring-2026-11-03/personal-domain-final.log"
+  },
+  "historicalReplays": {
+    "passed": 38,
+    "failed": 8,
+    "scope": "All distinct completed audit JSON discovered in docs/validation; not fresh balance or UI proof. Parent comparison in separate report.",
+    "parentComparison": "All8 failures reproduce exact same errors on pristine1551908 export."
+  },
+  "broadSuite": {
+    "status": "external-wall-timeout",
+    "seconds": 35,
+    "knownAssertionFailures": 6,
+    "parentComparison": "Six same test names fail on pristine1551908 export and current; canceled files after stop are not classified as regressions."
+  },
+  "remaining": [
+    "canonical successful mutation receipts and final scoring",
+    "allowlisted DTO and Comic sequential score graph",
+    "new-room default activation after proof",
+    "normal service ghost-tracking no-scroll failure diagnosis",
+    "source-manifest/pilot proof refresh, Atlas full acceptance and final review"
+  ],
+  "sourceFingerprints": {
+    "apps/comic/src/game/appraisal/personal-scoring.ts": "e489642d597f167606115e5b700375ab7bb9cb0c6034123e721f5d306f6d5b7e",
+    "apps/comic/src/game/appraisal/engine.ts": "06583691fd2e092a249a8b1c7744b82c0efe7771aa58988d6d2b7f53d247e9f5",
+    "apps/comic/src/game/appraisal/types.ts": "d55675080936dc829a1c3fd443014a7f25fc54b90b86bc96faedf1281e969bc1",
+    "apps/comic/tests/personal-scoring.test.ts": "c77980ac5688ba80ff05963a5371c58e820b1ba5cb6141f45426728545c85112"
+  },
+  "artifacts": {
+    "domain-checkpoint.log": "3d3a8dc20ae531bdc8e5c7692656d05bdfa6a92c1a044ef1afd8e7c1bf76c49a",
+    "personal-domain-final.log": "1eea1ef68a09b5e1c279b6324908c1486d3acc86ded3bd664f929b33c9bc5948",
+    "personal-task1-replay.json": "55d5596d1f7d0a6446639135b5f60ef1c44e5a8acc58692d1045c5920c990b63",
+    "ui-check-checkpoint.log": "91b443bbae76ec1f4ebd78e65410febba140bd1e122e90995d3b74bdb0efd0b3",
+    "personal-task1-current-targeted.log": "7cb41fdf48cd382402391677242f6af3adb7ff224d5d6985ee19853555f831ed",
+    "personal-domain-final-build.log": "511eb0c98cbf57ddc40da85928cbc84f4b5d6d16bac529afb0f92855850d3d91",
+    "ui-contracts-checkpoint.log": "75ff51aa1354f6291a4ce83335ec392619f474464bc1bb7ea665f2dabfb79301",
+    "personal-domain-red.log": "74b71e1480de3a5837175a2ff2f544bef010030fe16abd2c59c8f4b14e5924b3",
+    "personal-domain-red-build.log": "511eb0c98cbf57ddc40da85928cbc84f4b5d6d16bac529afb0f92855850d3d91",
+    "personal-task1-parent-targeted.log": "3e3e3311cebdda0a011b9a0a23dc2c34395e556e12d989c87fc46c2b671a8a43",
+    "personal-task1-full-suite.json": "0a67f7c253e9c8b6f6689575f441e8b4898b28e534c4e6b878039631d229fea1",
+    "checkpoint-checks.json": "5763d7d15f4e1a3a8d4f79053f209a1f846ef0e70941bcfa78c57672e05fb099",
+    "personal-task1-replay.log": "1144cec386e7699168593bf3194067c7b062f300b282069fe092c6582357544e",
+    "personal-task1-full-suite.log": "8622a6e2d95cfd56a723cdc1e6ecc6b02023be918dfeddb263604ee33b85573c",
+    "personal-config-red.log": "bca27696e402857773516be16ea6cdb1c1dbdb9752698916cdd3feef3b1580e3",
+    "personal-task1-replay-parent.json": "4d0b36a038ff785b5374894d7d1e8a631d989e8caed5a93dca8125d57dfb6557",
+    "personal-task1-parent-comparison.json": "1d347aa2732827844d742b6d7d9440d966c32cb9b39c72dd913174716e785e8c"
+  },
+  "checks": "checkpoint-checks.json",
+  "atlasBuild": {
+    "status": "passed-after-native-compatibility-proof",
+    "sourceInputs": 217
+  },
+  "notRun": [
+    "fresh UI smoke/visual (no UI component/style edits)",
+    "full pilot compatibility rerun",
+    "final independent review"
+  ],
+  "nativeCompatibility": {
+    "passed": true,
+    "pairs": 8,
+    "fullRuns": 16,
+    "replayChecks": 32,
+    "all16AuditBytesUnchanged": true,
+    "report": "docs/validation/pilot-public-2026-11-02/public-effects.json"
+  },
+  "task1": {
+    "status": "verified-domain-only",
+    "compatibilityTests": 96,
+    "serverBuild": "pass",
+    "clientBuild": "pass (existing large-chunk advisory)",
+    "uiSourceCheck": "395pass",
+    "uiContracts": 10,
+    "atlasGuardedBuildAndCheck": "pass217inputs",
+    "mainDefault": "off",
+    "review": "whole-branch independent review deferred until all3tasks"
+  }
+}

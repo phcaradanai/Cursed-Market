@@ -1,7 +1,7 @@
 {
-  "asOf": "2026-11-02",
+  "asOf": "2026-11-03",
   "activeSource": "apps/comic",
-  "revision": "54ff4a6 + concrete personal-scoring experiment proposal",
+  "revision": "1551908 + approved personal scoring Task1 working-tree checkpoint",
   "headline": "ยังไม่ครบตามกฎและขอบเขตเกมที่ตกลงทั้งหมด",
   "summary": "วงจรเดิมและตลาดวิญญาณเล่นได้ แต่การย้ายกฎ/สินค้าใหม่และบาลานซ์ทั้งเกมยังค้าง ภาพหน้าจอหรือกราฟครบไม่ได้แปลว่า runtime ครบ",
   "atlasScope": "Atlas สกัดทุก module ของ apps/comic/src/game/appraisal พร้อม random/rarity/protocol/server lifecycle และ bot ที่ระบุ; graph เป็น static dependency ไม่ใช่ execution proof; UI ใช้ capture/flow registry แยก; รุ่นเก่าตรึง9f0a972ใน legacy-atlas-baseline.json",
@@ -61,8 +61,8 @@
     {
       "id": "STRAT-01",
       "system": "คะแนนผลงานทุกคนหลายระบบ",
-      "status": "ทิศทางและหน่วยขาย/ความไว้ใจยืนยันแล้ว — ยังไม่ลงสูตรใหม่",
-      "remaining": "ชุดทดลองตัวเลข/กันปั๊ม/ข้อมูลส่งกราฟพร้อมแล้ว รออนุมัติ package; ทิศทาง/จำนวนขาย+เครดิตขาย/trustสะสมยืนยันแล้ว. Offline5audits14playersเป็นpartialillustrationไม่ใช่คะแนนruntime.",
+      "status": "approved-experimental — Task1 domain verified; Task2 runtime pending",
+      "remaining": "ชุด1551908อนุมัติแล้ว; Task1ผ่าน96focusedรวม13domain และnative8pairs/16runs/32replays แต่ยังไม่มี canonical counters/สูตรจบเกม/DTO/กราฟ/default. ดูcheckpoint2026-11-03.",
       "evidence": [
         "docs/game-design/strategic-paths.md",
         "apps/comic/src/game/appraisal/survival.ts",
@@ -72,7 +72,10 @@
         "docs/game-design/proposals/personal-scoring-rules-v1.md",
         "docs/game-design/proposals/personal-scoring-weights-v1.json",
         "docs/game-design/proposals/personal-scoring-builder-check.md",
-        "docs/game-design/balance-reports/2026-11-02-personal-scoring-calibration.md"
+        "docs/game-design/balance-reports/2026-11-02-personal-scoring-calibration.md",
+        "docs/game-design/personal-scoring-approval.json",
+        "docs/game-design/implementations/personal-scoring-plan.md",
+        "docs/validation/personal-scoring-2026-11-03/checkpoint.json"
       ]
     },
     {
@@ -99,7 +102,7 @@
       "id": "RULE-04",
       "system": "รางวัลสถิติและกลุ่ม rarity",
       "status": "ยังไม่ลงครบ",
-      "remaining": "ปรับให้สอดคล้องคะแนนผลงานทุกคน2026-11-02. รางวัลผู้นำเดิม/rarity×2/×3และกฎเสมอ/กันปั๊มต้องสรุปแยก ไม่ตีความเป็น20/40ต่อชิ้นเอง.",
+      "remaining": "อนุมัติชุดคะแนนทดลอง1551908แทน leader bonuses เดิมแล้ว พร้อม rarity ตามของต้นฉบับที่ถือเมื่อจบรวมผู้ตาย; ยังไม่เชื่อม runtime. ใช้ approval receipt เป็นข้อสรุปล่าสุด ไม่ตีความ20/40ต่อชิ้นเอง.",
       "evidence": [
         "apps/comic/src/game/appraisal/survival.ts",
         "docs/game-design/rules-and-logic.md",
@@ -156,7 +159,7 @@
     }
   ],
   "next": [
-    "รออนุมัติชุดทดลอง personal-scoring-rules-v1 แล้วทำplan/canonicalcounters+scorebreakdown+กราฟ; ไม่ถามโครงสร้าง/หน่วยที่ยืนยันแล้วซ้ำ",
+    "Task1 verified; เชื่อม canonical counters และสูตรจบเกมใน Task2 แล้วทำ DTO/Comic graph; ห้ามเปิด default ก่อนครบproof",
     "เตรียมสเปกสินค้าใหม่อีก48ชิ้นและevent predicatesให้ตรวจ ไม่ขยายcatalog4หรือใส่ค่าที่ยังไม่อนุมัติเอง",
     "ต่อnormal-resource engine journeyเป็นbrowser/socketร่วมจริง และหลายseed/policyก่อนtune",
     "รักษางานUI-COLLECTOR-CONTEXT minorและfull-game acceptanceเป็นงานค้าง ไม่เรียกsubsystemว่าเกมเสร็จ"

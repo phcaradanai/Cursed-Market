@@ -15,19 +15,19 @@
   "encounterModels": 6,
   "phases": 5,
   "actions": 60,
-  "configKeys": 55,
-  "parameters": 72,
-  "functions": 494,
-  "codeSymbols": 637,
+  "configKeys": 56,
+  "parameters": 73,
+  "functions": 502,
+  "codeSymbols": 647,
   "policies": 212,
   "randomRules": 105,
   "legacyGateSites": 21,
   "logSites": 118,
   "logTopics": 103,
-  "validationSites": 457,
+  "validationSites": 458,
   "dynamicStatusOperations": 29,
-  "schemas": 124,
-  "propertyWriteSites": 535
+  "schemas": 132,
+  "propertyWriteSites": 537
 }
 ```
 ## กฎยืนยันและสถานะ runtime

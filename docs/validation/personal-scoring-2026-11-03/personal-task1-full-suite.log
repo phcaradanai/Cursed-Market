@@ -1,0 +1,676 @@
+
+> cursed-market-comic@0.1.0 test
+> npm run build:server && node --test dist/tests/*.test.js
+
+
+> cursed-market-comic@0.1.0 build:server
+> tsc -p tsconfig.json
+
+
+Interrupted while running:
+
+⚠ dist/tests/appraisal-bots.test.js (dist/tests/appraisal-bots.test.js:1:1)
+⚠ dist/tests/appraisal-brokerage.test.js (dist/tests/appraisal-brokerage.test.js:1:1)
+⚠ dist/tests/appraisal-cabinet.test.js (dist/tests/appraisal-cabinet.test.js:1:1)
+⚠ dist/tests/appraisal-catalog.test.js (dist/tests/appraisal-catalog.test.js:1:1)
+⚠ dist/tests/appraisal-challenge.test.js (dist/tests/appraisal-challenge.test.js:1:1)
+⚠ dist/tests/appraisal-cleanse.test.js (dist/tests/appraisal-cleanse.test.js:1:1)
+⚠ dist/tests/appraisal-client.test.js (dist/tests/appraisal-client.test.js:1:1)
+⚠ dist/tests/appraisal-comic-blood-pact.test.js (dist/tests/appraisal-comic-blood-pact.test.js:1:1)
+⚠ dist/tests/appraisal-commerce.test.js (dist/tests/appraisal-commerce.test.js:1:1)
+⚠ dist/tests/appraisal-core2-client.test.js (dist/tests/appraisal-core2-client.test.js:1:1)
+⚠ dist/tests/appraisal-core2.test.js (dist/tests/appraisal-core2.test.js:1:1)
+⚠ dist/tests/appraisal-curse-sight.test.js (dist/tests/appraisal-curse-sight.test.js:1:1)
+⚠ dist/tests/appraisal-end-rules.test.js (dist/tests/appraisal-end-rules.test.js:1:1)
+⚠ dist/tests/appraisal-event-choices.test.js (dist/tests/appraisal-event-choices.test.js:1:1)
+⚠ dist/tests/appraisal-event-rework.test.js (dist/tests/appraisal-event-rework.test.js:1:1)
+⚠ dist/tests/appraisal-expansion.test.js (dist/tests/appraisal-expansion.test.js:1:1)
+⚠ dist/tests/appraisal-forced-rps-network.test.js (dist/tests/appraisal-forced-rps-network.test.js:1:1)
+⚠ dist/tests/appraisal-forced-rps-room.test.js (dist/tests/appraisal-forced-rps-room.test.js:1:1)
+⚠ dist/tests/appraisal-forced-rps.test.js (dist/tests/appraisal-forced-rps.test.js:1:1)
+⚠ dist/tests/appraisal-free-actions.test.js (dist/tests/appraisal-free-actions.test.js:1:1)
+⚠ dist/tests/appraisal-i18n.test.js (dist/tests/appraisal-i18n.test.js:1:1)
+⚠ dist/tests/appraisal-incentives.test.js (dist/tests/appraisal-incentives.test.js:1:1)
+✖ dist/tests/appraisal-bots.test.js (16922.861375ms)
+✖ dist/tests/appraisal-brokerage.test.js (16904.732333ms)
+(node:39660) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ game settings are named and reachable alongside the cabinet tools (345.419375ms)
+✔ cabinet selection never reveals a hidden value while showing the public selling price (136.468875ms)
+✔ empty cabinet retains appraisal completion in Status without placeholder goods (57.410625ms)
+✔ server rejection is readable inside the active utility dialog (1.36475ms)
+✔ the active utility dialog announces an in-flight decision (0.401792ms)
+✔ connection loss and seat recovery remain available above a native modal (0.335625ms)
+✖ dist/tests/appraisal-catalog.test.js (16893.097ms)
+✔ discount and penalty are percentages of the appraisal price; lenses help only the winner and stay capped (4.507791ms)
+✔ a correct challenge discounts the appraisal price by 50%, excludes commission, and reveals the truth (225.846166ms)
+✔ a wrong challenge pays the appraiser 50% of the appraisal price; a void seal cancels it and is spent (48.229625ms)
+✔ challenge needs a real claim, enough credits for the worst case, and a seal only with a challenge (56.884792ms)
+✔ claims can be made without inspecting, only on listed shop items, and are visible to buyers; opt-in config and messages (67.598541ms)
+✔ price starts at half the reference price, scales with the merchant roll and trust, and odds never reach 100% (3.400625ms)
+✔ the offer is public data, the attempt is charged either way, and success or failure reveals the curse state (1511.262666ms)
+✔ whetstone raises the odds and is spent; a clean item just costs the fee; bad targets are rejected (86.61675ms)
+✔ rule is opt-in: saved runs have no offer, no action and no smith tools in stock (29.918625ms)
+(node:39664) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ v0.4 UI E01: every offered choice builds an engine-accepted decision (168.17525ms)
+✔ v0.4 UI E02: every offered choice builds an engine-accepted decision (70.658917ms)
+✔ v0.4 UI E03: every offered choice builds an engine-accepted decision (74.285583ms)
+✔ v0.4 UI E04: every offered choice builds an engine-accepted decision (16.479125ms)
+✔ v0.4 UI E05: every offered choice builds an engine-accepted decision (41.732417ms)
+✔ v0.4 UI E06: every offered choice builds an engine-accepted decision (47.566834ms)
+✔ v0.4 UI E07: every offered choice builds an engine-accepted decision (142.119ms)
+✔ v0.4 UI E08: every offered choice builds an engine-accepted decision (73.737417ms)
+✔ v0.4 UI E09: every offered choice builds an engine-accepted decision (41.194625ms)
+✔ v0.4 UI E10: every offered choice builds an engine-accepted decision (48.527417ms)
+✔ v0.4 UI E11: every offered choice builds an engine-accepted decision (77.817459ms)
+✔ v0.4 UI E12: every offered choice builds an engine-accepted decision (10.92925ms)
+✔ v0.4 UI E13: every offered choice builds an engine-accepted decision (23.11125ms)
+✔ v0.4 UI E14: every offered choice builds an engine-accepted decision (50.853333ms)
+✔ v0.4 UI E15: every offered choice builds an engine-accepted decision (25.565292ms)
+✔ v0.4 UI E16: every offered choice builds an engine-accepted decision (22.329125ms)
+✔ v0.4 UI E17: every offered choice builds an engine-accepted decision (18.1515ms)
+✔ v0.4 UI E18: every offered choice builds an engine-accepted decision (20.237416ms)
+✔ v0.4 UI E19: every offered choice builds an engine-accepted decision (11.921125ms)
+✔ v0.4 UI E20: every offered choice builds an engine-accepted decision (17.881958ms)
+✔ v0.4 UI E21: every offered choice builds an engine-accepted decision (17.59025ms)
+✔ v0.4 UI E22: every offered choice builds an engine-accepted decision (7.250792ms)
+✔ v0.4 UI E23: every offered choice builds an engine-accepted decision (20.089125ms)
+✔ v0.4 UI E24: every offered choice builds an engine-accepted decision (22.467791ms)
+✔ v0.4 UI E25: every offered choice builds an engine-accepted decision (7.686625ms)
+✔ v0.4 UI E26: every offered choice builds an engine-accepted decision (7.892791ms)
+✔ v0.4 UI E27: every offered choice builds an engine-accepted decision (15.5055ms)
+✔ v0.4 UI E28: every offered choice builds an engine-accepted decision (7.20275ms)
+✔ v0.4 UI E29: every offered choice builds an engine-accepted decision (20.0265ms)
+✔ v0.4 UI E30: every offered choice builds an engine-accepted decision (18.618167ms)
+✔ v0.4 UI E31: every offered choice builds an engine-accepted decision (14.014542ms)
+✔ v0.4 UI E32: every offered choice builds an engine-accepted decision (13.736666ms)
+✔ v0.4 UI E33: every offered choice builds an engine-accepted decision (24.518209ms)
+✔ v0.4 UI E34: every offered choice builds an engine-accepted decision (9.79775ms)
+✔ v0.4 UI E35: every offered choice builds an engine-accepted decision (8.44225ms)
+✔ v0.4 UI E36: every offered choice builds an engine-accepted decision (10.374916ms)
+✔ v0.4 UI E37: every offered choice builds an engine-accepted decision (17.901459ms)
+✔ v0.4 UI E38: every offered choice builds an engine-accepted decision (12.221459ms)
+✔ v0.4 UI E39: every offered choice builds an engine-accepted decision (91.062875ms)
+✔ v0.4 UI E40: every offered choice builds an engine-accepted decision (19.946375ms)
+✔ v0.4 UI E41: every offered choice builds an engine-accepted decision (12.9355ms)
+✔ v0.4 UI E42: every offered choice builds an engine-accepted decision (17.480084ms)
+✔ v0.4 UI E43: every offered choice builds an engine-accepted decision (69.436125ms)
+✔ v0.4 UI E44: every offered choice builds an engine-accepted decision (69.705667ms)
+✔ v0.4 UI E45: every offered choice builds an engine-accepted decision (16.89825ms)
+✔ v0.4 UI E46: every offered choice builds an engine-accepted decision (84.049208ms)
+✔ v0.4 UI E47: every offered choice builds an engine-accepted decision (90.082125ms)
+✔ v0.4 UI E48: every offered choice builds an engine-accepted decision (15.917708ms)
+✔ v0.4 UI E49: every offered choice builds an engine-accepted decision (21.216875ms)
+✔ v0.4 UI E50: every offered choice builds an engine-accepted decision (24.947041ms)
+✔ visible-data risk bounds enclose every possible hidden base, including honor/status jumps (140.654208ms)
+✔ purchase preview uses accepted quote and buyer discounts, once for a bundle (288.852375ms)
+✔ inspection and market availability respect status charges, locks, quota and budget (10.725959ms)
+✔ unknown authenticity and curse remain unknown in the desk; Dark One requires separate consent (11.503125ms)
+✔ full phase surfaces render with live DTO data and no missing text (280.357792ms)
+✔ cross-shop form presents actual NPC price plus fee; player trade offers allow zero (10.270333ms)
+✔ confirmed consequences expose timeout defaults and decline cannot forge targets (20.678416ms)
+✔ eight comic merchants in three moods, ten item families and two illustrated grounds ship with provenance (673.646584ms)
+✔ seller sees an incoming unlisted swap identity without the buyer private truth (40.705208ms)
+✔ E08 identifies both fixed portals and exact mandatory discount/status before commitment (154.057833ms)
+✔ same-kind Dark Market detail focuses one inventory identifier and its known facts (58.410416ms)
+✔ Dark Market bounds the noticeboard and keeps full sale decisions in the item dialog (62.764875ms)
+✔ browser client accepts survival rooms and labels seats legibly (4.305ms)
+✔ price stepper clamps to whole credits 0–1000 and Thai copy hides engine English (1.668291ms)
+✔ game UI uses choice cards instead of dropdowns and highlights status/item names with peek cards (93.415125ms)
+✔ result cards: a correct E46 guess says so, and a bare phase change makes no card (227.380458ms)
+✔ desk shows one step at a time and the event takes the stage as a dialog (177.304167ms)
+(node:39667) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ comic E109 displays actual life price and deferred reward without exposing item truths (165.119625ms)
+✔ life shortage blocks accept only; transport busy blocks both and tuck retains pending event (126.255958ms)
+✔ event command used by comic choices pays now, defers reward and preserves decline (68.024083ms)
+(node:39668) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ NPC sale pays 10 percent of actual sale once, credits the appraiser, and grows only that NPC trust (78.921334ms)
+✔ cross-shop commission belongs to the appraiser in addition to the agreed fee (91.853667ms)
+✔ bundle commissions use actual discounted per-item prices and unappraised purchases pay none (46.141ms)
+✔ consigned appraisals pay on the first vault auction sale, without changing dead spectator assets (22.750792ms)
+✔ insufficient funds reject atomically before any commission or trust can stick (30.275208ms)
+✔ trust persists by NPC, caps at ten and raises low-offer acceptance without changing detection or accepting zero (54.2565ms)
+✔ matched market contract grants credits, reserves max credit liability and consumes quota once (24.913042ms)
+✔ matched market contract grants energy, reserves max credit liability and consumes quota once (16.269708ms)
+✔ matched market contract grants life, reserves max credit liability and consumes quota once (7.975791ms)
+✔ matched market contract grants buff, reserves max credit liability and consumes quota once (17.444875ms)
+✔ a mismatched curse/authenticity defaults to a 20 percent markdown and never grants the bonus (20.06ms)
+✔ mismatched full-price sale takes the agreed energy, pays full base and no bonus (37.440208ms)
+✔ mismatched full-price sale takes the agreed life, pays full base and no bonus (6.888875ms)
+✔ mismatched full-price sale takes the agreed debuff, pays full base and no bonus (3.665916ms)
+✔ a sacrifice must be affordable before checking hidden truth; rejection cannot become a free condition probe (16.528375ms)
+✔ a status sacrifice cannot be free when already active; a protection charge may pay instead (20.503416ms)
+✖ private market preview is identical for opposite hidden qualities and labels the unknown risk before selling (98.046833ms)
+✔ generated contracts vary requirements, bonuses and costs; their budget is fully reserved and old audits replay (4772.241042ms)
+✔ parser accepts explicit settlement choices and rejects forged truth, payout, trust and hidden metadata (3.645458ms)
+(node:39669) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ every core v0.6 event shows a name, a description and a titled, priced choice in the client (19.314666ms)
+✖ dist/tests/appraisal-core2.test.js (14589.831541ms)
+(node:39671) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ the third inspection reads the curse without any buff, and only once per item (84.5825ms)
+✔ a saved run without the flag keeps the old effects check (no curse unless B02) (69.321458ms)
+✔ B02 adds the curse to the next price or authenticity check and is spent (11.068625ms)
+✔ activating spells out genuine/fake × cursed/clean; genuine always works, fake only sometimes (1012.531458ms)
+✔ event choices that cost resources are priced, and already-known items are not offered again (23.21775ms)
+✔ score value and the Collector total share one formula; the client estimate uses only known facts (13.299833ms)
+✔ an expired duel is cancelled without ending either seat's phase or adding a penalty (228.2575ms)
+✔ match end forecloses active loans in classic, so the borrower cannot keep both principal and collateral (43.347458ms)
+✔ saved runs without the end-settlement rule keep the loan open at the end (50.11175ms)
+✔ survival: the Collector arrives at the deadline with seats still alive and settles open loans (15.827041ms)
+✔ survival runs end by the default Collector deadline and still replay (743.759042ms)
+✔ an untimed room cancels a stalled duel on its own clock and the table can finish the phase (24.575959ms)
+✖ dist/tests/appraisal-event-choices.test.js (11652.944042ms)
+✔ free gifts have no decline, time out to the gift, and old runs keep their decline (194.282583ms)
+✔ a merchant gift is one button and does not use an event slot (20.925333ms)
+✔ E37 overloaded baggage has no free way out: pay, carry it, or leave an item (16.569291ms)
+✔ E40 the broken scanner: repair it, throw it away, or live with the fog (17.555791ms)
+✔ E47 sells one fact the other appraiser verified for 1 credit (18.196083ms)
+✔ E119, E121 and E127: paying now is cheaper than paying later, and no debt is offered without a next encounter (66.045333ms)
+✖ dist/tests/appraisal-expansion.test.js (9063.841625ms)
+✔ real sockets preserve sealed hands, independent clocks, resume and round-token idempotency (415.735958ms)
+✔ phase deadline cannot refuse a valid hand; duel expiry preserves it and a tie starts a fresh reconnectable clock (142.3205ms)
+✔ an accepted hand retry after phase expiry is acknowledged without replaying the action (87.526834ms)
+✔ untimed rooms still resolve a disconnected participant on the independent duel deadline once (52.371959ms)
+✔ timeout fills both missing hands deterministically and resolves without a cancellation or extra cost (168.321334ms)
+✔ timeout preserves a submitted hand and cannot fill a newly tied round (26.835875ms)
+✔ the expired phase clock defers active forced duels to the independent round clock (37.449709ms)
+✔ old audits retain cancelled timeout and genuinely moved targets still invalidate new duels (25.453417ms)
+✔ new-rule hand commands reject missing or stale round tokens while historical commands remain valid (83.469792ms)
+✔ NPC keeps its sealed hand and timeout uses normal defeat consequences (26.481084ms)
+✔ autofilled outcomes use the same transfer, seal and compensation consequences exactly once (40.873ms)
+✔ command-only acquisition, forced expiry and full run strictly replay with no injected stock (186.946584ms)
+(node:39694) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ encounters begin without energy loss, including advancement (75.514292ms)
+✔ free price inspection spends the item's shared right, not energy or quota (47.037083ms)
+✔ free authenticity inspection spends the item's shared right, not energy or quota (32.917791ms)
+✔ free effects inspection spends the item's shared right, not energy or quota (20.020459ms)
+✔ appraisal first is free, further inspection and counter both cost energy (34.46025ms)
+✔ rejected actions do not spend the free right, and retries cannot grant it twice (17.722167ms)
+✔ classic players at zero energy retain access to every remaining free merchant action (20.313792ms)
+✔ each item has its own right even beyond the normal inspection quota; owned goods have none (23.486458ms)
+✖ zero-energy UI enables free actions and marks them free (81.207333ms)
+✔ legacy configuration retains paid actions and new rules replay exactly (181.0505ms)
+(node:39707) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ language switch: two languages, default Thai, placeholders filled in both (3.912083ms)
+✔ language switch notifies subscribers and survives a missing localStorage (0.641042ms)
+✖ every translated client string has an English entry (19.244417ms)
+✔ English values never carry Thai text, and their placeholders match the Thai source (19.012ms)
+✖ English mode renders every phase with no Thai text left in the table (engine notes aside) (267.952375ms)
+✖ the Rules panel follows the room mode (211.814292ms)
+✖ every disabled button in every phase and language carries a hover reason (876.025917ms)
+✖ dist/tests/appraisal-incentives.test.js (1140.068167ms)
+✖ dist/tests/appraisal-item-effects.test.js
+✖ dist/tests/appraisal-journal.test.js
+✖ dist/tests/appraisal-merchant-abilities.test.js
+✖ dist/tests/appraisal-network.test.js
+✖ dist/tests/appraisal-npc-events.test.js
+✖ dist/tests/appraisal-passives.test.js
+✖ dist/tests/appraisal-polish.test.js
+✖ dist/tests/appraisal-portal-context.test.js
+✖ dist/tests/appraisal-price-integrity.test.js
+✖ dist/tests/appraisal-price-knowledge.test.js
+✖ dist/tests/appraisal-pulse.test.js
+✖ dist/tests/appraisal-report.test.js
+✖ dist/tests/appraisal-rooms.test.js
+✖ dist/tests/appraisal-round-rewards.test.js
+✖ dist/tests/appraisal-secure-client.test.js
+✖ dist/tests/appraisal-secure-integration.test.js
+✖ dist/tests/appraisal-secure-seals.test.js
+✖ dist/tests/appraisal-secure-storage.test.js
+✖ dist/tests/appraisal-secure-theft.test.js
+✖ dist/tests/appraisal-status-links.test.js
+✖ dist/tests/appraisal-stock.test.js
+✖ dist/tests/appraisal-survival.test.js
+✖ dist/tests/appraisal-system-links.test.js
+✖ dist/tests/appraisal-tickets.test.js
+✖ dist/tests/appraisal-timers.test.js
+✖ dist/tests/appraisal-trade-price.test.js
+✖ dist/tests/appraisal-vault-interest.test.js
+✖ dist/tests/appraisal-wishlist.test.js
+✖ dist/tests/appraisal.test.js
+✖ dist/tests/collector-wishlist-network.test.js
+✖ dist/tests/collector-wishlist-ui.test.js
+✖ dist/tests/collector-wishlist.test.js
+✖ dist/tests/comic-continuity.test.js
+✖ dist/tests/engine.test.js
+✖ dist/tests/ghost-network.test.js
+✖ dist/tests/ghost-replay.test.js
+✖ dist/tests/ghost-service.test.js
+✖ dist/tests/ghost-tracking.test.js
+✖ dist/tests/item-rarity.test.js
+✖ dist/tests/merchant-expressions.test.js
+✖ dist/tests/network.test.js
+✖ dist/tests/new56-pilot-catalog.test.js
+✖ dist/tests/new56-pilot-custody.test.js
+✖ dist/tests/new56-pilot-effects.test.js
+✖ dist/tests/new56-pilot-lifecycle.test.js
+✖ dist/tests/personal-scoring.test.js
+✖ dist/tests/playtest.test.js
+✖ dist/tests/rarity-economy.test.js
+✖ dist/tests/rooms.test.js
+✖ dist/tests/run.test.js
+✖ dist/tests/theft-desk.test.js
+✖ dist/tests/wagers.test.js
+ℹ tests 211
+ℹ suites 0
+ℹ pass 146
+ℹ fail 6
+ℹ cancelled 59
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 17005.312583
+
+✖ failing tests:
+
+test at dist/tests/appraisal-bots.test.js:1:1
+✖ dist/tests/appraisal-bots.test.js (16922.861375ms)
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-brokerage.test.js:1:1
+✖ dist/tests/appraisal-brokerage.test.js (16904.732333ms)
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-catalog.test.js:1:1
+✖ dist/tests/appraisal-catalog.test.js (16893.097ms)
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-commerce.test.js:210:1
+✖ private market preview is identical for opposite hidden qualities and labels the unknown risk before selling (98.046833ms)
+  AssertionError [ERR_ASSERTION]: ต้องการ: ของแท้ และ ไม่มีคำสาป
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-commerce.test.js:225:9)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at dist/tests/appraisal-core2.test.js:1:1
+✖ dist/tests/appraisal-core2.test.js (14589.831541ms)
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-event-choices.test.js:1:1
+✖ dist/tests/appraisal-event-choices.test.js (11652.944042ms)
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-expansion.test.js:1:1
+✖ dist/tests/appraisal-expansion.test.js (9063.841625ms)
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-free-actions.test.js:112:1
+✖ zero-energy UI enables free actions and marks them free (81.207333ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /สินค้าชิ้นนี้ตรวจสอบหรือประเมินฟรี 1 ครั้ง/. Input:
+  
+  '<link rel="preload" as="image" href="/art/comic/items/mirror-v2.png"/><section class="desk" aria-label="ประเมิน กระจกตารวม"><div class="appraisal-visual"><div class="relic-art"><img src="/art/comic/items/mirror-v2.png" alt="กระจกตารวม" width="1254" height="1254" loading="eager"/></div></div><div class="desk-reading"><header class="specimen-data"><h2 class="desk-title">กระจกตารวม <span class="rarity-label"><span class="rarity-chip">ธรรมดา</span><span class="rarity-chip"><span class="rarity-sep"> · </span>ต้นฉบับ</span><span class="rarity-chip"><span class="rarity-sep"> · </span>มูลค่า ×1</span><span class="rarity-chip"><span class="rarity-sep"> · </span>effect ×1</span></span></h2><dl class="specimen-price"><dt>พ่อค้าขาย</dt><dd><svg class="icon icon-coin" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="12" rx="8.5" ry="8.5"></ellipse><ellipse cx="12" cy="12" rx="5.6" ry="5.6"></ellipse><path d="M12 8.6v6.8M10.2 10.2h3.6"></path></svg>25 <small>เครดิต</small></dd></dl></header><div id="appraisal-reading-panel" class="appraisal-controls" data-page="assessment"><div class="assessment-content" data-step="inspect"><div class="desk-steps" role="tablist" aria-label="ขั้นตอนบนโต๊ะ"><button type="button" role="tab" id="_R_0H1_-inspect" aria-controls="_R_0H1_-inspect-panel" aria-selected="true" tabindex="0" class="current"><span class="step-number" aria-hidden="true">1</span><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="5.5"></circle><path d="m15 15 4.5 4.5"></path></svg><span class="step-label">ตรวจ<small>ฟรี 1 ครั้ง</small></span></button><button type="button" role="tab" id="_R_0H1_-appraise" aria-controls="_R_0H1_-appraise-panel" aria-selected="false" tabindex="-1" class=""><span class="step-number" aria-hidden="true">2</span><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v15.5M7.5 19.5h9M5 7.5h14M5 7.5 2.8 13a2.4 2.4 0 0 0 4.4 0L5 7.5ZM19 7.5 16.8 13a2.4 2.4 0 0 0 4.4 0L19 7.5Z"></path></svg><span class="step-label">ตีราคา<small>ยังไม่ตีราคา</small></span></button><button type="button" role="tab" id="_R_0H1_-buy" aria-controls="_R_0H1_-buy-panel" aria-selected="false" tabindex="-1" class=""><span class="step-number" aria-hidden="true">3</span><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 8.5h12l-1 11H7l-1-11Z"></path><path d="M9.2 8.5V7a2.8 2.8 0 0 1 5.6 0v1.5"></path></svg><span class="step-label">ซื้อ<small>25 เครดิต</small></span></button></div><ul class="fact-seals" aria-label="สิ่งที่รู้แล้ว"><li class="seal unknown" data-seal="base" title="มูลค่าจริง: ?"><svg class="icon icon-coin" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="12" rx="8.5" ry="8.5"></ellipse><ellipse cx="12" cy="12" rx="5.6" ry="5.6"></ellipse><path d="M12 8.6v6.8M10.2 10.2h3.6"></path></svg><span class="seal-label">มูลค่าจริง</span><strong>?</strong></li><li class="seal unknown" data-seal="genuine" title="ความแท้: ?"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 4.5 6v5.5c0 4.2 3.1 7.5 7.5 9.5 4.4-2 7.5-5.3 7.5-9.5V6L12 3Z"></path><path d="m8.5 11.5 2.5 2.5 4.5-5"></path></svg><span class="seal-label">ความแท้</span><strong>?</strong></li><li class="seal unknown" data-seal="cursed" title="คำสาป: ?"><svg class="icon icon-flame" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 3c1 5-3 6-2 10 2-1 3-3 3-5 4 4 5 6 4 9a6.5 6.5 0 0 1-12-1c-1-4 2-6 3-8-1 4 0 5 1 6-1-5 3-6 3-11Z"></path></svg><span class="seal-label">คำสาป</span><strong>?</strong></li><li class="seal unknown" data-seal="certificate" title="ใบรับรองพ่อค้า: ?"><svg class="icon icon-trust" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="12" r="4.6"></circle><circle cx="15" cy="12" r="4.6"></circle></svg><span class="seal-label">ใบรับรองพ่อค้า</span><strong>?</strong></li></ul><div role="tabpanel" id="_R_0H1_-inspect-panel" aria-labelledby="_R_0H1_-inspect" class="step-panel"><div class="inspection"><p>ตรวจหรือตีราคาฟรี 1 ครั้ง</p><div class="actions"><button class="inspect"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="5.5"></circle><path d="m15 15 4.5 4.5"></path></svg>ตรวจราคา · ฟรี</button><button class="inspect"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 4.5 6v5.5c0 4.2 3.1 7.5 7.5 9.5 4.4-2 7.5-5.3 7.5-9.5V6L12 3Z"></path><path d="m8.5 11.5 2.5 2.5 4.5-5"></path></svg>ตรวจความแท้ · ฟรี</button><button class="inspect"><svg class="icon icon-flame" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 3c1 5-3 6-2 10 2-1 3-3 3-5 4 4 5 6 4 9a6.5 6.5 0 0 1-12-1c-1-4 2-6 3-8-1 4 0 5 1 6-1-5 3-6 3-11Z"></path></svg>ตรวจคำสาป · ฟรี</button></div></div></div><div role="tabpanel" id="_R_0H1_-appraise-panel" aria-labelledby="_R_0H1_-appraise" hidden="" class="step-panel valuation-panel"><form class="valuation-form"><div class="valuation-editor"><label for="_R_0_">ราคาที่คุณประเมิน (เครดิต)</label><div class="price-entry"><div class="stepper"><button type="button" aria-label="ลดราคา 1 เครดิต"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 12h12"></path></svg></button><input id="_R_0_" type="number" inputMode="numeric" min="0" max="1000" step="1" required="" value="25"/><button type="button" aria-label="เพิ่มราคา 1 เครดิต"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6v12M6 12h12"></path></svg></button></div></div></div><p class="risk">ยังคำนวณโอกาสถูกจับผิดไม่ได้ · ตรวจราคาเพื่อหาเบาะแสมูลค่า · ถูกจับผิดอาจเสียเงินหรือของ</p><div class="valuation-footer"><button class="primary appraise"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v15.5M7.5 19.5h9M5 7.5h14M5 7.5 2.8 13a2.4 2.4 0 0 0 4.4 0L5 7.5ZM19 7.5 16.8 13a2.4 2.4 0 0 0 4.4 0L19 7.5Z"></path></svg>ยืนยันการประเมิน · ฟรี</button><button type="button" class="step-next">ไปหน้าซื้อ</button></div></form></div><div role="tabpanel" id="_R_0H1_-buy-panel" aria-labelledby="_R_0H1_-buy" hidden="" class="step-panel purchase"><div class="purchase-options"><div class="contract"><label class="check"><input type="checkbox"/><span>รับเงื่อนไขเพื่อลดราคา: ลด 3 เครดิต แลก <span class="term debuff passive" aria-describedby="_R_1cpul_"><svg class="icon icon-debuff" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5" stroke-dasharray="3.4 2.2"></circle><path d="m8.5 11 3.5 3.5 3.5-3.5"></path></svg>กระหายโลหิต<span class="sr-only"> (ผลเสีย)</span><span id="_R_1cpul_" role="tooltip" class="peek debuff" hidden="" style="visibility:hidden"><span class="peek-head"><svg class="icon icon-debuff" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5" stroke-dasharray="3.4 2.2"></circle><path d="m8.5 11 3.5 3.5 3.5-3.5"></path></svg><strong>กระหายโลหิต</strong><span class="peek-tag">ผลเสีย</span></span><span class="peek-body">การฟื้นพลังสองครั้งถัดไปได้น้อยลงครั้งละ 2 · Collector ลดคะแนนรวม 20% หากสถานะยังอยู่เมื่อตาย</span><span class="peek-foot">2 ครั้ง · หมดเมื่อจบช่วงหน้า</span></span></span></span></label><p>การฟื้นพลังสองครั้งถัดไปได้น้อยลงครั้งละ 2 · Collector ลดคะแนนรวม 20% หากสถานะยังอยู่เมื่อตาย · 2 ครั้ง · หมดเมื่อจบช่วงหน้า</p></div></div><div class="purchase-footer"><dl class="purchase-summary"><div><dt>ยอดชำระ</dt><dd><svg class="icon icon-coin" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="12" rx="8.5" ry="8.5"></ellipse><ellipse cx="12" cy="12" rx="5.6" ry="5.6"></ellipse><path d="M12 8.6v6.8M10.2 10.2h3.6"></path></svg>25 <small>เครดิต</small></dd></div><div><dt>ใช้พลัง</dt><dd><svg class="icon icon-energy" viewBox="0 0 24 24" width="20" height="20" fill="'... 783 more characters
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-free-actions.test.js:118:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<link rel="preload" as="image" href="/art/comic/items/mirror-v2.png"/><section class="desk" aria-label="ประเมิน กระจกตารวม"><div class="appraisal-visual"><div class="relic-art"><img src="/art/comic/items/mirror-v2.png" alt="กระจกตารวม" width="1254" height="1254" loading="eager"/></div></div><div class="desk-reading"><header class="specimen-data"><h2 class="desk-title">กระจกตารวม <span class="rarity-label"><span class="rarity-chip">ธรรมดา</span><span class="rarity-chip"><span class="rarity-sep"> · </span>ต้นฉบับ</span><span class="rarity-chip"><span class="rarity-sep"> · </span>มูลค่า ×1</span><span class="rarity-chip"><span class="rarity-sep"> · </span>effect ×1</span></span></h2><dl class="specimen-price"><dt>พ่อค้าขาย</dt><dd><svg class="icon icon-coin" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="12" rx="8.5" ry="8.5"></ellipse><ellipse cx="12" cy="12" rx="5.6" ry="5.6"></ellipse><path d="M12 8.6v6.8M10.2 10.2h3.6"></path></svg>25 <small>เครดิต</small></dd></dl></header><div id="appraisal-reading-panel" class="appraisal-controls" data-page="assessment"><div class="assessment-content" data-step="inspect"><div class="desk-steps" role="tablist" aria-label="ขั้นตอนบนโต๊ะ"><button type="button" role="tab" id="_R_0H1_-inspect" aria-controls="_R_0H1_-inspect-panel" aria-selected="true" tabindex="0" class="current"><span class="step-number" aria-hidden="true">1</span><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="5.5"></circle><path d="m15 15 4.5 4.5"></path></svg><span class="step-label">ตรวจ<small>ฟรี 1 ครั้ง</small></span></button><button type="button" role="tab" id="_R_0H1_-appraise" aria-controls="_R_0H1_-appraise-panel" aria-selected="false" tabindex="-1" class=""><span class="step-number" aria-hidden="true">2</span><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v15.5M7.5 19.5h9M5 7.5h14M5 7.5 2.8 13a2.4 2.4 0 0 0 4.4 0L5 7.5ZM19 7.5 16.8 13a2.4 2.4 0 0 0 4.4 0L19 7.5Z"></path></svg><span class="step-label">ตีราคา<small>ยังไม่ตีราคา</small></span></button><button type="button" role="tab" id="_R_0H1_-buy" aria-controls="_R_0H1_-buy-panel" aria-selected="false" tabindex="-1" class=""><span class="step-number" aria-hidden="true">3</span><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 8.5h12l-1 11H7l-1-11Z"></path><path d="M9.2 8.5V7a2.8 2.8 0 0 1 5.6 0v1.5"></path></svg><span class="step-label">ซื้อ<small>25 เครดิต</small></span></button></div><ul class="fact-seals" aria-label="สิ่งที่รู้แล้ว"><li class="seal unknown" data-seal="base" title="มูลค่าจริง: ?"><svg class="icon icon-coin" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="12" rx="8.5" ry="8.5"></ellipse><ellipse cx="12" cy="12" rx="5.6" ry="5.6"></ellipse><path d="M12 8.6v6.8M10.2 10.2h3.6"></path></svg><span class="seal-label">มูลค่าจริง</span><strong>?</strong></li><li class="seal unknown" data-seal="genuine" title="ความแท้: ?"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 4.5 6v5.5c0 4.2 3.1 7.5 7.5 9.5 4.4-2 7.5-5.3 7.5-9.5V6L12 3Z"></path><path d="m8.5 11.5 2.5 2.5 4.5-5"></path></svg><span class="seal-label">ความแท้</span><strong>?</strong></li><li class="seal unknown" data-seal="cursed" title="คำสาป: ?"><svg class="icon icon-flame" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 3c1 5-3 6-2 10 2-1 3-3 3-5 4 4 5 6 4 9a6.5 6.5 0 0 1-12-1c-1-4 2-6 3-8-1 4 0 5 1 6-1-5 3-6 3-11Z"></path></svg><span class="seal-label">คำสาป</span><strong>?</strong></li><li class="seal unknown" data-seal="certificate" title="ใบรับรองพ่อค้า: ?"><svg class="icon icon-trust" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="12" r="4.6"></circle><circle cx="15" cy="12" r="4.6"></circle></svg><span class="seal-label">ใบรับรองพ่อค้า</span><strong>?</strong></li></ul><div role="tabpanel" id="_R_0H1_-inspect-panel" aria-labelledby="_R_0H1_-inspect" class="step-panel"><div class="inspection"><p>ตรวจหรือตีราคาฟรี 1 ครั้ง</p><div class="actions"><button class="inspect"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="5.5"></circle><path d="m15 15 4.5 4.5"></path></svg>ตรวจราคา · ฟรี</button><button class="inspect"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 4.5 6v5.5c0 4.2 3.1 7.5 7.5 9.5 4.4-2 7.5-5.3 7.5-9.5V6L12 3Z"></path><path d="m8.5 11.5 2.5 2.5 4.5-5"></path></svg>ตรวจความแท้ · ฟรี</button><button class="inspect"><svg class="icon icon-flame" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 3c1 5-3 6-2 10 2-1 3-3 3-5 4 4 5 6 4 9a6.5 6.5 0 0 1-12-1c-1-4 2-6 3-8-1 4 0 5 1 6-1-5 3-6 3-11Z"></path></svg>ตรวจคำสาป · ฟรี</button></div></div></div><div role="tabpanel" id="_R_0H1_-appraise-panel" aria-labelledby="_R_0H1_-appraise" hidden="" class="step-panel valuation-panel"><form class="valuation-form"><div class="valuation-editor"><label for="_R_0_">ราคาที่คุณประเมิน (เครดิต)</label><div class="price-entry"><div class="stepper"><button type="button" aria-label="ลดราคา 1 เครดิต"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 12h12"></path></svg></button><input id="_R_0_" type="number" inputMode="numeric" min="0" max="1000" step="1" required="" value="25"/><button type="button" aria-label="เพิ่มราคา 1 เครดิต"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6v12M6 12h12"></path></svg></button></div></div></div><p class="risk">ยังคำนวณโอกาสถูกจับผิดไม่ได้ · ตรวจราคาเพื่อหาเบาะแสมูลค่า · ถูกจับผิดอาจเสียเงินหรือของ</p><div class="valuation-footer"><button class="primary appraise"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v15.5M7.5 19.5h9M5 7.5h14M5 7.5 2.8 13a2.4 2.4 0 0 0 4.4 0L5 7.5ZM19 7.5 16.8 13a2.4 2.4 0 0 0 4.4 0L19 7.5Z"></path></svg>ยืนยันการประเมิน · ฟรี</button><button type="button" class="step-next">ไปหน้าซื้อ</button></div></form></div><div role="tabpanel" id="_R_0H1_-buy-panel" aria-labelledby="_R_0H1_-buy" hidden="" class="step-panel purchase"><div class="purchase-options"><div class="contract"><label class="check"><input type="checkbox"/><span>รับเงื่อนไขเพื่อลดราคา: ลด 3 เครดิต แลก <span class="term debuff passive" aria-describedby="_R_1cpul_"><svg class="icon icon-debuff" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5" stroke-dasharray="3.4 2.2"></circle><path d="m8.5 11 3.5 3.5 3.5-3.5"></path></svg>กระหายโลหิต<span class="sr-only"> (ผลเสีย)</span><span id="_R_1cpul_" role="tooltip" class="peek debuff" hidden="" style="visibility:hidden"><span class="peek-head"><svg class="icon icon-debuff" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5" stroke-dasharray="3.4 2.2"></circle><path d="m8.5 11 3.5 3.5 3.5-3.5"></path></svg><strong>กระหายโลหิต</strong><span class="peek-tag">ผลเสีย</span></span><span class="peek-body">การฟื้นพลังสองครั้งถัดไปได้น้อยลงครั้งละ 2 · Collector ลดคะแนนรวม 20% หากสถานะยังอยู่เมื่อตาย</span><span class="peek-foot">2 ครั้ง · หมดเมื่อจบช่วงหน้า</span></span></span></span></label><p>การฟื้นพลังสองครั้งถัดไปได้น้อยลงครั้งละ 2 · Collector ลดคะแนนรวม 20% หากสถานะยังอยู่เมื่อตาย · 2 ครั้ง · หมดเมื่อจบช่วงหน้า</p></div></div><div class="purchase-footer"><dl class="purchase-summary"><div><dt>ยอดชำระ</dt><dd><svg class="icon icon-coin" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="12" rx="8.5" ry="8.5"></ellipse><ellipse cx="12" cy="12" rx="5.6" ry="5.6"></ellipse><path d="M12 8.6v6.8M10.2 10.2h3.6"></path></svg>25 <small>เครดิต</small></dd></div><div><dt>ใช้พลัง</dt><dd><svg class="icon icon-energy" viewBox="0 0 24 24" width="20" height="20" fill="'... 783 more characters,
+    expected: /สินค้าชิ้นนี้ตรวจสอบหรือประเมินฟรี 1 ครั้ง/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at dist/tests/appraisal-i18n.test.js:54:1
+✖ every translated client string has an English entry (19.244417ms)
+  AssertionError [ERR_ASSERTION]: missing English for 28 keys
+  + actual - expected
+  
+  + [
+  +   'ตรวจได้อีก {n} ครั้งในช่วงนี้',
+  +   ' · {n} พลัง',
+  +   'โอกาสสำเร็จ {n}%',
+  +   'ทำสัญญาใหม่',
+  +   'ช่วงหน้า {n} เครดิต',
+  +   'ถึงราคาฐานแล้ว',
+  +   'ฐาน {n} เครดิต · เริ่มที่ {initial}',
+  +   'สินค้าติดล็อก · ยังประกาศขายไม่ได้',
+  +   'ยังไม่ประเมิน · ประกาศขายไม่ได้',
+  +   'ใส่ค่าแถมจำนวนเต็ม 0–1000 และไม่เกินเครดิตที่มี',
+  +   'ประกาศขายแล้ว',
+  +   'คำระบุให้ผู้ซื้อ',
+  +   'การขายสินค้า',
+  +   'กติกาคำระบุและการท้าทาย',
+  +   'เป็นคำระบุ ไม่ใช่ผลตรวจ',
+  +   'เปิดรายการให้ผู้เล่นอื่นยื่นข้อเสนอ หรือโชว์ให้ดูอย่างเดียว',
+  +   'ค่าแถมให้ผู้ซื้อ',
+  +   'ผู้ขายจ่ายให้ผู้ซื้อเมื่อขายสำเร็จ จำนวนเต็ม 0–1000 และไม่เกินเครดิตที่มี',
+  +   'รายละเอียดค่าแถม',
+  +   'จ่ายเมื่อขายสำเร็จ',
+  +   'เลือกประกาศขายเพื่อรับข้อเสนอจากผู้เล่นอื่น',
+  +   'ซองของคุณ {n} เครดิต',
+  +   'พลังไม่พอ',
+  +   'หลุดการเชื่อมต่อ',
+  +   'ฟื้นชีวิตสุ่ม {min}–{max} หน่วย · ช่วงละครั้ง · ไม่ใช้พลัง',
+  +   'ฟื้น{target}สูงสุด {amount} หน่วย · ช่วงละครั้ง · ไม่ใช้พลัง',
+  +   'จ่าย {n} เครดิต',
+  +   'ซื้อต่อเนื่อง'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-i18n.test.js:56:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'ตรวจได้อีก {n} ครั้งในช่วงนี้', ' · {n} พลัง', 'โอกาสสำเร็จ {n}%', 'ทำสัญญาใหม่', 'ช่วงหน้า {n} เครดิต', 'ถึงราคาฐานแล้ว', 'ฐาน {n} เครดิต · เริ่มที่ {initial}', 'สินค้าติดล็อก · ยังประกาศขายไม่ได้', 'ยังไม่ประเมิน · ประกาศขายไม่ได้', 'ใส่ค่าแถมจำนวนเต็ม 0–1000 และไม่เกินเครดิตที่มี', 'ประกาศขายแล้ว', 'คำระบุให้ผู้ซื้อ', 'การขายสินค้า', 'กติกาคำระบุและการท้าทาย', 'เป็นคำระบุ ไม่ใช่ผลตรวจ', 'เปิดรายการให้ผู้เล่นอื่นยื่นข้อเสนอ หรือโชว์ให้ดูอย่างเดียว', 'ค่าแถมให้ผู้ซื้อ', 'ผู้ขายจ่ายให้ผู้ซื้อเมื่อขายสำเร็จ จำนวนเต็ม 0–1000 และไม่เกินเครดิตที่มี', 'รายละเอียดค่าแถม', 'จ่ายเมื่อขายสำเร็จ', 'เลือกประกาศขายเพื่อรับข้อเสนอจากผู้เล่นอื่น', 'ซองของคุณ {n} เครดิต', 'พลังไม่พอ', 'หลุดการเชื่อมต่อ', 'ฟื้นชีวิตสุ่ม {min}–{max} หน่วย · ช่วงละครั้ง · ไม่ใช้พลัง', 'ฟื้น{target}สูงสุด {amount} หน่วย · ช่วงละครั้ง · ไม่ใช้พลัง', 'จ่าย {n} เครดิต', 'ซื้อต่อเนื่อง' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at dist/tests/appraisal-i18n.test.js:69:1
+✖ English mode renders every phase with no Thai text left in the table (engine notes aside) (267.952375ms)
+  AssertionError [ERR_ASSERTION]: PORTALS: Thai text left in English mode
+  + actual - expected
+  
+  + [
+  +   'เหตุการณ์  ทุกการตัดสินใจ  ›    0            สัญญากู้  หนี้และหลักประกัน  ›    0          ตราคนบาป  สิทธิ์และข้อเสนอ  ›    0        รายการตามหา  ของที่พ่อค้าต้องการ  ›    0        สัญญาพ่อค้า  พันธะที่ยังมีผล  ›       บันทึกการเดินทาง  เหตุการณ์ทั้งหมด   ช่วง 1 · 1 รายการ     1   เริ่มการเดินทาง  ทรัพยากรตั้งต้นของห้อง   เครดิต +40     ‹  1 / 1  ›               เหตุการณ์ #0  เริ่มการเดินทาง    ช่วง  1 · พบพ่อค้า    ผล  เครดิต +40 · พลัง +10    สาเหตุ  ทรัพยากรตั้งต้นของห้อง                    Rules        Close                 Getting started  Room and resources  ›              Encounter loop  Four steps each round  ›            Inspect and buy  Learn before paying  ›          Trade &amp; market  Offers and auctions  ›              End &amp; score  Survive and settle  ›       Journey guide  How one encounter works       01  Choose merchant   Enter a door to see goods     02  Appraise and buy   Inspect, appraise, decide     03  Trade   Make offers to other players     04  Collect credits   Bank or risk a coin flip        Step 02  Appraise and buy      1  One free inspect or appraisal per item    2  Two extra inspections per encounter initially    3  Buy at the price the merchant accepts'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-i18n.test.js:83:20)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'เหตุการณ์  ทุกการตัดสินใจ  ›    0            สัญญากู้  หนี้และหลักประกัน  ›    0          ตราคนบาป  สิทธิ์และข้อเสนอ  ›    0        รายการตามหา  ของที่พ่อค้าต้องการ  ›    0        สัญญาพ่อค้า  พันธะที่ยังมีผล  ›       บันทึกการเดินทาง  เหตุการณ์ทั้งหมด   ช่วง 1 · 1 รายการ     1   เริ่มการเดินทาง  ทรัพยากรตั้งต้นของห้อง   เครดิต +40     ‹  1 / 1  ›               เหตุการณ์ #0  เริ่มการเดินทาง    ช่วง  1 · พบพ่อค้า    ผล  เครดิต +40 · พลัง +10    สาเหตุ  ทรัพยากรตั้งต้นของห้อง                    Rules        Close                 Getting started  Room and resources  ›              Encounter loop  Four steps each round  ›            Inspect and buy  Learn before paying  ›          Trade &amp; market  Offers and auctions  ›              End &amp; score  Survive and settle  ›       Journey guide  How one encounter works       01  Choose merchant   Enter a door to see goods     02  Appraise and buy   Inspect, appraise, decide     03  Trade   Make offers to other players     04  Collect credits   Bank or risk a coin flip        Step 02  Appraise and buy      1  One free inspect or appraisal per item    2  Two extra inspections per encounter initially    3  Buy at the price the merchant accepts' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at dist/tests/appraisal-i18n.test.js:91:1
+✖ the Rules panel follows the room mode (211.814292ms)
+  AssertionError [ERR_ASSERTION]: classic room shows the classic rules
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-i18n.test.js:105:5)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at dist/tests/appraisal-i18n.test.js:114:1
+✖ every disabled button in every phase and language carries a hover reason (876.025917ms)
+  AssertionError [ERR_ASSERTION]: disabled buttons without a title
+  + actual - expected
+  
+  + [
+  +   'th/PORTALS/open: <button type="button" aria-label="ก่อนหน้า" disabled="" class="comic-button comic-button-secondary ">',
+  +   'th/PORTALS/open: <button type="button" aria-label="ถัดไป" disabled="" class="comic-button comic-button-secondary ">',
+  +   'th/PORTALS/locked: <button type="button" aria-label="ก่อนหน้า" disabled="" class="comic-button comic-button-secondary ">',
+  +   'th/PORTALS/locked: <button type="button" aria-label="ถัดไป" disabled="" class="comic-button comic-button-secondary ">',
+  +   'th/APPRAISAL/open: <button type="button" class="stock-arrow previous" aria-label="สินค้าก่อนหน้า" disabled="">',
+  +   'th/APPRAISAL/open: <button type="button" aria-label="ก่อนหน้า" disabled="" class="comic-button comic-button-secondary ">',
+  +   'th/APPRAISAL/open: <button type="button" aria-label="ถัดไป" disabled="" class="comic-button comic-button-secondary ">',
+  +   'th/APPRAISAL/locked: <button type="button" class="stock-arrow previous" aria-label="สินค้าก่อนหน้า" disabled="">',
+  +   'th/APPRAISAL/locked: <button type="button" aria-label="ก่อนหน้า" disabled="" class="comic-button comic-button-secondary ">',
+  +   'th/APPRAISAL/locked: <button type="button" aria-label="ถัดไป" disabled="" class="comic-button comic-button-secondary ">',
+  +   'th/TRADE/open: <button type="button" aria-label="ก่อนหน้า" disabled="" class="comic-button comic-button-secondary ">',
+  +   'th/TRADE/open: <button type="button" aria-label="ถัดไป" disabled="" class="comic-button comic-button-secondary ">'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-i18n.test.js:132:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'th/PORTALS/open: <button type="button" aria-label="ก่อนหน้า" disabled="" class="comic-button comic-button-secondary ">', 'th/PORTALS/open: <button type="button" aria-label="ถัดไป" disabled="" class="comic-button comic-button-secondary ">', 'th/PORTALS/locked: <button type="button" aria-label="ก่อนหน้า" disabled="" class="comic-button comic-button-secondary ">', 'th/PORTALS/locked: <button type="button" aria-label="ถัดไป" disabled="" class="comic-button comic-button-secondary ">', 'th/APPRAISAL/open: <button type="button" class="stock-arrow previous" aria-label="สินค้าก่อนหน้า" disabled="">', 'th/APPRAISAL/open: <button type="button" aria-label="ก่อนหน้า" disabled="" class="comic-button comic-button-secondary ">', 'th/APPRAISAL/open: <button type="button" aria-label="ถัดไป" disabled="" class="comic-button comic-button-secondary ">', 'th/APPRAISAL/locked: <button type="button" class="stock-arrow previous" aria-label="สินค้าก่อนหน้า" disabled="">', 'th/APPRAISAL/locked: <button type="button" aria-label="ก่อนหน้า" disabled="" class="comic-button comic-button-secondary ">', 'th/APPRAISAL/locked: <button type="button" aria-label="ถัดไป" disabled="" class="comic-button comic-button-secondary ">', 'th/TRADE/open: <button type="button" aria-label="ก่อนหน้า" disabled="" class="comic-button comic-button-secondary ">', 'th/TRADE/open: <button type="button" aria-label="ถัดไป" disabled="" class="comic-button comic-button-secondary ">' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at dist/tests/appraisal-incentives.test.js:1:1
+✖ dist/tests/appraisal-incentives.test.js (1140.068167ms)
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-item-effects.test.js:1:1
+✖ dist/tests/appraisal-item-effects.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-journal.test.js:1:1
+✖ dist/tests/appraisal-journal.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-merchant-abilities.test.js:1:1
+✖ dist/tests/appraisal-merchant-abilities.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-network.test.js:1:1
+✖ dist/tests/appraisal-network.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-npc-events.test.js:1:1
+✖ dist/tests/appraisal-npc-events.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-passives.test.js:1:1
+✖ dist/tests/appraisal-passives.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-polish.test.js:1:1
+✖ dist/tests/appraisal-polish.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-portal-context.test.js:1:1
+✖ dist/tests/appraisal-portal-context.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-price-integrity.test.js:1:1
+✖ dist/tests/appraisal-price-integrity.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-price-knowledge.test.js:1:1
+✖ dist/tests/appraisal-price-knowledge.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-pulse.test.js:1:1
+✖ dist/tests/appraisal-pulse.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-report.test.js:1:1
+✖ dist/tests/appraisal-report.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-rooms.test.js:1:1
+✖ dist/tests/appraisal-rooms.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-round-rewards.test.js:1:1
+✖ dist/tests/appraisal-round-rewards.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-secure-client.test.js:1:1
+✖ dist/tests/appraisal-secure-client.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-secure-integration.test.js:1:1
+✖ dist/tests/appraisal-secure-integration.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-secure-seals.test.js:1:1
+✖ dist/tests/appraisal-secure-seals.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-secure-storage.test.js:1:1
+✖ dist/tests/appraisal-secure-storage.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-secure-theft.test.js:1:1
+✖ dist/tests/appraisal-secure-theft.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-status-links.test.js:1:1
+✖ dist/tests/appraisal-status-links.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-stock.test.js:1:1
+✖ dist/tests/appraisal-stock.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-survival.test.js:1:1
+✖ dist/tests/appraisal-survival.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-system-links.test.js:1:1
+✖ dist/tests/appraisal-system-links.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-tickets.test.js:1:1
+✖ dist/tests/appraisal-tickets.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-timers.test.js:1:1
+✖ dist/tests/appraisal-timers.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-trade-price.test.js:1:1
+✖ dist/tests/appraisal-trade-price.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-vault-interest.test.js:1:1
+✖ dist/tests/appraisal-vault-interest.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal-wishlist.test.js:1:1
+✖ dist/tests/appraisal-wishlist.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/appraisal.test.js:1:1
+✖ dist/tests/appraisal.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/collector-wishlist-network.test.js:1:1
+✖ dist/tests/collector-wishlist-network.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/collector-wishlist-ui.test.js:1:1
+✖ dist/tests/collector-wishlist-ui.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/collector-wishlist.test.js:1:1
+✖ dist/tests/collector-wishlist.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/comic-continuity.test.js:1:1
+✖ dist/tests/comic-continuity.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/engine.test.js:1:1
+✖ dist/tests/engine.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/ghost-network.test.js:1:1
+✖ dist/tests/ghost-network.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/ghost-replay.test.js:1:1
+✖ dist/tests/ghost-replay.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/ghost-service.test.js:1:1
+✖ dist/tests/ghost-service.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/ghost-tracking.test.js:1:1
+✖ dist/tests/ghost-tracking.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/item-rarity.test.js:1:1
+✖ dist/tests/item-rarity.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/merchant-expressions.test.js:1:1
+✖ dist/tests/merchant-expressions.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/network.test.js:1:1
+✖ dist/tests/network.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/new56-pilot-catalog.test.js:1:1
+✖ dist/tests/new56-pilot-catalog.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/new56-pilot-custody.test.js:1:1
+✖ dist/tests/new56-pilot-custody.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/new56-pilot-effects.test.js:1:1
+✖ dist/tests/new56-pilot-effects.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/new56-pilot-lifecycle.test.js:1:1
+✖ dist/tests/new56-pilot-lifecycle.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/personal-scoring.test.js:1:1
+✖ dist/tests/personal-scoring.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/playtest.test.js:1:1
+✖ dist/tests/playtest.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/rarity-economy.test.js:1:1
+✖ dist/tests/rarity-economy.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/rooms.test.js:1:1
+✖ dist/tests/rooms.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/run.test.js:1:1
+✖ dist/tests/run.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/theft-desk.test.js:1:1
+✖ dist/tests/theft-desk.test.js
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at dist/tests/wagers.test.js:1:1
+✖ dist/tests/wagers.test.js
+  'Promise resolution is still pending but the event loop has already resolved'

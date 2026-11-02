@@ -1,0 +1,32 @@
+[
+  {
+    "name": "domain",
+    "exitCode": 0,
+    "lastLines": [
+      "\u2139 cancelled 0",
+      "\u2139 skipped 0",
+      "\u2139 todo 0",
+      "\u2139 duration_ms 620.507583"
+    ]
+  },
+  {
+    "name": "ui-check",
+    "exitCode": 1,
+    "lastLines": [
+      "  diff: 'simple'",
+      "}",
+      "",
+      "Node.js v26.12.1"
+    ]
+  },
+  {
+    "name": "ui-contracts",
+    "exitCode": 0,
+    "lastLines": [
+      "\u2139 cancelled 0",
+      "\u2139 skipped 0",
+      "\u2139 todo 0",
+      "\u2139 duration_ms 352.512125"
+    ]
+  }
+]

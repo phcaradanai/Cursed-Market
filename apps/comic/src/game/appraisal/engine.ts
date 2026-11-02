@@ -1,3 +1,4 @@
+import {personalPerformanceInvariants} from './personal-scoring.js';
 import {handleCollectorWishlist,reconcileCollectorWishlist,assertCollectorWishlistInvariants} from './collector-wishlist.js';
 import {pilotRerollCost,reconcilePilotCustody} from './pilot-effects.js';
 import {handleGhostAction,reconcileGhostJobs} from './ghost-service.js';
@@ -41,6 +42,7 @@ export const DEFAULT_APPRAISAL_CONFIG: AppraisalConfig = {
   bankReserve:2000, marketProbability:1, marketMaxOrders:3, marketQuota:1,
 };
 function validateConfig(config:AppraisalConfig):void {
+  check(config.personalScoringRules===undefined||config.personalScoringRules===1,'config','กติกาคะแนนผลงานไม่ถูกต้อง');
   check(config.collectorWishlistRules===undefined||config.collectorWishlistRules===1,'config','กติกา Collector ไม่ถูกต้อง');
   if(config.rarityEconomy!==undefined){validateRarityEconomy(config.rarityEconomy);check(!!config.rarity,'config','Rarity economy requires rarity generation');}
   if(config.rarity!==undefined)validateRarityConfig(config.rarity);
@@ -99,6 +101,7 @@ function initialiseAppraisalRun(playerIds:string[],seed:string,config:AppraisalC
   check(typeof seed==='string' && seed.length>0 && seed.length<=256,'seed','seed ไม่ถูกต้อง');
   check(config && typeof config==='object','config','กติกาไม่ถูกต้อง'); validateConfig(config);
   const state:AppraisalState={version:config.survival?5:4,seed,config,encounter:1,phase:'PORTALS',revision:0,players:[],items:{},schedule:{},bank:config.bankReserve,reservedRewards:0,market:{encounter:1,open:false,budget:0,orders:[]},listings:[],publicKnowledge:{},trades:[],ledger:[],trace:[],history:[],accepted:{},commands:[]};
+  if(config.personalScoringRules===1)state.personalPerformance={version:1,facts:[]};
   if(config.brokerage) state.vault=[];
   if(config.secureEconomy){state.loans=[];state.theftDuels=[];}
   playerIds.forEach((id,seat)=>{
@@ -463,6 +466,7 @@ export function defaultAppraisalAction(state:AppraisalState,playerId:string,requ
   return {type:state.config.secureEconomy && state.theftDuels?.some(d=>d.status==='open' && [d.thiefId,d.victimId].includes(p.id))?'theft-timeout':'done',playerId,requestId,encounter:state.encounter};
 }
 export function assertAppraisalInvariants(state:AppraisalState):void {
+  personalPerformanceInvariants(state);
   assertCollectorWishlistInvariants(state);
   for(const item of Object.values(state.items))if(item.rarityPower){check(!!state.config.rarityEconomy&&!!item.appearance,'rarity','พลัง rarity ไม่มีที่มา');validateRarityPower(item.rarityPower);}
   for(const item of Object.values(state.items))if(item.appearance){check(!!state.config.rarity,'rarity','รูปลักษณ์สินค้าไม่มี config');validateItemAppearance(item.appearance);}

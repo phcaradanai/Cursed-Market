@@ -246,8 +246,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:generatePortals",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 138,
-          "endLine": 146
+          "line": 141,
+          "endLine": 149
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/core2-events.ts:resolveCore2Event",
@@ -311,14 +311,14 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:generatePortals",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 138,
-          "endLine": 146
+          "line": 141,
+          "endLine": 149
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 329,
-          "endLine": 428
+          "line": 332,
+          "endLine": 431
         }
       ]
     },
@@ -437,8 +437,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:progress",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 219,
-          "endLine": 231
+          "line": 222,
+          "endLine": 234
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/npc-events.ts:npcEventEligible",
@@ -562,14 +562,14 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:progress",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 219,
-          "endLine": 231
+          "line": 222,
+          "endLine": 234
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 329,
-          "endLine": 428
+          "line": 332,
+          "endLine": 431
         }
       ]
     },
@@ -615,8 +615,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:progress",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 219,
-          "endLine": 231
+          "line": 222,
+          "endLine": 234
         }
       ]
     },
@@ -753,8 +753,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:progress",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 219,
-          "endLine": 231
+          "line": 222,
+          "endLine": 234
         }
       ]
     },
@@ -808,8 +808,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 194,
-          "endLine": 218
+          "line": 197,
+          "endLine": 221
         }
       ]
     },
@@ -898,8 +898,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 194,
-          "endLine": 218
+          "line": 197,
+          "endLine": 221
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/round-rewards.ts:openRoundRewards",
@@ -988,8 +988,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 429,
-          "endLine": 459
+          "line": 432,
+          "endLine": 462
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleStorageAction",

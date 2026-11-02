@@ -37,6 +37,8 @@ export type ItemKind = LegacyItemFamily | PilotItemKind | 'memory-mirror' | 'rif
   'abyss-pearl' | 'tide-lantern' | 'kraken-ink' | 'siren-conch' | 'hive-comb' | 'chitin-blade' | 'larva-cell' | 'compound-mirror' | PassiveKind | typeof ABILITY_ITEM_IDS[number];
 export type AppraisalPhase = 'PORTALS' | 'APPRAISAL' | 'TRADE' | 'REVEAL' | 'RESULTS';
 export interface AppraisalConfig {
+  /** Versioned personal accomplishments; historical audits omit this. */
+  personalScoringRules?:1;
   /** Dedicated personal Collector purchases; absent in historical audits. */
   collectorWishlistRules?:1;
   /** Absent in visual-only/old audits: no price or effect scaling. */
@@ -297,6 +299,7 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
 /** `rebate` is credits the owner pays the buyer when the sale completes, so a poor item can still find a price. */
 export interface SharedListing { ownerId: string; itemId: string; purchase: boolean; claims?: { genuine?: boolean; cursed?: boolean }; rebate?: number }
 export interface AppraisalState {
+  personalPerformance?:import('./personal-scoring.js').PersonalPerformance;
   collectorWishes?:Record<string,import('./collector-wishlist.js').CollectorWishlistState>;
   ghosts?:Record<string,import('./ghost-service.js').GhostState>;
   theftDuels?:import('./theft.js').TheftDuel[];

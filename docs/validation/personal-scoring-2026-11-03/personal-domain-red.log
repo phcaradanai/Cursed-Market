@@ -1,0 +1,186 @@
+✖ approved ordinary achievements change the first example total to183 (12.86925ms)
+✖ second approved example141 and unchanged ghost addition after modifier (2.777209ms)
+✖ aggregate sale credits floor once, independently from sale quantity (0.498792ms)
+✖ real repeated raw sales and copies remain visible without repeated eligible points (1.477833ms)
+✖ raw cumulative trust is independent of ending trust and source tuple eligibility (2.054417ms)
+✖ receipt duplicate is idempotent, conflicting identity and malformed facts reject (2.199958ms)
+✖ flagless receipt recording creates no state and actor separation prevents leaking totals (0.379292ms)
+✖ all activity caps and fractional modifiers preserve exact approved behavior (0.824333ms)
+✖ rarity originals use approved six tiers and collection cap without adding ghost to ordinary points (0.604791ms)
+✖ approved weight manifest matches serialized metric definitions (5.684375ms)
+✖ unsafe score input and unknown facts reject without mutating caller arrays (6.265083ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 0
+ℹ fail 11
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 280.866375
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/personal-scoring.test.js:13:1
+✖ approved ordinary achievements change the first example total to183 (12.86925ms)
+  AssertionError [ERR_ASSERTION]: approved personal scoring module is missing
+      at domain (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:10:3)
+      at async TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:13:126)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/personal-scoring.test.js:14:1
+✖ second approved example141 and unchanged ghost addition after modifier (2.777209ms)
+  AssertionError [ERR_ASSERTION]: approved personal scoring module is missing
+      at domain (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:10:3)
+      at async TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:14:129)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/personal-scoring.test.js:15:1
+✖ aggregate sale credits floor once, independently from sale quantity (0.498792ms)
+  AssertionError [ERR_ASSERTION]: approved personal scoring module is missing
+      at domain (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:10:3)
+      at async TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:15:126)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/personal-scoring.test.js:16:1
+✖ real repeated raw sales and copies remain visible without repeated eligible points (1.477833ms)
+  AssertionError [ERR_ASSERTION]: approved personal scoring module is missing
+      at domain (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:10:3)
+      at async TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:16:141)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/personal-scoring.test.js:17:1
+✖ raw cumulative trust is independent of ending trust and source tuple eligibility (2.054417ms)
+  AssertionError [ERR_ASSERTION]: approved personal scoring module is missing
+      at domain (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:10:3)
+      at async TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:17:159)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/personal-scoring.test.js:18:1
+✖ receipt duplicate is idempotent, conflicting identity and malformed facts reject (2.199958ms)
+  AssertionError [ERR_ASSERTION]: approved personal scoring module is missing
+      at domain (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:10:3)
+      at async TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:18:166)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/personal-scoring.test.js:20:1
+✖ flagless receipt recording creates no state and actor separation prevents leaking totals (0.379292ms)
+  AssertionError [ERR_ASSERTION]: approved personal scoring module is missing
+      at domain (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:10:3)
+      at async TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:20:167)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/personal-scoring.test.js:21:1
+✖ all activity caps and fractional modifiers preserve exact approved behavior (0.824333ms)
+  AssertionError [ERR_ASSERTION]: approved personal scoring module is missing
+      at domain (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:10:3)
+      at async TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:21:134)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/personal-scoring.test.js:23:1
+✖ rarity originals use approved six tiers and collection cap without adding ghost to ordinary points (0.604791ms)
+  AssertionError [ERR_ASSERTION]: approved personal scoring module is missing
+      at domain (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:10:3)
+      at async TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:23:157)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/personal-scoring.test.js:24:1
+✖ approved weight manifest matches serialized metric definitions (5.684375ms)
+  AssertionError [ERR_ASSERTION]: approved personal scoring module is missing
+      at domain (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:10:3)
+      at async TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:24:123)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/personal-scoring.test.js:25:1
+✖ unsafe score input and unknown facts reject without mutating caller arrays (6.265083ms)
+  AssertionError [ERR_ASSERTION]: approved personal scoring module is missing
+      at domain (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:10:3)
+      at async TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring.test.js:25:133)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

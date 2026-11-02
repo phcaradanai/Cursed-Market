@@ -1,0 +1,188 @@
+(node:43990) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ private market preview is identical for opposite hidden qualities and labels the unknown risk before selling (186.905083ms)
+(node:43991) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ zero-energy UI enables free actions and marks them free (190.948084ms)
+(node:43992) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ every translated client string has an English entry (25.365209ms)
+✖ English mode renders every phase with no Thai text left in the table (engine notes aside) (158.053084ms)
+✖ the Rules panel follows the room mode (88.005667ms)
+✖ every disabled button in every phase and language carries a hover reason (359.258375ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 0
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1531.283875
+
+✖ failing tests:
+
+test at dist/tests/appraisal-commerce.test.js:210:1
+✖ private market preview is identical for opposite hidden qualities and labels the unknown risk before selling (186.905083ms)
+  AssertionError [ERR_ASSERTION]: ต้องการ: ของแท้ และ ไม่มีคำสาป
+      at TestContext.<anonymous> (file:///private/tmp/cursed-personal-parent-1551908/apps/comic/dist/tests/appraisal-commerce.test.js:225:9)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at dist/tests/appraisal-free-actions.test.js:112:1
+✖ zero-energy UI enables free actions and marks them free (190.948084ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /สินค้าชิ้นนี้ตรวจสอบหรือประเมินฟรี 1 ครั้ง/. Input:
+  
+  '<link rel="preload" as="image" href="/art/comic/items/mirror-v2.png"/><section class="desk" aria-label="ประเมิน กระจกตารวม"><div class="appraisal-visual"><div class="relic-art"><img src="/art/comic/items/mirror-v2.png" alt="กระจกตารวม" width="1254" height="1254" loading="eager"/></div></div><div class="desk-reading"><header class="specimen-data"><h2 class="desk-title">กระจกตารวม <span class="rarity-label"><span class="rarity-chip">ธรรมดา</span><span class="rarity-chip"><span class="rarity-sep"> · </span>ต้นฉบับ</span><span class="rarity-chip"><span class="rarity-sep"> · </span>มูลค่า ×1</span><span class="rarity-chip"><span class="rarity-sep"> · </span>effect ×1</span></span></h2><dl class="specimen-price"><dt>พ่อค้าขาย</dt><dd><svg class="icon icon-coin" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="12" rx="8.5" ry="8.5"></ellipse><ellipse cx="12" cy="12" rx="5.6" ry="5.6"></ellipse><path d="M12 8.6v6.8M10.2 10.2h3.6"></path></svg>25 <small>เครดิต</small></dd></dl></header><div id="appraisal-reading-panel" class="appraisal-controls" data-page="assessment"><div class="assessment-content" data-step="inspect"><div class="desk-steps" role="tablist" aria-label="ขั้นตอนบนโต๊ะ"><button type="button" role="tab" id="_R_0H1_-inspect" aria-controls="_R_0H1_-inspect-panel" aria-selected="true" tabindex="0" class="current"><span class="step-number" aria-hidden="true">1</span><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="5.5"></circle><path d="m15 15 4.5 4.5"></path></svg><span class="step-label">ตรวจ<small>ฟรี 1 ครั้ง</small></span></button><button type="button" role="tab" id="_R_0H1_-appraise" aria-controls="_R_0H1_-appraise-panel" aria-selected="false" tabindex="-1" class=""><span class="step-number" aria-hidden="true">2</span><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v15.5M7.5 19.5h9M5 7.5h14M5 7.5 2.8 13a2.4 2.4 0 0 0 4.4 0L5 7.5ZM19 7.5 16.8 13a2.4 2.4 0 0 0 4.4 0L19 7.5Z"></path></svg><span class="step-label">ตีราคา<small>ยังไม่ตีราคา</small></span></button><button type="button" role="tab" id="_R_0H1_-buy" aria-controls="_R_0H1_-buy-panel" aria-selected="false" tabindex="-1" class=""><span class="step-number" aria-hidden="true">3</span><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 8.5h12l-1 11H7l-1-11Z"></path><path d="M9.2 8.5V7a2.8 2.8 0 0 1 5.6 0v1.5"></path></svg><span class="step-label">ซื้อ<small>25 เครดิต</small></span></button></div><ul class="fact-seals" aria-label="สิ่งที่รู้แล้ว"><li class="seal unknown" data-seal="base" title="มูลค่าจริง: ?"><svg class="icon icon-coin" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="12" rx="8.5" ry="8.5"></ellipse><ellipse cx="12" cy="12" rx="5.6" ry="5.6"></ellipse><path d="M12 8.6v6.8M10.2 10.2h3.6"></path></svg><span class="seal-label">มูลค่าจริง</span><strong>?</strong></li><li class="seal unknown" data-seal="genuine" title="ความแท้: ?"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 4.5 6v5.5c0 4.2 3.1 7.5 7.5 9.5 4.4-2 7.5-5.3 7.5-9.5V6L12 3Z"></path><path d="m8.5 11.5 2.5 2.5 4.5-5"></path></svg><span class="seal-label">ความแท้</span><strong>?</strong></li><li class="seal unknown" data-seal="cursed" title="คำสาป: ?"><svg class="icon icon-flame" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 3c1 5-3 6-2 10 2-1 3-3 3-5 4 4 5 6 4 9a6.5 6.5 0 0 1-12-1c-1-4 2-6 3-8-1 4 0 5 1 6-1-5 3-6 3-11Z"></path></svg><span class="seal-label">คำสาป</span><strong>?</strong></li><li class="seal unknown" data-seal="certificate" title="ใบรับรองพ่อค้า: ?"><svg class="icon icon-trust" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="12" r="4.6"></circle><circle cx="15" cy="12" r="4.6"></circle></svg><span class="seal-label">ใบรับรองพ่อค้า</span><strong>?</strong></li></ul><div role="tabpanel" id="_R_0H1_-inspect-panel" aria-labelledby="_R_0H1_-inspect" class="step-panel"><div class="inspection"><p>ตรวจหรือตีราคาฟรี 1 ครั้ง</p><div class="actions"><button class="inspect"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="5.5"></circle><path d="m15 15 4.5 4.5"></path></svg>ตรวจราคา · ฟรี</button><button class="inspect"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 4.5 6v5.5c0 4.2 3.1 7.5 7.5 9.5 4.4-2 7.5-5.3 7.5-9.5V6L12 3Z"></path><path d="m8.5 11.5 2.5 2.5 4.5-5"></path></svg>ตรวจความแท้ · ฟรี</button><button class="inspect"><svg class="icon icon-flame" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 3c1 5-3 6-2 10 2-1 3-3 3-5 4 4 5 6 4 9a6.5 6.5 0 0 1-12-1c-1-4 2-6 3-8-1 4 0 5 1 6-1-5 3-6 3-11Z"></path></svg>ตรวจคำสาป · ฟรี</button></div></div></div><div role="tabpanel" id="_R_0H1_-appraise-panel" aria-labelledby="_R_0H1_-appraise" hidden="" class="step-panel valuation-panel"><form class="valuation-form"><div class="valuation-editor"><label for="_R_0_">ราคาที่คุณประเมิน (เครดิต)</label><div class="price-entry"><div class="stepper"><button type="button" aria-label="ลดราคา 1 เครดิต"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 12h12"></path></svg></button><input id="_R_0_" type="number" inputMode="numeric" min="0" max="1000" step="1" required="" value="25"/><button type="button" aria-label="เพิ่มราคา 1 เครดิต"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6v12M6 12h12"></path></svg></button></div></div></div><p class="risk">ยังคำนวณโอกาสถูกจับผิดไม่ได้ · ตรวจราคาเพื่อหาเบาะแสมูลค่า · ถูกจับผิดอาจเสียเงินหรือของ</p><div class="valuation-footer"><button class="primary appraise"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v15.5M7.5 19.5h9M5 7.5h14M5 7.5 2.8 13a2.4 2.4 0 0 0 4.4 0L5 7.5ZM19 7.5 16.8 13a2.4 2.4 0 0 0 4.4 0L19 7.5Z"></path></svg>ยืนยันการประเมิน · ฟรี</button><button type="button" class="step-next">ไปหน้าซื้อ</button></div></form></div><div role="tabpanel" id="_R_0H1_-buy-panel" aria-labelledby="_R_0H1_-buy" hidden="" class="step-panel purchase"><div class="purchase-options"><div class="contract"><label class="check"><input type="checkbox"/><span>รับเงื่อนไขเพื่อลดราคา: ลด 3 เครดิต แลก <span class="term debuff passive" aria-describedby="_R_1cpul_"><svg class="icon icon-debuff" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5" stroke-dasharray="3.4 2.2"></circle><path d="m8.5 11 3.5 3.5 3.5-3.5"></path></svg>กระหายโลหิต<span class="sr-only"> (ผลเสีย)</span><span id="_R_1cpul_" role="tooltip" class="peek debuff" hidden="" style="visibility:hidden"><span class="peek-head"><svg class="icon icon-debuff" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5" stroke-dasharray="3.4 2.2"></circle><path d="m8.5 11 3.5 3.5 3.5-3.5"></path></svg><strong>กระหายโลหิต</strong><span class="peek-tag">ผลเสีย</span></span><span class="peek-body">การฟื้นพลังสองครั้งถัดไปได้น้อยลงครั้งละ 2 · Collector ลดคะแนนรวม 20% หากสถานะยังอยู่เมื่อตาย</span><span class="peek-foot">2 ครั้ง · หมดเมื่อจบช่วงหน้า</span></span></span></span></label><p>การฟื้นพลังสองครั้งถัดไปได้น้อยลงครั้งละ 2 · Collector ลดคะแนนรวม 20% หากสถานะยังอยู่เมื่อตาย · 2 ครั้ง · หมดเมื่อจบช่วงหน้า</p></div></div><div class="purchase-footer"><dl class="purchase-summary"><div><dt>ยอดชำระ</dt><dd><svg class="icon icon-coin" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="12" rx="8.5" ry="8.5"></ellipse><ellipse cx="12" cy="12" rx="5.6" ry="5.6"></ellipse><path d="M12 8.6v6.8M10.2 10.2h3.6"></path></svg>25 <small>เครดิต</small></dd></div><div><dt>ใช้พลัง</dt><dd><svg class="icon icon-energy" viewBox="0 0 24 24" width="20" height="20" fill="'... 783 more characters
+  
+      at TestContext.<anonymous> (file:///private/tmp/cursed-personal-parent-1551908/apps/comic/dist/tests/appraisal-free-actions.test.js:118:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<link rel="preload" as="image" href="/art/comic/items/mirror-v2.png"/><section class="desk" aria-label="ประเมิน กระจกตารวม"><div class="appraisal-visual"><div class="relic-art"><img src="/art/comic/items/mirror-v2.png" alt="กระจกตารวม" width="1254" height="1254" loading="eager"/></div></div><div class="desk-reading"><header class="specimen-data"><h2 class="desk-title">กระจกตารวม <span class="rarity-label"><span class="rarity-chip">ธรรมดา</span><span class="rarity-chip"><span class="rarity-sep"> · </span>ต้นฉบับ</span><span class="rarity-chip"><span class="rarity-sep"> · </span>มูลค่า ×1</span><span class="rarity-chip"><span class="rarity-sep"> · </span>effect ×1</span></span></h2><dl class="specimen-price"><dt>พ่อค้าขาย</dt><dd><svg class="icon icon-coin" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="12" rx="8.5" ry="8.5"></ellipse><ellipse cx="12" cy="12" rx="5.6" ry="5.6"></ellipse><path d="M12 8.6v6.8M10.2 10.2h3.6"></path></svg>25 <small>เครดิต</small></dd></dl></header><div id="appraisal-reading-panel" class="appraisal-controls" data-page="assessment"><div class="assessment-content" data-step="inspect"><div class="desk-steps" role="tablist" aria-label="ขั้นตอนบนโต๊ะ"><button type="button" role="tab" id="_R_0H1_-inspect" aria-controls="_R_0H1_-inspect-panel" aria-selected="true" tabindex="0" class="current"><span class="step-number" aria-hidden="true">1</span><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="5.5"></circle><path d="m15 15 4.5 4.5"></path></svg><span class="step-label">ตรวจ<small>ฟรี 1 ครั้ง</small></span></button><button type="button" role="tab" id="_R_0H1_-appraise" aria-controls="_R_0H1_-appraise-panel" aria-selected="false" tabindex="-1" class=""><span class="step-number" aria-hidden="true">2</span><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v15.5M7.5 19.5h9M5 7.5h14M5 7.5 2.8 13a2.4 2.4 0 0 0 4.4 0L5 7.5ZM19 7.5 16.8 13a2.4 2.4 0 0 0 4.4 0L19 7.5Z"></path></svg><span class="step-label">ตีราคา<small>ยังไม่ตีราคา</small></span></button><button type="button" role="tab" id="_R_0H1_-buy" aria-controls="_R_0H1_-buy-panel" aria-selected="false" tabindex="-1" class=""><span class="step-number" aria-hidden="true">3</span><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 8.5h12l-1 11H7l-1-11Z"></path><path d="M9.2 8.5V7a2.8 2.8 0 0 1 5.6 0v1.5"></path></svg><span class="step-label">ซื้อ<small>25 เครดิต</small></span></button></div><ul class="fact-seals" aria-label="สิ่งที่รู้แล้ว"><li class="seal unknown" data-seal="base" title="มูลค่าจริง: ?"><svg class="icon icon-coin" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="12" rx="8.5" ry="8.5"></ellipse><ellipse cx="12" cy="12" rx="5.6" ry="5.6"></ellipse><path d="M12 8.6v6.8M10.2 10.2h3.6"></path></svg><span class="seal-label">มูลค่าจริง</span><strong>?</strong></li><li class="seal unknown" data-seal="genuine" title="ความแท้: ?"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 4.5 6v5.5c0 4.2 3.1 7.5 7.5 9.5 4.4-2 7.5-5.3 7.5-9.5V6L12 3Z"></path><path d="m8.5 11.5 2.5 2.5 4.5-5"></path></svg><span class="seal-label">ความแท้</span><strong>?</strong></li><li class="seal unknown" data-seal="cursed" title="คำสาป: ?"><svg class="icon icon-flame" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 3c1 5-3 6-2 10 2-1 3-3 3-5 4 4 5 6 4 9a6.5 6.5 0 0 1-12-1c-1-4 2-6 3-8-1 4 0 5 1 6-1-5 3-6 3-11Z"></path></svg><span class="seal-label">คำสาป</span><strong>?</strong></li><li class="seal unknown" data-seal="certificate" title="ใบรับรองพ่อค้า: ?"><svg class="icon icon-trust" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="12" r="4.6"></circle><circle cx="15" cy="12" r="4.6"></circle></svg><span class="seal-label">ใบรับรองพ่อค้า</span><strong>?</strong></li></ul><div role="tabpanel" id="_R_0H1_-inspect-panel" aria-labelledby="_R_0H1_-inspect" class="step-panel"><div class="inspection"><p>ตรวจหรือตีราคาฟรี 1 ครั้ง</p><div class="actions"><button class="inspect"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="5.5"></circle><path d="m15 15 4.5 4.5"></path></svg>ตรวจราคา · ฟรี</button><button class="inspect"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 4.5 6v5.5c0 4.2 3.1 7.5 7.5 9.5 4.4-2 7.5-5.3 7.5-9.5V6L12 3Z"></path><path d="m8.5 11.5 2.5 2.5 4.5-5"></path></svg>ตรวจความแท้ · ฟรี</button><button class="inspect"><svg class="icon icon-flame" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 3c1 5-3 6-2 10 2-1 3-3 3-5 4 4 5 6 4 9a6.5 6.5 0 0 1-12-1c-1-4 2-6 3-8-1 4 0 5 1 6-1-5 3-6 3-11Z"></path></svg>ตรวจคำสาป · ฟรี</button></div></div></div><div role="tabpanel" id="_R_0H1_-appraise-panel" aria-labelledby="_R_0H1_-appraise" hidden="" class="step-panel valuation-panel"><form class="valuation-form"><div class="valuation-editor"><label for="_R_0_">ราคาที่คุณประเมิน (เครดิต)</label><div class="price-entry"><div class="stepper"><button type="button" aria-label="ลดราคา 1 เครดิต"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 12h12"></path></svg></button><input id="_R_0_" type="number" inputMode="numeric" min="0" max="1000" step="1" required="" value="25"/><button type="button" aria-label="เพิ่มราคา 1 เครดิต"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6v12M6 12h12"></path></svg></button></div></div></div><p class="risk">ยังคำนวณโอกาสถูกจับผิดไม่ได้ · ตรวจราคาเพื่อหาเบาะแสมูลค่า · ถูกจับผิดอาจเสียเงินหรือของ</p><div class="valuation-footer"><button class="primary appraise"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v15.5M7.5 19.5h9M5 7.5h14M5 7.5 2.8 13a2.4 2.4 0 0 0 4.4 0L5 7.5ZM19 7.5 16.8 13a2.4 2.4 0 0 0 4.4 0L19 7.5Z"></path></svg>ยืนยันการประเมิน · ฟรี</button><button type="button" class="step-next">ไปหน้าซื้อ</button></div></form></div><div role="tabpanel" id="_R_0H1_-buy-panel" aria-labelledby="_R_0H1_-buy" hidden="" class="step-panel purchase"><div class="purchase-options"><div class="contract"><label class="check"><input type="checkbox"/><span>รับเงื่อนไขเพื่อลดราคา: ลด 3 เครดิต แลก <span class="term debuff passive" aria-describedby="_R_1cpul_"><svg class="icon icon-debuff" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5" stroke-dasharray="3.4 2.2"></circle><path d="m8.5 11 3.5 3.5 3.5-3.5"></path></svg>กระหายโลหิต<span class="sr-only"> (ผลเสีย)</span><span id="_R_1cpul_" role="tooltip" class="peek debuff" hidden="" style="visibility:hidden"><span class="peek-head"><svg class="icon icon-debuff" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5" stroke-dasharray="3.4 2.2"></circle><path d="m8.5 11 3.5 3.5 3.5-3.5"></path></svg><strong>กระหายโลหิต</strong><span class="peek-tag">ผลเสีย</span></span><span class="peek-body">การฟื้นพลังสองครั้งถัดไปได้น้อยลงครั้งละ 2 · Collector ลดคะแนนรวม 20% หากสถานะยังอยู่เมื่อตาย</span><span class="peek-foot">2 ครั้ง · หมดเมื่อจบช่วงหน้า</span></span></span></span></label><p>การฟื้นพลังสองครั้งถัดไปได้น้อยลงครั้งละ 2 · Collector ลดคะแนนรวม 20% หากสถานะยังอยู่เมื่อตาย · 2 ครั้ง · หมดเมื่อจบช่วงหน้า</p></div></div><div class="purchase-footer"><dl class="purchase-summary"><div><dt>ยอดชำระ</dt><dd><svg class="icon icon-coin" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="12" rx="8.5" ry="8.5"></ellipse><ellipse cx="12" cy="12" rx="5.6" ry="5.6"></ellipse><path d="M12 8.6v6.8M10.2 10.2h3.6"></path></svg>25 <small>เครดิต</small></dd></div><div><dt>ใช้พลัง</dt><dd><svg class="icon icon-energy" viewBox="0 0 24 24" width="20" height="20" fill="'... 783 more characters,
+    expected: /สินค้าชิ้นนี้ตรวจสอบหรือประเมินฟรี 1 ครั้ง/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at dist/tests/appraisal-i18n.test.js:54:1
+✖ every translated client string has an English entry (25.365209ms)
+  AssertionError [ERR_ASSERTION]: missing English for 28 keys
+  + actual - expected
+  
+  + [
+  +   'ตรวจได้อีก {n} ครั้งในช่วงนี้',
+  +   ' · {n} พลัง',
+  +   'โอกาสสำเร็จ {n}%',
+  +   'ทำสัญญาใหม่',
+  +   'ช่วงหน้า {n} เครดิต',
+  +   'ถึงราคาฐานแล้ว',
+  +   'ฐาน {n} เครดิต · เริ่มที่ {initial}',
+  +   'สินค้าติดล็อก · ยังประกาศขายไม่ได้',
+  +   'ยังไม่ประเมิน · ประกาศขายไม่ได้',
+  +   'ใส่ค่าแถมจำนวนเต็ม 0–1000 และไม่เกินเครดิตที่มี',
+  +   'ประกาศขายแล้ว',
+  +   'คำระบุให้ผู้ซื้อ',
+  +   'การขายสินค้า',
+  +   'กติกาคำระบุและการท้าทาย',
+  +   'เป็นคำระบุ ไม่ใช่ผลตรวจ',
+  +   'เปิดรายการให้ผู้เล่นอื่นยื่นข้อเสนอ หรือโชว์ให้ดูอย่างเดียว',
+  +   'ค่าแถมให้ผู้ซื้อ',
+  +   'ผู้ขายจ่ายให้ผู้ซื้อเมื่อขายสำเร็จ จำนวนเต็ม 0–1000 และไม่เกินเครดิตที่มี',
+  +   'รายละเอียดค่าแถม',
+  +   'จ่ายเมื่อขายสำเร็จ',
+  +   'เลือกประกาศขายเพื่อรับข้อเสนอจากผู้เล่นอื่น',
+  +   'ซองของคุณ {n} เครดิต',
+  +   'พลังไม่พอ',
+  +   'หลุดการเชื่อมต่อ',
+  +   'ฟื้นชีวิตสุ่ม {min}–{max} หน่วย · ช่วงละครั้ง · ไม่ใช้พลัง',
+  +   'ฟื้น{target}สูงสุด {amount} หน่วย · ช่วงละครั้ง · ไม่ใช้พลัง',
+  +   'จ่าย {n} เครดิต',
+  +   'ซื้อต่อเนื่อง'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///private/tmp/cursed-personal-parent-1551908/apps/comic/dist/tests/appraisal-i18n.test.js:56:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'ตรวจได้อีก {n} ครั้งในช่วงนี้', ' · {n} พลัง', 'โอกาสสำเร็จ {n}%', 'ทำสัญญาใหม่', 'ช่วงหน้า {n} เครดิต', 'ถึงราคาฐานแล้ว', 'ฐาน {n} เครดิต · เริ่มที่ {initial}', 'สินค้าติดล็อก · ยังประกาศขายไม่ได้', 'ยังไม่ประเมิน · ประกาศขายไม่ได้', 'ใส่ค่าแถมจำนวนเต็ม 0–1000 และไม่เกินเครดิตที่มี', 'ประกาศขายแล้ว', 'คำระบุให้ผู้ซื้อ', 'การขายสินค้า', 'กติกาคำระบุและการท้าทาย', 'เป็นคำระบุ ไม่ใช่ผลตรวจ', 'เปิดรายการให้ผู้เล่นอื่นยื่นข้อเสนอ หรือโชว์ให้ดูอย่างเดียว', 'ค่าแถมให้ผู้ซื้อ', 'ผู้ขายจ่ายให้ผู้ซื้อเมื่อขายสำเร็จ จำนวนเต็ม 0–1000 และไม่เกินเครดิตที่มี', 'รายละเอียดค่าแถม', 'จ่ายเมื่อขายสำเร็จ', 'เลือกประกาศขายเพื่อรับข้อเสนอจากผู้เล่นอื่น', 'ซองของคุณ {n} เครดิต', 'พลังไม่พอ', 'หลุดการเชื่อมต่อ', 'ฟื้นชีวิตสุ่ม {min}–{max} หน่วย · ช่วงละครั้ง · ไม่ใช้พลัง', 'ฟื้น{target}สูงสุด {amount} หน่วย · ช่วงละครั้ง · ไม่ใช้พลัง', 'จ่าย {n} เครดิต', 'ซื้อต่อเนื่อง' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at dist/tests/appraisal-i18n.test.js:69:1
+✖ English mode renders every phase with no Thai text left in the table (engine notes aside) (158.053084ms)
+  AssertionError [ERR_ASSERTION]: PORTALS: Thai text left in English mode
+  + actual - expected
+  
+  + [
+  +   'เหตุการณ์  ทุกการตัดสินใจ  ›    0            สัญญากู้  หนี้และหลักประกัน  ›    0          ตราคนบาป  สิทธิ์และข้อเสนอ  ›    0        รายการตามหา  ของที่พ่อค้าต้องการ  ›    0        สัญญาพ่อค้า  พันธะที่ยังมีผล  ›       บันทึกการเดินทาง  เหตุการณ์ทั้งหมด   ช่วง 1 · 1 รายการ     1   เริ่มการเดินทาง  ทรัพยากรตั้งต้นของห้อง   เครดิต +40     ‹  1 / 1  ›               เหตุการณ์ #0  เริ่มการเดินทาง    ช่วง  1 · พบพ่อค้า    ผล  เครดิต +40 · พลัง +10    สาเหตุ  ทรัพยากรตั้งต้นของห้อง                    Rules        Close                 Getting started  Room and resources  ›              Encounter loop  Four steps each round  ›            Inspect and buy  Learn before paying  ›          Trade &amp; market  Offers and auctions  ›              End &amp; score  Survive and settle  ›       Journey guide  How one encounter works       01  Choose merchant   Enter a door to see goods     02  Appraise and buy   Inspect, appraise, decide     03  Trade   Make offers to other players     04  Collect credits   Bank or risk a coin flip        Step 02  Appraise and buy      1  One free inspect or appraisal per item    2  Two extra inspections per encounter initially    3  Buy at the price the merchant accepts'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///private/tmp/cursed-personal-parent-1551908/apps/comic/dist/tests/appraisal-i18n.test.js:83:20)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at node:internal/test_runner/test:1305:31
+      at node:internal/process/task_queues:158:7
+      at AsyncResource.runInAsyncScope (node:async_hooks:226:14)
+      at AsyncResource.runMicrotask (node:internal/process/task_queues:155:8) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'เหตุการณ์  ทุกการตัดสินใจ  ›    0            สัญญากู้  หนี้และหลักประกัน  ›    0          ตราคนบาป  สิทธิ์และข้อเสนอ  ›    0        รายการตามหา  ของที่พ่อค้าต้องการ  ›    0        สัญญาพ่อค้า  พันธะที่ยังมีผล  ›       บันทึกการเดินทาง  เหตุการณ์ทั้งหมด   ช่วง 1 · 1 รายการ     1   เริ่มการเดินทาง  ทรัพยากรตั้งต้นของห้อง   เครดิต +40     ‹  1 / 1  ›               เหตุการณ์ #0  เริ่มการเดินทาง    ช่วง  1 · พบพ่อค้า    ผล  เครดิต +40 · พลัง +10    สาเหตุ  ทรัพยากรตั้งต้นของห้อง                    Rules        Close                 Getting started  Room and resources  ›              Encounter loop  Four steps each round  ›            Inspect and buy  Learn before paying  ›          Trade &amp; market  Offers and auctions  ›              End &amp; score  Survive and settle  ›       Journey guide  How one encounter works       01  Choose merchant   Enter a door to see goods     02  Appraise and buy   Inspect, appraise, decide     03  Trade   Make offers to other players     04  Collect credits   Bank or risk a coin flip        Step 02  Appraise and buy      1  One free inspect or appraisal per item    2  Two extra inspections per encounter initially    3  Buy at the price the merchant accepts' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at dist/tests/appraisal-i18n.test.js:91:1
+✖ the Rules panel follows the room mode (88.005667ms)
+  AssertionError [ERR_ASSERTION]: classic room shows the classic rules
+      at TestContext.<anonymous> (file:///private/tmp/cursed-personal-parent-1551908/apps/comic/dist/tests/appraisal-i18n.test.js:105:5)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at dist/tests/appraisal-i18n.test.js:114:1
+✖ every disabled button in every phase and language carries a hover reason (359.258375ms)
+  AssertionError [ERR_ASSERTION]: disabled buttons without a title
+  + actual - expected
+  
+  + [
+  +   'th/PORTALS/open: <button type="button" aria-label="ก่อนหน้า" disabled="" class="comic-button comic-button-secondary ">',
+  +   'th/PORTALS/open: <button type="button" aria-label="ถัดไป" disabled="" class="comic-button comic-button-secondary ">',
+  +   'th/PORTALS/locked: <button type="button" aria-label="ก่อนหน้า" disabled="" class="comic-button comic-button-secondary ">',
+  +   'th/PORTALS/locked: <button type="button" aria-label="ถัดไป" disabled="" class="comic-button comic-button-secondary ">',
+  +   'th/APPRAISAL/open: <button type="button" class="stock-arrow previous" aria-label="สินค้าก่อนหน้า" disabled="">',
+  +   'th/APPRAISAL/open: <button type="button" aria-label="ก่อนหน้า" disabled="" class="comic-button comic-button-secondary ">',
+  +   'th/APPRAISAL/open: <button type="button" aria-label="ถัดไป" disabled="" class="comic-button comic-button-secondary ">',
+  +   'th/APPRAISAL/locked: <button type="button" class="stock-arrow previous" aria-label="สินค้าก่อนหน้า" disabled="">',
+  +   'th/APPRAISAL/locked: <button type="button" aria-label="ก่อนหน้า" disabled="" class="comic-button comic-button-secondary ">',
+  +   'th/APPRAISAL/locked: <button type="button" aria-label="ถัดไป" disabled="" class="comic-button comic-button-secondary ">',
+  +   'th/TRADE/open: <button type="button" aria-label="ก่อนหน้า" disabled="" class="comic-button comic-button-secondary ">',
+  +   'th/TRADE/open: <button type="button" aria-label="ถัดไป" disabled="" class="comic-button comic-button-secondary ">'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///private/tmp/cursed-personal-parent-1551908/apps/comic/dist/tests/appraisal-i18n.test.js:132:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'th/PORTALS/open: <button type="button" aria-label="ก่อนหน้า" disabled="" class="comic-button comic-button-secondary ">', 'th/PORTALS/open: <button type="button" aria-label="ถัดไป" disabled="" class="comic-button comic-button-secondary ">', 'th/PORTALS/locked: <button type="button" aria-label="ก่อนหน้า" disabled="" class="comic-button comic-button-secondary ">', 'th/PORTALS/locked: <button type="button" aria-label="ถัดไป" disabled="" class="comic-button comic-button-secondary ">', 'th/APPRAISAL/open: <button type="button" class="stock-arrow previous" aria-label="สินค้าก่อนหน้า" disabled="">', 'th/APPRAISAL/open: <button type="button" aria-label="ก่อนหน้า" disabled="" class="comic-button comic-button-secondary ">', 'th/APPRAISAL/open: <button type="button" aria-label="ถัดไป" disabled="" class="comic-button comic-button-secondary ">', 'th/APPRAISAL/locked: <button type="button" class="stock-arrow previous" aria-label="สินค้าก่อนหน้า" disabled="">', 'th/APPRAISAL/locked: <button type="button" aria-label="ก่อนหน้า" disabled="" class="comic-button comic-button-secondary ">', 'th/APPRAISAL/locked: <button type="button" aria-label="ถัดไป" disabled="" class="comic-button comic-button-secondary ">', 'th/TRADE/open: <button type="button" aria-label="ก่อนหน้า" disabled="" class="comic-button comic-button-secondary ">', 'th/TRADE/open: <button type="button" aria-label="ถัดไป" disabled="" class="comic-button comic-button-secondary ">' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

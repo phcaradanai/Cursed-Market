@@ -1,6 +1,6 @@
 {
-  "startedAt": "2026-11-02T10:42:09.594Z",
-  "observedRevision": "7ab2a39c48c743cf283acf171c23672877e596aa",
+  "startedAt": "2026-11-02T23:50:16.293Z",
+  "observedRevision": "15519082b1a8193dec6cb14b0c4f84d8ee70e064",
   "scope": "8 targeted, supported-config public-command mechanism pairs;16 full runs with strict replays. Initial500credits, not default40 budget or release balance. Counterfactual uses real vault custody or skipped activation. Fixed cooperative PvP hands; no hidden-hand policy. Seeds selected for eligibility/outcome boundary, not random sampling.",
   "sourceFingerprints": {
     "apps/comic/scripts/pilot-public-scenarios.mjs": "06651716423ece13dabf8b9baefd4771141e12cacc21b1dcb9ffff9c7c6b1fba",
@@ -24,7 +24,7 @@
     "apps/comic/src/game/appraisal/core2-rules.ts": "c512cac29fda1d586afcc82ece3ac15a0411650283d1226ae12787c76bfce0ea",
     "apps/comic/src/game/appraisal/core2-specs.ts": "399d270a4c3c8d170ae2c9a995dfff13863aeba2ebce98b70b78a5f2a1ce5316",
     "apps/comic/src/game/appraisal/core2.ts": "d9c7ac292898c29d471bc6d9bb0a7ae0557bd394a79d77978e6e1eed5b71bd17",
-    "apps/comic/src/game/appraisal/engine.ts": "87e6a10adf3bffeb31b6134bdcbf596068c5f8a75ec622dc4552a8536ca6ff70",
+    "apps/comic/src/game/appraisal/engine.ts": "06583691fd2e092a249a8b1c7744b82c0efe7771aa58988d6d2b7f53d247e9f5",
     "apps/comic/src/game/appraisal/events.ts": "c4bd10912200be5fb50c13e7d6ba8f5fda16f777f61d4d18d51b76e768e00794",
     "apps/comic/src/game/appraisal/ghost-service.ts": "53603040058a9f18cc90f2ba572bcc4b24e204d5c7cf2d33e6a7bb72cff3729d",
     "apps/comic/src/game/appraisal/ghost-tracking.ts": "1a179d345d9aac40a5122a68f376017e384284f487fcd8c369795bd0a7f9242f",
@@ -38,6 +38,7 @@
     "apps/comic/src/game/appraisal/omen-table.ts": "8b6ab850d3722a62f735726aef4d3c9b17a40a9791fff31e284a1a90df862106",
     "apps/comic/src/game/appraisal/omens.ts": "23bf7f701d39d380ec315aaf5050602540ee662b232006bfc51fba7561f3019d",
     "apps/comic/src/game/appraisal/passives.ts": "ef49c5ade780d0f68a7422a8e8a3b433237525311ef1c555d3aed61c45bc99bf",
+    "apps/comic/src/game/appraisal/personal-scoring.ts": "e489642d597f167606115e5b700375ab7bb9cb0c6034123e721f5d306f6d5b7e",
     "apps/comic/src/game/appraisal/pilot-catalog.ts": "ad8dbb487623f3b8d0486c87fe86c5fe72c0d50c553a7a34bc526c52579e8c62",
     "apps/comic/src/game/appraisal/pilot-effects.ts": "ab8d8201a7abd4fbca4f96ee6223ded049937d43dac7a2f4dfa72db793e29029",
     "apps/comic/src/game/appraisal/polish-events.ts": "b79b7d4c1fcc159aad0d319ed3542844d28c22479637a2a70306570c01abfbb6",
@@ -50,7 +51,7 @@
     "apps/comic/src/game/appraisal/secure-storage.ts": "55858a21b2472e5e90076dc92985ee6d0e6f71cd44399d5f03a4ea262bb843ab",
     "apps/comic/src/game/appraisal/survival.ts": "deb7de5bae0ad0e84a761f25e31bb083dcf7445cbc433c78e25b71873d82d147",
     "apps/comic/src/game/appraisal/theft.ts": "8c3008d57a681ceec9a9e4ea02b24867b5a18a65b6e424906cd24bb4b58e65e7",
-    "apps/comic/src/game/appraisal/types.ts": "2c07c98b7865a6d21b5be8eceace17ec70b96d731f3ca57c716b6f8004d3635a",
+    "apps/comic/src/game/appraisal/types.ts": "d55675080936dc829a1c3fd443014a7f25fc54b90b86bc96faedf1281e969bc1",
     "apps/comic/src/game/appraisal/views.ts": "349677f197da0fd51c2b2402ed810d86bcf4ac96545daddb5e310343fe869116",
     "apps/comic/src/game/appraisal/wishlist-rules.ts": "9157cc6f7636ed765494f6fc0ae7a5c1c54cad42036728d1288853e257aa3c30",
     "apps/comic/src/game/appraisal/wishlist.ts": "335080d7252080ffdd373d0d452a8f999d2d0305c8ae35da673972d6794b4167",
@@ -80,7 +81,7 @@
     "apps/comic/dist/src/game/appraisal/core2-rules.js": "93d60728b9a6eeb7247323044a33982c96f7c8f473f0e8ef91a3293321183ba4",
     "apps/comic/dist/src/game/appraisal/core2-specs.js": "1db4efb228dfb75ce4d93bc896608af3062ba10094c0630348a5f73964365033",
     "apps/comic/dist/src/game/appraisal/core2.js": "170809b030f3f772a9020d14d386bc038c2ed0a6bf5c6e861b29ccbb9c68e560",
-    "apps/comic/dist/src/game/appraisal/engine.js": "17348a075338e6d1474fcd4785efc926e30a71fb4021eca27aaad2ba4a0ea91a",
+    "apps/comic/dist/src/game/appraisal/engine.js": "4cad562d901af218ee4dbd6ceaf7641e9424681e616c7d94634cfc89c6e8e65d",
     "apps/comic/dist/src/game/appraisal/events.js": "1cd1db40708514841964bb3ff36be7bb6e161e64b36d9d4c472fd5c282979a09",
     "apps/comic/dist/src/game/appraisal/ghost-service.js": "856cafba915ab93baa260ef55326c0aafc62f8d834e895ca8eacfc19a1ba8015",
     "apps/comic/dist/src/game/appraisal/ghost-tracking.js": "2fe1600c50d316bcb32a3bd1c82c3014cc08369c3132802334863000a116786d",
@@ -94,6 +95,7 @@
     "apps/comic/dist/src/game/appraisal/omen-table.js": "86294d594f9aa59ffa23b54184583cd734a615ddf87d90706cd6ec55745ec7ba",
     "apps/comic/dist/src/game/appraisal/omens.js": "5ad5c044f3d97aa731d24da0c00a3092530a873dfad96c9eb9ee946628a75ed7",
     "apps/comic/dist/src/game/appraisal/passives.js": "fd3c0c82d248e9dfaf5e2108f24a0c8e540d227d5f3b6876505c5fec2e62ce8a",
+    "apps/comic/dist/src/game/appraisal/personal-scoring.js": "ffbc0d5350141a6a8b15ca16db7d62ec58d060f0052b953075d9db2db7bbf2c0",
     "apps/comic/dist/src/game/appraisal/pilot-catalog.js": "477cd3fbf6cc7f36495306f1eedd7ee1c8f82dcd40da2550aecb368d906d0282",
     "apps/comic/dist/src/game/appraisal/pilot-effects.js": "f5f0cf450ed63f702fc185923d42731fcb66535569b80679ca085573b6a3d601",
     "apps/comic/dist/src/game/appraisal/polish-events.js": "46fb478e6b4d24b9c9c5b408ec36d4276cdeaf920dcf54696169c4ab3f5bcf54",
@@ -527,5 +529,5 @@
     }
   ],
   "passed": true,
-  "finishedAt": "2026-11-02T10:42:14.082Z"
+  "finishedAt": "2026-11-02T23:50:21.171Z"
 }

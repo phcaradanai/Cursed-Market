@@ -1,0 +1,50 @@
+[
+  {
+    "file": "docs/validation/npc-events-v0.7/live-2-seat-audit.json",
+    "parentError": "RuleError: พ่อค้านี้ไม่มีดีลฟื้นที่เลือกหรือใช้สิทธิ์แล้ว",
+    "currentError": "RuleError: พ่อค้านี้ไม่มีดีลฟื้นที่เลือกหรือใช้สิทธิ์แล้ว",
+    "same": true
+  },
+  {
+    "file": "docs/validation/npc-events-v0.7/live-4-seat-audit.json",
+    "parentError": "RuleError: พ่อค้านี้ไม่มีดีลฟื้นที่เลือกหรือใช้สิทธิ์แล้ว",
+    "currentError": "RuleError: พ่อค้านี้ไม่มีดีลฟื้นที่เลือกหรือใช้สิทธิ์แล้ว",
+    "same": true
+  },
+  {
+    "file": "docs/validation/survival-v0.5/network/lan-timed-2-players.json",
+    "parentError": "RuleError: พ่อค้านี้ไม่มีดีลฟื้นที่เลือกหรือใช้สิทธิ์แล้ว",
+    "currentError": "RuleError: พ่อค้านี้ไม่มีดีลฟื้นที่เลือกหรือใช้สิทธิ์แล้ว",
+    "same": true
+  },
+  {
+    "file": "docs/validation/survival-v0.5/network/lan-timed-3-players.json",
+    "parentError": "RuleError: พ่อค้านี้ไม่มีดีลฟื้นที่เลือกหรือใช้สิทธิ์แล้ว",
+    "currentError": "RuleError: พ่อค้านี้ไม่มีดีลฟื้นที่เลือกหรือใช้สิทธิ์แล้ว",
+    "same": true
+  },
+  {
+    "file": "docs/validation/survival-v0.5/network/lan-timed-4-players.json",
+    "parentError": "RuleError: พ่อค้านี้ไม่มีดีลฟื้นที่เลือกหรือใช้สิทธิ์แล้ว",
+    "currentError": "RuleError: พ่อค้านี้ไม่มีดีลฟื้นที่เลือกหรือใช้สิทธิ์แล้ว",
+    "same": true
+  },
+  {
+    "file": "docs/validation/survival-v0.5/network/lan-untimed-2-players.json",
+    "parentError": "RuleError: พ่อค้านี้ไม่มีดีลฟื้นที่เลือกหรือใช้สิทธิ์แล้ว",
+    "currentError": "RuleError: พ่อค้านี้ไม่มีดีลฟื้นที่เลือกหรือใช้สิทธิ์แล้ว",
+    "same": true
+  },
+  {
+    "file": "docs/validation/survival-v0.5/network/lan-untimed-3-players.json",
+    "parentError": "RuleError: พ่อค้านี้ไม่มีดีลฟื้นที่เลือกหรือใช้สิทธิ์แล้ว",
+    "currentError": "RuleError: พ่อค้านี้ไม่มีดีลฟื้นที่เลือกหรือใช้สิทธิ์แล้ว",
+    "same": true
+  },
+  {
+    "file": "docs/validation/survival-v0.5/network/lan-untimed-4-players.json",
+    "parentError": "RuleError: พ่อค้านี้ไม่มีดีลฟื้นที่เลือกหรือใช้สิทธิ์แล้ว",
+    "currentError": "RuleError: พ่อค้านี้ไม่มีดีลฟื้นที่เลือกหรือใช้สิทธิ์แล้ว",
+    "same": true
+  }
+]

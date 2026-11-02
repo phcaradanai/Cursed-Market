@@ -1,0 +1,36 @@
+[
+  {
+    "label": "parent",
+    "exitCode": 1,
+    "status": "finished",
+    "failures": [
+      "private market preview is identical for opposite hidden qualities and labels the unknown risk before selling",
+      "zero-energy UI enables free actions and marks them free",
+      "every translated client string has an English entry",
+      "English mode renders every phase with no Thai text left in the table (engine notes aside)",
+      "the Rules panel follows the room mode",
+      "every disabled button in every phase and language carries a hover reason"
+    ],
+    "summary": [
+      "\u2139 pass 0",
+      "\u2139 fail 6"
+    ]
+  },
+  {
+    "label": "current",
+    "exitCode": 1,
+    "status": "finished",
+    "failures": [
+      "private market preview is identical for opposite hidden qualities and labels the unknown risk before selling",
+      "zero-energy UI enables free actions and marks them free",
+      "every translated client string has an English entry",
+      "English mode renders every phase with no Thai text left in the table (engine notes aside)",
+      "the Rules panel follows the room mode",
+      "every disabled button in every phase and language carries a hover reason"
+    ],
+    "summary": [
+      "\u2139 pass 0",
+      "\u2139 fail 6"
+    ]
+  }
+]

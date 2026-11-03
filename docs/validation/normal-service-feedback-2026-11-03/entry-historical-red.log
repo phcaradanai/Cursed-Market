@@ -1,0 +1,29 @@
+(node:1721) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ Spirit entry belongs to Status header only and disappears after RESULTS (211.046125ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 968.026375
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/spirit-entry-before.test.js:7:1
+✖ Spirit entry belongs to Status header only and disappears after RESULTS (211.046125ms)
+  AssertionError [ERR_ASSERTION]: existing entry must be inside Status
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/spirit-entry-before.test.js:16:9)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

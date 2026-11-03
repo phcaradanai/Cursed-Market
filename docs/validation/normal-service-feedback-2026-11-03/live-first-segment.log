@@ -1,0 +1,472 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+undefined !== 1
+
+    at run (file:///Users/Projects/Cursed%20Market/scripts/ui/normal-service-live.mjs:48:491)
+    at async file:////[eval2]:1:130
+[ego-browser:notice] Ego Lite update is available (current 0.6.2.5). Finish the current browser task, then ask the user before running `ego-browser upgrade`; re-read the ego-browser Skill afterward.
+BUYER_JOIN [p2 "Cursed Market — นักประเมินต่างมิติ" | space "Cursed Market scoring final fixes"(2): 2 managed, 0 untracked — p1 "Cursed Market — นักประเมินต่างมิติ", p2* "Cursed Market — นักประเมินต่างมิติ"]
+root
+  container
+    container
+      status
+        text "เชื่อมต่อแล้ว"
+      button "Switch to English" [ref=48, loc=css:button[aria-label="Switch to English"]]
+        text "EN"
+      button [ref=49]
+        svg_root
+        text "เปิดเสียง"
+    container [ref=50]
+      container
+        paragraph
+          text "CURSED MARKET"
+        heading
+          text "ทุกข้อเสนอ"
+          text "มีราคาที่ต้องจ่าย"
+        paragraph
+          text "ประเมินของจากต่างมิติ ลองกดราคา เก็บของที่อยากได้ และเสี่ยงกับสัญญาท�..."
+      image
+      container
+        group "เริ่มเล่น"
+          button [ref=51]
+            text "สร้างห้องใหม่"
+          button [ref=52]
+            text "เข้าห้อง"
+        form
+          text "ชื่อที่ใช้ในเกม"
+          textbox [ref=53, loc=css:input[placeholder="เช่น ชื่อเล่นของคุณ"]]
+            text "Service Buyer"
+          container
+            text "รหัสห้องของเพื่อน"
+            textbox [ref=54, loc=css:input[placeholder="K7M2QX"]]
+              text "K7M2QX"
+
+FAIL_BUYER [p2 "Cursed Market — นักประเมินต่างมิติ" | space "Cursed Market scoring final fixes"(2): 2 managed, 0 untracked — p1 "Cursed Market — นักประเมินต่างมิติ", p2* "Cursed Market — นักประเมินต่างมิติ"]
+root
+  container
+    container
+      container
+        heading
+          text "จบการเดินทาง"
+        unordered_list
+          container
+            list_item
+              svg_root
+              text "เครดิต"
+            list_item
+              text "230"
+          container
+            list_item
+              svg_root
+              text "พลัง"
+            list_item
+              text "10"
+              container
+                text "/"
+                text "10"
+          container
+            list_item
+              svg_root
+              text "ชีวิต"
+            list_item
+              text "0"
+              container
+                text "/"
+                text "6"
+        container "สมุดและกระเป๋า"
+          button "กระเป๋า" [ref=55, loc=css:button[aria-label="กระเป๋า"]]
+            svg_root
+            text "กระเป๋า"
+          button "สถานะ" [ref=56, loc=css:button[aria-label="สถานะ"]]
+            svg_root
+            text "สถานะ"
+            text "3"
+          button "Dark Market" [ref=57, loc=css:button[aria-label="Dark Market"]]
+            svg_root
+            text "ตลาดมืด"
+          button "สมุดบันทึก · เงินกู้และใบประกาศ" [ref=58]
+            svg_root
+            text "บันทึก"
+          button "กติกา" [ref=59, loc=css:button[aria-label="กติกา"]]
+            svg_root
+            text "กติกา"
+          button "ตั้งค่า" [ref=60, loc=css:button[aria-label="ตั้งค่า"]]
+            svg_root
+            text "ตั้งค่า"
+      container "สรุปผลงานของทุกคน"
+        container
+          heading
+            text "สรุปผลงานของทุกคน"
+          container
+            text "1"
+            text "/ 9"
+        container
+          container "กราฟคะแนนตามระบบ"
+            container
+              heading
+                text "ทรัพย์สิน"
+              paragraph
+                text "ตำแหน่งผู้เล่นคงที่ · รวมผลงานทีละระบบ"
+            container
+              container
+                text "90"
+                button [ref=61]
+                  text "Service Ghost"
+                container
+                  container
+                    text "อันดับ"
+                    text "2"
+                  text "·"
+                  container
+                    text "+"
+                    text "90"
+                  text "·"
+                  text "รวมสุดท้าย"
+                  text "108"
+              container
+                text "357"
+                button [ref=62]
+                  text "Service Buyer"
+                container
+                  container
+                    text "อันดับ"
+                    text "1"
+                  text "·"
+                  container
+                    text "+"
+                    text "357"
+                  text "·"
+                  text "รวมสุดท้าย"
+                  text "620"
+            container "การแสดงคะแนน"
+              button [ref=63]
+                text "‹"
+              button [ref=64]
+                text "เล่น"
+              button [ref=65]
+                text "ถัดไป"
+                text "›"
+              button [ref=66]
+                text "รวมทั้งหมด"
+          container "รายละเอียดผลงาน"
+            container
+              heading
+                text "Service Buyer"
+              paragraph
+                text "ตรวจคะแนนแต่ละหน่วย"
+            container
+              container
+                container
+                  heading
+                    text "ซื้อสินค้า"
+                  container
+                    text "28"
+                    text "คะแนน"
+                unordered_list
+                  container
+                    list_item
+                      text "ดิบ"
+                    list_item
+                      text "17"
+                  container
+                    list_item
+                      text "เข้าเกณฑ์"
+                    list_item
+                      text "14"
+                  container
+                    list_item
+                      text "เพดาน"
+                    list_item
+                      text "40"
+                paragraph
+                  text "2 / 1 ต่อหน่วย · ปัดลง"
+                  container "ต้นฉบับหรือแหล่งเดิมนับแล้ว" [ref=67]
+                    text "·"
+                    text "ไม่นับซ้ำ/ไม่เข้าเกณฑ์"
+                    text "3"
+                    text "ⓘ"
+              container
+                container
+                  heading
+                    text "จำนวนที่ขาย"
+                  container
+                    text "75"
+                    text "คะแนน"
+                unordered_list
+                  container
+                    list_item
+                      text "ดิบ"
+                    list_item
+                      text "20"
+                  container
+                    list_item
+                      text "เข้าเกณฑ์"
+                    list_item
+                      text "17"
+                  container
+                    list_item
+                      text "เพดาน"
+                    list_item
+                      text "75"
+                paragraph
+                  text "5 / 1 ต่อหน่วย · ปัดลง"
+                  container
+                    text "·"
+                    text "ก่อนเพดาน 85"
+                  container "ต้นฉบับหรือแหล่งเดิมนับแล้ว · ขายโดยไม่ได้เครดิต" [ref=68]
+                    text "·"
+                    text "ไม่นับซ้ำ/ไม่เข้าเกณฑ์"
+                    text "3"
+                    text "ⓘ"
+            container "หน้าผลงาน"
+              button "ก่อนหน้า" [ref=69, loc=css:button[aria-label="ก่อนหน้า"]]
+                text "‹"
+              container
+                text "1"
+                text "/"
+                text "7"
+              button "ถัดไป" [ref=70, loc=css:button[aria-label="ถัดไป"]]
+                text "›"
+        container
+          button [ref=71]
+            text "กลับห้อง"
+          button [ref=72]
+            text "บันทึกเกม"
+          button [ref=73]
+            text "ออกจากห้อง"
+    ordered_list "ผลที่เพิ่งเกิด"
+      list_item
+        svg_root
+        text "Dark Market รับฝากของและจ่ายให้ 42 เครดิต (หลังหักค่าธรรมเนียม 3)"
+        unordered_list
+          list_item
+            text "และทิ้ง"
+            svg_root
+            text "ตรานักโกง"
+            text "ไว้กับคุณ"
+          list_item
+            text "ได้รับ"
+            svg_root
+            text "ตรานักโกง"
+          list_item
+            text "+42 เครดิต"
+        button "ปิดการแจ้งเตือน" [ref=74]
+          svg_root
+      list_item
+        svg_root
+        text "จบการเดินทาง"
+        unordered_list
+          list_item
+            text "Collector ยกเลิกคำขอ cw-buyer-6 เพราะจบเกม"
+          list_item
+            text "เสีย"
+            text "ค้อนรัง"
+          list_item
+            text "เสีย สำเนา #1 ของ"
+            text "ค้อนรัง"
+          list_item
+            text "เสีย"
+            text "เครื่องแปลความคิด"
+          list_item
+            text "เสีย"
+            text "เหรียญผ่านแดน"
+          list_item
+            text "เสีย"
+            text "เหรียญผ่านแดน"
+          list_item
+            text "เสีย"
+            text "แหวนตราราตรี"
+          list_item
+            text "เสีย"
+            text "เครื่องแปลความคิด"
+          list_item
+            text "เสีย"
+            text "เครื่องแปลความคิด"
+          list_item
+            text "เสีย"
+            text "เครื่องแปลความคิด"
+          list_item
+            text "−1 ชีวิต"
+        button "ปิดการแจ้งเตือน" [ref=75]
+          svg_root
+
+FAIL_SPIRIT [p1 "Cursed Market — นักประเมินต่างมิติ" | space "Cursed Market scoring final fixes"(2): 2 managed, 0 untracked — p1* "Cursed Market — นักประเมินต่างมิติ", p2 "Cursed Market — นักประเมินต่างมิติ"]
+root
+  container
+    container
+      heading
+        text "จบการเดินทาง"
+      unordered_list
+        container
+          list_item
+            svg_root
+            text "เครดิต"
+          list_item
+            text "90"
+        container
+          list_item
+            svg_root
+            text "พลัง"
+          list_item
+            text "10"
+            container
+              text "/"
+              text "10"
+        container
+          list_item
+            svg_root
+            text "ชีวิต"
+          list_item
+            text "0"
+            container
+              text "/"
+              text "6"
+      container "สมุดและกระเป๋า"
+        button "กระเป๋า" [ref=32, loc=css:button[aria-label="กระเป๋า"]]
+          svg_root
+          text "กระเป๋า"
+        button "สถานะ" [ref=33, loc=css:button[aria-label="สถานะ"]]
+          svg_root
+          text "สถานะ"
+        button "Dark Market" [ref=34, loc=css:button[aria-label="Dark Market"]]
+          svg_root
+          text "ตลาดมืด"
+        button "สมุดบันทึก · เงินกู้และใบประกาศ" [ref=35]
+          svg_root
+          text "บันทึก"
+        button "กติกา" [ref=36, loc=css:button[aria-label="กติกา"]]
+          svg_root
+          text "กติกา"
+        button "ตั้งค่า" [ref=37, loc=css:button[aria-label="ตั้งค่า"]]
+          svg_root
+          text "ตั้งค่า"
+    container "สรุปผลงานของทุกคน"
+      container
+        heading
+          text "สรุปผลงานของทุกคน"
+        container
+          text "1"
+          text "/ 9"
+      container
+        container "กราฟคะแนนตามระบบ"
+          container
+            heading
+              text "ทรัพย์สิน"
+            paragraph
+              text "ตำแหน่งผู้เล่นคงที่ · รวมผลงานทีละระบบ"
+          container
+            container
+              text "90"
+              button [ref=38]
+                text "Service Ghost"
+              container
+                container
+                  text "อันดับ"
+                  text "2"
+                text "·"
+                container
+                  text "+"
+                  text "90"
+                text "·"
+                text "รวมสุดท้าย"
+                text "108"
+            container
+              text "357"
+              button [ref=39]
+                text "Service Buyer"
+              container
+                container
+                  text "อันดับ"
+                  text "1"
+                text "·"
+                container
+                  text "+"
+                  text "357"
+                text "·"
+                text "รวมสุดท้าย"
+                text "620"
+          container "การแสดงคะแนน"
+            button [ref=40]
+              text "‹"
+            button [ref=41]
+              text "เล่น"
+            button [ref=42]
+              text "ถัดไป"
+              text "›"
+            button [ref=43]
+              text "รวมทั้งหมด"
+        container "รายละเอียดผลงาน"
+          container
+            heading
+              text "Service Ghost"
+            paragraph
+              text "ตรวจคะแนนแต่ละหน่วย"
+          container
+            container
+              container
+                heading
+                  text "ซื้อสินค้า"
+                container
+                  text "0"
+                  text "คะแนน"
+              unordered_list
+                container
+                  list_item
+                    text "ดิบ"
+                  list_item
+                    text "0"
+                container
+                  list_item
+                    text "เข้าเกณฑ์"
+                  list_item
+                    text "0"
+                container
+                  list_item
+                    text "เพดาน"
+                  list_item
+                    text "40"
+              paragraph
+                text "2 / 1 ต่อหน่วย · ปัดลง"
+            container
+              container
+                heading
+                  text "จำนวนที่ขาย"
+                container
+                  text "0"
+                  text "คะแนน"
+              unordered_list
+                container
+                  list_item
+                    text "ดิบ"
+                  list_item
+                    text "0"
+                container
+                  list_item
+                    text "เข้าเกณฑ์"
+                  list_item
+                    text "0"
+                container
+                  list_item
+                    text "เพดาน"
+                  list_item
+                    text "75"
+              paragraph
+                text "5 / 1 ต่อหน่วย · ปัดลง"
+          container "หน้าผลงาน"
+            button "ก่อนหน้า" [ref=44]
+              text "‹"
+            container
+              text "1"
+              text "/"
+              text "7"
+            button "ถัดไป" [ref=45]
+              text "›"
+      container
+        text "รอเจ้าของห้องเริ่มใหม่"
+        button [ref=46]
+          text "บันทึกเกม"
+        button [ref=47]
+          text "ออกจากห้อง"
+
+
+ego's nodejs process exited with code 1.

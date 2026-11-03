@@ -14,7 +14,7 @@
   ],
   "sourceFingerprints": {
     "apps/comic/scripts/new56-pilot-experiment.mjs": "765044c9febc45ae3e2f3c50e572304b40bd14c2bbad471deba4280a9d88123e",
-    "apps/comic/src/appraisal-client/App.tsx": "9c93c44a531d0f68153c1b90cce58bc48004b944dcacca0578223544e8d3ba0b",
+    "apps/comic/src/appraisal-client/App.tsx": "151b3383977fd5b149bd3127dcf7a0788b1c266fe7a13efc26ae6e7490577e45",
     "apps/comic/src/appraisal-client/SecureEconomy.tsx": "cf7323f59d79043ae49b35a9fcfdeb9e588383ce55575270d99a5a0ba9648ced",
     "apps/comic/src/appraisal-client/components.tsx": "b4564c5667bdb3eaa375b2a8f87389216c67108433c2f06074910d9b75c4d362",
     "apps/comic/src/appraisal-client/lore.tsx": "189390c4d9ceb246c2f1a5aa4e4891b7a91d2023348ac49f91b8029d2f788354",
@@ -297,5 +297,9 @@
       "apps/comic/src/game/appraisal/mechanics.ts",
       "apps/comic/src/game/appraisal/views.ts"
     ]
+  },
+  "normalServiceUiFollowup": {
+    "evidence": "docs/validation/normal-service-feedback-2026-11-03/verification.json",
+    "scope": "2026-11-03 normal two-App service route now reaches RESULTS with196commands and strict replay: real40credits/6life/defaultclocks/pilot8, natural death, early shuffle rejection without page shift, browser reload preserving round/server startedAt, actual Status→Spirit hire/accept/RPS3losses/next-encounter/delivery (debit21once, bonus2, living phase unchanged). User approved existing Spirit entry in Status header beside Close; shared button height/gaps, no new dock or clock reset.37focused tests,3feedback widths,3preview watch/reentry widths,UI404/contracts10,18menus/14unchanged approvedpixels pass. Final harness field assertion was corrected from amount to paid; same ended run separately validated, original failure retained. This closes the observed normal-service feedback/entry blockers, not every game flow or release balance."
   }
 }

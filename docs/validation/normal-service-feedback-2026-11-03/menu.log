@@ -1,0 +1,26 @@
+
+> cursed-market@0.1.0 ui:smoke
+> node scripts/ui/run.mjs --mode smoke --space 2
+
+[ego-browser:notice] Ego Lite update is available (current 0.6.2.5). Finish the current browser task, then ask the user before running `ego-browser upgrade`; re-read the ego-browser Skill afterward.
+{ spaceId: 2 }
+1024 กระเป๋า PASS
+1024 สถานะ PASS
+1024 Dark Market PASS
+1024 สมุดบันทึก PASS
+1024 กติกา PASS
+1024 ตั้งค่า PASS
+1440 กระเป๋า PASS
+1440 สถานะ PASS
+1440 Dark Market PASS
+1440 สมุดบันทึก PASS
+1440 กติกา PASS
+1440 ตั้งค่า PASS
+1920 กระเป๋า PASS
+1920 สถานะ PASS
+1920 Dark Market PASS
+1920 สมุดบันทึก PASS
+1920 กติกา PASS
+1920 ตั้งค่า PASS
+PASS: 18 real menu open/close flows, equal frames/header padding/actions/radius, no scrolling or countdown reset
+

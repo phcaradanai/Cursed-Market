@@ -1,0 +1,115 @@
+{
+  "asOf": "2026-11-03",
+  "status": "verified-experimental-normal-service-route",
+  "approval": {
+    "quote": "อนุมัติไว้ในสถานะ",
+    "proposal": "docs/game-design/proposals/spirit-entry-access-v1.md"
+  },
+  "scope": "Shared feedback placement repair and approved existing Spirit entry relocation only; no gameplay numbers/art/baseline changes.",
+  "sourceFingerprints": {
+    "apps/comic/src/appraisal-client/App.tsx": "151b3383977fd5b149bd3127dcf7a0788b1c266fe7a13efc26ae6e7490577e45",
+    "apps/comic/src/appraisal-client/layout-system.css": "19cf6b065de0941eab25a9d4365a1f3ffaa519df1e77b03fd8bb5152c8d17438",
+    "apps/comic/src/appraisal-client/GhostWorld.tsx": "46929bb93b8000e65d6963b0e7bd593d345e524f0f97bcd6694d9623feb6a77f",
+    "apps/comic/src/appraisal-client/ghost-world.css": "2d7c91c5af05ec8b7890ef045d0524eeee121cf4a1e5ba56b5435e20b6097ee9",
+    "apps/comic/scripts/normal-service-server.mjs": "d0e0c981bd05b50324c6a6f5d6accae96279412368b79c332c6614355bf04b99",
+    "scripts/ui/normal-service-live.mjs": "4474db2310a3d531ea98870bfecec74bde49fd9208da4385472c0a41413ccdc8",
+    "scripts/ui/connection-feedback-smoke.mjs": "ddb910684fe45536effd29341db8a0e3f7795498cb5d29822b193468fdda0b54",
+    "apps/comic/tests/spirit-entry-ui.test.ts": "59ad141a735d7127051a75c812f92bfef777435cfee5f2658e41d43225c97652"
+  },
+  "checks": {
+    "focusedTests": 37,
+    "feedbackDesktopWidths": 3,
+    "deadWatchReentryPreviewWidths": 3,
+    "uiSourceFingerprints": 404,
+    "uiContracts": 10,
+    "menuFlows": 18,
+    "approvedPixels": 14,
+    "normalLiveChecks": 7,
+    "normalLiveCaptures": 12,
+    "normalCommands": 196,
+    "strictReplay": true
+  },
+  "normal": {
+    "startingCredits": 40,
+    "maxLife": 6,
+    "catalog": 4,
+    "personalScoringRules": 1,
+    "personalScoringFacts": 2,
+    "fixedSeedAndSeatIds": true,
+    "defaultClocks": true,
+    "noStateMoneyLifeStockInjection": true,
+    "actualAppControls": [
+      "deposit",
+      "topup",
+      "withdraw",
+      "fund loan",
+      "repay",
+      "ghost-start",
+      "ghost-guess",
+      "hire through Status",
+      "accept",
+      "RPS",
+      "deliver"
+    ],
+    "browserReload": "same authoritative round/startedAt",
+    "delivery": {
+      "price": 21,
+      "bonus": 2,
+      "count": 1,
+      "livingPhaseUnchanged": true
+    },
+    "evidence": "docs/validation/normal-service-feedback-2026-11-03/live-complete/live.audit.json"
+  },
+  "failedAttempts": [
+    {
+      "file": "docs/validation/normal-service-feedback-2026-11-03/geometry-red.log",
+      "cause": "actual server error notice shifted #game-main82px, root scroll82px; fixed shared stack"
+    },
+    {
+      "file": "docs/validation/normal-service-feedback-2026-11-03/entry-red.log",
+      "cause": "existing entry outside Status, obscured by fixed phase header; user approved relocation"
+    },
+    {
+      "file": "docs/validation/normal-service-feedback-2026-11-03/live/report.json",
+      "cause": "First continued live run reached shuffle/reload/guess, then living entry blocked; no settlement claim for this run"
+    },
+    {
+      "file": "docs/validation/normal-service-feedback-2026-11-03/live-complete/harness-field-failure.json",
+      "cause": "After all actual controls/delivery, harness read obsolete vault-interest details.amount. Production field is paid. Same ended run continued in separate successful finish receipt; no repeated actions or weakened replay."
+    }
+  ],
+  "limits": [
+    "Single deterministic cooperative route, not multi-seed/policy balance or complete end-to-end coverage of every system",
+    "Dead watch/re-entry3width checks are previews, separate from actual live settlement/reload",
+    "No full-suite all-green claim; previous historical replay/notes failures remain recorded",
+    "Remaining48catalog runtime/numeric specs and full-game release acceptance remain open"
+  ],
+  "artifacts": {
+    "docs/validation/normal-service-feedback-2026-11-03/geometry-report.json": "eff5d0740fd930e8a4c52df6ba008819b742e56275cb7f57f5ebe11ce6c63c86",
+    "docs/validation/normal-service-feedback-2026-11-03/preview-report.json": "bfd65661bc4f6356a99dfca5e0af101667618b29adb5fe05d197fa651fb13f81",
+    "docs/validation/normal-service-feedback-2026-11-03/live-complete/report.json": "0cc25f01e09d13ef228bea8b570e2630ea33b7e5458c9a49c987a6ba5def7068",
+    "docs/validation/normal-service-feedback-2026-11-03/live-complete/live.audit.json": "8d471d2e5d2d857ae720a8a6c17a0d12c0965e562c01e1761e5b7d033f9ed36d",
+    "docs/validation/normal-service-feedback-2026-11-03/normal-service-live-invocation.json": "346051fa530e22c57b250077bc3be1de4c9e56bfe017b4deb1b7a0f33b0d285f",
+    "docs/validation/normal-service-feedback-2026-11-03/normal-service-finish-invocation.json": "493702c1a1c57a298ad11feff7e6d56ae232a64ba871a60a8afd9f7a6cf04d2d",
+    "docs/validation/normal-service-feedback-2026-11-03/spirit-entry-preview-invocation.json": "e2e3d67f81a8e2571c9f2287fe06dee1d4928dfd73c65a4d2517e22c4c961809",
+    "docs/validation/normal-service-feedback-2026-11-03/pixel-report.json": "b40851cde028546099d8e1c1eea86a8e9573ed9d94179bd7fc0ad6015796736d",
+    "docs/validation/normal-service-feedback-2026-11-03/pixel-invocation.json": "93ee90fda4c233a2f63fb446064d7ff04922741760ae521b0ffdf3e7f923b730",
+    "docs/validation/normal-service-feedback-2026-11-03/menu-report.json": "636e9e5ab85ac001f536e793a01ca08c9a75c2992108097d9a9900098c690c9a",
+    "docs/validation/normal-service-feedback-2026-11-03/menu-invocation.json": "5d6f3e602750f1170940efd579a5ef8969e9b62439ce215543f5cecc336a6ae1",
+    "docs/validation/normal-service-feedback-2026-11-03/functional.log": "d3bf7a09d948c9a5a520c3a14f864fa47b3397426df31dcedcdbc41c50fb536e",
+    "docs/validation/normal-service-feedback-2026-11-03/entry-historical-red.log": "a167cf9ab0e972c4e1cbbec966eb7c13cf1913c4ef16a11e759f480d3d97f88d"
+  },
+  "atlas": {
+    "inputs": 257,
+    "checked": true
+  },
+  "trail": {
+    "conflicts": 20,
+    "scope": "excluded pre-existing .impeccable files;400KB scope cap; no whole-branch clean claim"
+  },
+  "regressionProof": {
+    "feedback": "Observed actual server alert shifting main82px then3width GREEN",
+    "entry": "Same SSR test against transpiled725fbcb App fails missing Status entry; current source passes. Initial fixture typing errors fixed, historical clean RED preserved.",
+    "historicalRed": "docs/validation/normal-service-feedback-2026-11-03/entry-historical-red.log"
+  }
+}

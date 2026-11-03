@@ -1,0 +1,53 @@
+(node:99558) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ fresh deposit matures only after a complete encounter, pays 10 percent to wallet once (143.479667ms)
+✔ new topup does not increase mature interest; withdrawals spend new money first (66.880958ms)
+✔ withdrawal of old principal reduces entitlement; redeposit cannot restore it (22.6955ms)
+✔ floor aggregate eligible principal and do not compound wallet interest automatically (25.129084ms)
+✔ legacy balance without age evidence starts fresh and cannot claim retroactive interest (12.357333ms)
+✔ bank shortage cannot be retried in the same encounter to claim a second payment (9.791041ms)
+✔ age metadata stays private and invalid principal is rejected (49.340041ms)
+✔ historical configs keep whole-balance 4 percent without age metadata (53.975667ms)
+✔ large safe-integer principal uses exact integer tenth; dead seats earn nothing (8.741167ms)
+✔ real phase advances mature deposits once and the complete command audit replays (206.500917ms)
+✔ vault without a deposit explains the active rule; historical DTO still reports four percent (327.040833ms)
+✔ two real sockets track cards, agree a job and deliver with no duplicate payment (582.700167ms)
+✔ command-only death, card unlock, agreed job, RPS search, delivery and Collector strictly replay (1116.214708ms)
+(node:99561) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ paid spirit delivery credits only living buyer achievements, leaving ghost bonus unchanged (184.423625ms)
+✔ living cannot start ghost game; dead can retry and view never contains answer (34.083792ms)
+✔ delivery waits for funds then charges once, grants one item and bonus; duplicate is rejected (31.52025ms)
+✔ engine integrates ghost actions with idempotency and conservation (53.759542ms)
+✔ Collector adds earned ghost bonus and cancels unfinished jobs without payment (14.424292ms)
+✔ buyer death cancels unpaid work and requires a new minigame (63.321875ms)
+✔ next-encounter slot preview equals the slots used by the next action and hides item truth (64.27175ms)
+✔ RPS ties retry, losses lock each slot independently, no minigame reset until next encounter (35.452125ms)
+✔ living phase advances while a ghost is still tracking cards (18.264916ms)
+✔ status estimate adds spirit earnings once after ordinary score modifiers (133.716458ms)
+✔ multiple buyers share a service batch; declining the last offer after a delivery relocks hiring (149.294459ms)
+✔ a stale or forged displayed quote cannot create a differently priced contract (127.0425ms)
+✔ quotes apply rarity once on a private clone and delivery keeps the accepted prototype (90.953709ms)
+✔ tracking keeps answer private, rejects invalid guesses, permits retries and unlocks on success (3.150709ms)
+✔ tracking validates every permutation boundary without mutating the server round (3.551875ms)
+(node:99563) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ live Status projection uses known assets, hides appraisal truth and source receipts, and leaves noflag DTO unchanged (128.2525ms)
+✔ Comic results show 2 fixed player columns, nine stages, server totals and paged metrics without dropdowns (437.127833ms)
+✔ Comic results show 4 fixed player columns, nine stages, server totals and paged metrics without dropdowns (57.807417ms)
+✔ historical noflag survival results retain original fallback (1.698667ms)
+✔ personal result labels state every tied rank and the applied modifier percentage (7.379167ms)
+✔ actual unaged-loan exclusion is accessible with its specific reason (1.864ms)
+✔ negative result preview has one consistent score and modifier across graph, self, roster and status (10.01525ms)
+✔ negative result explicitly displays the applied D10 percentage independently of rank (2.042584ms)
+(node:99564) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Spirit entry belongs to Status header only and disappears after RESULTS (308.638958ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 37
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1808.725333

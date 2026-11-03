@@ -3,7 +3,7 @@
   "asOf": "2026-11-03",
   "scope": "active-comic-appraisal-runtime-plus-confirmed-rules-and-new56-proposals",
   "provenance": {
-    "revision": "4e3fe946e57c66d5ef8bc3ea8328cb746676760e",
+    "revision": "725fbcbf40f367dbc0374441837f7d3d12a0002c",
     "sourceFiles": [
       {
         "file": "apps/comic/src/game/appraisal/ability-content.ts",

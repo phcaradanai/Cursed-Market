@@ -1,0 +1,11 @@
+{
+  "scope": "CLI invocation only; detailed test report must start at or after startedAt",
+  "mode": "spirit-entry-preview",
+  "space": 2,
+  "baseUrl": "http://127.0.0.1:5174",
+  "startedAt": "2026-11-03T12:58:53.117Z",
+  "finishedAt": "2026-11-03T12:59:06.272Z",
+  "processExitCode": 0,
+  "signal": null,
+  "error": null
+}

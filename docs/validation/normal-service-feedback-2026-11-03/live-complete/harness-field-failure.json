@@ -1,0 +1,286 @@
+{
+  "startedAt": "2026-11-03T12:54:09.505Z",
+  "spaceId": 2,
+  "baseUrl": "http://127.0.0.1:51986",
+  "scope": "Two actual Apps/WebSockets/production room handlers and default clocks. Exact normal40credit/6life/deadline15/pilot8. Only identities and seed fixed; ordinary phase setup replays earlier public command sequence. No money/life/stock injection, no RPS oracle.",
+  "checks": [
+    "two actual browser seats start40credits/6life/defaultclocks",
+    "natural death, public minigame start, real server rejects early guess",
+    "real browser reload resumes the same shuffle round and server start timestamp",
+    "visible tracking controls honor real5.2second gate, answer derived from public swaps",
+    "all3 slots lose through real RPS and wait for living next encounter",
+    "actual App delivery debits21 once, creates owneditem, bonus2, no living phase advance"
+  ],
+  "captures": [
+    {
+      "playerId": "buyer",
+      "state": "vault-1-vault-deposit-credits-10",
+      "file": "docs/validation/normal-service-feedback-2026-11-03/live-complete/vault-1-vault-deposit-credits-10.png",
+      "sha256": "b1797c9c06cf5ff70e3a8ea2ee027f67d04ff957676bab80b7f383a016b4461c",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "capturedAt": "2026-11-03T12:54:17.629Z"
+    },
+    {
+      "playerId": "buyer",
+      "state": "vault-2-vault-deposit-credits-5",
+      "file": "docs/validation/normal-service-feedback-2026-11-03/live-complete/vault-2-vault-deposit-credits-5.png",
+      "sha256": "d82acb8d947bed1dc05d4a885e9efecb25417bba9d197ce8781e49b413e259de",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "capturedAt": "2026-11-03T12:54:20.407Z"
+    },
+    {
+      "playerId": "buyer",
+      "state": "vault-2-vault-withdraw-credits-5",
+      "file": "docs/validation/normal-service-feedback-2026-11-03/live-complete/vault-2-vault-withdraw-credits-5.png",
+      "sha256": "54c82ad72c938dc9f598f81e77f365debc5a2088b0fcc99146f70165c2710af3",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "capturedAt": "2026-11-03T12:54:20.807Z"
+    },
+    {
+      "playerId": "spirit",
+      "state": "loan-funded",
+      "file": "docs/validation/normal-service-feedback-2026-11-03/live-complete/loan-funded.png",
+      "sha256": "889d7b7c8c06987c86820d701db0b62243627b6aa2a7530befd45e452799c418",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "capturedAt": "2026-11-03T12:54:24.551Z"
+    },
+    {
+      "playerId": "buyer",
+      "state": "loan-repaid",
+      "file": "docs/validation/normal-service-feedback-2026-11-03/live-complete/loan-repaid.png",
+      "sha256": "d0a61817a2893b35758befa8ea41c934f8770033b55b381a5a4a6754dfa940f0",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "capturedAt": "2026-11-03T12:54:25.420Z"
+    },
+    {
+      "playerId": "spirit",
+      "state": "ghost-tracking",
+      "file": "docs/validation/normal-service-feedback-2026-11-03/live-complete/ghost-tracking.png",
+      "sha256": "8f71f13b5d91c99283f142f36a945ff663ffbb40b1c04f7934cb33399c341eae",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "capturedAt": "2026-11-03T12:54:37.848Z"
+    },
+    {
+      "playerId": "buyer",
+      "state": "status-spirit-entry",
+      "file": "docs/validation/normal-service-feedback-2026-11-03/live-complete/status-spirit-entry.png",
+      "sha256": "db3be65c0bb49164b7ad826b2b55254a7bbc06c6f8db83ac6441b0f08a96b339",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "capturedAt": "2026-11-03T12:54:44.107Z"
+    },
+    {
+      "playerId": "buyer",
+      "state": "ghost-hire-no-prepay",
+      "file": "docs/validation/normal-service-feedback-2026-11-03/live-complete/ghost-hire-no-prepay.png",
+      "sha256": "ddd932f41d92203f75e0c74ab009a873a935d206344a0352c2dfb7be9ef15ae3",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "capturedAt": "2026-11-03T12:54:44.500Z"
+    },
+    {
+      "playerId": "spirit",
+      "state": "ghost-working",
+      "file": "docs/validation/normal-service-feedback-2026-11-03/live-complete/ghost-working.png",
+      "sha256": "a58a656504bfecd83b5998592939586a3bf812d18b4213750c63ba5049bf0b7e",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "capturedAt": "2026-11-03T12:54:45.802Z"
+    },
+    {
+      "playerId": "spirit",
+      "state": "ghost-three-losses",
+      "file": "docs/validation/normal-service-feedback-2026-11-03/live-complete/ghost-three-losses.png",
+      "sha256": "520b3f5368a33fd347d66e6d2c99d099bab429d119049d0fc93eea66a2acab5f",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "capturedAt": "2026-11-03T12:54:47.809Z"
+    },
+    {
+      "playerId": "spirit",
+      "state": "ghost-delivered",
+      "file": "docs/validation/normal-service-feedback-2026-11-03/live-complete/ghost-delivered.png",
+      "sha256": "427b7de8b549c82b68e3fdbd6d3776a0428ffc0170fc3d1663b38a1a2c128495",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "capturedAt": "2026-11-03T12:54:48.370Z"
+    }
+  ],
+  "steps": [
+    {
+      "encounter": 1,
+      "playerId": "buyer",
+      "type": "vault-deposit-credits",
+      "via": "visible-App-control"
+    },
+    {
+      "encounter": 2,
+      "playerId": "buyer",
+      "type": "vault-deposit-credits",
+      "via": "visible-App-control"
+    },
+    {
+      "encounter": 2,
+      "playerId": "buyer",
+      "type": "vault-withdraw-credits",
+      "via": "visible-App-control"
+    },
+    {
+      "encounter": 3,
+      "playerId": "spirit",
+      "type": "loan-respond",
+      "via": "visible-App-control"
+    },
+    {
+      "encounter": 3,
+      "playerId": "buyer",
+      "type": "loan-repay",
+      "via": "visible-App-control"
+    },
+    {
+      "encounter": 6,
+      "playerId": "spirit",
+      "type": "ghost-start",
+      "via": "visible-App-control"
+    },
+    {
+      "encounter": 6,
+      "playerId": "spirit",
+      "type": "ghost-guess",
+      "via": "visible-App-control"
+    },
+    {
+      "encounter": 6,
+      "playerId": "buyer",
+      "type": "ghost-hire",
+      "via": "visible-App-control"
+    },
+    {
+      "encounter": 6,
+      "playerId": "spirit",
+      "type": "ghost-accept",
+      "via": "visible-App-control"
+    },
+    {
+      "encounter": 6,
+      "playerId": "spirit",
+      "type": "ghost-rps",
+      "via": "visible-App-control"
+    },
+    {
+      "encounter": 6,
+      "playerId": "spirit",
+      "type": "ghost-rps",
+      "via": "visible-App-control"
+    },
+    {
+      "encounter": 6,
+      "playerId": "spirit",
+      "type": "ghost-rps",
+      "via": "visible-App-control"
+    },
+    {
+      "encounter": 6,
+      "playerId": "spirit",
+      "type": "ghost-rps",
+      "via": "visible-App-control"
+    },
+    {
+      "encounter": 6,
+      "playerId": "spirit",
+      "type": "ghost-rps",
+      "via": "visible-App-control"
+    },
+    {
+      "encounter": 7,
+      "playerId": "spirit",
+      "type": "ghost-deliver",
+      "via": "visible-App-control"
+    }
+  ],
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nundefined !== 1\n",
+  "failedAt": "2026-11-03T12:54:52.306Z"
+}

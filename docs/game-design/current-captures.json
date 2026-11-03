@@ -211,10 +211,10 @@
     "warning": "Comic UI is in separate build and differs from canonical UI source. Logic links are references, not proof every latest backend rule has matching UI."
   },
   "summary": {
-    "capturedImages": 84,
-    "capturedScreenGroups": 22,
+    "capturedImages": 90,
+    "capturedScreenGroups": 23,
     "registeredScreens": 30,
-    "liveImages": 15,
+    "liveImages": 21,
     "fixtureImages": 69
   },
   "style": {
@@ -5707,6 +5707,444 @@
         "dpr": 1,
         "scrollWidth": 1920,
         "scrollHeight": 800
+      }
+    },
+    {
+      "id": "C85",
+      "screenId": "M02",
+      "title": "status-spirit-entry · normal2-App",
+      "phase": "REVEAL",
+      "image": "../validation/normal-service-feedback-2026-11-03/live-complete/status-spirit-entry.png",
+      "sha256": "db3be65c0bb49164b7ad826b2b55254a7bbc06c6f8db83ac6441b0f08a96b339",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "live-game",
+      "url": "http://127.0.0.1:51986",
+      "capturedAtUTC": "2026-11-03T12:54:44.107Z",
+      "clientDate": "2026-11-03",
+      "notes": "Normal-resource actual2-App public-control route, fixed seed/seat IDs. Candidate only, not approved pixel reference. ",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/layout-system.css",
+        "apps/comic/src/appraisal-client/GhostWorld.tsx",
+        "apps/comic/src/appraisal-client/ghost-world.css",
+        "apps/comic/scripts/normal-service-server.mjs",
+        "scripts/ui/normal-service-live.mjs",
+        "scripts/ui/connection-feedback-smoke.mjs",
+        "apps/comic/tests/spirit-entry-ui.test.ts"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "151b3383977fd5b149bd3127dcf7a0788b1c266fe7a13efc26ae6e7490577e45"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/layout-system.css",
+          "sha256": "19cf6b065de0941eab25a9d4365a1f3ffaa519df1e77b03fd8bb5152c8d17438"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/GhostWorld.tsx",
+          "sha256": "46929bb93b8000e65d6963b0e7bd593d345e524f0f97bcd6694d9623feb6a77f"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ghost-world.css",
+          "sha256": "2d7c91c5af05ec8b7890ef045d0524eeee121cf4a1e5ba56b5435e20b6097ee9"
+        },
+        {
+          "file": "apps/comic/scripts/normal-service-server.mjs",
+          "sha256": "d0e0c981bd05b50324c6a6f5d6accae96279412368b79c332c6614355bf04b99"
+        },
+        {
+          "file": "scripts/ui/normal-service-live.mjs",
+          "sha256": "4474db2310a3d531ea98870bfecec74bde49fd9208da4385472c0a41413ccdc8"
+        },
+        {
+          "file": "scripts/ui/connection-feedback-smoke.mjs",
+          "sha256": "ddb910684fe45536effd29341db8a0e3f7795498cb5d29822b193468fdda0b54"
+        },
+        {
+          "file": "apps/comic/tests/spirit-entry-ui.test.ts",
+          "sha256": "59ad141a735d7127051a75c812f92bfef777435cfee5f2658e41d43225c97652"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "725fbcb",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      }
+    },
+    {
+      "id": "C86",
+      "screenId": "G01",
+      "title": "ghost-tracking · normal2-App",
+      "phase": "REVEAL",
+      "image": "../validation/normal-service-feedback-2026-11-03/live-complete/ghost-tracking.png",
+      "sha256": "8f71f13b5d91c99283f142f36a945ff663ffbb40b1c04f7934cb33399c341eae",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "live-game",
+      "url": "http://127.0.0.1:51986",
+      "capturedAtUTC": "2026-11-03T12:54:37.848Z",
+      "clientDate": "2026-11-03",
+      "notes": "Normal-resource actual2-App public-control route, fixed seed/seat IDs. Candidate only, not approved pixel reference. ",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/layout-system.css",
+        "apps/comic/src/appraisal-client/GhostWorld.tsx",
+        "apps/comic/src/appraisal-client/ghost-world.css",
+        "apps/comic/scripts/normal-service-server.mjs",
+        "scripts/ui/normal-service-live.mjs",
+        "scripts/ui/connection-feedback-smoke.mjs",
+        "apps/comic/tests/spirit-entry-ui.test.ts"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "151b3383977fd5b149bd3127dcf7a0788b1c266fe7a13efc26ae6e7490577e45"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/layout-system.css",
+          "sha256": "19cf6b065de0941eab25a9d4365a1f3ffaa519df1e77b03fd8bb5152c8d17438"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/GhostWorld.tsx",
+          "sha256": "46929bb93b8000e65d6963b0e7bd593d345e524f0f97bcd6694d9623feb6a77f"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ghost-world.css",
+          "sha256": "2d7c91c5af05ec8b7890ef045d0524eeee121cf4a1e5ba56b5435e20b6097ee9"
+        },
+        {
+          "file": "apps/comic/scripts/normal-service-server.mjs",
+          "sha256": "d0e0c981bd05b50324c6a6f5d6accae96279412368b79c332c6614355bf04b99"
+        },
+        {
+          "file": "scripts/ui/normal-service-live.mjs",
+          "sha256": "4474db2310a3d531ea98870bfecec74bde49fd9208da4385472c0a41413ccdc8"
+        },
+        {
+          "file": "scripts/ui/connection-feedback-smoke.mjs",
+          "sha256": "ddb910684fe45536effd29341db8a0e3f7795498cb5d29822b193468fdda0b54"
+        },
+        {
+          "file": "apps/comic/tests/spirit-entry-ui.test.ts",
+          "sha256": "59ad141a735d7127051a75c812f92bfef777435cfee5f2658e41d43225c97652"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "725fbcb",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      }
+    },
+    {
+      "id": "C87",
+      "screenId": "G02",
+      "title": "ghost-hire-no-prepay · normal2-App",
+      "phase": "REVEAL",
+      "image": "../validation/normal-service-feedback-2026-11-03/live-complete/ghost-hire-no-prepay.png",
+      "sha256": "ddd932f41d92203f75e0c74ab009a873a935d206344a0352c2dfb7be9ef15ae3",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "live-game",
+      "url": "http://127.0.0.1:51986",
+      "capturedAtUTC": "2026-11-03T12:54:44.500Z",
+      "clientDate": "2026-11-03",
+      "notes": "Normal-resource actual2-App public-control route, fixed seed/seat IDs. Candidate only, not approved pixel reference. ",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/layout-system.css",
+        "apps/comic/src/appraisal-client/GhostWorld.tsx",
+        "apps/comic/src/appraisal-client/ghost-world.css",
+        "apps/comic/scripts/normal-service-server.mjs",
+        "scripts/ui/normal-service-live.mjs",
+        "scripts/ui/connection-feedback-smoke.mjs",
+        "apps/comic/tests/spirit-entry-ui.test.ts"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "151b3383977fd5b149bd3127dcf7a0788b1c266fe7a13efc26ae6e7490577e45"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/layout-system.css",
+          "sha256": "19cf6b065de0941eab25a9d4365a1f3ffaa519df1e77b03fd8bb5152c8d17438"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/GhostWorld.tsx",
+          "sha256": "46929bb93b8000e65d6963b0e7bd593d345e524f0f97bcd6694d9623feb6a77f"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ghost-world.css",
+          "sha256": "2d7c91c5af05ec8b7890ef045d0524eeee121cf4a1e5ba56b5435e20b6097ee9"
+        },
+        {
+          "file": "apps/comic/scripts/normal-service-server.mjs",
+          "sha256": "d0e0c981bd05b50324c6a6f5d6accae96279412368b79c332c6614355bf04b99"
+        },
+        {
+          "file": "scripts/ui/normal-service-live.mjs",
+          "sha256": "4474db2310a3d531ea98870bfecec74bde49fd9208da4385472c0a41413ccdc8"
+        },
+        {
+          "file": "scripts/ui/connection-feedback-smoke.mjs",
+          "sha256": "ddb910684fe45536effd29341db8a0e3f7795498cb5d29822b193468fdda0b54"
+        },
+        {
+          "file": "apps/comic/tests/spirit-entry-ui.test.ts",
+          "sha256": "59ad141a735d7127051a75c812f92bfef777435cfee5f2658e41d43225c97652"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "725fbcb",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      }
+    },
+    {
+      "id": "C88",
+      "screenId": "G03",
+      "title": "ghost-working · normal2-App",
+      "phase": "REVEAL",
+      "image": "../validation/normal-service-feedback-2026-11-03/live-complete/ghost-working.png",
+      "sha256": "a58a656504bfecd83b5998592939586a3bf812d18b4213750c63ba5049bf0b7e",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "live-game",
+      "url": "http://127.0.0.1:51986",
+      "capturedAtUTC": "2026-11-03T12:54:45.802Z",
+      "clientDate": "2026-11-03",
+      "notes": "Normal-resource actual2-App public-control route, fixed seed/seat IDs. Candidate only, not approved pixel reference. ",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/layout-system.css",
+        "apps/comic/src/appraisal-client/GhostWorld.tsx",
+        "apps/comic/src/appraisal-client/ghost-world.css",
+        "apps/comic/scripts/normal-service-server.mjs",
+        "scripts/ui/normal-service-live.mjs",
+        "scripts/ui/connection-feedback-smoke.mjs",
+        "apps/comic/tests/spirit-entry-ui.test.ts"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "151b3383977fd5b149bd3127dcf7a0788b1c266fe7a13efc26ae6e7490577e45"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/layout-system.css",
+          "sha256": "19cf6b065de0941eab25a9d4365a1f3ffaa519df1e77b03fd8bb5152c8d17438"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/GhostWorld.tsx",
+          "sha256": "46929bb93b8000e65d6963b0e7bd593d345e524f0f97bcd6694d9623feb6a77f"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ghost-world.css",
+          "sha256": "2d7c91c5af05ec8b7890ef045d0524eeee121cf4a1e5ba56b5435e20b6097ee9"
+        },
+        {
+          "file": "apps/comic/scripts/normal-service-server.mjs",
+          "sha256": "d0e0c981bd05b50324c6a6f5d6accae96279412368b79c332c6614355bf04b99"
+        },
+        {
+          "file": "scripts/ui/normal-service-live.mjs",
+          "sha256": "4474db2310a3d531ea98870bfecec74bde49fd9208da4385472c0a41413ccdc8"
+        },
+        {
+          "file": "scripts/ui/connection-feedback-smoke.mjs",
+          "sha256": "ddb910684fe45536effd29341db8a0e3f7795498cb5d29822b193468fdda0b54"
+        },
+        {
+          "file": "apps/comic/tests/spirit-entry-ui.test.ts",
+          "sha256": "59ad141a735d7127051a75c812f92bfef777435cfee5f2658e41d43225c97652"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "725fbcb",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      }
+    },
+    {
+      "id": "C89",
+      "screenId": "G04",
+      "title": "ghost-delivered · normal2-App",
+      "phase": "PORTALS",
+      "image": "../validation/normal-service-feedback-2026-11-03/live-complete/ghost-delivered.png",
+      "sha256": "427b7de8b549c82b68e3fdbd6d3776a0428ffc0170fc3d1663b38a1a2c128495",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "live-game",
+      "url": "http://127.0.0.1:51986",
+      "capturedAtUTC": "2026-11-03T12:54:48.370Z",
+      "clientDate": "2026-11-03",
+      "notes": "Normal-resource actual2-App public-control route, fixed seed/seat IDs. Candidate only, not approved pixel reference. ",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/layout-system.css",
+        "apps/comic/src/appraisal-client/GhostWorld.tsx",
+        "apps/comic/src/appraisal-client/ghost-world.css",
+        "apps/comic/scripts/normal-service-server.mjs",
+        "scripts/ui/normal-service-live.mjs",
+        "scripts/ui/connection-feedback-smoke.mjs",
+        "apps/comic/tests/spirit-entry-ui.test.ts"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "151b3383977fd5b149bd3127dcf7a0788b1c266fe7a13efc26ae6e7490577e45"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/layout-system.css",
+          "sha256": "19cf6b065de0941eab25a9d4365a1f3ffaa519df1e77b03fd8bb5152c8d17438"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/GhostWorld.tsx",
+          "sha256": "46929bb93b8000e65d6963b0e7bd593d345e524f0f97bcd6694d9623feb6a77f"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ghost-world.css",
+          "sha256": "2d7c91c5af05ec8b7890ef045d0524eeee121cf4a1e5ba56b5435e20b6097ee9"
+        },
+        {
+          "file": "apps/comic/scripts/normal-service-server.mjs",
+          "sha256": "d0e0c981bd05b50324c6a6f5d6accae96279412368b79c332c6614355bf04b99"
+        },
+        {
+          "file": "scripts/ui/normal-service-live.mjs",
+          "sha256": "4474db2310a3d531ea98870bfecec74bde49fd9208da4385472c0a41413ccdc8"
+        },
+        {
+          "file": "scripts/ui/connection-feedback-smoke.mjs",
+          "sha256": "ddb910684fe45536effd29341db8a0e3f7795498cb5d29822b193468fdda0b54"
+        },
+        {
+          "file": "apps/comic/tests/spirit-entry-ui.test.ts",
+          "sha256": "59ad141a735d7127051a75c812f92bfef777435cfee5f2658e41d43225c97652"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "725fbcb",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      }
+    },
+    {
+      "id": "C90",
+      "screenId": "S13",
+      "title": "results · normal2-App",
+      "phase": "RESULTS",
+      "image": "../validation/normal-service-feedback-2026-11-03/live-complete/results.png",
+      "sha256": "eaaac452e428d709999e901c79b8763003c3ee1318c2e4b9cb49bb4ca1d2a3e9",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "live-game",
+      "url": "http://127.0.0.1:51986",
+      "capturedAtUTC": "2026-11-03T12:57:50.595Z",
+      "clientDate": "2026-11-03",
+      "notes": "Normal-resource actual2-App public-control route, fixed seed/seat IDs. Candidate only, not approved pixel reference. Actual final producer2 score, graph local initial stage.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/layout-system.css",
+        "apps/comic/src/appraisal-client/GhostWorld.tsx",
+        "apps/comic/src/appraisal-client/ghost-world.css",
+        "apps/comic/scripts/normal-service-server.mjs",
+        "scripts/ui/normal-service-live.mjs",
+        "scripts/ui/connection-feedback-smoke.mjs",
+        "apps/comic/tests/spirit-entry-ui.test.ts"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "151b3383977fd5b149bd3127dcf7a0788b1c266fe7a13efc26ae6e7490577e45"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/layout-system.css",
+          "sha256": "19cf6b065de0941eab25a9d4365a1f3ffaa519df1e77b03fd8bb5152c8d17438"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/GhostWorld.tsx",
+          "sha256": "46929bb93b8000e65d6963b0e7bd593d345e524f0f97bcd6694d9623feb6a77f"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ghost-world.css",
+          "sha256": "2d7c91c5af05ec8b7890ef045d0524eeee121cf4a1e5ba56b5435e20b6097ee9"
+        },
+        {
+          "file": "apps/comic/scripts/normal-service-server.mjs",
+          "sha256": "d0e0c981bd05b50324c6a6f5d6accae96279412368b79c332c6614355bf04b99"
+        },
+        {
+          "file": "scripts/ui/normal-service-live.mjs",
+          "sha256": "4474db2310a3d531ea98870bfecec74bde49fd9208da4385472c0a41413ccdc8"
+        },
+        {
+          "file": "scripts/ui/connection-feedback-smoke.mjs",
+          "sha256": "ddb910684fe45536effd29341db8a0e3f7795498cb5d29822b193468fdda0b54"
+        },
+        {
+          "file": "apps/comic/tests/spirit-entry-ui.test.ts",
+          "sha256": "59ad141a735d7127051a75c812f92bfef777435cfee5f2658e41d43225c97652"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "725fbcb",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
       }
     }
   ],

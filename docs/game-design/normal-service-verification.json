@@ -33,5 +33,11 @@
     "atlasInputs": 207,
     "normalJourneySourceAuditHashes": "pass"
   },
-  "trailCheck": "20 pre-existing conflicts only unrelated .impeccable cache/design excluded;400KB diff cap, not full-branch review"
+  "trailCheck": "20 pre-existing conflicts only unrelated .impeccable cache/design excluded;400KB diff cap, not full-branch review",
+  "liveUiFollowup": {
+    "asOf": "2026-11-03",
+    "status": "single-normal-two-App-route-verified",
+    "evidence": "docs/validation/normal-service-feedback-2026-11-03/verification.json",
+    "scope": "196commands strict replay; actual App finance/shuffle reload/Status Spirit hire/RPS/delivery; one deterministic cooperative seed/pilot8, no whole-game balance claim. Original final harness amount-vs-paid failure and continued same-run validation retained separately."
+  }
 }

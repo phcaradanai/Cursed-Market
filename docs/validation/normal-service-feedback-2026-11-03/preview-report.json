@@ -1,0 +1,72 @@
+{
+  "passed": true,
+  "scope": "Preview-only dead watch/re-entry, shared header control heights and no scroll at3widths; not settlement proof",
+  "checks": [
+    {
+      "width": 1024,
+      "before": {
+        "scene": "screen phase-APPRAISAL",
+        "buttons": [
+          40,
+          40
+        ]
+      },
+      "after": {
+        "scene": "screen phase-APPRAISAL",
+        "open": false,
+        "page": [
+          1024,
+          800
+        ],
+        "viewport": [
+          1024,
+          800
+        ]
+      }
+    },
+    {
+      "width": 1440,
+      "before": {
+        "scene": "screen phase-APPRAISAL",
+        "buttons": [
+          40,
+          40
+        ]
+      },
+      "after": {
+        "scene": "screen phase-APPRAISAL",
+        "open": false,
+        "page": [
+          1440,
+          800
+        ],
+        "viewport": [
+          1440,
+          800
+        ]
+      }
+    },
+    {
+      "width": 1920,
+      "before": {
+        "scene": "screen phase-APPRAISAL",
+        "buttons": [
+          40,
+          40
+        ]
+      },
+      "after": {
+        "scene": "screen phase-APPRAISAL",
+        "open": false,
+        "page": [
+          1920,
+          800
+        ],
+        "viewport": [
+          1920,
+          800
+        ]
+      }
+    }
+  ]
+}

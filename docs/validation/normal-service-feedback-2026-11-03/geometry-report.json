@@ -1,0 +1,75 @@
+{
+  "passed": true,
+  "scope": "Actual App resumed to RESULTS, server-rejected action shows dismissable alert;3widths; no DOM fixture insertion",
+  "checks": [
+    {
+      "viewport": [
+        1024,
+        800
+      ],
+      "page": [
+        1024,
+        800
+      ],
+      "mainY": 0,
+      "notices": [
+        {
+          "role": "alert",
+          "box": [
+            0,
+            0,
+            263.28125,
+            70
+          ],
+          "dismissable": true
+        }
+      ]
+    },
+    {
+      "viewport": [
+        1440,
+        800
+      ],
+      "page": [
+        1440,
+        800
+      ],
+      "mainY": 0,
+      "notices": [
+        {
+          "role": "alert",
+          "box": [
+            0,
+            0,
+            263.28125,
+            70
+          ],
+          "dismissable": true
+        }
+      ]
+    },
+    {
+      "viewport": [
+        1920,
+        800
+      ],
+      "page": [
+        1920,
+        800
+      ],
+      "mainY": 0,
+      "notices": [
+        {
+          "role": "alert",
+          "box": [
+            0,
+            0,
+            263.28125,
+            70
+          ],
+          "dismissable": true
+        }
+      ]
+    }
+  ]
+}

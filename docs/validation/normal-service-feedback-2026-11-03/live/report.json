@@ -1,0 +1,158 @@
+{
+  "startedAt": "2026-11-03T12:17:27.144Z",
+  "spaceId": 2,
+  "baseUrl": "http://127.0.0.1:51143",
+  "scope": "Two actual Apps/WebSockets/production room handlers and default clocks. Exact normal40credit/6life/deadline15/pilot8. Only identities and seed fixed; ordinary phase setup replays earlier public command sequence. No money/life/stock injection, no RPS oracle.",
+  "checks": [
+    "two actual browser seats start40credits/6life/defaultclocks",
+    "natural death, public minigame start, real server rejects early guess",
+    "real browser reload resumes the same shuffle round and server start timestamp",
+    "visible tracking controls honor real5.2second gate, answer derived from public swaps"
+  ],
+  "captures": [
+    {
+      "playerId": "buyer",
+      "state": "vault-1-vault-deposit-credits-10",
+      "file": "docs/validation/normal-service-feedback-2026-11-03/live/vault-1-vault-deposit-credits-10.png",
+      "sha256": "832125b38742a5093f71d270d666f4723eaed311193e373fc7910bada2c79cd0",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "capturedAt": "2026-11-03T12:17:40.645Z"
+    },
+    {
+      "playerId": "buyer",
+      "state": "vault-2-vault-deposit-credits-5",
+      "file": "docs/validation/normal-service-feedback-2026-11-03/live/vault-2-vault-deposit-credits-5.png",
+      "sha256": "ccd08948e9be436397d12de0f9d9ea624e28a6144f06f7ccc357fdea76aaebd9",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "capturedAt": "2026-11-03T12:17:43.485Z"
+    },
+    {
+      "playerId": "buyer",
+      "state": "vault-2-vault-withdraw-credits-5",
+      "file": "docs/validation/normal-service-feedback-2026-11-03/live/vault-2-vault-withdraw-credits-5.png",
+      "sha256": "b36b48798c8eeccf7d222309714383a463738259af65a0e6f0b805d9d1a47d00",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "capturedAt": "2026-11-03T12:17:43.872Z"
+    },
+    {
+      "playerId": "spirit",
+      "state": "loan-funded",
+      "file": "docs/validation/normal-service-feedback-2026-11-03/live/loan-funded.png",
+      "sha256": "b0737b15caf9c80e5400920f1e0e6be5f3444480662cdcb555a390bcc3e806f2",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "capturedAt": "2026-11-03T12:17:47.462Z"
+    },
+    {
+      "playerId": "buyer",
+      "state": "loan-repaid",
+      "file": "docs/validation/normal-service-feedback-2026-11-03/live/loan-repaid.png",
+      "sha256": "71af477c46a583ccd44c4c0f4be3771e16fbeb15e8c838041195170ba37ccc1a",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "capturedAt": "2026-11-03T12:17:48.265Z"
+    },
+    {
+      "playerId": "spirit",
+      "state": "ghost-tracking",
+      "file": "docs/validation/normal-service-feedback-2026-11-03/live/ghost-tracking.png",
+      "sha256": "2bc431825854de901d26f320295dc56c5211afc5aabce955e064e5572474844a",
+      "width": 1440,
+      "height": 722,
+      "viewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      },
+      "capturedAt": "2026-11-03T12:18:00.413Z"
+    }
+  ],
+  "steps": [
+    {
+      "encounter": 1,
+      "playerId": "buyer",
+      "type": "vault-deposit-credits",
+      "via": "visible-App-control"
+    },
+    {
+      "encounter": 2,
+      "playerId": "buyer",
+      "type": "vault-deposit-credits",
+      "via": "visible-App-control"
+    },
+    {
+      "encounter": 2,
+      "playerId": "buyer",
+      "type": "vault-withdraw-credits",
+      "via": "visible-App-control"
+    },
+    {
+      "encounter": 3,
+      "playerId": "spirit",
+      "type": "loan-respond",
+      "via": "visible-App-control"
+    },
+    {
+      "encounter": 3,
+      "playerId": "buyer",
+      "type": "loan-repay",
+      "via": "visible-App-control"
+    },
+    {
+      "encounter": 6,
+      "playerId": "spirit",
+      "type": "ghost-start",
+      "via": "visible-App-control"
+    },
+    {
+      "encounter": 6,
+      "playerId": "spirit",
+      "type": "ghost-guess",
+      "via": "visible-App-control"
+    }
+  ],
+  "error": "ElementResolutionError: page.click timed out after 3010ms: Locator text=\"โลกวิญญาณ\" matched 1 elements, but none can receive input; <header> intercepts pointer events",
+  "failedAt": "2026-11-03T12:18:09.623Z",
+  "passed": false,
+  "blocker": "Living Spirit entry is covered by fixed phase header; navigation repair proposal pending approval. No hire/delivery/results claim for this live run."
+}

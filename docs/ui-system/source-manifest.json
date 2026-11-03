@@ -13,7 +13,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/App.tsx",
-      "sha256": "9c93c44a531d0f68153c1b90cce58bc48004b944dcacca0578223544e8d3ba0b"
+      "sha256": "151b3383977fd5b149bd3127dcf7a0788b1c266fe7a13efc26ae6e7490577e45"
     },
     {
       "file": "apps/comic/src/appraisal-client/BloodPactEvent.tsx",
@@ -245,7 +245,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/layout-system.css",
-      "sha256": "8774847ff1e24f49f1bccf1a47c9d191a3fd513a0a4dc6ba6d4fde457ae84743"
+      "sha256": "19cf6b065de0941eab25a9d4365a1f3ffaa519df1e77b03fd8bb5152c8d17438"
     },
     {
       "file": "apps/comic/src/appraisal-client/lore.tsx",
@@ -1586,6 +1586,10 @@
     {
       "file": "apps/comic/tests/run.test.ts",
       "sha256": "5c626e6cafb5d40c8be690e079a165d424a713611add836993368498140ef641"
+    },
+    {
+      "file": "apps/comic/tests/spirit-entry-ui.test.ts",
+      "sha256": "59ad141a735d7127051a75c812f92bfef777435cfee5f2658e41d43225c97652"
     },
     {
       "file": "apps/comic/tests/support/appraisal-fixture.ts",

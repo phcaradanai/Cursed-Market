@@ -1373,6 +1373,12 @@
           "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-mix-1920.png",
           "title": "score-mix · 1920",
           "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C90",
+          "image": "../validation/normal-service-feedback-2026-11-03/live-complete/results.png",
+          "title": "results · normal2-App",
+          "origin": "live-game"
         }
       ],
       "captureStatus": "current-post-review-candidates",
@@ -1472,9 +1478,12 @@
         "L30"
       ],
       "actionIds": [],
-      "nextIds": [],
+      "nextIds": [
+        "G01",
+        "G02"
+      ],
       "conceptStatus": "planned",
-      "currentImage": null,
+      "currentImage": "../validation/normal-service-feedback-2026-11-03/live-complete/status-spirit-entry.png",
       "approvedImage": null,
       "variants": [],
       "mustShow": [],
@@ -1485,12 +1494,18 @@
           "image": "captures/current-comic-2026-10-29/status.png",
           "title": "สถานะ",
           "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C85",
+          "image": "../validation/normal-service-feedback-2026-11-03/live-complete/status-spirit-entry.png",
+          "title": "status-spirit-entry · normal2-App",
+          "origin": "live-game"
         }
       ],
-      "captureStatus": "captured-existing",
-      "captureImage": "captures/current-comic-2026-10-29/status.png",
+      "captureStatus": "current-normal-live-route",
+      "captureImage": "../validation/normal-service-feedback-2026-11-03/live-complete/status-spirit-entry.png",
       "designPolicy": "reuse-existing; change only explicit requested gap",
-      "captureNote": "Current status exists; strategic-path progress is not implemented.",
+      "captureNote": "2026-11-03 normal two-App service route now reaches RESULTS with196commands and strict replay: real40credits/6life/defaultclocks/pilot8, natural death, early shuffle rejection without page shift, browser reload preserving round/server startedAt, actual Status→Spirit hire/accept/RPS3losses/next-encounter/delivery (debit21once, bonus2, living phase unchanged). User approved existing Spirit entry in Status header beside Close; shared button height/gaps, no new dock or clock reset.37focused tests,3feedback widths,3preview watch/reentry widths,UI404/contracts10,18menus/14unchanged approvedpixels pass. Final harness field assertion was corrected from amount to paid; same ended run separately validated, original failure retained. This closes the observed normal-service feedback/entry blockers, not every game flow or release balance.",
       "sourceRefs": []
     },
     {
@@ -1980,7 +1995,7 @@
         "G02"
       ],
       "conceptStatus": "draft",
-      "currentImage": null,
+      "currentImage": "../validation/normal-service-feedback-2026-11-03/live-complete/ghost-tracking.png",
       "approvedImage": null,
       "variants": [],
       "mustShow": [],
@@ -1991,17 +2006,23 @@
           "image": "captures/ghost-2026-10-30/ghost-1440x722.png",
           "title": "โลกวิญญาณ · ทางเข้าและมินิเกม",
           "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C86",
+          "image": "../validation/normal-service-feedback-2026-11-03/live-complete/ghost-tracking.png",
+          "title": "ghost-tracking · normal2-App",
+          "origin": "live-game"
         }
       ],
-      "captureStatus": "captured-existing",
-      "captureNote": "Shared GhostWorld composite states; fixture screenshots are not multiplayer settlement or design approval.",
+      "captureStatus": "current-normal-live-route",
+      "captureNote": "2026-11-03 normal two-App service route now reaches RESULTS with196commands and strict replay: real40credits/6life/defaultclocks/pilot8, natural death, early shuffle rejection without page shift, browser reload preserving round/server startedAt, actual Status→Spirit hire/accept/RPS3losses/next-encounter/delivery (debit21once, bonus2, living phase unchanged). User approved existing Spirit entry in Status header beside Close; shared button height/gaps, no new dock or clock reset.37focused tests,3feedback widths,3preview watch/reentry widths,UI404/contracts10,18menus/14unchanged approvedpixels pass. Final harness field assertion was corrected from amount to paid; same ended run separately validated, original failure retained. This closes the observed normal-service feedback/entry blockers, not every game flow or release balance.",
       "implementationNote": "Runtime server/client integration with core, real socket and strict replay evidence; see implementations/ghost-delivery-progress.md and ../ui-system/ghost-functional-verification.json.",
       "sourceSymbols": [
         "handleGhostAction",
         "handleGhostCommand",
         "ghostView"
       ],
-      "captureImage": "captures/ghost-2026-10-30/ghost-1440x722.png",
+      "captureImage": "../validation/normal-service-feedback-2026-11-03/live-complete/ghost-tracking.png",
       "sourceRefs": [
         {
           "symbolId": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostAction",
@@ -2041,7 +2062,7 @@
         "G03"
       ],
       "conceptStatus": "draft",
-      "currentImage": null,
+      "currentImage": "../validation/normal-service-feedback-2026-11-03/live-complete/ghost-hire-no-prepay.png",
       "approvedImage": null,
       "variants": [],
       "mustShow": [],
@@ -2052,17 +2073,23 @@
           "image": "captures/ghost-2026-10-30/ghost-busy-1440x722.png",
           "title": "งานวิญญาณ · ตอบรับข้อเสนอ",
           "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C87",
+          "image": "../validation/normal-service-feedback-2026-11-03/live-complete/ghost-hire-no-prepay.png",
+          "title": "ghost-hire-no-prepay · normal2-App",
+          "origin": "live-game"
         }
       ],
-      "captureStatus": "captured-existing",
-      "captureNote": "Shared GhostWorld composite states; fixture screenshots are not multiplayer settlement or design approval.",
+      "captureStatus": "current-normal-live-route",
+      "captureNote": "2026-11-03 normal two-App service route now reaches RESULTS with196commands and strict replay: real40credits/6life/defaultclocks/pilot8, natural death, early shuffle rejection without page shift, browser reload preserving round/server startedAt, actual Status→Spirit hire/accept/RPS3losses/next-encounter/delivery (debit21once, bonus2, living phase unchanged). User approved existing Spirit entry in Status header beside Close; shared button height/gaps, no new dock or clock reset.37focused tests,3feedback widths,3preview watch/reentry widths,UI404/contracts10,18menus/14unchanged approvedpixels pass. Final harness field assertion was corrected from amount to paid; same ended run separately validated, original failure retained. This closes the observed normal-service feedback/entry blockers, not every game flow or release balance.",
       "implementationNote": "Runtime server/client integration with core, real socket and strict replay evidence; see implementations/ghost-delivery-progress.md and ../ui-system/ghost-functional-verification.json.",
       "sourceSymbols": [
         "handleGhostAction",
         "handleGhostCommand",
         "ghostView"
       ],
-      "captureImage": "captures/ghost-2026-10-30/ghost-busy-1440x722.png",
+      "captureImage": "../validation/normal-service-feedback-2026-11-03/live-complete/ghost-hire-no-prepay.png",
       "sourceRefs": [
         {
           "symbolId": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostAction",
@@ -2101,7 +2128,7 @@
         "G04"
       ],
       "conceptStatus": "draft",
-      "currentImage": null,
+      "currentImage": "../validation/normal-service-feedback-2026-11-03/live-complete/ghost-working.png",
       "approvedImage": null,
       "variants": [],
       "mustShow": [],
@@ -2112,17 +2139,23 @@
           "image": "captures/ghost-2026-10-30/ghost-lost-1440x722.png",
           "title": "Skeleton · แพ้ครบสามช่อง",
           "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C88",
+          "image": "../validation/normal-service-feedback-2026-11-03/live-complete/ghost-working.png",
+          "title": "ghost-working · normal2-App",
+          "origin": "live-game"
         }
       ],
-      "captureStatus": "captured-existing",
-      "captureNote": "Shared GhostWorld composite states; fixture screenshots are not multiplayer settlement or design approval.",
+      "captureStatus": "current-normal-live-route",
+      "captureNote": "2026-11-03 normal two-App service route now reaches RESULTS with196commands and strict replay: real40credits/6life/defaultclocks/pilot8, natural death, early shuffle rejection without page shift, browser reload preserving round/server startedAt, actual Status→Spirit hire/accept/RPS3losses/next-encounter/delivery (debit21once, bonus2, living phase unchanged). User approved existing Spirit entry in Status header beside Close; shared button height/gaps, no new dock or clock reset.37focused tests,3feedback widths,3preview watch/reentry widths,UI404/contracts10,18menus/14unchanged approvedpixels pass. Final harness field assertion was corrected from amount to paid; same ended run separately validated, original failure retained. This closes the observed normal-service feedback/entry blockers, not every game flow or release balance.",
       "implementationNote": "Runtime server/client integration with core, real socket and strict replay evidence; see implementations/ghost-delivery-progress.md and ../ui-system/ghost-functional-verification.json.",
       "sourceSymbols": [
         "handleGhostAction",
         "handleGhostCommand",
         "ghostView"
       ],
-      "captureImage": "captures/ghost-2026-10-30/ghost-lost-1440x722.png",
+      "captureImage": "../validation/normal-service-feedback-2026-11-03/live-complete/ghost-working.png",
       "sourceRefs": [
         {
           "symbolId": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostAction",
@@ -2162,7 +2195,7 @@
         "G01"
       ],
       "conceptStatus": "draft",
-      "currentImage": null,
+      "currentImage": "../validation/normal-service-feedback-2026-11-03/live-complete/ghost-delivered.png",
       "approvedImage": null,
       "variants": [],
       "mustShow": [],
@@ -2179,17 +2212,23 @@
           "image": "captures/ghost-2026-10-30/ghost-funds-1440x722.png",
           "title": "ส่งมอบ · รอผู้ว่าจ้างเติมเครดิต",
           "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C89",
+          "image": "../validation/normal-service-feedback-2026-11-03/live-complete/ghost-delivered.png",
+          "title": "ghost-delivered · normal2-App",
+          "origin": "live-game"
         }
       ],
-      "captureStatus": "captured-existing",
-      "captureNote": "Shared GhostWorld composite states; fixture screenshots are not multiplayer settlement or design approval.",
+      "captureStatus": "current-normal-live-route",
+      "captureNote": "2026-11-03 normal two-App service route now reaches RESULTS with196commands and strict replay: real40credits/6life/defaultclocks/pilot8, natural death, early shuffle rejection without page shift, browser reload preserving round/server startedAt, actual Status→Spirit hire/accept/RPS3losses/next-encounter/delivery (debit21once, bonus2, living phase unchanged). User approved existing Spirit entry in Status header beside Close; shared button height/gaps, no new dock or clock reset.37focused tests,3feedback widths,3preview watch/reentry widths,UI404/contracts10,18menus/14unchanged approvedpixels pass. Final harness field assertion was corrected from amount to paid; same ended run separately validated, original failure retained. This closes the observed normal-service feedback/entry blockers, not every game flow or release balance.",
       "implementationNote": "Runtime server/client integration with core, real socket and strict replay evidence; see implementations/ghost-delivery-progress.md and ../ui-system/ghost-functional-verification.json.",
       "sourceSymbols": [
         "handleGhostAction",
         "handleGhostCommand",
         "ghostView"
       ],
-      "captureImage": "captures/ghost-2026-10-30/ghost-working-1440x722.png",
+      "captureImage": "../validation/normal-service-feedback-2026-11-03/live-complete/ghost-delivered.png",
       "sourceRefs": [
         {
           "symbolId": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostAction",

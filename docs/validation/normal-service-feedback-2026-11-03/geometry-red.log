@@ -1,0 +1,9 @@
+AssertionError [ERR_ASSERTION]: server error must not push the whole game down
+
+82 !== 0
+
+    at file:////[eval2]:3:520
+[ego-browser:notice] Ego Lite update is available (current 0.6.2.5). Finish the current browser task, then ask the user before running `ego-browser upgrade`; re-read the ego-browser Skill afterward.
+{"viewport":[1440,722],"page":[1440,804],"mainY":82,"errorVisible":true,"errorRole":"alert","dismissable":true}
+
+ego's nodejs process exited with code 1.

@@ -1,3 +1,4 @@
+import {personalOrigin,recordPersonalActivity} from './personal-scoring.js';
 import {collectorCanWithdraw} from './collector-wishlist.js';
 import {heldInterestRings,ringInterestBasisPoints,pilotExpansionCost} from './pilot-effects.js';
 import type {AppraisalItem, AppraisalState, Appraiser} from './types.js';
@@ -171,7 +172,12 @@ export function handleLoanAction(state:AppraisalState,p:Appraiser,action:LoanAct
     const lender=player(state,loan.lenderId);addable(lender.credits,action.amount);
     check(state.items[loan.itemId]?.owner===`collateral:${loan.id}`,'loan-owner','เจ้าของหลักประกันไม่ตรงสัญญา');
     transfer(state,p,lender,action.amount,'secured-loan-repay');loan.repaid+=action.amount;
-    if(loan.repaid===loan.principal){returnCollateral(state,loan,p);loan.status='repaid';loan.settledAt=state.encounter;}
+    if(loan.repaid===loan.principal){
+      returnCollateral(state,loan,p);loan.status='repaid';loan.settledAt=state.encounter;
+      const eligible=loan.fundedAt!==undefined&&state.encounter>=loan.fundedAt+2;
+      const source=JSON.stringify([[loan.borrowerId,loan.lenderId].sort(),personalOrigin(state.items[loan.itemId]!)]);
+      for(const party of [p,lender])recordPersonalActivity(state,party,'loanRepaid',1,source,eligible,eligible?'aged full repayment':'loan did not span a full encounter');
+    }
   }
   trace(state,p,action.type,{loanId:loan.id});
 }
@@ -212,6 +218,7 @@ export function payVaultInterest(state:AppraisalState):void {
     const amount=Math.min(owed,Math.max(0,state.bank-state.market.budget-state.reservedRewards));
     if(amount<=0)continue;
     reward(state,p,amount,'vault-interest');
+    recordPersonalActivity(state,p,'interest',amount,String(state.encounter),state.config.vaultInterestRules===1,state.config.vaultInterestRules===1?'aged interest paid':'not aged interest');
     trace(state,p,'vault-interest',{balance:vault.credits,...(state.config.vaultInterestRules===1?{principal}:{}),owed,paid:amount});
   }
 }

@@ -4,6 +4,7 @@ import { check } from './mechanics.js';
 import type { AppraisalAction, AppraisalConfig, AppraisalState, EncounterResult } from './types.js';
 
 export interface AppraisalAudit {
+  personalPerformance?:AppraisalState['personalPerformance'];
   schemaVersion:4 | 5; playerIds:string[]; seed:string; config:AppraisalConfig;
   commands:Array<AppraisalAction|{type:'advance'}>;
   ledger:AppraisalState['ledger']; history:EncounterResult[]; trace:AppraisalState['trace'];
@@ -20,7 +21,7 @@ export function scoresFromAppraisalHistory(history:EncounterResult[]):Record<str
 }
 export function exportAppraisalAudit(state:AppraisalState):AppraisalAudit {
   check(state.phase==='RESULTS','audit-private','ดาวน์โหลด seed/audit ได้หลังจบ run เท่านั้น');
-  return structuredClone({schemaVersion:state.version,playerIds:state.players.map(p=>p.id),seed:state.seed,config:state.config,commands:state.commands,ledger:state.ledger,history:state.history,trace:state.trace,items:state.items,final:state.players.map(p=>({id:p.id,credits:p.credits,energy:p.energy,inventory:p.inventory,score:p.score,...(p.life!==undefined?{life:p.life}:{})})),...(state.collector?{collector:state.collector}:{})});
+  return structuredClone({...(state.personalPerformance?{personalPerformance:state.personalPerformance}:{}),schemaVersion:state.version,playerIds:state.players.map(p=>p.id),seed:state.seed,config:state.config,commands:state.commands,ledger:state.ledger,history:state.history,trace:state.trace,items:state.items,final:state.players.map(p=>({id:p.id,credits:p.credits,energy:p.energy,inventory:p.inventory,score:p.score,...(p.life!==undefined?{life:p.life}:{})})),...(state.collector?{collector:state.collector}:{})});
 }
 export function replayAppraisalAudit(audit:AppraisalAudit):AppraisalState {
   check((audit?.schemaVersion===4 || audit?.schemaVersion===5) && Array.isArray(audit.commands) && (audit.schemaVersion===5)===!!audit.config.survival,'audit','เวอร์ชัน appraisal audit ไม่ตรงกติกา');

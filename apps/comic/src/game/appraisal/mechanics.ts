@@ -1,4 +1,5 @@
 import {priceCaliper,usePilot,pilotUses,pilotStrength} from './pilot-effects.js';
+import {personalOrigin,recordPersonalActivity,recordPersonalItemActivity,recordPersonalSale,setPersonalTrust} from './personal-scoring.js';
 import { itemPriceRange } from './rarity.js';
 import { rarityValue } from '../../shared/rarity-power.js';
 import { ownedAssetItemIds } from './secure-storage.js';
@@ -137,7 +138,9 @@ export function damageLife(state:AppraisalState,p:Appraiser,amount:number,reason
   if(hit>0 && shieldable && !['blood-pact','dark-one-contract','market-condition','vampire-rite','darkone-pact'].includes(reason) && state.config.catalogVersion===4 && p.pilotGuard?.encounter===state.encounter){const before=hit;hit=Math.max(0,hit-p.pilotGuard.amount);delete p.pilotGuard;trace(state,p,'pilot-guard-absorbed',{amount:before-hit,reason});}
   if(hit>0 && status(p,'B19')){hit=Math.max(0,hit-integerEffect(statusMagnitude(p,'B19',1)));consumeStatus(p,'B19');}
   if(hit>0 && status(p,'D20')){hit+=integerEffect(statusMagnitude(p,'D20',1));consumeStatus(p,'D20');}
-  const before=p.life;p.life=Math.max(0,p.life-hit);
+  const before=p.life;const remaining=Math.max(0,p.life-hit);
+  if(before>remaining)recordPersonalActivity(state,p,'lifeLost',before-remaining,JSON.stringify([state.commands.length,state.personalPerformance?.facts.length,reason]));
+  p.life=remaining;
   trace(state,p,'life-lost',{amount:before-p.life,reason});
   if(p.life===0 && !p.paused){p.paused='dead';p.done=true;p.eventOffer=null;trace(state,p,'death',{reason});}
 }
@@ -244,6 +247,7 @@ export function inspect(state: AppraisalState, p: Appraiser, itemId: string, pro
   }
   // Curse sight: B02 lets the next price or authenticity check read the curse as well.
   if (state.config.curseSight && property !== 'effects' && status(p,'B02')) { learn(p,itemId,{effectsKnown:true,cursed:item.cursed}); consumeStatus(p,'B02'); }
+  recordPersonalItemActivity(state,p,'inspection',item,1,true,'personally inspected',property);
   trace(state,p,'inspected',{itemId,property});
 }
 export function counterLimit(p: Appraiser): number { return Math.max(0,1 + integerEffect(statusMagnitude(p,'B10',1)) - integerEffect(statusMagnitude(p,'D08',1))); }
@@ -274,6 +278,12 @@ export function appraise(state: AppraisalState, p: Appraiser, itemId: string, va
     else {backlash=true;accepted=false;p.inflated=true;}
   }
   const previous = p.valuations[itemId];
+  if(state.config.personalScoringRules===1){
+    const source=JSON.stringify([p.id,personalOrigin(item),'']);
+    const first=!state.personalPerformance!.facts.some(f=>f.playerId===p.id&&f.metric==='accurateAppraisal'&&f.eligibleKey===source);
+    const accurate=Math.abs(value-item.base)<=item.base*.2;
+    recordPersonalItemActivity(state,p,'accurateAppraisal',item,accurate?1:0,first&&accurate,first?(accurate?'first accurate appraisal':'first appraisal outside20percent'):'not first appraisal');
+  }
   if (accuracy && !previous?.accuracy) p.accuracyBonus += 5;
   if (!accuracy && previous?.accuracy) p.accuracyBonus -= 5;
   p.valuations[itemId] = {value,accuracy,caught,accepted};
@@ -305,7 +315,7 @@ export function completeAppraisedSale(state:AppraisalState,item:AppraisalItem,sa
   const extraFull=Math.floor(salePrice*commissionRate(b)/100)-baseFull+b.saleFee;const extra=webbed?Math.floor(extraFull/2):extraFull;
   const commission=baseCommission+extra;
   reward(state,appraiser,baseCommission,'appraisal-commission');if(extra)fundPassive(state,appraiser,extra,'gear-commission');
-  const trust=appraiser.npcTrust!;trust[item.npc]=Math.min(TRUST_CAP,(trust[item.npc]??0)+1+b.trust+integerEffect(statusMagnitude(appraiser,'B15',1))+(state.config.core2?omenNow(state)?.trust??0:0));consumeStatus(appraiser,'D15');consumeStatus(appraiser,'B15');
+  const trust=appraiser.npcTrust!;setPersonalTrust(state,appraiser,item.npc,Math.min(TRUST_CAP,(trust[item.npc]??0)+1+b.trust+integerEffect(statusMagnitude(appraiser,'B15',1))+(state.config.core2?omenNow(state)?.trust??0:0)),item);consumeStatus(appraiser,'D15');consumeStatus(appraiser,'B15');
   appraiser.notes.push(`ขาย ${ITEM_SPECS[item.kind].name} ได้ ${salePrice} เครดิต · ค่านายหน้า +${commission} เครดิต · ความไว้ใจ ${NPC_SPECS[item.npc].name} ${trust[item.npc]}/${TRUST_CAP}`);appraiser.notes=appraiser.notes.slice(-30);
   trace(state,appraiser,'appraisal-commission',{itemId:item.id,npc:item.npc,salePrice,commission,trust:trust[item.npc]});
 }
@@ -340,7 +350,7 @@ function noteRepeatBuy(state:AppraisalState,buyer:Appraiser,items:AppraisalItem[
   const log=[...(buyer.buyLog??[]),npc].slice(-TRUST_RULES.repeatBuys);
   if(log.length<TRUST_RULES.repeatBuys || log.some(entry=>entry!==npc)){buyer.buyLog=log;return;}
   delete buyer.buyLog;
-  const before=trust[npc]??0;trust[npc]=Math.min(TRUST_CAP,before+TRUST_RULES.repeatBuyTrust);
+  const before=trust[npc]??0;setPersonalTrust(state,buyer,npc,Math.min(TRUST_CAP,before+TRUST_RULES.repeatBuyTrust),items[0]!);
   buyer.notes.push(`ซื้อของ ${NPC_SPECS[npc].name} ที่เพื่อนประเมินครบ ${TRUST_RULES.repeatBuys} ครั้งติด ความไว้ใจ ${trust[npc]}/${TRUST_CAP}`);buyer.notes=buyer.notes.slice(-30);
   trace(state,buyer,'repeat-buy-trust',{npc,trust:trust[npc]});
 }
@@ -393,6 +403,11 @@ export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraise
   for (const [index,item] of items.entries()) {
     const share=index===items.length-1?price-allocated:basePrice?Math.floor(price*npcQuote(shop,item)/basePrice):0;allocated+=share;
     completeAppraisedSale(state,item,share,commissionBonuses.get(item.appraisedBy??''));
+    recordPersonalItemActivity(state,buyer,'bought',item,1,share>0&&!options.barterItemId,'zero-credit or barter');
+    if(item.appraisedBy&&item.appraisedBy!==buyer.id&&share>0&&!options.barterItemId){
+      const seller=player(state,item.appraisedBy);
+      recordPersonalSale(state,seller,item,share);
+    }
     if(!options.barterItemId)recordItemTrade(state,item,share);
     inheritKnowledge(state,buyer,shop,item);buyer.paid={...buyer.paid,[item.id]:share};
     item.owner = buyer.id; buyer.inventory.push(item.id); shop.stock = shop.stock.filter(id => id !== item.id);
@@ -536,6 +551,7 @@ export function marketSell(state: AppraisalState, p: Appraiser, itemId: string, 
   }
   if(contract || gearBonus) {p.notes.push(`Dark Market: ${matched?'ตรงเงื่อนไข รับโบนัส':resolution==='discount'?(gearBonus?'ไม่ตรงเงื่อนไข รับราคาลด':'ไม่ตรงเงื่อนไข ลดราคา 20%'):'ไม่ตรงเงื่อนไข สละตามข้อตกลงเพื่อรับราคาเต็ม'} · รับ ${price+creditsBonus+gearBonus} เครดิต${gearBonus?` รวมโบนัสของถือ ${gearBonus}`:''}`);p.notes=p.notes.slice(-30);}
   recordItemTrade(state,item,price+creditsBonus+gearBonus);
+  recordPersonalSale(state,p,item,price);
   retire(state,p,itemId,'dark-market'); if (state.config.brokerage) { item.owner='dark-market'; state.vault!.push(itemId); }
   trace(state,p,'market-sale',{itemId,orderId,price:price+creditsBonus+gearBonus,...(contract?{matched,resolution,bonus:matched?contract.bonus:null}:{})});
 }

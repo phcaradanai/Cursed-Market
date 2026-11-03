@@ -1,3 +1,4 @@
+import {recordPersonalItemActivity} from './personal-scoring.js';
 import {randomAt} from '../random.js';
 import {startTracking,guessTracking} from './ghost-tracking.js';
 import type {Tracking} from './ghost-tracking.js';
@@ -52,7 +53,7 @@ function handleGhostCommand(s:AppraisalState,id:string,a:GhostAction){
  const j=g.jobs.find(j=>j.id===a.jobId);check(j?.status==='accepted'&&j.kind===slot.kind,'ghost-target','ซื้อได้เฉพาะของตามงาน');const buyer=player(s,j.buyerId);check(buyer.life!==0,'ghost-buyer','ผู้ว่าจ้างหมดชีวิตแล้ว');check(buyer.credits>=j.price+j.fee,'credits','รอผู้ว่าจ้างเติมเครดิตก่อนส่งมอบ');
  const source=j.prototype??publicOfferItems(s).find(i=>i.kind===j.kind)!;const itemId=`delivery-${j.id}`;check(!s.items[itemId],'ghost-duplicate','ส่งของแล้ว');
  s.items[itemId]={id:itemId,kind:j.kind,base:j.base,genuine:randomAt(s.seed,`${itemId}:genuine`)<.75,cursed:randomAt(s.seed,`${itemId}:curse`)<.35,ask:j.price,owner:buyer.id,npcOwnerId:buyer.id,npc:source.npc,encounter:s.encounter,lastAppraisal:null,lastAccepted:null,certificate:false,reservation:1,...(source.appearance?{appearance:structuredClone(source.appearance)}:{}),...(source.rarityPower?{rarityPower:structuredClone(source.rarityPower)}:{})};buyer.inventory.push(itemId);
- const commission=Math.floor(j.base*.1);spend(s,buyer,j.price+j.fee,0,'ghost-delivery');buyer.paid={...buyer.paid,[itemId]:j.price+j.fee};recordItemTrade(s,s.items[itemId]!,j.price);g.bonus+=commission+j.fee;j.status='delivered';g.slots[a.slot]={kind:sample(s,g,id),lost:false};
+ const commission=Math.floor(j.base*.1);spend(s,buyer,j.price+j.fee,0,'ghost-delivery');buyer.paid={...buyer.paid,[itemId]:j.price+j.fee};recordItemTrade(s,s.items[itemId]!,j.price);recordPersonalItemActivity(s,buyer,'bought',s.items[itemId]!,1,j.price>0,'zero-credit purchase');g.bonus+=commission+j.fee;j.status='delivered';g.slots[a.slot]={kind:sample(s,g,id),lost:false};
  if(!g.jobs.some(active)){g.available=false;delete g.tracking;}
  s.trace.push({type:'ghost-delivery',encounter:s.encounter,playerId:id,details:{buyerId:buyer.id,itemId,price:j.price,fee:j.fee,bonus:commission+j.fee}});
 }

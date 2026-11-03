@@ -1,0 +1,166 @@
+{
+  "asOf": "2026-11-03",
+  "status": "Task2-in-progress-runtime-draft",
+  "previousCommit": "292ba6b",
+  "approval": "docs/game-design/personal-scoring-approval.json",
+  "defaultActivation": false,
+  "implemented": [
+    "actual HP loss after shield/overkill clamp",
+    "actual positive trust at all3 canonical writers; cumulative raw and origin/merchant eligibility",
+    "original inspected facet and first appraisal eligibility",
+    "NPC/PvP/market/wishlist cash sale quantity and gross credits; copies/free/barter exclusions",
+    "paid auction/Collector/spirit acquisition",
+    "paid aged interest and full aged funded repayment for both living parties; unordered pair/origin dedup",
+    "survived settlement and successful theft transfer",
+    "fulfilled deferred/wishlist contract identities",
+    "final original rarity including dead after existing loan settlement",
+    "frozen shared final score breakdown and postgame canonical receipts in audit"
+  ],
+  "checks": {
+    "domainAndRuntimeTests": {
+      "passed": 29,
+      "failed": 0
+    },
+    "actualSocketTests": {
+      "passed": 3,
+      "counts": [
+        2,
+        4
+      ],
+      "startingCredits": 40,
+      "maxLife": 6,
+      "deadline": 2,
+      "scope": "Real ordinary entry/inspection/settlement and salary flows, parser spoof rejection, duplicate/resume, private receipt isolation, final scoreboard+strict audit; not public-command coverage of every achievement.",
+      "audits": [
+        {
+          "file": "docs/validation/personal-scoring-2026-11-03/2-players.audit.json",
+          "sha256": "a766bfdc3c52de08fa2e19909d98d79a113377be0ea75fb4b0c6ebf9c32daf8d"
+        },
+        {
+          "file": "docs/validation/personal-scoring-2026-11-03/4-players.audit.json",
+          "sha256": "e87c934e368b6cc9bbcbb41868aed86e58efef03480a19b17cab4bae3d8fc427"
+        }
+      ]
+    },
+    "broaderFocused": {
+      "passed": 226,
+      "failed": 1,
+      "cpuCasesOmitted": "seeded simulations|new seeded runs",
+      "preexistingFailure": "Dark One sender/victim test splits removed <details class=notes> markup; exact failure reproduced on pristine1551908",
+      "report": "runtime-focused-corrected.log"
+    },
+    "failedInitialInvocation": {
+      "log": "runtime-focused.log",
+      "status": "30s process-group wall timeout",
+      "diagnosis": "Invoked at repository root: merchant asset test expects cwd apps/comic. CPU-heavy seeded tests consumed time. Corrected invocation retained, no claim this initial suite passed."
+    },
+    "historicalReplay": {
+      "passed": 40,
+      "failed": 8,
+      "report": "runtime-replay.json",
+      "knownFailuresMatch1551908": true
+    },
+    "nativeCompatibility": {
+      "pairs": 8,
+      "fullRuns": 16,
+      "strictReplayChecks": 32,
+      "all16AuditBytesIdentical": true,
+      "report": "docs/validation/pilot-public-2026-11-02/public-effects.json"
+    },
+    "serverBuild": "pass",
+    "clientBuild": "pass; unchanged emitted primary JS/CSS names, existing large-chunk advisory",
+    "gitDiffCheck": "pass",
+    "uiSourceCheck": {
+      "status": "pass",
+      "files": 397,
+      "approvedBaselineHashesUnchanged": 14,
+      "pixelComparison": "not rerun; no frontend/layout changes in Task2"
+    },
+    "uiContracts": {
+      "passed": 10,
+      "failed": 0
+    },
+    "atlas": "guarded build/check passed; rebuilding fingerprint after this final evidence update",
+    "trailCheck": "20 conflicts in excluded pre-existing .impeccable cache/design files;400KB branch diff cap, no whole-branch clean claim"
+  },
+  "remaining": [
+    "Task2 completion matrix: broader public-command eligibility/custody/copy/rebate/contract routing; owner reappraisal and cap-normalization semantics audited before acceptance",
+    "Task2 final acceptance and native task-done not reached; no independent whole-branch review yet",
+    "Task3 allowlisted self progression and Comic9-stage result graph; default rollout only after UI proof",
+    "UI graph geometry/pixels and normal-service ghost-tracking scroll failure remain open",
+    "remaining48 item numeric specifications, full-game multi-seed balance and completion acceptance"
+  ],
+  "sourceFingerprints": {
+    "apps/comic/src/game/appraisal/ability-content.ts": "ff33530545a771c4e686640f2fca5db996ef3612f9602da6ddbf68c12377127e",
+    "apps/comic/src/game/appraisal/ability-rules.ts": "3e9f33f54b34c91fb26f6d0926f9df83e646dc3623a7c8bbf3beed5cedbc9139",
+    "apps/comic/src/game/appraisal/audit.ts": "0467d338c61749c8a7dbb061e04d9cbf31d64ba2920bbe12604f3ff266757755",
+    "apps/comic/src/game/appraisal/brokerage.ts": "2212d23e42d3ee82466d3848dfdd250384cde219f8d536603ccdca5b0b94e368",
+    "apps/comic/src/game/appraisal/challenge-rules.ts": "74cfbe2083106078cdc44e96caefc9e959d999f4e1cb9319dc0e363375aa7e55",
+    "apps/comic/src/game/appraisal/challenge.ts": "35a2d880e49702b24560eae95fa6b2194c2e02f474f9a8ec2842e0114f3c6fec",
+    "apps/comic/src/game/appraisal/cleanse-rules.ts": "6fb69a3f4a4aa870670248255e02eb81d3fc527dbd4d9c975ba14eac81915cd1",
+    "apps/comic/src/game/appraisal/cleanse.ts": "2195402df17b9c929a06ca65ca766bbe6f7f7e37db0f2e098e9554e523e08de5",
+    "apps/comic/src/game/appraisal/collector-wishlist.ts": "ae5b70dcb92067c0f793dc183eca67946e6311c85d2e4cbe3eb666a8717a96be",
+    "apps/comic/src/game/appraisal/content.ts": "71887f52012d6f855c1e130e0339c6785b3f91abe8f9efa5e2b8b2a181d3a20b",
+    "apps/comic/src/game/appraisal/copy-effects.ts": "908b28f89ad8de7212adbd4636fdef6b2daaca230f97c41050ac2e436f4942f9",
+    "apps/comic/src/game/appraisal/core2-actions.ts": "9b93824543a822b9f58d4b07269af6bcb780d7a1475cd5726bea1d450796fc9b",
+    "apps/comic/src/game/appraisal/core2-content.ts": "e96206fa8c7d638c3b0ccbc756a8d6bf2977a84308c6c423956b63340cf789b9",
+    "apps/comic/src/game/appraisal/core2-events.ts": "bb9531af0ffe6a6ea068f049d286b2b1d0fe37deb24a44bcfe3dfa58a08424f8",
+    "apps/comic/src/game/appraisal/core2-rules.ts": "c512cac29fda1d586afcc82ece3ac15a0411650283d1226ae12787c76bfce0ea",
+    "apps/comic/src/game/appraisal/core2-specs.ts": "399d270a4c3c8d170ae2c9a995dfff13863aeba2ebce98b70b78a5f2a1ce5316",
+    "apps/comic/src/game/appraisal/core2.ts": "d9c7ac292898c29d471bc6d9bb0a7ae0557bd394a79d77978e6e1eed5b71bd17",
+    "apps/comic/src/game/appraisal/engine.ts": "7e5b54cb9c7e94ac2e21a751f392f8a73ac3a6003cfffffe5c8247b4bfbf94fd",
+    "apps/comic/src/game/appraisal/events.ts": "c4bd10912200be5fb50c13e7d6ba8f5fda16f777f61d4d18d51b76e768e00794",
+    "apps/comic/src/game/appraisal/ghost-service.ts": "d2e836a0328d4fc4aeb40d2e6fa2974bb5b044286f044d669a4625e168b0da64",
+    "apps/comic/src/game/appraisal/ghost-tracking.ts": "1a179d345d9aac40a5122a68f376017e384284f487fcd8c369795bd0a7f9242f",
+    "apps/comic/src/game/appraisal/index.ts": "7867d91af9702cce970b74c8c6ae4d28f1f932139e439bcc86c471d293fbd557",
+    "apps/comic/src/game/appraisal/item-effects.ts": "c2ff1cbae837a24e19f6a5c81f56d27b986f870d7c277fd5d787d70728c63abd",
+    "apps/comic/src/game/appraisal/journal.ts": "ad612d764adb70f82db962c6dcdec54df83b57284961d3002bf81b30891456d9",
+    "apps/comic/src/game/appraisal/market-contracts.ts": "aef568c8fd9288c26fa6f74d696cd310f0949fddeefd4155af5c8a38db76ff9c",
+    "apps/comic/src/game/appraisal/mechanics.ts": "f55aea5a8204ad720a6a0e8128097e1c13ba3691bc72fd9ba5867a2279b2e877",
+    "apps/comic/src/game/appraisal/merchant-abilities.ts": "e90c4ea9b0c2f302ec3e005efef4d61e73c9d239a460d8aeb8859c394b226b09",
+    "apps/comic/src/game/appraisal/npc-events.ts": "f5b8054da8d618eec24a77f55ba6eb191fb567d7c14ed234c3db122332c8cb02",
+    "apps/comic/src/game/appraisal/omen-table.ts": "8b6ab850d3722a62f735726aef4d3c9b17a40a9791fff31e284a1a90df862106",
+    "apps/comic/src/game/appraisal/omens.ts": "23bf7f701d39d380ec315aaf5050602540ee662b232006bfc51fba7561f3019d",
+    "apps/comic/src/game/appraisal/passives.ts": "ef49c5ade780d0f68a7422a8e8a3b433237525311ef1c555d3aed61c45bc99bf",
+    "apps/comic/src/game/appraisal/personal-scoring.ts": "e12fbdfaa80db158d4628e5c681e9c1c6fd8f053b823a68005658d226df2cb4a",
+    "apps/comic/src/game/appraisal/pilot-catalog.ts": "ad8dbb487623f3b8d0486c87fe86c5fe72c0d50c553a7a34bc526c52579e8c62",
+    "apps/comic/src/game/appraisal/pilot-effects.ts": "ab8d8201a7abd4fbca4f96ee6223ded049937d43dac7a2f4dfa72db793e29029",
+    "apps/comic/src/game/appraisal/polish-events.ts": "b79b7d4c1fcc159aad0d319ed3542844d28c22479637a2a70306570c01abfbb6",
+    "apps/comic/src/game/appraisal/price-integrity.ts": "e2198294f78ee5def8be05631082eb23f2ba819fe6cdc2d8d89f75dc85501268",
+    "apps/comic/src/game/appraisal/pulse.ts": "a2850ad9e52e5e4e8f2122affb24e8d8e9ac7fa015b249c61b6ec93076fe712d",
+    "apps/comic/src/game/appraisal/rarity.ts": "3672184a63c2899151c92ed7a413a0881ec5df613fc10d0ca16f01090936cbd6",
+    "apps/comic/src/game/appraisal/round-rewards.ts": "0cc05a064ee355cf102ecbebd8bb8754c33d7bdc3d500f1f7196182cedfcaa5d",
+    "apps/comic/src/game/appraisal/scoring.ts": "82cd3af13438d22f426f5dc9b79741b7f0d22511fdd1728ac8a87911e018df3a",
+    "apps/comic/src/game/appraisal/seals.ts": "89e1b53c5f9d9d7aa010fe00bc84e8b3e37f8f83cbeb2f28895704e7e7532807",
+    "apps/comic/src/game/appraisal/secure-storage.ts": "3d0bb2a86d9646ff65c0e3374321d5b9919b4a653f6e2e18463a42c26c31618b",
+    "apps/comic/src/game/appraisal/survival.ts": "3bf47898bbb025ee33f5b03caf4bb2608252daacf91856ea9cc9e13ad0510561",
+    "apps/comic/src/game/appraisal/theft.ts": "4dc4cc46e1854877037c8a45f1be26393fa336fce2a94b0eec99a2f19ac0fe81",
+    "apps/comic/src/game/appraisal/types.ts": "0d1fc33907241e8dd12bedd3536154b5bb30e05d30e533fdb221782dbde7f61a",
+    "apps/comic/src/game/appraisal/views.ts": "349677f197da0fd51c2b2402ed810d86bcf4ac96545daddb5e310343fe869116",
+    "apps/comic/src/game/appraisal/wishlist-rules.ts": "9157cc6f7636ed765494f6fc0ae7a5c1c54cad42036728d1288853e257aa3c30",
+    "apps/comic/src/game/appraisal/wishlist.ts": "02dc444ca8a0623189389c5ab4bd78fb57d6abc0c4e93a3da2605ad58a9bbf9f",
+    "apps/comic/tests/personal-scoring-network.test.ts": "f7b6ea97d4cd8c31129b9c8d7a00fed23717a2d10333e557bce45b1cbffd4501",
+    "apps/comic/tests/personal-scoring-runtime.test.ts": "58d712906c16b0092316e42bb3419f2e2ce448be0b88b39c8e05bdd30e6b426e"
+  },
+  "artifacts": {
+    "docs/validation/personal-scoring-2026-11-03/runtime-replay.log": "1ecf2801703a7a412c4850a807b177dedd685107b39c9ec4d75e3e9a4f8182c9",
+    "docs/validation/personal-scoring-2026-11-03/runtime-loan-red.log": "5fc5fc4b0d6734c6adf200051f8109f64d03ffe846f5d71513fb338763ce4d13",
+    "docs/validation/personal-scoring-2026-11-03/runtime-replay.json": "3b58cf7f433eebd6c7d8a93ad552448d35f90baa65638546519e1217e2e302dd",
+    "docs/validation/personal-scoring-2026-11-03/runtime-green.log": "2def402943a92e80186503226767f2e39d0e9e1d86b54e2df0bdd27d9d0ff4d2",
+    "docs/validation/personal-scoring-2026-11-03/runtime-first-batch-red.log": "3a3b7d7b7f40e3df4318a88cbb56931fe3e98512ee3a267a0524a4f868171e11",
+    "docs/validation/personal-scoring-2026-11-03/runtime-network.log": "6789539cf612d3714b5c731b06f3ffad339af065286d392949028a1b08103418",
+    "docs/validation/personal-scoring-2026-11-03/runtime-focused-corrected.log": "a8d6414e6fb0b3e8882c4e549b0d8088acf62af47b7a050fbf8bd64968417aef",
+    "docs/validation/personal-scoring-2026-11-03/runtime-private-supply-red.log": "dc609349435583fb16011581f6b13b0d17d9159705843a0219892ca69991b60f",
+    "docs/validation/personal-scoring-2026-11-03/runtime-darkone-parent.log": "7d34d1fedc7a81ecff7c667ffb5bf4ba47fb6767d96a7b8a464559ecb8ef6cbc",
+    "docs/validation/personal-scoring-2026-11-03/runtime-finance-red.log": "6a095c0b01c76dadde1653e19afd510ac0644dd588fdf1275dbb010e1bc831eb",
+    "docs/validation/personal-scoring-2026-11-03/runtime-focused.log": "0c8cb46829309d5582375856c4c089b97fa83842c004ed3f07b0220b104d217b",
+    "docs/validation/personal-scoring-2026-11-03/runtime-loan-pair-red.log": "911b30c5327c7c5ab954b83634320bf45b7e7dd5cc1098777d0016304999bc03",
+    "docs/validation/personal-scoring-2026-11-03/runtime-focused-corrected.json": "8bfe74700e497fc7bd6424f6bc39b9074d1aea28c0f7601b8bd6636de20eb4c5",
+    "docs/validation/personal-scoring-2026-11-03/runtime-other-producers-red.log": "e65ea6368b82dbb08110f8e341d2af546cbbaae2f708be555041a1f68a0d3c99",
+    "docs/validation/personal-scoring-2026-11-03/runtime-darkone-parent-comparison.json": "6a991ef1d8f643bcee741502ccf72d4d4198ad116974f522594020fd3bc9030a",
+    "docs/validation/personal-scoring-2026-11-03/runtime-final-projection-red.log": "45a572a9363a6fd10d072ad443604cddd6760d3dbf9a6836d8ae307bd82ef040",
+    "docs/validation/personal-scoring-2026-11-03/runtime-auction-theft-red.log": "cc0ee4354b227636bc2a2ace5c780fc44cf0d2487121b72b04aa4d482175d231",
+    "docs/validation/personal-scoring-2026-11-03/runtime-wish-red.log": "00f92a893b4fa16afdfced2bab7cbd2d20150d48acf2019816fde0c27797abd6",
+    "docs/validation/personal-scoring-2026-11-03/runtime-darkone-current.log": "9b3c4ecc661545389321294a8a4a09d0f49c1731f71b8c785ca0b050718f2099"
+  }
+}

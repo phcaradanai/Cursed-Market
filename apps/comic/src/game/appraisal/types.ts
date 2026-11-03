@@ -114,6 +114,7 @@ export interface WishOffer { npc:NpcId; kind:ItemKind; price:number; initial:num
 /** `amount` is the most the deal can restore; `min` (life deals) is the least, rolled per encounter. */
 export interface RecoveryOffer { target:'energy'|'life'; credits:number; amount:number; min?:number }
 export interface CollectorResult {
+  personalScore?:import('./personal-scoring.js').PersonalScoreBreakdown;
   playerId:string; credits:number; itemValue:number; modifierPercent:number; statusIds:StatusId[]; score:number;
   items:Array<{id:string;kind:ItemKind;base:number;genuine:boolean;cursed:boolean;value:number;certified?:boolean}>;
 }
@@ -154,7 +155,7 @@ export interface EventOffer {
   npcTerms?: {credits:number;energy:number;life:number;items:number;loanMax?:number};
 }
 export interface NpcContracts {
-  vampire?: {signedAt:number};
+  vampire?: {signedAt:number;performanceId?:string};
   alien?: {lentAt:number;dueAt:number;itemIds:string[];key:string;reservedCredits:number};
 }
 export type CoinSide = 'heads' | 'tails';
@@ -225,7 +226,7 @@ export interface Appraiser {
   /** Items a merchant already tried to cleanse this encounter; present only with cleanse rules. */
   cleansed?: string[];
   /** What each merchant said it wants; kept until sold. Present only with wishlist rules. */
-  wishes?: Partial<Record<NpcId,{kind:ItemKind;price:number;set?:number}>>;
+  wishes?: Partial<Record<NpcId,{kind:ItemKind;price:number;set?:number;performanceId?:string}>>;
   wishTried?: boolean;
   /** How many wishes this seat requested; keeps each re-roll different. */
   wishRolls?: number;

@@ -1,0 +1,37 @@
+✔ actual HP removed includes lethal cost but excludes overkill, shields and postdeath damage (71.791917ms)
+✔ real canonical positive trust gain survives later loss in same command and clamps at cap (18.50525ms)
+✔ first personally inspected facets and first submitted appraisal use original identity (18.863166ms)
+✔ NPC settlement credits buyer and distinct appraiser once using gross sale price (10.680833ms)
+✔ copies and zero-credit acquisitions do not earn transaction achievements (9.329208ms)
+✔ public accepted requests record facts exactly once and flagless rooms keep old state shape (51.02375ms)
+✔ interest points use aged credits actually paid and cannot repeat at same boundary (2.653958ms)
+✔ funded loan earns both living parties only after full encounter and full repayment (6.386959ms)
+✔ reversing borrower and lender cannot score the same collateral origin twice for the pair (4.314291ms)
+✔ public complete run stores exact shared score breakdown, survives replay and counts settlement (38.832958ms)
+✔ market cash sales count once per origin and gross credits exclude side bonuses (3.479875ms)
+✔ only funded auction winner gets buying points and old custody owner gets no sale (2.638959ms)
+✔ successful RPS theft records an actual transfer without granting buy or sale points (3.23375ms)
+✔ NPC deferred contract earns only on successful return and not final forced principal return (4.296916ms)
+✔ accepted NPC wishlist scores its fulfilled contract identity and actual cash sale separately (2.849708ms)
+✔ dead estate keeps original rarity, excludes copies, applies modifier before ghost bonus (3.373208ms)
+✔ approved ordinary achievements change the first example total to183 (52.906667ms)
+✔ second approved example141 and unchanged ghost addition after modifier (1.929458ms)
+✔ aggregate sale credits floor once, independently from sale quantity (2.242917ms)
+✔ real repeated raw sales and copies remain visible without repeated eligible points (2.765542ms)
+✔ raw cumulative trust is independent of ending trust and source tuple eligibility (0.546041ms)
+✔ receipt duplicate is idempotent, conflicting identity and malformed facts reject (7.908167ms)
+✔ flagless receipt recording creates no state and actor separation prevents leaking totals (3.875167ms)
+✔ all activity caps and fractional modifiers preserve exact approved behavior (3.724709ms)
+✔ rarity originals use approved six tiers and collection cap without adding ghost to ordinary points (5.547583ms)
+✔ approved weight manifest matches serialized metric definitions (7.990167ms)
+✔ unsafe score input and unknown facts reject without mutating caller arrays (1.853709ms)
+✔ engine initializes only explicit scoring1 and rejects unsupported versions and missing or corrupt ledger (160.691875ms)
+✔ zero eligible gains do not consume a future positive source and odd player identities stay isolated (2.850166ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 29
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 640.407834

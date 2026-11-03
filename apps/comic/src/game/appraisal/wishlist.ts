@@ -1,3 +1,4 @@
+import {recordPersonalActivity,recordPersonalSale,setPersonalTrust} from './personal-scoring.js';
 import { rarityValue } from '../../shared/rarity-power.js';
 import { merchantTradeBanned } from './theft.js';
 import { recordItemTrade, systemSaleQuote } from './price-integrity.js';
@@ -36,14 +37,15 @@ export function wishEligible(state:AppraisalState,p:Appraiser):boolean {
 }
 /** Record a wish. With contract rules it costs energy, keeps at most two open, and may replace an older one. */
 export function applyWish(state:AppraisalState,p:Appraiser,npc:NpcId,pick:{kind:ItemKind;price:number},replaceNpc?:NpcId):void {
-  if(!contractOn(state)) {p.wishes![npc]={...pick};return;}
+  const performance=state.config.personalScoringRules===1?{performanceId:JSON.stringify([p.id,npc,state.encounter,state.commands.length])}:{};
+  if(!contractOn(state)) {p.wishes![npc]={...pick,...performance};return;}
   const here=p.wishes![npc];const open=Object.keys(p.wishes!).length;
   if(here) check(replaceNpc===undefined || replaceNpc===npc,'wish','คำขอใหม่แทนได้เฉพาะคำขอเดิมของพ่อค้านี้');
   else if(open>=wishSlotsOf(state,p,WISH_MAX_ACTIVE)) check(replaceNpc!==undefined && !!p.wishes![replaceNpc],'wish',`มีคำขอครบ ${wishSlotsOf(state,p,WISH_MAX_ACTIVE)} รายการแล้ว เลือกคำขอเดิมที่จะแทน`);
   else check(replaceNpc===undefined,'wish','ยังมีที่ว่าง ไม่ต้องแทนคำขอเดิม');
   spend(state,p,0,WISH_ENERGY,'wish-contract');
   if(!here && replaceNpc) {delete p.wishes![replaceNpc];p.notes.push(`ยกเลิกคำขอของ${NPC_SPECS[replaceNpc].name}เพื่อทำสัญญาใหม่`);}
-  p.wishes![npc]={...pick,set:state.encounter};
+  p.wishes![npc]={...pick,set:state.encounter,...performance};
 }
 /** Ask the merchant at the table to name a new wish (a fresh roll each time). */
 export function wishNew(state:AppraisalState,p:Appraiser,replaceNpc?:NpcId):void {
@@ -97,7 +99,9 @@ export function wishSell(state:AppraisalState,p:Appraiser,itemId:string,markup:n
     const trust=p.npcTrust?.[npc]??0;const {buffs,debuffs}=counts(p);const chance=wishChance(markup,trust,buffs,debuffs,wishBonus(p));consumeStatus(p,'B16');
     if(randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:wish-deal`)*100<chance) {
       const paid=systemSaleQuote(state,item,copySaleQuote(item,saleApply(state,p,ask)));reward(state,p,paid,'npc-wish');recordItemTrade(state,item,paid);retire(state,p,itemId,'npc-wish');delete p.wishes![npc];
-      if(p.npcTrust) p.npcTrust[npc]=Math.min(TRUST_CAP,trust+1);
+      recordPersonalSale(state,p,item,paid);
+      if(wish.performanceId)recordPersonalActivity(state,p,'npcContract',1,wish.performanceId);
+      if(p.npcTrust)setPersonalTrust(state,p,npc,Math.min(TRUST_CAP,trust+1),item);
       p.notes.push(`${who}ซื้อ${name}ตามที่ตามหา ${paid} เครดิต${paid!==ask?` (ราคาขอ ${ask} ปรับตามสถานะและลางแล้ว)`:''} (โอกาส ${chance}%)`);trace(state,p,'wish-sold',{itemId,npc,price:paid,ask,chance});
     } else {
       p.notes.push(`${who}ไม่ยอมรับราคา ${price} เครดิตสำหรับ${name} (โอกาส ${chance}%) ยังรอของชิ้นนี้ในครั้งหน้า`);trace(state,p,'wish-refused',{itemId,npc,reason:'price',chance});

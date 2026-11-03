@@ -1,0 +1,306 @@
+{
+  "asOf": "2026-11-03T02:02:21.934Z",
+  "scope": "Distinct completed survival audits currently in docs/validation; actual replay+full exported audit equality. Not a fresh play/balance/UI run. Eight failures are retained as failed historical compatibility cases, reproduced on1551908; not counted as passing.",
+  "passed": 40,
+  "failed": 8,
+  "cases": [
+    {
+      "file": "docs/validation/collector-network-2026-11-02/match-audit.json",
+      "runHash": "379bba5768310dddee20c48a89b83eb8308a75705ada216da65f47909e564d87",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/collector-normal-2026-11-02/live-ui-audit.json",
+      "runHash": "0871eda66462ca6a48b2765154c851fce8af069159a94c29c6d8b9f6c2a229b4",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/collector-offer-isolation-2026-11-02/live-ui-audit.json",
+      "runHash": "9e50563c49ab0fb7c8c7569523278e3e0e2683f79ad9c89f9e7032e0ca313942",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/collector-offer-isolation-2026-11-02/match-audit.json",
+      "runHash": "64a80254bfa623bf6f160c8a865e69e1b2a17b8cbeb13ed614710b5dd62c8cdb",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/collector-ui-2026-11-02/match-audit.json",
+      "runHash": "c9493dc9b1d1f79a4196ff5f7b9025b6ec4f5527d8a05f6a02fb506bcb7aac9e",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/new56-pilot-2026-11-01/catalog3-2-cautious.json",
+      "runHash": "46ba3b32c90dc13a1a92dd771eaa00efe093126cbdc8aab4cddfed41adc32995",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/new56-pilot-2026-11-01/catalog3-2-trader.json",
+      "runHash": "328d04f0cf148fe728eccf3f028a379894e91ae204782d2599bb229fee1ebdf7",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/new56-pilot-2026-11-01/catalog3-3-cautious.json",
+      "runHash": "8363c6d53cbbe35999b0bbef8d4351fbf1c2ab1e08935dcaf17b7c2ba6d47f96",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/new56-pilot-2026-11-01/catalog3-3-trader.json",
+      "runHash": "15a5a86fc033493e52616ba46851acadf5d1a9c20974b5e0bf292fe75b4cde6e",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/new56-pilot-2026-11-01/catalog4-2-cautious.json",
+      "runHash": "55c83ed45c9ba74e2057464a1a9b3e17d20fd935e4e56e4873d4889bf582f404",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/new56-pilot-2026-11-01/catalog4-2-trader.json",
+      "runHash": "8618a8de9c21288f95697afd5f675c2e8486fc8bb27e5c4b4a333167f3932fb4",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/new56-pilot-2026-11-01/catalog4-3-cautious.json",
+      "runHash": "fc03d57b332bbc6b9ac4495eb3d6862c1a7eca1bae71a909ed38fab4c0cca1f6",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/new56-pilot-2026-11-01/catalog4-3-trader.json",
+      "runHash": "db087f1ac410097d8e937f1cc8640a00881ca59f4439b60da43866afff87bf72",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/normal-play-2026-11-02/c3-2-cautious.audit.json",
+      "runHash": "51682159a371b635abdcf24b463f842f8a3c6843eaf5ba6a17637708d5681962",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/normal-play-2026-11-02/c3-2-trader.audit.json",
+      "runHash": "929af1a8b41ab60c47028071e6910b827590807b48f390bf7fb495478b109f23",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/normal-play-2026-11-02/c3-4-cautious.audit.json",
+      "runHash": "b2147c225007d5c35ad875c5f2983dac5f74f051a84ea682ce960245a9a44f39",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/normal-play-2026-11-02/c3-4-trader.audit.json",
+      "runHash": "c63059c0c0a6f4b13728fa0c81968f650c9552026cb1a42af3ab2a7faaa434be",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/normal-play-2026-11-02/c4-2-cautious.audit.json",
+      "runHash": "b0149b25009c11a8d0ebfd28611dc9d28c43ee31be29717419413c2ba6107517",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/normal-play-2026-11-02/c4-2-trader.audit.json",
+      "runHash": "fe80c4c9ff9fff51176339662d75fbd192d940eeeea9e65b231df54835f05734",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/normal-play-2026-11-02/c4-4-cautious.audit.json",
+      "runHash": "864186ca9f7b1a3adfde5601c88d01d3e4fdd2d1502a42707a078e27ed1c2f0d",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/normal-play-2026-11-02/c4-4-trader.audit.json",
+      "runHash": "7660073020d89c74804f18432f655db865b200f6f6f2fd26c5b13eaa2aa00cb4",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/normal-service-2026-11-02/journey.audit.json",
+      "runHash": "1f47867554bfd34c960c14b8e8858408b24b118b6173f2524a7c5147c8e28333",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/npc-events-v0.7/live-2-seat-audit.json",
+      "runHash": "8ccc3385c773fc6fa587f31f27f9f8f4d4b30261c27ad3b744c457db2f416806",
+      "noPersonalScoringFlag": true,
+      "status": "fail",
+      "error": "RuleError: \u0e1e\u0e48\u0e2d\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e44\u0e21\u0e48\u0e21\u0e35\u0e14\u0e35\u0e25\u0e1f\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e2b\u0e23\u0e37\u0e2d\u0e43\u0e0a\u0e49\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e4c\u0e41\u0e25\u0e49\u0e27"
+    },
+    {
+      "file": "docs/validation/npc-events-v0.7/live-4-seat-audit.json",
+      "runHash": "136f82bc591c350dbefc16e2ea0a989929395962ef6c4135150646323b3673f2",
+      "noPersonalScoringFlag": true,
+      "status": "fail",
+      "error": "RuleError: \u0e1e\u0e48\u0e2d\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e44\u0e21\u0e48\u0e21\u0e35\u0e14\u0e35\u0e25\u0e1f\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e2b\u0e23\u0e37\u0e2d\u0e43\u0e0a\u0e49\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e4c\u0e41\u0e25\u0e49\u0e27"
+    },
+    {
+      "file": "docs/validation/personal-scoring-2026-11-03/2-players.audit.json",
+      "runHash": "bd5f780b8b4bebdf6740a9f1af118e6f1f55709732dccab97e0d9b6ab27648b4",
+      "noPersonalScoringFlag": false,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/personal-scoring-2026-11-03/4-players.audit.json",
+      "runHash": "5e79bb9931ac23ea8455cd3a1855398a4bc731b97139c0bf53bc79067bf8a0f7",
+      "noPersonalScoringFlag": false,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/pilot-public-2026-11-02/alien-thought-translator-held.audit.json",
+      "runHash": "b7625ee09da018921b74274d853de4ec730b5b617198a84af94536dc6f03157a",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/pilot-public-2026-11-02/alien-thought-translator-stored-or-unused.audit.json",
+      "runHash": "1151cf494d47dfdd996e43eb0b3435bb35eb3a86ae52baf3b2ba04721a4ab3e0",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/pilot-public-2026-11-02/autometa-torque-caliper-held.audit.json",
+      "runHash": "cc65b9a1a018a02ef4a76d28ed47616014f77836985c3d8cf0cecffa045a29f4",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/pilot-public-2026-11-02/autometa-torque-caliper-stored-or-unused.audit.json",
+      "runHash": "9fcd1a710372e3e8747f1786a844848c10bd1d63f08cf47d84fee60e5d6a18be",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/pilot-public-2026-11-02/beast-riftfang-sword-held.audit.json",
+      "runHash": "feb0ae5c10fd4a6be077264f4120cbdafc8fead6531ae4cd374d17ff4a4e00a3",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/pilot-public-2026-11-02/beast-riftfang-sword-stored-or-unused.audit.json",
+      "runHash": "b3d6754064add81367a20651729b1419bc9c98af309d816eb07d213fe023485a",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/pilot-public-2026-11-02/darkone-crossing-token-held.audit.json",
+      "runHash": "e9243282610f477f9ba079a06543a011aace6d8e384df056cd04b6a4323e0472",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/pilot-public-2026-11-02/darkone-crossing-token-stored-or-unused.audit.json",
+      "runHash": "6c4eac64d982923a21c452a4647568ce65f852c96f4c5b3437444ff334358b52",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/pilot-public-2026-11-02/deepsea-tide-compass-held.audit.json",
+      "runHash": "5b691f759dbe6c2e8c16f44de4506d434a0d5ef93ef8b82d73d6c549093adabe",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/pilot-public-2026-11-02/deepsea-tide-compass-stored-or-unused.audit.json",
+      "runHash": "33e1f172e517c8cb8280ab0a52a4ca5b61f84396933e2c4ba23ff49cbb3f373c",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/pilot-public-2026-11-02/orc-tusk-shield-held.audit.json",
+      "runHash": "b99fcef6d9d5c244748eee9b61bd3977809e17e99b0fd04c91cd9142aa73f8ec",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/pilot-public-2026-11-02/orc-tusk-shield-stored-or-unused.audit.json",
+      "runHash": "35b87c24a8e83d65aa76e6759bf82f1cbc860cd63ef67bd646850f0c77ab84ae",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/pilot-public-2026-11-02/swarm-brood-hammer-held.audit.json",
+      "runHash": "10e7cf3887416aad819d126aa8bade398ed36fe4faf24acac9c429a829f20cc3",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/pilot-public-2026-11-02/swarm-brood-hammer-stored-or-unused.audit.json",
+      "runHash": "01f0dda73f8a8f3f574dc28ab727381b4387bd98d701d15ffc8b043ed6e1d8c0",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/pilot-public-2026-11-02/vampire-nocturne-signet-held.audit.json",
+      "runHash": "cd1f1d18d5c5f703736c7601f04a7870749ed2d4c858dbe6079a0d2f2c1a9722",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/pilot-public-2026-11-02/vampire-nocturne-signet-stored-or-unused.audit.json",
+      "runHash": "5758df6519da4f2f44888153a5f2990047dad27eee1da6b2f20c3aa37ee5588d",
+      "noPersonalScoringFlag": true,
+      "status": "pass"
+    },
+    {
+      "file": "docs/validation/survival-v0.5/network/lan-timed-2-players.json",
+      "runHash": "26562394f63883c7ce63469acf08fe66ea370acd6cc5f761f146b7c5bd548900",
+      "noPersonalScoringFlag": true,
+      "status": "fail",
+      "error": "RuleError: \u0e1e\u0e48\u0e2d\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e44\u0e21\u0e48\u0e21\u0e35\u0e14\u0e35\u0e25\u0e1f\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e2b\u0e23\u0e37\u0e2d\u0e43\u0e0a\u0e49\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e4c\u0e41\u0e25\u0e49\u0e27"
+    },
+    {
+      "file": "docs/validation/survival-v0.5/network/lan-timed-3-players.json",
+      "runHash": "3ea31ae0cab797e41cc4506c4a79a273b175b24f847d5a558175b315f40139dc",
+      "noPersonalScoringFlag": true,
+      "status": "fail",
+      "error": "RuleError: \u0e1e\u0e48\u0e2d\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e44\u0e21\u0e48\u0e21\u0e35\u0e14\u0e35\u0e25\u0e1f\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e2b\u0e23\u0e37\u0e2d\u0e43\u0e0a\u0e49\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e4c\u0e41\u0e25\u0e49\u0e27"
+    },
+    {
+      "file": "docs/validation/survival-v0.5/network/lan-timed-4-players.json",
+      "runHash": "53d5d2789bbd14fb3b21541717623c7514de960c5c39205bb940218bf8845fc8",
+      "noPersonalScoringFlag": true,
+      "status": "fail",
+      "error": "RuleError: \u0e1e\u0e48\u0e2d\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e44\u0e21\u0e48\u0e21\u0e35\u0e14\u0e35\u0e25\u0e1f\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e2b\u0e23\u0e37\u0e2d\u0e43\u0e0a\u0e49\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e4c\u0e41\u0e25\u0e49\u0e27"
+    },
+    {
+      "file": "docs/validation/survival-v0.5/network/lan-untimed-2-players.json",
+      "runHash": "caa92eec5574be502ab194a1ad3a52998afd272e447cf316dc573d05a9a1c366",
+      "noPersonalScoringFlag": true,
+      "status": "fail",
+      "error": "RuleError: \u0e1e\u0e48\u0e2d\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e44\u0e21\u0e48\u0e21\u0e35\u0e14\u0e35\u0e25\u0e1f\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e2b\u0e23\u0e37\u0e2d\u0e43\u0e0a\u0e49\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e4c\u0e41\u0e25\u0e49\u0e27"
+    },
+    {
+      "file": "docs/validation/survival-v0.5/network/lan-untimed-3-players.json",
+      "runHash": "21fc497313204517a014ff3b877a83386435b60839d7e226d8a8db5b7a17d922",
+      "noPersonalScoringFlag": true,
+      "status": "fail",
+      "error": "RuleError: \u0e1e\u0e48\u0e2d\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e44\u0e21\u0e48\u0e21\u0e35\u0e14\u0e35\u0e25\u0e1f\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e2b\u0e23\u0e37\u0e2d\u0e43\u0e0a\u0e49\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e4c\u0e41\u0e25\u0e49\u0e27"
+    },
+    {
+      "file": "docs/validation/survival-v0.5/network/lan-untimed-4-players.json",
+      "runHash": "9926f745d5e763fd0e668981232c8cb7cfe561ccbfc315029c0f3380db611646",
+      "noPersonalScoringFlag": true,
+      "status": "fail",
+      "error": "RuleError: \u0e1e\u0e48\u0e2d\u0e04\u0e49\u0e32\u0e19\u0e35\u0e49\u0e44\u0e21\u0e48\u0e21\u0e35\u0e14\u0e35\u0e25\u0e1f\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e2b\u0e23\u0e37\u0e2d\u0e43\u0e0a\u0e49\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e4c\u0e41\u0e25\u0e49\u0e27"
+    }
+  ],
+  "invocationExitCode": 1,
+  "knownFailuresMatchParent": true
+}

@@ -1,0 +1,20 @@
+{
+  "exitCode": 1,
+  "status": "finished",
+  "cwd": "apps/comic",
+  "skipPattern": "seeded simulations|new seeded runs",
+  "summary": [
+    "\u2716 failing tests:",
+    "",
+    "test at dist/tests/appraisal-npc-events.test.js:362:1",
+    "\u2716 Dark One sender and victim see room display names in both result feedback and history (122.775166ms)",
+    "  TypeError [Error]: Cannot read properties of undefined (reading 'split')",
+    "      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-npc-events.test.js:369:132)",
+    "      at Test.runInAsyncScope (node:async_hooks:226:14)",
+    "      at Test.run (node:internal/test_runner/test:1402:25)",
+    "      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)",
+    "      at Test.postRun (node:internal/test_runner/test:1542:19)",
+    "      at Test.run (node:internal/test_runner/test:1467:12)",
+    "      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)"
+  ]
+}

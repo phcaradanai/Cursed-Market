@@ -317,8 +317,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 332,
-          "endLine": 431
+          "line": 338,
+          "endLine": 437
         }
       ]
     },
@@ -437,20 +437,20 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:progress",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 222,
-          "endLine": 234
+          "line": 223,
+          "endLine": 235
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/npc-events.ts:npcEventEligible",
           "file": "apps/comic/src/game/appraisal/npc-events.ts",
-          "line": 19,
-          "endLine": 34
+          "line": 20,
+          "endLine": 35
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/npc-events.ts:resolvePersonalNpcEvent",
           "file": "apps/comic/src/game/appraisal/npc-events.ts",
-          "line": 78,
-          "endLine": 121
+          "line": 79,
+          "endLine": 122
         }
       ]
     },
@@ -562,14 +562,14 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:progress",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 222,
-          "endLine": 234
+          "line": 223,
+          "endLine": 235
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 332,
-          "endLine": 431
+          "line": 338,
+          "endLine": 437
         }
       ]
     },
@@ -615,8 +615,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:progress",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 222,
-          "endLine": 234
+          "line": 223,
+          "endLine": 235
         }
       ]
     },
@@ -753,8 +753,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:progress",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 222,
-          "endLine": 234
+          "line": 223,
+          "endLine": 235
         }
       ]
     },
@@ -809,7 +809,7 @@
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
           "file": "apps/comic/src/game/appraisal/engine.ts",
           "line": 197,
-          "endLine": 221
+          "endLine": 222
         }
       ]
     },
@@ -899,7 +899,7 @@
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
           "file": "apps/comic/src/game/appraisal/engine.ts",
           "line": 197,
-          "endLine": 221
+          "endLine": 222
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/round-rewards.ts:openRoundRewards",
@@ -988,14 +988,14 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 432,
-          "endLine": 462
+          "line": 438,
+          "endLine": 468
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleStorageAction",
           "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-          "line": 74,
-          "endLine": 106
+          "line": 75,
+          "endLine": 107
         }
       ]
     },
@@ -1087,20 +1087,20 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostAction",
           "file": "apps/comic/src/game/appraisal/ghost-service.ts",
-          "line": 63,
-          "endLine": 69
+          "line": 64,
+          "endLine": 70
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
           "file": "apps/comic/src/game/appraisal/ghost-service.ts",
-          "line": 24,
-          "endLine": 58
+          "line": 25,
+          "endLine": 59
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/ghost-service.ts:ghostView",
           "file": "apps/comic/src/game/appraisal/ghost-service.ts",
-          "line": 59,
-          "endLine": 61
+          "line": 60,
+          "endLine": 62
         }
       ]
     },
@@ -1136,14 +1136,14 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/survival.ts:collectRun",
           "file": "apps/comic/src/game/appraisal/survival.ts",
-          "line": 15,
-          "endLine": 36
+          "line": 16,
+          "endLine": 38
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/survival.ts:collectorDue",
           "file": "apps/comic/src/game/appraisal/survival.ts",
-          "line": 14,
-          "endLine": 14
+          "line": 15,
+          "endLine": 15
         }
       ]
     },
@@ -1192,8 +1192,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/survival.ts:collectRun",
           "file": "apps/comic/src/game/appraisal/survival.ts",
-          "line": 15,
-          "endLine": 36
+          "line": 16,
+          "endLine": 38
         }
       ]
     },
@@ -1803,20 +1803,20 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostAction",
           "file": "apps/comic/src/game/appraisal/ghost-service.ts",
-          "line": 63,
-          "endLine": 69
+          "line": 64,
+          "endLine": 70
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
           "file": "apps/comic/src/game/appraisal/ghost-service.ts",
-          "line": 24,
-          "endLine": 58
+          "line": 25,
+          "endLine": 59
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/ghost-service.ts:ghostView",
           "file": "apps/comic/src/game/appraisal/ghost-service.ts",
-          "line": 59,
-          "endLine": 61
+          "line": 60,
+          "endLine": 62
         }
       ]
     },
@@ -1864,20 +1864,20 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostAction",
           "file": "apps/comic/src/game/appraisal/ghost-service.ts",
-          "line": 63,
-          "endLine": 69
+          "line": 64,
+          "endLine": 70
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
           "file": "apps/comic/src/game/appraisal/ghost-service.ts",
-          "line": 24,
-          "endLine": 58
+          "line": 25,
+          "endLine": 59
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/ghost-service.ts:ghostView",
           "file": "apps/comic/src/game/appraisal/ghost-service.ts",
-          "line": 59,
-          "endLine": 61
+          "line": 60,
+          "endLine": 62
         }
       ]
     },
@@ -1924,20 +1924,20 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostAction",
           "file": "apps/comic/src/game/appraisal/ghost-service.ts",
-          "line": 63,
-          "endLine": 69
+          "line": 64,
+          "endLine": 70
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
           "file": "apps/comic/src/game/appraisal/ghost-service.ts",
-          "line": 24,
-          "endLine": 58
+          "line": 25,
+          "endLine": 59
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/ghost-service.ts:ghostView",
           "file": "apps/comic/src/game/appraisal/ghost-service.ts",
-          "line": 59,
-          "endLine": 61
+          "line": 60,
+          "endLine": 62
         }
       ]
     },
@@ -1991,20 +1991,20 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostAction",
           "file": "apps/comic/src/game/appraisal/ghost-service.ts",
-          "line": 63,
-          "endLine": 69
+          "line": 64,
+          "endLine": 70
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/ghost-service.ts:handleGhostCommand",
           "file": "apps/comic/src/game/appraisal/ghost-service.ts",
-          "line": 24,
-          "endLine": 58
+          "line": 25,
+          "endLine": 59
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/ghost-service.ts:ghostView",
           "file": "apps/comic/src/game/appraisal/ghost-service.ts",
-          "line": 59,
-          "endLine": 61
+          "line": 60,
+          "endLine": 62
         }
       ]
     }

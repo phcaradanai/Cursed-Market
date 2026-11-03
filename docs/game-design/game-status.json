@@ -1,7 +1,7 @@
 {
   "asOf": "2026-11-03",
   "activeSource": "apps/comic",
-  "revision": "1551908 + approved personal scoring Task1 working-tree checkpoint",
+  "revision": "292ba6b + Task2 opt-in personal scoring runtime draft",
   "headline": "ยังไม่ครบตามกฎและขอบเขตเกมที่ตกลงทั้งหมด",
   "summary": "วงจรเดิมและตลาดวิญญาณเล่นได้ แต่การย้ายกฎ/สินค้าใหม่และบาลานซ์ทั้งเกมยังค้าง ภาพหน้าจอหรือกราฟครบไม่ได้แปลว่า runtime ครบ",
   "atlasScope": "Atlas สกัดทุก module ของ apps/comic/src/game/appraisal พร้อม random/rarity/protocol/server lifecycle และ bot ที่ระบุ; graph เป็น static dependency ไม่ใช่ execution proof; UI ใช้ capture/flow registry แยก; รุ่นเก่าตรึง9f0a972ใน legacy-atlas-baseline.json",
@@ -21,7 +21,7 @@
       "id": "GHOST-01",
       "system": "ตลาดวิญญาณและมินิเกม",
       "status": "ทำและตรวจแล้ว",
-      "remaining": "S11/G01–G04 ครบ: ติดตามการ์ด รับงาน RPS สามช่อง ส่งมอบ จ่ายเงิน คะแนนพิเศษ; ยังไม่ใช่ผลบาลานซ์",
+      "remaining": "S11/G01–G04 ครบ: ติดตามการ์ด รับงาน RPS สามช่อง ส่งมอบ จ่ายเงิน คะแนนพิเศษ; ยังไม่ใช่ผลบาลานซ์ Normal-service browser continuationพบghost-tracking page-scroll assertionยังไม่วินิจฉัย;ผลเดิมไม่ใช่การรับรองflowใหม่นี้.",
       "evidence": [
         "docs/game-design/implementations/ghost-acceptance-audit.md",
         "docs/ui-system/ghost-functional-verification.json"
@@ -61,8 +61,8 @@
     {
       "id": "STRAT-01",
       "system": "คะแนนผลงานทุกคนหลายระบบ",
-      "status": "approved-experimental — Task1 domain verified; Task2 runtime pending",
-      "remaining": "ชุด1551908อนุมัติแล้ว; Task1ผ่าน96focusedรวม13domain และnative8pairs/16runs/32replays แต่ยังไม่มี canonical counters/สูตรจบเกม/DTO/กราฟ/default. ดูcheckpoint2026-11-03.",
+      "status": "approved-experimental — opt-in runtime draft; graph/default pending",
+      "remaining": "canonical countersและfinal snapshotเชื่อมแบบopt-inแล้ว;29domain/runtime+3socket(2/4คน)ผ่าน แต่Task2completion matrix/Task3selfDTOและComicgraphยังค้าง ยังไม่เปิดdefault.",
       "evidence": [
         "docs/game-design/strategic-paths.md",
         "apps/comic/src/game/appraisal/survival.ts",
@@ -75,7 +75,8 @@
         "docs/game-design/balance-reports/2026-11-02-personal-scoring-calibration.md",
         "docs/game-design/personal-scoring-approval.json",
         "docs/game-design/implementations/personal-scoring-plan.md",
-        "docs/validation/personal-scoring-2026-11-03/checkpoint.json"
+        "docs/validation/personal-scoring-2026-11-03/checkpoint.json",
+        "docs/validation/personal-scoring-2026-11-03/runtime-checkpoint.json"
       ]
     },
     {
@@ -159,7 +160,7 @@
     }
   ],
   "next": [
-    "Task1 verified; เชื่อม canonical counters และสูตรจบเกมใน Task2 แล้วทำ DTO/Comic graph; ห้ามเปิด default ก่อนครบproof",
+    "ปิด Task2 personal scoring completion matrix/extended public routes แล้วทำ Task3 allowlisted selfDTO/Comic graph; defaultยังปิดจนผ่านUIproof",
     "เตรียมสเปกสินค้าใหม่อีก48ชิ้นและevent predicatesให้ตรวจ ไม่ขยายcatalog4หรือใส่ค่าที่ยังไม่อนุมัติเอง",
     "ต่อnormal-resource engine journeyเป็นbrowser/socketร่วมจริง และหลายseed/policyก่อนtune",
     "รักษางานUI-COLLECTOR-CONTEXT minorและfull-game acceptanceเป็นงานค้าง ไม่เรียกsubsystemว่าเกมเสร็จ"

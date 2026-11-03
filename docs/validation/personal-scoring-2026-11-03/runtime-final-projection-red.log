@@ -1,0 +1,140 @@
+✖ dead estate keeps original rarity, excludes copies, applies modifier before ghost bonus (64.08125ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 378.690542
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/personal-scoring-runtime.test.js:302:1
+✖ dead estate keeps original rarity, excludes copies, applies modifier before ghost bonus (64.08125ms)
+  AssertionError [ERR_ASSERTION]: post-Collector projection must keep the frozen estate after custody is cleared
+  + actual - expected
+  ... Skipped lines
+  
+    {
+      ghostBonus: 7,
+      groups: [
+        {
+          id: 'assets',
+  +       points: 500
+  -       points: 526
+        },
+        {
+          id: 'commerce',
+          points: 0
+        },
+  ...
+          id: 'collection',
+  +       points: 0
+  -       points: 28
+        },
+        {
+          id: 'modifier',
+  +       points: -102
+  -       points: -112
+        },
+        {
+          id: 'ghost',
+          points: 7
+        }
+  ...
+          cap: 80,
+  +       eligible: 0,
+  -       eligible: 1,
+          exclusions: [],
+          id: 'rarity',
+  +       points: 0,
+  +       raw: 0,
+  +       sourceIds: [],
+  +       uncappedPoints: 0,
+  -       points: 28,
+  -       raw: 1,
+  -       sourceIds: [
+  -         'item-1-0-0-0'
+  -       ],
+  -       uncappedPoints: 28,
+          weight: {
+            byRarity: {
+              common: 0,
+              epic: 12,
+              legendary: 20,
+  ...
+      ],
+  +   modifierDelta: -102,
+  +   ordinaryBeforeModifier: 506,
+  +   ordinaryScore: 404,
+  +   performancePoints: 6,
+  -   modifierDelta: -112,
+  -   ordinaryBeforeModifier: 560,
+  -   ordinaryScore: 448,
+  -   performancePoints: 34,
+      playerId: 'alice',
+  +   total: 411
+  -   total: 455
+    }
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring-runtime.test.js:321:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: {
+      playerId: 'alice',
+      metrics: [
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object]
+      ],
+      groups: [
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object]
+      ],
+      performancePoints: 6,
+      ordinaryBeforeModifier: 506,
+      modifierDelta: -102,
+      ordinaryScore: 404,
+      ghostBonus: 7,
+      total: 411
+    },
+    expected: {
+      playerId: 'alice',
+      metrics: [
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object]
+      ],
+      groups: [
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object]
+      ],
+      performancePoints: 34,
+      ordinaryBeforeModifier: 560,
+      modifierDelta: -112,
+      ordinaryScore: 448,
+      ghostBonus: 7,
+      total: 455
+    },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

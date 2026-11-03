@@ -1,5 +1,8 @@
-import {collectorTotal} from './scoring.js';
+import {collectorTotal,itemScoreValue} from './scoring.js';
+import {ownedAssetItemIds} from './secure-storage.js';
+import {statusMagnitude} from './copy-effects.js';
 import type {Rarity} from '../../shared/item-rarity.js';
+import type {AppraisalItem,AppraisalState,Appraiser,NpcId} from './types.js';
 
 // Exact approved1551908 experiment; receipt pins the immutable source JSON.
 export const PERSONAL_SCORING_WEIGHTS=[
@@ -146,6 +149,32 @@ export function recordPersonalFact(state:PersonalPerformanceState,fact:PersonalF
  validateFact(fact);requireValue(state.players.some(p=>p.id===fact.playerId),'unknown player');
  const old=state.personalPerformance?.facts.find(f=>f.id===fact.id);if(old){requireValue(signature(old)===signature(fact),'receipt identity conflict');return;}
  state.personalPerformance??={version:1,facts:[]};state.personalPerformance.facts.push({...fact});
+}
+export const personalOrigin=(item:AppraisalItem):string=>item.copy?.sourceId??item.id;
+/** Called at successful mutation sites, never reconstructed from logs or net state deltas. */
+export function recordPersonalActivity(state:AppraisalState,p:Appraiser,metric:PersonalMetric,raw:number,source:string,eligible=true,cause='settled'):void {
+ if(state.config.personalScoringRules!==1||p.life===0)return;
+ recordPersonalFact(state,{id:JSON.stringify([state.commands.length,state.personalPerformance!.facts.length,p.id,metric]),playerId:p.id,metric,raw,eligibleKey:source,eligible,cause});
+}
+export function recordPersonalItemActivity(state:AppraisalState,p:Appraiser,metric:PersonalMetric,item:AppraisalItem,raw=1,eligible=true,cause='settled',facet=''):void {
+ recordPersonalActivity(state,p,metric,raw,JSON.stringify([p.id,personalOrigin(item),facet]),eligible&&!item.copy,item.copy?'copy':eligible?'settled':cause);
+}
+export function recordPersonalSale(state:AppraisalState,p:Appraiser,item:AppraisalItem,price:number):void {
+ recordPersonalItemActivity(state,p,'soldQuantity',item,1,price>0,'zero-credit sale');
+ recordPersonalItemActivity(state,p,'soldGrossCredits',item,price,price>0,'zero-credit sale');
+}
+export function setPersonalTrust(state:AppraisalState,p:Appraiser,npc:NpcId,next:number,item:AppraisalItem):void {
+ if(!p.npcTrust)return;
+ const before=p.npcTrust[npc]??0;p.npcTrust[npc]=next;
+ if(next>before)recordPersonalActivity(state,p,'trustGained',next-before,JSON.stringify([p.id,personalOrigin(item),npc]));
+}
+export function personalScoreFor(state:AppraisalState,playerId:string,finalAssets?:{credits:number;itemValue:number;itemIds:readonly string[]}):PersonalScoreBreakdown {
+ const p=state.players.find(p=>p.id===playerId);requireValue(p,'unknown player');
+ const final=state.collector?.find(row=>row.playerId===playerId)?.personalScore;if(final)return structuredClone(final);
+ const itemIds=finalAssets?.itemIds??ownedAssetItemIds(state,p),items=itemIds.map(id=>state.items[id]!);
+ const credits=finalAssets?.credits??p.credits+(p.personalVault?.credits??0);
+ const itemValue=finalAssets?.itemValue??items.reduce((sum,item)=>sum+itemScoreValue(item.base,item.genuine,item.cursed,!!item.appraisedBy&&item.appraisedBy!==p.id),0);
+ return calculatePersonalScore({playerId,facts:state.personalPerformance?.facts??[],assetScore:credits+itemValue,modifierPercent:statusMagnitude(p,'B10',20)-statusMagnitude(p,'D10',20),ghostBonus:state.ghosts?.[p.id]?.bonus??0,rarities:items.filter(item=>!item.copy).map(item=>({id:item.id,rarity:item.appearance?.rarity??'common'}))});
 }
 export function personalPerformanceInvariants(state:PersonalPerformanceState):void {
  const performance=state.personalPerformance;requireValue((state.config.personalScoringRules===1)===!!performance,'flag/state mismatch');if(!performance)return;

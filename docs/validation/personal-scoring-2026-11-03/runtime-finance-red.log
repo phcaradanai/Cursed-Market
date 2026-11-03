@@ -1,0 +1,74 @@
+✔ actual HP removed includes lethal cost but excludes overkill, shields and postdeath damage (56.21925ms)
+✔ real canonical positive trust gain survives later loss in same command and clamps at cap (16.026667ms)
+✔ first personally inspected facets and first submitted appraisal use original identity (19.618667ms)
+✔ NPC settlement credits buyer and distinct appraiser once using gross sale price (10.157083ms)
+✔ copies and zero-credit acquisitions do not earn transaction achievements (6.1035ms)
+✔ public accepted requests record facts exactly once and flagless rooms keep old state shape (38.784416ms)
+✖ interest points use aged credits actually paid and cannot repeat at same boundary (3.063625ms)
+✖ funded loan earns both living parties only after full encounter and full repayment (1.765792ms)
+✖ public complete run stores exact shared score breakdown, survives replay and counts settlement (21.468167ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 6
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 497.113208
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/personal-scoring-runtime.test.js:123:1
+✖ interest points use aged credits actually paid and cannot repeat at same boundary (3.063625ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring-runtime.test.js:131:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/personal-scoring-runtime.test.js:136:1
+✖ funded loan earns both living parties only after full encounter and full repayment (1.765792ms)
+  Error [RuleError]: เงินกู้ต้องไม่น้อยกว่าครึ่งราคาหลักประกัน
+      at check (file:///Users/Projects/Cursed%20Market/apps/comic/dist/src/game/appraisal/mechanics.js:24:15)
+      at validPrincipal (file:///Users/Projects/Cursed%20Market/apps/comic/dist/src/game/appraisal/secure-storage.js:126:5)
+      at handleLoanAction (file:///Users/Projects/Cursed%20Market/apps/comic/dist/src/game/appraisal/secure-storage.js:148:9)
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring-runtime.test.js:144:9)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    code: 'loan-minimum'
+  }
+
+test at apps/comic/dist/tests/personal-scoring-runtime.test.js:160:1
+✖ public complete run stores exact shared score breakdown, survives replay and counts settlement (21.468167ms)
+  AssertionError [ERR_ASSERTION]: Collector must store canonical personal breakdown
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring-runtime.test.js:175:9)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -1,0 +1,153 @@
+✖ approved personal scoring counts a paid Collector original once without ordinary sale credits (525.501416ms)
+✔ public-offer provenance keeps paid Collector originals and copies out while retaining ordinary copies (68.323958ms)
+✖ paid spirit delivery credits only living buyer achievements, leaving ghost bonus unchanged (251.97925ms)
+✖ public complete run stores exact shared score breakdown, survives replay and counts settlement (508.43125ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 1
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1131.613167
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/collector-wishlist.test.js:42:1
+✖ approved personal scoring counts a paid Collector original once without ordinary sale credits (525.501416ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 2
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/collector-wishlist.test.js:51:12)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/ghost-service.test.js:5:1
+✖ paid spirit delivery credits only living buyer achievements, leaving ghost bonus unchanged (251.97925ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 2
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/ghost-service.test.js:21:12)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/personal-scoring-runtime.test.js:164:1
+✖ public complete run stores exact shared score breakdown, survives replay and counts settlement (508.43125ms)
+  AssertionError [ERR_ASSERTION]: ended audit includes canonical receipts, not only totals
+  + actual - expected
+  
+  + undefined
+  - {
+  -   facts: [
+  -     {
+  -       cause: 'settled',
+  -       eligible: true,
+  -       eligibleKey: '[9,0,"dimensional-decay"]',
+  -       id: '[9,0,"alice","lifeLost"]',
+  -       metric: 'lifeLost',
+  -       playerId: 'alice',
+  -       raw: 1
+  -     },
+  -     {
+  -       cause: 'settled',
+  -       eligible: true,
+  -       eligibleKey: '1',
+  -       id: '[9,1,"alice","survived"]',
+  -       metric: 'survived',
+  -       playerId: 'alice',
+  -       raw: 1
+  -     },
+  -     {
+  -       cause: 'settled',
+  -       eligible: true,
+  -       eligibleKey: '[9,2,"dimensional-decay"]',
+  -       id: '[9,2,"bob","lifeLost"]',
+  -       metric: 'lifeLost',
+  -       playerId: 'bob',
+  -       raw: 1
+  -     },
+  -     {
+  -       cause: 'settled',
+  -       eligible: true,
+  -       eligibleKey: '1',
+  -       id: '[9,3,"bob","survived"]',
+  -       metric: 'survived',
+  -       playerId: 'bob',
+  -       raw: 1
+  -     },
+  -     {
+  -       cause: 'settled',
+  -       eligible: true,
+  -       eligibleKey: '[20,4,"dimensional-decay"]',
+  -       id: '[20,4,"alice","lifeLost"]',
+  -       metric: 'lifeLost',
+  -       playerId: 'alice',
+  -       raw: 1
+  -     },
+  -     {
+  -       cause: 'settled',
+  -       eligible: true,
+  -       eligibleKey: '2',
+  -       id: '[20,5,"alice","survived"]',
+  -       metric: 'survived',
+  -       playerId: 'alice',
+  -       raw: 1
+  -     },
+  -     {
+  -       cause: 'settled',
+  -       eligible: true,
+  -       eligibleKey: '[20,6,"dimensional-decay"]',
+  -       id: '[20,6,"bob","lifeLost"]',
+  -       metric: 'lifeLost',
+  -       playerId: 'bob',
+  -       raw: 1
+  -     },
+  -     {
+  -       cause: 'settled',
+  -       eligible: true,
+  -       eligibleKey: '2',
+  -       id: '[20,7,"bob","survived"]',
+  -       metric: 'survived',
+  -       playerId: 'bob',
+  -       raw: 1
+  -     }
+  -   ],
+  -   version: 1
+  - }
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring-runtime.test.js:186:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: {
+      version: 1,
+      facts: [
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object]
+      ]
+    },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

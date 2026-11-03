@@ -1,4 +1,4 @@
-import {personalPerformanceInvariants} from './personal-scoring.js';
+import {personalPerformanceInvariants,recordPersonalActivity,recordPersonalItemActivity,recordPersonalSale} from './personal-scoring.js';
 import {handleCollectorWishlist,reconcileCollectorWishlist,assertCollectorWishlistInvariants} from './collector-wishlist.js';
 import {pilotRerollCost,reconcilePilotCustody} from './pilot-effects.js';
 import {handleGhostAction,reconcileGhostJobs} from './ghost-service.js';
@@ -212,6 +212,7 @@ function settleEncounter(state:AppraisalState):void {
     if(p.subsidy) {p.subsidy=false;state.reservedRewards--;}
     if(state.config.survival && p.life!>0 && state.config.core2) applyDread(state,p);
     if(state.config.survival && p.life!>0){damageLife(state,p,state.config.core2?decayFor(state.encounter):state.config.survival.encounterLifeCost,'dimensional-decay');if(p.life!>0)mendWithShards(state,p);}
+    if(state.config.survival&&p.life!>0)recordPersonalActivity(state,p,'survived',1,String(state.encounter));
   }
   state.market.open=false; state.market.budget=0;
   for(const offer of state.trades) if(offer.status==='open') offer.status='rejected';
@@ -307,6 +308,11 @@ function respond(state:AppraisalState,p:Appraiser,offerId:string,accept:boolean)
     if(swap) {buyer.inventory=buyer.inventory.filter(id=>id!==swap.id);p.inventory.push(swap.id);swap.owner=p.id;}
   }
   transfer(state,buyer,p,offer.credits,offer.source==='npc'?'cross-shop-fee':'p2p');
+  if(offer.source==='inventory'&&!offer.swapItemId){
+    const item=state.items[offer.itemId]!;
+    recordPersonalItemActivity(state,buyer,'bought',item,1,offer.credits>0,'zero-credit transfer');
+    recordPersonalSale(state,p,item,offer.credits);
+  }
   if(state.config.secureEconomy && offer.source==='inventory' && !offer.swapItemId)recordItemTrade(state,state.items[offer.itemId]!,offer.credits);
   if(penalty) transfer(state,buyer,p,penalty,'challenge-penalty');
   const rebated=payRebate(state,p,buyer,listing.rebate,true);

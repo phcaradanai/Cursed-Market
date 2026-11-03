@@ -2,6 +2,14 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {appraisalFixture} from './support/appraisal-fixture.js';
 import {handleGhostAction,ghostView,ghostQuotes} from '../src/game/appraisal/ghost-service.js';
+test('paid spirit delivery credits only living buyer achievements, leaving ghost bonus unchanged',async()=>{
+ const {personalScoreFor}=await import('../src/game/appraisal/personal-scoring.js');
+ const s=appraisalFixture();s.config.survival={maxLife:6,encounterLifeCost:1,entryEnergyCost:0};s.config.personalScoringRules=1;s.personalPerformance={version:1,facts:[]};s.players[0]!.life=0;s.players[0]!.paused='dead';
+ handleGhostAction(s,'alice',{type:'ghost-start'});const g=s.ghosts!.alice!;handleGhostAction(s,'alice',{type:'ghost-guess',round:g.round,position:g.tracking!.answer});
+ handleGhostAction(s,'bob',{type:'ghost-hire',ghostId:'alice',choice:0,fee:3,quoteId:ghostQuotes(s,'alice','bob')[0]!.id});const j=g.jobs[0]!;handleGhostAction(s,'alice',{type:'ghost-accept',jobId:j.id,accept:true});g.slots[0]!.kind=j.kind;
+ handleGhostAction(s,'alice',{type:'ghost-deliver',jobId:j.id,slot:0});
+ assert.equal(personalScoreFor(s,'bob').metrics.find(m=>m.id==='bought')!.points,2);assert.equal(personalScoreFor(s,'alice').metrics.find(m=>m.id==='soldQuantity')!.points,0);assert.equal(g.bonus,Math.floor(j.base*.1)+3);
+});
 test('living cannot start ghost game; dead can retry and view never contains answer',()=>{
  const s=appraisalFixture();s.config.survival={maxLife:6,encounterLifeCost:1,entryEnergyCost:0};
  assert.throws(()=>handleGhostAction(s,'alice',{type:'ghost-start'}));

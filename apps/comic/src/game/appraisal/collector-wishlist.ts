@@ -1,3 +1,4 @@
+import {recordPersonalItemActivity} from './personal-scoring.js';
 import {randomAt} from '../random.js';
 import {rarityValue} from '../../shared/rarity-power.js';
 import {ITEM_SPECS,merchantKinds,priceRange,itemImage} from './content.js';
@@ -67,7 +68,7 @@ export function handleCollectorWishlist(state:AppraisalState,p:Appraiser,action:
  if(action.type==='collector-wish-peek'){check(offer.peek===undefined,'collector-peek','เปิดดูชุดนี้แล้ว');offer.peek=index;note(p,`เปิดดู Collector ช่อง ${index+1}: ${ITEM_SPECS[state.items[offer.itemIds[index]!]!.kind].name}`);trace(state,p,'collector-wish-peeked',{batchId:offer.id,slotId:action.slotId});return;}
  check(action.quoteId===quoteKey(offer,quote),'collector-quote','ต้นทุนเปลี่ยนแล้ว กรุณาตรวจและยืนยันราคาใหม่');const item=state.items[offer.itemIds[index]!]!;check(item.owner===prefix+offer.id,'collector-owner','สินค้าชุดนี้ไม่พร้อมแล้ว');
  check(!merchantTradeBanned(state,p),'merchant-banned','ยังถูกห้ามค้าขายกับพ่อค้า');spend(state,p,quote.total,quote.energy,'collector-purchase');for(const id of ['B03','D06','D12'] as const)consumeStatus(p,id);
- item.owner=p.id;p.inventory.push(item.id);p.paid={...p.paid,[item.id]:quote.price};recordItemTrade(state,item,quote.price);closeOffer(state,p,'bought');note(p,`ซื้อ ${ITEM_SPECS[item.kind].name} จาก Collector ${offer.id}: สินค้า ${quote.price} + ค่าธรรมเนียม ${quote.fee} เครดิต ใช้ ${quote.energy} พลัง`);trace(state,p,'collector-wish-purchased',{batchId:offer.id,itemId:item.id,slotId:action.slotId,...quote});
+ item.owner=p.id;p.inventory.push(item.id);p.paid={...p.paid,[item.id]:quote.price};recordItemTrade(state,item,quote.price);recordPersonalItemActivity(state,p,'bought',item,1,quote.price>0,'zero-credit purchase');closeOffer(state,p,'bought');note(p,`ซื้อ ${ITEM_SPECS[item.kind].name} จาก Collector ${offer.id}: สินค้า ${quote.price} + ค่าธรรมเนียม ${quote.fee} เครดิต ใช้ ${quote.energy} พลัง`);trace(state,p,'collector-wish-purchased',{batchId:offer.id,itemId:item.id,slotId:action.slotId,...quote});
 }
 export function assertCollectorWishlistInvariants(state:AppraisalState):void{
  check((state.config.collectorWishlistRules===1)===!!state.collectorWishes,'collector-state','สถานะ Collector ไม่ตรงกติกา');if(!state.collectorWishes)return;check(Object.keys(state.collectorWishes).length===state.players.length&&state.players.every(p=>Object.hasOwn(state.collectorWishes!,p.id)),'collector-state','สิทธิ์ Collector ไม่ครบผู้เล่น');const escrow=new Set<string>();

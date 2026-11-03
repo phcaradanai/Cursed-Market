@@ -3267,7 +3267,7 @@ Dark One ซื้อสมุดคำสัญญาหนึ่งเล่�
 - จังหวะ: พบ Vampire; ชีวิตเกิน 2 และไม่มีสัญญาเลือดค้าง
 - แหล่ง: [apps/comic/src/game/appraisal/content.ts:361](../../../apps/comic/src/game/appraisal/content.ts#L361)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:24, policy:apps/comic/src/game/appraisal/npc-events.ts:93, policy:apps/comic/src/game/appraisal/npc-events.ts:if:3104, policy:apps/comic/src/simulation/appraisal.ts:if:4231
+- Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:25, policy:apps/comic/src/game/appraisal/npc-events.ts:94, policy:apps/comic/src/game/appraisal/npc-events.ts:if:3166, policy:apps/comic/src/simulation/appraisal.ts:if:4231
 - Operations: data-driven / generic handler; see handlerRefs
 
 ```json
@@ -3289,7 +3289,7 @@ Alien ขอยืมของ 1–3 ชิ้น เลือกจำนวน
 - จังหวะ: พบ Alien; มีสินค้าที่ให้ยืมได้และไม่มีสัญญายืมค้าง
 - แหล่ง: [apps/comic/src/game/appraisal/content.ts:362](../../../apps/comic/src/game/appraisal/content.ts#L362)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:25, policy:apps/comic/src/game/appraisal/npc-events.ts:94, policy:apps/comic/src/game/appraisal/npc-events.ts:if:3135
+- Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:26, policy:apps/comic/src/game/appraisal/npc-events.ts:95, policy:apps/comic/src/game/appraisal/npc-events.ts:if:3197
 - Operations: data-driven / generic handler; see handlerRefs
 
 ```json
@@ -3311,8 +3311,8 @@ Dark One สุ่มขอค่าตอบแทน 1–3 ประเภท�
 - จังหวะ: พบ Dark One; มีทรัพยากรจ่ายและมีเป้าหมาย
 - แหล่ง: [apps/comic/src/game/appraisal/content.ts:363](../../../apps/comic/src/game/appraisal/content.ts#L363)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:26, policy:apps/comic/src/game/appraisal/npc-events.ts:104, policy:apps/comic/src/game/appraisal/npc-events.ts:if:3373
-- Operations: operation:apps/comic/src/game/appraisal/npc-events.ts:8884, operation:apps/comic/src/game/appraisal/npc-events.ts:9141
+- Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:27, policy:apps/comic/src/game/appraisal/npc-events.ts:105, policy:apps/comic/src/game/appraisal/npc-events.ts:if:3435
+- Operations: operation:apps/comic/src/game/appraisal/npc-events.ts:9018, operation:apps/comic/src/game/appraisal/npc-events.ts:9275
 
 ```json
 {
@@ -3333,7 +3333,7 @@ Dark One สุ่มขอค่าตอบแทน 1–3 ประเภท�
 - จังหวะ: พบ Autometa; มีสินค้าให้แลกหรือมีพลัง 2
 - แหล่ง: [apps/comic/src/game/appraisal/content.ts:364](../../../apps/comic/src/game/appraisal/content.ts#L364)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:27, policy:apps/comic/src/game/appraisal/npc-events.ts:108, policy:apps/comic/src/game/appraisal/npc-events.ts:if:4200
+- Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:28, policy:apps/comic/src/game/appraisal/npc-events.ts:109, policy:apps/comic/src/game/appraisal/npc-events.ts:if:4262
 - Operations: data-driven / generic handler; see handlerRefs
 
 ```json
@@ -3355,7 +3355,7 @@ Dark One สุ่มขอค่าตอบแทน 1–3 ประเภท�
 - จังหวะ: พบ Orc; มีพลัง 2
 - แหล่ง: [apps/comic/src/game/appraisal/content.ts:365](../../../apps/comic/src/game/appraisal/content.ts#L365)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:28, policy:apps/comic/src/game/appraisal/npc-events.ts:109, policy:apps/comic/src/game/appraisal/npc-events.ts:if:4311
+- Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:29, policy:apps/comic/src/game/appraisal/npc-events.ts:110, policy:apps/comic/src/game/appraisal/npc-events.ts:if:4373
 - Operations: data-driven / generic handler; see handlerRefs
 
 ```json
@@ -3377,8 +3377,8 @@ Dark One สุ่มขอค่าตอบแทน 1–3 ประเภท�
 - จังหวะ: พบ Beast; มีสินค้าที่ส่งให้ได้
 - แหล่ง: [apps/comic/src/game/appraisal/content.ts:366](../../../apps/comic/src/game/appraisal/content.ts#L366)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:29, policy:apps/comic/src/game/appraisal/npc-events.ts:110, policy:apps/comic/src/game/appraisal/npc-events.ts:if:4344
-- Operations: operation:apps/comic/src/game/appraisal/npc-events.ts:9577, operation:apps/comic/src/game/appraisal/npc-events.ts:9631
+- Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:30, policy:apps/comic/src/game/appraisal/npc-events.ts:111, policy:apps/comic/src/game/appraisal/npc-events.ts:if:4406
+- Operations: operation:apps/comic/src/game/appraisal/npc-events.ts:9711, operation:apps/comic/src/game/appraisal/npc-events.ts:9765
 
 ```json
 {
@@ -3399,8 +3399,8 @@ Dark One สุ่มขอค่าตอบแทน 1–3 ประเภท�
 - จังหวะ: พบ Deep Sea Monster; มีเครดิต 3 และยังมีข้อมูลสินค้าไม่รู้
 - แหล่ง: [apps/comic/src/game/appraisal/content.ts:367](../../../apps/comic/src/game/appraisal/content.ts#L367)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:31, policy:apps/comic/src/game/appraisal/npc-events.ts:111, policy:apps/comic/src/game/appraisal/npc-events.ts:if:4391
-- Operations: operation:apps/comic/src/game/appraisal/npc-events.ts:10139
+- Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:32, policy:apps/comic/src/game/appraisal/npc-events.ts:112, policy:apps/comic/src/game/appraisal/npc-events.ts:if:4453
+- Operations: operation:apps/comic/src/game/appraisal/npc-events.ts:10273
 
 ```json
 {
@@ -3421,7 +3421,7 @@ Dark One สุ่มขอค่าตอบแทน 1–3 ประเภท�
 - จังหวะ: พบ The Swarm; มีสินค้าที่ส่งให้ได้
 - แหล่ง: [apps/comic/src/game/appraisal/content.ts:368](../../../apps/comic/src/game/appraisal/content.ts#L368)
 - ทางเลือก: accept (generic-default-policy), decline (generic-default-policy)
-- Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:30, policy:apps/comic/src/game/appraisal/npc-events.ts:117, policy:apps/comic/src/game/appraisal/npc-events.ts:if:4344
+- Policies: policy:apps/comic/src/game/appraisal/npc-events.ts:31, policy:apps/comic/src/game/appraisal/npc-events.ts:118, policy:apps/comic/src/game/appraisal/npc-events.ts:if:4406
 - Operations: data-driven / generic handler; see handlerRefs
 
 ```json

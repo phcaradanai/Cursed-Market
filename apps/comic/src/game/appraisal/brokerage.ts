@@ -1,3 +1,4 @@
+import {recordPersonalItemActivity} from './personal-scoring.js';
 import { rarityValue } from '../../shared/rarity-power.js';
 import { merchantTradeBanned } from './theft.js';
 import { recordItemTrade, systemSaleQuote } from './price-integrity.js';
@@ -218,6 +219,7 @@ export function settleAuction(state:AppraisalState):void {
     const edge=!!state.config.polish && !!status(winner.p,'B20');const paid=edge?winner.amount-Math.floor(winner.amount*20/100):winner.amount;
     if(edge) consumeStatus(winner.p,'B20');
     spend(state,winner.p,paid,0,'dark-auction');
+    recordPersonalItemActivity(state,winner.p,'bought',item,1,paid>0,'zero-credit auction');
     completeAppraisedSale(state,item,paid);
     recordItemTrade(state,item,paid);
     item.owner=winner.p.id;winner.p.inventory.push(item.id);state.vault=state.vault!.filter(id=>id!==item.id);

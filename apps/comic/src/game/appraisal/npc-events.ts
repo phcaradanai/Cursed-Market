@@ -1,3 +1,4 @@
+import {recordPersonalActivity} from './personal-scoring.js';
 import { randomAt } from '../random.js';
 import { linkedStatuses } from './core2.js';
 // The full catalog: status links can hand out the v0.6 statuses too.
@@ -90,7 +91,7 @@ export function resolvePersonalNpcEvent(state:AppraisalState,p:Appraiser,offer:E
   spend(state,p,terms.credits,energy,offer.id);payLife(state,p,terms.life,offer.id);
   if(itemCost)retire(state,p,selected(),offer.id);
   switch(offer.id) {
-    case 'E109': (p.npcContracts??={}).vampire={signedAt:state.encounter};note(p,'สัญญาเลือด: จ่ายชีวิต 2 แล้ว รับผลตอบแทนสุ่มเมื่อเลือกพบ Vampire ครั้งหน้า');break;
+    case 'E109': (p.npcContracts??={}).vampire={signedAt:state.encounter,...(state.config.personalScoringRules===1?{performanceId:offer.key}:{})};note(p,'สัญญาเลือด: จ่ายชีวิต 2 แล้ว รับผลตอบแทนสุ่มเมื่อเลือกพบ Vampire ครั้งหน้า');break;
     case 'E110': {
       const count=Number(command.choice.slice(5)),ids=command.itemIds;
       check(Number.isInteger(count) && count>=1 && count<=terms.loanMax! && Array.isArray(ids) && ids.length===count && new Set(ids).size===count && ids.every(id=>offer.itemIds.includes(id)),'event-target','เลือกของให้ยืมให้ครบจำนวนและห้ามซ้ำ');
@@ -141,6 +142,7 @@ export function redeemNpcContracts(state:AppraisalState,p:Appraiser,npc:NpcId):v
     else if(outcome==='life'){healLife(state,p,3,'vampire-return');note(p,'Vampire ตอบแทนด้วยการฟื้นชีวิตสูงสุด 3');}
     else randomBuff(state,p,`${p.id}:${blood.signedAt}:blood-buff`);
     trace(state,p,'vampire-repaid',{outcome});
+    recordPersonalActivity(state,p,'npcContract',1,blood.performanceId??JSON.stringify([p.id,'vampire',blood.signedAt]));
   }
   const loan=p.npcContracts?.alien;
   if(npc==='alien' && loan && state.encounter>=loan.dueAt) {
@@ -148,6 +150,7 @@ export function redeemNpcContracts(state:AppraisalState,p:Appraiser,npc:NpcId):v
     const count=returnLoanItems(state,p);reward(state,p,perItem*count,'alien-return');recover(state,p,energy*count,'alien-return');
     note(p,`Alien คืนของเดิม ${count} ชิ้น พร้อมโบนัส ${perItem*count} เครดิตและฟื้นพลังสูงสุด ${energy*count}`);
     trace(state,p,'alien-repaid',{count,credits:perItem*count,energy:energy*count});
+    if(count>0)recordPersonalActivity(state,p,'npcContract',1,loan.key);
   }
 }
 /** Principal always returns for final scoring, even for a dead spectator; no meeting means no bonus. */

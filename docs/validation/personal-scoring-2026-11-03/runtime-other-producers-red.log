@@ -1,0 +1,102 @@
+✔ actual HP removed includes lethal cost but excludes overkill, shields and postdeath damage (59.7555ms)
+✔ real canonical positive trust gain survives later loss in same command and clamps at cap (12.371916ms)
+✔ first personally inspected facets and first submitted appraisal use original identity (18.040334ms)
+✔ NPC settlement credits buyer and distinct appraiser once using gross sale price (9.924708ms)
+✔ copies and zero-credit acquisitions do not earn transaction achievements (6.482334ms)
+✔ public accepted requests record facts exactly once and flagless rooms keep old state shape (37.283875ms)
+✔ interest points use aged credits actually paid and cannot repeat at same boundary (2.188708ms)
+✔ funded loan earns both living parties only after full encounter and full repayment (6.231833ms)
+✔ public complete run stores exact shared score breakdown, survives replay and counts settlement (36.960084ms)
+✖ market cash sales count once per origin and gross credits exclude side bonuses (5.551542ms)
+✖ only funded auction winner gets buying points and old custody owner gets no sale (10.270792ms)
+✖ successful RPS theft records an actual transfer without granting buy or sale points (1.930542ms)
+✖ NPC deferred contract earns only on successful return and not final forced principal return (4.573916ms)
+✔ dead estate keeps original rarity, excludes copies, applies modifier before ghost bonus (2.326792ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 10
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 560.996542
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/personal-scoring-runtime.test.js:187:1
+✖ market cash sales count once per origin and gross credits exclude side bonuses (5.551542ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 5
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring-runtime.test.js:195:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 5,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/personal-scoring-runtime.test.js:206:1
+✖ only funded auction winner gets buying points and old custody owner gets no sale (10.270792ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(lot)
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring-runtime.test.js:213:5)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/personal-scoring-runtime.test.js:223:1
+✖ successful RPS theft records an actual transfer without granting buy or sale points (1.930542ms)
+  Error [RuleError]: ช่วงนี้ขโมยไม่ได้
+      at check (file:///Users/Projects/Cursed%20Market/apps/comic/dist/src/game/appraisal/mechanics.js:24:15)
+      at startTheftDuel (file:///Users/Projects/Cursed%20Market/apps/comic/dist/src/game/appraisal/theft.js:52:5)
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring-runtime.test.js:229:5)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    code: 'steal'
+  }
+
+test at apps/comic/dist/tests/personal-scoring-runtime.test.js:239:1
+✖ NPC deferred contract earns only on successful return and not final forced principal return (4.573916ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 4
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring-runtime.test.js:245:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 4,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

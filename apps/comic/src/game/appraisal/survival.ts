@@ -1,4 +1,5 @@
 import {closeCollectorWishlists} from './collector-wishlist.js';
+import {personalScoreFor} from './personal-scoring.js';
 import { ownedAssetItemIds, settleLoansBeforeAdvance } from './secure-storage.js';
 import { statusMagnitude } from './copy-effects.js';
 import { check, status, trace } from './mechanics.js';
@@ -24,12 +25,13 @@ export function collectRun(state:AppraisalState):void {
     const statusIds=(['B10','D10'] as const).filter(id=>!!status(p,id));
     const modifierPercent=statusMagnitude(p,'B10',20)-statusMagnitude(p,'D10',20);
     const credits=p.credits+(p.personalVault?.credits??0);
-    const score=collectorTotal(credits,itemValue,modifierPercent)+(state.ghosts?.[p.id]?.bonus??0);
+    const personalScore=state.config.personalScoringRules===1?personalScoreFor(state,p.id,{credits,itemValue,itemIds:items.map(i=>i.id)}):undefined;
+    const score=personalScore?.total??collectorTotal(credits,itemValue,modifierPercent)+(state.ghosts?.[p.id]?.bonus??0);
     for(const item of items)if(!state.items[item.id]!.owner.startsWith('collateral:'))state.items[item.id]!.owner='collector';
     if(p.personalVault)p.personalVault.items=[];
     p.inventory=[];p.score=score;
     trace(state,p,'collector-scored',{credits:p.credits,itemValue,modifierPercent,score,itemIds:items.map(item=>item.id),statusIds});
-    return {playerId:p.id,credits,itemValue,modifierPercent,statusIds,score,items};
+    return {playerId:p.id,credits,itemValue,modifierPercent,statusIds,score,items,...(personalScore?{personalScore}:{})};
   });
   for(const g of Object.values(state.ghosts??{})){g.available=false;for(const j of g.jobs)if(j.status==='offered'||j.status==='accepted')j.status='cancelled';}
   state.collector=results;state.listings=[];state.phase='RESULTS';

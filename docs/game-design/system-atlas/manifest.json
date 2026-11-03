@@ -1,7 +1,7 @@
 {
   "version": 1,
   "asOf": "2026-11-03",
-  "revision": "292ba6b6a241dd30517ae80e213f8ae7dd9cb434",
+  "revision": "25a4fed82bd6a656f7f0c615f14461106e65d132",
   "inputs": {
     "apps/comic/src/game/appraisal/ability-content.ts": "ff33530545a771c4e686640f2fca5db996ef3612f9602da6ddbf68c12377127e",
     "apps/comic/src/game/appraisal/ability-rules.ts": "3e9f33f54b34c91fb26f6d0926f9df83e646dc3623a7c8bbf3beed5cedbc9139",
@@ -144,7 +144,7 @@
     "docs/game-design/concepts/S10-waiting-v01.png": "de560f8bda104459d5ab4c753ec18d88f10b8b2823ca462b5315a3765a38016b",
     "docs/game-design/concepts/S11-death-v02.png": "71dabbe08860067f252885a5699e86881b76135b9691a0a33b180587b19c2252",
     "docs/game-design/concepts/S11-death-v01.png": "d6d89e6c43637a2aa73cc93f04728e38ea39ed2b6b1dce2888ba995b6f2e2456",
-    "docs/validation/personal-scoring-2026-11-03/runtime-checkpoint.json": "fdfae8faf66855cfacdbb658e3134dc17febe4fb9f857ecf83cef1ec22baa81e",
+    "docs/validation/personal-scoring-2026-11-03/runtime-checkpoint.json": "3fbf19cc36549a2d655da279411c98b5a99868d8223161813adade445ff720b8",
     "docs/game-design/personal-scoring-approval.json": "cfd112b400a9839bf0e3d6f854878471c7da43dc2d2e4b8073471e1a62b91ce1",
     "docs/game-design/implementations/personal-scoring-plan.md": "b6106471b15db6398c5dee5cde94e48f315397176f984514b5c195e7098c029c",
     "docs/validation/personal-scoring-2026-11-03/checkpoint.json": "7db819f54cfa55fc610ce879d8d3c2f5b019380f4ca4bddd9186ef42f6d3fc4d",
@@ -225,7 +225,7 @@
   "outputs": [
     {
       "file": "docs/game-design/system-atlas/README.md",
-      "sha256": "3ab31d8382f4630d3cfed0ffe0d7b2727b71bcec0a4d611ca0feb701e69ed8df"
+      "sha256": "83e9aefa1ef8bdcc09d78b69d54b0ed3643c838cb758c4165d45f03e341d8ae6"
     },
     {
       "file": "docs/game-design/system-atlas/actions-logs.md",
@@ -237,7 +237,7 @@
     },
     {
       "file": "docs/game-design/system-atlas/data.json",
-      "sha256": "64c7b569fe0e1673e7514a084e023f26078cfca0ff95ebedabb0baf51ffcfa92"
+      "sha256": "eb2df901294eb69fe22724b9285f055f19f7308180409c27e28f7c35b57ac067"
     },
     {
       "file": "docs/game-design/system-atlas/edges.csv",

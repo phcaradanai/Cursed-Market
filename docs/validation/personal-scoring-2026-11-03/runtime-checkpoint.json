@@ -69,7 +69,7 @@
     },
     "serverBuild": "pass",
     "clientBuild": "pass; unchanged emitted primary JS/CSS names, existing large-chunk advisory",
-    "gitDiffCheck": "pass",
+    "gitDiffCheck": "Source-only committed diff check passes. Whole-commit whitespace check exits2 on original Node failure log blank lines with spaces; raw diagnostics preserved byte-for-byte, not normalized or called a green whole-commit check.",
     "uiSourceCheck": {
       "status": "pass",
       "files": 397,
@@ -80,7 +80,7 @@
       "passed": 10,
       "failed": 0
     },
-    "atlas": "guarded build/check passed; rebuilding fingerprint after this final evidence update",
+    "atlas": "Guarded build/check passed218inputs; regenerated again only for this evidence-scope correction.",
     "trailCheck": "20 conflicts in excluded pre-existing .impeccable cache/design files;400KB branch diff cap, no whole-branch clean claim"
   },
   "remaining": [

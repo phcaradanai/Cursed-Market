@@ -1,5 +1,5 @@
 import {priceCaliper,usePilot,pilotUses,pilotStrength} from './pilot-effects.js';
-import {personalOrigin,recordPersonalActivity,recordPersonalItemActivity,recordPersonalSale,setPersonalTrust} from './personal-scoring.js';
+import {recordPersonalAppraisal,recordPersonalActivity,recordPersonalItemActivity,recordPersonalSale,setPersonalTrust} from './personal-scoring.js';
 import { itemPriceRange } from './rarity.js';
 import { rarityValue } from '../../shared/rarity-power.js';
 import { ownedAssetItemIds } from './secure-storage.js';
@@ -49,7 +49,11 @@ export const wishSlotsOf=(state:AppraisalState,p:Appraiser,base:number)=>Math.mi
 export function enforceCaps(state:AppraisalState):void {
   for(const p of state.players) {
     p.energy=Math.min(p.energy,maxEnergyOf(state,p));
-    if(p.life!==undefined && p.life>0) p.life=Math.min(p.life,maxLifeOf(state,p)!);
+    if(p.life!==undefined && p.life>0){
+      const next=Math.min(p.life,maxLifeOf(state,p)!);
+      if(next<p.life)recordPersonalActivity(state,p,'lifeLost',p.life-next,JSON.stringify(['life-cap',state.commands.length,state.personalPerformance?.facts.length]),true,'held life-cap loss');
+      p.life=next;
+    }
   }
 }
 /** Extra goods laid out on entry, from pooled trust in new runs or the historical lowest-trust rule. */
@@ -278,12 +282,7 @@ export function appraise(state: AppraisalState, p: Appraiser, itemId: string, va
     else {backlash=true;accepted=false;p.inflated=true;}
   }
   const previous = p.valuations[itemId];
-  if(state.config.personalScoringRules===1){
-    const source=JSON.stringify([p.id,personalOrigin(item),'']);
-    const first=!state.personalPerformance!.facts.some(f=>f.playerId===p.id&&f.metric==='accurateAppraisal'&&f.eligibleKey===source);
-    const accurate=Math.abs(value-item.base)<=item.base*.2;
-    recordPersonalItemActivity(state,p,'accurateAppraisal',item,accurate?1:0,first&&accurate,first?(accurate?'first accurate appraisal':'first appraisal outside20percent'):'not first appraisal');
-  }
+  recordPersonalAppraisal(state,p,item,value);
   if (accuracy && !previous?.accuracy) p.accuracyBonus += 5;
   if (!accuracy && previous?.accuracy) p.accuracyBonus -= 5;
   p.valuations[itemId] = {value,accuracy,caught,accepted};

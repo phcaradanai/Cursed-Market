@@ -1,0 +1,2108 @@
+{
+  "schemaVersion": 5,
+  "matchId": "a7c3f452c06ec929",
+  "playtestMode": "no-voice",
+  "startedAt": 1000,
+  "endedAt": 1000,
+  "seats": [
+    {
+      "id": "c43ff183f14a984c",
+      "name": "Scoring Alice"
+    },
+    {
+      "id": "9e5f308db708687c",
+      "name": "Scoring Seat 1"
+    }
+  ],
+  "run": {
+    "personalPerformance": {
+      "version": 1,
+      "facts": [
+        {
+          "id": "[5,0,\"c43ff183f14a984c\",\"inspection\"]",
+          "playerId": "c43ff183f14a984c",
+          "metric": "inspection",
+          "raw": 1,
+          "eligibleKey": "[\"c43ff183f14a984c\",\"item-1-0-0-0\",\"authenticity\"]",
+          "eligible": true,
+          "cause": "settled"
+        },
+        {
+          "id": "[7,1,\"9e5f308db708687c\",\"inspection\"]",
+          "playerId": "9e5f308db708687c",
+          "metric": "inspection",
+          "raw": 1,
+          "eligibleKey": "[\"9e5f308db708687c\",\"item-1-1-0-0\",\"authenticity\"]",
+          "eligible": true,
+          "cause": "settled"
+        },
+        {
+          "id": "[11,2,\"c43ff183f14a984c\",\"lifeLost\"]",
+          "playerId": "c43ff183f14a984c",
+          "metric": "lifeLost",
+          "raw": 1,
+          "eligibleKey": "[11,2,\"dimensional-decay\"]",
+          "eligible": true,
+          "cause": "settled"
+        },
+        {
+          "id": "[11,3,\"c43ff183f14a984c\",\"survived\"]",
+          "playerId": "c43ff183f14a984c",
+          "metric": "survived",
+          "raw": 1,
+          "eligibleKey": "1",
+          "eligible": true,
+          "cause": "settled"
+        },
+        {
+          "id": "[11,4,\"9e5f308db708687c\",\"lifeLost\"]",
+          "playerId": "9e5f308db708687c",
+          "metric": "lifeLost",
+          "raw": 1,
+          "eligibleKey": "[11,4,\"dimensional-decay\"]",
+          "eligible": true,
+          "cause": "settled"
+        },
+        {
+          "id": "[11,5,\"9e5f308db708687c\",\"survived\"]",
+          "playerId": "9e5f308db708687c",
+          "metric": "survived",
+          "raw": 1,
+          "eligibleKey": "1",
+          "eligible": true,
+          "cause": "settled"
+        },
+        {
+          "id": "[20,6,\"c43ff183f14a984c\",\"inspection\"]",
+          "playerId": "c43ff183f14a984c",
+          "metric": "inspection",
+          "raw": 1,
+          "eligibleKey": "[\"c43ff183f14a984c\",\"item-2-0-0-0\",\"authenticity\"]",
+          "eligible": true,
+          "cause": "settled"
+        },
+        {
+          "id": "[22,7,\"9e5f308db708687c\",\"inspection\"]",
+          "playerId": "9e5f308db708687c",
+          "metric": "inspection",
+          "raw": 1,
+          "eligibleKey": "[\"9e5f308db708687c\",\"item-2-1-0-0\",\"authenticity\"]",
+          "eligible": true,
+          "cause": "settled"
+        },
+        {
+          "id": "[26,8,\"c43ff183f14a984c\",\"lifeLost\"]",
+          "playerId": "c43ff183f14a984c",
+          "metric": "lifeLost",
+          "raw": 1,
+          "eligibleKey": "[26,8,\"dimensional-decay\"]",
+          "eligible": true,
+          "cause": "settled"
+        },
+        {
+          "id": "[26,9,\"c43ff183f14a984c\",\"survived\"]",
+          "playerId": "c43ff183f14a984c",
+          "metric": "survived",
+          "raw": 1,
+          "eligibleKey": "2",
+          "eligible": true,
+          "cause": "settled"
+        },
+        {
+          "id": "[26,10,\"9e5f308db708687c\",\"lifeLost\"]",
+          "playerId": "9e5f308db708687c",
+          "metric": "lifeLost",
+          "raw": 1,
+          "eligibleKey": "[26,10,\"dimensional-decay\"]",
+          "eligible": true,
+          "cause": "settled"
+        },
+        {
+          "id": "[26,11,\"9e5f308db708687c\",\"survived\"]",
+          "playerId": "9e5f308db708687c",
+          "metric": "survived",
+          "raw": 1,
+          "eligibleKey": "2",
+          "eligible": true,
+          "cause": "settled"
+        }
+      ]
+    },
+    "schemaVersion": 5,
+    "playerIds": [
+      "c43ff183f14a984c",
+      "9e5f308db708687c"
+    ],
+    "seed": "personal-wire-v1",
+    "config": {
+      "rarityEconomy": {
+        "version": 1,
+        "tiers": {
+          "common": {
+            "value": 1,
+            "effect": 1
+          },
+          "uncommon": {
+            "value": 2,
+            "effect": 2
+          },
+          "rare": {
+            "value": 3,
+            "effect": 3
+          },
+          "epic": {
+            "value": 4,
+            "effect": 4
+          },
+          "legendary": {
+            "value": 6,
+            "effect": 6
+          },
+          "mythic": {
+            "value": 8,
+            "effect": 8
+          }
+        }
+      },
+      "rarity": {
+        "version": 1,
+        "rates": {
+          "common": 0.6,
+          "uncommon": 0.25,
+          "rare": 0.1,
+          "epic": 0.035,
+          "legendary": 0.013,
+          "mythic": 0.002
+        },
+        "themes": {
+          "common": [
+            {
+              "theme": "plain",
+              "weight": 1
+            }
+          ],
+          "uncommon": [
+            {
+              "theme": "inferno",
+              "weight": 1
+            },
+            {
+              "theme": "frost",
+              "weight": 1
+            },
+            {
+              "theme": "storm",
+              "weight": 1
+            },
+            {
+              "theme": "venom",
+              "weight": 1
+            },
+            {
+              "theme": "spirit",
+              "weight": 1
+            },
+            {
+              "theme": "lunar",
+              "weight": 1
+            },
+            {
+              "theme": "solar",
+              "weight": 1
+            },
+            {
+              "theme": "void",
+              "weight": 1
+            },
+            {
+              "theme": "prism",
+              "weight": 1
+            },
+            {
+              "theme": "clockwork",
+              "weight": 1
+            }
+          ],
+          "rare": [
+            {
+              "theme": "inferno",
+              "weight": 1
+            },
+            {
+              "theme": "frost",
+              "weight": 1
+            },
+            {
+              "theme": "storm",
+              "weight": 1
+            },
+            {
+              "theme": "venom",
+              "weight": 1
+            },
+            {
+              "theme": "spirit",
+              "weight": 1
+            },
+            {
+              "theme": "lunar",
+              "weight": 1
+            },
+            {
+              "theme": "solar",
+              "weight": 1
+            },
+            {
+              "theme": "void",
+              "weight": 1
+            },
+            {
+              "theme": "prism",
+              "weight": 1
+            },
+            {
+              "theme": "clockwork",
+              "weight": 1
+            }
+          ],
+          "epic": [
+            {
+              "theme": "inferno",
+              "weight": 1
+            },
+            {
+              "theme": "frost",
+              "weight": 1
+            },
+            {
+              "theme": "storm",
+              "weight": 1
+            },
+            {
+              "theme": "venom",
+              "weight": 1
+            },
+            {
+              "theme": "spirit",
+              "weight": 1
+            },
+            {
+              "theme": "lunar",
+              "weight": 1
+            },
+            {
+              "theme": "solar",
+              "weight": 1
+            },
+            {
+              "theme": "void",
+              "weight": 1
+            },
+            {
+              "theme": "prism",
+              "weight": 1
+            },
+            {
+              "theme": "clockwork",
+              "weight": 1
+            }
+          ],
+          "legendary": [
+            {
+              "theme": "inferno",
+              "weight": 1
+            },
+            {
+              "theme": "frost",
+              "weight": 1
+            },
+            {
+              "theme": "storm",
+              "weight": 1
+            },
+            {
+              "theme": "venom",
+              "weight": 1
+            },
+            {
+              "theme": "spirit",
+              "weight": 1
+            },
+            {
+              "theme": "lunar",
+              "weight": 1
+            },
+            {
+              "theme": "solar",
+              "weight": 1
+            },
+            {
+              "theme": "void",
+              "weight": 1
+            },
+            {
+              "theme": "prism",
+              "weight": 1
+            },
+            {
+              "theme": "clockwork",
+              "weight": 1
+            }
+          ],
+          "mythic": [
+            {
+              "theme": "inferno",
+              "weight": 1
+            },
+            {
+              "theme": "frost",
+              "weight": 1
+            },
+            {
+              "theme": "storm",
+              "weight": 1
+            },
+            {
+              "theme": "venom",
+              "weight": 1
+            },
+            {
+              "theme": "spirit",
+              "weight": 1
+            },
+            {
+              "theme": "lunar",
+              "weight": 1
+            },
+            {
+              "theme": "solar",
+              "weight": 1
+            },
+            {
+              "theme": "void",
+              "weight": 1
+            },
+            {
+              "theme": "prism",
+              "weight": 1
+            },
+            {
+              "theme": "clockwork",
+              "weight": 1
+            }
+          ]
+        }
+      },
+      "loanEndSettlement": true,
+      "vaultInterestRules": 1,
+      "theftTimeoutRules": 1,
+      "collectorDeadline": 2,
+      "eventChoiceRules": 1,
+      "statusLinks": 1,
+      "systemLinks": 1,
+      "trustAbilities": true,
+      "catalogVersion": 4,
+      "itemEffects": true,
+      "roundRewards": true,
+      "multiCoinRewards": true,
+      "commerce": true,
+      "totalTrustStock": true,
+      "curseSight": true,
+      "freeBuy": true,
+      "freeMerchantAction": true,
+      "fakeEffect": true,
+      "cleanse": true,
+      "wishlist": true,
+      "wishContract": true,
+      "challenge": true,
+      "expansion": true,
+      "encounters": 3,
+      "startingCredits": 40,
+      "maxEnergy": 10,
+      "recoveryEnergy": 4,
+      "bankReserve": 2000,
+      "marketProbability": 1,
+      "marketMaxOrders": 3,
+      "marketQuota": 1,
+      "personalScoringRules": 1,
+      "survival": {
+        "maxLife": 6,
+        "encounterLifeCost": 1,
+        "entryEnergyCost": 0
+      }
+    },
+    "commands": [
+      {
+        "type": "event",
+        "requestId": "score-wire-0",
+        "encounter": 1,
+        "key": "1:9e5f308db708687c:E01:0:0",
+        "choice": "stay",
+        "playerId": "9e5f308db708687c"
+      },
+      {
+        "type": "enter",
+        "requestId": "score-wire-1",
+        "encounter": 1,
+        "portalId": "portal-1-0-0",
+        "playerId": "c43ff183f14a984c"
+      },
+      {
+        "type": "enter",
+        "requestId": "score-wire-2",
+        "encounter": 1,
+        "portalId": "portal-1-1-0",
+        "playerId": "9e5f308db708687c"
+      },
+      {
+        "type": "event",
+        "requestId": "score-wire-3",
+        "encounter": 1,
+        "key": "1:c43ff183f14a984c:E93:0:0",
+        "choice": "decline",
+        "itemId": "item-1-0-0-0",
+        "playerId": "c43ff183f14a984c"
+      },
+      {
+        "type": "event",
+        "requestId": "score-wire-4",
+        "encounter": 1,
+        "key": "1:9e5f308db708687c:E13:1:0",
+        "choice": "decline",
+        "itemId": "item-1-1-0-0",
+        "playerId": "9e5f308db708687c"
+      },
+      {
+        "type": "inspect",
+        "requestId": "score-wire-5",
+        "encounter": 1,
+        "itemId": "item-1-0-0-0",
+        "property": "authenticity",
+        "playerId": "c43ff183f14a984c"
+      },
+      {
+        "type": "done",
+        "requestId": "score-wire-6",
+        "encounter": 1,
+        "playerId": "c43ff183f14a984c"
+      },
+      {
+        "type": "inspect",
+        "requestId": "score-wire-7",
+        "encounter": 1,
+        "itemId": "item-1-1-0-0",
+        "property": "authenticity",
+        "playerId": "9e5f308db708687c"
+      },
+      {
+        "type": "done",
+        "requestId": "score-wire-8",
+        "encounter": 1,
+        "playerId": "9e5f308db708687c"
+      },
+      {
+        "type": "event",
+        "requestId": "score-wire-9",
+        "encounter": 1,
+        "key": "1:c43ff183f14a984c:E43:1:0",
+        "choice": "accept",
+        "itemId": "item-1-0-0-0",
+        "playerId": "c43ff183f14a984c"
+      },
+      {
+        "type": "done",
+        "requestId": "score-wire-10",
+        "encounter": 1,
+        "playerId": "c43ff183f14a984c"
+      },
+      {
+        "type": "done",
+        "requestId": "score-wire-11",
+        "encounter": 1,
+        "playerId": "9e5f308db708687c"
+      },
+      {
+        "type": "round-bank",
+        "requestId": "score-wire-12",
+        "encounter": 1,
+        "playerId": "c43ff183f14a984c"
+      },
+      {
+        "type": "round-bank",
+        "requestId": "score-wire-13",
+        "encounter": 1,
+        "playerId": "9e5f308db708687c"
+      },
+      {
+        "type": "advance"
+      },
+      {
+        "type": "event",
+        "requestId": "score-wire-14",
+        "encounter": 2,
+        "key": "2:c43ff183f14a984c:E01:0:0",
+        "choice": "stay",
+        "playerId": "c43ff183f14a984c"
+      },
+      {
+        "type": "enter",
+        "requestId": "score-wire-15",
+        "encounter": 2,
+        "portalId": "portal-2-0-0",
+        "playerId": "c43ff183f14a984c"
+      },
+      {
+        "type": "enter",
+        "requestId": "score-wire-16",
+        "encounter": 2,
+        "portalId": "portal-2-1-0",
+        "playerId": "9e5f308db708687c"
+      },
+      {
+        "type": "event",
+        "requestId": "score-wire-17",
+        "encounter": 2,
+        "key": "2:c43ff183f14a984c:E73:1:0",
+        "choice": "decline",
+        "itemId": "item-2-0-0-0",
+        "playerId": "c43ff183f14a984c"
+      },
+      {
+        "type": "event",
+        "requestId": "score-wire-18",
+        "encounter": 2,
+        "key": "2:9e5f308db708687c:E73:0:0",
+        "choice": "decline",
+        "itemId": "item-2-1-0-0",
+        "playerId": "9e5f308db708687c"
+      },
+      {
+        "type": "inspect",
+        "requestId": "score-wire-19",
+        "encounter": 2,
+        "itemId": "item-2-0-0-0",
+        "property": "authenticity",
+        "playerId": "c43ff183f14a984c"
+      },
+      {
+        "type": "done",
+        "requestId": "score-wire-20",
+        "encounter": 2,
+        "playerId": "c43ff183f14a984c"
+      },
+      {
+        "type": "inspect",
+        "requestId": "score-wire-21",
+        "encounter": 2,
+        "itemId": "item-2-1-0-0",
+        "property": "authenticity",
+        "playerId": "9e5f308db708687c"
+      },
+      {
+        "type": "done",
+        "requestId": "score-wire-22",
+        "encounter": 2,
+        "playerId": "9e5f308db708687c"
+      },
+      {
+        "type": "event",
+        "requestId": "score-wire-23",
+        "encounter": 2,
+        "key": "2:9e5f308db708687c:E92:1:0",
+        "choice": "decline",
+        "itemId": "item-2-1-0-0",
+        "playerId": "9e5f308db708687c"
+      },
+      {
+        "type": "done",
+        "requestId": "score-wire-24",
+        "encounter": 2,
+        "playerId": "c43ff183f14a984c"
+      },
+      {
+        "type": "done",
+        "requestId": "score-wire-25",
+        "encounter": 2,
+        "playerId": "9e5f308db708687c"
+      }
+    ],
+    "ledger": [
+      {
+        "from": "@round-fund",
+        "to": "c43ff183f14a984c",
+        "amount": 10,
+        "reason": "round-reward",
+        "encounter": 1
+      },
+      {
+        "from": "@round-fund",
+        "to": "9e5f308db708687c",
+        "amount": 10,
+        "reason": "round-reward",
+        "encounter": 1
+      }
+    ],
+    "history": [
+      {
+        "encounter": 1,
+        "playerId": "c43ff183f14a984c",
+        "gain": 0,
+        "accuracy": 0,
+        "score": 0,
+        "paused": null
+      },
+      {
+        "encounter": 1,
+        "playerId": "9e5f308db708687c",
+        "gain": 0,
+        "accuracy": 0,
+        "score": 0,
+        "paused": null
+      },
+      {
+        "encounter": 2,
+        "playerId": "c43ff183f14a984c",
+        "gain": 0,
+        "accuracy": 0,
+        "score": 0,
+        "paused": null
+      },
+      {
+        "encounter": 2,
+        "playerId": "9e5f308db708687c",
+        "gain": 0,
+        "accuracy": 0,
+        "score": 0,
+        "paused": null
+      }
+    ],
+    "trace": [
+      {
+        "type": "event-offered",
+        "encounter": 1,
+        "playerId": "9e5f308db708687c",
+        "details": {
+          "id": "E01",
+          "key": "1:9e5f308db708687c:E01:0:0",
+          "choices": [
+            "stay",
+            "switch"
+          ]
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 1,
+        "playerId": "9e5f308db708687c",
+        "details": {
+          "energy": 1,
+          "reason": "E01"
+        }
+      },
+      {
+        "type": "event-resolved",
+        "encounter": 1,
+        "playerId": "9e5f308db708687c",
+        "details": {
+          "id": "E01",
+          "choice": "stay"
+        }
+      },
+      {
+        "type": "portal-entered",
+        "encounter": 1,
+        "playerId": "c43ff183f14a984c",
+        "details": {
+          "portalId": "portal-1-0-0",
+          "npc": "orc"
+        }
+      },
+      {
+        "type": "portal-entered",
+        "encounter": 1,
+        "playerId": "9e5f308db708687c",
+        "details": {
+          "portalId": "portal-1-1-0",
+          "npc": "autometa"
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 1,
+        "playerId": "c43ff183f14a984c",
+        "details": {
+          "id": "E93",
+          "key": "1:c43ff183f14a984c:E93:0:0",
+          "choices": [
+            "accept",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 1,
+        "playerId": "9e5f308db708687c",
+        "details": {
+          "id": "E13",
+          "key": "1:9e5f308db708687c:E13:1:0",
+          "choices": [
+            "accept",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 1,
+        "playerId": "c43ff183f14a984c",
+        "details": {
+          "id": "E93"
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 1,
+        "playerId": "9e5f308db708687c",
+        "details": {
+          "id": "E13"
+        }
+      },
+      {
+        "type": "inspected",
+        "encounter": 1,
+        "playerId": "c43ff183f14a984c",
+        "details": {
+          "itemId": "item-1-0-0-0",
+          "property": "authenticity"
+        }
+      },
+      {
+        "type": "inspected",
+        "encounter": 1,
+        "playerId": "9e5f308db708687c",
+        "details": {
+          "itemId": "item-1-1-0-0",
+          "property": "authenticity"
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 1,
+        "playerId": "c43ff183f14a984c",
+        "details": {
+          "id": "E43",
+          "key": "1:c43ff183f14a984c:E43:1:0",
+          "choices": [
+            "accept"
+          ]
+        }
+      },
+      {
+        "type": "event-resolved",
+        "encounter": 1,
+        "playerId": "c43ff183f14a984c",
+        "details": {
+          "id": "E43",
+          "choice": "accept"
+        }
+      },
+      {
+        "type": "life-lost",
+        "encounter": 1,
+        "playerId": "c43ff183f14a984c",
+        "details": {
+          "amount": 1,
+          "reason": "dimensional-decay"
+        }
+      },
+      {
+        "type": "life-lost",
+        "encounter": 1,
+        "playerId": "9e5f308db708687c",
+        "details": {
+          "amount": 1,
+          "reason": "dimensional-decay"
+        }
+      },
+      {
+        "type": "round-reward-banked",
+        "encounter": 1,
+        "playerId": "c43ff183f14a984c",
+        "details": {
+          "amount": 10,
+          "flips": 0
+        }
+      },
+      {
+        "type": "round-reward-banked",
+        "encounter": 1,
+        "playerId": "9e5f308db708687c",
+        "details": {
+          "amount": 10,
+          "flips": 0
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 2,
+        "playerId": "c43ff183f14a984c",
+        "details": {
+          "id": "E01",
+          "key": "2:c43ff183f14a984c:E01:0:0",
+          "choices": [
+            "stay",
+            "switch"
+          ]
+        }
+      },
+      {
+        "type": "energy-spent",
+        "encounter": 2,
+        "playerId": "c43ff183f14a984c",
+        "details": {
+          "energy": 1,
+          "reason": "E01"
+        }
+      },
+      {
+        "type": "event-resolved",
+        "encounter": 2,
+        "playerId": "c43ff183f14a984c",
+        "details": {
+          "id": "E01",
+          "choice": "stay"
+        }
+      },
+      {
+        "type": "portal-entered",
+        "encounter": 2,
+        "playerId": "c43ff183f14a984c",
+        "details": {
+          "portalId": "portal-2-0-0",
+          "npc": "orc"
+        }
+      },
+      {
+        "type": "portal-entered",
+        "encounter": 2,
+        "playerId": "9e5f308db708687c",
+        "details": {
+          "portalId": "portal-2-1-0",
+          "npc": "alien"
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 2,
+        "playerId": "c43ff183f14a984c",
+        "details": {
+          "id": "E73",
+          "key": "2:c43ff183f14a984c:E73:1:0",
+          "choices": [
+            "accept",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 2,
+        "playerId": "9e5f308db708687c",
+        "details": {
+          "id": "E73",
+          "key": "2:9e5f308db708687c:E73:0:0",
+          "choices": [
+            "accept",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 2,
+        "playerId": "c43ff183f14a984c",
+        "details": {
+          "id": "E73"
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 2,
+        "playerId": "9e5f308db708687c",
+        "details": {
+          "id": "E73"
+        }
+      },
+      {
+        "type": "inspected",
+        "encounter": 2,
+        "playerId": "c43ff183f14a984c",
+        "details": {
+          "itemId": "item-2-0-0-0",
+          "property": "authenticity"
+        }
+      },
+      {
+        "type": "inspected",
+        "encounter": 2,
+        "playerId": "9e5f308db708687c",
+        "details": {
+          "itemId": "item-2-1-0-0",
+          "property": "authenticity"
+        }
+      },
+      {
+        "type": "event-offered",
+        "encounter": 2,
+        "playerId": "9e5f308db708687c",
+        "details": {
+          "id": "E92",
+          "key": "2:9e5f308db708687c:E92:1:0",
+          "choices": [
+            "accept",
+            "decline"
+          ]
+        }
+      },
+      {
+        "type": "event-declined",
+        "encounter": 2,
+        "playerId": "9e5f308db708687c",
+        "details": {
+          "id": "E92"
+        }
+      },
+      {
+        "type": "life-lost",
+        "encounter": 2,
+        "playerId": "c43ff183f14a984c",
+        "details": {
+          "amount": 1,
+          "reason": "dimensional-decay"
+        }
+      },
+      {
+        "type": "life-lost",
+        "encounter": 2,
+        "playerId": "9e5f308db708687c",
+        "details": {
+          "amount": 1,
+          "reason": "dimensional-decay"
+        }
+      },
+      {
+        "type": "collector-scored",
+        "encounter": 2,
+        "playerId": "c43ff183f14a984c",
+        "details": {
+          "credits": 50,
+          "itemValue": 0,
+          "modifierPercent": 0,
+          "score": 58,
+          "itemIds": [],
+          "statusIds": []
+        }
+      },
+      {
+        "type": "collector-scored",
+        "encounter": 2,
+        "playerId": "9e5f308db708687c",
+        "details": {
+          "credits": 50,
+          "itemValue": 0,
+          "modifierPercent": 0,
+          "score": 58,
+          "itemIds": [],
+          "statusIds": []
+        }
+      }
+    ],
+    "items": {
+      "item-1-0-0-0": {
+        "id": "item-1-0-0-0",
+        "kind": "orc-tusk-shield",
+        "base": 21,
+        "ask": 22,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:c43ff183f14a984c:1",
+        "npcOwnerId": "c43ff183f14a984c",
+        "npc": "orc",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 10,
+        "appearance": {
+          "version": 1,
+          "rarity": "common",
+          "theme": "plain",
+          "visualSeed": 2707803479
+        },
+        "rarityPower": {
+          "version": 1,
+          "valueMultiplier": 1,
+          "effectMultiplier": 1
+        }
+      },
+      "item-1-0-0-1": {
+        "id": "item-1-0-0-1",
+        "kind": "orc-tusk-shield",
+        "base": 19,
+        "ask": 25,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:c43ff183f14a984c:1",
+        "npcOwnerId": "c43ff183f14a984c",
+        "npc": "orc",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 15,
+        "appearance": {
+          "version": 1,
+          "rarity": "common",
+          "theme": "plain",
+          "visualSeed": 1483543853
+        },
+        "rarityPower": {
+          "version": 1,
+          "valueMultiplier": 1,
+          "effectMultiplier": 1
+        }
+      },
+      "item-1-0-1-0": {
+        "id": "item-1-0-1-0",
+        "kind": "vampire-nocturne-signet",
+        "base": 20,
+        "ask": 21,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:c43ff183f14a984c:1",
+        "npcOwnerId": "c43ff183f14a984c",
+        "npc": "vampire",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 11
+      },
+      "item-1-0-1-1": {
+        "id": "item-1-0-1-1",
+        "kind": "vampire-nocturne-signet",
+        "base": 23,
+        "ask": 19,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:c43ff183f14a984c:1",
+        "npcOwnerId": "c43ff183f14a984c",
+        "npc": "vampire",
+        "encounter": 1,
+        "certificate": false,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 15
+      },
+      "item-1-0-2-0": {
+        "id": "item-1-0-2-0",
+        "kind": "darkone-crossing-token",
+        "base": 12,
+        "ask": 20,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:c43ff183f14a984c:1",
+        "npcOwnerId": "c43ff183f14a984c",
+        "npc": "darkone",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 8
+      },
+      "item-1-0-2-1": {
+        "id": "item-1-0-2-1",
+        "kind": "darkone-crossing-token",
+        "base": 22,
+        "ask": 20,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:c43ff183f14a984c:1",
+        "npcOwnerId": "c43ff183f14a984c",
+        "npc": "darkone",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 15
+      },
+      "item-1-1-0-0": {
+        "id": "item-1-1-0-0",
+        "kind": "autometa-torque-caliper",
+        "base": 12,
+        "ask": 18,
+        "genuine": true,
+        "cursed": true,
+        "owner": "npc:9e5f308db708687c:1",
+        "npcOwnerId": "9e5f308db708687c",
+        "npc": "autometa",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 10,
+        "appearance": {
+          "version": 1,
+          "rarity": "common",
+          "theme": "plain",
+          "visualSeed": 427769987
+        },
+        "rarityPower": {
+          "version": 1,
+          "valueMultiplier": 1,
+          "effectMultiplier": 1
+        }
+      },
+      "item-1-1-0-1": {
+        "id": "item-1-1-0-1",
+        "kind": "autometa-torque-caliper",
+        "base": 18,
+        "ask": 17,
+        "genuine": true,
+        "cursed": true,
+        "owner": "npc:9e5f308db708687c:1",
+        "npcOwnerId": "9e5f308db708687c",
+        "npc": "autometa",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 16,
+        "appearance": {
+          "version": 1,
+          "rarity": "common",
+          "theme": "plain",
+          "visualSeed": 1211450051
+        },
+        "rarityPower": {
+          "version": 1,
+          "valueMultiplier": 1,
+          "effectMultiplier": 1
+        }
+      },
+      "item-1-1-1-0": {
+        "id": "item-1-1-1-0",
+        "kind": "orc-tusk-shield",
+        "base": 26,
+        "ask": 22,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:9e5f308db708687c:1",
+        "npcOwnerId": "9e5f308db708687c",
+        "npc": "orc",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 15
+      },
+      "item-1-1-1-1": {
+        "id": "item-1-1-1-1",
+        "kind": "orc-tusk-shield",
+        "base": 25,
+        "ask": 27,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:9e5f308db708687c:1",
+        "npcOwnerId": "9e5f308db708687c",
+        "npc": "orc",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 15
+      },
+      "item-1-1-2-0": {
+        "id": "item-1-1-2-0",
+        "kind": "vampire-nocturne-signet",
+        "base": 15,
+        "ask": 18,
+        "genuine": true,
+        "cursed": true,
+        "owner": "npc:9e5f308db708687c:1",
+        "npcOwnerId": "9e5f308db708687c",
+        "npc": "vampire",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 9
+      },
+      "item-1-1-2-1": {
+        "id": "item-1-1-2-1",
+        "kind": "vampire-nocturne-signet",
+        "base": 16,
+        "ask": 23,
+        "genuine": true,
+        "cursed": true,
+        "owner": "npc:9e5f308db708687c:1",
+        "npcOwnerId": "9e5f308db708687c",
+        "npc": "vampire",
+        "encounter": 1,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 7
+      },
+      "item-2-0-0-0": {
+        "id": "item-2-0-0-0",
+        "kind": "orc-tusk-shield",
+        "base": 64,
+        "ask": 54,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:c43ff183f14a984c:2",
+        "npcOwnerId": "c43ff183f14a984c",
+        "npc": "orc",
+        "encounter": 2,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 32,
+        "appearance": {
+          "version": 1,
+          "rarity": "uncommon",
+          "theme": "venom",
+          "visualSeed": 2539344394
+        },
+        "rarityPower": {
+          "version": 1,
+          "valueMultiplier": 2,
+          "effectMultiplier": 2
+        }
+      },
+      "item-2-0-0-1": {
+        "id": "item-2-0-0-1",
+        "kind": "orc-tusk-shield",
+        "base": 23,
+        "ask": 23,
+        "genuine": true,
+        "cursed": true,
+        "owner": "npc:c43ff183f14a984c:2",
+        "npcOwnerId": "c43ff183f14a984c",
+        "npc": "orc",
+        "encounter": 2,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 15,
+        "appearance": {
+          "version": 1,
+          "rarity": "common",
+          "theme": "plain",
+          "visualSeed": 1070830169
+        },
+        "rarityPower": {
+          "version": 1,
+          "valueMultiplier": 1,
+          "effectMultiplier": 1
+        }
+      },
+      "item-2-0-1-0": {
+        "id": "item-2-0-1-0",
+        "kind": "deepsea-tide-compass",
+        "base": 18,
+        "ask": 20,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:c43ff183f14a984c:2",
+        "npcOwnerId": "c43ff183f14a984c",
+        "npc": "deepsea",
+        "encounter": 2,
+        "certificate": false,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 8
+      },
+      "item-2-0-1-1": {
+        "id": "item-2-0-1-1",
+        "kind": "deepsea-tide-compass",
+        "base": 14,
+        "ask": 20,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:c43ff183f14a984c:2",
+        "npcOwnerId": "c43ff183f14a984c",
+        "npc": "deepsea",
+        "encounter": 2,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 6
+      },
+      "item-2-0-2-0": {
+        "id": "item-2-0-2-0",
+        "kind": "autometa-torque-caliper",
+        "base": 23,
+        "ask": 17,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:c43ff183f14a984c:2",
+        "npcOwnerId": "c43ff183f14a984c",
+        "npc": "autometa",
+        "encounter": 2,
+        "certificate": false,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 17
+      },
+      "item-2-0-2-1": {
+        "id": "item-2-0-2-1",
+        "kind": "autometa-torque-caliper",
+        "base": 13,
+        "ask": 17,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:c43ff183f14a984c:2",
+        "npcOwnerId": "c43ff183f14a984c",
+        "npc": "autometa",
+        "encounter": 2,
+        "certificate": false,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 11
+      },
+      "item-2-1-0-0": {
+        "id": "item-2-1-0-0",
+        "kind": "alien-thought-translator",
+        "base": 17,
+        "ask": 21,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:9e5f308db708687c:2",
+        "npcOwnerId": "9e5f308db708687c",
+        "npc": "alien",
+        "encounter": 2,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 10,
+        "appearance": {
+          "version": 1,
+          "rarity": "common",
+          "theme": "plain",
+          "visualSeed": 3002993687
+        },
+        "rarityPower": {
+          "version": 1,
+          "valueMultiplier": 1,
+          "effectMultiplier": 1
+        }
+      },
+      "item-2-1-0-1": {
+        "id": "item-2-1-0-1",
+        "kind": "alien-thought-translator",
+        "base": 28,
+        "ask": 36,
+        "genuine": true,
+        "cursed": true,
+        "owner": "npc:9e5f308db708687c:2",
+        "npcOwnerId": "9e5f308db708687c",
+        "npc": "alien",
+        "encounter": 2,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 16,
+        "appearance": {
+          "version": 1,
+          "rarity": "uncommon",
+          "theme": "spirit",
+          "visualSeed": 1722545492
+        },
+        "rarityPower": {
+          "version": 1,
+          "valueMultiplier": 2,
+          "effectMultiplier": 2
+        }
+      },
+      "item-2-1-1-0": {
+        "id": "item-2-1-1-0",
+        "kind": "deepsea-tide-compass",
+        "base": 21,
+        "ask": 21,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:9e5f308db708687c:2",
+        "npcOwnerId": "9e5f308db708687c",
+        "npc": "deepsea",
+        "encounter": 2,
+        "certificate": false,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 10
+      },
+      "item-2-1-1-1": {
+        "id": "item-2-1-1-1",
+        "kind": "deepsea-tide-compass",
+        "base": 23,
+        "ask": 18,
+        "genuine": true,
+        "cursed": false,
+        "owner": "npc:9e5f308db708687c:2",
+        "npcOwnerId": "9e5f308db708687c",
+        "npc": "deepsea",
+        "encounter": 2,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 8
+      },
+      "item-2-1-2-0": {
+        "id": "item-2-1-2-0",
+        "kind": "swarm-brood-hammer",
+        "base": 18,
+        "ask": 21,
+        "genuine": true,
+        "cursed": true,
+        "owner": "npc:9e5f308db708687c:2",
+        "npcOwnerId": "9e5f308db708687c",
+        "npc": "swarm",
+        "encounter": 2,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 13
+      },
+      "item-2-1-2-1": {
+        "id": "item-2-1-2-1",
+        "kind": "swarm-brood-hammer",
+        "base": 19,
+        "ask": 20,
+        "genuine": false,
+        "cursed": true,
+        "owner": "npc:9e5f308db708687c:2",
+        "npcOwnerId": "9e5f308db708687c",
+        "npc": "swarm",
+        "encounter": 2,
+        "certificate": true,
+        "lastAppraisal": null,
+        "lastAccepted": null,
+        "reservation": 12
+      }
+    },
+    "final": [
+      {
+        "id": "c43ff183f14a984c",
+        "credits": 50,
+        "energy": 9,
+        "inventory": [],
+        "score": 58,
+        "life": 4
+      },
+      {
+        "id": "9e5f308db708687c",
+        "credits": 50,
+        "energy": 9,
+        "inventory": [],
+        "score": 58,
+        "life": 4
+      }
+    ],
+    "collector": [
+      {
+        "playerId": "c43ff183f14a984c",
+        "credits": 50,
+        "itemValue": 0,
+        "modifierPercent": 0,
+        "statusIds": [],
+        "score": 58,
+        "items": [],
+        "personalScore": {
+          "playerId": "c43ff183f14a984c",
+          "metrics": [
+            {
+              "id": "bought",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": 40,
+              "weight": {
+                "numerator": 2,
+                "denominator": 1
+              },
+              "sourceIds": [],
+              "exclusions": []
+            },
+            {
+              "id": "soldQuantity",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": 75,
+              "weight": {
+                "numerator": 5,
+                "denominator": 1
+              },
+              "sourceIds": [],
+              "exclusions": []
+            },
+            {
+              "id": "soldGrossCredits",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": 100,
+              "weight": {
+                "numerator": 1,
+                "denominator": 10
+              },
+              "sourceIds": [],
+              "exclusions": []
+            },
+            {
+              "id": "trustGained",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": 120,
+              "weight": {
+                "numerator": 3,
+                "denominator": 1
+              },
+              "sourceIds": [],
+              "exclusions": []
+            },
+            {
+              "id": "inspection",
+              "raw": 2,
+              "eligible": 2,
+              "uncappedPoints": 2,
+              "points": 2,
+              "cap": 24,
+              "weight": {
+                "numerator": 1,
+                "denominator": 1
+              },
+              "sourceIds": [
+                "[5,0,\"c43ff183f14a984c\",\"inspection\"]",
+                "[20,6,\"c43ff183f14a984c\",\"inspection\"]"
+              ],
+              "exclusions": []
+            },
+            {
+              "id": "accurateAppraisal",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": 40,
+              "weight": {
+                "numerator": 2,
+                "denominator": 1
+              },
+              "sourceIds": [],
+              "exclusions": []
+            },
+            {
+              "id": "npcContract",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": 32,
+              "weight": {
+                "numerator": 4,
+                "denominator": 1
+              },
+              "sourceIds": [],
+              "exclusions": []
+            },
+            {
+              "id": "interest",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": 30,
+              "weight": {
+                "numerator": 1,
+                "denominator": 1
+              },
+              "sourceIds": [],
+              "exclusions": []
+            },
+            {
+              "id": "loanRepaid",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": 20,
+              "weight": {
+                "numerator": 5,
+                "denominator": 1
+              },
+              "sourceIds": [],
+              "exclusions": []
+            },
+            {
+              "id": "survived",
+              "raw": 2,
+              "eligible": 2,
+              "uncappedPoints": 4,
+              "points": 4,
+              "cap": 30,
+              "weight": {
+                "numerator": 2,
+                "denominator": 1
+              },
+              "sourceIds": [
+                "[11,3,\"c43ff183f14a984c\",\"survived\"]",
+                "[26,9,\"c43ff183f14a984c\",\"survived\"]"
+              ],
+              "exclusions": []
+            },
+            {
+              "id": "lifeLost",
+              "raw": 2,
+              "eligible": 2,
+              "uncappedPoints": 2,
+              "points": 2,
+              "cap": 12,
+              "weight": {
+                "numerator": 1,
+                "denominator": 1
+              },
+              "sourceIds": [
+                "[11,2,\"c43ff183f14a984c\",\"lifeLost\"]",
+                "[26,8,\"c43ff183f14a984c\",\"lifeLost\"]"
+              ],
+              "exclusions": []
+            },
+            {
+              "id": "theft",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": 20,
+              "weight": {
+                "numerator": 4,
+                "denominator": 1
+              },
+              "sourceIds": [],
+              "exclusions": []
+            },
+            {
+              "id": "rarity",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": 80,
+              "weight": {
+                "byRarity": {
+                  "common": 0,
+                  "uncommon": 4,
+                  "rare": 8,
+                  "epic": 12,
+                  "legendary": 20,
+                  "mythic": 28
+                }
+              },
+              "sourceIds": [],
+              "exclusions": []
+            },
+            {
+              "id": "ghost",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": null,
+              "weight": {
+                "numerator": 1,
+                "denominator": 1
+              },
+              "sourceIds": [],
+              "exclusions": []
+            }
+          ],
+          "groups": [
+            {
+              "id": "assets",
+              "points": 50
+            },
+            {
+              "id": "commerce",
+              "points": 0
+            },
+            {
+              "id": "knowledge",
+              "points": 2
+            },
+            {
+              "id": "relations",
+              "points": 0
+            },
+            {
+              "id": "finance",
+              "points": 0
+            },
+            {
+              "id": "journey",
+              "points": 6
+            },
+            {
+              "id": "collection",
+              "points": 0
+            },
+            {
+              "id": "modifier",
+              "points": 0
+            },
+            {
+              "id": "ghost",
+              "points": 0
+            }
+          ],
+          "performancePoints": 8,
+          "ordinaryBeforeModifier": 58,
+          "modifierDelta": 0,
+          "ordinaryScore": 58,
+          "ghostBonus": 0,
+          "total": 58
+        }
+      },
+      {
+        "playerId": "9e5f308db708687c",
+        "credits": 50,
+        "itemValue": 0,
+        "modifierPercent": 0,
+        "statusIds": [],
+        "score": 58,
+        "items": [],
+        "personalScore": {
+          "playerId": "9e5f308db708687c",
+          "metrics": [
+            {
+              "id": "bought",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": 40,
+              "weight": {
+                "numerator": 2,
+                "denominator": 1
+              },
+              "sourceIds": [],
+              "exclusions": []
+            },
+            {
+              "id": "soldQuantity",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": 75,
+              "weight": {
+                "numerator": 5,
+                "denominator": 1
+              },
+              "sourceIds": [],
+              "exclusions": []
+            },
+            {
+              "id": "soldGrossCredits",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": 100,
+              "weight": {
+                "numerator": 1,
+                "denominator": 10
+              },
+              "sourceIds": [],
+              "exclusions": []
+            },
+            {
+              "id": "trustGained",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": 120,
+              "weight": {
+                "numerator": 3,
+                "denominator": 1
+              },
+              "sourceIds": [],
+              "exclusions": []
+            },
+            {
+              "id": "inspection",
+              "raw": 2,
+              "eligible": 2,
+              "uncappedPoints": 2,
+              "points": 2,
+              "cap": 24,
+              "weight": {
+                "numerator": 1,
+                "denominator": 1
+              },
+              "sourceIds": [
+                "[7,1,\"9e5f308db708687c\",\"inspection\"]",
+                "[22,7,\"9e5f308db708687c\",\"inspection\"]"
+              ],
+              "exclusions": []
+            },
+            {
+              "id": "accurateAppraisal",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": 40,
+              "weight": {
+                "numerator": 2,
+                "denominator": 1
+              },
+              "sourceIds": [],
+              "exclusions": []
+            },
+            {
+              "id": "npcContract",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": 32,
+              "weight": {
+                "numerator": 4,
+                "denominator": 1
+              },
+              "sourceIds": [],
+              "exclusions": []
+            },
+            {
+              "id": "interest",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": 30,
+              "weight": {
+                "numerator": 1,
+                "denominator": 1
+              },
+              "sourceIds": [],
+              "exclusions": []
+            },
+            {
+              "id": "loanRepaid",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": 20,
+              "weight": {
+                "numerator": 5,
+                "denominator": 1
+              },
+              "sourceIds": [],
+              "exclusions": []
+            },
+            {
+              "id": "survived",
+              "raw": 2,
+              "eligible": 2,
+              "uncappedPoints": 4,
+              "points": 4,
+              "cap": 30,
+              "weight": {
+                "numerator": 2,
+                "denominator": 1
+              },
+              "sourceIds": [
+                "[11,5,\"9e5f308db708687c\",\"survived\"]",
+                "[26,11,\"9e5f308db708687c\",\"survived\"]"
+              ],
+              "exclusions": []
+            },
+            {
+              "id": "lifeLost",
+              "raw": 2,
+              "eligible": 2,
+              "uncappedPoints": 2,
+              "points": 2,
+              "cap": 12,
+              "weight": {
+                "numerator": 1,
+                "denominator": 1
+              },
+              "sourceIds": [
+                "[11,4,\"9e5f308db708687c\",\"lifeLost\"]",
+                "[26,10,\"9e5f308db708687c\",\"lifeLost\"]"
+              ],
+              "exclusions": []
+            },
+            {
+              "id": "theft",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": 20,
+              "weight": {
+                "numerator": 4,
+                "denominator": 1
+              },
+              "sourceIds": [],
+              "exclusions": []
+            },
+            {
+              "id": "rarity",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": 80,
+              "weight": {
+                "byRarity": {
+                  "common": 0,
+                  "uncommon": 4,
+                  "rare": 8,
+                  "epic": 12,
+                  "legendary": 20,
+                  "mythic": 28
+                }
+              },
+              "sourceIds": [],
+              "exclusions": []
+            },
+            {
+              "id": "ghost",
+              "raw": 0,
+              "eligible": 0,
+              "uncappedPoints": 0,
+              "points": 0,
+              "cap": null,
+              "weight": {
+                "numerator": 1,
+                "denominator": 1
+              },
+              "sourceIds": [],
+              "exclusions": []
+            }
+          ],
+          "groups": [
+            {
+              "id": "assets",
+              "points": 50
+            },
+            {
+              "id": "commerce",
+              "points": 0
+            },
+            {
+              "id": "knowledge",
+              "points": 2
+            },
+            {
+              "id": "relations",
+              "points": 0
+            },
+            {
+              "id": "finance",
+              "points": 0
+            },
+            {
+              "id": "journey",
+              "points": 6
+            },
+            {
+              "id": "collection",
+              "points": 0
+            },
+            {
+              "id": "modifier",
+              "points": 0
+            },
+            {
+              "id": "ghost",
+              "points": 0
+            }
+          ],
+          "performancePoints": 8,
+          "ordinaryBeforeModifier": 58,
+          "modifierDelta": 0,
+          "ordinaryScore": 58,
+          "ghostBonus": 0,
+          "total": 58
+        }
+      }
+    ]
+  },
+  "timerSettings": {
+    "enabled": true,
+    "durationsMs": {
+      "PORTALS": 30000,
+      "APPRAISAL": 90000,
+      "TRADE": 45000,
+      "REVEAL": 30000
+    }
+  },
+  "phaseTimes": [
+    {
+      "phase": "PORTALS",
+      "startedAt": 1000,
+      "endedAt": 1000,
+      "encounter": 1
+    },
+    {
+      "phase": "APPRAISAL",
+      "startedAt": 1000,
+      "endedAt": 1000,
+      "encounter": 1
+    },
+    {
+      "phase": "TRADE",
+      "startedAt": 1000,
+      "endedAt": 1000,
+      "encounter": 1
+    },
+    {
+      "phase": "REVEAL",
+      "startedAt": 1000,
+      "endedAt": 1000,
+      "encounter": 1
+    },
+    {
+      "phase": "PORTALS",
+      "startedAt": 1000,
+      "endedAt": 1000,
+      "encounter": 2
+    },
+    {
+      "phase": "APPRAISAL",
+      "startedAt": 1000,
+      "endedAt": 1000,
+      "encounter": 2
+    },
+    {
+      "phase": "TRADE",
+      "startedAt": 1000,
+      "endedAt": 1000,
+      "encounter": 2
+    }
+  ],
+  "timeouts": []
+}

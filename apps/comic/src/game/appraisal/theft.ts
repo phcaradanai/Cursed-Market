@@ -1,4 +1,4 @@
-import {recordPersonalActivity} from './personal-scoring.js';
+import {personalOrigin,recordPersonalActivity} from './personal-scoring.js';
 import {pilotCrimeCost,swordForDuel,pilotUses,usePilot} from './pilot-effects.js';
 import { randomAt } from '../random.js';
 import { CORE2 } from './core2.js';
@@ -292,7 +292,7 @@ export function chooseTheftHand(state: AppraisalState, p: Appraiser, duelId: str
     // Preserve the existing stolen-good restriction until laundering rules are agreed.
     item.stolen = true;
     thief.inventory.push(item.id);
-    recordPersonalActivity(state,thief,'theft',1,duel.id);
+    recordPersonalActivity(state,thief,'theft',1,JSON.stringify([thief.id,'item',personalOrigin(item)]));
     state.listings = state.listings.filter(l => l.itemId !== item.id);
     note(thief,'เป่ายิ้งฉุบชนะ ขโมยสินค้าได้');
   } else if(duel.npc)merchantFailure(state,thief,duel);

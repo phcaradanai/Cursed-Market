@@ -2,7 +2,7 @@ import {closeCollectorWishlists} from './collector-wishlist.js';
 import {personalScoreFor} from './personal-scoring.js';
 import { ownedAssetItemIds, settleLoansBeforeAdvance } from './secure-storage.js';
 import { statusMagnitude } from './copy-effects.js';
-import { check, status, trace } from './mechanics.js';
+import { check, enforceCaps, status, trace } from './mechanics.js';
 import { collectorTotal, itemScoreValue } from './scoring.js';
 import { closeNpcContracts } from './npc-events.js';
 import type { AppraisalConfig, AppraisalState, CollectorResult } from './types.js';
@@ -19,6 +19,7 @@ export function collectRun(state:AppraisalState):void {
   closeCollectorWishlists(state);closeNpcContracts(state);
   // Saved audits keep the original settlement; new runs close every active loan at the end.
   if(state.config.secureEconomy){if(state.config.loanEndSettlement)settleLoansBeforeAdvance(state,true);else {state.phase='REVEAL';settleLoansBeforeAdvance(state);}}
+  if(state.config.personalScoringRules===1)enforceCaps(state);
   const results:CollectorResult[]=state.players.map(p=>{
     const items=ownedAssetItemIds(state,p).map(id=>{const item=state.items[id]!;const certified=!!item.appraisedBy && item.appraisedBy!==p.id;return {id,kind:item.kind,base:item.base,genuine:item.genuine,cursed:item.cursed,value:itemScoreValue(item.base,item.genuine,item.cursed,certified),...(certified?{certified}:{})};});
     const itemValue=items.reduce((sum,item)=>sum+item.value,0);

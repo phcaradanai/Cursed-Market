@@ -1,3 +1,4 @@
+import {personalOrigin,recordPersonalActivity} from './personal-scoring.js';
 import { rarityValue } from '../../shared/rarity-power.js';
 import { copySaleQuote } from './copy-effects.js';
 import { randomAt } from '../random.js';
@@ -33,6 +34,7 @@ export function stealShop(state:AppraisalState,p:Appraiser,itemId:string):void {
     item.owner=p.id;item.stolen=true;p.inventory.push(itemId);p.stock=p.stock.filter(id=>id!==itemId);
     state.listings=state.listings.filter(l=>l.itemId!==itemId);
     note(p,`ฉกสำเร็จ: ได้ ${NPC_SPECS[item.npc].name}ขายของชิ้นนี้ไปฟรี แต่ขายต่อไม่ได้`);
+    recordPersonalActivity(state,p,'theft',1,JSON.stringify([p.id,'item',personalOrigin(item)]));
     trace(state,p,'stolen',{itemId,chance});return;
   }
   loseTrust(p,item.npc,1);p.theft={kind:'shop'};
@@ -52,6 +54,7 @@ export function pickpocket(state:AppraisalState,p:Appraiser,victimId:string):voi
   if(ok){
     const taken=Math.min(3,victim.credits);transfer(state,victim,p,taken,'pickpocket');
     note(p,`ล้วงกระเป๋าเพื่อนได้ ${taken} เครดิต`);note(victim,`มีคนล้วงกระเป๋าคุณไป ${taken} เครดิต`);
+    if(taken>0)recordPersonalActivity(state,p,'theft',1,JSON.stringify([p.id,'credits',victimId,state.encounter]));
     trace(state,p,'pickpocketed',{victimId,taken,chance});return;
   }
   if(guarded){consumeStatus(victim,'B21');note(victim,'ผู้คุ้มกันจับมือโจรไว้ได้');}

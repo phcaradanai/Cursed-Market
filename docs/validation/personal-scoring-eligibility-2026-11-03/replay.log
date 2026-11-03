@@ -1,0 +1,72 @@
+1 PASS docs/validation/collector-network-2026-11-02/match-audit.json
+2 PASS docs/validation/collector-normal-2026-11-02/live-ui-audit.json
+3 PASS docs/validation/collector-offer-isolation-2026-11-02/live-ui-audit.json
+4 PASS docs/validation/collector-offer-isolation-2026-11-02/match-audit.json
+5 PASS docs/validation/collector-ui-2026-11-02/match-audit.json
+6 PASS docs/validation/new56-pilot-2026-11-01/catalog3-2-cautious.json
+7 PASS docs/validation/new56-pilot-2026-11-01/catalog3-2-trader.json
+8 PASS docs/validation/new56-pilot-2026-11-01/catalog3-3-cautious.json
+9 PASS docs/validation/new56-pilot-2026-11-01/catalog3-3-trader.json
+10 PASS docs/validation/new56-pilot-2026-11-01/catalog4-2-cautious.json
+11 PASS docs/validation/new56-pilot-2026-11-01/catalog4-2-trader.json
+12 PASS docs/validation/new56-pilot-2026-11-01/catalog4-3-cautious.json
+13 PASS docs/validation/new56-pilot-2026-11-01/catalog4-3-trader.json
+14 PASS docs/validation/normal-play-2026-11-02/c3-2-cautious.audit.json
+15 PASS docs/validation/normal-play-2026-11-02/c3-2-trader.audit.json
+16 PASS docs/validation/normal-play-2026-11-02/c3-4-cautious.audit.json
+17 PASS docs/validation/normal-play-2026-11-02/c3-4-trader.audit.json
+18 PASS docs/validation/normal-play-2026-11-02/c4-2-cautious.audit.json
+19 PASS docs/validation/normal-play-2026-11-02/c4-2-trader.audit.json
+20 PASS docs/validation/normal-play-2026-11-02/c4-4-cautious.audit.json
+21 PASS docs/validation/normal-play-2026-11-02/c4-4-trader.audit.json
+22 PASS docs/validation/normal-service-2026-11-02/journey.audit.json
+23 FAIL docs/validation/npc-events-v0.7/live-2-seat-audit.json
+24 FAIL docs/validation/npc-events-v0.7/live-4-seat-audit.json
+25 PASS docs/validation/personal-scoring-2026-11-03/2-players.audit.json
+26 PASS docs/validation/personal-scoring-2026-11-03/4-players.audit.json
+27 PASS docs/validation/personal-scoring-eligibility-2026-11-03/2-players.audit.json
+28 PASS docs/validation/personal-scoring-eligibility-2026-11-03/4-players.audit.json
+29 PASS docs/validation/personal-scoring-eligibility-2026-11-03/normal-personal/journey.audit.json
+30 PASS docs/validation/pilot-public-2026-11-02/alien-thought-translator-held.audit.json
+31 PASS docs/validation/pilot-public-2026-11-02/alien-thought-translator-stored-or-unused.audit.json
+32 PASS docs/validation/pilot-public-2026-11-02/autometa-torque-caliper-held.audit.json
+33 PASS docs/validation/pilot-public-2026-11-02/autometa-torque-caliper-stored-or-unused.audit.json
+34 PASS docs/validation/pilot-public-2026-11-02/beast-riftfang-sword-held.audit.json
+35 PASS docs/validation/pilot-public-2026-11-02/beast-riftfang-sword-stored-or-unused.audit.json
+36 PASS docs/validation/pilot-public-2026-11-02/darkone-crossing-token-held.audit.json
+37 PASS docs/validation/pilot-public-2026-11-02/darkone-crossing-token-stored-or-unused.audit.json
+38 PASS docs/validation/pilot-public-2026-11-02/deepsea-tide-compass-held.audit.json
+39 PASS docs/validation/pilot-public-2026-11-02/deepsea-tide-compass-stored-or-unused.audit.json
+40 PASS docs/validation/pilot-public-2026-11-02/orc-tusk-shield-held.audit.json
+41 PASS docs/validation/pilot-public-2026-11-02/orc-tusk-shield-stored-or-unused.audit.json
+42 PASS docs/validation/pilot-public-2026-11-02/swarm-brood-hammer-held.audit.json
+43 PASS docs/validation/pilot-public-2026-11-02/swarm-brood-hammer-stored-or-unused.audit.json
+44 PASS docs/validation/pilot-public-2026-11-02/vampire-nocturne-signet-held.audit.json
+45 PASS docs/validation/pilot-public-2026-11-02/vampire-nocturne-signet-stored-or-unused.audit.json
+46 FAIL docs/validation/survival-v0.5/network/lan-timed-2-players.json
+47 FAIL docs/validation/survival-v0.5/network/lan-timed-3-players.json
+48 FAIL docs/validation/survival-v0.5/network/lan-timed-4-players.json
+49 FAIL docs/validation/survival-v0.5/network/lan-untimed-2-players.json
+50 FAIL docs/validation/survival-v0.5/network/lan-untimed-3-players.json
+51 FAIL docs/validation/survival-v0.5/network/lan-untimed-4-players.json
+node:internal/modules/run_main:111
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+8 !== 0
+
+    at file:///private/tmp/scoring-eligibility-replays.mjs:4:344
+    at ModuleJob.run (node:internal/modules/esm/module_job:569:25)
+    at async node:internal/modules/esm/loader:650:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:105:5) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 8,
+  expected: 0,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v26.12.1

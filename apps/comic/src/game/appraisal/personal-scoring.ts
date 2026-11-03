@@ -153,7 +153,7 @@ export function recordPersonalFact(state:PersonalPerformanceState,fact:PersonalF
 export const personalOrigin=(item:AppraisalItem):string=>item.copy?.sourceId??item.id;
 /** Called at successful mutation sites, never reconstructed from logs or net state deltas. */
 export function recordPersonalActivity(state:AppraisalState,p:Appraiser,metric:PersonalMetric,raw:number,source:string,eligible=true,cause='settled'):void {
- if(state.config.personalScoringRules!==1||p.life===0)return;
+ if(state.config.personalScoringRules!==1||p.life===0||state.phase==='RESULTS')return;
  recordPersonalFact(state,{id:JSON.stringify([state.commands.length,state.personalPerformance!.facts.length,p.id,metric]),playerId:p.id,metric,raw,eligibleKey:source,eligible,cause});
 }
 export function recordPersonalItemActivity(state:AppraisalState,p:Appraiser,metric:PersonalMetric,item:AppraisalItem,raw=1,eligible=true,cause='settled',facet=''):void {
@@ -162,6 +162,13 @@ export function recordPersonalItemActivity(state:AppraisalState,p:Appraiser,metr
 export function recordPersonalSale(state:AppraisalState,p:Appraiser,item:AppraisalItem,price:number):void {
  recordPersonalItemActivity(state,p,'soldQuantity',item,1,price>0,'zero-credit sale');
  recordPersonalItemActivity(state,p,'soldGrossCredits',item,price,price>0,'zero-credit sale');
+}
+export function recordPersonalAppraisal(state:AppraisalState,p:Appraiser,item:AppraisalItem,value:number):void {
+ if(state.config.personalScoringRules!==1)return;
+ const source=JSON.stringify([p.id,personalOrigin(item),'']);
+ const first=!state.personalPerformance!.facts.some(f=>f.playerId===p.id&&f.metric==='accurateAppraisal'&&f.eligibleKey===source&&f.cause!=='copy');
+ const accurate=Math.abs(value-item.base)<=item.base*.2;
+ recordPersonalItemActivity(state,p,'accurateAppraisal',item,accurate?1:0,first&&accurate,first?'first appraisal outside20percent':'not first appraisal');
 }
 export function setPersonalTrust(state:AppraisalState,p:Appraiser,npc:NpcId,next:number,item:AppraisalItem):void {
  if(!p.npcTrust)return;

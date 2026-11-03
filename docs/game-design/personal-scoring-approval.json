@@ -13,7 +13,7 @@
     "remaining48 item numeric approval",
     "new image generation or baseline promotion"
   ],
-  "runtimeStatus": "Task1 committed292ba6b; Task2 opt-in runtime draft with canonical receipts/final breakdown and actual2/4seat network proof. Completion matrix/Task3 UI graph/default rollout pending.",
+  "runtimeStatus": "Task1 complete; Task2 engine/runtime and eligibility verified; Task3 selfDTO/Comic graph/default rollout pending. Main default off.",
   "evidence": "docs/validation/personal-scoring-2026-11-03/checkpoint.json",
-  "runtimeEvidence": "docs/validation/personal-scoring-2026-11-03/runtime-checkpoint.json"
+  "runtimeEvidence": "docs/validation/personal-scoring-eligibility-2026-11-03/verification.json"
 }

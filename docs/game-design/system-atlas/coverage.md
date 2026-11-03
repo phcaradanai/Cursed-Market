@@ -17,8 +17,8 @@
   "actions": 60,
   "configKeys": 56,
   "parameters": 73,
-  "functions": 508,
-  "codeSymbols": 653,
+  "functions": 509,
+  "codeSymbols": 654,
   "policies": 212,
   "randomRules": 105,
   "legacyGateSites": 21,
@@ -123,25 +123,173 @@
   ]
 }
 ```
-### คะแนนผู้นำและ rarity รายกลุ่ม
+### ข้อเสนอรางวัลผู้นำเดิม (ถูกแทนแล้ว)
 
 ```json
 {
   "id": "leader-awards",
-  "name": "คะแนนผู้นำและ rarity รายกลุ่ม",
-  "state": "confirmed-rule/pending-details",
-  "confirmed": "ซื้อ/ขาย/เสียพลังชีวิตสะสม/ของตอนจบ/ความไว้ใจ; ×2 มากสุด=20, ×3 มากสุด=40; หมวดอื่นและเสมอยังไม่ตกลง",
-  "functionNames": [
-    "collectorTotal",
-    "collectRun"
-  ],
+  "name": "ข้อเสนอรางวัลผู้นำเดิม (ถูกแทนแล้ว)",
+  "state": "historical-superseded-by-personal-scoring",
+  "confirmed": "ชุดทดลอง1551908ใช้ผลงานทุกคน ไม่แจกโบนัสผู้นำเดิมซ้อน",
+  "functionNames": [],
   "logicIds": [
     "L30"
   ],
-  "note": "ผู้ใช้แก้ความหมาย 2026-10-29: วัด cumulative life lost ไม่ใช่ death count; ตายได้ครั้งเดียว; ไม่อนุมาน ×4/×5",
+  "note": "คงIDเพื่อประวัติ ไม่ใช่runtime binding",
+  "evidence": "docs/game-design/rules-and-logic.md",
+  "functionRefs": []
+}
+```
+### คะแนนผลงานทุกคน14หมวด
+
+```json
+{
+  "id": "personal-scoring",
+  "name": "คะแนนผลงานทุกคน14หมวด",
+  "state": "runtime-experimental-v1/opt-in",
+  "runtime": {
+    "flag": "personalScoringRules:1",
+    "defaultEnabled": false,
+    "weights": [
+      {
+        "id": "bought",
+        "group": "commerce",
+        "unit": "unique original bought item",
+        "numerator": 2,
+        "denominator": 1,
+        "cap": 40
+      },
+      {
+        "id": "soldQuantity",
+        "group": "commerce",
+        "unit": "eligible successful sale item",
+        "numerator": 5,
+        "denominator": 1,
+        "cap": 75
+      },
+      {
+        "id": "soldGrossCredits",
+        "group": "commerce",
+        "unit": "eligible completed gross sale credits excluding fees/rebates/commissions",
+        "numerator": 1,
+        "denominator": 10,
+        "cap": 100
+      },
+      {
+        "id": "trustGained",
+        "group": "relations",
+        "unit": "actual positive merchant trust gained after cap; cumulative, never subtract later losses",
+        "numerator": 3,
+        "denominator": 1,
+        "cap": 120
+      },
+      {
+        "id": "inspection",
+        "group": "knowledge",
+        "unit": "new personally inspected item facet",
+        "numerator": 1,
+        "denominator": 1,
+        "cap": 24
+      },
+      {
+        "id": "accurateAppraisal",
+        "group": "knowledge",
+        "unit": "first submitted appraisal per origin within20percent of true rarity-scaled base",
+        "numerator": 2,
+        "denominator": 1,
+        "cap": 40
+      },
+      {
+        "id": "npcContract",
+        "group": "relations",
+        "unit": "fulfilled NPC contract id",
+        "numerator": 4,
+        "denominator": 1,
+        "cap": 32
+      },
+      {
+        "id": "interest",
+        "group": "finance",
+        "unit": "aged interest credits actually paid to wallet",
+        "numerator": 1,
+        "denominator": 1,
+        "cap": 30
+      },
+      {
+        "id": "loanRepaid",
+        "group": "finance",
+        "unit": "fully repaid real funded loan surviving at least one full encounter",
+        "numerator": 5,
+        "denominator": 1,
+        "cap": 20
+      },
+      {
+        "id": "survived",
+        "group": "journey",
+        "unit": "completed encounter with life above0 after settlement",
+        "numerator": 2,
+        "denominator": 1,
+        "cap": 30
+      },
+      {
+        "id": "lifeLost",
+        "group": "journey",
+        "unit": "actual HP removed, including voluntary costs, excluding overkill/death count",
+        "numerator": 1,
+        "denominator": 1,
+        "cap": 12
+      },
+      {
+        "id": "theft",
+        "group": "journey",
+        "unit": "successful theft with actual asset transfer",
+        "numerator": 4,
+        "denominator": 1,
+        "cap": 20
+      },
+      {
+        "id": "rarity",
+        "group": "collection",
+        "unit": "final original goods in actual Collector custody",
+        "byRarity": {
+          "common": 0,
+          "uncommon": 4,
+          "rare": 8,
+          "epic": 12,
+          "legendary": 20,
+          "mythic": 28
+        },
+        "cap": 80
+      },
+      {
+        "id": "ghost",
+        "group": "ghost",
+        "unit": "previously approved earned credit bonus",
+        "numerator": 1,
+        "denominator": 1,
+        "cap": null
+      }
+    ],
+    "approval": "docs/game-design/personal-scoring-approval.json"
+  },
+  "confirmed": "ทุกคนได้ผลงาน แยกจำนวนขาย/ยอดขาย trustสะสม; floor((A+P)*(100+M)/100)+G; ไม่ซ้อนleader bonuses",
+  "functionNames": [
+    "recordPersonalActivity",
+    "recordPersonalAppraisal",
+    "personalScoreFor",
+    "calculatePersonalScore",
+    "collectRun"
+  ],
+  "logicIds": [
+    "L29",
+    "L30"
+  ],
   "evidence": "docs/game-design/rules-and-logic.md",
   "functionRefs": [
-    "code:apps/comic/src/game/appraisal/scoring.ts:collectorTotal",
+    "code:apps/comic/src/game/appraisal/personal-scoring.ts:recordPersonalActivity",
+    "code:apps/comic/src/game/appraisal/personal-scoring.ts:recordPersonalAppraisal",
+    "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreFor",
+    "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
     "code:apps/comic/src/game/appraisal/survival.ts:collectRun"
   ]
 }
@@ -1310,7 +1458,7 @@
     "end": 10939
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/core2-actions.ts:7741",
+    "id": "operation:apps/comic/src/game/appraisal/core2-actions.ts:8032",
     "name": "removeStatus",
     "owner": "code:apps/comic/src/game/appraisal/core2-actions.ts:useSkill",
     "args": [
@@ -1321,12 +1469,12 @@
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/core2-actions.ts",
-      "line": 118,
-      "endLine": 118
+      "line": 121,
+      "endLine": 121
     },
     "expression": "removeStatus(p,debuff.id)",
-    "start": 7741,
-    "end": 7773
+    "start": 8032,
+    "end": 8064
   },
   {
     "id": "operation:apps/comic/src/game/appraisal/core2-events.ts:6745",
@@ -1528,7 +1676,7 @@
     "end": 39710
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:23486",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:23268",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
     "args": [
@@ -1542,15 +1690,15 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 301,
-      "endLine": 301
+      "line": 300,
+      "endLine": 300
     },
     "expression": "grant(state,p,p.honestyReward)",
-    "start": 23486,
-    "end": 23517
+    "start": 23268,
+    "end": 23299
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:34003",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:33785",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
     "args": [
@@ -1564,15 +1712,15 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 418,
-      "endLine": 418
+      "line": 417,
+      "endLine": 417
     },
     "expression": "grant(state,buyer,options.grantStatus)",
-    "start": 34003,
-    "end": 34042
+    "start": 33785,
+    "end": 33824
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:34068",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:33850",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
     "args": [
@@ -1586,15 +1734,15 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 419,
-      "endLine": 419
+      "line": 418,
+      "endLine": 418
     },
     "expression": "grant(state,buyer,profile.condition)",
-    "start": 34068,
-    "end": 34105
+    "start": 33850,
+    "end": 33887
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:35102",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:34884",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "args": [
@@ -1610,15 +1758,15 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 431,
-      "endLine": 431
+      "line": 430,
+      "endLine": 430
     },
     "expression": "grant(state,p,spec.drawback,undefined,itemDrawbackScale(item))",
-    "start": 35102,
-    "end": 35165
+    "start": 34884,
+    "end": 34947
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:38578",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:38360",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "args": [
@@ -1640,15 +1788,15 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 463,
-      "endLine": 463
+      "line": 462,
+      "endLine": 462
     },
     "expression": "grant(state,p,spec.buff,undefined,power)",
-    "start": 38578,
-    "end": 38618
+    "start": 38360,
+    "end": 38400
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:45082",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:44864",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
     "args": [
@@ -1665,15 +1813,15 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 538,
-      "endLine": 538
+      "line": 537,
+      "endLine": 537
     },
     "expression": "grant(state,p,cost.statusId)",
-    "start": 45082,
-    "end": 45111
+    "start": 44864,
+    "end": 44893
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:45960",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:45742",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
     "args": [
@@ -1690,12 +1838,12 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 550,
-      "endLine": 550
+      "line": 549,
+      "endLine": 549
     },
     "expression": "grant(state,p,bonus.statusId)",
-    "start": 45960,
-    "end": 45989
+    "start": 45742,
+    "end": 45771
   },
   {
     "id": "operation:apps/comic/src/game/appraisal/merchant-abilities.ts:8327",
@@ -1780,7 +1928,7 @@
     "end": 9298
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/theft.ts:12752",
+    "id": "operation:apps/comic/src/game/appraisal/theft.ts:12767",
     "name": "consumeStatus",
     "owner": "code:apps/comic/src/game/appraisal/theft.ts:breakTie",
     "args": [
@@ -1795,8 +1943,8 @@
       "endLine": 236
     },
     "expression": "consumeStatus(thief,id)",
-    "start": 12752,
-    "end": 12775
+    "start": 12767,
+    "end": 12790
   }
 ]
 ```

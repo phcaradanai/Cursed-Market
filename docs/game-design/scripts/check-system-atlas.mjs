@@ -45,4 +45,10 @@ const publicProof=read('../validation/pilot-public-2026-11-02/public-effects.jso
 for(const [file,hash] of Object.entries({...publicProof.sourceFingerprints,...publicProof.compiledFingerprints}))assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex'),hash,'Public pilot proof stale: '+file);
 for(const c of publicProof.cases){assert(c.passed&&c.audits.length===2);for(const a of c.audits)assert(a.strictReplay&&crypto.createHash('sha256').update(fs.readFileSync(path.join(dir,'../validation/pilot-public-2026-11-02',a.file))).digest('hex')===a.sha256,'Public pilot audit changed: '+a.file);}
 execFileSync(process.execPath,['docs/game-design/scripts/build-system-atlas.mjs','--check'],{cwd:root,stdio:'inherit'});
+
+
+const scoringApproval=read('personal-scoring-approval.json');assert.equal(scoringApproval.status,'approved-experimental');
+for(const [file,hash]of Object.entries(scoringApproval.approvedFiles))assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex'),hash,'Approved personal scoring proposal changed: '+file);
+const scoringRule=d.confirmedRules.find(r=>r.id==='personal-scoring');assert.equal(scoringRule.state,'runtime-experimental-v1/opt-in');assert.equal(scoringRule.runtime.defaultEnabled,false);assert.deepEqual(scoringRule.runtime.weights,read('proposals/personal-scoring-weights-v1.json').metrics);assert.equal(d.confirmedRules.find(r=>r.id==='leader-awards').state,'historical-superseded-by-personal-scoring');
+
 console.log('PASS: catalog coverage, namespaces, new56-only products, source guards, rule gaps, generic actions, profiles, original views and freshness.');

@@ -989,7 +989,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/core2-actions.ts",
-      "sha256": "9b93824543a822b9f58d4b07269af6bcb780d7a1475cd5726bea1d450796fc9b"
+      "sha256": "a0b968bc9fd51b22cf5c63caa9c38e34dbb41bc0dd765aa449a3dfecb15a6213"
     },
     {
       "file": "apps/comic/src/game/appraisal/core2-content.ts",
@@ -1045,7 +1045,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "sha256": "f55aea5a8204ad720a6a0e8128097e1c13ba3691bc72fd9ba5867a2279b2e877"
+      "sha256": "fd26d12682fa0c2c7deefac8366efe50a68bb60ebe86043b792ab771edf1fcd4"
     },
     {
       "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
@@ -1069,7 +1069,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-      "sha256": "e12fbdfaa80db158d4628e5c681e9c1c6fd8f053b823a68005658d226df2cb4a"
+      "sha256": "e5262ddab734498168dff3318a68ea2f08e40c425e48e9742b36872fb84e828d"
     },
     {
       "file": "apps/comic/src/game/appraisal/pilot-catalog.ts",
@@ -1085,7 +1085,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/price-integrity.ts",
-      "sha256": "e2198294f78ee5def8be05631082eb23f2ba819fe6cdc2d8d89f75dc85501268"
+      "sha256": "6d3c08c7fb2f4957dc05ef91f7da11919b60dd49e8ab214ec0131144ae4dc4c1"
     },
     {
       "file": "apps/comic/src/game/appraisal/pulse.ts",
@@ -1113,11 +1113,11 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/survival.ts",
-      "sha256": "3bf47898bbb025ee33f5b03caf4bb2608252daacf91856ea9cc9e13ad0510561"
+      "sha256": "f7d978481cdbb79fc1cfc6e603fa875adb2f37a65af6ffc3fe2302097ff75ac3"
     },
     {
       "file": "apps/comic/src/game/appraisal/theft.ts",
-      "sha256": "4dc4cc46e1854877037c8a45f1be26393fa336fce2a94b0eec99a2f19ac0fe81"
+      "sha256": "aac017becded983e0106125bdb8d5cb379e9227babe782681f3486f69e344e76"
     },
     {
       "file": "apps/comic/src/game/appraisal/types.ts",
@@ -1534,6 +1534,10 @@
     {
       "file": "apps/comic/tests/new56-pilot-lifecycle.test.ts",
       "sha256": "7c74bdc20895696200a6339ad16622f071e11d1fbde1cbe63f1cabe492807375"
+    },
+    {
+      "file": "apps/comic/tests/personal-scoring-eligibility.test.ts",
+      "sha256": "1da0ea64647b4bd69e47c39344153632695008b698324327fcaec6dabbb0e99d"
     },
     {
       "file": "apps/comic/tests/personal-scoring-network.test.ts",

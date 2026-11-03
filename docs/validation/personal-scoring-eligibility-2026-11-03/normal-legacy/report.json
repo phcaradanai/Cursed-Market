@@ -1,0 +1,472 @@
+{
+  "asOf": "2026-11-03T04:09:33.446Z",
+  "scope": "Targeted cooperative engine journey with exact normal40/6/deadline15 base main config, catalogue4pilot8; selected deterministic seed, public DTO-only decisions, no state injection or RPS oracle. Engine does not enforce real5.2s card clock; this is not browser/socket clock or balance proof.",
+  "seed": "normal-service-2",
+  "config": {
+    "rarityEconomy": {
+      "version": 1,
+      "tiers": {
+        "common": {
+          "value": 1,
+          "effect": 1
+        },
+        "uncommon": {
+          "value": 2,
+          "effect": 2
+        },
+        "rare": {
+          "value": 3,
+          "effect": 3
+        },
+        "epic": {
+          "value": 4,
+          "effect": 4
+        },
+        "legendary": {
+          "value": 6,
+          "effect": 6
+        },
+        "mythic": {
+          "value": 8,
+          "effect": 8
+        }
+      }
+    },
+    "rarity": {
+      "version": 1,
+      "rates": {
+        "common": 0.6,
+        "uncommon": 0.25,
+        "rare": 0.1,
+        "epic": 0.035,
+        "legendary": 0.013,
+        "mythic": 0.002
+      },
+      "themes": {
+        "common": [
+          {
+            "theme": "plain",
+            "weight": 1
+          }
+        ],
+        "uncommon": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "rare": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "epic": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "legendary": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "mythic": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ]
+      }
+    },
+    "loanEndSettlement": true,
+    "vaultInterestRules": 1,
+    "theftTimeoutRules": 1,
+    "collectorDeadline": 15,
+    "eventChoiceRules": 1,
+    "statusLinks": 1,
+    "systemLinks": 1,
+    "trustAbilities": true,
+    "catalogVersion": 4,
+    "itemEffects": true,
+    "roundRewards": true,
+    "multiCoinRewards": true,
+    "commerce": true,
+    "totalTrustStock": true,
+    "curseSight": true,
+    "freeBuy": true,
+    "freeMerchantAction": true,
+    "fakeEffect": true,
+    "cleanse": true,
+    "wishlist": true,
+    "wishContract": true,
+    "challenge": true,
+    "expansion": true,
+    "encounters": 3,
+    "startingCredits": 40,
+    "maxEnergy": 10,
+    "recoveryEnergy": 4,
+    "bankReserve": 2000,
+    "marketProbability": 1,
+    "marketMaxOrders": 3,
+    "marketQuota": 1,
+    "collectorWishlistRules": 1,
+    "secureEconomy": true,
+    "brokerage": {
+      "auctionProbability": 0.5,
+      "maxLots": 2,
+      "bondProbability": 0.65
+    },
+    "polish": true,
+    "npcEvents": true,
+    "core2": true,
+    "survival": {
+      "maxLife": 6,
+      "encounterLifeCost": 1,
+      "entryEnergyCost": 0
+    }
+  },
+  "checks": [
+    "normal wallet deposit10 and idempotent retry",
+    "no interest before complete encounter",
+    "new topup does not earn retroactively; withdraw new5 preserves mature10",
+    "exact10percent aged interest1 paid to wallet atencounter3",
+    "actual bought item collateral, lender transfer, full repayment/custody return and idempotency",
+    "natural death with buyer alive; card answer derived from visible swaps only",
+    "funded public quote agreed without advance payment",
+    "real RPS draws find target; exact single payment/item/bonus without advancing living phase",
+    "RESULTS strict replay and spirit bonus added once after ordinary score"
+  ],
+  "observations": [
+    {
+      "type": "loan-repaid",
+      "encounter": 3,
+      "phase": "REVEAL",
+      "buyerLife": 3,
+      "buyerCredits": 41,
+      "amount": 12
+    },
+    {
+      "type": "ghost-unlocked",
+      "encounter": 6,
+      "phase": "REVEAL",
+      "buyerLife": 1,
+      "buyerCredits": 29
+    },
+    {
+      "type": "ghost-hired",
+      "encounter": 6,
+      "phase": "REVEAL",
+      "buyerLife": 1,
+      "buyerCredits": 44,
+      "kind": "vampire-nocturne-signet",
+      "price": 21
+    },
+    {
+      "type": "all-slots-lost",
+      "encounter": 6,
+      "phase": "REVEAL",
+      "buyerLife": 1,
+      "buyerCredits": 44
+    },
+    {
+      "type": "ghost-delivered",
+      "encounter": 7,
+      "phase": "PORTALS",
+      "buyerLife": 1,
+      "buyerCredits": 24,
+      "kind": "vampire-nocturne-signet",
+      "price": 21,
+      "bonus": 2
+    }
+  ],
+  "commands": 196,
+  "end": 7,
+  "bonus": 2,
+  "final": [
+    {
+      "playerId": "spirit",
+      "credits": 90,
+      "itemValue": 0,
+      "modifierPercent": 0,
+      "statusIds": [],
+      "score": 92,
+      "items": []
+    },
+    {
+      "playerId": "buyer",
+      "credits": 240,
+      "itemValue": 117,
+      "modifierPercent": 0,
+      "statusIds": [],
+      "score": 357,
+      "items": [
+        {
+          "id": "item-3-1-2-0",
+          "kind": "swarm-brood-hammer",
+          "base": 17,
+          "genuine": true,
+          "cursed": false,
+          "value": 17
+        },
+        {
+          "id": "copy-item-3-1-2-2-1",
+          "kind": "swarm-brood-hammer",
+          "base": 10,
+          "genuine": true,
+          "cursed": true,
+          "value": 7
+        },
+        {
+          "id": "ability-6-buyer-alien-0",
+          "kind": "alien-thought-translator",
+          "base": 13,
+          "genuine": true,
+          "cursed": true,
+          "value": 9
+        },
+        {
+          "id": "item-6-1-0-0",
+          "kind": "darkone-crossing-token",
+          "base": 45,
+          "genuine": false,
+          "cursed": false,
+          "value": 11
+        },
+        {
+          "id": "item-6-1-0-1",
+          "kind": "darkone-crossing-token",
+          "base": 14,
+          "genuine": false,
+          "cursed": false,
+          "value": 3
+        },
+        {
+          "id": "delivery-ghost-spirit-1-0",
+          "kind": "vampire-nocturne-signet",
+          "base": 20,
+          "genuine": true,
+          "cursed": true,
+          "value": 15
+        },
+        {
+          "id": "item-2-1-0-0",
+          "kind": "alien-thought-translator",
+          "base": 20,
+          "genuine": true,
+          "cursed": false,
+          "value": 20
+        },
+        {
+          "id": "item-7-1-2-1",
+          "kind": "alien-thought-translator",
+          "base": 24,
+          "genuine": true,
+          "cursed": true,
+          "value": 18
+        },
+        {
+          "id": "item-7-1-2-4",
+          "kind": "alien-thought-translator",
+          "base": 23,
+          "genuine": true,
+          "cursed": true,
+          "value": 17
+        }
+      ]
+    }
+  ],
+  "audit": "journey.audit.json",
+  "auditSha256": "d7fee8e5602e3e97d688afbf742f74c3d85c28aecae83a97694ab4ac64fa768b",
+  "sourceFingerprints": {
+    "docs/validation/collector-normal-2026-11-02/live-ui-audit.json": "d7389a0a1311be11a87c5a5184e0f305e21b10f8273743fe1c5f1f2011d014c7",
+    "apps/comic/scripts/normal-service-journey.mjs": "0d64bc86866c9c8979d9f7198439e31ef8e678fe1084105df4768a6386bd882d",
+    "apps/comic/src/game/appraisal/engine.ts": "7e5b54cb9c7e94ac2e21a751f392f8a73ac3a6003cfffffe5c8247b4bfbf94fd",
+    "apps/comic/src/game/appraisal/ghost-service.ts": "d2e836a0328d4fc4aeb40d2e6fa2974bb5b044286f044d669a4625e168b0da64",
+    "apps/comic/src/game/appraisal/secure-storage.ts": "3d0bb2a86d9646ff65c0e3374321d5b9919b4a653f6e2e18463a42c26c31618b",
+    "apps/comic/src/game/appraisal/views.ts": "349677f197da0fd51c2b2402ed810d86bcf4ac96545daddb5e310343fe869116",
+    "apps/comic/src/simulation/appraisal.ts": "278025401318fc01ea5f26187703b569f68b82c41f859b943c0c320bcbe92c66"
+  }
+}

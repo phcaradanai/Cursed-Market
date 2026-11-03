@@ -1137,7 +1137,7 @@
           "symbolId": "code:apps/comic/src/game/appraisal/survival.ts:collectRun",
           "file": "apps/comic/src/game/appraisal/survival.ts",
           "line": 16,
-          "endLine": 38
+          "endLine": 39
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/survival.ts:collectorDue",
@@ -1193,7 +1193,7 @@
           "symbolId": "code:apps/comic/src/game/appraisal/survival.ts:collectRun",
           "file": "apps/comic/src/game/appraisal/survival.ts",
           "line": 16,
-          "endLine": 38
+          "endLine": 39
         }
       ]
     },

@@ -1,3 +1,4 @@
+import {recordPersonalAppraisal} from './personal-scoring.js';
 import { randomAt } from '../random.js';
 import { copySaleQuote } from './copy-effects.js';
 import { check, ownedItem, retire, reward, spend, trace } from './mechanics.js';
@@ -63,6 +64,7 @@ export function reappraiseOwnedItem(state:AppraisalState,p:Appraiser,itemId:stri
   integrity.lastReappraisedEncounter=state.encounter;
   const success=Math.abs(value-item.base)<=item.base*.1;
   auditItemPrice(state,item,value,'owner-reappraisal');
+  recordPersonalAppraisal(state,p,item,value);
   if(success) {
     integrity.overpriced=false;integrity.certifiedPrice=value;
     item.lastAppraisal=value;item.lastAccepted=true;

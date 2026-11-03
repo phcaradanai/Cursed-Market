@@ -3,7 +3,7 @@
   "asOf": "2026-11-03",
   "scope": "active-comic-appraisal-runtime-plus-confirmed-rules-and-new56-proposals",
   "provenance": {
-    "revision": "9daddb30075ce0e2c3b7529add819e32f01176e9",
+    "revision": "ca84a11d267a3b4a045db4d56999294c428ecbd0",
     "sourceFiles": [
       {
         "file": "apps/comic/src/game/appraisal/ability-content.ts",
@@ -162,8 +162,8 @@
       },
       {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "sha256": "e5262ddab734498168dff3318a68ea2f08e40c425e48e9742b36872fb84e828d",
-        "lines": 211
+        "sha256": "530582d98addfe110e9b8d5832f751369d22d68b9f7dda819af764adca7be72c",
+        "lines": 224
       },
       {
         "file": "apps/comic/src/game/appraisal/pilot-catalog.ts",
@@ -202,8 +202,8 @@
       },
       {
         "file": "apps/comic/src/game/appraisal/scoring.ts",
-        "sha256": "82cd3af13438d22f426f5dc9b79741b7f0d22511fdd1728ac8a87911e018df3a",
-        "lines": 13
+        "sha256": "d95a48373f066152d4bb19720f34e126ee23b0cbe38110a211a5c2e2e3cdc1c0",
+        "lines": 21
       },
       {
         "file": "apps/comic/src/game/appraisal/seals.ts",
@@ -227,13 +227,13 @@
       },
       {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "sha256": "0d1fc33907241e8dd12bedd3536154b5bb30e05d30e533fdb221782dbde7f61a",
-        "lines": 389
+        "sha256": "28ff5a2d7ff93c4193df4f109e3d010a083443b81a1eaa2ff29916840acd6a52",
+        "lines": 391
       },
       {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "sha256": "349677f197da0fd51c2b2402ed810d86bcf4ac96545daddb5e310343fe869116",
-        "lines": 69
+        "sha256": "851f93039db2aa1ebccb4735532192f6fa0854255eced3312c5aad8245eac030",
+        "lines": 70
       },
       {
         "file": "apps/comic/src/game/appraisal/wishlist-rules.ts",
@@ -277,7 +277,7 @@
       },
       {
         "file": "apps/comic/src/server/appraisal-main.ts",
-        "sha256": "344962080ebff735530d1a2c2f1d12ab590f608c0a4cd3dbeb127ba7dd62ccb5",
+        "sha256": "5f67b2038007427688bd6b8c1c19227f34c6244d9d7b47537bf0bc0f1a673831",
         "lines": 13
       },
       {
@@ -346,8 +346,8 @@
     "actions": 60,
     "configKeys": 56,
     "parameters": 73,
-    "functions": 509,
-    "codeSymbols": 654,
+    "functions": 511,
+    "codeSymbols": 656,
     "policies": 212,
     "randomRules": 105,
     "legacyGateSites": 21,
@@ -14592,8 +14592,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 62,
-            "endLine": 62
+            "line": 63,
+            "endLine": 63
           },
           "expression": "state.config.brokerage",
           "guards": [
@@ -14815,8 +14815,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 63,
-            "endLine": 63
+            "line": 64,
+            "endLine": 64
           },
           "expression": "state.config.catalogVersion",
           "guards": [
@@ -14940,8 +14940,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 56,
-            "endLine": 56
+            "line": 57,
+            "endLine": 57
           },
           "expression": "state.config.challenge",
           "guards": [
@@ -15054,8 +15054,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 56,
-            "endLine": 56
+            "line": 57,
+            "endLine": 57
           },
           "expression": "state.config.cleanse",
           "guards": [
@@ -15153,8 +15153,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 62,
-            "endLine": 62
+            "line": 63,
+            "endLine": 63
           },
           "expression": "state.config.collectorDeadline",
           "guards": [
@@ -15167,8 +15167,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 62,
-            "endLine": 62
+            "line": 63,
+            "endLine": 63
           },
           "expression": "state.config.collectorDeadline",
           "guards": [
@@ -15309,8 +15309,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 63,
-            "endLine": 63
+            "line": 64,
+            "endLine": 64
           },
           "expression": "state.config.collectorWishlistRules",
           "guards": [
@@ -15468,8 +15468,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 63,
-            "endLine": 63
+            "line": 64,
+            "endLine": 64
           },
           "expression": "state.config.commerce",
           "guards": [
@@ -15481,8 +15481,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 63,
-            "endLine": 63
+            "line": 64,
+            "endLine": 64
           },
           "expression": "state.config.commerce",
           "guards": [
@@ -15851,8 +15851,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 56,
-            "endLine": 56
+            "line": 57,
+            "endLine": 57
           },
           "expression": "state.config.core2",
           "guards": [
@@ -15864,8 +15864,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 63,
-            "endLine": 63
+            "line": 64,
+            "endLine": 64
           },
           "expression": "state.config.core2",
           "guards": [
@@ -15983,8 +15983,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 56,
-            "endLine": 56
+            "line": 57,
+            "endLine": 57
           },
           "expression": "state.config.curseSight",
           "guards": [
@@ -16156,8 +16156,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 46,
-            "endLine": 46
+            "line": 47,
+            "endLine": 47
           },
           "expression": "state.config.encounters",
           "guards": []
@@ -16167,8 +16167,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 60,
-            "endLine": 60
+            "line": 61,
+            "endLine": 61
           },
           "expression": "state.config.encounters",
           "guards": [
@@ -16288,8 +16288,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 57,
-            "endLine": 57
+            "line": 58,
+            "endLine": 58
           },
           "expression": "state.config.eventChoiceRules",
           "guards": [
@@ -16301,8 +16301,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 57,
-            "endLine": 57
+            "line": 58,
+            "endLine": 58
           },
           "expression": "state.config.eventChoiceRules",
           "guards": [
@@ -16429,8 +16429,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 56,
-            "endLine": 56
+            "line": 57,
+            "endLine": 57
           },
           "expression": "state.config.fakeEffect",
           "guards": [
@@ -16592,8 +16592,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 56,
-            "endLine": 56
+            "line": 57,
+            "endLine": 57
           },
           "expression": "state.config.freeBuy",
           "guards": [
@@ -16656,8 +16656,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 37,
-            "endLine": 37
+            "line": 38,
+            "endLine": 38
           },
           "expression": "state.config.freeMerchantAction",
           "guards": [
@@ -16777,8 +16777,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 37,
-            "endLine": 37
+            "line": 38,
+            "endLine": 38
           },
           "expression": "state.config.itemEffects",
           "guards": [
@@ -16790,8 +16790,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 44,
-            "endLine": 44
+            "line": 45,
+            "endLine": 45
           },
           "expression": "state.config.itemEffects",
           "guards": [
@@ -16803,8 +16803,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 55,
-            "endLine": 55
+            "line": 56,
+            "endLine": 56
           },
           "expression": "state.config.itemEffects",
           "guards": [
@@ -17112,8 +17112,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 62,
-            "endLine": 62
+            "line": 63,
+            "endLine": 63
           },
           "expression": "state.config.maxEnergy",
           "guards": [
@@ -17423,8 +17423,8 @@
           "owner": "code:apps/comic/src/game/appraisal/personal-scoring.ts:recordPersonalFact",
           "source": {
             "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-            "line": 148,
-            "endLine": 148
+            "line": 149,
+            "endLine": 149
           },
           "expression": "state.config.personalScoringRules",
           "guards": []
@@ -17434,8 +17434,8 @@
           "owner": "code:apps/comic/src/game/appraisal/personal-scoring.ts:recordPersonalActivity",
           "source": {
             "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-            "line": 156,
-            "endLine": 156
+            "line": 157,
+            "endLine": 157
           },
           "expression": "state.config.personalScoringRules",
           "guards": []
@@ -17445,8 +17445,8 @@
           "owner": "code:apps/comic/src/game/appraisal/personal-scoring.ts:recordPersonalAppraisal",
           "source": {
             "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-            "line": 167,
-            "endLine": 167
+            "line": 168,
+            "endLine": 168
           },
           "expression": "state.config.personalScoringRules",
           "guards": []
@@ -17456,8 +17456,8 @@
           "owner": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalPerformanceInvariants",
           "source": {
             "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-            "line": 187,
-            "endLine": 187
+            "line": 200,
+            "endLine": 200
           },
           "expression": "state.config.personalScoringRules",
           "guards": []
@@ -17467,8 +17467,8 @@
           "owner": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalPerformanceInvariants",
           "source": {
             "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-            "line": 188,
-            "endLine": 188
+            "line": 201,
+            "endLine": 201
           },
           "expression": "state.config.personalScoringRules",
           "guards": []
@@ -17491,6 +17491,19 @@
             "file": "apps/comic/src/game/appraisal/survival.ts",
             "line": 29,
             "endLine": 29
+          },
+          "expression": "state.config.personalScoringRules",
+          "guards": [
+            "state.config.personalScoringRules===1"
+          ]
+        },
+        {
+          "key": "personalScoringRules",
+          "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
+          "source": {
+            "file": "apps/comic/src/game/appraisal/views.ts",
+            "line": 64,
+            "endLine": 64
           },
           "expression": "state.config.personalScoringRules",
           "guards": [
@@ -17818,8 +17831,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 56,
-            "endLine": 56
+            "line": 57,
+            "endLine": 57
           },
           "expression": "state.config.polish",
           "guards": [
@@ -17831,8 +17844,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 56,
-            "endLine": 56
+            "line": 57,
+            "endLine": 57
           },
           "expression": "state.config.polish",
           "guards": [
@@ -17844,8 +17857,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 63,
-            "endLine": 63
+            "line": 64,
+            "endLine": 64
           },
           "expression": "state.config.polish",
           "guards": [
@@ -18548,8 +18561,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 61,
-            "endLine": 61
+            "line": 62,
+            "endLine": 62
           },
           "expression": "state.config.roundRewards",
           "guards": [
@@ -19035,8 +19048,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 37,
-            "endLine": 37
+            "line": 38,
+            "endLine": 38
           },
           "expression": "state.config.secureEconomy",
           "guards": [
@@ -19048,8 +19061,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 53,
-            "endLine": 53
+            "line": 54,
+            "endLine": 54
           },
           "expression": "state.config.secureEconomy",
           "guards": [
@@ -19278,8 +19291,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 58,
-            "endLine": 58
+            "line": 59,
+            "endLine": 59
           },
           "expression": "state.config.statusLinks",
           "guards": [
@@ -19291,8 +19304,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 58,
-            "endLine": 58
+            "line": 59,
+            "endLine": 59
           },
           "expression": "state.config.statusLinks",
           "guards": [
@@ -20362,8 +20375,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 30,
-            "endLine": 30
+            "line": 31,
+            "endLine": 31
           },
           "expression": "state.config.survival",
           "guards": [
@@ -20375,8 +20388,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 44,
-            "endLine": 44
+            "line": 45,
+            "endLine": 45
           },
           "expression": "state.config.survival",
           "guards": [
@@ -20388,8 +20401,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 44,
-            "endLine": 44
+            "line": 45,
+            "endLine": 45
           },
           "expression": "state.config.survival",
           "guards": [
@@ -20401,8 +20414,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 45,
-            "endLine": 45
+            "line": 46,
+            "endLine": 46
           },
           "expression": "state.config.survival",
           "guards": [
@@ -20415,8 +20428,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 45,
-            "endLine": 45
+            "line": 46,
+            "endLine": 46
           },
           "expression": "state.config.survival",
           "guards": [
@@ -20429,8 +20442,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 46,
-            "endLine": 46
+            "line": 47,
+            "endLine": 47
           },
           "expression": "state.config.survival",
           "guards": []
@@ -20440,25 +20453,12 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 56,
-            "endLine": 56
+            "line": 57,
+            "endLine": 57
           },
           "expression": "state.config.survival",
           "guards": [
             "state.config.core2",
-            "state.config.survival"
-          ]
-        },
-        {
-          "key": "survival",
-          "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
-          "source": {
-            "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 59,
-            "endLine": 59
-          },
-          "expression": "state.config.survival",
-          "guards": [
             "state.config.survival"
           ]
         },
@@ -20480,21 +20480,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 62,
-            "endLine": 62
-          },
-          "expression": "state.config.survival",
-          "guards": [
-            "state.config.survival"
-          ]
-        },
-        {
-          "key": "survival",
-          "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
-          "source": {
-            "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 62,
-            "endLine": 62
+            "line": 61,
+            "endLine": 61
           },
           "expression": "state.config.survival",
           "guards": [
@@ -20508,6 +20495,32 @@
             "file": "apps/comic/src/game/appraisal/views.ts",
             "line": 63,
             "endLine": 63
+          },
+          "expression": "state.config.survival",
+          "guards": [
+            "state.config.survival"
+          ]
+        },
+        {
+          "key": "survival",
+          "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
+          "source": {
+            "file": "apps/comic/src/game/appraisal/views.ts",
+            "line": 63,
+            "endLine": 63
+          },
+          "expression": "state.config.survival",
+          "guards": [
+            "state.config.survival"
+          ]
+        },
+        {
+          "key": "survival",
+          "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
+          "source": {
+            "file": "apps/comic/src/game/appraisal/views.ts",
+            "line": 64,
+            "endLine": 64
           },
           "expression": "state.config.survival",
           "guards": [
@@ -20519,8 +20532,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 63,
-            "endLine": 63
+            "line": 64,
+            "endLine": 64
           },
           "expression": "state.config.survival",
           "guards": [
@@ -20532,8 +20545,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 66,
-            "endLine": 66
+            "line": 67,
+            "endLine": 67
           },
           "expression": "state.config.survival",
           "guards": [
@@ -20793,8 +20806,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 44,
-            "endLine": 44
+            "line": 45,
+            "endLine": 45
           },
           "expression": "(ABILITY_ITEM_TEXT[item.kind as keyof typeof ABILITY_ITEM_TEXT]??(state.config.trustAbilities?MODERN_ACTIVATIONS[item.kind as keyof typeof MODERN_ACTIVATIONS]:undefined))?.th",
           "guards": []
@@ -20884,8 +20897,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 53,
-            "endLine": 53
+            "line": 54,
+            "endLine": 54
           },
           "expression": "state.config.theftTimeoutRules",
           "guards": [
@@ -21066,8 +21079,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 63,
-            "endLine": 63
+            "line": 64,
+            "endLine": 64
           },
           "expression": "state.config.totalTrustStock",
           "guards": [
@@ -21347,8 +21360,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 37,
-            "endLine": 37
+            "line": 38,
+            "endLine": 38
           },
           "expression": "state.config.trustAbilities",
           "guards": [
@@ -21360,8 +21373,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalItemView",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 44,
-            "endLine": 44
+            "line": 45,
+            "endLine": 45
           },
           "expression": "state.config.trustAbilities",
           "guards": [
@@ -21373,8 +21386,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 54,
-            "endLine": 54
+            "line": 55,
+            "endLine": 55
           },
           "expression": "state.config.trustAbilities",
           "guards": [
@@ -21386,8 +21399,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 63,
-            "endLine": 63
+            "line": 64,
+            "endLine": 64
           },
           "expression": "state.config.trustAbilities",
           "guards": [
@@ -21544,8 +21557,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 53,
-            "endLine": 53
+            "line": 54,
+            "endLine": 54
           },
           "expression": "state.config.vaultInterestRules",
           "guards": [
@@ -21558,8 +21571,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 63,
-            "endLine": 63
+            "line": 64,
+            "endLine": 64
           },
           "expression": "state.config.vaultInterestRules",
           "guards": [
@@ -21670,8 +21683,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 56,
-            "endLine": 56
+            "line": 57,
+            "endLine": 57
           },
           "expression": "state.config.wishContract",
           "guards": [
@@ -21736,8 +21749,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 56,
-            "endLine": 56
+            "line": 57,
+            "endLine": 57
           },
           "expression": "state.config.wishlist",
           "guards": [
@@ -21749,8 +21762,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 56,
-            "endLine": 56
+            "line": 57,
+            "endLine": 57
           },
           "expression": "state.config.wishlist",
           "guards": [
@@ -21762,8 +21775,8 @@
           "owner": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
           "source": {
             "file": "apps/comic/src/game/appraisal/views.ts",
-            "line": 63,
-            "endLine": 63
+            "line": 64,
+            "endLine": 64
           },
           "expression": "state.config.wishlist",
           "guards": [
@@ -22148,13 +22161,14 @@
     {
       "id": "server-entry",
       "name": "Server entry overrides",
-      "expression": "{collectorWishlistRules:1,secureEconomy:true,brokerage:BROKERAGE_RULES,polish:true,npcEvents:true,core2:true,survival:SURVIVAL_RULES,...(pilot?{catalogVersion:4 as const}:{})}",
+      "expression": "{personalScoringRules:1,collectorWishlistRules:1,secureEconomy:true,brokerage:BROKERAGE_RULES,polish:true,npcEvents:true,core2:true,survival:SURVIVAL_RULES,...(pilot?{catalogVersion:4 as const}:{})}",
       "source": {
         "file": "apps/comic/src/server/appraisal-main.ts",
         "line": 8
       },
       "note": "Do not treat engine defaults alone as the live room profile; read the server overrides and room mode.",
       "values": {
+        "personalScoringRules": 1,
         "collectorWishlistRules": 1,
         "secureEconomy": true,
         "brokerage": {
@@ -22466,6 +22480,7 @@
         "marketProbability": 1,
         "marketMaxOrders": 3,
         "marketQuota": 1,
+        "personalScoringRules": 1,
         "collectorWishlistRules": 1,
         "secureEconomy": true,
         "brokerage": {
@@ -22617,8 +22632,8 @@
       ],
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 8,
-        "endLine": 127
+        "line": 9,
+        "endLine": 128
       }
     },
     {
@@ -23723,8 +23738,8 @@
       "value": 0.4,
       "source": {
         "file": "apps/comic/src/game/appraisal/scoring.ts",
-        "line": 12,
-        "endLine": 12
+        "line": 13,
+        "endLine": 13
       }
     },
     {
@@ -23734,8 +23749,8 @@
       "value": 15,
       "source": {
         "file": "apps/comic/src/game/appraisal/scoring.ts",
-        "line": 6,
-        "endLine": 6
+        "line": 7,
+        "endLine": 7
       }
     },
     {
@@ -24912,10 +24927,10 @@
     {
       "id": "personal-scoring",
       "name": "คะแนนผลงานทุกคน14หมวด",
-      "state": "runtime-experimental-v1/opt-in",
+      "state": "runtime-experimental-v1/main-new-rooms",
       "runtime": {
         "flag": "personalScoringRules:1",
-        "defaultEnabled": false,
+        "defaultEnabled": true,
         "weights": [
           {
             "id": "bought",
@@ -44740,8 +44755,8 @@
       "kind": "constant",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 8,
-        "endLine": 127
+        "line": 9,
+        "endLine": 128
       },
       "signature": [],
       "text": "PERSONAL_SCORING_WEIGHTS=[\n  {\n    \"id\": \"bought\",\n    \"group\": \"commerce\",\n    \"unit\": \"unique original bought item\",\n    \"numerator\": 2,\n    \"denominator\": 1,\n    \"cap\": 40\n  },\n  {\n    \"id\": \"soldQuantity\",\n    \"group\": \"commerce\",\n    \"unit\": \"eligible successful sale item\",\n    \"numerator\": 5,\n    \"denominator\": 1,\n    \"cap\": 75\n  },\n  {\n    \"id\": \"soldGrossCredits\",\n    \"group\": \"commerce\",\n    \"unit\": \"eligible completed gross sale credits excluding fees/rebates/commissions\",\n    \"numerator\": 1,\n    \"denominator\": 10,\n    \"cap\": 100\n  },\n  {\n    \"id\": \"trustGained\",\n    \"group\": \"relations\",\n    \"unit\": \"actual positive merchant trust gained after cap; cumulative, never subtract later losses\",\n    \"numerator\": 3,\n    \"denominator\": 1,\n    \"cap\": 120\n  },\n  {\n    \"id\": \"inspection\",\n    \"group\": \"knowledge\",\n    \"unit\": \"new personally inspected item facet\",\n    \"numerator\": 1,\n    \"denominator\": 1,\n    \"cap\": 24\n  },\n  {\n    \"id\": \"accurateAppraisal\",\n    \"group\": \"knowledge\",\n    \"unit\": \"first submitted appraisal per origin within20percent of true rarity-scaled base\",\n    \"numerator\": 2,\n    \"denominator\": 1,\n    \"cap\": 40\n  },\n  {\n    \"id\": \"npcContract\",\n    \"group\": \"relations\",\n    \"unit\": \"fulfilled NPC contract id\",\n    \"numerator\": 4,\n    \"denominator\": 1,\n    \"cap\": 32\n  },\n  {\n    \"id\": \"interest\",\n    \"group\": \"finance\",\n    \"unit\": \"aged interest credits actually paid to wallet\",\n    \"numerator\": 1,\n    \"denominator\": 1,\n    \"cap\": 30\n  },\n  {\n    \"id\": \"loanRepaid\",\n    \"group\": \"finance\",\n    \"unit\": \"fully repaid real funded loan surviving at least one full encounter\",\n    \"numerator\": 5,\n    \"denominator\": 1,\n    \"cap\": 20\n  },\n  {\n    \"id\": \"survived\",\n    \"group\": \"journey\",\n    \"unit\": \"completed encounter with life above0 after settlement\",\n    \"numerator\": 2,\n    \"denominator\": 1,\n    \"cap\": 30\n  },\n  {\n    \"id\": \"lifeLost\",\n    \"group\": \"journey\",\n    \"unit\": \"actual HP removed, including voluntary costs, excluding overkill/death count\",\n    \"numerator\": 1,\n    \"denominator\": 1,\n    \"cap\": 12\n  },\n  {\n    \"id\": \"theft\",\n    \"group\": \"journey\",\n    \"unit\": \"successful theft with actual asset transfer\",\n    \"numerator\": 4,\n    \"denominator\": 1,\n    \"cap\": 20\n  },\n  {\n    \"id\": \"rarity\",\n    \"group\": \"collection\",\n    \"unit\": \"final original goods in actual Collector custody\",\n    \"byRarity\": {\n      \"common\": 0,\n      \"uncommon\": 4,\n      \"rare\": 8,\n      \"epic\": 12,\n      \"legendary\": 20,\n      \"mythic\": 28\n    },\n    \"cap\": 80\n  },\n  {\n    \"id\": \"ghost\",\n    \"group\": \"ghost\",\n    \"unit\": \"previously approved earned credit bonus\",\n    \"numerator\": 1,\n    \"denominator\": 1,\n    \"cap\": null\n  }\n] as const",
@@ -44753,8 +44768,8 @@
       "kind": "constant",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 137,
-        "endLine": 137
+        "line": 138,
+        "endLine": 138
       },
       "signature": [],
       "text": "metricIds=new Set(PERSONAL_SCORING_WEIGHTS.filter(r=>r.id!=='rarity'&&r.id!=='ghost').map(r=>r.id))",
@@ -44766,8 +44781,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 138,
-        "endLine": 138
+        "line": 139,
+        "endLine": 139
       },
       "signature": [
         "ok:unknown",
@@ -44782,8 +44797,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 139,
-        "endLine": 139
+        "line": 140,
+        "endLine": 140
       },
       "signature": [
         "n:number"
@@ -44797,8 +44812,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 140,
-        "endLine": 140
+        "line": 141,
+        "endLine": 141
       },
       "signature": [
         "a:number",
@@ -44813,8 +44828,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 141,
-        "endLine": 145
+        "line": 142,
+        "endLine": 146
       },
       "signature": [
         "value:unknown"
@@ -44828,8 +44843,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 146,
-        "endLine": 146
+        "line": 147,
+        "endLine": 147
       },
       "signature": [],
       "text": "signature=(f:PersonalFact)=>JSON.stringify([f.id,f.playerId,f.metric,f.raw,f.eligibleKey,f.eligible,f.cause])",
@@ -44841,8 +44856,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 147,
-        "endLine": 152
+        "line": 148,
+        "endLine": 153
       },
       "signature": [
         "state:PersonalPerformanceState",
@@ -44857,8 +44872,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 153,
-        "endLine": 153
+        "line": 154,
+        "endLine": 154
       },
       "signature": [],
       "text": "personalOrigin=(item:AppraisalItem):string=>item.copy?.sourceId??item.id",
@@ -44870,8 +44885,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 155,
-        "endLine": 158
+        "line": 156,
+        "endLine": 159
       },
       "signature": [
         "state:AppraisalState",
@@ -44891,8 +44906,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 159,
-        "endLine": 161
+        "line": 160,
+        "endLine": 162
       },
       "signature": [
         "state:AppraisalState",
@@ -44913,8 +44928,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 162,
-        "endLine": 165
+        "line": 163,
+        "endLine": 166
       },
       "signature": [
         "state:AppraisalState",
@@ -44931,8 +44946,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 166,
-        "endLine": 172
+        "line": 167,
+        "endLine": 173
       },
       "signature": [
         "state:AppraisalState",
@@ -44949,8 +44964,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 173,
-        "endLine": 177
+        "line": 174,
+        "endLine": 178
       },
       "signature": [
         "state:AppraisalState",
@@ -44968,8 +44983,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 178,
-        "endLine": 185
+        "line": 179,
+        "endLine": 186
       },
       "signature": [
         "state:AppraisalState",
@@ -44980,13 +44995,29 @@
       "exported": true
     },
     {
+      "id": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreEstimateFor",
+      "name": "personalScoreEstimateFor",
+      "kind": "function",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 188,
+        "endLine": 198
+      },
+      "signature": [
+        "state:AppraisalState",
+        "p:Appraiser"
+      ],
+      "text": "export function personalScoreEstimateFor(state:AppraisalState,p:Appraiser):{min:number;max:number;unpriced:number;modifier:number} {\n let low=0,high=0,unpriced=0;\n const items=ownedAssetItemIds(state,p).map(id=>state.items[id]!);\n for(const item of items){const range=itemScoreRange(known(state,p,item.id),!!item.appraisedBy&&item.appraisedBy!==p.id);if(range){low+=range[0];high+=range[1];}else unpriced++;}\n const modifier=statusMagnitude(p,'B10',20)-statusMagnitude(p,'D10',20),credits=p.credits+(p.personalVault?.credits??0);\n const input={playerId:p.id,facts:(state.personalPerformance?.facts??[]).filter(f=>f.metric!=='accurateAppraisal'),modifierPercent:modifier,ghostBonus:state.ghosts?.[p.id]?.bonus??0,rarities:items.filter(i=>!i.copy).map(i=>({id:i.id,rarity:i.appearance?.rarity??'common' as const}))};\n const min=calculatePersonalScore({...input,assetScore:credits+low}).total;\n // Include the approved cap as a conservative unresolved allowance; never expose a hidden successful appraisal count.\n const max=calculatePersonalScore({...input,assetScore:credits+high+PERSONAL_SCORING_WEIGHTS.find(r=>r.id==='accurateAppraisal')!.cap}).total;\n return {min:Math.min(min,max),max:Math.max(min,max),unpriced,modifier};\n}",
+      "exported": true
+    },
+    {
       "id": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalPerformanceInvariants",
       "name": "personalPerformanceInvariants",
       "kind": "function",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 186,
-        "endLine": 190
+        "line": 199,
+        "endLine": 203
       },
       "signature": [
         "state:PersonalPerformanceState"
@@ -45000,8 +45031,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 191,
-        "endLine": 210
+        "line": 204,
+        "endLine": 223
       },
       "signature": [
         "input:PersonalScoreInput"
@@ -45626,8 +45657,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/game/appraisal/scoring.ts",
-        "line": 2,
-        "endLine": 4
+        "line": 3,
+        "endLine": 5
       },
       "signature": [
         "base:number",
@@ -45644,8 +45675,8 @@
       "kind": "constant",
       "source": {
         "file": "apps/comic/src/game/appraisal/scoring.ts",
-        "line": 6,
-        "endLine": 6
+        "line": 7,
+        "endLine": 7
       },
       "signature": [],
       "text": "PROVENANCE_PERCENT=15",
@@ -45657,8 +45688,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/game/appraisal/scoring.ts",
-        "line": 8,
-        "endLine": 10
+        "line": 9,
+        "endLine": 11
       },
       "signature": [
         "credits:number",
@@ -45674,11 +45705,27 @@
       "kind": "constant",
       "source": {
         "file": "apps/comic/src/game/appraisal/scoring.ts",
-        "line": 12,
-        "endLine": 12
+        "line": 13,
+        "endLine": 13
       },
       "signature": [],
       "text": "FAKE_EFFECT_CHANCE=.4",
+      "exported": true
+    },
+    {
+      "id": "code:apps/comic/src/game/appraisal/scoring.ts:itemScoreRange",
+      "name": "itemScoreRange",
+      "kind": "function",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/scoring.ts",
+        "line": 15,
+        "endLine": 20
+      },
+      "signature": [
+        "k:Knowledge",
+        "certified=false"
+      ],
+      "text": "export function itemScoreRange(k:Knowledge,certified=false):[number,number]|null {\n  const range=k.base!==undefined?[k.base,k.base]:k.range;if(!range) return null;\n  const genuine=k.genuine===undefined?[true,false]:[k.genuine],cursed=k.cursed===undefined?[false,true]:[k.cursed];\n  const values=range.flatMap(base=>genuine.flatMap(g=>cursed.map(c=>itemScoreValue(base,g,c,certified))));\n  return [Math.min(...values),Math.max(...values)];\n}",
       "exported": true
     },
     {
@@ -47063,8 +47110,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 23,
-        "endLine": 26
+        "line": 24,
+        "endLine": 27
       },
       "signature": [
         "state:AppraisalState",
@@ -47079,8 +47126,8 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 28,
-        "endLine": 47
+        "line": 29,
+        "endLine": 48
       },
       "signature": [
         "state:AppraisalState",
@@ -47096,14 +47143,14 @@
       "kind": "function",
       "source": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 49,
-        "endLine": 68
+        "line": 50,
+        "endLine": 69
       },
       "signature": [
         "state:AppraisalState",
         "playerId:string"
       ],
-      "text": "export function appraisalViewFor(state:AppraisalState,playerId:string):AppraisalView {\n  const p=player(state,playerId);const collectorWishlist=collectorWishlistView(state,p);\n  const {personalVault:_personalVault,knowledge:_knowledge,portals:_portals,stock:_stock,inventory:_inventory,valuations:_valuations,startWealth:_startWealth,acceptedDanger:_acceptedDanger,seenEvents:_seenEvents,resolvedEvents:_resolvedEvents,...self}=structuredClone(p);\n  return {\n    ...(state.config.secureEconomy?{secureEconomy:true,...(state.config.theftTimeoutRules===1?{theftTimeoutRules:1 as const}:{}),vaultInterestPercent:state.config.vaultInterestRules===1?10:4,theft:theftViewFor(state,p),sealMarket:sealMarketViewFor(state,p),loans:loanViewFor(state,p).map(loan=>({...loan,item:appraisalItemView(state,p.id,loan.itemId)}))}:{}),\n    ...(state.config.trustAbilities?{trustAbilities:true}:{}),\n    ...(state.config.itemEffects?{itemEffects:true}:{}),\n    ...(state.config.core2?{core2:true,...(state.config.survival?{dread:dreadNow(state,p)}:{})}:{}),...(passivesEnabled(state.config)?{passives:true}:{}),...(state.config.curseSight?{curseSight:true}:{}),...(state.config.freeBuy?{freeBuy:true}:{}),...(state.config.fakeEffect?{fakeEffect:true}:{}),...(state.config.cleanse?{cleanse:true}:{}),...(state.config.wishlist?{wishlist:true}:{}),...(state.config.wishlist && state.config.wishContract?{wishContract:true}:{}),...(state.config.challenge?{challenge:true}:{}),...(salePercent(state,p,true)!==0 || state.config.polish?{salePct:salePercent(state,p,true)}:{}),...(state.config.polish?{polish:true,...(omenNow(state)?{omen:{id:omenNow(state)!.id,name:omenNow(state)!.name,text:omenNow(state)!.text}}:{}),fee:feeSurcharge(state,p)}:{}),\n    ...(state.config.eventChoiceRules?{eventChoiceRules:state.config.eventChoiceRules}:{}),\n    ...(state.config.statusLinks?{statusLinks:state.config.statusLinks}:{}),\n    ...(state.config.survival?{ghosts:ghostView(state,playerId)}:{}),\n    version:state.version,phase:state.phase,encounter:state.encounter,encounterCount:state.config.survival?null:state.config.encounters,revision:state.revision,\n    ...(state.config.roundRewards?{roundRewardBase:(state.encounter%2?10:15)+passiveBonuses(state,p).income}:{}),\n    ...(state.config.survival?{survival:structuredClone(state.config.survival),maxEnergy:state.config.maxEnergy,...(state.config.collectorDeadline!==undefined?{collectorAt:state.config.collectorDeadline}:{})}:{}),...(state.collector?{collector:structuredClone(state.collector)}:{}),...(state.config.brokerage?{brokerage:true}:{}),\n    self:{...self,...(collectorWishlist?{collectorWishlist}:{}),...(state.config.catalogVersion===4?{portalRerollCost:pilotRerollCost(state,p,rerollCost(p.portalRerolls??0)),pilotAcceptancePercent:pilotStrength(state,p,'alien-thought-translator')*2,pilotPriceChecks:pilotHeld(state,p,'autometa-torque-caliper').reduce((n,i)=>n+Math.max(0,Math.floor((i.rarityPower?.effectMultiplier??1)*(i.copy?.4:1))-pilotUses(state,i)),0)}:{}),...(p.personalVault?{personalVault:{items:p.personalVault.items.map(id=>appraisalItemView(state,p.id,id)),credits:p.personalVault.credits,slots:p.personalVault.slots,nextSlotPrice:pilotExpansionCost(state,p,quoteVaultExpansion(p.personalVault.slots)),nextInterest:nextVaultInterest(state,p.personalVault),interestPercent:state.config.vaultInterestRules===1?10:4,...(state.config.collectorWishlistRules===1?{canWithdrawCredits:collectorCanWithdraw(state,p)||state.phase==='REVEAL'&&p.roundReward?.encounter===state.encounter&&p.roundReward.settled&&p.life!==0&&p.paused!=='dead'}:{})}}:{}),...(state.config.trustAbilities?{merchantAbilities:merchantAbilityViews(state,p),...(p.abilityChoice?{abilityChoices:p.abilityChoice.itemIds.map(id=>appraisalItemView(state,p.id,id))}:{})}:{}),...(p.npcContracts?.alien?{loanItems:p.npcContracts.alien.itemIds.map(id=>appraisalItemView(state,p.id,id))}:{}),...(state.config.survival && state.phase!=='RESULTS'?{accuracyBonus:0}:{}),inventory:p.inventory.map(id=>appraisalItemView(state,p.id,id)),stock:p.stock.filter(id=>state.items[id]!.owner.startsWith('npc:')).map(id=>appraisalItemView(state,p.id,id)),portals:p.portals.map(portal=>({id:portal.id,npc:portal.npc,hint:state.items[portal.stock[0]!]!.kind,disabled:portal.disabled})),counterLimit:counterLimit(p),...(state.config.commerce?{stockBonus:{...stockBonus(state,p),need:state.config.totalTrustStock?STOCK_RULES.trustPerItem:STOCK_RULES.minTrust,npcs:activeNpcs(state.config)}}:{}),...(state.config.survival && state.config.commerce?{pulse:{shards:p.pulseShards??0,perLife:PULSE_RULES.shardsPerLife,perSale:shardsPerSale(p,state.encounter),wary:merchantWary(p,state.encounter)}}:{}),...(state.config.polish?{maxEnergy:maxEnergyOf(state,p),...(maxLifeOf(state,p)!==undefined?{maxLife:maxLifeOf(state,p)!}:{})}:{}),...(recoveryOffer(state,p)?{recoveryOffer:recoveryOffer(state,p)!}:{}),...(state.config.core2 && p.life!==0?{core2Actions:core2ActionsOf(state,p)}:{}),...(cleanseOffer(state,p)?{cleanseOffer:cleanseOffer(state,p)!}:{}),...(wishOffer(state,p)?{wishOffer:wishOffer(state,p)!}:{}),...(wishDesk(state,p)?{wishDesk:wishDesk(state,p)!}:{}),...(state.config.wishlist && p.life!==0 && Object.keys(p.wishes??{}).length?{wishBook:wishBook(state,p)}:{})},\n    players:state.players.map(other=>({id:other.id,credits:other.credits,energy:other.energy,score:other.score,paused:other.paused,done:other.done,itemCount:other.inventory.length,...(other.life!==undefined?{life:other.life}:{})})),\n    market:marketView(state,p.id),listings:state.listings.map(l=>({...l,item:appraisalItemView(state,p.id,l.itemId)})),\n    trades:state.trades.filter(t=>t.buyerId===p.id || t.sellerId===p.id).map(t=>({...structuredClone(t),item:appraisalItemView(state,p.id,t.itemId),swapItem:t.swapItemId?appraisalItemView(state,p.id,t.swapItemId):null})),history:state.config.survival && state.phase!=='RESULTS'?[]:structuredClone(state.history),\n  };\n}",
+      "text": "export function appraisalViewFor(state:AppraisalState,playerId:string):AppraisalView {\n  const p=player(state,playerId);const collectorWishlist=collectorWishlistView(state,p);\n  const {personalVault:_personalVault,knowledge:_knowledge,portals:_portals,stock:_stock,inventory:_inventory,valuations:_valuations,startWealth:_startWealth,acceptedDanger:_acceptedDanger,seenEvents:_seenEvents,resolvedEvents:_resolvedEvents,...self}=structuredClone(p);\n  return {\n    ...(state.config.secureEconomy?{secureEconomy:true,...(state.config.theftTimeoutRules===1?{theftTimeoutRules:1 as const}:{}),vaultInterestPercent:state.config.vaultInterestRules===1?10:4,theft:theftViewFor(state,p),sealMarket:sealMarketViewFor(state,p),loans:loanViewFor(state,p).map(loan=>({...loan,item:appraisalItemView(state,p.id,loan.itemId)}))}:{}),\n    ...(state.config.trustAbilities?{trustAbilities:true}:{}),\n    ...(state.config.itemEffects?{itemEffects:true}:{}),\n    ...(state.config.core2?{core2:true,...(state.config.survival?{dread:dreadNow(state,p)}:{})}:{}),...(passivesEnabled(state.config)?{passives:true}:{}),...(state.config.curseSight?{curseSight:true}:{}),...(state.config.freeBuy?{freeBuy:true}:{}),...(state.config.fakeEffect?{fakeEffect:true}:{}),...(state.config.cleanse?{cleanse:true}:{}),...(state.config.wishlist?{wishlist:true}:{}),...(state.config.wishlist && state.config.wishContract?{wishContract:true}:{}),...(state.config.challenge?{challenge:true}:{}),...(salePercent(state,p,true)!==0 || state.config.polish?{salePct:salePercent(state,p,true)}:{}),...(state.config.polish?{polish:true,...(omenNow(state)?{omen:{id:omenNow(state)!.id,name:omenNow(state)!.name,text:omenNow(state)!.text}}:{}),fee:feeSurcharge(state,p)}:{}),\n    ...(state.config.eventChoiceRules?{eventChoiceRules:state.config.eventChoiceRules}:{}),\n    ...(state.config.statusLinks?{statusLinks:state.config.statusLinks}:{}),\n    ...(state.config.survival?{ghosts:ghostView(state,playerId)}:{}),\n    version:state.version,phase:state.phase,encounter:state.encounter,encounterCount:state.config.survival?null:state.config.encounters,revision:state.revision,\n    ...(state.config.roundRewards?{roundRewardBase:(state.encounter%2?10:15)+passiveBonuses(state,p).income}:{}),\n    ...(state.config.survival?{survival:structuredClone(state.config.survival),maxEnergy:state.config.maxEnergy,...(state.config.collectorDeadline!==undefined?{collectorAt:state.config.collectorDeadline}:{})}:{}),...(state.collector?{collector:structuredClone(state.collector)}:{}),...(state.config.brokerage?{brokerage:true}:{}),\n    self:{...self,...(state.config.personalScoringRules===1?(state.phase==='RESULTS'?{personalScore:personalScoreFor(state,p.id)}:{personalScoreEstimate:personalScoreEstimateFor(state,p)}):{}),...(collectorWishlist?{collectorWishlist}:{}),...(state.config.catalogVersion===4?{portalRerollCost:pilotRerollCost(state,p,rerollCost(p.portalRerolls??0)),pilotAcceptancePercent:pilotStrength(state,p,'alien-thought-translator')*2,pilotPriceChecks:pilotHeld(state,p,'autometa-torque-caliper').reduce((n,i)=>n+Math.max(0,Math.floor((i.rarityPower?.effectMultiplier??1)*(i.copy?.4:1))-pilotUses(state,i)),0)}:{}),...(p.personalVault?{personalVault:{items:p.personalVault.items.map(id=>appraisalItemView(state,p.id,id)),credits:p.personalVault.credits,slots:p.personalVault.slots,nextSlotPrice:pilotExpansionCost(state,p,quoteVaultExpansion(p.personalVault.slots)),nextInterest:nextVaultInterest(state,p.personalVault),interestPercent:state.config.vaultInterestRules===1?10:4,...(state.config.collectorWishlistRules===1?{canWithdrawCredits:collectorCanWithdraw(state,p)||state.phase==='REVEAL'&&p.roundReward?.encounter===state.encounter&&p.roundReward.settled&&p.life!==0&&p.paused!=='dead'}:{})}}:{}),...(state.config.trustAbilities?{merchantAbilities:merchantAbilityViews(state,p),...(p.abilityChoice?{abilityChoices:p.abilityChoice.itemIds.map(id=>appraisalItemView(state,p.id,id))}:{})}:{}),...(p.npcContracts?.alien?{loanItems:p.npcContracts.alien.itemIds.map(id=>appraisalItemView(state,p.id,id))}:{}),...(state.config.survival && state.phase!=='RESULTS'?{accuracyBonus:0}:{}),inventory:p.inventory.map(id=>appraisalItemView(state,p.id,id)),stock:p.stock.filter(id=>state.items[id]!.owner.startsWith('npc:')).map(id=>appraisalItemView(state,p.id,id)),portals:p.portals.map(portal=>({id:portal.id,npc:portal.npc,hint:state.items[portal.stock[0]!]!.kind,disabled:portal.disabled})),counterLimit:counterLimit(p),...(state.config.commerce?{stockBonus:{...stockBonus(state,p),need:state.config.totalTrustStock?STOCK_RULES.trustPerItem:STOCK_RULES.minTrust,npcs:activeNpcs(state.config)}}:{}),...(state.config.survival && state.config.commerce?{pulse:{shards:p.pulseShards??0,perLife:PULSE_RULES.shardsPerLife,perSale:shardsPerSale(p,state.encounter),wary:merchantWary(p,state.encounter)}}:{}),...(state.config.polish?{maxEnergy:maxEnergyOf(state,p),...(maxLifeOf(state,p)!==undefined?{maxLife:maxLifeOf(state,p)!}:{})}:{}),...(recoveryOffer(state,p)?{recoveryOffer:recoveryOffer(state,p)!}:{}),...(state.config.core2 && p.life!==0?{core2Actions:core2ActionsOf(state,p)}:{}),...(cleanseOffer(state,p)?{cleanseOffer:cleanseOffer(state,p)!}:{}),...(wishOffer(state,p)?{wishOffer:wishOffer(state,p)!}:{}),...(wishDesk(state,p)?{wishDesk:wishDesk(state,p)!}:{}),...(state.config.wishlist && p.life!==0 && Object.keys(p.wishes??{}).length?{wishBook:wishBook(state,p)}:{})},\n    players:state.players.map(other=>({id:other.id,credits:other.credits,energy:other.energy,score:other.score,paused:other.paused,done:other.done,itemCount:other.inventory.length,...(other.life!==undefined?{life:other.life}:{})})),\n    market:marketView(state,p.id),listings:state.listings.map(l=>({...l,item:appraisalItemView(state,p.id,l.itemId)})),\n    trades:state.trades.filter(t=>t.buyerId===p.id || t.sellerId===p.id).map(t=>({...structuredClone(t),item:appraisalItemView(state,p.id,t.itemId),swapItem:t.swapItemId?appraisalItemView(state,p.id,t.swapItemId):null})),history:state.config.survival && state.phase!=='RESULTS'?[]:structuredClone(state.history),\n  };\n}",
       "exported": true
     },
     {
@@ -48365,7 +48412,7 @@
         "endLine": 10
       },
       "signature": [],
-      "text": "app=createApp({rooms:new AppraisalRoomService(Date.now,{},undefined,{collectorWishlistRules:1,secureEconomy:true,brokerage:BROKERAGE_RULES,polish:true,npcEvents:true,core2:true,survival:SURVIVAL_RULES,...(pilot?{catalogVersion:4 as const}:{})}),webRoot:'dist/appraisal-client'})",
+      "text": "app=createApp({rooms:new AppraisalRoomService(Date.now,{},undefined,{personalScoringRules:1,collectorWishlistRules:1,secureEconomy:true,brokerage:BROKERAGE_RULES,polish:true,npcEvents:true,core2:true,survival:SURVIVAL_RULES,...(pilot?{catalogVersion:4 as const}:{})}),webRoot:'dist/appraisal-client'})",
       "exported": false
     },
     {
@@ -91180,8 +91227,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 137,
-        "endLine": 137
+        "line": 138,
+        "endLine": 138
       },
       "description": "PERSONAL_SCORING_WEIGHTS"
     },
@@ -91191,8 +91238,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 139,
-        "endLine": 139
+        "line": 140,
+        "endLine": 140
       },
       "description": "requireValue"
     },
@@ -91202,8 +91249,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 139,
-        "endLine": 139
+        "line": 140,
+        "endLine": 140
       },
       "description": "requireValue"
     },
@@ -91213,8 +91260,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 140,
-        "endLine": 140
+        "line": 141,
+        "endLine": 141
       },
       "description": "requireValue"
     },
@@ -91224,30 +91271,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 140,
-        "endLine": 140
-      },
-      "description": "requireValue"
-    },
-    {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:validateFact",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
-      "kind": "code-call",
-      "evidence": {
-        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 142,
-        "endLine": 142
-      },
-      "description": "requireValue"
-    },
-    {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:validateFact",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
-      "kind": "code-reference",
-      "evidence": {
-        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 142,
-        "endLine": 142
+        "line": 141,
+        "endLine": 141
       },
       "description": "requireValue"
     },
@@ -91292,6 +91317,28 @@
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
         "line": 144,
         "endLine": 144
+      },
+      "description": "requireValue"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:validateFact",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
+      "kind": "code-call",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 145,
+        "endLine": 145
+      },
+      "description": "requireValue"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:validateFact",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 145,
+        "endLine": 145
       },
       "description": "requireValue"
     },
@@ -91301,8 +91348,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 144,
-        "endLine": 144
+        "line": 145,
+        "endLine": 145
       },
       "description": "metricIds"
     },
@@ -91312,8 +91359,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 144,
-        "endLine": 144
+        "line": 145,
+        "endLine": 145
       },
       "description": "nonnegative"
     },
@@ -91323,8 +91370,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 144,
-        "endLine": 144
+        "line": 145,
+        "endLine": 145
       },
       "description": "nonnegative"
     },
@@ -91334,8 +91381,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 149,
-        "endLine": 149
+        "line": 150,
+        "endLine": 150
       },
       "description": "validateFact"
     },
@@ -91345,8 +91392,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 149,
-        "endLine": 149
+        "line": 150,
+        "endLine": 150
       },
       "description": "validateFact"
     },
@@ -91356,8 +91403,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 149,
-        "endLine": 149
+        "line": 150,
+        "endLine": 150
       },
       "description": "requireValue"
     },
@@ -91367,8 +91414,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 149,
-        "endLine": 149
+        "line": 150,
+        "endLine": 150
       },
       "description": "requireValue"
     },
@@ -91378,8 +91425,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 150,
-        "endLine": 150
+        "line": 151,
+        "endLine": 151
       },
       "description": "requireValue"
     },
@@ -91389,8 +91436,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 150,
-        "endLine": 150
+        "line": 151,
+        "endLine": 151
       },
       "description": "requireValue"
     },
@@ -91400,8 +91447,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 150,
-        "endLine": 150
+        "line": 151,
+        "endLine": 151
       },
       "description": "signature"
     },
@@ -91411,8 +91458,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 150,
-        "endLine": 150
+        "line": 151,
+        "endLine": 151
       },
       "description": "signature"
     },
@@ -91422,8 +91469,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 157,
-        "endLine": 157
+        "line": 158,
+        "endLine": 158
       },
       "description": "recordPersonalFact"
     },
@@ -91433,8 +91480,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 157,
-        "endLine": 157
+        "line": 158,
+        "endLine": 158
       },
       "description": "recordPersonalFact"
     },
@@ -91444,8 +91491,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 160,
-        "endLine": 160
+        "line": 161,
+        "endLine": 161
       },
       "description": "recordPersonalActivity"
     },
@@ -91455,8 +91502,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 160,
-        "endLine": 160
+        "line": 161,
+        "endLine": 161
       },
       "description": "recordPersonalActivity"
     },
@@ -91466,8 +91513,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 160,
-        "endLine": 160
+        "line": 161,
+        "endLine": 161
       },
       "description": "personalOrigin"
     },
@@ -91477,32 +91524,10 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 160,
-        "endLine": 160
+        "line": 161,
+        "endLine": 161
       },
       "description": "personalOrigin"
-    },
-    {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:recordPersonalSale",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:recordPersonalItemActivity",
-      "kind": "code-call",
-      "evidence": {
-        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 163,
-        "endLine": 163
-      },
-      "description": "recordPersonalItemActivity"
-    },
-    {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:recordPersonalSale",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:recordPersonalItemActivity",
-      "kind": "code-reference",
-      "evidence": {
-        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 163,
-        "endLine": 163
-      },
-      "description": "recordPersonalItemActivity"
     },
     {
       "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:recordPersonalSale",
@@ -91527,13 +91552,35 @@
       "description": "recordPersonalItemActivity"
     },
     {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:recordPersonalSale",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:recordPersonalItemActivity",
+      "kind": "code-call",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 165,
+        "endLine": 165
+      },
+      "description": "recordPersonalItemActivity"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:recordPersonalSale",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:recordPersonalItemActivity",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 165,
+        "endLine": 165
+      },
+      "description": "recordPersonalItemActivity"
+    },
+    {
       "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:recordPersonalAppraisal",
       "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalOrigin",
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 168,
-        "endLine": 168
+        "line": 169,
+        "endLine": 169
       },
       "description": "personalOrigin"
     },
@@ -91543,8 +91590,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 168,
-        "endLine": 168
+        "line": 169,
+        "endLine": 169
       },
       "description": "personalOrigin"
     },
@@ -91554,8 +91601,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 171,
-        "endLine": 171
+        "line": 172,
+        "endLine": 172
       },
       "description": "recordPersonalItemActivity"
     },
@@ -91565,8 +91612,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 171,
-        "endLine": 171
+        "line": 172,
+        "endLine": 172
       },
       "description": "recordPersonalItemActivity"
     },
@@ -91576,8 +91623,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 176,
-        "endLine": 176
+        "line": 177,
+        "endLine": 177
       },
       "description": "recordPersonalActivity"
     },
@@ -91587,8 +91634,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 176,
-        "endLine": 176
+        "line": 177,
+        "endLine": 177
       },
       "description": "recordPersonalActivity"
     },
@@ -91598,8 +91645,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 176,
-        "endLine": 176
+        "line": 177,
+        "endLine": 177
       },
       "description": "personalOrigin"
     },
@@ -91609,8 +91656,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 176,
-        "endLine": 176
+        "line": 177,
+        "endLine": 177
       },
       "description": "personalOrigin"
     },
@@ -91620,8 +91667,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 179,
-        "endLine": 179
+        "line": 180,
+        "endLine": 180
       },
       "description": "requireValue"
     },
@@ -91631,8 +91678,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 179,
-        "endLine": 179
+        "line": 180,
+        "endLine": 180
       },
       "description": "requireValue"
     },
@@ -91642,8 +91689,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 181,
-        "endLine": 181
+        "line": 182,
+        "endLine": 182
       },
       "description": "ownedAssetItemIds"
     },
@@ -91653,8 +91700,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 181,
-        "endLine": 181
+        "line": 182,
+        "endLine": 182
       },
       "description": "ownedAssetItemIds"
     },
@@ -91664,8 +91711,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 183,
-        "endLine": 183
+        "line": 184,
+        "endLine": 184
       },
       "description": "itemScoreValue"
     },
@@ -91675,8 +91722,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 183,
-        "endLine": 183
+        "line": 184,
+        "endLine": 184
       },
       "description": "itemScoreValue"
     },
@@ -91686,8 +91733,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 184,
-        "endLine": 184
+        "line": 185,
+        "endLine": 185
       },
       "description": "calculatePersonalScore"
     },
@@ -91697,8 +91744,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 184,
-        "endLine": 184
+        "line": 185,
+        "endLine": 185
       },
       "description": "calculatePersonalScore"
     },
@@ -91708,8 +91755,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 184,
-        "endLine": 184
+        "line": 185,
+        "endLine": 185
       },
       "description": "statusMagnitude"
     },
@@ -91719,263 +91766,263 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 184,
-        "endLine": 184
+        "line": 185,
+        "endLine": 185
       },
       "description": "statusMagnitude"
     },
     {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalPerformanceInvariants",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreEstimateFor",
+      "target": "code:apps/comic/src/game/appraisal/secure-storage.ts:ownedAssetItemIds",
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 187,
-        "endLine": 187
+        "line": 190,
+        "endLine": 190
       },
-      "description": "requireValue"
+      "description": "ownedAssetItemIds"
     },
     {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalPerformanceInvariants",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreEstimateFor",
+      "target": "code:apps/comic/src/game/appraisal/secure-storage.ts:ownedAssetItemIds",
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 187,
-        "endLine": 187
+        "line": 190,
+        "endLine": 190
       },
-      "description": "requireValue"
+      "description": "ownedAssetItemIds"
     },
     {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalPerformanceInvariants",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreEstimateFor",
+      "target": "code:apps/comic/src/game/appraisal/scoring.ts:itemScoreRange",
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 188,
-        "endLine": 188
+        "line": 191,
+        "endLine": 191
       },
-      "description": "requireValue"
+      "description": "itemScoreRange"
     },
     {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalPerformanceInvariants",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreEstimateFor",
+      "target": "code:apps/comic/src/game/appraisal/scoring.ts:itemScoreRange",
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 188,
-        "endLine": 188
+        "line": 191,
+        "endLine": 191
       },
-      "description": "requireValue"
+      "description": "itemScoreRange"
     },
     {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalPerformanceInvariants",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:validateFact",
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreEstimateFor",
+      "target": "code:apps/comic/src/game/appraisal/mechanics.ts:known",
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 189,
-        "endLine": 189
+        "line": 191,
+        "endLine": 191
       },
-      "description": "validateFact"
+      "description": "known"
     },
     {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalPerformanceInvariants",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:validateFact",
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreEstimateFor",
+      "target": "code:apps/comic/src/game/appraisal/mechanics.ts:known",
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 189,
-        "endLine": 189
+        "line": 191,
+        "endLine": 191
       },
-      "description": "validateFact"
+      "description": "known"
     },
     {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalPerformanceInvariants",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
-      "kind": "code-call",
-      "evidence": {
-        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 189,
-        "endLine": 189
-      },
-      "description": "requireValue"
-    },
-    {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalPerformanceInvariants",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
-      "kind": "code-reference",
-      "evidence": {
-        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 189,
-        "endLine": 189
-      },
-      "description": "requireValue"
-    },
-    {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:nonnegative",
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreEstimateFor",
+      "target": "code:apps/comic/src/game/appraisal/copy-effects.ts:statusMagnitude",
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
         "line": 192,
         "endLine": 192
       },
-      "description": "nonnegative"
+      "description": "statusMagnitude"
     },
     {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:nonnegative",
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreEstimateFor",
+      "target": "code:apps/comic/src/game/appraisal/copy-effects.ts:statusMagnitude",
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
         "line": 192,
         "endLine": 192
       },
-      "description": "nonnegative"
+      "description": "statusMagnitude"
     },
     {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreEstimateFor",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 192,
-        "endLine": 192
+        "line": 194,
+        "endLine": 194
       },
-      "description": "requireValue"
+      "description": "calculatePersonalScore"
     },
     {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreEstimateFor",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 192,
-        "endLine": 192
+        "line": 194,
+        "endLine": 194
       },
-      "description": "requireValue"
+      "description": "calculatePersonalScore"
     },
     {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:validateFact",
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreEstimateFor",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 193,
-        "endLine": 193
+        "line": 196,
+        "endLine": 196
       },
-      "description": "validateFact"
+      "description": "calculatePersonalScore"
     },
     {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:validateFact",
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreEstimateFor",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 193,
-        "endLine": 193
+        "line": 196,
+        "endLine": 196
       },
-      "description": "validateFact"
+      "description": "calculatePersonalScore"
     },
     {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
-      "kind": "code-call",
-      "evidence": {
-        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 193,
-        "endLine": 193
-      },
-      "description": "requireValue"
-    },
-    {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
-      "kind": "code-reference",
-      "evidence": {
-        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 193,
-        "endLine": 193
-      },
-      "description": "requireValue"
-    },
-    {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreEstimateFor",
       "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:PERSONAL_SCORING_WEIGHTS",
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 195,
-        "endLine": 195
+        "line": 196,
+        "endLine": 196
       },
       "description": "PERSONAL_SCORING_WEIGHTS"
     },
     {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalPerformanceInvariants",
       "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 198,
-        "endLine": 198
+        "line": 200,
+        "endLine": 200
       },
       "description": "requireValue"
     },
     {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalPerformanceInvariants",
       "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 198,
-        "endLine": 198
+        "line": 200,
+        "endLine": 200
       },
       "description": "requireValue"
     },
     {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:add",
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalPerformanceInvariants",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 198,
-        "endLine": 198
+        "line": 201,
+        "endLine": 201
       },
-      "description": "add"
+      "description": "requireValue"
     },
     {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:add",
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalPerformanceInvariants",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 198,
-        "endLine": 198
+        "line": 201,
+        "endLine": 201
       },
-      "description": "add"
+      "description": "requireValue"
     },
     {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:add",
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalPerformanceInvariants",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:validateFact",
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
         "line": 202,
         "endLine": 202
       },
-      "description": "add"
+      "description": "validateFact"
     },
     {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:add",
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalPerformanceInvariants",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:validateFact",
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
         "line": 202,
         "endLine": 202
       },
-      "description": "add"
+      "description": "validateFact"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalPerformanceInvariants",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
+      "kind": "code-call",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 202,
+        "endLine": 202
+      },
+      "description": "requireValue"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalPerformanceInvariants",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 202,
+        "endLine": 202
+      },
+      "description": "requireValue"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:nonnegative",
+      "kind": "code-call",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 205,
+        "endLine": 205
+      },
+      "description": "nonnegative"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:nonnegative",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 205,
+        "endLine": 205
+      },
+      "description": "nonnegative"
     },
     {
       "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
@@ -91983,8 +92030,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 203,
-        "endLine": 203
+        "line": 205,
+        "endLine": 205
       },
       "description": "requireValue"
     },
@@ -91994,54 +92041,32 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 203,
-        "endLine": 203
+        "line": 205,
+        "endLine": 205
       },
       "description": "requireValue"
     },
     {
       "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:add",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:validateFact",
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
         "line": 206,
         "endLine": 206
       },
-      "description": "add"
+      "description": "validateFact"
     },
     {
       "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:add",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:validateFact",
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
         "line": 206,
         "endLine": 206
       },
-      "description": "add"
-    },
-    {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
-      "target": "code:apps/comic/src/game/appraisal/scoring.ts:collectorTotal",
-      "kind": "code-call",
-      "evidence": {
-        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 206,
-        "endLine": 206
-      },
-      "description": "collectorTotal"
-    },
-    {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
-      "target": "code:apps/comic/src/game/appraisal/scoring.ts:collectorTotal",
-      "kind": "code-reference",
-      "evidence": {
-        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 206,
-        "endLine": 206
-      },
-      "description": "collectorTotal"
+      "description": "validateFact"
     },
     {
       "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
@@ -92049,8 +92074,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 207,
-        "endLine": 207
+        "line": 206,
+        "endLine": 206
       },
       "description": "requireValue"
     },
@@ -92060,32 +92085,10 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 207,
-        "endLine": 207
+        "line": 206,
+        "endLine": 206
       },
       "description": "requireValue"
-    },
-    {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:add",
-      "kind": "code-call",
-      "evidence": {
-        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 207,
-        "endLine": 207
-      },
-      "description": "add"
-    },
-    {
-      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
-      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:add",
-      "kind": "code-reference",
-      "evidence": {
-        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 207,
-        "endLine": 207
-      },
-      "description": "add"
     },
     {
       "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
@@ -92100,12 +92103,34 @@
     },
     {
       "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
+      "kind": "code-call",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 211,
+        "endLine": 211
+      },
+      "description": "requireValue"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 211,
+        "endLine": 211
+      },
+      "description": "requireValue"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
       "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:add",
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 208,
-        "endLine": 208
+        "line": 211,
+        "endLine": 211
       },
       "description": "add"
     },
@@ -92115,8 +92140,173 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 208,
-        "endLine": 208
+        "line": 211,
+        "endLine": 211
+      },
+      "description": "add"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:add",
+      "kind": "code-call",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 215,
+        "endLine": 215
+      },
+      "description": "add"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:add",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 215,
+        "endLine": 215
+      },
+      "description": "add"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
+      "kind": "code-call",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 216,
+        "endLine": 216
+      },
+      "description": "requireValue"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 216,
+        "endLine": 216
+      },
+      "description": "requireValue"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:add",
+      "kind": "code-call",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 219,
+        "endLine": 219
+      },
+      "description": "add"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:add",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 219,
+        "endLine": 219
+      },
+      "description": "add"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "target": "code:apps/comic/src/game/appraisal/scoring.ts:collectorTotal",
+      "kind": "code-call",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 219,
+        "endLine": 219
+      },
+      "description": "collectorTotal"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "target": "code:apps/comic/src/game/appraisal/scoring.ts:collectorTotal",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 219,
+        "endLine": 219
+      },
+      "description": "collectorTotal"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
+      "kind": "code-call",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 220,
+        "endLine": 220
+      },
+      "description": "requireValue"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:requireValue",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 220,
+        "endLine": 220
+      },
+      "description": "requireValue"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:add",
+      "kind": "code-call",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 220,
+        "endLine": 220
+      },
+      "description": "add"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:add",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 220,
+        "endLine": 220
+      },
+      "description": "add"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:PERSONAL_SCORING_WEIGHTS",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 221,
+        "endLine": 221
+      },
+      "description": "PERSONAL_SCORING_WEIGHTS"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:add",
+      "kind": "code-call",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 221,
+        "endLine": 221
+      },
+      "description": "add"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:calculatePersonalScore",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:add",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 221,
+        "endLine": 221
       },
       "description": "add"
     },
@@ -93952,10 +94142,32 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/scoring.ts",
-        "line": 3,
-        "endLine": 3
+        "line": 4,
+        "endLine": 4
       },
       "description": "PROVENANCE_PERCENT"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/scoring.ts:itemScoreRange",
+      "target": "code:apps/comic/src/game/appraisal/scoring.ts:itemScoreValue",
+      "kind": "code-call",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/scoring.ts",
+        "line": 18,
+        "endLine": 18
+      },
+      "description": "itemScoreValue"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/scoring.ts:itemScoreRange",
+      "target": "code:apps/comic/src/game/appraisal/scoring.ts:itemScoreValue",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/scoring.ts",
+        "line": 18,
+        "endLine": 18
+      },
+      "description": "itemScoreValue"
     },
     {
       "source": "code:apps/comic/src/game/appraisal/seals.ts:text",
@@ -100189,8 +100401,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 25,
-        "endLine": 25
+        "line": 26,
+        "endLine": 26
       },
       "description": "appraisalItemView"
     },
@@ -100200,8 +100412,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 25,
-        "endLine": 25
+        "line": 26,
+        "endLine": 26
       },
       "description": "appraisalItemView"
     },
@@ -100211,8 +100423,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 29,
-        "endLine": 29
+        "line": 30,
+        "endLine": 30
       },
       "description": "player"
     },
@@ -100222,8 +100434,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 29,
-        "endLine": 29
+        "line": 30,
+        "endLine": 30
       },
       "description": "player"
     },
@@ -100233,8 +100445,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 29,
-        "endLine": 29
+        "line": 30,
+        "endLine": 30
       },
       "description": "ITEM_SPECS"
     },
@@ -100244,8 +100456,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 30,
-        "endLine": 30
+        "line": 31,
+        "endLine": 31
       },
       "description": "known"
     },
@@ -100255,8 +100467,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 30,
-        "endLine": 30
+        "line": 31,
+        "endLine": 31
       },
       "description": "known"
     },
@@ -100266,8 +100478,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 32,
-        "endLine": 32
+        "line": 33,
+        "endLine": 33
       },
       "description": "STATUS_CATALOG"
     },
@@ -100277,8 +100489,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 33,
-        "endLine": 33
+        "line": 34,
+        "endLine": 34
       },
       "description": "itemFamily"
     },
@@ -100288,8 +100500,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 33,
-        "endLine": 33
+        "line": 34,
+        "endLine": 34
       },
       "description": "itemFamily"
     },
@@ -100299,8 +100511,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 34,
-        "endLine": 34
+        "line": 35,
+        "endLine": 35
       },
       "description": "itemFamily"
     },
@@ -100310,8 +100522,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 34,
-        "endLine": 34
+        "line": 35,
+        "endLine": 35
       },
       "description": "itemFamily"
     },
@@ -100321,8 +100533,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 36,
-        "endLine": 36
+        "line": 37,
+        "endLine": 37
       },
       "description": "NPC_SPECS"
     },
@@ -100332,8 +100544,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 37,
-        "endLine": 37
+        "line": 38,
+        "endLine": 38
       },
       "description": "integrityItemView"
     },
@@ -100343,8 +100555,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 37,
-        "endLine": 37
+        "line": 38,
+        "endLine": 38
       },
       "description": "integrityItemView"
     },
@@ -100354,8 +100566,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 37,
-        "endLine": 37
+        "line": 38,
+        "endLine": 38
       },
       "description": "liquidationQuote"
     },
@@ -100365,8 +100577,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 37,
-        "endLine": 37
+        "line": 38,
+        "endLine": 38
       },
       "description": "liquidationQuote"
     },
@@ -100376,8 +100588,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 37,
-        "endLine": 37
+        "line": 38,
+        "endLine": 38
       },
       "description": "ITEM_SPECS"
     },
@@ -100387,8 +100599,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 37,
-        "endLine": 37
+        "line": 38,
+        "endLine": 38
       },
       "description": "merchantActionFree"
     },
@@ -100398,8 +100610,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 37,
-        "endLine": 37
+        "line": 38,
+        "endLine": 38
       },
       "description": "merchantActionFree"
     },
@@ -100409,8 +100621,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 37,
-        "endLine": 37
+        "line": 38,
+        "endLine": 38
       },
       "description": "pilotUses"
     },
@@ -100420,8 +100632,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 37,
-        "endLine": 37
+        "line": 38,
+        "endLine": 38
       },
       "description": "pilotUses"
     },
@@ -100431,8 +100643,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 37,
-        "endLine": 37
+        "line": 38,
+        "endLine": 38
       },
       "description": "itemImage"
     },
@@ -100442,8 +100654,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 37,
-        "endLine": 37
+        "line": 38,
+        "endLine": 38
       },
       "description": "itemImage"
     },
@@ -100453,8 +100665,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 40,
-        "endLine": 40
+        "line": 41,
+        "endLine": 41
       },
       "description": "npcQuote"
     },
@@ -100464,8 +100676,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 40,
-        "endLine": 40
+        "line": 41,
+        "endLine": 41
       },
       "description": "npcQuote"
     },
@@ -100475,8 +100687,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 44,
-        "endLine": 44
+        "line": 45,
+        "endLine": 45
       },
       "description": "ABILITY_ITEM_TEXT"
     },
@@ -100486,8 +100698,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 44,
-        "endLine": 44
+        "line": 45,
+        "endLine": 45
       },
       "description": "MODERN_ACTIVATIONS"
     },
@@ -100497,8 +100709,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 44,
-        "endLine": 44
+        "line": 45,
+        "endLine": 45
       },
       "description": "ITEM_USE_EFFECTS"
     },
@@ -100508,8 +100720,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 44,
-        "endLine": 44
+        "line": 45,
+        "endLine": 45
       },
       "description": "itemFamily"
     },
@@ -100519,8 +100731,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 44,
-        "endLine": 44
+        "line": 45,
+        "endLine": 45
       },
       "description": "itemFamily"
     },
@@ -100530,8 +100742,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 50,
-        "endLine": 50
+        "line": 51,
+        "endLine": 51
       },
       "description": "player"
     },
@@ -100541,8 +100753,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 50,
-        "endLine": 50
+        "line": 51,
+        "endLine": 51
       },
       "description": "player"
     },
@@ -100552,8 +100764,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 50,
-        "endLine": 50
+        "line": 51,
+        "endLine": 51
       },
       "description": "collectorWishlistView"
     },
@@ -100563,8 +100775,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 50,
-        "endLine": 50
+        "line": 51,
+        "endLine": 51
       },
       "description": "collectorWishlistView"
     },
@@ -100574,8 +100786,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 53,
-        "endLine": 53
+        "line": 54,
+        "endLine": 54
       },
       "description": "theftViewFor"
     },
@@ -100585,8 +100797,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 53,
-        "endLine": 53
+        "line": 54,
+        "endLine": 54
       },
       "description": "theftViewFor"
     },
@@ -100596,8 +100808,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 53,
-        "endLine": 53
+        "line": 54,
+        "endLine": 54
       },
       "description": "sealMarketViewFor"
     },
@@ -100607,8 +100819,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 53,
-        "endLine": 53
+        "line": 54,
+        "endLine": 54
       },
       "description": "sealMarketViewFor"
     },
@@ -100618,8 +100830,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 53,
-        "endLine": 53
+        "line": 54,
+        "endLine": 54
       },
       "description": "loanViewFor"
     },
@@ -100629,8 +100841,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 53,
-        "endLine": 53
+        "line": 54,
+        "endLine": 54
       },
       "description": "loanViewFor"
     },
@@ -100640,8 +100852,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 53,
-        "endLine": 53
+        "line": 54,
+        "endLine": 54
       },
       "description": "appraisalItemView"
     },
@@ -100651,8 +100863,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 53,
-        "endLine": 53
+        "line": 54,
+        "endLine": 54
       },
       "description": "appraisalItemView"
     },
@@ -100662,8 +100874,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 56,
-        "endLine": 56
+        "line": 57,
+        "endLine": 57
       },
       "description": "dreadNow"
     },
@@ -100673,8 +100885,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 56,
-        "endLine": 56
+        "line": 57,
+        "endLine": 57
       },
       "description": "dreadNow"
     },
@@ -100684,8 +100896,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 56,
-        "endLine": 56
+        "line": 57,
+        "endLine": 57
       },
       "description": "passivesEnabled"
     },
@@ -100695,8 +100907,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 56,
-        "endLine": 56
+        "line": 57,
+        "endLine": 57
       },
       "description": "passivesEnabled"
     },
@@ -100706,8 +100918,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 56,
-        "endLine": 56
+        "line": 57,
+        "endLine": 57
       },
       "description": "salePercent"
     },
@@ -100717,8 +100929,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 56,
-        "endLine": 56
+        "line": 57,
+        "endLine": 57
       },
       "description": "salePercent"
     },
@@ -100728,8 +100940,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 56,
-        "endLine": 56
+        "line": 57,
+        "endLine": 57
       },
       "description": "omenNow"
     },
@@ -100739,8 +100951,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 56,
-        "endLine": 56
+        "line": 57,
+        "endLine": 57
       },
       "description": "omenNow"
     },
@@ -100750,8 +100962,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 56,
-        "endLine": 56
+        "line": 57,
+        "endLine": 57
       },
       "description": "feeSurcharge"
     },
@@ -100761,8 +100973,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 56,
-        "endLine": 56
+        "line": 57,
+        "endLine": 57
       },
       "description": "feeSurcharge"
     },
@@ -100772,8 +100984,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 59,
-        "endLine": 59
+        "line": 60,
+        "endLine": 60
       },
       "description": "ghostView"
     },
@@ -100783,8 +100995,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 59,
-        "endLine": 59
+        "line": 60,
+        "endLine": 60
       },
       "description": "ghostView"
     },
@@ -100794,8 +101006,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 61,
-        "endLine": 61
+        "line": 62,
+        "endLine": 62
       },
       "description": "passiveBonuses"
     },
@@ -100805,10 +101017,54 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 61,
-        "endLine": 61
+        "line": 62,
+        "endLine": 62
       },
       "description": "passiveBonuses"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreFor",
+      "kind": "code-call",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/views.ts",
+        "line": 64,
+        "endLine": 64
+      },
+      "description": "personalScoreFor"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreFor",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/views.ts",
+        "line": 64,
+        "endLine": 64
+      },
+      "description": "personalScoreFor"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreEstimateFor",
+      "kind": "code-call",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/views.ts",
+        "line": 64,
+        "endLine": 64
+      },
+      "description": "personalScoreEstimateFor"
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
+      "target": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreEstimateFor",
+      "kind": "code-reference",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/views.ts",
+        "line": 64,
+        "endLine": 64
+      },
+      "description": "personalScoreEstimateFor"
     },
     {
       "source": "code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor",
@@ -100816,8 +101072,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "pilotRerollCost"
     },
@@ -100827,8 +101083,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "pilotRerollCost"
     },
@@ -100838,8 +101094,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "rerollCost"
     },
@@ -100849,8 +101105,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "rerollCost"
     },
@@ -100860,8 +101116,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "pilotStrength"
     },
@@ -100871,8 +101127,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "pilotStrength"
     },
@@ -100882,8 +101138,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "pilotHeld"
     },
@@ -100893,8 +101149,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "pilotHeld"
     },
@@ -100904,8 +101160,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "pilotUses"
     },
@@ -100915,8 +101171,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "pilotUses"
     },
@@ -100926,8 +101182,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "appraisalItemView"
     },
@@ -100937,8 +101193,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "appraisalItemView"
     },
@@ -100948,8 +101204,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "pilotExpansionCost"
     },
@@ -100959,8 +101215,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "pilotExpansionCost"
     },
@@ -100970,8 +101226,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "quoteVaultExpansion"
     },
@@ -100981,8 +101237,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "quoteVaultExpansion"
     },
@@ -100992,8 +101248,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "nextVaultInterest"
     },
@@ -101003,8 +101259,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "nextVaultInterest"
     },
@@ -101014,8 +101270,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "collectorCanWithdraw"
     },
@@ -101025,8 +101281,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "collectorCanWithdraw"
     },
@@ -101036,8 +101292,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "merchantAbilityViews"
     },
@@ -101047,8 +101303,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "merchantAbilityViews"
     },
@@ -101058,8 +101314,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "counterLimit"
     },
@@ -101069,8 +101325,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "counterLimit"
     },
@@ -101080,8 +101336,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "stockBonus"
     },
@@ -101091,8 +101347,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "stockBonus"
     },
@@ -101102,8 +101358,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "STOCK_RULES"
     },
@@ -101113,8 +101369,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "activeNpcs"
     },
@@ -101124,8 +101380,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "activeNpcs"
     },
@@ -101135,8 +101391,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "PULSE_RULES"
     },
@@ -101146,8 +101402,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "shardsPerSale"
     },
@@ -101157,8 +101413,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "shardsPerSale"
     },
@@ -101168,8 +101424,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "merchantWary"
     },
@@ -101179,8 +101435,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "merchantWary"
     },
@@ -101190,8 +101446,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "maxEnergyOf"
     },
@@ -101201,8 +101457,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "maxEnergyOf"
     },
@@ -101212,8 +101468,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "maxLifeOf"
     },
@@ -101223,8 +101479,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "maxLifeOf"
     },
@@ -101234,8 +101490,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "recoveryOffer"
     },
@@ -101245,8 +101501,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "recoveryOffer"
     },
@@ -101256,8 +101512,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "core2ActionsOf"
     },
@@ -101267,8 +101523,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "core2ActionsOf"
     },
@@ -101278,8 +101534,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "cleanseOffer"
     },
@@ -101289,8 +101545,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "cleanseOffer"
     },
@@ -101300,8 +101556,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "wishOffer"
     },
@@ -101311,8 +101567,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "wishOffer"
     },
@@ -101322,8 +101578,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "wishDesk"
     },
@@ -101333,8 +101589,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "wishDesk"
     },
@@ -101344,8 +101600,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "wishBook"
     },
@@ -101355,8 +101611,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 63,
-        "endLine": 63
+        "line": 64,
+        "endLine": 64
       },
       "description": "wishBook"
     },
@@ -101366,8 +101622,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 65,
-        "endLine": 65
+        "line": 66,
+        "endLine": 66
       },
       "description": "marketView"
     },
@@ -101377,8 +101633,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 65,
-        "endLine": 65
+        "line": 66,
+        "endLine": 66
       },
       "description": "marketView"
     },
@@ -101388,8 +101644,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 65,
-        "endLine": 65
+        "line": 66,
+        "endLine": 66
       },
       "description": "appraisalItemView"
     },
@@ -101399,8 +101655,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 65,
-        "endLine": 65
+        "line": 66,
+        "endLine": 66
       },
       "description": "appraisalItemView"
     },
@@ -101410,8 +101666,8 @@
       "kind": "code-call",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 66,
-        "endLine": 66
+        "line": 67,
+        "endLine": 67
       },
       "description": "appraisalItemView"
     },
@@ -101421,8 +101677,8 @@
       "kind": "code-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 66,
-        "endLine": 66
+        "line": 67,
+        "endLine": 67
       },
       "description": "appraisalItemView"
     },
@@ -127983,8 +128239,8 @@
       "kind": "literal-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 178,
-        "endLine": 185
+        "line": 179,
+        "endLine": 186
       }
     },
     {
@@ -127993,8 +128249,28 @@
       "kind": "literal-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 178,
-        "endLine": 185
+        "line": 179,
+        "endLine": 186
+      }
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreEstimateFor",
+      "target": "status:B10",
+      "kind": "literal-reference",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 188,
+        "endLine": 198
+      }
+    },
+    {
+      "source": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreEstimateFor",
+      "target": "status:D10",
+      "kind": "literal-reference",
+      "evidence": {
+        "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "line": 188,
+        "endLine": 198
       }
     },
     {
@@ -130033,8 +130309,8 @@
       "kind": "literal-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 28,
-        "endLine": 47
+        "line": 29,
+        "endLine": 48
       }
     },
     {
@@ -130043,8 +130319,8 @@
       "kind": "literal-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 28,
-        "endLine": 47
+        "line": 29,
+        "endLine": 48
       }
     },
     {
@@ -130053,8 +130329,8 @@
       "kind": "literal-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 28,
-        "endLine": 47
+        "line": 29,
+        "endLine": 48
       }
     },
     {
@@ -130063,8 +130339,8 @@
       "kind": "literal-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 28,
-        "endLine": 47
+        "line": 29,
+        "endLine": 48
       }
     },
     {
@@ -130073,8 +130349,8 @@
       "kind": "literal-reference",
       "evidence": {
         "file": "apps/comic/src/game/appraisal/views.ts",
-        "line": 28,
-        "endLine": 47
+        "line": 29,
+        "endLine": 48
       }
     },
     {
@@ -131154,8 +131430,8 @@
       "kind": "TypeAliasDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 129,
-        "endLine": 129
+        "line": 130,
+        "endLine": 130
       },
       "text": "type Rule=typeof PERSONAL_SCORING_WEIGHTS[number];"
     },
@@ -131165,8 +131441,8 @@
       "kind": "TypeAliasDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 130,
-        "endLine": 130
+        "line": 131,
+        "endLine": 131
       },
       "text": "export type PersonalMetric=Exclude<Rule['id'],'rarity'|'ghost'>;"
     },
@@ -131176,8 +131452,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 131,
-        "endLine": 131
+        "line": 132,
+        "endLine": 132
       },
       "text": "export interface PersonalFact {id:string;playerId:string;metric:PersonalMetric;raw:number;eligibleKey:string;eligible:boolean;cause:string}"
     },
@@ -131187,8 +131463,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 132,
-        "endLine": 132
+        "line": 133,
+        "endLine": 133
       },
       "text": "export interface PersonalPerformance {version:1;facts:PersonalFact[]}"
     },
@@ -131198,8 +131474,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 133,
-        "endLine": 133
+        "line": 134,
+        "endLine": 134
       },
       "text": "export interface PersonalPerformanceState {config:{personalScoringRules?:1};players:readonly {id:string}[];personalPerformance?:PersonalPerformance}"
     },
@@ -131209,8 +131485,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 134,
-        "endLine": 134
+        "line": 135,
+        "endLine": 135
       },
       "text": "export interface PersonalScoreInput {playerId:string;facts:readonly PersonalFact[];assetScore:number;modifierPercent:number;ghostBonus:number;rarities:readonly {id:string;rarity:Rarity}[]}"
     },
@@ -131220,8 +131496,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 135,
-        "endLine": 135
+        "line": 136,
+        "endLine": 136
       },
       "text": "export interface PersonalMetricResult {id:Rule['id'];raw:number;eligible:number;cap:number|null;uncappedPoints:number;points:number;sourceIds:string[];exclusions:{id:string;cause:string}[];weight:{numerator:number;denominator:number}|{byRarity:Readonly<Record<Rarity,number>>}}"
     },
@@ -131231,8 +131507,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 136,
-        "endLine": 136
+        "line": 137,
+        "endLine": 137
       },
       "text": "export interface PersonalScoreBreakdown {playerId:string;metrics:PersonalMetricResult[];groups:{id:string;points:number}[];performancePoints:number;ordinaryBeforeModifier:number;modifierDelta:number;ordinaryScore:number;ghostBonus:number;total:number}"
     },
@@ -131925,9 +132201,9 @@
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
         "line": 344,
-        "endLine": 384
+        "endLine": 386
       },
-      "text": "export interface AppraisalView {\n  theftTimeoutRules?:1;\n  vaultInterestPercent?:number;\n  ghosts?:ReturnType<typeof import('./ghost-service.js').ghostView>;\n  secureEconomy?:boolean;\n  theft?:ReturnType<typeof import('./theft.js').theftViewFor>;\n  sealMarket?:import('./seals.js').SealMarketView;\n  loans?:Array<import('./secure-storage.js').SecuredLoan & {item:ItemView}>;\n  trustAbilities?:boolean;\n  itemEffects?:boolean;\n  version: 4 | 5; phase: AppraisalPhase; encounter: number; encounterCount: number | null; revision: number;\n  eventChoiceRules?:1;\n  statusLinks?:1;\n  survival?:NonNullable<AppraisalConfig['survival']>; core2?:boolean; collectorAt?:number; dread?:number; curseSight?:boolean; freeBuy?:boolean; fakeEffect?:boolean; cleanse?:boolean; wishlist?:boolean; wishContract?:boolean; challenge?:boolean; polish?:boolean; omen?:{id:string;name:string;text:string}; salePct?:number; fee?:number; maxEnergy?:number; collector?:CollectorResult[]; brokerage?:boolean; roundRewardBase?:number; passives?:boolean;\n  self: Omit<Appraiser,'personalVault'|'knowledge'|'portals'|'stock'|'inventory'|'valuations'|'startWealth'|'acceptedDanger'|'seenEvents'|'resolvedEvents'> & {\n    collectorWishlist?:import('./collector-wishlist.js').CollectorWishlistView;\n    personalVault?:{items:ItemView[];credits:number;slots:number;nextSlotPrice:number;nextInterest:number;interestPercent?:number;canWithdrawCredits?:boolean};\n    loanItems?:ItemView[];\n    inventory: ItemView[]; stock: ItemView[]; portals: Array<{id:string; npc:NpcId; hint:ItemKind; disabled:boolean}>;\n    portalRerollCost?:number;pilotPriceChecks?:number;pilotAcceptancePercent?:number;\n    counterLimit: number;\n    /** Per-seat caps once held relics apply (polish rules). */\n    maxEnergy?: number; maxLife?: number;\n    recoveryOffer?:RecoveryOffer;\n    /** Core v0.6: what the seat can do beyond buying: the merchant's skill, theft odds and whether this encounter's one attempt is spent. */\n    core2Actions?:Core2Actions;\n    merchantAbilities?:MerchantAbilityView[];\n    abilityChoices?:ItemView[];\n    pulse?:{shards:number;perLife:number;perSale:number;wary:boolean};\n    /** Shop bonus and its threshold. `total` selects pooled trust; absent keeps the historical all-merchant rule. */\n    stockBonus?:{tier:number;extra:number;need:number;npcs:NpcId[];total?:number};\n    cleanseOffer?:CleanseOffer;\n    wishOffer?:WishOffer;\n    wishDesk?:WishDesk;\n    /** Every open wish with its current price, in any phase, so the seat can recall what to buy. */\n    wishBook?:WishBookRow[];\n  };\n  players: Array<{id:string;credits:number;energy:number;score:number;paused:Appraiser['paused'];done:boolean;itemCount:number;life?:number}>;\n  market: Omit<DarkMarket,'lots'> & { lots?: AuctionLotView[] }; listings: Array<SharedListing & { item: ItemView }>;\n  trades: Array<TradeOffer & {item:ItemView;swapItem:ItemView|null}>; history: EncounterResult[];\n}"
+      "text": "export interface AppraisalView {\n  theftTimeoutRules?:1;\n  vaultInterestPercent?:number;\n  ghosts?:ReturnType<typeof import('./ghost-service.js').ghostView>;\n  secureEconomy?:boolean;\n  theft?:ReturnType<typeof import('./theft.js').theftViewFor>;\n  sealMarket?:import('./seals.js').SealMarketView;\n  loans?:Array<import('./secure-storage.js').SecuredLoan & {item:ItemView}>;\n  trustAbilities?:boolean;\n  itemEffects?:boolean;\n  version: 4 | 5; phase: AppraisalPhase; encounter: number; encounterCount: number | null; revision: number;\n  eventChoiceRules?:1;\n  statusLinks?:1;\n  survival?:NonNullable<AppraisalConfig['survival']>; core2?:boolean; collectorAt?:number; dread?:number; curseSight?:boolean; freeBuy?:boolean; fakeEffect?:boolean; cleanse?:boolean; wishlist?:boolean; wishContract?:boolean; challenge?:boolean; polish?:boolean; omen?:{id:string;name:string;text:string}; salePct?:number; fee?:number; maxEnergy?:number; collector?:CollectorResult[]; brokerage?:boolean; roundRewardBase?:number; passives?:boolean;\n  self: Omit<Appraiser,'personalVault'|'knowledge'|'portals'|'stock'|'inventory'|'valuations'|'startWealth'|'acceptedDanger'|'seenEvents'|'resolvedEvents'> & {\n    personalScore?:import('./personal-scoring.js').PersonalScoreBreakdown;\n    personalScoreEstimate?:{min:number;max:number;unpriced:number;modifier:number};\n    collectorWishlist?:import('./collector-wishlist.js').CollectorWishlistView;\n    personalVault?:{items:ItemView[];credits:number;slots:number;nextSlotPrice:number;nextInterest:number;interestPercent?:number;canWithdrawCredits?:boolean};\n    loanItems?:ItemView[];\n    inventory: ItemView[]; stock: ItemView[]; portals: Array<{id:string; npc:NpcId; hint:ItemKind; disabled:boolean}>;\n    portalRerollCost?:number;pilotPriceChecks?:number;pilotAcceptancePercent?:number;\n    counterLimit: number;\n    /** Per-seat caps once held relics apply (polish rules). */\n    maxEnergy?: number; maxLife?: number;\n    recoveryOffer?:RecoveryOffer;\n    /** Core v0.6: what the seat can do beyond buying: the merchant's skill, theft odds and whether this encounter's one attempt is spent. */\n    core2Actions?:Core2Actions;\n    merchantAbilities?:MerchantAbilityView[];\n    abilityChoices?:ItemView[];\n    pulse?:{shards:number;perLife:number;perSale:number;wary:boolean};\n    /** Shop bonus and its threshold. `total` selects pooled trust; absent keeps the historical all-merchant rule. */\n    stockBonus?:{tier:number;extra:number;need:number;npcs:NpcId[];total?:number};\n    cleanseOffer?:CleanseOffer;\n    wishOffer?:WishOffer;\n    wishDesk?:WishDesk;\n    /** Every open wish with its current price, in any phase, so the seat can recall what to buy. */\n    wishBook?:WishBookRow[];\n  };\n  players: Array<{id:string;credits:number;energy:number;score:number;paused:Appraiser['paused'];done:boolean;itemCount:number;life?:number}>;\n  market: Omit<DarkMarket,'lots'> & { lots?: AuctionLotView[] }; listings: Array<SharedListing & { item: ItemView }>;\n  trades: Array<TradeOffer & {item:ItemView;swapItem:ItemView|null}>; history: EncounterResult[];\n}"
     },
     {
       "id": "schema:apps/comic/src/game/appraisal/types.ts:MerchantAbilityView",
@@ -131935,8 +132211,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 385,
-        "endLine": 388
+        "line": 387,
+        "endLine": 390
       },
       "text": "export interface MerchantAbilityView {\n  npc:NpcId; name:string; description:string; trust:number; tier:number; cooldown:number; remaining:number;\n  ready:boolean; reason:string|null; target:'stock'|'inventory'|'consumable'|'debuff'|'none'; itemIds:string[]; statusIds:StatusId[];\n}"
     },
@@ -137020,8 +137296,8 @@
       "owner": "code:apps/comic/src/game/appraisal/personal-scoring.ts:recordPersonalFact",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 151,
-        "endLine": 151
+        "line": 152,
+        "endLine": 152
       },
       "guards": []
     },
@@ -137032,8 +137308,8 @@
       "owner": "code:apps/comic/src/game/appraisal/personal-scoring.ts:setPersonalTrust",
       "source": {
         "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-        "line": 175,
-        "endLine": 175
+        "line": 176,
+        "endLine": 176
       },
       "guards": []
     },

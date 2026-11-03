@@ -1,0 +1,94 @@
+{
+  "asOf": "2026-11-03",
+  "status": "Task3implementation-verified-final-review-pending",
+  "mainNewRoomsEnabled": true,
+  "functional": {
+    "pass": 48,
+    "fail": 0,
+    "includes": "domain/runtime/eligibility/UI/actual2and4sockets plus actual main newroom startup"
+  },
+  "newUi": {
+    "checks": 13,
+    "captures": 9,
+    "widths": [
+      1024,
+      1440,
+      1920
+    ]
+  },
+  "peerMenus": 18,
+  "sealedPixels": {
+    "passed": 14,
+    "failed": 0,
+    "baselinePromoted": false
+  },
+  "redEvidence": [
+    "ui-red.log",
+    "menu-red.log",
+    "geometry-red.json",
+    "main-red.log"
+  ],
+  "scopeLimits": [
+    "No current full CPU simulation or statistical balance claim",
+    "Actual socket reconnect verified separately; browser graph checks are mounted end DTOs, not live reconnect",
+    "Known old removed-notes assertion and8 historical replay failures retained in Task2 evidence",
+    "Whole game stillneeds48approveditemnumbers/runtime/fullgame balance and normal ghosttracking browser scroll diagnosis"
+  ],
+  "sources": {
+    "apps/comic/src/game/appraisal/personal-scoring.ts": "530582d98addfe110e9b8d5832f751369d22d68b9f7dda819af764adca7be72c",
+    "apps/comic/src/game/appraisal/scoring.ts": "d95a48373f066152d4bb19720f34e126ee23b0cbe38110a211a5c2e2e3cdc1c0",
+    "apps/comic/src/game/appraisal/views.ts": "851f93039db2aa1ebccb4735532192f6fa0854255eced3312c5aad8245eac030",
+    "apps/comic/src/game/appraisal/types.ts": "28ff5a2d7ff93c4193df4f109e3d010a083443b81a1eaa2ff29916840acd6a52",
+    "apps/comic/src/server/appraisal-main.ts": "5f67b2038007427688bd6b8c1c19227f34c6244d9d7b47537bf0bc0f1a673831",
+    "apps/comic/tests/personal-scoring-ui.test.ts": "20b291400fa84c9743d73e803127ff15bc9c03292541d89423e0c3222094a921",
+    "apps/comic/tests/personal-scoring-network.test.ts": "70fdb158b155a5fa3097b234ef68cd3ee192fa5874b0869b7e1a4badf89f9ec7"
+  },
+  "artifacts": {
+    "docs/validation/personal-score-ui-2026-11-03/score-4-1920.png": "249959e83b066ab9b6d17e459253e04c9872ebafc5975ada0c2eb80b5c61d138",
+    "docs/validation/personal-score-ui-2026-11-03/report.json": "cbf80ef2c6579be924ad9597246f7a857bd5434ea6991a37ad201ad8e445432b",
+    "docs/validation/personal-score-ui-2026-11-03/personal-score-invocation.json": "e26aac2177b292eb07581cc3f3e92d6d508fb54676ee722a1c6b7b6ba8db9323",
+    "docs/validation/personal-score-ui-2026-11-03/pilot-green.log": "e5f030521da3c4e42bc338fe464240f559c6f22e3d74f11329b3a8b42e31b0a7",
+    "docs/validation/personal-score-ui-2026-11-03/score-neg-1920.png": "87007a591d539738c76ae5364506ee72bbd02d9aaeaf180006483d254a04c1c6",
+    "docs/validation/personal-score-ui-2026-11-03/geometry-red-invocation.json": "488318875358c0790503c69c5423c14a112cea14af07fd9f78a06a034c0f45b2",
+    "docs/validation/personal-score-ui-2026-11-03/geometry-red.json": "40e95e1761c81990815df2131dddf647e7cd3c962c6dc65bfc9849ffd291cc0a",
+    "docs/validation/personal-score-ui-2026-11-03/score-2-1920.png": "c1f9656912a0600fe26619459d75d5d04888b345cbff7147a77987da7a7a0a08",
+    "docs/validation/personal-score-ui-2026-11-03/score-2-1440.png": "251c4fa17277c3889b94f2084ceab91e138588640d7e21adec6b1bbc99b1ebad",
+    "docs/validation/personal-score-ui-2026-11-03/menu-red.log": "092e68081d1d68bca6ad32a0ad305dd7c980d967e332850c4ac44281e4f4c5fb",
+    "docs/validation/personal-score-ui-2026-11-03/score-neg-1440.png": "bc443418d9e48db6b7e3f92e615f34d98f09c293152401ed361745811993cf65",
+    "docs/validation/personal-score-ui-2026-11-03/smoke-report.json": "89e8f5862130a285e126cc4ff812f11e2d4236b17f4e99b5d27899459b2c4a9c",
+    "docs/validation/personal-score-ui-2026-11-03/smoke-invocation.json": "857ea24bafbfc822380cce54ec21191c7dd1c981987ca053365d718b1198226a",
+    "docs/validation/personal-score-ui-2026-11-03/score-4-1024.png": "654a018234e232c7f6e7679f15e10def5ac1d4ddcc9ad207beed09dcaa54dcc5",
+    "docs/validation/personal-score-ui-2026-11-03/compare-report.json": "e197d061c723379d658bd4df0956752a21f2349500f8ee6e1c8d829927c913dc",
+    "docs/validation/personal-score-ui-2026-11-03/score-2-1024.png": "2628bbdbb495faf162bdb899ee18e025d30f283be5f672385a279ae3fcdffa30",
+    "docs/validation/personal-score-ui-2026-11-03/compare-invocation.json": "4837245839297c7940758fde9f9a31c248a3f57788541c26192cf7bdb74f9a0e",
+    "docs/validation/personal-score-ui-2026-11-03/ui-red.log": "9e6b84cad276dac04ad0ca35534afdfe376ef5c1c8a8420fe3b291a3ab096868",
+    "docs/validation/personal-score-ui-2026-11-03/score-4-1440.png": "848a25d1ec177a026b7fcb8efeda54f95a5d230d9bde1885637842474848a2d9",
+    "docs/validation/personal-score-ui-2026-11-03/main-red.log": "8366e2a4e3617f0cea83b2b6f465ecccf56c3e87fc136d04d6976aba2bbd92e0",
+    "docs/validation/personal-score-ui-2026-11-03/score-neg-1024.png": "1ba6dd1357286886de903144a3dd14bfcf7fad4804fa16056ef389285e9adc75",
+    "docs/validation/personal-score-ui-2026-11-03/functional-green.log": "ac2b1938a0d49e134a1429e3d75e98b7354c631f1e46ff86e24c468cf0934c20",
+    "docs/validation/personal-score-ui-2026-11-03/normal-personal/report.json": "5500ba8c443ecce9e2d9885b25c9171cb19e247e3b0b2fa71b9a9f2562c77d04",
+    "docs/validation/personal-score-ui-2026-11-03/normal-personal/journey.audit.json": "5e10b982bf9541f41a9944d5339e64c49347d6bbaca6004d6da34dd69b619364"
+  },
+  "normalJourney": {
+    "commands": 196,
+    "end": 7,
+    "ghostBonus": 2,
+    "strictReplay": true,
+    "sameAuditBytesAsTask2": true,
+    "scope": "engine selected public-view normal40/6/deadline15; not real browser shuffleclock or balance"
+  },
+  "hindsight": {
+    "retained": "completed",
+    "retrievedMatchingDocument": true,
+    "documentId": "cursed-market-personal-score-ui-2026-11-03",
+    "ids": [
+      "8bfe6d3b-b92e-4f7c-9aa8-84fe461c94c7",
+      "17b3b904-a305-45b0-a213-738bb549289a"
+    ]
+  },
+  "pilotTests": {
+    "passed": 33,
+    "failed": 0,
+    "scope": "catalog/effects/lifecycle/custody/comic continuity, separate from48scoring tests"
+  }
+}

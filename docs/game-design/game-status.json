@@ -61,8 +61,8 @@
     {
       "id": "STRAT-01",
       "system": "คะแนนผลงานทุกคนหลายระบบ",
-      "status": "engine-experimental-v1-verified — UI/default pending",
-      "remaining": "Task2engine/eligibilityผ่าน40กรณี+socket2/4คน3กรณี และnormal40/6ครบ196คำสั่ง/ตลาดวิญญาณ/จบ/replay. Task3selfDTO/Status/Comicgraph/defaultยังค้าง;ยังไม่ใช่full-gamebalance.",
+      "status": "runtime-comic-v1-experimental — default newrooms enabled; final review pending",
+      "remaining": "48domain/protocol checks +13newUI/18menus/14sealedpixels pass;9stagegraph+known-onlyStatus wired. Independent final review/full-game normal browser reconnect/balance remain.",
       "evidence": [
         "docs/game-design/strategic-paths.md",
         "apps/comic/src/game/appraisal/survival.ts",
@@ -77,7 +77,8 @@
         "docs/game-design/implementations/personal-scoring-plan.md",
         "docs/validation/personal-scoring-2026-11-03/checkpoint.json",
         "docs/validation/personal-scoring-2026-11-03/runtime-checkpoint.json",
-        "docs/validation/personal-scoring-eligibility-2026-11-03/verification.json"
+        "docs/validation/personal-scoring-eligibility-2026-11-03/verification.json",
+        "docs/validation/personal-score-ui-2026-11-03/report.json"
       ]
     },
     {
@@ -162,7 +163,7 @@
     }
   ],
   "next": [
-    "Task3: allowlisted selfDTO/Status และComic9stage graph ใช้ผลserver; เปิดdefaultเมื่อผ่านUI3ขนาด/เมนู/baselinesเท่านั้น",
+    "Personal scoring final independent whole-branch review; retain fullgame/normal ghosttracking/48items/balance gaps",
     "เตรียมสเปกสินค้าใหม่อีก48ชิ้นและevent predicatesให้ตรวจ ไม่ขยายcatalog4หรือใส่ค่าที่ยังไม่อนุมัติเอง",
     "ต่อnormal-resource engine journeyเป็นbrowser/socketร่วมจริง และหลายseed/policyก่อนtune",
     "รักษางานUI-COLLECTOR-CONTEXT minorและfull-game acceptanceเป็นงานค้าง ไม่เรียกsubsystemว่าเกมเสร็จ"
@@ -173,6 +174,7 @@
     "rootVaultInterestPercent": 10,
     "new56DedicatedBindings": 8,
     "comicDefaultCatalogVersion": 3,
-    "comicExperimentalCatalogVersion": 4
+    "comicExperimentalCatalogVersion": 4,
+    "personalScoringRules": 1
   }
 }

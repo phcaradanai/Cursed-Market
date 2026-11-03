@@ -71,3 +71,13 @@ for(const count of [2,4])test(`${count} real sockets preserve private receipts, 
  first.send({type:'audit',matchId:first.room.matchId});await first.wait(()=>first.messages.some(m=>m.type==='audit'));const message=first.messages.find(m=>m.type==='audit');assert(message?.type==='audit');assert.deepEqual(exportAppraisalAudit(replayAppraisalAudit(message.audit.run)),message.audit.run);assert.deepEqual(message.audit.run.personalPerformance,state.personalPerformance);
  if(process.env.PERSONAL_SCORING_AUDIT_DIR)writeFileSync(path.join(process.env.PERSONAL_SCORING_AUDIT_DIR,`${count}-players.audit.json`),JSON.stringify(message.audit,null,2)+'\n');
 });
+
+test('actual Comic entry point enables approved scoring for new rooms without client-supplied config',{timeout:20000},async t=>{
+ const {spawn}=await import('node:child_process'),{createServer}=await import('node:net');const reservation=createServer();reservation.listen(0,'127.0.0.1');await once(reservation,'listening');const port=(reservation.address() as AddressInfo).port;await new Promise<void>(resolve=>reservation.close(()=>resolve()));
+ const {fileURLToPath}=await import('node:url');const server=spawn(process.execPath,[fileURLToPath(new URL('../src/server/appraisal-main.js',import.meta.url))],{cwd:process.cwd(),env:{...process.env,HOST:'127.0.0.1',PORT:String(port)},stdio:['ignore','pipe','pipe']}),clients:Client[]=[];
+ t.after(()=>{for(const c of clients)c.ws.terminate();server.kill('SIGTERM');});
+ let output='';server.stdout.on('data',data=>output+=String(data));server.stderr.on('data',data=>output+=String(data));
+ for(let n=0;n<400&&!output.includes('Cursed Market v0.5 Survival:');n++){assert.equal(server.exitCode,null,output);await new Promise(resolve=>setTimeout(resolve,10));}assert(output.includes('Cursed Market v0.5 Survival:'),output);
+ for(let n=0;n<2;n++)clients.push(await Client.open(`ws://127.0.0.1:${port}/socket`));const first=clients[0]!;first.send({type:'create',name:'Entry host'});await first.wait(()=>first.messages.some(m=>m.type==='state'));clients[1]!.send({type:'join',name:'Entry guest',roomCode:first.room.code});await clients[1]!.wait(()=>clients[1]!.messages.some(m=>m.type==='state'));for(const c of clients)c.send({type:'ready',ready:true});await first.wait(()=>first.room.seats.every(s=>s.ready));first.send({type:'start'});await first.wait(()=>!!first.room.game);
+ assert(first.room.game!.self.personalScoreEstimate,'main entry did not enable approved personal scoring');assert.equal(first.room.game!.self.credits,40);assert.equal(first.room.game!.self.life,6);assert(!JSON.stringify(first.room.game).includes('personalPerformance'));
+});

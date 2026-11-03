@@ -17,8 +17,8 @@
   "actions": 60,
   "configKeys": 56,
   "parameters": 73,
-  "functions": 509,
-  "codeSymbols": 654,
+  "functions": 511,
+  "codeSymbols": 656,
   "policies": 212,
   "randomRules": 105,
   "legacyGateSites": 21,
@@ -146,10 +146,10 @@
 {
   "id": "personal-scoring",
   "name": "คะแนนผลงานทุกคน14หมวด",
-  "state": "runtime-experimental-v1/opt-in",
+  "state": "runtime-experimental-v1/main-new-rooms",
   "runtime": {
     "flag": "personalScoringRules:1",
-    "defaultEnabled": false,
+    "defaultEnabled": true,
     "weights": [
       {
         "id": "bought",

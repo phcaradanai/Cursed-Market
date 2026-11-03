@@ -995,8 +995,8 @@
       "title": "ผลเกมและอันดับ",
       "phase": "RESULTS",
       "kind": "main",
-      "implementation": "mixed",
-      "trigger": "runtime มีผล Collector; โบนัสผู้นำ/หลายสาย/วิญญาณยังพัฒนาไม่ครบ",
+      "implementation": "runtime-comic-personal-scoring-v1",
+      "trigger": "Collector resolves all players together; canonical14metric score and9stage presentation. Historical noflag retains oldfallback.",
       "logicIds": [
         "L29",
         "L30",
@@ -1004,14 +1004,64 @@
       ],
       "actionIds": [],
       "nextIds": [],
-      "conceptStatus": "planned",
-      "currentImage": null,
+      "conceptStatus": "implemented",
+      "currentImage": "../validation/personal-score-ui-2026-11-03/score-2-1440.png",
       "approvedImage": null,
-      "variants": [],
+      "variants": [
+        {
+          "id": "C64",
+          "image": "../validation/personal-score-ui-2026-11-03/score-2-1024.png",
+          "status": "implementation-candidate-not-pixel-approved"
+        },
+        {
+          "id": "C65",
+          "image": "../validation/personal-score-ui-2026-11-03/score-4-1024.png",
+          "status": "implementation-candidate-not-pixel-approved"
+        },
+        {
+          "id": "C66",
+          "image": "../validation/personal-score-ui-2026-11-03/score-neg-1024.png",
+          "status": "implementation-candidate-not-pixel-approved"
+        },
+        {
+          "id": "C67",
+          "image": "../validation/personal-score-ui-2026-11-03/score-2-1440.png",
+          "status": "implementation-candidate-not-pixel-approved"
+        },
+        {
+          "id": "C68",
+          "image": "../validation/personal-score-ui-2026-11-03/score-4-1440.png",
+          "status": "implementation-candidate-not-pixel-approved"
+        },
+        {
+          "id": "C69",
+          "image": "../validation/personal-score-ui-2026-11-03/score-neg-1440.png",
+          "status": "implementation-candidate-not-pixel-approved"
+        },
+        {
+          "id": "C70",
+          "image": "../validation/personal-score-ui-2026-11-03/score-2-1920.png",
+          "status": "implementation-candidate-not-pixel-approved"
+        },
+        {
+          "id": "C71",
+          "image": "../validation/personal-score-ui-2026-11-03/score-4-1920.png",
+          "status": "implementation-candidate-not-pixel-approved"
+        },
+        {
+          "id": "C72",
+          "image": "../validation/personal-score-ui-2026-11-03/score-neg-1920.png",
+          "status": "implementation-candidate-not-pixel-approved"
+        }
+      ],
       "mustShow": [],
       "mustNotShow": [],
       "sourceSymbols": [
-        "collectRun"
+        "collectRun",
+        "personalScoreFor",
+        "personalScoreEstimateFor",
+        "PersonalScoreResults",
+        "ScoreMetric"
       ],
       "captures": [
         {
@@ -1025,12 +1075,66 @@
           "image": "captures/current-comic-2026-10-29/live-results.png",
           "title": "ผลเกม · เกมจริง",
           "origin": "live-game"
+        },
+        {
+          "id": "C64",
+          "image": "../validation/personal-score-ui-2026-11-03/score-2-1024.png",
+          "title": "score-2 · 1024",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C65",
+          "image": "../validation/personal-score-ui-2026-11-03/score-4-1024.png",
+          "title": "score-4 · 1024",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C66",
+          "image": "../validation/personal-score-ui-2026-11-03/score-neg-1024.png",
+          "title": "score-neg · 1024",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C67",
+          "image": "../validation/personal-score-ui-2026-11-03/score-2-1440.png",
+          "title": "score-2 · 1440",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C68",
+          "image": "../validation/personal-score-ui-2026-11-03/score-4-1440.png",
+          "title": "score-4 · 1440",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C69",
+          "image": "../validation/personal-score-ui-2026-11-03/score-neg-1440.png",
+          "title": "score-neg · 1440",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C70",
+          "image": "../validation/personal-score-ui-2026-11-03/score-2-1920.png",
+          "title": "score-2 · 1920",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C71",
+          "image": "../validation/personal-score-ui-2026-11-03/score-4-1920.png",
+          "title": "score-4 · 1920",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C72",
+          "image": "../validation/personal-score-ui-2026-11-03/score-neg-1920.png",
+          "title": "score-neg · 1920",
+          "origin": "existing-component-preview-fixture"
         }
       ],
-      "captureStatus": "captured-existing",
-      "captureImage": "captures/current-comic-2026-10-29/live-results.png",
+      "captureStatus": "captured-implementation-candidate",
+      "captureImage": "../validation/personal-score-ui-2026-11-03/score-2-1440.png",
       "designPolicy": "reuse-existing; change only explicit requested gap",
-      "captureNote": ""
+      "captureNote": "C64–C72 candidate2/4players/negative,1024/1440/1920; old14 baselines unchanged."
     },
     {
       "id": "M01",

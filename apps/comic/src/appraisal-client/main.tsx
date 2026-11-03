@@ -1,3 +1,4 @@
+import './personal-score-results.css';
 import { createRoot } from 'react-dom/client';
 import { App } from './App.js';
 import '@fontsource/srisakdi/thai-700.css';

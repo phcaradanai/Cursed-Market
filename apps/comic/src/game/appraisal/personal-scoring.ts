@@ -1,4 +1,5 @@
-import {collectorTotal,itemScoreValue} from './scoring.js';
+import {known} from './mechanics.js';
+import {collectorTotal,itemScoreValue,itemScoreRange} from './scoring.js';
 import {ownedAssetItemIds} from './secure-storage.js';
 import {statusMagnitude} from './copy-effects.js';
 import type {Rarity} from '../../shared/item-rarity.js';
@@ -182,6 +183,18 @@ export function personalScoreFor(state:AppraisalState,playerId:string,finalAsset
  const credits=finalAssets?.credits??p.credits+(p.personalVault?.credits??0);
  const itemValue=finalAssets?.itemValue??items.reduce((sum,item)=>sum+itemScoreValue(item.base,item.genuine,item.cursed,!!item.appraisedBy&&item.appraisedBy!==p.id),0);
  return calculatePersonalScore({playerId,facts:state.personalPerformance?.facts??[],assetScore:credits+itemValue,modifierPercent:statusMagnitude(p,'B10',20)-statusMagnitude(p,'D10',20),ghostBonus:state.ghosts?.[p.id]?.bonus??0,rarities:items.filter(item=>!item.copy).map(item=>({id:item.id,rarity:item.appearance?.rarity??'common'}))});
+}
+/** Live estimate uses visible knowledge only; appraisal accuracy stays unresolved until Collector. */
+export function personalScoreEstimateFor(state:AppraisalState,p:Appraiser):{min:number;max:number;unpriced:number;modifier:number} {
+ let low=0,high=0,unpriced=0;
+ const items=ownedAssetItemIds(state,p).map(id=>state.items[id]!);
+ for(const item of items){const range=itemScoreRange(known(state,p,item.id),!!item.appraisedBy&&item.appraisedBy!==p.id);if(range){low+=range[0];high+=range[1];}else unpriced++;}
+ const modifier=statusMagnitude(p,'B10',20)-statusMagnitude(p,'D10',20),credits=p.credits+(p.personalVault?.credits??0);
+ const input={playerId:p.id,facts:(state.personalPerformance?.facts??[]).filter(f=>f.metric!=='accurateAppraisal'),modifierPercent:modifier,ghostBonus:state.ghosts?.[p.id]?.bonus??0,rarities:items.filter(i=>!i.copy).map(i=>({id:i.id,rarity:i.appearance?.rarity??'common' as const}))};
+ const min=calculatePersonalScore({...input,assetScore:credits+low}).total;
+ // Include the approved cap as a conservative unresolved allowance; never expose a hidden successful appraisal count.
+ const max=calculatePersonalScore({...input,assetScore:credits+high+PERSONAL_SCORING_WEIGHTS.find(r=>r.id==='accurateAppraisal')!.cap}).total;
+ return {min:Math.min(min,max),max:Math.max(min,max),unpriced,modifier};
 }
 export function personalPerformanceInvariants(state:PersonalPerformanceState):void {
  const performance=state.personalPerformance;requireValue((state.config.personalScoringRules===1)===!!performance,'flag/state mismatch');if(!performance)return;

@@ -6,12 +6,13 @@ import { marketOrderReserve } from '../game/appraisal/market-contracts.js';
 import { emptyPassives, freeInspectionCount, heldPassives } from '../game/appraisal/passives.js';
 import { addUseBonuses } from '../game/appraisal/item-effects.js';
 import type { InspectionProperty, Knowledge } from '../game/appraisal/types.js';
-import { FAKE_EFFECT_CHANCE, collectorTotal, itemScoreValue } from '../game/appraisal/scoring.js';
+import { FAKE_EFFECT_CHANCE, collectorTotal, itemScoreRange } from '../game/appraisal/scoring.js';
 import { BOND_SPECS, CONSIGN_RULES, NPC_SPECS } from '../game/appraisal/content.js';
 import { t, getLang } from './i18n.js';
 import { core2Cost, core2Needs, core2NeedsItem, core2ResolvedNote, core2Title, isCore2Consequence, isCore2Event } from './core2-text.js';
 import { activationBonusText, eventText, itemName, itemLabel, npcName, npcUnsoldText, statusName, statusDescription } from './catalog-text.js';
 import { ITEM_SPECS, itemFamily } from '../game/appraisal/content.js';
+export {itemScoreRange} from '../game/appraisal/scoring.js';
 export { statusName } from './catalog-text.js';
 import type { AppraisalView, EventOffer, ItemView, NpcId, StatusId } from '../game/appraisal/types.js';
 import type { AppraisalSeatAction } from '../shared/appraisal-protocol.js';
@@ -191,15 +192,9 @@ export function eventItemUsable(game:AppraisalView,offer:EventOffer,id:string):b
     default: return true;
   }
 }
-/** Score range for one item from what this seat knows. Same formula the Collector uses. */
-export function itemScoreRange(k:Knowledge,certified=false):[number,number]|null {
-  const range=k.base!==undefined?[k.base,k.base]:k.range;if(!range) return null;
-  const genuine=k.genuine===undefined?[true,false]:[k.genuine],cursed=k.cursed===undefined?[false,true]:[k.cursed];
-  const values=range.flatMap(base=>genuine.flatMap(g=>cursed.map(c=>itemScoreValue(base,g,c,certified))));
-  return [Math.min(...values),Math.max(...values)];
-}
 /** What the Collector would pay for the pack right now, from known facts only; unpriced items count 0. */
 export function collectorEstimate(game:AppraisalView):{min:number;max:number;unpriced:number;modifier:number} {
+  if(game.self.personalScoreEstimate)return game.self.personalScoreEstimate;
   let low=0,high=0,unpriced=0;
   for(const item of [...game.self.inventory,...(game.self.loanItems??[]),...(game.self.personalVault?.items??[]),...(game.loans??[]).filter(l=>l.status==='active' && l.borrowerId===game.self.id).map(l=>l.item)]) {const r=itemScoreRange(item.knowledge,item.appraisedBy!==undefined && item.appraisedBy!==game.self.id);if(r){low+=r[0];high+=r[1];}else unpriced++;}
   const modifier=statusMagnitude(game.self,'B10',20)-statusMagnitude(game.self,'D10',20);

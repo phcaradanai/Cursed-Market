@@ -53,8 +53,8 @@
     "apps/comic/src/game/appraisal/pilot-effects.ts": "ab8d8201a7abd4fbca4f96ee6223ded049937d43dac7a2f4dfa72db793e29029",
     "apps/comic/src/game/appraisal/secure-storage.ts": "3d0bb2a86d9646ff65c0e3374321d5b9919b4a653f6e2e18463a42c26c31618b",
     "apps/comic/src/game/appraisal/theft.ts": "aac017becded983e0106125bdb8d5cb379e9227babe782681f3486f69e344e76",
-    "apps/comic/src/game/appraisal/types.ts": "0d1fc33907241e8dd12bedd3536154b5bb30e05d30e533fdb221782dbde7f61a",
-    "apps/comic/src/game/appraisal/views.ts": "349677f197da0fd51c2b2402ed810d86bcf4ac96545daddb5e310343fe869116",
+    "apps/comic/src/game/appraisal/types.ts": "28ff5a2d7ff93c4193df4f109e3d010a083443b81a1eaa2ff29916840acd6a52",
+    "apps/comic/src/game/appraisal/views.ts": "851f93039db2aa1ebccb4735532192f6fa0854255eced3312c5aad8245eac030",
     "apps/comic/src/simulation/appraisal.ts": "278025401318fc01ea5f26187703b569f68b82c41f859b943c0c320bcbe92c66"
   },
   "analyzerSha256": "68ab256dfd5d3a8969f1787c97a8997c2941a9e9279f70379b6ebbdcbf198371",

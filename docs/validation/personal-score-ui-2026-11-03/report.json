@@ -1,0 +1,1708 @@
+{
+  "startedAt": "2026-11-03T05:06:47.462Z",
+  "spaceId": 1,
+  "scope": "End-only actual2/4-seat audit DTO previews; score-neg is a labelled negative-modifier presentation fixture. Geometry/local interactions, not live socket reconnect or balance. Candidate captures do not approve baselines.",
+  "checks": [
+    "score-2@1024: inventory bounds, padding, equal columns/common baseline, paired actions, no scrolling, exact end totals",
+    "score-4@1024: inventory bounds, padding, equal columns/common baseline, paired actions, no scrolling, exact end totals",
+    "score-neg@1024: inventory bounds, padding, equal columns/common baseline, paired actions, no scrolling, exact end totals",
+    "score-2@1440: inventory bounds, padding, equal columns/common baseline, paired actions, no scrolling, exact end totals",
+    "score-4@1440: inventory bounds, padding, equal columns/common baseline, paired actions, no scrolling, exact end totals",
+    "score-neg@1440: inventory bounds, padding, equal columns/common baseline, paired actions, no scrolling, exact end totals",
+    "score-2@1920: inventory bounds, padding, equal columns/common baseline, paired actions, no scrolling, exact end totals",
+    "score-4@1920: inventory bounds, padding, equal columns/common baseline, paired actions, no scrolling, exact end totals",
+    "score-neg@1920: inventory bounds, padding, equal columns/common baseline, paired actions, no scrolling, exact end totals",
+    "play advances and pause remains fixed",
+    "six menus open/close without resetting paused graph; end gameplay remains readonly",
+    "gross sale credits separate from quantity, paged metric details",
+    "reduced motion removes tween and auto-play, manual skip still works"
+  ],
+  "captures": [
+    {
+      "scene": "score-2",
+      "width": 1024,
+      "height": 800,
+      "file": "docs/validation/personal-score-ui-2026-11-03/score-2-1024.png",
+      "sha256": "2628bbdbb495faf162bdb899ee18e025d30f283be5f672385a279ae3fcdffa30",
+      "geometry": {
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "body": [
+          26,
+          127,
+          972,
+          509
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "viewport": [
+          1024,
+          800
+        ],
+        "header": [
+          26,
+          62,
+          972,
+          65
+        ],
+        "players": [
+          [
+            44,
+            233.3046875,
+            302,
+            328.6953125
+          ],
+          [
+            358,
+            233.3046875,
+            302,
+            328.6953125
+          ]
+        ],
+        "tracks": [
+          [
+            80.234375,
+            233.3046875,
+            229.53125,
+            252.8984375
+          ],
+          [
+            394.234375,
+            233.3046875,
+            229.53125,
+            252.8984375
+          ]
+        ],
+        "actions": [
+          [
+            44,
+            636,
+            304,
+            44
+          ],
+          [
+            360,
+            636,
+            304,
+            44
+          ],
+          [
+            676,
+            636,
+            304,
+            44
+          ]
+        ],
+        "containers": [
+          {
+            "class": "comic-main-frame comic-phase-frame personal-score-results",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-body",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-chart",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-bars",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-details",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metrics",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metric",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metric",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "comic-pagination ",
+            "overflow": [
+              0,
+              0
+            ]
+          }
+        ],
+        "metricText": [
+          {
+            "parent": [
+              672,
+              203.3046875,
+              308,
+              173.34375
+            ],
+            "last": [
+              685,
+              339.171875,
+              282,
+              18
+            ]
+          },
+          {
+            "parent": [
+              672,
+              388.6484375,
+              308,
+              173.3515625
+            ],
+            "last": [
+              685,
+              524.515625,
+              282,
+              18
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "scene": "score-4",
+      "width": 1024,
+      "height": 800,
+      "file": "docs/validation/personal-score-ui-2026-11-03/score-4-1024.png",
+      "sha256": "654a018234e232c7f6e7679f15e10def5ac1d4ddcc9ad207beed09dcaa54dcc5",
+      "geometry": {
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "body": [
+          26,
+          127,
+          972,
+          509
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "viewport": [
+          1024,
+          800
+        ],
+        "header": [
+          26,
+          62,
+          972,
+          65
+        ],
+        "players": [
+          [
+            44,
+            233.3046875,
+            145,
+            328.6953125
+          ],
+          [
+            201,
+            233.3046875,
+            145,
+            328.6953125
+          ],
+          [
+            358,
+            233.3046875,
+            145,
+            328.6953125
+          ],
+          [
+            515,
+            233.3046875,
+            145,
+            328.6953125
+          ]
+        ],
+        "tracks": [
+          [
+            61.3984375,
+            233.3046875,
+            110.203125,
+            252.8984375
+          ],
+          [
+            218.3984375,
+            233.3046875,
+            110.203125,
+            252.8984375
+          ],
+          [
+            375.3984375,
+            233.3046875,
+            110.203125,
+            252.8984375
+          ],
+          [
+            532.3984375,
+            233.3046875,
+            110.203125,
+            252.8984375
+          ]
+        ],
+        "actions": [
+          [
+            44,
+            636,
+            304,
+            44
+          ],
+          [
+            360,
+            636,
+            304,
+            44
+          ],
+          [
+            676,
+            636,
+            304,
+            44
+          ]
+        ],
+        "containers": [
+          {
+            "class": "comic-main-frame comic-phase-frame personal-score-results",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-body",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-chart",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-bars",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-details",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metrics",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metric",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metric",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "comic-pagination ",
+            "overflow": [
+              0,
+              0
+            ]
+          }
+        ],
+        "metricText": [
+          {
+            "parent": [
+              672,
+              203.3046875,
+              308,
+              173.34375
+            ],
+            "last": [
+              685,
+              339.171875,
+              282,
+              18
+            ]
+          },
+          {
+            "parent": [
+              672,
+              388.6484375,
+              308,
+              173.3515625
+            ],
+            "last": [
+              685,
+              524.515625,
+              282,
+              18
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "scene": "score-neg",
+      "width": 1024,
+      "height": 800,
+      "file": "docs/validation/personal-score-ui-2026-11-03/score-neg-1024.png",
+      "sha256": "1ba6dd1357286886de903144a3dd14bfcf7fad4804fa16056ef389285e9adc75",
+      "geometry": {
+        "frame": [
+          24,
+          60,
+          976,
+          640
+        ],
+        "body": [
+          26,
+          127,
+          972,
+          509
+        ],
+        "page": [
+          1024,
+          800
+        ],
+        "viewport": [
+          1024,
+          800
+        ],
+        "header": [
+          26,
+          62,
+          972,
+          65
+        ],
+        "players": [
+          [
+            44,
+            233.3046875,
+            302,
+            328.6953125
+          ],
+          [
+            358,
+            233.3046875,
+            302,
+            328.6953125
+          ]
+        ],
+        "tracks": [
+          [
+            80.234375,
+            233.3046875,
+            229.53125,
+            252.8984375
+          ],
+          [
+            394.234375,
+            233.3046875,
+            229.53125,
+            252.8984375
+          ]
+        ],
+        "actions": [
+          [
+            44,
+            636,
+            304,
+            44
+          ],
+          [
+            360,
+            636,
+            304,
+            44
+          ],
+          [
+            676,
+            636,
+            304,
+            44
+          ]
+        ],
+        "containers": [
+          {
+            "class": "comic-main-frame comic-phase-frame personal-score-results",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-body",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-chart",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-bars",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-details",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metrics",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metric",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metric",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "comic-pagination ",
+            "overflow": [
+              0,
+              0
+            ]
+          }
+        ],
+        "metricText": [
+          {
+            "parent": [
+              672,
+              203.3046875,
+              308,
+              173.34375
+            ],
+            "last": [
+              685,
+              339.171875,
+              282,
+              18
+            ]
+          },
+          {
+            "parent": [
+              672,
+              388.6484375,
+              308,
+              173.3515625
+            ],
+            "last": [
+              685,
+              524.515625,
+              282,
+              18
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "scene": "score-2",
+      "width": 1440,
+      "height": 722,
+      "file": "docs/validation/personal-score-ui-2026-11-03/score-2-1440.png",
+      "sha256": "251c4fa17277c3889b94f2084ceab91e138588640d7e21adec6b1bbc99b1ebad",
+      "geometry": {
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "body": [
+          26,
+          127,
+          1388,
+          431
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "viewport": [
+          1440,
+          722
+        ],
+        "header": [
+          26,
+          62,
+          1388,
+          65
+        ],
+        "players": [
+          [
+            44,
+            237.3359375,
+            436.6640625,
+            246.6640625
+          ],
+          [
+            492.6640625,
+            237.3359375,
+            436.6640625,
+            246.6640625
+          ]
+        ],
+        "tracks": [
+          [
+            96.3984375,
+            237.3359375,
+            331.8671875,
+            170.8671875
+          ],
+          [
+            545.0625,
+            237.3359375,
+            331.8671875,
+            170.8671875
+          ]
+        ],
+        "actions": [
+          [
+            44,
+            558,
+            442.6640625,
+            44
+          ],
+          [
+            498.6640625,
+            558,
+            442.6640625,
+            44
+          ],
+          [
+            953.328125,
+            558,
+            442.6640625,
+            44
+          ]
+        ],
+        "containers": [
+          {
+            "class": "comic-main-frame comic-phase-frame personal-score-results",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-body",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-chart",
+            "overflow": [
+              1,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-bars",
+            "overflow": [
+              1,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-details",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metrics",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metric",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metric",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "comic-pagination ",
+            "overflow": [
+              0,
+              0
+            ]
+          }
+        ],
+        "metricText": [
+          {
+            "parent": [
+              953.328125,
+              207.3359375,
+              442.6640625,
+              132.328125
+            ],
+            "last": [
+              966.328125,
+              310.8515625,
+              416.6640625,
+              18
+            ]
+          },
+          {
+            "parent": [
+              953.328125,
+              351.6640625,
+              442.6640625,
+              132.3359375
+            ],
+            "last": [
+              966.328125,
+              455.1796875,
+              416.6640625,
+              18
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "scene": "score-4",
+      "width": 1440,
+      "height": 722,
+      "file": "docs/validation/personal-score-ui-2026-11-03/score-4-1440.png",
+      "sha256": "848a25d1ec177a026b7fcb8efeda54f95a5d230d9bde1885637842474848a2d9",
+      "geometry": {
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "body": [
+          26,
+          127,
+          1388,
+          431
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "viewport": [
+          1440,
+          722
+        ],
+        "header": [
+          26,
+          62,
+          1388,
+          65
+        ],
+        "players": [
+          [
+            44,
+            237.3359375,
+            212.328125,
+            246.6640625
+          ],
+          [
+            268.328125,
+            237.3359375,
+            212.3359375,
+            246.6640625
+          ],
+          [
+            492.6640625,
+            237.3359375,
+            212.328125,
+            246.6640625
+          ],
+          [
+            716.9921875,
+            237.3359375,
+            212.3359375,
+            246.6640625
+          ]
+        ],
+        "tracks": [
+          [
+            69.4765625,
+            237.3359375,
+            161.375,
+            170.8671875
+          ],
+          [
+            293.8046875,
+            237.3359375,
+            161.3828125,
+            170.8671875
+          ],
+          [
+            518.140625,
+            237.3359375,
+            161.375,
+            170.8671875
+          ],
+          [
+            742.46875,
+            237.3359375,
+            161.3828125,
+            170.8671875
+          ]
+        ],
+        "actions": [
+          [
+            44,
+            558,
+            442.6640625,
+            44
+          ],
+          [
+            498.6640625,
+            558,
+            442.6640625,
+            44
+          ],
+          [
+            953.328125,
+            558,
+            442.6640625,
+            44
+          ]
+        ],
+        "containers": [
+          {
+            "class": "comic-main-frame comic-phase-frame personal-score-results",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-body",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-chart",
+            "overflow": [
+              1,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-bars",
+            "overflow": [
+              1,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-details",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metrics",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metric",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metric",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "comic-pagination ",
+            "overflow": [
+              0,
+              0
+            ]
+          }
+        ],
+        "metricText": [
+          {
+            "parent": [
+              953.328125,
+              207.3359375,
+              442.6640625,
+              132.328125
+            ],
+            "last": [
+              966.328125,
+              310.8515625,
+              416.6640625,
+              18
+            ]
+          },
+          {
+            "parent": [
+              953.328125,
+              351.6640625,
+              442.6640625,
+              132.3359375
+            ],
+            "last": [
+              966.328125,
+              455.1796875,
+              416.6640625,
+              18
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "scene": "score-neg",
+      "width": 1440,
+      "height": 722,
+      "file": "docs/validation/personal-score-ui-2026-11-03/score-neg-1440.png",
+      "sha256": "bc443418d9e48db6b7e3f92e615f34d98f09c293152401ed361745811993cf65",
+      "geometry": {
+        "frame": [
+          24,
+          60,
+          1392,
+          562
+        ],
+        "body": [
+          26,
+          127,
+          1388,
+          431
+        ],
+        "page": [
+          1440,
+          722
+        ],
+        "viewport": [
+          1440,
+          722
+        ],
+        "header": [
+          26,
+          62,
+          1388,
+          65
+        ],
+        "players": [
+          [
+            44,
+            237.3359375,
+            436.6640625,
+            246.6640625
+          ],
+          [
+            492.6640625,
+            237.3359375,
+            436.6640625,
+            246.6640625
+          ]
+        ],
+        "tracks": [
+          [
+            96.3984375,
+            237.3359375,
+            331.8671875,
+            170.8671875
+          ],
+          [
+            545.0625,
+            237.3359375,
+            331.8671875,
+            170.8671875
+          ]
+        ],
+        "actions": [
+          [
+            44,
+            558,
+            442.6640625,
+            44
+          ],
+          [
+            498.6640625,
+            558,
+            442.6640625,
+            44
+          ],
+          [
+            953.328125,
+            558,
+            442.6640625,
+            44
+          ]
+        ],
+        "containers": [
+          {
+            "class": "comic-main-frame comic-phase-frame personal-score-results",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-body",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-chart",
+            "overflow": [
+              1,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-bars",
+            "overflow": [
+              1,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-details",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metrics",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metric",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metric",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "comic-pagination ",
+            "overflow": [
+              0,
+              0
+            ]
+          }
+        ],
+        "metricText": [
+          {
+            "parent": [
+              953.328125,
+              207.3359375,
+              442.6640625,
+              132.328125
+            ],
+            "last": [
+              966.328125,
+              310.8515625,
+              416.6640625,
+              18
+            ]
+          },
+          {
+            "parent": [
+              953.328125,
+              351.6640625,
+              442.6640625,
+              132.3359375
+            ],
+            "last": [
+              966.328125,
+              455.1796875,
+              416.6640625,
+              18
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "scene": "score-2",
+      "width": 1920,
+      "height": 800,
+      "file": "docs/validation/personal-score-ui-2026-11-03/score-2-1920.png",
+      "sha256": "c1f9656912a0600fe26619459d75d5d04888b345cbff7147a77987da7a7a0a08",
+      "geometry": {
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "body": [
+          222,
+          127,
+          1476,
+          509
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "viewport": [
+          1920,
+          800
+        ],
+        "header": [
+          222,
+          62,
+          1476,
+          65
+        ],
+        "players": [
+          [
+            240,
+            237.71875,
+            466,
+            324.28125
+          ],
+          [
+            718,
+            237.71875,
+            466,
+            324.28125
+          ]
+        ],
+        "tracks": [
+          [
+            295.9140625,
+            237.71875,
+            354.171875,
+            248.484375
+          ],
+          [
+            773.9140625,
+            237.71875,
+            354.171875,
+            248.484375
+          ]
+        ],
+        "actions": [
+          [
+            240,
+            636,
+            472,
+            44
+          ],
+          [
+            724,
+            636,
+            472,
+            44
+          ],
+          [
+            1208,
+            636,
+            472,
+            44
+          ]
+        ],
+        "containers": [
+          {
+            "class": "comic-main-frame comic-phase-frame personal-score-results",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-body",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-chart",
+            "overflow": [
+              1,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-bars",
+            "overflow": [
+              1,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-details",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metrics",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metric",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metric",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "comic-pagination ",
+            "overflow": [
+              0,
+              0
+            ]
+          }
+        ],
+        "metricText": [
+          {
+            "parent": [
+              1208,
+              207.71875,
+              472,
+              171.140625
+            ],
+            "last": [
+              1221,
+              330.6328125,
+              446,
+              18
+            ]
+          },
+          {
+            "parent": [
+              1208,
+              390.859375,
+              472,
+              171.140625
+            ],
+            "last": [
+              1221,
+              513.7734375,
+              446,
+              18
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "scene": "score-4",
+      "width": 1920,
+      "height": 800,
+      "file": "docs/validation/personal-score-ui-2026-11-03/score-4-1920.png",
+      "sha256": "249959e83b066ab9b6d17e459253e04c9872ebafc5975ada0c2eb80b5c61d138",
+      "geometry": {
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "body": [
+          222,
+          127,
+          1476,
+          509
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "viewport": [
+          1920,
+          800
+        ],
+        "header": [
+          222,
+          62,
+          1476,
+          65
+        ],
+        "players": [
+          [
+            240,
+            237.71875,
+            227,
+            324.28125
+          ],
+          [
+            479,
+            237.71875,
+            227,
+            324.28125
+          ],
+          [
+            718,
+            237.71875,
+            227,
+            324.28125
+          ],
+          [
+            957,
+            237.71875,
+            227,
+            324.28125
+          ]
+        ],
+        "tracks": [
+          [
+            267.234375,
+            237.71875,
+            172.53125,
+            248.484375
+          ],
+          [
+            506.234375,
+            237.71875,
+            172.53125,
+            248.484375
+          ],
+          [
+            745.234375,
+            237.71875,
+            172.53125,
+            248.484375
+          ],
+          [
+            984.234375,
+            237.71875,
+            172.53125,
+            248.484375
+          ]
+        ],
+        "actions": [
+          [
+            240,
+            636,
+            472,
+            44
+          ],
+          [
+            724,
+            636,
+            472,
+            44
+          ],
+          [
+            1208,
+            636,
+            472,
+            44
+          ]
+        ],
+        "containers": [
+          {
+            "class": "comic-main-frame comic-phase-frame personal-score-results",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-body",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-chart",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-bars",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-details",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metrics",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metric",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metric",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "comic-pagination ",
+            "overflow": [
+              0,
+              0
+            ]
+          }
+        ],
+        "metricText": [
+          {
+            "parent": [
+              1208,
+              207.71875,
+              472,
+              171.140625
+            ],
+            "last": [
+              1221,
+              330.6328125,
+              446,
+              18
+            ]
+          },
+          {
+            "parent": [
+              1208,
+              390.859375,
+              472,
+              171.140625
+            ],
+            "last": [
+              1221,
+              513.7734375,
+              446,
+              18
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "scene": "score-neg",
+      "width": 1920,
+      "height": 800,
+      "file": "docs/validation/personal-score-ui-2026-11-03/score-neg-1920.png",
+      "sha256": "87007a591d539738c76ae5364506ee72bbd02d9aaeaf180006483d254a04c1c6",
+      "geometry": {
+        "frame": [
+          220,
+          60,
+          1480,
+          640
+        ],
+        "body": [
+          222,
+          127,
+          1476,
+          509
+        ],
+        "page": [
+          1920,
+          800
+        ],
+        "viewport": [
+          1920,
+          800
+        ],
+        "header": [
+          222,
+          62,
+          1476,
+          65
+        ],
+        "players": [
+          [
+            240,
+            237.71875,
+            466,
+            324.28125
+          ],
+          [
+            718,
+            237.71875,
+            466,
+            324.28125
+          ]
+        ],
+        "tracks": [
+          [
+            295.9140625,
+            237.71875,
+            354.171875,
+            248.484375
+          ],
+          [
+            773.9140625,
+            237.71875,
+            354.171875,
+            248.484375
+          ]
+        ],
+        "actions": [
+          [
+            240,
+            636,
+            472,
+            44
+          ],
+          [
+            724,
+            636,
+            472,
+            44
+          ],
+          [
+            1208,
+            636,
+            472,
+            44
+          ]
+        ],
+        "containers": [
+          {
+            "class": "comic-main-frame comic-phase-frame personal-score-results",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-body",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-chart",
+            "overflow": [
+              1,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-bars",
+            "overflow": [
+              1,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-details",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metrics",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metric",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "personal-score-metric",
+            "overflow": [
+              0,
+              0
+            ]
+          },
+          {
+            "class": "comic-pagination ",
+            "overflow": [
+              0,
+              0
+            ]
+          }
+        ],
+        "metricText": [
+          {
+            "parent": [
+              1208,
+              207.71875,
+              472,
+              171.140625
+            ],
+            "last": [
+              1221,
+              330.6328125,
+              446,
+              18
+            ]
+          },
+          {
+            "parent": [
+              1208,
+              390.859375,
+              472,
+              171.140625
+            ],
+            "last": [
+              1221,
+              513.7734375,
+              446,
+              18
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "sourceFingerprints": {
+    "apps/comic/src/appraisal-client/PersonalScoreResults.tsx": "cfd169ad71841c40668285fc405110b93064434192ffe8188a9c505fdc37163b",
+    "apps/comic/src/appraisal-client/personal-score-results.css": "ce0095fc8ce5319d3827561cbdd9b4b58810a0300934a6103d074f3536262ed8",
+    "apps/comic/src/appraisal-client/App.tsx": "9c93c44a531d0f68153c1b90cce58bc48004b944dcacca0578223544e8d3ba0b",
+    "apps/comic/src/appraisal-client/ComicPreview.tsx": "36df8fedac7b2d078068413eb112b0d2d86fe773c11772b072fcefc2c604e875",
+    "apps/comic/src/appraisal-client/personal-score-preview-data.ts": "7d6ac0d082aeeb8890a39b8d4f32a2bd75ea649e3844d6ae642b08594dce8528",
+    "apps/comic/src/game/appraisal/personal-scoring.ts": "530582d98addfe110e9b8d5832f751369d22d68b9f7dda819af764adca7be72c",
+    "apps/comic/src/game/appraisal/views.ts": "851f93039db2aa1ebccb4735532192f6fa0854255eced3312c5aad8245eac030",
+    "scripts/ui/personal-score-smoke.mjs": "96654aeb963da55f0b41945fe644610aea9008a99c9f8c8f62a15b91f65c72dd"
+  },
+  "finishedAt": "2026-11-03T05:07:52.702Z",
+  "passed": true
+}

@@ -13,7 +13,8 @@
     "remaining48 item numeric approval",
     "new image generation or baseline promotion"
   ],
-  "runtimeStatus": "Task1 complete; Task2 engine/runtime and eligibility verified; Task3 selfDTO/Comic graph/default rollout pending. Main default off.",
+  "runtimeStatus": "Tasks1/2 verified; Task3 selfDTO/Status/Comic9stage graph verified48tests/13UI/18menus/14sealedpixels. Enabled actual Comic main newrooms; historical noflag unchanged. Independent final whole-branch review pending; not full-game/balance complete.",
   "evidence": "docs/validation/personal-scoring-2026-11-03/checkpoint.json",
-  "runtimeEvidence": "docs/validation/personal-scoring-eligibility-2026-11-03/verification.json"
+  "runtimeEvidence": "docs/validation/personal-scoring-eligibility-2026-11-03/verification.json",
+  "uiEvidence": "docs/validation/personal-score-ui-2026-11-03/report.json"
 }

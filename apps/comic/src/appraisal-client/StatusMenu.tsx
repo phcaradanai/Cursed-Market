@@ -27,7 +27,7 @@ export function StatusMenu({game,submit,disabled,playerNames}:{game:AppraisalVie
   const [history,setHistory]=useState(false);
   useEffect(()=>{if(game.self.abilityChoice)setFocus(game.self.abilityChoice.npc);},[game.self.abilityChoice]);
   const self=game.self,estimate=game.survival&&game.phase!=='RESULTS'?collectorEstimate(game):null;
-  const score=estimate?`~${estimate.min===estimate.max?estimate.min:`${estimate.min}–${estimate.max}`}`:self.score;
+  const score=estimate?`~${estimate.min===estimate.max?estimate.min:`${estimate.min}–${estimate.max}`}`:self.personalScore?.total??self.score;
   const abilities=self.merchantAbilities??[];
   const merchants=order.filter(npc=>abilities.some(a=>a.npc===npc)||self.npcTrust?.[npc]!==undefined);
   const perPage=small?2:4,pages=Math.max(1,Math.ceil(merchants.length/perPage)),at=Math.min(page,pages-1);
@@ -35,7 +35,7 @@ export function StatusMenu({game,submit,disabled,playerNames}:{game:AppraisalVie
   const skillFocus=focus;
   return <div className={`status-spread${self.statuses.length?'':' no-active-effects'}`}>
     <dl className="status-summary">
-      <div title={estimate?pick(`เครดิตและสินค้าที่รู้มูลค่า · ยังไม่รู้มูลค่า ${estimate.unpriced} ชิ้น · คะแนนจริงรอ Collector${game.ghosts?.self?.bonus?` · คะแนนวิญญาณ ${game.ghosts.self.bonus}`:''}`,'Credits plus known item values; final score at Collector'):undefined}><dt>{pick('คะแนนโดยประมาณ','Estimated score')}</dt><dd>{score}</dd></div>
+      <div title={estimate?pick(`${self.personalScoreEstimate?'ทรัพย์สินที่รู้และผลงาน · แต้มประเมินรอตัดสิน':'เครดิตและสินค้าที่รู้มูลค่า'} · ยังไม่รู้มูลค่า ${estimate.unpriced} ชิ้น · คะแนนจริงรอ Collector${game.ghosts?.self?.bonus?` · คะแนนวิญญาณ ${game.ghosts.self.bonus}`:''}`,'Known assets and accomplishments; unresolved appraisal points remain hidden until Collector'):undefined}><dt>{pick('คะแนนโดยประมาณ','Estimated score')}</dt><dd>{score}</dd></div>
       {self.pulse&&<div title={self.pulse.wary?pick('ระวังตัว: การรับเศษชีพจรถูกจำกัด','Wary: pulse gains are restricted'):pick('สะสมเศษชีพจรเพื่อฟื้นชีวิต','Collect pulse shards to recover life')}><dt>{pick('เศษชีพจร','Pulse shards')}</dt><dd>{self.pulse.shards}/{self.pulse.perLife}</dd></div>}
       {self.npcTrust&&<div title={pick('ซื้อของที่เพื่อนประเมินจากพ่อค้ารายเดิมครบ 3 ครั้งติด เพิ่มความไว้ใจ','Buy goods appraised by others from the same merchant consecutively to gain trust')}><dt>{pick('ซื้อต่อเนื่อง','Repeat buys')}</dt><dd>{(self.buyLog??[]).length}/{TRUST_RULES.repeatBuys}</dd></div>}
     </dl>

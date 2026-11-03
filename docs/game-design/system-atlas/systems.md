@@ -281,7 +281,7 @@
 - code:apps/comic/src/game/appraisal/market-contracts.ts:marketConditionMatch ({"file":"apps/comic/src/game/appraisal/market-contracts.ts","line":7,"endLine":10})
 - code:apps/comic/src/game/appraisal/market-contracts.ts:makeMarketContract ({"file":"apps/comic/src/game/appraisal/market-contracts.ts","line":11,"endLine":22})
 - code:apps/comic/src/game/appraisal/engine.ts:makeMarket ({"file":"apps/comic/src/game/appraisal/engine.ts","line":167,"endLine":187})
-- code:apps/comic/src/game/appraisal/views.ts:marketView ({"file":"apps/comic/src/game/appraisal/views.ts","line":23,"endLine":26})
+- code:apps/comic/src/game/appraisal/views.ts:marketView ({"file":"apps/comic/src/game/appraisal/views.ts","line":24,"endLine":27})
 
 ## logic:L08 ประมูล
 
@@ -688,21 +688,23 @@ NPC ขอซื้อของจากผู้เล่น; ไม่ใช�
 
 มูลค่าเงิน/สินค้าและตัวปรับ; แยกจากรางวัลผู้นำ
 
-- code:apps/comic/src/game/appraisal/scoring.ts:itemScoreValue ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":2,"endLine":4})
-- code:apps/comic/src/game/appraisal/scoring.ts:PROVENANCE_PERCENT ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":6,"endLine":6})
-- code:apps/comic/src/game/appraisal/scoring.ts:collectorTotal ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":8,"endLine":10})
-- code:apps/comic/src/game/appraisal/scoring.ts:FAKE_EFFECT_CHANCE ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":12,"endLine":12})
-- code:apps/comic/src/game/appraisal/scoring.ts:collectorTotal ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":8,"endLine":10})
+- code:apps/comic/src/game/appraisal/scoring.ts:itemScoreValue ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":3,"endLine":5})
+- code:apps/comic/src/game/appraisal/scoring.ts:PROVENANCE_PERCENT ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":7,"endLine":7})
+- code:apps/comic/src/game/appraisal/scoring.ts:collectorTotal ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":9,"endLine":11})
+- code:apps/comic/src/game/appraisal/scoring.ts:FAKE_EFFECT_CHANCE ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":13,"endLine":13})
+- code:apps/comic/src/game/appraisal/scoring.ts:itemScoreRange ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":15,"endLine":20})
+- code:apps/comic/src/game/appraisal/scoring.ts:collectorTotal ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":9,"endLine":11})
 - code:apps/comic/src/game/appraisal/survival.ts:collectRun ({"file":"apps/comic/src/game/appraisal/survival.ts","line":16,"endLine":39})
 
 ## logic:L30 คะแนนพิเศษผู้นำ
 
 ซื้อ ขาย ตาย ของตอนจบ ความไว้ใจ และกลุ่ม rarity ×2=20/×3=40
 
-- code:apps/comic/src/game/appraisal/scoring.ts:itemScoreValue ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":2,"endLine":4})
-- code:apps/comic/src/game/appraisal/scoring.ts:PROVENANCE_PERCENT ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":6,"endLine":6})
-- code:apps/comic/src/game/appraisal/scoring.ts:collectorTotal ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":8,"endLine":10})
-- code:apps/comic/src/game/appraisal/scoring.ts:FAKE_EFFECT_CHANCE ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":12,"endLine":12})
+- code:apps/comic/src/game/appraisal/scoring.ts:itemScoreValue ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":3,"endLine":5})
+- code:apps/comic/src/game/appraisal/scoring.ts:PROVENANCE_PERCENT ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":7,"endLine":7})
+- code:apps/comic/src/game/appraisal/scoring.ts:collectorTotal ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":9,"endLine":11})
+- code:apps/comic/src/game/appraisal/scoring.ts:FAKE_EFFECT_CHANCE ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":13,"endLine":13})
+- code:apps/comic/src/game/appraisal/scoring.ts:itemScoreRange ({"file":"apps/comic/src/game/appraisal/scoring.ts","line":15,"endLine":20})
 
 ## logic:L31 สำเนาสินค้า
 
@@ -719,7 +721,7 @@ NPC ขอซื้อของจากผู้เล่น; ไม่ใช�
 - code:apps/comic/src/game/appraisal/audit.ts:exportAppraisalAudit ({"file":"apps/comic/src/game/appraisal/audit.ts","line":22,"endLine":25})
 - code:apps/comic/src/game/appraisal/audit.ts:replayAppraisalAudit ({"file":"apps/comic/src/game/appraisal/audit.ts","line":26,"endLine":34})
 - code:apps/comic/src/game/appraisal/mechanics.ts:trace ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":32,"endLine":34})
-- code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor ({"file":"apps/comic/src/game/appraisal/views.ts","line":49,"endLine":68})
+- code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor ({"file":"apps/comic/src/game/appraisal/views.ts","line":50,"endLine":69})
 
 ## logic:L33 เจ้าของ/คลัง/หลักประกัน
 

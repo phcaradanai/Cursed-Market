@@ -1,0 +1,52 @@
+(node:98717) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ live Status projection uses known assets, hides appraisal truth and source receipts, and leaves noflag DTO unchanged (53.540625ms)
+✖ Comic results show 2 fixed player columns, nine stages, server totals and paged metrics without dropdowns (83.138667ms)
+✖ Comic results show 4 fixed player columns, nine stages, server totals and paged metrics without dropdowns (19.466583ms)
+✔ historical noflag survival results retain original fallback (1.518041ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 2
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 629.313042
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/personal-scoring-ui.test.js:41:5
+✖ Comic results show 2 fixed player columns, nine stages, server totals and paged metrics without dropdowns (83.138667ms)
+  AssertionError [ERR_ASSERTION]: missing end utility bag
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring-ui.test.js:75:13)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/personal-scoring-ui.test.js:41:5
+✖ Comic results show 4 fixed player columns, nine stages, server totals and paged metrics without dropdowns (19.466583ms)
+  AssertionError [ERR_ASSERTION]: missing end utility bag
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring-ui.test.js:75:13)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

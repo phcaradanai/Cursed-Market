@@ -27,7 +27,7 @@
 | S10 | รอผู้เล่นอื่น | 0 | runtime | ยังไม่จับ ไม่ใช่ข้อสรุปว่าไม่มี |
 | S11 | เสียชีวิตและทางเข้าโลกวิญญาณ | 1 | runtime | [ดูภาพ](captures/ghost-2026-10-30/ghost-1440x722.png) |
 | S12 | Collector มาถึง | 0 | mixed | ยังไม่จับ ไม่ใช่ข้อสรุปว่าไม่มี |
-| S13 | ผลเกมและอันดับ | 2 | mixed | [ดูภาพ](captures/current-comic-2026-10-29/live-results.png) |
+| S13 | ผลเกมและอันดับ | 11 | runtime Comic personal-scoring v1; candidate C64–C72 | [ดูภาพ](../validation/personal-score-ui-2026-11-03/score-2-1440.png) |
 | M01 | กระเป๋า | 2 | runtime | [ดูภาพ](captures/current-comic-2026-10-29/inventory.png) |
 | M02 | สถานะและเส้นทางกลยุทธ์ | 1 | mixed | [ดูภาพ](captures/current-comic-2026-10-29/status.png) |
 | M03 | ตลาดมืดและประมูล | 5 | runtime | [ดูภาพ](captures/current-comic-2026-10-29/market.png) |
@@ -86,3 +86,5 @@ S11/G01 share the same tracking view. G02–G04 are substates of GhostWorld, not
 Post-review: C54–C58 are real App paid-flow captures at declared500-credit/20-life fixture config; C58 owned bag belongsM01. Hidden source pool isolation fixed; minor initial-event request-catalog access remains tracked.
 
 2026-11-02 normal main: C59–C63 แยกจาก500-credit fixture;40เครดิต/6ชีวิต request2→delivery4→buy→RESULTS6/replay ผ่าน5checks. ดูnormal-play-verification.json; ไม่รับรองbalance.
+
+2026-11-03 personal scoring UI: exact approved1551908 experiment now enabled for actual Comic main new rooms after48focused domain/runtime/eligibility/SSR/socket/main-entry checks,13new screen checks at1024/1440/1920,18peer menus and14sealed pixel comparisons. S13 uses shared inventory ComicPhaseFrame/ComicButton/Tooltip,9local playback stages and paged14metric details. Live Status consumes server known-only range; hidden appraisal receipts stay unresolved untilend, final score frozen. Six end menus readonly; legacy/no-flag fallback retained. C64–C72 are candidates, not promoted baselines. See implementations/personal-scoring-ui.md and docs/validation/personal-score-ui-2026-11-03. Independent final review,48remaining catalog effects/numbers, normal fullgame browser reconnect/ghosttracking scroll and multi-seed balance still outstanding; whole-game goal active.

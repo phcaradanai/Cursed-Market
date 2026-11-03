@@ -1,3 +1,4 @@
+import {PersonalScoreResults} from './PersonalScoreResults.js';
 import {CollectorWishlist} from './CollectorWishlist.js';
 import {ComicTooltip} from './ComicTooltip.js';
 import {appraisalMood,portalMood,usePortalReaction} from './merchant-reactions.js';
@@ -36,7 +37,7 @@ import { ENERGY_DEAL_NPCS } from '../game/appraisal/pulse.js';
 import { PROVENANCE_PERCENT } from '../game/appraisal/scoring.js';
 import { BonusBadge, Fortune, SeatNames } from './meters.js';
 
-type Send=(message:AppraisalClientMessage)=>boolean;
+export type Send=(message:AppraisalClientMessage)=>boolean;
 const graphemes=(text:string)=>typeof Intl.Segmenter==='function'?[...new Intl.Segmenter('th',{granularity:'grapheme'}).segment(text)].map(s=>s.segment):[...text];
 /** Thai leading vowels sit before their consonant, so a monogram keeps both glyphs. */
 export function monogram(name:string):string {
@@ -180,6 +181,7 @@ function ReadyForNext({room,send,disabled}:{room:AppraisalRoomView;send:Send;dis
 export function SurvivalResults({room,send,disabled}:{room:AppraisalRoomView;send:Send;disabled:boolean}) {
   const locked=useLock();
   const game=room.game!;const final=game.phase==='RESULTS';
+  if(final&&game.collector?.length&&game.collector.every(row=>row.personalScore))return <PersonalScoreResults room={room} send={send} disabled={disabled}/>;
   const name=(id:string)=>room.matchSeats.find(s=>s.id===id)?.name??t('นักประเมิน');
   const rows=[...(game.collector??[])].sort((a,b)=>b.score-a.score);
   const winners=rows.filter(row=>row.score===rows[0]?.score).map(row=>name(row.playerId));
@@ -221,7 +223,7 @@ export function GameTable({room,submit,send,disabled,tools,connected=true,connec
   const stockStrip=useRef<HTMLDivElement>(null);
   useEffect(()=>{if(selected===item?.id)stockStrip.current?.querySelector('[aria-pressed="true"]')?.scrollIntoView({block:'nearest',inline:'nearest'});},[item?.id,selected]);
   const duelling=!!game.theft?.duels.some(duel=>duel.status==='open');
-  const inactive=disabled || !!self.paused || self.done || duelling || !!portalReaction;
+  const inactive=disabled || game.phase==='RESULTS' || !!self.paused || self.done || duelling || !!portalReaction;
   const outer=useLock();
   const lock=outer ?? (duelling?pick('เลือกมือเป่ายิ้งฉุบให้เสร็จก่อน','Finish the rock, paper, scissors duel first'):game.survival && self.life===0?t('ชีวิตหมดแล้ว คุณเป็นผู้ชม'):self.paused==='dead'?t('คุณตายและพักช่วงนี้'):self.paused?t('พลังหมด พักช่วงนี้'):self.done?t('คุณจบช่วงนี้แล้ว รอเพื่อนหรือหมดเวลา'):coinTossing?t('กำลังโยนเหรียญ รอผล'):disabled?t('รอการเชื่อมต่อหรือผลจากเซิร์ฟเวอร์'):null);
   const playable=['PORTALS','APPRAISAL','TRADE'].includes(game.phase);
@@ -237,13 +239,13 @@ export function GameTable({room,submit,send,disabled,tools,connected=true,connec
   const [openDrawer,setOpenDrawer]=useState<Drawer|null>(initialDrawer??null);
   const theftDeskAvailable=!!game.secureEconomy&&!!game.theft&&(!!game.core2||game.theft.duels.length>0||!!game.theft.crime)&&['APPRAISAL','TRADE'].includes(phase)&&self.life!==0&&self.paused!=='dead';
   const collectorDeskAvailable=!!self.collectorWishlist&&['PORTALS','APPRAISAL'].includes(phase)&&self.life!==0&&!self.paused&&(self.collectorWishlist.request.available||!!self.collectorWishlist.pending||self.collectorWishlist.delivery?.status==='open');
-  const orphanedDrawer=openDrawer==='collector'&&(!collectorDeskAvailable||duelling)||openDrawer==='theft'&&(duelling||!theftDeskAvailable)||phase==='RESULTS'&&['bag','effects','market'].includes(openDrawer??'');
+  const orphanedDrawer=openDrawer==='collector'&&(!collectorDeskAvailable||duelling)||openDrawer==='theft'&&(duelling||!theftDeskAvailable)||phase==='RESULTS'&&!self.personalScore&&['bag','effects','market'].includes(openDrawer??'');
   useEffect(()=>{if(orphanedDrawer)setOpenDrawer(null);},[orphanedDrawer]);
   const [settingsOpen,setSettingsOpen]=useState(initialSettings??false);
   const markets=(game.market.open?game.market.orders.length:0)+(game.market.lots?.length??0);
   const drawers:{id:Drawer;label:string;icon:ReactElement;count?:number;hot?:boolean}[]=[
-    ...(phase==='RESULTS'?[]:[{id:'bag' as const,label:t('กระเป๋า'),icon:<BagIcon/>,count:self.inventory.length}]),
-    ...(phase==='RESULTS'?[]:[{id:'effects' as const,label:t('สถานะ'),icon:<BuffIcon/>,count:self.statuses.length},{id:'market' as const,label:'Dark Market',icon:<MarketIcon/>,count:markets,hot:markets>0}]),
+    ...(phase==='RESULTS'&&!self.personalScore?[]:[{id:'bag' as const,label:t('กระเป๋า'),icon:<BagIcon/>,count:self.inventory.length}]),
+    ...(phase==='RESULTS'&&!self.personalScore?[]:[{id:'effects' as const,label:t('สถานะ'),icon:<BuffIcon/>,count:self.statuses.length},{id:'market' as const,label:'Dark Market',icon:<MarketIcon/>,count:markets,hot:markets>0}]),
     {id:'ledger',label:game.secureEconomy?t('สมุดบันทึก · เงินกู้และใบประกาศ'):t('สมุดบันทึก'),icon:<BookIcon/>,count:game.loans?.filter(l=>['proposed','countered'].includes(l.status)).length??0},
     {id:'rules',label:t('กติกา'),icon:<EventIcon/>},
   ];
@@ -298,10 +300,10 @@ export function GameTable({room,submit,send,disabled,tools,connected=true,connec
     </div>
     <TheftPanel game={game} submit={submit} disabled={disabled || self.life===0} playerNames={playerNames} deadlines={room.duelDeadlines} serverTime={room.serverTime} deskOpen={openDrawer==='theft'} onDeskClose={()=>setOpenDrawer(null)} suspended={openDrawer!==null&&openDrawer!=='theft'||settingsOpen||eventOpen&&!tucked}/>
     <ComicMenu id="collector-wishlist" open={openDrawer==='collector'&&collectorDeskAvailable} title="Collector" onClose={()=>setOpenDrawer(null)} className="collector-menu"><CollectorWishlist key={`${game.encounter}:${self.collectorWishlist?.pending?.id??''}:${self.collectorWishlist?.delivery?.id??''}:${self.collectorWishlist?.delivery?.status??''}`} game={game} submit={submit} disabled={inactive}/></ComicMenu>
-    {phase!=='RESULTS' && drawer('bag',t('กระเป๋า'),<><Inventory game={game} submit={submit} disabled={inactive || phase==='REVEAL'}/><HeldEffects game={game}/></>)}
-    {phase!=='RESULTS' && drawer('effects',t('สถานะ'),<>{openDrawer==='effects'&&<StatusMenu game={game} submit={submit} disabled={inactive || phase==='REVEAL'} playerNames={playerNames}/>}</>,phase==='APPRAISAL'&&endPhasePanel?<div className="status-header-completion">{endPhasePanel}</div>:undefined)}
-    {phase!=='RESULTS' && drawer('market',pick('ตลาดมืด','Dark Market'),<DarkMarket game={game} submit={submit} disabled={inactive || !playable}/>)}
-    {drawer('ledger',t('สมุดบันทึก'),<LedgerMenu game={game} room={room} submit={submit} disabled={disabled || duelling || self.life===0 || room.revealReady.includes(room.yourSeatId)} playerNames={playerNames}/>)}
+    {(phase!=='RESULTS'||!!self.personalScore) && drawer('bag',t('กระเป๋า'),<><Inventory game={game} submit={submit} disabled={inactive || phase==='REVEAL'}/><HeldEffects game={game}/></>)}
+    {(phase!=='RESULTS'||!!self.personalScore) && drawer('effects',t('สถานะ'),<>{openDrawer==='effects'&&<StatusMenu game={game} submit={submit} disabled={inactive || phase==='REVEAL'} playerNames={playerNames}/>}</>,phase==='APPRAISAL'&&endPhasePanel?<div className="status-header-completion">{endPhasePanel}</div>:undefined)}
+    {(phase!=='RESULTS'||!!self.personalScore) && drawer('market',pick('ตลาดมืด','Dark Market'),<DarkMarket game={game} submit={submit} disabled={inactive || !playable}/>)}
+    {drawer('ledger',t('สมุดบันทึก'),<LedgerMenu game={game} room={room} submit={submit} disabled={disabled || phase==='RESULTS' || duelling || self.life===0 || room.revealReady.includes(room.yourSeatId)} playerNames={playerNames}/>)}
     {drawer('rules',t('กติกา'),<RulesMenu timers={room.timerSettings} survival={room.mode==='survival'} trustAbilities={!!game.trustAbilities}/>)}
     </div>
     {eventOpen && <EventModal key={self.eventOffer!.key} game={game} offer={self.eventOffer!} submit={submit} disabled={inactive} tucked={tucked || openDrawer!==null || settingsOpen} setTucked={value=>setTuckedKey(value?self.eventOffer!.key:null)} playerNames={playerNames}/>}

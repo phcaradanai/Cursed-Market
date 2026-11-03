@@ -1,0 +1,5 @@
+{
+  "failure": "personal-score-metrics overflow [0,10] at score-2 1440x722",
+  "source": "observed ego assertion output",
+  "fix": "Use shared6px internal gap and merge two repetitive metric footnotes into one row; keep2 paged metrics, data and controls unchanged"
+}

@@ -49,6 +49,6 @@ execFileSync(process.execPath,['docs/game-design/scripts/build-system-atlas.mjs'
 
 const scoringApproval=read('personal-scoring-approval.json');assert.equal(scoringApproval.status,'approved-experimental');
 for(const [file,hash]of Object.entries(scoringApproval.approvedFiles))assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex'),hash,'Approved personal scoring proposal changed: '+file);
-const scoringRule=d.confirmedRules.find(r=>r.id==='personal-scoring');assert.equal(scoringRule.state,'runtime-experimental-v1/opt-in');assert.equal(scoringRule.runtime.defaultEnabled,false);assert.deepEqual(scoringRule.runtime.weights,read('proposals/personal-scoring-weights-v1.json').metrics);assert.equal(d.confirmedRules.find(r=>r.id==='leader-awards').state,'historical-superseded-by-personal-scoring');
+const scoringRule=d.confirmedRules.find(r=>r.id==='personal-scoring');assert.equal(scoringRule.state,'runtime-experimental-v1/main-new-rooms');assert.equal(scoringRule.runtime.defaultEnabled,true);assert(fs.readFileSync(path.join(root,'apps/comic/src/server/appraisal-main.ts'),'utf8').includes('personalScoringRules:1'));assert.deepEqual(scoringRule.runtime.weights,read('proposals/personal-scoring-weights-v1.json').metrics);assert.equal(d.confirmedRules.find(r=>r.id==='leader-awards').state,'historical-superseded-by-personal-scoring');
 
 console.log('PASS: catalog coverage, namespaces, new56-only products, source guards, rule gaps, generic actions, profiles, original views and freshness.');

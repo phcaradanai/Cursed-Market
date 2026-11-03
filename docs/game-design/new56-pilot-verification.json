@@ -14,11 +14,11 @@
   ],
   "sourceFingerprints": {
     "apps/comic/scripts/new56-pilot-experiment.mjs": "765044c9febc45ae3e2f3c50e572304b40bd14c2bbad471deba4280a9d88123e",
-    "apps/comic/src/appraisal-client/App.tsx": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8",
+    "apps/comic/src/appraisal-client/App.tsx": "9c93c44a531d0f68153c1b90cce58bc48004b944dcacca0578223544e8d3ba0b",
     "apps/comic/src/appraisal-client/SecureEconomy.tsx": "cf7323f59d79043ae49b35a9fcfdeb9e588383ce55575270d99a5a0ba9648ced",
     "apps/comic/src/appraisal-client/components.tsx": "b4564c5667bdb3eaa375b2a8f87389216c67108433c2f06074910d9b75c4d362",
     "apps/comic/src/appraisal-client/lore.tsx": "189390c4d9ceb246c2f1a5aa4e4891b7a91d2023348ac49f91b8029d2f788354",
-    "apps/comic/src/appraisal-client/model.ts": "1ca8356d67a69e286c161177f71ffd1738a487ec2c2e26a30fea01b54ac33b40",
+    "apps/comic/src/appraisal-client/model.ts": "5b8dba5f58ff964ed261fb02452f7268e24a9447d29297cdaec107692bb4e9e3",
     "apps/comic/src/appraisal-client/validation/pilot-item-fixture.tsx": "8669d6031ca964265e7b79bd8fd6fa1930776f45644a8b4a0a16e6d17a68b70f",
     "apps/comic/src/game/appraisal/content.ts": "71887f52012d6f855c1e130e0339c6785b3f91abe8f9efa5e2b8b2a181d3a20b",
     "apps/comic/src/game/appraisal/core2-actions.ts": "a0b968bc9fd51b22cf5c63caa9c38e34dbb41bc0dd765aa449a3dfecb15a6213",
@@ -32,9 +32,9 @@
     "apps/comic/src/game/appraisal/pilot-effects.ts": "ab8d8201a7abd4fbca4f96ee6223ded049937d43dac7a2f4dfa72db793e29029",
     "apps/comic/src/game/appraisal/secure-storage.ts": "3d0bb2a86d9646ff65c0e3374321d5b9919b4a653f6e2e18463a42c26c31618b",
     "apps/comic/src/game/appraisal/theft.ts": "aac017becded983e0106125bdb8d5cb379e9227babe782681f3486f69e344e76",
-    "apps/comic/src/game/appraisal/types.ts": "0d1fc33907241e8dd12bedd3536154b5bb30e05d30e533fdb221782dbde7f61a",
-    "apps/comic/src/game/appraisal/views.ts": "349677f197da0fd51c2b2402ed810d86bcf4ac96545daddb5e310343fe869116",
-    "apps/comic/src/server/appraisal-main.ts": "344962080ebff735530d1a2c2f1d12ab590f608c0a4cd3dbeb127ba7dd62ccb5",
+    "apps/comic/src/game/appraisal/types.ts": "28ff5a2d7ff93c4193df4f109e3d010a083443b81a1eaa2ff29916840acd6a52",
+    "apps/comic/src/game/appraisal/views.ts": "851f93039db2aa1ebccb4735532192f6fa0854255eced3312c5aad8245eac030",
+    "apps/comic/src/server/appraisal-main.ts": "5f67b2038007427688bd6b8c1c19227f34c6244d9d7b47537bf0bc0f1a673831",
     "apps/comic/src/simulation/appraisal.ts": "278025401318fc01ea5f26187703b569f68b82c41f859b943c0c320bcbe92c66",
     "apps/comic/tests/appraisal-expansion.test.ts": "49241ac61183d38be5a1321ad7bc9a8a4241748dcff559f351c79517df5aecb0",
     "apps/comic/tests/appraisal-item-effects.test.ts": "09e53c6f8169d41c6dbde39e750e70cd2c142f56be61f990caa86df939b87125",
@@ -270,5 +270,21 @@
     },
     "verification": "docs/validation/personal-scoring-eligibility-2026-11-03/verification.json",
     "scope": "Personal scoring remains opt-in. Fresh8 native pairs/16complete runs/32strict replay checks preserve all16audit bytes; normal40/6 flagless journey also byte-identical. No full-game balance or new image/baseline approval."
+  },
+  "personalScoringUiFollowup": {
+    "date": "2026-11-03",
+    "evidence": "docs/validation/personal-score-ui-2026-11-03/report.json",
+    "nativeEvidence": "docs/validation/pilot-public-2026-11-02/public-effects.json",
+    "scope": "8pairs/16runs/32strictreplays; all16 audit bytes unchanged under explicit no-personal flag. Actualmain nowenablespersonal1 onlyfornewrooms after13UI/18menus/14pixels and48domain/protocol checks; no8item/remaining48 numeric orbalance change.",
+    "changedSourcePins": [
+      "apps/comic/src/game/appraisal/types.ts",
+      "apps/comic/src/game/appraisal/views.ts",
+      "apps/comic/src/server/appraisal-main.ts"
+    ],
+    "changedUiPins": [
+      "apps/comic/src/appraisal-client/App.tsx",
+      "apps/comic/src/appraisal-client/model.ts"
+    ],
+    "uiScope": "48focused scoring+pilot/catalog/lifecycle/custody/continuity tests;13newUI/18menus/14unchanged sealedpixels. Historical pilot captures remain historical; not recaptured."
   }
 }

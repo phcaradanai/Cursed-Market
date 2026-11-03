@@ -1,0 +1,1177 @@
+{
+  "asOf": "2026-11-03T05:18:08.467Z",
+  "scope": "Personal-scoring1 experimental variant; default rollout remains off. Targeted cooperative engine journey with exact normal40/6/deadline15 base main config, catalogue4pilot8; selected deterministic seed, public DTO-only decisions, no state injection or RPS oracle. Engine does not enforce real5.2s card clock; this is not browser/socket clock or balance proof.",
+  "seed": "normal-service-2",
+  "config": {
+    "rarityEconomy": {
+      "version": 1,
+      "tiers": {
+        "common": {
+          "value": 1,
+          "effect": 1
+        },
+        "uncommon": {
+          "value": 2,
+          "effect": 2
+        },
+        "rare": {
+          "value": 3,
+          "effect": 3
+        },
+        "epic": {
+          "value": 4,
+          "effect": 4
+        },
+        "legendary": {
+          "value": 6,
+          "effect": 6
+        },
+        "mythic": {
+          "value": 8,
+          "effect": 8
+        }
+      }
+    },
+    "rarity": {
+      "version": 1,
+      "rates": {
+        "common": 0.6,
+        "uncommon": 0.25,
+        "rare": 0.1,
+        "epic": 0.035,
+        "legendary": 0.013,
+        "mythic": 0.002
+      },
+      "themes": {
+        "common": [
+          {
+            "theme": "plain",
+            "weight": 1
+          }
+        ],
+        "uncommon": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "rare": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "epic": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "legendary": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "mythic": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ]
+      }
+    },
+    "loanEndSettlement": true,
+    "vaultInterestRules": 1,
+    "theftTimeoutRules": 1,
+    "collectorDeadline": 15,
+    "eventChoiceRules": 1,
+    "statusLinks": 1,
+    "systemLinks": 1,
+    "trustAbilities": true,
+    "catalogVersion": 4,
+    "itemEffects": true,
+    "roundRewards": true,
+    "multiCoinRewards": true,
+    "commerce": true,
+    "totalTrustStock": true,
+    "curseSight": true,
+    "freeBuy": true,
+    "freeMerchantAction": true,
+    "fakeEffect": true,
+    "cleanse": true,
+    "wishlist": true,
+    "wishContract": true,
+    "challenge": true,
+    "expansion": true,
+    "encounters": 3,
+    "startingCredits": 40,
+    "maxEnergy": 10,
+    "recoveryEnergy": 4,
+    "bankReserve": 2000,
+    "marketProbability": 1,
+    "marketMaxOrders": 3,
+    "marketQuota": 1,
+    "collectorWishlistRules": 1,
+    "secureEconomy": true,
+    "brokerage": {
+      "auctionProbability": 0.5,
+      "maxLots": 2,
+      "bondProbability": 0.65
+    },
+    "polish": true,
+    "npcEvents": true,
+    "core2": true,
+    "survival": {
+      "maxLife": 6,
+      "encounterLifeCost": 1,
+      "entryEnergyCost": 0
+    },
+    "personalScoringRules": 1
+  },
+  "checks": [
+    "normal wallet deposit10 and idempotent retry",
+    "no interest before complete encounter",
+    "new topup does not earn retroactively; withdraw new5 preserves mature10",
+    "exact10percent aged interest1 paid to wallet atencounter3",
+    "actual bought item collateral, lender transfer, full repayment/custody return and idempotency",
+    "natural death with buyer alive; card answer derived from visible swaps only",
+    "funded public quote agreed without advance payment",
+    "real RPS draws find target; exact single payment/item/bonus without advancing living phase",
+    "RESULTS strict replay and spirit bonus added once after ordinary score"
+  ],
+  "observations": [
+    {
+      "type": "loan-repaid",
+      "encounter": 3,
+      "phase": "REVEAL",
+      "buyerLife": 3,
+      "buyerCredits": 41,
+      "amount": 12
+    },
+    {
+      "type": "ghost-unlocked",
+      "encounter": 6,
+      "phase": "REVEAL",
+      "buyerLife": 1,
+      "buyerCredits": 29
+    },
+    {
+      "type": "ghost-hired",
+      "encounter": 6,
+      "phase": "REVEAL",
+      "buyerLife": 1,
+      "buyerCredits": 44,
+      "kind": "vampire-nocturne-signet",
+      "price": 21
+    },
+    {
+      "type": "all-slots-lost",
+      "encounter": 6,
+      "phase": "REVEAL",
+      "buyerLife": 1,
+      "buyerCredits": 44
+    },
+    {
+      "type": "ghost-delivered",
+      "encounter": 7,
+      "phase": "PORTALS",
+      "buyerLife": 1,
+      "buyerCredits": 24,
+      "kind": "vampire-nocturne-signet",
+      "price": 21,
+      "bonus": 2
+    }
+  ],
+  "commands": 196,
+  "end": 7,
+  "bonus": 2,
+  "final": [
+    {
+      "playerId": "spirit",
+      "credits": 90,
+      "itemValue": 0,
+      "modifierPercent": 0,
+      "statusIds": [],
+      "score": 108,
+      "items": [],
+      "personalScore": {
+        "playerId": "spirit",
+        "metrics": [
+          {
+            "id": "bought",
+            "raw": 0,
+            "eligible": 0,
+            "uncappedPoints": 0,
+            "points": 0,
+            "cap": 40,
+            "weight": {
+              "numerator": 2,
+              "denominator": 1
+            },
+            "sourceIds": [],
+            "exclusions": []
+          },
+          {
+            "id": "soldQuantity",
+            "raw": 0,
+            "eligible": 0,
+            "uncappedPoints": 0,
+            "points": 0,
+            "cap": 75,
+            "weight": {
+              "numerator": 5,
+              "denominator": 1
+            },
+            "sourceIds": [],
+            "exclusions": []
+          },
+          {
+            "id": "soldGrossCredits",
+            "raw": 0,
+            "eligible": 0,
+            "uncappedPoints": 0,
+            "points": 0,
+            "cap": 100,
+            "weight": {
+              "numerator": 1,
+              "denominator": 10
+            },
+            "sourceIds": [],
+            "exclusions": []
+          },
+          {
+            "id": "trustGained",
+            "raw": 0,
+            "eligible": 0,
+            "uncappedPoints": 0,
+            "points": 0,
+            "cap": 120,
+            "weight": {
+              "numerator": 3,
+              "denominator": 1
+            },
+            "sourceIds": [],
+            "exclusions": []
+          },
+          {
+            "id": "inspection",
+            "raw": 0,
+            "eligible": 0,
+            "uncappedPoints": 0,
+            "points": 0,
+            "cap": 24,
+            "weight": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "sourceIds": [],
+            "exclusions": []
+          },
+          {
+            "id": "accurateAppraisal",
+            "raw": 0,
+            "eligible": 0,
+            "uncappedPoints": 0,
+            "points": 0,
+            "cap": 40,
+            "weight": {
+              "numerator": 2,
+              "denominator": 1
+            },
+            "sourceIds": [],
+            "exclusions": []
+          },
+          {
+            "id": "npcContract",
+            "raw": 0,
+            "eligible": 0,
+            "uncappedPoints": 0,
+            "points": 0,
+            "cap": 32,
+            "weight": {
+              "numerator": 4,
+              "denominator": 1
+            },
+            "sourceIds": [],
+            "exclusions": []
+          },
+          {
+            "id": "interest",
+            "raw": 0,
+            "eligible": 0,
+            "uncappedPoints": 0,
+            "points": 0,
+            "cap": 30,
+            "weight": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "sourceIds": [],
+            "exclusions": []
+          },
+          {
+            "id": "loanRepaid",
+            "raw": 1,
+            "eligible": 0,
+            "uncappedPoints": 0,
+            "points": 0,
+            "cap": 20,
+            "weight": {
+              "numerator": 5,
+              "denominator": 1
+            },
+            "sourceIds": [
+              "[62,39,\"spirit\",\"loanRepaid\"]"
+            ],
+            "exclusions": [
+              {
+                "id": "[62,39,\"spirit\",\"loanRepaid\"]",
+                "cause": "loan did not span a full encounter"
+              }
+            ]
+          },
+          {
+            "id": "survived",
+            "raw": 5,
+            "eligible": 5,
+            "uncappedPoints": 10,
+            "points": 10,
+            "cap": 30,
+            "weight": {
+              "numerator": 2,
+              "denominator": 1
+            },
+            "sourceIds": [
+              "[13,7,\"spirit\",\"survived\"]",
+              "[33,19,\"spirit\",\"survived\"]",
+              "[57,35,\"spirit\",\"survived\"]",
+              "[91,54,\"spirit\",\"survived\"]",
+              "[120,63,\"spirit\",\"survived\"]"
+            ],
+            "exclusions": []
+          },
+          {
+            "id": "lifeLost",
+            "raw": 6,
+            "eligible": 6,
+            "uncappedPoints": 6,
+            "points": 6,
+            "cap": 12,
+            "weight": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "sourceIds": [
+              "[13,6,\"spirit\",\"lifeLost\"]",
+              "[33,18,\"spirit\",\"lifeLost\"]",
+              "[57,34,\"spirit\",\"lifeLost\"]",
+              "[91,53,\"spirit\",\"lifeLost\"]",
+              "[120,62,\"spirit\",\"lifeLost\"]",
+              "[154,80,\"spirit\",\"lifeLost\"]"
+            ],
+            "exclusions": []
+          },
+          {
+            "id": "theft",
+            "raw": 0,
+            "eligible": 0,
+            "uncappedPoints": 0,
+            "points": 0,
+            "cap": 20,
+            "weight": {
+              "numerator": 4,
+              "denominator": 1
+            },
+            "sourceIds": [],
+            "exclusions": []
+          },
+          {
+            "id": "rarity",
+            "raw": 0,
+            "eligible": 0,
+            "uncappedPoints": 0,
+            "points": 0,
+            "cap": 80,
+            "weight": {
+              "byRarity": {
+                "common": 0,
+                "uncommon": 4,
+                "rare": 8,
+                "epic": 12,
+                "legendary": 20,
+                "mythic": 28
+              }
+            },
+            "sourceIds": [],
+            "exclusions": []
+          },
+          {
+            "id": "ghost",
+            "raw": 2,
+            "eligible": 2,
+            "uncappedPoints": 2,
+            "points": 2,
+            "cap": null,
+            "weight": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "sourceIds": [],
+            "exclusions": []
+          }
+        ],
+        "groups": [
+          {
+            "id": "assets",
+            "points": 90
+          },
+          {
+            "id": "commerce",
+            "points": 0
+          },
+          {
+            "id": "knowledge",
+            "points": 0
+          },
+          {
+            "id": "relations",
+            "points": 0
+          },
+          {
+            "id": "finance",
+            "points": 0
+          },
+          {
+            "id": "journey",
+            "points": 16
+          },
+          {
+            "id": "collection",
+            "points": 0
+          },
+          {
+            "id": "modifier",
+            "points": 0
+          },
+          {
+            "id": "ghost",
+            "points": 2
+          }
+        ],
+        "performancePoints": 16,
+        "ordinaryBeforeModifier": 106,
+        "modifierDelta": 0,
+        "ordinaryScore": 106,
+        "ghostBonus": 2,
+        "total": 108
+      }
+    },
+    {
+      "playerId": "buyer",
+      "credits": 240,
+      "itemValue": 117,
+      "modifierPercent": 0,
+      "statusIds": [],
+      "score": 534,
+      "items": [
+        {
+          "id": "item-3-1-2-0",
+          "kind": "swarm-brood-hammer",
+          "base": 17,
+          "genuine": true,
+          "cursed": false,
+          "value": 17
+        },
+        {
+          "id": "copy-item-3-1-2-2-1",
+          "kind": "swarm-brood-hammer",
+          "base": 10,
+          "genuine": true,
+          "cursed": true,
+          "value": 7
+        },
+        {
+          "id": "ability-6-buyer-alien-0",
+          "kind": "alien-thought-translator",
+          "base": 13,
+          "genuine": true,
+          "cursed": true,
+          "value": 9
+        },
+        {
+          "id": "item-6-1-0-0",
+          "kind": "darkone-crossing-token",
+          "base": 45,
+          "genuine": false,
+          "cursed": false,
+          "value": 11
+        },
+        {
+          "id": "item-6-1-0-1",
+          "kind": "darkone-crossing-token",
+          "base": 14,
+          "genuine": false,
+          "cursed": false,
+          "value": 3
+        },
+        {
+          "id": "delivery-ghost-spirit-1-0",
+          "kind": "vampire-nocturne-signet",
+          "base": 20,
+          "genuine": true,
+          "cursed": true,
+          "value": 15
+        },
+        {
+          "id": "item-2-1-0-0",
+          "kind": "alien-thought-translator",
+          "base": 20,
+          "genuine": true,
+          "cursed": false,
+          "value": 20
+        },
+        {
+          "id": "item-7-1-2-1",
+          "kind": "alien-thought-translator",
+          "base": 24,
+          "genuine": true,
+          "cursed": true,
+          "value": 18
+        },
+        {
+          "id": "item-7-1-2-4",
+          "kind": "alien-thought-translator",
+          "base": 23,
+          "genuine": true,
+          "cursed": true,
+          "value": 17
+        }
+      ],
+      "personalScore": {
+        "playerId": "buyer",
+        "metrics": [
+          {
+            "id": "bought",
+            "raw": 17,
+            "eligible": 14,
+            "uncappedPoints": 28,
+            "points": 28,
+            "cap": 40,
+            "weight": {
+              "numerator": 2,
+              "denominator": 1
+            },
+            "sourceIds": [
+              "[5,3,\"buyer\",\"bought\"]",
+              "[24,13,\"buyer\",\"bought\"]",
+              "[26,17,\"buyer\",\"bought\"]",
+              "[48,27,\"buyer\",\"bought\"]",
+              "[50,31,\"buyer\",\"bought\"]",
+              "[57,32,\"buyer\",\"bought\"]",
+              "[57,33,\"buyer\",\"bought\"]",
+              "[67,41,\"buyer\",\"bought\"]",
+              "[79,49,\"buyer\",\"bought\"]",
+              "[80,51,\"buyer\",\"bought\"]",
+              "[91,52,\"buyer\",\"bought\"]",
+              "[127,67,\"buyer\",\"bought\"]",
+              "[139,77,\"buyer\",\"bought\"]",
+              "[141,79,\"buyer\",\"bought\"]",
+              "[166,84,\"buyer\",\"bought\"]",
+              "[176,94,\"buyer\",\"bought\"]",
+              "[177,96,\"buyer\",\"bought\"]"
+            ],
+            "exclusions": [
+              {
+                "id": "[57,32,\"buyer\",\"bought\"]",
+                "cause": "repeated origin or source"
+              },
+              {
+                "id": "[57,33,\"buyer\",\"bought\"]",
+                "cause": "repeated origin or source"
+              },
+              {
+                "id": "[91,52,\"buyer\",\"bought\"]",
+                "cause": "repeated origin or source"
+              }
+            ]
+          },
+          {
+            "id": "soldQuantity",
+            "raw": 7,
+            "eligible": 5,
+            "uncappedPoints": 25,
+            "points": 25,
+            "cap": 75,
+            "weight": {
+              "numerator": 5,
+              "denominator": 1
+            },
+            "sourceIds": [
+              "[6,4,\"buyer\",\"soldQuantity\"]",
+              "[25,14,\"buyer\",\"soldQuantity\"]",
+              "[49,28,\"buyer\",\"soldQuantity\"]",
+              "[69,42,\"buyer\",\"soldQuantity\"]",
+              "[129,68,\"buyer\",\"soldQuantity\"]",
+              "[130,70,\"buyer\",\"soldQuantity\"]",
+              "[167,85,\"buyer\",\"soldQuantity\"]"
+            ],
+            "exclusions": [
+              {
+                "id": "[69,42,\"buyer\",\"soldQuantity\"]",
+                "cause": "repeated origin or source"
+              },
+              {
+                "id": "[130,70,\"buyer\",\"soldQuantity\"]",
+                "cause": "zero-credit sale"
+              }
+            ]
+          },
+          {
+            "id": "soldGrossCredits",
+            "raw": 154,
+            "eligible": 126,
+            "uncappedPoints": 12,
+            "points": 12,
+            "cap": 100,
+            "weight": {
+              "numerator": 1,
+              "denominator": 10
+            },
+            "sourceIds": [
+              "[6,5,\"buyer\",\"soldGrossCredits\"]",
+              "[25,15,\"buyer\",\"soldGrossCredits\"]",
+              "[49,29,\"buyer\",\"soldGrossCredits\"]",
+              "[69,43,\"buyer\",\"soldGrossCredits\"]",
+              "[129,69,\"buyer\",\"soldGrossCredits\"]",
+              "[130,71,\"buyer\",\"soldGrossCredits\"]",
+              "[167,86,\"buyer\",\"soldGrossCredits\"]"
+            ],
+            "exclusions": [
+              {
+                "id": "[69,43,\"buyer\",\"soldGrossCredits\"]",
+                "cause": "repeated origin or source"
+              },
+              {
+                "id": "[130,71,\"buyer\",\"soldGrossCredits\"]",
+                "cause": "zero-credit sale"
+              }
+            ]
+          },
+          {
+            "id": "trustGained",
+            "raw": 12,
+            "eligible": 12,
+            "uncappedPoints": 36,
+            "points": 36,
+            "cap": 120,
+            "weight": {
+              "numerator": 3,
+              "denominator": 1
+            },
+            "sourceIds": [
+              "[5,2,\"buyer\",\"trustGained\"]",
+              "[24,12,\"buyer\",\"trustGained\"]",
+              "[26,16,\"buyer\",\"trustGained\"]",
+              "[48,26,\"buyer\",\"trustGained\"]",
+              "[50,30,\"buyer\",\"trustGained\"]",
+              "[79,48,\"buyer\",\"trustGained\"]",
+              "[80,50,\"buyer\",\"trustGained\"]",
+              "[139,76,\"buyer\",\"trustGained\"]",
+              "[141,78,\"buyer\",\"trustGained\"]",
+              "[176,93,\"buyer\",\"trustGained\"]",
+              "[177,95,\"buyer\",\"trustGained\"]"
+            ],
+            "exclusions": []
+          },
+          {
+            "id": "inspection",
+            "raw": 0,
+            "eligible": 0,
+            "uncappedPoints": 0,
+            "points": 0,
+            "cap": 24,
+            "weight": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "sourceIds": [],
+            "exclusions": []
+          },
+          {
+            "id": "accurateAppraisal",
+            "raw": 14,
+            "eligible": 14,
+            "uncappedPoints": 28,
+            "points": 28,
+            "cap": 40,
+            "weight": {
+              "numerator": 2,
+              "denominator": 1
+            },
+            "sourceIds": [
+              "[3,0,\"buyer\",\"accurateAppraisal\"]",
+              "[4,1,\"buyer\",\"accurateAppraisal\"]",
+              "[22,10,\"buyer\",\"accurateAppraisal\"]",
+              "[23,11,\"buyer\",\"accurateAppraisal\"]",
+              "[44,23,\"buyer\",\"accurateAppraisal\"]",
+              "[45,24,\"buyer\",\"accurateAppraisal\"]",
+              "[46,25,\"buyer\",\"accurateAppraisal\"]",
+              "[75,44,\"buyer\",\"accurateAppraisal\"]",
+              "[76,45,\"buyer\",\"accurateAppraisal\"]",
+              "[77,46,\"buyer\",\"accurateAppraisal\"]",
+              "[78,47,\"buyer\",\"accurateAppraisal\"]",
+              "[100,58,\"buyer\",\"accurateAppraisal\"]",
+              "[101,59,\"buyer\",\"accurateAppraisal\"]",
+              "[102,60,\"buyer\",\"accurateAppraisal\"]",
+              "[103,61,\"buyer\",\"accurateAppraisal\"]",
+              "[135,72,\"buyer\",\"accurateAppraisal\"]",
+              "[136,73,\"buyer\",\"accurateAppraisal\"]",
+              "[137,74,\"buyer\",\"accurateAppraisal\"]",
+              "[138,75,\"buyer\",\"accurateAppraisal\"]",
+              "[171,88,\"buyer\",\"accurateAppraisal\"]",
+              "[172,89,\"buyer\",\"accurateAppraisal\"]",
+              "[173,90,\"buyer\",\"accurateAppraisal\"]",
+              "[174,91,\"buyer\",\"accurateAppraisal\"]",
+              "[175,92,\"buyer\",\"accurateAppraisal\"]"
+            ],
+            "exclusions": [
+              {
+                "id": "[3,0,\"buyer\",\"accurateAppraisal\"]",
+                "cause": "first appraisal outside20percent"
+              },
+              {
+                "id": "[23,11,\"buyer\",\"accurateAppraisal\"]",
+                "cause": "first appraisal outside20percent"
+              },
+              {
+                "id": "[44,23,\"buyer\",\"accurateAppraisal\"]",
+                "cause": "first appraisal outside20percent"
+              },
+              {
+                "id": "[46,25,\"buyer\",\"accurateAppraisal\"]",
+                "cause": "first appraisal outside20percent"
+              },
+              {
+                "id": "[76,45,\"buyer\",\"accurateAppraisal\"]",
+                "cause": "first appraisal outside20percent"
+              },
+              {
+                "id": "[101,59,\"buyer\",\"accurateAppraisal\"]",
+                "cause": "first appraisal outside20percent"
+              },
+              {
+                "id": "[103,61,\"buyer\",\"accurateAppraisal\"]",
+                "cause": "first appraisal outside20percent"
+              },
+              {
+                "id": "[136,73,\"buyer\",\"accurateAppraisal\"]",
+                "cause": "first appraisal outside20percent"
+              },
+              {
+                "id": "[138,75,\"buyer\",\"accurateAppraisal\"]",
+                "cause": "first appraisal outside20percent"
+              },
+              {
+                "id": "[174,91,\"buyer\",\"accurateAppraisal\"]",
+                "cause": "first appraisal outside20percent"
+              }
+            ]
+          },
+          {
+            "id": "npcContract",
+            "raw": 1,
+            "eligible": 1,
+            "uncappedPoints": 4,
+            "points": 4,
+            "cap": 32,
+            "weight": {
+              "numerator": 4,
+              "denominator": 1
+            },
+            "sourceIds": [
+              "[168,87,\"buyer\",\"npcContract\"]"
+            ],
+            "exclusions": []
+          },
+          {
+            "id": "interest",
+            "raw": 5,
+            "eligible": 5,
+            "uncappedPoints": 5,
+            "points": 5,
+            "cap": 30,
+            "weight": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "sourceIds": [
+              "[39,22,\"buyer\",\"interest\"]",
+              "[64,40,\"buyer\",\"interest\"]",
+              "[95,57,\"buyer\",\"interest\"]",
+              "[124,66,\"buyer\",\"interest\"]",
+              "[166,83,\"buyer\",\"interest\"]"
+            ],
+            "exclusions": []
+          },
+          {
+            "id": "loanRepaid",
+            "raw": 1,
+            "eligible": 0,
+            "uncappedPoints": 0,
+            "points": 0,
+            "cap": 20,
+            "weight": {
+              "numerator": 5,
+              "denominator": 1
+            },
+            "sourceIds": [
+              "[62,38,\"buyer\",\"loanRepaid\"]"
+            ],
+            "exclusions": [
+              {
+                "id": "[62,38,\"buyer\",\"loanRepaid\"]",
+                "cause": "loan did not span a full encounter"
+              }
+            ]
+          },
+          {
+            "id": "survived",
+            "raw": 6,
+            "eligible": 6,
+            "uncappedPoints": 12,
+            "points": 12,
+            "cap": 30,
+            "weight": {
+              "numerator": 2,
+              "denominator": 1
+            },
+            "sourceIds": [
+              "[13,9,\"buyer\",\"survived\"]",
+              "[33,21,\"buyer\",\"survived\"]",
+              "[57,37,\"buyer\",\"survived\"]",
+              "[91,56,\"buyer\",\"survived\"]",
+              "[120,65,\"buyer\",\"survived\"]",
+              "[154,82,\"buyer\",\"survived\"]"
+            ],
+            "exclusions": []
+          },
+          {
+            "id": "lifeLost",
+            "raw": 7,
+            "eligible": 7,
+            "uncappedPoints": 7,
+            "points": 7,
+            "cap": 12,
+            "weight": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "sourceIds": [
+              "[13,8,\"buyer\",\"lifeLost\"]",
+              "[33,20,\"buyer\",\"lifeLost\"]",
+              "[57,36,\"buyer\",\"lifeLost\"]",
+              "[91,55,\"buyer\",\"lifeLost\"]",
+              "[120,64,\"buyer\",\"lifeLost\"]",
+              "[154,81,\"buyer\",\"lifeLost\"]",
+              "[195,97,\"buyer\",\"lifeLost\"]"
+            ],
+            "exclusions": []
+          },
+          {
+            "id": "theft",
+            "raw": 0,
+            "eligible": 0,
+            "uncappedPoints": 0,
+            "points": 0,
+            "cap": 20,
+            "weight": {
+              "numerator": 4,
+              "denominator": 1
+            },
+            "sourceIds": [],
+            "exclusions": []
+          },
+          {
+            "id": "rarity",
+            "raw": 8,
+            "eligible": 8,
+            "uncappedPoints": 20,
+            "points": 20,
+            "cap": 80,
+            "weight": {
+              "byRarity": {
+                "common": 0,
+                "uncommon": 4,
+                "rare": 8,
+                "epic": 12,
+                "legendary": 20,
+                "mythic": 28
+              }
+            },
+            "sourceIds": [
+              "item-3-1-2-0",
+              "ability-6-buyer-alien-0",
+              "item-6-1-0-0",
+              "item-6-1-0-1",
+              "delivery-ghost-spirit-1-0",
+              "item-2-1-0-0",
+              "item-7-1-2-1",
+              "item-7-1-2-4"
+            ],
+            "exclusions": []
+          },
+          {
+            "id": "ghost",
+            "raw": 0,
+            "eligible": 0,
+            "uncappedPoints": 0,
+            "points": 0,
+            "cap": null,
+            "weight": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "sourceIds": [],
+            "exclusions": []
+          }
+        ],
+        "groups": [
+          {
+            "id": "assets",
+            "points": 357
+          },
+          {
+            "id": "commerce",
+            "points": 65
+          },
+          {
+            "id": "knowledge",
+            "points": 28
+          },
+          {
+            "id": "relations",
+            "points": 40
+          },
+          {
+            "id": "finance",
+            "points": 5
+          },
+          {
+            "id": "journey",
+            "points": 19
+          },
+          {
+            "id": "collection",
+            "points": 20
+          },
+          {
+            "id": "modifier",
+            "points": 0
+          },
+          {
+            "id": "ghost",
+            "points": 0
+          }
+        ],
+        "performancePoints": 177,
+        "ordinaryBeforeModifier": 534,
+        "modifierDelta": 0,
+        "ordinaryScore": 534,
+        "ghostBonus": 0,
+        "total": 534
+      }
+    }
+  ],
+  "audit": "journey.audit.json",
+  "auditSha256": "5e10b982bf9541f41a9944d5339e64c49347d6bbaca6004d6da34dd69b619364",
+  "sourceFingerprints": {
+    "docs/validation/collector-normal-2026-11-02/live-ui-audit.json": "d7389a0a1311be11a87c5a5184e0f305e21b10f8273743fe1c5f1f2011d014c7",
+    "apps/comic/scripts/normal-service-journey.mjs": "0d64bc86866c9c8979d9f7198439e31ef8e678fe1084105df4768a6386bd882d",
+    "apps/comic/src/game/appraisal/engine.ts": "7e5b54cb9c7e94ac2e21a751f392f8a73ac3a6003cfffffe5c8247b4bfbf94fd",
+    "apps/comic/src/game/appraisal/ghost-service.ts": "d2e836a0328d4fc4aeb40d2e6fa2974bb5b044286f044d669a4625e168b0da64",
+    "apps/comic/src/game/appraisal/secure-storage.ts": "3d0bb2a86d9646ff65c0e3374321d5b9919b4a653f6e2e18463a42c26c31618b",
+    "apps/comic/src/game/appraisal/views.ts": "851f93039db2aa1ebccb4735532192f6fa0854255eced3312c5aad8245eac030",
+    "apps/comic/src/simulation/appraisal.ts": "278025401318fc01ea5f26187703b569f68b82c41f859b943c0c320bcbe92c66"
+  }
+}

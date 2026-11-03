@@ -13,7 +13,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/App.tsx",
-      "sha256": "20d232d786d511cbcc659a42d496847a8d519d180a27c9a9ee7b1e54cd24d8b8"
+      "sha256": "9c93c44a531d0f68153c1b90cce58bc48004b944dcacca0578223544e8d3ba0b"
     },
     {
       "file": "apps/comic/src/appraisal-client/BloodPactEvent.tsx",
@@ -25,7 +25,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
-      "sha256": "b6183c514966f4014dff710b60d9b1138ff4f0797de0adb9cfdabf662e614e96"
+      "sha256": "36df8fedac7b2d078068413eb112b0d2d86fe773c11772b072fcefc2c604e875"
     },
     {
       "file": "apps/comic/src/appraisal-client/ComicTooltip.tsx",
@@ -80,6 +80,10 @@
       "sha256": "76bff0fac17478da072b73bafca05f8e05cc34d46bff5c3b2f65a48d9b054737"
     },
     {
+      "file": "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+      "sha256": "cfd169ad71841c40668285fc405110b93064434192ffe8188a9c505fdc37163b"
+    },
+    {
       "file": "apps/comic/src/appraisal-client/PortalEventPreview.tsx",
       "sha256": "071be52a88e7564aec98d3e4922674484d0ad957e57f53b68ea1fbf35dab9995"
     },
@@ -105,7 +109,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/StatusMenu.tsx",
-      "sha256": "2092fa458a5bdf70c56aa6ffd49e678b396c821cc8586e8ed203ed044f7be97c"
+      "sha256": "1fb1e6f923195b6e9fb836f556fa770d65a0dfca72bd3209d4b64b58ff304716"
     },
     {
       "file": "apps/comic/src/appraisal-client/TradeScreen.tsx",
@@ -249,7 +253,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/main.tsx",
-      "sha256": "42244c377b5b62ac09d78f0f378bf45d8d80bad29caf1552ddebd1654691b8db"
+      "sha256": "3863af43713c4a1b05287d4e64d26c3840b3718d7e0116d79f9a40f0e3c4980a"
     },
     {
       "file": "apps/comic/src/appraisal-client/market-concept.css",
@@ -269,7 +273,15 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/model.ts",
-      "sha256": "1ca8356d67a69e286c161177f71ffd1738a487ec2c2e26a30fea01b54ac33b40"
+      "sha256": "5b8dba5f58ff964ed261fb02452f7268e24a9447d29297cdaec107692bb4e9e3"
+    },
+    {
+      "file": "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+      "sha256": "7d6ac0d082aeeb8890a39b8d4f32a2bd75ea649e3844d6ae642b08594dce8528"
+    },
+    {
+      "file": "apps/comic/src/appraisal-client/personal-score-results.css",
+      "sha256": "ce0095fc8ce5319d3827561cbdd9b4b58810a0300934a6103d074f3536262ed8"
     },
     {
       "file": "apps/comic/src/appraisal-client/public/art/comic/display-cloth.png",
@@ -1069,7 +1081,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-      "sha256": "e5262ddab734498168dff3318a68ea2f08e40c425e48e9742b36872fb84e828d"
+      "sha256": "530582d98addfe110e9b8d5832f751369d22d68b9f7dda819af764adca7be72c"
     },
     {
       "file": "apps/comic/src/game/appraisal/pilot-catalog.ts",
@@ -1101,7 +1113,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/scoring.ts",
-      "sha256": "82cd3af13438d22f426f5dc9b79741b7f0d22511fdd1728ac8a87911e018df3a"
+      "sha256": "d95a48373f066152d4bb19720f34e126ee23b0cbe38110a211a5c2e2e3cdc1c0"
     },
     {
       "file": "apps/comic/src/game/appraisal/seals.ts",
@@ -1121,11 +1133,11 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/types.ts",
-      "sha256": "0d1fc33907241e8dd12bedd3536154b5bb30e05d30e533fdb221782dbde7f61a"
+      "sha256": "28ff5a2d7ff93c4193df4f109e3d010a083443b81a1eaa2ff29916840acd6a52"
     },
     {
       "file": "apps/comic/src/game/appraisal/views.ts",
-      "sha256": "349677f197da0fd51c2b2402ed810d86bcf4ac96545daddb5e310343fe869116"
+      "sha256": "851f93039db2aa1ebccb4735532192f6fa0854255eced3312c5aad8245eac030"
     },
     {
       "file": "apps/comic/src/game/appraisal/wishlist-rules.ts",
@@ -1189,7 +1201,7 @@
     },
     {
       "file": "apps/comic/src/server/appraisal-main.ts",
-      "sha256": "344962080ebff735530d1a2c2f1d12ab590f608c0a4cd3dbeb127ba7dd62ccb5"
+      "sha256": "5f67b2038007427688bd6b8c1c19227f34c6244d9d7b47537bf0bc0f1a673831"
     },
     {
       "file": "apps/comic/src/server/appraisal-messages.ts",
@@ -1541,11 +1553,15 @@
     },
     {
       "file": "apps/comic/tests/personal-scoring-network.test.ts",
-      "sha256": "f7b6ea97d4cd8c31129b9c8d7a00fed23717a2d10333e557bce45b1cbffd4501"
+      "sha256": "70fdb158b155a5fa3097b234ef68cd3ee192fa5874b0869b7e1a4badf89f9ec7"
     },
     {
       "file": "apps/comic/tests/personal-scoring-runtime.test.ts",
       "sha256": "58d712906c16b0092316e42bb3419f2e2ce448be0b88b39c8e05bdd30e6b426e"
+    },
+    {
+      "file": "apps/comic/tests/personal-scoring-ui.test.ts",
+      "sha256": "20b291400fa84c9743d73e803127ff15bc9c03292541d89423e0c3222094a921"
     },
     {
       "file": "apps/comic/tests/personal-scoring.test.ts",

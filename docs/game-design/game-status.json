@@ -1,7 +1,7 @@
 {
   "asOf": "2026-11-03",
   "activeSource": "apps/comic",
-  "revision": "9daddb3 + personal scoring Task2 eligibility/runtime verified",
+  "revision": "e994fc2 + remaining48 factual audit",
   "headline": "ยังไม่ครบตามกฎและขอบเขตเกมที่ตกลงทั้งหมด",
   "summary": "วงจรเดิมและตลาดวิญญาณเล่นได้ แต่การย้ายกฎ/สินค้าใหม่และบาลานซ์ทั้งเกมยังค้าง ภาพหน้าจอหรือกราฟครบไม่ได้แปลว่า runtime ครบ",
   "atlasScope": "Atlas สกัดทุก module ของ apps/comic/src/game/appraisal พร้อม random/rarity/protocol/server lifecycle และ bot ที่ระบุ; graph เป็น static dependency ไม่ใช่ execution proof; UI ใช้ capture/flow registry แยก; รุ่นเก่าตรึง9f0a972ใน legacy-atlas-baseline.json",
@@ -45,7 +45,7 @@
       "id": "ITEM-01–03",
       "system": "สินค้าใหม่56ชิ้นและ effect",
       "status": "pilot8 เชื่อมและตรวจค่าทดลองแล้ว — อีก48ยังไม่ลง runtime",
-      "remaining": "catalogVersion4 ใช้ ID/PNG ใหม่โดยตรง8ชิ้น/8พ่อค้า พร้อม primary effects ที่อนุมัติ; default ยังเป็น version3 เดิม66ชนิดจนย้ายครบ56. ผ่าน29 unit/lifecycle,168 regression,actual network+reconnect+duplicate+จบรัน+strict replay1,paired survival8รัน และnative UI10สถานะ; ยังไม่ใช่บาลานซ์รุ่นเปิดเล่น อีก48/optional effects และlegacy event predicates ยังต้องทำต่อ",
+      "remaining": "Native pilot8 remains the approved experiment. Fresh remaining48 audit verifies6new items/merchant,35primary effect groups and10meaning decisions;0ready numeric specs. Source owners are investigation targets, not causal bindings. No new item/runtime/default/optional-effect change. Resolve meanings and prepare numeric/custody/funding/rarity/copy rules before approval/implementation.",
       "evidence": [
         "docs/game-design/logic-item-relations.json",
         "docs/game-design/system-atlas/coverage.md",
@@ -56,7 +56,10 @@
         "docs/game-design/implementations/new56-integration-plan.md",
         "docs/game-design/new56-pilot-approval.json",
         "docs/game-design/new56-pilot-verification.json",
-        "docs/validation/new56-pilot-2026-11-01/experiment.json"
+        "docs/validation/new56-pilot-2026-11-01/experiment.json",
+        "docs/game-design/remaining48-audit.html",
+        "docs/game-design/remaining48-audit.json",
+        "docs/validation/remaining48-audit-2026-11-03/verification.json"
       ]
     },
     {
@@ -165,7 +168,7 @@
     }
   ],
   "next": [
-    "Prepare remaining48item numeric/effect specs against approved8pilot and current personal scoring; request approval before runtime values",
+    "Resolve remaining48meaning gaps (first: Autometa challenge truth vs purported win chance), then draft full numeric/custody specs for user approval",
     "Expand the verified normal2-App route to adversarial/multi-seed/timeout and reconnect cases before balance tuning",
     "รักษางานUI-COLLECTOR-CONTEXT minorและfull-game acceptanceเป็นงานค้าง ไม่เรียกsubsystemว่าเกมเสร็จ"
   ],

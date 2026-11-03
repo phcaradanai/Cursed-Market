@@ -1,0 +1,1399 @@
+node:internal/modules/run_main:111
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Remaining48 audit stale: regenerate after reviewed source changes
++ actual - expected
+... Skipped lines
+
+  {
+    asOf: '2026-11-03',
+    currentRulesToPreserve: [
+      'Approved1551908 personal scoring weights/formula remain frozen; items do not receive leader awards automatically.',
+      'Forced theft RPS cannot be refused; privacy and missing-hand timeout rules remain.',
+...
+        proposedDescription: 'พบพ่อค้ารายใหม่แล้วได้ความไว้ใจเพิ่ม',
++       runtimeRegistered: false,
+-       runtimeRegistered: true,
+        type: 'sword'
+      },
+      {
+        boundary: 'Start-of-encounter alive/actual custody, apply after entry cost; cap by real missing energy, no retroactive purchase/re-entry gain.',
+        existingItemCaution: 'ผู้เล่นที่ไม่ขาดพลังอาจไม่ต้องการ ต้องทดสอบมูลค่าเทียบของฟื้นพลังอื่น',
+
+    at file:///Users/Projects/Cursed%20Market/docs/game-design/scripts/audit-remaining48.mjs:29:140
+    at ModuleJob.run (node:internal/modules/esm/module_job:569:25)
+    at async node:internal/modules/esm/loader:650:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:105:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: {
+    version: 1,
+    asOf: '2026-11-03',
+    observedRevision: 'e994fc288a3a237d790e386ad4d69cc8311260d1',
+    status: 'factual-audit-not-a-numeric-spec-or-approval',
+    scope: 'New56 only. Compiled membership verifies8pilot/48absent; owner references locate existing primitives only and DO NOT claim proposed causal bindings or lifecycle support. No runtime/config/art/weight changes.',
+    summary: {
+      merchants: 8,
+      catalogItems: 56,
+      nativeNewIds: 8,
+      remaining: 48,
+      perMerchant: 6,
+      primaryEffectGroups: 35,
+      meaningDecisions: 10,
+      numericSpecsReady: 0,
+      optionalEffectsEnabled: 0
+    },
+    sourceFingerprints: {
+      'docs/game-design/scripts/audit-remaining48.mjs': '8e7ebf4c349397b03e7867aaf3b7a581e02eb88880169aa5fdeade1f46f0a272',
+      'docs/game-design/logic-item-relations.json': '983d130078b1b6f6f1569dd05f295190a73523c1abaa0aa59bc29e0a6693b801',
+      'docs/game-design/new56-pilot-approval.json': 'cdcf630f60c8ed07db87008cd7c845575b3d304bdd0c7167abbf899a5e3b5d65',
+      'docs/game-design/new56-pilot-proposal.json': '6881755d843c45dd294fd629802321601fd3c596dc5d7bb771d9230a6ce406c5',
+      'apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/catalog.json': '1aba59f2a0e8fb48f49865fdb22c89fd7a17044537f7140f322952f66a7c2b44',
+      'apps/comic/src/game/appraisal/content.ts': '71887f52012d6f855c1e130e0339c6785b3f91abe8f9efa5e2b8b2a181d3a20b',
+      'apps/comic/src/game/appraisal/pilot-catalog.ts': 'ad8dbb487623f3b8d0486c87fe86c5fe72c0d50c553a7a34bc526c52579e8c62',
+      'apps/comic/dist/src/game/appraisal/content.js': 'd86b046d48ed1677df59d08232d0d66763ae1f46ffbe95a3573511ac648c1347',
+      'apps/comic/dist/src/game/appraisal/pilot-catalog.js': '477cd3fbf6cc7f36495306f1eedd7ee1c8f82dcd40da2550aecb368d906d0282',
+      'apps/comic/src/game/appraisal/mechanics.ts': 'f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302',
+      'apps/comic/src/game/appraisal/personal-scoring.ts': '6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5',
+      'apps/comic/src/game/appraisal/engine.ts': '27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91',
+      'apps/comic/src/game/appraisal/passives.ts': 'ef49c5ade780d0f68a7422a8e8a3b433237525311ef1c555d3aed61c45bc99bf',
+      'apps/comic/src/game/appraisal/cleanse-rules.ts': '6fb69a3f4a4aa870670248255e02eb81d3fc527dbd4d9c975ba14eac81915cd1',
+      'apps/comic/src/game/appraisal/theft.ts': 'aac017becded983e0106125bdb8d5cb379e9227babe782681f3486f69e344e76',
+      'apps/comic/src/game/appraisal/npc-events.ts': 'f111c7cd8598b85165a91e5b88f7874d62d5502d3dce14a80b9fa71541e93bcf',
+      'apps/comic/src/game/appraisal/challenge.ts': '35a2d880e49702b24560eae95fa6b2194c2e02f474f9a8ec2842e0114f3c6fec',
+      'apps/comic/src/game/appraisal/brokerage.ts': '18b4d1f6273adc9c1e8726831a16626905c0f2ffc0a8af4a146b7813c809a4b8',
+      'apps/comic/src/game/appraisal/ability-rules.ts': '3e9f33f54b34c91fb26f6d0926f9df83e646dc3623a7c8bbf3beed5cedbc9139',
+      'apps/comic/src/game/appraisal/views.ts': '1b94d331ad46a325185943f4260feaa3e6514724e317855a1740bfd40800a9f7',
+      'apps/comic/src/game/appraisal/core2-rules.ts': 'c512cac29fda1d586afcc82ece3ac15a0411650283d1226ae12787c76bfce0ea',
+      'apps/comic/src/game/appraisal/rarity.ts': '3672184a63c2899151c92ed7a413a0881ec5df613fc10d0ca16f01090936cbd6',
+      'apps/comic/src/game/appraisal/merchant-abilities.ts': 'e90c4ea9b0c2f302ec3e005efef4d61e73c9d239a460d8aeb8859c394b226b09',
+      'apps/comic/src/game/appraisal/wishlist.ts': '02dc444ca8a0623189389c5ab4bd78fb57d6abc0c4e93a3da2605ad58a9bbf9f',
+      'apps/comic/src/game/appraisal/scoring.ts': 'd95a48373f066152d4bb19720f34e126ee23b0cbe38110a211a5c2e2e3cdc1c0',
+      'apps/comic/src/game/appraisal/survival.ts': 'f7d978481cdbb79fc1cfc6e603fa875adb2f37a65af6ffc3fe2302097ff75ac3',
+      'apps/comic/src/game/appraisal/secure-storage.ts': '3d0bb2a86d9646ff65c0e3374321d5b9919b4a653f6e2e18463a42c26c31618b',
+      'apps/comic/src/game/appraisal/seals.ts': '665663cb75944286130ac9597816c8a59b8631285077476cf08774037a6335f1',
+      'apps/comic/src/game/appraisal/pilot-effects.ts': 'ab8d8201a7abd4fbca4f96ee6223ded049937d43dac7a2f4dfa72db793e29029'
+    },
+    decisions: [
+      {
+        id: 'MEANING-CHALLENGE',
+        fact: 'settleChallenge compares claim with actual truth. It has no random win roll; CHALLENGE_PCT changes payment, not the chance of truth.',
+        needed: 'Choose a truth-preserving benefit rather than adding an invented random success roll.',
+        recommendation: 'เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง ไม่เปลี่ยนความจริงหรือทำให้คำระบุจริงแพ้แบบสุ่ม'
+      },
+      {
+        id: 'SCOPE-RARITY',
+        fact: 'ensureItemAppearance rolls once and scales base/ask/reservation once. Stock, ability choices, copies, Collector and Spirit delivery have different ownership/privacy paths.',
+        needed: 'Specify eligible creator/player, creation moment and exclusions; never reroll existing goods.',
+        recommendation: 'กำหนดสิทธิ์เฉพาะการสร้างของใหม่ให้เจ้าของ; แยกคำขอ Collector/ของวิญญาณ/สำเนา ไม่เปลี่ยนของที่มีอยู่แล้ว'
+      },
+      {
+        id: 'MEANING-SWARM',
+        fact: 'Swarm currently makes one copy per origin at25/35/50% from actual trust tier; separate cooldown and once-per-encounter guards apply.',
+        needed: 'Define what improves (copy share, copy effect or cooldown) without silently creating a second copy or granting trust tiers.',
+        recommendation: 'ให้ระบุผลเสริมหนึ่งอย่างโดยตรงก่อนกำหนดเลข; ยังไม่ยก tier หรือปลดล็อกสำเนาซ้ำให้เอง'
+      },
+      {
+        id: 'VISIBILITY-PORTAL',
+        fact: 'Portals and their stock already exist before selection; their public hint does not reveal all hidden item facts.',
+        needed: 'Choose exactly which extra clue is public to this player and whether it spends a charge.',
+        recommendation: 'แสดงข้อมูลสินค้าเพิ่มที่กำหนดชัด; ห้ามเปิดความแท้/คำสาปหรือซ่อนพ่อค้าก่อนการเลือกที่ปิดประตู'
+      },
+      {
+        id: 'CAUSE-PORTAL',
+        fact: 'Portal disabled state and merchant trade bans are distinct runtime constraints.',
+        needed: 'Define eligible closure causes and provenance; do not clear a trade ban or bypass a pending event.',
+        recommendation: 'เปิดเฉพาะประตูที่เหตุการณ์ปิด โดยยังแสดงเหตุผลและข้อห้ามการค้าจริง'
+      },
+      {
+        id: 'TARGET-DEFEAT',
+        fact: 'PvP and merchant duel defeats have different consequences, including seals, cooldown, crime and possible resource loss.',
+        needed: 'Name the reduced consequence; cannot infer all penalties are interchangeable.',
+        recommendation: 'เลือกบรรเทาค่าเสียหายหนึ่งชนิด; ไม่ยกเลิกการดวล/ตราสิทธิ์ของผู้เสียหาย/กฎหมดเวลา'
+      },
+      {
+        id: 'SCOPE-ALIEN-RETURN',
+        fact: 'Alien returns original loaned goods plus credits and energy per actual returned item; principal return at Collector is different from successful meeting reward.',
+        needed: 'Choose credits versus energy, funding/reservation and same-instance age requirements.',
+        recommendation: 'แยกรางวัลพิเศษออกจากการคืนของเดิม; ไม่จ่ายเพียงเพราะปิดเกมและยังไม่ได้พบ Alien'
+      },
+      {
+        id: 'SCOPE-COLLECTOR',
+        fact: 'Approved personal scoring applies B10/D10 to assets plus ordinary accomplishments, while itemScoreValue is an asset valuation primitive.',
+        needed: 'Choose asset-only scope versus all-score modifier, eligible estates and exact visibility. Do not reuse B10 as an alias accidentally.',
+        recommendation: 'เสนอจำกัดที่มูลค่าสินค้าตอน Collector; ไม่เพิ่มเครดิต คะแนนผลงาน หรือคะแนนวิญญาณโดยปริยาย'
+      },
+      {
+        id: 'ALLOWLIST-REMOVE',
+        fact: 'Status removal is separate from crime records, loan/Spirit/NPC contracts, cooldowns and Collector eligibility.',
+        needed: 'Explicit removable status allowlist, one-shot/expiry behavior and no-op cost policy.',
+        recommendation: 'ลบเฉพาะสถานะที่ระบุได้; ไม่ล้างหนี้/คดี/ภาระสัญญาด้วยการลบไอคอน'
+      },
+      {
+        id: 'ALLOWLIST-EXTEND',
+        fact: 'Statuses have starts/expires/charges; changing expiry, magnitude and charges are different mechanisms.',
+        needed: 'Explicit extendable allowlist and per-status-instance cap; exclude contracts and Collector reveal rights.',
+        recommendation: 'หากยืด ให้ยืดระยะเวลาของสถานะที่มีอยู่ ไม่เพิ่มชาร์จหรือความแรงและไม่ต่ออายุด้วยการโอนวน'
+      }
+    ],
+    items: [
+      {
+        id: 'orc-oath-sword',
+        name: 'ดาบสาบานเผ่า',
+        merchantId: 'orc',
+        type: 'sword',
+        primaryEffect: 'E28',
+        logicId: 'L10',
+        proposedDescription: 'พบพ่อค้ารายใหม่แล้วได้ความไว้ใจเพิ่ม',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'purchase',
+            file: 'apps/comic/src/game/appraisal/mechanics.ts',
+            line: 376,
+            endLine: 421,
+            sourceSha256: 'f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302'
+          },
+          {
+            symbol: 'setPersonalTrust',
+            file: 'apps/comic/src/game/appraisal/personal-scoring.ts',
+            line: 181,
+            endLine: 185,
+            sourceSha256: '6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Actual positive trust at a specified first merchant meeting; record clamped gain, not requested gain.',
+        existingItemCaution: 'ความไว้ใจกับความได้เปรียบ RPS ต้องแยก trigger; ดาบเป็นภาพสินค้า ไม่เพิ่มระบบต่อสู้ใหม่',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E38' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'orc-ironroot-greaves',
+        name: 'สนับแข้งรากเหล็ก',
+        merchantId: 'orc',
+        type: 'armor',
+        primaryEffect: 'E61',
+        logicId: 'L23',
+        proposedDescription: 'ฟื้นพลังเมื่อเริ่มช่วง',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'advanceAppraisalEncounter',
+            file: 'apps/comic/src/game/appraisal/engine.ts',
+            line: 441,
+            endLine: 471,
+            sourceSha256: '27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91'
+          },
+          {
+            symbol: 'recover',
+            file: 'apps/comic/src/game/appraisal/mechanics.ts',
+            line: 127,
+            endLine: 133,
+            sourceSha256: 'f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Start-of-encounter alive/actual custody, apply after entry cost; cap by real missing energy, no retroactive purchase/re-entry gain.',
+        existingItemCaution: 'ผู้เล่นที่ไม่ขาดพลังอาจไม่ต้องการ ต้องทดสอบมูลค่าเทียบของฟื้นพลังอื่น',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'orc-ember-salve',
+        name: 'ยาทาเถ้าร้อน',
+        merchantId: 'orc',
+        type: 'salve',
+        primaryEffect: 'E63',
+        logicId: 'L24',
+        proposedDescription: 'ลดราคาดีลฟื้นพลังหรือชีวิต',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'recoveryOffer',
+            file: 'apps/comic/src/game/appraisal/mechanics.ts',
+            line: 151,
+            endLine: 162,
+            sourceSha256: 'f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Known payable recovery quote, real missing resource, minimum credit price and consumed-use policy explicit.',
+        existingItemCaution: 'ของใช้แล้วหมด; ลดค่าดีลชีวิตและลบสถานะต้องเลือกว่าจะให้ครบทั้งสองหรือไม่',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E71' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'orc-bone-war-drum',
+        name: 'กลองศึกกระดูก',
+        merchantId: 'orc',
+        type: 'instrument',
+        primaryEffect: 'E16',
+        logicId: 'L06',
+        proposedDescription: 'ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'respond',
+            file: 'apps/comic/src/game/appraisal/engine.ts',
+            line: 292,
+            endLine: 328,
+            sourceSha256: '27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91'
+          },
+          {
+            symbol: 'transfer',
+            file: 'apps/comic/src/game/appraisal/mechanics.ts',
+            line: 117,
+            endLine: 121,
+            sourceSha256: 'f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Only completed paid trade with a qualifying new partner; prevent A↔B cycling, zero-price and barter farming.',
+        existingItemCaution: 'คืนพลังพร้อมเพิ่มเศษอาจซื้อขายวนได้ ต้องรักษากฎคู่ค้าใหม่',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E64' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'orc-tally-beads',
+        name: 'ลูกปัดนับชัย',
+        merchantId: 'orc',
+        type: 'beads',
+        primaryEffect: 'E13',
+        logicId: 'L05',
+        proposedDescription: 'เพิ่มค่านายหน้า',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'commissionRate',
+            file: 'apps/comic/src/game/appraisal/passives.ts',
+            line: 63,
+            endLine: 63,
+            sourceSha256: 'ef49c5ade780d0f68a7422a8e8a3b433237525311ef1c555d3aed61c45bc99bf'
+          },
+          {
+            symbol: 'respond',
+            file: 'apps/comic/src/game/appraisal/engine.ts',
+            line: 292,
+            endLine: 328,
+            sourceSha256: '27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Actual settled commission only, original source/item/participant dedup, explicit funding; not arbitrary gifts.',
+        existingItemCaution: 'รายได้ค่านายหน้ากับโบนัสประมูลต้องมีงบและเพดานแยก',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E24' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'orc-clan-forge-tongs',
+        name: 'คีมตีเหล็กเผ่า',
+        merchantId: 'orc',
+        type: 'smithing-tool',
+        primaryEffect: 'E07',
+        logicId: 'L03',
+        proposedDescription: 'เพิ่มโอกาสชำระสำเร็จ',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'cleanseChance',
+            file: 'apps/comic/src/game/appraisal/cleanse-rules.ts',
+            line: 32,
+            endLine: 36,
+            sourceSha256: '6fb69a3f4a4aa870670248255e02eb81d3fc527dbd4d9c975ba14eac81915cd1'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Use real cleanse quote/chance/cap; specify spent tool only on accepted attempt.',
+        existingItemCaution: 'ชำระแล้วขายระบายสร้างเส้นทำกำไร ต้องหักต้นทุนเครื่องมือจริง',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E14' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'vampire-mist-cloak',
+        name: 'เสื้อคลุมหมอก',
+        merchantId: 'vampire',
+        type: 'garment',
+        primaryEffect: 'E42',
+        logicId: 'L14',
+        proposedDescription: 'รับเงินประกันบางส่วนเมื่อของถูกขโมยจริง',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'chooseTheftHand',
+            file: 'apps/comic/src/game/appraisal/theft.ts',
+            line: 257,
+            endLine: 301,
+            sourceSha256: 'aac017becded983e0106125bdb8d5cb379e9227babe782681f3486f69e344e76'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Real stolen-item custody change only; no payment on cancelled duel, no same-origin insurance farm, define funding.',
+        existingItemCaution: 'ประกันหลังเสียของ ไม่ปฏิเสธดวล; ลดค่าล้างประวัติต้องไม่ทำการขโมยไร้ความเสี่ยง',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E43' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'vampire-shadow-wine-decanter',
+        name: 'ขวดรินไวน์เงา',
+        merchantId: 'vampire',
+        type: 'decanter',
+        primaryEffect: 'E58',
+        logicId: 'L22',
+        proposedDescription: 'ลดค่าชีวิตสัญญาเลือด Vampire',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'payLife',
+            file: 'apps/comic/src/game/appraisal/npc-events.ts',
+            line: 75,
+            endLine: 79,
+            sourceSha256: 'f111c7cd8598b85165a91e5b88f7874d62d5502d3dce14a80b9fa71541e93bcf'
+          },
+          {
+            symbol: 'personalNpcOffer',
+            file: 'apps/comic/src/game/appraisal/npc-events.ts',
+            line: 38,
+            endLine: 60,
+            sourceSha256: 'f111c7cd8598b85165a91e5b88f7874d62d5502d3dce14a80b9fa71541e93bcf'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Exact quoted HP payment; minimum/age rules explicit, no free blood contract, count actual HP lost after discount.',
+        existingItemCaution: 'ลดค่าชีวิตสัญญาและดีลรักษาอาจทำสัญญาเลือดแทบฟรี',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E63' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'vampire-gloam-violin',
+        name: 'ไวโอลินสนธยา',
+        merchantId: 'vampire',
+        type: 'instrument',
+        primaryEffect: 'E11',
+        logicId: 'L04',
+        proposedDescription: 'เพิ่มโอกาสพ่อค้ายอมรับราคา',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'appraise',
+            file: 'apps/comic/src/game/appraisal/mechanics.ts',
+            line: 263,
+            endLine: 303,
+            sourceSha256: 'f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Existing native E11 is an analogy, not approval for these two new rows. Preserve overvalue/backlash and95% cap.',
+        existingItemCaution: 'เพิ่มการยอมรับพร้อมกันความไว้ใจลด อาจลดความเสี่ยงต่อรองมากไป',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E29' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'vampire-mist-atomizer',
+        name: 'เครื่องพ่นละอองหมอก',
+        merchantId: 'vampire',
+        type: 'atomizer',
+        primaryEffect: 'E06',
+        logicId: 'L02',
+        proposedDescription: 'ลดโทษจากการท้าทายพลาด',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'settleChallenge',
+            file: 'apps/comic/src/game/appraisal/challenge.ts',
+            line: 13,
+            endLine: 33,
+            sourceSha256: '35a2d880e49702b24560eae95fa6b2194c2e02f474f9a8ec2842e0114f3c6fec'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Penalty reduction after actual failed challenge; no invented success and no duplicate void/copy refunds.',
+        existingItemCaution: 'ลดโทษสองระบบ อาจกลายเป็นของกลางที่ทุกสายต้องถือ',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E20' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'vampire-midnight-invitation',
+        name: 'บัตรเชิญเที่ยงคืน',
+        merchantId: 'vampire',
+        type: 'invitation',
+        primaryEffect: 'E22',
+        logicId: 'L08',
+        proposedDescription: 'ชนะแล้วได้เงินคืนบางส่วน',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'settleAuction',
+            file: 'apps/comic/src/game/appraisal/brokerage.ts',
+            line: 211,
+            endLine: 230,
+            sourceSha256: '18b4d1f6273adc9c1e8726831a16626905c0f2ffc0a8af4a146b7813c809a4b8'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Rebate only actual settled winning bid, not escrow refund/loss/cancel; explicit bank budget.',
+        existingItemCaution: 'โบนัสประมูลและสัญญารับซื้อ NPC ต้องไม่อ้างว่าเพิ่มสิทธิ์ Collector Wishlist',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E55' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'vampire-mooncut-sword',
+        name: 'ดาบจันทร์แหว่ง',
+        merchantId: 'vampire',
+        type: 'sword',
+        primaryEffect: 'E38',
+        logicId: 'L13',
+        proposedDescription: 'ได้เปรียบเมื่อเป่ายิ้งฉุบเสมอหนึ่งครั้ง',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'breakTie',
+            file: 'apps/comic/src/game/appraisal/theft.ts',
+            line: 232,
+            endLine: 240,
+            sourceSha256: 'aac017becded983e0106125bdb8d5cb379e9227babe782681f3486f69e344e76'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Public pre-duel bounded tie advantage; do not leak hidden opponent guard or multiply binary rights by rarity.',
+        existingItemCaution: 'RPS กับทายเหรียญเป็นคนละการเสี่ยง จำกัดประกันและ tie advantage แยกกัน',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E75' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'autometa-coil-repeater',
+        name: 'เครื่องยิงขดลวด',
+        merchantId: 'autometa',
+        type: 'gun',
+        primaryEffect: 'E05',
+        logicId: 'L02',
+        proposedDescription: 'เพิ่มโอกาสท้าทายคำระบุสำเร็จ',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'settleChallenge',
+            file: 'apps/comic/src/game/appraisal/challenge.ts',
+            line: 13,
+            endLine: 33,
+            sourceSha256: '35a2d880e49702b24560eae95fa6b2194c2e02f474f9a8ec2842e0114f3c6fec'
+          }
+        ],
+        meaningDecision: {
+          id: 'MEANING-CHALLENGE',
+          fact: 'settleChallenge compares claim with actual truth. It has no random win roll; CHALLENGE_PCT changes payment, not the chance of truth.',
+          needed: 'Choose a truth-preserving benefit rather than adding an invented random success roll.',
+          recommendation: 'เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง ไม่เปลี่ยนความจริงหรือทำให้คำระบุจริงแพ้แบบสุ่ม'
+        },
+        boundary: 'Choose a truth-preserving benefit rather than adding an invented random success roll.',
+        existingItemCaution: 'สอง effect อยู่ระบบเดียว แต่เพิ่มชนะและลดโทษพร้อมกันอาจท้าทายแบบไม่เสี่ยง',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E06' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'autometa-clockwork-sentry',
+        name: 'ยามกลไกไขลาน',
+        merchantId: 'autometa',
+        type: 'clockwork-construct',
+        primaryEffect: 'E40',
+        logicId: 'L14',
+        proposedDescription: 'บรรเทาผลเสียเมื่อแพ้ดวลหนึ่งครั้ง',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'playerFailure',
+            file: 'apps/comic/src/game/appraisal/theft.ts',
+            line: 211,
+            endLine: 226,
+            sourceSha256: 'aac017becded983e0106125bdb8d5cb379e9227babe782681f3486f69e344e76'
+          },
+          {
+            symbol: 'merchantFailure',
+            file: 'apps/comic/src/game/appraisal/theft.ts',
+            line: 242,
+            endLine: 255,
+            sourceSha256: 'aac017becded983e0106125bdb8d5cb379e9227babe782681f3486f69e344e76'
+          }
+        ],
+        meaningDecision: {
+          id: 'TARGET-DEFEAT',
+          fact: 'PvP and merchant duel defeats have different consequences, including seals, cooldown, crime and possible resource loss.',
+          needed: 'Name the reduced consequence; cannot infer all penalties are interchangeable.',
+          recommendation: 'เลือกบรรเทาค่าเสียหายหนึ่งชนิด; ไม่ยกเลิกการดวล/ตราสิทธิ์ของผู้เสียหาย/กฎหมดเวลา'
+        },
+        boundary: 'Name the reduced consequence; cannot infer all penalties are interchangeable.',
+        existingItemCaution: 'กันผุพังไม่ใช่กันดวล; กำหนดชาร์จคุ้มครองแยกชัด',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E68' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'autometa-data-prism',
+        name: 'ปริซึมบันทึกข้อมูล',
+        merchantId: 'autometa',
+        type: 'data-prism',
+        primaryEffect: 'E02',
+        logicId: 'L01',
+        proposedDescription: 'เปิดเผยช่วงราคาที่แคบลง',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'inspect',
+            file: 'apps/comic/src/game/appraisal/mechanics.ts',
+            line: 219,
+            endLine: 256,
+            sourceSha256: 'f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Range must contain scaled truth including copies/replacements; no extra facet disclosure.',
+        existingItemCaution: 'ข้อมูลราคา+ความแท้+ประมูลครอบคลุมกว้าง พิจารณาตัดตัวรองหนึ่งอย่าง',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E04', 'E23' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'autometa-coolant-canister',
+        name: 'กระป๋องสารหล่อเย็น',
+        merchantId: 'autometa',
+        type: 'canister',
+        primaryEffect: 'E31',
+        logicId: 'L11',
+        proposedDescription: 'ลดเวลารอของความสามารถที่เลือก',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'reduceAbilityCooldown',
+            file: 'apps/comic/src/game/appraisal/ability-rules.ts',
+            line: 20,
+            endLine: 24,
+            sourceSha256: '3e9f33f54b34c91fb26f6d0926f9df83e646dc3623a7c8bbf3beed5cedbc9139'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Existing reducer caps half-base cooldown, no same-encounter reuse; transfer/copy must not reset charge.',
+        existingItemCaution: 'ลดคูลดาวน์และเติมพลังอาจวนเร่งสกิล ต้องมีต้นทุน/จำนวนครั้ง',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E61' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'autometa-folding-beacon',
+        name: 'สัญญาณไฟพับได้',
+        merchantId: 'autometa',
+        type: 'beacon',
+        primaryEffect: 'E35',
+        logicId: 'L12',
+        proposedDescription: 'ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'generatePortals',
+            file: 'apps/comic/src/game/appraisal/engine.ts',
+            line: 144,
+            endLine: 152,
+            sourceSha256: '27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91'
+          },
+          {
+            symbol: 'appraisalViewFor',
+            file: 'apps/comic/src/game/appraisal/views.ts',
+            line: 50,
+            endLine: 71,
+            sourceSha256: '1b94d331ad46a325185943f4260feaa3e6514724e317855a1740bfd40800a9f7'
+          }
+        ],
+        meaningDecision: {
+          id: 'VISIBILITY-PORTAL',
+          fact: 'Portals and their stock already exist before selection; their public hint does not reveal all hidden item facts.',
+          needed: 'Choose exactly which extra clue is public to this player and whether it spends a charge.',
+          recommendation: 'แสดงข้อมูลสินค้าเพิ่มที่กำหนดชัด; ห้ามเปิดความแท้/คำสาปหรือซ่อนพ่อค้าก่อนการเลือกที่ปิดประตู'
+        },
+        boundary: 'Choose exactly which extra clue is public to this player and whether it spends a charge.',
+        existingItemCaution: 'เบาะแสประตูกับตรวจล็อตประมูลอาจกว้างเกินภาพอุปกรณ์ส่งสัญญาณ',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E23' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'autometa-servo-harness',
+        name: 'สายรัดเซอร์โว',
+        merchantId: 'autometa',
+        type: 'armor',
+        primaryEffect: 'E61',
+        logicId: 'L23',
+        proposedDescription: 'ฟื้นพลังเมื่อเริ่มช่วง',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'advanceAppraisalEncounter',
+            file: 'apps/comic/src/game/appraisal/engine.ts',
+            line: 441,
+            endLine: 471,
+            sourceSha256: '27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91'
+          },
+          {
+            symbol: 'recover',
+            file: 'apps/comic/src/game/appraisal/mechanics.ts',
+            line: 127,
+            endLine: 133,
+            sourceSha256: 'f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Start-of-encounter alive/actual custody, apply after entry cost; cap by real missing energy, no retroactive purchase/re-entry gain.',
+        existingItemCaution: 'บทบาทพลังและส่วนลดช่องคลังต้องมีราคาเหมาะ ไม่เพิ่มช่องฟรีโดยไม่ได้ตกลง',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E47' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'alien-spore-lantern',
+        name: 'ตะเกียงสปอร์',
+        merchantId: 'alien',
+        type: 'lantern',
+        primaryEffect: 'E67',
+        logicId: 'L26',
+        proposedDescription: 'ลดโอกาสภัย Dread',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'dreadNow',
+            file: 'apps/comic/src/game/appraisal/core2-rules.ts',
+            line: 10,
+            endLine: 10,
+            sourceSha256: 'c512cac29fda1d586afcc82ece3ac15a0411650283d1226ae12787c76bfce0ea'
+          },
+          {
+            symbol: 'applyDread',
+            file: 'apps/comic/src/game/appraisal/core2-rules.ts',
+            line: 16,
+            endLine: 36,
+            sourceSha256: 'c512cac29fda1d586afcc82ece3ac15a0411650283d1226ae12787c76bfce0ea'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Adjust the actual Dread roll once; preserve omen/B23 and shared aggregate cap, no redraw until favorable.',
+        existingItemCaution: 'ลดภัยกับรู้เบาะแสอาจทำการเลือกเส้นทางปลอดภัยเกินไป',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E35' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'alien-echoweave-shawl',
+        name: 'ผ้าคลุมเสียงสะท้อน',
+        merchantId: 'alien',
+        type: 'garment',
+        primaryEffect: 'E72',
+        logicId: 'L27',
+        proposedDescription: 'ยืดผลดีที่เลือกหนึ่งอย่าง',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'grant',
+            file: 'apps/comic/src/game/appraisal/mechanics.ts',
+            line: 89,
+            endLine: 103,
+            sourceSha256: 'f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302'
+          }
+        ],
+        meaningDecision: {
+          id: 'ALLOWLIST-EXTEND',
+          fact: 'Statuses have starts/expires/charges; changing expiry, magnitude and charges are different mechanisms.',
+          needed: 'Explicit extendable allowlist and per-status-instance cap; exclude contracts and Collector reveal rights.',
+          recommendation: 'หากยืด ให้ยืดระยะเวลาของสถานะที่มีอยู่ ไม่เพิ่มชาร์จหรือความแรงและไม่ต่ออายุด้วยการโอนวน'
+        },
+        boundary: 'Explicit extendable allowlist and per-status-instance cap; exclude contracts and Collector reveal rights.',
+        existingItemCaution: 'ยืดสถานะต้องไม่ยืดสิทธิ์เปิดดู Collector หรือสัญญา; ระวังคืนพลังจากการค้า',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E16' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'alien-star-chart-membrane',
+        name: 'แผนที่ดาวเยื่อชีวภาพ',
+        merchantId: 'alien',
+        type: 'star-chart',
+        primaryEffect: 'E25',
+        logicId: 'L09',
+        proposedDescription: 'เพิ่มโอกาสสร้างสินค้าระดับสูง',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'ensureItemAppearance',
+            file: 'apps/comic/src/game/appraisal/rarity.ts',
+            line: 10,
+            endLine: 19,
+            sourceSha256: '3672184a63c2899151c92ed7a413a0881ec5df613fc10d0ca16f01090936cbd6'
+          },
+          {
+            symbol: 'spawnStockItem',
+            file: 'apps/comic/src/game/appraisal/engine.ts',
+            line: 126,
+            endLine: 143,
+            sourceSha256: '27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91'
+          },
+          {
+            symbol: 'makeCandidate',
+            file: 'apps/comic/src/game/appraisal/merchant-abilities.ts',
+            line: 31,
+            endLine: 52,
+            sourceSha256: 'e90c4ea9b0c2f302ec3e005efef4d61e73c9d239a460d8aeb8859c394b226b09'
+          }
+        ],
+        meaningDecision: {
+          id: 'SCOPE-RARITY',
+          fact: 'ensureItemAppearance rolls once and scales base/ask/reservation once. Stock, ability choices, copies, Collector and Spirit delivery have different ownership/privacy paths.',
+          needed: 'Specify eligible creator/player, creation moment and exclusions; never reroll existing goods.',
+          recommendation: 'กำหนดสิทธิ์เฉพาะการสร้างของใหม่ให้เจ้าของ; แยกคำขอ Collector/ของวิญญาณ/สำเนา ไม่เปลี่ยนของที่มีอยู่แล้ว'
+        },
+        boundary: 'Specify eligible creator/player, creation moment and exclusions; never reroll existing goods.',
+        existingItemCaution: 'rarity+ข้อมูลเส้นทาง+ตัวเลือกสกิล ครอบคลุมสามระบบ ควรเลือกตัวรองเพียงหนึ่ง',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E35', 'E32' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'alien-biobright-seedpod',
+        name: 'ฝักเมล็ดเรืองแสง',
+        merchantId: 'alien',
+        type: 'seedpod',
+        primaryEffect: 'E61',
+        logicId: 'L23',
+        proposedDescription: 'ฟื้นพลังเมื่อเริ่มช่วง',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'advanceAppraisalEncounter',
+            file: 'apps/comic/src/game/appraisal/engine.ts',
+            line: 441,
+            endLine: 471,
+            sourceSha256: '27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91'
+          },
+          {
+            symbol: 'recover',
+            file: 'apps/comic/src/game/appraisal/mechanics.ts',
+            line: 127,
+            endLine: 133,
+            sourceSha256: 'f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Start-of-encounter alive/actual custody, apply after entry cost; cap by real missing energy, no retroactive purchase/re-entry gain.',
+        existingItemCaution: 'ฟื้นพลังและใช้เศษรักษาถูกลงอาจแทนที่ของทรัพยากรเฉพาะทาง',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E65' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'alien-phase-dial',
+        name: 'หน้าปัดระยะเฟส',
+        merchantId: 'alien',
+        type: 'phase-dial',
+        primaryEffect: 'E31',
+        logicId: 'L11',
+        proposedDescription: 'ลดเวลารอของความสามารถที่เลือก',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'reduceAbilityCooldown',
+            file: 'apps/comic/src/game/appraisal/ability-rules.ts',
+            line: 20,
+            endLine: 24,
+            sourceSha256: '3e9f33f54b34c91fb26f6d0926f9df83e646dc3623a7c8bbf3beed5cedbc9139'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Existing reducer caps half-base cooldown, no same-encounter reuse; transfer/copy must not reset charge.',
+        existingItemCaution: 'คูลดาวน์สกิลกับประหยัดเปลี่ยนประตูมีผลต่อจำนวน action มากกว่าตัวเลขราคา',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E34' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'alien-phase-staff',
+        name: 'คทาเคลื่อนเฟส',
+        merchantId: 'alien',
+        type: 'staff',
+        primaryEffect: 'E57',
+        logicId: 'L20',
+        proposedDescription: 'เปลี่ยนสัญญาที่ไม่ต้องการฟรีหนึ่งครั้ง',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'wishNew',
+            file: 'apps/comic/src/game/appraisal/wishlist.ts',
+            line: 51,
+            endLine: 59,
+            sourceSha256: '02dc444ca8a0623189389c5ab4bd78fb57d6abc0c4e93a3da2605ad58a9bbf9f'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'NPC wish contract only, preserve budget/slots/expiry; never reroll Collector3+2 delivery or grant extra peeks.',
+        existingItemCaution: 'เปลี่ยนสัญญา NPC และเร่งคืนของ Alien ไม่เปลี่ยนรอบส่ง Collector',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E60' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'darkone-null-sword',
+        name: 'ดาบสุญญะ',
+        merchantId: 'darkone',
+        type: 'sword',
+        primaryEffect: 'E71',
+        logicId: 'L27',
+        proposedDescription: 'ลบผลเสียที่เลือกหนึ่งอย่าง',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'removeStatus',
+            file: 'apps/comic/src/game/appraisal/mechanics.ts',
+            line: 39,
+            endLine: 39,
+            sourceSha256: 'f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302'
+          }
+        ],
+        meaningDecision: {
+          id: 'ALLOWLIST-REMOVE',
+          fact: 'Status removal is separate from crime records, loan/Spirit/NPC contracts, cooldowns and Collector eligibility.',
+          needed: 'Explicit removable status allowlist, one-shot/expiry behavior and no-op cost policy.',
+          recommendation: 'ลบเฉพาะสถานะที่ระบุได้; ไม่ล้างหนี้/คดี/ภาระสัญญาด้วยการลบไอคอน'
+        },
+        boundary: 'Explicit removable status allowlist, one-shot/expiry behavior and no-op cost policy.',
+        existingItemCaution: 'ลบ debuff ไม่ลบหนี้/ประวัติหรือยกเลิกดวล; แยกคำสาปติดสินค้าจากสถานะผู้เล่น',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E40' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'darkone-null-testament',
+        name: 'คัมภีร์สุญญะ',
+        merchantId: 'darkone',
+        type: 'book',
+        primaryEffect: 'E69',
+        logicId: 'L29',
+        proposedDescription: 'เพิ่มตัวปรับมูลค่าที่ Collector คิด',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'itemScoreValue',
+            file: 'apps/comic/src/game/appraisal/scoring.ts',
+            line: 3,
+            endLine: 5,
+            sourceSha256: 'd95a48373f066152d4bb19720f34e126ee23b0cbe38110a211a5c2e2e3cdc1c0'
+          },
+          {
+            symbol: 'personalScoreFor',
+            file: 'apps/comic/src/game/appraisal/personal-scoring.ts',
+            line: 186,
+            endLine: 193,
+            sourceSha256: '6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5'
+          },
+          {
+            symbol: 'collectRun',
+            file: 'apps/comic/src/game/appraisal/survival.ts',
+            line: 16,
+            endLine: 39,
+            sourceSha256: 'f7d978481cdbb79fc1cfc6e603fa875adb2f37a65af6ffc3fe2302097ff75ac3'
+          }
+        ],
+        meaningDecision: {
+          id: 'SCOPE-COLLECTOR',
+          fact: 'Approved personal scoring applies B10/D10 to assets plus ordinary accomplishments, while itemScoreValue is an asset valuation primitive.',
+          needed: 'Choose asset-only scope versus all-score modifier, eligible estates and exact visibility. Do not reuse B10 as an alias accidentally.',
+          recommendation: 'เสนอจำกัดที่มูลค่าสินค้าตอน Collector; ไม่เพิ่มเครดิต คะแนนผลงาน หรือคะแนนวิญญาณโดยปริยาย'
+        },
+        boundary: 'Choose asset-only scope versus all-score modifier, eligible estates and exact visibility. Do not reuse B10 as an alias accidentally.',
+        existingItemCaution: 'คะแนนฐานกับยืด buff คะแนนอาจทวีคูณกัน ต้องห้ามยืดผลของตัวเองเป็นวงจร',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E72' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'darkone-debt-chain',
+        name: 'โซ่พันธะหนี้',
+        merchantId: 'darkone',
+        type: 'chain',
+        primaryEffect: 'E49',
+        logicId: 'L18',
+        proposedDescription: 'ผู้กู้คืนครบแล้วรับเงินคืนบางส่วน',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'handleLoanAction',
+            file: 'apps/comic/src/game/appraisal/secure-storage.ts',
+            line: 131,
+            endLine: 183,
+            sourceSha256: '3d0bb2a86d9646ff65c0e3374321d5b9919b4a653f6e2e18463a42c26c31618b'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Aged actually repaid loan only, no cancelled/foreclosed contracts; pair+collateral dedup and explicit refund funding.',
+        existingItemCaution: 'คืนเงินกู้แล้วได้เงินคืนและช่วยจ่ายชดเชยต้องมีแหล่งเงิน ไม่หักสิทธิ์ผู้รับ',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E44' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'darkone-omen-censer',
+        name: 'กระถางกำยานลางร้าย',
+        merchantId: 'darkone',
+        type: 'censer',
+        primaryEffect: 'E67',
+        logicId: 'L26',
+        proposedDescription: 'ลดโอกาสภัย Dread',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'dreadNow',
+            file: 'apps/comic/src/game/appraisal/core2-rules.ts',
+            line: 10,
+            endLine: 10,
+            sourceSha256: 'c512cac29fda1d586afcc82ece3ac15a0411650283d1226ae12787c76bfce0ea'
+          },
+          {
+            symbol: 'applyDread',
+            file: 'apps/comic/src/game/appraisal/core2-rules.ts',
+            line: 16,
+            endLine: 36,
+            sourceSha256: 'c512cac29fda1d586afcc82ece3ac15a0411650283d1226ae12787c76bfce0ea'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Adjust the actual Dread roll once; preserve omen/B23 and shared aggregate cap, no redraw until favorable.',
+        existingItemCaution: 'ลดภัยพร้อมลดระยะ debuff อาจปิดความเสี่ยงหลายแหล่ง',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E70' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'darkone-ash-seal',
+        name: 'ตราประทับเถ้าถ่าน',
+        merchantId: 'darkone',
+        type: 'seal',
+        primaryEffect: 'E53',
+        logicId: 'L19',
+        proposedDescription: 'ใช้ตรายึดของแล้วตรวจข้อมูลของนั้นฟรี',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'pick',
+            file: 'apps/comic/src/game/appraisal/seals.ts',
+            line: 138,
+            endLine: 158,
+            sourceSha256: '665663cb75944286130ac9597816c8a59b8631285077476cf08774037a6335f1'
+          },
+          {
+            symbol: 'inspect',
+            file: 'apps/comic/src/game/appraisal/mechanics.ts',
+            line: 219,
+            endLine: 256,
+            sourceSha256: 'f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Free inspection entitlement after authoritative seizure custody; personally checked facet only, no copied/known-fact achievement farm.',
+        existingItemCaution: 'ตรวจของหลังยึดสำเร็จเท่านั้น; รูปตราบนสินค้าไม่ใช่ตราบาปที่ใช้ยึดโดยตัวมันเอง',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E18' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'darkone-silence-snuffer',
+        name: 'ที่ครอบดับเสียง',
+        merchantId: 'darkone',
+        type: 'snuffer',
+        primaryEffect: 'E71',
+        logicId: 'L27',
+        proposedDescription: 'ลบผลเสียที่เลือกหนึ่งอย่าง',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'removeStatus',
+            file: 'apps/comic/src/game/appraisal/mechanics.ts',
+            line: 39,
+            endLine: 39,
+            sourceSha256: 'f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302'
+          }
+        ],
+        meaningDecision: {
+          id: 'ALLOWLIST-REMOVE',
+          fact: 'Status removal is separate from crime records, loan/Spirit/NPC contracts, cooldowns and Collector eligibility.',
+          needed: 'Explicit removable status allowlist, one-shot/expiry behavior and no-op cost policy.',
+          recommendation: 'ลบเฉพาะสถานะที่ระบุได้; ไม่ล้างหนี้/คดี/ภาระสัญญาด้วยการลบไอคอน'
+        },
+        boundary: 'Explicit removable status allowlist, one-shot/expiry behavior and no-op cost policy.',
+        existingItemCaution: 'ลบสถานะกับรักษาเครื่องมือชำระเป็นคนละเหตุการณ์ ห้ามลบภาระสัญญา',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E09' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'deepsea-abyss-trident',
+        name: 'ตรีศูลห้วงลึก',
+        merchantId: 'deepsea',
+        type: 'trident',
+        primaryEffect: 'E07',
+        logicId: 'L03',
+        proposedDescription: 'เพิ่มโอกาสชำระสำเร็จ',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'cleanseChance',
+            file: 'apps/comic/src/game/appraisal/cleanse-rules.ts',
+            line: 32,
+            endLine: 36,
+            sourceSha256: '6fb69a3f4a4aa870670248255e02eb81d3fc527dbd4d9c975ba14eac81915cd1'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Use real cleanse quote/chance/cap; specify spent tool only on accepted attempt.',
+        existingItemCaution: 'ชำระกับท้าทายต้องเลือกบทบาทหลักให้ต่างจากคีมออร์ก',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E05' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'deepsea-pressure-cuirass',
+        name: 'เกราะแรงดันใต้ทะเล',
+        merchantId: 'deepsea',
+        type: 'armor',
+        primaryEffect: 'E62',
+        logicId: 'L24',
+        proposedDescription: 'ลดความเสียหายชีวิตครั้งถัดไป',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'damageLife',
+            file: 'apps/comic/src/game/appraisal/mechanics.ts',
+            line: 139,
+            endLine: 150,
+            sourceSha256: 'f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Distinguish new armor from approved active shield; no automatic shield alias, no blocking quoted HP payment or death.',
+        existingItemCaution: 'ลดทั้งโอกาสภัยและความเสียหายอาจแรงแบบคูณกัน',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E67' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'deepsea-kelp-saddle',
+        name: 'อานสาหร่าย',
+        merchantId: 'deepsea',
+        type: 'saddle',
+        primaryEffect: 'E16',
+        logicId: 'L06',
+        proposedDescription: 'ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง',
+        runtimeRegistered: false,
+        owners: [
+          {
+            symbol: 'respond',
+            file: 'apps/comic/src/game/appraisal/engine.ts',
+            line: 292,
+            endLine: 328,
+            sourceSha256: '27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91'
+          },
+          {
+            symbol: 'transfer',
+            file: 'apps/comic/src/game/appraisal/mechanics.ts',
+            line: 117,
+            endLine: 121,
+            sourceSha256: 'f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302'
+          }
+        ],
+        meaningDecision: null,
+        boundary: 'Only completed paid trade with a qualifying new partner; prevent A↔B cycling, zero-price and barter farming.',
+        existingItemCaution: 'คู่ effect ตรงกับกลองศึกกระดูก ต้องเลือกความต่างหรือเก็บเพียงหนึ่งบทบาท',
+        numericSpec: {
+          anchor: null,
+          triggerCost: null,
+          magnitude: null,
+          cap: null,
+          funding: null,
+          rarityCopyRule: null,
+          lifecycle: null
+        },
+        optionalEffects: [ 'E64' ],
+        optionalStatus: 'deferred-not-approved-by-this-audit'
+      },
+      {
+        id: 'deepsea-tideglass-buoy',
+        name: 'ทุ่นแก้วคลื่น',
+        merchantId: 'deepsea',
+        type: 'buoy',
+        primaryEffect: 'E46',
+        logicId: 'L16',
+        proposedDescription: 'เพิ่มดอกเบี้ยของเงินต้นที่ครบช่วง',
+        runtimeRegistered: false,
+    
+Node.js v26.12.1

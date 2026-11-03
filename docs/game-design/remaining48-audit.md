@@ -1,0 +1,123 @@
+# Remaining48 — factual integration audit
+
+New56 only. Compiled membership verifies8pilot/48absent; owner references locate existing primitives only and DO NOT claim proposed causal bindings or lifecycle support. No runtime/config/art/weight changes.
+
+Current native: **8 /56**. Missing new IDs: **48**, six per merchant. Ready numeric specs: **0**. This is an investigation map, not runtime bindings or design approval.
+
+## Meaning decisions
+
+### MEANING-CHALLENGE
+settleChallenge compares claim with actual truth. It has no random win roll; CHALLENGE_PCT changes payment, not the chance of truth.
+Missing: Choose a truth-preserving benefit rather than adding an invented random success roll.
+Suggested direction (unapproved): เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง ไม่เปลี่ยนความจริงหรือทำให้คำระบุจริงแพ้แบบสุ่ม
+
+### SCOPE-RARITY
+ensureItemAppearance rolls once and scales base/ask/reservation once. Stock, ability choices, copies, Collector and Spirit delivery have different ownership/privacy paths.
+Missing: Specify eligible creator/player, creation moment and exclusions; never reroll existing goods.
+Suggested direction (unapproved): กำหนดสิทธิ์เฉพาะการสร้างของใหม่ให้เจ้าของ; แยกคำขอ Collector/ของวิญญาณ/สำเนา ไม่เปลี่ยนของที่มีอยู่แล้ว
+
+### MEANING-SWARM
+Swarm currently makes one copy per origin at25/35/50% from actual trust tier; separate cooldown and once-per-encounter guards apply.
+Missing: Define what improves (copy share, copy effect or cooldown) without silently creating a second copy or granting trust tiers.
+Suggested direction (unapproved): ให้ระบุผลเสริมหนึ่งอย่างโดยตรงก่อนกำหนดเลข; ยังไม่ยก tier หรือปลดล็อกสำเนาซ้ำให้เอง
+
+### VISIBILITY-PORTAL
+Portals and their stock already exist before selection; their public hint does not reveal all hidden item facts.
+Missing: Choose exactly which extra clue is public to this player and whether it spends a charge.
+Suggested direction (unapproved): แสดงข้อมูลสินค้าเพิ่มที่กำหนดชัด; ห้ามเปิดความแท้/คำสาปหรือซ่อนพ่อค้าก่อนการเลือกที่ปิดประตู
+
+### CAUSE-PORTAL
+Portal disabled state and merchant trade bans are distinct runtime constraints.
+Missing: Define eligible closure causes and provenance; do not clear a trade ban or bypass a pending event.
+Suggested direction (unapproved): เปิดเฉพาะประตูที่เหตุการณ์ปิด โดยยังแสดงเหตุผลและข้อห้ามการค้าจริง
+
+### TARGET-DEFEAT
+PvP and merchant duel defeats have different consequences, including seals, cooldown, crime and possible resource loss.
+Missing: Name the reduced consequence; cannot infer all penalties are interchangeable.
+Suggested direction (unapproved): เลือกบรรเทาค่าเสียหายหนึ่งชนิด; ไม่ยกเลิกการดวล/ตราสิทธิ์ของผู้เสียหาย/กฎหมดเวลา
+
+### SCOPE-ALIEN-RETURN
+Alien returns original loaned goods plus credits and energy per actual returned item; principal return at Collector is different from successful meeting reward.
+Missing: Choose credits versus energy, funding/reservation and same-instance age requirements.
+Suggested direction (unapproved): แยกรางวัลพิเศษออกจากการคืนของเดิม; ไม่จ่ายเพียงเพราะปิดเกมและยังไม่ได้พบ Alien
+
+### SCOPE-COLLECTOR
+Approved personal scoring applies B10/D10 to assets plus ordinary accomplishments, while itemScoreValue is an asset valuation primitive.
+Missing: Choose asset-only scope versus all-score modifier, eligible estates and exact visibility. Do not reuse B10 as an alias accidentally.
+Suggested direction (unapproved): เสนอจำกัดที่มูลค่าสินค้าตอน Collector; ไม่เพิ่มเครดิต คะแนนผลงาน หรือคะแนนวิญญาณโดยปริยาย
+
+### ALLOWLIST-REMOVE
+Status removal is separate from crime records, loan/Spirit/NPC contracts, cooldowns and Collector eligibility.
+Missing: Explicit removable status allowlist, one-shot/expiry behavior and no-op cost policy.
+Suggested direction (unapproved): ลบเฉพาะสถานะที่ระบุได้; ไม่ล้างหนี้/คดี/ภาระสัญญาด้วยการลบไอคอน
+
+### ALLOWLIST-EXTEND
+Statuses have starts/expires/charges; changing expiry, magnitude and charges are different mechanisms.
+Missing: Explicit extendable allowlist and per-status-instance cap; exclude contracts and Collector reveal rights.
+Suggested direction (unapproved): หากยืด ให้ยืดระยะเวลาของสถานะที่มีอยู่ ไม่เพิ่มชาร์จหรือความแรงและไม่ต่ออายุด้วยการโอนวน
+
+## Per-item investigation table
+
+| Merchant | New item | Proposed primary | Existing owner(s), not binding | Missing specification / boundary |
+|---|---|---|---|---|
+| orc | ดาบสาบานเผ่า (orc-oath-sword) | E28 / L10: พบพ่อค้ารายใหม่แล้วได้ความไว้ใจเพิ่ม | [purchase](../../apps/comic/src/game/appraisal/mechanics.ts:376), [setPersonalTrust](../../apps/comic/src/game/appraisal/personal-scoring.ts:181) | Actual positive trust at a specified first merchant meeting; record clamped gain, not requested gain. |
+| orc | สนับแข้งรากเหล็ก (orc-ironroot-greaves) | E61 / L23: ฟื้นพลังเมื่อเริ่มช่วง | [advanceAppraisalEncounter](../../apps/comic/src/game/appraisal/engine.ts:441), [recover](../../apps/comic/src/game/appraisal/mechanics.ts:127) | Start-of-encounter alive/actual custody, apply after entry cost; cap by real missing energy, no retroactive purchase/re-entry gain. |
+| orc | ยาทาเถ้าร้อน (orc-ember-salve) | E63 / L24: ลดราคาดีลฟื้นพลังหรือชีวิต | [recoveryOffer](../../apps/comic/src/game/appraisal/mechanics.ts:151) | Known payable recovery quote, real missing resource, minimum credit price and consumed-use policy explicit. |
+| orc | กลองศึกกระดูก (orc-bone-war-drum) | E16 / L06: ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง | [respond](../../apps/comic/src/game/appraisal/engine.ts:292), [transfer](../../apps/comic/src/game/appraisal/mechanics.ts:117) | Only completed paid trade with a qualifying new partner; prevent A↔B cycling, zero-price and barter farming. |
+| orc | ลูกปัดนับชัย (orc-tally-beads) | E13 / L05: เพิ่มค่านายหน้า | [commissionRate](../../apps/comic/src/game/appraisal/passives.ts:63), [respond](../../apps/comic/src/game/appraisal/engine.ts:292) | Actual settled commission only, original source/item/participant dedup, explicit funding; not arbitrary gifts. |
+| orc | คีมตีเหล็กเผ่า (orc-clan-forge-tongs) | E07 / L03: เพิ่มโอกาสชำระสำเร็จ | [cleanseChance](../../apps/comic/src/game/appraisal/cleanse-rules.ts:32) | Use real cleanse quote/chance/cap; specify spent tool only on accepted attempt. |
+| vampire | เสื้อคลุมหมอก (vampire-mist-cloak) | E42 / L14: รับเงินประกันบางส่วนเมื่อของถูกขโมยจริง | [chooseTheftHand](../../apps/comic/src/game/appraisal/theft.ts:257) | Real stolen-item custody change only; no payment on cancelled duel, no same-origin insurance farm, define funding. |
+| vampire | ขวดรินไวน์เงา (vampire-shadow-wine-decanter) | E58 / L22: ลดค่าชีวิตสัญญาเลือด Vampire | [payLife](../../apps/comic/src/game/appraisal/npc-events.ts:75), [personalNpcOffer](../../apps/comic/src/game/appraisal/npc-events.ts:38) | Exact quoted HP payment; minimum/age rules explicit, no free blood contract, count actual HP lost after discount. |
+| vampire | ไวโอลินสนธยา (vampire-gloam-violin) | E11 / L04: เพิ่มโอกาสพ่อค้ายอมรับราคา | [appraise](../../apps/comic/src/game/appraisal/mechanics.ts:263) | Existing native E11 is an analogy, not approval for these two new rows. Preserve overvalue/backlash and95% cap. |
+| vampire | เครื่องพ่นละอองหมอก (vampire-mist-atomizer) | E06 / L02: ลดโทษจากการท้าทายพลาด | [settleChallenge](../../apps/comic/src/game/appraisal/challenge.ts:13) | Penalty reduction after actual failed challenge; no invented success and no duplicate void/copy refunds. |
+| vampire | บัตรเชิญเที่ยงคืน (vampire-midnight-invitation) | E22 / L08: ชนะแล้วได้เงินคืนบางส่วน | [settleAuction](../../apps/comic/src/game/appraisal/brokerage.ts:211) | Rebate only actual settled winning bid, not escrow refund/loss/cancel; explicit bank budget. |
+| vampire | ดาบจันทร์แหว่ง (vampire-mooncut-sword) | E38 / L13: ได้เปรียบเมื่อเป่ายิ้งฉุบเสมอหนึ่งครั้ง | [breakTie](../../apps/comic/src/game/appraisal/theft.ts:232) | Public pre-duel bounded tie advantage; do not leak hidden opponent guard or multiply binary rights by rarity. |
+| autometa | เครื่องยิงขดลวด (autometa-coil-repeater) | E05 / L02: เพิ่มโอกาสท้าทายคำระบุสำเร็จ | [settleChallenge](../../apps/comic/src/game/appraisal/challenge.ts:13) | Choose a truth-preserving benefit rather than adding an invented random success roll. |
+| autometa | ยามกลไกไขลาน (autometa-clockwork-sentry) | E40 / L14: บรรเทาผลเสียเมื่อแพ้ดวลหนึ่งครั้ง | [playerFailure](../../apps/comic/src/game/appraisal/theft.ts:211), [merchantFailure](../../apps/comic/src/game/appraisal/theft.ts:242) | Name the reduced consequence; cannot infer all penalties are interchangeable. |
+| autometa | ปริซึมบันทึกข้อมูล (autometa-data-prism) | E02 / L01: เปิดเผยช่วงราคาที่แคบลง | [inspect](../../apps/comic/src/game/appraisal/mechanics.ts:219) | Range must contain scaled truth including copies/replacements; no extra facet disclosure. |
+| autometa | กระป๋องสารหล่อเย็น (autometa-coolant-canister) | E31 / L11: ลดเวลารอของความสามารถที่เลือก | [reduceAbilityCooldown](../../apps/comic/src/game/appraisal/ability-rules.ts:20) | Existing reducer caps half-base cooldown, no same-encounter reuse; transfer/copy must not reset charge. |
+| autometa | สัญญาณไฟพับได้ (autometa-folding-beacon) | E35 / L12: ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู | [generatePortals](../../apps/comic/src/game/appraisal/engine.ts:144), [appraisalViewFor](../../apps/comic/src/game/appraisal/views.ts:50) | Choose exactly which extra clue is public to this player and whether it spends a charge. |
+| autometa | สายรัดเซอร์โว (autometa-servo-harness) | E61 / L23: ฟื้นพลังเมื่อเริ่มช่วง | [advanceAppraisalEncounter](../../apps/comic/src/game/appraisal/engine.ts:441), [recover](../../apps/comic/src/game/appraisal/mechanics.ts:127) | Start-of-encounter alive/actual custody, apply after entry cost; cap by real missing energy, no retroactive purchase/re-entry gain. |
+| alien | ตะเกียงสปอร์ (alien-spore-lantern) | E67 / L26: ลดโอกาสภัย Dread | [dreadNow](../../apps/comic/src/game/appraisal/core2-rules.ts:10), [applyDread](../../apps/comic/src/game/appraisal/core2-rules.ts:16) | Adjust the actual Dread roll once; preserve omen/B23 and shared aggregate cap, no redraw until favorable. |
+| alien | ผ้าคลุมเสียงสะท้อน (alien-echoweave-shawl) | E72 / L27: ยืดผลดีที่เลือกหนึ่งอย่าง | [grant](../../apps/comic/src/game/appraisal/mechanics.ts:89) | Explicit extendable allowlist and per-status-instance cap; exclude contracts and Collector reveal rights. |
+| alien | แผนที่ดาวเยื่อชีวภาพ (alien-star-chart-membrane) | E25 / L09: เพิ่มโอกาสสร้างสินค้าระดับสูง | [ensureItemAppearance](../../apps/comic/src/game/appraisal/rarity.ts:10), [spawnStockItem](../../apps/comic/src/game/appraisal/engine.ts:126), [makeCandidate](../../apps/comic/src/game/appraisal/merchant-abilities.ts:31) | Specify eligible creator/player, creation moment and exclusions; never reroll existing goods. |
+| alien | ฝักเมล็ดเรืองแสง (alien-biobright-seedpod) | E61 / L23: ฟื้นพลังเมื่อเริ่มช่วง | [advanceAppraisalEncounter](../../apps/comic/src/game/appraisal/engine.ts:441), [recover](../../apps/comic/src/game/appraisal/mechanics.ts:127) | Start-of-encounter alive/actual custody, apply after entry cost; cap by real missing energy, no retroactive purchase/re-entry gain. |
+| alien | หน้าปัดระยะเฟส (alien-phase-dial) | E31 / L11: ลดเวลารอของความสามารถที่เลือก | [reduceAbilityCooldown](../../apps/comic/src/game/appraisal/ability-rules.ts:20) | Existing reducer caps half-base cooldown, no same-encounter reuse; transfer/copy must not reset charge. |
+| alien | คทาเคลื่อนเฟส (alien-phase-staff) | E57 / L20: เปลี่ยนสัญญาที่ไม่ต้องการฟรีหนึ่งครั้ง | [wishNew](../../apps/comic/src/game/appraisal/wishlist.ts:51) | NPC wish contract only, preserve budget/slots/expiry; never reroll Collector3+2 delivery or grant extra peeks. |
+| darkone | ดาบสุญญะ (darkone-null-sword) | E71 / L27: ลบผลเสียที่เลือกหนึ่งอย่าง | [removeStatus](../../apps/comic/src/game/appraisal/mechanics.ts:39) | Explicit removable status allowlist, one-shot/expiry behavior and no-op cost policy. |
+| darkone | คัมภีร์สุญญะ (darkone-null-testament) | E69 / L29: เพิ่มตัวปรับมูลค่าที่ Collector คิด | [itemScoreValue](../../apps/comic/src/game/appraisal/scoring.ts:3), [personalScoreFor](../../apps/comic/src/game/appraisal/personal-scoring.ts:186), [collectRun](../../apps/comic/src/game/appraisal/survival.ts:16) | Choose asset-only scope versus all-score modifier, eligible estates and exact visibility. Do not reuse B10 as an alias accidentally. |
+| darkone | โซ่พันธะหนี้ (darkone-debt-chain) | E49 / L18: ผู้กู้คืนครบแล้วรับเงินคืนบางส่วน | [handleLoanAction](../../apps/comic/src/game/appraisal/secure-storage.ts:131) | Aged actually repaid loan only, no cancelled/foreclosed contracts; pair+collateral dedup and explicit refund funding. |
+| darkone | กระถางกำยานลางร้าย (darkone-omen-censer) | E67 / L26: ลดโอกาสภัย Dread | [dreadNow](../../apps/comic/src/game/appraisal/core2-rules.ts:10), [applyDread](../../apps/comic/src/game/appraisal/core2-rules.ts:16) | Adjust the actual Dread roll once; preserve omen/B23 and shared aggregate cap, no redraw until favorable. |
+| darkone | ตราประทับเถ้าถ่าน (darkone-ash-seal) | E53 / L19: ใช้ตรายึดของแล้วตรวจข้อมูลของนั้นฟรี | [pick](../../apps/comic/src/game/appraisal/seals.ts:138), [inspect](../../apps/comic/src/game/appraisal/mechanics.ts:219) | Free inspection entitlement after authoritative seizure custody; personally checked facet only, no copied/known-fact achievement farm. |
+| darkone | ที่ครอบดับเสียง (darkone-silence-snuffer) | E71 / L27: ลบผลเสียที่เลือกหนึ่งอย่าง | [removeStatus](../../apps/comic/src/game/appraisal/mechanics.ts:39) | Explicit removable status allowlist, one-shot/expiry behavior and no-op cost policy. |
+| deepsea | ตรีศูลห้วงลึก (deepsea-abyss-trident) | E07 / L03: เพิ่มโอกาสชำระสำเร็จ | [cleanseChance](../../apps/comic/src/game/appraisal/cleanse-rules.ts:32) | Use real cleanse quote/chance/cap; specify spent tool only on accepted attempt. |
+| deepsea | เกราะแรงดันใต้ทะเล (deepsea-pressure-cuirass) | E62 / L24: ลดความเสียหายชีวิตครั้งถัดไป | [damageLife](../../apps/comic/src/game/appraisal/mechanics.ts:139) | Distinguish new armor from approved active shield; no automatic shield alias, no refund of quoted HP payment or revival of an already-dead player. |
+| deepsea | อานสาหร่าย (deepsea-kelp-saddle) | E16 / L06: ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง | [respond](../../apps/comic/src/game/appraisal/engine.ts:292), [transfer](../../apps/comic/src/game/appraisal/mechanics.ts:117) | Only completed paid trade with a qualifying new partner; prevent A↔B cycling, zero-price and barter farming. |
+| deepsea | ทุ่นแก้วคลื่น (deepsea-tideglass-buoy) | E46 / L16: เพิ่มดอกเบี้ยของเงินต้นที่ครบช่วง | [payVaultInterest](../../apps/comic/src/game/appraisal/secure-storage.ts:206), [heldInterestRings](../../apps/comic/src/game/appraisal/pilot-effects.ts:26) | 10% base remains aged same principal; new money/early withdrawals cannot earn immediately. Shared bonus cap/physical hold age. |
+| deepsea | กรงปลาโคม (deepsea-lanternfish-cage) | E35 / L12: ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู | [generatePortals](../../apps/comic/src/game/appraisal/engine.ts:144), [appraisalViewFor](../../apps/comic/src/game/appraisal/views.ts:50) | Choose exactly which extra clue is public to this player and whether it spends a charge. |
+| deepsea | แตรสังข์วาฬ (deepsea-whale-conch-horn) | E63 / L24: ลดราคาดีลฟื้นพลังหรือชีวิต | [recoveryOffer](../../apps/comic/src/game/appraisal/mechanics.ts:151) | Known payable recovery quote, real missing resource, minimum credit price and consumed-use policy explicit. |
+| swarm | เครื่องพ่นฟีโรโมน (swarm-pheromone-sprayer) | E11 / L04: เพิ่มโอกาสพ่อค้ายอมรับราคา | [appraise](../../apps/comic/src/game/appraisal/mechanics.ts:263) | Existing native E11 is an analogy, not approval for these two new rows. Preserve overvalue/backlash and95% cap. |
+| swarm | กลุ่มไข่รัง (swarm-hive-egg-cluster) | E33 / L11: เสริมการใช้หนึ่งครั้งตามระดับที่ปลดล็อกแล้ว | [useMerchantAbility](../../apps/comic/src/game/appraisal/merchant-abilities.ts:81) | Define what improves (copy share, copy effect or cooldown) without silently creating a second copy or granting trust tiers. |
+| swarm | หลอดม้วนยางไม้ (swarm-resin-spool) | E52 / L19: แลกเปลี่ยนตราสำเร็จแล้วฟื้นพลัง | [respondOffer](../../apps/comic/src/game/appraisal/seals.ts:91) | Successful paid seal exchange only; prevent the same seal cycling for energy; do not treat offered/cancelled as success. |
+| swarm | เครื่องร่อนเยื่อปีก (swarm-wing-membrane-glider) | E34 / L12: ลดพลังเปลี่ยนประตู | [rerollPortal](../../apps/comic/src/game/appraisal/engine.ts:154), [pilotRerollCost](../../apps/comic/src/game/appraisal/pilot-effects.ts:16) | Existing native E34 cost analogy; retain escalating reroll cost/minimum, no free infinite rerolls. |
+| swarm | แท่นรองดักแด้ (swarm-pupa-cradle) | E59 / L22: เพิ่มผลตอบแทนของที่ให้ Alien ยืม | [redeemNpcContracts](../../apps/comic/src/game/appraisal/npc-events.ts:132) | Choose credits versus energy, funding/reservation and same-instance age requirements. |
+| swarm | เกราะไคติน (swarm-chitin-cuirass) | E62 / L24: ลดความเสียหายชีวิตครั้งถัดไป | [damageLife](../../apps/comic/src/game/appraisal/mechanics.ts:139) | Distinguish new armor from approved active shield; no automatic shield alias, no refund of quoted HP payment or revival of an already-dead player. |
+| beast | แผ่นกลิ่นสะกดรอย (beast-trail-scent-disc) | E25 / L09: เพิ่มโอกาสสร้างสินค้าระดับสูง | [ensureItemAppearance](../../apps/comic/src/game/appraisal/rarity.ts:10), [spawnStockItem](../../apps/comic/src/game/appraisal/engine.ts:126), [makeCandidate](../../apps/comic/src/game/appraisal/merchant-abilities.ts:31) | Specify eligible creator/player, creation moment and exclusions; never reroll existing goods. |
+| beast | เขาส่งสัญญาณ (beast-tracker-horn) | E32 / L11: เพิ่มตัวเลือกเมื่อใช้ความสามารถเลือกสินค้า | [useMerchantAbility](../../apps/comic/src/game/appraisal/merchant-abilities.ts:81) | Add choices before generation, respect actual unlocked tier, no repeated paid selection or free item. |
+| beast | อานข้ามรอยแยก (beast-rift-saddle) | E36 / L12: เปิดประตูที่ถูกปิดจากเหตุการณ์หนึ่งครั้ง | [rerollPortal](../../apps/comic/src/game/appraisal/engine.ts:154), [applyAppraisalAction](../../apps/comic/src/game/appraisal/engine.ts:341) | Define eligible closure causes and provenance; do not clear a trade ban or bypass a pending event. |
+| beast | กับดักกรามดีด (beast-springjaw-trap) | E53 / L19: ใช้ตรายึดของแล้วตรวจข้อมูลของนั้นฟรี | [pick](../../apps/comic/src/game/appraisal/seals.ts:138), [inspect](../../apps/comic/src/game/appraisal/mechanics.ts:219) | Free inspection entitlement after authoritative seizure custody; personally checked facet only, no copied/known-fact achievement farm. |
+| beast | เสื้อคลุมขนอำพัน (beast-amber-fur-mantle) | E68 / L26: คุ้มครองของจากการผุพังหนึ่งครั้ง | [applyDread](../../apps/comic/src/game/appraisal/core2-rules.ts:16) | Guard actual Dread rot once, not theft/seal seizure/quoted payment; retired/transferred item cannot protect retroactively. |
+| beast | บ่วงเส้นเขี้ยว (beast-fangline-lasso) | E37 / L13: ลดพลังเริ่มขโมย | [startTheftDuel](../../apps/comic/src/game/appraisal/theft.ts:131) | Forced duel cannot be refused; preserve legal target and mandatory timeout hand behavior. |
+
+## Gates before runtime
+
+- Approved1551908 personal scoring weights/formula remain frozen; items do not receive leader awards automatically.
+- Forced theft RPS cannot be refused; privacy and missing-hand timeout rules remain.
+- Same-principal aged10% base interest, fresh-first partial withdrawals and held-instance bonus age remain.
+- Collector3+2 paid blind delivery and1affordablepeek remain; NPC wishlist is a separate feature.
+- Spirit work bonuses remain1credit1point and paid on delivery only; dead ordinary actions do not resume.
+- New catalog is versioned; do not alias IDs to old kinds, regenerate art, flip default or rewrite old audits.
+
+Each item still needs an explicit anchor, trigger/cost, magnitude/cap, source of payouts, rarity/copy rounding, charge/ownership age, false/cursed activation behavior, local UI entitlement/selection, score-hook policy, cancellation/death/Collector handling, and public-command baseline/candidate exposure. Reuse installed components and handlers after approving values. Do not generate more art.
+
+Regenerate after building Comic server: `node docs/game-design/scripts/audit-remaining48.mjs`. `--check` verifies source/compiled pins, IDs, counts and full source-owner resolution; it does not prove gameplay or balance.

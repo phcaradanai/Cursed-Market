@@ -1,0 +1,11 @@
+{
+  "scope": "CLI invocation only; detailed test report must start at or after startedAt",
+  "mode": "remaining48-audit",
+  "space": 1,
+  "baseUrl": "file:///Users/Projects/Cursed%20Market/docs/game-design/remaining48-audit.html",
+  "startedAt": "2026-11-03T13:58:17.305Z",
+  "finishedAt": "2026-11-03T13:58:18.470Z",
+  "processExitCode": 0,
+  "signal": null,
+  "error": null
+}

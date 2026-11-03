@@ -1,0 +1,14 @@
+Expected ',', got 'string literal'
+
+SyntaxError: Invalid or unexpected token
+    at compileSourceTextModule (node:internal/modules/esm/utils:320:16)
+    at ModuleLoader.createModuleWrap (node:internal/modules/esm/loader:209:12)
+    at node:internal/process/execution:321:29
+    at asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:11)
+    at Object.runEntryPointWithESMLoader (node:internal/modules/run_main:123:19)
+    at evalTypeScriptModuleEntryPoint (node:internal/process/execution:315:47)
+    at evalScript (node:internal/process/execution:88:7)
+    at evaluateScript (node:electron/js2c/utility_init:328:10)
+    at globalThis.__egoEvaluateScript (node:electron/js2c/utility_init:339:10)
+
+ego's nodejs process exited with code 1.

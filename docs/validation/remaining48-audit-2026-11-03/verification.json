@@ -1,0 +1,78 @@
+{
+  "asOf": "2026-11-03",
+  "status": "factual-audit-verified-not-runtime-or-numeric-approval",
+  "sourceRevision": "e994fc2",
+  "summary": {
+    "merchants": 8,
+    "catalogItems": 56,
+    "nativeNewIds": 8,
+    "remaining": 48,
+    "perMerchant": 6,
+    "primaryEffectGroups": 35,
+    "meaningDecisions": 10,
+    "numericSpecsReady": 0,
+    "optionalEffectsEnabled": 0
+  },
+  "commands": [
+    {
+      "command": "node docs/game-design/scripts/audit-remaining48.mjs",
+      "result": "pass"
+    },
+    {
+      "command": "node docs/game-design/scripts/audit-remaining48.mjs --check",
+      "result": "pass after deliberately false runtimeRegistered claim rejected"
+    },
+    {
+      "command": "npm run ui:check",
+      "result": "404source/14unchangedbaselinehashes; no game source changed"
+    },
+    {
+      "command": "Ego document check inTaskSpace1",
+      "result": "2widths/10meaning rows/48item rows/pass; fresh matching CLI receipt and exact HTML hash"
+    }
+  ],
+  "failures": [
+    {
+      "file": "docs/validation/remaining48-audit-2026-11-03/browser-first.log",
+      "type": "environment",
+      "reason": "Old TaskSpace2 no longer existed. User previously authorized continuous goal verification, so new agent-owned space1 was opened without asking again."
+    },
+    {
+      "file": "docs/validation/remaining48-audit-2026-11-03/browser-script-first.log",
+      "type": "harness",
+      "reason": "Nested script string had invalid newline syntax; compilation failed before page task ran. Corrected runner uses a checked source file."
+    }
+  ],
+  "pending": [
+    "Autometa coil repeater meaning question: correct-claim discount versus extra pre-challenge information; no numeric approval implied",
+    "Remaining semantic decisions and complete48item numeric/lifecycle/funding/privacy contracts before user approval/runtime work",
+    "Whole-game adversarial/multiseed and release balance remain open"
+  ],
+  "sourceFingerprints": {
+    "docs/game-design/scripts/audit-remaining48.mjs": "c15a75ea282129c394eda1e264f4a2062fac887eab94d0eb1b9c7f9ddd1ab442",
+    "docs/game-design/remaining48-audit.json": "957277dc7703935e1bd2a47c51cb9973fc09152a6fb67b0f3d97fc4d520ca9bb",
+    "docs/game-design/remaining48-audit.md": "f2eb8fb1ca223c97ad51d612073b566969c54bf3e41779fa70e012306fc20326",
+    "docs/game-design/remaining48-audit.html": "d4dc9f3bb23af7318fc1e60bf837c0c8724a9ceddc495840bb87d5f7751875a2"
+  },
+  "artifacts": {
+    "docs/validation/remaining48-audit-2026-11-03/check-green.log": "5c582e6634aaadf282fc929bd1ced2470b0dd7a8350ff464d66f25cad2958449",
+    "docs/validation/remaining48-audit-2026-11-03/stale-red.log": "02cc45a62745321eec35a797d468d05d93131c19ece0ca2a16b638ba596b8165",
+    "docs/validation/remaining48-audit-2026-11-03/browser.json": "bc8015edb1050798cc1460e2eb384f88d42ce48c13171a5eab89d84cf6deae34",
+    "docs/validation/remaining48-audit-2026-11-03/browser.log": "4e5f63966216c5876ea6f3cbc89ef5b40c3fc146f2fddf27a752bd53b046dc0c",
+    "docs/validation/remaining48-audit-2026-11-03/browser-invocation.json": "cb5e4494336125b2aff1a250a7ee73f4768c187d10aae870cbb83437cd7eb15d",
+    "docs/validation/remaining48-audit-2026-11-03/unchanged-game-ui.log": "ca060c02b98c07f89b3b3c44622570d4ead327e733ec435c95cc4c4fe76cb3dc"
+  },
+  "hindsight": {
+    "acknowledged": true,
+    "documentId": "cursed-market-remaining48-audit-2026-11-03"
+  },
+  "browserSpace": {
+    "id": 1,
+    "finished": true,
+    "scope": "agent-owned document verification; user tabs untouched"
+  },
+  "trail": {
+    "conflicts": 20,
+    "scope": "excluded pre-existing .impeccable caches/design;400KBcoverage cap; no claim whole-branch clean"
+  }
+}

@@ -1,23 +1,24 @@
+import {captureStable} from './browser-suite.mjs';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'node:crypto';
 export async function run({page,repo,spaceId,baseUrl='http://127.0.0.1:5174'}){
- const out=path.join(repo,'docs/validation/personal-score-ui-2026-11-03');await fs.mkdir(out,{recursive:true});
+ const out=path.join(repo,'docs/validation/personal-scoring-final-fixes-2026-11-03/ui');await fs.mkdir(out,{recursive:true});
  const report={startedAt:new Date().toISOString(),spaceId,scope:'End-only actual2/4-seat audit DTO previews; score-neg is a labelled negative-modifier presentation fixture. Geometry/local interactions, not live socket reconnect or balance. Candidate captures do not approve baselines.',checks:[],captures:[]};
  const close=(a,b)=>assert(Math.abs(a-b)<=1,`${a} != ${b}`);
  const geometry=()=>{const q=s=>document.querySelector(s),r=e=>{const b=e.getBoundingClientRect();return [b.x,b.y,b.width,b.height];},frame=q('.personal-score-results'),body=q('.personal-score-body'),bar=q('.personal-score-bars');return {frame:r(frame),body:r(body),page:[document.documentElement.scrollWidth,document.documentElement.scrollHeight],viewport:[innerWidth,innerHeight],header:r(frame.querySelector('header')),players:[...bar.children].map(r),tracks:[...frame.querySelectorAll('.personal-score-track')].map(r),actions:[...frame.querySelectorAll('.comic-phase-footer button')].map(r),containers:[frame,body,...frame.querySelectorAll('.personal-score-chart,.personal-score-bars,.personal-score-details,.personal-score-metrics,.personal-score-metric,.comic-pagination')].map(e=>({class:e.className,overflow:[e.scrollWidth-e.clientWidth,e.scrollHeight-e.clientHeight]})),metricText:[...frame.querySelectorAll('.personal-score-metric')].map(e=>({parent:r(e),last:r(e.lastElementChild)}))};};
  for(const [width,height]of [[1024,800],[1440,722],[1920,800]]){
-  await page.cdp('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});await page.goto(baseUrl+'/?preview=inventory');await page.waitForSelector('#drawer-bag[open]');const peer=await page.evaluate(()=>{const r=document.querySelector('#drawer-bag').getBoundingClientRect();return [r.x,r.y,r.width,r.height];});
-  for(const scene of ['score-2','score-4','score-neg']){
+  await page.cdp('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});await page.cdp('Page.bringToFront');await page.goto(baseUrl+'/?preview=inventory');await page.waitForSelector('#drawer-bag[open]');const peer=await page.evaluate(()=>{const r=document.querySelector('#drawer-bag').getBoundingClientRect();return [r.x,r.y,r.width,r.height];});
+  for(const scene of ['score-2','score-4','score-neg','score-mix']){
    await page.goto(baseUrl+'/?preview='+scene);await page.waitForSelector('.personal-score-results');await page.waitForFunction(()=>document.fonts.status==='loaded');
    const g=await page.evaluate(geometry);g.frame.forEach((n,i)=>close(n,peer[i]));assert(g.page[0]<=width&&g.page[1]<=height);close(g.header[3],65);g.containers.forEach(c=>assert(c.overflow.every(n=>n<=1),JSON.stringify({width,scene,...c})));
    for(const p of g.players)close(p[2],g.players[0][2]);for(const track of g.tracks)close(track[1]+track[3],g.tracks[0][1]+g.tracks[0][3]);for(const a of g.actions){close(a[2],g.actions[0][2]);close(a[3],44);}close(g.body[0]-g.frame[0],g.frame[0]+g.frame[2]-g.body[0]-g.body[2]);
    for(const t of g.metricText)assert(t.last[1]+t.last[3]<=t.parent[1]+t.parent[3]+1,'metric text clipped');
-   const file=path.join(out,`${scene}-${width}.png`);await page.screenshot({path:file});report.captures.push({scene,width,height,file:path.relative(repo,file),sha256:crypto.createHash('sha256').update(await fs.readFile(file)).digest('hex'),geometry:g});
+   const file=path.join(out,`${scene}-${width}.png`),masks=await page.evaluate(()=>{const e=document.querySelector('.countdown');if(!e)return [];const r=e.getBoundingClientRect();return [{x:r.x,y:r.y,width:r.width,height:r.height}];});const bytes=await captureStable(async()=>{await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));const shot=await page.cdp('Page.captureScreenshot',{format:'png',fromSurface:true,captureBeyondViewport:false,optimizeForSpeed:true});return Buffer.from(shot.data,'base64');},masks);assert.equal(bytes.readUInt32BE(16),width);assert.equal(bytes.readUInt32BE(20),height);await fs.writeFile(file,bytes);report.captures.push({scene,width,height,file:path.relative(repo,file),sha256:crypto.createHash('sha256').update(await fs.readFile(file)).digest('hex'),geometry:g});
    await page.click('.personal-score-playback button >> nth=3');await page.waitForFunction(()=>document.querySelector('.personal-score-body').dataset.stage==='8');
-   const final=await page.evaluate(()=>[...document.querySelectorAll('.personal-score-player')].map(e=>({value:Number(e.querySelector('.personal-score-track>strong').textContent),final:Number(e.lastElementChild.textContent.split('รวมสุดท้าย')[1])})));for(const p of final)assert.equal(p.value,p.final);
-   if(scene==='score-neg'){await page.click('.personal-score-playback button >> nth=0');const delta=await page.evaluate(()=>[...document.querySelectorAll('.personal-score-player>span')].map(e=>Number(e.textContent.split(' · ')[0])));assert(delta.some(n=>n<0));}
+   const final=await page.evaluate(()=>[...document.querySelectorAll('.personal-score-player')].map(e=>({value:Number(e.querySelector('.personal-score-track>strong').textContent),final:Number(e.querySelector('.personal-score-total').textContent)})));for(const p of final)assert.equal(p.value,p.final);
+   if(scene==='score-neg'){await page.click('.personal-score-playback button >> nth=0');const delta=await page.evaluate(()=>[...document.querySelectorAll('.personal-score-delta')].map(e=>Number(e.textContent)));assert(delta.some(n=>n<0));}
    report.checks.push(`${scene}@${width}: inventory bounds, padding, equal columns/common baseline, paired actions, no scrolling, exact end totals`);
   }
  }

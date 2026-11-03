@@ -246,8 +246,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:generatePortals",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 141,
-          "endLine": 149
+          "line": 144,
+          "endLine": 152
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/core2-events.ts:resolveCore2Event",
@@ -311,14 +311,14 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:generatePortals",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 141,
-          "endLine": 149
+          "line": 144,
+          "endLine": 152
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 338,
-          "endLine": 437
+          "line": 341,
+          "endLine": 440
         }
       ]
     },
@@ -437,8 +437,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:progress",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 223,
-          "endLine": 235
+          "line": 226,
+          "endLine": 238
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/npc-events.ts:npcEventEligible",
@@ -449,8 +449,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/npc-events.ts:resolvePersonalNpcEvent",
           "file": "apps/comic/src/game/appraisal/npc-events.ts",
-          "line": 79,
-          "endLine": 122
+          "line": 80,
+          "endLine": 123
         }
       ]
     },
@@ -562,14 +562,14 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:progress",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 223,
-          "endLine": 235
+          "line": 226,
+          "endLine": 238
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 338,
-          "endLine": 437
+          "line": 341,
+          "endLine": 440
         }
       ]
     },
@@ -615,8 +615,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:progress",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 223,
-          "endLine": 235
+          "line": 226,
+          "endLine": 238
         }
       ]
     },
@@ -753,8 +753,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:progress",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 223,
-          "endLine": 235
+          "line": 226,
+          "endLine": 238
         }
       ]
     },
@@ -808,8 +808,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 197,
-          "endLine": 222
+          "line": 200,
+          "endLine": 225
         }
       ]
     },
@@ -898,8 +898,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 197,
-          "endLine": 222
+          "line": 200,
+          "endLine": 225
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/round-rewards.ts:openRoundRewards",
@@ -988,8 +988,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 438,
-          "endLine": 468
+          "line": 441,
+          "endLine": 471
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleStorageAction",
@@ -1162,52 +1162,67 @@
       "actionIds": [],
       "nextIds": [],
       "conceptStatus": "implemented",
-      "currentImage": "../validation/personal-score-ui-2026-11-03/score-2-1440.png",
+      "currentImage": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-2-1440.png",
       "approvedImage": null,
       "variants": [
         {
-          "id": "C64",
-          "image": "../validation/personal-score-ui-2026-11-03/score-2-1024.png",
+          "id": "C73",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-2-1024.png",
           "status": "implementation-candidate-not-pixel-approved"
         },
         {
-          "id": "C65",
-          "image": "../validation/personal-score-ui-2026-11-03/score-4-1024.png",
+          "id": "C74",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-4-1024.png",
           "status": "implementation-candidate-not-pixel-approved"
         },
         {
-          "id": "C66",
-          "image": "../validation/personal-score-ui-2026-11-03/score-neg-1024.png",
+          "id": "C75",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-neg-1024.png",
           "status": "implementation-candidate-not-pixel-approved"
         },
         {
-          "id": "C67",
-          "image": "../validation/personal-score-ui-2026-11-03/score-2-1440.png",
+          "id": "C76",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-mix-1024.png",
           "status": "implementation-candidate-not-pixel-approved"
         },
         {
-          "id": "C68",
-          "image": "../validation/personal-score-ui-2026-11-03/score-4-1440.png",
+          "id": "C77",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-2-1440.png",
           "status": "implementation-candidate-not-pixel-approved"
         },
         {
-          "id": "C69",
-          "image": "../validation/personal-score-ui-2026-11-03/score-neg-1440.png",
+          "id": "C78",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-4-1440.png",
           "status": "implementation-candidate-not-pixel-approved"
         },
         {
-          "id": "C70",
-          "image": "../validation/personal-score-ui-2026-11-03/score-2-1920.png",
+          "id": "C79",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-neg-1440.png",
           "status": "implementation-candidate-not-pixel-approved"
         },
         {
-          "id": "C71",
-          "image": "../validation/personal-score-ui-2026-11-03/score-4-1920.png",
+          "id": "C80",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-mix-1440.png",
           "status": "implementation-candidate-not-pixel-approved"
         },
         {
-          "id": "C72",
-          "image": "../validation/personal-score-ui-2026-11-03/score-neg-1920.png",
+          "id": "C81",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-2-1920.png",
+          "status": "implementation-candidate-not-pixel-approved"
+        },
+        {
+          "id": "C82",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-4-1920.png",
+          "status": "implementation-candidate-not-pixel-approved"
+        },
+        {
+          "id": "C83",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-neg-1920.png",
+          "status": "implementation-candidate-not-pixel-approved"
+        },
+        {
+          "id": "C84",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-mix-1920.png",
           "status": "implementation-candidate-not-pixel-approved"
         }
       ],
@@ -1286,12 +1301,84 @@
           "image": "../validation/personal-score-ui-2026-11-03/score-neg-1920.png",
           "title": "score-neg · 1920",
           "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C73",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-2-1024.png",
+          "title": "score-2 · 1024",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C74",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-4-1024.png",
+          "title": "score-4 · 1024",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C75",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-neg-1024.png",
+          "title": "score-neg · 1024",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C76",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-mix-1024.png",
+          "title": "score-mix · 1024",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C77",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-2-1440.png",
+          "title": "score-2 · 1440",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C78",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-4-1440.png",
+          "title": "score-4 · 1440",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C79",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-neg-1440.png",
+          "title": "score-neg · 1440",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C80",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-mix-1440.png",
+          "title": "score-mix · 1440",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C81",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-2-1920.png",
+          "title": "score-2 · 1920",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C82",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-4-1920.png",
+          "title": "score-4 · 1920",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C83",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-neg-1920.png",
+          "title": "score-neg · 1920",
+          "origin": "existing-component-preview-fixture"
+        },
+        {
+          "id": "C84",
+          "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-mix-1920.png",
+          "title": "score-mix · 1920",
+          "origin": "existing-component-preview-fixture"
         }
       ],
-      "captureStatus": "captured-implementation-candidate",
-      "captureImage": "../validation/personal-score-ui-2026-11-03/score-2-1440.png",
+      "captureStatus": "current-post-review-candidates",
+      "captureImage": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-2-1440.png",
       "designPolicy": "reuse-existing; change only explicit requested gap",
-      "captureNote": "C64–C72 candidate2/4players/negative,1024/1440/1920; old14 baselines unchanged.",
+      "captureNote": "C73–C84 current geometry16checks/12captures at3widths; tied ranks, explicit human modifier names, mixed4player shared baseline. C64–C72 preserved pre-review. Candidates are not baseline approval.",
       "sourceRefs": [
         {
           "symbolId": "code:apps/comic/src/game/appraisal/survival.ts:collectRun",
@@ -1302,14 +1389,14 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreFor",
           "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-          "line": 179,
-          "endLine": 186
+          "line": 186,
+          "endLine": 193
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/personal-scoring.ts:personalScoreEstimateFor",
           "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-          "line": 188,
-          "endLine": 198
+          "line": 195,
+          "endLine": 205
         }
       ]
     },

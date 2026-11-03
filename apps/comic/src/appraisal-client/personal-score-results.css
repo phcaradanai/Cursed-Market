@@ -6,8 +6,8 @@
 #game-main .personal-score-body header{display:grid;gap:var(--layout-space-small);min-width:0}
 #game-main .personal-score-body header p{font-size:13px;color:#bbc3c0}
 #game-main .personal-score-chart{display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:var(--layout-space);min-height:0;min-width:0}
-#game-main .personal-score-bars{display:grid;grid-template-columns:repeat(var(--players),minmax(0,1fr));gap:var(--layout-space);min-height:0;padding-top:30px}
-#game-main .personal-score-player{display:grid;grid-template-rows:minmax(0,1fr) var(--layout-control) auto;gap:var(--layout-space-small);min-width:0;text-align:center}
+#game-main .personal-score-bars{display:grid;grid-template-columns:repeat(var(--players),minmax(0,1fr));grid-template-rows:minmax(0,1fr) var(--layout-control) auto;gap:var(--layout-space-small) var(--layout-space);min-height:0;padding-top:30px}
+#game-main .personal-score-player{display:grid;grid-template-rows:subgrid;grid-row:1 / span 3;gap:var(--layout-space-small);min-width:0;text-align:center}
 #game-main .personal-score-player>span{font-size:12px;font-variant-numeric:tabular-nums}
 #game-main .personal-score-player>.comic-button{padding:4px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #game-main .personal-score-player>.comic-button[aria-pressed=true]{border-color:var(--player-color)}
@@ -33,3 +33,5 @@
 @media(prefers-reduced-motion:reduce){#game-main .personal-score-bar,#game-main .personal-score-track>strong{transition:none}}
 
 #game-main .personal-score-details>.comic-pagination,#game-main .personal-score-details>.comic-pagination>.comic-button{height:var(--layout-control);min-height:var(--layout-control);line-height:1;box-sizing:border-box}
+
+#game-main .personal-score-modifier{display:block;font-size:12px;line-height:1.5}

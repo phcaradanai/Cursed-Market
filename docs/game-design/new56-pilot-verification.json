@@ -24,16 +24,16 @@
     "apps/comic/src/game/appraisal/core2-actions.ts": "a0b968bc9fd51b22cf5c63caa9c38e34dbb41bc0dd765aa449a3dfecb15a6213",
     "apps/comic/src/game/appraisal/core2-events.ts": "bb9531af0ffe6a6ea068f049d286b2b1d0fe37deb24a44bcfe3dfa58a08424f8",
     "apps/comic/src/game/appraisal/core2.ts": "d9c7ac292898c29d471bc6d9bb0a7ae0557bd394a79d77978e6e1eed5b71bd17",
-    "apps/comic/src/game/appraisal/engine.ts": "7e5b54cb9c7e94ac2e21a751f392f8a73ac3a6003cfffffe5c8247b4bfbf94fd",
-    "apps/comic/src/game/appraisal/events.ts": "c4bd10912200be5fb50c13e7d6ba8f5fda16f777f61d4d18d51b76e768e00794",
-    "apps/comic/src/game/appraisal/mechanics.ts": "fd26d12682fa0c2c7deefac8366efe50a68bb60ebe86043b792ab771edf1fcd4",
+    "apps/comic/src/game/appraisal/engine.ts": "27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91",
+    "apps/comic/src/game/appraisal/events.ts": "ec9f25dde4fbf2168479d80dd2044a5c4445912442aa561bd69fc31d41f0777c",
+    "apps/comic/src/game/appraisal/mechanics.ts": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302",
     "apps/comic/src/game/appraisal/passives.ts": "ef49c5ade780d0f68a7422a8e8a3b433237525311ef1c555d3aed61c45bc99bf",
     "apps/comic/src/game/appraisal/pilot-catalog.ts": "ad8dbb487623f3b8d0486c87fe86c5fe72c0d50c553a7a34bc526c52579e8c62",
     "apps/comic/src/game/appraisal/pilot-effects.ts": "ab8d8201a7abd4fbca4f96ee6223ded049937d43dac7a2f4dfa72db793e29029",
     "apps/comic/src/game/appraisal/secure-storage.ts": "3d0bb2a86d9646ff65c0e3374321d5b9919b4a653f6e2e18463a42c26c31618b",
     "apps/comic/src/game/appraisal/theft.ts": "aac017becded983e0106125bdb8d5cb379e9227babe782681f3486f69e344e76",
-    "apps/comic/src/game/appraisal/types.ts": "28ff5a2d7ff93c4193df4f109e3d010a083443b81a1eaa2ff29916840acd6a52",
-    "apps/comic/src/game/appraisal/views.ts": "851f93039db2aa1ebccb4735532192f6fa0854255eced3312c5aad8245eac030",
+    "apps/comic/src/game/appraisal/types.ts": "a08d64b129ee90262d04c23ba05d857e669618963284c00662729c15b5e29878",
+    "apps/comic/src/game/appraisal/views.ts": "1b94d331ad46a325185943f4260feaa3e6514724e317855a1740bfd40800a9f7",
     "apps/comic/src/server/appraisal-main.ts": "5f67b2038007427688bd6b8c1c19227f34c6244d9d7b47537bf0bc0f1a673831",
     "apps/comic/src/simulation/appraisal.ts": "278025401318fc01ea5f26187703b569f68b82c41f859b943c0c320bcbe92c66",
     "apps/comic/tests/appraisal-expansion.test.ts": "49241ac61183d38be5a1321ad7bc9a8a4241748dcff559f351c79517df5aecb0",
@@ -286,5 +286,16 @@
       "apps/comic/src/appraisal-client/model.ts"
     ],
     "uiScope": "48focused scoring+pilot/catalog/lifecycle/custody/continuity tests;13newUI/18menus/14unchanged sealedpixels. Historical pilot captures remain historical; not recaptured."
+  },
+  "personalScoringFinalFixFollowup": {
+    "date": "2026-11-03",
+    "scope": "2026-11-03 final owner-fix verification: 67/67 scoring tests (63 domain/runtime/SSR and4 actual socket/main-entry cases), server/client builds,16 score geometry/interactions with12 captures,4 browser review assertions,18 menu flows and14 unchanged approved pixel references pass. New personalScoringFacts:2 selects corrected canonical writers; rules/weights remain approved1551908. Five unique historical scoring1/no-marker audits replay exactly, and16 no-personal native audit bytes remain identical (8pairs/32strict replays). Normal40/6/deadline15 engine journey196commands reachesRESULTS7 withghostbonus2 and strictly replays. Independent6Important+4Minor findings addressed in one owner fix pass; no second review. Earlier usage-limit block resolved after reset; no bypass. Whole-game goal remains active: remaining48 specs/runtime bindings, normal combined browser/reconnect/ghosttracking overflow and multi-seed balance are not complete.",
+    "evidence": "docs/validation/personal-scoring-final-fixes-2026-11-03/verification.json",
+    "changedSourcePins": [
+      "apps/comic/src/game/appraisal/engine.ts",
+      "apps/comic/src/game/appraisal/events.ts",
+      "apps/comic/src/game/appraisal/mechanics.ts",
+      "apps/comic/src/game/appraisal/views.ts"
+    ]
   }
 }

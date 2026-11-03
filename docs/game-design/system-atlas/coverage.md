@@ -15,16 +15,16 @@
   "encounterModels": 6,
   "phases": 5,
   "actions": 60,
-  "configKeys": 56,
+  "configKeys": 57,
   "parameters": 73,
-  "functions": 511,
-  "codeSymbols": 656,
+  "functions": 512,
+  "codeSymbols": 657,
   "policies": 212,
   "randomRules": 105,
   "legacyGateSites": 21,
   "logSites": 118,
   "logTopics": 103,
-  "validationSites": 458,
+  "validationSites": 461,
   "dynamicStatusOperations": 29,
   "schemas": 132,
   "propertyWriteSites": 535
@@ -305,31 +305,16 @@
       "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
       "source": {
         "file": "apps/comic/src/game/appraisal/events.ts",
-        "line": 126,
-        "endLine": 126
+        "line": 127,
+        "endLine": 127
       },
       "expression": "kindOwned(state,p,'food')",
       "legacyKinds": [
         "food"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 10457,
-      "end": 10483
-    },
-    {
-      "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
-      "source": {
-        "file": "apps/comic/src/game/appraisal/events.ts",
-        "line": 148,
-        "endLine": 148
-      },
-      "expression": "kindOwned(state,p,'mirror')",
-      "legacyKinds": [
-        "mirror"
-      ],
-      "status": "unresolved-new56-mapping",
-      "start": 12128,
-      "end": 12156
+      "start": 10540,
+      "end": 10566
     },
     {
       "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
@@ -338,13 +323,13 @@
         "line": 149,
         "endLine": 149
       },
-      "expression": "kindOwned(state,p,'orb')",
+      "expression": "kindOwned(state,p,'mirror')",
       "legacyKinds": [
-        "orb"
+        "mirror"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 12189,
-      "end": 12214
+      "start": 12211,
+      "end": 12239
     },
     {
       "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
@@ -353,13 +338,13 @@
         "line": 150,
         "endLine": 150
       },
-      "expression": "kindOwned(state,p,'key')",
+      "expression": "kindOwned(state,p,'orb')",
       "legacyKinds": [
-        "key"
+        "orb"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 12280,
-      "end": 12305
+      "start": 12272,
+      "end": 12297
     },
     {
       "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
@@ -368,13 +353,13 @@
         "line": 151,
         "endLine": 151
       },
-      "expression": "kindOwned(state,p,'mask')",
+      "expression": "kindOwned(state,p,'key')",
       "legacyKinds": [
-        "mask"
+        "key"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 12359,
-      "end": 12385
+      "start": 12363,
+      "end": 12388
     },
     {
       "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
@@ -383,13 +368,13 @@
         "line": 152,
         "endLine": 152
       },
-      "expression": "kindOwned(state,p,'potion')",
+      "expression": "kindOwned(state,p,'mask')",
       "legacyKinds": [
-        "potion"
+        "mask"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 12478,
-      "end": 12506
+      "start": 12442,
+      "end": 12468
     },
     {
       "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
@@ -398,28 +383,28 @@
         "line": 153,
         "endLine": 153
       },
-      "expression": "kindOwned(state,p,'battery')",
+      "expression": "kindOwned(state,p,'potion')",
       "legacyKinds": [
-        "battery"
+        "potion"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 12583,
-      "end": 12612
+      "start": 12561,
+      "end": 12589
     },
     {
       "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
       "source": {
         "file": "apps/comic/src/game/appraisal/events.ts",
-        "line": 155,
-        "endLine": 155
+        "line": 154,
+        "endLine": 154
       },
-      "expression": "kindOwned(state,p,'amulet')",
+      "expression": "kindOwned(state,p,'battery')",
       "legacyKinds": [
-        "amulet"
+        "battery"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 12753,
-      "end": 12781
+      "start": 12666,
+      "end": 12695
     },
     {
       "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
@@ -428,13 +413,13 @@
         "line": 156,
         "endLine": 156
       },
-      "expression": "kindOwned(state,p,'blade')",
+      "expression": "kindOwned(state,p,'amulet')",
       "legacyKinds": [
-        "blade"
+        "amulet"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 12843,
-      "end": 12870
+      "start": 12836,
+      "end": 12864
     },
     {
       "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
@@ -443,73 +428,58 @@
         "line": 157,
         "endLine": 157
       },
-      "expression": "kindOwned(state,p,'scanner')",
+      "expression": "kindOwned(state,p,'blade')",
       "legacyKinds": [
-        "scanner"
+        "blade"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 12938,
-      "end": 12967
+      "start": 12926,
+      "end": 12953
     },
     {
-      "owner": "code:apps/comic/src/game/appraisal/events.ts:offerEvent",
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:eventEligible",
       "source": {
         "file": "apps/comic/src/game/appraisal/events.ts",
-        "line": 228,
-        "endLine": 228
+        "line": 158,
+        "endLine": 158
       },
       "expression": "kindOwned(state,p,'scanner')",
       "legacyKinds": [
         "scanner"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 18415,
-      "end": 18443
+      "start": 13021,
+      "end": 13050
+    },
+    {
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:offerEvent",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/events.ts",
+        "line": 229,
+        "endLine": 229
+      },
+      "expression": "kindOwned(state,p,'scanner')",
+      "legacyKinds": [
+        "scanner"
+      ],
+      "status": "unresolved-new56-mapping",
+      "start": 18498,
+      "end": 18526
     },
     {
       "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
       "source": {
         "file": "apps/comic/src/game/appraisal/events.ts",
-        "line": 332,
-        "endLine": 332
+        "line": 334,
+        "endLine": 334
       },
       "expression": "ownKind('food')",
       "legacyKinds": [
         "food"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 29418,
-      "end": 29433
-    },
-    {
-      "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
-      "source": {
-        "file": "apps/comic/src/game/appraisal/events.ts",
-        "line": 356,
-        "endLine": 356
-      },
-      "expression": "ownKind('mirror')",
-      "legacyKinds": [
-        "mirror"
-      ],
-      "status": "unresolved-new56-mapping",
-      "start": 32760,
-      "end": 32777
-    },
-    {
-      "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
-      "source": {
-        "file": "apps/comic/src/game/appraisal/events.ts",
-        "line": 357,
-        "endLine": 357
-      },
-      "expression": "ownKind('orb')",
-      "legacyKinds": [
-        "orb"
-      ],
-      "status": "unresolved-new56-mapping",
-      "start": 33000,
-      "end": 33014
+      "start": 29623,
+      "end": 29638
     },
     {
       "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
@@ -518,13 +488,13 @@
         "line": 358,
         "endLine": 358
       },
-      "expression": "ownKind('key')",
+      "expression": "ownKind('mirror')",
       "legacyKinds": [
-        "key"
+        "mirror"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 33226,
-      "end": 33240
+      "start": 32965,
+      "end": 32982
     },
     {
       "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
@@ -533,13 +503,13 @@
         "line": 359,
         "endLine": 359
       },
-      "expression": "ownKind('mask')",
+      "expression": "ownKind('orb')",
       "legacyKinds": [
-        "mask"
+        "orb"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 33432,
-      "end": 33447
+      "start": 33205,
+      "end": 33219
     },
     {
       "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
@@ -548,13 +518,13 @@
         "line": 360,
         "endLine": 360
       },
-      "expression": "ownKind('potion')",
+      "expression": "ownKind('key')",
       "legacyKinds": [
-        "potion"
+        "key"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 33860,
-      "end": 33877
+      "start": 33431,
+      "end": 33445
     },
     {
       "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
@@ -563,13 +533,28 @@
         "line": 361,
         "endLine": 361
       },
-      "expression": "ownKind('battery')",
+      "expression": "ownKind('mask')",
       "legacyKinds": [
-        "battery"
+        "mask"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 34076,
-      "end": 34094
+      "start": 33637,
+      "end": 33652
+    },
+    {
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/events.ts",
+        "line": 362,
+        "endLine": 362
+      },
+      "expression": "ownKind('potion')",
+      "legacyKinds": [
+        "potion"
+      ],
+      "status": "unresolved-new56-mapping",
+      "start": 34065,
+      "end": 34082
     },
     {
       "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
@@ -578,43 +563,58 @@
         "line": 363,
         "endLine": 363
       },
-      "expression": "ownKind('amulet')",
+      "expression": "ownKind('battery')",
       "legacyKinds": [
-        "amulet"
+        "battery"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 34420,
-      "end": 34437
+      "start": 34281,
+      "end": 34299
     },
     {
       "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
       "source": {
         "file": "apps/comic/src/game/appraisal/events.ts",
-        "line": 364,
-        "endLine": 364
+        "line": 365,
+        "endLine": 365
+      },
+      "expression": "ownKind('amulet')",
+      "legacyKinds": [
+        "amulet"
+      ],
+      "status": "unresolved-new56-mapping",
+      "start": 34625,
+      "end": 34642
+    },
+    {
+      "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/events.ts",
+        "line": 366,
+        "endLine": 366
       },
       "expression": "ownKind('blade')",
       "legacyKinds": [
         "blade"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 34646,
-      "end": 34662
+      "start": 34851,
+      "end": 34867
     },
     {
       "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
       "source": {
         "file": "apps/comic/src/game/appraisal/events.ts",
-        "line": 368,
-        "endLine": 368
+        "line": 370,
+        "endLine": 370
       },
       "expression": "ownKind('scanner')",
       "legacyKinds": [
         "scanner"
       ],
       "status": "unresolved-new56-mapping",
-      "start": 35192,
-      "end": 35210
+      "start": 35397,
+      "end": 35415
     }
   ],
   "bondPredicates": [
@@ -1332,7 +1332,7 @@
 ```json
 [
   {
-    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:5063",
+    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:5082",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:applyGain",
     "args": [
@@ -1348,11 +1348,11 @@
       "endLine": 72
     },
     "expression": "grant(state,p,id)",
-    "start": 5063,
-    "end": 5081
+    "start": 5082,
+    "end": 5100
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:5118",
+    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:5137",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:applyGain",
     "args": [
@@ -1368,11 +1368,11 @@
       "endLine": 73
     },
     "expression": "grant(state,p,id)",
-    "start": 5118,
-    "end": 5136
+    "start": 5137,
+    "end": 5155
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:9399",
+    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:9497",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:unsoldPenalty",
     "args": [
@@ -1388,11 +1388,11 @@
       "endLine": 134
     },
     "expression": "grant(state,p,id)",
-    "start": 9399,
-    "end": 9417
+    "start": 9497,
+    "end": 9515
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:11058",
+    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:11235",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:consign",
     "args": [
@@ -1412,11 +1412,11 @@
       "endLine": 155
     },
     "expression": "grant(state,p,debuff)",
-    "start": 11058,
-    "end": 11086
+    "start": 11235,
+    "end": 11263
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:11897",
+    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:12074",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:consign",
     "args": [
@@ -1435,8 +1435,8 @@
       "endLine": 166
     },
     "expression": "grant(state,p,debuff)",
-    "start": 11897,
-    "end": 11923
+    "start": 12074,
+    "end": 12100
   },
   {
     "id": "operation:apps/comic/src/game/appraisal/collector-wishlist.ts:10920",
@@ -1519,7 +1519,7 @@
     "end": 6939
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/events.ts:29337",
+    "id": "operation:apps/comic/src/game/appraisal/events.ts:29542",
     "name": "removeStatus",
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "args": [
@@ -1530,15 +1530,15 @@
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 331,
-      "endLine": 331
+      "line": 333,
+      "endLine": 333
     },
     "expression": "removeStatus(p,selected)",
-    "start": 29337,
-    "end": 29362
+    "start": 29542,
+    "end": 29567
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/events.ts:29363",
+    "id": "operation:apps/comic/src/game/appraisal/events.ts:29568",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "args": [
@@ -1550,15 +1550,15 @@
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 331,
-      "endLine": 331
+      "line": 333,
+      "endLine": 333
     },
     "expression": "grant(state,p,next)",
-    "start": 29363,
-    "end": 29383
+    "start": 29568,
+    "end": 29588
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/events.ts:33598",
+    "id": "operation:apps/comic/src/game/appraisal/events.ts:33803",
     "name": "removeStatus",
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "args": [
@@ -1569,15 +1569,15 @@
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 359,
-      "endLine": 359
+      "line": 361,
+      "endLine": 361
     },
     "expression": "removeStatus(p,selected)",
-    "start": 33598,
-    "end": 33623
+    "start": 33803,
+    "end": 33828
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/events.ts:34017",
+    "id": "operation:apps/comic/src/game/appraisal/events.ts:34222",
     "name": "removeStatus",
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "args": [
@@ -1590,15 +1590,15 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 360,
-      "endLine": 360
+      "line": 362,
+      "endLine": 362
     },
     "expression": "removeStatus(p,selected)",
-    "start": 34017,
-    "end": 34041
+    "start": 34222,
+    "end": 34246
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/events.ts:35424",
+    "id": "operation:apps/comic/src/game/appraisal/events.ts:35629",
     "name": "removeStatus",
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "args": [
@@ -1609,15 +1609,15 @@
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 370,
-      "endLine": 370
+      "line": 372,
+      "endLine": 372
     },
     "expression": "removeStatus(p,selected)",
-    "start": 35424,
-    "end": 35449
+    "start": 35629,
+    "end": 35654
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/events.ts:38672",
+    "id": "operation:apps/comic/src/game/appraisal/events.ts:38958",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "args": [
@@ -1629,15 +1629,15 @@
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 390,
-      "endLine": 390
+      "line": 392,
+      "endLine": 392
     },
     "expression": "grant(state,p,s)",
-    "start": 38672,
-    "end": 38689
+    "start": 38958,
+    "end": 38975
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/events.ts:38870",
+    "id": "operation:apps/comic/src/game/appraisal/events.ts:39156",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "args": [
@@ -1649,15 +1649,15 @@
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 392,
-      "endLine": 392
+      "line": 394,
+      "endLine": 394
     },
     "expression": "grant(state,p,picked)",
-    "start": 38870,
-    "end": 38891
+    "start": 39156,
+    "end": 39177
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/events.ts:39685",
+    "id": "operation:apps/comic/src/game/appraisal/events.ts:39971",
     "name": "removeStatus",
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "args": [
@@ -1668,15 +1668,15 @@
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 397,
-      "endLine": 397
+      "line": 399,
+      "endLine": 399
     },
     "expression": "removeStatus(p,selected)",
-    "start": 39685,
-    "end": 39710
+    "start": 39971,
+    "end": 39996
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:23268",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:23272",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
     "args": [
@@ -1694,11 +1694,11 @@
       "endLine": 300
     },
     "expression": "grant(state,p,p.honestyReward)",
-    "start": 23268,
-    "end": 23299
+    "start": 23272,
+    "end": 23303
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:33785",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:33789",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
     "args": [
@@ -1716,11 +1716,11 @@
       "endLine": 417
     },
     "expression": "grant(state,buyer,options.grantStatus)",
-    "start": 33785,
-    "end": 33824
+    "start": 33789,
+    "end": 33828
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:33850",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:33854",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
     "args": [
@@ -1738,11 +1738,11 @@
       "endLine": 418
     },
     "expression": "grant(state,buyer,profile.condition)",
-    "start": 33850,
-    "end": 33887
+    "start": 33854,
+    "end": 33891
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:34884",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:34888",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "args": [
@@ -1762,11 +1762,11 @@
       "endLine": 430
     },
     "expression": "grant(state,p,spec.drawback,undefined,itemDrawbackScale(item))",
-    "start": 34884,
-    "end": 34947
+    "start": 34888,
+    "end": 34951
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:38360",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:38364",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "args": [
@@ -1792,11 +1792,11 @@
       "endLine": 462
     },
     "expression": "grant(state,p,spec.buff,undefined,power)",
-    "start": 38360,
-    "end": 38400
+    "start": 38364,
+    "end": 38404
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:44864",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:44868",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
     "args": [
@@ -1817,11 +1817,11 @@
       "endLine": 537
     },
     "expression": "grant(state,p,cost.statusId)",
-    "start": 44864,
-    "end": 44893
+    "start": 44868,
+    "end": 44897
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:45742",
+    "id": "operation:apps/comic/src/game/appraisal/mechanics.ts:45746",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
     "args": [
@@ -1842,8 +1842,8 @@
       "endLine": 549
     },
     "expression": "grant(state,p,bonus.statusId)",
-    "start": 45742,
-    "end": 45771
+    "start": 45746,
+    "end": 45775
   },
   {
     "id": "operation:apps/comic/src/game/appraisal/merchant-abilities.ts:8327",
@@ -1885,7 +1885,7 @@
     "end": 5717
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/npc-events.ts:9018",
+    "id": "operation:apps/comic/src/game/appraisal/npc-events.ts:9171",
     "name": "removeStatus",
     "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:resolvePersonalNpcEvent",
     "args": [
@@ -1898,15 +1898,15 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/npc-events.ts",
-      "line": 106,
-      "endLine": 106
+      "line": 107,
+      "endLine": 107
     },
     "expression": "removeStatus(p,command.statusId!)",
-    "start": 9018,
-    "end": 9051
+    "start": 9171,
+    "end": 9204
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/npc-events.ts:9275",
+    "id": "operation:apps/comic/src/game/appraisal/npc-events.ts:9428",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/npc-events.ts:resolvePersonalNpcEvent",
     "args": [
@@ -1920,12 +1920,12 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/npc-events.ts",
-      "line": 107,
-      "endLine": 107
+      "line": 108,
+      "endLine": 108
     },
     "expression": "grant(state,victim!,id)",
-    "start": 9275,
-    "end": 9298
+    "start": 9428,
+    "end": 9451
   },
   {
     "id": "operation:apps/comic/src/game/appraisal/theft.ts:12767",

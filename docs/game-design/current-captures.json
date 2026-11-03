@@ -211,11 +211,11 @@
     "warning": "Comic UI is in separate build and differs from canonical UI source. Logic links are references, not proof every latest backend rule has matching UI."
   },
   "summary": {
-    "capturedImages": 72,
+    "capturedImages": 84,
     "capturedScreenGroups": 22,
     "registeredScreens": 30,
     "liveImages": 15,
-    "fixtureImages": 57
+    "fixtureImages": 69
   },
   "style": {
     "observedViewport": "1440×722 (browser native viewport; image dimensions recorded per file)",
@@ -4822,6 +4822,882 @@
       ],
       "sourceRoot": "apps/comic",
       "captureSourceRevision": "ca84a11",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1920,
+        "height": 800,
+        "dpr": 1,
+        "scrollWidth": 1920,
+        "scrollHeight": 800
+      }
+    },
+    {
+      "id": "C73",
+      "screenId": "S13",
+      "title": "score-2 · 1024",
+      "phase": "RESULTS",
+      "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-2-1024.png",
+      "sha256": "021667edc78a8f10e8aabd8ecee93b897cf5126d735e89f2643cb06d193ad244",
+      "dimensions": {
+        "width": 1024,
+        "height": 800
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=score-2",
+      "capturedAtUTC": "2026-11-03T11:08:10.821Z",
+      "clientDate": "2026-11-03",
+      "notes": "Post-review candidate; score2/4 re-execute sealed command histories using corrected producer2, negative/mixed synthetic modifiers use the same calculator and consistent self/roster. Not approved baseline, release balance or continuous browser reconnect.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+        "apps/comic/src/appraisal-client/personal-score-results.css",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+        "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "apps/comic/src/game/appraisal/views.ts",
+        "scripts/ui/personal-score-smoke.mjs"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+          "sha256": "2122fcdf8cc3efc26263c50d9089baa9e07cfd96dcf487670ab8a9ece19f767b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-results.css",
+          "sha256": "8750c79759c0b15b0ad05ba920784cb0f7feb121b28ff2c380a59d101be922a6"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "9c93c44a531d0f68153c1b90cce58bc48004b944dcacca0578223544e8d3ba0b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "a5bb335c7b2ebd46cc4f528326e8dd24f6129ab147013cce1eb03ed2544ee9b5"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+          "sha256": "75bafd3c6ada2a43d536dce0ed9db722146d42d972b4acec23cb2c6757079373"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+          "sha256": "6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "sha256": "1b94d331ad46a325185943f4260feaa3e6514724e317855a1740bfd40800a9f7"
+        },
+        {
+          "file": "scripts/ui/personal-score-smoke.mjs",
+          "sha256": "ed478d13164282709fb6988d273a2b57a6b535e629bb16153b67867698263d93"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "4e3fe94",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1024,
+        "height": 800,
+        "dpr": 1,
+        "scrollWidth": 1024,
+        "scrollHeight": 800
+      }
+    },
+    {
+      "id": "C74",
+      "screenId": "S13",
+      "title": "score-4 · 1024",
+      "phase": "RESULTS",
+      "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-4-1024.png",
+      "sha256": "5922b60ba9440011e6530d6cc4debafb00f776be5f18f73d35f9eec004eff3f1",
+      "dimensions": {
+        "width": 1024,
+        "height": 800
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=score-4",
+      "capturedAtUTC": "2026-11-03T11:08:10.821Z",
+      "clientDate": "2026-11-03",
+      "notes": "Post-review candidate; score2/4 re-execute sealed command histories using corrected producer2, negative/mixed synthetic modifiers use the same calculator and consistent self/roster. Not approved baseline, release balance or continuous browser reconnect.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+        "apps/comic/src/appraisal-client/personal-score-results.css",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+        "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "apps/comic/src/game/appraisal/views.ts",
+        "scripts/ui/personal-score-smoke.mjs"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+          "sha256": "2122fcdf8cc3efc26263c50d9089baa9e07cfd96dcf487670ab8a9ece19f767b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-results.css",
+          "sha256": "8750c79759c0b15b0ad05ba920784cb0f7feb121b28ff2c380a59d101be922a6"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "9c93c44a531d0f68153c1b90cce58bc48004b944dcacca0578223544e8d3ba0b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "a5bb335c7b2ebd46cc4f528326e8dd24f6129ab147013cce1eb03ed2544ee9b5"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+          "sha256": "75bafd3c6ada2a43d536dce0ed9db722146d42d972b4acec23cb2c6757079373"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+          "sha256": "6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "sha256": "1b94d331ad46a325185943f4260feaa3e6514724e317855a1740bfd40800a9f7"
+        },
+        {
+          "file": "scripts/ui/personal-score-smoke.mjs",
+          "sha256": "ed478d13164282709fb6988d273a2b57a6b535e629bb16153b67867698263d93"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "4e3fe94",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1024,
+        "height": 800,
+        "dpr": 1,
+        "scrollWidth": 1024,
+        "scrollHeight": 800
+      }
+    },
+    {
+      "id": "C75",
+      "screenId": "S13",
+      "title": "score-neg · 1024",
+      "phase": "RESULTS",
+      "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-neg-1024.png",
+      "sha256": "e764d72108226f6e29cd702b987703c7d7b458bfd21680510490663d7ec3815a",
+      "dimensions": {
+        "width": 1024,
+        "height": 800
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=score-neg",
+      "capturedAtUTC": "2026-11-03T11:08:10.821Z",
+      "clientDate": "2026-11-03",
+      "notes": "Post-review candidate; score2/4 re-execute sealed command histories using corrected producer2, negative/mixed synthetic modifiers use the same calculator and consistent self/roster. Not approved baseline, release balance or continuous browser reconnect.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+        "apps/comic/src/appraisal-client/personal-score-results.css",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+        "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "apps/comic/src/game/appraisal/views.ts",
+        "scripts/ui/personal-score-smoke.mjs"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+          "sha256": "2122fcdf8cc3efc26263c50d9089baa9e07cfd96dcf487670ab8a9ece19f767b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-results.css",
+          "sha256": "8750c79759c0b15b0ad05ba920784cb0f7feb121b28ff2c380a59d101be922a6"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "9c93c44a531d0f68153c1b90cce58bc48004b944dcacca0578223544e8d3ba0b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "a5bb335c7b2ebd46cc4f528326e8dd24f6129ab147013cce1eb03ed2544ee9b5"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+          "sha256": "75bafd3c6ada2a43d536dce0ed9db722146d42d972b4acec23cb2c6757079373"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+          "sha256": "6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "sha256": "1b94d331ad46a325185943f4260feaa3e6514724e317855a1740bfd40800a9f7"
+        },
+        {
+          "file": "scripts/ui/personal-score-smoke.mjs",
+          "sha256": "ed478d13164282709fb6988d273a2b57a6b535e629bb16153b67867698263d93"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "4e3fe94",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1024,
+        "height": 800,
+        "dpr": 1,
+        "scrollWidth": 1024,
+        "scrollHeight": 800
+      }
+    },
+    {
+      "id": "C76",
+      "screenId": "S13",
+      "title": "score-mix · 1024",
+      "phase": "RESULTS",
+      "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-mix-1024.png",
+      "sha256": "3946ae02634d4121710d767cb93831e1d24871c103feb87315bafea3d7d44bae",
+      "dimensions": {
+        "width": 1024,
+        "height": 800
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=score-mix",
+      "capturedAtUTC": "2026-11-03T11:08:10.821Z",
+      "clientDate": "2026-11-03",
+      "notes": "Post-review candidate; score2/4 re-execute sealed command histories using corrected producer2, negative/mixed synthetic modifiers use the same calculator and consistent self/roster. Not approved baseline, release balance or continuous browser reconnect.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+        "apps/comic/src/appraisal-client/personal-score-results.css",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+        "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "apps/comic/src/game/appraisal/views.ts",
+        "scripts/ui/personal-score-smoke.mjs"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+          "sha256": "2122fcdf8cc3efc26263c50d9089baa9e07cfd96dcf487670ab8a9ece19f767b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-results.css",
+          "sha256": "8750c79759c0b15b0ad05ba920784cb0f7feb121b28ff2c380a59d101be922a6"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "9c93c44a531d0f68153c1b90cce58bc48004b944dcacca0578223544e8d3ba0b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "a5bb335c7b2ebd46cc4f528326e8dd24f6129ab147013cce1eb03ed2544ee9b5"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+          "sha256": "75bafd3c6ada2a43d536dce0ed9db722146d42d972b4acec23cb2c6757079373"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+          "sha256": "6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "sha256": "1b94d331ad46a325185943f4260feaa3e6514724e317855a1740bfd40800a9f7"
+        },
+        {
+          "file": "scripts/ui/personal-score-smoke.mjs",
+          "sha256": "ed478d13164282709fb6988d273a2b57a6b535e629bb16153b67867698263d93"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "4e3fe94",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1024,
+        "height": 800,
+        "dpr": 1,
+        "scrollWidth": 1024,
+        "scrollHeight": 800
+      }
+    },
+    {
+      "id": "C77",
+      "screenId": "S13",
+      "title": "score-2 · 1440",
+      "phase": "RESULTS",
+      "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-2-1440.png",
+      "sha256": "4b39314aa135abcd1c9541e2641a169ecd1c0f2fe8d4e2b9edaee45d7198646d",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=score-2",
+      "capturedAtUTC": "2026-11-03T11:08:10.821Z",
+      "clientDate": "2026-11-03",
+      "notes": "Post-review candidate; score2/4 re-execute sealed command histories using corrected producer2, negative/mixed synthetic modifiers use the same calculator and consistent self/roster. Not approved baseline, release balance or continuous browser reconnect.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+        "apps/comic/src/appraisal-client/personal-score-results.css",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+        "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "apps/comic/src/game/appraisal/views.ts",
+        "scripts/ui/personal-score-smoke.mjs"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+          "sha256": "2122fcdf8cc3efc26263c50d9089baa9e07cfd96dcf487670ab8a9ece19f767b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-results.css",
+          "sha256": "8750c79759c0b15b0ad05ba920784cb0f7feb121b28ff2c380a59d101be922a6"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "9c93c44a531d0f68153c1b90cce58bc48004b944dcacca0578223544e8d3ba0b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "a5bb335c7b2ebd46cc4f528326e8dd24f6129ab147013cce1eb03ed2544ee9b5"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+          "sha256": "75bafd3c6ada2a43d536dce0ed9db722146d42d972b4acec23cb2c6757079373"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+          "sha256": "6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "sha256": "1b94d331ad46a325185943f4260feaa3e6514724e317855a1740bfd40800a9f7"
+        },
+        {
+          "file": "scripts/ui/personal-score-smoke.mjs",
+          "sha256": "ed478d13164282709fb6988d273a2b57a6b535e629bb16153b67867698263d93"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "4e3fe94",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      }
+    },
+    {
+      "id": "C78",
+      "screenId": "S13",
+      "title": "score-4 · 1440",
+      "phase": "RESULTS",
+      "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-4-1440.png",
+      "sha256": "a95eb1b39d3f408fa15b109628db99a0742b59c7fa57ccd49e8dc90335d08e84",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=score-4",
+      "capturedAtUTC": "2026-11-03T11:08:10.821Z",
+      "clientDate": "2026-11-03",
+      "notes": "Post-review candidate; score2/4 re-execute sealed command histories using corrected producer2, negative/mixed synthetic modifiers use the same calculator and consistent self/roster. Not approved baseline, release balance or continuous browser reconnect.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+        "apps/comic/src/appraisal-client/personal-score-results.css",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+        "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "apps/comic/src/game/appraisal/views.ts",
+        "scripts/ui/personal-score-smoke.mjs"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+          "sha256": "2122fcdf8cc3efc26263c50d9089baa9e07cfd96dcf487670ab8a9ece19f767b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-results.css",
+          "sha256": "8750c79759c0b15b0ad05ba920784cb0f7feb121b28ff2c380a59d101be922a6"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "9c93c44a531d0f68153c1b90cce58bc48004b944dcacca0578223544e8d3ba0b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "a5bb335c7b2ebd46cc4f528326e8dd24f6129ab147013cce1eb03ed2544ee9b5"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+          "sha256": "75bafd3c6ada2a43d536dce0ed9db722146d42d972b4acec23cb2c6757079373"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+          "sha256": "6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "sha256": "1b94d331ad46a325185943f4260feaa3e6514724e317855a1740bfd40800a9f7"
+        },
+        {
+          "file": "scripts/ui/personal-score-smoke.mjs",
+          "sha256": "ed478d13164282709fb6988d273a2b57a6b535e629bb16153b67867698263d93"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "4e3fe94",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      }
+    },
+    {
+      "id": "C79",
+      "screenId": "S13",
+      "title": "score-neg · 1440",
+      "phase": "RESULTS",
+      "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-neg-1440.png",
+      "sha256": "e87907d53bebd53b2289bf7be0193a9d81dc22e48dd4fcd11bbdd33308b0b1a7",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=score-neg",
+      "capturedAtUTC": "2026-11-03T11:08:10.821Z",
+      "clientDate": "2026-11-03",
+      "notes": "Post-review candidate; score2/4 re-execute sealed command histories using corrected producer2, negative/mixed synthetic modifiers use the same calculator and consistent self/roster. Not approved baseline, release balance or continuous browser reconnect.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+        "apps/comic/src/appraisal-client/personal-score-results.css",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+        "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "apps/comic/src/game/appraisal/views.ts",
+        "scripts/ui/personal-score-smoke.mjs"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+          "sha256": "2122fcdf8cc3efc26263c50d9089baa9e07cfd96dcf487670ab8a9ece19f767b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-results.css",
+          "sha256": "8750c79759c0b15b0ad05ba920784cb0f7feb121b28ff2c380a59d101be922a6"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "9c93c44a531d0f68153c1b90cce58bc48004b944dcacca0578223544e8d3ba0b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "a5bb335c7b2ebd46cc4f528326e8dd24f6129ab147013cce1eb03ed2544ee9b5"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+          "sha256": "75bafd3c6ada2a43d536dce0ed9db722146d42d972b4acec23cb2c6757079373"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+          "sha256": "6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "sha256": "1b94d331ad46a325185943f4260feaa3e6514724e317855a1740bfd40800a9f7"
+        },
+        {
+          "file": "scripts/ui/personal-score-smoke.mjs",
+          "sha256": "ed478d13164282709fb6988d273a2b57a6b535e629bb16153b67867698263d93"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "4e3fe94",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      }
+    },
+    {
+      "id": "C80",
+      "screenId": "S13",
+      "title": "score-mix · 1440",
+      "phase": "RESULTS",
+      "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-mix-1440.png",
+      "sha256": "19daec837a983a21a9db5173d2ecb594fae64a325aa5fd1dd821ae9be36afc82",
+      "dimensions": {
+        "width": 1440,
+        "height": 722
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=score-mix",
+      "capturedAtUTC": "2026-11-03T11:08:10.821Z",
+      "clientDate": "2026-11-03",
+      "notes": "Post-review candidate; score2/4 re-execute sealed command histories using corrected producer2, negative/mixed synthetic modifiers use the same calculator and consistent self/roster. Not approved baseline, release balance or continuous browser reconnect.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+        "apps/comic/src/appraisal-client/personal-score-results.css",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+        "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "apps/comic/src/game/appraisal/views.ts",
+        "scripts/ui/personal-score-smoke.mjs"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+          "sha256": "2122fcdf8cc3efc26263c50d9089baa9e07cfd96dcf487670ab8a9ece19f767b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-results.css",
+          "sha256": "8750c79759c0b15b0ad05ba920784cb0f7feb121b28ff2c380a59d101be922a6"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "9c93c44a531d0f68153c1b90cce58bc48004b944dcacca0578223544e8d3ba0b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "a5bb335c7b2ebd46cc4f528326e8dd24f6129ab147013cce1eb03ed2544ee9b5"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+          "sha256": "75bafd3c6ada2a43d536dce0ed9db722146d42d972b4acec23cb2c6757079373"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+          "sha256": "6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "sha256": "1b94d331ad46a325185943f4260feaa3e6514724e317855a1740bfd40800a9f7"
+        },
+        {
+          "file": "scripts/ui/personal-score-smoke.mjs",
+          "sha256": "ed478d13164282709fb6988d273a2b57a6b535e629bb16153b67867698263d93"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "4e3fe94",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1440,
+        "height": 722,
+        "dpr": 1,
+        "scrollWidth": 1440,
+        "scrollHeight": 722
+      }
+    },
+    {
+      "id": "C81",
+      "screenId": "S13",
+      "title": "score-2 · 1920",
+      "phase": "RESULTS",
+      "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-2-1920.png",
+      "sha256": "559c9bf505d4575bdd3ce602f6f900224ffe3022035ad17049ff9e4735565ffd",
+      "dimensions": {
+        "width": 1920,
+        "height": 800
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=score-2",
+      "capturedAtUTC": "2026-11-03T11:08:10.821Z",
+      "clientDate": "2026-11-03",
+      "notes": "Post-review candidate; score2/4 re-execute sealed command histories using corrected producer2, negative/mixed synthetic modifiers use the same calculator and consistent self/roster. Not approved baseline, release balance or continuous browser reconnect.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+        "apps/comic/src/appraisal-client/personal-score-results.css",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+        "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "apps/comic/src/game/appraisal/views.ts",
+        "scripts/ui/personal-score-smoke.mjs"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+          "sha256": "2122fcdf8cc3efc26263c50d9089baa9e07cfd96dcf487670ab8a9ece19f767b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-results.css",
+          "sha256": "8750c79759c0b15b0ad05ba920784cb0f7feb121b28ff2c380a59d101be922a6"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "9c93c44a531d0f68153c1b90cce58bc48004b944dcacca0578223544e8d3ba0b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "a5bb335c7b2ebd46cc4f528326e8dd24f6129ab147013cce1eb03ed2544ee9b5"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+          "sha256": "75bafd3c6ada2a43d536dce0ed9db722146d42d972b4acec23cb2c6757079373"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+          "sha256": "6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "sha256": "1b94d331ad46a325185943f4260feaa3e6514724e317855a1740bfd40800a9f7"
+        },
+        {
+          "file": "scripts/ui/personal-score-smoke.mjs",
+          "sha256": "ed478d13164282709fb6988d273a2b57a6b535e629bb16153b67867698263d93"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "4e3fe94",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1920,
+        "height": 800,
+        "dpr": 1,
+        "scrollWidth": 1920,
+        "scrollHeight": 800
+      }
+    },
+    {
+      "id": "C82",
+      "screenId": "S13",
+      "title": "score-4 · 1920",
+      "phase": "RESULTS",
+      "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-4-1920.png",
+      "sha256": "21764ea35f34b44994c0aec62aa7cfdadf5ddf0aa62ef082011e19f53f63fb15",
+      "dimensions": {
+        "width": 1920,
+        "height": 800
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=score-4",
+      "capturedAtUTC": "2026-11-03T11:08:10.821Z",
+      "clientDate": "2026-11-03",
+      "notes": "Post-review candidate; score2/4 re-execute sealed command histories using corrected producer2, negative/mixed synthetic modifiers use the same calculator and consistent self/roster. Not approved baseline, release balance or continuous browser reconnect.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+        "apps/comic/src/appraisal-client/personal-score-results.css",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+        "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "apps/comic/src/game/appraisal/views.ts",
+        "scripts/ui/personal-score-smoke.mjs"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+          "sha256": "2122fcdf8cc3efc26263c50d9089baa9e07cfd96dcf487670ab8a9ece19f767b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-results.css",
+          "sha256": "8750c79759c0b15b0ad05ba920784cb0f7feb121b28ff2c380a59d101be922a6"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "9c93c44a531d0f68153c1b90cce58bc48004b944dcacca0578223544e8d3ba0b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "a5bb335c7b2ebd46cc4f528326e8dd24f6129ab147013cce1eb03ed2544ee9b5"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+          "sha256": "75bafd3c6ada2a43d536dce0ed9db722146d42d972b4acec23cb2c6757079373"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+          "sha256": "6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "sha256": "1b94d331ad46a325185943f4260feaa3e6514724e317855a1740bfd40800a9f7"
+        },
+        {
+          "file": "scripts/ui/personal-score-smoke.mjs",
+          "sha256": "ed478d13164282709fb6988d273a2b57a6b535e629bb16153b67867698263d93"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "4e3fe94",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1920,
+        "height": 800,
+        "dpr": 1,
+        "scrollWidth": 1920,
+        "scrollHeight": 800
+      }
+    },
+    {
+      "id": "C83",
+      "screenId": "S13",
+      "title": "score-neg · 1920",
+      "phase": "RESULTS",
+      "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-neg-1920.png",
+      "sha256": "ff0ce6695aa2bcad070bf016b102306186b810590f91b71edc916eec3c08d450",
+      "dimensions": {
+        "width": 1920,
+        "height": 800
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=score-neg",
+      "capturedAtUTC": "2026-11-03T11:08:10.821Z",
+      "clientDate": "2026-11-03",
+      "notes": "Post-review candidate; score2/4 re-execute sealed command histories using corrected producer2, negative/mixed synthetic modifiers use the same calculator and consistent self/roster. Not approved baseline, release balance or continuous browser reconnect.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+        "apps/comic/src/appraisal-client/personal-score-results.css",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+        "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "apps/comic/src/game/appraisal/views.ts",
+        "scripts/ui/personal-score-smoke.mjs"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+          "sha256": "2122fcdf8cc3efc26263c50d9089baa9e07cfd96dcf487670ab8a9ece19f767b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-results.css",
+          "sha256": "8750c79759c0b15b0ad05ba920784cb0f7feb121b28ff2c380a59d101be922a6"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "9c93c44a531d0f68153c1b90cce58bc48004b944dcacca0578223544e8d3ba0b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "a5bb335c7b2ebd46cc4f528326e8dd24f6129ab147013cce1eb03ed2544ee9b5"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+          "sha256": "75bafd3c6ada2a43d536dce0ed9db722146d42d972b4acec23cb2c6757079373"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+          "sha256": "6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "sha256": "1b94d331ad46a325185943f4260feaa3e6514724e317855a1740bfd40800a9f7"
+        },
+        {
+          "file": "scripts/ui/personal-score-smoke.mjs",
+          "sha256": "ed478d13164282709fb6988d273a2b57a6b535e629bb16153b67867698263d93"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "4e3fe94",
+      "workingTreeSourceSnapshot": true,
+      "eventIds": [],
+      "actions": [],
+      "observedViewport": {
+        "width": 1920,
+        "height": 800,
+        "dpr": 1,
+        "scrollWidth": 1920,
+        "scrollHeight": 800
+      }
+    },
+    {
+      "id": "C84",
+      "screenId": "S13",
+      "title": "score-mix · 1920",
+      "phase": "RESULTS",
+      "image": "../validation/personal-scoring-final-fixes-2026-11-03/ui/score-mix-1920.png",
+      "sha256": "ad75ef02cb9a530227bf909902349797fa598d062ef8b5e566bc6b3fde6b9656",
+      "dimensions": {
+        "width": 1920,
+        "height": 800
+      },
+      "origin": "existing-component-preview-fixture",
+      "url": "http://127.0.0.1:5174/?preview=score-mix",
+      "capturedAtUTC": "2026-11-03T11:08:10.821Z",
+      "clientDate": "2026-11-03",
+      "notes": "Post-review candidate; score2/4 re-execute sealed command histories using corrected producer2, negative/mixed synthetic modifiers use the same calculator and consistent self/roster. Not approved baseline, release balance or continuous browser reconnect.",
+      "componentFiles": [
+        "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+        "apps/comic/src/appraisal-client/personal-score-results.css",
+        "apps/comic/src/appraisal-client/App.tsx",
+        "apps/comic/src/appraisal-client/ComicPreview.tsx",
+        "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+        "apps/comic/src/game/appraisal/personal-scoring.ts",
+        "apps/comic/src/game/appraisal/views.ts",
+        "scripts/ui/personal-score-smoke.mjs"
+      ],
+      "sourceSnapshot": [
+        {
+          "file": "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
+          "sha256": "2122fcdf8cc3efc26263c50d9089baa9e07cfd96dcf487670ab8a9ece19f767b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-results.css",
+          "sha256": "8750c79759c0b15b0ad05ba920784cb0f7feb121b28ff2c380a59d101be922a6"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/App.tsx",
+          "sha256": "9c93c44a531d0f68153c1b90cce58bc48004b944dcacca0578223544e8d3ba0b"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
+          "sha256": "a5bb335c7b2ebd46cc4f528326e8dd24f6129ab147013cce1eb03ed2544ee9b5"
+        },
+        {
+          "file": "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
+          "sha256": "75bafd3c6ada2a43d536dce0ed9db722146d42d972b4acec23cb2c6757079373"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
+          "sha256": "6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5"
+        },
+        {
+          "file": "apps/comic/src/game/appraisal/views.ts",
+          "sha256": "1b94d331ad46a325185943f4260feaa3e6514724e317855a1740bfd40800a9f7"
+        },
+        {
+          "file": "scripts/ui/personal-score-smoke.mjs",
+          "sha256": "ed478d13164282709fb6988d273a2b57a6b535e629bb16153b67867698263d93"
+        }
+      ],
+      "sourceRoot": "apps/comic",
+      "captureSourceRevision": "4e3fe94",
       "workingTreeSourceSnapshot": true,
       "eventIds": [],
       "actions": [],

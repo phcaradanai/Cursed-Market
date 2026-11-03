@@ -1,5 +1,5 @@
 import {priceCaliper,usePilot,pilotUses,pilotStrength} from './pilot-effects.js';
-import {recordPersonalAppraisal,recordPersonalActivity,recordPersonalItemActivity,recordPersonalSale,setPersonalTrust} from './personal-scoring.js';
+import {recordPersonalAppraisal,recordPersonalInspection,recordPersonalActivity,recordPersonalItemActivity,recordPersonalSale,setPersonalTrust} from './personal-scoring.js';
 import { itemPriceRange } from './rarity.js';
 import { rarityValue } from '../../shared/rarity-power.js';
 import { ownedAssetItemIds } from './secure-storage.js';
@@ -251,7 +251,7 @@ export function inspect(state: AppraisalState, p: Appraiser, itemId: string, pro
   }
   // Curse sight: B02 lets the next price or authenticity check read the curse as well.
   if (state.config.curseSight && property !== 'effects' && status(p,'B02')) { learn(p,itemId,{effectsKnown:true,cursed:item.cursed}); consumeStatus(p,'B02'); }
-  recordPersonalItemActivity(state,p,'inspection',item,1,true,'personally inspected',property);
+  recordPersonalInspection(state,p,item,k,known(state,p,itemId),property);
   trace(state,p,'inspected',{itemId,property});
 }
 export function counterLimit(p: Appraiser): number { return Math.max(0,1 + integerEffect(statusMagnitude(p,'B10',1)) - integerEffect(statusMagnitude(p,'D08',1))); }

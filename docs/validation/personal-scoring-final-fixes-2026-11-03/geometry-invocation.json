@@ -1,0 +1,11 @@
+{
+  "scope": "CLI invocation only; detailed test report must start at or after startedAt",
+  "mode": "personal-score-final",
+  "space": 2,
+  "baseUrl": "http://127.0.0.1:5174",
+  "startedAt": "2026-11-03T11:06:11.105Z",
+  "finishedAt": "2026-11-03T11:08:10.944Z",
+  "processExitCode": 0,
+  "signal": null,
+  "error": null
+}

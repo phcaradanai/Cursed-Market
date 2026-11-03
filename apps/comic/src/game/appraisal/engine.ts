@@ -43,6 +43,9 @@ export const DEFAULT_APPRAISAL_CONFIG: AppraisalConfig = {
 };
 function validateConfig(config:AppraisalConfig):void {
   check(config.personalScoringRules===undefined||config.personalScoringRules===1,'config','กติกาคะแนนผลงานไม่ถูกต้อง');
+  check(config.personalScoringFacts===undefined||config.personalScoringFacts===2,'config','รุ่นตัวบันทึกคะแนนไม่ถูกต้อง');
+  check(config.personalScoringFacts===undefined||config.personalScoringRules===1,'config','ตัวบันทึกคะแนนต้องเปิดกติกาคะแนน');
+  check(config.personalScoringFacts!==2||!!config.survival&&(!config.secureEconomy||config.loanEndSettlement===true),'config','คะแนนผลงานต้องใช้ Survival และปิดหนี้ก่อน Collector');
   check(config.collectorWishlistRules===undefined||config.collectorWishlistRules===1,'config','กติกา Collector ไม่ถูกต้อง');
   if(config.rarityEconomy!==undefined){validateRarityEconomy(config.rarityEconomy);check(!!config.rarity,'config','Rarity economy requires rarity generation');}
   if(config.rarity!==undefined)validateRarityConfig(config.rarity);
@@ -90,7 +93,7 @@ function validateConfig(config:AppraisalConfig):void {
   }
 }
 export function createAppraisalRun(playerIds:string[],seed:string,overrides:Partial<AppraisalConfig>={}):AppraisalState {
-  return initialiseAppraisalRun(playerIds,seed,structuredClone({...DEFAULT_APPRAISAL_CONFIG,...overrides,...(overrides.catalogVersion!==undefined&&overrides.catalogVersion<3&&overrides.trustAbilities===undefined?{trustAbilities:false}:{})}));
+  return initialiseAppraisalRun(playerIds,seed,structuredClone({...DEFAULT_APPRAISAL_CONFIG,...overrides,...(overrides.personalScoringRules===1&&overrides.personalScoringFacts===undefined?{personalScoringFacts:2 as const}:{}),...(overrides.catalogVersion!==undefined&&overrides.catalogVersion<3&&overrides.trustAbilities===undefined?{trustAbilities:false}:{})}));
 }
 /** Restore an exact saved config, including original audits without a catalog version. */
 export function restoreAppraisalRun(playerIds:string[],seed:string,config:AppraisalConfig):AppraisalState {

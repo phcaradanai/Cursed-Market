@@ -1,0 +1,6 @@
+AssertionError [ERR_ASSERTION]: mixed modifier players must share the same baseline
+    at file:////[eval2]:1:553
+[ego-browser:notice] Ego Lite update is available (current 0.6.2.5). Finish the current browser task, then ask the user before running `ego-browser upgrade`; re-read the ego-browser Skill afterward.
+{ mixedModifierBaselines: [ 448.40625, 466.40625, 448.40625, 466.40625 ] }
+
+ego's nodejs process exited with code 1.

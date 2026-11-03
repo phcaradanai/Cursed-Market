@@ -74,6 +74,7 @@ function randomBuff(state:AppraisalState,p:Appraiser,key:string,preferred?:Statu
 /** A life payment is exact; damage shields and vulnerability do not change a quoted price. */
 function payLife(state:AppraisalState,p:Appraiser,amount:number,reason:string):void {
   if(!amount)return;check(state.config.survival && p.life!>amount,'life','ชีวิตไม่พอจ่ายและต้องเหลืออย่างน้อย 1');
+  if(state.config.personalScoringFacts===2)recordPersonalActivity(state,p,'lifeLost',amount,JSON.stringify(['life-paid',state.commands.length,reason]));
   p.life!-=amount;trace(state,p,'life-paid',{amount,reason});
 }
 export function resolvePersonalNpcEvent(state:AppraisalState,p:Appraiser,offer:EventOffer,command:Extract<AppraisalAction,{type:'event'}>):void {

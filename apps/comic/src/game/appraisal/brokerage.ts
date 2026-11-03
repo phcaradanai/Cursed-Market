@@ -1,4 +1,4 @@
-import {recordPersonalItemActivity} from './personal-scoring.js';
+import {recordPersonalItemActivity,recordPersonalSale} from './personal-scoring.js';
 import { rarityValue } from '../../shared/rarity-power.js';
 import { merchantTradeBanned } from './theft.js';
 import { recordItemTrade, systemSaleQuote } from './price-integrity.js';
@@ -95,7 +95,7 @@ export function resolveBond(state:AppraisalState,p:Appraiser,offer:EventOffer,co
     }
     case 'sell': case 'tribute': {
       const itemId=chosen();stillHeld(itemId);
-      if(spec.mode==='sell') {const item=state.items[itemId]!;const paid=systemSaleQuote(state,item,saleApply(state,p,bondPrice(state,spec,itemId)));reward(state,p,paid,spec.id);recordItemTrade(state,item,paid);}
+      if(spec.mode==='sell') {const item=state.items[itemId]!;const paid=systemSaleQuote(state,item,saleApply(state,p,bondPrice(state,spec,itemId)));reward(state,p,paid,spec.id);recordItemTrade(state,item,paid);if(state.config.personalScoringFacts===2)recordPersonalSale(state,p,item,paid);}
       retire(state,p,itemId,spec.id);if(spec.mode==='tribute') applyGain(state,p,spec);break;
     }
     case 'swap': {
@@ -146,7 +146,7 @@ function consign(state:AppraisalState,p:Appraiser,item:AppraisalItem):void {
     const owed=systemSaleQuote(state,item,consignPayout(item.base,item.genuine,item.cursed));
     const free=state.bank-state.market.budget-state.reservedRewards;const paid=Math.max(0,Math.min(owed,free));
     if(paid>0) reward(state,p,paid,'consign-payout');
-    recordItemTrade(state,item,paid);
+    recordItemTrade(state,item,paid);if(state.config.personalScoringFacts===2)recordPersonalSale(state,p,item,paid);
     p.notes.push(`Dark Market รับฝากของและจ่ายให้ ${paid} เครดิต (หลังหักค่าธรรมเนียม ${CORE2.consign.fee})`);
     if(roll>=CORE2.consign.debuffBelow) {const fee=payUpTo(state,p,CORE2.consign.extraFee,'consign-fee');outcome=`fee:${fee}`;p.notes.push(`แต่ถูกเก็บค่าผ่านทางเพิ่ม ${fee} เครดิต`);}
     else if(roll>=CORE2.consign.cleanBelow) {

@@ -1,3 +1,4 @@
+import {recordPersonalSale,recordPersonalInspection} from './personal-scoring.js';
 import { rarityValue } from '../../shared/rarity-power.js';
 import { itemPriceRange } from './rarity.js';
 import { merchantTradeBanned } from './theft.js';
@@ -300,7 +301,8 @@ function chooseStatus(offer:EventOffer,command:Extract<AppraisalAction,{type:'ev
 function eventInspect(state:AppraisalState,p:Appraiser,itemId:string,credits:number,energy:number,k:Knowledge):void {
   stockItem(state,p,itemId); check(p.inspections<inspectionLimit(state,p),'inspections','สิทธิ์ตรวจหมด');
   const cost=Math.max(0,energy+(status(p,'D01')?1:0)-(status(p,'B05')?1:0));
-  spend(state,p,credits,cost,'event-inspect'); consumeStatus(p,'D01'); consumeStatus(p,'B05'); p.inspections++; learn(p,itemId,k);
+  const before=known(state,p,itemId);
+  spend(state,p,credits,cost,'event-inspect'); consumeStatus(p,'D01'); consumeStatus(p,'B05'); p.inspections++; learn(p,itemId,k);recordPersonalInspection(state,p,state.items[itemId]!,before,known(state,p,itemId));
 }
 export function resolveEvent(state:AppraisalState,p:Appraiser,command:Extract<AppraisalAction,{type:'event'}>):void {
   const offer=p.eventOffer; check(offer && offer.key===command.key && offer.choices.includes(command.choice),'event-choice','ข้อเสนอเก่าหรือไม่มีตัวเลือกนี้');
@@ -371,7 +373,7 @@ export function resolveEvent(state:AppraisalState,p:Appraiser,command:Extract<Ap
     // Rule 1: the fountain's energy ignores Blood Thirst, or drinking would only spend the thirst, the same as cleansing it.
     case 'E42': if(choice==='energy') recover(state,p,2,id,reworked(state)); else {check(status(p,'D10'),'status','ไม่มี D10'); removeStatus(p,'D10');} break;
     case 'E43': check(state.bank-state.market.budget-state.reservedRewards>=1,'bank','งบรางวัลไม่พอ'); p.subsidy=true; state.reservedRewards++; break;
-    case 'E44': {const v=item(); check(!state.config.secureEconomy || !merchantTradeBanned(state,p),'merchant-banned','ยังถูกห้ามค้าขายกับพ่อค้า');check(movable(p).length>=2 && offer.quotedPrices[v]!==undefined,'collector','ไม่มีข้อเสนอรับซื้อ');const target=state.items[v]!;const paid=systemSaleQuote(state,target,copySaleQuote(target,saleApply(state,p,rarityValue(target,Math.floor(anchorOf(state.config,target.kind)*.75)))));reward(state,p,paid,id);recordItemTrade(state,target,paid);retire(state,p,v,id); break;}
+    case 'E44': {const v=item(); check(!state.config.secureEconomy || !merchantTradeBanned(state,p),'merchant-banned','ยังถูกห้ามค้าขายกับพ่อค้า');check(movable(p).length>=2 && offer.quotedPrices[v]!==undefined,'collector','ไม่มีข้อเสนอรับซื้อ');const target=state.items[v]!;const paid=systemSaleQuote(state,target,copySaleQuote(target,saleApply(state,p,rarityValue(target,Math.floor(anchorOf(state.config,target.kind)*.75)))));reward(state,p,paid,id);recordItemTrade(state,target,paid);if(state.config.personalScoringFacts===2)recordPersonalSale(state,p,target,paid);retire(state,p,v,id); break;}
     case 'E45': {const v=item(); const fact=command.fact; check(fact && ['base','genuine','cursed'].includes(fact),'fact','เลือกข้อมูลที่จะเปิด'); const value=p.knowledge[v]?.[fact]; check(value!==undefined && state.publicKnowledge[v]?.[fact]===undefined && !p.revealedInfo.includes(`${v}:${fact}`),'proof','ข้อมูลนี้ยังไม่เคยตรวจหรือเปิดแล้ว'); state.publicKnowledge[v]={...state.publicKnowledge[v],[fact]:value}; p.revealedInfo.push(`${v}:${fact}`); reward(state,p,1,id); break;}
     case 'E46': {const v=item(); const target=stockItem(state,p,v); check(typeof command.guess==='boolean' && known(state,p,v).genuine===undefined,'guess','ต้องทายแท้หรือปลอมที่ยังไม่รู้'); spend(state,p,0,1,id); const correct=command.guess===target.genuine; if(correct) reward(state,p,2,id); learn(p,v,{genuine:target.genuine}); p.notes.push(`${correct?'ทายถูก!':'ทายผิด'} ${ITEM_SPECS[target.kind].name}เป็น${target.genuine?'ของแท้':'ของปลอม'}${correct?' ได้ 2 เครดิต':''}`); p.notes=p.notes.slice(-30); trace(state,p,'guess',{itemId:v,correct}); break;}
     case 'E47': {

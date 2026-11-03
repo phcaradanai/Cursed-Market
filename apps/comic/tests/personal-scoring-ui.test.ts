@@ -39,3 +39,21 @@ test('historical noflag survival results retain original fallback',()=>{
  const room=structuredClone(previewRooms.inspection!);room.game!.phase='RESULTS';room.game!.collector=[];
  const html=renderToStaticMarkup(createElement(SurvivalResults,{room,send:()=>true,disabled:false}));assert(html.includes('table-scroll'));assert(!html.includes('personal-score-results'));
 });
+
+test('personal result labels state every tied rank and the applied modifier percentage',()=>{
+ const room=structuredClone(previewRooms.inspection!);room.game!.phase='RESULTS';
+ room.game!.collector=['a','b','c','d'].map((playerId,i)=>{const personalScore=calculatePersonalScore({playerId,facts:[],assetScore:i<2?100:50,modifierPercent:-20,ghostBonus:0,rarities:[]});return {playerId,credits:i<2?100:50,itemValue:0,modifierPercent:-20,statusIds:['D10' as const],score:personalScore.total,items:[],personalScore};});
+ const html=renderToStaticMarkup(createElement(SurvivalResults,{room,send:()=>true,disabled:false}));assert.equal((html.match(/class="personal-score-rank"/g)??[]).length,4);assert(html.includes('อันดับ 1'));assert(html.includes('อันดับ 3'));assert(!html.includes('อันดับ 2'));assert(html.includes('-20%'));assert(html.includes('D10'));
+});
+test('actual unaged-loan exclusion is accessible with its specific reason',()=>{
+ const score=calculatePersonalScore({playerId:'a',facts:[{id:'loan',playerId:'a',metric:'loanRepaid',raw:1,eligibleKey:'pair',eligible:false,cause:'loan did not span a full encounter'}],assetScore:0,modifierPercent:0,ghostBonus:0,rarities:[]});
+ const html=renderToStaticMarkup(createElement(ScoreMetric,{metric:score.metrics.find(m=>m.id==='loanRepaid')!}));assert(html.includes('เงินกู้ยังไม่อยู่ครบช่วง'));
+});
+test('negative result preview has one consistent score and modifier across graph, self, roster and status',async()=>{
+ const {personalScorePreview}=await import('../src/appraisal-client/personal-score-preview-data.js');const room=personalScorePreview['score-neg']!,g=room.game!,own=g.collector!.find(row=>row.playerId===g.self.id)!;
+ assert.equal(g.self.personalScore!.total,own.score);assert.equal(g.self.score,own.score);for(const row of g.collector!){assert.equal(g.players.find(p=>p.id===row.playerId)!.score,row.score);assert(row.statusIds.includes('D10'));assert.equal(row.modifierPercent,-20);}
+});
+test('negative result explicitly displays the applied D10 percentage independently of rank',()=>{
+ const room=structuredClone(previewRooms.inspection!);room.game!.phase='RESULTS';const playerId=room.game!.self.id,personalScore=calculatePersonalScore({playerId,facts:[],assetScore:100,modifierPercent:-20,ghostBonus:0,rarities:[]});room.game!.collector=[{playerId,credits:100,itemValue:0,modifierPercent:-20,statusIds:['D10'],score:80,items:[],personalScore}];
+ const html=renderToStaticMarkup(createElement(SurvivalResults,{room,send:()=>true,disabled:false}));assert(html.includes('-20%'));assert(html.includes('D10'));assert(html.includes('กระหายโลหิต'));
+});

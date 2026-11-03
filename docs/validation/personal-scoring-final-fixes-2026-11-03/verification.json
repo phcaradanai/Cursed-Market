@@ -1,0 +1,132 @@
+{
+  "asOf": "2026-11-03",
+  "reviewedHead": "4e3fe94",
+  "status": "owner-fix-pass-verified",
+  "committed": "see containing owner-fix commit",
+  "independentReview": {
+    "reviewer": "gpt-6-astra/max",
+    "scope": "1551908..4e3fe94 whole3taskprogram",
+    "verdict": "No, Important fixes required",
+    "critical": 0,
+    "important": 6,
+    "minor": 4,
+    "newReviewerDispatched": false
+  },
+  "regressionProof": {
+    "runtimeRed": 12,
+    "runtimeGreen": 12,
+    "uiRed": 3,
+    "modifierRed": "Old4e3fe94 component directly rendered from transpiled historical source; missing -20% assertion observed",
+    "allNonNetworkScoringGreen": 63,
+    "allScoringGreen": 67,
+    "additionalRedToGreen": [
+      "pre-review exact-audit replay compatibility",
+      "missing final-settlement flag on corrected secure restore",
+      "mixed-modifier common bar baseline (18px mismatch)",
+      "human-readable negative modifier status"
+    ]
+  },
+  "builds": {
+    "server": "pass",
+    "appraisalClient": "pass; existing large-chunk advisory"
+  },
+  "nativeCompatibility": {
+    "pairs": 8,
+    "games": 16,
+    "strictReplays": 32,
+    "all16NoFlagAuditBytesUnchanged": true
+  },
+  "normalJourney": {
+    "commands": 196,
+    "end": 7,
+    "ghostBonus": 2,
+    "strictReplayCurrentProducedAudit": true,
+    "scope": "Selected public-command normal40/6/deadline15 engine journey, not live browser shuffleclock or balance"
+  },
+  "pending": [
+    "whole-game remaining48/native bindings, combined normal browser/reconnect/ghosttracking overflow and multi-seed balance"
+  ],
+  "environmentFailure": {
+    "action": "Starting Ego Browser via required escalated execution",
+    "executed": false,
+    "cause": "Automatic approval review could not complete: usage limit, try again4:49PM. This was not a safety rejection. Do not bypass approval review.",
+    "unaffected": "Workspace source edits, pure builds/engine/SSR tests continued with default access",
+    "resolved": "Fresh normal escalated Browser executions after usage reset passed; original failure preserved separately.",
+    "currentBlock": false
+  },
+  "sources": {
+    "apps/comic/src/game/appraisal/personal-scoring.ts": "6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5",
+    "apps/comic/src/game/appraisal/engine.ts": "27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91",
+    "apps/comic/src/game/appraisal/events.ts": "ec9f25dde4fbf2168479d80dd2044a5c4445912442aa561bd69fc31d41f0777c",
+    "apps/comic/src/game/appraisal/mechanics.ts": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302",
+    "apps/comic/src/game/appraisal/npc-events.ts": "f111c7cd8598b85165a91e5b88f7874d62d5502d3dce14a80b9fa71541e93bcf",
+    "apps/comic/src/game/appraisal/brokerage.ts": "18b4d1f6273adc9c1e8726831a16626905c0f2ffc0a8af4a146b7813c809a4b8",
+    "apps/comic/src/game/appraisal/seals.ts": "665663cb75944286130ac9597816c8a59b8631285077476cf08774037a6335f1",
+    "apps/comic/src/game/appraisal/price-integrity.ts": "b198f88cedef64e0c857b93115b8b6b19f1c220a576364ed623af924ea7b4831",
+    "apps/comic/src/game/appraisal/views.ts": "1b94d331ad46a325185943f4260feaa3e6514724e317855a1740bfd40800a9f7",
+    "apps/comic/src/appraisal-client/PersonalScoreResults.tsx": "2122fcdf8cc3efc26263c50d9089baa9e07cfd96dcf487670ab8a9ece19f767b",
+    "apps/comic/src/appraisal-client/personal-score-results.css": "8750c79759c0b15b0ad05ba920784cb0f7feb121b28ff2c380a59d101be922a6",
+    "apps/comic/src/appraisal-client/personal-score-preview-data.ts": "75bafd3c6ada2a43d536dce0ed9db722146d42d972b4acec23cb2c6757079373",
+    "apps/comic/tests/personal-scoring-final-review.test.ts": "cd0148c0f44c3063f323467ff9b2f5a38e2e3ce12ec437bab993ea15a55e2813",
+    "apps/comic/tests/personal-scoring-ui.test.ts": "126e2e88307df16b4510e44ff679dbec6cd851d6e1566846cb64232324265915",
+    "apps/comic/src/game/appraisal/types.ts": "a08d64b129ee90262d04c23ba05d857e669618963284c00662729c15b5e29878"
+  },
+  "artifacts": {
+    "docs/validation/personal-scoring-final-fixes-2026-11-03/runtime-green.log": "54d7700e3fc585e5107c8751ad53d1adf518fcf296ea70e85afa19c86d9641f1",
+    "docs/validation/personal-scoring-final-fixes-2026-11-03/modifier-red.log": "b06fc0cf251ebe7bbe7707a0be05463696c829995ef16c48a3dea3a194623a89",
+    "docs/validation/personal-scoring-final-fixes-2026-11-03/runtime-red.log": "4fb71dd125a38d8d97358ce78638b360a1473d2494a474874f510fdb464d776e",
+    "docs/validation/personal-scoring-final-fixes-2026-11-03/ui-red.log": "ace2efcea0e015684f300c191fb132614b069b6b96a3b911c05c57dac92c5df4",
+    "docs/validation/personal-scoring-final-fixes-2026-11-03/functional-green.log": "2c94c5fe2249c08a53811e7724034d1365a552885cdc99aa9c0aee3e20b668f7",
+    "docs/validation/personal-scoring-final-fixes-2026-11-03/normal-personal/report.json": "8dc5b7aedc2607e6ebeb8f8f1464de0a4dbb2e53deeddb41c26ad3d6a0363e78",
+    "docs/validation/personal-scoring-final-fixes-2026-11-03/normal-personal/journey.audit.json": "d89016d5944891ecd74b77d53eb80ccfcc4d3c97523892520f54be6e06c20e8d",
+    "docs/validation/personal-scoring-final-fixes-2026-11-03/all-green.log": "efd266b3a39bc38b8afb1445f1bb5cdd6cd0277e2d99d1a077acc18c4029832f",
+    "docs/validation/personal-scoring-final-fixes-2026-11-03/historical-scoring-v1-replay.json": "aab83328bfa0ee6afe4f3efc0948a1506769e535759ee7822327431926bf1e64",
+    "docs/validation/personal-scoring-final-fixes-2026-11-03/ui/report.json": "e75731c37b98107855725326be587c76312bc75901ae823e8ae3d5b2d9cf56d3",
+    "docs/validation/personal-scoring-final-fixes-2026-11-03/ui-green.json": "0251ccd07d4e911631a1a8f1cd65a9ce71873c3f55401e43c04f0570a1884a4b",
+    "docs/validation/personal-scoring-final-fixes-2026-11-03/pixel-invocation.json": "9f2c0efff165c52868455a543a08cdad7ff1978e547186faa54128e57602312d",
+    "docs/validation/personal-scoring-final-fixes-2026-11-03/pixel-report.json": "e63a4b88e0b7905e5d7cb4a383861fda17865ff05db2f09275ae39198594db58",
+    "docs/validation/personal-scoring-final-fixes-2026-11-03/menu-invocation.json": "d92b74b9e88b735a68881c43936e966d8eae8606b946549720a3373df76cfe29",
+    "docs/validation/personal-scoring-final-fixes-2026-11-03/menu-report.json": "64d873336d5cbaad3dd1c159bd4c6db5f8610d0eaa926fc44ac1cd950cf5c215",
+    "docs/validation/personal-scoring-final-fixes-2026-11-03/geometry-invocation.json": "56518b6fe7a871f95f1e114f556f694c82cc5c8b396195a7888a84a9ae0cfb28",
+    "docs/validation/personal-scoring-final-fixes-2026-11-03/review-invocation.json": "9c98686467d52c5f423976427870530f784c832cf4bfb30059116d63b378875c",
+    "docs/validation/personal-scoring-final-fixes-2026-11-03/atlas-check.log": "90ce7c658914b099ed3b174c227f61f9cf024794bb73695ebf4e067afd08049c",
+    "docs/validation/personal-scoring-final-fixes-2026-11-03/trail-check.log": "340c8e6a75807f4ef4625f09e1ab9b596b8546d62d19027c78ebba3cdf36ea79"
+  },
+  "browser": {
+    "geometryChecks": 16,
+    "captures": 12,
+    "reviewAssertions": 4,
+    "menuFlows": 18,
+    "approvedPixelComparisons": 14,
+    "baselineChanged": false
+  },
+  "historicalScoringCompatibility": {
+    "marker": "personalScoringFacts:2",
+    "oldMissingMarkerRetainsPriorWriters": true,
+    "uniqueAudits": 5,
+    "allExact": true,
+    "evidence": "docs/validation/personal-scoring-final-fixes-2026-11-03/historical-scoring-v1-replay.json"
+  },
+  "uiContracts": {
+    "sourceFingerprints": 403,
+    "tests": 10,
+    "passed": true
+  },
+  "atlas": {
+    "inputs": 246,
+    "passed": true
+  },
+  "trail": {
+    "conflicts": 20,
+    "scope": "excluded pre-existing .impeccable data only;400KB branch cap; no claim whole-branch clean"
+  },
+  "hindsight": {
+    "retained": true,
+    "matchingRetrievalVerified": true,
+    "documentId": "cursed-market-personal-scoring-ownerfix-2026-11-03",
+    "ids": [
+      "e63b9a0e-4266-47fc-91f2-36061b5a7c53",
+      "9d0baf4e-bc39-4dc4-aba1-ae210aad2376"
+    ]
+  }
+}

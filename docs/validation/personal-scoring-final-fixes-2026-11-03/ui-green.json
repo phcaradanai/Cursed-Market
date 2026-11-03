@@ -1,0 +1,12 @@
+{
+  "startedAt": "2026-11-03T11:11:09.616Z",
+  "checks": [
+    "every final player has a tied-aware rank label",
+    "negative fixture Status agrees with graph final score",
+    "modifier stage explains applicable negative percentage",
+    "unaged loan exclusion gives its specific reason"
+  ],
+  "failures": [],
+  "finishedAt": "2026-11-03T11:11:30.294Z",
+  "passed": true
+}

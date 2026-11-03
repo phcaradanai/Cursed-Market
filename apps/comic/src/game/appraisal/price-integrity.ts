@@ -1,4 +1,4 @@
-import {recordPersonalAppraisal} from './personal-scoring.js';
+import {recordPersonalAppraisal,recordPersonalSale} from './personal-scoring.js';
 import { randomAt } from '../random.js';
 import { copySaleQuote } from './copy-effects.js';
 import { check, ownedItem, retire, reward, spend, trace } from './mechanics.js';
@@ -48,7 +48,7 @@ export function liquidateOwnedItem(state:AppraisalState,p:Appraiser,itemId:strin
   check(!item.stolen,'stolen','ของที่ฉกมาขาย Dark Market ไม่ได้');
   const price=liquidationQuote(state,item);
   reward(state,p,price,'emergency-liquidation');
-  recordItemTrade(state,item,price);
+  recordItemTrade(state,item,price);if(state.config.personalScoringFacts===2)recordPersonalSale(state,p,item,price);
   retire(state,p,itemId,'emergency-liquidation');
   trace(state,p,'item-liquidated',{itemId,price});
 }

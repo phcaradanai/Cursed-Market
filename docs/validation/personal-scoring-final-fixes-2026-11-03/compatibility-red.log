@@ -1,0 +1,22 @@
+✖ pre-review experimental scoring audits retain exact replay while new rooms select corrected receipt producers (536.708166ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 951.278459
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/personal-scoring-final-review.test.js:145:1
+✖ pre-review experimental scoring audits retain exact replay while new rooms select corrected receipt producers (536.708166ms)
+  Error [RuleError]: ผล audit ไม่ตรง replay
+      at check (file:///Users/Projects/Cursed%20Market/apps/comic/dist/src/game/appraisal/mechanics.js:24:15)
+      at replayAppraisalAudit (file:///Users/Projects/Cursed%20Market/apps/comic/dist/src/game/appraisal/audit.js:21:5)
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/personal-scoring-final-review.test.js:149:47)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    code: 'audit'
+  }

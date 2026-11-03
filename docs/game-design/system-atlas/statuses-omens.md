@@ -16,8 +16,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 329,
-      "endLine": 329
+      "line": 331,
+      "endLine": 331
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -26,8 +26,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 340,
-      "endLine": 340
+      "line": 342,
+      "endLine": 342
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -36,8 +36,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 356,
-      "endLine": 356
+      "line": 358,
+      "endLine": 358
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -72,8 +72,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 330,
-      "endLine": 330
+      "line": 332,
+      "endLine": 332
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -82,8 +82,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 340,
-      "endLine": 340
+      "line": 342,
+      "endLine": 342
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -167,8 +167,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 364,
-      "endLine": 364
+      "line": 366,
+      "endLine": 366
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -210,8 +210,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 303,
-      "endLine": 303
+      "line": 305,
+      "endLine": 305
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:eventInspect",
     "guards": []
@@ -220,8 +220,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 332,
-      "endLine": 332
+      "line": 334,
+      "endLine": 334
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -230,8 +230,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 361,
-      "endLine": 361
+      "line": 363,
+      "endLine": 363
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -281,8 +281,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 363,
-      "endLine": 363
+      "line": 365,
+      "endLine": 365
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -340,8 +340,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 347,
-      "endLine": 347
+      "line": 349,
+      "endLine": 349
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -387,8 +387,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 353,
-      "endLine": 353
+      "line": 355,
+      "endLine": 355
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -422,8 +422,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 462,
-      "endLine": 462
+      "line": 465,
+      "endLine": 465
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
@@ -434,8 +434,8 @@
     "operation": "recover",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 462,
-      "endLine": 462
+      "line": 465,
+      "endLine": 465
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
@@ -446,8 +446,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 351,
-      "endLine": 351
+      "line": 353,
+      "endLine": 353
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -469,8 +469,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 348,
-      "endLine": 348
+      "line": 350,
+      "endLine": 350
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -479,8 +479,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 359,
-      "endLine": 359
+      "line": 361,
+      "endLine": 361
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -502,8 +502,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 303,
-      "endLine": 303
+      "line": 305,
+      "endLine": 305
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:eventInspect",
     "guards": []
@@ -512,8 +512,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 336,
-      "endLine": 336
+      "line": 338,
+      "endLine": 338
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
@@ -553,8 +553,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 335,
-      "endLine": 335
+      "line": 337,
+      "endLine": 337
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
@@ -566,8 +566,8 @@
     "operation": "removeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 366,
-      "endLine": 366
+      "line": 368,
+      "endLine": 368
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
@@ -579,8 +579,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 366,
-      "endLine": 366
+      "line": 368,
+      "endLine": 368
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
@@ -592,8 +592,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 368,
-      "endLine": 368
+      "line": 370,
+      "endLine": 370
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
@@ -630,8 +630,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 363,
-      "endLine": 363
+      "line": 365,
+      "endLine": 365
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -663,8 +663,8 @@
     "operation": "spend",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 461,
-      "endLine": 461
+      "line": 464,
+      "endLine": 464
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
@@ -675,8 +675,8 @@
     "operation": "spend",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 461,
-      "endLine": 461
+      "line": 464,
+      "endLine": 464
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
@@ -687,8 +687,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 461,
-      "endLine": 461
+      "line": 464,
+      "endLine": 464
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
@@ -712,8 +712,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 204,
-      "endLine": 204
+      "line": 207,
+      "endLine": 207
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
     "guards": [
@@ -724,8 +724,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 356,
-      "endLine": 356
+      "line": 358,
+      "endLine": 358
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -747,8 +747,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 362,
-      "endLine": 362
+      "line": 364,
+      "endLine": 364
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
@@ -783,8 +783,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 463,
-      "endLine": 463
+      "line": 466,
+      "endLine": 466
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
@@ -795,8 +795,8 @@
     "operation": "removeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 358,
-      "endLine": 358
+      "line": 360,
+      "endLine": 360
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
@@ -838,8 +838,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 404,
-      "endLine": 404
+      "line": 406,
+      "endLine": 406
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
@@ -912,8 +912,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 328,
-      "endLine": 328
+      "line": 330,
+      "endLine": 330
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
@@ -924,8 +924,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 364,
-      "endLine": 364
+      "line": 366,
+      "endLine": 366
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -934,8 +934,8 @@
     "operation": "removeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 372,
-      "endLine": 372
+      "line": 374,
+      "endLine": 374
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
@@ -983,8 +983,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 398,
-      "endLine": 398
+      "line": 400,
+      "endLine": 400
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -1022,8 +1022,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 393,
-      "endLine": 393
+      "line": 395,
+      "endLine": 395
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -1077,8 +1077,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 399,
-      "endLine": 399
+      "line": 401,
+      "endLine": 401
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -1122,8 +1122,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 396,
-      "endLine": 396
+      "line": 398,
+      "endLine": 398
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
@@ -1134,8 +1134,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 400,
-      "endLine": 400
+      "line": 402,
+      "endLine": 402
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -1181,8 +1181,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 394,
-      "endLine": 394
+      "line": 396,
+      "endLine": 396
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -1191,8 +1191,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 402,
-      "endLine": 402
+      "line": 404,
+      "endLine": 404
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
@@ -1236,8 +1236,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 400,
-      "endLine": 400
+      "line": 402,
+      "endLine": 402
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -1271,8 +1271,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 205,
-      "endLine": 205
+      "line": 208,
+      "endLine": 208
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
     "guards": [
@@ -1283,8 +1283,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 399,
-      "endLine": 399
+      "line": 401,
+      "endLine": 401
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -1306,8 +1306,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 396,
-      "endLine": 396
+      "line": 398,
+      "endLine": 398
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
@@ -1341,8 +1341,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 401,
-      "endLine": 401
+      "line": 403,
+      "endLine": 403
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -1376,8 +1376,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 398,
-      "endLine": 398
+      "line": 400,
+      "endLine": 400
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -1409,8 +1409,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 395,
-      "endLine": 395
+      "line": 397,
+      "endLine": 397
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -1419,8 +1419,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 402,
-      "endLine": 402
+      "line": 404,
+      "endLine": 404
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
@@ -1454,8 +1454,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 400,
-      "endLine": 400
+      "line": 402,
+      "endLine": 402
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": []
@@ -1867,8 +1867,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 324,
-      "endLine": 324
+      "line": 326,
+      "endLine": 326
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
@@ -1902,8 +1902,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 325,
-      "endLine": 325
+      "line": 327,
+      "endLine": 327
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [
@@ -1954,8 +1954,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "line": 324,
-      "endLine": 324
+      "line": 326,
+      "endLine": 326
     },
     "owner": "code:apps/comic/src/game/appraisal/events.ts:resolveEvent",
     "guards": [

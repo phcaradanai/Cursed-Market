@@ -39,6 +39,8 @@ export type AppraisalPhase = 'PORTALS' | 'APPRAISAL' | 'TRADE' | 'REVEAL' | 'RES
 export interface AppraisalConfig {
   /** Versioned personal accomplishments; historical audits omit this. */
   personalScoringRules?:1;
+  /** Corrected canonical writers; absence preserves pre-review experimental audit receipts. */
+  personalScoringFacts?:2;
   /** Dedicated personal Collector purchases; absent in historical audits. */
   collectorWishlistRules?:1;
   /** Absent in visual-only/old audits: no price or effect scaling. */

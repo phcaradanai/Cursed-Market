@@ -3,7 +3,7 @@ import {collectorTotal,itemScoreValue,itemScoreRange} from './scoring.js';
 import {ownedAssetItemIds} from './secure-storage.js';
 import {statusMagnitude} from './copy-effects.js';
 import type {Rarity} from '../../shared/item-rarity.js';
-import type {AppraisalItem,AppraisalState,Appraiser,NpcId} from './types.js';
+import type {AppraisalItem,AppraisalState,Appraiser,NpcId,Knowledge,InspectionProperty} from './types.js';
 
 // Exact approved1551908 experiment; receipt pins the immutable source JSON.
 export const PERSONAL_SCORING_WEIGHTS=[
@@ -159,6 +159,13 @@ export function recordPersonalActivity(state:AppraisalState,p:Appraiser,metric:P
 }
 export function recordPersonalItemActivity(state:AppraisalState,p:Appraiser,metric:PersonalMetric,item:AppraisalItem,raw=1,eligible=true,cause='settled',facet=''):void {
  recordPersonalActivity(state,p,metric,raw,JSON.stringify([p.id,personalOrigin(item),facet]),eligible&&!item.copy,item.copy?'copy':eligible?'settled':cause);
+}
+export function recordPersonalInspection(state:AppraisalState,p:Appraiser,item:AppraisalItem,before:Knowledge,after:Knowledge,legacyProperty?:InspectionProperty):void {
+ if(state.config.personalScoringFacts!==2){if(legacyProperty)recordPersonalItemActivity(state,p,'inspection',item,1,true,'personally inspected',legacyProperty);return;}
+ const price=before.base===undefined&&(after.base!==undefined||!!after.range&&JSON.stringify(after.range)!==JSON.stringify(before.range));
+ const authenticity=before.genuine===undefined&&after.genuine!==undefined;
+ const effects=before.cursed===undefined&&after.cursed!==undefined||!before.effectsKnown&&!!after.effectsKnown;
+ for(const [facet,learned]of [['price',price],['authenticity',authenticity],['effects',effects]]as const)if(learned)recordPersonalItemActivity(state,p,'inspection',item,1,true,'personally inspected',facet);
 }
 export function recordPersonalSale(state:AppraisalState,p:Appraiser,item:AppraisalItem,price:number):void {
  recordPersonalItemActivity(state,p,'soldQuantity',item,1,price>0,'zero-credit sale');

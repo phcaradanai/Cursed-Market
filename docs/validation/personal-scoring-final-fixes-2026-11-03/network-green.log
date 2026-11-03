@@ -1,0 +1,12 @@
+✔ public parser cannot accept client-supplied points or canonical facts (6.62775ms)
+✔ 2 real sockets preserve private receipts, duplicate idempotency, resume and exact final audit (543.866958ms)
+✔ 4 real sockets preserve private receipts, duplicate idempotency, resume and exact final audit (543.434667ms)
+✔ actual Comic entry point enables approved scoring for new rooms without client-supplied config (513.875042ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2665.513708

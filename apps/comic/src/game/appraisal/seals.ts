@@ -1,3 +1,4 @@
+import {recordPersonalActivity} from './personal-scoring.js';
 import { randomAt } from '../random.js';
 import { check, maxEnergyOf, maxLifeOf, ownedItem, player, trace, transfer } from './mechanics.js';
 import { eligibleItems } from './theft.js';
@@ -103,7 +104,7 @@ function respondOffer(state: AppraisalState, p: Appraiser, offerId: string, acce
   if(offer.life > 0)check((p.life ?? 0) > offer.life && (holder.life ?? 0)+offer.life <= (maxLifeOf(state,holder) ?? 0),'seal-life','ชีวิตผู้จ่ายต้องเหลือ 1 ขึ้นไป และผู้รับต้องไม่เกินขีดสูงสุด');
   if(offer.credits)transfer(state,p,holder,offer.credits,'seal-sale');
   p.energy -= offer.energy; holder.energy += offer.energy;
-  if(offer.life > 0) { p.life! -= offer.life; holder.life! += offer.life; }
+  if(offer.life > 0) { if(state.config.personalScoringFacts===2)recordPersonalActivity(state,p,'lifeLost',offer.life,offer.id);p.life! -= offer.life; holder.life! += offer.life; }
   for(const item of goods)moveGoods(state,p,holder,item);
   offer.status = 'accepted';
   if(seal.thiefId === p.id) {

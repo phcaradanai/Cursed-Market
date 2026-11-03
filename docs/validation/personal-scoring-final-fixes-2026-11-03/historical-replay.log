@@ -1,0 +1,34 @@
+{
+  asOf: '2026-11-03T11:28:54.682Z',
+  scope: 'All unique sealed experimental personalScoringRules1/no-producer-marker audit inputs under docs/validation; exact replay equality, not no-flag historical/balance coverage',
+  passed: 5,
+  failed: 0,
+  checks: [
+    {
+      file: 'docs/validation/personal-score-ui-2026-11-03/normal-personal/journey.audit.json',
+      sha256: '459172b4d24cdaec9e828bb1b82a9efd29b37e3bf0adee6f3e2eb04a51b778a6',
+      commands: 196
+    },
+    {
+      file: 'docs/validation/personal-scoring-2026-11-03/2-players.audit.json',
+      sha256: 'bd5f780b8b4bebdf6740a9f1af118e6f1f55709732dccab97e0d9b6ab27648b4',
+      commands: 27
+    },
+    {
+      file: 'docs/validation/personal-scoring-2026-11-03/4-players.audit.json',
+      sha256: '5e79bb9931ac23ea8455cd3a1855398a4bc731b97139c0bf53bc79067bf8a0f7',
+      commands: 53
+    },
+    {
+      file: 'docs/validation/personal-scoring-eligibility-2026-11-03/2-players.audit.json',
+      sha256: '5995f1c121680847d6a071b4d14804b579d6e1e0735d6e230b95450ae86e4d0d',
+      commands: 27
+    },
+    {
+      file: 'docs/validation/personal-scoring-eligibility-2026-11-03/4-players.audit.json',
+      sha256: '8c07e1def70da4c745f3952a993280d661670ceafa0f29461d2b6b89e09fd68e',
+      commands: 53
+    }
+  ],
+  failures: []
+}

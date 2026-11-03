@@ -268,8 +268,8 @@
 
 คู่ค้า การแลกของ ข้อมูลรับรองและการรับข้อเสนอ
 
-- code:apps/comic/src/game/appraisal/engine.ts:propose ({"file":"apps/comic/src/game/appraisal/engine.ts","line":251,"endLine":269})
-- code:apps/comic/src/game/appraisal/engine.ts:respond ({"file":"apps/comic/src/game/appraisal/engine.ts","line":289,"endLine":325})
+- code:apps/comic/src/game/appraisal/engine.ts:propose ({"file":"apps/comic/src/game/appraisal/engine.ts","line":254,"endLine":272})
+- code:apps/comic/src/game/appraisal/engine.ts:respond ({"file":"apps/comic/src/game/appraisal/engine.ts","line":292,"endLine":328})
 
 ## logic:L07 ตลาดมืดและของค้าง
 
@@ -280,7 +280,7 @@
 - code:apps/comic/src/game/appraisal/market-contracts.ts:marketOrderReserve ({"file":"apps/comic/src/game/appraisal/market-contracts.ts","line":5,"endLine":5})
 - code:apps/comic/src/game/appraisal/market-contracts.ts:marketConditionMatch ({"file":"apps/comic/src/game/appraisal/market-contracts.ts","line":7,"endLine":10})
 - code:apps/comic/src/game/appraisal/market-contracts.ts:makeMarketContract ({"file":"apps/comic/src/game/appraisal/market-contracts.ts","line":11,"endLine":22})
-- code:apps/comic/src/game/appraisal/engine.ts:makeMarket ({"file":"apps/comic/src/game/appraisal/engine.ts","line":167,"endLine":187})
+- code:apps/comic/src/game/appraisal/engine.ts:makeMarket ({"file":"apps/comic/src/game/appraisal/engine.ts","line":170,"endLine":190})
 - code:apps/comic/src/game/appraisal/views.ts:marketView ({"file":"apps/comic/src/game/appraisal/views.ts","line":24,"endLine":27})
 
 ## logic:L08 ประมูล
@@ -326,8 +326,8 @@
 
 เปลี่ยน/เปิดประตูและเบาะแสก่อนเลือก
 
-- code:apps/comic/src/game/appraisal/engine.ts:generatePortals ({"file":"apps/comic/src/game/appraisal/engine.ts","line":141,"endLine":149})
-- code:apps/comic/src/game/appraisal/engine.ts:rerollPortal ({"file":"apps/comic/src/game/appraisal/engine.ts","line":151,"endLine":165})
+- code:apps/comic/src/game/appraisal/engine.ts:generatePortals ({"file":"apps/comic/src/game/appraisal/engine.ts","line":144,"endLine":152})
+- code:apps/comic/src/game/appraisal/engine.ts:rerollPortal ({"file":"apps/comic/src/game/appraisal/engine.ts","line":154,"endLine":168})
 
 ## logic:L13 ขโมยเชิงรุก RPS
 
@@ -508,27 +508,27 @@
 
 แลกตราและใช้ตราคนเดียวกันสองใบยึดของแบบปกปิด
 
-- code:apps/comic/src/game/appraisal/seals.ts:SEALS_PER_REDEMPTION ({"file":"apps/comic/src/game/appraisal/seals.ts","line":7,"endLine":7})
-- code:apps/comic/src/game/appraisal/seals.ts:REDEMPTION_CHOICES ({"file":"apps/comic/src/game/appraisal/seals.ts","line":8,"endLine":8})
-- code:apps/comic/src/game/appraisal/seals.ts:seals ({"file":"apps/comic/src/game/appraisal/seals.ts","line":49,"endLine":49})
-- code:apps/comic/src/game/appraisal/seals.ts:offers ({"file":"apps/comic/src/game/appraisal/seals.ts","line":50,"endLine":50})
-- code:apps/comic/src/game/appraisal/seals.ts:redemptions ({"file":"apps/comic/src/game/appraisal/seals.ts","line":51,"endLine":51})
-- code:apps/comic/src/game/appraisal/seals.ts:alive ({"file":"apps/comic/src/game/appraisal/seals.ts","line":52,"endLine":52})
-- code:apps/comic/src/game/appraisal/seals.ts:text ({"file":"apps/comic/src/game/appraisal/seals.ts","line":53,"endLine":56})
-- code:apps/comic/src/game/appraisal/seals.ts:amount ({"file":"apps/comic/src/game/appraisal/seals.ts","line":57,"endLine":57})
-- code:apps/comic/src/game/appraisal/seals.ts:lockedSealIds ({"file":"apps/comic/src/game/appraisal/seals.ts","line":59,"endLine":62})
-- code:apps/comic/src/game/appraisal/seals.ts:ownSeal ({"file":"apps/comic/src/game/appraisal/seals.ts","line":63,"endLine":68})
-- code:apps/comic/src/game/appraisal/seals.ts:moveGoods ({"file":"apps/comic/src/game/appraisal/seals.ts","line":69,"endLine":74})
-- code:apps/comic/src/game/appraisal/seals.ts:offerSeal ({"file":"apps/comic/src/game/appraisal/seals.ts","line":76,"endLine":88})
-- code:apps/comic/src/game/appraisal/seals.ts:respondOffer ({"file":"apps/comic/src/game/appraisal/seals.ts","line":90,"endLine":115})
-- code:apps/comic/src/game/appraisal/seals.ts:redeem ({"file":"apps/comic/src/game/appraisal/seals.ts","line":118,"endLine":135})
-- code:apps/comic/src/game/appraisal/seals.ts:pick ({"file":"apps/comic/src/game/appraisal/seals.ts","line":137,"endLine":157})
-- code:apps/comic/src/game/appraisal/seals.ts:handleSealAction ({"file":"apps/comic/src/game/appraisal/seals.ts","line":159,"endLine":172})
-- code:apps/comic/src/game/appraisal/seals.ts:closeSealOffers ({"file":"apps/comic/src/game/appraisal/seals.ts","line":175,"endLine":178})
-- code:apps/comic/src/game/appraisal/seals.ts:sealMarketViewFor ({"file":"apps/comic/src/game/appraisal/seals.ts","line":180,"endLine":191})
-- code:apps/comic/src/game/appraisal/seals.ts:sealInvariants ({"file":"apps/comic/src/game/appraisal/seals.ts","line":193,"endLine":200})
-- code:apps/comic/src/game/appraisal/seals.ts:handleSealAction ({"file":"apps/comic/src/game/appraisal/seals.ts","line":159,"endLine":172})
-- code:apps/comic/src/game/appraisal/seals.ts:closeSealOffers ({"file":"apps/comic/src/game/appraisal/seals.ts","line":175,"endLine":178})
+- code:apps/comic/src/game/appraisal/seals.ts:SEALS_PER_REDEMPTION ({"file":"apps/comic/src/game/appraisal/seals.ts","line":8,"endLine":8})
+- code:apps/comic/src/game/appraisal/seals.ts:REDEMPTION_CHOICES ({"file":"apps/comic/src/game/appraisal/seals.ts","line":9,"endLine":9})
+- code:apps/comic/src/game/appraisal/seals.ts:seals ({"file":"apps/comic/src/game/appraisal/seals.ts","line":50,"endLine":50})
+- code:apps/comic/src/game/appraisal/seals.ts:offers ({"file":"apps/comic/src/game/appraisal/seals.ts","line":51,"endLine":51})
+- code:apps/comic/src/game/appraisal/seals.ts:redemptions ({"file":"apps/comic/src/game/appraisal/seals.ts","line":52,"endLine":52})
+- code:apps/comic/src/game/appraisal/seals.ts:alive ({"file":"apps/comic/src/game/appraisal/seals.ts","line":53,"endLine":53})
+- code:apps/comic/src/game/appraisal/seals.ts:text ({"file":"apps/comic/src/game/appraisal/seals.ts","line":54,"endLine":57})
+- code:apps/comic/src/game/appraisal/seals.ts:amount ({"file":"apps/comic/src/game/appraisal/seals.ts","line":58,"endLine":58})
+- code:apps/comic/src/game/appraisal/seals.ts:lockedSealIds ({"file":"apps/comic/src/game/appraisal/seals.ts","line":60,"endLine":63})
+- code:apps/comic/src/game/appraisal/seals.ts:ownSeal ({"file":"apps/comic/src/game/appraisal/seals.ts","line":64,"endLine":69})
+- code:apps/comic/src/game/appraisal/seals.ts:moveGoods ({"file":"apps/comic/src/game/appraisal/seals.ts","line":70,"endLine":75})
+- code:apps/comic/src/game/appraisal/seals.ts:offerSeal ({"file":"apps/comic/src/game/appraisal/seals.ts","line":77,"endLine":89})
+- code:apps/comic/src/game/appraisal/seals.ts:respondOffer ({"file":"apps/comic/src/game/appraisal/seals.ts","line":91,"endLine":116})
+- code:apps/comic/src/game/appraisal/seals.ts:redeem ({"file":"apps/comic/src/game/appraisal/seals.ts","line":119,"endLine":136})
+- code:apps/comic/src/game/appraisal/seals.ts:pick ({"file":"apps/comic/src/game/appraisal/seals.ts","line":138,"endLine":158})
+- code:apps/comic/src/game/appraisal/seals.ts:handleSealAction ({"file":"apps/comic/src/game/appraisal/seals.ts","line":160,"endLine":173})
+- code:apps/comic/src/game/appraisal/seals.ts:closeSealOffers ({"file":"apps/comic/src/game/appraisal/seals.ts","line":176,"endLine":179})
+- code:apps/comic/src/game/appraisal/seals.ts:sealMarketViewFor ({"file":"apps/comic/src/game/appraisal/seals.ts","line":181,"endLine":192})
+- code:apps/comic/src/game/appraisal/seals.ts:sealInvariants ({"file":"apps/comic/src/game/appraisal/seals.ts","line":194,"endLine":201})
+- code:apps/comic/src/game/appraisal/seals.ts:handleSealAction ({"file":"apps/comic/src/game/appraisal/seals.ts","line":160,"endLine":173})
+- code:apps/comic/src/game/appraisal/seals.ts:closeSealOffers ({"file":"apps/comic/src/game/appraisal/seals.ts","line":176,"endLine":179})
 
 ## logic:L20 สัญญารับซื้อ Wishlist NPC
 
@@ -552,7 +552,7 @@ NPC ขอซื้อของจากผู้เล่น; ไม่ใช�
 - code:apps/comic/src/game/appraisal/wishlist-rules.ts:wishFloor ({"file":"apps/comic/src/game/appraisal/wishlist-rules.ts","line":29,"endLine":29})
 - code:apps/comic/src/game/appraisal/wishlist-rules.ts:wishDecayStep ({"file":"apps/comic/src/game/appraisal/wishlist-rules.ts","line":30,"endLine":30})
 - code:apps/comic/src/game/appraisal/wishlist-rules.ts:wishDecayed ({"file":"apps/comic/src/game/appraisal/wishlist-rules.ts","line":32,"endLine":32})
-- code:apps/comic/src/game/appraisal/events.ts:drawWishEvent ({"file":"apps/comic/src/game/appraisal/events.ts","line":260,"endLine":260})
+- code:apps/comic/src/game/appraisal/events.ts:drawWishEvent ({"file":"apps/comic/src/game/appraisal/events.ts","line":261,"endLine":261})
 - code:apps/comic/src/game/appraisal/wishlist.ts:applyWish ({"file":"apps/comic/src/game/appraisal/wishlist.ts","line":39,"endLine":49})
 - code:apps/comic/src/game/appraisal/wishlist.ts:wishNew ({"file":"apps/comic/src/game/appraisal/wishlist.ts","line":51,"endLine":59})
 - code:apps/comic/src/game/appraisal/wishlist.ts:drawWishEvent ({"file":"apps/comic/src/game/appraisal/wishlist.ts","line":68,"endLine":72})
@@ -580,12 +580,12 @@ NPC ขอซื้อของจากผู้เล่น; ไม่ใช�
 - code:apps/comic/src/game/appraisal/npc-events.ts:personalNpcOffer ({"file":"apps/comic/src/game/appraisal/npc-events.ts","line":38,"endLine":60})
 - code:apps/comic/src/game/appraisal/npc-events.ts:statusPool ({"file":"apps/comic/src/game/appraisal/npc-events.ts","line":63,"endLine":68})
 - code:apps/comic/src/game/appraisal/npc-events.ts:randomBuff ({"file":"apps/comic/src/game/appraisal/npc-events.ts","line":69,"endLine":73})
-- code:apps/comic/src/game/appraisal/npc-events.ts:payLife ({"file":"apps/comic/src/game/appraisal/npc-events.ts","line":75,"endLine":78})
-- code:apps/comic/src/game/appraisal/npc-events.ts:resolvePersonalNpcEvent ({"file":"apps/comic/src/game/appraisal/npc-events.ts","line":79,"endLine":122})
-- code:apps/comic/src/game/appraisal/npc-events.ts:returnLoanItems ({"file":"apps/comic/src/game/appraisal/npc-events.ts","line":124,"endLine":129})
-- code:apps/comic/src/game/appraisal/npc-events.ts:redeemNpcContracts ({"file":"apps/comic/src/game/appraisal/npc-events.ts","line":131,"endLine":155})
-- code:apps/comic/src/game/appraisal/npc-events.ts:closeNpcContracts ({"file":"apps/comic/src/game/appraisal/npc-events.ts","line":157,"endLine":160})
-- code:apps/comic/src/game/appraisal/npc-events.ts:resolvePersonalNpcEvent ({"file":"apps/comic/src/game/appraisal/npc-events.ts","line":79,"endLine":122})
+- code:apps/comic/src/game/appraisal/npc-events.ts:payLife ({"file":"apps/comic/src/game/appraisal/npc-events.ts","line":75,"endLine":79})
+- code:apps/comic/src/game/appraisal/npc-events.ts:resolvePersonalNpcEvent ({"file":"apps/comic/src/game/appraisal/npc-events.ts","line":80,"endLine":123})
+- code:apps/comic/src/game/appraisal/npc-events.ts:returnLoanItems ({"file":"apps/comic/src/game/appraisal/npc-events.ts","line":125,"endLine":130})
+- code:apps/comic/src/game/appraisal/npc-events.ts:redeemNpcContracts ({"file":"apps/comic/src/game/appraisal/npc-events.ts","line":132,"endLine":156})
+- code:apps/comic/src/game/appraisal/npc-events.ts:closeNpcContracts ({"file":"apps/comic/src/game/appraisal/npc-events.ts","line":158,"endLine":161})
+- code:apps/comic/src/game/appraisal/npc-events.ts:resolvePersonalNpcEvent ({"file":"apps/comic/src/game/appraisal/npc-events.ts","line":80,"endLine":123})
 
 ## logic:L23 พลัง
 
@@ -721,12 +721,12 @@ NPC ขอซื้อของจากผู้เล่น; ไม่ใช�
 - code:apps/comic/src/game/appraisal/audit.ts:exportAppraisalAudit ({"file":"apps/comic/src/game/appraisal/audit.ts","line":22,"endLine":25})
 - code:apps/comic/src/game/appraisal/audit.ts:replayAppraisalAudit ({"file":"apps/comic/src/game/appraisal/audit.ts","line":26,"endLine":34})
 - code:apps/comic/src/game/appraisal/mechanics.ts:trace ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":32,"endLine":34})
-- code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor ({"file":"apps/comic/src/game/appraisal/views.ts","line":50,"endLine":69})
+- code:apps/comic/src/game/appraisal/views.ts:appraisalViewFor ({"file":"apps/comic/src/game/appraisal/views.ts","line":50,"endLine":71})
 
 ## logic:L33 เจ้าของ/คลัง/หลักประกัน
 
 สิทธิ์ใช้และ passive ต้องหายเมื่อฝาก/ค้ำ/เปลี่ยนเจ้าของ
 
 - code:apps/comic/src/game/appraisal/mechanics.ts:stockItem ({"file":"apps/comic/src/game/appraisal/mechanics.ts","line":203,"endLine":207})
-- code:apps/comic/src/game/appraisal/npc-events.ts:returnLoanItems ({"file":"apps/comic/src/game/appraisal/npc-events.ts","line":124,"endLine":129})
+- code:apps/comic/src/game/appraisal/npc-events.ts:returnLoanItems ({"file":"apps/comic/src/game/appraisal/npc-events.ts","line":125,"endLine":130})
 - code:apps/comic/src/game/appraisal/price-integrity.ts:integrityItemView ({"file":"apps/comic/src/game/appraisal/price-integrity.ts","line":78,"endLine":82})

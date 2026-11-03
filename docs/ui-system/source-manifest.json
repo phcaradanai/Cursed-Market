@@ -25,7 +25,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/ComicPreview.tsx",
-      "sha256": "36df8fedac7b2d078068413eb112b0d2d86fe773c11772b072fcefc2c604e875"
+      "sha256": "a5bb335c7b2ebd46cc4f528326e8dd24f6129ab147013cce1eb03ed2544ee9b5"
     },
     {
       "file": "apps/comic/src/appraisal-client/ComicTooltip.tsx",
@@ -81,7 +81,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/PersonalScoreResults.tsx",
-      "sha256": "cfd169ad71841c40668285fc405110b93064434192ffe8188a9c505fdc37163b"
+      "sha256": "2122fcdf8cc3efc26263c50d9089baa9e07cfd96dcf487670ab8a9ece19f767b"
     },
     {
       "file": "apps/comic/src/appraisal-client/PortalEventPreview.tsx",
@@ -277,11 +277,11 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
-      "sha256": "7d6ac0d082aeeb8890a39b8d4f32a2bd75ea649e3844d6ae642b08594dce8528"
+      "sha256": "75bafd3c6ada2a43d536dce0ed9db722146d42d972b4acec23cb2c6757079373"
     },
     {
       "file": "apps/comic/src/appraisal-client/personal-score-results.css",
-      "sha256": "ce0095fc8ce5319d3827561cbdd9b4b58810a0300934a6103d074f3536262ed8"
+      "sha256": "8750c79759c0b15b0ad05ba920784cb0f7feb121b28ff2c380a59d101be922a6"
     },
     {
       "file": "apps/comic/src/appraisal-client/public/art/comic/display-cloth.png",
@@ -969,7 +969,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/brokerage.ts",
-      "sha256": "2212d23e42d3ee82466d3848dfdd250384cde219f8d536603ccdca5b0b94e368"
+      "sha256": "18b4d1f6273adc9c1e8726831a16626905c0f2ffc0a8af4a146b7813c809a4b8"
     },
     {
       "file": "apps/comic/src/game/appraisal/challenge-rules.ts",
@@ -1025,11 +1025,11 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "sha256": "7e5b54cb9c7e94ac2e21a751f392f8a73ac3a6003cfffffe5c8247b4bfbf94fd"
+      "sha256": "27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91"
     },
     {
       "file": "apps/comic/src/game/appraisal/events.ts",
-      "sha256": "c4bd10912200be5fb50c13e7d6ba8f5fda16f777f61d4d18d51b76e768e00794"
+      "sha256": "ec9f25dde4fbf2168479d80dd2044a5c4445912442aa561bd69fc31d41f0777c"
     },
     {
       "file": "apps/comic/src/game/appraisal/ghost-service.ts",
@@ -1057,7 +1057,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "sha256": "fd26d12682fa0c2c7deefac8366efe50a68bb60ebe86043b792ab771edf1fcd4"
+      "sha256": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302"
     },
     {
       "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
@@ -1065,7 +1065,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/npc-events.ts",
-      "sha256": "f5b8054da8d618eec24a77f55ba6eb191fb567d7c14ed234c3db122332c8cb02"
+      "sha256": "f111c7cd8598b85165a91e5b88f7874d62d5502d3dce14a80b9fa71541e93bcf"
     },
     {
       "file": "apps/comic/src/game/appraisal/omen-table.ts",
@@ -1081,7 +1081,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
-      "sha256": "530582d98addfe110e9b8d5832f751369d22d68b9f7dda819af764adca7be72c"
+      "sha256": "6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5"
     },
     {
       "file": "apps/comic/src/game/appraisal/pilot-catalog.ts",
@@ -1097,7 +1097,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/price-integrity.ts",
-      "sha256": "6d3c08c7fb2f4957dc05ef91f7da11919b60dd49e8ab214ec0131144ae4dc4c1"
+      "sha256": "b198f88cedef64e0c857b93115b8b6b19f1c220a576364ed623af924ea7b4831"
     },
     {
       "file": "apps/comic/src/game/appraisal/pulse.ts",
@@ -1117,7 +1117,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/seals.ts",
-      "sha256": "89e1b53c5f9d9d7aa010fe00bc84e8b3e37f8f83cbeb2f28895704e7e7532807"
+      "sha256": "665663cb75944286130ac9597816c8a59b8631285077476cf08774037a6335f1"
     },
     {
       "file": "apps/comic/src/game/appraisal/secure-storage.ts",
@@ -1133,11 +1133,11 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/types.ts",
-      "sha256": "28ff5a2d7ff93c4193df4f109e3d010a083443b81a1eaa2ff29916840acd6a52"
+      "sha256": "a08d64b129ee90262d04c23ba05d857e669618963284c00662729c15b5e29878"
     },
     {
       "file": "apps/comic/src/game/appraisal/views.ts",
-      "sha256": "851f93039db2aa1ebccb4735532192f6fa0854255eced3312c5aad8245eac030"
+      "sha256": "1b94d331ad46a325185943f4260feaa3e6514724e317855a1740bfd40800a9f7"
     },
     {
       "file": "apps/comic/src/game/appraisal/wishlist-rules.ts",
@@ -1552,6 +1552,10 @@
       "sha256": "1da0ea64647b4bd69e47c39344153632695008b698324327fcaec6dabbb0e99d"
     },
     {
+      "file": "apps/comic/tests/personal-scoring-final-review.test.ts",
+      "sha256": "cd0148c0f44c3063f323467ff9b2f5a38e2e3ce12ec437bab993ea15a55e2813"
+    },
+    {
       "file": "apps/comic/tests/personal-scoring-network.test.ts",
       "sha256": "70fdb158b155a5fa3097b234ef68cd3ee192fa5874b0869b7e1a4badf89f9ec7"
     },
@@ -1561,11 +1565,11 @@
     },
     {
       "file": "apps/comic/tests/personal-scoring-ui.test.ts",
-      "sha256": "20b291400fa84c9743d73e803127ff15bc9c03292541d89423e0c3222094a921"
+      "sha256": "126e2e88307df16b4510e44ff679dbec6cd851d6e1566846cb64232324265915"
     },
     {
       "file": "apps/comic/tests/personal-scoring.test.ts",
-      "sha256": "c77980ac5688ba80ff05963a5371c58e820b1ba5cb6141f45426728545c85112"
+      "sha256": "229254ed2798d73c157d7d2fbea6c7b33d822221937bee17c47ecc7d63f95670"
     },
     {
       "file": "apps/comic/tests/playtest.test.ts",

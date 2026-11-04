@@ -1,0 +1,162 @@
+{
+  "asOf": "2026-11-04",
+  "baseRevision": "812ef79",
+  "status": "effects3-six-automatic-families-owner-tested-experimental",
+  "scope": "56registered,21primary owner-tested (pilot8+E05+E06+11items in E28/E61/E63/E02/E11/E07). Remaining35primary hooks disabled/unbound. Owner fixtures/21individual kind routes are not full normal-budget benefit exposure or UI acceptance. Default3/pilot4 unchanged; optional effects off; no release/balance claim.",
+  "newItemIds": [
+    "orc-oath-sword",
+    "orc-ironroot-greaves",
+    "orc-ember-salve",
+    "orc-clan-forge-tongs",
+    "vampire-gloam-violin",
+    "autometa-data-prism",
+    "autometa-servo-harness",
+    "alien-biobright-seedpod",
+    "deepsea-abyss-trident",
+    "deepsea-whale-conch-horn",
+    "swarm-pheromone-sprayer"
+  ],
+  "approvedSpec": "docs/game-design/remaining48-approval.json",
+  "checks": {
+    "redGreen": {
+      "initial": {
+        "pass": 1,
+        "fail": 8,
+        "log": "red.log"
+      },
+      "ownerAndLegacy": {
+        "pass": 38,
+        "log": "green4.log"
+      },
+      "recoveryOrigin": {
+        "red": "recovery-origin-red.log",
+        "green": "focused-final.log",
+        "contract": "Read-only quotes never consume rights; accepted discounted recovery locks player and physical origins across transfer/copy."
+      }
+    },
+    "focused": {
+      "pass": 229,
+      "log": "focused-final.log",
+      "note": "Includes65lifecycle and all three sealed-stage archive regressions; do not sum these subsets.",
+      "command": "cd apps/comic && node --test dist/tests/native56-catalog.test.js dist/tests/remaining48-automatic.test.js dist/tests/remaining48-challenge.test.js dist/tests/remaining48-foundation.test.js dist/tests/new56-pilot*.test.js dist/tests/appraisal-challenge.test.js dist/tests/collector-wishlist.test.js dist/tests/ghost-service*.test.js dist/tests/appraisal-catalog.test.js"
+    },
+    "regressions": {
+      "pass": 124,
+      "fail": 3,
+      "log": "regressions-final.log",
+      "externalBoundSeconds": 90,
+      "preexistingFailures": [
+        "zero-energy UI enables free actions and marks them free",
+        "survival SSR distinguishes zero energy from death and exposes Collector credit/item/modifier results",
+        "F1 score effects are disclosed in D10 direct/cross-shop/E08 contracts and B10/D10 event choices"
+      ],
+      "baseline": "baseline-four-failures.log",
+      "baselineRevision": "812ef79",
+      "note": "All4initial failures reproduced on isolated compiled812ef79. Historical audit cwd path corrected;3prior UI assertion mismatches remain and require semantic/approved-UI reconciliation, not assumed harmless. No new failure identified in this scoped set; not all-green/full-suite proof."
+    },
+    "sockets": {
+      "pass": 6,
+      "log": "collector-socket.log"
+    },
+    "compatibility": {
+      "legacyStrictReplays": 32,
+      "newEffects3Games": 4,
+      "commands": 1008,
+      "startingCredits": 40,
+      "life": 6,
+      "walletsReconciled": true,
+      "report": "compatibility/report.json"
+    },
+    "pilotPublic": {
+      "effects": 8,
+      "runs": 16,
+      "strictReplays": 32,
+      "original16auditHashesIdentical": true,
+      "report": "pilot-public/public-effects.json"
+    },
+    "ui": {
+      "sourceFingerprints": 411,
+      "contracts": 10,
+      "sourceLog": "ui-check.log",
+      "contractLog": "ui-test.log",
+      "newPixelRun": false,
+      "scope": "No Comic component/style changes. Prior baseline approval preserved; no current pixel comparison claim."
+    },
+    "build": {
+      "server": true,
+      "comicClient": true,
+      "logs": [
+        "final-build.log",
+        "client-build.log"
+      ],
+      "warning": "Existing Vite>500KB chunk warning remains."
+    },
+    "atlas": {
+      "inputs": 298,
+      "log": "atlas-check.log",
+      "scope": "Source/compiled fingerprints, registry/verified split, main HTML and generated graph freshness."
+    },
+    "trail": {
+      "exit": 1,
+      "scope": "20existing lexical findings in unrelated .impeccable/design.json and hook.cache.json excluded; branch diff coverage capped400KB, not whole-branch review.",
+      "log": "trail-check.log"
+    },
+    "edgeCorrections": {
+      "red": "boundary-range-red.log",
+      "green": "boundary-range-green.log",
+      "cases": 2,
+      "fixes": [
+        "E61 snapshots physical carried custody, checks current lock eligibility after expiry; excludes returned/new custody",
+        "E02 normalizes malformed unpowered replacement bounds to contain truth before approved narrowing, without overriding fog/exact facts"
+      ],
+      "candidateArchives": [],
+      "preservedPriorCandidate": "pre-edge-fix-candidate/",
+      "scope": "No approved image baseline changed; effects3 was an uncommitted candidate. Absent and2 stay immutable.",
+      "note": "Final229focused and all3historical-stage replays pass. Four effects3 candidate archive hashes unchanged after corrections; old candidate copies retained."
+    }
+  },
+  "rulings": [
+    {
+      "decision": "Boundary energy snapshot precedes all settlement mutations; origin rights settle in existing canonical player order.",
+      "reason": "Approved no-retroactive custody and shared per-encounter origin cap; use existing engine ordering rather than add a new random/priority rule.",
+      "risk": "When copies from one origin span seats, order decides the eligible positive settlement; covered by two-owner original/copy boundary test."
+    }
+  ],
+  "remaining": [
+    "35primary owner hooks and targetable active/consumable families",
+    "Full56 public-command measured benefit coverage at ordinary budget",
+    "Task5 full UX/quote synchronization: E63 shared rights can invalidate a previously displayed recovery quote; add expected-cost/quote revalidation before default rollout",
+    "Existing3UI wording test failures, full-game predicate/information/custody/balance acceptance",
+    "No fresh browser pixel run or full-suite/balance approval; UI component/styles unchanged"
+  ],
+  "sourceFingerprints": {
+    "apps/comic/src/game/appraisal/remaining48-effects.ts": "9135e8dd13897ef66daf804866cc3d3b25afd1ec19f57375f2221394c830a160",
+    "apps/comic/src/game/appraisal/mechanics.ts": "b79c6a5de7e7cf0f7249b5e8bb5cfdebf73a661fc8b17af67799f046211cd718",
+    "apps/comic/src/game/appraisal/cleanse.ts": "7f72cb7930cceafd6d4fe0ef0cda617fc39b5b60a9e9a061cc3295c88014d4bb",
+    "apps/comic/src/game/appraisal/engine.ts": "6cb91cf6ffa41ab22966df30db128b8daf4987453bc716e748fe872b86728dee",
+    "apps/comic/src/game/appraisal/types.ts": "0575f5c037624523b6d64383f31cd980f047e0da4eb9b85350f5a4db46af3add",
+    "apps/comic/tests/remaining48-automatic.test.ts": "462e5b407f5ab212e109150c631985157cad2c4ab1d9a76f4aabe5af04868301",
+    "apps/comic/tests/appraisal-survival.test.ts": "9ee0664f3f69e107ddb260bc34e6e99f6ed09e1c0482e73ba4de210387130adc",
+    "apps/comic/scripts/native56-compatibility.mjs": "4fe9128079417b31338d69e5a31ca62e275cbb7fb34aecd11821921792771c01"
+  },
+  "environmentErrors": [
+    "task-start did not recognize Task3 heading; normalized spaces then succeeded; Task3 remains in progress",
+    "First RED build had fixture grant signature mismatch; fixed test, then observed8actual failing feature tests",
+    "Green fixture used undefined trust as explicit0 and invalid Alien loan custody/reserve; fixed valid fixture rather than loosen runtime checks",
+    "Root focused invocation226/227 due legacy artwork lookup expecting apps/comic cwd; retained focused-root-cwd-failure.log; fresh correct app-cwd227/227",
+    "One finalization helper used wrong nested JSON key and wrote nothing; corrected schema path and regenerated sources"
+  ],
+  "evidenceFingerprints": {
+    "focused-final.log": "05688a4191becb93c140b9f36a1eb815cb3c7f936098fe84bec2746ccfcaeba8",
+    "regressions-final.log": "707324559f15944c4d230835fbf274f0f33d4d4d10ace56aa227b4ba096ca62d",
+    "baseline-four-failures.log": "70d22325900ef1728f95fe9eb47819e1629de8dd3bf6c6a8fafa2b46fcf0be64",
+    "collector-socket.log": "673c420eaa40914a0c2ddfbd92ffe2873df72aa38a7c688a22ece14ce9e750f0",
+    "compatibility/report.json": "e729d0888039d3bdc7e63f60d99dde9dba319df61b8187db58ef57bf2fb17485",
+    "pilot-public/public-effects.json": "9db670e932263c3be24d99864e83073c325821b1614ba40948cb2871016a07cd",
+    "ui-check.log": "b36c678af77405aa85a54a6239272cfe23824720545901d1bd8a4e2b94b977b4",
+    "ui-test.log": "b0b0a33874d41881501339ef793bdd8cdae1183ca13af9fa6b206245bed50cab",
+    "final-build.log": "511eb0c98cbf57ddc40da85928cbc84f4b5d6d16bac529afb0f92855850d3d91",
+    "client-build.log": "bf33f80506449932b1af22eafd520ee11ae461b352a5dde25f3e9c372f11f9e5"
+  },
+  "testContinuation": "Automatic-family factory now uses actual newest create defaults rather than force-setting3, so a later revision cannot accidentally disable earlier six families while old3 replay still passes."
+}

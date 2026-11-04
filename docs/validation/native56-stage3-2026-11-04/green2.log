@@ -1,0 +1,46 @@
+✔ new native runs select effects3, retaining historical revision2 as explicit config (65.182792ms)
+✔ E28 awards only a first actual meeting, records meetings without sword and counts only actual trust gain (43.275042ms)
+✖ E28 copy floors, custody and read-only peeking never fabricate a meeting bonus (28.717958ms)
+✔ E61 adds only boundary-carried energy after entry cost with a shared family cap and old recovery statuses (26.050042ms)
+✔ E61 ignores acquisition mid-encounter, dead seats and goods outside carried custody (7.378209ms)
+✔ E63 quotes and settles the same recovery discount with minimum1 and no extra recovery right (7.421834ms)
+✔ E02 narrows the real inspected range by20percent*S capped50 without revealing other facts or overriding fog/exact (17.296708ms)
+✔ E11 acceptance bonus is2pp per strength capped6pp and composes with unchanged pilot translator (12.022417ms)
+✔ E07 quote adds10pp per strength capped20pp, excludes the target tool and never changes price or tool truth (1.899333ms)
+✔ orc-ironroot-greaves restores actual energy at the next boundary (11.252042ms)
+✔ autometa-servo-harness restores actual energy at the next boundary (7.176875ms)
+✔ alien-biobright-seedpod restores actual energy at the next boundary (4.273458ms)
+✔ orc-ember-salve changes the actual recovery quote (1.252292ms)
+✔ deepsea-whale-conch-horn changes the actual recovery quote (2.0295ms)
+✔ vampire-gloam-violin changes the NPC acceptance outcome without changing its truth (1.713958ms)
+✔ swarm-pheromone-sprayer changes the NPC acceptance outcome without changing its truth (1.873875ms)
+✔ orc-clan-forge-tongs improves the real cleanse quote for another held item (2.050292ms)
+✔ deepsea-abyss-trident improves the real cleanse quote for another held item (1.475959ms)
+✔ E61 shared origin cap prevents an original and its transferred copy earning twice at one boundary (3.412958ms)
+✔ E07 public paid cleanse uses the displayed odds and retains both held tools, with no pre-attempt truth leak (5.925959ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 19
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 754.268083
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/remaining48-automatic.test.js:50:1
+✖ E28 copy floors, custody and read-only peeking never fabricate a meeting bonus (28.717958ms)
+  Error [RuleError]: สัญญายืมไม่ถูกต้อง
+      at check (file:///Users/Projects/Cursed%20Market/apps/comic/dist/src/game/appraisal/mechanics.js:26:15)
+      at assertAppraisalInvariants (file:///Users/Projects/Cursed%20Market/apps/comic/dist/src/game/appraisal/engine.js:958:13)
+      at applyAppraisalAction (file:///Users/Projects/Cursed%20Market/apps/comic/dist/src/game/appraisal/engine.js:770:5)
+      at act (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/remaining48-automatic.test.js:18:36)
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/remaining48-automatic.test.js:73:13)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12) {
+    code: 'alien-loan'
+  }

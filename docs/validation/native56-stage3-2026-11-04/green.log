@@ -1,0 +1,61 @@
+✔ new native runs select effects3, retaining historical revision2 as explicit config (66.45175ms)
+✖ E28 awards only a first actual meeting, records meetings without sword and counts only actual trust gain (41.778625ms)
+✖ E28 copy floors, custody and read-only peeking never fabricate a meeting bonus (4.842042ms)
+✔ E61 adds only boundary-carried energy after entry cost with a shared family cap and old recovery statuses (39.699917ms)
+✔ E61 ignores acquisition mid-encounter, dead seats and goods outside carried custody (6.136084ms)
+✔ E63 quotes and settles the same recovery discount with minimum1 and no extra recovery right (8.673583ms)
+✔ E02 narrows the real inspected range by20percent*S capped50 without revealing other facts or overriding fog/exact (18.078042ms)
+✔ E11 acceptance bonus is2pp per strength capped6pp and composes with unchanged pilot translator (11.743417ms)
+✔ E07 quote adds10pp per strength capped20pp, excludes the target tool and never changes price or tool truth (1.675584ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 7
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 556.663083
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/remaining48-automatic.test.js:24:1
+✖ E28 awards only a first actual meeting, records meetings without sword and counts only actual trust gain (41.778625ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  undefined !== 0
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/remaining48-automatic.test.js:48:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/remaining48-automatic.test.js:50:1
+✖ E28 copy floors, custody and read-only peeking never fabricate a meeting bonus (4.842042ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  undefined !== 0
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/remaining48-automatic.test.js:56:16)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

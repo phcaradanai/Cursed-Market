@@ -39,7 +39,7 @@ export type ItemKind = Remaining48Kind | LegacyItemFamily | PilotItemKind | 'mem
 export type AppraisalPhase = 'PORTALS' | 'APPRAISAL' | 'TRADE' | 'REVEAL' | 'RESULTS';
 export interface AppraisalConfig {
   /** Absent in catalog5 stage1 audits: pilot8 plus E05 only. */
-  native56Effects?:2;
+  native56Effects?:2|3;
   /** Versioned personal accomplishments; historical audits omit this. */
   personalScoringRules?:1;
   /** Corrected canonical writers; absence preserves pre-review experimental audit receipts. */
@@ -117,7 +117,8 @@ export interface WishBookRow { npc:NpcId; kind:ItemKind; price:number; initial:n
 export interface WishDesk { npc:NpcId; cost:number; cap:number; book:WishBookRow[]; replaces:NpcId|null; replaceable:NpcId[] }
 export interface WishOffer { npc:NpcId; kind:ItemKind; price:number; initial:number; floor:number; next:number; age:number; trust:number; buffs:number; debuffs:number; tried:boolean; options:Array<{markup:number;price:number;chance:number}>; itemIds:string[]; itemQuotes?:Record<string,Array<{markup:number;price:number}>> }
 /** `amount` is the most the deal can restore; `min` (life deals) is the least, rolled per encounter. */
-export interface RecoveryOffer { target:'energy'|'life'; credits:number; amount:number; min?:number }
+/** shortcut: Recovery settles the latest server quote; add expected-cost sync before default56 (Task5). */
+export interface RecoveryOffer { nativeDiscount?:number; target:'energy'|'life'; credits:number; amount:number; min?:number }
 export interface CollectorResult {
   personalScore?:import('./personal-scoring.js').PersonalScoreBreakdown;
   playerId:string; credits:number; itemValue:number; modifierPercent:number; statusIds:StatusId[]; score:number;
@@ -305,6 +306,9 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
 /** `rebate` is credits the owner pays the buyer when the sale completes, so a poor item can still find a price. */
 export interface SharedListing { ownerId: string; itemId: string; purchase: boolean; claims?: { genuine?: boolean; cursed?: boolean }; rebate?: number }
 export interface AppraisalState {
+  native56Meetings?:Record<string,NpcId[]>;
+  native56RecoveryUses?:{encounter:number;players:string[];origins:string[]};
+  native56EnergyUses?:{encounter:number;players:string[];origins:string[]};
   /** E06 rights belong to players and physical origins, never a screen or current owner. */
   native56ChallengeUses?:{encounter:number;players:string[];origins:string[]};
   personalPerformance?:import('./personal-scoring.js').PersonalPerformance;

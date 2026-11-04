@@ -1,5 +1,6 @@
 import {personalPerformanceInvariants,recordPersonalActivity,recordPersonalItemActivity,recordPersonalSale} from './personal-scoring.js';
 import {handleCollectorWishlist,reconcileCollectorWishlist,assertCollectorWishlistInvariants} from './collector-wishlist.js';
+import {remainingMeet,remainingBoundaryEnergy,remainingUseRecovery} from './remaining48-effects.js';
 import {pilotRerollCost,reconcilePilotCustody} from './pilot-effects.js';
 import {handleGhostAction,reconcileGhostJobs} from './ghost-service.js';
 import { integerEffect, statusMagnitude } from './copy-effects.js';
@@ -42,7 +43,7 @@ export const DEFAULT_APPRAISAL_CONFIG: AppraisalConfig = {
   bankReserve:2000, marketProbability:1, marketMaxOrders:3, marketQuota:1,
 };
 function validateConfig(config:AppraisalConfig):void {
-  check(config.native56Effects===undefined||config.native56Effects===2&&config.catalogVersion===5,'config','รุ่นเอฟเฟกต์สินค้าใหม่ไม่ถูกต้อง');
+  check(config.native56Effects===undefined||(config.native56Effects===2||config.native56Effects===3)&&config.catalogVersion===5,'config','รุ่นเอฟเฟกต์สินค้าใหม่ไม่ถูกต้อง');
   check(config.personalScoringRules===undefined||config.personalScoringRules===1,'config','กติกาคะแนนผลงานไม่ถูกต้อง');
   check(config.personalScoringFacts===undefined||config.personalScoringFacts===2,'config','รุ่นตัวบันทึกคะแนนไม่ถูกต้อง');
   check(config.personalScoringFacts===undefined||config.personalScoringRules===1,'config','ตัวบันทึกคะแนนต้องเปิดกติกาคะแนน');
@@ -94,7 +95,7 @@ function validateConfig(config:AppraisalConfig):void {
   }
 }
 export function createAppraisalRun(playerIds:string[],seed:string,overrides:Partial<AppraisalConfig>={}):AppraisalState {
-  return initialiseAppraisalRun(playerIds,seed,structuredClone({...DEFAULT_APPRAISAL_CONFIG,...overrides,...(overrides.catalogVersion===5&&overrides.native56Effects===undefined?{native56Effects:2 as const}:{}),...(overrides.personalScoringRules===1&&overrides.personalScoringFacts===undefined?{personalScoringFacts:2 as const}:{}),...(overrides.catalogVersion!==undefined&&overrides.catalogVersion<3&&overrides.trustAbilities===undefined?{trustAbilities:false}:{})}));
+  return initialiseAppraisalRun(playerIds,seed,structuredClone({...DEFAULT_APPRAISAL_CONFIG,...overrides,...(overrides.catalogVersion===5&&overrides.native56Effects===undefined?{native56Effects:3 as const}:{}),...(overrides.personalScoringRules===1&&overrides.personalScoringFacts===undefined?{personalScoringFacts:2 as const}:{}),...(overrides.catalogVersion!==undefined&&overrides.catalogVersion<3&&overrides.trustAbilities===undefined?{trustAbilities:false}:{})}));
 }
 /** Restore an exact saved config, including original audits without a catalog version. */
 export function restoreAppraisalRun(playerIds:string[],seed:string,config:AppraisalConfig):AppraisalState {
@@ -388,7 +389,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
     case 'enter': {
       check(state.phase==='PORTALS' && !p.eventOffer,'phase','เลือก event ก่อนเข้าประตู');
       const portal=p.portals.find(v=>v.id===action.portalId && !v.disabled); check(portal,'portal','ประตูนี้เข้าไม่ได้');
-      p.selectedPortalId=portal.id;p.stock=[...portal.stock];
+      remainingMeet(state,p,portal.npc);p.selectedPortalId=portal.id;p.stock=[...portal.stock];
       for(let slot=2;slot<2+stockBonus(state,p).extra;slot++)p.stock.push(spawnStockItem(state,p.id,state.players.indexOf(p),state.encounter,p.portals.indexOf(portal),slot,portal.npc));
       for(const id of p.stock)ensureItemAppearance(state,state.items[id]!);
       redeemNpcContracts(state,p,portal.npc);p.done=true;trace(state,p,'portal-entered',{portalId:portal.id,npc:portal.npc});break;
@@ -405,7 +406,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
       npcActionAllowed(state,p);check(!merchantTradeBanned(state,p),'merchant-banned','พ่อค้าทั้งหมดระงับการค้าชั่วคราว');const offer=recoveryOffer(state,p);
       check(offer && offer.target===action.target,'recovery','พ่อค้านี้ไม่มีดีลฟื้นที่เลือกหรือใช้สิทธิ์แล้ว');
       check(offer.target==='life'?p.life!<maxLifeOf(state,p)!:p.energy<maxEnergyOf(state,p),'recovery','ทรัพยากรนี้เต็มแล้ว');
-      spend(state,p,offer.credits,0,'recovery-deal');p.recoveryUsed=true;
+      spend(state,p,offer.credits,0,'recovery-deal');p.recoveryUsed=true;remainingUseRecovery(state,p,offer.nativeDiscount??0,offer.target);
       const amount=recoveryAmount(state,p,offer);
       if(offer.target==='life'){if(amount)healLife(state,p,amount,'recovery-deal');p.notes.push(`ดีลฟื้นชีวิต: จ่าย ${offer.credits} เครดิต ได้ฟื้น ${amount}`);p.notes=p.notes.slice(-30);}
       else recover(state,p,amount,'recovery-deal');
@@ -441,6 +442,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
 }
 export function advanceAppraisalEncounter(previous:AppraisalState):AppraisalState {
   check(previous.phase==='REVEAL','phase','ต้องเปิดผลก่อน');
+  const boundary=previous.config.native56Effects===3?Object.fromEntries(previous.players.map(p=>[p.id,p.inventory.filter(id=>previous.items[id]?.owner===p.id&&!p.npcContracts?.alien?.itemIds.includes(id))])):{};
   const state=structuredClone(previous);state.commands.push({type:'advance'});state.revision++;
   for(const p of state.players)if(p.roundReward && !p.roundReward.settled)bankRoundReward(state,p);
   if(state.config.secureEconomy)settleLoansBeforeAdvance(state);
@@ -462,6 +464,7 @@ export function advanceAppraisalEncounter(previous:AppraisalState):AppraisalStat
     p.statuses=p.statuses.filter(s=>s.expires>=state.encounter && s.charges>0);p.startWealth=wealth(state,p);
     if(state.config.survival)spend(state,p,0,Math.min(p.energy,state.config.survival.entryEnergyCost),'encounter-entry');
     else if(rested) recover(state,p,Math.max(0,state.config.recoveryEnergy-p.energy),'encounter-recovery',true);else recover(state,p,2,'encounter-rest',true);
+    const nativeEnergy=remainingBoundaryEnergy(state,p,boundary[p.id]??[]);if(nativeEnergy)recover(state,p,nativeEnergy,'E61');
     if(status(p,'D04')?.starts===state.encounter) {spend(state,p,Math.min(integerEffect(statusMagnitude(p,'D04',2)),p.credits),0,'D04');consumeStatus(p,'D04');}
     if(status(p,'B09')?.starts===state.encounter) {const amount=integerEffect(statusMagnitude(p,'B09',2));consumeStatus(p,'B09');recover(state,p,amount,'B09');}
     if(status(p,'D07')?.starts===state.encounter) {p.portals.at(-1)!.disabled=true;consumeStatus(p,'D07');}

@@ -1,3 +1,5 @@
+import {remainingHeldBonus} from './remaining48-effects.js';
+import {REMAINING48_RULES} from './remaining48-catalog.js';
 import { itemEffectScale, statusMagnitude, integerEffect } from './copy-effects.js';
 import { randomAt } from '../random.js';
 import { ITEM_SPECS } from './content.js';
@@ -17,7 +19,7 @@ function quote(state:AppraisalState,p:Appraiser,npc:NpcId,itemId:string,stoneKin
   // Polish: golden mouth takes 2 off the fee, hidden taxes add to it; the festival omen helps the odds.
   const fee=state.config.polish?feeSurcharge(state,p)-integerEffect(statusMagnitude(p,'B03',2)):0;
   const base=cleansePrice(item.kind,npc,trust,randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:cleanse-price`));
-  return {price:Math.max(1,base+fee),chance:cleanseChance(npc,trust,held,stoneKind,statusMagnitude(p,'B16',20)-statusMagnitude(p,'D16',15)+(omenNow(state)?.accept??0)+copyTools)};
+  return {price:Math.max(1,base+fee),chance:cleanseChance(npc,trust,held,stoneKind,statusMagnitude(p,'B16',20)-statusMagnitude(p,'D16',15)+(omenNow(state)?.accept??0)+copyTools+remainingHeldBonus(state,p,'E07',REMAINING48_RULES.E07.bonusBps,REMAINING48_RULES.E07.familyCapBps,itemId)/100)};
 }
 /** The merchant's standing offer for each held item. Contains no hidden curse information. */
 export function cleanseOffer(state:AppraisalState,p:Appraiser):CleanseOffer|undefined {

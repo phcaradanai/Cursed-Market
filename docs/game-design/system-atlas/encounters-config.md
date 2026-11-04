@@ -192,8 +192,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
           "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
           "source": {
             "file": "apps/comic/src/game/appraisal/engine.ts",
-            "line": 448,
-            "endLine": 448
+            "line": 450,
+            "endLine": 450
           },
           "guards": [],
           "expression": "state.phase='PORTALS'"
@@ -209,8 +209,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
           "owner": "code:apps/comic/src/game/appraisal/engine.ts:progress",
           "source": {
             "file": "apps/comic/src/game/appraisal/engine.ts",
-            "line": 231,
-            "endLine": 231
+            "line": 232,
+            "endLine": 232
           },
           "guards": [
             "state.phase==='PORTALS'"
@@ -228,8 +228,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
           "owner": "code:apps/comic/src/game/appraisal/engine.ts:progress",
           "source": {
             "file": "apps/comic/src/game/appraisal/engine.ts",
-            "line": 234,
-            "endLine": 234
+            "line": 235,
+            "endLine": 235
           },
           "guards": [
             "NOT state.phase==='PORTALS'",
@@ -248,8 +248,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
           "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
           "source": {
             "file": "apps/comic/src/game/appraisal/engine.ts",
-            "line": 224,
-            "endLine": 224
+            "line": 225,
+            "endLine": 225
           },
           "guards": [
             "NOT state.config.survival && (state.players.every(p=>p.life===0) || collectorDue(state))"
@@ -281,8 +281,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
           "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
           "source": {
             "file": "apps/comic/src/game/appraisal/engine.ts",
-            "line": 447,
-            "endLine": 447
+            "line": 449,
+            "endLine": 449
           },
           "guards": [
             "!state.config.survival && state.encounter===state.config.encounters"
@@ -637,8 +637,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
     },
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 36,
-      "endLine": 43
+      "line": 37,
+      "endLine": 44
     }
   },
   {
@@ -1018,8 +1018,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 107,
-          "endLine": 107
+          "line": 108,
+          "endLine": 108
         },
         "expression": "config.bankReserve",
         "guards": []
@@ -1029,8 +1029,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 492,
-          "endLine": 492
+          "line": 495,
+          "endLine": 495
         },
         "expression": "state.config.bankReserve",
         "guards": []
@@ -1040,8 +1040,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 494,
-          "endLine": 494
+          "line": 497,
+          "endLine": 497
         },
         "expression": "state.config.bankReserve",
         "guards": []
@@ -1102,8 +1102,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 90,
-          "endLine": 90
+          "line": 91,
+          "endLine": 91
         },
         "expression": "config.brokerage",
         "guards": []
@@ -1113,8 +1113,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 91,
-          "endLine": 91
+          "line": 92,
+          "endLine": 92
         },
         "expression": "config.brokerage",
         "guards": [
@@ -1126,8 +1126,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 109,
-          "endLine": 109
+          "line": 110,
+          "endLine": 110
         },
         "expression": "config.brokerage",
         "guards": []
@@ -1137,8 +1137,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 174,
-          "endLine": 174
+          "line": 175,
+          "endLine": 175
         },
         "expression": "state.config.brokerage",
         "guards": []
@@ -1148,19 +1148,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 202,
-          "endLine": 202
-        },
-        "expression": "state.config.brokerage",
-        "guards": []
-      },
-      {
-        "key": "brokerage",
-        "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
-        "source": {
-          "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 423,
-          "endLine": 423
+          "line": 203,
+          "endLine": 203
         },
         "expression": "state.config.brokerage",
         "guards": []
@@ -1178,11 +1167,22 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
       },
       {
         "key": "brokerage",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 425,
+          "endLine": 425
+        },
+        "expression": "state.config.brokerage",
+        "guards": []
+      },
+      {
+        "key": "brokerage",
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 523,
-          "endLine": 523
+          "line": 526,
+          "endLine": 526
         },
         "expression": "state.config.brokerage",
         "guards": []
@@ -1214,8 +1214,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 556,
-          "endLine": 556
+          "line": 559,
+          "endLine": 559
         },
         "expression": "state.config.brokerage",
         "guards": []
@@ -1300,8 +1300,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 45,
-          "endLine": 45
+          "line": 46,
+          "endLine": 46
         },
         "expression": "config.catalogVersion",
         "guards": []
@@ -1311,8 +1311,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 79,
-          "endLine": 79
+          "line": 80,
+          "endLine": 80
         },
         "expression": "config.catalogVersion",
         "guards": []
@@ -1322,8 +1322,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 79,
-          "endLine": 79
+          "line": 80,
+          "endLine": 80
         },
         "expression": "config.catalogVersion",
         "guards": []
@@ -1333,8 +1333,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 79,
-          "endLine": 79
+          "line": 80,
+          "endLine": 80
         },
         "expression": "config.catalogVersion",
         "guards": []
@@ -1344,8 +1344,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 79,
-          "endLine": 79
+          "line": 80,
+          "endLine": 80
         },
         "expression": "config.catalogVersion",
         "guards": []
@@ -1355,8 +1355,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 79,
-          "endLine": 79
+          "line": 80,
+          "endLine": 80
         },
         "expression": "config.catalogVersion",
         "guards": []
@@ -1366,8 +1366,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 79,
-          "endLine": 79
+          "line": 80,
+          "endLine": 80
         },
         "expression": "config.catalogVersion",
         "guards": []
@@ -1377,8 +1377,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 128,
-          "endLine": 128
+          "line": 129,
+          "endLine": 129
         },
         "expression": "config.catalogVersion",
         "guards": []
@@ -1388,8 +1388,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:damageLife",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 143,
-          "endLine": 143
+          "line": 144,
+          "endLine": 144
         },
         "expression": "state.config.catalogVersion",
         "guards": []
@@ -1399,8 +1399,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:damageLife",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 143,
-          "endLine": 143
+          "line": 144,
+          "endLine": 144
         },
         "expression": "state.config.catalogVersion",
         "guards": []
@@ -1410,8 +1410,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 427,
-          "endLine": 427
+          "line": 430,
+          "endLine": 430
         },
         "expression": "state.config.catalogVersion",
         "guards": [
@@ -1423,8 +1423,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 427,
-          "endLine": 427
+          "line": 430,
+          "endLine": 430
         },
         "expression": "state.config.catalogVersion",
         "guards": [
@@ -1524,8 +1524,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/remaining48-effects.ts:remainingHeld",
         "source": {
           "file": "apps/comic/src/game/appraisal/remaining48-effects.ts",
-          "line": 14,
-          "endLine": 14
+          "line": 15,
+          "endLine": 15
         },
         "expression": "state.config.catalogVersion",
         "guards": []
@@ -1668,8 +1668,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 69,
-          "endLine": 69
+          "line": 70,
+          "endLine": 70
         },
         "expression": "config.challenge",
         "guards": []
@@ -1679,8 +1679,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 69,
-          "endLine": 69
+          "line": 70,
+          "endLine": 70
         },
         "expression": "config.challenge",
         "guards": []
@@ -1690,8 +1690,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 128,
-          "endLine": 128
+          "line": 129,
+          "endLine": 129
         },
         "expression": "config.challenge",
         "guards": []
@@ -1701,8 +1701,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:share",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 249,
-          "endLine": 249
+          "line": 250,
+          "endLine": 250
         },
         "expression": "state.config.challenge",
         "guards": []
@@ -1712,8 +1712,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:propose",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 266,
-          "endLine": 266
+          "line": 267,
+          "endLine": 267
         },
         "expression": "state.config.challenge",
         "guards": [
@@ -1769,8 +1769,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/cleanse.ts:shopNpc",
         "source": {
           "file": "apps/comic/src/game/appraisal/cleanse.ts",
-          "line": 9,
-          "endLine": 9
+          "line": 11,
+          "endLine": 11
         },
         "expression": "state.config.cleanse",
         "guards": [
@@ -1793,8 +1793,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 72,
-          "endLine": 72
+          "line": 73,
+          "endLine": 73
         },
         "expression": "config.cleanse",
         "guards": []
@@ -1804,8 +1804,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 72,
-          "endLine": 72
+          "line": 73,
+          "endLine": 73
         },
         "expression": "config.cleanse",
         "guards": []
@@ -1815,8 +1815,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 117,
-          "endLine": 117
+          "line": 118,
+          "endLine": 118
         },
         "expression": "config.cleanse",
         "guards": [
@@ -1828,8 +1828,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 128,
-          "endLine": 128
+          "line": 129,
+          "endLine": 129
         },
         "expression": "config.cleanse",
         "guards": []
@@ -1883,8 +1883,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 60,
-          "endLine": 60
+          "line": 61,
+          "endLine": 61
         },
         "expression": "config.collectorDeadline",
         "guards": []
@@ -1894,8 +1894,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 60,
-          "endLine": 60
+          "line": 61,
+          "endLine": 61
         },
         "expression": "config.collectorDeadline",
         "guards": []
@@ -1905,8 +1905,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 60,
-          "endLine": 60
+          "line": 61,
+          "endLine": 61
         },
         "expression": "config.collectorDeadline",
         "guards": []
@@ -1916,8 +1916,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 60,
-          "endLine": 60
+          "line": 61,
+          "endLine": 61
         },
         "expression": "config.collectorDeadline",
         "guards": []
@@ -2072,8 +2072,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 50,
-          "endLine": 50
+          "line": 51,
+          "endLine": 51
         },
         "expression": "config.collectorWishlistRules",
         "guards": []
@@ -2083,8 +2083,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 50,
-          "endLine": 50
+          "line": 51,
+          "endLine": 51
         },
         "expression": "config.collectorWishlistRules",
         "guards": []
@@ -2094,8 +2094,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:publicOfferItems",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 373,
-          "endLine": 373
+          "line": 376,
+          "endLine": 376
         },
         "expression": "state.config.collectorWishlistRules",
         "guards": []
@@ -2126,8 +2126,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 65,
-          "endLine": 65
+          "line": 66,
+          "endLine": 66
         },
         "expression": "config.commerce",
         "guards": []
@@ -2137,8 +2137,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 65,
-          "endLine": 65
+          "line": 66,
+          "endLine": 66
         },
         "expression": "config.commerce",
         "guards": []
@@ -2148,8 +2148,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 117,
-          "endLine": 117
+          "line": 118,
+          "endLine": 118
         },
         "expression": "config.commerce",
         "guards": [
@@ -2161,8 +2161,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 181,
-          "endLine": 181
+          "line": 182,
+          "endLine": 182
         },
         "expression": "state.config.commerce",
         "guards": [
@@ -2174,8 +2174,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 500,
-          "endLine": 500
+          "line": 503,
+          "endLine": 503
         },
         "expression": "state.config.commerce",
         "guards": []
@@ -2185,8 +2185,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:stockBonus",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 62,
-          "endLine": 62
+          "line": 63,
+          "endLine": 63
         },
         "expression": "state.config.commerce",
         "guards": [
@@ -2198,8 +2198,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:stockBonus",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 63,
-          "endLine": 63
+          "line": 64,
+          "endLine": 64
         },
         "expression": "state.config.commerce",
         "guards": []
@@ -2209,8 +2209,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 277,
-          "endLine": 277
+          "line": 280,
+          "endLine": 280
         },
         "expression": "state.config.commerce",
         "guards": []
@@ -2220,8 +2220,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 291,
-          "endLine": 291
+          "line": 294,
+          "endLine": 294
         },
         "expression": "state.config.commerce",
         "guards": []
@@ -2231,8 +2231,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:completeAppraisedSale",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 310,
-          "endLine": 310
+          "line": 313,
+          "endLine": 313
         },
         "expression": "state.config.commerce",
         "guards": []
@@ -2242,8 +2242,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inheritKnowledge",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 336,
-          "endLine": 336
+          "line": 339,
+          "endLine": 339
         },
         "expression": "state.config.commerce",
         "guards": []
@@ -2253,8 +2253,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:noteRepeatBuy",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 348,
-          "endLine": 348
+          "line": 351,
+          "endLine": 351
         },
         "expression": "state.config.commerce",
         "guards": []
@@ -2427,8 +2427,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 64,
-          "endLine": 64
+          "line": 65,
+          "endLine": 65
         },
         "expression": "config.core2",
         "guards": []
@@ -2438,8 +2438,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 64,
-          "endLine": 64
+          "line": 65,
+          "endLine": 65
         },
         "expression": "config.core2",
         "guards": []
@@ -2449,8 +2449,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:rerollPortal",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 156,
-          "endLine": 156
+          "line": 157,
+          "endLine": 157
         },
         "expression": "state.config.core2",
         "guards": []
@@ -2460,8 +2460,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 175,
-          "endLine": 175
+          "line": 176,
+          "endLine": 176
         },
         "expression": "state.config.core2",
         "guards": []
@@ -2471,19 +2471,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 211,
-          "endLine": 211
-        },
-        "expression": "state.config.core2",
-        "guards": []
-      },
-      {
-        "key": "core2",
-        "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
-        "source": {
-          "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 217,
-          "endLine": 217
+          "line": 212,
+          "endLine": 212
         },
         "expression": "state.config.core2",
         "guards": []
@@ -2497,6 +2486,17 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
           "endLine": 218
         },
         "expression": "state.config.core2",
+        "guards": []
+      },
+      {
+        "key": "core2",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 219,
+          "endLine": 219
+        },
+        "expression": "state.config.core2",
         "guards": [
           "state.config.survival && p.life!>0",
           "state.config.core2"
@@ -2507,8 +2507,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 416,
-          "endLine": 416
+          "line": 417,
+          "endLine": 417
         },
         "expression": "state.config.core2",
         "guards": []
@@ -2564,8 +2564,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:recoveryOffer",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 157,
-          "endLine": 157
+          "line": 158,
+          "endLine": 158
         },
         "expression": "state.config.core2",
         "guards": []
@@ -2575,8 +2575,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 279,
-          "endLine": 279
+          "line": 282,
+          "endLine": 282
         },
         "expression": "state.config.core2",
         "guards": [
@@ -2588,8 +2588,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:completeAppraisedSale",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 318,
-          "endLine": 318
+          "line": 321,
+          "endLine": 321
         },
         "expression": "state.config.core2",
         "guards": [
@@ -2601,8 +2601,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:noteScrap",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 359,
-          "endLine": 359
+          "line": 362,
+          "endLine": 362
         },
         "expression": "state.config.core2",
         "guards": []
@@ -2680,8 +2680,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 76,
-          "endLine": 76
+          "line": 77,
+          "endLine": 77
         },
         "expression": "config.curseSight",
         "guards": []
@@ -2691,8 +2691,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 76,
-          "endLine": 76
+          "line": 77,
+          "endLine": 77
         },
         "expression": "config.curseSight",
         "guards": []
@@ -2728,8 +2728,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 227,
-          "endLine": 227
+          "line": 229,
+          "endLine": 229
         },
         "expression": "state.config.curseSight",
         "guards": [
@@ -2743,8 +2743,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 248,
-          "endLine": 248
+          "line": 251,
+          "endLine": 251
         },
         "expression": "state.config.curseSight",
         "guards": [
@@ -2757,8 +2757,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 254,
-          "endLine": 254
+          "line": 257,
+          "endLine": 257
         },
         "expression": "state.config.curseSight",
         "guards": []
@@ -2768,8 +2768,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 482,
-          "endLine": 482
+          "line": 485,
+          "endLine": 485
         },
         "expression": "state.config.curseSight",
         "guards": []
@@ -2817,8 +2817,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 218,
-          "endLine": 218
+          "line": 219,
+          "endLine": 219
         },
         "expression": "state.config.survival.encounterLifeCost",
         "guards": [
@@ -2862,8 +2862,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 82,
-          "endLine": 82
+          "line": 83,
+          "endLine": 83
         },
         "expression": "config.encounters",
         "guards": []
@@ -2873,8 +2873,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 82,
-          "endLine": 82
+          "line": 83,
+          "endLine": 83
         },
         "expression": "config.encounters",
         "guards": []
@@ -2884,8 +2884,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 113,
-          "endLine": 113
+          "line": 114,
+          "endLine": 114
         },
         "expression": "config.encounters",
         "guards": [
@@ -2897,8 +2897,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 447,
-          "endLine": 447
+          "line": 449,
+          "endLine": 449
         },
         "expression": "state.config.encounters",
         "guards": []
@@ -2919,8 +2919,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:grant",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 95,
-          "endLine": 95
+          "line": 96,
+          "endLine": 96
         },
         "expression": "state.config.encounters",
         "guards": []
@@ -2930,8 +2930,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 385,
-          "endLine": 385
+          "line": 388,
+          "endLine": 388
         },
         "expression": "state.config.encounters",
         "guards": []
@@ -2983,8 +2983,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 120,
-          "endLine": 120
+          "line": 121,
+          "endLine": 121
         },
         "expression": "config.survival.entryEnergyCost",
         "guards": [
@@ -2996,8 +2996,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 463,
-          "endLine": 463
+          "line": 465,
+          "endLine": 465
         },
         "expression": "state.config.survival.entryEnergyCost",
         "guards": [
@@ -3051,8 +3051,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 54,
-          "endLine": 54
+          "line": 55,
+          "endLine": 55
         },
         "expression": "config.eventChoiceRules",
         "guards": []
@@ -3062,8 +3062,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 54,
-          "endLine": 54
+          "line": 55,
+          "endLine": 55
         },
         "expression": "config.eventChoiceRules",
         "guards": []
@@ -3139,8 +3139,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 68,
-          "endLine": 68
+          "line": 69,
+          "endLine": 69
         },
         "expression": "config.expansion",
         "guards": []
@@ -3150,8 +3150,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 68,
-          "endLine": 68
+          "line": 69,
+          "endLine": 69
         },
         "expression": "config.expansion",
         "guards": []
@@ -3192,8 +3192,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 73,
-          "endLine": 73
+          "line": 74,
+          "endLine": 74
         },
         "expression": "config.fakeEffect",
         "guards": []
@@ -3203,8 +3203,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 73,
-          "endLine": 73
+          "line": 74,
+          "endLine": 74
         },
         "expression": "config.fakeEffect",
         "guards": []
@@ -3214,8 +3214,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 434,
-          "endLine": 434
+          "line": 437,
+          "endLine": 437
         },
         "expression": "state.config.fakeEffect",
         "guards": []
@@ -3256,8 +3256,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:rerollPortal",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 160,
-          "endLine": 160
+          "line": 161,
+          "endLine": 161
         },
         "expression": "activeNpcs(state.config).filter",
         "guards": []
@@ -3267,8 +3267,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:rerollPortal",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 161,
-          "endLine": 161
+          "line": 162,
+          "endLine": 162
         },
         "expression": "activeNpcs(state.config).filter",
         "guards": [
@@ -3353,8 +3353,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 75,
-          "endLine": 75
+          "line": 76,
+          "endLine": 76
         },
         "expression": "config.freeBuy",
         "guards": []
@@ -3364,8 +3364,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 75,
-          "endLine": 75
+          "line": 76,
+          "endLine": 76
         },
         "expression": "config.freeBuy",
         "guards": []
@@ -3375,8 +3375,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 394,
-          "endLine": 394
+          "line": 397,
+          "endLine": 397
         },
         "expression": "state.config.freeBuy",
         "guards": [
@@ -3408,8 +3408,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 74,
-          "endLine": 74
+          "line": 75,
+          "endLine": 75
         },
         "expression": "config.freeMerchantAction",
         "guards": []
@@ -3419,8 +3419,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 74,
-          "endLine": 74
+          "line": 75,
+          "endLine": 75
         },
         "expression": "config.freeMerchantAction",
         "guards": []
@@ -3430,8 +3430,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:pauseIfNeeded",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 194,
-          "endLine": 194
+          "line": 195,
+          "endLine": 195
         },
         "expression": "state.config.freeMerchantAction",
         "guards": []
@@ -3441,8 +3441,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:merchantActionFree",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 218,
-          "endLine": 218
+          "line": 220,
+          "endLine": 220
         },
         "expression": "state.config.freeMerchantAction",
         "guards": []
@@ -3472,8 +3472,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 62,
-          "endLine": 62
+          "line": 63,
+          "endLine": 63
         },
         "expression": "config.itemEffects",
         "guards": []
@@ -3483,8 +3483,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 62,
-          "endLine": 62
+          "line": 63,
+          "endLine": 63
         },
         "expression": "config.itemEffects",
         "guards": []
@@ -3494,8 +3494,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 428,
-          "endLine": 428
+          "line": 431,
+          "endLine": 431
         },
         "expression": "state.config.itemEffects",
         "guards": [
@@ -3507,8 +3507,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 466,
-          "endLine": 466
+          "line": 469,
+          "endLine": 469
         },
         "expression": "state.config.itemEffects",
         "guards": [
@@ -3521,8 +3521,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activationNote",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 492,
-          "endLine": 492
+          "line": 495,
+          "endLine": 495
         },
         "expression": "state.config.itemEffects",
         "guards": [
@@ -3534,8 +3534,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activationNote",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 500,
-          "endLine": 500
+          "line": 503,
+          "endLine": 503
         },
         "expression": "state.config.itemEffects",
         "guards": [
@@ -3619,8 +3619,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 49,
-          "endLine": 49
+          "line": 50,
+          "endLine": 50
         },
         "expression": "config.loanEndSettlement",
         "guards": []
@@ -3630,8 +3630,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 59,
-          "endLine": 59
+          "line": 60,
+          "endLine": 60
         },
         "expression": "config.loanEndSettlement",
         "guards": []
@@ -3641,8 +3641,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 59,
-          "endLine": 59
+          "line": 60,
+          "endLine": 60
         },
         "expression": "config.loanEndSettlement",
         "guards": []
@@ -3652,8 +3652,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 447,
-          "endLine": 447
+          "line": 449,
+          "endLine": 449
         },
         "expression": "state.config.loanEndSettlement",
         "guards": [
@@ -3696,8 +3696,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 181,
-          "endLine": 181
+          "line": 182,
+          "endLine": 182
         },
         "expression": "Object.values(state.config.rarityEconomy.tiers).map",
         "guards": [
@@ -3727,8 +3727,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 83,
-          "endLine": 83
+          "line": 84,
+          "endLine": 84
         },
         "expression": "config.marketMaxOrders",
         "guards": []
@@ -3738,8 +3738,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 177,
-          "endLine": 177
+          "line": 178,
+          "endLine": 178
         },
         "expression": "state.config.marketMaxOrders",
         "guards": []
@@ -3756,8 +3756,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 83,
-          "endLine": 83
+          "line": 84,
+          "endLine": 84
         },
         "expression": "config.marketProbability",
         "guards": []
@@ -3767,8 +3767,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 83,
-          "endLine": 83
+          "line": 84,
+          "endLine": 84
         },
         "expression": "config.marketProbability",
         "guards": []
@@ -3778,8 +3778,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 83,
-          "endLine": 83
+          "line": 84,
+          "endLine": 84
         },
         "expression": "config.marketProbability",
         "guards": []
@@ -3789,8 +3789,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 175,
-          "endLine": 175
+          "line": 176,
+          "endLine": 176
         },
         "expression": "state.config.marketProbability",
         "guards": []
@@ -3807,8 +3807,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 83,
-          "endLine": 83
+          "line": 84,
+          "endLine": 84
         },
         "expression": "config.marketQuota",
         "guards": []
@@ -3818,8 +3818,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 181,
-          "endLine": 181
+          "line": 182,
+          "endLine": 182
         },
         "expression": "state.config.marketQuota",
         "guards": []
@@ -3829,8 +3829,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 182,
-          "endLine": 182
+          "line": 183,
+          "endLine": 183
         },
         "expression": "state.config.marketQuota",
         "guards": []
@@ -3862,8 +3862,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 82,
-          "endLine": 82
+          "line": 83,
+          "endLine": 83
         },
         "expression": "config.maxEnergy",
         "guards": []
@@ -3873,8 +3873,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 82,
-          "endLine": 82
+          "line": 83,
+          "endLine": 83
         },
         "expression": "config.maxEnergy",
         "guards": []
@@ -3884,8 +3884,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 88,
-          "endLine": 88
+          "line": 89,
+          "endLine": 89
         },
         "expression": "config.maxEnergy",
         "guards": [
@@ -3897,8 +3897,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 117,
-          "endLine": 117
+          "line": 118,
+          "endLine": 118
         },
         "expression": "config.maxEnergy",
         "guards": []
@@ -3908,8 +3908,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:maxEnergyOf",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 43,
-          "endLine": 43
+          "line": 44,
+          "endLine": 44
         },
         "expression": "state.config.maxEnergy",
         "guards": []
@@ -3967,8 +3967,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 117,
-          "endLine": 117
+          "line": 118,
+          "endLine": 118
         },
         "expression": "config.survival.maxLife",
         "guards": [
@@ -3980,8 +3980,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:maxLifeOf",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 46,
-          "endLine": 46
+          "line": 47,
+          "endLine": 47
         },
         "expression": "state.config.survival.maxLife",
         "guards": [
@@ -4000,8 +4000,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 77,
-          "endLine": 77
+          "line": 78,
+          "endLine": 78
         },
         "expression": "config.multiCoinRewards",
         "guards": []
@@ -4011,8 +4011,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 77,
-          "endLine": 77
+          "line": 78,
+          "endLine": 78
         },
         "expression": "config.multiCoinRewards",
         "guards": []
@@ -4022,8 +4022,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 489,
-          "endLine": 489
+          "line": 492,
+          "endLine": 492
         },
         "expression": "state.config.multiCoinRewards",
         "guards": []
@@ -4033,8 +4033,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 505,
-          "endLine": 505
+          "line": 508,
+          "endLine": 508
         },
         "expression": "state.config.multiCoinRewards",
         "guards": [
@@ -4087,8 +4087,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 45,
-          "endLine": 45
+          "line": 46,
+          "endLine": 46
         },
         "expression": "config.native56Effects",
         "guards": []
@@ -4098,19 +4098,43 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 45,
-          "endLine": 45
+          "line": 46,
+          "endLine": 46
         },
         "expression": "config.native56Effects",
         "guards": []
       },
       {
         "key": "native56Effects",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 46,
+          "endLine": 46
+        },
+        "expression": "config.native56Effects",
+        "guards": []
+      },
+      {
+        "key": "native56Effects",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 445,
+          "endLine": 445
+        },
+        "expression": "previous.config.native56Effects",
+        "guards": [
+          "previous.config.native56Effects===3"
+        ]
+      },
+      {
+        "key": "native56Effects",
         "owner": "code:apps/comic/src/game/appraisal/remaining48-effects.ts:remainingHeld",
         "source": {
           "file": "apps/comic/src/game/appraisal/remaining48-effects.ts",
-          "line": 15,
-          "endLine": 15
+          "line": 16,
+          "endLine": 16
         },
         "expression": "state.config.native56Effects",
         "guards": []
@@ -4120,8 +4144,65 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/remaining48-effects.ts:remainingChallengePenalty",
         "source": {
           "file": "apps/comic/src/game/appraisal/remaining48-effects.ts",
-          "line": 25,
-          "endLine": 25
+          "line": 26,
+          "endLine": 26
+        },
+        "expression": "state.config.native56Effects",
+        "guards": []
+      },
+      {
+        "key": "native56Effects",
+        "owner": "code:apps/comic/src/game/appraisal/remaining48-effects.ts:remainingHeldBonus",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/remaining48-effects.ts",
+          "line": 38,
+          "endLine": 38
+        },
+        "expression": "state.config.native56Effects",
+        "guards": [
+          "state.config.native56Effects===3"
+        ]
+      },
+      {
+        "key": "native56Effects",
+        "owner": "code:apps/comic/src/game/appraisal/remaining48-effects.ts:remainingMeet",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/remaining48-effects.ts",
+          "line": 41,
+          "endLine": 41
+        },
+        "expression": "state.config.native56Effects",
+        "guards": []
+      },
+      {
+        "key": "native56Effects",
+        "owner": "code:apps/comic/src/game/appraisal/remaining48-effects.ts:remainingBoundaryEnergy",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/remaining48-effects.ts",
+          "line": 50,
+          "endLine": 50
+        },
+        "expression": "state.config.native56Effects",
+        "guards": []
+      },
+      {
+        "key": "native56Effects",
+        "owner": "code:apps/comic/src/game/appraisal/remaining48-effects.ts:remainingRecoveryPrice",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/remaining48-effects.ts",
+          "line": 57,
+          "endLine": 57
+        },
+        "expression": "state.config.native56Effects",
+        "guards": []
+      },
+      {
+        "key": "native56Effects",
+        "owner": "code:apps/comic/src/game/appraisal/remaining48-effects.ts:remainingRecoveryTools",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/remaining48-effects.ts",
+          "line": 68,
+          "endLine": 68
         },
         "expression": "state.config.native56Effects",
         "guards": []
@@ -4151,8 +4232,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 63,
-          "endLine": 63
+          "line": 64,
+          "endLine": 64
         },
         "expression": "config.npcEvents",
         "guards": []
@@ -4162,8 +4243,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 63,
-          "endLine": 63
+          "line": 64,
+          "endLine": 64
         },
         "expression": "config.npcEvents",
         "guards": []
@@ -4173,8 +4254,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 518,
-          "endLine": 518
+          "line": 521,
+          "endLine": 521
         },
         "expression": "state.config.npcEvents",
         "guards": [
@@ -4197,8 +4278,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 389,
-          "endLine": 389
+          "line": 392,
+          "endLine": 392
         },
         "expression": "state.config.npcEvents",
         "guards": []
@@ -4274,19 +4355,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 47,
-          "endLine": 47
-        },
-        "expression": "config.personalScoringFacts",
-        "guards": []
-      },
-      {
-        "key": "personalScoringFacts",
-        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
-        "source": {
-          "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 47,
-          "endLine": 47
+          "line": 48,
+          "endLine": 48
         },
         "expression": "config.personalScoringFacts",
         "guards": []
@@ -4309,6 +4379,17 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
           "file": "apps/comic/src/game/appraisal/engine.ts",
           "line": 49,
           "endLine": 49
+        },
+        "expression": "config.personalScoringFacts",
+        "guards": []
+      },
+      {
+        "key": "personalScoringFacts",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 50,
+          "endLine": 50
         },
         "expression": "config.personalScoringFacts",
         "guards": []
@@ -4382,8 +4463,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 46,
-          "endLine": 46
+          "line": 47,
+          "endLine": 47
         },
         "expression": "config.personalScoringRules",
         "guards": []
@@ -4393,8 +4474,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 46,
-          "endLine": 46
+          "line": 47,
+          "endLine": 47
         },
         "expression": "config.personalScoringRules",
         "guards": []
@@ -4404,8 +4485,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 48,
-          "endLine": 48
+          "line": 49,
+          "endLine": 49
         },
         "expression": "config.personalScoringRules",
         "guards": []
@@ -4415,8 +4496,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 108,
-          "endLine": 108
+          "line": 109,
+          "endLine": 109
         },
         "expression": "config.personalScoringRules",
         "guards": []
@@ -4615,8 +4696,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/cleanse.ts:quote",
         "source": {
           "file": "apps/comic/src/game/appraisal/cleanse.ts",
-          "line": 18,
-          "endLine": 18
+          "line": 20,
+          "endLine": 20
         },
         "expression": "state.config.polish",
         "guards": [
@@ -4628,8 +4709,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/cleanse.ts:cleanseItem",
         "source": {
           "file": "apps/comic/src/game/appraisal/cleanse.ts",
-          "line": 38,
-          "endLine": 38
+          "line": 40,
+          "endLine": 40
         },
         "expression": "state.config.polish",
         "guards": []
@@ -4650,8 +4731,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 67,
-          "endLine": 67
+          "line": 68,
+          "endLine": 68
         },
         "expression": "config.polish",
         "guards": []
@@ -4661,8 +4742,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 67,
-          "endLine": 67
+          "line": 68,
+          "endLine": 68
         },
         "expression": "config.polish",
         "guards": []
@@ -4672,8 +4753,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 128,
-          "endLine": 128
+          "line": 129,
+          "endLine": 129
         },
         "expression": "config.polish",
         "guards": []
@@ -4755,8 +4836,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:salePercent",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 76,
-          "endLine": 76
+          "line": 77,
+          "endLine": 77
         },
         "expression": "state.config.polish",
         "guards": []
@@ -4766,8 +4847,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:salePercent",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 77,
-          "endLine": 77
+          "line": 78,
+          "endLine": 78
         },
         "expression": "state.config.polish",
         "guards": [
@@ -4779,8 +4860,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:saleApply",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 85,
-          "endLine": 85
+          "line": 86,
+          "endLine": 86
         },
         "expression": "state.config.polish",
         "guards": []
@@ -4790,8 +4871,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:feeSurcharge",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 89,
-          "endLine": 89
+          "line": 90,
+          "endLine": 90
         },
         "expression": "state.config.polish",
         "guards": [
@@ -5147,8 +5228,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 51,
-          "endLine": 51
+          "line": 52,
+          "endLine": 52
         },
         "expression": "config.rarity",
         "guards": [
@@ -5160,8 +5241,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 52,
-          "endLine": 52
+          "line": 53,
+          "endLine": 53
         },
         "expression": "config.rarity",
         "guards": []
@@ -5171,8 +5252,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 52,
-          "endLine": 52
+          "line": 53,
+          "endLine": 53
         },
         "expression": "config.rarity",
         "guards": [
@@ -5184,8 +5265,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 482,
-          "endLine": 482
+          "line": 485,
+          "endLine": 485
         },
         "expression": "state.config.rarity",
         "guards": [
@@ -5256,8 +5337,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 51,
-          "endLine": 51
+          "line": 52,
+          "endLine": 52
         },
         "expression": "config.rarityEconomy",
         "guards": []
@@ -5267,8 +5348,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 51,
-          "endLine": 51
+          "line": 52,
+          "endLine": 52
         },
         "expression": "config.rarityEconomy",
         "guards": [
@@ -5280,8 +5361,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 181,
-          "endLine": 181
+          "line": 182,
+          "endLine": 182
         },
         "expression": "state.config.rarityEconomy",
         "guards": [
@@ -5293,8 +5374,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 181,
-          "endLine": 181
+          "line": 182,
+          "endLine": 182
         },
         "expression": "state.config.rarityEconomy",
         "guards": [
@@ -5306,8 +5387,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 481,
-          "endLine": 481
+          "line": 484,
+          "endLine": 484
         },
         "expression": "state.config.rarityEconomy",
         "guards": [
@@ -5319,27 +5400,12 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 519,
-          "endLine": 519
+          "line": 522,
+          "endLine": 522
         },
         "expression": "state.config.rarityEconomy",
         "guards": [
           "state.config.rarityEconomy"
-        ]
-      },
-      {
-        "key": "rarityEconomy",
-        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
-        "source": {
-          "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 468,
-          "endLine": 468
-        },
-        "expression": "state.config.rarityEconomy",
-        "guards": [
-          "works",
-          "bonus",
-          "(state.config.trustAbilities||state.config.rarityEconomy)"
         ]
       },
       {
@@ -5354,6 +5420,21 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "guards": [
           "works",
           "bonus",
+          "(state.config.trustAbilities||state.config.rarityEconomy)"
+        ]
+      },
+      {
+        "key": "rarityEconomy",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
+          "line": 474,
+          "endLine": 474
+        },
+        "expression": "state.config.rarityEconomy",
+        "guards": [
+          "works",
+          "bonus",
           "power>previous"
         ]
       },
@@ -5362,8 +5443,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 530,
-          "endLine": 530
+          "line": 533,
+          "endLine": 533
         },
         "expression": "state.config.rarityEconomy",
         "guards": []
@@ -5457,8 +5538,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 82,
-          "endLine": 82
+          "line": 83,
+          "endLine": 83
         },
         "expression": "config.recoveryEnergy",
         "guards": []
@@ -5468,8 +5549,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 82,
-          "endLine": 82
+          "line": 83,
+          "endLine": 83
         },
         "expression": "config.recoveryEnergy",
         "guards": []
@@ -5479,8 +5560,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 464,
-          "endLine": 464
+          "line": 466,
+          "endLine": 466
         },
         "expression": "state.config.recoveryEnergy",
         "guards": [
@@ -5500,8 +5581,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:stockBonus",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 64,
-          "endLine": 64
+          "line": 65,
+          "endLine": 65
         },
         "expression": "activeNpcs(state.config).reduce",
         "guards": [
@@ -5520,8 +5601,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 78,
-          "endLine": 78
+          "line": 79,
+          "endLine": 79
         },
         "expression": "config.roundRewards",
         "guards": []
@@ -5531,8 +5612,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 78,
-          "endLine": 78
+          "line": 79,
+          "endLine": 79
         },
         "expression": "config.roundRewards",
         "guards": []
@@ -5542,8 +5623,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 487,
-          "endLine": 487
+          "line": 490,
+          "endLine": 490
         },
         "expression": "state.config.roundRewards",
         "guards": []
@@ -5553,8 +5634,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 510,
-          "endLine": 510
+          "line": 513,
+          "endLine": 513
         },
         "expression": "state.config.roundRewards",
         "guards": [
@@ -5621,8 +5702,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 49,
-          "endLine": 49
+          "line": 50,
+          "endLine": 50
         },
         "expression": "config.secureEconomy",
         "guards": []
@@ -5632,8 +5713,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 53,
-          "endLine": 53
+          "line": 54,
+          "endLine": 54
         },
         "expression": "config.secureEconomy",
         "guards": []
@@ -5643,8 +5724,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 53,
-          "endLine": 53
+          "line": 54,
+          "endLine": 54
         },
         "expression": "config.secureEconomy",
         "guards": []
@@ -5654,8 +5735,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 110,
-          "endLine": 110
+          "line": 111,
+          "endLine": 111
         },
         "expression": "config.secureEconomy",
         "guards": []
@@ -5665,8 +5746,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 119,
-          "endLine": 119
+          "line": 120,
+          "endLine": 120
         },
         "expression": "config.secureEconomy",
         "guards": []
@@ -5676,8 +5757,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:pauseIfNeeded",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 193,
-          "endLine": 193
+          "line": 194,
+          "endLine": 194
         },
         "expression": "state.config.secureEconomy",
         "guards": []
@@ -5687,8 +5768,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 225,
-          "endLine": 225
+          "line": 226,
+          "endLine": 226
         },
         "expression": "state.config.secureEconomy",
         "guards": []
@@ -5698,8 +5779,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:respond",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 320,
-          "endLine": 320
+          "line": 321,
+          "endLine": 321
         },
         "expression": "state.config.secureEconomy",
         "guards": []
@@ -5709,8 +5790,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 356,
-          "endLine": 356
+          "line": 357,
+          "endLine": 357
         },
         "expression": "state.config.secureEconomy",
         "guards": []
@@ -5720,8 +5801,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 367,
-          "endLine": 367
+          "line": 368,
+          "endLine": 368
         },
         "expression": "state.config.secureEconomy",
         "guards": [
@@ -5733,19 +5814,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 385,
-          "endLine": 385
-        },
-        "expression": "state.config.secureEconomy",
-        "guards": []
-      },
-      {
-        "key": "secureEconomy",
-        "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
-        "source": {
-          "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 414,
-          "endLine": 414
+          "line": 386,
+          "endLine": 386
         },
         "expression": "state.config.secureEconomy",
         "guards": []
@@ -5766,8 +5836,19 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 432,
-          "endLine": 432
+          "line": 416,
+          "endLine": 416
+        },
+        "expression": "state.config.secureEconomy",
+        "guards": []
+      },
+      {
+        "key": "secureEconomy",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 433,
+          "endLine": 433
         },
         "expression": "state.config.secureEconomy",
         "guards": [
@@ -5779,8 +5860,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 435,
-          "endLine": 435
+          "line": 436,
+          "endLine": 436
         },
         "expression": "state.config.secureEconomy",
         "guards": []
@@ -5790,8 +5871,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 439,
-          "endLine": 439
+          "line": 440,
+          "endLine": 440
         },
         "expression": "state.config.secureEconomy",
         "guards": []
@@ -5801,8 +5882,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 446,
-          "endLine": 446
+          "line": 448,
+          "endLine": 448
         },
         "expression": "state.config.secureEconomy",
         "guards": []
@@ -5812,8 +5893,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 447,
-          "endLine": 447
+          "line": 449,
+          "endLine": 449
         },
         "expression": "state.config.secureEconomy",
         "guards": [
@@ -5825,8 +5906,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 449,
-          "endLine": 449
+          "line": 451,
+          "endLine": 451
         },
         "expression": "state.config.secureEconomy",
         "guards": []
@@ -5836,8 +5917,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:defaultAppraisalAction",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 476,
-          "endLine": 476
+          "line": 479,
+          "endLine": 479
         },
         "expression": "state.config.secureEconomy",
         "guards": [
@@ -5849,8 +5930,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 483,
-          "endLine": 483
+          "line": 486,
+          "endLine": 486
         },
         "expression": "state.config.secureEconomy",
         "guards": []
@@ -5860,8 +5941,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 494,
-          "endLine": 494
+          "line": 497,
+          "endLine": 497
         },
         "expression": "state.config.secureEconomy",
         "guards": [
@@ -5873,8 +5954,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 496,
-          "endLine": 496
+          "line": 499,
+          "endLine": 499
         },
         "expression": "state.config.secureEconomy",
         "guards": []
@@ -5906,8 +5987,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 378,
-          "endLine": 378
+          "line": 381,
+          "endLine": 381
         },
         "expression": "state.config.secureEconomy",
         "guards": []
@@ -6119,8 +6200,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 117,
-          "endLine": 117
+          "line": 118,
+          "endLine": 118
         },
         "expression": "config.startingCredits",
         "guards": []
@@ -6130,8 +6211,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 117,
-          "endLine": 117
+          "line": 118,
+          "endLine": 118
         },
         "expression": "config.startingCredits",
         "guards": []
@@ -6141,8 +6222,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 492,
-          "endLine": 492
+          "line": 495,
+          "endLine": 495
         },
         "expression": "state.config.startingCredits",
         "guards": []
@@ -6152,8 +6233,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 494,
-          "endLine": 494
+          "line": 497,
+          "endLine": 497
         },
         "expression": "state.config.startingCredits",
         "guards": []
@@ -6234,8 +6315,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 55,
-          "endLine": 55
+          "line": 56,
+          "endLine": 56
         },
         "expression": "config.statusLinks",
         "guards": []
@@ -6245,8 +6326,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 55,
-          "endLine": 55
+          "line": 56,
+          "endLine": 56
         },
         "expression": "config.statusLinks",
         "guards": []
@@ -6612,8 +6693,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 49,
-          "endLine": 49
+          "line": 50,
+          "endLine": 50
         },
         "expression": "config.survival",
         "guards": []
@@ -6623,8 +6704,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 84,
-          "endLine": 84
+          "line": 85,
+          "endLine": 85
         },
         "expression": "config.survival",
         "guards": []
@@ -6634,8 +6715,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 84,
-          "endLine": 84
+          "line": 85,
+          "endLine": 85
         },
         "expression": "config.survival",
         "guards": []
@@ -6645,19 +6726,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 84,
-          "endLine": 84
-        },
-        "expression": "config.survival",
-        "guards": []
-      },
-      {
-        "key": "survival",
-        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
-        "source": {
-          "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 84,
-          "endLine": 84
+          "line": 85,
+          "endLine": 85
         },
         "expression": "config.survival",
         "guards": []
@@ -6682,17 +6752,15 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
           "endLine": 86
         },
         "expression": "config.survival",
-        "guards": [
-          "config.survival"
-        ]
+        "guards": []
       },
       {
         "key": "survival",
-        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 107,
-          "endLine": 107
+          "line": 87,
+          "endLine": 87
         },
         "expression": "config.survival",
         "guards": [
@@ -6704,8 +6772,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 113,
-          "endLine": 113
+          "line": 108,
+          "endLine": 108
         },
         "expression": "config.survival",
         "guards": [
@@ -6717,8 +6785,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 117,
-          "endLine": 117
+          "line": 114,
+          "endLine": 114
         },
         "expression": "config.survival",
         "guards": [
@@ -6730,8 +6798,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 117,
-          "endLine": 117
+          "line": 118,
+          "endLine": 118
         },
         "expression": "config.survival",
         "guards": [
@@ -6743,8 +6811,21 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 120,
-          "endLine": 120
+          "line": 118,
+          "endLine": 118
+        },
+        "expression": "config.survival",
+        "guards": [
+          "config.survival"
+        ]
+      },
+      {
+        "key": "survival",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 121,
+          "endLine": 121
         },
         "expression": "config.survival",
         "guards": []
@@ -6754,8 +6835,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 120,
-          "endLine": 120
+          "line": 121,
+          "endLine": 121
         },
         "expression": "config.survival",
         "guards": [
@@ -6767,8 +6848,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 181,
-          "endLine": 181
+          "line": 182,
+          "endLine": 182
         },
         "expression": "state.config.survival",
         "guards": [
@@ -6780,8 +6861,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:pauseIfNeeded",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 194,
-          "endLine": 194
+          "line": 195,
+          "endLine": 195
         },
         "expression": "state.config.survival",
         "guards": []
@@ -6791,8 +6872,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 204,
-          "endLine": 204
+          "line": 205,
+          "endLine": 205
         },
         "expression": "state.config.survival",
         "guards": []
@@ -6802,8 +6883,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 214,
-          "endLine": 214
+          "line": 215,
+          "endLine": 215
         },
         "expression": "state.config.survival",
         "guards": [
@@ -6815,36 +6896,11 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 217,
-          "endLine": 217
-        },
-        "expression": "state.config.survival",
-        "guards": []
-      },
-      {
-        "key": "survival",
-        "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
-        "source": {
-          "file": "apps/comic/src/game/appraisal/engine.ts",
           "line": 218,
           "endLine": 218
         },
         "expression": "state.config.survival",
         "guards": []
-      },
-      {
-        "key": "survival",
-        "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
-        "source": {
-          "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 218,
-          "endLine": 218
-        },
-        "expression": "state.config.survival",
-        "guards": [
-          "state.config.survival && p.life!>0",
-          "state.config.core2"
-        ]
       },
       {
         "key": "survival",
@@ -6862,8 +6918,33 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 223,
-          "endLine": 223
+          "line": 219,
+          "endLine": 219
+        },
+        "expression": "state.config.survival",
+        "guards": [
+          "state.config.survival && p.life!>0",
+          "state.config.core2"
+        ]
+      },
+      {
+        "key": "survival",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 220,
+          "endLine": 220
+        },
+        "expression": "state.config.survival",
+        "guards": []
+      },
+      {
+        "key": "survival",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 224,
+          "endLine": 224
         },
         "expression": "state.config.survival",
         "guards": []
@@ -6873,8 +6954,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:forceBuy",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 283,
-          "endLine": 283
+          "line": 284,
+          "endLine": 284
         },
         "expression": "state.config.survival",
         "guards": []
@@ -6884,8 +6965,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:respond",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 301,
-          "endLine": 301
+          "line": 302,
+          "endLine": 302
         },
         "expression": "state.config.survival",
         "guards": []
@@ -6895,19 +6976,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 447,
-          "endLine": 447
-        },
-        "expression": "state.config.survival",
-        "guards": []
-      },
-      {
-        "key": "survival",
-        "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
-        "source": {
-          "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 458,
-          "endLine": 458
+          "line": 449,
+          "endLine": 449
         },
         "expression": "state.config.survival",
         "guards": []
@@ -6928,8 +6998,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 463,
-          "endLine": 463
+          "line": 462,
+          "endLine": 462
         },
         "expression": "state.config.survival",
         "guards": []
@@ -6939,8 +7009,19 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 463,
-          "endLine": 463
+          "line": 465,
+          "endLine": 465
+        },
+        "expression": "state.config.survival",
+        "guards": []
+      },
+      {
+        "key": "survival",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 465,
+          "endLine": 465
         },
         "expression": "state.config.survival",
         "guards": [
@@ -6952,8 +7033,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 513,
-          "endLine": 513
+          "line": 516,
+          "endLine": 516
         },
         "expression": "state.config.survival",
         "guards": []
@@ -6963,8 +7044,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 515,
-          "endLine": 515
+          "line": 518,
+          "endLine": 518
         },
         "expression": "state.config.survival",
         "guards": []
@@ -6974,8 +7055,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 519,
-          "endLine": 519
+          "line": 522,
+          "endLine": 522
         },
         "expression": "state.config.survival",
         "guards": []
@@ -6985,8 +7066,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 525,
-          "endLine": 525
+          "line": 528,
+          "endLine": 528
         },
         "expression": "state.config.survival",
         "guards": []
@@ -7065,8 +7146,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:maxEnergyOf",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 43,
-          "endLine": 43
+          "line": 44,
+          "endLine": 44
         },
         "expression": "state.config.survival",
         "guards": [
@@ -7078,8 +7159,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:maxLifeOf",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 46,
-          "endLine": 46
+          "line": 47,
+          "endLine": 47
         },
         "expression": "state.config.survival",
         "guards": [
@@ -7091,8 +7172,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:maxLifeOf",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 46,
-          "endLine": 46
+          "line": 47,
+          "endLine": 47
         },
         "expression": "state.config.survival",
         "guards": [
@@ -7104,8 +7185,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:grant",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 95,
-          "endLine": 95
+          "line": 96,
+          "endLine": 96
         },
         "expression": "state.config.survival",
         "guards": []
@@ -7115,8 +7196,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:healLife",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 136,
-          "endLine": 136
+          "line": 137,
+          "endLine": 137
         },
         "expression": "state.config.survival",
         "guards": []
@@ -7126,8 +7207,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:recoveryOffer",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 153,
-          "endLine": 153
+          "line": 154,
+          "endLine": 154
         },
         "expression": "state.config.survival",
         "guards": []
@@ -7137,8 +7218,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:completeAppraisedSale",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 312,
-          "endLine": 312
+          "line": 315,
+          "endLine": 315
         },
         "expression": "state.config.survival",
         "guards": []
@@ -7148,8 +7229,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:friendAppraised",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 332,
-          "endLine": 332
+          "line": 335,
+          "endLine": 335
         },
         "expression": "state.config.survival",
         "guards": []
@@ -7159,8 +7240,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 385,
-          "endLine": 385
+          "line": 388,
+          "endLine": 388
         },
         "expression": "state.config.survival",
         "guards": []
@@ -7170,8 +7251,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 417,
-          "endLine": 417
+          "line": 420,
+          "endLine": 420
         },
         "expression": "state.config.survival",
         "guards": []
@@ -7181,8 +7262,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 465,
-          "endLine": 465
+          "line": 468,
+          "endLine": 468
         },
         "expression": "state.config.survival",
         "guards": [
@@ -7194,8 +7275,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 476,
-          "endLine": 476
+          "line": 479,
+          "endLine": 479
         },
         "expression": "state.config.survival",
         "guards": []
@@ -7205,8 +7286,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activationNote",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 496,
-          "endLine": 496
+          "line": 499,
+          "endLine": 499
         },
         "expression": "state.config.survival",
         "guards": [
@@ -7219,8 +7300,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activationNote",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 496,
-          "endLine": 496
+          "line": 499,
+          "endLine": 499
         },
         "expression": "state.config.survival",
         "guards": [
@@ -7233,8 +7314,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:kill",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 509,
-          "endLine": 509
+          "line": 512,
+          "endLine": 512
         },
         "expression": "state.config.survival",
         "guards": [
@@ -7246,8 +7327,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 526,
-          "endLine": 526
+          "line": 529,
+          "endLine": 529
         },
         "expression": "state.config.survival",
         "guards": [
@@ -7260,8 +7341,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 538,
-          "endLine": 538
+          "line": 541,
+          "endLine": 541
         },
         "expression": "state.config.survival",
         "guards": [
@@ -7780,8 +7861,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 56,
-          "endLine": 56
+          "line": 57,
+          "endLine": 57
         },
         "expression": "config.systemLinks",
         "guards": []
@@ -7791,8 +7872,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 56,
-          "endLine": 56
+          "line": 57,
+          "endLine": 57
         },
         "expression": "config.systemLinks",
         "guards": []
@@ -7875,8 +7956,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 57,
-          "endLine": 57
+          "line": 58,
+          "endLine": 58
         },
         "expression": "config.theftTimeoutRules",
         "guards": []
@@ -7886,8 +7967,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 57,
-          "endLine": 57
+          "line": 58,
+          "endLine": 58
         },
         "expression": "config.theftTimeoutRules",
         "guards": []
@@ -7897,8 +7978,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 365,
-          "endLine": 365
+          "line": 366,
+          "endLine": 366
         },
         "expression": "state.config.theftTimeoutRules",
         "guards": []
@@ -7908,8 +7989,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 373,
-          "endLine": 373
+          "line": 374,
+          "endLine": 374
         },
         "expression": "state.config.theftTimeoutRules",
         "guards": [
@@ -7926,8 +8007,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:defaultAppraisalAction",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 475,
-          "endLine": 475
+          "line": 478,
+          "endLine": 478
         },
         "expression": "state.config.theftTimeoutRules",
         "guards": []
@@ -8022,8 +8103,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 181,
-          "endLine": 181
+          "line": 182,
+          "endLine": 182
         },
         "expression": "state.config.rarityEconomy.tiers",
         "guards": [
@@ -8097,8 +8178,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 66,
-          "endLine": 66
+          "line": 67,
+          "endLine": 67
         },
         "expression": "config.totalTrustStock",
         "guards": []
@@ -8108,8 +8189,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 66,
-          "endLine": 66
+          "line": 67,
+          "endLine": 67
         },
         "expression": "config.totalTrustStock",
         "guards": []
@@ -8119,8 +8200,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:stockBonus",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 63,
-          "endLine": 63
+          "line": 64,
+          "endLine": 64
         },
         "expression": "state.config.totalTrustStock",
         "guards": []
@@ -8175,8 +8256,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 61,
-          "endLine": 61
+          "line": 62,
+          "endLine": 62
         },
         "expression": "config.trustAbilities",
         "guards": []
@@ -8186,19 +8267,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 61,
-          "endLine": 61
-        },
-        "expression": "config.trustAbilities",
-        "guards": []
-      },
-      {
-        "key": "trustAbilities",
-        "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
-        "source": {
-          "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 128,
-          "endLine": 128
+          "line": 62,
+          "endLine": 62
         },
         "expression": "config.trustAbilities",
         "guards": []
@@ -8216,11 +8286,22 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
       },
       {
         "key": "trustAbilities",
+        "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/engine.ts",
+          "line": 130,
+          "endLine": 130
+        },
+        "expression": "config.trustAbilities",
+        "guards": []
+      },
+      {
+        "key": "trustAbilities",
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 418,
-          "endLine": 418
+          "line": 419,
+          "endLine": 419
         },
         "expression": "state.config.trustAbilities",
         "guards": []
@@ -8230,8 +8311,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 453,
-          "endLine": 453
+          "line": 455,
+          "endLine": 455
         },
         "expression": "state.config.trustAbilities",
         "guards": []
@@ -8241,8 +8322,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 498,
-          "endLine": 498
+          "line": 501,
+          "endLine": 501
         },
         "expression": "state.config.trustAbilities",
         "guards": [
@@ -8254,8 +8335,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:assertAppraisalInvariants",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 502,
-          "endLine": 502
+          "line": 505,
+          "endLine": 505
         },
         "expression": "state.config.trustAbilities",
         "guards": []
@@ -8304,8 +8385,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 390,
-          "endLine": 390
+          "line": 393,
+          "endLine": 393
         },
         "expression": "state.config.trustAbilities",
         "guards": [
@@ -8317,8 +8398,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 437,
-          "endLine": 437
+          "line": 440,
+          "endLine": 440
         },
         "expression": "state.config.trustAbilities",
         "guards": [
@@ -8331,29 +8412,14 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 448,
-          "endLine": 448
+          "line": 451,
+          "endLine": 451
         },
         "expression": "state.config.trustAbilities",
         "guards": [
           "works",
           "NOT spec.nativeEffect==='effect:E62'",
           "NOT state.config.trustAbilities && (ABILITY_ITEM_IDS as readonly string[]).includes(item.kind)"
-        ]
-      },
-      {
-        "key": "trustAbilities",
-        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
-        "source": {
-          "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 468,
-          "endLine": 468
-        },
-        "expression": "state.config.trustAbilities",
-        "guards": [
-          "works",
-          "bonus",
-          "(state.config.trustAbilities||state.config.rarityEconomy)"
         ]
       },
       {
@@ -8368,6 +8434,21 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "guards": [
           "works",
           "bonus",
+          "(state.config.trustAbilities||state.config.rarityEconomy)"
+        ]
+      },
+      {
+        "key": "trustAbilities",
+        "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
+        "source": {
+          "file": "apps/comic/src/game/appraisal/mechanics.ts",
+          "line": 474,
+          "endLine": 474
+        },
+        "expression": "state.config.trustAbilities",
+        "guards": [
+          "works",
+          "bonus",
           "power>previous"
         ]
       },
@@ -8376,8 +8457,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activationNote",
         "source": {
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 493,
-          "endLine": 493
+          "line": 496,
+          "endLine": 496
         },
         "expression": "state.config.trustAbilities",
         "guards": [
@@ -8501,8 +8582,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 58,
-          "endLine": 58
+          "line": 59,
+          "endLine": 59
         },
         "expression": "config.vaultInterestRules",
         "guards": []
@@ -8512,8 +8593,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 58,
-          "endLine": 58
+          "line": 59,
+          "endLine": 59
         },
         "expression": "config.vaultInterestRules",
         "guards": []
@@ -8672,8 +8753,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 70,
-          "endLine": 70
+          "line": 71,
+          "endLine": 71
         },
         "expression": "config.wishContract",
         "guards": []
@@ -8683,8 +8764,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 70,
-          "endLine": 70
+          "line": 71,
+          "endLine": 71
         },
         "expression": "config.wishContract",
         "guards": []
@@ -8694,8 +8775,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 117,
-          "endLine": 117
+          "line": 118,
+          "endLine": 118
         },
         "expression": "config.wishContract",
         "guards": [
@@ -8765,8 +8846,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 71,
-          "endLine": 71
+          "line": 72,
+          "endLine": 72
         },
         "expression": "config.wishlist",
         "guards": []
@@ -8776,8 +8857,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:validateConfig",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 71,
-          "endLine": 71
+          "line": 72,
+          "endLine": 72
         },
         "expression": "config.wishlist",
         "guards": []
@@ -8787,8 +8868,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
         "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
         "source": {
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 117,
-          "endLine": 117
+          "line": 118,
+          "endLine": 118
         },
         "expression": "config.wishlist",
         "guards": [
@@ -9548,8 +9629,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
     },
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 36,
-      "endLine": 43
+      "line": 37,
+      "endLine": 44
     }
   },
   {
@@ -10905,8 +10986,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
     "value": 0.5,
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 170,
-      "endLine": 170
+      "line": 171,
+      "endLine": 171
     },
     "extraction": "static literal/expression; unresolved expressions are tagged"
   },
@@ -11523,20 +11604,20 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
     "expression": "randomAt(state.seed,`${state.encounter}:${offer.id}:copy-seal`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/cleanse.ts:19:1503",
+    "id": "rng:apps/comic/src/game/appraisal/cleanse.ts:21:1624",
     "owner": "code:apps/comic/src/game/appraisal/cleanse.ts:quote",
     "key": "`${state.encounter}:${p.id}:${itemId}:cleanse-price`",
     "seed": "state.seed",
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/cleanse.ts",
-      "line": 19,
-      "endLine": 19
+      "line": 21,
+      "endLine": 21
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:cleanse-price`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/cleanse.ts:44:3320",
+    "id": "rng:apps/comic/src/game/appraisal/cleanse.ts:46:3552",
     "owner": "code:apps/comic/src/game/appraisal/cleanse.ts:cleanseItem",
     "key": "`${state.encounter}:${p.id}:${itemId}:cleanse-roll`",
     "seed": "state.seed",
@@ -11545,8 +11626,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/cleanse.ts",
-      "line": 44,
-      "endLine": 44
+      "line": 46,
+      "endLine": 46
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:cleanse-roll`)"
   },
@@ -11774,35 +11855,22 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:dread:item`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/engine.ts:122:13661",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:123:13792",
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:initialiseAppraisalRun",
     "key": "`${state.encounter}:${p.id}:entry-event`",
     "seed": "seed",
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 122,
-      "endLine": 122
+      "line": 123,
+      "endLine": 123
     },
     "expression": "randomAt(seed,`${state.encounter}:${p.id}:entry-event`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/engine.ts:131:14870",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:132:15001",
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
     "key": "`${itemId}:kind`",
-    "seed": "seed",
-    "guards": [],
-    "source": {
-      "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 131,
-      "endLine": 131
-    },
-    "expression": "randomAt(seed,`${itemId}:kind`)"
-  },
-  {
-    "id": "rng:apps/comic/src/game/appraisal/engine.ts:132:15028",
-    "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
-    "key": "`${itemId}:base`",
     "seed": "seed",
     "guards": [],
     "source": {
@@ -11810,25 +11878,25 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
       "line": 132,
       "endLine": 132
     },
-    "expression": "randomAt(seed,`${itemId}:base`)"
+    "expression": "randomAt(seed,`${itemId}:kind`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/engine.ts:134:15175",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:133:15159",
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
-    "key": "`${itemId}:ask`",
+    "key": "`${itemId}:base`",
     "seed": "seed",
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 134,
-      "endLine": 134
+      "line": 133,
+      "endLine": 133
     },
-    "expression": "randomAt(seed,`${itemId}:ask`)"
+    "expression": "randomAt(seed,`${itemId}:base`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/engine.ts:135:15290",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:135:15306",
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
-    "key": "`${itemId}:reservation`",
+    "key": "`${itemId}:ask`",
     "seed": "seed",
     "guards": [],
     "source": {
@@ -11836,25 +11904,25 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
       "line": 135,
       "endLine": 135
     },
-    "expression": "randomAt(seed,`${itemId}:reservation`)"
+    "expression": "randomAt(seed,`${itemId}:ask`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/engine.ts:137:15392",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:136:15421",
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
-    "key": "`${itemId}:genuine`",
+    "key": "`${itemId}:reservation`",
     "seed": "seed",
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 137,
-      "endLine": 137
+      "line": 136,
+      "endLine": 136
     },
-    "expression": "randomAt(seed,`${itemId}:genuine`)"
+    "expression": "randomAt(seed,`${itemId}:reservation`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/engine.ts:138:15443",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:138:15523",
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
-    "key": "`${itemId}:curse`",
+    "key": "`${itemId}:genuine`",
     "seed": "seed",
     "guards": [],
     "source": {
@@ -11862,12 +11930,12 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
       "line": 138,
       "endLine": 138
     },
-    "expression": "randomAt(seed,`${itemId}:curse`)"
+    "expression": "randomAt(seed,`${itemId}:genuine`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/engine.ts:139:15556",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:139:15574",
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
-    "key": "`${itemId}:certificate`",
+    "key": "`${itemId}:curse`",
     "seed": "seed",
     "guards": [],
     "source": {
@@ -11875,64 +11943,64 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
       "line": 139,
       "endLine": 139
     },
+    "expression": "randomAt(seed,`${itemId}:curse`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:140:15687",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:spawnStockItem",
+    "key": "`${itemId}:certificate`",
+    "seed": "seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 140,
+      "endLine": 140
+    },
     "expression": "randomAt(seed,`${itemId}:certificate`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/engine.ts:147:15952",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:148:16083",
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:generatePortals",
     "key": "`${encounter}:${seat}:${npc}:portal`",
     "seed": "seed",
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 147,
-      "endLine": 147
+      "line": 148,
+      "endLine": 148
     },
     "expression": "randomAt(seed,`${encounter}:${seat}:${npc}:portal`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/engine.ts:165:17329",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:166:17460",
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:rerollPortal",
     "key": "`${state.encounter}:${seat}:${npc}:portal:reroll${done+1}`",
     "seed": "state.seed",
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 165,
-      "endLine": 165
+      "line": 166,
+      "endLine": 166
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${seat}:${npc}:portal:reroll${done+1}`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/engine.ts:175:18082",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:176:18213",
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
     "key": "`${state.encounter}:market:open`",
     "seed": "state.seed",
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 175,
-      "endLine": 175
+      "line": 176,
+      "endLine": 176
     },
     "expression": "randomAt(state.seed,`${state.encounter}:market:open`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/engine.ts:177:18285",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:178:18416",
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
     "key": "`${state.encounter}:market:count`",
-    "seed": "state.seed",
-    "guards": [],
-    "source": {
-      "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 177,
-      "endLine": 177
-    },
-    "expression": "randomAt(state.seed,`${state.encounter}:market:count`)"
-  },
-  {
-    "id": "rng:apps/comic/src/game/appraisal/engine.ts:178:18435",
-    "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
-    "key": "`${state.encounter}:market:${kind}:rank`",
     "seed": "state.seed",
     "guards": [],
     "source": {
@@ -11940,23 +12008,36 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
       "line": 178,
       "endLine": 178
     },
+    "expression": "randomAt(state.seed,`${state.encounter}:market:count`)"
+  },
+  {
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:179:18566",
+    "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
+    "key": "`${state.encounter}:market:${kind}:rank`",
+    "seed": "state.seed",
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/engine.ts",
+      "line": 179,
+      "endLine": 179
+    },
     "expression": "randomAt(state.seed,`${state.encounter}:market:${kind}:rank`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/engine.ts:180:18628",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:181:18759",
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
     "key": "`${state.encounter}:market:${kind}:price`",
     "seed": "state.seed",
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 180,
-      "endLine": 180
+      "line": 181,
+      "endLine": 181
     },
     "expression": "randomAt(state.seed,`${state.encounter}:market:${kind}:price`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/engine.ts:181:19038",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:182:19169",
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:makeMarket",
     "key": "`${state.encounter}:market:${kind}:contract:${key}`",
     "seed": "state.seed",
@@ -11965,21 +12046,21 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 181,
-      "endLine": 181
+      "line": 182,
+      "endLine": 182
     },
     "expression": "randomAt(state.seed,`${state.encounter}:market:${kind}:contract:${key}`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/engine.ts:470:47200",
+    "id": "rng:apps/comic/src/game/appraisal/engine.ts:473:47772",
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "key": "`${state.encounter}:${p.id}:entry-event`",
     "seed": "state.seed",
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 470,
-      "endLine": 470
+      "line": 473,
+      "endLine": 473
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:entry-event`)"
   },
@@ -12259,7 +12340,7 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
     "expression": "randomAt(s.seed,`${itemId}:curse`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:92:6764",
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:93:6886",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:grant",
     "key": "`${state.encounter}:${p.id}:${p.activated.at(-1)}:${id}:copy-status`",
     "seed": "state.seed",
@@ -12268,26 +12349,26 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 92,
-      "endLine": 92
+      "line": 93,
+      "endLine": 93
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${p.activated.at(-1)}:${id}:copy-status`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:167:13177",
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:169:13543",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:recoveryAmount",
     "key": "`${state.encounter}:${p.id}:recovery-roll`",
     "seed": "state.seed",
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 167,
-      "endLine": 167
+      "line": 169,
+      "endLine": 169
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:recovery-roll`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:244:18784",
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:246:19150",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
     "key": "`${item.id}:narrow`",
     "seed": "state.seed",
@@ -12297,65 +12378,65 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 244,
-      "endLine": 244
+      "line": 246,
+      "endLine": 246
     },
     "expression": "randomAt(state.seed,`${item.id}:narrow`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:275:21076",
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:278:21544",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
     "key": "`${state.encounter}:${p.id}:${itemId}:detection`",
     "seed": "state.seed",
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 275,
-      "endLine": 275
+      "line": 278,
+      "endLine": 278
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:detection`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:277:21300",
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:280:21768",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
     "key": "`${state.encounter}:${p.id}:${itemId}:trust-accept:${counter?p.counters:0}`",
     "seed": "state.seed",
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 277,
-      "endLine": 277
+      "line": 280,
+      "endLine": 280
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:trust-accept:${counter?p.counters:0}`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:281:21838",
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:284:22412",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
     "key": "`${state.encounter}:${p.id}:${itemId}:overvalue:${counter?p.counters:0}`",
     "seed": "state.seed",
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 281,
-      "endLine": 281
+      "line": 284,
+      "endLine": 284
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:overvalue:${counter?p.counters:0}`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:434:35324",
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:437:35898",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "key": "`${state.encounter}:${p.id}:${itemId}:fake-effect`",
     "seed": "state.seed",
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 434,
-      "endLine": 434
+      "line": 437,
+      "endLine": 437
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:fake-effect`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:451:37137",
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:454:37711",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "key": "`${state.encounter}:${item.id}:copy-insight`",
     "seed": "state.seed",
@@ -12368,13 +12449,13 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 451,
-      "endLine": 451
+      "line": 454,
+      "endLine": 454
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${item.id}:copy-insight`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:455:37585",
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:458:38159",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "key": "`${state.encounter}:${item.id}:scan-price`",
     "seed": "state.seed",
@@ -12390,13 +12471,13 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 455,
-      "endLine": 455
+      "line": 458,
+      "endLine": 458
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${item.id}:scan-price`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:458:38016",
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:461:38590",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "key": "`${state.encounter}:${item.id}:recall-fact`",
     "seed": "state.seed",
@@ -12412,13 +12493,13 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 458,
-      "endLine": 458
+      "line": 461,
+      "endLine": 461
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${item.id}:recall-fact`)"
   },
   {
-    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:463:38477",
+    "id": "rng:apps/comic/src/game/appraisal/mechanics.ts:466:39051",
     "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
     "key": "`${state.encounter}:${item.id}:copy-key`",
     "seed": "state.seed",
@@ -12432,8 +12513,8 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "line": 463,
-      "endLine": 463
+      "line": 466,
+      "endLine": 466
     },
     "expression": "randomAt(state.seed,`${state.encounter}:${item.id}:copy-key`)"
   },

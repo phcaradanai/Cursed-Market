@@ -115,7 +115,7 @@ test('parser accepts late encounters and recovery but rejects actor/target injec
 });
 test('v0.4 historical audits still replay with their exact old shape and scoring',()=>{
   for(const file of ['docs/simulation/appraisal-delivery-v0.4/example-run.json','docs/simulation/appraisal-catalog-v0.4/example-run.json']){
-    const audit=JSON.parse(readFileSync(file,'utf8'));assert.deepEqual(exportAppraisalAudit(replayAppraisalAudit(audit)),audit);
+    const audit=JSON.parse(readFileSync(new URL('../../../../'+file,import.meta.url),'utf8'));assert.deepEqual(exportAppraisalAudit(replayAppraisalAudit(audit)),audit);
   }
 });
 for(const policy of ['cautious','aggressive','collector','trader'] as const)test(`survival ${policy} reads only DTOs and completes strict seeded replay`,()=>{

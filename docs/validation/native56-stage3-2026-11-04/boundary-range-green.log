@@ -1,0 +1,10 @@
+✔ E61 checks lock eligibility after expiry while snapshotting physical custody before the boundary (69.7785ms)
+✔ E02 inspected replacement truth stays inside its range even when no rarity-power metadata exists (21.140084ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 483.364792

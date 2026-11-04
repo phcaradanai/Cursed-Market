@@ -1,5 +1,6 @@
+import {REMAINING48_RULES} from './remaining48-catalog.js';
 import {priceCaliper,usePilot,pilotUses,pilotStrength} from './pilot-effects.js';
-import {isRemaining48Kind} from './remaining48-effects.js';
+import {isRemaining48Kind,remainingHeldBonus,remainingRecoveryPrice,remainingPriceRange} from './remaining48-effects.js';
 import {recordPersonalAppraisal,recordPersonalInspection,recordPersonalActivity,recordPersonalItemActivity,recordPersonalSale,setPersonalTrust} from './personal-scoring.js';
 import { itemPriceRange } from './rarity.js';
 import { rarityValue } from '../../shared/rarity-power.js';
@@ -156,10 +157,11 @@ export function recoveryOffer(state:AppraisalState,p:Appraiser):RecoveryOffer|un
   const b=passiveBonuses(state,p);
   const core2=!!state.config.core2;
   const salt=integerEffect(statusMagnitude(p,'D16',2))+feeSurcharge(state,p)+(core2?recoverySurcharge(state.encounter)+(omenNow(state)?.healCost??0):0);
-  if(ENERGY_DEAL_NPCS.includes(npc))return {target:'energy',credits:(core2?ENERGY_DEAL_CREDITS2:2)+salt,amount:3+b.energyRecovery};
+  if(ENERGY_DEAL_NPCS.includes(npc)){const price=(core2?ENERGY_DEAL_CREDITS2:2)+salt,credits=remainingRecoveryPrice(state,p,price,'energy');return {target:'energy',credits,amount:3+b.energyRecovery,...(credits<price?{nativeDiscount:price-credits}:{})};}
   // Life deals follow trust: none at 0, then 3/5/7 credits for 0-1, 1-2, 2-3 life. Held gear adds to both ends.
   const terms=(core2?lifeDealTerms2:lifeDealTerms)(p.npcTrust?.[npc]??0);
-  return terms?{target:'life',credits:terms.credits+salt,min:terms.min+b.lifeRecovery,amount:terms.max+b.lifeRecovery}:undefined;
+  if(!terms)return;const price=terms.credits+salt,credits=remainingRecoveryPrice(state,p,price,'life');
+  return {target:'life',credits,min:terms.min+b.lifeRecovery,amount:terms.max+b.lifeRecovery,...(credits<price?{nativeDiscount:price-credits}:{})};
 }
 /** What a deal restores this time; a ranged life deal rolls once per encounter from the run seed. */
 export function recoveryAmount(state:AppraisalState,p:Appraiser,offer:RecoveryOffer):number {
@@ -242,7 +244,8 @@ export function inspect(state: AppraisalState, p: Appraiser, itemId: string, pro
     if (status(p,'B01') && !status(p,'D02')) { learn(p,itemId,{base:item.base}); consumeStatus(p,'B01'); }
     else {
       const bounds = itemPriceRange(state.config,item); const offset = Math.floor(randomAt(state.seed,`${item.id}:narrow`)*4);
-      learn(p,itemId,{range:[Math.max(bounds[0],item.base-offset-2),Math.min(bounds[1],item.base+5-offset)]});
+      const range:[number,number]=[Math.max(bounds[0],item.base-offset-2),Math.min(bounds[1],item.base+5-offset)];
+      learn(p,itemId,{range:status(p,'D02')?range:remainingPriceRange(state,p,range,item.base)});
     }
   } else if (property === 'authenticity') learn(p,itemId,{genuine:item.genuine});
   else if (state.config.curseSight) learn(p,itemId,{effectsKnown:true,cursed:item.cursed});
@@ -274,7 +277,7 @@ export function appraise(state: AppraisalState, p: Appraiser, itemId: string, va
   const risk = detectionRisk(p,item,value);
   const caught = randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:detection`) < risk;
   const accuracy = Math.abs(value-item.base) <= item.base*.1;
-  let accepted = value >= item.reservation || !!state.config.commerce && value>0 && randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:trust-accept:${counter?p.counters:0}`)<Math.min(.95,trustAcceptanceBonus(p,item.npc)+passiveBonuses(state,p).acceptance/100+pilotStrength(state,p,'alien-thought-translator')*.02+statusMagnitude(p,'B12',.25)+(omenNow(state)?.accept??0)/100);
+  let accepted = value >= item.reservation || !!state.config.commerce && value>0 && randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:trust-accept:${counter?p.counters:0}`)<Math.min(.95,trustAcceptanceBonus(p,item.npc)+passiveBonuses(state,p).acceptance/100+pilotStrength(state,p,'alien-thought-translator')*.02+remainingHeldBonus(state,p,'E11',REMAINING48_RULES.E11.bonusBps,REMAINING48_RULES.E11.familyCapBps)/10000+statusMagnitude(p,'B12',.25)+(omenNow(state)?.accept??0)/100);
   // v0.6: pricing far above the merchant's own asking price rings alarm bells; the merchant refuses and may take revenge.
   const overChance=state.config.core2?overvalueChance(value,item.ask):0;
   let backlash=false;

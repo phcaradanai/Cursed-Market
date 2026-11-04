@@ -1,0 +1,206 @@
+✔ price starts at half the reference price, scales with the merchant roll and trust, and odds never reach 100% (27.884208ms)
+✔ the offer is public data, the attempt is charged either way, and success or failure reveals the curse state (1907.131875ms)
+✔ whetstone raises the odds and is spent; a clean item just costs the fee; bad targets are rejected (46.004917ms)
+✔ rule is opt-in: saved runs have no offer, no action and no smith tools in stock (11.108792ms)
+✔ runs saved without core2 keep the old prices and decay (145.048916ms)
+✔ core2 prices restoratives by their healing and keeps every good affordable (32.238625ms)
+✔ consign pays 80% of the real value minus a fee, less for fakes and cursed goods (0.226542ms)
+✔ overvaluing only draws a backlash from twice the asking price and caps below certainty (0.161791ms)
+✔ survival pressure grows but is capped, and the run is only over when every life is gone (9989.487708ms)
+✔ an overvalued appraisal is refused and the merchant court demands a payment of the seat’s choice (20.187792ms)
+✔ stealing from a shop costs energy, can only be tried once, and a failure must be paid for (63.782709ms)
+✔ picking a friend’s pocket moves credits, and a guard stops it (18.801958ms)
+✔ theft odds follow trust, the omen and the watchers (2.409542ms)
+✔ buying two goods other seats appraised refunds energy, at most twice per encounter (4.730625ms)
+✔ a merchant skill needs trust, works once per encounter, and its price is checked first (6.888041ms)
+✔ barter swaps goods without credits and rejects goods that are too cheap (4.068959ms)
+✔ a core2 run replays from its audit, and every new event has a choice for every purse (3707.217542ms)
+✔ rerolling a merchant door costs 2 energy, then 1 more each time, and resets next encounter (8.427959ms)
+✔ a door reroll needs enough energy, an open door and the core v0.6 rules (6.036208ms)
+(node:52740) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ encounters begin without energy loss, including advancement (135.455167ms)
+✔ free price inspection spends the item's shared right, not energy or quota (77.291333ms)
+✔ free authenticity inspection spends the item's shared right, not energy or quota (36.913333ms)
+✔ free effects inspection spends the item's shared right, not energy or quota (32.994125ms)
+✔ appraisal first is free, further inspection and counter both cost energy (11.908708ms)
+✔ rejected actions do not spend the free right, and retries cannot grant it twice (14.499708ms)
+✔ classic players at zero energy retain access to every remaining free merchant action (24.829208ms)
+✔ each item has its own right even beyond the normal inspection quota; owned goods have none (67.111125ms)
+✖ zero-energy UI enables free actions and marks them free (128.000459ms)
+✔ legacy configuration retains paid actions and new rules replay exactly (248.441792ms)
+(node:52741) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ historical rule: trust 1 with every merchant adds 1 shop item, and it does not scale (5.620416ms)
+✔ entering a portal lays out the earned extra goods (289.558959ms)
+✔ extra goods are real shop goods of the chosen merchant, deterministic, and usable like any other (63.622833ms)
+✔ the view tells the seat its tier and the trust the bonus needs (100.256666ms)
+✔ bonus goods are flagged, and the owner alone sees what they paid (24.807417ms)
+✔ new runs add one shop good per three total trust, from any merchants (174.075166ms)
+✔ pooled stock uses current trust and only merchants enabled in the run (46.973792ms)
+✔ trust ring shows pooled progress and repeated rewards in Thai and English (298.436708ms)
+✔ saved configs without pooled stock retain the historical all-merchant bonus and replay (437.012875ms)
+(node:52742) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ v0.5 keeps life separate, starts without entry energy and validates survival config while v0.4 is unchanged (174.63775ms)
+✔ spending last energy does not pause, zero-energy actions fail atomically and free decisions remain legal (123.944333ms)
+✔ NPC energy recovery is available at zero energy, costs credits once and retry is idempotent (39.958375ms)
+✔ NPC life recovery is available at zero energy, costs credits once and retry is idempotent (10.158ms)
+✔ zero-energy vampire blood pact restores energy but costs life and cannot resurrect a dead player (15.130625ms)
+✔ restorative consumable authenticity=true curse=false applies distinct life effects (9.486583ms)
+✔ restorative consumable authenticity=false curse=false applies distinct life effects (6.414166ms)
+✔ restorative consumable authenticity=true curse=true applies distinct life effects (52.5485ms)
+✔ restorative consumable authenticity=false curse=true applies distinct life effects (5.230875ms)
+✔ death is permanent, freezes owned property/statuses and survivors continue past it (18.531792ms)
+✔ all dead invokes Collector once: true/fake/cursed values plus credits and score statuses, without history bonuses (13.747291ms)
+✔ score buff and debuff cancel and Collector handles zero inventory and tied credit scores (3.366708ms)
+✔ a complete command-only survival run exceeds three encounters, drains life and strictly replays (457.866959ms)
+✔ parser accepts late encounters and recovery but rejects actor/target injections and unsafe numbers (2.060666ms)
+✔ v0.4 historical audits still replay with their exact old shape and scoring (181.482875ms)
+✔ survival cautious reads only DTOs and completes strict seeded replay (1764.321041ms)
+✔ survival aggressive reads only DTOs and completes strict seeded replay (15637.263042ms)
+✔ survival collector reads only DTOs and completes strict seeded replay (1636.999708ms)
+✔ survival trader reads only DTOs and completes strict seeded replay (8064.533666ms)
+✔ room death/resume/reveal/final audit/rematch with timers true (63.564208ms)
+✔ room death/resume/reveal/final audit/rematch with timers false (10.299083ms)
+✔ canonical 2-seat room audit reaches Collector and validates factual metadata (120.834416ms)
+✔ canonical 3-seat room audit reaches Collector and validates factual metadata (196.831167ms)
+✔ canonical 4-seat room audit reaches Collector and validates factual metadata (302.811125ms)
+✖ survival SSR distinguishes zero energy from death and exposes Collector credit/item/modifier results (163.237917ms)
+✖ F1 score effects are disclosed in D10 direct/cross-shop/E08 contracts and B10/D10 event choices (85.871209ms)
+✔ F2 command-only privacy: hidden wealth/accuracy stay private through appraisal, reveal, advance and spectator views (125.198875ms)
+✔ roster reports reveal confirmation, not the stale trade flag, and drops death badges at Collector results (38.929959ms)
+✔ new rooms start in Survival without a mode choice and reject classic clients (4.697084ms)
+✔ explicit legacy service configurations preserve classic games (4.340042ms)
+✔ entry explains Survival directly without a mode selector or comparison (69.33275ms)
+✔ solo classic room: a host plus bots plays a full replayable match (265.878334ms)
+✔ solo survival room: a host plus bots plays a full replayable match (656.917042ms)
+✔ only the host adds bots before the match, up to four seats, and bot styles match the simulation (0.848208ms)
+✔ different successful duels cannot farm the same stolen origin, including a copy (173.343667ms)
+✔ supported legacy cash theft records a real transfer and item theft shares the origin rule (161.23775ms)
+✔ owned appraisal uses the same first attempt identity as merchant appraisal (21.461375ms)
+✔ an excluded copy appraisal cannot consume the first original appraisal right (15.213416ms)
+✔ public vault movement counts only actual HP clamped after losing a held life relic (18.769083ms)
+✔ Collector includes prior cap normalization but its own item cleanup cannot award postgame HP points (8.567667ms)
+✔ public inventory settlement: cash-rebate preserves cash and origin eligibility (51.586666ms)
+✔ public inventory settlement: free preserves cash and origin eligibility (18.6045ms)
+✔ public inventory settlement: copy preserves cash and origin eligibility (8.897125ms)
+✔ public inventory settlement: barter preserves cash and origin eligibility (30.211708ms)
+✔ final foreclosure awards rarity to the dead lender estate, never repayment points (35.648375ms)
+✔ E44 completed event sale records settled quantity and gross credits (159.474209ms)
+✔ E61 completed event sale records settled quantity and gross credits (76.53475ms)
+✔ exact voluntary NPC life cost counts actual HP without consuming shield or vulnerability (49.513791ms)
+✔ exact seal life transfer records payer loss and not receiver healing (20.650875ms)
+✔ paid event inspection records newly learned authenticity, B02 records its additional curse facet (49.836458ms)
+✔ inherited identical price range does not become personally learned information (8.394166ms)
+✔ positive emergency liquidation counts the actual closed cash sale (12.70575ms)
+✔ funded consignment counts closing payout before separate extra fees (9.509417ms)
+✔ scoring v1 rejects incompatible config without survival (21.29825ms)
+✔ scoring v1 rejects incompatible config without final debt settlement (14.524042ms)
+✔ active live wish and Vampire contracts omit private performance identities (9.94825ms)
+✔ B02 personally revealed authenticity and curse are two new scoring facets (21.765917ms)
+✔ pre-review experimental scoring audits retain exact replay while new rooms select corrected receipt producers (1395.966375ms)
+✔ corrected producer version rejects unsupported markers and markers without scoring (1.061125ms)
+✔ restored corrected-writer config requires an explicit final debt settlement in secure rooms (4.843125ms)
+✔ actual HP removed includes lethal cost but excludes overkill, shields and postdeath damage (59.35375ms)
+✔ real canonical positive trust gain survives later loss in same command and clamps at cap (47.260042ms)
+✔ first personally inspected facets and first submitted appraisal use original identity (58.778875ms)
+✔ NPC settlement credits buyer and distinct appraiser once using gross sale price (14.757125ms)
+✔ copies and zero-credit acquisitions do not earn transaction achievements (15.740667ms)
+✔ public accepted requests record facts exactly once and flagless rooms keep old state shape (117.368083ms)
+✔ interest points use aged credits actually paid and cannot repeat at same boundary (2.999875ms)
+✔ funded loan earns both living parties only after full encounter and full repayment (16.72775ms)
+✔ reversing borrower and lender cannot score the same collateral origin twice for the pair (3.011708ms)
+✔ public complete run stores exact shared score breakdown, survives replay and counts settlement (111.743459ms)
+✔ market cash sales count once per origin and gross credits exclude side bonuses (4.378125ms)
+✔ only funded auction winner gets buying points and old custody owner gets no sale (5.891875ms)
+✔ successful RPS theft records an actual transfer without granting buy or sale points (9.36825ms)
+✔ NPC deferred contract earns only on successful return and not final forced principal return (17.050291ms)
+✔ accepted NPC wishlist scores its fulfilled contract identity and actual cash sale separately (15.991958ms)
+✔ dead estate keeps original rarity, excludes copies, applies modifier before ghost bonus (5.541ms)
+✔ approved ordinary achievements change the first example total to183 (198.294042ms)
+✔ second approved example141 and unchanged ghost addition after modifier (13.405666ms)
+✔ aggregate sale credits floor once, independently from sale quantity (0.628042ms)
+✔ real repeated raw sales and copies remain visible without repeated eligible points (7.993042ms)
+✔ raw cumulative trust is independent of ending trust and source tuple eligibility (0.779625ms)
+✔ receipt duplicate is idempotent, conflicting identity and malformed facts reject (14.356833ms)
+✔ flagless receipt recording creates no state and actor separation prevents leaking totals (2.468333ms)
+✔ all activity caps and fractional modifiers preserve exact approved behavior (4.097583ms)
+✔ rarity originals use approved six tiers and collection cap without adding ghost to ordinary points (1.699542ms)
+✔ approved weight manifest matches serialized metric definitions (8.975292ms)
+✔ unsafe score input and unknown facts reject without mutating caller arrays (2.342792ms)
+✔ engine initializes only explicit scoring1 and rejects unsupported versions and missing or corrupt ledger (300.744709ms)
+✔ zero eligible gains do not consume a future positive source and odd player identities stay isolated (8.250208ms)
+ℹ tests 127
+ℹ suites 0
+ℹ pass 124
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 31742.569042
+
+✖ failing tests:
+
+test at dist/tests/appraisal-free-actions.test.js:112:1
+✖ zero-energy UI enables free actions and marks them free (128.000459ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /สินค้าชิ้นนี้ตรวจสอบหรือประเมินฟรี 1 ครั้ง/. Input:
+  
+  '<link rel="preload" as="image" href="/art/comic/items/mirror-v2.png"/><section class="desk" aria-label="ประเมิน กระจกตารวม"><div class="appraisal-visual"><div class="relic-art"><img src="/art/comic/items/mirror-v2.png" alt="กระจกตารวม" width="1254" height="1254" loading="eager"/></div></div><div class="desk-reading"><header class="specimen-data"><h2 class="desk-title">กระจกตารวม <span class="rarity-label"><span class="rarity-chip">ธรรมดา</span><span class="rarity-chip"><span class="rarity-sep"> · </span>ต้นฉบับ</span><span class="rarity-chip"><span class="rarity-sep"> · </span>มูลค่า ×1</span><span class="rarity-chip"><span class="rarity-sep"> · </span>effect ×1</span></span></h2><dl class="specimen-price"><dt>พ่อค้าขาย</dt><dd><svg class="icon icon-coin" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="12" rx="8.5" ry="8.5"></ellipse><ellipse cx="12" cy="12" rx="5.6" ry="5.6"></ellipse><path d="M12 8.6v6.8M10.2 10.2h3.6"></path></svg>25 <small>เครดิต</small></dd></dl></header><div id="appraisal-reading-panel" class="appraisal-controls" data-page="assessment"><div class="assessment-content" data-step="inspect"><div class="desk-steps" role="tablist" aria-label="ขั้นตอนบนโต๊ะ"><button type="button" role="tab" id="_R_0H1_-inspect" aria-controls="_R_0H1_-inspect-panel" aria-selected="true" tabindex="0" class="current"><span class="step-number" aria-hidden="true">1</span><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="5.5"></circle><path d="m15 15 4.5 4.5"></path></svg><span class="step-label">ตรวจ<small>ฟรี 1 ครั้ง</small></span></button><button type="button" role="tab" id="_R_0H1_-appraise" aria-controls="_R_0H1_-appraise-panel" aria-selected="false" tabindex="-1" class=""><span class="step-number" aria-hidden="true">2</span><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v15.5M7.5 19.5h9M5 7.5h14M5 7.5 2.8 13a2.4 2.4 0 0 0 4.4 0L5 7.5ZM19 7.5 16.8 13a2.4 2.4 0 0 0 4.4 0L19 7.5Z"></path></svg><span class="step-label">ตีราคา<small>ยังไม่ตีราคา</small></span></button><button type="button" role="tab" id="_R_0H1_-buy" aria-controls="_R_0H1_-buy-panel" aria-selected="false" tabindex="-1" class=""><span class="step-number" aria-hidden="true">3</span><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 8.5h12l-1 11H7l-1-11Z"></path><path d="M9.2 8.5V7a2.8 2.8 0 0 1 5.6 0v1.5"></path></svg><span class="step-label">ซื้อ<small>25 เครดิต</small></span></button></div><ul class="fact-seals" aria-label="สิ่งที่รู้แล้ว"><li class="seal unknown" data-seal="base" title="มูลค่าจริง: ?"><svg class="icon icon-coin" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="12" rx="8.5" ry="8.5"></ellipse><ellipse cx="12" cy="12" rx="5.6" ry="5.6"></ellipse><path d="M12 8.6v6.8M10.2 10.2h3.6"></path></svg><span class="seal-label">มูลค่าจริง</span><strong>?</strong></li><li class="seal unknown" data-seal="genuine" title="ความแท้: ?"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 4.5 6v5.5c0 4.2 3.1 7.5 7.5 9.5 4.4-2 7.5-5.3 7.5-9.5V6L12 3Z"></path><path d="m8.5 11.5 2.5 2.5 4.5-5"></path></svg><span class="seal-label">ความแท้</span><strong>?</strong></li><li class="seal unknown" data-seal="cursed" title="คำสาป: ?"><svg class="icon icon-flame" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 3c1 5-3 6-2 10 2-1 3-3 3-5 4 4 5 6 4 9a6.5 6.5 0 0 1-12-1c-1-4 2-6 3-8-1 4 0 5 1 6-1-5 3-6 3-11Z"></path></svg><span class="seal-label">คำสาป</span><strong>?</strong></li><li class="seal unknown" data-seal="certificate" title="ใบรับรองพ่อค้า: ?"><svg class="icon icon-trust" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="12" r="4.6"></circle><circle cx="15" cy="12" r="4.6"></circle></svg><span class="seal-label">ใบรับรองพ่อค้า</span><strong>?</strong></li></ul><div role="tabpanel" id="_R_0H1_-inspect-panel" aria-labelledby="_R_0H1_-inspect" class="step-panel"><div class="inspection"><p>ตรวจหรือตีราคาฟรี 1 ครั้ง</p><div class="actions"><button class="inspect"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="5.5"></circle><path d="m15 15 4.5 4.5"></path></svg>ตรวจราคา · ฟรี</button><button class="inspect"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 4.5 6v5.5c0 4.2 3.1 7.5 7.5 9.5 4.4-2 7.5-5.3 7.5-9.5V6L12 3Z"></path><path d="m8.5 11.5 2.5 2.5 4.5-5"></path></svg>ตรวจความแท้ · ฟรี</button><button class="inspect"><svg class="icon icon-flame" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 3c1 5-3 6-2 10 2-1 3-3 3-5 4 4 5 6 4 9a6.5 6.5 0 0 1-12-1c-1-4 2-6 3-8-1 4 0 5 1 6-1-5 3-6 3-11Z"></path></svg>ตรวจคำสาป · ฟรี</button></div></div></div><div role="tabpanel" id="_R_0H1_-appraise-panel" aria-labelledby="_R_0H1_-appraise" hidden="" class="step-panel valuation-panel"><form class="valuation-form"><div class="valuation-editor"><label for="_R_0_">ราคาที่คุณประเมิน (เครดิต)</label><div class="price-entry"><div class="stepper"><button type="button" aria-label="ลดราคา 1 เครดิต"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 12h12"></path></svg></button><input id="_R_0_" type="number" inputMode="numeric" min="0" max="1000" step="1" required="" value="25"/><button type="button" aria-label="เพิ่มราคา 1 เครดิต"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6v12M6 12h12"></path></svg></button></div></div></div><p class="risk">ยังคำนวณโอกาสถูกจับผิดไม่ได้ · ตรวจราคาเพื่อหาเบาะแสมูลค่า · ถูกจับผิดอาจเสียเงินหรือของ</p><div class="valuation-footer"><button class="primary appraise"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v15.5M7.5 19.5h9M5 7.5h14M5 7.5 2.8 13a2.4 2.4 0 0 0 4.4 0L5 7.5ZM19 7.5 16.8 13a2.4 2.4 0 0 0 4.4 0L19 7.5Z"></path></svg>ยืนยันการประเมิน · ฟรี</button><button type="button" class="step-next">ไปหน้าซื้อ</button></div></form></div><div role="tabpanel" id="_R_0H1_-buy-panel" aria-labelledby="_R_0H1_-buy" hidden="" class="step-panel purchase"><div class="purchase-options"><div class="contract"><label class="check"><input type="checkbox"/><span>รับเงื่อนไขเพื่อลดราคา: ลด 3 เครดิต แลก <span class="term debuff passive" aria-describedby="_R_1cpul_"><svg class="icon icon-debuff" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5" stroke-dasharray="3.4 2.2"></circle><path d="m8.5 11 3.5 3.5 3.5-3.5"></path></svg>กระหายโลหิต<span class="sr-only"> (ผลเสีย)</span><span id="_R_1cpul_" role="tooltip" class="peek debuff" hidden="" style="visibility:hidden"><span class="peek-head"><svg class="icon icon-debuff" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5" stroke-dasharray="3.4 2.2"></circle><path d="m8.5 11 3.5 3.5 3.5-3.5"></path></svg><strong>กระหายโลหิต</strong><span class="peek-tag">ผลเสีย</span></span><span class="peek-body">การฟื้นพลังสองครั้งถัดไปได้น้อยลงครั้งละ 2 · Collector ลดคะแนนรวม 20% หากสถานะยังอยู่เมื่อตาย</span><span class="peek-foot">2 ครั้ง · หมดเมื่อจบช่วงหน้า</span></span></span></span></label><p>การฟื้นพลังสองครั้งถัดไปได้น้อยลงครั้งละ 2 · Collector ลดคะแนนรวม 20% หากสถานะยังอยู่เมื่อตาย · 2 ครั้ง · หมดเมื่อจบช่วงหน้า</p></div></div><div class="purchase-footer"><dl class="purchase-summary"><div><dt>ยอดชำระ</dt><dd><svg class="icon icon-coin" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="12" rx="8.5" ry="8.5"></ellipse><ellipse cx="12" cy="12" rx="5.6" ry="5.6"></ellipse><path d="M12 8.6v6.8M10.2 10.2h3.6"></path></svg>25 <small>เครดิต</small></dd></div><div><dt>ใช้พลัง</dt><dd><svg class="icon icon-energy" viewBox="0 0 24 24" width="20" height="20" fill="'... 783 more characters
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-free-actions.test.js:118:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<link rel="preload" as="image" href="/art/comic/items/mirror-v2.png"/><section class="desk" aria-label="ประเมิน กระจกตารวม"><div class="appraisal-visual"><div class="relic-art"><img src="/art/comic/items/mirror-v2.png" alt="กระจกตารวม" width="1254" height="1254" loading="eager"/></div></div><div class="desk-reading"><header class="specimen-data"><h2 class="desk-title">กระจกตารวม <span class="rarity-label"><span class="rarity-chip">ธรรมดา</span><span class="rarity-chip"><span class="rarity-sep"> · </span>ต้นฉบับ</span><span class="rarity-chip"><span class="rarity-sep"> · </span>มูลค่า ×1</span><span class="rarity-chip"><span class="rarity-sep"> · </span>effect ×1</span></span></h2><dl class="specimen-price"><dt>พ่อค้าขาย</dt><dd><svg class="icon icon-coin" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="12" rx="8.5" ry="8.5"></ellipse><ellipse cx="12" cy="12" rx="5.6" ry="5.6"></ellipse><path d="M12 8.6v6.8M10.2 10.2h3.6"></path></svg>25 <small>เครดิต</small></dd></dl></header><div id="appraisal-reading-panel" class="appraisal-controls" data-page="assessment"><div class="assessment-content" data-step="inspect"><div class="desk-steps" role="tablist" aria-label="ขั้นตอนบนโต๊ะ"><button type="button" role="tab" id="_R_0H1_-inspect" aria-controls="_R_0H1_-inspect-panel" aria-selected="true" tabindex="0" class="current"><span class="step-number" aria-hidden="true">1</span><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="5.5"></circle><path d="m15 15 4.5 4.5"></path></svg><span class="step-label">ตรวจ<small>ฟรี 1 ครั้ง</small></span></button><button type="button" role="tab" id="_R_0H1_-appraise" aria-controls="_R_0H1_-appraise-panel" aria-selected="false" tabindex="-1" class=""><span class="step-number" aria-hidden="true">2</span><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v15.5M7.5 19.5h9M5 7.5h14M5 7.5 2.8 13a2.4 2.4 0 0 0 4.4 0L5 7.5ZM19 7.5 16.8 13a2.4 2.4 0 0 0 4.4 0L19 7.5Z"></path></svg><span class="step-label">ตีราคา<small>ยังไม่ตีราคา</small></span></button><button type="button" role="tab" id="_R_0H1_-buy" aria-controls="_R_0H1_-buy-panel" aria-selected="false" tabindex="-1" class=""><span class="step-number" aria-hidden="true">3</span><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 8.5h12l-1 11H7l-1-11Z"></path><path d="M9.2 8.5V7a2.8 2.8 0 0 1 5.6 0v1.5"></path></svg><span class="step-label">ซื้อ<small>25 เครดิต</small></span></button></div><ul class="fact-seals" aria-label="สิ่งที่รู้แล้ว"><li class="seal unknown" data-seal="base" title="มูลค่าจริง: ?"><svg class="icon icon-coin" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="12" rx="8.5" ry="8.5"></ellipse><ellipse cx="12" cy="12" rx="5.6" ry="5.6"></ellipse><path d="M12 8.6v6.8M10.2 10.2h3.6"></path></svg><span class="seal-label">มูลค่าจริง</span><strong>?</strong></li><li class="seal unknown" data-seal="genuine" title="ความแท้: ?"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 4.5 6v5.5c0 4.2 3.1 7.5 7.5 9.5 4.4-2 7.5-5.3 7.5-9.5V6L12 3Z"></path><path d="m8.5 11.5 2.5 2.5 4.5-5"></path></svg><span class="seal-label">ความแท้</span><strong>?</strong></li><li class="seal unknown" data-seal="cursed" title="คำสาป: ?"><svg class="icon icon-flame" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 3c1 5-3 6-2 10 2-1 3-3 3-5 4 4 5 6 4 9a6.5 6.5 0 0 1-12-1c-1-4 2-6 3-8-1 4 0 5 1 6-1-5 3-6 3-11Z"></path></svg><span class="seal-label">คำสาป</span><strong>?</strong></li><li class="seal unknown" data-seal="certificate" title="ใบรับรองพ่อค้า: ?"><svg class="icon icon-trust" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="12" r="4.6"></circle><circle cx="15" cy="12" r="4.6"></circle></svg><span class="seal-label">ใบรับรองพ่อค้า</span><strong>?</strong></li></ul><div role="tabpanel" id="_R_0H1_-inspect-panel" aria-labelledby="_R_0H1_-inspect" class="step-panel"><div class="inspection"><p>ตรวจหรือตีราคาฟรี 1 ครั้ง</p><div class="actions"><button class="inspect"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="5.5"></circle><path d="m15 15 4.5 4.5"></path></svg>ตรวจราคา · ฟรี</button><button class="inspect"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 4.5 6v5.5c0 4.2 3.1 7.5 7.5 9.5 4.4-2 7.5-5.3 7.5-9.5V6L12 3Z"></path><path d="m8.5 11.5 2.5 2.5 4.5-5"></path></svg>ตรวจความแท้ · ฟรี</button><button class="inspect"><svg class="icon icon-flame" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 3c1 5-3 6-2 10 2-1 3-3 3-5 4 4 5 6 4 9a6.5 6.5 0 0 1-12-1c-1-4 2-6 3-8-1 4 0 5 1 6-1-5 3-6 3-11Z"></path></svg>ตรวจคำสาป · ฟรี</button></div></div></div><div role="tabpanel" id="_R_0H1_-appraise-panel" aria-labelledby="_R_0H1_-appraise" hidden="" class="step-panel valuation-panel"><form class="valuation-form"><div class="valuation-editor"><label for="_R_0_">ราคาที่คุณประเมิน (เครดิต)</label><div class="price-entry"><div class="stepper"><button type="button" aria-label="ลดราคา 1 เครดิต"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 12h12"></path></svg></button><input id="_R_0_" type="number" inputMode="numeric" min="0" max="1000" step="1" required="" value="25"/><button type="button" aria-label="เพิ่มราคา 1 เครดิต"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6v12M6 12h12"></path></svg></button></div></div></div><p class="risk">ยังคำนวณโอกาสถูกจับผิดไม่ได้ · ตรวจราคาเพื่อหาเบาะแสมูลค่า · ถูกจับผิดอาจเสียเงินหรือของ</p><div class="valuation-footer"><button class="primary appraise"><svg class="icon " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v15.5M7.5 19.5h9M5 7.5h14M5 7.5 2.8 13a2.4 2.4 0 0 0 4.4 0L5 7.5ZM19 7.5 16.8 13a2.4 2.4 0 0 0 4.4 0L19 7.5Z"></path></svg>ยืนยันการประเมิน · ฟรี</button><button type="button" class="step-next">ไปหน้าซื้อ</button></div></form></div><div role="tabpanel" id="_R_0H1_-buy-panel" aria-labelledby="_R_0H1_-buy" hidden="" class="step-panel purchase"><div class="purchase-options"><div class="contract"><label class="check"><input type="checkbox"/><span>รับเงื่อนไขเพื่อลดราคา: ลด 3 เครดิต แลก <span class="term debuff passive" aria-describedby="_R_1cpul_"><svg class="icon icon-debuff" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5" stroke-dasharray="3.4 2.2"></circle><path d="m8.5 11 3.5 3.5 3.5-3.5"></path></svg>กระหายโลหิต<span class="sr-only"> (ผลเสีย)</span><span id="_R_1cpul_" role="tooltip" class="peek debuff" hidden="" style="visibility:hidden"><span class="peek-head"><svg class="icon icon-debuff" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5" stroke-dasharray="3.4 2.2"></circle><path d="m8.5 11 3.5 3.5 3.5-3.5"></path></svg><strong>กระหายโลหิต</strong><span class="peek-tag">ผลเสีย</span></span><span class="peek-body">การฟื้นพลังสองครั้งถัดไปได้น้อยลงครั้งละ 2 · Collector ลดคะแนนรวม 20% หากสถานะยังอยู่เมื่อตาย</span><span class="peek-foot">2 ครั้ง · หมดเมื่อจบช่วงหน้า</span></span></span></span></label><p>การฟื้นพลังสองครั้งถัดไปได้น้อยลงครั้งละ 2 · Collector ลดคะแนนรวม 20% หากสถานะยังอยู่เมื่อตาย · 2 ครั้ง · หมดเมื่อจบช่วงหน้า</p></div></div><div class="purchase-footer"><dl class="purchase-summary"><div><dt>ยอดชำระ</dt><dd><svg class="icon icon-coin" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="12" rx="8.5" ry="8.5"></ellipse><ellipse cx="12" cy="12" rx="5.6" ry="5.6"></ellipse><path d="M12 8.6v6.8M10.2 10.2h3.6"></path></svg>25 <small>เครดิต</small></dd></div><div><dt>ใช้พลัง</dt><dd><svg class="icon icon-energy" viewBox="0 0 24 24" width="20" height="20" fill="'... 783 more characters,
+    expected: /สินค้าชิ้นนี้ตรวจสอบหรือประเมินฟรี 1 ครั้ง/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at dist/tests/appraisal-survival.test.js:308:1
+✖ survival SSR distinguishes zero energy from death and exposes Collector credit/item/modifier results (163.237917ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(html.includes('คุณเป็นผู้ชม'))
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-survival.test.js:334:5)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at dist/tests/appraisal-survival.test.js:343:1
+✖ F1 score effects are disclosed in D10 direct/cross-shop/E08 contracts and B10/D10 event choices (85.871209ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(html.includes('คนกลาง'))
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-survival.test.js:394:5)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

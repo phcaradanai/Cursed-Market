@@ -26,7 +26,7 @@
 - Hidden authenticity/curse and blind Collector/Spirit goods must not leak through quotes, clues, statistics or logs; pin Task2/5 private DTO tests.
 - Original kind/family events must not silently grant unrelated powers to new visual types; Task6 inventories gates and obtains approval for material encounter remappings rather than aliasing.
 
-### Task1 — Approval, typed contracts and numerical foundation
+### Task 1 — Approval, typed contracts and numerical foundation
 
 **Files:** remaining48-approval.json; scripts/build-remaining48-catalog.mjs; apps/comic/src/game/appraisal/remaining48-catalog.ts and remaining48-numbers.ts; apps/comic/tests/remaining48-foundation.test.ts; current context/Atlas.
 
@@ -36,7 +36,7 @@
 - [x] Observe missing-module failure, implement only those exports, run build:server and compiled foundation tests; generator --check must match frozen approved source, not trust a handwritten duplicate.
 - [x] Commit checkpoint e15a4a6 with explicit8native/48still-unbound status; do not call completed foundations a playable full56 rollout.
 
-### Task2 — Versioned native56 catalog and selection/description paths
+### Task 2 — Versioned native56 catalog and selection/description paths
 
 **Files:** types.ts, content.ts, core2.ts, passives.ts, merchant-abilities.ts, wishlist-rules.ts, collector-wishlist.ts, ghost-service.ts and exact source consumers located before edits; native catalog tests.
 
@@ -46,7 +46,7 @@
 - [x] Implement versioned pool; do not enable at main entry or expose new-room option until Task3–6 complete.
 - [x] Run catalog/spawn/inspection/copy/purchase/loan/vault/auction/Collector/Spirit/replay suites; preserve sealed old audit results.
 
-### Task3 — Automatic settlement families
+### Task 3 — Automatic settlement families
 
 **Files:** existing mechanics/challenge/cleanse/passives/commerce/brokerage/secure-storage/theft/survival/core2/engine owners, remaining48-effects.ts if cohesive shared state is needed, types/view/journal and focused effect tests.
 
@@ -56,7 +56,7 @@
 - [ ] Implement canonical quotes/triggers and ledgers; no minting, no double actual stats, no returning custody/charge rights after transfer; preserve old behavior without version5.
 - [ ] Run focused tests and sealed legacy replays after each owner group; add actual public-command benefit pairs rather than counting acquired items as exposure.
 
-### Task4 — Explicit targetable active/consumable families
+### Task 4 — Explicit targetable active/consumable families
 
 **Files:** activation dispatcher, protocol/types/views, ability-rules.ts, events.ts/portal provenance and status instance tracking; focused lifecycle/network tests.
 
@@ -66,7 +66,7 @@
 - [ ] Implement original-instance state tracking and revalidation at settle; server rejects illegal direct activation without charge/cost. Preserve mandatory RPS and event blocking rules.
 - [ ] Run protocol/engine/socket/private DTO/replay cases including death during activation; no runtime fallback that guesses a target or silently opens unknown goods.
 
-### Task5 — Shared Comic interactions and actual multiplayer
+### Task 5 — Shared Comic interactions and actual multiplayer
 
 **Files:** relevant ItemActions/HeldEffects/Details/Portal/Status controls and existing Comic components only; existing live UI harnesses.
 
@@ -75,7 +75,7 @@
 - [ ] Add interaction assertions for known costs, targeting, disabled explanations, body/dock/preview access, symmetry and no scroll at1024/1440/1920; preserve14approved baselines.
 - [ ] Implement controls and journal reasons; run ui:check/ui:test/ui:smoke/ui:visual and actual2App/reconnect/retry/full-game evidence with matching fresh receipts.
 
-### Task6 — Whole-game predicate reconciliation and balance acceptance
+### Task 6 — Whole-game predicate reconciliation and balance acceptance
 
 **Files:** factual capability audit, current event/encounter/omen source consumers, existing simulation/public scenario tools, context/Atlas/verification.
 
@@ -103,3 +103,17 @@ Supersedes the stage1 current-count note above:56registered /10primary verified 
 Contract correction: E06 counts the first real positive penalty, not the first profitable saving. Positive penalty with eligible basis points consumes player/origin rights even when the saving rounds to0; actual zero penalty/void0 preserves them. A failing regression caught38 instead of50 on the next challenge; fixed before commit. No new passive no-op rule.
 
 Final effects2 checkpoint verification:205focused pass, including65lifecycle and both sealed-stage replay tests;410source fingerprints/10UI contracts and293Atlas inputs current. No fresh stage2browser pixels claimed.
+
+## Current native56 effects3 — 2026-11-04
+
+Current count supersedes earlier checkpoints:56registered /21primary owner-tested /35pending. Eleven new kinds implement E28/E61/E63/E02/E11/E07 with the exact approved formulas; default3 and opt-inpilot4 unchanged. Native56 effects3 preserves absent stage1 and explicit2; future versions must preserve3too. `native56-runtime.json` separates membership from owner proof; `native56-stage3.json` pins4new normal-budget full-game archives.
+
+Evidence:229focused (includes65lifecycle; do not add them),124related regressions pass;3priorUI assertion failures reproduce812ef79 (semantic reconciliation still pending) and remain open. One old audit test cwd path fixed.6Collector socket checks,32old replays+4new40credit/6life games and16byte-identical pilot audits pass. Read `../validation/native56-stage3-2026-11-04/verification.json` for scope, failures and source pins. Not full56 public benefit coverage, pixel approval or balance acceptance.
+
+Ruling: E61 boundary snapshot precedes settlement; shared physical-origin rights use existing player order. Reason: no retroactive returned-loan bonus or duplicate origin payout. Risk: same-origin copies across seats compete in canonical order; covered by original/copy boundary test.
+
+Still required before default rollout:35primary hooks; full native predicate/custody/benefit matrices; Task5 authoritative quote/expected-cost synchronization (E63 origin rights can change between displayed quote and action), item remaining-use explanations and full UI/network/balance acceptance. Whole-game goal remains active.
+
+Effects3 final source verification:229focused pass;124related pass/3priorUI failures remain;6socket pass;411UI fingerprints/10contracts and298Atlas inputs current. Main default and approved image references unchanged; no fresh browser pixel claim.
+
+Effects3 edge verification: lock expiry is evaluated after status expiry against a physical pre-boundary custody snapshot; E02 ranges retain unpowered replacement truth. Two RED→GREEN cases, final229focused pass; no candidate archive or approved image hash changed.

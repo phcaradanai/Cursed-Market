@@ -985,7 +985,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/cleanse.ts",
-      "sha256": "2195402df17b9c929a06ca65ca766bbe6f7f7e37db0f2e098e9554e523e08de5"
+      "sha256": "7f72cb7930cceafd6d4fe0ef0cda617fc39b5b60a9e9a061cc3295c88014d4bb"
     },
     {
       "file": "apps/comic/src/game/appraisal/collector-wishlist.ts",
@@ -1025,7 +1025,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "sha256": "dfece5649a4270055be8465e6485ca8e436db7f7769f0c77c17c2bec9fa91af6"
+      "sha256": "6cb91cf6ffa41ab22966df30db128b8daf4987453bc716e748fe872b86728dee"
     },
     {
       "file": "apps/comic/src/game/appraisal/events.ts",
@@ -1057,7 +1057,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "sha256": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507"
+      "sha256": "b79c6a5de7e7cf0f7249b5e8bb5cfdebf73a661fc8b17af67799f046211cd718"
     },
     {
       "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
@@ -1113,7 +1113,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/remaining48-effects.ts",
-      "sha256": "25f2e42120b133557c98a367928d19520a0157fb3146db9b36ddfd37d51321e7"
+      "sha256": "9135e8dd13897ef66daf804866cc3d3b25afd1ec19f57375f2221394c830a160"
     },
     {
       "file": "apps/comic/src/game/appraisal/remaining48-numbers.ts",
@@ -1145,7 +1145,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/types.ts",
-      "sha256": "bb1a8ef007149dd6ee1d42fe2c17a91c66b4a532c976752575ad089bdd69dfb8"
+      "sha256": "0575f5c037624523b6d64383f31cd980f047e0da4eb9b85350f5a4db46af3add"
     },
     {
       "file": "apps/comic/src/game/appraisal/views.ts",
@@ -1457,7 +1457,7 @@
     },
     {
       "file": "apps/comic/tests/appraisal-survival.test.ts",
-      "sha256": "6fe9bb89b5cac4749d332ae0a7dcd3a8bb032a9ac51e4e05368f109d6f110dac"
+      "sha256": "9ee0664f3f69e107ddb260bc34e6e99f6ed09e1c0482e73ba4de210387130adc"
     },
     {
       "file": "apps/comic/tests/appraisal-system-links.test.ts",
@@ -1541,7 +1541,7 @@
     },
     {
       "file": "apps/comic/tests/native56-catalog.test.ts",
-      "sha256": "8439db0aa97854f36faa425ed7c0094a6a02f12eb6ad17c448b18cdecbfb3c8c"
+      "sha256": "4f376cc5baa5d0be8c8c9667c04bd6deef01c21ff18ca143afa8f2f9e0a590c7"
     },
     {
       "file": "apps/comic/tests/network.test.ts",
@@ -1596,8 +1596,12 @@
       "sha256": "b2f909a45190b700694146fa94d758ae4771f9b906202bd15eb20151241583fb"
     },
     {
+      "file": "apps/comic/tests/remaining48-automatic.test.ts",
+      "sha256": "462e5b407f5ab212e109150c631985157cad2c4ab1d9a76f4aabe5af04868301"
+    },
+    {
       "file": "apps/comic/tests/remaining48-challenge.test.ts",
-      "sha256": "9c38a1b50f075e4dbab71c026539e525d59b93d8d70536238593d632d382d8aa"
+      "sha256": "1e172cf84141c39c22ee6fe57763cc3b8b24eb17be6d6a852b349098afe9fcf4"
     },
     {
       "file": "apps/comic/tests/remaining48-foundation.test.ts",

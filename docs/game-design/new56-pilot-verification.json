@@ -24,15 +24,15 @@
     "apps/comic/src/game/appraisal/core2-actions.ts": "a0b968bc9fd51b22cf5c63caa9c38e34dbb41bc0dd765aa449a3dfecb15a6213",
     "apps/comic/src/game/appraisal/core2-events.ts": "bb9531af0ffe6a6ea068f049d286b2b1d0fe37deb24a44bcfe3dfa58a08424f8",
     "apps/comic/src/game/appraisal/core2.ts": "d9c7ac292898c29d471bc6d9bb0a7ae0557bd394a79d77978e6e1eed5b71bd17",
-    "apps/comic/src/game/appraisal/engine.ts": "dfece5649a4270055be8465e6485ca8e436db7f7769f0c77c17c2bec9fa91af6",
+    "apps/comic/src/game/appraisal/engine.ts": "6cb91cf6ffa41ab22966df30db128b8daf4987453bc716e748fe872b86728dee",
     "apps/comic/src/game/appraisal/events.ts": "ec9f25dde4fbf2168479d80dd2044a5c4445912442aa561bd69fc31d41f0777c",
-    "apps/comic/src/game/appraisal/mechanics.ts": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507",
+    "apps/comic/src/game/appraisal/mechanics.ts": "b79c6a5de7e7cf0f7249b5e8bb5cfdebf73a661fc8b17af67799f046211cd718",
     "apps/comic/src/game/appraisal/passives.ts": "3915bdda874eae43be5e7318626a6748b29aa56cb35748048669ac1f5e051280",
     "apps/comic/src/game/appraisal/pilot-catalog.ts": "ad8dbb487623f3b8d0486c87fe86c5fe72c0d50c553a7a34bc526c52579e8c62",
     "apps/comic/src/game/appraisal/pilot-effects.ts": "4b669d8f360f8d540bf9cb9e46db8ca46e4b0d25a5e65bc855c839c757d6701d",
     "apps/comic/src/game/appraisal/secure-storage.ts": "5b3370bb17809e12c7394c0b501ffc346b9b2ca5d89035c6a0b75c426e10ffa5",
     "apps/comic/src/game/appraisal/theft.ts": "aaf4cc62d6d20f028fff9fdef405538cda8b32009770abf2f5ac9e50cd9da52a",
-    "apps/comic/src/game/appraisal/types.ts": "bb1a8ef007149dd6ee1d42fe2c17a91c66b4a532c976752575ad089bdd69dfb8",
+    "apps/comic/src/game/appraisal/types.ts": "0575f5c037624523b6d64383f31cd980f047e0da4eb9b85350f5a4db46af3add",
     "apps/comic/src/game/appraisal/views.ts": "0fb4d3fbb3bba809ce6416dbf6e9724e012633b8de3ad559ae86d47a0df6d334",
     "apps/comic/src/server/appraisal-main.ts": "5f67b2038007427688bd6b8c1c19227f34c6244d9d7b47537bf0bc0f1a673831",
     "apps/comic/src/simulation/appraisal.ts": "40abbc95b04f0023758e50594c2ba6e456806bf3500b61d09f50ae51e4482ad1",
@@ -334,5 +334,16 @@
     },
     "publicProof": "../validation/native56-stage2-2026-11-04/pilot-public/public-effects.json",
     "verification": "../validation/native56-stage2-2026-11-04/verification.json"
+  },
+  "native56Effects3Followup": {
+    "baseRevision": "812ef79",
+    "scope": "Current-source compatibility followup; previous proof files preserved, all16original pilot audit hashes unchanged. No full56/default/balance acceptance.",
+    "previousSourceFingerprints": {
+      "apps/comic/src/game/appraisal/engine.ts": "dfece5649a4270055be8465e6485ca8e436db7f7769f0c77c17c2bec9fa91af6",
+      "apps/comic/src/game/appraisal/mechanics.ts": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507",
+      "apps/comic/src/game/appraisal/types.ts": "bb1a8ef007149dd6ee1d42fe2c17a91c66b4a532c976752575ad089bdd69dfb8"
+    },
+    "publicProof": "../validation/native56-stage3-2026-11-04/pilot-public/public-effects.json",
+    "verification": "../validation/native56-stage3-2026-11-04/verification.json"
   }
 }

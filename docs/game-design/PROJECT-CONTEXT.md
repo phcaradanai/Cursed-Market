@@ -10,7 +10,7 @@
 
 - ตลาดวิญญาณ S11/G01–G04 ทำและตรวจแล้วใน commit51d89ea; ดู ghost-service-contracts.md และ ../ui-system/ghost-functional-verification.json
 - จุดตกหล่นสำคัญ: RULE-01 ดอกเบี้ย10%พร้อมอายุเงินต้นเชื่อมเข้า Comic รันใหม่แล้ว ตรวจผ่านแล้ว; รันเก่าไม่มีflagรักษา4% ดู implementations/comic-aged-interest-plan.md
-- สินค้าใหม่ทดลอง catalog5 ลงทะเบียน56/56 (7ต่อพ่อค้า); primaryตรวจแล้ว10 (pilot8+E05+E06), อีก46ยังไม่เชื่อมและปิดความสามารถที่ไม่รองรับ; native56Effects2 แยกจาก stage1 ที่ไม่มีflag. Main default3/pilot4เดิมไม่เปลี่ยน; optionalปิด ดู native56-runtime.json และ native56-stage2.json ไม่ใช่ full56balance/เกมครบ
+- สินค้าใหม่ทดลอง catalog5 ลงทะเบียน56/56 (7ต่อพ่อค้า); primaryตรวจระดับownerแล้ว21 (pilot8+E05+E06+11กลุ่มอัตโนมัติ), อีก35ยังไม่เชื่อมและปิดความสามารถที่ไม่รองรับ; native56Effects3 แยกจาก stage1/2 ที่ไม่มีflag. Main default3/pilot4เดิมไม่เปลี่ยน; optionalปิด ดู native56-runtime.json และ native56-stage3.json ไม่ใช่ full56balance/เกมครบ
 - Collector3+2 เชื่อม engine/protocol/Comic UI แบบทดลองแล้ว (reviewเสร็จ; minorค้าง); คะแนนผลงานv1/ตัวบันทึกfacts2ตามค่าทดลองที่อนุมัติเชื่อมแล้ว; ยังไม่รับรองfull-game balance
 - ขโมย/RPS Comic และ timeout มี implementation/หลักฐานเฉพาะส่วน; อารมณ์พ่อค้า S02/S04 เชื่อมแล้ว บริบทอื่นและการรับรองร่วมทั้งเกมยังไม่ครบ
 - ยังไม่ผ่าน PLAY-01/BAL-02: ไม่มีคำรับรองครบทั้งเกม/บาลานซ์/มือถือ; มีเทสต์เก่า Dark One แสดงชื่อผู้เล่นเสียหนึ่งข้อ
@@ -28,7 +28,7 @@ Atlas ปัจจุบันสกัดทุก module ของ `apps/comic
 นำ UI comic ที่มีอยู่มาเชื่อมกฎเกมและสินค้าใหม่ให้เล่นได้ครบ แล้วจึงปรับบาลานซ์จากผลทดสอบที่ทำซ้ำได้ งานจัดข้อมูล/กราฟและ RULE-01 ใน root เสร็จแล้ว แต่ Comic เชื่อมและตรวจการใช้กฎเงินฝากใหม่แล้ว การย้ายสินค้าใหม่และการบาลานซ์ทั้งเกมยังไม่เสร็จ
 
 - สินค้าใช้ชุดใหม่ **56 ชิ้น / 8 พ่อค้า / คนละ 7** เท่านั้น ไม่ย้อนใช้รายการสินค้า realistic
-- Effect ที่ผูกสินค้าใน relation ยังเป็นข้อเสนอ; registration56 / verified primary10; ดู native56-runtime.json; relation ที่ไม่มีหลักฐานยังเป็นข้อเสนอ
+- Effect ที่ผูกสินค้าใน relation ยังเป็นข้อเสนอ; registration56 / verified primary21; ดู native56-runtime.json; relation ที่ไม่มีหลักฐานยังเป็นข้อเสนอ
 - Runtime snapshot: 132 events, 51 statuses, omen 7/15 แบบ; ดู manifest ก่อนใช้จำนวนเป็นฐาน
 - UI: comic 2D, เส้นเข้ม, แดง/ดำ/ขาว, palette สินค้าตามพ่อค้า, symmetry และ spacing กลาง; รักษารูปแบบเมนูเดิม
 - กราฟ source-reference และ domain-classification เป็นหลักฐานความเกี่ยวข้อง ไม่ยืนยันว่าทุกผลเกิดพร้อมกัน
@@ -308,3 +308,17 @@ Supersedes the stage1 current-count note above:56registered /10primary verified 
 Contract correction: E06 counts the first real positive penalty, not the first profitable saving. Positive penalty with eligible basis points consumes player/origin rights even when the saving rounds to0; actual zero penalty/void0 preserves them. A failing regression caught38 instead of50 on the next challenge; fixed before commit. No new passive no-op rule.
 
 Final effects2 checkpoint verification:205focused pass, including65lifecycle and both sealed-stage replay tests;410source fingerprints/10UI contracts and293Atlas inputs current. No fresh stage2browser pixels claimed.
+
+## Current native56 effects3 — 2026-11-04
+
+Current count supersedes earlier checkpoints:56registered /21primary owner-tested /35pending. Eleven new kinds implement E28/E61/E63/E02/E11/E07 with the exact approved formulas; default3 and opt-inpilot4 unchanged. Native56 effects3 preserves absent stage1 and explicit2; future versions must preserve3too. `native56-runtime.json` separates membership from owner proof; `native56-stage3.json` pins4new normal-budget full-game archives.
+
+Evidence:229focused (includes65lifecycle; do not add them),124related regressions pass;3priorUI assertion failures reproduce812ef79 (semantic reconciliation still pending) and remain open. One old audit test cwd path fixed.6Collector socket checks,32old replays+4new40credit/6life games and16byte-identical pilot audits pass. Read `../validation/native56-stage3-2026-11-04/verification.json` for scope, failures and source pins. Not full56 public benefit coverage, pixel approval or balance acceptance.
+
+Ruling: E61 boundary snapshot precedes settlement; shared physical-origin rights use existing player order. Reason: no retroactive returned-loan bonus or duplicate origin payout. Risk: same-origin copies across seats compete in canonical order; covered by original/copy boundary test.
+
+Still required before default rollout:35primary hooks; full native predicate/custody/benefit matrices; Task5 authoritative quote/expected-cost synchronization (E63 origin rights can change between displayed quote and action), item remaining-use explanations and full UI/network/balance acceptance. Whole-game goal remains active.
+
+Effects3 final source verification:229focused pass;124related pass/3priorUI failures remain;6socket pass;411UI fingerprints/10contracts and298Atlas inputs current. Main default and approved image references unchanged; no fresh browser pixel claim.
+
+Effects3 edge verification: lock expiry is evaluated after status expiry against a physical pre-boundary custody snapshot; E02 ranges retain unpowered replacement truth. Two RED→GREEN cases, final229focused pass; no candidate archive or approved image hash changed.

@@ -1,7 +1,7 @@
 {
   "asOf": "2026-11-04",
   "activeSource": "apps/comic",
-  "revision": "162f63a + native56 effects2 working tree (fingerprinted)",
+  "revision": "812ef79 + effects3 automatic-family working tree (fingerprinted)",
   "headline": "ยังไม่ครบตามกฎและขอบเขตเกมที่ตกลงทั้งหมด",
   "summary": "วงจรเดิมและตลาดวิญญาณเล่นได้ แต่การย้ายกฎ/สินค้าใหม่และบาลานซ์ทั้งเกมยังค้าง ภาพหน้าจอหรือกราฟครบไม่ได้แปลว่า runtime ครบ",
   "atlasScope": "Atlas สกัดทุก module ของ apps/comic/src/game/appraisal พร้อม random/rarity/protocol/server lifecycle และ bot ที่ระบุ; graph เป็น static dependency ไม่ใช่ execution proof; UI ใช้ capture/flow registry แยก; รุ่นเก่าตรึง9f0a972ใน legacy-atlas-baseline.json",
@@ -44,8 +44,8 @@
     {
       "id": "ITEM-01–03",
       "system": "สินค้าใหม่56ชิ้นและ effect",
-      "status": "catalog5 ลงทะเบียน56; ผลหลักตรวจแล้ว10; อีก46ยังไม่เชื่อม",
-      "remaining": "Experimental catalog5 effects2 now implements E06 after real failed challenge: floor25%×S,50% family cap, one/player/encounter and shared physical-origin rights; void0 does not consume right. E05 lock exclusion corrected only in2. Absent revision preserves sealed stage1.205focused (includes65lifecycle),6actual Collector socket checks,32legacy replays+4normal-budget2/4seat games and16byte-identical pilot audits pass; not full56 benefit or balance acceptance.",
+      "status": "catalog5 ลงทะเบียน56; ผลหลักตรวจระดับowner21; อีก35ยังไม่เชื่อม",
+      "remaining": "Effects3 binds11more items across6automatic families: first merchant trust, boundary energy, recovery discount, inspected price range, NPC acceptance and curse-cleansing chance. E61/E63 player+physical-origin caps, read-only quotes and actual settlement logs. Snapshot before boundary mutations; no late purchase/return bonus. Main default3/pilot4 unchanged; remaining35/optional off. Focused229 plus124regressions pass;3priorUI assertion failures reproduced812ef79 remain.6socket checks,32old replays+4new40credit/6life games,16byte-identical pilot audits pass. Owner proof is not full56 normal-budget benefit/UI/balance acceptance.",
       "evidence": [
         "docs/game-design/logic-item-relations.json",
         "docs/game-design/system-atlas/coverage.md",
@@ -73,7 +73,8 @@
         "docs/game-design/native56-runtime.json",
         "docs/game-design/native56-stage1.json",
         "docs/validation/native56-catalog-2026-11-04/verification.json",
-        "docs/validation/native56-stage2-2026-11-04/verification.json"
+        "docs/validation/native56-stage2-2026-11-04/verification.json",
+        "docs/validation/native56-stage3-2026-11-04/verification.json"
       ]
     },
     {
@@ -184,7 +185,7 @@
     }
   ],
   "next": [
-    "Implement remaining46 approved primary bindings behind a later explicit effects revision; absent and2 preserve archived stage1/stage2. No new48package approval needed.",
+    "Implement remaining35 approved primary owners behind later effects revision; preserve absent/2/3 sealed semantics. Finish E63 expected-cost/quote synchronization and broader native eligibility UX before default56; no new48package approval needed.",
     "Use targeted eligible public-view financial/theft/native-benefit cases alongside32seed-policybaseline; do not tune unexercised systems from zero bot usage",
     "รักษางานUI-COLLECTOR-CONTEXT minorและfull-game acceptanceเป็นงานค้าง ไม่เรียกsubsystemว่าเกมเสร็จ"
   ],
@@ -192,13 +193,13 @@
   "runtimeFacts": {
     "comicVaultInterestPercent": 10,
     "rootVaultInterestPercent": 10,
-    "new56DedicatedBindings": 10,
+    "new56DedicatedBindings": 21,
     "comicDefaultCatalogVersion": 3,
     "comicExperimentalCatalogVersion": 4,
     "personalScoringRules": 1,
     "personalScoringFacts": 2,
     "new56RegisteredItemIds": 56,
     "comicExperimentalNativeCatalogVersion": 5,
-    "comicExperimentalNativeEffects": 2
+    "comicExperimentalNativeEffects": 3
   }
 }

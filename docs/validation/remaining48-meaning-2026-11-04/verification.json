@@ -1,0 +1,408 @@
+{
+  "asOf": "2026-11-04",
+  "status": "approved-meaning-recorded-and-diagnostic-baseline-complete-not-fullgame",
+  "approval": {
+    "file": "docs/game-design/remaining48-decisions.json",
+    "item": "autometa-coil-repeater",
+    "effect": "E05",
+    "meaning": "increased discount on correctly challenged false claim",
+    "numeric": false,
+    "runtime": false
+  },
+  "meaningProof": {
+    "before": "missing approved status assertion failed",
+    "after": "JSON+generatedHTML show1approved/9pending; magnitude remainsnull; original draft retained",
+    "currentViews": "Atlas/full graph plus original relation graph/matrix overlay approved E05meaning; historical source JSON remains unchanged; edge status staysproposal and numericApprovalfalse"
+  },
+  "baseline": {
+    "games": 32,
+    "seeds": 4,
+    "players": 96,
+    "commands": 10084,
+    "creationStrictReplays": 32,
+    "playerCreditLedgerMismatches": 0,
+    "config": {
+      "rarityEconomy": {
+        "version": 1,
+        "tiers": {
+          "common": {
+            "value": 1,
+            "effect": 1
+          },
+          "uncommon": {
+            "value": 2,
+            "effect": 2
+          },
+          "rare": {
+            "value": 3,
+            "effect": 3
+          },
+          "epic": {
+            "value": 4,
+            "effect": 4
+          },
+          "legendary": {
+            "value": 6,
+            "effect": 6
+          },
+          "mythic": {
+            "value": 8,
+            "effect": 8
+          }
+        }
+      },
+      "rarity": {
+        "version": 1,
+        "rates": {
+          "common": 0.6,
+          "uncommon": 0.25,
+          "rare": 0.1,
+          "epic": 0.035,
+          "legendary": 0.013,
+          "mythic": 0.002
+        },
+        "themes": {
+          "common": [
+            {
+              "theme": "plain",
+              "weight": 1
+            }
+          ],
+          "uncommon": [
+            {
+              "theme": "inferno",
+              "weight": 1
+            },
+            {
+              "theme": "frost",
+              "weight": 1
+            },
+            {
+              "theme": "storm",
+              "weight": 1
+            },
+            {
+              "theme": "venom",
+              "weight": 1
+            },
+            {
+              "theme": "spirit",
+              "weight": 1
+            },
+            {
+              "theme": "lunar",
+              "weight": 1
+            },
+            {
+              "theme": "solar",
+              "weight": 1
+            },
+            {
+              "theme": "void",
+              "weight": 1
+            },
+            {
+              "theme": "prism",
+              "weight": 1
+            },
+            {
+              "theme": "clockwork",
+              "weight": 1
+            }
+          ],
+          "rare": [
+            {
+              "theme": "inferno",
+              "weight": 1
+            },
+            {
+              "theme": "frost",
+              "weight": 1
+            },
+            {
+              "theme": "storm",
+              "weight": 1
+            },
+            {
+              "theme": "venom",
+              "weight": 1
+            },
+            {
+              "theme": "spirit",
+              "weight": 1
+            },
+            {
+              "theme": "lunar",
+              "weight": 1
+            },
+            {
+              "theme": "solar",
+              "weight": 1
+            },
+            {
+              "theme": "void",
+              "weight": 1
+            },
+            {
+              "theme": "prism",
+              "weight": 1
+            },
+            {
+              "theme": "clockwork",
+              "weight": 1
+            }
+          ],
+          "epic": [
+            {
+              "theme": "inferno",
+              "weight": 1
+            },
+            {
+              "theme": "frost",
+              "weight": 1
+            },
+            {
+              "theme": "storm",
+              "weight": 1
+            },
+            {
+              "theme": "venom",
+              "weight": 1
+            },
+            {
+              "theme": "spirit",
+              "weight": 1
+            },
+            {
+              "theme": "lunar",
+              "weight": 1
+            },
+            {
+              "theme": "solar",
+              "weight": 1
+            },
+            {
+              "theme": "void",
+              "weight": 1
+            },
+            {
+              "theme": "prism",
+              "weight": 1
+            },
+            {
+              "theme": "clockwork",
+              "weight": 1
+            }
+          ],
+          "legendary": [
+            {
+              "theme": "inferno",
+              "weight": 1
+            },
+            {
+              "theme": "frost",
+              "weight": 1
+            },
+            {
+              "theme": "storm",
+              "weight": 1
+            },
+            {
+              "theme": "venom",
+              "weight": 1
+            },
+            {
+              "theme": "spirit",
+              "weight": 1
+            },
+            {
+              "theme": "lunar",
+              "weight": 1
+            },
+            {
+              "theme": "solar",
+              "weight": 1
+            },
+            {
+              "theme": "void",
+              "weight": 1
+            },
+            {
+              "theme": "prism",
+              "weight": 1
+            },
+            {
+              "theme": "clockwork",
+              "weight": 1
+            }
+          ],
+          "mythic": [
+            {
+              "theme": "inferno",
+              "weight": 1
+            },
+            {
+              "theme": "frost",
+              "weight": 1
+            },
+            {
+              "theme": "storm",
+              "weight": 1
+            },
+            {
+              "theme": "venom",
+              "weight": 1
+            },
+            {
+              "theme": "spirit",
+              "weight": 1
+            },
+            {
+              "theme": "lunar",
+              "weight": 1
+            },
+            {
+              "theme": "solar",
+              "weight": 1
+            },
+            {
+              "theme": "void",
+              "weight": 1
+            },
+            {
+              "theme": "prism",
+              "weight": 1
+            },
+            {
+              "theme": "clockwork",
+              "weight": 1
+            }
+          ]
+        }
+      },
+      "loanEndSettlement": true,
+      "vaultInterestRules": 1,
+      "theftTimeoutRules": 1,
+      "collectorDeadline": 15,
+      "eventChoiceRules": 1,
+      "statusLinks": 1,
+      "systemLinks": 1,
+      "trustAbilities": true,
+      "catalogVersion": 4,
+      "itemEffects": true,
+      "roundRewards": true,
+      "multiCoinRewards": true,
+      "commerce": true,
+      "totalTrustStock": true,
+      "curseSight": true,
+      "freeBuy": true,
+      "freeMerchantAction": true,
+      "fakeEffect": true,
+      "cleanse": true,
+      "wishlist": true,
+      "wishContract": true,
+      "challenge": true,
+      "expansion": true,
+      "encounters": 3,
+      "startingCredits": 40,
+      "maxEnergy": 10,
+      "recoveryEnergy": 4,
+      "bankReserve": 2000,
+      "marketProbability": 1,
+      "marketMaxOrders": 3,
+      "marketQuota": 1,
+      "personalScoringRules": 1,
+      "collectorWishlistRules": 1,
+      "secureEconomy": true,
+      "brokerage": {
+        "auctionProbability": 0.5,
+        "maxLots": 2,
+        "bondProbability": 0.65
+      },
+      "polish": true,
+      "npcEvents": true,
+      "core2": true,
+      "survival": {
+        "maxLife": 6,
+        "encounterLifeCost": 1,
+        "entryEnergyCost": 0
+      },
+      "personalScoringFacts": 2
+    },
+    "coverage": [
+      {
+        "system": "vault",
+        "commands": 0,
+        "games": 0
+      },
+      {
+        "system": "loans",
+        "commands": 0,
+        "games": 0
+      },
+      {
+        "system": "forced-theft-RPS",
+        "commands": 0,
+        "games": 0
+      },
+      {
+        "system": "spirit-work",
+        "commands": 0,
+        "games": 0
+      },
+      {
+        "system": "collector-wishlist",
+        "commands": 402,
+        "games": 32
+      },
+      {
+        "system": "merchant-ability",
+        "commands": 409,
+        "games": 32
+      },
+      {
+        "system": "auction",
+        "commands": 107,
+        "games": 15
+      }
+    ],
+    "evidence": "docs/validation/normal-score-baseline-2026-11-04/analysis.json"
+  },
+  "executionHistory": {
+    "initial": "20passed/1wall-timeout/11unexecuted under8second child and60second scheduling limit; initialreport preserved",
+    "diagnostic": "same timed-out case passed under20second hardwall; successful audit reused",
+    "resume": "same config,seed list,game/compiled/childpolicy hashes verified;20passes+successful diagnostic reused,11newcases; final32pass0fail0unexecuted; no rerun of successful games"
+  },
+  "limits": [
+    "vault: no commands in this matrix; these policies do not establish coverage for this system.",
+    "loans: no commands in this matrix; these policies do not establish coverage for this system.",
+    "forced-theft-RPS: no commands in this matrix; these policies do not establish coverage for this system.",
+    "spirit-work: no commands in this matrix; these policies do not establish coverage for this system.",
+    "All8native kinds were bought, but purchases/held quantities do not establish benefit; some relevant action families were never used.",
+    "Homogeneous seats per game: these results cannot rank policies by competitive win share.",
+    "Only4seeds; descriptive ranges are not confidence intervals or approved release targets.",
+    "The8second timeout was diagnostic wall sensitivity, not an asserted gameplay failure: same case passed under20seconds; initial20passed cases preserved, successful diagnostic reused,11remaining cases executed."
+  ],
+  "gameSourceChanged": false,
+  "numericChanges": [],
+  "sources": {
+    "docs/game-design/remaining48-decisions.json": "9dd5d24ec916e401c01ad963d727c926be459931ab656ca82d9879af84c0b70c",
+    "docs/game-design/scripts/audit-remaining48.mjs": "5132d62a9cd4518cf1d0d3104a9f902cb864936599c149ebfe786e91df8b3b44",
+    "docs/game-design/remaining48-audit.json": "e52b4b87ee42324692c40ea82698e22fa914441fe3d5ec2f02aa985ec4cb5efb",
+    "apps/comic/scripts/normal-score-baseline.mjs": "027c8ab2011e1ed38aa8b89710d78cd8b12a19a2780e993e08615127d6c4eb1b",
+    "docs/game-design/scripts/analyze-normal-score-baseline.mjs": "f5a362bb4097de1a71b9fa984b03d7f96755c7ab13b1cc711f430f2a90016ede",
+    "docs/game-design/scripts/system-atlas-render.mjs": "e89da0ada51eac00b233408892607ba9d10c87a85f06a9e725825a828a7a817b",
+    "docs/game-design/scripts/check-system-atlas.mjs": "3d48aa22fec554ec4b07fba86586f807f1ae2f18b7168cea06eccbbd7d3085f6"
+  },
+  "artifacts": {
+    "docs/validation/remaining48-meaning-2026-11-04/before.log": "606dab72e9ece3330d5f99961823aa10f45a579deb5687008453b267458eabda",
+    "docs/validation/remaining48-meaning-2026-11-04/after.log": "531d3d281ae149797b41e8c6199d64d4756f42091eb5fd2ed48015bf804e3e7c",
+    "docs/validation/normal-score-baseline-2026-11-04/report.json": "432710ebf3fc66caf87d77ab05dd2cd816c42f9ce0262c22e470faf01bd87663",
+    "docs/validation/normal-score-baseline-2026-11-04/analysis.json": "e0ea1bb62164dc8471ae3f5ad6d5bf7c24b78ef447a6e5156d23790b4d091e67",
+    "docs/validation/normal-score-baseline-2026-11-04/initial-report.json": "17c48fd0e4e454eae58ba5a7d55818b6674ffb47605b73388669caaeaacdcff0",
+    "docs/validation/normal-score-baseline-2026-11-04/timeout-diagnostic.json": "2ecfa9ec717473da551259321ba4286c476274004f44dfddfc65f7a803cb1296",
+    "docs/validation/normal-score-baseline-2026-11-04/integrity-negative.log": "b2c0527ad61e691005d7307a665f96e3404886c2239143dbae86e4e2885435ac",
+    "docs/validation/remaining48-meaning-2026-11-04/graph-before.log": "1560ce7542c75f239ffed6be607f92cbdcc6cc7eda9fb6f5451f56074815f026",
+    "docs/validation/remaining48-meaning-2026-11-04/graph-after.log": "e4c7c8a4e59a27223b5016598bff173f1d59ed92d1c16d15c04dd81697627e09"
+  }
+}

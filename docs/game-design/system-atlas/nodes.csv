@@ -67,7 +67,7 @@
 "effect:E02","effect","เปิดเผยช่วงราคาที่แคบลง","proposal"
 "effect:E03","effect","ประเมินของที่ถือสำเร็จแล้วคืนพลังบางส่วน","proposal"
 "effect:E04","effect","ตรวจความแท้ฟรีหนึ่งครั้ง","proposal"
-"effect:E05","effect","เพิ่มโอกาสท้าทายคำระบุสำเร็จ","proposal"
+"effect:E05","effect","เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง","proposal"
 "effect:E06","effect","ลดโทษจากการท้าทายพลาด","proposal"
 "effect:E07","effect","เพิ่มโอกาสชำระสำเร็จ","proposal"
 "effect:E08","effect","ลดค่าใช้จ่ายการชำระ","proposal"

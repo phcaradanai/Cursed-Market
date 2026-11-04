@@ -1,7 +1,7 @@
 {
-  "asOf": "2026-11-03",
+  "asOf": "2026-11-04",
   "activeSource": "apps/comic",
-  "revision": "e994fc2 + remaining48 factual audit",
+  "revision": "154110f + E05meaning approved; multi-seed baseline diagnostic",
   "headline": "ยังไม่ครบตามกฎและขอบเขตเกมที่ตกลงทั้งหมด",
   "summary": "วงจรเดิมและตลาดวิญญาณเล่นได้ แต่การย้ายกฎ/สินค้าใหม่และบาลานซ์ทั้งเกมยังค้าง ภาพหน้าจอหรือกราฟครบไม่ได้แปลว่า runtime ครบ",
   "atlasScope": "Atlas สกัดทุก module ของ apps/comic/src/game/appraisal พร้อม random/rarity/protocol/server lifecycle และ bot ที่ระบุ; graph เป็น static dependency ไม่ใช่ execution proof; UI ใช้ capture/flow registry แยก; รุ่นเก่าตรึง9f0a972ใน legacy-atlas-baseline.json",
@@ -45,7 +45,7 @@
       "id": "ITEM-01–03",
       "system": "สินค้าใหม่56ชิ้นและ effect",
       "status": "pilot8 เชื่อมและตรวจค่าทดลองแล้ว — อีก48ยังไม่ลง runtime",
-      "remaining": "Native pilot8 remains the approved experiment. Fresh remaining48 audit verifies6new items/merchant,35primary effect groups and10meaning decisions;0ready numeric specs. Source owners are investigation targets, not causal bindings. No new item/runtime/default/optional-effect change. Resolve meanings and prepare numeric/custody/funding/rarity/copy rules before approval/implementation.",
+      "remaining": "Approved native8 remain unchanged. Remaining48 source audit:6per merchant/35primary groups. E05coil repeater meaning approved2026-11-04 (discount on correct false-claim challenge),9other semantic decisions and48numeric specs pending. No remaining48runtime or optional/numeric approval inferred.",
       "evidence": [
         "docs/game-design/logic-item-relations.json",
         "docs/game-design/system-atlas/coverage.md",
@@ -59,7 +59,8 @@
         "docs/validation/new56-pilot-2026-11-01/experiment.json",
         "docs/game-design/remaining48-audit.html",
         "docs/game-design/remaining48-audit.json",
-        "docs/validation/remaining48-audit-2026-11-03/verification.json"
+        "docs/validation/remaining48-audit-2026-11-03/verification.json",
+        "docs/game-design/remaining48-decisions.json"
       ]
     },
     {
@@ -150,7 +151,7 @@
       "id": "BAL-02 / PLAY-01",
       "system": "บาลานซ์และเล่นเต็มเกมตามกฎใหม่",
       "status": "ยังไม่ผ่านเกณฑ์จบ",
-      "remaining": "มีหลักฐานเฉพาะส่วน ไม่ใช่balanceครบเกม.8pairedauditเดิมไม่พิสูจน์nativeeffectexposure; ชุดใหม่8targetedpairs/16fullcommandruns/strictreplayผ่านและวัดผลก่อนหลังครบ8ชิ้น. ใช้starting500/2คน/seedที่เลือก boundary/cooperativehands ไม่ใช่ห้องปกติ40หรือmultiseedwinshare. ยังต้องfull56/Collector3+2/strategy/awards/หลายคน/ตลาดวิญญาณ/loan/auctionและbalance Normal40/6:actualApp1run+matrix8runs/2and4seats/catalog3and4/replayผ่าน;ยังไม่มีinterest/PvPloan/forcedRPS/ghost-serviceexposureในmatrix. จบ5–8ทุกcase ไม่ใช่balanceapproval. อีก1targetedenginejourney40/6:ดอกเบี้ย/กู้คืน/วิญญาณส่งมอบ/คะแนน/จบรันผ่าน9checks,ไม่ใช่normalcombinedbrowser/socketหรือbalance.",
+      "remaining": "Current scoring1/facts2/pilot8 baseline:32games/4predeclared seeds/2and4seats/4homogeneous policies,10084commands/96playerresults,32creation replays and0player-credit ledger mismatches. No vault/loan/theft/Spirit commands in these policies. All8native kinds purchased does not prove benefit.8second runner timeout resolved by20second targeted diagnostic,20sealed passes reused, remaining11run; no balance numbers changed. Not mixed-policy win-share, full56 or release acceptance.",
       "evidence": [
         "docs/ui-system/ghost-functional-verification.json",
         "docs/game-design/balance-workflow.md",
@@ -163,13 +164,15 @@
         "docs/game-design/normal-play-verification.json",
         "docs/game-design/balance-reports/2026-11-02-normal-play.md",
         "docs/game-design/normal-service-verification.json",
-        "docs/game-design/balance-reports/2026-11-02-normal-service.md"
+        "docs/game-design/balance-reports/2026-11-02-normal-service.md",
+        "docs/game-design/balance-reports/2026-11-04-normal-score-baseline.md",
+        "docs/validation/normal-score-baseline-2026-11-04/analysis.json"
       ]
     }
   ],
   "next": [
-    "Resolve remaining48meaning gaps (first: Autometa challenge truth vs purported win chance), then draft full numeric/custody specs for user approval",
-    "Expand the verified normal2-App route to adversarial/multi-seed/timeout and reconnect cases before balance tuning",
+    "E05Autometa meaning approved: correctly-challenged false claim earns increased discount; no random truth or prechallenge information. Finish remaining9meanings and48numeric/custody specs for user approval.",
+    "Use targeted eligible public-view financial/theft/native-benefit cases alongside32seed-policybaseline; do not tune unexercised systems from zero bot usage",
     "รักษางานUI-COLLECTOR-CONTEXT minorและfull-game acceptanceเป็นงานค้าง ไม่เรียกsubsystemว่าเกมเสร็จ"
   ],
   "verification": "Whole-game goal เปิดแล้ว ดู implementations/completion-program.md; งานแต่ละส่วนมีผลตรวจเฉพาะส่วน ไม่ใช่คำรับรองครบทั้งเกม",

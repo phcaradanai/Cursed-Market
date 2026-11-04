@@ -1,0 +1,861 @@
+{
+  "asOf": "2026-11-04",
+  "scope": "32planned diagnostic games:4predeclared seeds,2/4seats,4existing homogeneous policy bots, normal40/6/deadline15 with approved scoring1/facts2 and opt-in pilot8. Not release balance, mixed-policy win-share, actual clocks/network, ghost-service UI, all56 or causal native-effect exposure.",
+  "passedAuditIntegrity": true,
+  "games": 32,
+  "seeds": 4,
+  "playerResults": 96,
+  "totalCommands": 10084,
+  "strictReplaysDuringCreation": 32,
+  "creditLedgerMismatches": 0,
+  "execution": {
+    "n": 32,
+    "min": 1273,
+    "q25": 2357,
+    "median": 2705,
+    "q75": 4312,
+    "max": 10470,
+    "mean": 3722.75
+  },
+  "strata": [
+    {
+      "count": 2,
+      "policy": "cautious",
+      "games": 4,
+      "players": 8,
+      "end": {
+        "n": 4,
+        "min": 5,
+        "q25": 5,
+        "median": 6,
+        "q75": 6,
+        "max": 7,
+        "mean": 6
+      },
+      "score": {
+        "n": 8,
+        "min": 87,
+        "q25": 107,
+        "median": 111,
+        "q75": 125,
+        "max": 139,
+        "mean": 115.13
+      },
+      "assets": {
+        "n": 8,
+        "min": 47,
+        "q25": 52,
+        "median": 66,
+        "q75": 68,
+        "max": 83,
+        "mean": 63.63
+      },
+      "performance": {
+        "n": 8,
+        "min": 40,
+        "q25": 42,
+        "median": 45,
+        "q75": 55,
+        "max": 71,
+        "mean": 51.5
+      },
+      "modifier": {
+        "n": 8,
+        "min": 0,
+        "q25": 0,
+        "median": 0,
+        "q75": 0,
+        "max": 0,
+        "mean": 0
+      },
+      "ghost": {
+        "n": 8,
+        "min": 0,
+        "q25": 0,
+        "median": 0,
+        "q75": 0,
+        "max": 0,
+        "mean": 0
+      }
+    },
+    {
+      "count": 2,
+      "policy": "aggressive",
+      "games": 4,
+      "players": 8,
+      "end": {
+        "n": 4,
+        "min": 4,
+        "q25": 4,
+        "median": 5,
+        "q75": 8,
+        "max": 8,
+        "mean": 6.25
+      },
+      "score": {
+        "n": 8,
+        "min": 135,
+        "q25": 157,
+        "median": 251,
+        "q75": 273,
+        "max": 447,
+        "mean": 258.88
+      },
+      "assets": {
+        "n": 8,
+        "min": 53,
+        "q25": 72,
+        "median": 116,
+        "q75": 181,
+        "max": 255,
+        "mean": 136.75
+      },
+      "performance": {
+        "n": 8,
+        "min": 82,
+        "q25": 85,
+        "median": 109,
+        "q75": 141,
+        "max": 192,
+        "mean": 122.13
+      },
+      "modifier": {
+        "n": 8,
+        "min": 0,
+        "q25": 0,
+        "median": 0,
+        "q75": 0,
+        "max": 0,
+        "mean": 0
+      },
+      "ghost": {
+        "n": 8,
+        "min": 0,
+        "q25": 0,
+        "median": 0,
+        "q75": 0,
+        "max": 0,
+        "mean": 0
+      }
+    },
+    {
+      "count": 2,
+      "policy": "collector",
+      "games": 4,
+      "players": 8,
+      "end": {
+        "n": 4,
+        "min": 5,
+        "q25": 5,
+        "median": 7,
+        "q75": 8,
+        "max": 8,
+        "mean": 7
+      },
+      "score": {
+        "n": 8,
+        "min": 165,
+        "q25": 166,
+        "median": 252,
+        "q75": 329,
+        "max": 500,
+        "mean": 291.13
+      },
+      "assets": {
+        "n": 8,
+        "min": 83,
+        "q25": 84,
+        "median": 126,
+        "q75": 230,
+        "max": 314,
+        "mean": 171.5
+      },
+      "performance": {
+        "n": 8,
+        "min": 80,
+        "q25": 81,
+        "median": 99,
+        "q75": 132,
+        "max": 186,
+        "mean": 119.63
+      },
+      "modifier": {
+        "n": 8,
+        "min": 0,
+        "q25": 0,
+        "median": 0,
+        "q75": 0,
+        "max": 0,
+        "mean": 0
+      },
+      "ghost": {
+        "n": 8,
+        "min": 0,
+        "q25": 0,
+        "median": 0,
+        "q75": 0,
+        "max": 0,
+        "mean": 0
+      }
+    },
+    {
+      "count": 2,
+      "policy": "trader",
+      "games": 4,
+      "players": 8,
+      "end": {
+        "n": 4,
+        "min": 5,
+        "q25": 5,
+        "median": 5,
+        "q75": 7,
+        "max": 7,
+        "mean": 6
+      },
+      "score": {
+        "n": 8,
+        "min": 200,
+        "q25": 224,
+        "median": 294,
+        "q75": 500,
+        "max": 609,
+        "mean": 378
+      },
+      "assets": {
+        "n": 8,
+        "min": 63,
+        "q25": 80,
+        "median": 93,
+        "q75": 272,
+        "max": 322,
+        "mean": 169.25
+      },
+      "performance": {
+        "n": 8,
+        "min": 137,
+        "q25": 144,
+        "median": 204,
+        "q75": 228,
+        "max": 327,
+        "mean": 208.75
+      },
+      "modifier": {
+        "n": 8,
+        "min": 0,
+        "q25": 0,
+        "median": 0,
+        "q75": 0,
+        "max": 0,
+        "mean": 0
+      },
+      "ghost": {
+        "n": 8,
+        "min": 0,
+        "q25": 0,
+        "median": 0,
+        "q75": 0,
+        "max": 0,
+        "mean": 0
+      }
+    },
+    {
+      "count": 4,
+      "policy": "cautious",
+      "games": 4,
+      "players": 16,
+      "end": {
+        "n": 4,
+        "min": 5,
+        "q25": 5,
+        "median": 8,
+        "q75": 8,
+        "max": 8,
+        "mean": 7.25
+      },
+      "score": {
+        "n": 16,
+        "min": 81,
+        "q25": 108,
+        "median": 116,
+        "q75": 139,
+        "max": 150,
+        "mean": 120.75
+      },
+      "assets": {
+        "n": 16,
+        "min": 35,
+        "q25": 46,
+        "median": 58,
+        "q75": 68,
+        "max": 78,
+        "mean": 58.94
+      },
+      "performance": {
+        "n": 16,
+        "min": 42,
+        "q25": 47,
+        "median": 57,
+        "q75": 69,
+        "max": 105,
+        "mean": 63.13
+      },
+      "modifier": {
+        "n": 16,
+        "min": -21,
+        "q25": 0,
+        "median": 0,
+        "q75": 0,
+        "max": 0,
+        "mean": -1.31
+      },
+      "ghost": {
+        "n": 16,
+        "min": 0,
+        "q25": 0,
+        "median": 0,
+        "q75": 0,
+        "max": 0,
+        "mean": 0
+      }
+    },
+    {
+      "count": 4,
+      "policy": "aggressive",
+      "games": 4,
+      "players": 16,
+      "end": {
+        "n": 4,
+        "min": 5,
+        "q25": 5,
+        "median": 7,
+        "q75": 7,
+        "max": 9,
+        "mean": 7
+      },
+      "score": {
+        "n": 16,
+        "min": 46,
+        "q25": 160,
+        "median": 242,
+        "q75": 374,
+        "max": 563,
+        "mean": 277.81
+      },
+      "assets": {
+        "n": 16,
+        "min": 34,
+        "q25": 76,
+        "median": 99,
+        "q75": 190,
+        "max": 320,
+        "mean": 133.19
+      },
+      "performance": {
+        "n": 16,
+        "min": 6,
+        "q25": 102,
+        "median": 146,
+        "q75": 190,
+        "max": 243,
+        "mean": 146.06
+      },
+      "modifier": {
+        "n": 16,
+        "min": -23,
+        "q25": 0,
+        "median": 0,
+        "q75": 0,
+        "max": 0,
+        "mean": -1.44
+      },
+      "ghost": {
+        "n": 16,
+        "min": 0,
+        "q25": 0,
+        "median": 0,
+        "q75": 0,
+        "max": 0,
+        "mean": 0
+      }
+    },
+    {
+      "count": 4,
+      "policy": "collector",
+      "games": 4,
+      "players": 16,
+      "end": {
+        "n": 4,
+        "min": 6,
+        "q25": 6,
+        "median": 8,
+        "q75": 8,
+        "max": 8,
+        "mean": 7.5
+      },
+      "score": {
+        "n": 16,
+        "min": 46,
+        "q25": 99,
+        "median": 136,
+        "q75": 273,
+        "max": 457,
+        "mean": 185.06
+      },
+      "assets": {
+        "n": 16,
+        "min": 40,
+        "q25": 52,
+        "median": 76,
+        "q75": 141,
+        "max": 249,
+        "mean": 103.88
+      },
+      "performance": {
+        "n": 16,
+        "min": 6,
+        "q25": 35,
+        "median": 62,
+        "q75": 121,
+        "max": 208,
+        "mean": 82.81
+      },
+      "modifier": {
+        "n": 16,
+        "min": -26,
+        "q25": 0,
+        "median": 0,
+        "q75": 0,
+        "max": 0,
+        "mean": -1.62
+      },
+      "ghost": {
+        "n": 16,
+        "min": 0,
+        "q25": 0,
+        "median": 0,
+        "q75": 0,
+        "max": 0,
+        "mean": 0
+      }
+    },
+    {
+      "count": 4,
+      "policy": "trader",
+      "games": 4,
+      "players": 16,
+      "end": {
+        "n": 4,
+        "min": 6,
+        "q25": 6,
+        "median": 8,
+        "q75": 8,
+        "max": 8,
+        "mean": 7.5
+      },
+      "score": {
+        "n": 16,
+        "min": 80,
+        "q25": 168,
+        "median": 295,
+        "q75": 351,
+        "max": 676,
+        "mean": 327.56
+      },
+      "assets": {
+        "n": 16,
+        "min": 29,
+        "q25": 39,
+        "median": 88,
+        "q75": 158,
+        "max": 383,
+        "mean": 132.38
+      },
+      "performance": {
+        "n": 16,
+        "min": 42,
+        "q25": 129,
+        "median": 218,
+        "q75": 242,
+        "max": 306,
+        "mean": 200.13
+      },
+      "modifier": {
+        "n": 16,
+        "min": -79,
+        "q25": 0,
+        "median": 0,
+        "q75": 0,
+        "max": 0,
+        "mean": -4.94
+      },
+      "ghost": {
+        "n": 16,
+        "min": 0,
+        "q25": 0,
+        "median": 0,
+        "q75": 0,
+        "max": 0,
+        "mean": 0
+      }
+    }
+  ],
+  "metrics": [
+    {
+      "id": "bought",
+      "players": 96,
+      "raw": 1235,
+      "eligible": 1086,
+      "points": 1922,
+      "zeroPointPlayers": 2,
+      "capBoundPlayers": 16
+    },
+    {
+      "id": "soldQuantity",
+      "players": 96,
+      "raw": 935,
+      "eligible": 824,
+      "points": 3270,
+      "zeroPointPlayers": 18,
+      "capBoundPlayers": 19
+    },
+    {
+      "id": "soldGrossCredits",
+      "players": 96,
+      "raw": 14233,
+      "eligible": 13481,
+      "points": 1308,
+      "zeroPointPlayers": 19,
+      "capBoundPlayers": 0
+    },
+    {
+      "id": "trustGained",
+      "players": 96,
+      "raw": 580,
+      "eligible": 580,
+      "points": 1740,
+      "zeroPointPlayers": 2,
+      "capBoundPlayers": 0
+    },
+    {
+      "id": "inspection",
+      "players": 96,
+      "raw": 256,
+      "eligible": 256,
+      "points": 256,
+      "zeroPointPlayers": 72,
+      "capBoundPlayers": 0
+    },
+    {
+      "id": "accurateAppraisal",
+      "players": 96,
+      "raw": 599,
+      "eligible": 599,
+      "points": 1192,
+      "zeroPointPlayers": 4,
+      "capBoundPlayers": 1
+    },
+    {
+      "id": "npcContract",
+      "players": 96,
+      "raw": 10,
+      "eligible": 10,
+      "points": 40,
+      "zeroPointPlayers": 86,
+      "capBoundPlayers": 0
+    },
+    {
+      "id": "interest",
+      "players": 96,
+      "raw": 0,
+      "eligible": 0,
+      "points": 0,
+      "zeroPointPlayers": 96,
+      "capBoundPlayers": 0
+    },
+    {
+      "id": "loanRepaid",
+      "players": 96,
+      "raw": 0,
+      "eligible": 0,
+      "points": 0,
+      "zeroPointPlayers": 96,
+      "capBoundPlayers": 0
+    },
+    {
+      "id": "survived",
+      "players": 96,
+      "raw": 438,
+      "eligible": 438,
+      "points": 876,
+      "zeroPointPlayers": 2,
+      "capBoundPlayers": 0
+    },
+    {
+      "id": "lifeLost",
+      "players": 96,
+      "raw": 674,
+      "eligible": 674,
+      "points": 674,
+      "zeroPointPlayers": 0,
+      "capBoundPlayers": 0
+    },
+    {
+      "id": "theft",
+      "players": 96,
+      "raw": 0,
+      "eligible": 0,
+      "points": 0,
+      "zeroPointPlayers": 96,
+      "capBoundPlayers": 0
+    },
+    {
+      "id": "rarity",
+      "players": 96,
+      "raw": 492,
+      "eligible": 492,
+      "points": 612,
+      "zeroPointPlayers": 45,
+      "capBoundPlayers": 0
+    },
+    {
+      "id": "ghost",
+      "players": 96,
+      "raw": 0,
+      "eligible": 0,
+      "points": 0,
+      "zeroPointPlayers": 96,
+      "capBoundPlayers": 0
+    }
+  ],
+  "commandCounts": {
+    "advance": 186,
+    "appraise": 1154,
+    "buy": 481,
+    "collector-wish-skip": 137,
+    "done": 1061,
+    "enter": 534,
+    "event": 1140,
+    "inspect": 256,
+    "merchant-ability": 409,
+    "propose": 776,
+    "recover-resource": 187,
+    "respond": 741,
+    "share": 2213,
+    "unsold": 328,
+    "collector-wish-buy": 40,
+    "collector-wish-peek": 40,
+    "collector-wish-request": 185,
+    "activate": 15,
+    "bid": 107,
+    "market-sell": 94
+  },
+  "traceCounts": {
+    "ability-choice-selected": 105,
+    "appraisal-commission": 559,
+    "appraised": 1154,
+    "collector-scored": 96,
+    "collector-wish-request-skipped": 62,
+    "core2-event": 187,
+    "death": 96,
+    "dread-hit": 101,
+    "energy-restored": 148,
+    "energy-spent": 533,
+    "event-declined": 262,
+    "event-offered": 1140,
+    "event-resolved": 878,
+    "inspected": 256,
+    "knowledge-inherited": 18,
+    "life-lost": 628,
+    "life-restored": 87,
+    "listing-shared": 2213,
+    "merchant-ability-used": 304,
+    "npc-purchased": 579,
+    "portal-entered": 534,
+    "price-audited": 2693,
+    "pulse-shards": 60,
+    "rebate-paid": 41,
+    "round-reward-banked": 438,
+    "status-granted": 882,
+    "swarm-venom": 43,
+    "trade-completed": 631,
+    "unsold-penalty": 400,
+    "item-removed": 227,
+    "omen-plague": 74,
+    "alien-loan": 39,
+    "alien-returned": 39,
+    "collector-wish-bought": 40,
+    "collector-wish-cancelled": 70,
+    "collector-wish-delivered": 115,
+    "collector-wish-peeked": 40,
+    "collector-wish-purchased": 40,
+    "collector-wish-requested": 185,
+    "collector-wish-skipped": 75,
+    "core2-gamble": 2,
+    "life-paid": 30,
+    "npc-hex": 17,
+    "unsold-consigned": 210,
+    "alien-repaid": 6,
+    "trust-lost": 25,
+    "auction-won": 45,
+    "bid-placed": 107,
+    "item-activated": 15,
+    "pilot-guard-absorbed": 14,
+    "scrap-energy": 16,
+    "vampire-repaid": 4,
+    "market-sale": 94,
+    "debuff-blocked": 4,
+    "offer-expired": 35,
+    "repeat-buy-trust": 1,
+    "guess": 5
+  },
+  "coverage": [
+    {
+      "system": "vault",
+      "commands": 0,
+      "games": 0
+    },
+    {
+      "system": "loans",
+      "commands": 0,
+      "games": 0
+    },
+    {
+      "system": "forced-theft-RPS",
+      "commands": 0,
+      "games": 0
+    },
+    {
+      "system": "spirit-work",
+      "commands": 0,
+      "games": 0
+    },
+    {
+      "system": "collector-wishlist",
+      "commands": 402,
+      "games": 32
+    },
+    {
+      "system": "merchant-ability",
+      "commands": 409,
+      "games": 32
+    },
+    {
+      "system": "auction",
+      "commands": 107,
+      "games": 15
+    }
+  ],
+  "native": {
+    "purposeActions": [
+      {
+        "itemId": "vampire-nocturne-signet",
+        "purchases": 71,
+        "broadRequiredActionTypes": [
+          "vault-deposit-credits"
+        ],
+        "broadActionCount": 0,
+        "proof": "Broad action occurrence only; not holder eligibility or causal effect benefit"
+      },
+      {
+        "itemId": "swarm-brood-hammer",
+        "purchases": 61,
+        "broadRequiredActionTypes": [
+          "vault-expand"
+        ],
+        "broadActionCount": 0,
+        "proof": "Broad action occurrence only; not holder eligibility or causal effect benefit"
+      },
+      {
+        "itemId": "deepsea-tide-compass",
+        "purchases": 58,
+        "broadRequiredActionTypes": [
+          "reroll-portal"
+        ],
+        "broadActionCount": 0,
+        "proof": "Broad action occurrence only; not holder eligibility or causal effect benefit"
+      },
+      {
+        "itemId": "darkone-crossing-token",
+        "purchases": 95,
+        "broadRequiredActionTypes": [
+          "crime-clear"
+        ],
+        "broadActionCount": 0,
+        "proof": "Broad action occurrence only; not holder eligibility or causal effect benefit"
+      },
+      {
+        "itemId": "beast-riftfang-sword",
+        "purchases": 44,
+        "broadRequiredActionTypes": [
+          "theft-hand"
+        ],
+        "broadActionCount": 0,
+        "proof": "Broad action occurrence only; not holder eligibility or causal effect benefit"
+      },
+      {
+        "itemId": "orc-tusk-shield",
+        "purchases": 50,
+        "broadRequiredActionTypes": [
+          "activate"
+        ],
+        "broadActionCount": 15,
+        "proof": "Broad action occurrence only; not holder eligibility or causal effect benefit"
+      },
+      {
+        "itemId": "autometa-torque-caliper",
+        "purchases": 86,
+        "broadRequiredActionTypes": [
+          "inspect"
+        ],
+        "broadActionCount": 256,
+        "proof": "Broad action occurrence only; not holder eligibility or causal effect benefit"
+      },
+      {
+        "itemId": "alien-thought-translator",
+        "purchases": 114,
+        "broadRequiredActionTypes": [
+          "appraise"
+        ],
+        "broadActionCount": 1154,
+        "proof": "Broad action occurrence only; not holder eligibility or causal effect benefit"
+      }
+    ],
+    "generated": {
+      "alien-thought-translator": 701,
+      "autometa-torque-caliper": 602,
+      "beast-riftfang-sword": 422,
+      "darkone-crossing-token": 622,
+      "deepsea-tide-compass": 506,
+      "orc-tusk-shield": 528,
+      "swarm-brood-hammer": 490,
+      "vampire-nocturne-signet": 458
+    },
+    "npcPurchased": {
+      "autometa-torque-caliper": 86,
+      "beast-riftfang-sword": 44,
+      "deepsea-tide-compass": 58,
+      "orc-tusk-shield": 50,
+      "swarm-brood-hammer": 61,
+      "alien-thought-translator": 114,
+      "vampire-nocturne-signet": 71,
+      "darkone-crossing-token": 95
+    },
+    "finalHeld": {},
+    "causalBenefitExposure": "NOT established by generated/purchased/held counts; use the separate8 paired public mechanism proofs and targeted normal-resource experiments."
+  },
+  "findings": [
+    "vault: no commands in this matrix; these policies do not establish coverage for this system.",
+    "loans: no commands in this matrix; these policies do not establish coverage for this system.",
+    "forced-theft-RPS: no commands in this matrix; these policies do not establish coverage for this system.",
+    "spirit-work: no commands in this matrix; these policies do not establish coverage for this system.",
+    "All8native kinds were bought, but purchases/held quantities do not establish benefit; some relevant action families were never used.",
+    "Homogeneous seats per game: these results cannot rank policies by competitive win share.",
+    "Only4seeds; descriptive ranges are not confidence intervals or approved release targets.",
+    "The8second timeout was diagnostic wall sensitivity, not an asserted gameplay failure: same case passed under20seconds; initial20passed cases preserved, successful diagnostic reused,11remaining cases executed."
+  ],
+  "numericChanges": [],
+  "inputs": {
+    "reportSha256": "432710ebf3fc66caf87d77ab05dd2cd816c42f9ce0262c22e470faf01bd87663",
+    "analyzerSha256": "f5a362bb4097de1a71b9fa984b03d7f96755c7ab13b1cc711f430f2a90016ede"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "scope": "One timed-out8second case retried under20second hard wall for diagnosis; other20sealed cases not repeated",
+  "startedAt": "2026-11-04T00:46:37.719Z",
+  "finishedAt": "2026-11-04T00:46:45.712Z",
+  "case": {
+    "id": "4-aggressive-0",
+    "count": 4,
+    "policy": "aggressive",
+    "seed": "normal-score-baseline-0"
+  },
+  "status": 0,
+  "signal": null,
+  "error": null,
+  "stdout": "RESULTS + simulator strict replay\n",
+  "stderr": ""
+}

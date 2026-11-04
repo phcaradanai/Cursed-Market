@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "asOf": "2026-11-03",
-  "observedRevision": "e994fc288a3a237d790e386ad4d69cc8311260d1",
+  "asOf": "2026-11-04",
+  "observedRevision": "154110ff372b1912170abce8417904a19465c5d0",
   "status": "factual-audit-not-a-numeric-spec-or-approval",
   "scope": "New56 only. Compiled membership verifies8pilot/48absent; owner references locate existing primitives only and DO NOT claim proposed causal bindings or lifecycle support. No runtime/config/art/weight changes.",
   "summary": {
@@ -12,12 +12,15 @@
     "perMerchant": 6,
     "primaryEffectGroups": 35,
     "meaningDecisions": 10,
+    "approvedMeanings": 1,
+    "pendingMeanings": 9,
     "numericSpecsReady": 0,
     "optionalEffectsEnabled": 0
   },
   "sourceFingerprints": {
-    "docs/game-design/scripts/audit-remaining48.mjs": "c15a75ea282129c394eda1e264f4a2062fac887eab94d0eb1b9c7f9ddd1ab442",
+    "docs/game-design/scripts/audit-remaining48.mjs": "5132d62a9cd4518cf1d0d3104a9f902cb864936599c149ebfe786e91df8b3b44",
     "docs/game-design/logic-item-relations.json": "983d130078b1b6f6f1569dd05f295190a73523c1abaa0aa59bc29e0a6693b801",
+    "docs/game-design/remaining48-decisions.json": "9dd5d24ec916e401c01ad963d727c926be459931ab656ca82d9879af84c0b70c",
     "docs/game-design/new56-pilot-approval.json": "cdcf630f60c8ed07db87008cd7c845575b3d304bdd0c7167abbf899a5e3b5d65",
     "docs/game-design/new56-pilot-proposal.json": "6881755d843c45dd294fd629802321601fd3c596dc5d7bb771d9230a6ce406c5",
     "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/catalog.json": "1aba59f2a0e8fb48f49865fdb22c89fd7a17044537f7140f322952f66a7c2b44",
@@ -51,61 +54,98 @@
       "id": "MEANING-CHALLENGE",
       "fact": "settleChallenge compares claim with actual truth. It has no random win roll; CHALLENGE_PCT changes payment, not the chance of truth.",
       "needed": "Choose a truth-preserving benefit rather than adding an invented random success roll.",
-      "recommendation": "เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง ไม่เปลี่ยนความจริงหรือทำให้คำระบุจริงแพ้แบบสุ่ม"
+      "recommendation": "เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง ไม่เปลี่ยนความจริงหรือทำให้คำระบุจริงแพ้แบบสุ่ม",
+      "effectId": "E05",
+      "status": "approved-meaning-only",
+      "approval": {
+        "id": "MEANING-CHALLENGE",
+        "itemId": "autometa-coil-repeater",
+        "effectId": "E05",
+        "status": "approved-meaning-only",
+        "approvedAt": "2026-11-04",
+        "userReply": "เพิ่มส่วนลดเมื่อท้าทายถูก",
+        "questionItemId": "call_72e4a7ff41e04107aac3c5259353a010",
+        "meaning": "เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง",
+        "preserve": [
+          "ผลท้าทายยังตัดสินจากคำระบุกับความจริง ไม่เพิ่มการสุ่มชนะ",
+          "ไม่เปิดข้อมูลเพิ่มก่อนท้าทาย",
+          "ไม่อนุมัติตัวเลข เพดาน ราคา หรือสินค้าที่มี E05 เป็นเอฟเฟกต์เสริมโดยอัตโนมัติ"
+        ],
+        "numericApproval": false,
+        "runtimeImplemented": false
+      }
     },
     {
       "id": "SCOPE-RARITY",
       "fact": "ensureItemAppearance rolls once and scales base/ask/reservation once. Stock, ability choices, copies, Collector and Spirit delivery have different ownership/privacy paths.",
       "needed": "Specify eligible creator/player, creation moment and exclusions; never reroll existing goods.",
-      "recommendation": "กำหนดสิทธิ์เฉพาะการสร้างของใหม่ให้เจ้าของ; แยกคำขอ Collector/ของวิญญาณ/สำเนา ไม่เปลี่ยนของที่มีอยู่แล้ว"
+      "recommendation": "กำหนดสิทธิ์เฉพาะการสร้างของใหม่ให้เจ้าของ; แยกคำขอ Collector/ของวิญญาณ/สำเนา ไม่เปลี่ยนของที่มีอยู่แล้ว",
+      "effectId": "E25",
+      "status": "pending"
     },
     {
       "id": "MEANING-SWARM",
       "fact": "Swarm currently makes one copy per origin at25/35/50% from actual trust tier; separate cooldown and once-per-encounter guards apply.",
       "needed": "Define what improves (copy share, copy effect or cooldown) without silently creating a second copy or granting trust tiers.",
-      "recommendation": "ให้ระบุผลเสริมหนึ่งอย่างโดยตรงก่อนกำหนดเลข; ยังไม่ยก tier หรือปลดล็อกสำเนาซ้ำให้เอง"
+      "recommendation": "ให้ระบุผลเสริมหนึ่งอย่างโดยตรงก่อนกำหนดเลข; ยังไม่ยก tier หรือปลดล็อกสำเนาซ้ำให้เอง",
+      "effectId": "E33",
+      "status": "pending"
     },
     {
       "id": "VISIBILITY-PORTAL",
       "fact": "Portals and their stock already exist before selection; their public hint does not reveal all hidden item facts.",
       "needed": "Choose exactly which extra clue is public to this player and whether it spends a charge.",
-      "recommendation": "แสดงข้อมูลสินค้าเพิ่มที่กำหนดชัด; ห้ามเปิดความแท้/คำสาปหรือซ่อนพ่อค้าก่อนการเลือกที่ปิดประตู"
+      "recommendation": "แสดงข้อมูลสินค้าเพิ่มที่กำหนดชัด; ห้ามเปิดความแท้/คำสาปหรือซ่อนพ่อค้าก่อนการเลือกที่ปิดประตู",
+      "effectId": "E35",
+      "status": "pending"
     },
     {
       "id": "CAUSE-PORTAL",
       "fact": "Portal disabled state and merchant trade bans are distinct runtime constraints.",
       "needed": "Define eligible closure causes and provenance; do not clear a trade ban or bypass a pending event.",
-      "recommendation": "เปิดเฉพาะประตูที่เหตุการณ์ปิด โดยยังแสดงเหตุผลและข้อห้ามการค้าจริง"
+      "recommendation": "เปิดเฉพาะประตูที่เหตุการณ์ปิด โดยยังแสดงเหตุผลและข้อห้ามการค้าจริง",
+      "effectId": "E36",
+      "status": "pending"
     },
     {
       "id": "TARGET-DEFEAT",
       "fact": "PvP and merchant duel defeats have different consequences, including seals, cooldown, crime and possible resource loss.",
       "needed": "Name the reduced consequence; cannot infer all penalties are interchangeable.",
-      "recommendation": "เลือกบรรเทาค่าเสียหายหนึ่งชนิด; ไม่ยกเลิกการดวล/ตราสิทธิ์ของผู้เสียหาย/กฎหมดเวลา"
+      "recommendation": "เลือกบรรเทาค่าเสียหายหนึ่งชนิด; ไม่ยกเลิกการดวล/ตราสิทธิ์ของผู้เสียหาย/กฎหมดเวลา",
+      "effectId": "E40",
+      "status": "pending"
     },
     {
       "id": "SCOPE-ALIEN-RETURN",
       "fact": "Alien returns original loaned goods plus credits and energy per actual returned item; principal return at Collector is different from successful meeting reward.",
       "needed": "Choose credits versus energy, funding/reservation and same-instance age requirements.",
-      "recommendation": "แยกรางวัลพิเศษออกจากการคืนของเดิม; ไม่จ่ายเพียงเพราะปิดเกมและยังไม่ได้พบ Alien"
+      "recommendation": "แยกรางวัลพิเศษออกจากการคืนของเดิม; ไม่จ่ายเพียงเพราะปิดเกมและยังไม่ได้พบ Alien",
+      "effectId": "E59",
+      "status": "pending"
     },
     {
       "id": "SCOPE-COLLECTOR",
       "fact": "Approved personal scoring applies B10/D10 to assets plus ordinary accomplishments, while itemScoreValue is an asset valuation primitive.",
       "needed": "Choose asset-only scope versus all-score modifier, eligible estates and exact visibility. Do not reuse B10 as an alias accidentally.",
-      "recommendation": "เสนอจำกัดที่มูลค่าสินค้าตอน Collector; ไม่เพิ่มเครดิต คะแนนผลงาน หรือคะแนนวิญญาณโดยปริยาย"
+      "recommendation": "เสนอจำกัดที่มูลค่าสินค้าตอน Collector; ไม่เพิ่มเครดิต คะแนนผลงาน หรือคะแนนวิญญาณโดยปริยาย",
+      "effectId": "E69",
+      "status": "pending"
     },
     {
       "id": "ALLOWLIST-REMOVE",
       "fact": "Status removal is separate from crime records, loan/Spirit/NPC contracts, cooldowns and Collector eligibility.",
       "needed": "Explicit removable status allowlist, one-shot/expiry behavior and no-op cost policy.",
-      "recommendation": "ลบเฉพาะสถานะที่ระบุได้; ไม่ล้างหนี้/คดี/ภาระสัญญาด้วยการลบไอคอน"
+      "recommendation": "ลบเฉพาะสถานะที่ระบุได้; ไม่ล้างหนี้/คดี/ภาระสัญญาด้วยการลบไอคอน",
+      "effectId": "E71",
+      "status": "pending"
     },
     {
       "id": "ALLOWLIST-EXTEND",
       "fact": "Statuses have starts/expires/charges; changing expiry, magnitude and charges are different mechanisms.",
       "needed": "Explicit extendable allowlist and per-status-instance cap; exclude contracts and Collector reveal rights.",
-      "recommendation": "หากยืด ให้ยืดระยะเวลาของสถานะที่มีอยู่ ไม่เพิ่มชาร์จหรือความแรงและไม่ต่ออายุด้วยการโอนวน"
+      "recommendation": "หากยืด ให้ยืดระยะเวลาของสถานะที่มีอยู่ ไม่เพิ่มชาร์จหรือความแรงและไม่ต่ออายุด้วยการโอนวน",
+      "effectId": "E72",
+      "status": "pending"
     }
   ],
   "items": [
@@ -116,6 +156,7 @@
       "type": "sword",
       "primaryEffect": "E28",
       "logicId": "L10",
+      "originalProposedDescription": "พบพ่อค้ารายใหม่แล้วได้ความไว้ใจเพิ่ม",
       "proposedDescription": "พบพ่อค้ารายใหม่แล้วได้ความไว้ใจเพิ่ม",
       "runtimeRegistered": false,
       "owners": [
@@ -158,6 +199,7 @@
       "type": "armor",
       "primaryEffect": "E61",
       "logicId": "L23",
+      "originalProposedDescription": "ฟื้นพลังเมื่อเริ่มช่วง",
       "proposedDescription": "ฟื้นพลังเมื่อเริ่มช่วง",
       "runtimeRegistered": false,
       "owners": [
@@ -198,6 +240,7 @@
       "type": "salve",
       "primaryEffect": "E63",
       "logicId": "L24",
+      "originalProposedDescription": "ลดราคาดีลฟื้นพลังหรือชีวิต",
       "proposedDescription": "ลดราคาดีลฟื้นพลังหรือชีวิต",
       "runtimeRegistered": false,
       "owners": [
@@ -233,6 +276,7 @@
       "type": "instrument",
       "primaryEffect": "E16",
       "logicId": "L06",
+      "originalProposedDescription": "ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง",
       "proposedDescription": "ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง",
       "runtimeRegistered": false,
       "owners": [
@@ -275,6 +319,7 @@
       "type": "beads",
       "primaryEffect": "E13",
       "logicId": "L05",
+      "originalProposedDescription": "เพิ่มค่านายหน้า",
       "proposedDescription": "เพิ่มค่านายหน้า",
       "runtimeRegistered": false,
       "owners": [
@@ -317,6 +362,7 @@
       "type": "smithing-tool",
       "primaryEffect": "E07",
       "logicId": "L03",
+      "originalProposedDescription": "เพิ่มโอกาสชำระสำเร็จ",
       "proposedDescription": "เพิ่มโอกาสชำระสำเร็จ",
       "runtimeRegistered": false,
       "owners": [
@@ -352,6 +398,7 @@
       "type": "garment",
       "primaryEffect": "E42",
       "logicId": "L14",
+      "originalProposedDescription": "รับเงินประกันบางส่วนเมื่อของถูกขโมยจริง",
       "proposedDescription": "รับเงินประกันบางส่วนเมื่อของถูกขโมยจริง",
       "runtimeRegistered": false,
       "owners": [
@@ -387,6 +434,7 @@
       "type": "decanter",
       "primaryEffect": "E58",
       "logicId": "L22",
+      "originalProposedDescription": "ลดค่าชีวิตสัญญาเลือด Vampire",
       "proposedDescription": "ลดค่าชีวิตสัญญาเลือด Vampire",
       "runtimeRegistered": false,
       "owners": [
@@ -429,6 +477,7 @@
       "type": "instrument",
       "primaryEffect": "E11",
       "logicId": "L04",
+      "originalProposedDescription": "เพิ่มโอกาสพ่อค้ายอมรับราคา",
       "proposedDescription": "เพิ่มโอกาสพ่อค้ายอมรับราคา",
       "runtimeRegistered": false,
       "owners": [
@@ -464,6 +513,7 @@
       "type": "atomizer",
       "primaryEffect": "E06",
       "logicId": "L02",
+      "originalProposedDescription": "ลดโทษจากการท้าทายพลาด",
       "proposedDescription": "ลดโทษจากการท้าทายพลาด",
       "runtimeRegistered": false,
       "owners": [
@@ -499,6 +549,7 @@
       "type": "invitation",
       "primaryEffect": "E22",
       "logicId": "L08",
+      "originalProposedDescription": "ชนะแล้วได้เงินคืนบางส่วน",
       "proposedDescription": "ชนะแล้วได้เงินคืนบางส่วน",
       "runtimeRegistered": false,
       "owners": [
@@ -534,6 +585,7 @@
       "type": "sword",
       "primaryEffect": "E38",
       "logicId": "L13",
+      "originalProposedDescription": "ได้เปรียบเมื่อเป่ายิ้งฉุบเสมอหนึ่งครั้ง",
       "proposedDescription": "ได้เปรียบเมื่อเป่ายิ้งฉุบเสมอหนึ่งครั้ง",
       "runtimeRegistered": false,
       "owners": [
@@ -569,7 +621,8 @@
       "type": "gun",
       "primaryEffect": "E05",
       "logicId": "L02",
-      "proposedDescription": "เพิ่มโอกาสท้าทายคำระบุสำเร็จ",
+      "originalProposedDescription": "เพิ่มโอกาสท้าทายคำระบุสำเร็จ",
+      "proposedDescription": "เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง",
       "runtimeRegistered": false,
       "owners": [
         {
@@ -584,7 +637,26 @@
         "id": "MEANING-CHALLENGE",
         "fact": "settleChallenge compares claim with actual truth. It has no random win roll; CHALLENGE_PCT changes payment, not the chance of truth.",
         "needed": "Choose a truth-preserving benefit rather than adding an invented random success roll.",
-        "recommendation": "เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง ไม่เปลี่ยนความจริงหรือทำให้คำระบุจริงแพ้แบบสุ่ม"
+        "recommendation": "เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง ไม่เปลี่ยนความจริงหรือทำให้คำระบุจริงแพ้แบบสุ่ม",
+        "effectId": "E05",
+        "status": "approved-meaning-only",
+        "approval": {
+          "id": "MEANING-CHALLENGE",
+          "itemId": "autometa-coil-repeater",
+          "effectId": "E05",
+          "status": "approved-meaning-only",
+          "approvedAt": "2026-11-04",
+          "userReply": "เพิ่มส่วนลดเมื่อท้าทายถูก",
+          "questionItemId": "call_72e4a7ff41e04107aac3c5259353a010",
+          "meaning": "เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง",
+          "preserve": [
+            "ผลท้าทายยังตัดสินจากคำระบุกับความจริง ไม่เพิ่มการสุ่มชนะ",
+            "ไม่เปิดข้อมูลเพิ่มก่อนท้าทาย",
+            "ไม่อนุมัติตัวเลข เพดาน ราคา หรือสินค้าที่มี E05 เป็นเอฟเฟกต์เสริมโดยอัตโนมัติ"
+          ],
+          "numericApproval": false,
+          "runtimeImplemented": false
+        }
       },
       "boundary": "Choose a truth-preserving benefit rather than adding an invented random success roll.",
       "existingItemCaution": "สอง effect อยู่ระบบเดียว แต่เพิ่มชนะและลดโทษพร้อมกันอาจท้าทายแบบไม่เสี่ยง",
@@ -609,6 +681,7 @@
       "type": "clockwork-construct",
       "primaryEffect": "E40",
       "logicId": "L14",
+      "originalProposedDescription": "บรรเทาผลเสียเมื่อแพ้ดวลหนึ่งครั้ง",
       "proposedDescription": "บรรเทาผลเสียเมื่อแพ้ดวลหนึ่งครั้ง",
       "runtimeRegistered": false,
       "owners": [
@@ -631,7 +704,9 @@
         "id": "TARGET-DEFEAT",
         "fact": "PvP and merchant duel defeats have different consequences, including seals, cooldown, crime and possible resource loss.",
         "needed": "Name the reduced consequence; cannot infer all penalties are interchangeable.",
-        "recommendation": "เลือกบรรเทาค่าเสียหายหนึ่งชนิด; ไม่ยกเลิกการดวล/ตราสิทธิ์ของผู้เสียหาย/กฎหมดเวลา"
+        "recommendation": "เลือกบรรเทาค่าเสียหายหนึ่งชนิด; ไม่ยกเลิกการดวล/ตราสิทธิ์ของผู้เสียหาย/กฎหมดเวลา",
+        "effectId": "E40",
+        "status": "pending"
       },
       "boundary": "Name the reduced consequence; cannot infer all penalties are interchangeable.",
       "existingItemCaution": "กันผุพังไม่ใช่กันดวล; กำหนดชาร์จคุ้มครองแยกชัด",
@@ -656,6 +731,7 @@
       "type": "data-prism",
       "primaryEffect": "E02",
       "logicId": "L01",
+      "originalProposedDescription": "เปิดเผยช่วงราคาที่แคบลง",
       "proposedDescription": "เปิดเผยช่วงราคาที่แคบลง",
       "runtimeRegistered": false,
       "owners": [
@@ -692,6 +768,7 @@
       "type": "canister",
       "primaryEffect": "E31",
       "logicId": "L11",
+      "originalProposedDescription": "ลดเวลารอของความสามารถที่เลือก",
       "proposedDescription": "ลดเวลารอของความสามารถที่เลือก",
       "runtimeRegistered": false,
       "owners": [
@@ -727,6 +804,7 @@
       "type": "beacon",
       "primaryEffect": "E35",
       "logicId": "L12",
+      "originalProposedDescription": "ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู",
       "proposedDescription": "ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู",
       "runtimeRegistered": false,
       "owners": [
@@ -749,7 +827,9 @@
         "id": "VISIBILITY-PORTAL",
         "fact": "Portals and their stock already exist before selection; their public hint does not reveal all hidden item facts.",
         "needed": "Choose exactly which extra clue is public to this player and whether it spends a charge.",
-        "recommendation": "แสดงข้อมูลสินค้าเพิ่มที่กำหนดชัด; ห้ามเปิดความแท้/คำสาปหรือซ่อนพ่อค้าก่อนการเลือกที่ปิดประตู"
+        "recommendation": "แสดงข้อมูลสินค้าเพิ่มที่กำหนดชัด; ห้ามเปิดความแท้/คำสาปหรือซ่อนพ่อค้าก่อนการเลือกที่ปิดประตู",
+        "effectId": "E35",
+        "status": "pending"
       },
       "boundary": "Choose exactly which extra clue is public to this player and whether it spends a charge.",
       "existingItemCaution": "เบาะแสประตูกับตรวจล็อตประมูลอาจกว้างเกินภาพอุปกรณ์ส่งสัญญาณ",
@@ -774,6 +854,7 @@
       "type": "armor",
       "primaryEffect": "E61",
       "logicId": "L23",
+      "originalProposedDescription": "ฟื้นพลังเมื่อเริ่มช่วง",
       "proposedDescription": "ฟื้นพลังเมื่อเริ่มช่วง",
       "runtimeRegistered": false,
       "owners": [
@@ -816,6 +897,7 @@
       "type": "lantern",
       "primaryEffect": "E67",
       "logicId": "L26",
+      "originalProposedDescription": "ลดโอกาสภัย Dread",
       "proposedDescription": "ลดโอกาสภัย Dread",
       "runtimeRegistered": false,
       "owners": [
@@ -858,6 +940,7 @@
       "type": "garment",
       "primaryEffect": "E72",
       "logicId": "L27",
+      "originalProposedDescription": "ยืดผลดีที่เลือกหนึ่งอย่าง",
       "proposedDescription": "ยืดผลดีที่เลือกหนึ่งอย่าง",
       "runtimeRegistered": false,
       "owners": [
@@ -873,7 +956,9 @@
         "id": "ALLOWLIST-EXTEND",
         "fact": "Statuses have starts/expires/charges; changing expiry, magnitude and charges are different mechanisms.",
         "needed": "Explicit extendable allowlist and per-status-instance cap; exclude contracts and Collector reveal rights.",
-        "recommendation": "หากยืด ให้ยืดระยะเวลาของสถานะที่มีอยู่ ไม่เพิ่มชาร์จหรือความแรงและไม่ต่ออายุด้วยการโอนวน"
+        "recommendation": "หากยืด ให้ยืดระยะเวลาของสถานะที่มีอยู่ ไม่เพิ่มชาร์จหรือความแรงและไม่ต่ออายุด้วยการโอนวน",
+        "effectId": "E72",
+        "status": "pending"
       },
       "boundary": "Explicit extendable allowlist and per-status-instance cap; exclude contracts and Collector reveal rights.",
       "existingItemCaution": "ยืดสถานะต้องไม่ยืดสิทธิ์เปิดดู Collector หรือสัญญา; ระวังคืนพลังจากการค้า",
@@ -898,6 +983,7 @@
       "type": "star-chart",
       "primaryEffect": "E25",
       "logicId": "L09",
+      "originalProposedDescription": "เพิ่มโอกาสสร้างสินค้าระดับสูง",
       "proposedDescription": "เพิ่มโอกาสสร้างสินค้าระดับสูง",
       "runtimeRegistered": false,
       "owners": [
@@ -927,7 +1013,9 @@
         "id": "SCOPE-RARITY",
         "fact": "ensureItemAppearance rolls once and scales base/ask/reservation once. Stock, ability choices, copies, Collector and Spirit delivery have different ownership/privacy paths.",
         "needed": "Specify eligible creator/player, creation moment and exclusions; never reroll existing goods.",
-        "recommendation": "กำหนดสิทธิ์เฉพาะการสร้างของใหม่ให้เจ้าของ; แยกคำขอ Collector/ของวิญญาณ/สำเนา ไม่เปลี่ยนของที่มีอยู่แล้ว"
+        "recommendation": "กำหนดสิทธิ์เฉพาะการสร้างของใหม่ให้เจ้าของ; แยกคำขอ Collector/ของวิญญาณ/สำเนา ไม่เปลี่ยนของที่มีอยู่แล้ว",
+        "effectId": "E25",
+        "status": "pending"
       },
       "boundary": "Specify eligible creator/player, creation moment and exclusions; never reroll existing goods.",
       "existingItemCaution": "rarity+ข้อมูลเส้นทาง+ตัวเลือกสกิล ครอบคลุมสามระบบ ควรเลือกตัวรองเพียงหนึ่ง",
@@ -953,6 +1041,7 @@
       "type": "seedpod",
       "primaryEffect": "E61",
       "logicId": "L23",
+      "originalProposedDescription": "ฟื้นพลังเมื่อเริ่มช่วง",
       "proposedDescription": "ฟื้นพลังเมื่อเริ่มช่วง",
       "runtimeRegistered": false,
       "owners": [
@@ -995,6 +1084,7 @@
       "type": "phase-dial",
       "primaryEffect": "E31",
       "logicId": "L11",
+      "originalProposedDescription": "ลดเวลารอของความสามารถที่เลือก",
       "proposedDescription": "ลดเวลารอของความสามารถที่เลือก",
       "runtimeRegistered": false,
       "owners": [
@@ -1030,6 +1120,7 @@
       "type": "staff",
       "primaryEffect": "E57",
       "logicId": "L20",
+      "originalProposedDescription": "เปลี่ยนสัญญาที่ไม่ต้องการฟรีหนึ่งครั้ง",
       "proposedDescription": "เปลี่ยนสัญญาที่ไม่ต้องการฟรีหนึ่งครั้ง",
       "runtimeRegistered": false,
       "owners": [
@@ -1065,6 +1156,7 @@
       "type": "sword",
       "primaryEffect": "E71",
       "logicId": "L27",
+      "originalProposedDescription": "ลบผลเสียที่เลือกหนึ่งอย่าง",
       "proposedDescription": "ลบผลเสียที่เลือกหนึ่งอย่าง",
       "runtimeRegistered": false,
       "owners": [
@@ -1080,7 +1172,9 @@
         "id": "ALLOWLIST-REMOVE",
         "fact": "Status removal is separate from crime records, loan/Spirit/NPC contracts, cooldowns and Collector eligibility.",
         "needed": "Explicit removable status allowlist, one-shot/expiry behavior and no-op cost policy.",
-        "recommendation": "ลบเฉพาะสถานะที่ระบุได้; ไม่ล้างหนี้/คดี/ภาระสัญญาด้วยการลบไอคอน"
+        "recommendation": "ลบเฉพาะสถานะที่ระบุได้; ไม่ล้างหนี้/คดี/ภาระสัญญาด้วยการลบไอคอน",
+        "effectId": "E71",
+        "status": "pending"
       },
       "boundary": "Explicit removable status allowlist, one-shot/expiry behavior and no-op cost policy.",
       "existingItemCaution": "ลบ debuff ไม่ลบหนี้/ประวัติหรือยกเลิกดวล; แยกคำสาปติดสินค้าจากสถานะผู้เล่น",
@@ -1105,6 +1199,7 @@
       "type": "book",
       "primaryEffect": "E69",
       "logicId": "L29",
+      "originalProposedDescription": "เพิ่มตัวปรับมูลค่าที่ Collector คิด",
       "proposedDescription": "เพิ่มตัวปรับมูลค่าที่ Collector คิด",
       "runtimeRegistered": false,
       "owners": [
@@ -1134,7 +1229,9 @@
         "id": "SCOPE-COLLECTOR",
         "fact": "Approved personal scoring applies B10/D10 to assets plus ordinary accomplishments, while itemScoreValue is an asset valuation primitive.",
         "needed": "Choose asset-only scope versus all-score modifier, eligible estates and exact visibility. Do not reuse B10 as an alias accidentally.",
-        "recommendation": "เสนอจำกัดที่มูลค่าสินค้าตอน Collector; ไม่เพิ่มเครดิต คะแนนผลงาน หรือคะแนนวิญญาณโดยปริยาย"
+        "recommendation": "เสนอจำกัดที่มูลค่าสินค้าตอน Collector; ไม่เพิ่มเครดิต คะแนนผลงาน หรือคะแนนวิญญาณโดยปริยาย",
+        "effectId": "E69",
+        "status": "pending"
       },
       "boundary": "Choose asset-only scope versus all-score modifier, eligible estates and exact visibility. Do not reuse B10 as an alias accidentally.",
       "existingItemCaution": "คะแนนฐานกับยืด buff คะแนนอาจทวีคูณกัน ต้องห้ามยืดผลของตัวเองเป็นวงจร",
@@ -1159,6 +1256,7 @@
       "type": "chain",
       "primaryEffect": "E49",
       "logicId": "L18",
+      "originalProposedDescription": "ผู้กู้คืนครบแล้วรับเงินคืนบางส่วน",
       "proposedDescription": "ผู้กู้คืนครบแล้วรับเงินคืนบางส่วน",
       "runtimeRegistered": false,
       "owners": [
@@ -1194,6 +1292,7 @@
       "type": "censer",
       "primaryEffect": "E67",
       "logicId": "L26",
+      "originalProposedDescription": "ลดโอกาสภัย Dread",
       "proposedDescription": "ลดโอกาสภัย Dread",
       "runtimeRegistered": false,
       "owners": [
@@ -1236,6 +1335,7 @@
       "type": "seal",
       "primaryEffect": "E53",
       "logicId": "L19",
+      "originalProposedDescription": "ใช้ตรายึดของแล้วตรวจข้อมูลของนั้นฟรี",
       "proposedDescription": "ใช้ตรายึดของแล้วตรวจข้อมูลของนั้นฟรี",
       "runtimeRegistered": false,
       "owners": [
@@ -1278,6 +1378,7 @@
       "type": "snuffer",
       "primaryEffect": "E71",
       "logicId": "L27",
+      "originalProposedDescription": "ลบผลเสียที่เลือกหนึ่งอย่าง",
       "proposedDescription": "ลบผลเสียที่เลือกหนึ่งอย่าง",
       "runtimeRegistered": false,
       "owners": [
@@ -1293,7 +1394,9 @@
         "id": "ALLOWLIST-REMOVE",
         "fact": "Status removal is separate from crime records, loan/Spirit/NPC contracts, cooldowns and Collector eligibility.",
         "needed": "Explicit removable status allowlist, one-shot/expiry behavior and no-op cost policy.",
-        "recommendation": "ลบเฉพาะสถานะที่ระบุได้; ไม่ล้างหนี้/คดี/ภาระสัญญาด้วยการลบไอคอน"
+        "recommendation": "ลบเฉพาะสถานะที่ระบุได้; ไม่ล้างหนี้/คดี/ภาระสัญญาด้วยการลบไอคอน",
+        "effectId": "E71",
+        "status": "pending"
       },
       "boundary": "Explicit removable status allowlist, one-shot/expiry behavior and no-op cost policy.",
       "existingItemCaution": "ลบสถานะกับรักษาเครื่องมือชำระเป็นคนละเหตุการณ์ ห้ามลบภาระสัญญา",
@@ -1318,6 +1421,7 @@
       "type": "trident",
       "primaryEffect": "E07",
       "logicId": "L03",
+      "originalProposedDescription": "เพิ่มโอกาสชำระสำเร็จ",
       "proposedDescription": "เพิ่มโอกาสชำระสำเร็จ",
       "runtimeRegistered": false,
       "owners": [
@@ -1353,6 +1457,7 @@
       "type": "armor",
       "primaryEffect": "E62",
       "logicId": "L24",
+      "originalProposedDescription": "ลดความเสียหายชีวิตครั้งถัดไป",
       "proposedDescription": "ลดความเสียหายชีวิตครั้งถัดไป",
       "runtimeRegistered": false,
       "owners": [
@@ -1388,6 +1493,7 @@
       "type": "saddle",
       "primaryEffect": "E16",
       "logicId": "L06",
+      "originalProposedDescription": "ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง",
       "proposedDescription": "ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง",
       "runtimeRegistered": false,
       "owners": [
@@ -1430,6 +1536,7 @@
       "type": "buoy",
       "primaryEffect": "E46",
       "logicId": "L16",
+      "originalProposedDescription": "เพิ่มดอกเบี้ยของเงินต้นที่ครบช่วง",
       "proposedDescription": "เพิ่มดอกเบี้ยของเงินต้นที่ครบช่วง",
       "runtimeRegistered": false,
       "owners": [
@@ -1472,6 +1579,7 @@
       "type": "cage",
       "primaryEffect": "E35",
       "logicId": "L12",
+      "originalProposedDescription": "ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู",
       "proposedDescription": "ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู",
       "runtimeRegistered": false,
       "owners": [
@@ -1494,7 +1602,9 @@
         "id": "VISIBILITY-PORTAL",
         "fact": "Portals and their stock already exist before selection; their public hint does not reveal all hidden item facts.",
         "needed": "Choose exactly which extra clue is public to this player and whether it spends a charge.",
-        "recommendation": "แสดงข้อมูลสินค้าเพิ่มที่กำหนดชัด; ห้ามเปิดความแท้/คำสาปหรือซ่อนพ่อค้าก่อนการเลือกที่ปิดประตู"
+        "recommendation": "แสดงข้อมูลสินค้าเพิ่มที่กำหนดชัด; ห้ามเปิดความแท้/คำสาปหรือซ่อนพ่อค้าก่อนการเลือกที่ปิดประตู",
+        "effectId": "E35",
+        "status": "pending"
       },
       "boundary": "Choose exactly which extra clue is public to this player and whether it spends a charge.",
       "existingItemCaution": "ข้อมูลเส้นทาง+ราคา+ประมูลสามระบบ พิจารณาลดให้เป็นของสืบประตูเฉพาะทาง",
@@ -1520,6 +1630,7 @@
       "type": "instrument",
       "primaryEffect": "E63",
       "logicId": "L24",
+      "originalProposedDescription": "ลดราคาดีลฟื้นพลังหรือชีวิต",
       "proposedDescription": "ลดราคาดีลฟื้นพลังหรือชีวิต",
       "runtimeRegistered": false,
       "owners": [
@@ -1555,6 +1666,7 @@
       "type": "sprayer",
       "primaryEffect": "E11",
       "logicId": "L04",
+      "originalProposedDescription": "เพิ่มโอกาสพ่อค้ายอมรับราคา",
       "proposedDescription": "เพิ่มโอกาสพ่อค้ายอมรับราคา",
       "runtimeRegistered": false,
       "owners": [
@@ -1590,6 +1702,7 @@
       "type": "egg-cluster",
       "primaryEffect": "E33",
       "logicId": "L11",
+      "originalProposedDescription": "เสริมการใช้หนึ่งครั้งตามระดับที่ปลดล็อกแล้ว",
       "proposedDescription": "เสริมการใช้หนึ่งครั้งตามระดับที่ปลดล็อกแล้ว",
       "runtimeRegistered": false,
       "owners": [
@@ -1605,7 +1718,9 @@
         "id": "MEANING-SWARM",
         "fact": "Swarm currently makes one copy per origin at25/35/50% from actual trust tier; separate cooldown and once-per-encounter guards apply.",
         "needed": "Define what improves (copy share, copy effect or cooldown) without silently creating a second copy or granting trust tiers.",
-        "recommendation": "ให้ระบุผลเสริมหนึ่งอย่างโดยตรงก่อนกำหนดเลข; ยังไม่ยก tier หรือปลดล็อกสำเนาซ้ำให้เอง"
+        "recommendation": "ให้ระบุผลเสริมหนึ่งอย่างโดยตรงก่อนกำหนดเลข; ยังไม่ยก tier หรือปลดล็อกสำเนาซ้ำให้เอง",
+        "effectId": "E33",
+        "status": "pending"
       },
       "boundary": "Define what improves (copy share, copy effect or cooldown) without silently creating a second copy or granting trust tiers.",
       "existingItemCaution": "จำกัดเสริมสกิล Swarm ที่ปลดล็อกแล้ว; เป็น dependency ต่อการสร้างสำเนา ไม่ใช่สร้างสำเนาฟรีแยกสกิล",
@@ -1628,6 +1743,7 @@
       "type": "resin-spool",
       "primaryEffect": "E52",
       "logicId": "L19",
+      "originalProposedDescription": "แลกเปลี่ยนตราสำเร็จแล้วฟื้นพลัง",
       "proposedDescription": "แลกเปลี่ยนตราสำเร็จแล้วฟื้นพลัง",
       "runtimeRegistered": false,
       "owners": [
@@ -1663,6 +1779,7 @@
       "type": "glider",
       "primaryEffect": "E34",
       "logicId": "L12",
+      "originalProposedDescription": "ลดพลังเปลี่ยนประตู",
       "proposedDescription": "ลดพลังเปลี่ยนประตู",
       "runtimeRegistered": false,
       "owners": [
@@ -1705,6 +1822,7 @@
       "type": "cradle",
       "primaryEffect": "E59",
       "logicId": "L22",
+      "originalProposedDescription": "เพิ่มผลตอบแทนของที่ให้ Alien ยืม",
       "proposedDescription": "เพิ่มผลตอบแทนของที่ให้ Alien ยืม",
       "runtimeRegistered": false,
       "owners": [
@@ -1720,7 +1838,9 @@
         "id": "SCOPE-ALIEN-RETURN",
         "fact": "Alien returns original loaned goods plus credits and energy per actual returned item; principal return at Collector is different from successful meeting reward.",
         "needed": "Choose credits versus energy, funding/reservation and same-instance age requirements.",
-        "recommendation": "แยกรางวัลพิเศษออกจากการคืนของเดิม; ไม่จ่ายเพียงเพราะปิดเกมและยังไม่ได้พบ Alien"
+        "recommendation": "แยกรางวัลพิเศษออกจากการคืนของเดิม; ไม่จ่ายเพียงเพราะปิดเกมและยังไม่ได้พบ Alien",
+        "effectId": "E59",
+        "status": "pending"
       },
       "boundary": "Choose credits versus energy, funding/reservation and same-instance age requirements.",
       "existingItemCaution": "ผลตอบแทนสัญญา Alien กับเศษรักษาเป็นคนละวงจร ใช้ชาร์จ/ช่วงแยก",
@@ -1745,6 +1865,7 @@
       "type": "armor",
       "primaryEffect": "E62",
       "logicId": "L24",
+      "originalProposedDescription": "ลดความเสียหายชีวิตครั้งถัดไป",
       "proposedDescription": "ลดความเสียหายชีวิตครั้งถัดไป",
       "runtimeRegistered": false,
       "owners": [
@@ -1780,6 +1901,7 @@
       "type": "scent-disc",
       "primaryEffect": "E25",
       "logicId": "L09",
+      "originalProposedDescription": "เพิ่มโอกาสสร้างสินค้าระดับสูง",
       "proposedDescription": "เพิ่มโอกาสสร้างสินค้าระดับสูง",
       "runtimeRegistered": false,
       "owners": [
@@ -1809,7 +1931,9 @@
         "id": "SCOPE-RARITY",
         "fact": "ensureItemAppearance rolls once and scales base/ask/reservation once. Stock, ability choices, copies, Collector and Spirit delivery have different ownership/privacy paths.",
         "needed": "Specify eligible creator/player, creation moment and exclusions; never reroll existing goods.",
-        "recommendation": "กำหนดสิทธิ์เฉพาะการสร้างของใหม่ให้เจ้าของ; แยกคำขอ Collector/ของวิญญาณ/สำเนา ไม่เปลี่ยนของที่มีอยู่แล้ว"
+        "recommendation": "กำหนดสิทธิ์เฉพาะการสร้างของใหม่ให้เจ้าของ; แยกคำขอ Collector/ของวิญญาณ/สำเนา ไม่เปลี่ยนของที่มีอยู่แล้ว",
+        "effectId": "E25",
+        "status": "pending"
       },
       "boundary": "Specify eligible creator/player, creation moment and exclusions; never reroll existing goods.",
       "existingItemCaution": "คล้ายแผนที่ดาวแบบสองระบบ ควรเป็น baseline ที่ราคาถูกหรือเงื่อนไขง่ายกว่า",
@@ -1834,6 +1958,7 @@
       "type": "instrument",
       "primaryEffect": "E32",
       "logicId": "L11",
+      "originalProposedDescription": "เพิ่มตัวเลือกเมื่อใช้ความสามารถเลือกสินค้า",
       "proposedDescription": "เพิ่มตัวเลือกเมื่อใช้ความสามารถเลือกสินค้า",
       "runtimeRegistered": false,
       "owners": [
@@ -1869,6 +1994,7 @@
       "type": "saddle",
       "primaryEffect": "E36",
       "logicId": "L12",
+      "originalProposedDescription": "เปิดประตูที่ถูกปิดจากเหตุการณ์หนึ่งครั้ง",
       "proposedDescription": "เปิดประตูที่ถูกปิดจากเหตุการณ์หนึ่งครั้ง",
       "runtimeRegistered": false,
       "owners": [
@@ -1891,7 +2017,9 @@
         "id": "CAUSE-PORTAL",
         "fact": "Portal disabled state and merchant trade bans are distinct runtime constraints.",
         "needed": "Define eligible closure causes and provenance; do not clear a trade ban or bypass a pending event.",
-        "recommendation": "เปิดเฉพาะประตูที่เหตุการณ์ปิด โดยยังแสดงเหตุผลและข้อห้ามการค้าจริง"
+        "recommendation": "เปิดเฉพาะประตูที่เหตุการณ์ปิด โดยยังแสดงเหตุผลและข้อห้ามการค้าจริง",
+        "effectId": "E36",
+        "status": "pending"
       },
       "boundary": "Define eligible closure causes and provenance; do not clear a trade ban or bypass a pending event.",
       "existingItemCaution": "เปิดประตูที่ปิดไม่ล้างแบนการค้า; รับของค้างคืนต้องเป็นธุรกรรมจริง",
@@ -1916,6 +2044,7 @@
       "type": "trap",
       "primaryEffect": "E53",
       "logicId": "L19",
+      "originalProposedDescription": "ใช้ตรายึดของแล้วตรวจข้อมูลของนั้นฟรี",
       "proposedDescription": "ใช้ตรายึดของแล้วตรวจข้อมูลของนั้นฟรี",
       "runtimeRegistered": false,
       "owners": [
@@ -1958,6 +2087,7 @@
       "type": "garment",
       "primaryEffect": "E68",
       "logicId": "L26",
+      "originalProposedDescription": "คุ้มครองของจากการผุพังหนึ่งครั้ง",
       "proposedDescription": "คุ้มครองของจากการผุพังหนึ่งครั้ง",
       "runtimeRegistered": false,
       "owners": [
@@ -1993,6 +2123,7 @@
       "type": "lasso",
       "primaryEffect": "E37",
       "logicId": "L13",
+      "originalProposedDescription": "ลดพลังเริ่มขโมย",
       "proposedDescription": "ลดพลังเริ่มขโมย",
       "runtimeRegistered": false,
       "owners": [

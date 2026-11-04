@@ -8,8 +8,8 @@ Current native: **8 /56**. Missing new IDs: **48**, six per merchant. Ready nume
 
 ### MEANING-CHALLENGE
 settleChallenge compares claim with actual truth. It has no random win roll; CHALLENGE_PCT changes payment, not the chance of truth.
-Missing: Choose a truth-preserving benefit rather than adding an invented random success roll.
-Suggested direction (unapproved): เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง ไม่เปลี่ยนความจริงหรือทำให้คำระบุจริงแพ้แบบสุ่ม
+Meaning resolved by user; magnitude/cap/cost still need approval.
+Approved meaning only: เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง; numeric approval: false.
 
 ### SCOPE-RARITY
 ensureItemAppearance rolls once and scales base/ask/reservation once. Stock, ability choices, copies, Collector and Spirit delivery have different ownership/privacy paths.
@@ -72,7 +72,7 @@ Suggested direction (unapproved): หากยืด ให้ยืดระย
 | vampire | เครื่องพ่นละอองหมอก (vampire-mist-atomizer) | E06 / L02: ลดโทษจากการท้าทายพลาด | [settleChallenge](../../apps/comic/src/game/appraisal/challenge.ts:13) | Penalty reduction after actual failed challenge; no invented success and no duplicate void/copy refunds. |
 | vampire | บัตรเชิญเที่ยงคืน (vampire-midnight-invitation) | E22 / L08: ชนะแล้วได้เงินคืนบางส่วน | [settleAuction](../../apps/comic/src/game/appraisal/brokerage.ts:211) | Rebate only actual settled winning bid, not escrow refund/loss/cancel; explicit bank budget. |
 | vampire | ดาบจันทร์แหว่ง (vampire-mooncut-sword) | E38 / L13: ได้เปรียบเมื่อเป่ายิ้งฉุบเสมอหนึ่งครั้ง | [breakTie](../../apps/comic/src/game/appraisal/theft.ts:232) | Public pre-duel bounded tie advantage; do not leak hidden opponent guard or multiply binary rights by rarity. |
-| autometa | เครื่องยิงขดลวด (autometa-coil-repeater) | E05 / L02: เพิ่มโอกาสท้าทายคำระบุสำเร็จ | [settleChallenge](../../apps/comic/src/game/appraisal/challenge.ts:13) | Choose a truth-preserving benefit rather than adding an invented random success roll. |
+| autometa | เครื่องยิงขดลวด (autometa-coil-repeater) | E05 / L02: เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง | [settleChallenge](../../apps/comic/src/game/appraisal/challenge.ts:13) | Choose a truth-preserving benefit rather than adding an invented random success roll. |
 | autometa | ยามกลไกไขลาน (autometa-clockwork-sentry) | E40 / L14: บรรเทาผลเสียเมื่อแพ้ดวลหนึ่งครั้ง | [playerFailure](../../apps/comic/src/game/appraisal/theft.ts:211), [merchantFailure](../../apps/comic/src/game/appraisal/theft.ts:242) | Name the reduced consequence; cannot infer all penalties are interchangeable. |
 | autometa | ปริซึมบันทึกข้อมูล (autometa-data-prism) | E02 / L01: เปิดเผยช่วงราคาที่แคบลง | [inspect](../../apps/comic/src/game/appraisal/mechanics.ts:219) | Range must contain scaled truth including copies/replacements; no extra facet disclosure. |
 | autometa | กระป๋องสารหล่อเย็น (autometa-coolant-canister) | E31 / L11: ลดเวลารอของความสามารถที่เลือก | [reduceAbilityCooldown](../../apps/comic/src/game/appraisal/ability-rules.ts:20) | Existing reducer caps half-base cooldown, no same-encounter reuse; transfer/copy must not reset charge. |

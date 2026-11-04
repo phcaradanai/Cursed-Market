@@ -256,7 +256,24 @@
       "catalogId": "autometa-coil-repeater",
       "breadth": 1,
       "effects": 2,
-      "caution": "สอง effect อยู่ระบบเดียว แต่เพิ่มชนะและลดโทษพร้อมกันอาจท้าทายแบบไม่เสี่ยง"
+      "caution": "สอง effect อยู่ระบบเดียว แต่เพิ่มชนะและลดโทษพร้อมกันอาจท้าทายแบบไม่เสี่ยง",
+      "meaningApproval": {
+        "id": "MEANING-CHALLENGE",
+        "itemId": "autometa-coil-repeater",
+        "effectId": "E05",
+        "status": "approved-meaning-only",
+        "approvedAt": "2026-11-04",
+        "userReply": "เพิ่มส่วนลดเมื่อท้าทายถูก",
+        "questionItemId": "call_72e4a7ff41e04107aac3c5259353a010",
+        "meaning": "เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง",
+        "preserve": [
+          "ผลท้าทายยังตัดสินจากคำระบุกับความจริง ไม่เพิ่มการสุ่มชนะ",
+          "ไม่เปิดข้อมูลเพิ่มก่อนท้าทาย",
+          "ไม่อนุมัติตัวเลข เพดาน ราคา หรือสินค้าที่มี E05 เป็นเอฟเฟกต์เสริมโดยอัตโนมัติ"
+        ],
+        "numericApproval": false,
+        "runtimeImplemented": false
+      }
     },
     {
       "id": "item:autometa-clockwork-sentry",
@@ -988,13 +1005,31 @@
     },
     {
       "id": "effect:E05",
-      "label": "เพิ่มโอกาสท้าทายคำระบุสำเร็จ",
+      "label": "เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง",
       "kind": "effect",
-      "description": "ถือ/ใช้; จำกัดตามระบบท้าทาย",
+      "description": "ถือ/ใช้; จำกัดตามระบบท้าทาย · ความหมายอนุมัติเฉพาะสินค้าที่ระบุ ยังไม่อนุมัติตัวเลขหรือ runtime",
       "status": "proposal",
       "effectId": "E05",
       "group": "ความแท้/ท้าทาย",
-      "assigned": 3
+      "assigned": 3,
+      "originalDraftLabel": "เพิ่มโอกาสท้าทายคำระบุสำเร็จ",
+      "meaningApproval": {
+        "id": "MEANING-CHALLENGE",
+        "itemId": "autometa-coil-repeater",
+        "effectId": "E05",
+        "status": "approved-meaning-only",
+        "approvedAt": "2026-11-04",
+        "userReply": "เพิ่มส่วนลดเมื่อท้าทายถูก",
+        "questionItemId": "call_72e4a7ff41e04107aac3c5259353a010",
+        "meaning": "เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง",
+        "preserve": [
+          "ผลท้าทายยังตัดสินจากคำระบุกับความจริง ไม่เพิ่มการสุ่มชนะ",
+          "ไม่เปิดข้อมูลเพิ่มก่อนท้าทาย",
+          "ไม่อนุมัติตัวเลข เพดาน ราคา หรือสินค้าที่มี E05 เป็นเอฟเฟกต์เสริมโดยอัตโนมัติ"
+        ],
+        "numericApproval": false,
+        "runtimeImplemented": false
+      }
     },
     {
       "id": "effect:E06",
@@ -20608,9 +20643,26 @@
       "target": "effect:E05",
       "kind": "binding",
       "label": "P หน้าที่หลัก",
-      "description": "ร่างการเชื่อม ยังไม่ใช่ effect ที่ทำงานในเกม ไม่มีตัวเลขที่ยืนยัน",
+      "description": "ความหมายอนุมัติแล้ว แต่ยังเป็น proposed binding ไม่มีตัวเลขหรือ runtime ที่อนุมัติ",
       "role": "primary",
-      "status": "proposal"
+      "status": "proposal",
+      "meaningApproval": {
+        "id": "MEANING-CHALLENGE",
+        "itemId": "autometa-coil-repeater",
+        "effectId": "E05",
+        "status": "approved-meaning-only",
+        "approvedAt": "2026-11-04",
+        "userReply": "เพิ่มส่วนลดเมื่อท้าทายถูก",
+        "questionItemId": "call_72e4a7ff41e04107aac3c5259353a010",
+        "meaning": "เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง",
+        "preserve": [
+          "ผลท้าทายยังตัดสินจากคำระบุกับความจริง ไม่เพิ่มการสุ่มชนะ",
+          "ไม่เปิดข้อมูลเพิ่มก่อนท้าทาย",
+          "ไม่อนุมัติตัวเลข เพดาน ราคา หรือสินค้าที่มี E05 เป็นเอฟเฟกต์เสริมโดยอัตโนมัติ"
+        ],
+        "numericApproval": false,
+        "runtimeImplemented": false
+      }
     },
     {
       "id": "item:autometa-coil-repeater>effect:E06:binding:109",

@@ -1,0 +1,23 @@
+node:internal/modules/run_main:111
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: The input did not match the regular expression /ส่วนลด/. Input:
+
+'เพิ่มโอกาสท้าทายคำระบุสำเร็จ'
+
+    at file:///Users/Projects/Cursed%20Market/[eval1]:1:153
+    at ModuleJob.run (node:internal/modules/esm/module_job:569:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async node:internal/modules/esm/loader:226:26
+    at async ModuleLoader.executeModuleJob (node:internal/modules/esm/loader:223:20)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:105:5) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'เพิ่มโอกาสท้าทายคำระบุสำเร็จ',
+  expected: /ส่วนลด/,
+  operator: 'match',
+  diff: 'simple'
+}
+
+Node.js v26.12.1

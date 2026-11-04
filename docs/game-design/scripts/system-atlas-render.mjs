@@ -1,8 +1,17 @@
 import crypto from 'node:crypto';import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';
 import {renderScreenFlow} from './screen-flow-render.mjs';
 import {renderCurrentCaptures} from './current-capture-render.mjs';
-export async function renderAtlas({ROOT,DOC,OUT,data,baseGraph}){
+export async function renderAtlas({ROOT,DOC,OUT,data,base,baseGraph}){
 const nodes=baseGraph.nodes.map(n=>({...n})),edges=baseGraph.edges.map(e=>({...e})),records={},unresolvedReferences=[],ids=new Set(nodes.map(n=>n.id));
+const meanings=JSON.parse(fs.readFileSync(path.join(DOC,'remaining48-decisions.json'),'utf8'));
+const applyMeanings=(targetNodes,targetEdges)=>{for(const approval of meanings.decisions.filter(d=>d.status==='approved-meaning-only')){
+  const item=targetNodes.find(n=>n.id==='item:'+approval.itemId),effect=targetNodes.find(n=>n.id==='effect:'+approval.effectId);assert(item&&effect);assert.equal(approval.numericApproval,false);
+  effect.originalDraftLabel=effect.label;effect.label=approval.meaning;effect.meaningApproval=approval;effect.description+=' · ความหมายอนุมัติเฉพาะสินค้าที่ระบุ ยังไม่อนุมัติตัวเลขหรือ runtime';item.meaningApproval=approval;
+  for(const edge of targetEdges.filter(e=>e.source===item.id&&e.target===effect.id)){edge.meaningApproval=approval;edge.description='ความหมายอนุมัติแล้ว แต่ยังเป็น proposed binding ไม่มีตัวเลขหรือ runtime ที่อนุมัติ';}
+}};
+applyMeanings(nodes,edges);
+const meaningGraph=structuredClone(baseGraph),meaningData=structuredClone(base);for(const snapshot of [meaningGraph,meaningData])snapshot.approvedMeaningOverlay={file:'remaining48-decisions.json',asOf:meanings.asOf,scope:meanings.scope};applyMeanings(meaningGraph.nodes,meaningGraph.edges);
+for(const approval of meanings.decisions){meaningData.effects[approval.effectId].description=approval.meaning;for(const item of meaningData.items)for(const link of item.proposedLinks)if(link.effectId===approval.effectId)link.effect=approval.meaning;}
 const pilotVerification=JSON.parse(fs.readFileSync(path.join(DOC,'new56-pilot-verification.json'),'utf8'));
 for(const [file,hash] of Object.entries(pilotVerification.sourceFingerprints))assert.equal(data.provenance.sourceFiles.find(s=>s.file===file)?.sha256??crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT,file))).digest('hex'),hash,'Pilot verification stale: '+file);
 const pilot=JSON.parse(fs.readFileSync(path.join(DOC,'new56-pilot-proposal.json'),'utf8'));
@@ -69,6 +78,6 @@ write('README.md','# แผนที่ระบบเกมทั้งหม�
 const compact={summary:data.summary,limitations:data.limitations,nodes,edges,records};
 const html=fs.readFileSync(path.join(DOC,'scripts/system-atlas-view.html'),'utf8'),css=fs.readFileSync(path.join(DOC,'scripts/system-atlas-view.css'),'utf8'),js=fs.readFileSync(path.join(DOC,'scripts/system-atlas-view.js'),'utf8');
 const block='<!-- SYSTEM-ATLAS-START -->\n<style>'+css+'</style>'+html+'<script id="system-atlas-data" type="application/json">'+JSON.stringify(compact).replaceAll('<','\\u003c')+'</script><script>'+js+'</script><style>'+captureView.css+'</style>'+captureView.html+'<script>'+captureView.js+'</script>\n<!-- SYSTEM-ATLAS-END -->';
-const target=path.join(DOC,'logic-item-relations.html');let page=fs.readFileSync(target,'utf8').replace(/<!-- SYSTEM-ATLAS-START -->[\s\S]*?<!-- SYSTEM-ATLAS-END -->\s*/,'');page=page.replace(/<title>[^<]*<\/title>/,'<title>Cursed Market · Context กลางและภาพเกมปัจจุบัน</title>');page=page.replace('เอกสารออกแบบจากแค็ตตาล็อก 56 ชิ้นเท่านั้น','แผนที่ runtime ทั้งระบบ + ข้อเสนอสินค้าใหม่ 56 ชิ้น');page=page.includes('</body>')?page.replace('</body>',block+'\n</body>'):page.replace('</html>',block+'\n</html>');fs.writeFileSync(target,page);
+const target=path.join(DOC,'logic-item-relations.html');let page=fs.readFileSync(target,'utf8').replace(/<!-- SYSTEM-ATLAS-START -->[\s\S]*?<!-- SYSTEM-ATLAS-END -->\s*/,'');page=page.replace(/<title>[^<]*<\/title>/,'<title>Cursed Market · Context กลางและภาพเกมปัจจุบัน</title>');page=page.replace('เอกสารออกแบบจากแค็ตตาล็อก 56 ชิ้นเท่านั้น','แผนที่ runtime ทั้งระบบ + ข้อเสนอสินค้าใหม่ 56 ชิ้น');page=page.replace(/(<script id="data" type="application\/json">)[\s\S]*?(<\/script>)/,(_m,a,b)=>a+JSON.stringify(meaningData).replaceAll('<','\\u003c')+b).replace(/(<script id="graph-data" type="application\/json">)[\s\S]*?(<\/script>)/,(_m,a,b)=>a+JSON.stringify(meaningGraph).replaceAll('<','\\u003c')+b);page=page.includes('</body>')?page.replace('</body>',block+'\n</body>'):page.replace('</html>',block+'\n</html>');fs.writeFileSync(target,page);
 console.log('Atlas graph: '+nodes.length+' nodes / '+edges.length+' edges; assertions passed');
 }

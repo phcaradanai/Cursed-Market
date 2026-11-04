@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "asOf": "2026-11-04",
+  "scope": "Approved meanings only. No numeric magnitude, remaining48runtime, optional effect, scoring-weight or core-rule approval inferred.",
+  "decisions": [
+    {
+      "id": "MEANING-CHALLENGE",
+      "itemId": "autometa-coil-repeater",
+      "effectId": "E05",
+      "status": "approved-meaning-only",
+      "approvedAt": "2026-11-04",
+      "userReply": "เพิ่มส่วนลดเมื่อท้าทายถูก",
+      "questionItemId": "call_72e4a7ff41e04107aac3c5259353a010",
+      "meaning": "เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง",
+      "preserve": ["ผลท้าทายยังตัดสินจากคำระบุกับความจริง ไม่เพิ่มการสุ่มชนะ", "ไม่เปิดข้อมูลเพิ่มก่อนท้าทาย", "ไม่อนุมัติตัวเลข เพดาน ราคา หรือสินค้าที่มี E05 เป็นเอฟเฟกต์เสริมโดยอัตโนมัติ"],
+      "numericApproval": false,
+      "runtimeImplemented": false
+    }
+  ]
+}

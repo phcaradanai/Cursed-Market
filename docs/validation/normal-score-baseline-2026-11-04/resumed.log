@@ -1,0 +1,13 @@
+4-aggressive-0 PASS 32ms
+4-aggressive-1 PASS 4825ms
+4-aggressive-2 PASS 4227ms
+4-aggressive-3 PASS 4314ms
+4-collector-0 PASS 2358ms
+4-collector-1 PASS 2675ms
+4-collector-2 PASS 3220ms
+4-collector-3 PASS 2682ms
+4-trader-0 PASS 4501ms
+4-trader-1 PASS 8494ms
+4-trader-2 PASS 10475ms
+4-trader-3 PASS 8667ms
+{"completed":32,"failed":0,"unexecuted":0,"findings":0}

@@ -1,0 +1,154 @@
+(node:29705) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ 18 unique passive effects extend the catalog to 48 and preserve all version-2 merchant pools (6.558959ms)
+✔ inspection-warrant: two held copies stack, counterfeit/curse do not become hidden oracles, and selling removes the effect (34.681834ms)
+✔ tax-order: two held copies stack, counterfeit/curse do not become hidden oracles, and selling removes the effect (6.846334ms)
+✔ noble-seal: two held copies stack, counterfeit/curse do not become hidden oracles, and selling removes the effect (7.319917ms)
+✔ gambler-hat: two held copies stack, counterfeit/curse do not become hidden oracles, and selling removes the effect (10.565208ms)
+✔ lucky-die: two held copies stack, counterfeit/curse do not become hidden oracles, and selling removes the effect (12.525917ms)
+✔ merchant-ledger: two held copies stack, counterfeit/curse do not become hidden oracles, and selling removes the effect (19.001625ms)
+✔ friendship-ring: two held copies stack, counterfeit/curse do not become hidden oracles, and selling removes the effect (6.946791ms)
+✔ negotiator-gloves: two held copies stack, counterfeit/curse do not become hidden oracles, and selling removes the effect (5.147708ms)
+✔ guild-badge: two held copies stack, counterfeit/curse do not become hidden oracles, and selling removes the effect (4.515125ms)
+✔ light-satchel: two held copies stack, counterfeit/curse do not become hidden oracles, and selling removes the effect (10.339583ms)
+✔ surveyor-lens: two held copies stack, counterfeit/curse do not become hidden oracles, and selling removes the effect (2.631959ms)
+✔ curse-compass: two held copies stack, counterfeit/curse do not become hidden oracles, and selling removes the effect (2.304917ms)
+✔ market-pass: two held copies stack, counterfeit/curse do not become hidden oracles, and selling removes the effect (1.907417ms)
+✔ authenticity-seal: two held copies stack, counterfeit/curse do not become hidden oracles, and selling removes the effect (2.011458ms)
+✔ smuggler-cloak: two held copies stack, counterfeit/curse do not become hidden oracles, and selling removes the effect (6.836208ms)
+✔ merchant-canteen: two held copies stack, counterfeit/curse do not become hidden oracles, and selling removes the effect (3.88475ms)
+✔ healing-brooch: two held copies stack, counterfeit/curse do not become hidden oracles, and selling removes the effect (3.842208ms)
+✔ inspector-notebook: two held copies stack, counterfeit/curse do not become hidden oracles, and selling removes the effect (2.614ms)
+✔ vital-flask: two held copies stack, counterfeit/curse do not become hidden oracles, and selling removes the effect (7.54775ms)
+✔ life-relic: two held copies stack, counterfeit/curse do not become hidden oracles, and selling removes the effect (2.271125ms)
+✔ wish-ledger: two held copies stack, counterfeit/curse do not become hidden oracles, and selling removes the effect (1.716ms)
+✔ warrants and notebooks stack; free inspections work at zero energy and do not consume unrelated cost statuses (52.166791ms)
+✔ free authenticity and effects permits stay separate and do not reveal price (11.919875ms)
+✔ stacked tax orders, ledgers and rings pay commission and trust once and preserve the ledger (3.169166ms)
+✔ purchase discounts and energy reductions match client quotes and do not self-boost a newly bought tax order (7.192625ms)
+✔ gloves increase low-price acceptance without eliminating detection or allowing free goods (8.129125ms)
+✔ canteens and brooches stack in paid recovery offers while resource caps still apply (7.1835ms)
+✔ noble seals, hats and dice snapshot stackable income, seeded odds and win bonuses; loss subtracts the same per-coin bonus (6.773959ms)
+✔ market match: pass, seal and cloak stacks match the visible quote and reserved bank ledger (17.47425ms)
+✔ market markdown: pass, seal and cloak stacks match the visible quote and reserved bank ledger (13.852833ms)
+✔ market sacrifice: pass, seal and cloak stacks match the visible quote and reserved bank ledger (17.297375ms)
+✔ the passive item being sold does not grant its own market bonus; UI summarizes actual held stacks (15.462917ms)
+✔ inspection-warrant: naturally generated, purchased and replayed through a complete seeded game (55.485ms)
+✔ tax-order: naturally generated, purchased and replayed through a complete seeded game (98.56625ms)
+✔ noble-seal: naturally generated, purchased and replayed through a complete seeded game (55.375166ms)
+✔ gambler-hat: naturally generated, purchased and replayed through a complete seeded game (64.194791ms)
+✔ lucky-die: naturally generated, purchased and replayed through a complete seeded game (55.90975ms)
+✔ merchant-ledger: naturally generated, purchased and replayed through a complete seeded game (25.918291ms)
+✔ friendship-ring: naturally generated, purchased and replayed through a complete seeded game (110.794541ms)
+✔ negotiator-gloves: naturally generated, purchased and replayed through a complete seeded game (21.436792ms)
+✔ guild-badge: naturally generated, purchased and replayed through a complete seeded game (127.015ms)
+✔ light-satchel: naturally generated, purchased and replayed through a complete seeded game (162.611042ms)
+✔ surveyor-lens: naturally generated, purchased and replayed through a complete seeded game (339.939375ms)
+✔ curse-compass: naturally generated, purchased and replayed through a complete seeded game (410.09875ms)
+✔ market-pass: naturally generated, purchased and replayed through a complete seeded game (148.497958ms)
+✔ authenticity-seal: naturally generated, purchased and replayed through a complete seeded game (70.936375ms)
+✔ smuggler-cloak: naturally generated, purchased and replayed through a complete seeded game (79.108667ms)
+✔ merchant-canteen: naturally generated, purchased and replayed through a complete seeded game (31.357042ms)
+✔ healing-brooch: naturally generated, purchased and replayed through a complete seeded game (59.96575ms)
+✔ inspector-notebook: naturally generated, purchased and replayed through a complete seeded game (33.415ms)
+✔ vital-flask: naturally generated, purchased and replayed through a complete seeded game (57.720375ms)
+✔ life-relic: naturally generated, purchased and replayed through a complete seeded game (27.086792ms)
+✔ wish-ledger: naturally generated, purchased and replayed through a complete seeded game (36.869333ms)
+✔ seeded sampling verifies 60% stacked hat odds and the five-copy 75% cap for either guess (192.066917ms)
+✔ buying goods another seat appraised pays the buyer 1 pulse shard, and 3 shards mend 1 life (265.077625ms)
+✔ buying your own appraised goods from the merchant pays no shards (23.9735ms)
+✔ full life banks shards, the bank is capped, and the next missing life is mended from it (23.871125ms)
+✔ merchants grow wary after more than 3 encounters of trading with one partner only (15.928834ms)
+✔ a wary buyer earns no shard and is told so; buying from someone new restores it (59.96025ms)
+✔ life deals follow trust: none at 0, then 3/5/7 credits for 0-1, 1-2 and 2-3 life (20.439084ms)
+✔ energy merchants keep their flat deal whatever the trust (9.306458ms)
+✔ the rolled life covers the whole range, is fixed for the encounter and stays in bounds (14.468125ms)
+✔ a deal that rolls 0 still costs the credits and uses the encounter's deal (19.578917ms)
+(node:29707) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ v0.5 keeps life separate, starts without entry energy and validates survival config while v0.4 is unchanged (64.694708ms)
+✔ spending last energy does not pause, zero-energy actions fail atomically and free decisions remain legal (43.539417ms)
+✔ NPC energy recovery is available at zero energy, costs credits once and retry is idempotent (9.632584ms)
+✔ NPC life recovery is available at zero energy, costs credits once and retry is idempotent (4.970958ms)
+✔ zero-energy vampire blood pact restores energy but costs life and cannot resurrect a dead player (15.633333ms)
+✔ restorative consumable authenticity=true curse=false applies distinct life effects (4.430041ms)
+✔ restorative consumable authenticity=false curse=false applies distinct life effects (6.049584ms)
+✔ restorative consumable authenticity=true curse=true applies distinct life effects (10.009958ms)
+✔ restorative consumable authenticity=false curse=true applies distinct life effects (6.494167ms)
+✔ death is permanent, freezes owned property/statuses and survivors continue past it (22.283334ms)
+✔ all dead invokes Collector once: true/fake/cursed values plus credits and score statuses, without history bonuses (7.457875ms)
+✔ score buff and debuff cancel and Collector handles zero inventory and tied credit scores (3.176541ms)
+✔ a complete command-only survival run exceeds three encounters, drains life and strictly replays (167.157708ms)
+✔ parser accepts late encounters and recovery but rejects actor/target injections and unsafe numbers (1.780375ms)
+✔ v0.4 historical audits still replay with their exact old shape and scoring (100.819375ms)
+✔ survival cautious reads only DTOs and completes strict seeded replay (2122.863708ms)
+✔ survival aggressive reads only DTOs and completes strict seeded replay (11563.0735ms)
+✔ survival collector reads only DTOs and completes strict seeded replay (1625.678375ms)
+✔ survival trader reads only DTOs and completes strict seeded replay (6150.408167ms)
+✔ room death/resume/reveal/final audit/rematch with timers true (40.998709ms)
+✔ room death/resume/reveal/final audit/rematch with timers false (8.271416ms)
+✔ canonical 2-seat room audit reaches Collector and validates factual metadata (98.504708ms)
+✔ canonical 3-seat room audit reaches Collector and validates factual metadata (177.453459ms)
+✔ canonical 4-seat room audit reaches Collector and validates factual metadata (245.860375ms)
+✖ survival SSR distinguishes zero energy from death and exposes Collector credit/item/modifier results (174.626959ms)
+✖ F1 score effects are disclosed in D10 direct/cross-shop/E08 contracts and B10/D10 event choices (79.404541ms)
+✔ F2 command-only privacy: hidden wealth/accuracy stay private through appraisal, reveal, advance and spectator views (100.267208ms)
+✔ roster reports reveal confirmation, not the stale trade flag, and drops death badges at Collector results (36.572958ms)
+✔ new rooms start in Survival without a mode choice and reject classic clients (5.129625ms)
+✔ explicit legacy service configurations preserve classic games (4.153875ms)
+✔ entry explains Survival directly without a mode selector or comparison (57.696875ms)
+✔ solo classic room: a host plus bots plays a full replayable match (168.380041ms)
+✔ solo survival room: a host plus bots plays a full replayable match (634.421917ms)
+✔ only the host adds bots before the match, up to four seats, and bot styles match the simulation (0.977333ms)
+ℹ tests 98
+ℹ suites 0
+ℹ pass 96
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 24723.063958
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/appraisal-survival.test.js:308:1
+✖ survival SSR distinguishes zero energy from death and exposes Collector credit/item/modifier results (174.626959ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(html.includes('คุณเป็นผู้ชม'))
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-survival.test.js:334:5)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/appraisal-survival.test.js:343:1
+✖ F1 score effects are disclosed in D10 direct/cross-shop/E08 contracts and B10/D10 event choices (79.404541ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(html.includes('คนกลาง'))
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-survival.test.js:394:5)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

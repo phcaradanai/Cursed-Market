@@ -1,7 +1,7 @@
 {
   "version": 1,
   "asOf": "2026-11-04",
-  "status": "experimental-effects3-not-default",
+  "status": "experimental-effects4-not-default",
   "catalogVersion": 5,
   "registeredItemIds": [
     "orc-oath-sword",
@@ -62,29 +62,32 @@
     "beast-riftfang-sword"
   ],
   "verifiedPrimaryItemIds": [
-    "orc-tusk-shield",
-    "vampire-nocturne-signet",
-    "autometa-torque-caliper",
+    "alien-biobright-seedpod",
     "alien-thought-translator",
-    "darkone-crossing-token",
-    "deepsea-tide-compass",
-    "swarm-brood-hammer",
-    "beast-riftfang-sword",
     "autometa-coil-repeater",
-    "vampire-mist-atomizer",
-    "orc-oath-sword",
-    "orc-ironroot-greaves",
-    "orc-ember-salve",
-    "orc-clan-forge-tongs",
-    "vampire-gloam-violin",
     "autometa-data-prism",
     "autometa-servo-harness",
-    "alien-biobright-seedpod",
+    "autometa-torque-caliper",
+    "beast-riftfang-sword",
+    "darkone-crossing-token",
     "deepsea-abyss-trident",
+    "deepsea-kelp-saddle",
+    "deepsea-tide-compass",
     "deepsea-whale-conch-horn",
-    "swarm-pheromone-sprayer"
+    "orc-bone-war-drum",
+    "orc-clan-forge-tongs",
+    "orc-ember-salve",
+    "orc-ironroot-greaves",
+    "orc-oath-sword",
+    "orc-tally-beads",
+    "orc-tusk-shield",
+    "swarm-brood-hammer",
+    "swarm-pheromone-sprayer",
+    "vampire-gloam-violin",
+    "vampire-mist-atomizer",
+    "vampire-nocturne-signet"
   ],
-  "pendingPrimaryCount": 35,
+  "pendingPrimaryCount": 32,
   "evidence": [
     "docs/validation/native56-stage3-2026-11-04/focused-final.log",
     "docs/validation/native56-stage3-2026-11-04/green4.log",
@@ -92,9 +95,11 @@
     "docs/validation/native56-stage3-2026-11-04/baseline-four-failures.log",
     "docs/validation/native56-stage3-2026-11-04/collector-socket.log",
     "docs/validation/native56-stage3-2026-11-04/pilot-public/public-effects.json",
-    "docs/validation/native56-stage3-2026-11-04/compatibility/report.json"
+    "docs/validation/native56-stage3-2026-11-04/compatibility/report.json",
+    "docs/validation/native56-stage4-2026-11-04/verification.json",
+    "docs/game-design/native56-stage4.json"
   ],
-  "scope": "56registered,21primary owner-tested (pilot8+E05+E06+11items in E28/E61/E63/E02/E11/E07). Remaining35primary hooks disabled/unbound. Owner fixtures/21individual kind routes are not full normal-budget benefit exposure or UI acceptance. Default3/pilot4 unchanged; optional effects off; no release/balance claim.",
-  "stage1ReplayContract": "native56-stage1.json freezes absent revision; native56-stage2.json freezes2; native56-stage3.json freezes3. Later revision must preserve all earlier semantics and carry forward earlier effects.",
-  "native56Effects": 3
+  "scope": "56registered,24primary owner-tested: previous21 plus E13 commission beads and E16 paid-original PvP energy drum/saddle. Remaining32 primary hooks disabled/unbound. Owner/socket proof is not full normal-budget benefit exposure, UI or balance acceptance. Default3/pilot4 unchanged; optional effects off.",
+  "stage1ReplayContract": "native56-stage1.json freezes absent revision; native56-stage2.json freezes2; native56-stage3.json freezes3. Later revision must preserve all earlier semantics and carry forward earlier effects. native56-stage4.json freezes4; recovery-quote-2026-11-04 freezes quote-enabled3. Carry all earlier effects into future revisions.",
+  "native56Effects": 4
 }

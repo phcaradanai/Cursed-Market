@@ -317,8 +317,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 344,
-          "endLine": 444
+          "line": 345,
+          "endLine": 445
         }
       ]
     },
@@ -568,8 +568,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:applyAppraisalAction",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 344,
-          "endLine": 444
+          "line": 345,
+          "endLine": 445
         }
       ]
     },
@@ -988,8 +988,8 @@
         {
           "symbolId": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 445,
-          "endLine": 477
+          "line": 446,
+          "endLine": 478
         },
         {
           "symbolId": "code:apps/comic/src/game/appraisal/secure-storage.ts:handleStorageAction",

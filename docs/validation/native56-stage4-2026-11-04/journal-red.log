@@ -1,0 +1,40 @@
+✔ E13 uses actual commission, caps each settlement2 and player run8, and funds only free bank (60.93775ms)
+✔ E13 excludes self-purchases, copied goods, dead/locked/outside tools and archived effects3 (39.593167ms)
+✔ E16 original paid trade restores both eligible parties, no duplicate by retry or same pair in later encounter (12.479375ms)
+✔ E16 requires tools before offer and settlement, paid original goods and one benefit per player encounter (36.933625ms)
+✔ trade DTO never exposes internal held-item snapshots (7.212334ms)
+✔ E13 rarity/copy floors are based on actual commission and hidden tool truth never changes held benefit (5.613625ms)
+✖ E13 public cross-shop purchase grants the bonus once and journals its separate cause (17.406959ms)
+✔ E16 goods origin cannot earn again with a different pair and copied tool origin cannot pay twice in one encounter (8.74125ms)
+✔ E16 net-zero rebate and swaps cannot farm energy, and rejected offer leaves the pair unused (6.998ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 8
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 540.255
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/remaining48-sales.test.js:98:1
+✖ E13 public cross-shop purchase grants the bonus once and journals its separate cause (17.406959ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(s.players[0].journal.at(-1).cause.includes('ลูกปัดนับชัย'))
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/remaining48-sales.test.js:110:5)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

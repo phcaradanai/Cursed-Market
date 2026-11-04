@@ -1,0 +1,30 @@
+✖ E16 first eligible recovery consumes encounter and origin rights even when D10 blocks the gain (42.725958ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 450.026083
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/remaining48-sales.test.js:282:1
+✖ E16 first eligible recovery consumes encounter and origin rights even when D10 blocks the gain (42.725958ms)
+  AssertionError [ERR_ASSERTION]: cleansing D10 later cannot grant another E16 recovery in the same encounter
+  
+  4 !== 2
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/remaining48-sales.test.js:292:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 4,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -39,7 +39,7 @@ export type ItemKind = Remaining48Kind | LegacyItemFamily | PilotItemKind | 'mem
 export type AppraisalPhase = 'PORTALS' | 'APPRAISAL' | 'TRADE' | 'REVEAL' | 'RESULTS';
 export interface AppraisalConfig {
   /** Absent in catalog5 stage1 audits: pilot8 plus E05 only. */
-  native56Effects?:2|3;
+  native56Effects?:2|3|4;
   /** Bind recovery payment to visible terms; absent in historical audits. */
   recoveryQuoteRules?:1;
   /** Versioned personal accomplishments; historical audits omit this. */
@@ -249,6 +249,8 @@ export interface AuctionLot { id: string; itemId: string; minimum: number; bids:
 export interface DarkMarket { encounter: number; open: boolean; budget: number; orders: MarketOrder[]; lots?: AuctionLot[] }
 export interface AuctionLotView { id: string; itemId: string; minimum: number; item: ItemView; yourBid: number | null; bidCount: number; winnerId?: string | null; price?: number }
 export interface TradeOffer {
+  /** Internal eligibility snapshot, omitted from public trade DTOs. */
+  nativeEnergyTools?:Record<string,string[]>;
   id: string; buyerId: string; sellerId: string; itemId: string; swapItemId: string | null;
   credits: number; source: 'inventory' | 'npc'; encounter: number; status: 'open'|'accepted'|'rejected';
   condition: boolean;
@@ -307,6 +309,8 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
 /** `rebate` is credits the owner pays the buyer when the sale completes, so a poor item can still find a price. */
 export interface SharedListing { ownerId: string; itemId: string; purchase: boolean; claims?: { genuine?: boolean; cursed?: boolean }; rebate?: number }
 export interface AppraisalState {
+  native56Commission?:{paid:Record<string,number>;keys:string[]};
+  native56SaleEnergy?:{pairs:string[];origins:string[];uses:{encounter:number;players:string[];origins:string[]}};
   native56Meetings?:Record<string,NpcId[]>;
   native56RecoveryUses?:{encounter:number;players:string[];origins:string[]};
   native56EnergyUses?:{encounter:number;players:string[];origins:string[]};
@@ -396,7 +400,7 @@ export interface AppraisalView {
   };
   players: Array<{id:string;credits:number;energy:number;score:number;paused:Appraiser['paused'];done:boolean;itemCount:number;life?:number}>;
   market: Omit<DarkMarket,'lots'> & { lots?: AuctionLotView[] }; listings: Array<SharedListing & { item: ItemView }>;
-  trades: Array<TradeOffer & {item:ItemView;swapItem:ItemView|null}>; history: EncounterResult[];
+  trades: Array<Omit<TradeOffer,'nativeEnergyTools'> & {item:ItemView;swapItem:ItemView|null}>; history: EncounterResult[];
 }
 export interface MerchantAbilityView {
   npc:NpcId; name:string; description:string; trust:number; tier:number; cooldown:number; remaining:number;

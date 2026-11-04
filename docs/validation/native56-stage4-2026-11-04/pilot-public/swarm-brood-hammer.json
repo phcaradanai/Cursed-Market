@@ -1,0 +1,82 @@
+{
+  "kind": "swarm-brood-hammer",
+  "config": {
+    "catalogVersion": 4,
+    "startingCredits": 500,
+    "secureEconomy": true,
+    "core2": true,
+    "survival": {
+      "maxLife": 6,
+      "encounterLifeCost": 1,
+      "entryEnergyCost": 0
+    },
+    "collectorDeadline": 3,
+    "marketProbability": 0,
+    "wishlist": false,
+    "npcEvents": false,
+    "polish": false,
+    "expansion": true
+  },
+  "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+  "trials": [
+    {
+      "n": 1,
+      "seed": "public-pilot-swarm-brood-hammer-1",
+      "status": "effect exposed + both strict replays passed"
+    }
+  ],
+  "passed": true,
+  "metric": {
+    "withItem": {
+      "action": {
+        "type": "vault-expand"
+      },
+      "before": {
+        "credits": 460,
+        "energy": 10,
+        "life": 4
+      },
+      "after": {
+        "credits": 454,
+        "energy": 10,
+        "life": 4
+      },
+      "creditsSpent": 6,
+      "energySpent": 0
+    },
+    "withoutItem": {
+      "action": {
+        "type": "vault-expand"
+      },
+      "before": {
+        "credits": 460,
+        "energy": 10,
+        "life": 4
+      },
+      "after": {
+        "credits": 450,
+        "energy": 10,
+        "life": 4
+      },
+      "creditsSpent": 10,
+      "energySpent": 0
+    },
+    "savedCredits": 4
+  },
+  "seed": "public-pilot-swarm-brood-hammer-1",
+  "auditFiles": [
+    {
+      "file": "swarm-brood-hammer-held.audit.json",
+      "sha256": "3e19bbb4133d3b2fd87c3a67eadc8735caeab1304bf43f36e8b544affd6095e3",
+      "commands": 31,
+      "strictReplay": true
+    },
+    {
+      "file": "swarm-brood-hammer-stored-or-unused.audit.json",
+      "sha256": "d31d529b90e9e262b9efa5e213fa0f3cc42747f899a7583a92da447ba9448427",
+      "commands": 32,
+      "strictReplay": true
+    }
+  ],
+  "finishedAt": "2026-11-04T10:36:34.406Z"
+}

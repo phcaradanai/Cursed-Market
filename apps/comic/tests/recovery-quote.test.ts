@@ -21,7 +21,7 @@ test('recovery quote cannot be omitted, reused for another actor or shop, or cha
  s.encounter++;assert.notEqual(token(s),id);
 });
 test('old effects3 exact restore retains recovery without quote tokens',()=>{
- const s=make(),config={...s.config};delete (config as {recoveryQuoteRules?:number}).recoveryQuoteRules;
+ const s=make(),config={...s.config,native56Effects:3 as const};delete (config as {recoveryQuoteRules?:number}).recoveryQuoteRules;
  const old=restoreAppraisalRun(['alice','bob'],s.seed,config);old.phase='APPRAISAL';const p=old.players[0]!;p.eventOffer=null;p.selectedPortalId=p.portals[0]!.id;p.portals[0]!.npc='autometa';p.energy=1;
  assert.equal(token(old),undefined);assert.doesNotThrow(()=>applyAppraisalAction(old,command(old)));
 });

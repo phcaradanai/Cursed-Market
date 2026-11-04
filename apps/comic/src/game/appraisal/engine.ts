@@ -1,6 +1,6 @@
 import {personalPerformanceInvariants,recordPersonalActivity,recordPersonalItemActivity,recordPersonalSale} from './personal-scoring.js';
 import {handleCollectorWishlist,reconcileCollectorWishlist,assertCollectorWishlistInvariants} from './collector-wishlist.js';
-import {remainingMeet,remainingBoundaryEnergy,remainingUseRecovery} from './remaining48-effects.js';
+import {remainingMeet,remainingBoundaryEnergy,remainingUseRecovery,remainingHeld,remainingSaleEnergy} from './remaining48-effects.js';
 import {pilotRerollCost,reconcilePilotCustody} from './pilot-effects.js';
 import {handleGhostAction,reconcileGhostJobs} from './ghost-service.js';
 import { integerEffect, statusMagnitude } from './copy-effects.js';
@@ -43,7 +43,7 @@ export const DEFAULT_APPRAISAL_CONFIG: AppraisalConfig = {
   bankReserve:2000, marketProbability:1, marketMaxOrders:3, marketQuota:1,
 };
 function validateConfig(config:AppraisalConfig):void {
-  check(config.native56Effects===undefined||(config.native56Effects===2||config.native56Effects===3)&&config.catalogVersion===5,'config','รุ่นเอฟเฟกต์สินค้าใหม่ไม่ถูกต้อง');
+  check(config.native56Effects===undefined||(config.native56Effects===2||config.native56Effects===3||config.native56Effects===4)&&config.catalogVersion===5,'config','รุ่นเอฟเฟกต์สินค้าใหม่ไม่ถูกต้อง');
   check(config.recoveryQuoteRules===undefined||config.recoveryQuoteRules===1,'config','กติกาข้อเสนอฟื้นทรัพยากรไม่ถูกต้อง');
   check(config.personalScoringRules===undefined||config.personalScoringRules===1,'config','กติกาคะแนนผลงานไม่ถูกต้อง');
   check(config.personalScoringFacts===undefined||config.personalScoringFacts===2,'config','รุ่นตัวบันทึกคะแนนไม่ถูกต้อง');
@@ -96,7 +96,7 @@ function validateConfig(config:AppraisalConfig):void {
   }
 }
 export function createAppraisalRun(playerIds:string[],seed:string,overrides:Partial<AppraisalConfig>={}):AppraisalState {
-  return initialiseAppraisalRun(playerIds,seed,structuredClone({...DEFAULT_APPRAISAL_CONFIG,...overrides,...(overrides.catalogVersion===5&&overrides.native56Effects!==2&&overrides.recoveryQuoteRules===undefined?{recoveryQuoteRules:1 as const}:{}),...(overrides.catalogVersion===5&&overrides.native56Effects===undefined?{native56Effects:3 as const}:{}),...(overrides.personalScoringRules===1&&overrides.personalScoringFacts===undefined?{personalScoringFacts:2 as const}:{}),...(overrides.catalogVersion!==undefined&&overrides.catalogVersion<3&&overrides.trustAbilities===undefined?{trustAbilities:false}:{})}));
+  return initialiseAppraisalRun(playerIds,seed,structuredClone({...DEFAULT_APPRAISAL_CONFIG,...overrides,...(overrides.catalogVersion===5&&overrides.native56Effects!==2&&overrides.recoveryQuoteRules===undefined?{recoveryQuoteRules:1 as const}:{}),...(overrides.catalogVersion===5&&overrides.native56Effects===undefined?{native56Effects:4 as const}:{}),...(overrides.personalScoringRules===1&&overrides.personalScoringFacts===undefined?{personalScoringFacts:2 as const}:{}),...(overrides.catalogVersion!==undefined&&overrides.catalogVersion<3&&overrides.trustAbilities===undefined?{trustAbilities:false}:{})}));
 }
 /** Restore an exact saved config, including original audits without a catalog version. */
 export function restoreAppraisalRun(playerIds:string[],seed:string,config:AppraisalConfig):AppraisalState {
@@ -271,7 +271,7 @@ function propose(state:AppraisalState,p:Appraiser,action:Extract<AppraisalAction
   } else check(action.sealId===undefined,'challenge','ตราโมฆะใช้ได้กับการท้าทายเท่านั้น');
   if(action.swapItemId) {check(source==='inventory','swap','ร้าน NPC รับค่าแนะนำเป็น credit เท่านั้น');ownedItem(state,p,action.swapItemId,true);}
   check(state.trades.filter(o=>o.status==='open' && o.buyerId===p.id).length<8,'offers','มีข้อเสนอค้างมากเกินไป');
-  state.trades.push({id:`trade-${state.encounter}-${p.id}-${action.requestId}`,buyerId:p.id,sellerId:seller.id,itemId:item.id,swapItemId:action.swapItemId??null,credits:action.credits,source,encounter:state.encounter,status:'open',condition:action.condition===true,...(action.challenge!==undefined?{challenge:action.challenge}:{}),...(action.sealId!==undefined?{sealId:action.sealId}:{})});
+  state.trades.push({...(state.config.native56Effects===4?{nativeEnergyTools:Object.fromEntries([p,seller].map(p=>[p.id,remainingHeld(state,p,'E16').map(i=>i.id)]))}:{}),id:`trade-${state.encounter}-${p.id}-${action.requestId}`,buyerId:p.id,sellerId:seller.id,itemId:item.id,swapItemId:action.swapItemId??null,credits:action.credits,source,encounter:state.encounter,status:'open',condition:action.condition===true,...(action.challenge!==undefined?{challenge:action.challenge}:{}),...(action.sealId!==undefined?{sealId:action.sealId}:{})});
 }
 /** Dark order tickets: enough of them force a shared shop item to sell at the appraised price, with no answer or haggling. */
 function forceBuy(state:AppraisalState,p:Appraiser,action:Extract<AppraisalAction,{type:'force-buy'}>):void {
@@ -324,6 +324,7 @@ function respond(state:AppraisalState,p:Appraiser,offerId:string,accept:boolean)
   const rebated=payRebate(state,p,buyer,listing.rebate,true);
   buyer.paid={...buyer.paid,[offer.itemId]:Math.max(0,(offer.source==='npc'?(buyer.paid?.[offer.itemId]??0):0)+offer.credits+penalty-rebated)};
   state.listings=state.listings.filter(l=>l.itemId!==offer.itemId && l.itemId!==offer.swapItemId);
+  remainingSaleEnergy(state,p,buyer,offer,Math.max(0,offer.credits-rebated));
   offer.status='accepted';
   for(const party of [p,buyer]) if(party.subsidy) {party.subsidy=false;state.reservedRewards--;reward(state,party,1,'E43');}
   trace(state,p,'trade-completed',{offerId,itemId:offer.itemId,buyerId:buyer.id,credits:offer.credits,source:offer.source});
@@ -444,7 +445,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
 }
 export function advanceAppraisalEncounter(previous:AppraisalState):AppraisalState {
   check(previous.phase==='REVEAL','phase','ต้องเปิดผลก่อน');
-  const boundary=previous.config.native56Effects===3?Object.fromEntries(previous.players.map(p=>[p.id,p.inventory.filter(id=>previous.items[id]?.owner===p.id&&!p.npcContracts?.alien?.itemIds.includes(id))])):{};
+  const boundary=(previous.config.native56Effects??0)>=3?Object.fromEntries(previous.players.map(p=>[p.id,p.inventory.filter(id=>previous.items[id]?.owner===p.id&&!p.npcContracts?.alien?.itemIds.includes(id))])):{};
   const state=structuredClone(previous);state.commands.push({type:'advance'});state.revision++;
   for(const p of state.players)if(p.roundReward && !p.roundReward.settled)bankRoundReward(state,p);
   if(state.config.secureEconomy)settleLoansBeforeAdvance(state);

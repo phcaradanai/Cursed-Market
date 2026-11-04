@@ -1,0 +1,35 @@
+✔ Collector parser accepts only the four exact public payloads and rejects private fields (4.841084ms)
+✔ Collector bots choose only from the public pool and progress through a bounded decision sequence at real40-credit budget (343.792958ms)
+✔ pending real entry event blocks Collector while reading its DTO never changes revision (22.729916ms)
+✔ named pending-ability fixture blocks Collector and preserves its current window (53.991667ms)
+✔ catalog4: two actual sockets request2 resume deliver4 isolate batches and charge once then replay RESULTS (771.284875ms)
+✔ catalog5: two actual sockets request2 resume deliver4 isolate batches and charge once then replay RESULTS (576.885291ms)
+✔ recovery binds visible price and terms before charging and accepts a fresh retry exactly once (82.348833ms)
+✔ recovery quote cannot be omitted, reused for another actor or shop, or changed through unrelated revision (43.208833ms)
+✔ old effects3 exact restore retains recovery without quote tokens (44.52975ms)
+✔ wire recovery quote is bounded and rejects extra fields (2.448459ms)
+✔ life range changes invalidate a quote even when its price stays fixed (15.837333ms)
+✔ two actual sockets reject a stale E63 quote without charge and reconnect receives the new offer (219.619084ms)
+✔ E13 uses actual commission, caps each settlement2 and player run8, and funds only free bank (77.201625ms)
+✔ E13 excludes self-purchases, copied goods, dead/locked/outside tools and archived effects3 (79.543875ms)
+✔ E16 original paid trade restores both eligible parties, no duplicate by retry or same pair in later encounter (33.966667ms)
+✔ E16 requires tools before offer and settlement, paid original goods and one benefit per player encounter (57.293417ms)
+✔ trade DTO never exposes internal held-item snapshots (9.457958ms)
+✔ E13 rarity/copy floors are based on actual commission and hidden tool truth never changes held benefit (12.102166ms)
+✔ E13 public cross-shop purchase grants the bonus once and journals its separate cause (11.637792ms)
+✔ E16 goods origin cannot earn again with a different pair and copied tool origin cannot pay twice in one encounter (11.207875ms)
+✔ E16 net-zero rebate and swaps cannot farm energy, and rejected offer leaves the pair unused (10.548167ms)
+✔ E16 copy rounding, missing-energy cap and D10 use existing recovery semantics (37.293209ms)
+✔ E13 bonus does not inflate canonical sold units, gross or trust accomplishments (11.713584ms)
+✔ two actual sockets settle E16 and E13, hide custody snapshots, reconnect and retry without double benefit (215.603208ms)
+✔ sealed effects3 quote-enabled normal games keep their exact replay semantics (2635.981625ms)
+✔ effects4 sealed full-game archives pin24primary kinds and replay without upgrading config (1875.7235ms)
+✔ E16 first eligible recovery consumes encounter and origin rights even when D10 blocks the gain (3.402209ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6025.181166

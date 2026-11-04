@@ -125,3 +125,7 @@ Postcommit9ec8092: readiness audit had one stale types.ts hash after a comment-o
 - [x] Versioned visible-term token from shared recoveryOffer; strict optional bounded wire parser, shared server guard before payment, existing UI/bot conditional sender. New native5/effects3 creations enable recoveryQuoteRules1; exact old restore and explicit2 stay unchanged.
 - [x] E63 shared-origin quote race, unchanged reads, actor/shop/encounter/range invalidation, atomic rejection, reconnect, fresh retry and request dedup tested. 145focused/12wire-unit;32old+4new normal games;16pilot audit bytes preserved.18menus/14approved pixels pass.
 - [ ] This is not whole Task5: remaining-use presentation, every remaining active/consume path, public benefit and full native lifecycle matrix still required.35primary bindings still pending.
+
+### Partial Task3 checkpoint: effects4 E13/E16 — 2026-11-04
+
+E13 canonical completeAppraisedSale/purchase uses actual commission, excludes self/copy goods, funds capped separate bank bonus and preserves stats. E16 canonical propose/respond snapshots before-offer tool IDs privately, checks settlement custody and actual paid original inventory goods, records unordered pairs/goods origins/player+tool-origin use. Public DTO and type omit snapshots. New4 carries previous3; archived1/2/3/quote3 remain exact.24owner-tested,32pending; all tasks3–6 still incomplete. See native56-stage4.json and validation/native56-stage4-2026-11-04/verification.json for exact test counts/scope.

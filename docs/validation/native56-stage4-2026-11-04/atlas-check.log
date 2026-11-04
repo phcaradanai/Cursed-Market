@@ -1,0 +1,4 @@
+Atlas source fingerprints and outputs current: 307 inputs
+PASS new56:56 unique hashed PNGs,8×7, types≤4 merchants,56 primary+57 optional design links; runtime new IDs 56
+{"merchants":8,"catalogItems":56,"nativeNewIds":56,"verifiedPrimary":24,"pendingPrimary":32,"remaining":48,"perMerchant":6,"primaryEffectGroups":35,"meaningDecisions":10,"approvedMeanings":10,"pendingMeanings":0,"numericSpecsReady":48,"optionalEffectsEnabled":0}
+PASS: catalog coverage, namespaces, new56-only products, source guards, rule gaps, generic actions, profiles, original views and freshness.

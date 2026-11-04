@@ -1,0 +1,83 @@
+✖ E13 uses actual commission, caps each settlement2 and player run8, and funds only free bank (60.01175ms)
+✔ E13 excludes self-purchases, copied goods, dead/locked/outside tools and archived effects3 (37.045292ms)
+✖ E16 original paid trade restores both eligible parties, no duplicate by retry or same pair in later encounter (13.867583ms)
+✖ E16 requires tools before offer and settlement, paid original goods and one benefit per player encounter (37.145542ms)
+✔ trade DTO never exposes internal held-item snapshots (6.530625ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 2
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 489.358167
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/remaining48-sales.test.js:19:1
+✖ E13 uses actual commission, caps each settlement2 and player run8, and funds only free bank (60.01175ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  60 !== 68
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/remaining48-sales.test.js:25:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 60,
+    expected: 68,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/remaining48-sales.test.js:48:1
+✖ E16 original paid trade restores both eligible parties, no duplicate by retry or same pair in later encounter (13.867583ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  -   3,
+  -   3,
+      2,
+  +   2,
+  +   2
+    ]
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/remaining48-sales.test.js:56:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 2, 2, 2 ],
+    expected: [ 3, 3, 2 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/remaining48-sales.test.js:63:1
+✖ E16 requires tools before offer and settlement, paid original goods and one benefit per player encounter (37.145542ms)
+  AssertionError [ERR_ASSERTION]: family cap2 and per-encounter1
+  
+  2 !== 4
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/remaining48-sales.test.js:86:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 4,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

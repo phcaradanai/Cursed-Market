@@ -15,7 +15,7 @@
     "scope": "approval is not runtime/lifecycle proof"
   },
   "asOf": "2026-11-01",
-  "observedRevision": "a48d29c8637408badb3b731debf423472e96f5f3",
+  "observedRevision": "1ee6462073db5114c90bc3830a95bfccd20c6622",
   "scope": "Active Comic art/catalog IDs and proposal edges only; no causal execution or balance claim",
   "sources": {
     "apps/comic/src/game/appraisal/pilot-catalog.ts": "ad8dbb487623f3b8d0486c87fe86c5fe72c0d50c553a7a34bc526c52579e8c62",
@@ -25,7 +25,7 @@
     "docs/game-design/new56-pilot-proposal.json": "6881755d843c45dd294fd629802321601fd3c596dc5d7bb771d9230a6ce406c5",
     "docs/game-design/new56-pilot-approval.json": "cdcf630f60c8ed07db87008cd7c845575b3d304bdd0c7167abbf899a5e3b5d65",
     "apps/comic/src/game/appraisal/content.ts": "c07a9bdf0e094641efcfc7f941515d5990535116b50000f866ba0ad086beb7d7",
-    "apps/comic/src/game/appraisal/types.ts": "174cf5afb569f5093046614185ab1a2cb42953e72fd670809402c3fece8b565e",
+    "apps/comic/src/game/appraisal/types.ts": "53442ca73d60b9d0d7fa17ae76be1b664ab7bd862be65d42d46d87f7a9daeb30",
     "apps/comic/src/game/appraisal/item-effects.ts": "c2ff1cbae837a24e19f6a5c81f56d27b986f870d7c277fd5d787d70728c63abd",
     "apps/comic/src/game/appraisal/passives.ts": "3915bdda874eae43be5e7318626a6748b29aa56cb35748048669ac1f5e051280",
     "apps/comic/src/game/appraisal/copy-effects.ts": "908b28f89ad8de7212adbd4636fdef6b2daaca230f97c41050ac2e436f4942f9",

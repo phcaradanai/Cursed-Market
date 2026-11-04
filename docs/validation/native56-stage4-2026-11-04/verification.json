@@ -1,0 +1,85 @@
+{
+  "asOf": "2026-11-04",
+  "baseRevision": "1ee6462073db5114c90bc3830a95bfccd20c6622",
+  "scope": "Approved E13/E16 owners bound for3more kinds, total24/56. Native56Effects4 new creations; prior revisions frozen. No optional effects, default catalog, prices, scoring weights, art or layout changes.",
+  "red": "3owner feature cases failed before implementation after fixing a credits fixture; a separate cause/journal assertion failed then passed with actual effect notes. Added first-attempt/D10-cleansing owner regression: observed RED4vs2 then GREEN2; did not assume duration D10 is a one-charge effect.",
+  "verification": {
+    "focused": {
+      "passed": 160,
+      "failed": 0,
+      "log": "focused.log",
+      "scope": "Includes E13/E16 actual socket case, stage1/2/3, quote-enabled3 and new4 frozen archive regressions; not159socket cases."
+    },
+    "wireAndUnit": {
+      "passed": 27,
+      "failed": 0,
+      "log": "wire-unit.log",
+      "overlap": "Sales15cases overlap focused;12Collector/recovery cases separate. Do not sum asunique187tests."
+    },
+    "related": {
+      "passed": 96,
+      "failed": 2,
+      "log": "related.log",
+      "knownFailures": [
+        "survival SSR distinguishes zero energy from death and exposes Collector credit/item/modifier results",
+        "F1 score effects are disclosed in D10 direct/cross-shop/E08 contracts and B10/D10 event choices"
+      ],
+      "priorEvidence": "../native56-stage3-2026-11-04/verification.json"
+    },
+    "serverBuild": true,
+    "clientBuild": true,
+    "warning": "Existing Vite chunk over500kB.",
+    "uiSources": 413,
+    "uiContracts": 10,
+    "menuFlows": 18,
+    "approvedVisuals": 14,
+    "legacyNormalAudits": 32,
+    "native4NormalGames": 4,
+    "legacyPilotAuditHashesUnchanged": 16,
+    "pilotStrictReplays": 32,
+    "normalBenefitObservations": {
+      "E13": 0,
+      "E16": 1,
+      "scope": "One four-cautious run observed E16; no normal-budget E13 benefit in this fixed diagnostic matrix. Not balance acceptance."
+    },
+    "atlasInputs": 307,
+    "trailCheck": {
+      "exitCode": 1,
+      "conflicts": 20,
+      "scope": "Existing lexical findings only in excluded .impeccable/design.json and hook.cache.json;400KB branch scan cap, not whole-branch review.",
+      "log": "trail-check.log"
+    }
+  },
+  "interpretations": [
+    "E16 unordered pair is recorded on its first qualifying paid original inventory trade, even without tools; no retroactive new-pair bonus. Goods origin/player/tool rights record on first eligible positive recovery attempt even if D10 blocks actual gain. Per-player/per-encounter and physical-tool-origin ledgers block copied tool abuse; canonical seller then buyer order.",
+    "E16 tools must be held before opening and at settlement, as approved. This contract does not say continuous hold; unlike future E22, no new continuous-age mechanic added.",
+    "E16 paid is net offer credits minus seller rebate; barter/gift/NPC/loan/Spirit/copy goods excluded. Missing-energy0 makes no recovery attempt; D10 can block gain but still consumes the positive eligible recovery attempt. First pair remains recorded in both cases.",
+    "E13 uses actual credited base/legacy commission, never sale gross, funds extra from unreserved bank, cap2/settlement8/player/run, original-origin/seller/buyer dedup and no scoring-stat reinjection."
+  ],
+  "limitations": [
+    "Remaining32primary hooks and whole native predicate/custody/UI/public-benefit matrix still pending.",
+    "Two known related UI assertions and full CPU-bound simulation suite remain open.",
+    "Utility-menu/pixel tests preserve existing UI, not dedicated live browser clicks for these new item benefits.",
+    "Hindsight recall returned a lossy fact labelling proposal SHA256 as commit; actual Git532dece approval receipt used."
+  ],
+  "sourceFingerprints": {
+    "apps/comic/src/game/appraisal/engine.ts": "eed5b73c5e86512f1746d66976b743d691125b59d645a1e16344ceb969b30d9e",
+    "apps/comic/src/game/appraisal/mechanics.ts": "fd76031b99b0438ea7da5ec5ef2a83426af51c247bc115b0fc6ad7326fdcb065",
+    "apps/comic/src/game/appraisal/types.ts": "53442ca73d60b9d0d7fa17ae76be1b664ab7bd862be65d42d46d87f7a9daeb30",
+    "apps/comic/src/game/appraisal/views.ts": "01e3b677b404ba4308767e7b22c64d09011ba24a7e57fa1025592cf6339b6f8a",
+    "apps/comic/src/game/appraisal/remaining48-effects.ts": "538b2c77cca51115fa3fbb30b54326304d677a649375c4ec414f918a41f9222b",
+    "apps/comic/tests/remaining48-sales.test.ts": "d883b6b8e696de03a4fa024e00a5429812a67eaa5182a715c10d43397557c7c0",
+    "apps/comic/tests/remaining48-automatic.test.ts": "ddbffb4687bf50aa6ec7f8583cc5103a394ba984d5205885b396eeb096180a73",
+    "apps/comic/tests/remaining48-challenge.test.ts": "21064670051c833520f162ee9300091c1b1d6d7fe3a4d37741117ff9018842f2",
+    "apps/comic/tests/native56-catalog.test.ts": "8b0fc68757130ee7be64b68183204ac7bce989348fc9cba361360aeb9f0e9391",
+    "apps/comic/tests/recovery-quote.test.ts": "ccdb3461730ca9ff8361708ce3e53478d87c190bedfef5020ee79ca7a8665686",
+    "apps/comic/scripts/native56-compatibility.mjs": "c78a93c226c83cda4761e878056174e148d7317e0ffcd6e1eb2f07cca58e7357"
+  },
+  "memory": {
+    "retentionAcknowledged": true,
+    "currentDecisionRetrieved": true,
+    "documentId": "cursed-market-effects4-e16-first-attempt-correction",
+    "scope": "First-attempt cap and proposal Git/SHA correction retrieved. One secondary negative-polarity summary is misleading; only manually verified relevant facts accepted, repository current rules remain authoritative."
+  },
+  "candidateCorrection": "Before first effects4 commit, added RED→GREEN cap regression: after D10 blocks first eligible recovery, later cleansing must not allow a second E16 recovery in that encounter. Candidate4 archives regenerated; committed stage1/2/3 and quote3 remain immutable."
+}

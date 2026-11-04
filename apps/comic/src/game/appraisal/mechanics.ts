@@ -1,6 +1,6 @@
 import {REMAINING48_RULES} from './remaining48-catalog.js';
 import {priceCaliper,usePilot,pilotUses,pilotStrength} from './pilot-effects.js';
-import {isRemaining48Kind,remainingHeldBonus,remainingRecoveryPrice,remainingPriceRange} from './remaining48-effects.js';
+import {isRemaining48Kind,remainingHeldBonus,remainingRecoveryPrice,remainingPriceRange,remainingCommissionBonus} from './remaining48-effects.js';
 import {recordPersonalAppraisal,recordPersonalInspection,recordPersonalActivity,recordPersonalItemActivity,recordPersonalSale,setPersonalTrust} from './personal-scoring.js';
 import { itemPriceRange } from './rarity.js';
 import { rarityValue } from '../../shared/rarity-power.js';
@@ -312,7 +312,7 @@ export function npcQuote(shop:Appraiser,item:AppraisalItem):number {
   const valuation=shop.valuations[item.id];return valuation?.accepted?valuation.value:item.ask;
 }
 /** The original NPC sale pays once; reselling an owned item cannot farm commission or trust. */
-export function completeAppraisedSale(state:AppraisalState,item:AppraisalItem,salePrice:number,bonuses?:PassiveBonuses):void {
+export function completeAppraisedSale(state:AppraisalState,item:AppraisalItem,salePrice:number,bonuses?:PassiveBonuses,buyer?:Appraiser):void {
   if(!state.config.commerce || !item.appraisedBy || item.commissionPaid || salePrice<=0)return;
   item.commissionPaid=true;const appraiser=player(state,item.appraisedBy);
   if(state.config.survival && appraiser.life===0)return;
@@ -320,7 +320,8 @@ export function completeAppraisedSale(state:AppraisalState,item:AppraisalItem,sa
   const baseFull=Math.floor(salePrice/10);const baseCommission=webbed?Math.floor(baseFull/2):baseFull;
   const extraFull=Math.floor(salePrice*commissionRate(b)/100)-baseFull+b.saleFee;const extra=webbed?Math.floor(extraFull/2):extraFull;
   const commission=baseCommission+extra;
-  reward(state,appraiser,baseCommission,'appraisal-commission');if(extra)fundPassive(state,appraiser,extra,'gear-commission');
+  const beforeCommission=appraiser.credits;reward(state,appraiser,baseCommission,'appraisal-commission');if(extra)fundPassive(state,appraiser,extra,'gear-commission');
+  remainingCommissionBonus(state,appraiser,item,buyer,appraiser.credits-beforeCommission);
   const trust=appraiser.npcTrust!;setPersonalTrust(state,appraiser,item.npc,Math.min(TRUST_CAP,(trust[item.npc]??0)+1+b.trust+integerEffect(statusMagnitude(appraiser,'B15',1))+(state.config.core2?omenNow(state)?.trust??0:0)),item);consumeStatus(appraiser,'D15');consumeStatus(appraiser,'B15');
   appraiser.notes.push(`ขาย ${ITEM_SPECS[item.kind].name} ได้ ${salePrice} เครดิต · ค่านายหน้า +${commission} เครดิต · ความไว้ใจ ${NPC_SPECS[item.npc].name} ${trust[item.npc]}/${TRUST_CAP}`);appraiser.notes=appraiser.notes.slice(-30);
   trace(state,appraiser,'appraisal-commission',{itemId:item.id,npc:item.npc,salePrice,commission,trust:trust[item.npc]});
@@ -408,7 +409,7 @@ export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraise
   let allocated=0;
   for (const [index,item] of items.entries()) {
     const share=index===items.length-1?price-allocated:basePrice?Math.floor(price*npcQuote(shop,item)/basePrice):0;allocated+=share;
-    completeAppraisedSale(state,item,share,commissionBonuses.get(item.appraisedBy??''));
+    completeAppraisedSale(state,item,share,commissionBonuses.get(item.appraisedBy??''),buyer);
     recordPersonalItemActivity(state,buyer,'bought',item,1,share>0&&!options.barterItemId,'zero-credit or barter');
     if(item.appraisedBy&&item.appraisedBy!==buyer.id&&share>0&&!options.barterItemId){
       const seller=player(state,item.appraisedBy);

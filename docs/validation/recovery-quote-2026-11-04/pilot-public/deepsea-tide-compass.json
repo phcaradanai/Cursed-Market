@@ -1,0 +1,84 @@
+{
+  "kind": "deepsea-tide-compass",
+  "config": {
+    "catalogVersion": 4,
+    "startingCredits": 500,
+    "secureEconomy": true,
+    "core2": true,
+    "survival": {
+      "maxLife": 6,
+      "encounterLifeCost": 1,
+      "entryEnergyCost": 0
+    },
+    "collectorDeadline": 3,
+    "marketProbability": 0,
+    "wishlist": false,
+    "npcEvents": false,
+    "polish": false,
+    "expansion": true
+  },
+  "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+  "trials": [
+    {
+      "n": 1,
+      "seed": "public-pilot-deepsea-tide-compass-1",
+      "status": "effect exposed + both strict replays passed"
+    }
+  ],
+  "passed": true,
+  "metric": {
+    "withItem": {
+      "action": {
+        "type": "reroll-portal",
+        "portalId": "portal-2-0-0r1"
+      },
+      "before": {
+        "credits": 490,
+        "energy": 9,
+        "life": 5
+      },
+      "after": {
+        "credits": 490,
+        "energy": 7,
+        "life": 5
+      },
+      "creditsSpent": 0,
+      "energySpent": 2
+    },
+    "withoutItem": {
+      "action": {
+        "type": "reroll-portal",
+        "portalId": "portal-2-0-0r1"
+      },
+      "before": {
+        "credits": 490,
+        "energy": 8,
+        "life": 5
+      },
+      "after": {
+        "credits": 490,
+        "energy": 5,
+        "life": 5
+      },
+      "creditsSpent": 0,
+      "energySpent": 3
+    },
+    "savedEnergy": 1
+  },
+  "seed": "public-pilot-deepsea-tide-compass-1",
+  "auditFiles": [
+    {
+      "file": "deepsea-tide-compass-held.audit.json",
+      "sha256": "d839f5a1b24358f2023159d25abc7fcaa3040b94c4b3a3a356061cefd9bc74e5",
+      "commands": 33,
+      "strictReplay": true
+    },
+    {
+      "file": "deepsea-tide-compass-stored-or-unused.audit.json",
+      "sha256": "1e032dc42b41e7b8704d7aa946eb2f06bb2c059bba5946ad1e62e7be937371bf",
+      "commands": 34,
+      "strictReplay": true
+    }
+  ],
+  "finishedAt": "2026-11-04T09:53:42.907Z"
+}

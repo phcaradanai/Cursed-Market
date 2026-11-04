@@ -101,7 +101,7 @@ function action(value: unknown): AppraisalSeatAction {
       if(typeof body.npc!=='string'||!Object.hasOwn(NPC_SPECS,body.npc)||body.statusId!==undefined&&!(ALL_STATUS_IDS as readonly unknown[]).includes(body.statusId))throw new MessageError();
       return {type:'merchant-ability',...base,npc:body.npc as keyof typeof NPC_SPECS,...(body.itemId===undefined?{}:{itemId:string(body.itemId)}),...(body.statusId===undefined?{}:{statusId:body.statusId as StatusId}),...(body.choiceId===undefined?{}:{choiceId:string(body.choiceId)})};
     }
-    case 'recover-resource': keys(body,[...fields,'target']);if(body.target!=='energy' && body.target!=='life')throw new MessageError();return {type:'recover-resource',...base,target:body.target};
+    case 'recover-resource': keys(body,[...fields,'target','quoteId']);if(body.target!=='energy' && body.target!=='life')throw new MessageError();return {type:'recover-resource',...base,target:body.target,...(body.quoteId===undefined?{}:{quoteId:string(body.quoteId,512)})};
     case 'wish-new': keys(body,[...fields,'replaceNpc']);return {type:'wish-new',...base,...(body.replaceNpc===undefined?{}:{replaceNpc:string(body.replaceNpc,16) as never})};
     case 'wish-sell': keys(body,[...fields,'itemId','markup']);return {type:'wish-sell',...base,itemId:string(body.itemId),markup:integer(body.markup)};
     case 'cleanse': keys(body,[...fields,'itemId','stoneId']);return {type:'cleanse',...base,itemId:string(body.itemId),...(body.stoneId===undefined?{}:{stoneId:string(body.stoneId)})};

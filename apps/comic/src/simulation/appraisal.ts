@@ -187,7 +187,7 @@ export function appraisalBotDecision(v:AppraisalView,policy:AppraisalPolicy):Bod
   }
   if(v.phase==='APPRAISAL') {
     const recovery=p.recoveryOffer;
-    if(recovery && p.credits>=recovery.credits && (recovery.target==='life'?p.life!<=v.survival!.maxLife-recovery.amount:p.energy<3))return {type:'recover-resource',target:recovery.target};
+    if(recovery && p.credits>=recovery.credits && (recovery.target==='life'?p.life!<=v.survival!.maxLife-recovery.amount:p.energy<3))return {type:'recover-resource',target:recovery.target,...(recovery.quoteId===undefined?{}:{quoteId:recovery.quoteId})};
     if(policy==='cautious' && p.inspections<1 && p.energy>=3) {
       const item=p.stock.find(i=>i.knowledge.genuine===undefined);if(item) return {type:'inspect',itemId:item.id,property:'authenticity'};
     }

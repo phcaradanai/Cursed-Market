@@ -119,3 +119,9 @@ Effects3 final source verification:229focused pass;124related pass/3priorUI fail
 Effects3 edge verification: lock expiry is evaluated after status expiry against a physical pre-boundary custody snapshot; E02 ranges retain unpowered replacement truth. Two RED→GREEN cases, final229focused pass; no candidate archive or approved image hash changed.
 
 Postcommit9ec8092: readiness audit had one stale types.ts hash after a comment-only edit; regenerated and added auxiliary new56/remaining48 --check calls to central Atlas verifier. Observed real stale-input RED then GREEN. No runtime/default/approved-image change.
+
+### Partial Task5 prerequisite — recovery quotes (2026-11-04)
+
+- [x] Versioned visible-term token from shared recoveryOffer; strict optional bounded wire parser, shared server guard before payment, existing UI/bot conditional sender. New native5/effects3 creations enable recoveryQuoteRules1; exact old restore and explicit2 stay unchanged.
+- [x] E63 shared-origin quote race, unchanged reads, actor/shop/encounter/range invalidation, atomic rejection, reconnect, fresh retry and request dedup tested. 145focused/12wire-unit;32old+4new normal games;16pilot audit bytes preserved.18menus/14approved pixels pass.
+- [ ] This is not whole Task5: remaining-use presentation, every remaining active/consume path, public benefit and full native lifecycle matrix still required.35primary bindings still pending.

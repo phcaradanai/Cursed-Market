@@ -41,7 +41,7 @@ test('E61 ignores acquisition mid-encounter, dead seats and goods outside carrie
 
 test('E63 quotes and settles the same recovery discount with minimum1 and no extra recovery right',()=>{
  let s=make();shop(s,'autometa');give(s,'orc-ember-salve');const p=s.players[0]!,before=p.credits;p.energy=3;assert.equal(recoveryOffer(s,p)!.credits,1);assert.equal(appraisalViewFor(s,p.id).self.recoveryOffer!.credits,1);
- s=act(s,{type:'recover-resource',target:'energy'});assert.equal(s.players[0]!.credits,before-1);assert.equal(s.players[0]!.energy,6);assert.throws(()=>act(s,{type:'recover-resource',target:'energy'}));
+ s=act(s,{type:'recover-resource',target:'energy',quoteId:recoveryOffer(s,s.players[0]!)?.quoteId});assert.equal(s.players[0]!.credits,before-1);assert.equal(s.players[0]!.energy,6);assert.throws(()=>act(s,{type:'recover-resource',target:'energy',quoteId:recoveryOffer(s,s.players[0]!)?.quoteId}));
  const life=make();shop(life,'orc');life.players[0]!.npcTrust!.orc=3;life.players[0]!.life=2;give(life,'orc-ember-salve');give(life,'deepsea-whale-conch-horn');assert.equal(recoveryOffer(life,life.players[0]!)!.credits,5);
 });
 
@@ -71,7 +71,7 @@ test('E07 public paid cleanse uses the displayed odds and retains both held tool
 
 test('E63 quote is read-only and its successful use cannot refresh by transfer or a same-origin copy',()=>{
  let s=make();shop(s,'autometa');s.players[0]!.energy=3;const salve=give(s,'orc-ember-salve',8);assert.equal(recoveryOffer(s,s.players[0]!)!.credits,1);assert.equal(recoveryOffer(s,s.players[0]!)!.credits,1);
- s=act(s,{type:'recover-resource',target:'energy'});const a=s.players[0]!,b=s.players[1]!;b.selectedPortalId=b.portals[0]!.id;b.portals[0]!.npc='autometa';b.energy=3;
+ s=act(s,{type:'recover-resource',target:'energy',quoteId:recoveryOffer(s,s.players[0]!)?.quoteId});const a=s.players[0]!,b=s.players[1]!;b.selectedPortalId=b.portals[0]!.id;b.portals[0]!.npc='autometa';b.energy=3;
  a.inventory=a.inventory.filter(id=>id!==salve.id);s.items[salve.id]!.owner=b.id;b.inventory.push(salve.id);assert.equal(recoveryOffer(s,b)!.credits,2,'same physical origin is already used');
  b.inventory=[];s.items[salve.id]!.owner='removed';const copy=give(s,'orc-ember-salve',8,true,1);copy.copy!.sourceId=salve.id;assert.equal(recoveryOffer(s,b)!.credits,2,'copy inherits origin use');
 });
@@ -88,4 +88,14 @@ test('E61 checks lock eligibility after expiry while snapshotting physical custo
 
 test('E02 inspected replacement truth stays inside its range even when no rarity-power metadata exists',()=>{
  let s=make();give(s,'autometa-data-prism');delete s.config.rarity;delete s.config.rarityEconomy;for(const i of Object.values(s.items)){delete i.appearance;delete i.rarityPower;}const item=shop(s);item.base=999;item.ask=999;item.reservation=999;s=act(s,{type:'inspect',itemId:item.id,property:'price'});const range=s.players[0]!.knowledge[item.id]!.range!;assert(range[0]<=999&&range[1]>=999,'replacement-scaled truth must not escape');assert(range[0]<range[1],'range effect cannot accidentally grant an exact fact');assert.equal(s.players[0]!.knowledge[item.id]!.base,undefined);
+});
+
+test('E63 rejects an earlier same-origin quote after another owner spends that family right',()=>{
+ let s=make();shop(s,'autometa');s.players[0]!.energy=3;const salve=give(s,'orc-ember-salve',8),copy=give(s,'orc-ember-salve',8,true,1);copy.copy!.sourceId=salve.id;
+ const b=s.players[1]!;b.selectedPortalId=b.portals[0]!.id;b.portals[0]!.npc='autometa';b.energy=3;
+ const old=recoveryOffer(s,b)!;assert.equal(old.credits,1);
+ s=act(s,{type:'recover-resource',target:'energy',quoteId:recoveryOffer(s,s.players[0]!)!.quoteId});
+ const before=structuredClone(s);assert.equal(recoveryOffer(s,s.players[1]!)!.credits,2);
+ assert.throws(()=>act(s,{type:'recover-resource',target:'energy',quoteId:old.quoteId},1),/ข้อเสนอ.*เปลี่ยน/);assert.deepEqual(s,before);
+ s=act(s,{type:'recover-resource',target:'energy',quoteId:recoveryOffer(s,s.players[1]!)!.quoteId},1);assert.equal(s.players[1]!.credits,before.players[1]!.credits-2);
 });

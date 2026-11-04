@@ -1,0 +1,86 @@
+{
+  "kind": "autometa-torque-caliper",
+  "config": {
+    "catalogVersion": 4,
+    "startingCredits": 500,
+    "secureEconomy": true,
+    "core2": true,
+    "survival": {
+      "maxLife": 6,
+      "encounterLifeCost": 1,
+      "entryEnergyCost": 0
+    },
+    "collectorDeadline": 3,
+    "marketProbability": 0,
+    "wishlist": false,
+    "npcEvents": false,
+    "polish": false,
+    "expansion": true
+  },
+  "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+  "trials": [
+    {
+      "n": 0,
+      "seed": "public-pilot-autometa-torque-caliper-0",
+      "status": "effect exposed + both strict replays passed"
+    }
+  ],
+  "passed": true,
+  "metric": {
+    "withItem": {
+      "action": {
+        "type": "inspect",
+        "itemId": "item-2-0-0-0",
+        "property": "price"
+      },
+      "before": {
+        "credits": 492,
+        "energy": 10,
+        "life": 5
+      },
+      "after": {
+        "credits": 492,
+        "energy": 10,
+        "life": 5
+      },
+      "creditsSpent": 0,
+      "energySpent": 0
+    },
+    "withoutItem": {
+      "action": {
+        "type": "inspect",
+        "itemId": "item-2-0-0-0",
+        "property": "price"
+      },
+      "before": {
+        "credits": 492,
+        "energy": 10,
+        "life": 5
+      },
+      "after": {
+        "credits": 492,
+        "energy": 9,
+        "life": 5
+      },
+      "creditsSpent": 0,
+      "energySpent": 1
+    },
+    "savedEnergy": 1
+  },
+  "seed": "public-pilot-autometa-torque-caliper-0",
+  "auditFiles": [
+    {
+      "file": "autometa-torque-caliper-held.audit.json",
+      "sha256": "5c277b9f0f5f68c78a91432f97729bdd778aea1b835f2faa487a86e12e0825d2",
+      "commands": 35,
+      "strictReplay": true
+    },
+    {
+      "file": "autometa-torque-caliper-stored-or-unused.audit.json",
+      "sha256": "64c914b6d8cc28b2265e98fd661eb92a9a38305babe6b1284cbbf7e7489a271d",
+      "commands": 36,
+      "strictReplay": true
+    }
+  ],
+  "finishedAt": "2026-11-04T09:53:40.595Z"
+}

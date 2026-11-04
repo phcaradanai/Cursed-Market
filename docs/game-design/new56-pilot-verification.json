@@ -14,7 +14,7 @@
   ],
   "sourceFingerprints": {
     "apps/comic/scripts/new56-pilot-experiment.mjs": "765044c9febc45ae3e2f3c50e572304b40bd14c2bbad471deba4280a9d88123e",
-    "apps/comic/src/appraisal-client/App.tsx": "151b3383977fd5b149bd3127dcf7a0788b1c266fe7a13efc26ae6e7490577e45",
+    "apps/comic/src/appraisal-client/App.tsx": "fa2e647f4971e42b9aa6fb55ea8bc377620d11d1fdd5ed03b641299f699fe691",
     "apps/comic/src/appraisal-client/SecureEconomy.tsx": "cf7323f59d79043ae49b35a9fcfdeb9e588383ce55575270d99a5a0ba9648ced",
     "apps/comic/src/appraisal-client/components.tsx": "b4564c5667bdb3eaa375b2a8f87389216c67108433c2f06074910d9b75c4d362",
     "apps/comic/src/appraisal-client/lore.tsx": "189390c4d9ceb246c2f1a5aa4e4891b7a91d2023348ac49f91b8029d2f788354",
@@ -24,18 +24,18 @@
     "apps/comic/src/game/appraisal/core2-actions.ts": "a0b968bc9fd51b22cf5c63caa9c38e34dbb41bc0dd765aa449a3dfecb15a6213",
     "apps/comic/src/game/appraisal/core2-events.ts": "bb9531af0ffe6a6ea068f049d286b2b1d0fe37deb24a44bcfe3dfa58a08424f8",
     "apps/comic/src/game/appraisal/core2.ts": "d9c7ac292898c29d471bc6d9bb0a7ae0557bd394a79d77978e6e1eed5b71bd17",
-    "apps/comic/src/game/appraisal/engine.ts": "6cb91cf6ffa41ab22966df30db128b8daf4987453bc716e748fe872b86728dee",
+    "apps/comic/src/game/appraisal/engine.ts": "9e8e9ba83b44c8671eec06e662bda73f7f7016465407fa40ab1c2670dfe29b6d",
     "apps/comic/src/game/appraisal/events.ts": "ec9f25dde4fbf2168479d80dd2044a5c4445912442aa561bd69fc31d41f0777c",
-    "apps/comic/src/game/appraisal/mechanics.ts": "b79c6a5de7e7cf0f7249b5e8bb5cfdebf73a661fc8b17af67799f046211cd718",
+    "apps/comic/src/game/appraisal/mechanics.ts": "c51bfabbf5a9a883822ea8f9fc8b3fb897d02b4b7620e469f95c3aaa7c957b6d",
     "apps/comic/src/game/appraisal/passives.ts": "3915bdda874eae43be5e7318626a6748b29aa56cb35748048669ac1f5e051280",
     "apps/comic/src/game/appraisal/pilot-catalog.ts": "ad8dbb487623f3b8d0486c87fe86c5fe72c0d50c553a7a34bc526c52579e8c62",
     "apps/comic/src/game/appraisal/pilot-effects.ts": "4b669d8f360f8d540bf9cb9e46db8ca46e4b0d25a5e65bc855c839c757d6701d",
     "apps/comic/src/game/appraisal/secure-storage.ts": "5b3370bb17809e12c7394c0b501ffc346b9b2ca5d89035c6a0b75c426e10ffa5",
     "apps/comic/src/game/appraisal/theft.ts": "aaf4cc62d6d20f028fff9fdef405538cda8b32009770abf2f5ac9e50cd9da52a",
-    "apps/comic/src/game/appraisal/types.ts": "0575f5c037624523b6d64383f31cd980f047e0da4eb9b85350f5a4db46af3add",
+    "apps/comic/src/game/appraisal/types.ts": "174cf5afb569f5093046614185ab1a2cb42953e72fd670809402c3fece8b565e",
     "apps/comic/src/game/appraisal/views.ts": "0fb4d3fbb3bba809ce6416dbf6e9724e012633b8de3ad559ae86d47a0df6d334",
     "apps/comic/src/server/appraisal-main.ts": "5f67b2038007427688bd6b8c1c19227f34c6244d9d7b47537bf0bc0f1a673831",
-    "apps/comic/src/simulation/appraisal.ts": "40abbc95b04f0023758e50594c2ba6e456806bf3500b61d09f50ae51e4482ad1",
+    "apps/comic/src/simulation/appraisal.ts": "29306a4db7b4fe4210ce7514e5db220b8ce29af2bc3ecc8d4cd93f7b5d72eadb",
     "apps/comic/tests/appraisal-expansion.test.ts": "781216f29bc311215d4f05cbcf765d72dea693f611a353492b12377bd05f51b5",
     "apps/comic/tests/appraisal-item-effects.test.ts": "09e53c6f8169d41c6dbde39e750e70cd2c142f56be61f990caa86df939b87125",
     "apps/comic/tests/appraisal-merchant-abilities.test.ts": "4198a001b127a8f70612c184291a2811e160be03deb1de0f7be7262464cabb87",
@@ -345,5 +345,18 @@
     },
     "publicProof": "../validation/native56-stage3-2026-11-04/pilot-public/public-effects.json",
     "verification": "../validation/native56-stage3-2026-11-04/verification.json"
+  },
+  "recoveryQuoteFollowup": {
+    "baseRevision": "a48d29c8637408badb3b731debf423472e96f5f3",
+    "scope": "Current-source recovery quote compatibility; older proof files and all16pilot audit hashes preserved. No full56/default/balance acceptance.",
+    "previousSourceFingerprints": {
+      "apps/comic/src/game/appraisal/engine.ts": "6cb91cf6ffa41ab22966df30db128b8daf4987453bc716e748fe872b86728dee",
+      "apps/comic/src/game/appraisal/mechanics.ts": "b79c6a5de7e7cf0f7249b5e8bb5cfdebf73a661fc8b17af67799f046211cd718",
+      "apps/comic/src/game/appraisal/types.ts": "0575f5c037624523b6d64383f31cd980f047e0da4eb9b85350f5a4db46af3add",
+      "apps/comic/src/appraisal-client/App.tsx": "151b3383977fd5b149bd3127dcf7a0788b1c266fe7a13efc26ae6e7490577e45",
+      "apps/comic/src/simulation/appraisal.ts": "40abbc95b04f0023758e50594c2ba6e456806bf3500b61d09f50ae51e4482ad1"
+    },
+    "publicProof": "../validation/recovery-quote-2026-11-04/pilot-public/public-effects.json",
+    "verification": "../validation/recovery-quote-2026-11-04/verification.json"
   }
 }

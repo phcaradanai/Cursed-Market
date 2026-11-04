@@ -1,0 +1,65 @@
+{
+  "asOf": "2026-11-04",
+  "baseRevision": "a48d29c8637408badb3b731debf423472e96f5f3",
+  "scope": "E63 stale visible recovery terms guarded before payment; new native56/effects3 runs opt in to recoveryQuoteRules1. Historical exact restore remains unchanged. No item count, balance numbers, art, layout or main default change.",
+  "red": "Three feature tests failed before implementation; historical restore test passed. Earlier fixture/build invocation errors are not feature proof.",
+  "verification": {
+    "focused": {
+      "passed": 145,
+      "failed": 0,
+      "log": "focused.log"
+    },
+    "wireAndUnit": {
+      "passed": 12,
+      "failed": 0,
+      "log": "network.log",
+      "scope": "Includes actual two-socket E63 race/reconnect/retry and existing Collector4/5 full-game sockets; not12socket-only cases."
+    },
+    "related": {
+      "passed": 82,
+      "failed": 2,
+      "log": "related.log",
+      "knownFailures": [
+        "survival SSR distinguishes zero energy from death and exposes Collector credit/item/modifier results",
+        "F1 score effects are disclosed in D10 direct/cross-shop/E08 contracts and B10/D10 event choices"
+      ],
+      "priorEvidence": "../native56-stage3-2026-11-04/verification.json"
+    },
+    "serverBuild": true,
+    "clientBuild": true,
+    "clientWarning": "Existing Vite chunk over500kB warning.",
+    "uiSourceFingerprints": 412,
+    "uiContracts": 10,
+    "menuFlows": 18,
+    "approvedVisuals": 14,
+    "uiEvidence": "Matching successful CLI invocation receipts and fresh detailed reports copied here; baseline files unchanged.",
+    "legacyNormalAudits": 32,
+    "newQuoteNormalGames": 4,
+    "legacyPilotAuditHashesUnchanged": 16,
+    "legacyPilotStrictReplayChecks": 32,
+    "atlasInputs": 302,
+    "trailCheck": {
+      "exitCode": 1,
+      "conflicts": 20,
+      "scope": "Pre-existing lexical findings in excluded .impeccable/design.json and hook.cache.json; branch scan capped400KB, not whole-branch clean review.",
+      "log": "trail-check.log"
+    }
+  },
+  "limitations": [
+    "Remaining35primary item bindings and complete predicate/custody/public-benefit matrix pending.",
+    "Known2related UI assertion failures remain; fullCPU simulation suite not rerun.",
+    "Existing recovery UI sender carries quoteId; browser baseline checks unchanged preview layouts, not a dedicated live recovery button click.",
+    "No statistical balance or default56 rollout acceptance."
+  ],
+  "sourceFingerprints": {
+    "apps/comic/src/game/appraisal/engine.ts": "9e8e9ba83b44c8671eec06e662bda73f7f7016465407fa40ab1c2670dfe29b6d",
+    "apps/comic/src/game/appraisal/mechanics.ts": "c51bfabbf5a9a883822ea8f9fc8b3fb897d02b4b7620e469f95c3aaa7c957b6d",
+    "apps/comic/src/game/appraisal/types.ts": "174cf5afb569f5093046614185ab1a2cb42953e72fd670809402c3fece8b565e",
+    "apps/comic/src/server/appraisal-messages.ts": "120716062f0c45bf370a885cb92e2a3d4de26e52912f917c78dd01b570405251",
+    "apps/comic/src/appraisal-client/App.tsx": "fa2e647f4971e42b9aa6fb55ea8bc377620d11d1fdd5ed03b641299f699fe691",
+    "apps/comic/src/simulation/appraisal.ts": "29306a4db7b4fe4210ce7514e5db220b8ce29af2bc3ecc8d4cd93f7b5d72eadb",
+    "apps/comic/tests/recovery-quote.test.ts": "3a877b8765de6590b179c94bb455e8e970bc83cdfb90d6f0819500410714e4d2",
+    "apps/comic/tests/remaining48-automatic.test.ts": "c5a8623300d715b2af081a0828f6cb51024d53744b203b051c65aed465e37f4a",
+    "apps/comic/scripts/native56-compatibility.mjs": "3013b942a7303578bb89fa5dfeed1475649fdb3fa40a818704c1a3988d8e34dd"
+  }
+}

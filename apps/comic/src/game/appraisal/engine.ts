@@ -44,6 +44,7 @@ export const DEFAULT_APPRAISAL_CONFIG: AppraisalConfig = {
 };
 function validateConfig(config:AppraisalConfig):void {
   check(config.native56Effects===undefined||(config.native56Effects===2||config.native56Effects===3)&&config.catalogVersion===5,'config','รุ่นเอฟเฟกต์สินค้าใหม่ไม่ถูกต้อง');
+  check(config.recoveryQuoteRules===undefined||config.recoveryQuoteRules===1,'config','กติกาข้อเสนอฟื้นทรัพยากรไม่ถูกต้อง');
   check(config.personalScoringRules===undefined||config.personalScoringRules===1,'config','กติกาคะแนนผลงานไม่ถูกต้อง');
   check(config.personalScoringFacts===undefined||config.personalScoringFacts===2,'config','รุ่นตัวบันทึกคะแนนไม่ถูกต้อง');
   check(config.personalScoringFacts===undefined||config.personalScoringRules===1,'config','ตัวบันทึกคะแนนต้องเปิดกติกาคะแนน');
@@ -95,7 +96,7 @@ function validateConfig(config:AppraisalConfig):void {
   }
 }
 export function createAppraisalRun(playerIds:string[],seed:string,overrides:Partial<AppraisalConfig>={}):AppraisalState {
-  return initialiseAppraisalRun(playerIds,seed,structuredClone({...DEFAULT_APPRAISAL_CONFIG,...overrides,...(overrides.catalogVersion===5&&overrides.native56Effects===undefined?{native56Effects:3 as const}:{}),...(overrides.personalScoringRules===1&&overrides.personalScoringFacts===undefined?{personalScoringFacts:2 as const}:{}),...(overrides.catalogVersion!==undefined&&overrides.catalogVersion<3&&overrides.trustAbilities===undefined?{trustAbilities:false}:{})}));
+  return initialiseAppraisalRun(playerIds,seed,structuredClone({...DEFAULT_APPRAISAL_CONFIG,...overrides,...(overrides.catalogVersion===5&&overrides.native56Effects!==2&&overrides.recoveryQuoteRules===undefined?{recoveryQuoteRules:1 as const}:{}),...(overrides.catalogVersion===5&&overrides.native56Effects===undefined?{native56Effects:3 as const}:{}),...(overrides.personalScoringRules===1&&overrides.personalScoringFacts===undefined?{personalScoringFacts:2 as const}:{}),...(overrides.catalogVersion!==undefined&&overrides.catalogVersion<3&&overrides.trustAbilities===undefined?{trustAbilities:false}:{})}));
 }
 /** Restore an exact saved config, including original audits without a catalog version. */
 export function restoreAppraisalRun(playerIds:string[],seed:string,config:AppraisalConfig):AppraisalState {
@@ -405,6 +406,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
     case 'recover-resource': {
       npcActionAllowed(state,p);check(!merchantTradeBanned(state,p),'merchant-banned','พ่อค้าทั้งหมดระงับการค้าชั่วคราว');const offer=recoveryOffer(state,p);
       check(offer && offer.target===action.target,'recovery','พ่อค้านี้ไม่มีดีลฟื้นที่เลือกหรือใช้สิทธิ์แล้ว');
+      check(state.config.recoveryQuoteRules!==1||action.quoteId===offer.quoteId,'stale-recovery-quote','ข้อเสนอฟื้นทรัพยากรเปลี่ยนแล้ว กรุณาตรวจข้อเสนอใหม่');
       check(offer.target==='life'?p.life!<maxLifeOf(state,p)!:p.energy<maxEnergyOf(state,p),'recovery','ทรัพยากรนี้เต็มแล้ว');
       spend(state,p,offer.credits,0,'recovery-deal');p.recoveryUsed=true;remainingUseRecovery(state,p,offer.nativeDiscount??0,offer.target);
       const amount=recoveryAmount(state,p,offer);

@@ -157,11 +157,14 @@ export function recoveryOffer(state:AppraisalState,p:Appraiser):RecoveryOffer|un
   const b=passiveBonuses(state,p);
   const core2=!!state.config.core2;
   const salt=integerEffect(statusMagnitude(p,'D16',2))+feeSurcharge(state,p)+(core2?recoverySurcharge(state.encounter)+(omenNow(state)?.healCost??0):0);
-  if(ENERGY_DEAL_NPCS.includes(npc)){const price=(core2?ENERGY_DEAL_CREDITS2:2)+salt,credits=remainingRecoveryPrice(state,p,price,'energy');return {target:'energy',credits,amount:3+b.energyRecovery,...(credits<price?{nativeDiscount:price-credits}:{})};}
-  // Life deals follow trust: none at 0, then 3/5/7 credits for 0-1, 1-2, 2-3 life. Held gear adds to both ends.
-  const terms=(core2?lifeDealTerms2:lifeDealTerms)(p.npcTrust?.[npc]??0);
-  if(!terms)return;const price=terms.credits+salt,credits=remainingRecoveryPrice(state,p,price,'life');
-  return {target:'life',credits,min:terms.min+b.lifeRecovery,amount:terms.max+b.lifeRecovery,...(credits<price?{nativeDiscount:price-credits}:{})};
+  let offer:RecoveryOffer;
+  if(ENERGY_DEAL_NPCS.includes(npc)){const price=(core2?ENERGY_DEAL_CREDITS2:2)+salt,credits=remainingRecoveryPrice(state,p,price,'energy');offer={target:'energy',credits,amount:3+b.energyRecovery,...(credits<price?{nativeDiscount:price-credits}:{})};}
+  else {
+    const terms=(core2?lifeDealTerms2:lifeDealTerms)(p.npcTrust?.[npc]??0);
+    if(!terms)return;const price=terms.credits+salt,credits=remainingRecoveryPrice(state,p,price,'life');
+    offer={target:'life',credits,min:terms.min+b.lifeRecovery,amount:terms.max+b.lifeRecovery,...(credits<price?{nativeDiscount:price-credits}:{})};
+  }
+  return state.config.recoveryQuoteRules===1?{...offer,quoteId:JSON.stringify([p.id,state.encounter,p.selectedPortalId,npc,offer.target,offer.credits,offer.min??offer.amount,offer.amount])}:offer;
 }
 /** What a deal restores this time; a ranged life deal rolls once per encounter from the run seed. */
 export function recoveryAmount(state:AppraisalState,p:Appraiser,offer:RecoveryOffer):number {

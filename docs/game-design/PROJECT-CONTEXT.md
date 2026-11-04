@@ -322,3 +322,11 @@ Still required before default rollout:35primary hooks; full native predicate/cus
 Effects3 final source verification:229focused pass;124related pass/3priorUI failures remain;6socket pass;411UI fingerprints/10contracts and298Atlas inputs current. Main default and approved image references unchanged; no fresh browser pixel claim.
 
 Effects3 edge verification: lock expiry is evaluated after status expiry against a physical pre-boundary custody snapshot; E02 ranges retain unpowered replacement truth. Two RED→GREEN cases, final229focused pass; no candidate archive or approved image hash changed.
+
+## Recovery quote synchronization — 2026-11-04
+
+New catalog5/effects3 creations now add `recoveryQuoteRules:1`; explicit effects2 and exact historical restore keep their old shapes/semantics. Recovery offer tokens contain only visible actor/encounter/shop/NPC/target/price/range terms, never seed or hidden roll/origin IDs. Existing UI and bot submit the token conditionally; server checks it before spending, recovery rights or effect ledgers. A changed E63 shared-origin right rejects the old quote atomically; fresh retry, reconnect and repeated request tested. Read-only views/unrelated revision changes do not invalidate unchanged terms. This closes the observed E63 stale-payment gate, not all Task5 UI work.
+
+Evidence:145focused pass;12wire/unit checks pass (includes actual two-socket E63 race/reconnect/retry and Collector4/5);82related pass/2previously recorded UI assertions remain.32historical normal audits+4new quote-enabled40credit/6life games pass;16pilot audit hashes unchanged/32strict replays.412UI source pins,10contracts,18menu flows and14approved visual comparisons pass with matching fresh receipts. Existing build chunk-size warning remains. FullCPU suite and dedicated browser-click recovery path not claimed.
+
+Count stays56registered/21primary owner-tested/35pending; defaults3/pilot4, approved values, optional effects and original screenshot baselines unchanged. Whole-game goal active. Sources/evidence: `../validation/recovery-quote-2026-11-04/verification.json`. Next: continue approved automatic settlement owners; finish predicate/custody/public-benefit/UI/balance matrices before default56.

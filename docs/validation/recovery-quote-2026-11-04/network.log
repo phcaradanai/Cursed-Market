@@ -1,0 +1,20 @@
+✔ Collector parser accepts only the four exact public payloads and rejects private fields (6.121125ms)
+✔ Collector bots choose only from the public pool and progress through a bounded decision sequence at real40-credit budget (233.324792ms)
+✔ pending real entry event blocks Collector while reading its DTO never changes revision (14.443708ms)
+✔ named pending-ability fixture blocks Collector and preserves its current window (31.523666ms)
+✔ catalog4: two actual sockets request2 resume deliver4 isolate batches and charge once then replay RESULTS (701.639583ms)
+✔ catalog5: two actual sockets request2 resume deliver4 isolate batches and charge once then replay RESULTS (541.676917ms)
+✔ recovery binds visible price and terms before charging and accepts a fresh retry exactly once (47.233167ms)
+✔ recovery quote cannot be omitted, reused for another actor or shop, or changed through unrelated revision (16.575167ms)
+✔ old effects3 exact restore retains recovery without quote tokens (24.953625ms)
+✔ wire recovery quote is bounded and rejects extra fields (3.810834ms)
+✔ life range changes invalidate a quote even when its price stays fixed (25.37875ms)
+✔ two actual sockets reject a stale E63 quote without charge and reconnect receives the new offer (192.44475ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2338.197208

@@ -45,7 +45,7 @@
       "id": "ITEM-01–03",
       "system": "สินค้าใหม่56ชิ้นและ effect",
       "status": "catalog5 ลงทะเบียน56; ผลหลักตรวจระดับowner21; อีก35ยังไม่เชื่อม",
-      "remaining": "Effects3 binds11more items across6automatic families: first merchant trust, boundary energy, recovery discount, inspected price range, NPC acceptance and curse-cleansing chance. E61/E63 player+physical-origin caps, read-only quotes and actual settlement logs. Snapshot before boundary mutations; no late purchase/return bonus. Main default3/pilot4 unchanged; remaining35/optional off. Focused229 plus124regressions pass;3priorUI assertion failures reproduced812ef79 remain.6socket checks,32old replays+4new40credit/6life games,16byte-identical pilot audits pass. Owner proof is not full56 normal-budget benefit/UI/balance acceptance.",
+      "remaining": "Effects3 binds11more items across6automatic families: first merchant trust, boundary energy, recovery discount, inspected price range, NPC acceptance and curse-cleansing chance. E61/E63 player+physical-origin caps, read-only quotes and actual settlement logs. Snapshot before boundary mutations; no late purchase/return bonus. Main default3/pilot4 unchanged; remaining35/optional off. Focused229 plus124regressions pass;3priorUI assertion failures reproduced812ef79 remain.6socket checks,32old replays+4new40credit/6life games,16byte-identical pilot audits pass. Owner proof is not full56 normal-budget benefit/UI/balance acceptance. Recovery quote followup: recoveryQuoteRules1 guards changed E63 visible terms before payment; stale shared-origin quotes/reconnect/retry tested.145focused/12wire-unit/82related pass with2known priorUI failures;32legacy+4newquote normal games,16unchanged pilot audits,18menus/14approved pixels pass.35primary hooks and complete native lifecycle/public-benefit/balance remain.",
       "evidence": [
         "docs/game-design/logic-item-relations.json",
         "docs/game-design/system-atlas/coverage.md",
@@ -74,7 +74,8 @@
         "docs/game-design/native56-stage1.json",
         "docs/validation/native56-catalog-2026-11-04/verification.json",
         "docs/validation/native56-stage2-2026-11-04/verification.json",
-        "docs/validation/native56-stage3-2026-11-04/verification.json"
+        "docs/validation/native56-stage3-2026-11-04/verification.json",
+        "docs/validation/recovery-quote-2026-11-04/verification.json"
       ]
     },
     {

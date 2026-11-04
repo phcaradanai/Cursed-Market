@@ -13,7 +13,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/App.tsx",
-      "sha256": "151b3383977fd5b149bd3127dcf7a0788b1c266fe7a13efc26ae6e7490577e45"
+      "sha256": "fa2e647f4971e42b9aa6fb55ea8bc377620d11d1fdd5ed03b641299f699fe691"
     },
     {
       "file": "apps/comic/src/appraisal-client/BloodPactEvent.tsx",
@@ -1025,7 +1025,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "sha256": "6cb91cf6ffa41ab22966df30db128b8daf4987453bc716e748fe872b86728dee"
+      "sha256": "9e8e9ba83b44c8671eec06e662bda73f7f7016465407fa40ab1c2670dfe29b6d"
     },
     {
       "file": "apps/comic/src/game/appraisal/events.ts",
@@ -1057,7 +1057,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "sha256": "b79c6a5de7e7cf0f7249b5e8bb5cfdebf73a661fc8b17af67799f046211cd718"
+      "sha256": "c51bfabbf5a9a883822ea8f9fc8b3fb897d02b4b7620e469f95c3aaa7c957b6d"
     },
     {
       "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
@@ -1145,7 +1145,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/types.ts",
-      "sha256": "0575f5c037624523b6d64383f31cd980f047e0da4eb9b85350f5a4db46af3add"
+      "sha256": "174cf5afb569f5093046614185ab1a2cb42953e72fd670809402c3fece8b565e"
     },
     {
       "file": "apps/comic/src/game/appraisal/views.ts",
@@ -1217,7 +1217,7 @@
     },
     {
       "file": "apps/comic/src/server/appraisal-messages.ts",
-      "sha256": "464a6271525e5378673f85020087eb515840d555e55c316c4283db05a61a31f8"
+      "sha256": "120716062f0c45bf370a885cb92e2a3d4de26e52912f917c78dd01b570405251"
     },
     {
       "file": "apps/comic/src/server/appraisal-rooms.ts",
@@ -1261,7 +1261,7 @@
     },
     {
       "file": "apps/comic/src/simulation/appraisal.ts",
-      "sha256": "40abbc95b04f0023758e50594c2ba6e456806bf3500b61d09f50ae51e4482ad1"
+      "sha256": "29306a4db7b4fe4210ce7514e5db220b8ce29af2bc3ecc8d4cd93f7b5d72eadb"
     },
     {
       "file": "apps/comic/src/simulation/balance.ts",
@@ -1596,8 +1596,12 @@
       "sha256": "b2f909a45190b700694146fa94d758ae4771f9b906202bd15eb20151241583fb"
     },
     {
+      "file": "apps/comic/tests/recovery-quote.test.ts",
+      "sha256": "3a877b8765de6590b179c94bb455e8e970bc83cdfb90d6f0819500410714e4d2"
+    },
+    {
       "file": "apps/comic/tests/remaining48-automatic.test.ts",
-      "sha256": "462e5b407f5ab212e109150c631985157cad2c4ab1d9a76f4aabe5af04868301"
+      "sha256": "c5a8623300d715b2af081a0828f6cb51024d53744b203b051c65aed465e37f4a"
     },
     {
       "file": "apps/comic/tests/remaining48-challenge.test.ts",

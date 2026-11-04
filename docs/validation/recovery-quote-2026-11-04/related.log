@@ -1,0 +1,138 @@
+(node:89127) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ v0.5 keeps life separate, starts without entry energy and validates survival config while v0.4 is unchanged (68.139041ms)
+✔ spending last energy does not pause, zero-energy actions fail atomically and free decisions remain legal (53.910292ms)
+✔ NPC energy recovery is available at zero energy, costs credits once and retry is idempotent (9.786458ms)
+✔ NPC life recovery is available at zero energy, costs credits once and retry is idempotent (4.333458ms)
+✔ zero-energy vampire blood pact restores energy but costs life and cannot resurrect a dead player (5.622625ms)
+✔ restorative consumable authenticity=true curse=false applies distinct life effects (10.261583ms)
+✔ restorative consumable authenticity=false curse=false applies distinct life effects (7.026792ms)
+✔ restorative consumable authenticity=true curse=true applies distinct life effects (10.594666ms)
+✔ restorative consumable authenticity=false curse=true applies distinct life effects (6.470916ms)
+✔ death is permanent, freezes owned property/statuses and survivors continue past it (30.995625ms)
+✔ all dead invokes Collector once: true/fake/cursed values plus credits and score statuses, without history bonuses (8.678375ms)
+✔ score buff and debuff cancel and Collector handles zero inventory and tied credit scores (3.81375ms)
+✔ a complete command-only survival run exceeds three encounters, drains life and strictly replays (192.787541ms)
+✔ parser accepts late encounters and recovery but rejects actor/target injections and unsafe numbers (1.95375ms)
+✔ v0.4 historical audits still replay with their exact old shape and scoring (112.16075ms)
+✔ survival cautious reads only DTOs and completes strict seeded replay (1722.65075ms)
+✔ survival aggressive reads only DTOs and completes strict seeded replay (10963.843708ms)
+✔ survival collector reads only DTOs and completes strict seeded replay (1125.628375ms)
+✔ survival trader reads only DTOs and completes strict seeded replay (5850.793375ms)
+✔ room death/resume/reveal/final audit/rematch with timers true (19.707333ms)
+✔ room death/resume/reveal/final audit/rematch with timers false (7.874875ms)
+✔ canonical 2-seat room audit reaches Collector and validates factual metadata (87.825959ms)
+✔ canonical 3-seat room audit reaches Collector and validates factual metadata (170.45375ms)
+✔ canonical 4-seat room audit reaches Collector and validates factual metadata (240.722125ms)
+✖ survival SSR distinguishes zero energy from death and exposes Collector credit/item/modifier results (121.623583ms)
+✖ F1 score effects are disclosed in D10 direct/cross-shop/E08 contracts and B10/D10 event choices (72.830375ms)
+✔ F2 command-only privacy: hidden wealth/accuracy stay private through appraisal, reveal, advance and spectator views (100.34925ms)
+✔ roster reports reveal confirmation, not the stale trade flag, and drops death badges at Collector results (36.542125ms)
+✔ new rooms start in Survival without a mode choice and reject classic clients (3.845166ms)
+✔ explicit legacy service configurations preserve classic games (4.790292ms)
+✔ entry explains Survival directly without a mode selector or comparison (53.612ms)
+✔ solo classic room: a host plus bots plays a full replayable match (173.248542ms)
+✔ solo survival room: a host plus bots plays a full replayable match (1052.846875ms)
+✔ only the host adds bots before the match, up to four seats, and bot styles match the simulation (0.714ms)
+✔ new native runs select effects3, retaining historical revision2 as explicit config (109.195667ms)
+✔ E28 awards only a first actual meeting, records meetings without sword and counts only actual trust gain (37.024958ms)
+✔ E28 copy floors, custody and read-only peeking never fabricate a meeting bonus (54.606083ms)
+✔ E61 adds only boundary-carried energy after entry cost with a shared family cap and old recovery statuses (46.302958ms)
+✔ E61 ignores acquisition mid-encounter, dead seats and goods outside carried custody (10.621334ms)
+✔ E63 quotes and settles the same recovery discount with minimum1 and no extra recovery right (11.223792ms)
+✔ E02 narrows the real inspected range by20percent*S capped50 without revealing other facts or overriding fog/exact (19.341584ms)
+✔ E11 acceptance bonus is2pp per strength capped6pp and composes with unchanged pilot translator (25.670208ms)
+✔ E07 quote adds10pp per strength capped20pp, excludes the target tool and never changes price or tool truth (4.487ms)
+✔ orc-ironroot-greaves restores actual energy at the next boundary (22.734917ms)
+✔ autometa-servo-harness restores actual energy at the next boundary (7.872083ms)
+✔ alien-biobright-seedpod restores actual energy at the next boundary (3.1815ms)
+✔ orc-ember-salve changes the actual recovery quote (1.302959ms)
+✔ deepsea-whale-conch-horn changes the actual recovery quote (1.318958ms)
+✔ vampire-gloam-violin changes the NPC acceptance outcome without changing its truth (1.87175ms)
+✔ swarm-pheromone-sprayer changes the NPC acceptance outcome without changing its truth (5.003834ms)
+✔ orc-clan-forge-tongs improves the real cleanse quote for another held item (3.403708ms)
+✔ deepsea-abyss-trident improves the real cleanse quote for another held item (1.662292ms)
+✔ E61 shared origin cap prevents an original and its transferred copy earning twice at one boundary (5.620791ms)
+✔ E07 public paid cleanse uses the displayed odds and retains both held tools, with no pre-attempt truth leak (6.455709ms)
+✔ E63 quote is read-only and its successful use cannot refresh by transfer or a same-origin copy (4.410416ms)
+✔ effects3 sealed full-game archives replay with their own config without altering stage1 or2 (2776.710542ms)
+✔ E61 checks lock eligibility after expiry while snapshotting physical custody before the boundary (6.962458ms)
+✔ E02 inspected replacement truth stays inside its range even when no rarity-power metadata exists (2.595333ms)
+✔ E63 rejects an earlier same-origin quote after another owner spends that family right (4.589625ms)
+✔ new catalog5 runs select effects3; exact restoration without revision remains stage1; invalid revisions reject (152.670125ms)
+✔ E06 exact floor/cap/copy reductions apply once per buyer encounter after a real failed challenge (28.990916ms)
+✔ E06 origin cap survives transfer/copies/reconnect and zero void penalty does not burn its right (26.530167ms)
+✔ E06 respects actual custody, lock, death and revision; E05 lock exclusion starts at effects2 (26.664666ms)
+✔ public propose/respond charges reduced penalty once; retry preserves wallet, owner and ledger (18.323042ms)
+✔ effects2 sealed archives replay exactly while stage1 and2 remain independently restorable (2815.140708ms)
+✔ E06 consumes first real positive penalty even if its saving rounds to zero; only zero penalty preserves the right (12.045ms)
+✔ 48 typed identities and35rule contracts exactly match the frozen approved package (17.799333ms)
+✔ held strength selects the strongest5 across one effect family without mutating caller order (2.690416ms)
+✔ binary rights never pool fractional common copies into one entitlement (0.978791ms)
+✔ active and consumable callers must select one instance rather than summing a family (1.903792ms)
+✔ rarity1/copyfalse: integer and basis point scaling stay capped (1.117459ms)
+✔ rarity1/copytrue: integer and basis point scaling stay capped (0.268458ms)
+✔ rarity2/copyfalse: integer and basis point scaling stay capped (1.757125ms)
+✔ rarity2/copytrue: integer and basis point scaling stay capped (0.630959ms)
+✔ rarity3/copyfalse: integer and basis point scaling stay capped (1.5735ms)
+✔ rarity3/copytrue: integer and basis point scaling stay capped (3.513791ms)
+✔ rarity4/copyfalse: integer and basis point scaling stay capped (0.463667ms)
+✔ rarity4/copytrue: integer and basis point scaling stay capped (0.315916ms)
+✔ rarity6/copyfalse: integer and basis point scaling stay capped (0.067833ms)
+✔ rarity6/copytrue: integer and basis point scaling stay capped (4.297667ms)
+✔ rarity8/copyfalse: integer and basis point scaling stay capped (2.20675ms)
+✔ rarity8/copytrue: integer and basis point scaling stay capped (5.019958ms)
+✔ discounts cannot create free infinite actions or charge a previously free action (0.57025ms)
+✔ bank-funded bonus cannot mint, overdraw reservations or accept noninteger credit quotes (0.604167ms)
+ℹ tests 84
+ℹ suites 0
+ℹ pass 82
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 23369.161958
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/appraisal-survival.test.js:308:1
+✖ survival SSR distinguishes zero energy from death and exposes Collector credit/item/modifier results (121.623583ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(html.includes('คุณเป็นผู้ชม'))
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-survival.test.js:334:5)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/appraisal-survival.test.js:343:1
+✖ F1 score effects are disclosed in D10 direct/cross-shop/E08 contracts and B10/D10 event choices (72.830375ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(html.includes('คนกลาง'))
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/appraisal-survival.test.js:394:5)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

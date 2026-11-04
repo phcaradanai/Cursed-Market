@@ -40,6 +40,8 @@ export type AppraisalPhase = 'PORTALS' | 'APPRAISAL' | 'TRADE' | 'REVEAL' | 'RES
 export interface AppraisalConfig {
   /** Absent in catalog5 stage1 audits: pilot8 plus E05 only. */
   native56Effects?:2|3;
+  /** Bind recovery payment to visible terms; absent in historical audits. */
+  recoveryQuoteRules?:1;
   /** Versioned personal accomplishments; historical audits omit this. */
   personalScoringRules?:1;
   /** Corrected canonical writers; absence preserves pre-review experimental audit receipts. */
@@ -117,8 +119,7 @@ export interface WishBookRow { npc:NpcId; kind:ItemKind; price:number; initial:n
 export interface WishDesk { npc:NpcId; cost:number; cap:number; book:WishBookRow[]; replaces:NpcId|null; replaceable:NpcId[] }
 export interface WishOffer { npc:NpcId; kind:ItemKind; price:number; initial:number; floor:number; next:number; age:number; trust:number; buffs:number; debuffs:number; tried:boolean; options:Array<{markup:number;price:number;chance:number}>; itemIds:string[]; itemQuotes?:Record<string,Array<{markup:number;price:number}>> }
 /** `amount` is the most the deal can restore; `min` (life deals) is the least, rolled per encounter. */
-/** shortcut: Recovery settles the latest server quote; add expected-cost sync before default56 (Task5). */
-export interface RecoveryOffer { nativeDiscount?:number; target:'energy'|'life'; credits:number; amount:number; min?:number }
+export interface RecoveryOffer { quoteId?:string; nativeDiscount?:number; target:'energy'|'life'; credits:number; amount:number; min?:number }
 export interface CollectorResult {
   personalScore?:import('./personal-scoring.js').PersonalScoreBreakdown;
   playerId:string; credits:number; itemValue:number; modifierPercent:number; statusIds:StatusId[]; score:number;
@@ -291,7 +292,7 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
   | { type: 'round-raise'; coinCount:number; attempt:number }
   | { type: 'round-bank' }
   | { type: 'done' }
-  | { type:'recover-resource'; target:'energy'|'life' }
+  | { type:'recover-resource'; target:'energy'|'life'; quoteId?:string }
   | { type:'wish-sell'; itemId:string; markup:number }
   | { type:'wish-new'; replaceNpc?:NpcId }
   | { type:'cleanse'; itemId:string; stoneId?:string }

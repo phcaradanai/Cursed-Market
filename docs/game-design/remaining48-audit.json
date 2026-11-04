@@ -1,15 +1,15 @@
 {
   "version": 1,
   "asOf": "2026-11-04",
-  "observedRevision": "e15a4a6885d641f1cddbec5aa16174325bac6636",
+  "observedRevision": "162f63a5b99a09e3cfb75cbb03cbfbcab1e5e9b8",
   "status": "factual-audit-not-a-numeric-spec-or-approval",
-  "scope": "New56 only. Compiled membership verifies56registered; verified primary9, pending47; owner references locate existing primitives only and DO NOT claim proposed causal bindings or lifecycle support. This audit does not itself change runtime/config/art/weights.",
+  "scope": "New56 only. Compiled membership verifies56registered; verified primary10, pending46; owner references locate existing primitives only and DO NOT claim proposed causal bindings or lifecycle support. This audit does not itself change runtime/config/art/weights.",
   "summary": {
     "merchants": 8,
     "catalogItems": 56,
     "nativeNewIds": 56,
-    "verifiedPrimary": 9,
-    "pendingPrimary": 47,
+    "verifiedPrimary": 10,
+    "pendingPrimary": 46,
     "remaining": 48,
     "perMerchant": 6,
     "primaryEffectGroups": 35,
@@ -20,11 +20,11 @@
     "optionalEffectsEnabled": 0
   },
   "sourceFingerprints": {
-    "docs/game-design/native56-runtime.json": "e0b73d44e87c43df6675ffa53c824ae76aa03ea8d92d162c20e5067656b89673",
-    "apps/comic/src/game/appraisal/remaining48-effects.ts": "6913352e12cc9dfac8411c14c018bef42e12208e79a27cdbc61a066f261c1af7",
+    "docs/game-design/native56-runtime.json": "98866e5f63faa715d9a9af1de15241544a02d549edba83919026b11e0798c58a",
+    "apps/comic/src/game/appraisal/remaining48-effects.ts": "25f2e42120b133557c98a367928d19520a0157fb3146db9b36ddfd37d51321e7",
     "docs/game-design/remaining48-approval.json": "fa26756f2c79d63f7531192d9dcc93ba914e19501315bdb21079b40466bf5af1",
     "docs/game-design/proposals/remaining48-experimental-v1.json": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508",
-    "docs/game-design/scripts/audit-remaining48.mjs": "3102a61fc16ed51e0dafb00ee148f60ff3bb2f17b20e44194e3a3c09cb54a4c1",
+    "docs/game-design/scripts/audit-remaining48.mjs": "9bb808f817815401d9484950b8da936f1067ea9196800006cc9a56983e0e1930",
     "docs/game-design/logic-item-relations.json": "983d130078b1b6f6f1569dd05f295190a73523c1abaa0aa59bc29e0a6693b801",
     "docs/game-design/remaining48-decisions.json": "9dd5d24ec916e401c01ad963d727c926be459931ab656ca82d9879af84c0b70c",
     "docs/game-design/new56-pilot-approval.json": "cdcf630f60c8ed07db87008cd7c845575b3d304bdd0c7167abbf899a5e3b5d65",
@@ -36,15 +36,15 @@
     "apps/comic/dist/src/game/appraisal/pilot-catalog.js": "477cd3fbf6cc7f36495306f1eedd7ee1c8f82dcd40da2550aecb368d906d0282",
     "apps/comic/src/game/appraisal/mechanics.ts": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507",
     "apps/comic/src/game/appraisal/personal-scoring.ts": "6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5",
-    "apps/comic/src/game/appraisal/engine.ts": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181",
+    "apps/comic/src/game/appraisal/engine.ts": "dfece5649a4270055be8465e6485ca8e436db7f7769f0c77c17c2bec9fa91af6",
     "apps/comic/src/game/appraisal/passives.ts": "3915bdda874eae43be5e7318626a6748b29aa56cb35748048669ac1f5e051280",
     "apps/comic/src/game/appraisal/cleanse-rules.ts": "6fb69a3f4a4aa870670248255e02eb81d3fc527dbd4d9c975ba14eac81915cd1",
     "apps/comic/src/game/appraisal/theft.ts": "aaf4cc62d6d20f028fff9fdef405538cda8b32009770abf2f5ac9e50cd9da52a",
     "apps/comic/src/game/appraisal/npc-events.ts": "f111c7cd8598b85165a91e5b88f7874d62d5502d3dce14a80b9fa71541e93bcf",
-    "apps/comic/src/game/appraisal/challenge.ts": "ef3e4aa22bb4ca5d897da799f6f8e2cf35c66a6e76d895c6892c29d09f943a03",
+    "apps/comic/src/game/appraisal/challenge.ts": "e05db4ac5296c69cbdba3c5fadc69a40322b22cba3efcb3f514f0825c351ac76",
     "apps/comic/src/game/appraisal/brokerage.ts": "18b4d1f6273adc9c1e8726831a16626905c0f2ffc0a8af4a146b7813c809a4b8",
     "apps/comic/src/game/appraisal/ability-rules.ts": "3e9f33f54b34c91fb26f6d0926f9df83e646dc3623a7c8bbf3beed5cedbc9139",
-    "apps/comic/src/game/appraisal/views.ts": "c0604453c70f9ea3fe5bc27ec1330c5bc087d8bc1dfabb7c42d4ba46ea0235e8",
+    "apps/comic/src/game/appraisal/views.ts": "0fb4d3fbb3bba809ce6416dbf6e9724e012633b8de3ad559ae86d47a0df6d334",
     "apps/comic/src/game/appraisal/core2-rules.ts": "c512cac29fda1d586afcc82ece3ac15a0411650283d1226ae12787c76bfce0ea",
     "apps/comic/src/game/appraisal/rarity.ts": "3672184a63c2899151c92ed7a413a0881ec5df613fc10d0ca16f01090936cbd6",
     "apps/comic/src/game/appraisal/merchant-abilities.ts": "e90c4ea9b0c2f302ec3e005efef4d61e73c9d239a460d8aeb8859c394b226b09",
@@ -268,9 +268,9 @@
         {
           "symbol": "advanceAppraisalEncounter",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 441,
-          "endLine": 471,
-          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
+          "line": 442,
+          "endLine": 472,
+          "sourceSha256": "dfece5649a4270055be8465e6485ca8e436db7f7769f0c77c17c2bec9fa91af6"
         },
         {
           "symbol": "recover",
@@ -364,9 +364,9 @@
         {
           "symbol": "respond",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 292,
-          "endLine": 328,
-          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
+          "line": 293,
+          "endLine": 329,
+          "sourceSha256": "dfece5649a4270055be8465e6485ca8e436db7f7769f0c77c17c2bec9fa91af6"
         },
         {
           "symbol": "transfer",
@@ -424,9 +424,9 @@
         {
           "symbol": "respond",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 292,
-          "endLine": 328,
-          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
+          "line": 293,
+          "endLine": 329,
+          "sourceSha256": "dfece5649a4270055be8465e6485ca8e436db7f7769f0c77c17c2bec9fa91af6"
         }
       ],
       "meaningDecision": null,
@@ -656,14 +656,14 @@
       "originalProposedDescription": "ลดโทษจากการท้าทายพลาด",
       "proposedDescription": "ลดโทษจากการท้าทายพลาด",
       "runtimeRegistered": true,
-      "primaryVerified": false,
+      "primaryVerified": true,
       "owners": [
         {
           "symbol": "settleChallenge",
           "file": "apps/comic/src/game/appraisal/challenge.ts",
           "line": 15,
           "endLine": 36,
-          "sourceSha256": "ef3e4aa22bb4ca5d897da799f6f8e2cf35c66a6e76d895c6892c29d09f943a03"
+          "sourceSha256": "e05db4ac5296c69cbdba3c5fadc69a40322b22cba3efcb3f514f0825c351ac76"
         }
       ],
       "meaningDecision": null,
@@ -801,7 +801,7 @@
           "file": "apps/comic/src/game/appraisal/challenge.ts",
           "line": 15,
           "endLine": 36,
-          "sourceSha256": "ef3e4aa22bb4ca5d897da799f6f8e2cf35c66a6e76d895c6892c29d09f943a03"
+          "sourceSha256": "e05db4ac5296c69cbdba3c5fadc69a40322b22cba3efcb3f514f0825c351ac76"
         }
       ],
       "meaningDecision": {
@@ -1027,16 +1027,16 @@
         {
           "symbol": "generatePortals",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 144,
-          "endLine": 152,
-          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
+          "line": 145,
+          "endLine": 153,
+          "sourceSha256": "dfece5649a4270055be8465e6485ca8e436db7f7769f0c77c17c2bec9fa91af6"
         },
         {
           "symbol": "appraisalViewFor",
           "file": "apps/comic/src/game/appraisal/views.ts",
           "line": 51,
           "endLine": 72,
-          "sourceSha256": "c0604453c70f9ea3fe5bc27ec1330c5bc087d8bc1dfabb7c42d4ba46ea0235e8"
+          "sourceSha256": "0fb4d3fbb3bba809ce6416dbf6e9724e012633b8de3ad559ae86d47a0df6d334"
         }
       ],
       "meaningDecision": {
@@ -1092,9 +1092,9 @@
         {
           "symbol": "advanceAppraisalEncounter",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 441,
-          "endLine": 471,
-          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
+          "line": 442,
+          "endLine": 472,
+          "sourceSha256": "dfece5649a4270055be8465e6485ca8e436db7f7769f0c77c17c2bec9fa91af6"
         },
         {
           "symbol": "recover",
@@ -1262,9 +1262,9 @@
         {
           "symbol": "spawnStockItem",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 126,
-          "endLine": 143,
-          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
+          "line": 127,
+          "endLine": 144,
+          "sourceSha256": "dfece5649a4270055be8465e6485ca8e436db7f7769f0c77c17c2bec9fa91af6"
         },
         {
           "symbol": "makeCandidate",
@@ -1328,9 +1328,9 @@
         {
           "symbol": "advanceAppraisalEncounter",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 441,
-          "endLine": 471,
-          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
+          "line": 442,
+          "endLine": 472,
+          "sourceSha256": "dfece5649a4270055be8465e6485ca8e436db7f7769f0c77c17c2bec9fa91af6"
         },
         {
           "symbol": "recover",
@@ -1903,9 +1903,9 @@
         {
           "symbol": "respond",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 292,
-          "endLine": 328,
-          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
+          "line": 293,
+          "endLine": 329,
+          "sourceSha256": "dfece5649a4270055be8465e6485ca8e436db7f7769f0c77c17c2bec9fa91af6"
         },
         {
           "symbol": "transfer",
@@ -2008,16 +2008,16 @@
         {
           "symbol": "generatePortals",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 144,
-          "endLine": 152,
-          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
+          "line": 145,
+          "endLine": 153,
+          "sourceSha256": "dfece5649a4270055be8465e6485ca8e436db7f7769f0c77c17c2bec9fa91af6"
         },
         {
           "symbol": "appraisalViewFor",
           "file": "apps/comic/src/game/appraisal/views.ts",
           "line": 51,
           "endLine": 72,
-          "sourceSha256": "c0604453c70f9ea3fe5bc27ec1330c5bc087d8bc1dfabb7c42d4ba46ea0235e8"
+          "sourceSha256": "0fb4d3fbb3bba809ce6416dbf6e9724e012633b8de3ad559ae86d47a0df6d334"
         }
       ],
       "meaningDecision": {
@@ -2267,9 +2267,9 @@
         {
           "symbol": "rerollPortal",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 154,
-          "endLine": 168,
-          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
+          "line": 155,
+          "endLine": 169,
+          "sourceSha256": "dfece5649a4270055be8465e6485ca8e436db7f7769f0c77c17c2bec9fa91af6"
         },
         {
           "symbol": "pilotRerollCost",
@@ -2431,9 +2431,9 @@
         {
           "symbol": "spawnStockItem",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 126,
-          "endLine": 143,
-          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
+          "line": 127,
+          "endLine": 144,
+          "sourceSha256": "dfece5649a4270055be8465e6485ca8e436db7f7769f0c77c17c2bec9fa91af6"
         },
         {
           "symbol": "makeCandidate",
@@ -2541,16 +2541,16 @@
         {
           "symbol": "rerollPortal",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 154,
-          "endLine": 168,
-          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
+          "line": 155,
+          "endLine": 169,
+          "sourceSha256": "dfece5649a4270055be8465e6485ca8e436db7f7769f0c77c17c2bec9fa91af6"
         },
         {
           "symbol": "applyAppraisalAction",
           "file": "apps/comic/src/game/appraisal/engine.ts",
-          "line": 341,
-          "endLine": 440,
-          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
+          "line": 342,
+          "endLine": 441,
+          "sourceSha256": "dfece5649a4270055be8465e6485ca8e436db7f7769f0c77c17c2bec9fa91af6"
         }
       ],
       "meaningDecision": {

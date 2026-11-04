@@ -1,6 +1,6 @@
 # Cursed Market — Context กลางสำหรับพัฒนาเกม
 
-อัปเดตสถานะ 2026-11-01 · Active comic: `apps/comic/`
+อัปเดตสถานะ 2026-11-04 · Active comic: `apps/comic/`
 
 เริ่ม session ที่ [UI continuity](../ui-system/README.md) และ [decisions](../ui-system/decisions.md). ข้อความเส้นทาง external ด้านล่างเป็นประวัติ; อย่าแก้ backup แทน source ใน repo.
 
@@ -10,9 +10,9 @@
 
 - ตลาดวิญญาณ S11/G01–G04 ทำและตรวจแล้วใน commit51d89ea; ดู ghost-service-contracts.md และ ../ui-system/ghost-functional-verification.json
 - จุดตกหล่นสำคัญ: RULE-01 ดอกเบี้ย10%พร้อมอายุเงินต้นเชื่อมเข้า Comic รันใหม่แล้ว ตรวจผ่านแล้ว; รันเก่าไม่มีflagรักษา4% ดู implementations/comic-aged-interest-plan.md
-- สินค้าใหม่เชื่อมแล้ว8/56 ใน catalogVersion4 แบบทดลอง พร้อม primary effects ที่อนุมัติและวงจรซื้อ/สำเนา/คลัง/ค้ำประกัน/ประมูล/Collector; default ยังเป็น version3 เดิม66ชนิด อีก48และoptional effectsยังไม่เชื่อม ดู new56-pilot-verification.json ไม่ใช่คำรับรอง balance หรือทั้งเกมครบ
-- Collector3+2 เชื่อม engine/protocol/Comic UI แบบทดลองแล้ว (reviewเสร็จ; minorค้าง); คะแนนผลงานทุกคนหลายระบบยืนยันทิศทางแล้ว แต่ยังต้องกำหนดน้ำหนัก/กันปั๊มและเชื่อมระบบ
-- ขโมย/RPSมี runtime แต่การตรวจให้ครบกฎ forced/timeout/disconnect ยังไม่ปิด; อารมณ์พ่อค้ายังไม่เชื่อมครบทุกบริบท
+- สินค้าใหม่ทดลอง catalog5 ลงทะเบียน56/56 (7ต่อพ่อค้า); primaryตรวจแล้ว10 (pilot8+E05+E06), อีก46ยังไม่เชื่อมและปิดความสามารถที่ไม่รองรับ; native56Effects2 แยกจาก stage1 ที่ไม่มีflag. Main default3/pilot4เดิมไม่เปลี่ยน; optionalปิด ดู native56-runtime.json และ native56-stage2.json ไม่ใช่ full56balance/เกมครบ
+- Collector3+2 เชื่อม engine/protocol/Comic UI แบบทดลองแล้ว (reviewเสร็จ; minorค้าง); คะแนนผลงานv1/ตัวบันทึกfacts2ตามค่าทดลองที่อนุมัติเชื่อมแล้ว; ยังไม่รับรองfull-game balance
+- ขโมย/RPS Comic และ timeout มี implementation/หลักฐานเฉพาะส่วน; อารมณ์พ่อค้า S02/S04 เชื่อมแล้ว บริบทอื่นและการรับรองร่วมทั้งเกมยังไม่ครบ
 - ยังไม่ผ่าน PLAY-01/BAL-02: ไม่มีคำรับรองครบทั้งเกม/บาลานซ์/มือถือ; มีเทสต์เก่า Dark One แสดงชื่อผู้เล่นเสียหนึ่งข้อ
 
 Atlas ปัจจุบันสกัดทุก module ของ `apps/comic/src/game/appraisal` พร้อม support/server/bot ที่ระบุใน provenance โดย UI มี capture/flow registry แยก; ไม่ใช้ root เป็น runtime ฐานแล้ว หลักฐานรุ่นก่อนตรึงที่ Git9f0a972 และ `legacy-atlas-baseline.json` กราฟยังเป็น static dependency ไม่ใช่หลักฐาน execute หรือเกมครบ
@@ -28,7 +28,7 @@ Atlas ปัจจุบันสกัดทุก module ของ `apps/comic
 นำ UI comic ที่มีอยู่มาเชื่อมกฎเกมและสินค้าใหม่ให้เล่นได้ครบ แล้วจึงปรับบาลานซ์จากผลทดสอบที่ทำซ้ำได้ งานจัดข้อมูล/กราฟและ RULE-01 ใน root เสร็จแล้ว แต่ Comic เชื่อมและตรวจการใช้กฎเงินฝากใหม่แล้ว การย้ายสินค้าใหม่และการบาลานซ์ทั้งเกมยังไม่เสร็จ
 
 - สินค้าใช้ชุดใหม่ **56 ชิ้น / 8 พ่อค้า / คนละ 7** เท่านั้น ไม่ย้อนใช้รายการสินค้า realistic
-- Effect ที่ผูกสินค้าใน relation ยังเป็นข้อเสนอ; registration56 / verified primary9; ดู native56-runtime.json; relation ที่ไม่มีหลักฐานยังเป็นข้อเสนอ
+- Effect ที่ผูกสินค้าใน relation ยังเป็นข้อเสนอ; registration56 / verified primary10; ดู native56-runtime.json; relation ที่ไม่มีหลักฐานยังเป็นข้อเสนอ
 - Runtime snapshot: 132 events, 51 statuses, omen 7/15 แบบ; ดู manifest ก่อนใช้จำนวนเป็นฐาน
 - UI: comic 2D, เส้นเข้ม, แดง/ดำ/ขาว, palette สินค้าตามพ่อค้า, symmetry และ spacing กลาง; รักษารูปแบบเมนูเดิม
 - กราฟ source-reference และ domain-classification เป็นหลักฐานความเกี่ยวข้อง ไม่ยืนยันว่าทุกผลเกิดพร้อมกัน
@@ -298,3 +298,13 @@ Next Task2: versioned new56 pools/metadata without old-kind aliases, preserve ve
 See `native56-runtime.json`, immutable `native56-stage1.json`, `implementations/remaining48-plan.md` and `../validation/native56-catalog-2026-11-04/verification.json`.198focused/65lifecycle/6Collector socket tests;32historical replays,4new40credit/6life games,16byte-identical pilot public audits;18menu/14unchanged approvedpixel references pass. Not full56 balance/game acceptance. Next: versioned effects revision then remaining47 approved canonical owner hooks, Task3–6.
 
 Ruling: absent a later explicit effects revision preserves archived catalog5stage1 (pilot8+E05); new owner bindings must not change old sparse-config replay.
+
+## Native56 effects2 checkpoint — 2026-11-04
+
+Supersedes the stage1 current-count note above:56registered /10primary verified (pilot8+E05+E06) /46primary pending. `native56Effects:2` is selected only for newly created experimental catalog5 runs; main default3 and opt-inpilot4 unchanged. Exact restore without flag keeps stage1; archived2 keeps stage2. E06 reduces actual failed-challenge credit penalty after void-seal resolution, using floor/cap and player+origin/encounter ledgers. Only an actual zero penalty (including void0) preserves rights; a positive penalty consumes the eligible right even if the saving rounds to zero. Approved held lock restriction applies in2; original sparse5 audits remain unchanged.
+
+203focused tests include65lifecycle identity tests (not an additive268tests);6Collector socket checks,32old strict replays,4new normal-budget2/4seat games and16byte-identical pilot public audits pass. See `native56-runtime.json`, `native56-stage2.json` and `../validation/native56-stage2-2026-11-04/verification.json`. No E06 normal-budget benefit exposure, all56balance or new browser pixel-run claim. Next: remaining46 primary owners plus full predicate/UI/normal-budget acceptance.
+
+Contract correction: E06 counts the first real positive penalty, not the first profitable saving. Positive penalty with eligible basis points consumes player/origin rights even when the saving rounds to0; actual zero penalty/void0 preserves them. A failing regression caught38 instead of50 on the next challenge; fixed before commit. No new passive no-op rule.
+
+Final effects2 checkpoint verification:205focused pass, including65lifecycle and both sealed-stage replay tests;410source fingerprints/10UI contracts and293Atlas inputs current. No fresh stage2browser pixels claimed.

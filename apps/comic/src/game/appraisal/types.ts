@@ -38,6 +38,8 @@ export type ItemKind = Remaining48Kind | LegacyItemFamily | PilotItemKind | 'mem
   'abyss-pearl' | 'tide-lantern' | 'kraken-ink' | 'siren-conch' | 'hive-comb' | 'chitin-blade' | 'larva-cell' | 'compound-mirror' | PassiveKind | typeof ABILITY_ITEM_IDS[number];
 export type AppraisalPhase = 'PORTALS' | 'APPRAISAL' | 'TRADE' | 'REVEAL' | 'RESULTS';
 export interface AppraisalConfig {
+  /** Absent in catalog5 stage1 audits: pilot8 plus E05 only. */
+  native56Effects?:2;
   /** Versioned personal accomplishments; historical audits omit this. */
   personalScoringRules?:1;
   /** Corrected canonical writers; absence preserves pre-review experimental audit receipts. */
@@ -303,6 +305,8 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
 /** `rebate` is credits the owner pays the buyer when the sale completes, so a poor item can still find a price. */
 export interface SharedListing { ownerId: string; itemId: string; purchase: boolean; claims?: { genuine?: boolean; cursed?: boolean }; rebate?: number }
 export interface AppraisalState {
+  /** E06 rights belong to players and physical origins, never a screen or current owner. */
+  native56ChallengeUses?:{encounter:number;players:string[];origins:string[]};
   personalPerformance?:import('./personal-scoring.js').PersonalPerformance;
   collectorWishes?:Record<string,import('./collector-wishlist.js').CollectorWishlistState>;
   ghosts?:Record<string,import('./ghost-service.js').GhostState>;

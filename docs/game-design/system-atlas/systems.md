@@ -268,8 +268,8 @@
 
 คู่ค้า การแลกของ ข้อมูลรับรองและการรับข้อเสนอ
 
-- code:apps/comic/src/game/appraisal/engine.ts:propose ({"file":"apps/comic/src/game/appraisal/engine.ts","line":254,"endLine":272})
-- code:apps/comic/src/game/appraisal/engine.ts:respond ({"file":"apps/comic/src/game/appraisal/engine.ts","line":292,"endLine":328})
+- code:apps/comic/src/game/appraisal/engine.ts:propose ({"file":"apps/comic/src/game/appraisal/engine.ts","line":255,"endLine":273})
+- code:apps/comic/src/game/appraisal/engine.ts:respond ({"file":"apps/comic/src/game/appraisal/engine.ts","line":293,"endLine":329})
 
 ## logic:L07 ตลาดมืดและของค้าง
 
@@ -280,7 +280,7 @@
 - code:apps/comic/src/game/appraisal/market-contracts.ts:marketOrderReserve ({"file":"apps/comic/src/game/appraisal/market-contracts.ts","line":5,"endLine":5})
 - code:apps/comic/src/game/appraisal/market-contracts.ts:marketConditionMatch ({"file":"apps/comic/src/game/appraisal/market-contracts.ts","line":7,"endLine":10})
 - code:apps/comic/src/game/appraisal/market-contracts.ts:makeMarketContract ({"file":"apps/comic/src/game/appraisal/market-contracts.ts","line":11,"endLine":22})
-- code:apps/comic/src/game/appraisal/engine.ts:makeMarket ({"file":"apps/comic/src/game/appraisal/engine.ts","line":170,"endLine":190})
+- code:apps/comic/src/game/appraisal/engine.ts:makeMarket ({"file":"apps/comic/src/game/appraisal/engine.ts","line":171,"endLine":191})
 - code:apps/comic/src/game/appraisal/views.ts:marketView ({"file":"apps/comic/src/game/appraisal/views.ts","line":25,"endLine":28})
 
 ## logic:L08 ประมูล
@@ -326,8 +326,8 @@
 
 เปลี่ยน/เปิดประตูและเบาะแสก่อนเลือก
 
-- code:apps/comic/src/game/appraisal/engine.ts:generatePortals ({"file":"apps/comic/src/game/appraisal/engine.ts","line":144,"endLine":152})
-- code:apps/comic/src/game/appraisal/engine.ts:rerollPortal ({"file":"apps/comic/src/game/appraisal/engine.ts","line":154,"endLine":168})
+- code:apps/comic/src/game/appraisal/engine.ts:generatePortals ({"file":"apps/comic/src/game/appraisal/engine.ts","line":145,"endLine":153})
+- code:apps/comic/src/game/appraisal/engine.ts:rerollPortal ({"file":"apps/comic/src/game/appraisal/engine.ts","line":155,"endLine":169})
 
 ## logic:L13 ขโมยเชิงรุก RPS
 

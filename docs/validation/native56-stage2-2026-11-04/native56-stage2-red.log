@@ -1,0 +1,123 @@
+✖ new catalog5 runs select effects2; exact restoration without revision remains stage1; invalid revisions reject (50.061917ms)
+✖ E06 exact floor/cap/copy reductions apply once per buyer encounter after a real failed challenge (32.058041ms)
+✖ E06 origin cap survives transfer/copies/reconnect and zero void penalty does not burn its right (14.45ms)
+✖ E06 respects actual custody, lock, death and revision; E05 lock exclusion is effects2 only (32.839083ms)
+✖ public propose/respond charges reduced penalty once; retry preserves wallet, owner and ledger (5.981791ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 0
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 467.281958
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/remaining48-challenge.test.js:31:1
+✖ new catalog5 runs select effects2; exact restoration without revision remains stage1; invalid revisions reject (50.061917ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  undefined !== 2
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/remaining48-challenge.test.js:33:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/remaining48-challenge.test.js:41:1
+✖ E06 exact floor/cap/copy reductions apply once per buyer encounter after a real failed challenge (32.058041ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      discount: 0,
+  +   penalty: 50
+  -   penalty: 38
+    }
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/remaining48-challenge.test.js:44:16)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { discount: 0, penalty: 50 },
+    expected: { discount: 0, penalty: 38 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/remaining48-challenge.test.js:50:1
+✖ E06 origin cap survives transfer/copies/reconnect and zero void penalty does not burn its right (14.45ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  50 !== 38
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/remaining48-challenge.test.js:52:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 50,
+    expected: 38,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/remaining48-challenge.test.js:66:1
+✖ E06 respects actual custody, lock, death and revision; E05 lock exclusion is effects2 only (32.839083ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  55 !== 50
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/remaining48-challenge.test.js:85:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 55,
+    expected: 50,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/remaining48-challenge.test.js:89:1
+✖ public propose/respond charges reduced penalty once; retry preserves wallet, owner and ledger (5.981791ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/remaining48-challenge.test.js:92:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

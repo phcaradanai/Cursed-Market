@@ -1,0 +1,107 @@
+{
+  "asOf": "2026-11-04",
+  "baseRevision": "162f63a",
+  "status": "effects2-E06-owner-tested-experimental",
+  "scope": "Registration56; primary10 (pilot8+E05+E06).205focused tests include65lifecycle identity tests; those are not270distinct tests. E06 public propose/respond uses exact floor/cap, once/player/encounter + shared physical-origin rights and zero-void nonconsumption. Remaining46primary hooks disabled/unbound. Default3/pilot4 unchanged; optional off; no release/balance claim.",
+  "checks": {
+    "focused": {
+      "passed": 205,
+      "lifecycleSubset": 65,
+      "command": "cd apps/comic && node --test dist/tests/native56-catalog.test.js dist/tests/remaining48-challenge.test.js dist/tests/remaining48-foundation.test.js dist/tests/new56-pilot*.test.js dist/tests/appraisal-challenge.test.js dist/tests/collector-wishlist.test.js dist/tests/ghost-service*.test.js dist/tests/appraisal-catalog.test.js",
+      "log": "focused-final.log"
+    },
+    "redGreen": {
+      "redTestsFailed": 5,
+      "greenOwnerAndCatalogTests": 15,
+      "logs": [
+        "native56-stage2-red.log",
+        "native56-stage2-green.log"
+      ]
+    },
+    "sockets": {
+      "passed": 6,
+      "log": "collector-socket.log",
+      "retainedFailure": "collector-socket-absolute-count-failure.log:5/6, absolute inventory2 vs1. No pre-buy count was retained in that run; exact origin of extra item not proved. Assertion now checks pre-buy→post-buy +1 and exactly1new ID; fresh6/6 passes, old error retained."
+    },
+    "compatibility": {
+      "legacyStrictReplays": 32,
+      "newEffects2Games": 4,
+      "commands": 1008,
+      "walletLedgerMatches": true,
+      "report": "compatibility/report.json"
+    },
+    "pilotPublic": {
+      "effects": 8,
+      "audits": 16,
+      "strictReplays": 32,
+      "all16byteIdenticalToOriginal": true,
+      "report": "pilot-public/public-effects.json"
+    },
+    "ui": {
+      "sourceFingerprints": 410,
+      "contracts": 10,
+      "sourceCheck": "ui-check-final.log",
+      "contractLog": "ui-test.log",
+      "newPixelRun": false,
+      "renderingUnchanged": "Logic/type/view capability data only; no stylesheet/component layout changes. Prior approved14pixel evidence from stage1 is historical, not a new stage2run."
+    },
+    "atlas": {
+      "inputs": 293,
+      "log": "atlas-check.log"
+    },
+    "builds": {
+      "server": true,
+      "comicClient": true,
+      "logs": [
+        "final-build.log",
+        "client-build.log"
+      ],
+      "warnings": [
+        "Existing Vite chunk>500KB warning remains; no new splitting redesign in this checkpoint."
+      ]
+    },
+    "trail": {
+      "exit": 1,
+      "scope": "Branch diff capped400KB;20existing lexical conflicts only in unrelated .impeccable/design.json, excluded from this commit. Not full-branch review.",
+      "log": "trail-check.log"
+    },
+    "roundingCorrection": {
+      "red": "zero-rounding-red.log",
+      "observed": "Second penalty38 instead of approved50 after real first1credit penalty",
+      "fix": "Record eligible first-positive-penalty rights even if rounded saving0; only zero actual penalty skips.",
+      "result": "Final focused205/205 includes the red→green correction"
+    },
+    "sealedAndRounding": {
+      "passed": 4,
+      "log": "sealed-and-rounding-final.log"
+    }
+  },
+  "decisions": [
+    "native56Effects2 only for new catalog5 library runs; main default3/pilot4 unchanged. restore absent flag retains stage1, invalid flag/catalog pairs reject.",
+    "Per-encounter E06 rights are server state by player plus physical origin; only actual zero penalty/void0 consumes neither; positive real penalty consumes eligible rights even when saving rounds to0; copies/transfer/reconnect do not reset.",
+    "Approved lock exclusion now applied to held E05/E06 only with effects2; absent flag preserves stage1 replay semantics.",
+    "Further effects must preserve absent and2 semantics; introduce later explicit revision rather than rewriting these audits."
+  ],
+  "limits": [
+    "46primary hooks remain unbound",
+    "No E06 normal-budget exposure or direct E06 socket-benefit claim; public fixture verifies benefit, socket/full-game tests verify separate integration scopes",
+    "No new browser pixel run: previous agent Space3 missing; no UI styles/components changed; source/contracts checks recorded separately",
+    "No release/default56/balance acceptance; no new art/optional effects",
+    "Frozen effects2 full-game archives replayed by a dedicated regression; future effect revisions must preserve2 as well as absent stage1.",
+    "Owner-only E06 eligibility is enforced; fuller UI explanation of remaining held-use rights is still part of Task5, not claimed complete here."
+  ],
+  "environmentErrors": [
+    "One initial evidence command ran in apps/comic cwd with root-relative paths; no tests ran; moved its own logs to correct root directory and reran successfully."
+  ],
+  "sourceFingerprints": {
+    "apps/comic/src/game/appraisal/remaining48-effects.ts": "25f2e42120b133557c98a367928d19520a0157fb3146db9b36ddfd37d51321e7",
+    "apps/comic/src/game/appraisal/challenge.ts": "e05db4ac5296c69cbdba3c5fadc69a40322b22cba3efcb3f514f0825c351ac76",
+    "apps/comic/src/game/appraisal/engine.ts": "dfece5649a4270055be8465e6485ca8e436db7f7769f0c77c17c2bec9fa91af6",
+    "apps/comic/src/game/appraisal/types.ts": "bb1a8ef007149dd6ee1d42fe2c17a91c66b4a532c976752575ad089bdd69dfb8",
+    "apps/comic/src/game/appraisal/views.ts": "0fb4d3fbb3bba809ce6416dbf6e9724e012633b8de3ad559ae86d47a0df6d334",
+    "apps/comic/tests/remaining48-challenge.test.ts": "9c38a1b50f075e4dbab71c026539e525d59b93d8d70536238593d632d382d8aa",
+    "apps/comic/tests/native56-catalog.test.ts": "8439db0aa97854f36faa425ed7c0094a6a02f12eb6ad17c448b18cdecbfb3c8c",
+    "apps/comic/scripts/native56-compatibility.mjs": "2370fb740330928aff8ed65b907ab7f8f2b000b89b3cf82933987b1feadaead2",
+    "apps/comic/tests/collector-wishlist-network.test.ts": "66464c5c37ab64e6874d5bc711d0e9f3c860caf11d31b74b550780381b69e324"
+  }
+}

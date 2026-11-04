@@ -422,8 +422,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 465,
-      "endLine": 465
+      "line": 466,
+      "endLine": 466
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
@@ -434,8 +434,8 @@
     "operation": "recover",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 465,
-      "endLine": 465
+      "line": 466,
+      "endLine": 466
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
@@ -663,8 +663,8 @@
     "operation": "spend",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 464,
-      "endLine": 464
+      "line": 465,
+      "endLine": 465
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
@@ -675,8 +675,8 @@
     "operation": "spend",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 464,
-      "endLine": 464
+      "line": 465,
+      "endLine": 465
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
@@ -687,8 +687,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 464,
-      "endLine": 464
+      "line": 465,
+      "endLine": 465
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
@@ -712,8 +712,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 207,
-      "endLine": 207
+      "line": 208,
+      "endLine": 208
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
     "guards": [
@@ -783,8 +783,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 466,
-      "endLine": 466
+      "line": 467,
+      "endLine": 467
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:advanceAppraisalEncounter",
     "guards": [
@@ -1271,8 +1271,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "line": 208,
-      "endLine": 208
+      "line": 209,
+      "endLine": 209
     },
     "owner": "code:apps/comic/src/game/appraisal/engine.ts:settleEncounter",
     "guards": [

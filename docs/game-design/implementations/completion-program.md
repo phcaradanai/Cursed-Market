@@ -81,3 +81,13 @@ Next Task2: versioned new56 pools/metadata without old-kind aliases, preserve ve
 See `native56-runtime.json`, immutable `native56-stage1.json`, `implementations/remaining48-plan.md` and `../validation/native56-catalog-2026-11-04/verification.json`.198focused/65lifecycle/6Collector socket tests;32historical replays,4new40credit/6life games,16byte-identical pilot public audits;18menu/14unchanged approvedpixel references pass. Not full56 balance/game acceptance. Next: versioned effects revision then remaining47 approved canonical owner hooks, Task3–6.
 
 Ruling: absent a later explicit effects revision preserves archived catalog5stage1 (pilot8+E05); new owner bindings must not change old sparse-config replay.
+
+## Native56 effects2 checkpoint — 2026-11-04
+
+Supersedes the stage1 current-count note above:56registered /10primary verified (pilot8+E05+E06) /46primary pending. `native56Effects:2` is selected only for newly created experimental catalog5 runs; main default3 and opt-inpilot4 unchanged. Exact restore without flag keeps stage1; archived2 keeps stage2. E06 reduces actual failed-challenge credit penalty after void-seal resolution, using floor/cap and player+origin/encounter ledgers. Only an actual zero penalty (including void0) preserves rights; a positive penalty consumes the eligible right even if the saving rounds to zero. Approved held lock restriction applies in2; original sparse5 audits remain unchanged.
+
+203focused tests include65lifecycle identity tests (not an additive268tests);6Collector socket checks,32old strict replays,4new normal-budget2/4seat games and16byte-identical pilot public audits pass. See `native56-runtime.json`, `native56-stage2.json` and `../validation/native56-stage2-2026-11-04/verification.json`. No E06 normal-budget benefit exposure, all56balance or new browser pixel-run claim. Next: remaining46 primary owners plus full predicate/UI/normal-budget acceptance.
+
+Contract correction: E06 counts the first real positive penalty, not the first profitable saving. Positive penalty with eligible basis points consumes player/origin rights even when the saving rounds to0; actual zero penalty/void0 preserves them. A failing regression caught38 instead of50 on the next challenge; fixed before commit. No new passive no-op rule.
+
+Final effects2 checkpoint verification:205focused pass, including65lifecycle and both sealed-stage replay tests;410source fingerprints/10UI contracts and293Atlas inputs current. No fresh stage2browser pixels claimed.

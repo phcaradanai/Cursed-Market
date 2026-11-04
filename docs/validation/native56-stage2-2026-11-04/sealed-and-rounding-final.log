@@ -1,0 +1,14 @@
+(node:85498) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ apps/comic/dist/tests/native56-catalog.test.js (776.496708ms)
+✔ new catalog5 runs select effects2; exact restoration without revision remains stage1; invalid revisions reject (160.537666ms)
+✔ effects2 sealed archives replay exactly while stage1 and2 remain independently restorable (2916.033125ms)
+✔ E06 consumes first real positive penalty even if its saving rounds to zero; only zero penalty preserves the right (9.602541ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3813.177625

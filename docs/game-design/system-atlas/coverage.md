@@ -15,19 +15,19 @@
   "encounterModels": 6,
   "phases": 5,
   "actions": 60,
-  "configKeys": 57,
+  "configKeys": 58,
   "parameters": 74,
-  "functions": 520,
-  "codeSymbols": 669,
+  "functions": 521,
+  "codeSymbols": 670,
   "policies": 212,
   "randomRules": 105,
   "legacyGateSites": 21,
   "logSites": 118,
   "logTopics": 103,
-  "validationSites": 462,
+  "validationSites": 463,
   "dynamicStatusOperations": 29,
   "schemas": 135,
-  "propertyWriteSites": 535
+  "propertyWriteSites": 536
 }
 ```
 ## กฎยืนยันและสถานะ runtime
@@ -296,7 +296,7 @@
 ```
 ## การย้ายสินค้า
 
-56 ชิ้นเป็น catalog/art และ effect proposals; dedicated runtime bindings = 9 /56; registered IDs = 56 ไม่จับคู่จากรูป/ชื่อโดยอัตโนมัติ เงื่อนไข legacy ด้านล่างเป็นหลักฐานที่ต้องแก้ ไม่เพิ่มสินค้าเก่าในกราฟ
+56 ชิ้นเป็น catalog/art และ effect proposals; dedicated runtime bindings = 10 /56; registered IDs = 56 ไม่จับคู่จากรูป/ชื่อโดยอัตโนมัติ เงื่อนไข legacy ด้านล่างเป็นหลักฐานที่ต้องแก้ ไม่เพิ่มสินค้าเก่าในกราฟ
 
 ```json
 {

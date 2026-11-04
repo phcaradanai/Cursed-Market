@@ -1,7 +1,7 @@
 {
   "version": 1,
   "asOf": "2026-11-04",
-  "status": "experimental-stage1-not-default",
+  "status": "experimental-effects2-not-default",
   "catalogVersion": 5,
   "registeredItemIds": [
     "orc-oath-sword",
@@ -70,16 +70,17 @@
     "deepsea-tide-compass",
     "swarm-brood-hammer",
     "beast-riftfang-sword",
-    "autometa-coil-repeater"
+    "autometa-coil-repeater",
+    "vampire-mist-atomizer"
   ],
-  "pendingPrimaryCount": 47,
+  "pendingPrimaryCount": 46,
   "evidence": [
-    "docs/validation/native56-catalog-2026-11-04/final-focused.log",
-    "docs/validation/native56-catalog-2026-11-04/all56-lifecycle.log",
-    "docs/validation/native56-catalog-2026-11-04/pilot-public/public-effects.json",
-    "docs/validation/native56-catalog-2026-11-04/compatibility/report.json",
-    "docs/validation/native56-catalog-2026-11-04/collector-socket.log"
+    "docs/validation/native56-stage2-2026-11-04/focused-final.log",
+    "docs/validation/native56-stage2-2026-11-04/collector-socket.log",
+    "docs/validation/native56-stage2-2026-11-04/pilot-public/public-effects.json",
+    "docs/validation/native56-stage2-2026-11-04/compatibility/report.json"
   ],
-  "scope": "Registration56, verified primary9 (pilot8 plus E05). Remaining47 primary hooks are disabled/unbound; lifecycle ownership is not effect exposure. Optional effects off; default3 and opt-in pilot4 unchanged. No release or balance approval.",
-  "stage1ReplayContract": "native56-stage1.json; absent a later explicit effects revision must preserve pilot8+E05 semantics. Add a versioned effects revision before new hooks."
+  "scope": "Registration56; primary10 (pilot8+E05+E06).205focused tests include65lifecycle identity tests; those are not270distinct tests. E06 public propose/respond uses exact floor/cap, once/player/encounter + shared physical-origin rights and zero-void nonconsumption. Remaining46primary hooks disabled/unbound. Default3/pilot4 unchanged; optional off; no release/balance claim.",
+  "stage1ReplayContract": "native56-stage1.json freezes absent-revision catalog5; native56-stage2.json freezes effects2. Further owner hooks require a later explicit revision.",
+  "native56Effects": 2
 }

@@ -1,6 +1,6 @@
 import {REMAINING48_RULES} from './remaining48-catalog.js';
 import { itemEffectScale } from './copy-effects.js';
-import {remainingChallengeBps} from './remaining48-effects.js';
+import {remainingChallengeBps,remainingChallengePenalty} from './remaining48-effects.js';
 import { randomAt } from '../random.js';
 import { ITEM_SPECS } from './content.js';
 import { challengeDiscount, challengePenalty, claimText,winPct } from './challenge-rules.js';
@@ -21,10 +21,10 @@ export function settleChallenge(state:AppraisalState,buyer:Appraiser,seller:Appr
     const owed=challengePenalty(quote);const hasSeal=offer.sealId!==undefined && buyer.inventory.includes(offer.sealId) && unlocked(buyer,offer.sealId) && state.items[offer.sealId]!.kind==='void-seal';
     const sealed=hasSeal && (!state.items[offer.sealId!]!.copy || randomAt(state.seed,`${state.encounter}:${offer.id}:copy-seal`)<.4);
     if(hasSeal) retire(state,buyer,offer.sealId!,'challenge-void-seal');
-    const penalty=sealed?0:owed;
+    const penalty=sealed?0:remainingChallengePenalty(state,buyer,owed);
     buyer.notes.push(`ท้าทายคำระบุของ${name}ผิด ผู้ประเมินพูดจริง (${claimText(key,truth)})${sealed?' ตราโมฆะยกเลิกค่าปรับ':` เสียค่าปรับ ${penalty} เครดิต`}`);
     seller.notes.push(`คำระบุของ${name}ถูกท้าทายแต่เป็นความจริง${sealed?' ผู้ซื้อใช้ตราโมฆะ ไม่ต้องจ่ายค่าปรับ':` ได้ค่าปรับ ${penalty} เครดิต`}`);
-    trace(state,buyer,'challenge-lost',{offerId:offer.id,itemId:item.id,key,penalty,sealed});
+    trace(state,buyer,'challenge-lost',{offerId:offer.id,itemId:item.id,key,penalty,sealed,...(owed>penalty&&!sealed?{itemPenaltyReduction:owed-penalty}:{})});
     buyer.notes=buyer.notes.slice(-30);seller.notes=seller.notes.slice(-30);return {discount:0,penalty};
   }
   const bonus=remainingChallengeBps(state,buyer);

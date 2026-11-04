@@ -977,7 +977,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/challenge.ts",
-      "sha256": "ef3e4aa22bb4ca5d897da799f6f8e2cf35c66a6e76d895c6892c29d09f943a03"
+      "sha256": "e05db4ac5296c69cbdba3c5fadc69a40322b22cba3efcb3f514f0825c351ac76"
     },
     {
       "file": "apps/comic/src/game/appraisal/cleanse-rules.ts",
@@ -1025,7 +1025,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "sha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
+      "sha256": "dfece5649a4270055be8465e6485ca8e436db7f7769f0c77c17c2bec9fa91af6"
     },
     {
       "file": "apps/comic/src/game/appraisal/events.ts",
@@ -1113,7 +1113,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/remaining48-effects.ts",
-      "sha256": "6913352e12cc9dfac8411c14c018bef42e12208e79a27cdbc61a066f261c1af7"
+      "sha256": "25f2e42120b133557c98a367928d19520a0157fb3146db9b36ddfd37d51321e7"
     },
     {
       "file": "apps/comic/src/game/appraisal/remaining48-numbers.ts",
@@ -1145,11 +1145,11 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/types.ts",
-      "sha256": "73171b315a508f581fecebb383e6cf6c08f00ef97c3588f5676274b9c6e8c4d7"
+      "sha256": "bb1a8ef007149dd6ee1d42fe2c17a91c66b4a532c976752575ad089bdd69dfb8"
     },
     {
       "file": "apps/comic/src/game/appraisal/views.ts",
-      "sha256": "c0604453c70f9ea3fe5bc27ec1330c5bc087d8bc1dfabb7c42d4ba46ea0235e8"
+      "sha256": "0fb4d3fbb3bba809ce6416dbf6e9724e012633b8de3ad559ae86d47a0df6d334"
     },
     {
       "file": "apps/comic/src/game/appraisal/wishlist-rules.ts",
@@ -1489,7 +1489,7 @@
     },
     {
       "file": "apps/comic/tests/collector-wishlist-network.test.ts",
-      "sha256": "488ea5850ec1e977e81db5472fffa0cb972c3618ce836f352358bf6c311f7f89"
+      "sha256": "66464c5c37ab64e6874d5bc711d0e9f3c860caf11d31b74b550780381b69e324"
     },
     {
       "file": "apps/comic/tests/collector-wishlist-ui.test.ts",
@@ -1541,7 +1541,7 @@
     },
     {
       "file": "apps/comic/tests/native56-catalog.test.ts",
-      "sha256": "1ba7b3d7f5aa1c869326908272adfa9fb7f9872abe67e77cee1832b987d6c6de"
+      "sha256": "8439db0aa97854f36faa425ed7c0094a6a02f12eb6ad17c448b18cdecbfb3c8c"
     },
     {
       "file": "apps/comic/tests/network.test.ts",
@@ -1594,6 +1594,10 @@
     {
       "file": "apps/comic/tests/rarity-economy.test.ts",
       "sha256": "b2f909a45190b700694146fa94d758ae4771f9b906202bd15eb20151241583fb"
+    },
+    {
+      "file": "apps/comic/tests/remaining48-challenge.test.ts",
+      "sha256": "9c38a1b50f075e4dbab71c026539e525d59b93d8d70536238593d632d382d8aa"
     },
     {
       "file": "apps/comic/tests/remaining48-foundation.test.ts",

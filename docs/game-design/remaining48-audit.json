@@ -1,7 +1,7 @@
 {
   "version": 1,
   "asOf": "2026-11-04",
-  "observedRevision": "812ef79dca1f32d62c3ae3f90bd8a82ad6a063c3",
+  "observedRevision": "9ec80928a399fc90aa5fb76e2e79d72f824c7910",
   "status": "factual-audit-not-a-numeric-spec-or-approval",
   "scope": "New56 only. Compiled membership verifies56registered; verified primary21, pending35; owner references locate existing primitives only and DO NOT claim proposed causal bindings or lifecycle support. This audit does not itself change runtime/config/art/weights.",
   "summary": {

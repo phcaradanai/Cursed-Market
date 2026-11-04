@@ -1,6 +1,6 @@
 # แผนที่ระบบเกมทั้งหมด
 
-Snapshot 2026-11-04; revision 812ef79dca1f32d62c3ae3f90bd8a82ad6a063c3 (รวม working tree fingerprint ใน manifest)
+Snapshot 2026-11-04; revision 9ec80928a399fc90aa5fb76e2e79d72f824c7910 (รวม working tree fingerprint ใน manifest)
 
 Active source: `apps/comic/src` — Every game/appraisal module plus explicit random/rarity/protocol/server lifecycle and bot sources; UI uses separate capture/flow registry
 

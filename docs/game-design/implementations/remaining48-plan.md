@@ -117,3 +117,5 @@ Still required before default rollout:35primary hooks; full native predicate/cus
 Effects3 final source verification:229focused pass;124related pass/3priorUI failures remain;6socket pass;411UI fingerprints/10contracts and298Atlas inputs current. Main default and approved image references unchanged; no fresh browser pixel claim.
 
 Effects3 edge verification: lock expiry is evaluated after status expiry against a physical pre-boundary custody snapshot; E02 ranges retain unpowered replacement truth. Two RED→GREEN cases, final229focused pass; no candidate archive or approved image hash changed.
+
+Postcommit9ec8092: readiness audit had one stale types.ts hash after a comment-only edit; regenerated and added auxiliary new56/remaining48 --check calls to central Atlas verifier. Observed real stale-input RED then GREEN. No runtime/default/approved-image change.

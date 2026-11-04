@@ -59,4 +59,7 @@ const scoringApproval=read('personal-scoring-approval.json');assert.equal(scorin
 for(const [file,hash]of Object.entries(scoringApproval.approvedFiles))assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex'),hash,'Approved personal scoring proposal changed: '+file);
 const scoringRule=d.confirmedRules.find(r=>r.id==='personal-scoring');assert.equal(scoringRule.state,'runtime-experimental-v1/main-new-rooms');assert.equal(scoringRule.runtime.defaultEnabled,true);assert(fs.readFileSync(path.join(root,'apps/comic/src/server/appraisal-main.ts'),'utf8').includes('personalScoringRules:1'));assert.deepEqual(scoringRule.runtime.weights,read('proposals/personal-scoring-weights-v1.json').metrics);assert.equal(d.confirmedRules.find(r=>r.id==='leader-awards').state,'historical-superseded-by-personal-scoring');
 
+execFileSync(process.execPath,['docs/game-design/scripts/audit-new56.mjs','--check'],{cwd:root,stdio:'inherit'});
+execFileSync(process.execPath,['docs/game-design/scripts/audit-remaining48.mjs','--check'],{cwd:root,stdio:'inherit'});
+
 console.log('PASS: catalog coverage, namespaces, new56-only products, source guards, rule gaps, generic actions, profiles, original views and freshness.');

@@ -113,6 +113,13 @@
       "preservedPriorCandidate": "pre-edge-fix-candidate/",
       "scope": "No approved image baseline changed; effects3 was an uncommitted candidate. Absent and2 stay immutable.",
       "note": "Final229focused and all3historical-stage replays pass. Four effects3 candidate archive hashes unchanged after corrections; old candidate copies retained."
+    },
+    "postCommitReadiness": {
+      "runtimeRevision": "9ec8092",
+      "red": "guard-red.log",
+      "green": "guard-green.log",
+      "problem": "Atlas freshness passed but auxiliary readiness report retained the old types.ts hash after an interface-only shortcut comment. Composite postcommit check caught it.",
+      "fix": "Regenerate readiness and remaining audit; central Atlas checker now delegates both --check validators so stale child reports cannot pass silently. Actual RED stale-report rejection then GREEN observed; no game logic or approved image baseline changed."
     }
   },
   "rulings": [

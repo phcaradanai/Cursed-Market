@@ -10726,6 +10726,190 @@ Comic ใหม่ theftTimeoutRules:1 สุ่มเฉพาะมือท�
     "extraction": "static literal/expression; unresolved expressions are tagged"
   },
   {
+    "id": "parameter:source:apps/comic/src/game/appraisal/remaining48-catalog.ts:REMAINING48_RULES",
+    "module": "apps/comic/src/game/appraisal/remaining48-catalog.ts",
+    "name": "REMAINING48_RULES",
+    "value": {
+      "E28": {
+        "trust": 1,
+        "perMerchantPerRun": 1,
+        "familyCap": 2
+      },
+      "E61": {
+        "energy": 1,
+        "familyCap": 2
+      },
+      "E63": {
+        "discountCredits": 1,
+        "familyCap": 2,
+        "minimumPrice": 1
+      },
+      "E16": {
+        "energy": 1,
+        "familyCap": 2,
+        "perEncounter": 1
+      },
+      "E13": {
+        "bonusBps": 1000,
+        "perSettlementCap": 2,
+        "perRunCap": 8
+      },
+      "E07": {
+        "bonusBps": 1000,
+        "familyCapBps": 2000,
+        "chanceMax": 95
+      },
+      "E42": {
+        "refundBps": 2000,
+        "perLossCap": 4,
+        "perRunCap": 6
+      },
+      "E58": {
+        "lifeDiscount": 1,
+        "minimumLifePayment": 1,
+        "binary": true
+      },
+      "E11": {
+        "bonusBps": 200,
+        "familyCapBps": 600,
+        "chanceMax": 95
+      },
+      "E06": {
+        "penaltyDiscountBps": 2500,
+        "familyCapBps": 5000,
+        "perEncounter": 1
+      },
+      "E22": {
+        "rebateBps": 500,
+        "perWinCap": 3,
+        "perRunCap": 6
+      },
+      "E38": {
+        "tieRights": 1,
+        "binary": true,
+        "perEncounter": 1
+      },
+      "E05": {
+        "bonusBps": 500,
+        "familyCapBps": 1500,
+        "discountMaxBps": 9000
+      },
+      "E40": {
+        "trustLossReduction": 1,
+        "minimumTrustLoss": 1,
+        "binary": true,
+        "perEncounter": 1
+      },
+      "E02": {
+        "narrowBps": 2000,
+        "familyCapBps": 5000
+      },
+      "E31": {
+        "cooldownReduction": 1,
+        "familyCap": 2,
+        "perEncounter": 1
+      },
+      "E35": {
+        "extraKinds": 1,
+        "binary": true,
+        "perEncounter": 1
+      },
+      "E67": {
+        "riskReductionBps": 1000,
+        "familyCapBps": 2000
+      },
+      "E72": {
+        "extraEncounters": 1,
+        "binary": true,
+        "perStatusInstance": 1,
+        "perEncounter": 1
+      },
+      "E25": {
+        "promotionChanceBps": 500,
+        "familyCapBps": 1500,
+        "maxTierSteps": 1
+      },
+      "E57": {
+        "freeChanges": 1,
+        "binary": true,
+        "perEncounter": 1
+      },
+      "E71": {
+        "removedInstances": 1,
+        "binary": true,
+        "perEncounter": 2
+      },
+      "E69": {
+        "assetBonusBps": 200,
+        "familyCapBps": 1000,
+        "scoreCap": 20
+      },
+      "E49": {
+        "refundBps": 500,
+        "perLoanCap": 2,
+        "perRunCap": 4
+      },
+      "E53": {
+        "freeFacets": 1,
+        "binary": true,
+        "perEncounter": 1
+      },
+      "E62": {
+        "damageReduction": 1,
+        "familyCap": 2,
+        "perEncounter": 1
+      },
+      "E46": {
+        "bonusBps": 100,
+        "sharedBonusCapBps": 400
+      },
+      "E33": {
+        "copyValueBonusPoints": 5,
+        "familyCapPoints": 10
+      },
+      "E52": {
+        "energy": 1,
+        "familyCap": 2,
+        "perEncounter": 1
+      },
+      "E34": {
+        "energyDiscount": 1,
+        "sharedDiscountCap": 2,
+        "minimumEnergyCost": 1
+      },
+      "E59": {
+        "bonusCreditsPerReturnedItem": 1,
+        "perContractCap": 3,
+        "perRunCap": 6
+      },
+      "E32": {
+        "extraChoices": 1,
+        "familyCap": 2
+      },
+      "E36": {
+        "openedPortals": 1,
+        "binary": true,
+        "perEncounter": 1
+      },
+      "E68": {
+        "rotProtection": 1,
+        "binary": true,
+        "perEncounter": 1
+      },
+      "E37": {
+        "energyDiscount": 1,
+        "familyCap": 1,
+        "minimumEnergyCost": 1
+      }
+    },
+    "source": {
+      "file": "apps/comic/src/game/appraisal/remaining48-catalog.ts",
+      "line": 534,
+      "endLine": 706
+    },
+    "extraction": "static literal/expression; unresolved expressions are tagged"
+  },
+  {
     "id": "parameter:source:apps/comic/src/game/appraisal/theft.ts:PVP_COOLDOWN_ENCOUNTERS",
     "module": "apps/comic/src/game/appraisal/theft.ts",
     "name": "PVP_COOLDOWN_ENCOUNTERS",

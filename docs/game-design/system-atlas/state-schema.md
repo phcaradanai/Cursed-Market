@@ -413,6 +413,28 @@
       "text": "export interface PolishEvent {\n  phase:AppraisalPhase; credits?:number; energy?:number; reward?:number; grant:StatusId[];\n  /** Offered only when none of these statuses is active, so a choice is never a no-op. */\n  avoid:StatusId[]; needsAuctions?:boolean;\n}"
     },
     {
+      "id": "schema:apps/comic/src/game/appraisal/remaining48-catalog.ts:Remaining48Kind",
+      "name": "Remaining48Kind",
+      "kind": "TypeAliasDeclaration",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/remaining48-catalog.ts",
+        "line": 707,
+        "endLine": 707
+      },
+      "text": "export type Remaining48Kind = keyof typeof REMAINING48_ITEMS;"
+    },
+    {
+      "id": "schema:apps/comic/src/game/appraisal/remaining48-catalog.ts:Remaining48Effect",
+      "name": "Remaining48Effect",
+      "kind": "TypeAliasDeclaration",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/remaining48-catalog.ts",
+        "line": 708,
+        "endLine": 708
+      },
+      "text": "export type Remaining48Effect = keyof typeof REMAINING48_RULES;"
+    },
+    {
       "id": "schema:apps/comic/src/game/appraisal/seals.ts:SealOffer",
       "name": "SealOffer",
       "kind": "InterfaceDeclaration",

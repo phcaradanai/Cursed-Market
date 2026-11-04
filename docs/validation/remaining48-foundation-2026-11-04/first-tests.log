@@ -1,0 +1,76 @@
+✔ 48 typed identities and35rule contracts exactly match the frozen approved package (13.349875ms)
+✔ held strength selects the strongest5 across one effect family without mutating caller order (2.940708ms)
+✖ binary rights never pool fractional common copies into one entitlement (1.98275ms)
+✖ active and consumable callers must select one instance rather than summing a family (0.581708ms)
+✔ rarity1/copyfalse: integer and basis point scaling stay capped (0.454292ms)
+✔ rarity1/copytrue: integer and basis point scaling stay capped (0.081166ms)
+✔ rarity2/copyfalse: integer and basis point scaling stay capped (0.074875ms)
+✔ rarity2/copytrue: integer and basis point scaling stay capped (1.253167ms)
+✔ rarity3/copyfalse: integer and basis point scaling stay capped (0.946666ms)
+✔ rarity3/copytrue: integer and basis point scaling stay capped (1.906792ms)
+✔ rarity4/copyfalse: integer and basis point scaling stay capped (0.698583ms)
+✔ rarity4/copytrue: integer and basis point scaling stay capped (0.383833ms)
+✔ rarity6/copyfalse: integer and basis point scaling stay capped (0.0665ms)
+✔ rarity6/copytrue: integer and basis point scaling stay capped (0.986375ms)
+✔ rarity8/copyfalse: integer and basis point scaling stay capped (0.040208ms)
+✔ rarity8/copytrue: integer and basis point scaling stay capped (0.056333ms)
+✔ discounts cannot create free infinite actions or charge a previously free action (0.197708ms)
+✔ bank-funded bonus cannot mint, overdraw reservations or accept noninteger credit quotes (0.482291ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 16
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 274.233917
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/remaining48-foundation.test.js:46:1
+✖ binary rights never pool fractional common copies into one entitlement (1.98275ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 1.2000000000000002
+  - 1.2
+       ^
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/remaining48-foundation.test.js:49:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1.2000000000000002,
+    expected: 1.2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps/comic/dist/tests/remaining48-foundation.test.js:52:1
+✖ active and consumable callers must select one instance rather than summing a family (0.581708ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 1.2000000000000002
+  - 1.2
+       ^
+  
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/remaining48-foundation.test.js:55:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1.2000000000000002,
+    expected: 1.2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

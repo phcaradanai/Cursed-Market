@@ -4,10 +4,13 @@ import {renderCurrentCaptures} from './current-capture-render.mjs';
 export async function renderAtlas({ROOT,DOC,OUT,data,base,baseGraph}){
 const nodes=baseGraph.nodes.map(n=>({...n})),edges=baseGraph.edges.map(e=>({...e})),records={},unresolvedReferences=[],ids=new Set(nodes.map(n=>n.id));
 const meanings=JSON.parse(fs.readFileSync(path.join(DOC,'remaining48-decisions.json'),'utf8'));
+const remainingApproval=JSON.parse(fs.readFileSync(path.join(DOC,'remaining48-approval.json'),'utf8'));
+const remainingSpec=JSON.parse(fs.readFileSync(path.join(ROOT,remainingApproval.proposal),'utf8'));
+assert.equal(remainingApproval.status,'approved-experimental');assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT,remainingApproval.proposal))).digest('hex'),remainingApproval.proposalSha256);
 const applyMeanings=(targetNodes,targetEdges)=>{for(const approval of meanings.decisions.filter(d=>d.status==='approved-meaning-only')){
   const item=targetNodes.find(n=>n.id==='item:'+approval.itemId),effect=targetNodes.find(n=>n.id==='effect:'+approval.effectId);assert(item&&effect);assert.equal(approval.numericApproval,false);
-  effect.originalDraftLabel=effect.label;effect.label=approval.meaning;effect.meaningApproval=approval;effect.description+=' · ความหมายอนุมัติเฉพาะสินค้าที่ระบุ ยังไม่อนุมัติตัวเลขหรือ runtime';item.meaningApproval=approval;
-  for(const edge of targetEdges.filter(e=>e.source===item.id&&e.target===effect.id)){edge.meaningApproval=approval;edge.description='ความหมายอนุมัติแล้ว แต่ยังเป็น proposed binding ไม่มีตัวเลขหรือ runtime ที่อนุมัติ';}
+  effect.originalDraftLabel=effect.label;effect.label=approval.meaning;effect.meaningApproval=approval;effect.description+=' · ความหมายและค่าทดลอง primary48อนุมัติแล้วตาม remaining48-approval.json; ไม่อนุมาน optional หรือ runtime';item.meaningApproval=approval;
+  for(const edge of targetEdges.filter(e=>e.source===item.id&&e.target===effect.id)){edge.meaningApproval=approval;edge.description='ความหมายและค่าทดลอง primary48อนุมัติแล้ว แต่ยังไม่ใช่ runtime binding';}
 }};
 applyMeanings(nodes,edges);
 const meaningGraph=structuredClone(baseGraph),meaningData=structuredClone(base);for(const snapshot of [meaningGraph,meaningData])snapshot.approvedMeaningOverlay={file:'remaining48-decisions.json',asOf:meanings.asOf,scope:meanings.scope};applyMeanings(meaningGraph.nodes,meaningGraph.edges);
@@ -16,6 +19,10 @@ const pilotVerification=JSON.parse(fs.readFileSync(path.join(DOC,'new56-pilot-ve
 for(const [file,hash] of Object.entries(pilotVerification.sourceFingerprints))assert.equal(data.provenance.sourceFiles.find(s=>s.file===file)?.sha256??crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT,file))).digest('hex'),hash,'Pilot verification stale: '+file);
 const pilot=JSON.parse(fs.readFileSync(path.join(DOC,'new56-pilot-proposal.json'),'utf8'));
 if(pilot.status==='approved-experimental-pilot')for(const spec of pilot.items){const node=nodes.find(n=>n.id==='item:'+spec.id);if(node){node.pilot={status:pilot.status,spec,approval:'new56-pilot-approval.json',runtime:'not inferred from approval; inspect registered IDs and lifecycle evidence'};node.pilot.runtimeIdRegistered=data.productScope.registeredNewItemIds.includes(spec.id);node.pilot.verification='new56-pilot-verification.json';node.status=node.pilot.runtimeIdRegistered&&pilotVerification.status==='experimental-pilot-tested'&&pilotVerification.approvedItemIds.includes(spec.id)?'approved-pilot-tested-experimental':node.pilot.runtimeIdRegistered?'approved-pilot-ID-registered-lifecycle-unverified':'approved-pilot-runtime-unbound';}}
+for(const spec of remainingSpec.items){
+ const snapshot={status:remainingApproval.status,spec,contract:remainingSpec.effectContracts[spec.contract],approval:'remaining48-approval.json',runtimeIdRegistered:data.productScope.registeredNewItemIds.includes(spec.id),runtime:'Contract data/numerical foundation only; owner hooks and lifecycle evidence still pending'};
+ for(const target of [nodes,meaningGraph.nodes,meaningData.items]){const node=target.find(n=>n.id===spec.id||n.id==='item:'+spec.id);assert(node);node.remaining48=snapshot;if(!snapshot.runtimeIdRegistered)node.status='approved-spec-runtime-unbound';}
+}
 const add=(id,label,kind,record)=>{records[id]=record;if(!ids.has(id)){ids.add(id);nodes.push({id,label:label||id,kind,status:'source-snapshot'})}return id};
 const link=(source,target,kind,label,evidence=null)=>{if(ids.has(source)&&ids.has(target))edges.push({id:'atlas-edge:'+edges.length,source,target,kind,label,evidence,status:'static-source',description:'Possible dependency; check guards, configuration and state in the linked record.'});else unresolvedReferences.push({source,target,kind,label,evidence})};
 for(const s of data.symbols)add(s.id,s.name,'code',{...s,propertyWrites:data.propertyWrites.filter(w=>w.owner===s.id)});

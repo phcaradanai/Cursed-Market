@@ -16,9 +16,9 @@
   "phases": 5,
   "actions": 60,
   "configKeys": 57,
-  "parameters": 73,
-  "functions": 512,
-  "codeSymbols": 657,
+  "parameters": 74,
+  "functions": 516,
+  "codeSymbols": 664,
   "policies": 212,
   "randomRules": 105,
   "legacyGateSites": 21,
@@ -26,7 +26,7 @@
   "logTopics": 103,
   "validationSites": 461,
   "dynamicStatusOperations": 29,
-  "schemas": 132,
+  "schemas": 134,
   "propertyWriteSites": 535
 }
 ```

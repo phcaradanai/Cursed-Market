@@ -1,0 +1,26 @@
+✔ 48 typed identities and35rule contracts exactly match the frozen approved package (10.162041ms)
+✔ held strength selects the strongest5 across one effect family without mutating caller order (2.045958ms)
+✔ binary rights never pool fractional common copies into one entitlement (0.263458ms)
+✔ active and consumable callers must select one instance rather than summing a family (0.773917ms)
+✔ rarity1/copyfalse: integer and basis point scaling stay capped (0.3905ms)
+✔ rarity1/copytrue: integer and basis point scaling stay capped (0.205583ms)
+✔ rarity2/copyfalse: integer and basis point scaling stay capped (0.325166ms)
+✔ rarity2/copytrue: integer and basis point scaling stay capped (0.621208ms)
+✔ rarity3/copyfalse: integer and basis point scaling stay capped (0.719084ms)
+✔ rarity3/copytrue: integer and basis point scaling stay capped (2.427458ms)
+✔ rarity4/copyfalse: integer and basis point scaling stay capped (0.7305ms)
+✔ rarity4/copytrue: integer and basis point scaling stay capped (0.392ms)
+✔ rarity6/copyfalse: integer and basis point scaling stay capped (0.046417ms)
+✔ rarity6/copytrue: integer and basis point scaling stay capped (0.04825ms)
+✔ rarity8/copyfalse: integer and basis point scaling stay capped (0.051583ms)
+✔ rarity8/copytrue: integer and basis point scaling stay capped (0.042417ms)
+✔ discounts cannot create free infinite actions or charge a previously free action (0.085666ms)
+✔ bank-funded bonus cannot mint, overdraw reservations or accept noninteger credit quotes (0.779583ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 274.845291

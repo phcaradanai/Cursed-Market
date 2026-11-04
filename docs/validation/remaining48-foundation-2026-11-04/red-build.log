@@ -1,0 +1,8 @@
+
+> cursed-market-comic@0.1.0 build:server
+> tsc -p tsconfig.json
+
+tests/remaining48-foundation.test.ts(5,72): error TS2307: Cannot find module '../src/game/appraisal/remaining48-catalog.js' or its corresponding type declarations.
+tests/remaining48-foundation.test.ts(6,88): error TS2307: Cannot find module '../src/game/appraisal/remaining48-numbers.js' or its corresponding type declarations.
+tests/remaining48-foundation.test.ts(28,72): error TS18046: 'i' is of type 'unknown'.
+tests/remaining48-foundation.test.ts(28,141): error TS18046: 'i' is of type 'unknown'.

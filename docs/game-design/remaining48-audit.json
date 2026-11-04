@@ -1,7 +1,7 @@
 {
   "version": 1,
   "asOf": "2026-11-04",
-  "observedRevision": "154110ff372b1912170abce8417904a19465c5d0",
+  "observedRevision": "532dece12b269ffe243e09f9b41fbf842657e45e",
   "status": "factual-audit-not-a-numeric-spec-or-approval",
   "scope": "New56 only. Compiled membership verifies8pilot/48absent; owner references locate existing primitives only and DO NOT claim proposed causal bindings or lifecycle support. No runtime/config/art/weight changes.",
   "summary": {
@@ -12,13 +12,15 @@
     "perMerchant": 6,
     "primaryEffectGroups": 35,
     "meaningDecisions": 10,
-    "approvedMeanings": 1,
-    "pendingMeanings": 9,
-    "numericSpecsReady": 0,
+    "approvedMeanings": 10,
+    "pendingMeanings": 0,
+    "numericSpecsReady": 48,
     "optionalEffectsEnabled": 0
   },
   "sourceFingerprints": {
-    "docs/game-design/scripts/audit-remaining48.mjs": "5132d62a9cd4518cf1d0d3104a9f902cb864936599c149ebfe786e91df8b3b44",
+    "docs/game-design/remaining48-approval.json": "fa26756f2c79d63f7531192d9dcc93ba914e19501315bdb21079b40466bf5af1",
+    "docs/game-design/proposals/remaining48-experimental-v1.json": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508",
+    "docs/game-design/scripts/audit-remaining48.mjs": "369c22cdf69f89bc8254ef5587c1bb24badb1bb7ffc6fe64b1b0c0f0903ef3d0",
     "docs/game-design/logic-item-relations.json": "983d130078b1b6f6f1569dd05f295190a73523c1abaa0aa59bc29e0a6693b801",
     "docs/game-design/remaining48-decisions.json": "9dd5d24ec916e401c01ad963d727c926be459931ab656ca82d9879af84c0b70c",
     "docs/game-design/new56-pilot-approval.json": "cdcf630f60c8ed07db87008cd7c845575b3d304bdd0c7167abbf899a5e3b5d65",
@@ -81,7 +83,12 @@
       "needed": "Specify eligible creator/player, creation moment and exclusions; never reroll existing goods.",
       "recommendation": "กำหนดสิทธิ์เฉพาะการสร้างของใหม่ให้เจ้าของ; แยกคำขอ Collector/ของวิญญาณ/สำเนา ไม่เปลี่ยนของที่มีอยู่แล้ว",
       "effectId": "E25",
-      "status": "pending"
+      "status": "approved-experimental-spec",
+      "approval": {
+        "meaning": "เฉพาะ new candidate ที่สร้างให้เจ้าของจากสกิล Beast/Alien หลังยืนยันการใช้สกิล โดยถือก่อนสร้าง · หลัง rarity base roll ที่ยังไม่ finalize: โอกาส min(1500,500*S)/10000 ขยับขึ้น1 tier ที่มี weight>0ใน profile · ไม่ใช้กับ stock portals, reroll portals, Collector, Spirit, Swarm copies, existingitems, polish/reveal; ไม่แตะ truth; ไม่สร้าง tier ที่ config ปิด",
+        "numericApproval": true,
+        "receipt": "remaining48-approval.json"
+      }
     },
     {
       "id": "MEANING-SWARM",
@@ -89,7 +96,12 @@
       "needed": "Define what improves (copy share, copy effect or cooldown) without silently creating a second copy or granting trust tiers.",
       "recommendation": "ให้ระบุผลเสริมหนึ่งอย่างโดยตรงก่อนกำหนดเลข; ยังไม่ยก tier หรือปลดล็อกสำเนาซ้ำให้เอง",
       "effectId": "E33",
-      "status": "pending"
+      "status": "approved-experimental-spec",
+      "approval": {
+        "meaning": "ใช้สกิล Swarm สร้าง copy ใหม่ที่มีสิทธิ์ ขณะถือก่อนใช้ · copy valuePercent ของ Swarm จาก25/35/50 เพิ่ม min(10,floor(5*S)) points ตาม trust tier จริง · ราคาคัดลอกคำนวณครั้งเดียวหลัง bonus ไม่คืนเงิน/เพิ่มค่าของcopyที่มีแล้ว; ไม่ให้ trust tier ที่ยังไม่ปลดล็อก",
+        "numericApproval": true,
+        "receipt": "remaining48-approval.json"
+      }
     },
     {
       "id": "VISIBILITY-PORTAL",
@@ -97,7 +109,12 @@
       "needed": "Choose exactly which extra clue is public to this player and whether it spends a charge.",
       "recommendation": "แสดงข้อมูลสินค้าเพิ่มที่กำหนดชัด; ห้ามเปิดความแท้/คำสาปหรือซ่อนพ่อค้าก่อนการเลือกที่ปิดประตู",
       "effectId": "E35",
-      "status": "pending"
+      "status": "approved-experimental-spec",
+      "approval": {
+        "meaning": "PORTALS ก่อนเลือก ไม่มี unresolved event; ผู้เล่นเลือกเป้าหมายจากประตูจริง · S>=1 เปิด kind ของ stock slot2 ที่มีอยู่จริงของ portal ที่เลือก1บาน · ไม่แสดง base/ask/truth/curse/rarity หรือของคนอื่น; ไม่สร้าง stock ใหม่; ถ้ารู้แล้วหรือไม่มี slot2 ไม่คิดพลัง",
+        "numericApproval": true,
+        "receipt": "remaining48-approval.json"
+      }
     },
     {
       "id": "CAUSE-PORTAL",
@@ -105,7 +122,12 @@
       "needed": "Define eligible closure causes and provenance; do not clear a trade ban or bypass a pending event.",
       "recommendation": "เปิดเฉพาะประตูที่เหตุการณ์ปิด โดยยังแสดงเหตุผลและข้อห้ามการค้าจริง",
       "effectId": "E36",
-      "status": "pending"
+      "status": "approved-experimental-spec",
+      "approval": {
+        "meaning": "PORTALS ไม่มี eventค้าง/ยังไม่เลือก และ closure provenance cause=resolved-event · S>=1 เปิด event-closed portal ที่เลือก1บาน · ไม่เปิด crime/tradeban/statusD07/ห้องปิดโดยระบบ/คนตาย; ถ้าพ่อค้าติดbanยังเลือกไม่ได้; failure/noopไม่คิดพลัง",
+        "numericApproval": true,
+        "receipt": "remaining48-approval.json"
+      }
     },
     {
       "id": "TARGET-DEFEAT",
@@ -113,7 +135,12 @@
       "needed": "Name the reduced consequence; cannot infer all penalties are interchangeable.",
       "recommendation": "เลือกบรรเทาค่าเสียหายหนึ่งชนิด; ไม่ยกเลิกการดวล/ตราสิทธิ์ของผู้เสียหาย/กฎหมดเวลา",
       "effectId": "E40",
-      "status": "pending"
+      "status": "approved-experimental-spec",
+      "approval": {
+        "meaning": "แพ้การขโมยจากพ่อค้าเท่านั้น ขณะถือ sentry ก่อนเริ่มดวล · S>=1 ลด trust loss ของ NPC-theft defeat จาก2เหลือ1 (หาก trust เหลือน้อยลดได้ตามจริง) · ไม่ลดโทษ PvP/compensation/seal/ban/D21 ไม่ยกเลิก duel; นี่คือข้อเสนอจำกัดความหมายใหม่ที่ต้องอนุมัติ",
+        "numericApproval": true,
+        "receipt": "remaining48-approval.json"
+      }
     },
     {
       "id": "SCOPE-ALIEN-RETURN",
@@ -121,7 +148,12 @@
       "needed": "Choose credits versus energy, funding/reservation and same-instance age requirements.",
       "recommendation": "แยกรางวัลพิเศษออกจากการคืนของเดิม; ไม่จ่ายเพียงเพราะปิดเกมและยังไม่ได้พบ Alien",
       "effectId": "E59",
-      "status": "pending"
+      "status": "approved-experimental-spec",
+      "approval": {
+        "meaning": "รับของเดิมคืนจาก Alien เมื่อครบ due และพบ Alien จริง ผู้ถือ cradle เดิมตลอด signedAt..return · min(3,floor(S)*actualReturnedOriginalCount,remainingRunCap6) credits เพิ่ม · loaned cradle ไม่ให้ผล; ผู้ตายคืนprincipalเพื่อscoreไม่รับโบนัส; ไม่มีของคืนจริงก็0; ไม่สร้าง contract stats ซ้ำ",
+        "numericApproval": true,
+        "receipt": "remaining48-approval.json"
+      }
     },
     {
       "id": "SCOPE-COLLECTOR",
@@ -129,7 +161,12 @@
       "needed": "Choose asset-only scope versus all-score modifier, eligible estates and exact visibility. Do not reuse B10 as an alias accidentally.",
       "recommendation": "เสนอจำกัดที่มูลค่าสินค้าตอน Collector; ไม่เพิ่มเครดิต คะแนนผลงาน หรือคะแนนวิญญาณโดยปริยาย",
       "effectId": "E69",
-      "status": "pending"
+      "status": "approved-experimental-spec",
+      "approval": {
+        "meaning": "Collector final settlement สำหรับคนมีชีวิตหลังคืน principal และปิดหนี้แล้ว · bonus=min(20,floor(eligibleOriginalItemAssetSum * min(1000,200*S)/10000)); บวกเฉพาะ A ก่อน B10/D10 ตามสูตรเดิม · ไม่ alias B10 ไม่คูณ P/G; แสดง asset bonus แยก; ต้องอนุมัติเป็นกฎคะแนนใหม่ในชุดนี้ ไม่แก้ approved weights JSON",
+        "numericApproval": true,
+        "receipt": "remaining48-approval.json"
+      }
     },
     {
       "id": "ALLOWLIST-REMOVE",
@@ -137,7 +174,12 @@
       "needed": "Explicit removable status allowlist, one-shot/expiry behavior and no-op cost policy.",
       "recommendation": "ลบเฉพาะสถานะที่ระบุได้; ไม่ล้างหนี้/คดี/ภาระสัญญาด้วยการลบไอคอน",
       "effectId": "E71",
-      "status": "pending"
+      "status": "approved-experimental-spec",
+      "approval": {
+        "meaning": "allowlist D01,D02,D05,D06,D19,D20,D22,D23 เท่านั้น มีผลอนาคตยังค้าง · S>=1 ลบ active debuff instance ที่เลือก1อย่าง · ห้ามD03/D07/D08/D09/D10/D21/D24 และห้ามลบ crime/loan/seal/contract/cooldown; ไม่คืนพลัง/HP/เงินหรือเปิดประตูย้อนหลัง",
+        "numericApproval": true,
+        "receipt": "remaining48-approval.json"
+      }
     },
     {
       "id": "ALLOWLIST-EXTEND",
@@ -145,7 +187,12 @@
       "needed": "Explicit extendable allowlist and per-status-instance cap; exclude contracts and Collector reveal rights.",
       "recommendation": "หากยืด ให้ยืดระยะเวลาของสถานะที่มีอยู่ ไม่เพิ่มชาร์จหรือความแรงและไม่ต่ออายุด้วยการโอนวน",
       "effectId": "E72",
-      "status": "pending"
+      "status": "approved-experimental-spec",
+      "approval": {
+        "meaning": "เลือก active finite-expiry buff instance ใน allowlist B03,B05,B11,B14,B16 ที่ยังไม่ใช้หมด · S>=1 ขยาย expiresAt +1 ช่วง ไม่เพิ่ม charges/magnitude · exclude B10/คะแนน/อายุไม่มีที่สิ้นสุด/triggerต้นช่วง/สัญญา/Collector/Spirit/expiryที่หมดแล้ว; สำเนาสืบสถานะขยายของ buff ไม่เริ่มใหม่",
+        "numericApproval": true,
+        "receipt": "remaining48-approval.json"
+      }
     }
   ],
   "items": [
@@ -179,18 +226,27 @@
       "boundary": "Actual positive trust at a specified first merchant meeting; record clamped gain, not requested gain.",
       "existingItemCaution": "ความไว้ใจกับความได้เปรียบ RPS ต้องแยก trigger; ดาบเป็นภาพสินค้า ไม่เพิ่มระบบต่อสู้ใหม่",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 24,
+        "triggerCost": 0,
+        "magnitude": "min(2,floor(S)) trust จริง ไม่เกิน trust cap",
+        "cap": {
+          "trust": 1,
+          "perMerchantPerRun": 1,
+          "familyCap": 2
+        },
+        "funding": "บันทึก first-meeting ของผู้เล่นตลอดรัน แม้ยังไม่มีดาบ; ซื้อดาบภายหลังไม่ย้อนให้ผล; ใช้ได้ครั้งเดียวต่อพ่อค้า/ผู้เล่น",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "เข้าพบพ่อค้าเผ่าที่ผู้เล่นยังไม่เคยพบในรัน ขณะถือก่อนเลือกประตู / บันทึก first-meeting ของผู้เล่นตลอดรัน แม้ยังไม่มีดาบ; ซื้อดาบภายหลังไม่ย้อนให้ผล; ใช้ได้ครั้งเดียวต่อพ่อค้า/ผู้เล่น / ไม่เพิ่ม trust เมื่อแค่ peek/reroll; ใช้ setPersonalTrust เก็บเฉพาะส่วนที่เพิ่มจริง"
       },
       "optionalEffects": [
         "E38"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "orc-ironroot-greaves",
@@ -222,16 +278,24 @@
       "boundary": "Start-of-encounter alive/actual custody, apply after entry cost; cap by real missing energy, no retroactive purchase/re-entry gain.",
       "existingItemCaution": "ผู้เล่นที่ไม่ขาดพลังอาจไม่ต้องการ ต้องทดสอบมูลค่าเทียบของฟื้นพลังอื่น",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 20,
+        "triggerCost": 0,
+        "magnitude": "min(2,floor(S)) พลัง ผ่าน recover และเพดานพลังเดิม",
+        "cap": {
+          "energy": 1,
+          "familyCap": 2
+        },
+        "funding": "หนึ่ง settlement ต่อผู้เล่น/ช่วง รวมสนับแข้ง สายรัด และฝักเมล็ด; ไม่คิดตอนเริ่มเกมช่วง1หรือซื้อกลางช่วง",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "เริ่มช่วงใหม่ หลังจ่ายค่าเข้าช่วง ถ้ายังมีชีวิตและถือ instance เดิมตั้งแต่ต้นขอบช่วง / หนึ่ง settlement ต่อผู้เล่น/ช่วง รวมสนับแข้ง สายรัด และฝักเมล็ด; ไม่คิดตอนเริ่มเกมช่วง1หรือซื้อกลางช่วง / ผล D10/B14 และการฟื้นที่เกิดจริงยังใช้กฎเดิม; ฝาก/โอนไม่ทำให้ได้พลังซ้ำ"
       },
       "optionalEffects": [],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "orc-ember-salve",
@@ -256,18 +320,27 @@
       "boundary": "Known payable recovery quote, real missing resource, minimum credit price and consumed-use policy explicit.",
       "existingItemCaution": "ของใช้แล้วหมด; ลดค่าดีลชีวิตและลบสถานะต้องเลือกว่าจะให้ครบทั้งสองหรือไม่",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 14,
+        "triggerCost": 0,
+        "magnitude": "quote - min(2,floor(S)) แต่ไม่น้อยกว่า1เครดิต",
+        "cap": {
+          "discountCredits": 1,
+          "familyCap": 2,
+          "minimumPrice": 1
+        },
+        "funding": "ใช้ได้กับดีล1ครั้งต่อช่วงตามระบบเดิม ไม่มีสิทธิ์ recovery เพิ่ม; ยาทาและแตรรวมเพดานเดียว",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "ดีล recovery ที่มีอยู่จริง มีทรัพยากรขาดและใช้สิทธิ์ recovery เดิม / ใช้ได้กับดีล1ครั้งต่อช่วงตามระบบเดิม ไม่มีสิทธิ์ recovery เพิ่ม; ยาทาและแตรรวมเพดานเดียว / แสดงราคาสุดท้ายก่อนยืนยัน; ไม่คืนเงินย้อนหลัง ไม่ลด HP payment หรือค่าจ้างวิญญาณ"
       },
       "optionalEffects": [
         "E71"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "orc-bone-war-drum",
@@ -299,18 +372,27 @@
       "boundary": "Only completed paid trade with a qualifying new partner; prevent A↔B cycling, zero-price and barter farming.",
       "existingItemCaution": "คืนพลังพร้อมเพิ่มเศษอาจซื้อขายวนได้ ต้องรักษากฎคู่ค้าใหม่",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 20,
+        "triggerCost": 0,
+        "magnitude": "min(2,floor(S)) พลังตาม missing energy",
+        "cap": {
+          "energy": 1,
+          "familyCap": 2,
+          "perEncounter": 1
+        },
+        "funding": "คู่ผู้เล่นแบบไม่เรียงลำดับนับครั้งเดียวตลอดรัน ร่วมทั้งกลอง/อาน; ไม่เกิน1ครั้ง/ผู้เล่น/ช่วง; ต้องเป็น original และ paid>=1",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "ปิดการซื้อขาย PvP เป็นเครดิตจริงกับผู้เล่นคู่ใหม่ ขณะถือก่อนเปิด offer และตอน settle / คู่ผู้เล่นแบบไม่เรียงลำดับนับครั้งเดียวตลอดรัน ร่วมทั้งกลอง/อาน; ไม่เกิน1ครั้ง/ผู้เล่น/ช่วง; ต้องเป็น original และ paid>=1 / ไม่รวม barter/gift/self/loan/Spirit/NPC และสำเนา; origin ที่เคยรับผลแล้วไม่ให้ซ้ำ; ไม่ฟื้นเมื่อยกเลิก"
       },
       "optionalEffects": [
         "E64"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "orc-tally-beads",
@@ -342,18 +424,27 @@
       "boundary": "Actual settled commission only, original source/item/participant dedup, explicit funding; not arbitrary gifts.",
       "existingItemCaution": "รายได้ค่านายหน้ากับโบนัสประมูลต้องมีงบและเพดานแยก",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 18,
+        "triggerCost": 0,
+        "magnitude": "floor(commissionPaid * min(2000,1000*S)/10000), ไม่เกิน2/settlement และ8/ผู้เล่น/รัน",
+        "cap": {
+          "bonusBps": 1000,
+          "perSettlementCap": 2,
+          "perRunCap": 8
+        },
+        "funding": "origin/ผู้ขาย/ผู้ซื้อไม่ซ้ำตลอดรัน; ห้ามสำเนาและโอนวน; ทุนจ่ายเพิ่มจาก bank-reserve",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "รับ commission จากการขายของที่ตนประเมินให้ผู้เล่นอื่นตามระบบเดิม สำเร็จและมี commission จริง / origin/ผู้ขาย/ผู้ซื้อไม่ซ้ำตลอดรัน; ห้ามสำเนาและโอนวน; ทุนจ่ายเพิ่มจาก bank-reserve / ไม่เพิ่มจาก gross หรือค่าจ้างวิญญาณ ไม่ลดเงินของคู่ค้า; actual bonus แยก log ไม่ถือเป็นยอดขายหรือ commission ต้นทางรอบใหม่"
       },
       "optionalEffects": [
         "E24"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "orc-clan-forge-tongs",
@@ -378,18 +469,27 @@
       "boundary": "Use real cleanse quote/chance/cap; specify spent tool only on accepted attempt.",
       "existingItemCaution": "ชำระแล้วขายระบายสร้างเส้นทำกำไร ต้องหักต้นทุนเครื่องมือจริง",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 18,
+        "triggerCost": 0,
+        "magnitude": "เพิ่ม min(2000,1000*S) basis points ก่อน clamp โอกาสรวม5..95%",
+        "cap": {
+          "bonusBps": 1000,
+          "familyCapBps": 2000,
+          "chanceMax": 95
+        },
+        "funding": "คีมและตรีศูลรวมเพดาน20pp ไม่ใช้เป็นวัตถุดิบและไม่ลบทิ้ง; เป้าหมายต้องไม่ใช่เครื่องมือชิ้นเดียวกัน",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "การจ่ายชำระคำสาปจริงตาม cleanse quote เดิม / คีมและตรีศูลรวมเพดาน20pp ไม่ใช้เป็นวัตถุดิบและไม่ลบทิ้ง; เป้าหมายต้องไม่ใช่เครื่องมือชิ้นเดียวกัน / ไม่เปลี่ยนราคาหรือเปิด truth ก่อนตรวจ; ยังคงเสี่ยงล้มเหลวและจ่ายครั้งนั้นตามเดิม"
       },
       "optionalEffects": [
         "E14"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "vampire-mist-cloak",
@@ -414,18 +514,27 @@
       "boundary": "Real stolen-item custody change only; no payment on cancelled duel, no same-origin insurance farm, define funding.",
       "existingItemCaution": "ประกันหลังเสียของ ไม่ปฏิเสธดวล; ลดค่าล้างประวัติต้องไม่ทำการขโมยไร้ความเสี่ยง",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 24,
+        "triggerCost": 0,
+        "magnitude": "min(4, floor(min(lastPaidPrice,scaledBase)*min(3000,2000*S)/10000), remainingRunCap6)",
+        "cap": {
+          "refundBps": 2000,
+          "perLossCap": 4,
+          "perRunCap": 6
+        },
+        "funding": "origin หนึ่งชิ้นจ่ายประกันได้ครั้งเดียวทั้งรันข้ามผู้เล่น; ล็อกสิทธิ์ที่เริ่มดวล; bank-reserve; ชำระทีเดียว",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "ของ original ถูกขโมยสำเร็จจริงจากเจ้าของ ไม่ใช่ cloak เอง และ cloak อยู่กับผู้เสียหายก่อนเริ่มดวลถึงหลังโอนของ / origin หนึ่งชิ้นจ่ายประกันได้ครั้งเดียวทั้งรันข้ามผู้เล่น; ล็อกสิทธิ์ที่เริ่มดวล; bank-reserve; ชำระทีเดียว / ไม่รวม seizure/ขาย/ฝาก/ให้ยืม/สำเนา/ดวลยกเลิก/ป้องกันสำเร็จ; ไม่คืนของและไม่ลดโทษโจร; เงินประกันไม่สร้าง buy/sell stats"
       },
       "optionalEffects": [
         "E43"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "vampire-shadow-wine-decanter",
@@ -457,18 +566,27 @@
       "boundary": "Exact quoted HP payment; minimum/age rules explicit, no free blood contract, count actual HP lost after discount.",
       "existingItemCaution": "ลดค่าชีวิตสัญญาและดีลรักษาอาจทำสัญญาเลือดแทบฟรี",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 20,
+        "triggerCost": 0,
+        "magnitude": "ลด HP quote 1 เมื่อ S>=1 แต่ต้องจ่ายอย่างน้อย1ชีวิต",
+        "cap": {
+          "lifeDiscount": 1,
+          "minimumLifePayment": 1,
+          "binary": true
+        },
+        "funding": "หนึ่งส่วนลดต่อการเซ็น ไม่คูณจำนวนสัญญา/rarity; ขวดไม่หมด; สัญญาคืนตามพบครั้งหน้ากฎเดิม",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "ยอมรับ Vampire blood contract ใหม่ ที่ยังไม่มีสัญญาค้าง / หนึ่งส่วนลดต่อการเซ็น ไม่คูณจำนวนสัญญา/rarity; ขวดไม่หมด; สัญญาคืนตามพบครั้งหน้ากฎเดิม / ประกาศ HP quote ก่อนตกลง; ไม่ใช่ damage shield; lifeLost นับที่จ่ายจริง; ผลตอบแทนยังสุ่มเพียง1อย่างเดิม"
       },
       "optionalEffects": [
         "E63"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "vampire-gloam-violin",
@@ -493,18 +611,27 @@
       "boundary": "Existing native E11 is an analogy, not approval for these two new rows. Preserve overvalue/backlash and95% cap.",
       "existingItemCaution": "เพิ่มการยอมรับพร้อมกันความไว้ใจลด อาจลดความเสี่ยงต่อรองมากไป",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 22,
+        "triggerCost": 0,
+        "magnitude": "เพิ่ม min(600,200*S) basis points ให้ acceptance ก่อน clamp95%",
+        "cap": {
+          "bonusBps": 200,
+          "familyCapBps": 600,
+          "chanceMax": 95
+        },
+        "funding": "ไวโอลิน/ฟีโรโมนรวมโบนัสใหม่ไม่เกิน6pp; translator pilot คง+2ppต่อstrengthตามสเปกเดิมและรวมกับผลใหม่เฉพาะก่อน overall95%cap ไม่ลดสิทธิ์pilotเดิม",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "NPC ตัดสินยอมรับราคาประเมินที่มีสิทธิ์ต่อรอง / ไวโอลิน/ฟีโรโมนรวมโบนัสใหม่ไม่เกิน6pp; translator pilot คง+2ppต่อstrengthตามสเปกเดิมและรวมกับผลใหม่เฉพาะก่อน overall95%cap ไม่ลดสิทธิ์pilotเดิม / ไม่ลด detection/backlash ไม่บังคับผู้เล่นอื่นยอม ไม่ข้าม overpriced/purchase/ban/trust gates"
       },
       "optionalEffects": [
         "E29"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "vampire-mist-atomizer",
@@ -529,18 +656,27 @@
       "boundary": "Penalty reduction after actual failed challenge; no invented success and no duplicate void/copy refunds.",
       "existingItemCaution": "ลดโทษสองระบบ อาจกลายเป็นของกลางที่ทุกสายต้องถือ",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 18,
+        "triggerCost": 0,
+        "magnitude": "ลด floor(actualCreditPenalty * min(5000,2500*S)/10000) หลัง voidseal เดิม",
+        "cap": {
+          "penaltyDiscountBps": 2500,
+          "familyCapBps": 5000,
+          "perEncounter": 1
+        },
+        "funding": "หนึ่ง failed challenge/ผู้เล่น/ช่วง; ล็อกค่าก่อน settle; ใช้ bank น้อยลง ไม่ refund",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "ท้าทายผิดที่ยังมี credit penalty จริง / หนึ่ง failed challenge/ผู้เล่น/ช่วง; ล็อกค่าก่อน settle; ใช้ bank น้อยลง ไม่ refund / ไม่ลด trust/HP/ban ไม่สร้างส่วนลดซื้อ ไม่เปลี่ยน truth; void ทำ penalty0 จึงไม่กินสิทธิ์"
       },
       "optionalEffects": [
         "E20"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "vampire-midnight-invitation",
@@ -565,18 +701,27 @@
       "boundary": "Rebate only actual settled winning bid, not escrow refund/loss/cancel; explicit bank budget.",
       "existingItemCaution": "โบนัสประมูลและสัญญารับซื้อ NPC ต้องไม่อ้างว่าเพิ่มสิทธิ์ Collector Wishlist",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 16,
+        "triggerCost": 0,
+        "magnitude": "min(3,floor(actualWinningBid*min(1000,500*S)/10000),remainingRunCap6)",
+        "cap": {
+          "rebateBps": 500,
+          "perWinCap": 3,
+          "perRunCap": 6
+        },
+        "funding": "ถือ invitation ตั้งแต่ bid แรกของตนใน lot ถึง settlement; origin/lot หนึ่งครั้ง/รัน; bank-reserve",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "ชนะประมูล original และชำระเงินจริง โอนของสำเร็จ / ถือ invitation ตั้งแต่ bid แรกของตนใน lot ถึง settlement; origin/lot หนึ่งครั้ง/รัน; bank-reserve / ไม่รวม escrow คืน ถอน bid losing cancel หรือ bid ตัวเอง; rebate ไม่หัก lastTradePrice/gross ที่จ่ายจริง และไม่นับรายได้ขาย"
       },
       "optionalEffects": [
         "E55"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "vampire-mooncut-sword",
@@ -601,18 +746,27 @@
       "boundary": "Public pre-duel bounded tie advantage; do not leak hidden opponent guard or multiply binary rights by rarity.",
       "existingItemCaution": "RPS กับทายเหรียญเป็นคนละการเสี่ยง จำกัดประกันและ tie advantage แยกกัน",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 24,
+        "triggerCost": 0,
+        "magnitude": "S>=1 ให้สิทธิ์เสมอ1ครั้ง ไม่คูณ rarity",
+        "cap": {
+          "tieRights": 1,
+          "binary": true,
+          "perEncounter": 1
+        },
+        "funding": "ใช้ contract เดียวกับ riftfang-sword: ครอบครัวอาวุธสิทธิ์เสมอรวม1/ผู้เล่น/ช่วง ไม่สะสมจากสองดาบ; ทั้งสองฝ่ายมีให้หักล้างตามเดิม",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "public theft RPS duel ที่ประกาศสิทธิ์ก่อนส่งมือ / ใช้ contract เดียวกับ riftfang-sword: ครอบครัวอาวุธสิทธิ์เสมอรวม1/ผู้เล่น/ช่วง ไม่สะสมจากสองดาบ; ทั้งสองฝ่ายมีให้หักล้างตามเดิม / ไม่ดูมือคู่ต่อสู้ ไม่ข้าม mandatory duel/missing-hand randomization; freeze สิทธิ์ก่อนรับมือ"
       },
       "optionalEffects": [
         "E75"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "autometa-coil-repeater",
@@ -661,18 +815,27 @@
       "boundary": "Choose a truth-preserving benefit rather than adding an invented random success roll.",
       "existingItemCaution": "สอง effect อยู่ระบบเดียว แต่เพิ่มชนะและลดโทษพร้อมกันอาจท้าทายแบบไม่เสี่ยง",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 26,
+        "triggerCost": 0,
+        "magnitude": "ส่วนลดเดิมจาก correct challenge + min(1500,500*S) basis points; รวมส่วนลด challenge ไม่เกิน90%",
+        "cap": {
+          "bonusBps": 500,
+          "familyCapBps": 1500,
+          "discountMaxBps": 9000
+        },
+        "funding": "หนึ่งผลต่อ challenge settlement เดิม ไม่ refund หรือท้าทายรายการเดิมซ้ำเพื่อสะสมส่วนลด",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "ท้าทายคำระบุเท็จถูกต้องและ quote ของเป้าหมายยังมีผล / หนึ่งผลต่อ challenge settlement เดิม ไม่ refund หรือท้าทายรายการเดิมซ้ำเพื่อสะสมส่วนลด / ความหมายอนุมัติแล้ว ตัวเลขยังเสนอ; ไม่สุ่มชนะ ไม่เปิด truth เพิ่ม ไม่ลด penalty เมื่อท้าทายผิด"
       },
       "optionalEffects": [
         "E06"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "autometa-clockwork-sentry",
@@ -706,23 +869,38 @@
         "needed": "Name the reduced consequence; cannot infer all penalties are interchangeable.",
         "recommendation": "เลือกบรรเทาค่าเสียหายหนึ่งชนิด; ไม่ยกเลิกการดวล/ตราสิทธิ์ของผู้เสียหาย/กฎหมดเวลา",
         "effectId": "E40",
-        "status": "pending"
+        "status": "approved-experimental-spec",
+        "approval": {
+          "meaning": "แพ้การขโมยจากพ่อค้าเท่านั้น ขณะถือ sentry ก่อนเริ่มดวล · S>=1 ลด trust loss ของ NPC-theft defeat จาก2เหลือ1 (หาก trust เหลือน้อยลดได้ตามจริง) · ไม่ลดโทษ PvP/compensation/seal/ban/D21 ไม่ยกเลิก duel; นี่คือข้อเสนอจำกัดความหมายใหม่ที่ต้องอนุมัติ",
+          "numericApproval": true,
+          "receipt": "remaining48-approval.json"
+        }
       },
       "boundary": "Name the reduced consequence; cannot infer all penalties are interchangeable.",
       "existingItemCaution": "กันผุพังไม่ใช่กันดวล; กำหนดชาร์จคุ้มครองแยกชัด",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 24,
+        "triggerCost": 0,
+        "magnitude": "S>=1 ลด trust loss ของ NPC-theft defeat จาก2เหลือ1 (หาก trust เหลือน้อยลดได้ตามจริง)",
+        "cap": {
+          "trustLossReduction": 1,
+          "minimumTrustLoss": 1,
+          "binary": true,
+          "perEncounter": 1
+        },
+        "funding": "หนึ่ง NPC-defeat/ผู้เล่น/ช่วง; ใช้จริงเมื่อ loss>=2 เท่านั้น",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "แพ้การขโมยจากพ่อค้าเท่านั้น ขณะถือ sentry ก่อนเริ่มดวล / หนึ่ง NPC-defeat/ผู้เล่น/ช่วง; ใช้จริงเมื่อ loss>=2 เท่านั้น / ไม่ลดโทษ PvP/compensation/seal/ban/D21 ไม่ยกเลิก duel; นี่คือข้อเสนอจำกัดความหมายใหม่ที่ต้องอนุมัติ"
       },
       "optionalEffects": [
         "E68"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "autometa-data-prism",
@@ -747,19 +925,27 @@
       "boundary": "Range must contain scaled truth including copies/replacements; no extra facet disclosure.",
       "existingItemCaution": "ข้อมูลราคา+ความแท้+ประมูลครอบคลุมกว้าง พิจารณาตัดตัวรองหนึ่งอย่าง",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 20,
+        "triggerCost": 0,
+        "magnitude": "จากช่วงตรวจเดิม[L,H] truth V: Lใหม่=floor(L+(V-L)*r), Hใหม่=ceil(H-(H-V)*r), r=min(.5,.2*S)",
+        "cap": {
+          "narrowBps": 2000,
+          "familyCapBps": 5000
+        },
+        "funding": "ไม่ใช้สิทธิ์ตรวจเพิ่ม; คง B01 exact / D02 priority เดิม; ถ้าD02บังคับ fog ไม่ narrow; ช่วงต้องครอบ truth scaled/copy/replacement",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "ตรวจราคาแบบ range สำเร็จของสินค้าที่มีสิทธิ์ดู / ไม่ใช้สิทธิ์ตรวจเพิ่ม; คง B01 exact / D02 priority เดิม; ถ้าD02บังคับ fog ไม่ narrow; ช่วงต้องครอบ truth scaled/copy/replacement / ไม่เปิด authenticity/curse ไม่คำนวณใน public view ก่อนตรวจ; ไม่เปิดราคาจริงเป๊ะโดยบังเอิญนอก known facts กฎเดิม"
       },
       "optionalEffects": [
         "E04",
         "E23"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "autometa-coolant-canister",
@@ -784,18 +970,27 @@
       "boundary": "Existing reducer caps half-base cooldown, no same-encounter reuse; transfer/copy must not reset charge.",
       "existingItemCaution": "ลดคูลดาวน์และเติมพลังอาจวนเร่งสกิล ต้องมีต้นทุน/จำนวนครั้ง",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 16,
+        "triggerCost": 1,
+        "magnitude": "min(2,floor(S),floor(baseCooldown/2),remainingCooldown) ช่วง",
+        "cap": {
+          "cooldownReduction": 1,
+          "familyCap": 2,
+          "perEncounter": 1
+        },
+        "funding": "canister/dial รวม1การใช้/ผู้เล่น/ช่วง; physical+origin ledger; ไม่บริโภคของ; ลดได้แต่ไม่ให้สกิลที่ใช้แล้วในช่วงนี้ใช้ซ้ำ",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "เลือก merchant ability ที่ยัง cooldown มีช่วงเหลือ และยังไม่มี abilityAdjusted ในช่วงนี้ / canister/dial รวม1การใช้/ผู้เล่น/ช่วง; physical+origin ledger; ไม่บริโภคของ; ลดได้แต่ไม่ให้สกิลที่ใช้แล้วในช่วงนี้ใช้ซ้ำ / คำนวณ quote target ก่อนจ่าย; ถ้าลดไม่ได้ปิดปุ่มและไม่ใช้พลัง; ไม่ปรับ cooldown ของ item/contract/RPS"
       },
       "optionalEffects": [
         "E61"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "autometa-folding-beacon",
@@ -829,23 +1024,37 @@
         "needed": "Choose exactly which extra clue is public to this player and whether it spends a charge.",
         "recommendation": "แสดงข้อมูลสินค้าเพิ่มที่กำหนดชัด; ห้ามเปิดความแท้/คำสาปหรือซ่อนพ่อค้าก่อนการเลือกที่ปิดประตู",
         "effectId": "E35",
-        "status": "pending"
+        "status": "approved-experimental-spec",
+        "approval": {
+          "meaning": "PORTALS ก่อนเลือก ไม่มี unresolved event; ผู้เล่นเลือกเป้าหมายจากประตูจริง · S>=1 เปิด kind ของ stock slot2 ที่มีอยู่จริงของ portal ที่เลือก1บาน · ไม่แสดง base/ask/truth/curse/rarity หรือของคนอื่น; ไม่สร้าง stock ใหม่; ถ้ารู้แล้วหรือไม่มี slot2 ไม่คิดพลัง",
+          "numericApproval": true,
+          "receipt": "remaining48-approval.json"
+        }
       },
       "boundary": "Choose exactly which extra clue is public to this player and whether it spends a charge.",
       "existingItemCaution": "เบาะแสประตูกับตรวจล็อตประมูลอาจกว้างเกินภาพอุปกรณ์ส่งสัญญาณ",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 18,
+        "triggerCost": 1,
+        "magnitude": "S>=1 เปิด kind ของ stock slot2 ที่มีอยู่จริงของ portal ที่เลือก1บาน",
+        "cap": {
+          "extraKinds": 1,
+          "binary": true,
+          "perEncounter": 1
+        },
+        "funding": "beacon/cage รวม1portal/ผู้เล่น/ช่วง; ความรู้ส่วนตัวผูก portalId+itemId; เปลี่ยนประตูแล้วคำใบ้เดิมไม่ย้ายตาม; ของไม่หมด",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "PORTALS ก่อนเลือก ไม่มี unresolved event; ผู้เล่นเลือกเป้าหมายจากประตูจริง / beacon/cage รวม1portal/ผู้เล่น/ช่วง; ความรู้ส่วนตัวผูก portalId+itemId; เปลี่ยนประตูแล้วคำใบ้เดิมไม่ย้ายตาม; ของไม่หมด / ไม่แสดง base/ask/truth/curse/rarity หรือของคนอื่น; ไม่สร้าง stock ใหม่; ถ้ารู้แล้วหรือไม่มี slot2 ไม่คิดพลัง"
       },
       "optionalEffects": [
         "E23"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "autometa-servo-harness",
@@ -877,18 +1086,26 @@
       "boundary": "Start-of-encounter alive/actual custody, apply after entry cost; cap by real missing energy, no retroactive purchase/re-entry gain.",
       "existingItemCaution": "บทบาทพลังและส่วนลดช่องคลังต้องมีราคาเหมาะ ไม่เพิ่มช่องฟรีโดยไม่ได้ตกลง",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 20,
+        "triggerCost": 0,
+        "magnitude": "min(2,floor(S)) พลัง ผ่าน recover และเพดานพลังเดิม",
+        "cap": {
+          "energy": 1,
+          "familyCap": 2
+        },
+        "funding": "หนึ่ง settlement ต่อผู้เล่น/ช่วง รวมสนับแข้ง สายรัด และฝักเมล็ด; ไม่คิดตอนเริ่มเกมช่วง1หรือซื้อกลางช่วง",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "เริ่มช่วงใหม่ หลังจ่ายค่าเข้าช่วง ถ้ายังมีชีวิตและถือ instance เดิมตั้งแต่ต้นขอบช่วง / หนึ่ง settlement ต่อผู้เล่น/ช่วง รวมสนับแข้ง สายรัด และฝักเมล็ด; ไม่คิดตอนเริ่มเกมช่วง1หรือซื้อกลางช่วง / ผล D10/B14 และการฟื้นที่เกิดจริงยังใช้กฎเดิม; ฝาก/โอนไม่ทำให้ได้พลังซ้ำ"
       },
       "optionalEffects": [
         "E47"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "alien-spore-lantern",
@@ -920,18 +1137,26 @@
       "boundary": "Adjust the actual Dread roll once; preserve omen/B23 and shared aggregate cap, no redraw until favorable.",
       "existingItemCaution": "ลดภัยกับรู้เบาะแสอาจทำการเลือกเส้นทางปลอดภัยเกินไป",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 18,
+        "triggerCost": 0,
+        "magnitude": "chanceAfterExistingOmenB23 * (1-min(.2,.1*S))",
+        "cap": {
+          "riskReductionBps": 1000,
+          "familyCapBps": 2000
+        },
+        "funding": "lantern/censer รวม relative reduction20% (ไม่ใช่−20pp); ไม่มี re-roll; ไม่ consume item",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "Dread roll จริงหนึ่งครั้งท้ายช่วง ไม่รวม personal event/omen direct consequence / lantern/censer รวม relative reduction20% (ไม่ใช่−20pp); ไม่มี re-roll; ไม่ consume item / ไม่รับประกันปลอดภัย ไม่เปลี่ยน severity/type; log เฉพาะ chance ที่เปิดเผยได้ ไม่เปิด seed หรือ future roll"
       },
       "optionalEffects": [
         "E35"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "alien-echoweave-shawl",
@@ -958,23 +1183,38 @@
         "needed": "Explicit extendable allowlist and per-status-instance cap; exclude contracts and Collector reveal rights.",
         "recommendation": "หากยืด ให้ยืดระยะเวลาของสถานะที่มีอยู่ ไม่เพิ่มชาร์จหรือความแรงและไม่ต่ออายุด้วยการโอนวน",
         "effectId": "E72",
-        "status": "pending"
+        "status": "approved-experimental-spec",
+        "approval": {
+          "meaning": "เลือก active finite-expiry buff instance ใน allowlist B03,B05,B11,B14,B16 ที่ยังไม่ใช้หมด · S>=1 ขยาย expiresAt +1 ช่วง ไม่เพิ่ม charges/magnitude · exclude B10/คะแนน/อายุไม่มีที่สิ้นสุด/triggerต้นช่วง/สัญญา/Collector/Spirit/expiryที่หมดแล้ว; สำเนาสืบสถานะขยายของ buff ไม่เริ่มใหม่",
+          "numericApproval": true,
+          "receipt": "remaining48-approval.json"
+        }
       },
       "boundary": "Explicit extendable allowlist and per-status-instance cap; exclude contracts and Collector reveal rights.",
       "existingItemCaution": "ยืดสถานะต้องไม่ยืดสิทธิ์เปิดดู Collector หรือสัญญา; ระวังคืนพลังจากการค้า",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 22,
+        "triggerCost": 1,
+        "magnitude": "S>=1 ขยาย expiresAt +1 ช่วง ไม่เพิ่ม charges/magnitude",
+        "cap": {
+          "extraEncounters": 1,
+          "binary": true,
+          "perStatusInstance": 1,
+          "perEncounter": 1
+        },
+        "funding": "ใช้ shawl1ชิ้น/ผู้เล่น/ช่วง; เป้าหมาย instance ขยายได้1ครั้งตลอดอายุ รวมทุกคน; consume ผ้าคลุมเมื่อ accepted attempt",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "เลือก active finite-expiry buff instance ใน allowlist B03,B05,B11,B14,B16 ที่ยังไม่ใช้หมด / ใช้ shawl1ชิ้น/ผู้เล่น/ช่วง; เป้าหมาย instance ขยายได้1ครั้งตลอดอายุ รวมทุกคน; consume ผ้าคลุมเมื่อ accepted attempt / exclude B10/คะแนน/อายุไม่มีที่สิ้นสุด/triggerต้นช่วง/สัญญา/Collector/Spirit/expiryที่หมดแล้ว; สำเนาสืบสถานะขยายของ buff ไม่เริ่มใหม่"
       },
       "optionalEffects": [
         "E16"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "alien-star-chart-membrane",
@@ -1015,24 +1255,38 @@
         "needed": "Specify eligible creator/player, creation moment and exclusions; never reroll existing goods.",
         "recommendation": "กำหนดสิทธิ์เฉพาะการสร้างของใหม่ให้เจ้าของ; แยกคำขอ Collector/ของวิญญาณ/สำเนา ไม่เปลี่ยนของที่มีอยู่แล้ว",
         "effectId": "E25",
-        "status": "pending"
+        "status": "approved-experimental-spec",
+        "approval": {
+          "meaning": "เฉพาะ new candidate ที่สร้างให้เจ้าของจากสกิล Beast/Alien หลังยืนยันการใช้สกิล โดยถือก่อนสร้าง · หลัง rarity base roll ที่ยังไม่ finalize: โอกาส min(1500,500*S)/10000 ขยับขึ้น1 tier ที่มี weight>0ใน profile · ไม่ใช้กับ stock portals, reroll portals, Collector, Spirit, Swarm copies, existingitems, polish/reveal; ไม่แตะ truth; ไม่สร้าง tier ที่ config ปิด",
+          "numericApproval": true,
+          "receipt": "remaining48-approval.json"
+        }
       },
       "boundary": "Specify eligible creator/player, creation moment and exclusions; never reroll existing goods.",
       "existingItemCaution": "rarity+ข้อมูลเส้นทาง+ตัวเลือกสกิล ครอบคลุมสามระบบ ควรเลือกตัวรองเพียงหนึ่ง",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 26,
+        "triggerCost": 0,
+        "magnitude": "หลัง rarity base roll ที่ยังไม่ finalize: โอกาส min(1500,500*S)/10000 ขยับขึ้น1 tier ที่มี weight>0ใน profile",
+        "cap": {
+          "promotionChanceBps": 500,
+          "familyCapBps": 1500,
+          "maxTierSteps": 1
+        },
+        "funding": "membrane/disc รวม15%; หนึ่ง deterministic extra roll/itemId; finalize appearance แล้ว scale base/ask/reservation ครั้งเดียว",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "เฉพาะ new candidate ที่สร้างให้เจ้าของจากสกิล Beast/Alien หลังยืนยันการใช้สกิล โดยถือก่อนสร้าง / membrane/disc รวม15%; หนึ่ง deterministic extra roll/itemId; finalize appearance แล้ว scale base/ask/reservation ครั้งเดียว / ไม่ใช้กับ stock portals, reroll portals, Collector, Spirit, Swarm copies, existingitems, polish/reveal; ไม่แตะ truth; ไม่สร้าง tier ที่ config ปิด"
       },
       "optionalEffects": [
         "E35",
         "E32"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "alien-biobright-seedpod",
@@ -1064,18 +1318,26 @@
       "boundary": "Start-of-encounter alive/actual custody, apply after entry cost; cap by real missing energy, no retroactive purchase/re-entry gain.",
       "existingItemCaution": "ฟื้นพลังและใช้เศษรักษาถูกลงอาจแทนที่ของทรัพยากรเฉพาะทาง",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 16,
+        "triggerCost": 0,
+        "magnitude": "min(2,floor(S)) พลัง ผ่าน recover และเพดานพลังเดิม",
+        "cap": {
+          "energy": 1,
+          "familyCap": 2
+        },
+        "funding": "หนึ่ง settlement ต่อผู้เล่น/ช่วง รวมสนับแข้ง สายรัด และฝักเมล็ด; ไม่คิดตอนเริ่มเกมช่วง1หรือซื้อกลางช่วง",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "เริ่มช่วงใหม่ หลังจ่ายค่าเข้าช่วง ถ้ายังมีชีวิตและถือ instance เดิมตั้งแต่ต้นขอบช่วง / หนึ่ง settlement ต่อผู้เล่น/ช่วง รวมสนับแข้ง สายรัด และฝักเมล็ด; ไม่คิดตอนเริ่มเกมช่วง1หรือซื้อกลางช่วง / ผล D10/B14 และการฟื้นที่เกิดจริงยังใช้กฎเดิม; ฝาก/โอนไม่ทำให้ได้พลังซ้ำ"
       },
       "optionalEffects": [
         "E65"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "alien-phase-dial",
@@ -1100,18 +1362,27 @@
       "boundary": "Existing reducer caps half-base cooldown, no same-encounter reuse; transfer/copy must not reset charge.",
       "existingItemCaution": "คูลดาวน์สกิลกับประหยัดเปลี่ยนประตูมีผลต่อจำนวน action มากกว่าตัวเลขราคา",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 18,
+        "triggerCost": 1,
+        "magnitude": "min(2,floor(S),floor(baseCooldown/2),remainingCooldown) ช่วง",
+        "cap": {
+          "cooldownReduction": 1,
+          "familyCap": 2,
+          "perEncounter": 1
+        },
+        "funding": "canister/dial รวม1การใช้/ผู้เล่น/ช่วง; physical+origin ledger; ไม่บริโภคของ; ลดได้แต่ไม่ให้สกิลที่ใช้แล้วในช่วงนี้ใช้ซ้ำ",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "เลือก merchant ability ที่ยัง cooldown มีช่วงเหลือ และยังไม่มี abilityAdjusted ในช่วงนี้ / canister/dial รวม1การใช้/ผู้เล่น/ช่วง; physical+origin ledger; ไม่บริโภคของ; ลดได้แต่ไม่ให้สกิลที่ใช้แล้วในช่วงนี้ใช้ซ้ำ / คำนวณ quote target ก่อนจ่าย; ถ้าลดไม่ได้ปิดปุ่มและไม่ใช้พลัง; ไม่ปรับ cooldown ของ item/contract/RPS"
       },
       "optionalEffects": [
         "E34"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "alien-phase-staff",
@@ -1136,18 +1407,27 @@
       "boundary": "NPC wish contract only, preserve budget/slots/expiry; never reroll Collector3+2 delivery or grant extra peeks.",
       "existingItemCaution": "เปลี่ยนสัญญา NPC และเร่งคืนของ Alien ไม่เปลี่ยนรอบส่ง Collector",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 22,
+        "triggerCost": 0,
+        "magnitude": "S>=1 ยกเว้นเฉพาะพลังของการเปลี่ยน NPC wish หนึ่งครั้ง",
+        "cap": {
+          "freeChanges": 1,
+          "binary": true,
+          "perEncounter": 1
+        },
+        "funding": "staff รวม1change/ผู้เล่น/ช่วง; สร้างทดแทนสัญญาเดิม ไม่เพิ่ม slots/budget/lifetime; ไม่ทำให้สุ่มก่อนจ่ายวนฟรี",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "ผู้เล่นเลือกสัญญา NPC wishlist ปัจจุบันที่ยังไม่สำเร็จและมีสิทธิ์เปลี่ยน / staff รวม1change/ผู้เล่น/ช่วง; สร้างทดแทนสัญญาเดิม ไม่เพิ่ม slots/budget/lifetime; ไม่ทำให้สุ่มก่อนจ่ายวนฟรี / ไม่ใช่ Collector3+2 หรือ Ghost jobs; ถ้าปฏิเสธ/no candidate ไม่เสียสิทธิ์; cooldown/expiry/tradebanเดิมยังอยู่"
       },
       "optionalEffects": [
         "E60"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "darkone-null-sword",
@@ -1174,23 +1454,37 @@
         "needed": "Explicit removable status allowlist, one-shot/expiry behavior and no-op cost policy.",
         "recommendation": "ลบเฉพาะสถานะที่ระบุได้; ไม่ล้างหนี้/คดี/ภาระสัญญาด้วยการลบไอคอน",
         "effectId": "E71",
-        "status": "pending"
+        "status": "approved-experimental-spec",
+        "approval": {
+          "meaning": "allowlist D01,D02,D05,D06,D19,D20,D22,D23 เท่านั้น มีผลอนาคตยังค้าง · S>=1 ลบ active debuff instance ที่เลือก1อย่าง · ห้ามD03/D07/D08/D09/D10/D21/D24 และห้ามลบ crime/loan/seal/contract/cooldown; ไม่คืนพลัง/HP/เงินหรือเปิดประตูย้อนหลัง",
+          "numericApproval": true,
+          "receipt": "remaining48-approval.json"
+        }
       },
       "boundary": "Explicit removable status allowlist, one-shot/expiry behavior and no-op cost policy.",
       "existingItemCaution": "ลบ debuff ไม่ลบหนี้/ประวัติหรือยกเลิกดวล; แยกคำสาปติดสินค้าจากสถานะผู้เล่น",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 26,
+        "triggerCost": 1,
+        "magnitude": "S>=1 ลบ active debuff instance ที่เลือก1อย่าง",
+        "cap": {
+          "removedInstances": 1,
+          "binary": true,
+          "perEncounter": 2
+        },
+        "funding": "ดาบ/ที่ครอบรวมไม่เกิน2/ผู้เล่น/ช่วง ใช้สินค้าที่เลือกหมดไปเมื่อ accepted attempt; ห้ามกินเป้าหมายที่ไม่มีแล้ว",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "allowlist D01,D02,D05,D06,D19,D20,D22,D23 เท่านั้น มีผลอนาคตยังค้าง / ดาบ/ที่ครอบรวมไม่เกิน2/ผู้เล่น/ช่วง ใช้สินค้าที่เลือกหมดไปเมื่อ accepted attempt; ห้ามกินเป้าหมายที่ไม่มีแล้ว / ห้ามD03/D07/D08/D09/D10/D21/D24 และห้ามลบ crime/loan/seal/contract/cooldown; ไม่คืนพลัง/HP/เงินหรือเปิดประตูย้อนหลัง"
       },
       "optionalEffects": [
         "E40"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "darkone-null-testament",
@@ -1231,23 +1525,37 @@
         "needed": "Choose asset-only scope versus all-score modifier, eligible estates and exact visibility. Do not reuse B10 as an alias accidentally.",
         "recommendation": "เสนอจำกัดที่มูลค่าสินค้าตอน Collector; ไม่เพิ่มเครดิต คะแนนผลงาน หรือคะแนนวิญญาณโดยปริยาย",
         "effectId": "E69",
-        "status": "pending"
+        "status": "approved-experimental-spec",
+        "approval": {
+          "meaning": "Collector final settlement สำหรับคนมีชีวิตหลังคืน principal และปิดหนี้แล้ว · bonus=min(20,floor(eligibleOriginalItemAssetSum * min(1000,200*S)/10000)); บวกเฉพาะ A ก่อน B10/D10 ตามสูตรเดิม · ไม่ alias B10 ไม่คูณ P/G; แสดง asset bonus แยก; ต้องอนุมัติเป็นกฎคะแนนใหม่ในชุดนี้ ไม่แก้ approved weights JSON",
+          "numericApproval": true,
+          "receipt": "remaining48-approval.json"
+        }
       },
       "boundary": "Choose asset-only scope versus all-score modifier, eligible estates and exact visibility. Do not reuse B10 as an alias accidentally.",
       "existingItemCaution": "คะแนนฐานกับยืด buff คะแนนอาจทวีคูณกัน ต้องห้ามยืดผลของตัวเองเป็นวงจร",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 24,
+        "triggerCost": 0,
+        "magnitude": "bonus=min(20,floor(eligibleOriginalItemAssetSum * min(1000,200*S)/10000)); บวกเฉพาะ A ก่อน B10/D10 ตามสูตรเดิม",
+        "cap": {
+          "assetBonusBps": 200,
+          "familyCapBps": 1000,
+          "scoreCap": 20
+        },
+        "funding": "testament ถือจริงตั้งแต่ต้นช่วงสุดท้ายถึงคิดคะแนน; ไม่รวมตัว testament ทุกชิ้น/สำเนา/เงิน/vault/loan/escrow; ไม่มีโบนัส estate ของคนตาย",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "Collector final settlement สำหรับคนมีชีวิตหลังคืน principal และปิดหนี้แล้ว / testament ถือจริงตั้งแต่ต้นช่วงสุดท้ายถึงคิดคะแนน; ไม่รวมตัว testament ทุกชิ้น/สำเนา/เงิน/vault/loan/escrow; ไม่มีโบนัส estate ของคนตาย / ไม่ alias B10 ไม่คูณ P/G; แสดง asset bonus แยก; ต้องอนุมัติเป็นกฎคะแนนใหม่ในชุดนี้ ไม่แก้ approved weights JSON"
       },
       "optionalEffects": [
         "E72"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "darkone-debt-chain",
@@ -1272,18 +1580,27 @@
       "boundary": "Aged actually repaid loan only, no cancelled/foreclosed contracts; pair+collateral dedup and explicit refund funding.",
       "existingItemCaution": "คืนเงินกู้แล้วได้เงินคืนและช่วยจ่ายชดเชยต้องมีแหล่งเงิน ไม่หักสิทธิ์ผู้รับ",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 18,
+        "triggerCost": 0,
+        "magnitude": "min(2,floor(principalRepaid*min(1000,500*S)/10000),remainingRunCap4)",
+        "cap": {
+          "refundBps": 500,
+          "perLoanCap": 2,
+          "perRunCap": 4
+        },
+        "funding": "ผู้กู้ถือ chain เดิมต่อเนื่องตั้งแต่ funding ถึง repay; pairผู้ให้กู้/ผู้กู้+collateralOrigin หนึ่งครั้ง/รัน; bank-reserve",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "ผู้กู้คืน loan แบบ fully-repaid ที่ผ่านอายุ funded+2ช่วงตาม scoring loan gate เดิม / ผู้กู้ถือ chain เดิมต่อเนื่องตั้งแต่ funding ถึง repay; pairผู้ให้กู้/ผู้กู้+collateralOrigin หนึ่งครั้ง/รัน; bank-reserve / ไม่จ่าย default/foreclosure/partial/cancel/sameperiod; ไม่ลด principal ที่ lenderได้จริง; ไม่เพิ่ม gross/interest/loan count ซ้ำ"
       },
       "optionalEffects": [
         "E44"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "darkone-omen-censer",
@@ -1315,18 +1632,26 @@
       "boundary": "Adjust the actual Dread roll once; preserve omen/B23 and shared aggregate cap, no redraw until favorable.",
       "existingItemCaution": "ลดภัยพร้อมลดระยะ debuff อาจปิดความเสี่ยงหลายแหล่ง",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 18,
+        "triggerCost": 0,
+        "magnitude": "chanceAfterExistingOmenB23 * (1-min(.2,.1*S))",
+        "cap": {
+          "riskReductionBps": 1000,
+          "familyCapBps": 2000
+        },
+        "funding": "lantern/censer รวม relative reduction20% (ไม่ใช่−20pp); ไม่มี re-roll; ไม่ consume item",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "Dread roll จริงหนึ่งครั้งท้ายช่วง ไม่รวม personal event/omen direct consequence / lantern/censer รวม relative reduction20% (ไม่ใช่−20pp); ไม่มี re-roll; ไม่ consume item / ไม่รับประกันปลอดภัย ไม่เปลี่ยน severity/type; log เฉพาะ chance ที่เปิดเผยได้ ไม่เปิด seed หรือ future roll"
       },
       "optionalEffects": [
         "E70"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "darkone-ash-seal",
@@ -1358,18 +1683,27 @@
       "boundary": "Free inspection entitlement after authoritative seizure custody; personally checked facet only, no copied/known-fact achievement farm.",
       "existingItemCaution": "ตรวจของหลังยึดสำเร็จเท่านั้น; รูปตราบนสินค้าไม่ใช่ตราบาปที่ใช้ยึดโดยตัวมันเอง",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 18,
+        "triggerCost": 0,
+        "magnitude": "S>=1 ให้สิทธิ์ inspect facet ที่ไม่รู้1อย่างโดยไม่เสียพลัง แต่ยังใช้ normal inspection quota",
+        "cap": {
+          "freeFacets": 1,
+          "binary": true,
+          "perEncounter": 1
+        },
+        "funding": "seal/trap รวม1สิทธิ์/ผู้เล่น/ช่วง ผูก seizedItemId+origin; หมดสิทธิ์เมื่อจบช่วงหรือออกจาก custody; ไม่ต่อโอน",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "ใช้ seal-pick ยึด original สำเร็จและโอนถึงผู้เล่นที่ถือ tool ก่อนเสนอใช้ตราถึงsettle / seal/trap รวม1สิทธิ์/ผู้เล่น/ช่วง ผูก seizedItemId+origin; หมดสิทธิ์เมื่อจบช่วงหรือออกจาก custody; ไม่ต่อโอน / ไม่ auto reveal; ถ้ารู้หมดหรือ quotaหมดไม่ให้สิทธิ์; personally checked fact เท่านั้น; ไม่ให้คะแนนตรวจจากการรู้ซ้ำ"
       },
       "optionalEffects": [
         "E18"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "darkone-silence-snuffer",
@@ -1396,23 +1730,37 @@
         "needed": "Explicit removable status allowlist, one-shot/expiry behavior and no-op cost policy.",
         "recommendation": "ลบเฉพาะสถานะที่ระบุได้; ไม่ล้างหนี้/คดี/ภาระสัญญาด้วยการลบไอคอน",
         "effectId": "E71",
-        "status": "pending"
+        "status": "approved-experimental-spec",
+        "approval": {
+          "meaning": "allowlist D01,D02,D05,D06,D19,D20,D22,D23 เท่านั้น มีผลอนาคตยังค้าง · S>=1 ลบ active debuff instance ที่เลือก1อย่าง · ห้ามD03/D07/D08/D09/D10/D21/D24 และห้ามลบ crime/loan/seal/contract/cooldown; ไม่คืนพลัง/HP/เงินหรือเปิดประตูย้อนหลัง",
+          "numericApproval": true,
+          "receipt": "remaining48-approval.json"
+        }
       },
       "boundary": "Explicit removable status allowlist, one-shot/expiry behavior and no-op cost policy.",
       "existingItemCaution": "ลบสถานะกับรักษาเครื่องมือชำระเป็นคนละเหตุการณ์ ห้ามลบภาระสัญญา",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 14,
+        "triggerCost": 1,
+        "magnitude": "S>=1 ลบ active debuff instance ที่เลือก1อย่าง",
+        "cap": {
+          "removedInstances": 1,
+          "binary": true,
+          "perEncounter": 2
+        },
+        "funding": "ดาบ/ที่ครอบรวมไม่เกิน2/ผู้เล่น/ช่วง ใช้สินค้าที่เลือกหมดไปเมื่อ accepted attempt; ห้ามกินเป้าหมายที่ไม่มีแล้ว",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "allowlist D01,D02,D05,D06,D19,D20,D22,D23 เท่านั้น มีผลอนาคตยังค้าง / ดาบ/ที่ครอบรวมไม่เกิน2/ผู้เล่น/ช่วง ใช้สินค้าที่เลือกหมดไปเมื่อ accepted attempt; ห้ามกินเป้าหมายที่ไม่มีแล้ว / ห้ามD03/D07/D08/D09/D10/D21/D24 และห้ามลบ crime/loan/seal/contract/cooldown; ไม่คืนพลัง/HP/เงินหรือเปิดประตูย้อนหลัง"
       },
       "optionalEffects": [
         "E09"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "deepsea-abyss-trident",
@@ -1437,18 +1785,27 @@
       "boundary": "Use real cleanse quote/chance/cap; specify spent tool only on accepted attempt.",
       "existingItemCaution": "ชำระกับท้าทายต้องเลือกบทบาทหลักให้ต่างจากคีมออร์ก",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 24,
+        "triggerCost": 0,
+        "magnitude": "เพิ่ม min(2000,1000*S) basis points ก่อน clamp โอกาสรวม5..95%",
+        "cap": {
+          "bonusBps": 1000,
+          "familyCapBps": 2000,
+          "chanceMax": 95
+        },
+        "funding": "คีมและตรีศูลรวมเพดาน20pp ไม่ใช้เป็นวัตถุดิบและไม่ลบทิ้ง; เป้าหมายต้องไม่ใช่เครื่องมือชิ้นเดียวกัน",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "การจ่ายชำระคำสาปจริงตาม cleanse quote เดิม / คีมและตรีศูลรวมเพดาน20pp ไม่ใช้เป็นวัตถุดิบและไม่ลบทิ้ง; เป้าหมายต้องไม่ใช่เครื่องมือชิ้นเดียวกัน / ไม่เปลี่ยนราคาหรือเปิด truth ก่อนตรวจ; ยังคงเสี่ยงล้มเหลวและจ่ายครั้งนั้นตามเดิม"
       },
       "optionalEffects": [
         "E05"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "deepsea-pressure-cuirass",
@@ -1473,18 +1830,27 @@
       "boundary": "Distinguish new armor from approved active shield; no automatic shield alias, no refund of quoted HP payment or revival of an already-dead player.",
       "existingItemCaution": "ลดทั้งโอกาสภัยและความเสียหายอาจแรงแบบคูณกัน",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 22,
+        "triggerCost": 0,
+        "magnitude": "min(2,floor(S),incomingDamage) ของ hit จริงครั้งถัดไป",
+        "cap": {
+          "damageReduction": 1,
+          "familyCap": 2,
+          "perEncounter": 1
+        },
+        "funding": "armor2ชนิดรวม1ครั้ง/ผู้เล่น/ช่วง; ไม่บวกกับ active shield pilot: ใช้แหล่งที่ลดได้มากที่สุดหนึ่งแหล่ง แล้วจึงกฎ damage เดิม",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "damageLife ที่เป็น harm ขณะถือก่อน harm ไม่ใช่ quoted HP payment / armor2ชนิดรวม1ครั้ง/ผู้เล่น/ช่วง; ไม่บวกกับ active shield pilot: ใช้แหล่งที่ลดได้มากที่สุดหนึ่งแหล่ง แล้วจึงกฎ damage เดิม / ไม่กัน bloodpayment/โจมตีตนจากคำสาป activation/deathcleanup ไม่ revive; consumeสิทธิ์เฉพาะลดได้จริง; ไม่มีปุ่มเปิดใช้"
       },
       "optionalEffects": [
         "E67"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "deepsea-kelp-saddle",
@@ -1516,18 +1882,27 @@
       "boundary": "Only completed paid trade with a qualifying new partner; prevent A↔B cycling, zero-price and barter farming.",
       "existingItemCaution": "คู่ effect ตรงกับกลองศึกกระดูก ต้องเลือกความต่างหรือเก็บเพียงหนึ่งบทบาท",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 20,
+        "triggerCost": 0,
+        "magnitude": "min(2,floor(S)) พลังตาม missing energy",
+        "cap": {
+          "energy": 1,
+          "familyCap": 2,
+          "perEncounter": 1
+        },
+        "funding": "คู่ผู้เล่นแบบไม่เรียงลำดับนับครั้งเดียวตลอดรัน ร่วมทั้งกลอง/อาน; ไม่เกิน1ครั้ง/ผู้เล่น/ช่วง; ต้องเป็น original และ paid>=1",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "ปิดการซื้อขาย PvP เป็นเครดิตจริงกับผู้เล่นคู่ใหม่ ขณะถือก่อนเปิด offer และตอน settle / คู่ผู้เล่นแบบไม่เรียงลำดับนับครั้งเดียวตลอดรัน ร่วมทั้งกลอง/อาน; ไม่เกิน1ครั้ง/ผู้เล่น/ช่วง; ต้องเป็น original และ paid>=1 / ไม่รวม barter/gift/self/loan/Spirit/NPC และสำเนา; origin ที่เคยรับผลแล้วไม่ให้ซ้ำ; ไม่ฟื้นเมื่อยกเลิก"
       },
       "optionalEffects": [
         "E64"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "deepsea-tideglass-buoy",
@@ -1559,18 +1934,26 @@
       "boundary": "10% base remains aged same principal; new money/early withdrawals cannot earn immediately. Shared bonus cap/physical hold age.",
       "existingItemCaution": "ดอกเบี้ยและประกันขโมยทำให้สะสมทุนปลอดภัย ต้องจำกัดผลตอบแทนรวม",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 20,
+        "triggerCost": 0,
+        "magnitude": "เพิ่ม100*S bpsแก่ aged principal; รวม buoy+pilot ring ไม่เกิน400bps; เครดิตรวมปัดลงครั้งเดียว",
+        "cap": {
+          "bonusBps": 100,
+          "sharedBonusCapBps": 400
+        },
+        "funding": "ถ่ายโอน/ฝากตัว buoy/ค้ำ/ให้ยืมตัดสิทธิ์ age; fresh-first withdrawals; เงินเพิ่มปลายช่วงไม่ earn; bonus bank-reserve",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "ถือ physical buoy เดิมต่อเนื่องครบขอบช่วงเดียวกับเงินฝากก้อนเดิม / ถ่ายโอน/ฝากตัว buoy/ค้ำ/ให้ยืมตัดสิทธิ์ age; fresh-first withdrawals; เงินเพิ่มปลายช่วงไม่ earn; bonus bank-reserve / ฐาน10%ไม่เปลี่ยน; ไม่แก้ ring200bps/ชิ้น; ห้ามเพิ่มเพดาน4ppเดิม; เงินคืน/เติมไม่ถือเป็นต้นเดิม"
       },
       "optionalEffects": [
         "E42"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "deepsea-lanternfish-cage",
@@ -1604,24 +1987,38 @@
         "needed": "Choose exactly which extra clue is public to this player and whether it spends a charge.",
         "recommendation": "แสดงข้อมูลสินค้าเพิ่มที่กำหนดชัด; ห้ามเปิดความแท้/คำสาปหรือซ่อนพ่อค้าก่อนการเลือกที่ปิดประตู",
         "effectId": "E35",
-        "status": "pending"
+        "status": "approved-experimental-spec",
+        "approval": {
+          "meaning": "PORTALS ก่อนเลือก ไม่มี unresolved event; ผู้เล่นเลือกเป้าหมายจากประตูจริง · S>=1 เปิด kind ของ stock slot2 ที่มีอยู่จริงของ portal ที่เลือก1บาน · ไม่แสดง base/ask/truth/curse/rarity หรือของคนอื่น; ไม่สร้าง stock ใหม่; ถ้ารู้แล้วหรือไม่มี slot2 ไม่คิดพลัง",
+          "numericApproval": true,
+          "receipt": "remaining48-approval.json"
+        }
       },
       "boundary": "Choose exactly which extra clue is public to this player and whether it spends a charge.",
       "existingItemCaution": "ข้อมูลเส้นทาง+ราคา+ประมูลสามระบบ พิจารณาลดให้เป็นของสืบประตูเฉพาะทาง",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 18,
+        "triggerCost": 1,
+        "magnitude": "S>=1 เปิด kind ของ stock slot2 ที่มีอยู่จริงของ portal ที่เลือก1บาน",
+        "cap": {
+          "extraKinds": 1,
+          "binary": true,
+          "perEncounter": 1
+        },
+        "funding": "beacon/cage รวม1portal/ผู้เล่น/ช่วง; ความรู้ส่วนตัวผูก portalId+itemId; เปลี่ยนประตูแล้วคำใบ้เดิมไม่ย้ายตาม; ของไม่หมด",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "PORTALS ก่อนเลือก ไม่มี unresolved event; ผู้เล่นเลือกเป้าหมายจากประตูจริง / beacon/cage รวม1portal/ผู้เล่น/ช่วง; ความรู้ส่วนตัวผูก portalId+itemId; เปลี่ยนประตูแล้วคำใบ้เดิมไม่ย้ายตาม; ของไม่หมด / ไม่แสดง base/ask/truth/curse/rarity หรือของคนอื่น; ไม่สร้าง stock ใหม่; ถ้ารู้แล้วหรือไม่มี slot2 ไม่คิดพลัง"
       },
       "optionalEffects": [
         "E02",
         "E23"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "deepsea-whale-conch-horn",
@@ -1646,18 +2043,27 @@
       "boundary": "Known payable recovery quote, real missing resource, minimum credit price and consumed-use policy explicit.",
       "existingItemCaution": "ดีลรักษาและโบนัสสัญญารับซื้อ NPC ควรไม่เป็นของหาเงินและรักษาครบในชิ้นเดียว",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 18,
+        "triggerCost": 0,
+        "magnitude": "quote - min(2,floor(S)) แต่ไม่น้อยกว่า1เครดิต",
+        "cap": {
+          "discountCredits": 1,
+          "familyCap": 2,
+          "minimumPrice": 1
+        },
+        "funding": "ใช้ได้กับดีล1ครั้งต่อช่วงตามระบบเดิม ไม่มีสิทธิ์ recovery เพิ่ม; ยาทาและแตรรวมเพดานเดียว",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "ดีล recovery ที่มีอยู่จริง มีทรัพยากรขาดและใช้สิทธิ์ recovery เดิม / ใช้ได้กับดีล1ครั้งต่อช่วงตามระบบเดิม ไม่มีสิทธิ์ recovery เพิ่ม; ยาทาและแตรรวมเพดานเดียว / แสดงราคาสุดท้ายก่อนยืนยัน; ไม่คืนเงินย้อนหลัง ไม่ลด HP payment หรือค่าจ้างวิญญาณ"
       },
       "optionalEffects": [
         "E55"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "swarm-pheromone-sprayer",
@@ -1682,18 +2088,27 @@
       "boundary": "Existing native E11 is an analogy, not approval for these two new rows. Preserve overvalue/backlash and95% cap.",
       "existingItemCaution": "ส่วนลดความเสี่ยงต่อรองกับคืนพลัง PvP ทำให้ใช้งานได้แทบทุกสายค้า",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 22,
+        "triggerCost": 0,
+        "magnitude": "เพิ่ม min(600,200*S) basis points ให้ acceptance ก่อน clamp95%",
+        "cap": {
+          "bonusBps": 200,
+          "familyCapBps": 600,
+          "chanceMax": 95
+        },
+        "funding": "ไวโอลิน/ฟีโรโมนรวมโบนัสใหม่ไม่เกิน6pp; translator pilot คง+2ppต่อstrengthตามสเปกเดิมและรวมกับผลใหม่เฉพาะก่อน overall95%cap ไม่ลดสิทธิ์pilotเดิม",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "NPC ตัดสินยอมรับราคาประเมินที่มีสิทธิ์ต่อรอง / ไวโอลิน/ฟีโรโมนรวมโบนัสใหม่ไม่เกิน6pp; translator pilot คง+2ppต่อstrengthตามสเปกเดิมและรวมกับผลใหม่เฉพาะก่อน overall95%cap ไม่ลดสิทธิ์pilotเดิม / ไม่ลด detection/backlash ไม่บังคับผู้เล่นอื่นยอม ไม่ข้าม overpriced/purchase/ban/trust gates"
       },
       "optionalEffects": [
         "E16"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "swarm-hive-egg-cluster",
@@ -1720,21 +2135,34 @@
         "needed": "Define what improves (copy share, copy effect or cooldown) without silently creating a second copy or granting trust tiers.",
         "recommendation": "ให้ระบุผลเสริมหนึ่งอย่างโดยตรงก่อนกำหนดเลข; ยังไม่ยก tier หรือปลดล็อกสำเนาซ้ำให้เอง",
         "effectId": "E33",
-        "status": "pending"
+        "status": "approved-experimental-spec",
+        "approval": {
+          "meaning": "ใช้สกิล Swarm สร้าง copy ใหม่ที่มีสิทธิ์ ขณะถือก่อนใช้ · copy valuePercent ของ Swarm จาก25/35/50 เพิ่ม min(10,floor(5*S)) points ตาม trust tier จริง · ราคาคัดลอกคำนวณครั้งเดียวหลัง bonus ไม่คืนเงิน/เพิ่มค่าของcopyที่มีแล้ว; ไม่ให้ trust tier ที่ยังไม่ปลดล็อก",
+          "numericApproval": true,
+          "receipt": "remaining48-approval.json"
+        }
       },
       "boundary": "Define what improves (copy share, copy effect or cooldown) without silently creating a second copy or granting trust tiers.",
       "existingItemCaution": "จำกัดเสริมสกิล Swarm ที่ปลดล็อกแล้ว; เป็น dependency ต่อการสร้างสำเนา ไม่ใช่สร้างสำเนาฟรีแยกสกิล",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 22,
+        "triggerCost": 0,
+        "magnitude": "copy valuePercent ของ Swarm จาก25/35/50 เพิ่ม min(10,floor(5*S)) points ตาม trust tier จริง",
+        "cap": {
+          "copyValueBonusPoints": 5,
+          "familyCapPoints": 10
+        },
+        "funding": "หนึ่งcopy/originเดิม; ไม่เปลี่ยน effectScaleของcopy0.4 ไม่เปลี่ยนtruth/cooldown ไม่อนุญาตcopyต้นทางซ้ำ",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "ใช้สกิล Swarm สร้าง copy ใหม่ที่มีสิทธิ์ ขณะถือก่อนใช้ / หนึ่งcopy/originเดิม; ไม่เปลี่ยน effectScaleของcopy0.4 ไม่เปลี่ยนtruth/cooldown ไม่อนุญาตcopyต้นทางซ้ำ / ราคาคัดลอกคำนวณครั้งเดียวหลัง bonus ไม่คืนเงิน/เพิ่มค่าของcopyที่มีแล้ว; ไม่ให้ trust tier ที่ยังไม่ปลดล็อก"
       },
       "optionalEffects": [],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "swarm-resin-spool",
@@ -1759,18 +2187,27 @@
       "boundary": "Successful paid seal exchange only; prevent the same seal cycling for energy; do not treat offered/cancelled as success.",
       "existingItemCaution": "ตราบาปเป็นการค้าระหว่างผู้เล่น ต้องกันส่งกลับไปมาเพื่อฟื้นพลัง",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 16,
+        "triggerCost": 0,
+        "magnitude": "min(2,floor(S)) พลังตาม missing energy",
+        "cap": {
+          "energy": 1,
+          "familyCap": 2,
+          "perEncounter": 1
+        },
+        "funding": "sealOrigin หนึ่งครั้งตลอดรันข้ามผู้เล่น; ผู้เล่นรับผลได้1ครั้ง/ช่วง; ถือก่อน offerถึงsettle",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "ผู้ถือ spool ซื้อ seal จากผู้เล่นอื่นผ่าน paid exchange สำเร็จ โดย credits>=1 / sealOrigin หนึ่งครั้งตลอดรันข้ามผู้เล่น; ผู้เล่นรับผลได้1ครั้ง/ช่วง; ถือก่อน offerถึงsettle / ไม่รวม seal award/freeoffer/cancel/แลกคืน/สำเนา; ไม่ทำให้จ่ายซื้อ seal0ได้พลัง; ไม่ให้ผู้ขายได้ผลซ้ำ"
       },
       "optionalEffects": [
         "E44"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "swarm-wing-membrane-glider",
@@ -1802,18 +2239,27 @@
       "boundary": "Existing native E34 cost analogy; retain escalating reroll cost/minimum, no free infinite rerolls.",
       "existingItemCaution": "ประหยัดพลังสอง action ต้องไม่ลดจนต้นทุนเสี่ยงแทบเป็นศูนย์",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 18,
+        "triggerCost": 0,
+        "magnitude": "ลด floor(S) พลัง รวม compass pilot+glider ไม่เกิน2 แต่ costสุดท้าย>=1",
+        "cap": {
+          "energyDiscount": 1,
+          "sharedDiscountCap": 2,
+          "minimumEnergyCost": 1
+        },
+        "funding": "escalating base cost เดิมยังเพิ่มทุกครั้ง; ไม่ reset count เมื่อโอน; ไม่มีสิทธิ์เปิดประตูที่ปิด",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "reroll portal ที่ผ่าน guards เดิม และจ่ายพลังจริง / escalating base cost เดิมยังเพิ่มทุกครั้ง; ไม่ reset count เมื่อโอน; ไม่มีสิทธิ์เปิดประตูที่ปิด / quote final cost ตรง server; ไม่ให้ reroll ขณะ eventค้าง/เลือกแล้ว; ไม่สร้าง infinite loop ฟรี"
       },
       "optionalEffects": [
         "E37"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "swarm-pupa-cradle",
@@ -1840,23 +2286,37 @@
         "needed": "Choose credits versus energy, funding/reservation and same-instance age requirements.",
         "recommendation": "แยกรางวัลพิเศษออกจากการคืนของเดิม; ไม่จ่ายเพียงเพราะปิดเกมและยังไม่ได้พบ Alien",
         "effectId": "E59",
-        "status": "pending"
+        "status": "approved-experimental-spec",
+        "approval": {
+          "meaning": "รับของเดิมคืนจาก Alien เมื่อครบ due และพบ Alien จริง ผู้ถือ cradle เดิมตลอด signedAt..return · min(3,floor(S)*actualReturnedOriginalCount,remainingRunCap6) credits เพิ่ม · loaned cradle ไม่ให้ผล; ผู้ตายคืนprincipalเพื่อscoreไม่รับโบนัส; ไม่มีของคืนจริงก็0; ไม่สร้าง contract stats ซ้ำ",
+          "numericApproval": true,
+          "receipt": "remaining48-approval.json"
+        }
       },
       "boundary": "Choose credits versus energy, funding/reservation and same-instance age requirements.",
       "existingItemCaution": "ผลตอบแทนสัญญา Alien กับเศษรักษาเป็นคนละวงจร ใช้ชาร์จ/ช่วงแยก",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 20,
+        "triggerCost": 0,
+        "magnitude": "min(3,floor(S)*actualReturnedOriginalCount,remainingRunCap6) credits เพิ่ม",
+        "cap": {
+          "bonusCreditsPerReturnedItem": 1,
+          "perContractCap": 3,
+          "perRunCap": 6
+        },
+        "funding": "โบนัสเครดิตเท่านั้น ไม่เพิ่ม energy; contractIdจ่าย1ครั้ง; จ่าย bank-reserveหลัง principalคืน; ไม่คิดที่Collector",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "รับของเดิมคืนจาก Alien เมื่อครบ due และพบ Alien จริง ผู้ถือ cradle เดิมตลอด signedAt..return / โบนัสเครดิตเท่านั้น ไม่เพิ่ม energy; contractIdจ่าย1ครั้ง; จ่าย bank-reserveหลัง principalคืน; ไม่คิดที่Collector / loaned cradle ไม่ให้ผล; ผู้ตายคืนprincipalเพื่อscoreไม่รับโบนัส; ไม่มีของคืนจริงก็0; ไม่สร้าง contract stats ซ้ำ"
       },
       "optionalEffects": [
         "E65"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "swarm-chitin-cuirass",
@@ -1881,18 +2341,27 @@
       "boundary": "Distinguish new armor from approved active shield; no automatic shield alias, no refund of quoted HP payment or revival of an already-dead player.",
       "existingItemCaution": "เทียบกับโล่ออร์ก/เกราะทะเล ต้องมีความต่างที่วัดได้มากกว่าชื่อ",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 22,
+        "triggerCost": 0,
+        "magnitude": "min(2,floor(S),incomingDamage) ของ hit จริงครั้งถัดไป",
+        "cap": {
+          "damageReduction": 1,
+          "familyCap": 2,
+          "perEncounter": 1
+        },
+        "funding": "armor2ชนิดรวม1ครั้ง/ผู้เล่น/ช่วง; ไม่บวกกับ active shield pilot: ใช้แหล่งที่ลดได้มากที่สุดหนึ่งแหล่ง แล้วจึงกฎ damage เดิม",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "damageLife ที่เป็น harm ขณะถือก่อน harm ไม่ใช่ quoted HP payment / armor2ชนิดรวม1ครั้ง/ผู้เล่น/ช่วง; ไม่บวกกับ active shield pilot: ใช้แหล่งที่ลดได้มากที่สุดหนึ่งแหล่ง แล้วจึงกฎ damage เดิม / ไม่กัน bloodpayment/โจมตีตนจากคำสาป activation/deathcleanup ไม่ revive; consumeสิทธิ์เฉพาะลดได้จริง; ไม่มีปุ่มเปิดใช้"
       },
       "optionalEffects": [
         "E68"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "beast-trail-scent-disc",
@@ -1933,23 +2402,37 @@
         "needed": "Specify eligible creator/player, creation moment and exclusions; never reroll existing goods.",
         "recommendation": "กำหนดสิทธิ์เฉพาะการสร้างของใหม่ให้เจ้าของ; แยกคำขอ Collector/ของวิญญาณ/สำเนา ไม่เปลี่ยนของที่มีอยู่แล้ว",
         "effectId": "E25",
-        "status": "pending"
+        "status": "approved-experimental-spec",
+        "approval": {
+          "meaning": "เฉพาะ new candidate ที่สร้างให้เจ้าของจากสกิล Beast/Alien หลังยืนยันการใช้สกิล โดยถือก่อนสร้าง · หลัง rarity base roll ที่ยังไม่ finalize: โอกาส min(1500,500*S)/10000 ขยับขึ้น1 tier ที่มี weight>0ใน profile · ไม่ใช้กับ stock portals, reroll portals, Collector, Spirit, Swarm copies, existingitems, polish/reveal; ไม่แตะ truth; ไม่สร้าง tier ที่ config ปิด",
+          "numericApproval": true,
+          "receipt": "remaining48-approval.json"
+        }
       },
       "boundary": "Specify eligible creator/player, creation moment and exclusions; never reroll existing goods.",
       "existingItemCaution": "คล้ายแผนที่ดาวแบบสองระบบ ควรเป็น baseline ที่ราคาถูกหรือเงื่อนไขง่ายกว่า",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 24,
+        "triggerCost": 0,
+        "magnitude": "หลัง rarity base roll ที่ยังไม่ finalize: โอกาส min(1500,500*S)/10000 ขยับขึ้น1 tier ที่มี weight>0ใน profile",
+        "cap": {
+          "promotionChanceBps": 500,
+          "familyCapBps": 1500,
+          "maxTierSteps": 1
+        },
+        "funding": "membrane/disc รวม15%; หนึ่ง deterministic extra roll/itemId; finalize appearance แล้ว scale base/ask/reservation ครั้งเดียว",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "เฉพาะ new candidate ที่สร้างให้เจ้าของจากสกิล Beast/Alien หลังยืนยันการใช้สกิล โดยถือก่อนสร้าง / membrane/disc รวม15%; หนึ่ง deterministic extra roll/itemId; finalize appearance แล้ว scale base/ask/reservation ครั้งเดียว / ไม่ใช้กับ stock portals, reroll portals, Collector, Spirit, Swarm copies, existingitems, polish/reveal; ไม่แตะ truth; ไม่สร้าง tier ที่ config ปิด"
       },
       "optionalEffects": [
         "E35"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "beast-tracker-horn",
@@ -1974,18 +2457,26 @@
       "boundary": "Add choices before generation, respect actual unlocked tier, no repeated paid selection or free item.",
       "existingItemCaution": "จำกัดเพิ่มตัวเลือกสกิล Beast; ความไว้ใจไม่ควรลัดปลดล็อกหลายสกิลในครั้งเดียว",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 20,
+        "triggerCost": 0,
+        "magnitude": "เพิ่ม min(2,floor(S)) candidates จาก count ของ Beast tier จริง",
+        "cap": {
+          "extraChoices": 1,
+          "familyCap": 2
+        },
+        "funding": "สร้าง candidate list1ครั้ง/abilityUseId; rerender/reconnectไม่สุ่มใหม่; ไม่เพิ่มจำนวนเลือก/จำนวนรับ",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "เริ่มใช้สกิล Beast หลังผ่าน cooldown/cost/target guards / สร้าง candidate list1ครั้ง/abilityUseId; rerender/reconnectไม่สุ่มใหม่; ไม่เพิ่มจำนวนเลือก/จำนวนรับ / ไม่ใช้กับ Alien/Swarm/Collector/Spirit ไม่เพิ่ม tier; เลือก1ชิ้นและแลกของตามกฎเดิม; E25ใช้เฉพาะcreationเดียวกัน"
       },
       "optionalEffects": [
         "E28"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "beast-rift-saddle",
@@ -2019,23 +2510,37 @@
         "needed": "Define eligible closure causes and provenance; do not clear a trade ban or bypass a pending event.",
         "recommendation": "เปิดเฉพาะประตูที่เหตุการณ์ปิด โดยยังแสดงเหตุผลและข้อห้ามการค้าจริง",
         "effectId": "E36",
-        "status": "pending"
+        "status": "approved-experimental-spec",
+        "approval": {
+          "meaning": "PORTALS ไม่มี eventค้าง/ยังไม่เลือก และ closure provenance cause=resolved-event · S>=1 เปิด event-closed portal ที่เลือก1บาน · ไม่เปิด crime/tradeban/statusD07/ห้องปิดโดยระบบ/คนตาย; ถ้าพ่อค้าติดbanยังเลือกไม่ได้; failure/noopไม่คิดพลัง",
+          "numericApproval": true,
+          "receipt": "remaining48-approval.json"
+        }
       },
       "boundary": "Define eligible closure causes and provenance; do not clear a trade ban or bypass a pending event.",
       "existingItemCaution": "เปิดประตูที่ปิดไม่ล้างแบนการค้า; รับของค้างคืนต้องเป็นธุรกรรมจริง",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 22,
+        "triggerCost": 1,
+        "magnitude": "S>=1 เปิด event-closed portal ที่เลือก1บาน",
+        "cap": {
+          "openedPortals": 1,
+          "binary": true,
+          "perEncounter": 1
+        },
+        "funding": "เปิดเฉพาะ disabled flag ของportalปัจจุบัน มี merchantId/portalId/causeEventIdให้เห็น; ไม่ reroll/refreshstock; itemไม่หมด",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "PORTALS ไม่มี eventค้าง/ยังไม่เลือก และ closure provenance cause=resolved-event / เปิดเฉพาะ disabled flag ของportalปัจจุบัน มี merchantId/portalId/causeEventIdให้เห็น; ไม่ reroll/refreshstock; itemไม่หมด / ไม่เปิด crime/tradeban/statusD07/ห้องปิดโดยระบบ/คนตาย; ถ้าพ่อค้าติดbanยังเลือกไม่ได้; failure/noopไม่คิดพลัง"
       },
       "optionalEffects": [
         "E21"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "beast-springjaw-trap",
@@ -2067,18 +2572,27 @@
       "boundary": "Free inspection entitlement after authoritative seizure custody; personally checked facet only, no copied/known-fact achievement farm.",
       "existingItemCaution": "กับดักไม่ใช่ปุ่มปฏิเสธขโมย; ตรวจของที่ยึดหลังเปลี่ยนเจ้าของแล้วเท่านั้น",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 18,
+        "triggerCost": 0,
+        "magnitude": "S>=1 ให้สิทธิ์ inspect facet ที่ไม่รู้1อย่างโดยไม่เสียพลัง แต่ยังใช้ normal inspection quota",
+        "cap": {
+          "freeFacets": 1,
+          "binary": true,
+          "perEncounter": 1
+        },
+        "funding": "seal/trap รวม1สิทธิ์/ผู้เล่น/ช่วง ผูก seizedItemId+origin; หมดสิทธิ์เมื่อจบช่วงหรือออกจาก custody; ไม่ต่อโอน",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "ใช้ seal-pick ยึด original สำเร็จและโอนถึงผู้เล่นที่ถือ tool ก่อนเสนอใช้ตราถึงsettle / seal/trap รวม1สิทธิ์/ผู้เล่น/ช่วง ผูก seizedItemId+origin; หมดสิทธิ์เมื่อจบช่วงหรือออกจาก custody; ไม่ต่อโอน / ไม่ auto reveal; ถ้ารู้หมดหรือ quotaหมดไม่ให้สิทธิ์; personally checked fact เท่านั้น; ไม่ให้คะแนนตรวจจากการรู้ซ้ำ"
       },
       "optionalEffects": [
         "E40"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "beast-amber-fur-mantle",
@@ -2103,18 +2617,27 @@
       "boundary": "Guard actual Dread rot once, not theft/seal seizure/quoted payment; retired/transferred item cannot protect retroactively.",
       "existingItemCaution": "บทบาทกันของผุพังและดีลรักษาควรเทียบเกราะไคตินและยามกลไก",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 22,
+        "triggerCost": 0,
+        "magnitude": "S>=1 ป้องกัน Dread rot เป้าหมายoriginal1ชิ้น",
+        "cap": {
+          "rotProtection": 1,
+          "binary": true,
+          "perEncounter": 1
+        },
+        "funding": "รวมmantle/B07ใช้เพียงแหล่งเดียว เลือกB07ก่อนแล้วจึงmantleถ้าไม่มี; ไม่ reroll target; ไม่ทำลาย mantleแทน",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "Dread เลือกrotจริงและมีของที่จะถูกทำลาย ขณะถือmantleก่อนroll / รวมmantle/B07ใช้เพียงแหล่งเดียว เลือกB07ก่อนแล้วจึงmantleถ้าไม่มี; ไม่ reroll target; ไม่ทำลาย mantleแทน / ไม่กันtheft/seizure/payment/expiry/copyretirement; คนตายไม่ใช้; ไม่มีเป้าหมายrotไม่กินสิทธิ์"
       },
       "optionalEffects": [
         "E63"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     },
     {
       "id": "beast-fangline-lasso",
@@ -2139,29 +2662,30 @@
       "boundary": "Forced duel cannot be refused; preserve legal target and mandatory timeout hand behavior.",
       "existingItemCaution": "ลดต้นทุนและโทษการขโมยพร้อมกันอาจกลายเป็นของจำเป็นของสายขโมย",
       "numericSpec": {
-        "anchor": null,
-        "triggerCost": null,
-        "magnitude": null,
-        "cap": null,
-        "funding": null,
-        "rarityCopyRule": null,
-        "lifecycle": null
+        "anchor": 20,
+        "triggerCost": 0,
+        "magnitude": "ลด min(1,floor(S)) จาก theft start energy แต่ final cost>=1",
+        "cap": {
+          "energyDiscount": 1,
+          "familyCap": 1,
+          "minimumEnergyCost": 1
+        },
+        "funding": "หนึ่งส่วนลดทุก theft start ที่จ่ายจริง แต่ repeat victim/cooldownเดิมไม่เปลี่ยน; freeze quoteก่อนstart",
+        "rarityCopyRule": "S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity",
+        "lifecycle": "เริ่ม theft duel ที่ targetถูกกฎหมาย/ฝ่ายยังมีชีวิต/มีพลังจ่าย / หนึ่งส่วนลดทุก theft start ที่จ่ายจริง แต่ repeat victim/cooldownเดิมไม่เปลี่ยน; freeze quoteก่อนstart / ไม่ทำให้ theftเสีย0 ไม่ข้าม forcedRPS/timeout/compensation/crime; no-op/invalid startไม่เสียพลัง"
       },
       "optionalEffects": [
         "E45"
       ],
-      "optionalStatus": "deferred-not-approved-by-this-audit"
+      "optionalStatus": "deferred-not-approved-by-this-audit",
+      "approvedSpecReference": {
+        "receipt": "remaining48-approval.json",
+        "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "sha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508"
+      }
     }
   ],
-  "missingNumericFields": [
-    "anchor",
-    "triggerCost",
-    "magnitude",
-    "cap",
-    "funding",
-    "rarityCopyRule",
-    "lifecycle"
-  ],
+  "missingNumericFields": [],
   "currentRulesToPreserve": [
     "Approved1551908 personal scoring weights/formula remain frozen; items do not receive leader awards automatically.",
     "Forced theft RPS cannot be refused; privacy and missing-hand timeout rules remain.",
@@ -2171,7 +2695,7 @@
     "New catalog is versioned; do not alias IDs to old kinds, regenerate art, flip default or rewrite old audits."
   ],
   "limitations": [
-    "No numeric proposal values or approval inferred. Current pending meanings must be settled before numeric spec implementation.",
+    "Exact full48 experimental approval in remaining48-approval.json supersedes prior pending-meaning/numeric notes; runtime bindings and release balance are not inferred.",
     "No play/simulation/balance experiment in this audit; previously verified pilot and normal flow keep their exact scopes.",
     "Authoritative per-feature owners require a caller/custody/knowledge/consumer review before later runtime edits."
   ]

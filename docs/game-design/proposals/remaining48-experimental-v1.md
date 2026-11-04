@@ -1,14 +1,14 @@
 # Remaining48 — สเปกทดลอง v1
 
-วันที่ 2026-11-04 · **รออนุมัติ ยังไม่ลงเกม**
+วันที่ 2026-11-04 · **อนุมัติค่าทดลองแล้ว2026-11-04 · ยังไม่ลงเกมครบ · ไม่ใช่ผล balance ยังไม่ลงเกม**
 
 [หน้าทบทวน](remaining48-experimental-v1.html) · [ข้อมูลต้นทาง](remaining48-experimental-v1.json) · [Audit ปัจจุบัน](../remaining48-audit.html) · [Context กลาง](../logic-item-relations.html)
 
-E05 อนุมัติเฉพาะความหมายแล้ว; ชุดนี้เสนอ 9 ความหมายที่เหลือและค่าทดลองทั้ง48 ไม่ถือว่าผู้ใช้อนุมัติโดยอ่านหรือไม่มีคำตอบ ราคาฐานไม่ใช่ราคาขายตายตัว ผลเสริมยังปิดอยู่ทั้งหมด ไม่มีการอ้างผล balance จากตารางนี้
+ผู้ใช้อนุมัติชุดค่าทดลองทั้ง48และ9ความหมายที่เหลือแล้ว ดู remaining48-approval.json; JSONต้นฉบับ532deceเก็บสถานะก่อนอนุมัติเพื่อรักษาhash ไม่ใช่สถานะการอนุมัติปัจจุบัน ราคาฐานไม่ใช่ราคาขายตายตัว ผลเสริมยังปิดอยู่ทั้งหมด ไม่มีการอ้างผล balance จากตารางนี้
 
 ## กฎร่วม
 
-1. นี่เป็นข้อเสนอค่าทดลองใหม่ทั้งหมด48ชิ้น ไม่ใช่การลงเกม; E05อนุมัติเฉพาะความหมาย ที่เหลือ9ความหมายและตัวเลขทั้งหมดรออนุมัติชุดนี้ ใช้ชื่อ/ภาพ/palette/typeเดิม ไม่สร้างภาพใหม่
+1. นี่เป็นข้อเสนอค่าทดลองใหม่ทั้งหมด48ชิ้น ไม่ใช่การลงเกม; E05อนุมัติเฉพาะความหมาย ที่เหลือ9ความหมายและตัวเลขทั้งหมดอนุมัติค่าทดลองแล้ว2026-11-04 · ยังไม่ลงเกมครบ · ไม่ใช่ผล balanceชุดนี้ ใช้ชื่อ/ภาพ/palette/typeเดิม ไม่สร้างภาพใหม่
 2. anchor เป็นราคาฐานก่อน priceRange/rarity ตาม generatorเดิม ไม่ใช่ราคาขายตายตัว; maxLife/maxEnergy/inspectionquota/stockbudget/forcedRPS/Collector3+2/Spirit/scoringweights เดิมไม่เปลี่ยน นอกจาก E69 asset bonus ที่เสนออย่างเปิดเผย
 3. S คือผลรวม strength=rarityEffect*(copy?0.4:1) ของเครื่องมือกลุ่มเดียวกันสูงสุด5ชิ้นเรียงstrengthมากก่อนแล้วinstanceIdที่ถือจริง; original/copyใช้สูตรเดิม ไม่คูณราคา/baseซ้ำ; จำนวนเต็มปัดลง basispointsปัดลงก่อนคำนวณเงิน แล้วเงินปัดลงเมื่อจ่าย; สำหรับbinaryให้ใช้ S=ค่าstrengthสูงสุดของinstanceเดียว ไม่รวมเศษหลายชิ้น; binaryสิทธิ์ต้อง S>=1 ไม่เพิ่มจำนวนสิทธิ์ตามrarity
 4. heldใช้ได้เฉพาะผู้มีชีวิตที่เป็นเจ้าของจริงในinventory ไม่อยู่vault/escrow/auction/loan/Alienloan/lockที่ห้ามใช้; ไม่ต้องรู้truthเพื่อได้heldbonus และheldbonusไม่เปลี่ยนตามtruthลับ จึงไม่รั่วauth/curse
@@ -23,7 +23,7 @@ E05 อนุมัติเฉพาะความหมายแล้ว; �
 13. รันเก่า/ค่าdefault/version3/version4และauditbytesเดิมต้องreplayเหมือนเดิม; สร้างcatalog/effectrevisionใหม่หลังอนุมัติเท่านั้น ก่อนเปิดdefault56ต้องมีครบcapability/eventpredicate/UI/bot/reconnect/replay/benchmarkทุกชิ้น ไม่ใช้newIDaliasสินค้าเก่า
 14. UIใช้ComicMenu/Button/Tooltip/tokensเดิม ไม่redesignหน้าที่ไม่เกี่ยว; ไม่มีscroll/dropdownขยาย; effectแสดงknowncost/gain/target/ข้อจำกัดและเหตุผลdisabled ไม่แสดงtruthที่ยังไม่ตรวจ; รายงานlogactualamountและcapที่ใช้ ไม่แสดงseed/มือRPS/ของblind
 
-## 9 ข้อที่ต้องตัดสินพร้อมชุดนี้
+## 9 ข้อที่อนุมัติพร้อมชุดนี้
 
 - **SCOPE-RARITY / E25**: เฉพาะ new candidate ที่สร้างให้เจ้าของจากสกิล Beast/Alien หลังยืนยันการใช้สกิล โดยถือก่อนสร้าง · หลัง rarity base roll ที่ยังไม่ finalize: โอกาส min(1500,500*S)/10000 ขยับขึ้น1 tier ที่มี weight>0ใน profile · ไม่ใช้กับ stock portals, reroll portals, Collector, Spirit, Swarm copies, existingitems, polish/reveal; ไม่แตะ truth; ไม่สร้าง tier ที่ config ปิด
 - **MEANING-SWARM / E33**: ใช้สกิล Swarm สร้าง copy ใหม่ที่มีสิทธิ์ ขณะถือก่อนใช้ · copy valuePercent ของ Swarm จาก25/35/50 เพิ่ม min(10,floor(5*S)) points ตาม trust tier จริง · ราคาคัดลอกคำนวณครั้งเดียวหลัง bonus ไม่คืนเงิน/เพิ่มค่าของcopyที่มีแล้ว; ไม่ให้ trust tier ที่ยังไม่ปลดล็อก
@@ -454,4 +454,4 @@ held · 0 พลัง · บ่วงเส้นเขี้ยว
 
 ตรวจ48IDs/8พ่อค้า/35contracts/9meaning proposals, source hashes, primary/type และ12ตัวอย่าง rarity×copy ได้ ตัวอย่างคณิตศาสตร์ไม่ใช่หลักฐานว่า runtime ทำงานหรือ balance แล้ว
 
-E69 เสนอเพิ่มคะแนน A แบบจำกัดแยกเฉพาะ assets; E40 จำกัดเฉพาะ NPC trust loss; E25 จำกัด creation ของ Beast/Alien; นี่เป็น material rule decisions ที่ต้องอนุมัติก่อนโค้ดตาม AGENTS.md ส่วนค่า pilot8, weights และ baseline เดิมยังตรึงไว้
+E69 เพิ่มคะแนน A แบบจำกัดแยกเฉพาะ assets; E40 จำกัดเฉพาะ NPC trust loss; E25 จำกัด creation ของ Beast/Alien; ผู้ใช้อนุมัติค่าทดลองพร้อมชุด48แล้วตาม remaining48-approval.json ส่วนค่า pilot8, weights และ baseline เดิมยังตรึงไว้

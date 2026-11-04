@@ -2,59 +2,59 @@
 
 New56 only. Compiled membership verifies8pilot/48absent; owner references locate existing primitives only and DO NOT claim proposed causal bindings or lifecycle support. No runtime/config/art/weight changes.
 
-Current native: **8 /56**. Missing new IDs: **48**, six per merchant. Ready numeric specs: **0**. This is an investigation map, not runtime bindings or design approval.
+Current native: **8 /56**. Missing new IDs: **48**, six per merchant. Approved numeric specs: **48**. See [approved package](proposals/remaining48-experimental-v1.html) and [receipt](remaining48-approval.json); numeric data is not a runtime binding.
 
 ## Meaning decisions
 
 ### MEANING-CHALLENGE
 settleChallenge compares claim with actual truth. It has no random win roll; CHALLENGE_PCT changes payment, not the chance of truth.
-Meaning resolved by user; magnitude/cap/cost still need approval.
-Approved meaning only: เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง; numeric approval: false.
+Meaning and exact experimental numbers approved by the full48 receipt; runtime remains unbound.
+Approved meaning: เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง; full numeric package approval: true.
 
 ### SCOPE-RARITY
 ensureItemAppearance rolls once and scales base/ask/reservation once. Stock, ability choices, copies, Collector and Spirit delivery have different ownership/privacy paths.
-Missing: Specify eligible creator/player, creation moment and exclusions; never reroll existing goods.
-Suggested direction (unapproved): กำหนดสิทธิ์เฉพาะการสร้างของใหม่ให้เจ้าของ; แยกคำขอ Collector/ของวิญญาณ/สำเนา ไม่เปลี่ยนของที่มีอยู่แล้ว
+Meaning and exact experimental numbers approved by the full48 receipt; runtime remains unbound.
+Approved meaning: เฉพาะ new candidate ที่สร้างให้เจ้าของจากสกิล Beast/Alien หลังยืนยันการใช้สกิล โดยถือก่อนสร้าง · หลัง rarity base roll ที่ยังไม่ finalize: โอกาส min(1500,500*S)/10000 ขยับขึ้น1 tier ที่มี weight>0ใน profile · ไม่ใช้กับ stock portals, reroll portals, Collector, Spirit, Swarm copies, existingitems, polish/reveal; ไม่แตะ truth; ไม่สร้าง tier ที่ config ปิด; full numeric package approval: true.
 
 ### MEANING-SWARM
 Swarm currently makes one copy per origin at25/35/50% from actual trust tier; separate cooldown and once-per-encounter guards apply.
-Missing: Define what improves (copy share, copy effect or cooldown) without silently creating a second copy or granting trust tiers.
-Suggested direction (unapproved): ให้ระบุผลเสริมหนึ่งอย่างโดยตรงก่อนกำหนดเลข; ยังไม่ยก tier หรือปลดล็อกสำเนาซ้ำให้เอง
+Meaning and exact experimental numbers approved by the full48 receipt; runtime remains unbound.
+Approved meaning: ใช้สกิล Swarm สร้าง copy ใหม่ที่มีสิทธิ์ ขณะถือก่อนใช้ · copy valuePercent ของ Swarm จาก25/35/50 เพิ่ม min(10,floor(5*S)) points ตาม trust tier จริง · ราคาคัดลอกคำนวณครั้งเดียวหลัง bonus ไม่คืนเงิน/เพิ่มค่าของcopyที่มีแล้ว; ไม่ให้ trust tier ที่ยังไม่ปลดล็อก; full numeric package approval: true.
 
 ### VISIBILITY-PORTAL
 Portals and their stock already exist before selection; their public hint does not reveal all hidden item facts.
-Missing: Choose exactly which extra clue is public to this player and whether it spends a charge.
-Suggested direction (unapproved): แสดงข้อมูลสินค้าเพิ่มที่กำหนดชัด; ห้ามเปิดความแท้/คำสาปหรือซ่อนพ่อค้าก่อนการเลือกที่ปิดประตู
+Meaning and exact experimental numbers approved by the full48 receipt; runtime remains unbound.
+Approved meaning: PORTALS ก่อนเลือก ไม่มี unresolved event; ผู้เล่นเลือกเป้าหมายจากประตูจริง · S>=1 เปิด kind ของ stock slot2 ที่มีอยู่จริงของ portal ที่เลือก1บาน · ไม่แสดง base/ask/truth/curse/rarity หรือของคนอื่น; ไม่สร้าง stock ใหม่; ถ้ารู้แล้วหรือไม่มี slot2 ไม่คิดพลัง; full numeric package approval: true.
 
 ### CAUSE-PORTAL
 Portal disabled state and merchant trade bans are distinct runtime constraints.
-Missing: Define eligible closure causes and provenance; do not clear a trade ban or bypass a pending event.
-Suggested direction (unapproved): เปิดเฉพาะประตูที่เหตุการณ์ปิด โดยยังแสดงเหตุผลและข้อห้ามการค้าจริง
+Meaning and exact experimental numbers approved by the full48 receipt; runtime remains unbound.
+Approved meaning: PORTALS ไม่มี eventค้าง/ยังไม่เลือก และ closure provenance cause=resolved-event · S>=1 เปิด event-closed portal ที่เลือก1บาน · ไม่เปิด crime/tradeban/statusD07/ห้องปิดโดยระบบ/คนตาย; ถ้าพ่อค้าติดbanยังเลือกไม่ได้; failure/noopไม่คิดพลัง; full numeric package approval: true.
 
 ### TARGET-DEFEAT
 PvP and merchant duel defeats have different consequences, including seals, cooldown, crime and possible resource loss.
-Missing: Name the reduced consequence; cannot infer all penalties are interchangeable.
-Suggested direction (unapproved): เลือกบรรเทาค่าเสียหายหนึ่งชนิด; ไม่ยกเลิกการดวล/ตราสิทธิ์ของผู้เสียหาย/กฎหมดเวลา
+Meaning and exact experimental numbers approved by the full48 receipt; runtime remains unbound.
+Approved meaning: แพ้การขโมยจากพ่อค้าเท่านั้น ขณะถือ sentry ก่อนเริ่มดวล · S>=1 ลด trust loss ของ NPC-theft defeat จาก2เหลือ1 (หาก trust เหลือน้อยลดได้ตามจริง) · ไม่ลดโทษ PvP/compensation/seal/ban/D21 ไม่ยกเลิก duel; นี่คือข้อเสนอจำกัดความหมายใหม่ที่ต้องอนุมัติ; full numeric package approval: true.
 
 ### SCOPE-ALIEN-RETURN
 Alien returns original loaned goods plus credits and energy per actual returned item; principal return at Collector is different from successful meeting reward.
-Missing: Choose credits versus energy, funding/reservation and same-instance age requirements.
-Suggested direction (unapproved): แยกรางวัลพิเศษออกจากการคืนของเดิม; ไม่จ่ายเพียงเพราะปิดเกมและยังไม่ได้พบ Alien
+Meaning and exact experimental numbers approved by the full48 receipt; runtime remains unbound.
+Approved meaning: รับของเดิมคืนจาก Alien เมื่อครบ due และพบ Alien จริง ผู้ถือ cradle เดิมตลอด signedAt..return · min(3,floor(S)*actualReturnedOriginalCount,remainingRunCap6) credits เพิ่ม · loaned cradle ไม่ให้ผล; ผู้ตายคืนprincipalเพื่อscoreไม่รับโบนัส; ไม่มีของคืนจริงก็0; ไม่สร้าง contract stats ซ้ำ; full numeric package approval: true.
 
 ### SCOPE-COLLECTOR
 Approved personal scoring applies B10/D10 to assets plus ordinary accomplishments, while itemScoreValue is an asset valuation primitive.
-Missing: Choose asset-only scope versus all-score modifier, eligible estates and exact visibility. Do not reuse B10 as an alias accidentally.
-Suggested direction (unapproved): เสนอจำกัดที่มูลค่าสินค้าตอน Collector; ไม่เพิ่มเครดิต คะแนนผลงาน หรือคะแนนวิญญาณโดยปริยาย
+Meaning and exact experimental numbers approved by the full48 receipt; runtime remains unbound.
+Approved meaning: Collector final settlement สำหรับคนมีชีวิตหลังคืน principal และปิดหนี้แล้ว · bonus=min(20,floor(eligibleOriginalItemAssetSum * min(1000,200*S)/10000)); บวกเฉพาะ A ก่อน B10/D10 ตามสูตรเดิม · ไม่ alias B10 ไม่คูณ P/G; แสดง asset bonus แยก; ต้องอนุมัติเป็นกฎคะแนนใหม่ในชุดนี้ ไม่แก้ approved weights JSON; full numeric package approval: true.
 
 ### ALLOWLIST-REMOVE
 Status removal is separate from crime records, loan/Spirit/NPC contracts, cooldowns and Collector eligibility.
-Missing: Explicit removable status allowlist, one-shot/expiry behavior and no-op cost policy.
-Suggested direction (unapproved): ลบเฉพาะสถานะที่ระบุได้; ไม่ล้างหนี้/คดี/ภาระสัญญาด้วยการลบไอคอน
+Meaning and exact experimental numbers approved by the full48 receipt; runtime remains unbound.
+Approved meaning: allowlist D01,D02,D05,D06,D19,D20,D22,D23 เท่านั้น มีผลอนาคตยังค้าง · S>=1 ลบ active debuff instance ที่เลือก1อย่าง · ห้ามD03/D07/D08/D09/D10/D21/D24 และห้ามลบ crime/loan/seal/contract/cooldown; ไม่คืนพลัง/HP/เงินหรือเปิดประตูย้อนหลัง; full numeric package approval: true.
 
 ### ALLOWLIST-EXTEND
 Statuses have starts/expires/charges; changing expiry, magnitude and charges are different mechanisms.
-Missing: Explicit extendable allowlist and per-status-instance cap; exclude contracts and Collector reveal rights.
-Suggested direction (unapproved): หากยืด ให้ยืดระยะเวลาของสถานะที่มีอยู่ ไม่เพิ่มชาร์จหรือความแรงและไม่ต่ออายุด้วยการโอนวน
+Meaning and exact experimental numbers approved by the full48 receipt; runtime remains unbound.
+Approved meaning: เลือก active finite-expiry buff instance ใน allowlist B03,B05,B11,B14,B16 ที่ยังไม่ใช้หมด · S>=1 ขยาย expiresAt +1 ช่วง ไม่เพิ่ม charges/magnitude · exclude B10/คะแนน/อายุไม่มีที่สิ้นสุด/triggerต้นช่วง/สัญญา/Collector/Spirit/expiryที่หมดแล้ว; สำเนาสืบสถานะขยายของ buff ไม่เริ่มใหม่; full numeric package approval: true.
 
 ## Per-item investigation table
 
@@ -118,6 +118,6 @@ Suggested direction (unapproved): หากยืด ให้ยืดระย
 - Spirit work bonuses remain1credit1point and paid on delivery only; dead ordinary actions do not resume.
 - New catalog is versioned; do not alias IDs to old kinds, regenerate art, flip default or rewrite old audits.
 
-Each item still needs an explicit anchor, trigger/cost, magnitude/cap, source of payouts, rarity/copy rounding, charge/ownership age, false/cursed activation behavior, local UI entitlement/selection, score-hook policy, cancellation/death/Collector handling, and public-command baseline/candidate exposure. Reuse installed components and handlers after approving values. Do not generate more art.
+Approved48 anchors/contracts are referenced from the frozen package. Still implement owner hooks, charge/age/custody/funding/truth/death handling, UI and public-command benefit/replay evidence; registration or document data does not prove these. Do not generate more art.
 
 Regenerate after building Comic server: `node docs/game-design/scripts/audit-remaining48.mjs`. `--check` verifies source/compiled pins, IDs, counts and full source-owner resolution; it does not prove gameplay or balance.

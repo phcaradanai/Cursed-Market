@@ -11,7 +11,7 @@
     "items": 48,
     "merchants": 8,
     "contracts": 35,
-    "pendingMeanings": 9
+    "pendingMeanings": 0
   },
   "examples": [
     {
@@ -199,5 +199,6 @@
   ],
   "runtimeTestsRun": false,
   "balanceVerified": false,
-  "approved": false
+  "approved": true,
+  "approvalFile": "remaining48-approval.json"
 }

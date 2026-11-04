@@ -128,10 +128,10 @@ test('D11 swarm venom drains one energy per settlement for two settlements',()=>
 });
 test('Comic preserves shared legacy family PNGs while native items and merchant portraits have distinct art',()=>{
   const kinds=Object.keys(ITEM_SPECS) as ItemKind[],native=kinds.filter(k=>ITEM_SPECS[k].nativeEffect),legacy=kinds.filter(k=>!ITEM_SPECS[k].nativeEffect);
-  assert.equal(native.length,8);assert.equal(legacy.length,66);assert.equal(new Set(legacy.map(itemImage)).size,10);
+  assert.equal(native.length,56);assert.equal(legacy.length,66);assert.equal(new Set(legacy.map(itemImage)).size,10);
   for(const kind of legacy)assert.equal(itemImage(kind),`/art/comic/items/${itemFamily(kind)}-v2.png`);
   const hashes=new Set<string>();
   for(const path of new Set(kinds.map(itemImage))){const file=`src/appraisal-client/public${path}`;assert(existsSync(file),file);const bytes=readFileSync(file);assert.equal(bytes.subarray(0,8).toString('hex'),'89504e470d0a1a0a');hashes.add(createHash('sha256').update(bytes).digest('hex'));}
-  assert.equal(hashes.size,18,'ten established family cutouts and eight distinct native items');
+  assert.equal(hashes.size,66,'ten established family cutouts and56distinct native items');
   const portraits=new Set<string>();for(const npc of Object.keys(NPC_SPECS) as NpcId[]){assert.equal(npcImage(npc),`/art/comic/merchants/${npc}/idle.png`);const bytes=readFileSync(`src/appraisal-client/public${npcImage(npc)}`);assert.equal(bytes.subarray(0,8).toString('hex'),'89504e470d0a1a0a');portraits.add(createHash('sha256').update(bytes).digest('hex'));}assert.equal(portraits.size,8);
 });

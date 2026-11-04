@@ -34,7 +34,7 @@
 
 - [x] Write failing tests for exact48IDs/6per merchant/35rules/source SHA, frozen approval, all rarity×copy cases, strongest5/binary max/tie ordering and nonmutation, rounding/discount floors/funding limits.
 - [x] Observe missing-module failure, implement only those exports, run build:server and compiled foundation tests; generator --check must match frozen approved source, not trust a handwritten duplicate.
-- [ ] Commit checkpoint with explicit8native/48still-unbound status; do not call completed foundations a playable full56 rollout.
+- [x] Commit checkpoint e15a4a6 with explicit8native/48still-unbound status; do not call completed foundations a playable full56 rollout.
 
 ### Task2 — Versioned native56 catalog and selection/description paths
 
@@ -42,9 +42,9 @@
 
 **Interfaces:** new catalogVersion5 selects stable new56 IDs,7per merchant; existing versions1–4 keep original arrays/order and audit bytes. ItemKind extends Remaining48Kind; family stays a visual type distinct from mechanical capabilities. ITEM_SPECS/image lookup uses actual metadata with no old-ID alias. Explicit active/consume capabilities only where approved; public views describe actual binding readiness.
 
-- [ ] Fail tests for56unique IDs/8×7, existing assets/anchors, kind/image/consumable/activation metadata and legacy pool preservation. Unknown facts remain hidden; NPC/Collector/Spirit source pools stay separate.
-- [ ] Implement versioned pool; do not enable at main entry or expose new-room option until Task3–6 complete.
-- [ ] Run catalog/spawn/inspection/copy/purchase/loan/vault/auction/Collector/Spirit/replay suites; preserve sealed old audit results.
+- [x] Fail tests for56unique IDs/8×7, existing assets/anchors, kind/image/consumable/activation metadata and legacy pool preservation. Unknown facts remain hidden; NPC/Collector/Spirit source pools stay separate.
+- [x] Implement versioned pool; do not enable at main entry or expose new-room option until Task3–6 complete.
+- [x] Run catalog/spawn/inspection/copy/purchase/loan/vault/auction/Collector/Spirit/replay suites; preserve sealed old audit results.
 
 ### Task3 — Automatic settlement families
 
@@ -85,3 +85,11 @@
 - [ ] Exercise every56item's approved primary benefit with ordinary commands plus multi-owner custody/replay; paired seed/config and normal40/6multi-policy finance/theft/Spirit matrices must distinguish exposure from ownership.
 - [ ] Reconcile money/log/score/rarity/death/Collector/Spirit invariants, then compare approved UI baselines and full end-to-end requirements. Default56 activation is a separate final step after evidence, never inferred from registration or green unit tests.
 - [ ] Update main HTML, context, roadmap, captures and verification after each actual checkpoint. Keep whole-game goal active until every objective requirement is proven.
+
+## Task2 checkpoint — 2026-11-04
+
+Catalog5 registered56,7per merchant, exact approved anchors/art. E05 first canonical owner binding tested;47remaining hooks explicitly disabled.198focused +65lifecycle +6Collector socket tests pass.32sealed old normal-game audits replay unchanged;4new normal-budget5runs reach RESULTS,1008commands,55kinds;16old pilot public audits byte-identical. UI10contracts/18menus/14unchanged approved baselines pass. See [verification](../../validation/native56-catalog-2026-11-04/verification.json). This is not full56 effects, balance acceptance or game completion.
+
+Ruling: archive first catalog5 semantics as stage1 (`native56-stage1.json`); before Task3 adds further effects introduce an explicit effects revision. Absent revision must keep pilot8+E05, because sparse5 audits now exist. Cost if wrong: future replay divergence; four sealed full-game regression archives and restored readiness assertions guard it.
+
+Task3 first E05 benefit verified: correct false claim adds approved500bps×S, capped1500bps and total9000bps; unchanged truth/no random wins, real owner/nonloan eligibility. Remaining47 owner bindings still pending.

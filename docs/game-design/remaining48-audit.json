@@ -1,13 +1,15 @@
 {
   "version": 1,
   "asOf": "2026-11-04",
-  "observedRevision": "532dece12b269ffe243e09f9b41fbf842657e45e",
+  "observedRevision": "e15a4a6885d641f1cddbec5aa16174325bac6636",
   "status": "factual-audit-not-a-numeric-spec-or-approval",
-  "scope": "New56 only. Compiled membership verifies8pilot/48absent; owner references locate existing primitives only and DO NOT claim proposed causal bindings or lifecycle support. No runtime/config/art/weight changes.",
+  "scope": "New56 only. Compiled membership verifies56registered; verified primary9, pending47; owner references locate existing primitives only and DO NOT claim proposed causal bindings or lifecycle support. This audit does not itself change runtime/config/art/weights.",
   "summary": {
     "merchants": 8,
     "catalogItems": 56,
-    "nativeNewIds": 8,
+    "nativeNewIds": 56,
+    "verifiedPrimary": 9,
+    "pendingPrimary": 47,
     "remaining": 48,
     "perMerchant": 6,
     "primaryEffectGroups": 35,
@@ -18,38 +20,40 @@
     "optionalEffectsEnabled": 0
   },
   "sourceFingerprints": {
+    "docs/game-design/native56-runtime.json": "e0b73d44e87c43df6675ffa53c824ae76aa03ea8d92d162c20e5067656b89673",
+    "apps/comic/src/game/appraisal/remaining48-effects.ts": "6913352e12cc9dfac8411c14c018bef42e12208e79a27cdbc61a066f261c1af7",
     "docs/game-design/remaining48-approval.json": "fa26756f2c79d63f7531192d9dcc93ba914e19501315bdb21079b40466bf5af1",
     "docs/game-design/proposals/remaining48-experimental-v1.json": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508",
-    "docs/game-design/scripts/audit-remaining48.mjs": "369c22cdf69f89bc8254ef5587c1bb24badb1bb7ffc6fe64b1b0c0f0903ef3d0",
+    "docs/game-design/scripts/audit-remaining48.mjs": "3102a61fc16ed51e0dafb00ee148f60ff3bb2f17b20e44194e3a3c09cb54a4c1",
     "docs/game-design/logic-item-relations.json": "983d130078b1b6f6f1569dd05f295190a73523c1abaa0aa59bc29e0a6693b801",
     "docs/game-design/remaining48-decisions.json": "9dd5d24ec916e401c01ad963d727c926be459931ab656ca82d9879af84c0b70c",
     "docs/game-design/new56-pilot-approval.json": "cdcf630f60c8ed07db87008cd7c845575b3d304bdd0c7167abbf899a5e3b5d65",
     "docs/game-design/new56-pilot-proposal.json": "6881755d843c45dd294fd629802321601fd3c596dc5d7bb771d9230a6ce406c5",
     "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/catalog.json": "1aba59f2a0e8fb48f49865fdb22c89fd7a17044537f7140f322952f66a7c2b44",
-    "apps/comic/src/game/appraisal/content.ts": "71887f52012d6f855c1e130e0339c6785b3f91abe8f9efa5e2b8b2a181d3a20b",
+    "apps/comic/src/game/appraisal/content.ts": "c07a9bdf0e094641efcfc7f941515d5990535116b50000f866ba0ad086beb7d7",
     "apps/comic/src/game/appraisal/pilot-catalog.ts": "ad8dbb487623f3b8d0486c87fe86c5fe72c0d50c553a7a34bc526c52579e8c62",
-    "apps/comic/dist/src/game/appraisal/content.js": "d86b046d48ed1677df59d08232d0d66763ae1f46ffbe95a3573511ac648c1347",
+    "apps/comic/dist/src/game/appraisal/content.js": "bec1f50b1dbc94e84a731d71b541e5c3da2b3286434d5dac749e50d9a4659f85",
     "apps/comic/dist/src/game/appraisal/pilot-catalog.js": "477cd3fbf6cc7f36495306f1eedd7ee1c8f82dcd40da2550aecb368d906d0282",
-    "apps/comic/src/game/appraisal/mechanics.ts": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302",
+    "apps/comic/src/game/appraisal/mechanics.ts": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507",
     "apps/comic/src/game/appraisal/personal-scoring.ts": "6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5",
-    "apps/comic/src/game/appraisal/engine.ts": "27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91",
-    "apps/comic/src/game/appraisal/passives.ts": "ef49c5ade780d0f68a7422a8e8a3b433237525311ef1c555d3aed61c45bc99bf",
+    "apps/comic/src/game/appraisal/engine.ts": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181",
+    "apps/comic/src/game/appraisal/passives.ts": "3915bdda874eae43be5e7318626a6748b29aa56cb35748048669ac1f5e051280",
     "apps/comic/src/game/appraisal/cleanse-rules.ts": "6fb69a3f4a4aa870670248255e02eb81d3fc527dbd4d9c975ba14eac81915cd1",
-    "apps/comic/src/game/appraisal/theft.ts": "aac017becded983e0106125bdb8d5cb379e9227babe782681f3486f69e344e76",
+    "apps/comic/src/game/appraisal/theft.ts": "aaf4cc62d6d20f028fff9fdef405538cda8b32009770abf2f5ac9e50cd9da52a",
     "apps/comic/src/game/appraisal/npc-events.ts": "f111c7cd8598b85165a91e5b88f7874d62d5502d3dce14a80b9fa71541e93bcf",
-    "apps/comic/src/game/appraisal/challenge.ts": "35a2d880e49702b24560eae95fa6b2194c2e02f474f9a8ec2842e0114f3c6fec",
+    "apps/comic/src/game/appraisal/challenge.ts": "ef3e4aa22bb4ca5d897da799f6f8e2cf35c66a6e76d895c6892c29d09f943a03",
     "apps/comic/src/game/appraisal/brokerage.ts": "18b4d1f6273adc9c1e8726831a16626905c0f2ffc0a8af4a146b7813c809a4b8",
     "apps/comic/src/game/appraisal/ability-rules.ts": "3e9f33f54b34c91fb26f6d0926f9df83e646dc3623a7c8bbf3beed5cedbc9139",
-    "apps/comic/src/game/appraisal/views.ts": "1b94d331ad46a325185943f4260feaa3e6514724e317855a1740bfd40800a9f7",
+    "apps/comic/src/game/appraisal/views.ts": "c0604453c70f9ea3fe5bc27ec1330c5bc087d8bc1dfabb7c42d4ba46ea0235e8",
     "apps/comic/src/game/appraisal/core2-rules.ts": "c512cac29fda1d586afcc82ece3ac15a0411650283d1226ae12787c76bfce0ea",
     "apps/comic/src/game/appraisal/rarity.ts": "3672184a63c2899151c92ed7a413a0881ec5df613fc10d0ca16f01090936cbd6",
     "apps/comic/src/game/appraisal/merchant-abilities.ts": "e90c4ea9b0c2f302ec3e005efef4d61e73c9d239a460d8aeb8859c394b226b09",
     "apps/comic/src/game/appraisal/wishlist.ts": "02dc444ca8a0623189389c5ab4bd78fb57d6abc0c4e93a3da2605ad58a9bbf9f",
     "apps/comic/src/game/appraisal/scoring.ts": "d95a48373f066152d4bb19720f34e126ee23b0cbe38110a211a5c2e2e3cdc1c0",
     "apps/comic/src/game/appraisal/survival.ts": "f7d978481cdbb79fc1cfc6e603fa875adb2f37a65af6ffc3fe2302097ff75ac3",
-    "apps/comic/src/game/appraisal/secure-storage.ts": "3d0bb2a86d9646ff65c0e3374321d5b9919b4a653f6e2e18463a42c26c31618b",
+    "apps/comic/src/game/appraisal/secure-storage.ts": "5b3370bb17809e12c7394c0b501ffc346b9b2ca5d89035c6a0b75c426e10ffa5",
     "apps/comic/src/game/appraisal/seals.ts": "665663cb75944286130ac9597816c8a59b8631285077476cf08774037a6335f1",
-    "apps/comic/src/game/appraisal/pilot-effects.ts": "ab8d8201a7abd4fbca4f96ee6223ded049937d43dac7a2f4dfa72db793e29029"
+    "apps/comic/src/game/appraisal/pilot-effects.ts": "4b669d8f360f8d540bf9cb9e46db8ca46e4b0d25a5e65bc855c839c757d6701d"
   },
   "decisions": [
     {
@@ -205,14 +209,15 @@
       "logicId": "L10",
       "originalProposedDescription": "พบพ่อค้ารายใหม่แล้วได้ความไว้ใจเพิ่ม",
       "proposedDescription": "พบพ่อค้ารายใหม่แล้วได้ความไว้ใจเพิ่ม",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "purchase",
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 376,
-          "endLine": 421,
-          "sourceSha256": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302"
+          "line": 377,
+          "endLine": 422,
+          "sourceSha256": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507"
         },
         {
           "symbol": "setPersonalTrust",
@@ -257,21 +262,22 @@
       "logicId": "L23",
       "originalProposedDescription": "ฟื้นพลังเมื่อเริ่มช่วง",
       "proposedDescription": "ฟื้นพลังเมื่อเริ่มช่วง",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "advanceAppraisalEncounter",
           "file": "apps/comic/src/game/appraisal/engine.ts",
           "line": 441,
           "endLine": 471,
-          "sourceSha256": "27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91"
+          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
         },
         {
           "symbol": "recover",
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 127,
-          "endLine": 133,
-          "sourceSha256": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302"
+          "line": 128,
+          "endLine": 134,
+          "sourceSha256": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507"
         }
       ],
       "meaningDecision": null,
@@ -306,14 +312,15 @@
       "logicId": "L24",
       "originalProposedDescription": "ลดราคาดีลฟื้นพลังหรือชีวิต",
       "proposedDescription": "ลดราคาดีลฟื้นพลังหรือชีวิต",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "recoveryOffer",
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 151,
-          "endLine": 162,
-          "sourceSha256": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302"
+          "line": 152,
+          "endLine": 163,
+          "sourceSha256": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507"
         }
       ],
       "meaningDecision": null,
@@ -351,21 +358,22 @@
       "logicId": "L06",
       "originalProposedDescription": "ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง",
       "proposedDescription": "ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "respond",
           "file": "apps/comic/src/game/appraisal/engine.ts",
           "line": 292,
           "endLine": 328,
-          "sourceSha256": "27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91"
+          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
         },
         {
           "symbol": "transfer",
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 117,
-          "endLine": 121,
-          "sourceSha256": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302"
+          "line": 118,
+          "endLine": 122,
+          "sourceSha256": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507"
         }
       ],
       "meaningDecision": null,
@@ -403,21 +411,22 @@
       "logicId": "L05",
       "originalProposedDescription": "เพิ่มค่านายหน้า",
       "proposedDescription": "เพิ่มค่านายหน้า",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "commissionRate",
           "file": "apps/comic/src/game/appraisal/passives.ts",
           "line": 63,
           "endLine": 63,
-          "sourceSha256": "ef49c5ade780d0f68a7422a8e8a3b433237525311ef1c555d3aed61c45bc99bf"
+          "sourceSha256": "3915bdda874eae43be5e7318626a6748b29aa56cb35748048669ac1f5e051280"
         },
         {
           "symbol": "respond",
           "file": "apps/comic/src/game/appraisal/engine.ts",
           "line": 292,
           "endLine": 328,
-          "sourceSha256": "27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91"
+          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
         }
       ],
       "meaningDecision": null,
@@ -455,7 +464,8 @@
       "logicId": "L03",
       "originalProposedDescription": "เพิ่มโอกาสชำระสำเร็จ",
       "proposedDescription": "เพิ่มโอกาสชำระสำเร็จ",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "cleanseChance",
@@ -500,14 +510,15 @@
       "logicId": "L14",
       "originalProposedDescription": "รับเงินประกันบางส่วนเมื่อของถูกขโมยจริง",
       "proposedDescription": "รับเงินประกันบางส่วนเมื่อของถูกขโมยจริง",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "chooseTheftHand",
           "file": "apps/comic/src/game/appraisal/theft.ts",
           "line": 257,
           "endLine": 301,
-          "sourceSha256": "aac017becded983e0106125bdb8d5cb379e9227babe782681f3486f69e344e76"
+          "sourceSha256": "aaf4cc62d6d20f028fff9fdef405538cda8b32009770abf2f5ac9e50cd9da52a"
         }
       ],
       "meaningDecision": null,
@@ -545,7 +556,8 @@
       "logicId": "L22",
       "originalProposedDescription": "ลดค่าชีวิตสัญญาเลือด Vampire",
       "proposedDescription": "ลดค่าชีวิตสัญญาเลือด Vampire",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "payLife",
@@ -597,14 +609,15 @@
       "logicId": "L04",
       "originalProposedDescription": "เพิ่มโอกาสพ่อค้ายอมรับราคา",
       "proposedDescription": "เพิ่มโอกาสพ่อค้ายอมรับราคา",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "appraise",
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 263,
-          "endLine": 303,
-          "sourceSha256": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302"
+          "line": 264,
+          "endLine": 304,
+          "sourceSha256": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507"
         }
       ],
       "meaningDecision": null,
@@ -642,14 +655,15 @@
       "logicId": "L02",
       "originalProposedDescription": "ลดโทษจากการท้าทายพลาด",
       "proposedDescription": "ลดโทษจากการท้าทายพลาด",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "settleChallenge",
           "file": "apps/comic/src/game/appraisal/challenge.ts",
-          "line": 13,
-          "endLine": 33,
-          "sourceSha256": "35a2d880e49702b24560eae95fa6b2194c2e02f474f9a8ec2842e0114f3c6fec"
+          "line": 15,
+          "endLine": 36,
+          "sourceSha256": "ef3e4aa22bb4ca5d897da799f6f8e2cf35c66a6e76d895c6892c29d09f943a03"
         }
       ],
       "meaningDecision": null,
@@ -687,7 +701,8 @@
       "logicId": "L08",
       "originalProposedDescription": "ชนะแล้วได้เงินคืนบางส่วน",
       "proposedDescription": "ชนะแล้วได้เงินคืนบางส่วน",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "settleAuction",
@@ -732,14 +747,15 @@
       "logicId": "L13",
       "originalProposedDescription": "ได้เปรียบเมื่อเป่ายิ้งฉุบเสมอหนึ่งครั้ง",
       "proposedDescription": "ได้เปรียบเมื่อเป่ายิ้งฉุบเสมอหนึ่งครั้ง",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "breakTie",
           "file": "apps/comic/src/game/appraisal/theft.ts",
           "line": 232,
           "endLine": 240,
-          "sourceSha256": "aac017becded983e0106125bdb8d5cb379e9227babe782681f3486f69e344e76"
+          "sourceSha256": "aaf4cc62d6d20f028fff9fdef405538cda8b32009770abf2f5ac9e50cd9da52a"
         }
       ],
       "meaningDecision": null,
@@ -777,14 +793,15 @@
       "logicId": "L02",
       "originalProposedDescription": "เพิ่มโอกาสท้าทายคำระบุสำเร็จ",
       "proposedDescription": "เพิ่มส่วนลดเมื่อท้าทายคำระบุเท็จถูกต้อง",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": true,
       "owners": [
         {
           "symbol": "settleChallenge",
           "file": "apps/comic/src/game/appraisal/challenge.ts",
-          "line": 13,
-          "endLine": 33,
-          "sourceSha256": "35a2d880e49702b24560eae95fa6b2194c2e02f474f9a8ec2842e0114f3c6fec"
+          "line": 15,
+          "endLine": 36,
+          "sourceSha256": "ef3e4aa22bb4ca5d897da799f6f8e2cf35c66a6e76d895c6892c29d09f943a03"
         }
       ],
       "meaningDecision": {
@@ -846,21 +863,22 @@
       "logicId": "L14",
       "originalProposedDescription": "บรรเทาผลเสียเมื่อแพ้ดวลหนึ่งครั้ง",
       "proposedDescription": "บรรเทาผลเสียเมื่อแพ้ดวลหนึ่งครั้ง",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "playerFailure",
           "file": "apps/comic/src/game/appraisal/theft.ts",
           "line": 211,
           "endLine": 226,
-          "sourceSha256": "aac017becded983e0106125bdb8d5cb379e9227babe782681f3486f69e344e76"
+          "sourceSha256": "aaf4cc62d6d20f028fff9fdef405538cda8b32009770abf2f5ac9e50cd9da52a"
         },
         {
           "symbol": "merchantFailure",
           "file": "apps/comic/src/game/appraisal/theft.ts",
           "line": 242,
           "endLine": 255,
-          "sourceSha256": "aac017becded983e0106125bdb8d5cb379e9227babe782681f3486f69e344e76"
+          "sourceSha256": "aaf4cc62d6d20f028fff9fdef405538cda8b32009770abf2f5ac9e50cd9da52a"
         }
       ],
       "meaningDecision": {
@@ -911,14 +929,15 @@
       "logicId": "L01",
       "originalProposedDescription": "เปิดเผยช่วงราคาที่แคบลง",
       "proposedDescription": "เปิดเผยช่วงราคาที่แคบลง",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "inspect",
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 219,
-          "endLine": 256,
-          "sourceSha256": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302"
+          "line": 220,
+          "endLine": 257,
+          "sourceSha256": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507"
         }
       ],
       "meaningDecision": null,
@@ -956,7 +975,8 @@
       "logicId": "L11",
       "originalProposedDescription": "ลดเวลารอของความสามารถที่เลือก",
       "proposedDescription": "ลดเวลารอของความสามารถที่เลือก",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "reduceAbilityCooldown",
@@ -1001,21 +1021,22 @@
       "logicId": "L12",
       "originalProposedDescription": "ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู",
       "proposedDescription": "ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "generatePortals",
           "file": "apps/comic/src/game/appraisal/engine.ts",
           "line": 144,
           "endLine": 152,
-          "sourceSha256": "27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91"
+          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
         },
         {
           "symbol": "appraisalViewFor",
           "file": "apps/comic/src/game/appraisal/views.ts",
-          "line": 50,
-          "endLine": 71,
-          "sourceSha256": "1b94d331ad46a325185943f4260feaa3e6514724e317855a1740bfd40800a9f7"
+          "line": 51,
+          "endLine": 72,
+          "sourceSha256": "c0604453c70f9ea3fe5bc27ec1330c5bc087d8bc1dfabb7c42d4ba46ea0235e8"
         }
       ],
       "meaningDecision": {
@@ -1065,21 +1086,22 @@
       "logicId": "L23",
       "originalProposedDescription": "ฟื้นพลังเมื่อเริ่มช่วง",
       "proposedDescription": "ฟื้นพลังเมื่อเริ่มช่วง",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "advanceAppraisalEncounter",
           "file": "apps/comic/src/game/appraisal/engine.ts",
           "line": 441,
           "endLine": 471,
-          "sourceSha256": "27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91"
+          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
         },
         {
           "symbol": "recover",
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 127,
-          "endLine": 133,
-          "sourceSha256": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302"
+          "line": 128,
+          "endLine": 134,
+          "sourceSha256": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507"
         }
       ],
       "meaningDecision": null,
@@ -1116,7 +1138,8 @@
       "logicId": "L26",
       "originalProposedDescription": "ลดโอกาสภัย Dread",
       "proposedDescription": "ลดโอกาสภัย Dread",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "dreadNow",
@@ -1167,14 +1190,15 @@
       "logicId": "L27",
       "originalProposedDescription": "ยืดผลดีที่เลือกหนึ่งอย่าง",
       "proposedDescription": "ยืดผลดีที่เลือกหนึ่งอย่าง",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "grant",
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 89,
-          "endLine": 103,
-          "sourceSha256": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302"
+          "line": 90,
+          "endLine": 104,
+          "sourceSha256": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507"
         }
       ],
       "meaningDecision": {
@@ -1225,7 +1249,8 @@
       "logicId": "L09",
       "originalProposedDescription": "เพิ่มโอกาสสร้างสินค้าระดับสูง",
       "proposedDescription": "เพิ่มโอกาสสร้างสินค้าระดับสูง",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "ensureItemAppearance",
@@ -1239,7 +1264,7 @@
           "file": "apps/comic/src/game/appraisal/engine.ts",
           "line": 126,
           "endLine": 143,
-          "sourceSha256": "27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91"
+          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
         },
         {
           "symbol": "makeCandidate",
@@ -1297,21 +1322,22 @@
       "logicId": "L23",
       "originalProposedDescription": "ฟื้นพลังเมื่อเริ่มช่วง",
       "proposedDescription": "ฟื้นพลังเมื่อเริ่มช่วง",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "advanceAppraisalEncounter",
           "file": "apps/comic/src/game/appraisal/engine.ts",
           "line": 441,
           "endLine": 471,
-          "sourceSha256": "27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91"
+          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
         },
         {
           "symbol": "recover",
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 127,
-          "endLine": 133,
-          "sourceSha256": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302"
+          "line": 128,
+          "endLine": 134,
+          "sourceSha256": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507"
         }
       ],
       "meaningDecision": null,
@@ -1348,7 +1374,8 @@
       "logicId": "L11",
       "originalProposedDescription": "ลดเวลารอของความสามารถที่เลือก",
       "proposedDescription": "ลดเวลารอของความสามารถที่เลือก",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "reduceAbilityCooldown",
@@ -1393,7 +1420,8 @@
       "logicId": "L20",
       "originalProposedDescription": "เปลี่ยนสัญญาที่ไม่ต้องการฟรีหนึ่งครั้ง",
       "proposedDescription": "เปลี่ยนสัญญาที่ไม่ต้องการฟรีหนึ่งครั้ง",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "wishNew",
@@ -1438,14 +1466,15 @@
       "logicId": "L27",
       "originalProposedDescription": "ลบผลเสียที่เลือกหนึ่งอย่าง",
       "proposedDescription": "ลบผลเสียที่เลือกหนึ่งอย่าง",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "removeStatus",
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 39,
-          "endLine": 39,
-          "sourceSha256": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302"
+          "line": 40,
+          "endLine": 40,
+          "sourceSha256": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507"
         }
       ],
       "meaningDecision": {
@@ -1495,7 +1524,8 @@
       "logicId": "L29",
       "originalProposedDescription": "เพิ่มตัวปรับมูลค่าที่ Collector คิด",
       "proposedDescription": "เพิ่มตัวปรับมูลค่าที่ Collector คิด",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "itemScoreValue",
@@ -1566,14 +1596,15 @@
       "logicId": "L18",
       "originalProposedDescription": "ผู้กู้คืนครบแล้วรับเงินคืนบางส่วน",
       "proposedDescription": "ผู้กู้คืนครบแล้วรับเงินคืนบางส่วน",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "handleLoanAction",
           "file": "apps/comic/src/game/appraisal/secure-storage.ts",
           "line": 131,
           "endLine": 183,
-          "sourceSha256": "3d0bb2a86d9646ff65c0e3374321d5b9919b4a653f6e2e18463a42c26c31618b"
+          "sourceSha256": "5b3370bb17809e12c7394c0b501ffc346b9b2ca5d89035c6a0b75c426e10ffa5"
         }
       ],
       "meaningDecision": null,
@@ -1611,7 +1642,8 @@
       "logicId": "L26",
       "originalProposedDescription": "ลดโอกาสภัย Dread",
       "proposedDescription": "ลดโอกาสภัย Dread",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "dreadNow",
@@ -1662,7 +1694,8 @@
       "logicId": "L19",
       "originalProposedDescription": "ใช้ตรายึดของแล้วตรวจข้อมูลของนั้นฟรี",
       "proposedDescription": "ใช้ตรายึดของแล้วตรวจข้อมูลของนั้นฟรี",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "pick",
@@ -1674,9 +1707,9 @@
         {
           "symbol": "inspect",
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 219,
-          "endLine": 256,
-          "sourceSha256": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302"
+          "line": 220,
+          "endLine": 257,
+          "sourceSha256": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507"
         }
       ],
       "meaningDecision": null,
@@ -1714,14 +1747,15 @@
       "logicId": "L27",
       "originalProposedDescription": "ลบผลเสียที่เลือกหนึ่งอย่าง",
       "proposedDescription": "ลบผลเสียที่เลือกหนึ่งอย่าง",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "removeStatus",
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 39,
-          "endLine": 39,
-          "sourceSha256": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302"
+          "line": 40,
+          "endLine": 40,
+          "sourceSha256": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507"
         }
       ],
       "meaningDecision": {
@@ -1771,7 +1805,8 @@
       "logicId": "L03",
       "originalProposedDescription": "เพิ่มโอกาสชำระสำเร็จ",
       "proposedDescription": "เพิ่มโอกาสชำระสำเร็จ",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "cleanseChance",
@@ -1816,14 +1851,15 @@
       "logicId": "L24",
       "originalProposedDescription": "ลดความเสียหายชีวิตครั้งถัดไป",
       "proposedDescription": "ลดความเสียหายชีวิตครั้งถัดไป",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "damageLife",
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 139,
-          "endLine": 150,
-          "sourceSha256": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302"
+          "line": 140,
+          "endLine": 151,
+          "sourceSha256": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507"
         }
       ],
       "meaningDecision": null,
@@ -1861,21 +1897,22 @@
       "logicId": "L06",
       "originalProposedDescription": "ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง",
       "proposedDescription": "ซื้อขายกับคู่ค้ารายใหม่แล้วคืนพลัง",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "respond",
           "file": "apps/comic/src/game/appraisal/engine.ts",
           "line": 292,
           "endLine": 328,
-          "sourceSha256": "27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91"
+          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
         },
         {
           "symbol": "transfer",
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 117,
-          "endLine": 121,
-          "sourceSha256": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302"
+          "line": 118,
+          "endLine": 122,
+          "sourceSha256": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507"
         }
       ],
       "meaningDecision": null,
@@ -1913,21 +1950,22 @@
       "logicId": "L16",
       "originalProposedDescription": "เพิ่มดอกเบี้ยของเงินต้นที่ครบช่วง",
       "proposedDescription": "เพิ่มดอกเบี้ยของเงินต้นที่ครบช่วง",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "payVaultInterest",
           "file": "apps/comic/src/game/appraisal/secure-storage.ts",
           "line": 206,
           "endLine": 224,
-          "sourceSha256": "3d0bb2a86d9646ff65c0e3374321d5b9919b4a653f6e2e18463a42c26c31618b"
+          "sourceSha256": "5b3370bb17809e12c7394c0b501ffc346b9b2ca5d89035c6a0b75c426e10ffa5"
         },
         {
           "symbol": "heldInterestRings",
           "file": "apps/comic/src/game/appraisal/pilot-effects.ts",
           "line": 26,
           "endLine": 28,
-          "sourceSha256": "ab8d8201a7abd4fbca4f96ee6223ded049937d43dac7a2f4dfa72db793e29029"
+          "sourceSha256": "4b669d8f360f8d540bf9cb9e46db8ca46e4b0d25a5e65bc855c839c757d6701d"
         }
       ],
       "meaningDecision": null,
@@ -1964,21 +2002,22 @@
       "logicId": "L12",
       "originalProposedDescription": "ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู",
       "proposedDescription": "ดูเบาะแสสินค้าเพิ่มก่อนเลือกประตู",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "generatePortals",
           "file": "apps/comic/src/game/appraisal/engine.ts",
           "line": 144,
           "endLine": 152,
-          "sourceSha256": "27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91"
+          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
         },
         {
           "symbol": "appraisalViewFor",
           "file": "apps/comic/src/game/appraisal/views.ts",
-          "line": 50,
-          "endLine": 71,
-          "sourceSha256": "1b94d331ad46a325185943f4260feaa3e6514724e317855a1740bfd40800a9f7"
+          "line": 51,
+          "endLine": 72,
+          "sourceSha256": "c0604453c70f9ea3fe5bc27ec1330c5bc087d8bc1dfabb7c42d4ba46ea0235e8"
         }
       ],
       "meaningDecision": {
@@ -2029,14 +2068,15 @@
       "logicId": "L24",
       "originalProposedDescription": "ลดราคาดีลฟื้นพลังหรือชีวิต",
       "proposedDescription": "ลดราคาดีลฟื้นพลังหรือชีวิต",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "recoveryOffer",
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 151,
-          "endLine": 162,
-          "sourceSha256": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302"
+          "line": 152,
+          "endLine": 163,
+          "sourceSha256": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507"
         }
       ],
       "meaningDecision": null,
@@ -2074,14 +2114,15 @@
       "logicId": "L04",
       "originalProposedDescription": "เพิ่มโอกาสพ่อค้ายอมรับราคา",
       "proposedDescription": "เพิ่มโอกาสพ่อค้ายอมรับราคา",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "appraise",
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 263,
-          "endLine": 303,
-          "sourceSha256": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302"
+          "line": 264,
+          "endLine": 304,
+          "sourceSha256": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507"
         }
       ],
       "meaningDecision": null,
@@ -2119,7 +2160,8 @@
       "logicId": "L11",
       "originalProposedDescription": "เสริมการใช้หนึ่งครั้งตามระดับที่ปลดล็อกแล้ว",
       "proposedDescription": "เสริมการใช้หนึ่งครั้งตามระดับที่ปลดล็อกแล้ว",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "useMerchantAbility",
@@ -2173,7 +2215,8 @@
       "logicId": "L19",
       "originalProposedDescription": "แลกเปลี่ยนตราสำเร็จแล้วฟื้นพลัง",
       "proposedDescription": "แลกเปลี่ยนตราสำเร็จแล้วฟื้นพลัง",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "respondOffer",
@@ -2218,21 +2261,22 @@
       "logicId": "L12",
       "originalProposedDescription": "ลดพลังเปลี่ยนประตู",
       "proposedDescription": "ลดพลังเปลี่ยนประตู",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "rerollPortal",
           "file": "apps/comic/src/game/appraisal/engine.ts",
           "line": 154,
           "endLine": 168,
-          "sourceSha256": "27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91"
+          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
         },
         {
           "symbol": "pilotRerollCost",
           "file": "apps/comic/src/game/appraisal/pilot-effects.ts",
           "line": 16,
           "endLine": 18,
-          "sourceSha256": "ab8d8201a7abd4fbca4f96ee6223ded049937d43dac7a2f4dfa72db793e29029"
+          "sourceSha256": "4b669d8f360f8d540bf9cb9e46db8ca46e4b0d25a5e65bc855c839c757d6701d"
         }
       ],
       "meaningDecision": null,
@@ -2270,7 +2314,8 @@
       "logicId": "L22",
       "originalProposedDescription": "เพิ่มผลตอบแทนของที่ให้ Alien ยืม",
       "proposedDescription": "เพิ่มผลตอบแทนของที่ให้ Alien ยืม",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "redeemNpcContracts",
@@ -2327,14 +2372,15 @@
       "logicId": "L24",
       "originalProposedDescription": "ลดความเสียหายชีวิตครั้งถัดไป",
       "proposedDescription": "ลดความเสียหายชีวิตครั้งถัดไป",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "damageLife",
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 139,
-          "endLine": 150,
-          "sourceSha256": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302"
+          "line": 140,
+          "endLine": 151,
+          "sourceSha256": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507"
         }
       ],
       "meaningDecision": null,
@@ -2372,7 +2418,8 @@
       "logicId": "L09",
       "originalProposedDescription": "เพิ่มโอกาสสร้างสินค้าระดับสูง",
       "proposedDescription": "เพิ่มโอกาสสร้างสินค้าระดับสูง",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "ensureItemAppearance",
@@ -2386,7 +2433,7 @@
           "file": "apps/comic/src/game/appraisal/engine.ts",
           "line": 126,
           "endLine": 143,
-          "sourceSha256": "27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91"
+          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
         },
         {
           "symbol": "makeCandidate",
@@ -2443,7 +2490,8 @@
       "logicId": "L11",
       "originalProposedDescription": "เพิ่มตัวเลือกเมื่อใช้ความสามารถเลือกสินค้า",
       "proposedDescription": "เพิ่มตัวเลือกเมื่อใช้ความสามารถเลือกสินค้า",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "useMerchantAbility",
@@ -2487,21 +2535,22 @@
       "logicId": "L12",
       "originalProposedDescription": "เปิดประตูที่ถูกปิดจากเหตุการณ์หนึ่งครั้ง",
       "proposedDescription": "เปิดประตูที่ถูกปิดจากเหตุการณ์หนึ่งครั้ง",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "rerollPortal",
           "file": "apps/comic/src/game/appraisal/engine.ts",
           "line": 154,
           "endLine": 168,
-          "sourceSha256": "27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91"
+          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
         },
         {
           "symbol": "applyAppraisalAction",
           "file": "apps/comic/src/game/appraisal/engine.ts",
           "line": 341,
           "endLine": 440,
-          "sourceSha256": "27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91"
+          "sourceSha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
         }
       ],
       "meaningDecision": {
@@ -2551,7 +2600,8 @@
       "logicId": "L19",
       "originalProposedDescription": "ใช้ตรายึดของแล้วตรวจข้อมูลของนั้นฟรี",
       "proposedDescription": "ใช้ตรายึดของแล้วตรวจข้อมูลของนั้นฟรี",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "pick",
@@ -2563,9 +2613,9 @@
         {
           "symbol": "inspect",
           "file": "apps/comic/src/game/appraisal/mechanics.ts",
-          "line": 219,
-          "endLine": 256,
-          "sourceSha256": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302"
+          "line": 220,
+          "endLine": 257,
+          "sourceSha256": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507"
         }
       ],
       "meaningDecision": null,
@@ -2603,7 +2653,8 @@
       "logicId": "L26",
       "originalProposedDescription": "คุ้มครองของจากการผุพังหนึ่งครั้ง",
       "proposedDescription": "คุ้มครองของจากการผุพังหนึ่งครั้ง",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "applyDread",
@@ -2648,14 +2699,15 @@
       "logicId": "L13",
       "originalProposedDescription": "ลดพลังเริ่มขโมย",
       "proposedDescription": "ลดพลังเริ่มขโมย",
-      "runtimeRegistered": false,
+      "runtimeRegistered": true,
+      "primaryVerified": false,
       "owners": [
         {
           "symbol": "startTheftDuel",
           "file": "apps/comic/src/game/appraisal/theft.ts",
           "line": 131,
           "endLine": 164,
-          "sourceSha256": "aac017becded983e0106125bdb8d5cb379e9227babe782681f3486f69e344e76"
+          "sourceSha256": "aaf4cc62d6d20f028fff9fdef405538cda8b32009770abf2f5ac9e50cd9da52a"
         }
       ],
       "meaningDecision": null,

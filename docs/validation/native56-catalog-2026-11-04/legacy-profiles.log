@@ -1,0 +1,15 @@
+(node:53242) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Beast opens persistent unique choices, spends cooldown on opening, and does not grant a free item (89.948375ms)
+✔ time transfer moves the same amount between distinct cooling skills, and compass expands Beast only once (60.24125ms)
+✔ new events are gated, have distinct choices and charge the advertised resources (14.886834ms)
+✔ new products have different mechanics and unique name-to-image mappings; legacy catalogs exclude them (45.260917ms)
+✔ legacy and pilot catalogs retain their74distinct mechanical profiles after names and prices are ignored (5.452375ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 797.031667

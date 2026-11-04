@@ -1,0 +1,14 @@
+✔ Collector parser accepts only the four exact public payloads and rejects private fields (5.643792ms)
+✔ Collector bots choose only from the public pool and progress through a bounded decision sequence at real40-credit budget (170.617584ms)
+✔ pending real entry event blocks Collector while reading its DTO never changes revision (11.845708ms)
+✔ named pending-ability fixture blocks Collector and preserves its current window (22.57775ms)
+✔ catalog4: two actual sockets request2 resume deliver4 isolate batches and charge once then replay RESULTS (655.1715ms)
+✔ catalog5: two actual sockets request2 resume deliver4 isolate batches and charge once then replay RESULTS (522.954916ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1806.074791

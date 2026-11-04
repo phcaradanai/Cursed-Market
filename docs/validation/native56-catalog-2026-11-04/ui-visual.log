@@ -1,0 +1,17 @@
+{ spaceId: 3 }
+inventory-1440x722 PASS
+status-1440x722 PASS
+market-1440x722 PASS
+ledger-1440x722 PASS
+rules-1440x722 PASS
+settings-1440x722 PASS
+trade-1440x722 PASS
+item-sale-1440x722 PASS
+inventory-1024x800 PASS
+status-1024x800 PASS
+item-sale-1024x800 PASS
+inventory-1920x800 PASS
+status-1920x800 PASS
+item-sale-1920x800 PASS
+{"mode":"compare","passed":14,"failures":[],"approval":"approved by user 2026-10-30; image reference set only"}
+

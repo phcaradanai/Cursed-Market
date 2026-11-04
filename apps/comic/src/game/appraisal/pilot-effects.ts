@@ -3,7 +3,7 @@ import type {AppraisalItem,AppraisalState,Appraiser,PilotItemKind} from './types
 
 /** Public kind and actual custody only; never inspect hidden truth for held effects. */
 export function pilotHeld(state:AppraisalState,p:Appraiser,kind:PilotItemKind):AppraisalItem[] {
-  if(state.config.catalogVersion!==4 || p.life===0 || p.paused==='dead')return [];
+  if((state.config.catalogVersion!==4 && state.config.catalogVersion!==5) || p.life===0 || p.paused==='dead')return [];
   return p.inventory.map(id=>state.items[id]!).filter(i=>i?.kind===kind && i.owner===p.id && !p.npcContracts?.alien?.itemIds.includes(i.id))
     .sort((a,b)=>itemEffectScale(b)-itemEffectScale(a)||a.id.localeCompare(b.id)).slice(0,5);
 }
@@ -36,6 +36,6 @@ export function swordForDuel(state:AppraisalState,p:Appraiser):AppraisalItem|und
 
 /** Losing custody during the interval forfeits that physical ring's age evidence. */
 export function reconcilePilotCustody(state:AppraisalState):void {
-  if(state.config.catalogVersion!==4)return;
+  if((state.config.catalogVersion!==4 && state.config.catalogVersion!==5))return;
   for(const p of state.players){const rings=p.personalVault?.interest?.rings;if(!rings)continue;const held=new Set(pilotHeld(state,p,'vampire-nocturne-signet').map(i=>i.id));for(const id of Object.keys(rings))if(!held.has(id))delete rings[id];}
 }

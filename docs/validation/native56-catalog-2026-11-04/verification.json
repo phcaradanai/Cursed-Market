@@ -1,0 +1,90 @@
+{
+  "asOf": "2026-11-04",
+  "baseRevision": "e15a4a6",
+  "status": "catalog5-stage1-verified-experimental-not-game-complete",
+  "scope": "56registered/9primaryverified/47unbound. Default3/pilot4 unchanged. Frozen48approval and pilot values preserved. No optional effects, art changes, balance tuning or56default rollout.",
+  "checks": {
+    "focused": {
+      "command": "cd apps/comic && node --test dist/tests/native56-catalog.test.js dist/tests/remaining48-foundation.test.js dist/tests/new56-pilot*.test.js dist/tests/appraisal-challenge.test.js dist/tests/collector-wishlist.test.js dist/tests/ghost-service*.test.js dist/tests/appraisal-catalog.test.js",
+      "passed": 198,
+      "log": "docs/validation/native56-catalog-2026-11-04/final-focused.log"
+    },
+    "lifecycle": {
+      "passed": 65,
+      "scope": "pilot8 catalog4 + all56catalog5 real seeded stock/inspect/purchase/copy/vault/loan/auction/Collector identity; high-budget fixtures, not56benefits",
+      "log": "docs/validation/native56-catalog-2026-11-04/all56-lifecycle.log"
+    },
+    "collectorSockets": {
+      "passed": 6,
+      "scope": "catalog4 and5 actual two sockets; retry/resume/private batch/charge/replay",
+      "log": "docs/validation/native56-catalog-2026-11-04/collector-socket.log"
+    },
+    "compatibility": {
+      "legacyStrictReplays": 32,
+      "newCatalog5Games": 4,
+      "commands": 1008,
+      "uniqueKinds": 55,
+      "startingCredits": 40,
+      "life": 6,
+      "scope": "2/4seats cautious/collector one fixed seed, wallets reconcile; no balance acceptance",
+      "report": "docs/validation/native56-catalog-2026-11-04/compatibility/report.json"
+    },
+    "pilotPublic": {
+      "cases": 8,
+      "fullRuns": 16,
+      "strictReplays": 32,
+      "identicalOriginalAuditHashes": 16,
+      "report": "docs/validation/native56-catalog-2026-11-04/pilot-public/public-effects.json"
+    },
+    "ui": {
+      "contracts": 10,
+      "menus": 18,
+      "approvedBaselines": 14,
+      "rerecorded": false,
+      "receiptFolder": "docs/validation/native56-catalog-2026-11-04/ui/",
+      "sourceFingerprints": 409,
+      "finalSourceCheck": "ui-check-final.log"
+    },
+    "legacyProfiles": {
+      "passed": 5,
+      "log": "legacy-profiles.log"
+    },
+    "assets": {
+      "passed": 1,
+      "log": "assets.log"
+    },
+    "atlas": {
+      "inputs": 288,
+      "log": "atlas-check.log"
+    }
+  },
+  "builds": [
+    "green-build.log",
+    "client-build.log"
+  ],
+  "retainedFailures": {
+    "regressions.log": "143/144: preexisting root-relative audit fixture path failed from apps/comic; corrected portable path, current198 pass",
+    "readiness-red.log": "Unsupported client activation initially allowed; fixed shared client blocker and bot selection",
+    "ui-smoke.log": "Old verification Space2 disappeared; replacement Space3 fresh18menu/14baseline receipts passed",
+    "sourceRefresh": "Refresh wrote409fingerprints then its own process hung; confirmed PID7633 sleeping and terminated only that process. Subsequent check/contracts passed; rerun final source check separately.",
+    "finalContextBrowser": "TaskSpace3 externally missing when opening updated context; no screenshot produced, no replacement silently created. Earlier matching fresh18menu/14pixel receipts remain valid for unchanged rendering code, not a new HTML screenshot.",
+    "trailCheck": "Branch diff capped400KB; existing lexical conflicts only in unrelated .impeccable/design.json, excluded from this checkpoint. Trail is not full-branch verification."
+  },
+  "remaining": [
+    "47primary hooks with versioned effects revision",
+    "full56 public-benefit/custody/predicate/multiplayer integration",
+    "normal-budget multi-policy finance/theft/Spirit and balance acceptance",
+    "Task3–6 and final whole-plan review"
+  ],
+  "evidenceFingerprints": {
+    "final-focused.log": "3a8f4ec6f122fed27c749ae5b53a2fc2572daf5654325f15279ab06815ad3eda",
+    "all56-lifecycle.log": "bb226eec40a8898ed0c382f102083d4d93e1dedd69cb17d289d0abab20b37b2d",
+    "collector-socket.log": "be9d5f83165d9c0d690c86dd32246c9891f68028420e67efabcebf6c2755fbae",
+    "compatibility/report.json": "fc6818b6b830fd3345531d9a0c1503ea26f7b6c3419a367c594d87cb08c9ed80",
+    "pilot-public/public-effects.json": "2f73352f5090458780fb4ab02d3a0ba583bf3b5563059f8799ab3b1a688541a7",
+    "ui/compare-invocation.json": "5a08a20b41c9095b17efb345f10ddf55762c69626f8576ff10d0f656a8fe47eb",
+    "ui/compare.json": "ba2775a4b49e90f99c4f4f7d478cc32db949aca3f3155d39efea27cbbb4c2332",
+    "ui/smoke-invocation.json": "402048085a5d2a96b61997669873bae50970c3d1a87945d40f44d39c66fb591e",
+    "ui/menu-smoke.json": "0f22c5b4b45a9d01d9879fa72f77bbbc6a9170c40f52e7971e562ad0e26731f8"
+  }
+}

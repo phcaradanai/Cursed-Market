@@ -1,3 +1,4 @@
+import {REMAINING48_ITEMS,FULL56_MERCHANT_ITEMS} from './remaining48-catalog.js';
 import {PILOT_ITEMS} from './pilot-catalog.js';
 import { ABILITY_ITEMS, ABILITY_EVENT_CATALOG, ABILITY_STATUS_CATALOG } from './ability-content.js';
 import { ABILITY_ITEM_IDS } from './types.js';
@@ -732,10 +733,11 @@ export const ITEM_SPECS: Record<ItemKind,ItemSpec> = {
   ...PASSIVE_ITEMS,
   ...ABILITY_ITEMS,
   ...PILOT_ITEMS,
+  ...REMAINING48_ITEMS,
 };
 export function itemFamily(kind:ItemKind):ItemFamily { return ITEM_SPECS[kind].family ?? kind as ItemFamily; }
 /** Comic-build item art is shared by family; rarity remains a runtime visual effect. */
-export function itemImage(kind:ItemKind):string { return kind in PILOT_ITEMS ? `/art/comic/items/merchant-set-v1/${kind}.png` : `/art/comic/items/${itemFamily(kind)}-v2.png`; }
+export function itemImage(kind:ItemKind):string { return (kind in PILOT_ITEMS || kind in REMAINING48_ITEMS) ? `/art/comic/items/merchant-set-v1/${kind}.png` : `/art/comic/items/${itemFamily(kind)}-v2.png`; }
 export type NpcMood='smile'|'angry'|'idle';
 export function npcImage(npc:NpcId):string;
 export function npcImage(npc:NpcId,mood:NpcMood):string;
@@ -744,13 +746,14 @@ export function npcImage(npc:NpcId,mood:NpcMood='idle'):string { return `/art/co
 const CLEANSE_KINDS:ItemKind[]=['smith-hammer','whetstone'],CHALLENGE_KINDS:ItemKind[]=['doubt-lens','void-seal'];
 /** Merchants and items that exist only when the expansion rules are on (catalog version 3). */
 export const EXPANSION_NPCS:NpcId[]=['deepsea','swarm'];
-export const expansionActive=(config:{catalogVersion?:1|2|3|4;expansion?:boolean})=>(config.catalogVersion===3 || config.catalogVersion===4) && !!config.expansion;
+export const expansionActive=(config:{catalogVersion?:1|2|3|4|5;expansion?:boolean})=>(config.catalogVersion===3 || config.catalogVersion===4 || config.catalogVersion===5) && !!config.expansion;
 export const POLISH_KINDS:ItemKind[]=['vital-flask','life-relic','wish-ledger'];
 export const EXPANSION_KINDS:ItemKind[]=['abyss-pearl','tide-lantern','kraken-ink','siren-conch','hive-comb','chitin-blade','larva-cell','compound-mirror'];
-export function merchantKinds(npc:NpcId,catalogVersion:1|2|3|4=1,cleanse=false,challenge=false,expansion=false,polish=false,trustAbilities=false):ItemKind[] {
+export function merchantKinds(npc:NpcId,catalogVersion:1|2|3|4|5=1,cleanse=false,challenge=false,expansion=false,polish=false,trustAbilities=false):ItemKind[] {
+  if(catalogVersion===5)return [...FULL56_MERCHANT_ITEMS[npc]];
   if(catalogVersion===4)return (Object.keys(PILOT_ITEMS) as Array<keyof typeof PILOT_ITEMS>).filter(kind=>PILOT_ITEMS[kind].merchant===npc);
   const favorites=NPC_SPECS[npc].favorite;
-  return catalogVersion===1 ? favorites : (Object.keys(ITEM_SPECS) as ItemKind[]).filter(kind=>!(kind in PILOT_ITEMS) && (trustAbilities && catalogVersion===3 || !(ABILITY_ITEM_IDS as readonly string[]).includes(kind)) && (catalogVersion===3 && cleanse || !CLEANSE_KINDS.includes(kind)) && (catalogVersion===3 && challenge || !CHALLENGE_KINDS.includes(kind)) && (catalogVersion===3 && expansion || !EXPANSION_KINDS.includes(kind)) && (catalogVersion===3 && polish || !POLISH_KINDS.includes(kind)) && (catalogVersion===3 || !passiveSpec(kind)) && favorites.some(f=>f===itemFamily(kind)));
+  return catalogVersion===1 ? favorites : (Object.keys(ITEM_SPECS) as ItemKind[]).filter(kind=>!(kind in PILOT_ITEMS) && !(kind in REMAINING48_ITEMS) && (trustAbilities && catalogVersion===3 || !(ABILITY_ITEM_IDS as readonly string[]).includes(kind)) && (catalogVersion===3 && cleanse || !CLEANSE_KINDS.includes(kind)) && (catalogVersion===3 && challenge || !CHALLENGE_KINDS.includes(kind)) && (catalogVersion===3 && expansion || !EXPANSION_KINDS.includes(kind)) && (catalogVersion===3 && polish || !POLISH_KINDS.includes(kind)) && (catalogVersion===3 || !passiveSpec(kind)) && favorites.some(f=>f===itemFamily(kind)));
 }
 export const NPC_SPECS: Record<NpcId,{name:string;sensitivity:number;condition:StatusId;discount:number;reservation:[number,number];favorite:ItemKind[];hint:string}> = {
   orc:{name:'ออร์กผู้รักษาเกียรติ',sensitivity:1,condition:'D03',discount:2,reservation:[.45,.8],favorite:['blade','amulet','food'],hint:'ราคาที่ดูถูกอาจทำให้เสียทรัพย์'},

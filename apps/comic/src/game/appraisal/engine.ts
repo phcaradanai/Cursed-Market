@@ -75,7 +75,7 @@ function validateConfig(config:AppraisalConfig):void {
   check(config.curseSight===undefined || typeof config.curseSight==='boolean','config','กติกาตรวจคำสาปไม่ถูกต้อง');
   check(config.multiCoinRewards===undefined || typeof config.multiCoinRewards==='boolean','config','กติกาทบเหรียญไม่ถูกต้อง');
   check(config.roundRewards===undefined || typeof config.roundRewards==='boolean','config','กติการางวัลจบรอบไม่ถูกต้อง');
-  check(config.catalogVersion===undefined || config.catalogVersion===1 || config.catalogVersion===2 || config.catalogVersion===3 || config.catalogVersion===4,'config','เวอร์ชันคลังสินค้าไม่ถูกต้อง');
+  check(config.catalogVersion===undefined || config.catalogVersion===1 || config.catalogVersion===2 || config.catalogVersion===3 || config.catalogVersion===4 || config.catalogVersion===5,'config','เวอร์ชันคลังสินค้าไม่ถูกต้อง');
   for(const key of ['encounters','startingCredits','maxEnergy','recoveryEnergy','bankReserve','marketMaxOrders','marketQuota'] as const)
     check(Number.isSafeInteger(config[key]) && config[key]>=0 && config[key]<=10000,'config',`ค่า ${key} ไม่ถูกต้อง`);
   check(config.encounters>=1 && config.encounters<=10 && config.maxEnergy>=1 && config.recoveryEnergy>=1 && config.recoveryEnergy<=config.maxEnergy,'config','จำนวน encounter หรือพลังไม่ถูกต้อง');

@@ -15,22 +15,22 @@
     "scope": "approval is not runtime/lifecycle proof"
   },
   "asOf": "2026-11-01",
-  "observedRevision": "f351be5caa898016b91d47ee8893d3351fc7d08c",
+  "observedRevision": "e15a4a6885d641f1cddbec5aa16174325bac6636",
   "scope": "Active Comic art/catalog IDs and proposal edges only; no causal execution or balance claim",
   "sources": {
     "apps/comic/src/game/appraisal/pilot-catalog.ts": "ad8dbb487623f3b8d0486c87fe86c5fe72c0d50c553a7a34bc526c52579e8c62",
-    "apps/comic/src/game/appraisal/pilot-effects.ts": "ab8d8201a7abd4fbca4f96ee6223ded049937d43dac7a2f4dfa72db793e29029",
+    "apps/comic/src/game/appraisal/pilot-effects.ts": "4b669d8f360f8d540bf9cb9e46db8ca46e4b0d25a5e65bc855c839c757d6701d",
     "apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/catalog.json": "1aba59f2a0e8fb48f49865fdb22c89fd7a17044537f7140f322952f66a7c2b44",
     "docs/game-design/logic-item-relations.json": "983d130078b1b6f6f1569dd05f295190a73523c1abaa0aa59bc29e0a6693b801",
     "docs/game-design/new56-pilot-proposal.json": "6881755d843c45dd294fd629802321601fd3c596dc5d7bb771d9230a6ce406c5",
     "docs/game-design/new56-pilot-approval.json": "cdcf630f60c8ed07db87008cd7c845575b3d304bdd0c7167abbf899a5e3b5d65",
-    "apps/comic/src/game/appraisal/content.ts": "71887f52012d6f855c1e130e0339c6785b3f91abe8f9efa5e2b8b2a181d3a20b",
-    "apps/comic/src/game/appraisal/types.ts": "3865b6620a94487cec6fdb30df36fad381a00ad9f9ca4a53671afe777f5229ac",
+    "apps/comic/src/game/appraisal/content.ts": "c07a9bdf0e094641efcfc7f941515d5990535116b50000f866ba0ad086beb7d7",
+    "apps/comic/src/game/appraisal/types.ts": "73171b315a508f581fecebb383e6cf6c08f00ef97c3588f5676274b9c6e8c4d7",
     "apps/comic/src/game/appraisal/item-effects.ts": "c2ff1cbae837a24e19f6a5c81f56d27b986f870d7c277fd5d787d70728c63abd",
-    "apps/comic/src/game/appraisal/passives.ts": "ef49c5ade780d0f68a7422a8e8a3b433237525311ef1c555d3aed61c45bc99bf",
+    "apps/comic/src/game/appraisal/passives.ts": "3915bdda874eae43be5e7318626a6748b29aa56cb35748048669ac1f5e051280",
     "apps/comic/src/game/appraisal/copy-effects.ts": "908b28f89ad8de7212adbd4636fdef6b2daaca230f97c41050ac2e436f4942f9",
-    "apps/comic/dist/src/game/appraisal/content.js": "d86b046d48ed1677df59d08232d0d66763ae1f46ffbe95a3573511ac648c1347",
-    "docs/game-design/scripts/audit-new56.mjs": "c69f651bf543aea6b2a2203df536e651bc4f01e9a94091e6501a5a2d9e00b34a"
+    "apps/comic/dist/src/game/appraisal/content.js": "bec1f50b1dbc94e84a731d71b541e5c3da2b3286434d5dac749e50d9a4659f85",
+    "docs/game-design/scripts/audit-new56.mjs": "95cd6e5121d7309f546daecc5d2662512edcd32017ce1a53cfc14222b4dc1ed3"
   },
   "summary": {
     "merchants": 8,
@@ -39,8 +39,8 @@
     "primaryProposals": 56,
     "optionalProposals": 57,
     "effectCandidates": 75,
-    "runtimeCatalogKinds": 74,
-    "newIdsInRuntime": 8,
+    "runtimeCatalogKinds": 122,
+    "newIdsInRuntime": 56,
     "overTwoDirectSystems": [
       "autometa-data-prism",
       "alien-star-chart-membrane",
@@ -387,7 +387,7 @@
         "เหล็กดำ",
         "ทองแดงเก่า"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E28",
       "optionalEffects": [
         "E38"
@@ -437,7 +437,7 @@
         "เหล็กดำ",
         "ทองแดงเก่า"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E61",
       "optionalEffects": [],
       "directLogicCount": 1,
@@ -460,7 +460,7 @@
         "เหล็กดำ",
         "ทองแดงเก่า"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E63",
       "optionalEffects": [
         "E71"
@@ -485,7 +485,7 @@
         "เหล็กดำ",
         "ทองแดงเก่า"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E16",
       "optionalEffects": [
         "E64"
@@ -510,7 +510,7 @@
         "เหล็กดำ",
         "ทองแดงเก่า"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E13",
       "optionalEffects": [
         "E24"
@@ -535,7 +535,7 @@
         "เหล็กดำ",
         "ทองแดงเก่า"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E07",
       "optionalEffects": [
         "E14"
@@ -560,7 +560,7 @@
         "พลัมเข้ม",
         "แดงเลือดหม่น"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E42",
       "optionalEffects": [
         "E43"
@@ -610,7 +610,7 @@
         "พลัมเข้ม",
         "แดงเลือดหม่น"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E58",
       "optionalEffects": [
         "E63"
@@ -635,7 +635,7 @@
         "พลัมเข้ม",
         "แดงเลือดหม่น"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E11",
       "optionalEffects": [
         "E29"
@@ -660,7 +660,7 @@
         "พลัมเข้ม",
         "แดงเลือดหม่น"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E06",
       "optionalEffects": [
         "E20"
@@ -685,7 +685,7 @@
         "พลัมเข้ม",
         "แดงเลือดหม่น"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E22",
       "optionalEffects": [
         "E55"
@@ -710,7 +710,7 @@
         "พลัมเข้ม",
         "แดงเลือดหม่น"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E38",
       "optionalEffects": [
         "E75"
@@ -735,7 +735,7 @@
         "เหล็กเข้ม",
         "งาช้าง"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E05",
       "optionalEffects": [
         "E06"
@@ -760,7 +760,7 @@
         "เหล็กเข้ม",
         "งาช้าง"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E40",
       "optionalEffects": [
         "E68"
@@ -785,7 +785,7 @@
         "เหล็กเข้ม",
         "งาช้าง"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E02",
       "optionalEffects": [
         "E04",
@@ -811,7 +811,7 @@
         "เหล็กเข้ม",
         "งาช้าง"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E31",
       "optionalEffects": [
         "E61"
@@ -861,7 +861,7 @@
         "เหล็กเข้ม",
         "งาช้าง"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E35",
       "optionalEffects": [
         "E23"
@@ -886,7 +886,7 @@
         "เหล็กเข้ม",
         "งาช้าง"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E61",
       "optionalEffects": [
         "E47"
@@ -911,7 +911,7 @@
         "ลาเวนเดอร์",
         "มุกเหลือบ"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E67",
       "optionalEffects": [
         "E35"
@@ -936,7 +936,7 @@
         "ลาเวนเดอร์",
         "มุกเหลือบ"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E72",
       "optionalEffects": [
         "E16"
@@ -961,7 +961,7 @@
         "ลาเวนเดอร์",
         "มุกเหลือบ"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E25",
       "optionalEffects": [
         "E35",
@@ -987,7 +987,7 @@
         "ลาเวนเดอร์",
         "มุกเหลือบ"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E61",
       "optionalEffects": [
         "E65"
@@ -1037,7 +1037,7 @@
         "ลาเวนเดอร์",
         "มุกเหลือบ"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E31",
       "optionalEffects": [
         "E34"
@@ -1062,7 +1062,7 @@
         "ลาเวนเดอร์",
         "มุกเหลือบ"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E57",
       "optionalEffects": [
         "E60"
@@ -1087,7 +1087,7 @@
         "เขียวมอสเข้ม",
         "เหลืองดินหม่น"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E71",
       "optionalEffects": [
         "E40"
@@ -1112,7 +1112,7 @@
         "เขียวมอสเข้ม",
         "เหลืองดินหม่น"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E69",
       "optionalEffects": [
         "E72"
@@ -1137,7 +1137,7 @@
         "เขียวมอสเข้ม",
         "เหลืองดินหม่น"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E49",
       "optionalEffects": [
         "E44"
@@ -1162,7 +1162,7 @@
         "เขียวมอสเข้ม",
         "เหลืองดินหม่น"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E67",
       "optionalEffects": [
         "E70"
@@ -1187,7 +1187,7 @@
         "เขียวมอสเข้ม",
         "เหลืองดินหม่น"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E53",
       "optionalEffects": [
         "E18"
@@ -1237,7 +1237,7 @@
         "เขียวมอสเข้ม",
         "เหลืองดินหม่น"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E71",
       "optionalEffects": [
         "E09"
@@ -1262,7 +1262,7 @@
         "มุก",
         "แก้วทะเล"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E07",
       "optionalEffects": [
         "E05"
@@ -1287,7 +1287,7 @@
         "มุก",
         "แก้วทะเล"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E62",
       "optionalEffects": [
         "E67"
@@ -1337,7 +1337,7 @@
         "มุก",
         "แก้วทะเล"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E16",
       "optionalEffects": [
         "E64"
@@ -1362,7 +1362,7 @@
         "มุก",
         "แก้วทะเล"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E46",
       "optionalEffects": [
         "E42"
@@ -1387,7 +1387,7 @@
         "มุก",
         "แก้วทะเล"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E35",
       "optionalEffects": [
         "E02",
@@ -1413,7 +1413,7 @@
         "มุก",
         "แก้วทะเล"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E63",
       "optionalEffects": [
         "E55"
@@ -1463,7 +1463,7 @@
         "อำพัน",
         "ม่วงหม่น"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E11",
       "optionalEffects": [
         "E16"
@@ -1488,7 +1488,7 @@
         "อำพัน",
         "ม่วงหม่น"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E33",
       "optionalEffects": [],
       "directLogicCount": 1,
@@ -1511,7 +1511,7 @@
         "อำพัน",
         "ม่วงหม่น"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E52",
       "optionalEffects": [
         "E44"
@@ -1536,7 +1536,7 @@
         "อำพัน",
         "ม่วงหม่น"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E34",
       "optionalEffects": [
         "E37"
@@ -1561,7 +1561,7 @@
         "อำพัน",
         "ม่วงหม่น"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E59",
       "optionalEffects": [
         "E65"
@@ -1586,7 +1586,7 @@
         "อำพัน",
         "ม่วงหม่น"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E62",
       "optionalEffects": [
         "E68"
@@ -1611,7 +1611,7 @@
         "งาช้าง",
         "สีขนธรรมชาติ"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E25",
       "optionalEffects": [
         "E35"
@@ -1636,7 +1636,7 @@
         "งาช้าง",
         "สีขนธรรมชาติ"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E32",
       "optionalEffects": [
         "E28"
@@ -1661,7 +1661,7 @@
         "งาช้าง",
         "สีขนธรรมชาติ"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E36",
       "optionalEffects": [
         "E21"
@@ -1686,7 +1686,7 @@
         "งาช้าง",
         "สีขนธรรมชาติ"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E53",
       "optionalEffects": [
         "E40"
@@ -1711,7 +1711,7 @@
         "งาช้าง",
         "สีขนธรรมชาติ"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E68",
       "optionalEffects": [
         "E63"
@@ -1736,7 +1736,7 @@
         "งาช้าง",
         "สีขนธรรมชาติ"
       ],
-      "runtimeIdPresent": false,
+      "runtimeIdPresent": true,
       "primaryEffect": "E37",
       "optionalEffects": [
         "E45"
@@ -1772,7 +1772,7 @@
   ],
   "limitations": [
     "Compiled module ID membership is verified, not lifecycle/effect coverage. Build command and source/compiled hashes accompany this report.",
-    "Effect IDs are design namespaces effect:E##, not event:E##. Semantics outside the explicitly approved eight-item pilot still need approval.",
+    "Effect IDs are design namespaces effect:E##, not event:E##. Exact remaining48 experimental semantics/numbers approved in remaining48-approval.json; registration is not effect verification.",
     "No old item alias, generator, effect, event predicate or live server config was changed by this audit."
   ]
 }

@@ -1,0 +1,351 @@
+{
+  "version": 1,
+  "catalogVersion": 5,
+  "effectStage": 1,
+  "scope": "Frozen first catalog5 semantics: pilot8 plus E05. Absent a later explicit effects revision must retain this behavior. Not release/balance approval.",
+  "config": {
+    "rarityEconomy": {
+      "version": 1,
+      "tiers": {
+        "common": {
+          "value": 1,
+          "effect": 1
+        },
+        "uncommon": {
+          "value": 2,
+          "effect": 2
+        },
+        "rare": {
+          "value": 3,
+          "effect": 3
+        },
+        "epic": {
+          "value": 4,
+          "effect": 4
+        },
+        "legendary": {
+          "value": 6,
+          "effect": 6
+        },
+        "mythic": {
+          "value": 8,
+          "effect": 8
+        }
+      }
+    },
+    "rarity": {
+      "version": 1,
+      "rates": {
+        "common": 0.6,
+        "uncommon": 0.25,
+        "rare": 0.1,
+        "epic": 0.035,
+        "legendary": 0.013,
+        "mythic": 0.002
+      },
+      "themes": {
+        "common": [
+          {
+            "theme": "plain",
+            "weight": 1
+          }
+        ],
+        "uncommon": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "rare": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "epic": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "legendary": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "mythic": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ]
+      }
+    },
+    "loanEndSettlement": true,
+    "vaultInterestRules": 1,
+    "theftTimeoutRules": 1,
+    "collectorDeadline": 15,
+    "eventChoiceRules": 1,
+    "statusLinks": 1,
+    "systemLinks": 1,
+    "trustAbilities": true,
+    "catalogVersion": 5,
+    "itemEffects": true,
+    "roundRewards": true,
+    "multiCoinRewards": true,
+    "commerce": true,
+    "totalTrustStock": true,
+    "curseSight": true,
+    "freeBuy": true,
+    "freeMerchantAction": true,
+    "fakeEffect": true,
+    "cleanse": true,
+    "wishlist": true,
+    "wishContract": true,
+    "challenge": true,
+    "expansion": true,
+    "encounters": 3,
+    "startingCredits": 40,
+    "maxEnergy": 10,
+    "recoveryEnergy": 4,
+    "bankReserve": 2000,
+    "marketProbability": 1,
+    "marketMaxOrders": 3,
+    "marketQuota": 1,
+    "personalScoringRules": 1,
+    "collectorWishlistRules": 1,
+    "secureEconomy": true,
+    "brokerage": {
+      "auctionProbability": 0.5,
+      "maxLots": 2,
+      "bondProbability": 0.65
+    },
+    "polish": true,
+    "npcEvents": true,
+    "core2": true,
+    "survival": {
+      "maxLife": 6,
+      "encounterLifeCost": 1,
+      "entryEnergyCost": 0
+    },
+    "personalScoringFacts": 2
+  },
+  "implementedPrimaryItemIds": [
+    "orc-tusk-shield",
+    "vampire-nocturne-signet",
+    "autometa-torque-caliper",
+    "alien-thought-translator",
+    "darkone-crossing-token",
+    "deepsea-tide-compass",
+    "swarm-brood-hammer",
+    "beast-riftfang-sword",
+    "autometa-coil-repeater"
+  ],
+  "archives": [
+    {
+      "id": "2-cautious",
+      "file": "docs/validation/native56-catalog-2026-11-04/compatibility/2-cautious.audit.json.gz",
+      "sha256": "cce7236e400caae1bee1aaca46846d279fd6048d07abcf1a9616d5b3b5ee6fd4",
+      "rawSha256": "344661e35ec823151187d2864575c41e8656dcff348108fcabac667e96710805"
+    },
+    {
+      "id": "2-collector",
+      "file": "docs/validation/native56-catalog-2026-11-04/compatibility/2-collector.audit.json.gz",
+      "sha256": "5357cc76288f5213bf24ac7812d24342dc2799c647b4c4293803219a24853e61",
+      "rawSha256": "4fbc6c86e3bbe1bb550292ddee633201f916b73c78711078c365bca056feff2a"
+    },
+    {
+      "id": "4-cautious",
+      "file": "docs/validation/native56-catalog-2026-11-04/compatibility/4-cautious.audit.json.gz",
+      "sha256": "8653034ab6ac613a28a2130beb454bbd063b1a5b7993a11f624d5deb65818a2e",
+      "rawSha256": "113d2e7e4917bcb14d1e6e289fa3bebe846a01fc6eb443abb7babb0c0e704b39"
+    },
+    {
+      "id": "4-collector",
+      "file": "docs/validation/native56-catalog-2026-11-04/compatibility/4-collector.audit.json.gz",
+      "sha256": "b7ce0b82e7152da4a02e705d20b248d3e7c2371d6c00980852f72ef8f4dd18e9",
+      "rawSha256": "56e4b1d30d2f672ff428308c74043083cc7601c4a8d83c1ef3acd5090ab9a102"
+    }
+  ]
+}

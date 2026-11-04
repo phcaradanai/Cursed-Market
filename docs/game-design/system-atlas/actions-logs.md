@@ -619,8 +619,8 @@
       "owner": "AppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 266,
-        "endLine": 266
+        "line": 267,
+        "endLine": 267
       },
       "text": "type:'theft-hand';",
       "guards": [
@@ -633,8 +633,8 @@
       "owner": "AppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 270,
-        "endLine": 270
+        "line": 271,
+        "endLine": 271
       },
       "text": "type:'theft-expire';",
       "guards": [
@@ -647,8 +647,8 @@
       "owner": "AppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 271,
-        "endLine": 271
+        "line": 272,
+        "endLine": 272
       },
       "text": "type:'crime-clear'",
       "guards": [
@@ -661,8 +661,8 @@
       "owner": "AppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 286,
-        "endLine": 286
+        "line": 287,
+        "endLine": 287
       },
       "text": "type: 'round-flip';",
       "guards": [
@@ -675,8 +675,8 @@
       "owner": "AppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 287,
-        "endLine": 287
+        "line": 288,
+        "endLine": 288
       },
       "text": "type: 'round-raise';",
       "guards": [
@@ -689,8 +689,8 @@
       "owner": "AppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 288,
-        "endLine": 288
+        "line": 289,
+        "endLine": 289
       },
       "text": "type: 'round-bank'",
       "guards": [
@@ -834,8 +834,8 @@
       "payload": "{offerId:offer.id,itemId:item.id,key,penalty,sealed}",
       "source": {
         "file": "apps/comic/src/game/appraisal/challenge.ts",
-        "line": 25,
-        "endLine": 25
+        "line": 27,
+        "endLine": 27
       },
       "owner": "code:apps/comic/src/game/appraisal/challenge.ts:settleChallenge",
       "guards": [
@@ -845,11 +845,11 @@
     {
       "topic": "challenge-won",
       "topicExpression": "'challenge-won'",
-      "payload": "{offerId:offer.id,itemId:item.id,key,discount}",
+      "payload": "{offerId:offer.id,itemId:item.id,key,discount,...(bonus?{itemBonusBps:bonus}:{})}",
       "source": {
         "file": "apps/comic/src/game/appraisal/challenge.ts",
-        "line": 31,
-        "endLine": 31
+        "line": 34,
+        "endLine": 34
       },
       "owner": "code:apps/comic/src/game/appraisal/challenge.ts:settleChallenge",
       "guards": []
@@ -1401,8 +1401,8 @@
       "payload": "{id}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 93,
-        "endLine": 93
+        "line": 94,
+        "endLine": 94
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:grant",
       "guards": [
@@ -1415,8 +1415,8 @@
       "payload": "{id,expires,charges,...(targetItemId ? {targetItemId} : {})}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 102,
-        "endLine": 102
+        "line": 103,
+        "endLine": 103
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:grant",
       "guards": []
@@ -1427,8 +1427,8 @@
       "payload": "{energy,reason}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 109,
-        "endLine": 109
+        "line": 110,
+        "endLine": 110
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:spend",
       "guards": [
@@ -1441,8 +1441,8 @@
       "payload": "{amount:p.energy-before,reason}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 132,
-        "endLine": 132
+        "line": 133,
+        "endLine": 133
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:recover",
       "guards": []
@@ -1453,8 +1453,8 @@
       "payload": "{amount:p.life-before,reason}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 137,
-        "endLine": 137
+        "line": 138,
+        "endLine": 138
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:healLife",
       "guards": []
@@ -1465,12 +1465,12 @@
       "payload": "{amount:before-hit,reason}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 142,
-        "endLine": 142
+        "line": 143,
+        "endLine": 143
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:damageLife",
       "guards": [
-        "hit>0 && shieldable && !['blood-pact','dark-one-contract','market-condition','vampire-rite','darkone-pact'].includes(reason) && state.config.catalogVersion===4 && p.pilotGuard?.encounter===state.encounter"
+        "hit>0 && shieldable && !['blood-pact','dark-one-contract','market-condition','vampire-rite','darkone-pact'].includes(reason) && (state.config.catalogVersion===4 || state.config.catalogVersion===5) && p.pilotGuard?.encounter===state.encounter"
       ]
     },
     {
@@ -1479,8 +1479,8 @@
       "payload": "{amount:before-p.life,reason}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 148,
-        "endLine": 148
+        "line": 149,
+        "endLine": 149
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:damageLife",
       "guards": []
@@ -1491,8 +1491,8 @@
       "payload": "{reason}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 149,
-        "endLine": 149
+        "line": 150,
+        "endLine": 150
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:damageLife",
       "guards": [
@@ -1505,8 +1505,8 @@
       "payload": "{gained,wary}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 179,
-        "endLine": 179
+        "line": 180,
+        "endLine": 180
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:gainShards",
       "guards": []
@@ -1517,8 +1517,8 @@
       "payload": "{itemId,reason}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 196,
-        "endLine": 196
+        "line": 197,
+        "endLine": 197
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:retire",
       "guards": []
@@ -1529,8 +1529,8 @@
       "payload": "{sourceItemId:caliper.id,itemId,savedEnergy:cost}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 235,
-        "endLine": 235
+        "line": 236,
+        "endLine": 236
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
       "guards": [
@@ -1545,8 +1545,8 @@
       "payload": "{itemId,property}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 255,
-        "endLine": 255
+        "line": 256,
+        "endLine": 256
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
       "guards": []
@@ -1557,8 +1557,8 @@
       "payload": "{npc:item.npc,lost,trust:trust[item.npc]}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 295,
-        "endLine": 295
+        "line": 296,
+        "endLine": 296
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
       "guards": [
@@ -1572,8 +1572,8 @@
       "payload": "{itemId,value,risk,caught,counter,accepted,...(backlash?{overvalued:true}:{})}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 302,
-        "endLine": 302
+        "line": 303,
+        "endLine": 303
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
       "guards": []
@@ -1584,8 +1584,8 @@
       "payload": "{itemId:item.id,npc:item.npc,salePrice,commission,trust:trust[item.npc]}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 319,
-        "endLine": 319
+        "line": 320,
+        "endLine": 320
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:completeAppraisedSale",
       "guards": []
@@ -1596,8 +1596,8 @@
       "payload": "{buyerId:buyer.id,paid,promised:rebate}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 326,
-        "endLine": 326
+        "line": 327,
+        "endLine": 327
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:payRebate",
       "guards": [
@@ -1610,8 +1610,8 @@
       "payload": "{itemId:item.id,from:shop.id,facts:Object.keys(facts)}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 342,
-        "endLine": 342
+        "line": 343,
+        "endLine": 343
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inheritKnowledge",
       "guards": []
@@ -1622,8 +1622,8 @@
       "payload": "{npc,trust:trust[npc]}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 354,
-        "endLine": 354
+        "line": 355,
+        "endLine": 355
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:noteRepeatBuy",
       "guards": []
@@ -1634,8 +1634,8 @@
       "payload": "{gained:buyer.energy-before}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 366,
-        "endLine": 366
+        "line": 367,
+        "endLine": 367
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:noteScrap",
       "guards": []
@@ -1646,8 +1646,8 @@
       "payload": "{itemIds,shopId:shop.id,price,energy,condition:options.condition ?? false,...(fee?{fee}:{})}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 420,
-        "endLine": 420
+        "line": 421,
+        "endLine": 421
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
       "guards": []
@@ -1658,8 +1658,8 @@
       "payload": "{npc,otherNpc:otherNpc??null,reduced}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 442,
-        "endLine": 442
+        "line": 444,
+        "endLine": 444
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
       "guards": [
@@ -1675,8 +1675,8 @@
       "payload": "{itemId:item.id,targetId:id,fact:'base'}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 453,
-        "endLine": 453
+        "line": 455,
+        "endLine": 455
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
       "guards": [
@@ -1696,8 +1696,8 @@
       "payload": "{itemId:item.id,targetId:option.id,fact:option.fact}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 456,
-        "endLine": 456
+        "line": 458,
+        "endLine": 458
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
       "guards": [
@@ -1717,8 +1717,8 @@
       "payload": "{itemId}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 485,
-        "endLine": 485
+        "line": 487,
+        "endLine": 487
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
       "guards": []
@@ -1729,8 +1729,8 @@
       "payload": "{itemId}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 502,
-        "endLine": 502
+        "line": 504,
+        "endLine": 504
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:penaltyItem",
       "guards": [
@@ -1743,8 +1743,8 @@
       "payload": null,
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 506,
-        "endLine": 506
+        "line": 508,
+        "endLine": 508
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:kill",
       "guards": [
@@ -1757,8 +1757,8 @@
       "payload": null,
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 508,
-        "endLine": 508
+        "line": 510,
+        "endLine": 510
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:kill",
       "guards": [
@@ -1772,8 +1772,8 @@
       "payload": "{itemId,orderId,price:price+creditsBonus+gearBonus,...(contract?{matched,resolution,bonus:matched?contract.bonus:null}:{})}",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 555,
-        "endLine": 555
+        "line": 557,
+        "endLine": 557
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
       "guards": []
@@ -3308,7 +3308,7 @@
     },
     {
       "code": "config",
-      "condition": "config.catalogVersion===undefined || config.catalogVersion===1 || config.catalogVersion===2 || config.catalogVersion===3 || config.catalogVersion===4",
+      "condition": "config.catalogVersion===undefined || config.catalogVersion===1 || config.catalogVersion===2 || config.catalogVersion===3 || config.catalogVersion===4 || config.catalogVersion===5",
       "message": "'เวอร์ชันคลังสินค้าไม่ถูกต้อง'",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
@@ -5440,8 +5440,8 @@
       "message": "'ไม่พบผู้เล่น'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 30,
-        "endLine": 30
+        "line": 31,
+        "endLine": 31
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:player",
       "guards": []
@@ -5452,8 +5452,8 @@
       "message": "'ต้นทุนไม่ถูกต้อง'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 105,
-        "endLine": 105
+        "line": 106,
+        "endLine": 106
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:spend",
       "guards": []
@@ -5464,8 +5464,8 @@
       "message": "'credit ไม่พอ'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 106,
-        "endLine": 106
+        "line": 107,
+        "endLine": 107
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:spend",
       "guards": []
@@ -5476,8 +5476,8 @@
       "message": "'พลังไม่พอ'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 106,
-        "endLine": 106
+        "line": 107,
+        "endLine": 107
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:spend",
       "guards": []
@@ -5488,8 +5488,8 @@
       "message": "'รางวัลไม่ถูกต้อง'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 112,
-        "endLine": 112
+        "line": 113,
+        "endLine": 113
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:reward",
       "guards": []
@@ -5500,8 +5500,8 @@
       "message": "'งบรางวัลไม่พอ'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 113,
-        "endLine": 113
+        "line": 114,
+        "endLine": 114
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:reward",
       "guards": []
@@ -5512,8 +5512,8 @@
       "message": "'credit ไม่พอ'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 118,
-        "endLine": 118
+        "line": 119,
+        "endLine": 119
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:transfer",
       "guards": []
@@ -5524,8 +5524,8 @@
       "message": "'โบนัสสินค้าไม่ถูกต้อง'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 124,
-        "endLine": 124
+        "line": 125,
+        "endLine": 125
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:fundPassive",
       "guards": []
@@ -5536,8 +5536,8 @@
       "message": "'ผู้ตายฟื้นกลับมาใน run นี้ไม่ได้'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 135,
-        "endLine": 135
+        "line": 136,
+        "endLine": 136
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:healLife",
       "guards": []
@@ -5548,8 +5548,8 @@
       "message": "'กติกานี้ไม่มีชีวิตแยก'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 140,
-        "endLine": 140
+        "line": 141,
+        "endLine": 141
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:damageLife",
       "guards": []
@@ -5560,8 +5560,8 @@
       "message": "'ไม่ได้เป็นเจ้าของสินค้า'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 188,
-        "endLine": 188
+        "line": 189,
+        "endLine": 189
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:ownedItem",
       "guards": []
@@ -5572,8 +5572,8 @@
       "message": "'สินค้าถูกล็อก'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 189,
-        "endLine": 189
+        "line": 190,
+        "endLine": 190
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:ownedItem",
       "guards": []
@@ -5584,8 +5584,8 @@
       "message": "'สินค้านี้ไม่มีในร้านแล้ว'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 205,
-        "endLine": 205
+        "line": 206,
+        "endLine": 206
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:stockItem",
       "guards": []
@@ -5596,8 +5596,8 @@
       "message": "'ข้อมูลที่จะตรวจไม่ถูกต้อง'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 220,
-        "endLine": 220
+        "line": 221,
+        "endLine": 221
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
       "guards": []
@@ -5608,8 +5608,8 @@
       "message": "'ตรวจได้เฉพาะของตนหรือร้านปัจจุบัน'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 222,
-        "endLine": 222
+        "line": 223,
+        "endLine": 223
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
       "guards": []
@@ -5620,8 +5620,8 @@
       "message": "'ใช้สิทธิ์ตรวจครบแล้ว'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 224,
-        "endLine": 224
+        "line": 225,
+        "endLine": 225
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
       "guards": []
@@ -5632,8 +5632,8 @@
       "message": "'รู้ข้อมูลนี้แล้ว'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 226,
-        "endLine": 226
+        "line": 227,
+        "endLine": 227
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:inspect",
       "guards": []
@@ -5644,8 +5644,8 @@
       "message": "'ราคาประเมินไม่ถูกต้อง'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 265,
-        "endLine": 265
+        "line": 266,
+        "endLine": 266
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
       "guards": []
@@ -5656,8 +5656,8 @@
       "message": "'ไม่มีสิทธิ์ประเมินหรือต่อรองเพิ่ม'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 266,
-        "endLine": 266
+        "line": 267,
+        "endLine": 267
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
       "guards": []
@@ -5668,8 +5668,8 @@
       "message": "'ต้องยอมรับขอบเขตผลเสียของ Dark One ก่อน'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 267,
-        "endLine": 267
+        "line": 268,
+        "endLine": 268
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:appraise",
       "guards": []
@@ -5680,8 +5680,8 @@
       "message": "'ยังถูกห้ามค้าขายกับพ่อค้า'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 377,
-        "endLine": 377
+        "line": 378,
+        "endLine": 378
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
       "guards": []
@@ -5692,8 +5692,8 @@
       "message": "'ชุดสินค้าไม่ถูกต้อง'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 378,
-        "endLine": 378
+        "line": 379,
+        "endLine": 379
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
       "guards": []
@@ -5704,8 +5704,8 @@
       "message": "'ข้อเสนอนี้ต้องรับเงื่อนไข'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 381,
-        "endLine": 381
+        "line": 382,
+        "endLine": 382
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
       "guards": []
@@ -5716,8 +5716,8 @@
       "message": "'ข้อเสนอนี้รับ credit อย่างเดียว'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 382,
-        "endLine": 382
+        "line": 383,
+        "endLine": 383
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
       "guards": []
@@ -5728,8 +5728,8 @@
       "message": "'สินค้าไม่ได้อยู่ร้านเดียวกัน'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 383,
-        "endLine": 383
+        "line": 384,
+        "endLine": 384
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
       "guards": []
@@ -5740,8 +5740,8 @@
       "message": "'เงื่อนไขนี้ไม่มี encounter ถัดไป'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 384,
-        "endLine": 384
+        "line": 385,
+        "endLine": 385
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:purchase",
       "guards": []
@@ -5752,20 +5752,32 @@
       "message": "'เปิดใช้ชิ้นนี้ใน encounter แล้ว'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 423,
-        "endLine": 423
+        "line": 424,
+        "endLine": 424
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
       "guards": []
     },
     {
       "code": "activation",
-      "condition": "state.config.catalogVersion===4 && spec.explicitActivation",
+      "condition": "!isRemaining48Kind(item.kind)",
+      "message": "'สินค้านี้ยังไม่มีสิทธิ์เปิดใช้ในรันนี้'",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/mechanics.ts",
+        "line": 426,
+        "endLine": 426
+      },
+      "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
+      "guards": []
+    },
+    {
+      "code": "activation",
+      "condition": "(state.config.catalogVersion===4 || state.config.catalogVersion===5) && spec.explicitActivation",
       "message": "'สินค้านี้ทำงานผ่านระบบที่ระบุ ไม่เปิดใช้แยก'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 425,
-        "endLine": 425
+        "line": 427,
+        "endLine": 427
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
       "guards": [
@@ -5778,8 +5790,8 @@
       "message": "'สินค้าชิ้นนี้ใช้ในช่วงนี้แล้ว'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 425,
-        "endLine": 425
+        "line": 427,
+        "endLine": 427
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
       "guards": [
@@ -5792,8 +5804,8 @@
       "message": "'สินค้าชนิดนี้ใช้ได้ครั้งเดียวต่อช่วง'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 436,
-        "endLine": 436
+        "line": 438,
+        "endLine": 438
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
       "guards": [
@@ -5808,8 +5820,8 @@
       "message": "'เลือกสกิลที่ยังลดเวลารอได้'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 438,
-        "endLine": 438
+        "line": 440,
+        "endLine": 440
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
       "guards": [
@@ -5825,8 +5837,8 @@
       "message": "'เลือกสกิลอื่นที่ยังรออยู่'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 439,
-        "endLine": 439
+        "line": 441,
+        "endLine": 441
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:activate",
       "guards": [
@@ -5843,8 +5855,8 @@
       "message": "'เลือกรับราคาลดหรือสละตามเงื่อนไข'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 511,
-        "endLine": 511
+        "line": 513,
+        "endLine": 513
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
       "guards": []
@@ -5855,8 +5867,8 @@
       "message": "'ของที่ฉกมาขาย Dark Market ไม่ได้'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 513,
-        "endLine": 513
+        "line": 515,
+        "endLine": 515
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
       "guards": []
@@ -5867,8 +5879,8 @@
       "message": "'Dark Market ปิดแล้ว'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 514,
-        "endLine": 514
+        "line": 516,
+        "endLine": 516
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
       "guards": []
@@ -5879,8 +5891,8 @@
       "message": "'ไม่มีสิทธิ์รับซื้อตามรายการ'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 515,
-        "endLine": 515
+        "line": 517,
+        "endLine": 517
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
       "guards": []
@@ -5891,8 +5903,8 @@
       "message": "'งบรับซื้อหมด'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 516,
-        "endLine": 516
+        "line": 518,
+        "endLine": 518
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
       "guards": []
@@ -5903,8 +5915,8 @@
       "message": "'พลังไม่พอสำหรับเงื่อนไขราคาเต็ม'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 522,
-        "endLine": 522
+        "line": 524,
+        "endLine": 524
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
       "guards": [
@@ -5918,8 +5930,8 @@
       "message": "'มีผลเสียนี้อยู่แล้ว รับซ้ำเพื่อแลกราคาเต็มไม่ได้'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 523,
-        "endLine": 523
+        "line": 525,
+        "endLine": 525
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
       "guards": [
@@ -5933,8 +5945,8 @@
       "message": "'ต้องเหลือชีวิตอย่างน้อย 1 หลังจ่าย'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 524,
-        "endLine": 524
+        "line": 526,
+        "endLine": 526
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
       "guards": [
@@ -5948,8 +5960,8 @@
       "message": "'งบรับซื้อไม่พอโดยไม่แตะสัญญาอื่น'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 528,
-        "endLine": 528
+        "line": 530,
+        "endLine": 530
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
       "guards": [
@@ -5962,8 +5974,8 @@
       "message": "'ต้องเหลือชีวิตอย่างน้อย 1 หลังจ่าย'",
       "source": {
         "file": "apps/comic/src/game/appraisal/mechanics.ts",
-        "line": 536,
-        "endLine": 536
+        "line": 538,
+        "endLine": 538
       },
       "owner": "code:apps/comic/src/game/appraisal/mechanics.ts:marketSell",
       "guards": [

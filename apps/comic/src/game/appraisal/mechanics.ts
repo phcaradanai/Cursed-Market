@@ -1,4 +1,5 @@
 import {priceCaliper,usePilot,pilotUses,pilotStrength} from './pilot-effects.js';
+import {isRemaining48Kind} from './remaining48-effects.js';
 import {recordPersonalAppraisal,recordPersonalInspection,recordPersonalActivity,recordPersonalItemActivity,recordPersonalSale,setPersonalTrust} from './personal-scoring.js';
 import { itemPriceRange } from './rarity.js';
 import { rarityValue } from '../../shared/rarity-power.js';
@@ -139,7 +140,7 @@ export function healLife(state:AppraisalState,p:Appraiser,amount:number,reason:s
 export function damageLife(state:AppraisalState,p:Appraiser,amount:number,reason:string,shieldable=true):void {
   check(p.life!==undefined,'life','กติกานี้ไม่มีชีวิตแยก');
   let hit=amount;
-  if(hit>0 && shieldable && !['blood-pact','dark-one-contract','market-condition','vampire-rite','darkone-pact'].includes(reason) && state.config.catalogVersion===4 && p.pilotGuard?.encounter===state.encounter){const before=hit;hit=Math.max(0,hit-p.pilotGuard.amount);delete p.pilotGuard;trace(state,p,'pilot-guard-absorbed',{amount:before-hit,reason});}
+  if(hit>0 && shieldable && !['blood-pact','dark-one-contract','market-condition','vampire-rite','darkone-pact'].includes(reason) && (state.config.catalogVersion===4 || state.config.catalogVersion===5) && p.pilotGuard?.encounter===state.encounter){const before=hit;hit=Math.max(0,hit-p.pilotGuard.amount);delete p.pilotGuard;trace(state,p,'pilot-guard-absorbed',{amount:before-hit,reason});}
   if(hit>0 && status(p,'B19')){hit=Math.max(0,hit-integerEffect(statusMagnitude(p,'B19',1)));consumeStatus(p,'B19');}
   if(hit>0 && status(p,'D20')){hit+=integerEffect(statusMagnitude(p,'D20',1));consumeStatus(p,'D20');}
   const before=p.life;const remaining=Math.max(0,p.life-hit);
@@ -422,7 +423,8 @@ export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraise
 export function activate(state: AppraisalState, p: Appraiser, itemId: string, npc?:NpcId, otherNpc?:NpcId): void {
   const item = ownedItem(state,p,itemId); check(!p.activated.includes(itemId),'activated','เปิดใช้ชิ้นนี้ใน encounter แล้ว');
   const spec = ITEM_SPECS[item.kind];
-  if(spec.nativeEffect){check(state.config.catalogVersion===4 && spec.explicitActivation,'activation','สินค้านี้ทำงานผ่านระบบที่ระบุ ไม่เปิดใช้แยก');check(pilotUses(state,item)===0,'activated','สินค้าชิ้นนี้ใช้ในช่วงนี้แล้ว');}
+  check(!isRemaining48Kind(item.kind),'activation','สินค้านี้ยังไม่มีสิทธิ์เปิดใช้ในรันนี้');
+  if(spec.nativeEffect){check((state.config.catalogVersion===4 || state.config.catalogVersion===5) && spec.explicitActivation,'activation','สินค้านี้ทำงานผ่านระบบที่ระบุ ไม่เปิดใช้แยก');check(pilotUses(state,item)===0,'activated','สินค้าชิ้นนี้ใช้ในช่วงนี้แล้ว');}
   spend(state,p,0,state.config.itemEffects && spec.consumable?0:1,'activate'); p.activated.push(itemId);
   const power=itemEffectScale(item);
   if(spec.nativeEffect)usePilot(state,item);

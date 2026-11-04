@@ -273,7 +273,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/model.ts",
-      "sha256": "5b8dba5f58ff964ed261fb02452f7268e24a9447d29297cdaec107692bb4e9e3"
+      "sha256": "58c7c80972c780aafe4e3068034a87b26ba0413baea6f0fdb52fa6be847a0924"
     },
     {
       "file": "apps/comic/src/appraisal-client/personal-score-preview-data.ts",
@@ -977,7 +977,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/challenge.ts",
-      "sha256": "35a2d880e49702b24560eae95fa6b2194c2e02f474f9a8ec2842e0114f3c6fec"
+      "sha256": "ef3e4aa22bb4ca5d897da799f6f8e2cf35c66a6e76d895c6892c29d09f943a03"
     },
     {
       "file": "apps/comic/src/game/appraisal/cleanse-rules.ts",
@@ -993,7 +993,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/content.ts",
-      "sha256": "71887f52012d6f855c1e130e0339c6785b3f91abe8f9efa5e2b8b2a181d3a20b"
+      "sha256": "c07a9bdf0e094641efcfc7f941515d5990535116b50000f866ba0ad086beb7d7"
     },
     {
       "file": "apps/comic/src/game/appraisal/copy-effects.ts",
@@ -1025,7 +1025,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "sha256": "27fc459d9d5b59826ac8202d9adcf239ed9c306bd4373886dcef9edd7784bb91"
+      "sha256": "252c2a940290fadfc9a59c559c72ecb03dfc24149e6e0c54c089f790624ff181"
     },
     {
       "file": "apps/comic/src/game/appraisal/events.ts",
@@ -1057,7 +1057,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "sha256": "f95cdbef5f9041fa4975404d2699cde44002ddc255499d1c1a82123a5ae2c302"
+      "sha256": "4e6232e938ab7cbf783def7538c1e8f3691a39d027e5f4fbcfdad1c7bdd23507"
     },
     {
       "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
@@ -1077,7 +1077,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/passives.ts",
-      "sha256": "ef49c5ade780d0f68a7422a8e8a3b433237525311ef1c555d3aed61c45bc99bf"
+      "sha256": "3915bdda874eae43be5e7318626a6748b29aa56cb35748048669ac1f5e051280"
     },
     {
       "file": "apps/comic/src/game/appraisal/personal-scoring.ts",
@@ -1089,7 +1089,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/pilot-effects.ts",
-      "sha256": "ab8d8201a7abd4fbca4f96ee6223ded049937d43dac7a2f4dfa72db793e29029"
+      "sha256": "4b669d8f360f8d540bf9cb9e46db8ca46e4b0d25a5e65bc855c839c757d6701d"
     },
     {
       "file": "apps/comic/src/game/appraisal/polish-events.ts",
@@ -1108,6 +1108,18 @@
       "sha256": "3672184a63c2899151c92ed7a413a0881ec5df613fc10d0ca16f01090936cbd6"
     },
     {
+      "file": "apps/comic/src/game/appraisal/remaining48-catalog.ts",
+      "sha256": "01dd8634cdd7b2395a7d1b5f12915d4aa5c0dc15d5fba4eee0ac659cfc947310"
+    },
+    {
+      "file": "apps/comic/src/game/appraisal/remaining48-effects.ts",
+      "sha256": "6913352e12cc9dfac8411c14c018bef42e12208e79a27cdbc61a066f261c1af7"
+    },
+    {
+      "file": "apps/comic/src/game/appraisal/remaining48-numbers.ts",
+      "sha256": "bf5c76794c6b1fdd08045869d5d01d63d96e8c9157f932346f442d66695e625f"
+    },
+    {
       "file": "apps/comic/src/game/appraisal/round-rewards.ts",
       "sha256": "0cc05a064ee355cf102ecbebd8bb8754c33d7bdc3d500f1f7196182cedfcaa5d"
     },
@@ -1121,7 +1133,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/secure-storage.ts",
-      "sha256": "3d0bb2a86d9646ff65c0e3374321d5b9919b4a653f6e2e18463a42c26c31618b"
+      "sha256": "5b3370bb17809e12c7394c0b501ffc346b9b2ca5d89035c6a0b75c426e10ffa5"
     },
     {
       "file": "apps/comic/src/game/appraisal/survival.ts",
@@ -1129,15 +1141,15 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/theft.ts",
-      "sha256": "aac017becded983e0106125bdb8d5cb379e9227babe782681f3486f69e344e76"
+      "sha256": "aaf4cc62d6d20f028fff9fdef405538cda8b32009770abf2f5ac9e50cd9da52a"
     },
     {
       "file": "apps/comic/src/game/appraisal/types.ts",
-      "sha256": "a08d64b129ee90262d04c23ba05d857e669618963284c00662729c15b5e29878"
+      "sha256": "73171b315a508f581fecebb383e6cf6c08f00ef97c3588f5676274b9c6e8c4d7"
     },
     {
       "file": "apps/comic/src/game/appraisal/views.ts",
-      "sha256": "1b94d331ad46a325185943f4260feaa3e6514724e317855a1740bfd40800a9f7"
+      "sha256": "c0604453c70f9ea3fe5bc27ec1330c5bc087d8bc1dfabb7c42d4ba46ea0235e8"
     },
     {
       "file": "apps/comic/src/game/appraisal/wishlist-rules.ts",
@@ -1249,7 +1261,7 @@
     },
     {
       "file": "apps/comic/src/simulation/appraisal.ts",
-      "sha256": "278025401318fc01ea5f26187703b569f68b82c41f859b943c0c320bcbe92c66"
+      "sha256": "40abbc95b04f0023758e50594c2ba6e456806bf3500b61d09f50ae51e4482ad1"
     },
     {
       "file": "apps/comic/src/simulation/balance.ts",
@@ -1277,7 +1289,7 @@
     },
     {
       "file": "apps/comic/tests/appraisal-brokerage.test.ts",
-      "sha256": "b60c5670b3becd0907bcb7361bb3af48c1e2e3250162475d4c60799c6bb4bf9d"
+      "sha256": "4241a0a1fc22f5d39173608f099b2fa82d119fc9fd65ddedb48f3c4949ef6e58"
     },
     {
       "file": "apps/comic/tests/appraisal-cabinet.test.ts",
@@ -1285,7 +1297,7 @@
     },
     {
       "file": "apps/comic/tests/appraisal-catalog.test.ts",
-      "sha256": "b17c31aab9ecfbcf0c3311a5c6ad266a7a7407b70e5371864d3a067472e80179"
+      "sha256": "74c0c587d7078a380317b07a7771ad3ab095a7326dd53e10f1ce788cbe177f6a"
     },
     {
       "file": "apps/comic/tests/appraisal-challenge.test.ts",
@@ -1333,7 +1345,7 @@
     },
     {
       "file": "apps/comic/tests/appraisal-expansion.test.ts",
-      "sha256": "49241ac61183d38be5a1321ad7bc9a8a4241748dcff559f351c79517df5aecb0"
+      "sha256": "781216f29bc311215d4f05cbcf765d72dea693f611a353492b12377bd05f51b5"
     },
     {
       "file": "apps/comic/tests/appraisal-forced-rps-network.test.ts",
@@ -1369,7 +1381,7 @@
     },
     {
       "file": "apps/comic/tests/appraisal-merchant-abilities.test.ts",
-      "sha256": "e0e1229c90b062137b4a63879e62daccf86f7002b5a7c13b9fc3ac602878b818"
+      "sha256": "4198a001b127a8f70612c184291a2811e160be03deb1de0f7be7262464cabb87"
     },
     {
       "file": "apps/comic/tests/appraisal-network.test.ts",
@@ -1477,7 +1489,7 @@
     },
     {
       "file": "apps/comic/tests/collector-wishlist-network.test.ts",
-      "sha256": "97b58fd370eaf0c2f07f93359eec32ec01bacb0bf824ae63adc879d397f97277"
+      "sha256": "488ea5850ec1e977e81db5472fffa0cb972c3618ce836f352358bf6c311f7f89"
     },
     {
       "file": "apps/comic/tests/collector-wishlist-ui.test.ts",
@@ -1528,6 +1540,10 @@
       "sha256": "e4af87d43a09c0add13dca7a64d0c9c20fec0e3812488601011cdc6d9ae17f08"
     },
     {
+      "file": "apps/comic/tests/native56-catalog.test.ts",
+      "sha256": "1ba7b3d7f5aa1c869326908272adfa9fb7f9872abe67e77cee1832b987d6c6de"
+    },
+    {
       "file": "apps/comic/tests/network.test.ts",
       "sha256": "3802c9dc66b0a808429d4196e63cbb2bd7d4de1fd495b872e3b000722b5276d1"
     },
@@ -1545,7 +1561,7 @@
     },
     {
       "file": "apps/comic/tests/new56-pilot-lifecycle.test.ts",
-      "sha256": "7c74bdc20895696200a6339ad16622f071e11d1fbde1cbe63f1cabe492807375"
+      "sha256": "e2460608ca5424d277e977b3a39dbbff8421d0c0bec97bb62c3569ff2b223bee"
     },
     {
       "file": "apps/comic/tests/personal-scoring-eligibility.test.ts",
@@ -1580,6 +1596,10 @@
       "sha256": "b2f909a45190b700694146fa94d758ae4771f9b906202bd15eb20151241583fb"
     },
     {
+      "file": "apps/comic/tests/remaining48-foundation.test.ts",
+      "sha256": "83bdb66655e6cf046bd7f88725bf98e89666bb02ad49207c0fc6dc8c38172904"
+    },
+    {
       "file": "apps/comic/tests/rooms.test.ts",
       "sha256": "11430a9d9feeb3e7b86082e9ba1fa6310d896d23afe9652e65fd581549938bbc"
     },
@@ -1593,7 +1613,7 @@
     },
     {
       "file": "apps/comic/tests/support/appraisal-fixture.ts",
-      "sha256": "4e68c7aa8ef3475d366fffe0fefdb452002c302cb40a69ba7f9ac2307b429054"
+      "sha256": "9f56d215635c42aa2753838de666413479bef6c3882f42b78f03313c645cfd1a"
     },
     {
       "file": "apps/comic/tests/theft-desk.test.ts",

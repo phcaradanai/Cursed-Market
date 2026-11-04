@@ -157,7 +157,7 @@ export function startTheftDuel(state: AppraisalState, p: Appraiser, target: {ite
     ...(victim ? {victimId: victim.id} : {npc: item.npc}),
     hands: {}, round: 1, status: 'open', revealed: [],
   };
-  if(state.config.catalogVersion===4){duel.swordIds={};for(const seat of [p,...(victim?[victim]:[])]){const sword=swordForDuel(state,seat);if(sword)duel.swordIds[seat.id]=sword.id;}}
+  if((state.config.catalogVersion===4 || state.config.catalogVersion===5)){duel.swordIds={};for(const seat of [p,...(victim?[victim]:[])]){const sword=swordForDuel(state,seat);if(sword)duel.swordIds[seat.id]=sword.id;}}
   if(!victim)duel.hands.npc = npcHand(state,duel);
   duels.push(duel);
   trace(state,p,'theft-started',{duelId:duel.id,...(victim ? {victimId:victim.id} : {itemId:item.id,npc:item.npc})});

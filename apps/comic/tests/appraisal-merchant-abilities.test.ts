@@ -1,3 +1,4 @@
+import {REMAINING48_ITEMS} from '../src/game/appraisal/remaining48-catalog.js';
 import test from 'node:test';
 import { dismissEvent } from './event-dismiss.js';
 import assert from 'node:assert/strict';
@@ -225,12 +226,12 @@ test('new targeted items keep normal consumable/equipment activation costs',()=>
   }
 });
 
-test('the full new-run catalog has no mechanically identical profiles after ignoring names and prices',async()=>{
+test('legacy and pilot catalogs retain their74distinct mechanical profiles after names and prices are ignored',async()=>{
   const {MODERN_ACTIVATIONS}=await import('../src/game/appraisal/ability-content.js');
   const {PASSIVE_ITEMS}=await import('../src/game/appraisal/passives.js');
   const {EXTRA_HELD_EFFECTS,ITEM_USE_EFFECTS}=await import('../src/game/appraisal/item-effects.js');
   const profiles=new Map<string,string>();
-  for(const [kind,spec] of Object.entries(ITEM_SPECS)){
+  for(const [kind,spec] of Object.entries(ITEM_SPECS).filter(([id])=>!(id in REMAINING48_ITEMS))){
     const held=(PASSIVE_ITEMS as Record<string,{passive:{effect:string;amount:number}}>)[kind]?.passive??EXTRA_HELD_EFFECTS[kind as ItemKind],use=ITEM_USE_EFFECTS[kind as ItemKind];
     const modern=MODERN_ACTIVATIONS[kind as keyof typeof MODERN_ACTIVATIONS];
     const profile=JSON.stringify({active:spec.nativeEffect??modern?.operation??spec.buff,drawback:spec.drawback,consumable:spec.consumable,energyRecovery:spec.energyRecovery??(spec.family==='orb'||kind==='orb'?3:0),held:held?[held.effect,held.amount]:null,use:use?[use.effect,use.amount]:null,tool:['smith-hammer','whetstone','doubt-lens','void-seal','chrono-gear','burden-hourglass','shifting-compass'].includes(kind)?kind:null});

@@ -1,7 +1,7 @@
 {
   "asOf": "2026-11-04",
   "activeSource": "apps/comic",
-  "revision": "154110f + E05meaning approved; multi-seed baseline diagnostic",
+  "revision": "e15a4a6 + native56 stage1 working tree (fingerprinted)",
   "headline": "ยังไม่ครบตามกฎและขอบเขตเกมที่ตกลงทั้งหมด",
   "summary": "วงจรเดิมและตลาดวิญญาณเล่นได้ แต่การย้ายกฎ/สินค้าใหม่และบาลานซ์ทั้งเกมยังค้าง ภาพหน้าจอหรือกราฟครบไม่ได้แปลว่า runtime ครบ",
   "atlasScope": "Atlas สกัดทุก module ของ apps/comic/src/game/appraisal พร้อม random/rarity/protocol/server lifecycle และ bot ที่ระบุ; graph เป็น static dependency ไม่ใช่ execution proof; UI ใช้ capture/flow registry แยก; รุ่นเก่าตรึง9f0a972ใน legacy-atlas-baseline.json",
@@ -44,8 +44,8 @@
     {
       "id": "ITEM-01–03",
       "system": "สินค้าใหม่56ชิ้นและ effect",
-      "status": "pilot8 เชื่อมและตรวจค่าทดลองแล้ว — อีก48ยังไม่ลง runtime",
-      "remaining": "User approved exact remaining48 experimental package2026-11-04 (remaining48-approval.json; frozen532dece SHA). All10meaning decisions resolved,48numeric specs approved. Task1 adds typed48/35contract data and tested numeric primitives; these are NOT ITEM_SPECS registration or owner hooks. Native gameplay remains8/56. Next versioned pool and canonical settlement/lifecycle bindings, then predicates/UI/replay/balance; optional/default rollout still closed.",
+      "status": "catalog5 ลงทะเบียน56; ผลหลักตรวจแล้ว9; อีก47ยังไม่เชื่อม",
+      "remaining": "Approved48 exact package now registered in experimental catalog5,7per merchant; pilot8+E05 owner-tested only. Remaining47 primary hooks disabled/unbound; optional off; default3 and pilot4 unchanged.198focused tests,65lifecycle identity tests,32legacy strict replays,4new normal-budget games and16byte-identical pilot public audits are scoped evidence, not full56 effect/balance acceptance.",
       "evidence": [
         "docs/game-design/logic-item-relations.json",
         "docs/game-design/system-atlas/coverage.md",
@@ -69,7 +69,10 @@
         "docs/game-design/scripts/build-remaining48-catalog.mjs",
         "apps/comic/src/game/appraisal/remaining48-catalog.ts",
         "apps/comic/src/game/appraisal/remaining48-numbers.ts",
-        "docs/validation/remaining48-foundation-2026-11-04/verification.json"
+        "docs/validation/remaining48-foundation-2026-11-04/verification.json",
+        "docs/game-design/native56-runtime.json",
+        "docs/game-design/native56-stage1.json",
+        "docs/validation/native56-catalog-2026-11-04/verification.json"
       ]
     },
     {
@@ -180,7 +183,7 @@
     }
   ],
   "next": [
-    "E05Autometa meaning approved: correctly-challenged false claim earns increased discount; no random truth or prechallenge information. Finish remaining9meanings and48numeric/custody specs for user approval.",
+    "Implement remaining47 approved primary bindings at canonical owners behind an explicit effects revision; absent revision preserves archived catalog5 stage1. Do not re-request48package approval.",
     "Use targeted eligible public-view financial/theft/native-benefit cases alongside32seed-policybaseline; do not tune unexercised systems from zero bot usage",
     "รักษางานUI-COLLECTOR-CONTEXT minorและfull-game acceptanceเป็นงานค้าง ไม่เรียกsubsystemว่าเกมเสร็จ"
   ],
@@ -188,10 +191,12 @@
   "runtimeFacts": {
     "comicVaultInterestPercent": 10,
     "rootVaultInterestPercent": 10,
-    "new56DedicatedBindings": 8,
+    "new56DedicatedBindings": 9,
     "comicDefaultCatalogVersion": 3,
     "comicExperimentalCatalogVersion": 4,
     "personalScoringRules": 1,
-    "personalScoringFacts": 2
+    "personalScoringFacts": 2,
+    "new56RegisteredItemIds": 56,
+    "comicExperimentalNativeCatalogVersion": 5
   }
 }

@@ -1,0 +1,1492 @@
+{
+  "revision": "e15a4a6",
+  "scope": "Exact pre-registration versions1–4 initial states and ordered pools, both toggles,2/4seats. Not full-run proof.",
+  "cases": [
+    {
+      "version": 1,
+      "flags": false,
+      "count": 2,
+      "seed": "native56-legacy-golden",
+      "config": {
+        "catalogVersion": 1,
+        "cleanse": false,
+        "challenge": false,
+        "expansion": false,
+        "polish": false,
+        "trustAbilities": false,
+        "marketProbability": 1
+      },
+      "pools": {
+        "orc": [
+          "blade",
+          "amulet",
+          "food"
+        ],
+        "vampire": [
+          "orb",
+          "mirror",
+          "blade"
+        ],
+        "autometa": [
+          "scanner",
+          "battery",
+          "key"
+        ],
+        "alien": [
+          "mask",
+          "orb",
+          "potion"
+        ],
+        "darkone": [
+          "key",
+          "amulet",
+          "mirror"
+        ],
+        "deepsea": [
+          "potion",
+          "orb",
+          "amulet"
+        ],
+        "swarm": [
+          "food",
+          "blade",
+          "battery"
+        ],
+        "beast": [
+          "food",
+          "potion",
+          "battery"
+        ]
+      },
+      "stateSha256": "d4216a5bfcb7b453c139312274b888abe0050ffb736ab25c20ad08e7ec829543"
+    },
+    {
+      "version": 1,
+      "flags": false,
+      "count": 4,
+      "seed": "native56-legacy-golden",
+      "config": {
+        "catalogVersion": 1,
+        "cleanse": false,
+        "challenge": false,
+        "expansion": false,
+        "polish": false,
+        "trustAbilities": false,
+        "marketProbability": 1
+      },
+      "pools": {
+        "orc": [
+          "blade",
+          "amulet",
+          "food"
+        ],
+        "vampire": [
+          "orb",
+          "mirror",
+          "blade"
+        ],
+        "autometa": [
+          "scanner",
+          "battery",
+          "key"
+        ],
+        "alien": [
+          "mask",
+          "orb",
+          "potion"
+        ],
+        "darkone": [
+          "key",
+          "amulet",
+          "mirror"
+        ],
+        "deepsea": [
+          "potion",
+          "orb",
+          "amulet"
+        ],
+        "swarm": [
+          "food",
+          "blade",
+          "battery"
+        ],
+        "beast": [
+          "food",
+          "potion",
+          "battery"
+        ]
+      },
+      "stateSha256": "f7f53028f55949b30fbc25c5be1315cb6e144e797f03b803ee786edf00bbb483"
+    },
+    {
+      "version": 1,
+      "flags": true,
+      "count": 2,
+      "seed": "native56-legacy-golden",
+      "config": {
+        "catalogVersion": 1,
+        "cleanse": true,
+        "challenge": true,
+        "expansion": true,
+        "polish": true,
+        "trustAbilities": true,
+        "marketProbability": 1
+      },
+      "pools": {
+        "orc": [
+          "blade",
+          "amulet",
+          "food"
+        ],
+        "vampire": [
+          "orb",
+          "mirror",
+          "blade"
+        ],
+        "autometa": [
+          "scanner",
+          "battery",
+          "key"
+        ],
+        "alien": [
+          "mask",
+          "orb",
+          "potion"
+        ],
+        "darkone": [
+          "key",
+          "amulet",
+          "mirror"
+        ],
+        "deepsea": [
+          "potion",
+          "orb",
+          "amulet"
+        ],
+        "swarm": [
+          "food",
+          "blade",
+          "battery"
+        ],
+        "beast": [
+          "food",
+          "potion",
+          "battery"
+        ]
+      },
+      "stateSha256": "cda41d4c5c2f7946f3069308dc2e85f006d88055e286d1e1e98deea9d73c1050"
+    },
+    {
+      "version": 1,
+      "flags": true,
+      "count": 4,
+      "seed": "native56-legacy-golden",
+      "config": {
+        "catalogVersion": 1,
+        "cleanse": true,
+        "challenge": true,
+        "expansion": true,
+        "polish": true,
+        "trustAbilities": true,
+        "marketProbability": 1
+      },
+      "pools": {
+        "orc": [
+          "blade",
+          "amulet",
+          "food"
+        ],
+        "vampire": [
+          "orb",
+          "mirror",
+          "blade"
+        ],
+        "autometa": [
+          "scanner",
+          "battery",
+          "key"
+        ],
+        "alien": [
+          "mask",
+          "orb",
+          "potion"
+        ],
+        "darkone": [
+          "key",
+          "amulet",
+          "mirror"
+        ],
+        "deepsea": [
+          "potion",
+          "orb",
+          "amulet"
+        ],
+        "swarm": [
+          "food",
+          "blade",
+          "battery"
+        ],
+        "beast": [
+          "food",
+          "potion",
+          "battery"
+        ]
+      },
+      "stateSha256": "a3e18ecb4c209b7185dcfcb1ef006e06d6bf997f283dd03419e6b7c90b60e3a4"
+    },
+    {
+      "version": 2,
+      "flags": false,
+      "count": 2,
+      "seed": "native56-legacy-golden",
+      "config": {
+        "catalogVersion": 2,
+        "cleanse": false,
+        "challenge": false,
+        "expansion": false,
+        "polish": false,
+        "trustAbilities": false,
+        "marketProbability": 1
+      },
+      "pools": {
+        "orc": [
+          "amulet",
+          "blade",
+          "food",
+          "oath-charm",
+          "echo-charm",
+          "bone-blade",
+          "eclipse-blade",
+          "ember-feed",
+          "moon-feed"
+        ],
+        "vampire": [
+          "mirror",
+          "orb",
+          "blade",
+          "memory-mirror",
+          "rift-mirror",
+          "blood-orb",
+          "storm-orb",
+          "bone-blade",
+          "eclipse-blade"
+        ],
+        "autometa": [
+          "key",
+          "battery",
+          "scanner",
+          "bone-key",
+          "clockwork-key",
+          "sun-cell",
+          "void-cell",
+          "truth-lens",
+          "curse-meter"
+        ],
+        "alien": [
+          "orb",
+          "mask",
+          "potion",
+          "blood-orb",
+          "storm-orb",
+          "bone-mask",
+          "void-mask",
+          "blood-tonic",
+          "dream-tonic"
+        ],
+        "darkone": [
+          "mirror",
+          "key",
+          "amulet",
+          "memory-mirror",
+          "rift-mirror",
+          "bone-key",
+          "clockwork-key",
+          "oath-charm",
+          "echo-charm"
+        ],
+        "deepsea": [
+          "orb",
+          "potion",
+          "amulet",
+          "blood-orb",
+          "storm-orb",
+          "blood-tonic",
+          "dream-tonic",
+          "oath-charm",
+          "echo-charm"
+        ],
+        "swarm": [
+          "battery",
+          "blade",
+          "food",
+          "sun-cell",
+          "void-cell",
+          "bone-blade",
+          "eclipse-blade",
+          "ember-feed",
+          "moon-feed"
+        ],
+        "beast": [
+          "potion",
+          "battery",
+          "food",
+          "blood-tonic",
+          "dream-tonic",
+          "sun-cell",
+          "void-cell",
+          "ember-feed",
+          "moon-feed"
+        ]
+      },
+      "stateSha256": "43c67470db926e9c51c3545332da1a9ed4a2a4b2d03884587143cc39dccb4d57"
+    },
+    {
+      "version": 2,
+      "flags": false,
+      "count": 4,
+      "seed": "native56-legacy-golden",
+      "config": {
+        "catalogVersion": 2,
+        "cleanse": false,
+        "challenge": false,
+        "expansion": false,
+        "polish": false,
+        "trustAbilities": false,
+        "marketProbability": 1
+      },
+      "pools": {
+        "orc": [
+          "amulet",
+          "blade",
+          "food",
+          "oath-charm",
+          "echo-charm",
+          "bone-blade",
+          "eclipse-blade",
+          "ember-feed",
+          "moon-feed"
+        ],
+        "vampire": [
+          "mirror",
+          "orb",
+          "blade",
+          "memory-mirror",
+          "rift-mirror",
+          "blood-orb",
+          "storm-orb",
+          "bone-blade",
+          "eclipse-blade"
+        ],
+        "autometa": [
+          "key",
+          "battery",
+          "scanner",
+          "bone-key",
+          "clockwork-key",
+          "sun-cell",
+          "void-cell",
+          "truth-lens",
+          "curse-meter"
+        ],
+        "alien": [
+          "orb",
+          "mask",
+          "potion",
+          "blood-orb",
+          "storm-orb",
+          "bone-mask",
+          "void-mask",
+          "blood-tonic",
+          "dream-tonic"
+        ],
+        "darkone": [
+          "mirror",
+          "key",
+          "amulet",
+          "memory-mirror",
+          "rift-mirror",
+          "bone-key",
+          "clockwork-key",
+          "oath-charm",
+          "echo-charm"
+        ],
+        "deepsea": [
+          "orb",
+          "potion",
+          "amulet",
+          "blood-orb",
+          "storm-orb",
+          "blood-tonic",
+          "dream-tonic",
+          "oath-charm",
+          "echo-charm"
+        ],
+        "swarm": [
+          "battery",
+          "blade",
+          "food",
+          "sun-cell",
+          "void-cell",
+          "bone-blade",
+          "eclipse-blade",
+          "ember-feed",
+          "moon-feed"
+        ],
+        "beast": [
+          "potion",
+          "battery",
+          "food",
+          "blood-tonic",
+          "dream-tonic",
+          "sun-cell",
+          "void-cell",
+          "ember-feed",
+          "moon-feed"
+        ]
+      },
+      "stateSha256": "b098ca32a9e5aaed8f2a2e77385ee30f90216deadda4dbe34cf12a7dfc2ad9b9"
+    },
+    {
+      "version": 2,
+      "flags": true,
+      "count": 2,
+      "seed": "native56-legacy-golden",
+      "config": {
+        "catalogVersion": 2,
+        "cleanse": true,
+        "challenge": true,
+        "expansion": true,
+        "polish": true,
+        "trustAbilities": true,
+        "marketProbability": 1
+      },
+      "pools": {
+        "orc": [
+          "amulet",
+          "blade",
+          "food",
+          "oath-charm",
+          "echo-charm",
+          "bone-blade",
+          "eclipse-blade",
+          "ember-feed",
+          "moon-feed"
+        ],
+        "vampire": [
+          "mirror",
+          "orb",
+          "blade",
+          "memory-mirror",
+          "rift-mirror",
+          "blood-orb",
+          "storm-orb",
+          "bone-blade",
+          "eclipse-blade"
+        ],
+        "autometa": [
+          "key",
+          "battery",
+          "scanner",
+          "bone-key",
+          "clockwork-key",
+          "sun-cell",
+          "void-cell",
+          "truth-lens",
+          "curse-meter"
+        ],
+        "alien": [
+          "orb",
+          "mask",
+          "potion",
+          "blood-orb",
+          "storm-orb",
+          "bone-mask",
+          "void-mask",
+          "blood-tonic",
+          "dream-tonic"
+        ],
+        "darkone": [
+          "mirror",
+          "key",
+          "amulet",
+          "memory-mirror",
+          "rift-mirror",
+          "bone-key",
+          "clockwork-key",
+          "oath-charm",
+          "echo-charm"
+        ],
+        "deepsea": [
+          "orb",
+          "potion",
+          "amulet",
+          "blood-orb",
+          "storm-orb",
+          "blood-tonic",
+          "dream-tonic",
+          "oath-charm",
+          "echo-charm"
+        ],
+        "swarm": [
+          "battery",
+          "blade",
+          "food",
+          "sun-cell",
+          "void-cell",
+          "bone-blade",
+          "eclipse-blade",
+          "ember-feed",
+          "moon-feed"
+        ],
+        "beast": [
+          "potion",
+          "battery",
+          "food",
+          "blood-tonic",
+          "dream-tonic",
+          "sun-cell",
+          "void-cell",
+          "ember-feed",
+          "moon-feed"
+        ]
+      },
+      "stateSha256": "8d10fb78c92c5b7e193344ad1b3119efbf26130034ae5db223f954a8330c19a8"
+    },
+    {
+      "version": 2,
+      "flags": true,
+      "count": 4,
+      "seed": "native56-legacy-golden",
+      "config": {
+        "catalogVersion": 2,
+        "cleanse": true,
+        "challenge": true,
+        "expansion": true,
+        "polish": true,
+        "trustAbilities": true,
+        "marketProbability": 1
+      },
+      "pools": {
+        "orc": [
+          "amulet",
+          "blade",
+          "food",
+          "oath-charm",
+          "echo-charm",
+          "bone-blade",
+          "eclipse-blade",
+          "ember-feed",
+          "moon-feed"
+        ],
+        "vampire": [
+          "mirror",
+          "orb",
+          "blade",
+          "memory-mirror",
+          "rift-mirror",
+          "blood-orb",
+          "storm-orb",
+          "bone-blade",
+          "eclipse-blade"
+        ],
+        "autometa": [
+          "key",
+          "battery",
+          "scanner",
+          "bone-key",
+          "clockwork-key",
+          "sun-cell",
+          "void-cell",
+          "truth-lens",
+          "curse-meter"
+        ],
+        "alien": [
+          "orb",
+          "mask",
+          "potion",
+          "blood-orb",
+          "storm-orb",
+          "bone-mask",
+          "void-mask",
+          "blood-tonic",
+          "dream-tonic"
+        ],
+        "darkone": [
+          "mirror",
+          "key",
+          "amulet",
+          "memory-mirror",
+          "rift-mirror",
+          "bone-key",
+          "clockwork-key",
+          "oath-charm",
+          "echo-charm"
+        ],
+        "deepsea": [
+          "orb",
+          "potion",
+          "amulet",
+          "blood-orb",
+          "storm-orb",
+          "blood-tonic",
+          "dream-tonic",
+          "oath-charm",
+          "echo-charm"
+        ],
+        "swarm": [
+          "battery",
+          "blade",
+          "food",
+          "sun-cell",
+          "void-cell",
+          "bone-blade",
+          "eclipse-blade",
+          "ember-feed",
+          "moon-feed"
+        ],
+        "beast": [
+          "potion",
+          "battery",
+          "food",
+          "blood-tonic",
+          "dream-tonic",
+          "sun-cell",
+          "void-cell",
+          "ember-feed",
+          "moon-feed"
+        ]
+      },
+      "stateSha256": "b3edf4860719376e8f0608c648dce78e77fdbc48477bda9336c082901700e057"
+    },
+    {
+      "version": 3,
+      "flags": false,
+      "count": 2,
+      "seed": "native56-legacy-golden",
+      "config": {
+        "catalogVersion": 3,
+        "cleanse": false,
+        "challenge": false,
+        "expansion": false,
+        "polish": false,
+        "trustAbilities": false,
+        "marketProbability": 1
+      },
+      "pools": {
+        "orc": [
+          "amulet",
+          "blade",
+          "food",
+          "oath-charm",
+          "echo-charm",
+          "bone-blade",
+          "eclipse-blade",
+          "ember-feed",
+          "moon-feed",
+          "noble-seal",
+          "friendship-ring",
+          "negotiator-gloves",
+          "healing-brooch"
+        ],
+        "vampire": [
+          "mirror",
+          "orb",
+          "blade",
+          "memory-mirror",
+          "rift-mirror",
+          "blood-orb",
+          "storm-orb",
+          "bone-blade",
+          "eclipse-blade",
+          "lucky-die",
+          "merchant-ledger",
+          "negotiator-gloves",
+          "authenticity-seal",
+          "inspector-notebook"
+        ],
+        "autometa": [
+          "key",
+          "battery",
+          "scanner",
+          "bone-key",
+          "clockwork-key",
+          "sun-cell",
+          "void-cell",
+          "truth-lens",
+          "curse-meter",
+          "inspection-warrant",
+          "tax-order",
+          "guild-badge",
+          "light-satchel",
+          "surveyor-lens",
+          "curse-compass",
+          "merchant-canteen"
+        ],
+        "alien": [
+          "orb",
+          "mask",
+          "potion",
+          "blood-orb",
+          "storm-orb",
+          "bone-mask",
+          "void-mask",
+          "blood-tonic",
+          "dream-tonic",
+          "gambler-hat",
+          "lucky-die",
+          "market-pass",
+          "smuggler-cloak"
+        ],
+        "darkone": [
+          "mirror",
+          "key",
+          "amulet",
+          "memory-mirror",
+          "rift-mirror",
+          "bone-key",
+          "clockwork-key",
+          "oath-charm",
+          "echo-charm",
+          "tax-order",
+          "noble-seal",
+          "merchant-ledger",
+          "friendship-ring",
+          "guild-badge",
+          "authenticity-seal",
+          "healing-brooch",
+          "inspector-notebook"
+        ],
+        "deepsea": [
+          "orb",
+          "potion",
+          "amulet",
+          "blood-orb",
+          "storm-orb",
+          "blood-tonic",
+          "dream-tonic",
+          "oath-charm",
+          "echo-charm",
+          "noble-seal",
+          "lucky-die",
+          "friendship-ring",
+          "healing-brooch"
+        ],
+        "swarm": [
+          "battery",
+          "blade",
+          "food",
+          "sun-cell",
+          "void-cell",
+          "bone-blade",
+          "eclipse-blade",
+          "ember-feed",
+          "moon-feed",
+          "negotiator-gloves",
+          "light-satchel",
+          "merchant-canteen"
+        ],
+        "beast": [
+          "potion",
+          "battery",
+          "food",
+          "blood-tonic",
+          "dream-tonic",
+          "sun-cell",
+          "void-cell",
+          "ember-feed",
+          "moon-feed",
+          "light-satchel",
+          "merchant-canteen"
+        ]
+      },
+      "stateSha256": "6c8b659e53b0432d3af8cdb77baa7691c32cfe1ae6b80582e905abe4f1817ad2"
+    },
+    {
+      "version": 3,
+      "flags": false,
+      "count": 4,
+      "seed": "native56-legacy-golden",
+      "config": {
+        "catalogVersion": 3,
+        "cleanse": false,
+        "challenge": false,
+        "expansion": false,
+        "polish": false,
+        "trustAbilities": false,
+        "marketProbability": 1
+      },
+      "pools": {
+        "orc": [
+          "amulet",
+          "blade",
+          "food",
+          "oath-charm",
+          "echo-charm",
+          "bone-blade",
+          "eclipse-blade",
+          "ember-feed",
+          "moon-feed",
+          "noble-seal",
+          "friendship-ring",
+          "negotiator-gloves",
+          "healing-brooch"
+        ],
+        "vampire": [
+          "mirror",
+          "orb",
+          "blade",
+          "memory-mirror",
+          "rift-mirror",
+          "blood-orb",
+          "storm-orb",
+          "bone-blade",
+          "eclipse-blade",
+          "lucky-die",
+          "merchant-ledger",
+          "negotiator-gloves",
+          "authenticity-seal",
+          "inspector-notebook"
+        ],
+        "autometa": [
+          "key",
+          "battery",
+          "scanner",
+          "bone-key",
+          "clockwork-key",
+          "sun-cell",
+          "void-cell",
+          "truth-lens",
+          "curse-meter",
+          "inspection-warrant",
+          "tax-order",
+          "guild-badge",
+          "light-satchel",
+          "surveyor-lens",
+          "curse-compass",
+          "merchant-canteen"
+        ],
+        "alien": [
+          "orb",
+          "mask",
+          "potion",
+          "blood-orb",
+          "storm-orb",
+          "bone-mask",
+          "void-mask",
+          "blood-tonic",
+          "dream-tonic",
+          "gambler-hat",
+          "lucky-die",
+          "market-pass",
+          "smuggler-cloak"
+        ],
+        "darkone": [
+          "mirror",
+          "key",
+          "amulet",
+          "memory-mirror",
+          "rift-mirror",
+          "bone-key",
+          "clockwork-key",
+          "oath-charm",
+          "echo-charm",
+          "tax-order",
+          "noble-seal",
+          "merchant-ledger",
+          "friendship-ring",
+          "guild-badge",
+          "authenticity-seal",
+          "healing-brooch",
+          "inspector-notebook"
+        ],
+        "deepsea": [
+          "orb",
+          "potion",
+          "amulet",
+          "blood-orb",
+          "storm-orb",
+          "blood-tonic",
+          "dream-tonic",
+          "oath-charm",
+          "echo-charm",
+          "noble-seal",
+          "lucky-die",
+          "friendship-ring",
+          "healing-brooch"
+        ],
+        "swarm": [
+          "battery",
+          "blade",
+          "food",
+          "sun-cell",
+          "void-cell",
+          "bone-blade",
+          "eclipse-blade",
+          "ember-feed",
+          "moon-feed",
+          "negotiator-gloves",
+          "light-satchel",
+          "merchant-canteen"
+        ],
+        "beast": [
+          "potion",
+          "battery",
+          "food",
+          "blood-tonic",
+          "dream-tonic",
+          "sun-cell",
+          "void-cell",
+          "ember-feed",
+          "moon-feed",
+          "light-satchel",
+          "merchant-canteen"
+        ]
+      },
+      "stateSha256": "7db0c918b71c916eef827698bd75b273a5a4e7b72c19f6c23a0ccf51f3de1a64"
+    },
+    {
+      "version": 3,
+      "flags": true,
+      "count": 2,
+      "seed": "native56-legacy-golden",
+      "config": {
+        "catalogVersion": 3,
+        "cleanse": true,
+        "challenge": true,
+        "expansion": true,
+        "polish": true,
+        "trustAbilities": true,
+        "marketProbability": 1
+      },
+      "pools": {
+        "orc": [
+          "amulet",
+          "blade",
+          "food",
+          "oath-charm",
+          "echo-charm",
+          "bone-blade",
+          "eclipse-blade",
+          "ember-feed",
+          "moon-feed",
+          "smith-hammer",
+          "whetstone",
+          "void-seal",
+          "siren-conch",
+          "hive-comb",
+          "chitin-blade",
+          "noble-seal",
+          "friendship-ring",
+          "negotiator-gloves",
+          "healing-brooch",
+          "life-relic"
+        ],
+        "vampire": [
+          "mirror",
+          "orb",
+          "blade",
+          "memory-mirror",
+          "rift-mirror",
+          "blood-orb",
+          "storm-orb",
+          "bone-blade",
+          "eclipse-blade",
+          "smith-hammer",
+          "whetstone",
+          "abyss-pearl",
+          "chitin-blade",
+          "compound-mirror",
+          "lucky-die",
+          "merchant-ledger",
+          "negotiator-gloves",
+          "authenticity-seal",
+          "inspector-notebook",
+          "burden-hourglass"
+        ],
+        "autometa": [
+          "key",
+          "battery",
+          "scanner",
+          "bone-key",
+          "clockwork-key",
+          "sun-cell",
+          "void-cell",
+          "truth-lens",
+          "curse-meter",
+          "doubt-lens",
+          "tide-lantern",
+          "larva-cell",
+          "inspection-warrant",
+          "tax-order",
+          "guild-badge",
+          "light-satchel",
+          "surveyor-lens",
+          "curse-compass",
+          "merchant-canteen",
+          "vital-flask",
+          "wish-ledger",
+          "chrono-gear",
+          "shifting-compass"
+        ],
+        "alien": [
+          "orb",
+          "mask",
+          "potion",
+          "blood-orb",
+          "storm-orb",
+          "bone-mask",
+          "void-mask",
+          "blood-tonic",
+          "dream-tonic",
+          "abyss-pearl",
+          "kraken-ink",
+          "gambler-hat",
+          "lucky-die",
+          "market-pass",
+          "smuggler-cloak",
+          "burden-hourglass"
+        ],
+        "darkone": [
+          "mirror",
+          "key",
+          "amulet",
+          "memory-mirror",
+          "rift-mirror",
+          "bone-key",
+          "clockwork-key",
+          "oath-charm",
+          "echo-charm",
+          "void-seal",
+          "siren-conch",
+          "compound-mirror",
+          "tax-order",
+          "noble-seal",
+          "merchant-ledger",
+          "friendship-ring",
+          "guild-badge",
+          "authenticity-seal",
+          "healing-brooch",
+          "life-relic",
+          "wish-ledger",
+          "inspector-notebook",
+          "chrono-gear"
+        ],
+        "deepsea": [
+          "orb",
+          "potion",
+          "amulet",
+          "blood-orb",
+          "storm-orb",
+          "blood-tonic",
+          "dream-tonic",
+          "oath-charm",
+          "echo-charm",
+          "void-seal",
+          "abyss-pearl",
+          "kraken-ink",
+          "siren-conch",
+          "noble-seal",
+          "lucky-die",
+          "friendship-ring",
+          "healing-brooch",
+          "life-relic",
+          "burden-hourglass"
+        ],
+        "swarm": [
+          "battery",
+          "blade",
+          "food",
+          "sun-cell",
+          "void-cell",
+          "bone-blade",
+          "eclipse-blade",
+          "ember-feed",
+          "moon-feed",
+          "smith-hammer",
+          "whetstone",
+          "hive-comb",
+          "chitin-blade",
+          "larva-cell",
+          "negotiator-gloves",
+          "light-satchel",
+          "merchant-canteen",
+          "vital-flask"
+        ],
+        "beast": [
+          "potion",
+          "battery",
+          "food",
+          "blood-tonic",
+          "dream-tonic",
+          "sun-cell",
+          "void-cell",
+          "ember-feed",
+          "moon-feed",
+          "kraken-ink",
+          "hive-comb",
+          "larva-cell",
+          "light-satchel",
+          "merchant-canteen",
+          "vital-flask"
+        ]
+      },
+      "stateSha256": "f2dfe7631647937a9849d729d95988bae76bfe5624545b9d4b4881ea67254acf"
+    },
+    {
+      "version": 3,
+      "flags": true,
+      "count": 4,
+      "seed": "native56-legacy-golden",
+      "config": {
+        "catalogVersion": 3,
+        "cleanse": true,
+        "challenge": true,
+        "expansion": true,
+        "polish": true,
+        "trustAbilities": true,
+        "marketProbability": 1
+      },
+      "pools": {
+        "orc": [
+          "amulet",
+          "blade",
+          "food",
+          "oath-charm",
+          "echo-charm",
+          "bone-blade",
+          "eclipse-blade",
+          "ember-feed",
+          "moon-feed",
+          "smith-hammer",
+          "whetstone",
+          "void-seal",
+          "siren-conch",
+          "hive-comb",
+          "chitin-blade",
+          "noble-seal",
+          "friendship-ring",
+          "negotiator-gloves",
+          "healing-brooch",
+          "life-relic"
+        ],
+        "vampire": [
+          "mirror",
+          "orb",
+          "blade",
+          "memory-mirror",
+          "rift-mirror",
+          "blood-orb",
+          "storm-orb",
+          "bone-blade",
+          "eclipse-blade",
+          "smith-hammer",
+          "whetstone",
+          "abyss-pearl",
+          "chitin-blade",
+          "compound-mirror",
+          "lucky-die",
+          "merchant-ledger",
+          "negotiator-gloves",
+          "authenticity-seal",
+          "inspector-notebook",
+          "burden-hourglass"
+        ],
+        "autometa": [
+          "key",
+          "battery",
+          "scanner",
+          "bone-key",
+          "clockwork-key",
+          "sun-cell",
+          "void-cell",
+          "truth-lens",
+          "curse-meter",
+          "doubt-lens",
+          "tide-lantern",
+          "larva-cell",
+          "inspection-warrant",
+          "tax-order",
+          "guild-badge",
+          "light-satchel",
+          "surveyor-lens",
+          "curse-compass",
+          "merchant-canteen",
+          "vital-flask",
+          "wish-ledger",
+          "chrono-gear",
+          "shifting-compass"
+        ],
+        "alien": [
+          "orb",
+          "mask",
+          "potion",
+          "blood-orb",
+          "storm-orb",
+          "bone-mask",
+          "void-mask",
+          "blood-tonic",
+          "dream-tonic",
+          "abyss-pearl",
+          "kraken-ink",
+          "gambler-hat",
+          "lucky-die",
+          "market-pass",
+          "smuggler-cloak",
+          "burden-hourglass"
+        ],
+        "darkone": [
+          "mirror",
+          "key",
+          "amulet",
+          "memory-mirror",
+          "rift-mirror",
+          "bone-key",
+          "clockwork-key",
+          "oath-charm",
+          "echo-charm",
+          "void-seal",
+          "siren-conch",
+          "compound-mirror",
+          "tax-order",
+          "noble-seal",
+          "merchant-ledger",
+          "friendship-ring",
+          "guild-badge",
+          "authenticity-seal",
+          "healing-brooch",
+          "life-relic",
+          "wish-ledger",
+          "inspector-notebook",
+          "chrono-gear"
+        ],
+        "deepsea": [
+          "orb",
+          "potion",
+          "amulet",
+          "blood-orb",
+          "storm-orb",
+          "blood-tonic",
+          "dream-tonic",
+          "oath-charm",
+          "echo-charm",
+          "void-seal",
+          "abyss-pearl",
+          "kraken-ink",
+          "siren-conch",
+          "noble-seal",
+          "lucky-die",
+          "friendship-ring",
+          "healing-brooch",
+          "life-relic",
+          "burden-hourglass"
+        ],
+        "swarm": [
+          "battery",
+          "blade",
+          "food",
+          "sun-cell",
+          "void-cell",
+          "bone-blade",
+          "eclipse-blade",
+          "ember-feed",
+          "moon-feed",
+          "smith-hammer",
+          "whetstone",
+          "hive-comb",
+          "chitin-blade",
+          "larva-cell",
+          "negotiator-gloves",
+          "light-satchel",
+          "merchant-canteen",
+          "vital-flask"
+        ],
+        "beast": [
+          "potion",
+          "battery",
+          "food",
+          "blood-tonic",
+          "dream-tonic",
+          "sun-cell",
+          "void-cell",
+          "ember-feed",
+          "moon-feed",
+          "kraken-ink",
+          "hive-comb",
+          "larva-cell",
+          "light-satchel",
+          "merchant-canteen",
+          "vital-flask"
+        ]
+      },
+      "stateSha256": "b924fe569fe05fdb1ddb3444518525b780b5b10618473aba4ee736f5c88d5c93"
+    },
+    {
+      "version": 4,
+      "flags": false,
+      "count": 2,
+      "seed": "native56-legacy-golden",
+      "config": {
+        "catalogVersion": 4,
+        "cleanse": false,
+        "challenge": false,
+        "expansion": false,
+        "polish": false,
+        "trustAbilities": false,
+        "marketProbability": 1
+      },
+      "pools": {
+        "orc": [
+          "orc-tusk-shield"
+        ],
+        "vampire": [
+          "vampire-nocturne-signet"
+        ],
+        "autometa": [
+          "autometa-torque-caliper"
+        ],
+        "alien": [
+          "alien-thought-translator"
+        ],
+        "darkone": [
+          "darkone-crossing-token"
+        ],
+        "deepsea": [
+          "deepsea-tide-compass"
+        ],
+        "swarm": [
+          "swarm-brood-hammer"
+        ],
+        "beast": [
+          "beast-riftfang-sword"
+        ]
+      },
+      "stateSha256": "673af2ac442696cf894e844d90d98eea4c17efad463e75bb51d6b9b7293bae2e"
+    },
+    {
+      "version": 4,
+      "flags": false,
+      "count": 4,
+      "seed": "native56-legacy-golden",
+      "config": {
+        "catalogVersion": 4,
+        "cleanse": false,
+        "challenge": false,
+        "expansion": false,
+        "polish": false,
+        "trustAbilities": false,
+        "marketProbability": 1
+      },
+      "pools": {
+        "orc": [
+          "orc-tusk-shield"
+        ],
+        "vampire": [
+          "vampire-nocturne-signet"
+        ],
+        "autometa": [
+          "autometa-torque-caliper"
+        ],
+        "alien": [
+          "alien-thought-translator"
+        ],
+        "darkone": [
+          "darkone-crossing-token"
+        ],
+        "deepsea": [
+          "deepsea-tide-compass"
+        ],
+        "swarm": [
+          "swarm-brood-hammer"
+        ],
+        "beast": [
+          "beast-riftfang-sword"
+        ]
+      },
+      "stateSha256": "7add7060dacfeb7bae0b1dce39e9459559276b2afba225ed4efd511329b91333"
+    },
+    {
+      "version": 4,
+      "flags": true,
+      "count": 2,
+      "seed": "native56-legacy-golden",
+      "config": {
+        "catalogVersion": 4,
+        "cleanse": true,
+        "challenge": true,
+        "expansion": true,
+        "polish": true,
+        "trustAbilities": true,
+        "marketProbability": 1
+      },
+      "pools": {
+        "orc": [
+          "orc-tusk-shield"
+        ],
+        "vampire": [
+          "vampire-nocturne-signet"
+        ],
+        "autometa": [
+          "autometa-torque-caliper"
+        ],
+        "alien": [
+          "alien-thought-translator"
+        ],
+        "darkone": [
+          "darkone-crossing-token"
+        ],
+        "deepsea": [
+          "deepsea-tide-compass"
+        ],
+        "swarm": [
+          "swarm-brood-hammer"
+        ],
+        "beast": [
+          "beast-riftfang-sword"
+        ]
+      },
+      "stateSha256": "02315558e2a27818422d055f4eb3e6bef1a39da778b848b0892b2f56ae9952d6"
+    },
+    {
+      "version": 4,
+      "flags": true,
+      "count": 4,
+      "seed": "native56-legacy-golden",
+      "config": {
+        "catalogVersion": 4,
+        "cleanse": true,
+        "challenge": true,
+        "expansion": true,
+        "polish": true,
+        "trustAbilities": true,
+        "marketProbability": 1
+      },
+      "pools": {
+        "orc": [
+          "orc-tusk-shield"
+        ],
+        "vampire": [
+          "vampire-nocturne-signet"
+        ],
+        "autometa": [
+          "autometa-torque-caliper"
+        ],
+        "alien": [
+          "alien-thought-translator"
+        ],
+        "darkone": [
+          "darkone-crossing-token"
+        ],
+        "deepsea": [
+          "deepsea-tide-compass"
+        ],
+        "swarm": [
+          "swarm-brood-hammer"
+        ],
+        "beast": [
+          "beast-riftfang-sword"
+        ]
+      },
+      "stateSha256": "34d4cb62d21ef6242cace95b2940d7e09b8cdc622e738c8e138136cc32f162dd"
+    }
+  ]
+}

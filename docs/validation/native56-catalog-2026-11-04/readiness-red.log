@@ -1,0 +1,29 @@
+(node:3132) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ shared client eligibility and bot policy do not repeatedly submit an unbound activation (29.075708ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 406.857834
+
+✖ failing tests:
+
+test at apps/comic/dist/tests/native56-catalog.test.js:82:1
+✖ shared client eligibility and bot policy do not repeatedly submit an unbound activation (29.075708ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to: null
+      at TestContext.<anonymous> (file:///Users/Projects/Cursed%20Market/apps/comic/dist/tests/native56-catalog.test.js:90:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: null,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }

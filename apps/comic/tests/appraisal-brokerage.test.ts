@@ -1,3 +1,4 @@
+import {REMAINING48_ITEMS} from '../src/game/appraisal/remaining48-catalog.js';
 import test from 'node:test';
 import { dismissEvent } from './event-dismiss.js';
 import assert from 'node:assert/strict';
@@ -29,7 +30,7 @@ function brokerFixture(npc:NpcId='orc',overrides:Partial<AppraisalConfig>={}):Ap
     seat.stock.forEach((itemId,index)=>{const item=state.items[itemId]!;item.npc=npc;item.kind=index?'key':'mirror';item.base=index?24:20;item.ask=item.base;item.reservation=10;item.genuine=true;item.cursed=false;});
   }
   const p=state.players[0]!;
-  for(const kind of Object.keys(ITEM_SPECS) as ItemKind[]) {
+  for(const kind of (Object.keys(ITEM_SPECS) as ItemKind[]).filter(k=>!(k in REMAINING48_ITEMS))) {
     const id=`owned-${kind}`;
     state.items[id]={id,kind,base:ITEM_SPECS[kind].anchor,genuine:true,cursed:false,ask:ITEM_SPECS[kind].anchor,owner:p.id,npcOwnerId:p.id,npc:'orc',encounter:1,certificate:true,lastAppraisal:null,lastAccepted:null,reservation:1};
     p.inventory.push(id);

@@ -1,7 +1,9 @@
+import {REMAINING48_RULES} from './remaining48-catalog.js';
 import { itemEffectScale } from './copy-effects.js';
+import {remainingChallengeBps} from './remaining48-effects.js';
 import { randomAt } from '../random.js';
 import { ITEM_SPECS } from './content.js';
-import { challengeDiscount, challengePenalty, claimText } from './challenge-rules.js';
+import { challengeDiscount, challengePenalty, claimText,winPct } from './challenge-rules.js';
 import { learn, npcQuote, retire, trace, unlocked } from './mechanics.js';
 import type { AppraisalState, Appraiser, TradeOffer } from './types.js';
 
@@ -25,9 +27,10 @@ export function settleChallenge(state:AppraisalState,buyer:Appraiser,seller:Appr
     trace(state,buyer,'challenge-lost',{offerId:offer.id,itemId:item.id,key,penalty,sealed});
     buyer.notes=buyer.notes.slice(-30);seller.notes=seller.notes.slice(-30);return {discount:0,penalty};
   }
-  const discount=challengeDiscount(quote,lenses);
+  const bonus=remainingChallengeBps(state,buyer);
+  const discount=bonus?Math.floor(quote*Math.min(REMAINING48_RULES.E05.discountMaxBps,winPct(lenses)*100+bonus)/10000):challengeDiscount(quote,lenses);
   buyer.notes.push(`ท้าทายคำระบุของ${name}ถูก ผู้ประเมินโกหก (จริงคือ${claimText(key,truth)}) ลดราคา ${discount} เครดิต`);
   seller.notes.push(`คำระบุของ${name}เป็นเท็จและถูกจับได้ ผู้ซื้อลดราคา ${discount} เครดิต`);
-  trace(state,buyer,'challenge-won',{offerId:offer.id,itemId:item.id,key,discount});
+  trace(state,buyer,'challenge-won',{offerId:offer.id,itemId:item.id,key,discount,...(bonus?{itemBonusBps:bonus}:{})});
   buyer.notes=buyer.notes.slice(-30);seller.notes=seller.notes.slice(-30);return {discount,penalty:0};
 }

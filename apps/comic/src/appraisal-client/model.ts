@@ -1,4 +1,6 @@
 import { ABILITY_ITEM_TEXT, MODERN_ACTIVATIONS } from '../game/appraisal/ability-content.js';
+import {REMAINING48_ITEMS} from '../game/appraisal/remaining48-catalog.js';
+import type {Remaining48Kind} from '../game/appraisal/remaining48-catalog.js';
 import { pick } from './i18n.js';
 import { statusMagnitude, integerEffect, itemEffectScale, itemDrawbackScale } from '../game/appraisal/copy-effects.js';
 import { POLISH_EVENTS } from '../game/appraisal/polish-events.js';
@@ -81,9 +83,10 @@ export function purchaseBlock(game:AppraisalView,total:number,quiet:boolean):str
   return needShort(game,{credits:total,energy:purchaseEnergy(game)});
 }
 /** Mirror of the server's activation cost and preconditions. */
-export const activationEnergy=(game:AppraisalView,item:ItemView)=>game.itemEffects && ITEM_SPECS[item.kind].consumable?0:1;
+export const activationEnergy=(game:AppraisalView,item:ItemView)=>Object.hasOwn(REMAINING48_ITEMS,item.kind)?REMAINING48_ITEMS[item.kind as Remaining48Kind].cost:game.itemEffects && ITEM_SPECS[item.kind].consumable?0:1;
 export function activationBlock(game:AppraisalView,itemId:string,quiet:boolean):string|null {
   const nativeItem=game.self.inventory.find(i=>i.id===itemId);
+  if(nativeItem?.nativeEffectReady===false)return pick('ตอนนี้ใช้ความสามารถนี้ไม่ได้','This ability is currently unavailable');
   if(nativeItem && ITEM_SPECS[nativeItem.kind].nativeEffect){if(!ITEM_SPECS[nativeItem.kind].explicitActivation)return ITEM_SPECS[nativeItem.kind].usage??null;if(nativeItem.pilotUses)return pick('สินค้าชิ้นนี้ใช้ในช่วงนี้แล้ว','This item was used this encounter');}
   if(game.self.abilityChoice)return pick('เลือกสินค้าที่พ่อค้าเสนอให้ก่อน','Choose the pending merchant offer first');
   if(game.self.abilityItemUsed?.includes(game.self.inventory.find(i=>i.id===itemId)?.kind as never))return pick('สินค้าชนิดนี้ใช้ในช่วงนี้แล้ว','This item kind was used this encounter');

@@ -1,3 +1,4 @@
+import type {Remaining48Kind,Remaining48Family} from './remaining48-catalog.js';
 export const STATUS_IDS = ['B01','B02','B03','B04','B05','B06','B07','B08','B09','B10','B11','B12','B13','B14','B15','B16','B17','B18','B19','B20','D01','D02','D03','D04','D05','D06','D07','D08','D09','D10','D11','D12','D13','D14','D15','D16','D17','D18','D19','D20'] as const;
 /** Core v0.6 statuses. Kept apart from STATUS_IDS so boon drafts and saved runs never see them. */
 export const CORE2_STATUS_IDS = ['B21','B22','B23','B24','D21','D22','D23','D24'] as const;
@@ -27,10 +28,10 @@ export const PASSIVE_ITEM_IDS=['inspection-warrant','tax-order','noble-seal','ga
 export type PassiveKind=typeof PASSIVE_ITEM_IDS[number];
 export type InspectionProperty='price'|'authenticity'|'effects';
 export const ABILITY_ITEM_IDS=['chrono-gear','burden-hourglass','shifting-compass'] as const;
-export type ItemFamily = LegacyItemFamily | 'shield' | 'ring' | 'caliper' | 'translator' | 'token' | 'compass' | 'hammer' | 'sword';
+export type ItemFamily = LegacyItemFamily | Remaining48Family | 'shield' | 'ring' | 'caliper' | 'translator' | 'token' | 'compass' | 'hammer' | 'sword';
 export const PILOT_ITEM_IDS = ['orc-tusk-shield','vampire-nocturne-signet','autometa-torque-caliper','alien-thought-translator','darkone-crossing-token','deepsea-tide-compass','swarm-brood-hammer','beast-riftfang-sword'] as const;
 export type PilotItemKind = typeof PILOT_ITEM_IDS[number];
-export type ItemKind = LegacyItemFamily | PilotItemKind | 'memory-mirror' | 'rift-mirror' | 'blood-orb' | 'storm-orb' |
+export type ItemKind = Remaining48Kind | LegacyItemFamily | PilotItemKind | 'memory-mirror' | 'rift-mirror' | 'blood-orb' | 'storm-orb' |
   'bone-key' | 'clockwork-key' | 'bone-mask' | 'void-mask' | 'blood-tonic' | 'dream-tonic' |
   'sun-cell' | 'void-cell' | 'oath-charm' | 'echo-charm' | 'bone-blade' | 'eclipse-blade' |
   'truth-lens' | 'curse-meter' | 'ember-feed' | 'moon-feed' | 'smith-hammer' | 'whetstone' | 'doubt-lens' | 'void-seal' |
@@ -68,7 +69,7 @@ export interface AppraisalConfig {
   /** Absent in saved audits: preserve historical item effects and activation costs. */
   itemEffects?: boolean;
   /** Absent in original v0.4 audits: retain the original 10-item generation pool. */
-  catalogVersion?: 1 | 2 | 3 | 4;
+  catalogVersion?: 1 | 2 | 3 | 4 | 5;
   /** Absent in historical audits: preserve their original economy. */
   roundRewards?: boolean;
   /** Absent in saved runs: retain the original single-coin, lose-all wager. */
@@ -319,6 +320,8 @@ export interface AppraisalState {
   vault?: string[];
 }
 export interface ItemView {
+  /** Public capability readiness, independent of hidden authenticity/curse. */
+  nativeEffectReady?:boolean;
   pilotUses?:number;
   rarityPower?:import('../../shared/rarity-power.js').RarityPower;
   appearance?:import('../../shared/item-rarity.js').ItemAppearance;

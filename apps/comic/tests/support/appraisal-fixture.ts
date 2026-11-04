@@ -1,3 +1,4 @@
+import {REMAINING48_ITEMS} from '../../src/game/appraisal/remaining48-catalog.js';
 import { createAppraisalRun, assertAppraisalInvariants } from '../../src/game/appraisal/index.js';
 import { ITEM_SPECS } from '../../src/game/appraisal/content.js';
 import { grant, reward } from '../../src/game/appraisal/mechanics.js';
@@ -16,7 +17,7 @@ export function appraisalFixture(id:EventId='E18',count=2):AppraisalState {
     seat.stock.forEach((itemId,index)=>{const item=state.items[itemId]!;item.npc=npcFor[id]??'orc';item.kind=index?'key':'mirror';item.base=index?24:20;item.ask=item.base;item.reservation=Math.ceil(item.base*.5);item.genuine=index===1;item.cursed=index===0;item.certificate=true;});
   }
   p.energy=7;
-  for(const kind of Object.keys(ITEM_SPECS) as ItemKind[]) {
+  for(const kind of (Object.keys(ITEM_SPECS) as ItemKind[]).filter(k=>!(k in REMAINING48_ITEMS))) {
     const itemId=`owned-${kind}`;
     state.items[itemId]={id:itemId,kind,base:ITEM_SPECS[kind].anchor,genuine:true,cursed:false,ask:ITEM_SPECS[kind].anchor,owner:p.id,npcOwnerId:p.id,npc:'orc',encounter:1,certificate:true,lastAppraisal:null,lastAccepted:null,reservation:1};p.inventory.push(itemId);
   }

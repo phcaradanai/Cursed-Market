@@ -212,7 +212,7 @@ export function payVaultInterest(state:AppraisalState):void {
       if(vault.interest && vault.interest.encounter>=state.encounter)continue;
       principal=vault.interest?.encounter===state.encounter-1?vault.interest.principal:0;
       if(principal>0)bonus=ringInterestBasisPoints(state,p,vault.interest?.rings);
-      vault.interest={principal:vault.credits,encounter:state.encounter,...(state.config.catalogVersion===4?{rings:heldInterestRings(state,p)}:{})};
+      vault.interest={principal:vault.credits,encounter:state.encounter,...((state.config.catalogVersion===4 || state.config.catalogVersion===5)?{rings:heldInterestRings(state,p)}:{})};
     }
     const owed=state.config.vaultInterestRules===1?Math.floor(principal*(1000+bonus)/10000):vaultInterestOf(principal,4);
     const amount=Math.min(owed,Math.max(0,state.bank-state.market.budget-state.reservedRewards));

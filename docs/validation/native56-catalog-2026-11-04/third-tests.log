@@ -1,0 +1,34 @@
+✔ catalog5 selects exactly seven canonical products per merchant with independent assets and no old-kind alias (520.973917ms)
+✔ versions1–4 retain exact pre-registration ordered pools and sixteen initial-state fingerprints (165.581208ms)
+✔ new native views preserve unknown truths, use real art and distinguish registered but unbound effects (35.512625ms)
+✔ unbound native activations reject before charging, consuming, revealing or recording a use (11.721125ms)
+✔ the original eight primary capabilities remain available in version5 (5.420292ms)
+✔ E05 increases only a correct false-claim challenge discount with actual public propose/respond commands (30.613042ms)
+✔ E05 uses actual live carried custody, strongest-five cap and public kind without a truth oracle (3.847959ms)
+✔ catalog5 consumers keep Collector blind items separate from public market/Spirit sources (15.701542ms)
+✔ 48 typed identities and35rule contracts exactly match the frozen approved package (10.416042ms)
+✔ held strength selects the strongest5 across one effect family without mutating caller order (2.352208ms)
+✔ binary rights never pool fractional common copies into one entitlement (0.264583ms)
+✔ active and consumable callers must select one instance rather than summing a family (0.845917ms)
+✔ rarity1/copyfalse: integer and basis point scaling stay capped (0.468041ms)
+✔ rarity1/copytrue: integer and basis point scaling stay capped (0.349375ms)
+✔ rarity2/copyfalse: integer and basis point scaling stay capped (0.78ms)
+✔ rarity2/copytrue: integer and basis point scaling stay capped (0.101834ms)
+✔ rarity3/copyfalse: integer and basis point scaling stay capped (0.137542ms)
+✔ rarity3/copytrue: integer and basis point scaling stay capped (3.026208ms)
+✔ rarity4/copyfalse: integer and basis point scaling stay capped (1.871708ms)
+✔ rarity4/copytrue: integer and basis point scaling stay capped (0.321375ms)
+✔ rarity6/copyfalse: integer and basis point scaling stay capped (0.055583ms)
+✔ rarity6/copytrue: integer and basis point scaling stay capped (0.05475ms)
+✔ rarity8/copyfalse: integer and basis point scaling stay capped (0.057375ms)
+✔ rarity8/copytrue: integer and basis point scaling stay capped (0.228042ms)
+✔ discounts cannot create free infinite actions or charge a previously free action (0.481833ms)
+✔ bank-funded bonus cannot mint, overdraw reservations or accept noninteger credit quotes (0.925292ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1161.906292

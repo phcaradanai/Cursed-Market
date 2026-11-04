@@ -12,7 +12,7 @@ import { appraisalFixture } from './support/appraisal-fixture.js';
 import type { AppraisalAction, AppraisalState, EventId, ItemKind, NpcId } from '../src/game/appraisal/types.js';
 import type { AppraisalMatchAudit } from '../src/shared/appraisal-protocol.js';
 
-const kinds=(Object.keys(ITEM_SPECS) as ItemKind[]).filter(kind=>!passiveSpec(kind) && !['smith-hammer','whetstone','doubt-lens','void-seal','chrono-gear','burden-hourglass','shifting-compass'].includes(kind) && !EXPANSION_KINDS.includes(kind));
+const kinds=(Object.keys(ITEM_SPECS) as ItemKind[]).filter(kind=>!ITEM_SPECS[kind].nativeEffect && !passiveSpec(kind) && !['smith-hammer','whetstone','doubt-lens','void-seal','chrono-gear','burden-hourglass','shifting-compass'].includes(kind) && !EXPANSION_KINDS.includes(kind));
 type Body=AppraisalAction extends infer A ? A extends AppraisalAction ? Omit<A,'playerId'|'requestId'|'encounter'> : never : never;
 function driver(initial:AppraisalState) {
   let state=initial,request=0;
@@ -51,7 +51,7 @@ test('catalog has 30 distinct reachable products with usable family artwork and 
     assert.equal(merchantKinds(npc,2).length,9);
   }
   assert.deepEqual(new Set(Object.keys(NPC_SPECS).flatMap(npc=>merchantKinds(npc as NpcId,2))),new Set(kinds));
-  assert.throws(()=>createAppraisalRun(['a','b'],'bad-version',{catalogVersion:4 as 2}),/เวอร์ชันคลังสินค้า/);
+  assert.throws(()=>createAppraisalRun(['a','b'],'bad-version',{catalogVersion:6 as 2}),/เวอร์ชันคลังสินค้า/);
 });
 
 for(const kind of kinds)test(`catalog ${kind}: seeded NPC purchase, activation, Dark Market sale, private view and strict replay`,()=>{
@@ -90,5 +90,5 @@ test('new key preview names the actual door-unlock effect before activation',()=
 
 test('all published original v0.4 raw/room audits retain their exact 10-product replay and reporting',()=>{
   const paths=['docs/simulation/appraisal-v0.4/example-run.json','docs/simulation/appraisal-delivery-v0.4/example-run.json',...[2,3,4].map(n=>`docs/validation/appraisal-network-v0.4/network-${n}-players.json`),...[2,3,4].flatMap(n=>[`docs/validation/appraisal-delivery-v0.4/network/network-${n}-players.json`,`docs/validation/appraisal-delivery-v0.4/network/lan-${n}-players.json`])];
-  for(const path of paths){const input=JSON.parse(readFileSync(path,'utf8'));const audit=input.run??input;assert.equal(audit.config.catalogVersion,undefined);const state=replayAppraisalAudit(audit);assert.deepEqual(exportAppraisalAudit(state),audit);assert(Object.values(state.items).every(i=>!ITEM_SPECS[i.kind].family));if(input.run)analyseAppraisalMatchAudit(input as AppraisalMatchAudit);}
+  for(const path of paths){const input=JSON.parse(readFileSync(new URL('../../../../'+path,import.meta.url),'utf8'));const audit=input.run??input;assert.equal(audit.config.catalogVersion,undefined);const state=replayAppraisalAudit(audit);assert.deepEqual(exportAppraisalAudit(state),audit);assert(Object.values(state.items).every(i=>!ITEM_SPECS[i.kind].family));if(input.run)analyseAppraisalMatchAudit(input as AppraisalMatchAudit);}
 });

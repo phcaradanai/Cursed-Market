@@ -1,0 +1,31 @@
+Atlas graph: 3087 nodes / 12155 edges; assertions passed
+{
+  "events": 132,
+  "statuses": 51,
+  "omens": 22,
+  "omenPacks": {
+    "polish": 7,
+    "core2": 15
+  },
+  "merchants": 8,
+  "abilities": 8,
+  "choiceVariants": 314,
+  "encounterModels": 6,
+  "phases": 5,
+  "actions": 60,
+  "configKeys": 58,
+  "parameters": 74,
+  "functions": 521,
+  "codeSymbols": 670,
+  "policies": 212,
+  "randomRules": 105,
+  "legacyGateSites": 21,
+  "logSites": 118,
+  "logTopics": 103,
+  "validationSites": 463,
+  "dynamicStatusOperations": 29,
+  "schemas": 135,
+  "propertyWriteSites": 536
+}
+Atlas source fingerprints and outputs current: 293 inputs
+PASS: catalog coverage, namespaces, new56-only products, source guards, rule gaps, generic actions, profiles, original views and freshness.

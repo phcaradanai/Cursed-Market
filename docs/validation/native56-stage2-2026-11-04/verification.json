@@ -62,7 +62,7 @@
     },
     "trail": {
       "exit": 1,
-      "scope": "Branch diff capped400KB;20existing lexical conflicts only in unrelated .impeccable/design.json, excluded from this commit. Not full-branch review.",
+      "scope": "Branch diff capped400KB;20existing lexical conflicts in unrelated .impeccable/design.json and .impeccable/hook.cache.json, both excluded. Earlier shorthand naming only design.json was incomplete. Not full-branch review.",
       "log": "trail-check.log"
     },
     "roundingCorrection": {

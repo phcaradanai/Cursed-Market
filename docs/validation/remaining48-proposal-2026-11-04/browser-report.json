@@ -1,0 +1,35 @@
+{
+  "status": "pass-document-render-only",
+  "startedAt": "2026-11-04T02:37:48.789Z",
+  "at": "2026-11-04T02:37:49.488Z",
+  "spaceId": 1,
+  "checks": [
+    {
+      "width": 1024,
+      "overflow": false,
+      "rows": 48,
+      "contracts": 35,
+      "target": "E69 · คัมภีร์สุญญะ",
+      "brokenAnchors": 0,
+      "approvalText": true,
+      "binaryRule": true,
+      "screenshot": "docs/validation/remaining48-proposal-2026-11-04/proposal-1024.png"
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "rows": 48,
+      "contracts": 35,
+      "target": "E69 · คัมภีร์สุญญะ",
+      "brokenAnchors": 0,
+      "approvalText": true,
+      "binaryRule": true,
+      "screenshot": "docs/validation/remaining48-proposal-2026-11-04/proposal-1440.png"
+    }
+  ],
+  "sources": {
+    "docs/game-design/proposals/remaining48-experimental-v1.json": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508",
+    "docs/game-design/proposals/remaining48-experimental-v1.html": "3504257984faebdae14b84dca0b1b72ac4e5dec4f88000c1e8c353659eee09e7"
+  },
+  "gameplayTested": false
+}

@@ -45,7 +45,7 @@
       "id": "ITEM-01–03",
       "system": "สินค้าใหม่56ชิ้นและ effect",
       "status": "pilot8 เชื่อมและตรวจค่าทดลองแล้ว — อีก48ยังไม่ลง runtime",
-      "remaining": "Approved native8 remain unchanged. Remaining48 source audit:6per merchant/35primary groups. E05coil repeater meaning approved2026-11-04 (discount on correct false-claim challenge),9other semantic decisions and48numeric specs pending. No remaining48runtime or optional/numeric approval inferred.",
+      "remaining": "Native8 unchanged;48 still absent from runtime. Complete experimental proposal now covers48anchors/35primary contracts and9pending semantic decisions at proposals/remaining48-experimental-v1.html. E05 meaning alone approved; all48numbers/remaining9meanings await explicit approval. No optional effects, default flip or balance approval inferred.",
       "evidence": [
         "docs/game-design/logic-item-relations.json",
         "docs/game-design/system-atlas/coverage.md",
@@ -60,7 +60,10 @@
         "docs/game-design/remaining48-audit.html",
         "docs/game-design/remaining48-audit.json",
         "docs/validation/remaining48-audit-2026-11-03/verification.json",
-        "docs/game-design/remaining48-decisions.json"
+        "docs/game-design/remaining48-decisions.json",
+        "docs/game-design/proposals/remaining48-experimental-v1.html",
+        "docs/game-design/proposals/remaining48-experimental-v1.json",
+        "docs/game-design/proposals/remaining48-experimental-v1-check.json"
       ]
     },
     {

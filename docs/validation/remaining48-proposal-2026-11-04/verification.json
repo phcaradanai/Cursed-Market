@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-04",
+  "status": "proposal-ready-for-user-review-not-approved",
+  "baseRevision": "c7b915d",
+  "proposal": "docs/game-design/proposals/remaining48-experimental-v1.json",
+  "proposalSha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508",
+  "scope": "Documentation-only complete experimental48 package; no active/legacy runtime/UI source change",
+  "commands": [
+    {
+      "command": "node docs/game-design/scripts/remaining48-proposal.mjs --check",
+      "result": "pass:48IDs/8merchants/35contracts/9pendingmeanings, hashes and12paper examples"
+    },
+    {
+      "command": "node docs/game-design/scripts/audit-remaining48.mjs --check",
+      "result": "pass:8native/48absent; E05meaning approved,9pending; no numeric/runtime approval"
+    },
+    {
+      "command": "node docs/game-design/scripts/check-system-atlas.mjs",
+      "result": "pass:generated main HTML/Atlas source hashes and outputs current; no runtime change"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    },
+    {
+      "command": "trail check",
+      "result": "20known lexical conflicts in excluded unrelated.impeccable files; branch-diff400KB cap, not clean full-branch review"
+    }
+  ],
+  "browser": {
+    "receipt": "docs/validation/remaining48-proposal-2026-11-04/browser-receipt.json",
+    "report": "docs/validation/remaining48-proposal-2026-11-04/browser-report.json",
+    "widths": [
+      1024,
+      1440
+    ],
+    "checks": "48rows,35contracts,allanchorsresolved,nohorizontalpageoverflow,pendingapproval/binaryrule visible; images visually inspected",
+    "gameplayTested": false
+  },
+  "preserved": [
+    "approved pilot8 exact source/approval hashes",
+    "approved personal scoring weights/formula source",
+    "14approved UI baselines",
+    "all game source and current catalog defaults",
+    "legacy source"
+  ],
+  "notRun": [
+    "game functional/simulation suites: no gameplay edits",
+    "ui:check/test/smoke/visual: no game UI edits; document render checked separately",
+    "remaining48 runtime/balance: unapproved, not implemented"
+  ],
+  "next": "Wait for explicit experimental package approval while continuing independent authorized goal tasks; do not infer approval from generation/checks. Whole-game goal remains active."
+}

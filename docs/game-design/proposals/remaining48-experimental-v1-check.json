@@ -1,0 +1,203 @@
+{
+  "status": "proposal-structure-and-paper-math-pass-only",
+  "proposalSha256": "f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508",
+  "sourceHashes": {
+    "remaining48-audit.json": "e52b4b87ee42324692c40ea82698e22fa914441fe3d5ec2f02aa985ec4cb5efb",
+    "remaining48-decisions.json": "9dd5d24ec916e401c01ad963d727c926be459931ab656ca82d9879af84c0b70c",
+    "new56-pilot-approval.json": "cdcf630f60c8ed07db87008cd7c845575b3d304bdd0c7167abbf899a5e3b5d65",
+    "new56-pilot-proposal.json": "6881755d843c45dd294fd629802321601fd3c596dc5d7bb771d9230a6ce406c5"
+  },
+  "counts": {
+    "items": 48,
+    "merchants": 8,
+    "contracts": 35,
+    "pendingMeanings": 9
+  },
+  "examples": [
+    {
+      "rarity": 1,
+      "copy": false,
+      "strength": 1,
+      "energy": 1,
+      "extraChallengeBps": 500,
+      "ringAndBuoyBonusBps": 300,
+      "assetBonusFor100": 2,
+      "priceRange": [
+        11,
+        28
+      ],
+      "binaryRight": true
+    },
+    {
+      "rarity": 1,
+      "copy": true,
+      "strength": 0.4,
+      "energy": 0,
+      "extraChallengeBps": 200,
+      "ringAndBuoyBonusBps": 120,
+      "assetBonusFor100": 0,
+      "priceRange": [
+        10,
+        30
+      ],
+      "binaryRight": false
+    },
+    {
+      "rarity": 2,
+      "copy": false,
+      "strength": 2,
+      "energy": 2,
+      "extraChallengeBps": 1000,
+      "ringAndBuoyBonusBps": 400,
+      "assetBonusFor100": 4,
+      "priceRange": [
+        13,
+        26
+      ],
+      "binaryRight": true
+    },
+    {
+      "rarity": 2,
+      "copy": true,
+      "strength": 0.8,
+      "energy": 0,
+      "extraChallengeBps": 400,
+      "ringAndBuoyBonusBps": 240,
+      "assetBonusFor100": 1,
+      "priceRange": [
+        11,
+        29
+      ],
+      "binaryRight": false
+    },
+    {
+      "rarity": 3,
+      "copy": false,
+      "strength": 3,
+      "energy": 2,
+      "extraChallengeBps": 1500,
+      "ringAndBuoyBonusBps": 400,
+      "assetBonusFor100": 6,
+      "priceRange": [
+        14,
+        24
+      ],
+      "binaryRight": true
+    },
+    {
+      "rarity": 3,
+      "copy": true,
+      "strength": 1.2000000000000002,
+      "energy": 1,
+      "extraChallengeBps": 600,
+      "ringAndBuoyBonusBps": 360,
+      "assetBonusFor100": 2,
+      "priceRange": [
+        11,
+        28
+      ],
+      "binaryRight": true
+    },
+    {
+      "rarity": 4,
+      "copy": false,
+      "strength": 4,
+      "energy": 2,
+      "extraChallengeBps": 1500,
+      "ringAndBuoyBonusBps": 400,
+      "assetBonusFor100": 8,
+      "priceRange": [
+        14,
+        24
+      ],
+      "binaryRight": true
+    },
+    {
+      "rarity": 4,
+      "copy": true,
+      "strength": 1.6,
+      "energy": 1,
+      "extraChallengeBps": 800,
+      "ringAndBuoyBonusBps": 400,
+      "assetBonusFor100": 3,
+      "priceRange": [
+        12,
+        27
+      ],
+      "binaryRight": true
+    },
+    {
+      "rarity": 6,
+      "copy": false,
+      "strength": 6,
+      "energy": 2,
+      "extraChallengeBps": 1500,
+      "ringAndBuoyBonusBps": 400,
+      "assetBonusFor100": 10,
+      "priceRange": [
+        14,
+        24
+      ],
+      "binaryRight": true
+    },
+    {
+      "rarity": 6,
+      "copy": true,
+      "strength": 2.4000000000000004,
+      "energy": 2,
+      "extraChallengeBps": 1200,
+      "ringAndBuoyBonusBps": 400,
+      "assetBonusFor100": 4,
+      "priceRange": [
+        13,
+        25
+      ],
+      "binaryRight": true
+    },
+    {
+      "rarity": 8,
+      "copy": false,
+      "strength": 8,
+      "energy": 2,
+      "extraChallengeBps": 1500,
+      "ringAndBuoyBonusBps": 400,
+      "assetBonusFor100": 10,
+      "priceRange": [
+        14,
+        24
+      ],
+      "binaryRight": true
+    },
+    {
+      "rarity": 8,
+      "copy": true,
+      "strength": 3.2,
+      "energy": 2,
+      "extraChallengeBps": 1500,
+      "ringAndBuoyBonusBps": 400,
+      "assetBonusFor100": 6,
+      "priceRange": [
+        14,
+        24
+      ],
+      "binaryRight": true
+    }
+  ],
+  "moneyExamples": [
+    {
+      "name": "insurance bank-limited",
+      "quote": 4,
+      "freeBank": 2,
+      "actual": 2
+    },
+    {
+      "name": "empty bank",
+      "quote": 4,
+      "freeBank": 0,
+      "actual": 0
+    }
+  ],
+  "runtimeTestsRun": false,
+  "balanceVerified": false,
+  "approved": false
+}

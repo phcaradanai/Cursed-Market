@@ -1,0 +1,19 @@
+{
+  "command": "ego-browser nodejs (same TaskSpace1; reload then1024/1440 document checks)",
+  "cliSession": 38639,
+  "exitCode": 0,
+  "startedAt": "2026-11-04T02:37:48.789Z",
+  "observedTerminal": true,
+  "report": "docs/validation/remaining48-proposal-2026-11-04/browser-report.json",
+  "reportSha256": "c9496e101be6a8afea8ef26f3b647952a11faf4301b7bc23d7787fb4136cc425",
+  "finishedTaskSpace": {
+    "spaceId": 1,
+    "acknowledged": true,
+    "exitCode": 0
+  },
+  "previousAttempt": {
+    "session": 60679,
+    "exitCode": 1,
+    "cause": "Same-document file navigation retained prior loaded content; new binary-rule assertion false. Verified file contained rule, reloaded same Page, then repeated only affected document checks. Prior report not accepted as fresh."
+  }
+}

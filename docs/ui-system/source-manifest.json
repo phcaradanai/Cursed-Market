@@ -101,7 +101,7 @@
     },
     {
       "file": "apps/comic/src/appraisal-client/SecureEconomy.tsx",
-      "sha256": "cf7323f59d79043ae49b35a9fcfdeb9e588383ce55575270d99a5a0ba9648ced"
+      "sha256": "dc699f204fad13666da5a7ccd705949aaa2e000c2a14337a83486ecda29b3ada"
     },
     {
       "file": "apps/comic/src/appraisal-client/SinnerSeals.tsx",
@@ -969,7 +969,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/brokerage.ts",
-      "sha256": "18b4d1f6273adc9c1e8726831a16626905c0f2ffc0a8af4a146b7813c809a4b8"
+      "sha256": "bec7f351e20db1f6308d896f8a6a5b97338c4157485d933971ebafe9fa2d43ae"
     },
     {
       "file": "apps/comic/src/game/appraisal/challenge-rules.ts",
@@ -1025,7 +1025,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/engine.ts",
-      "sha256": "eed5b73c5e86512f1746d66976b743d691125b59d645a1e16344ceb969b30d9e"
+      "sha256": "b796cb67c6ca0121fcf7fcc322994895b6048785215da5ca741231d0debe7067"
     },
     {
       "file": "apps/comic/src/game/appraisal/events.ts",
@@ -1057,7 +1057,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/mechanics.ts",
-      "sha256": "fd76031b99b0438ea7da5ec5ef2a83426af51c247bc115b0fc6ad7326fdcb065"
+      "sha256": "badb601944210ae39836f92ae2525e9f2eef1a9874cbce7f2a3dc906fa113080"
     },
     {
       "file": "apps/comic/src/game/appraisal/merchant-abilities.ts",
@@ -1089,7 +1089,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/pilot-effects.ts",
-      "sha256": "4b669d8f360f8d540bf9cb9e46db8ca46e4b0d25a5e65bc855c839c757d6701d"
+      "sha256": "e10ebee7bd00a5110eea80266575fbf0c84a8210b39df09eae117b42bd790d02"
     },
     {
       "file": "apps/comic/src/game/appraisal/polish-events.ts",
@@ -1113,7 +1113,7 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/remaining48-effects.ts",
-      "sha256": "538b2c77cca51115fa3fbb30b54326304d677a649375c4ec414f918a41f9222b"
+      "sha256": "78d90c139e034302583ff048ea2291cd91beab389f46d1b6e71f68107859a740"
     },
     {
       "file": "apps/comic/src/game/appraisal/remaining48-numbers.ts",
@@ -1141,11 +1141,11 @@
     },
     {
       "file": "apps/comic/src/game/appraisal/theft.ts",
-      "sha256": "aaf4cc62d6d20f028fff9fdef405538cda8b32009770abf2f5ac9e50cd9da52a"
+      "sha256": "e3e223a954cf1dbd13dd291d868df4482ab712b75731e9b8317338da3f35e1ab"
     },
     {
       "file": "apps/comic/src/game/appraisal/types.ts",
-      "sha256": "53442ca73d60b9d0d7fa17ae76be1b664ab7bd862be65d42d46d87f7a9daeb30"
+      "sha256": "b9041f871146f7a70a604c1f2a87f3693e9f9626ea736e59b056c84fa5feef1d"
     },
     {
       "file": "apps/comic/src/game/appraisal/views.ts",
@@ -1541,7 +1541,7 @@
     },
     {
       "file": "apps/comic/tests/native56-catalog.test.ts",
-      "sha256": "8b0fc68757130ee7be64b68183204ac7bce989348fc9cba361360aeb9f0e9391"
+      "sha256": "e112035fd15f2ec62de96b5df77e8cfb282cea36bc5c6cebf788e7ed27aee7e7"
     },
     {
       "file": "apps/comic/tests/network.test.ts",
@@ -1600,12 +1600,16 @@
       "sha256": "ccdb3461730ca9ff8361708ce3e53478d87c190bedfef5020ee79ca7a8665686"
     },
     {
+      "file": "apps/comic/tests/remaining48-auction.test.ts",
+      "sha256": "6cd38c1aa2e3ae62b9ff1d34b9eb4a6d20b28d3243d6279da9e1ab9ea45e2abf"
+    },
+    {
       "file": "apps/comic/tests/remaining48-automatic.test.ts",
-      "sha256": "ddbffb4687bf50aa6ec7f8583cc5103a394ba984d5205885b396eeb096180a73"
+      "sha256": "925f6e604122cd6903b05a2f84832e74459c08954611876327206e1907a89e5a"
     },
     {
       "file": "apps/comic/tests/remaining48-challenge.test.ts",
-      "sha256": "21064670051c833520f162ee9300091c1b1d6d7fe3a4d37741117ff9018842f2"
+      "sha256": "0dd50e3ba5933856d5b9eda23d50649c2740032a26cc838f2bc6ee82985df37e"
     },
     {
       "file": "apps/comic/tests/remaining48-foundation.test.ts",
@@ -1614,6 +1618,10 @@
     {
       "file": "apps/comic/tests/remaining48-sales.test.ts",
       "sha256": "d883b6b8e696de03a4fa024e00a5429812a67eaa5182a715c10d43397557c7c0"
+    },
+    {
+      "file": "apps/comic/tests/remaining48-theft.test.ts",
+      "sha256": "14023cfa3e125f54b6ce5206492add57f0e301e60379a8f6939b887a286c0b42"
     },
     {
       "file": "apps/comic/tests/rooms.test.ts",

@@ -138,3 +138,13 @@ Approved vampire-midnight-invitation now returns up to the approved, bank-funded
 Evidence: `../validation/native56-stage5-2026-11-04/verification.json`. Server build passed; E22-focused 13/13 including two actual socket reconnect/retry cases; 32 sealed legacy replays plus 4 diagnostic games; approved pilot8 proof remains 16/16 audit hashes; one fixed public 40-credit/6-life pair observed held=1 credit rebate vs stored=0. This is mechanism proof, not balance acceptance.
 
 Still open: 31 primary bindings, bidder-facing E22 benefit/eligibility UI (Task5), whole predicate/custody/normal-benefit matrix, and multi-seed 2/4-player release balance. Next Task3 owner is E38 RPS tie rights. See `native56-stage5.json` and `implementations/remaining48-plan.md`.
+
+## 2026-11-05 — Native56 effects6: E38 sword-family tie right
+
+`vampire-mooncut-sword` now participates in the real forced-theft RPS path. At duel start the server snapshots eligible held swords before either hand is submitted; a tied first round consumes at most one binary right per player per encounter across the new mooncut sword and legacy riftfang sword. If both duelists have a right, they cancel as before. A low-strength copy cannot qualify; rarity does not multiply the right; a non-tie does not spend it. The existing public pre-duel sword indicator now uses family-neutral wording.
+
+New catalog5/effects6 runs preserve effects5 and earlier restore semantics; default catalog3 and pilot4 remain unchanged. E22 readiness remains enabled at stage6. Stage5 archive and approval snapshot are pinned separately.
+
+Evidence: `../validation/native56-stage6-2026-11-05/verification.json`. E38-focused 6/6 and neighboring automatic/E22/challenge regressions 51/51 pass, including three actual socket cases. 32 sealed compatibility replays and four effects6 diagnostic games pass. The eight public pilot pairs (16 audits) remain hash-identical. No full balance or default56 claim.
+
+Count: 56 registered / 26 primary owner-tested / 30 pending. Still open: E22 bidder-facing benefit/eligibility UI, 30 primary bindings, whole predicate/custody/normal-benefit matrix, Task4 active/consumable flows, and multi-seed 2/4-player release balance. Next Task3 owner is E40 theft-loss reduction. Whole-game goal remains active.

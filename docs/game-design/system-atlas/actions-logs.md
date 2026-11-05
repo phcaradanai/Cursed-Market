@@ -2210,13 +2210,13 @@
       "payload": "{duelId:duel.id,playerId:id,itemId}",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 273,
-        "endLine": 273
+        "line": 275,
+        "endLine": 275
       },
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "guards": [
         "thiefHand === opponentHand",
-        "pilotUses(state,item)===0"
+        "!used.includes(id)&&pilotUses(state,item)===0"
       ]
     },
     {
@@ -2225,8 +2225,8 @@
       "payload": "{duelId:duel.id,result:duel.status}",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 300,
-        "endLine": 300
+        "line": 302,
+        "endLine": 302
       },
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "guards": []
@@ -2237,8 +2237,8 @@
       "payload": "{compensationId:comp.id,due:comp.amount,paid}",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 318,
-        "endLine": 318
+        "line": 320,
+        "endLine": 320
       },
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:collectCompensations",
       "guards": []
@@ -2249,8 +2249,8 @@
       "payload": "{price,cases:crime.cases.length}",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 333,
-        "endLine": 333
+        "line": 335,
+        "endLine": 335
       },
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:clearCrime",
       "guards": []
@@ -2982,7 +2982,7 @@
     },
     {
       "code": "config",
-      "condition": "config.native56Effects===undefined||(config.native56Effects===2||config.native56Effects===3||config.native56Effects===4||config.native56Effects===5)&&config.catalogVersion===5",
+      "condition": "config.native56Effects===undefined||(config.native56Effects===2||config.native56Effects===3||config.native56Effects===4||config.native56Effects===5||config.native56Effects===6)&&config.catalogVersion===5",
       "message": "'รุ่นเอฟเฟกต์สินค้าใหม่ไม่ถูกต้อง'",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",
@@ -7592,8 +7592,8 @@
       "message": "'ไม่มีโทษให้ล้าง'",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 328,
-        "endLine": 328
+        "line": 330,
+        "endLine": 330
       },
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:clearCrime",
       "guards": []

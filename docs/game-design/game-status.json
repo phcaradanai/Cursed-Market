@@ -1,9 +1,9 @@
 {
   "asOf": "2026-11-05",
   "activeSource": "apps/comic",
-  "revision": "9b8c946 + native56Effects5 E22 checkpoint",
+  "revision": "9cf8628 + native56Effects6 E38 checkpoint",
   "headline": "ยังไม่ครบตามกฎและขอบเขตเกมที่ตกลงทั้งหมด",
-  "summary": "วงจรหลักและตลาดวิญญาณเล่นได้; การเชื่อมสินค้าใหม่และการตรวจครบทั้งเกมยังค้าง. สินค้าใหม่ 56 ชนิดมี primary owner-tested 25 ชนิด เหลือ 31; ยังไม่ใช่การรับรอง balance หรือพร้อมเปิดเป็นค่าเริ่มต้น.",
+  "summary": "วงจรหลักและตลาดวิญญาณเล่นได้; การเชื่อมสินค้าใหม่และการตรวจครบทั้งเกมยังค้าง. สินค้าใหม่56ชนิดมี primary owner-tested26 ชนิด เหลือ30; ยังไม่ใช่การรับรอง balance หรือพร้อมเปิดเป็นค่าเริ่มต้น.",
   "atlasScope": "Atlas สกัดทุก module ของ apps/comic/src/game/appraisal พร้อม random/rarity/protocol/server lifecycle และ bot ที่ระบุ; graph เป็น static dependency ไม่ใช่ execution proof; UI ใช้ capture/flow registry แยก; รุ่นเก่าตรึง9f0a972ใน legacy-atlas-baseline.json",
   "systems": [
     {
@@ -44,8 +44,8 @@
     {
       "id": "ITEM-01–03",
       "system": "สินค้าใหม่56ชิ้นและ effect",
-      "status": "catalog5 ลงทะเบียน56; primary owner-tested25/56; อีก31ยังไม่เชื่อม",
-      "remaining": "E22 บัตรเชิญเที่ยงคืนคืนเครดิตประมูลเมื่อถือของต่อเนื่องและชนะ: 13 focused tests, 32 sealed replays, 4 diagnostic games และ normal public pair ถือ 1 เครดิต/เก็บก่อน bid 0 ผ่าน. ค้าง: bidder-facing E22 UI, 31 bindings, capability/custody/public-benefit matrix และ release balance.",
+      "status": "catalog5 ลงทะเบียน56; primary owner-tested26/56; อีก30ยังไม่เชื่อม",
+      "remaining": "E38 ดาบจันทร์แหว่งเชื่อมกับ forced theft RPS: สิทธิ์เสมอแบบ binary หนึ่งครั้งต่อผู้เล่น/ช่วง แชร์โควตากับ Riftfang และบันทึกก่อนส่งมือ. E38 focused6/6; regressions51/51รวม socket;32 sealed replay +4 diagnostic; pilot8 คู่/16 audit hashes ไม่เปลี่ยน. ค้าง: E22 eligibility UI,30 bindings, capability/custody/public-benefit matrix และ release balance.",
       "evidence": [
         "docs/game-design/logic-item-relations.json",
         "docs/game-design/system-atlas/coverage.md",
@@ -77,7 +77,11 @@
         "docs/validation/native56-stage3-2026-11-04/verification.json",
         "docs/validation/recovery-quote-2026-11-04/verification.json",
         "docs/validation/native56-stage4-2026-11-04/verification.json",
-        "docs/game-design/native56-stage4.json"
+        "docs/game-design/native56-stage4.json",
+        "docs/game-design/native56-stage5.json",
+        "docs/game-design/native56-stage6.json",
+        "docs/validation/native56-stage5-2026-11-04/verification.json",
+        "docs/validation/native56-stage6-2026-11-05/verification.json"
       ]
     },
     {
@@ -188,21 +192,21 @@
     }
   ],
   "next": [
-    "เดิน Task3 ต่อด้วย E38: สิทธิ์แก้ผล RPS เสมอหนึ่งครั้งต่อผู้เล่น/ช่วง; คง replay semantics ของ effects absent/2/3/4/5 และปิด owner/custody/socket cases ก่อนเปิดเพิ่ม",
+    "เดิน Task3 ต่อด้วย E40: ลดผลเสียจากการขโมยตาม approved contract; รักษา forced RPS, hand privacy และ timeout semantics เดิม",
     "ทำ Task4 explicit targets, Task5 Comic interaction/benefit disclosure และ Task6 predicate reconciliation ตาม approved remaining48 plan",
-    "รัน paired full-game balance/acceptance หลาย seed และผู้เล่น 2/4 คน; อย่าเปิด default56 หรือเรียกเกมเสร็จก่อนหลักฐานครบ"
+    "รัน paired full-game balance/acceptance หลาย seed และผู้เล่น2/4คน; อย่าเปิด default56 หรือเรียกเกมเสร็จก่อนหลักฐานครบ"
   ],
   "verification": "Whole-game goal เปิดแล้ว ดู implementations/completion-program.md; งานแต่ละส่วนมีผลตรวจเฉพาะส่วน ไม่ใช่คำรับรองครบทั้งเกม",
   "runtimeFacts": {
     "comicVaultInterestPercent": 10,
     "rootVaultInterestPercent": 10,
-    "new56DedicatedBindings": 25,
+    "new56DedicatedBindings": 26,
     "comicDefaultCatalogVersion": 3,
     "comicExperimentalCatalogVersion": 4,
     "personalScoringRules": 1,
     "personalScoringFacts": 2,
     "new56RegisteredItemIds": 56,
     "comicExperimentalNativeCatalogVersion": 5,
-    "comicExperimentalNativeEffects": 3
+    "comicExperimentalNativeEffects": 6
   }
 }

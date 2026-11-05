@@ -52,7 +52,7 @@ function ActiveTheftDuel({game,submit,disabled,playerNames={},duel,deadline,serv
         </div>
         <div className="theft-duel-history">
           {duel.npcTell&&<p>{pick(duel.npcTell.text,`Merchant tell: favors ${handName(duel.npcTell.preferredHand).toLowerCase()}.`)}</p>}
-          {duel.publicSwords&&(duel.publicSwords.you||duel.publicSwords.opponent)&&<p>{pick('ดาบเขี้ยวรอยแยก: เสมอตาแรก +1 · คุณ ', 'Riftfang: first tie +1 · You ')}{duel.publicSwords.you?1:0} / {pick('คู่ดวล ','Opponent ')}{duel.publicSwords.opponent?1:0}</p>}{duel.tieGoesTo&&<p>{duel.tieGoesTo==='you'?pick('เสมอนับเป็นของคุณ','Ties go to you'):pick('เสมอนับเป็นของอีกฝ่าย','Ties go to your opponent')}</p>}
+          {duel.publicSwords&&(duel.publicSwords.you||duel.publicSwords.opponent)&&<p>{pick('สิทธิ์ดาบ: เสมอตาแรก +1 · คุณ ', 'Sword tie right: first tie +1 · You ')}{duel.publicSwords.you?1:0} / {pick('คู่ดวล ','Opponent ')}{duel.publicSwords.opponent?1:0}</p>}{duel.tieGoesTo&&<p>{duel.tieGoesTo==='you'?pick('เสมอนับเป็นของคุณ','Ties go to you'):pick('เสมอนับเป็นของอีกฝ่าย','Ties go to your opponent')}</p>}
           {round?<><p>{pick(`ตา ${at+1}: คุณออก `,`Round ${at+1}: you played `)}{handName(own?round.thief:round.opponent)} · {opponent} {handName(own?round.opponent:round.thief)}{round.thief===round.opponent?pick(' · เสมอ',' · Draw'):''}</p><CompactPager page={at} pages={rounds.length} onChange={setHistoryPage} label={pick('ประวัติการดวล','Duel history')}/></>:<p>{pick('ยังไม่มีตาที่เปิดมือ','No hands have been revealed')}</p>}
         </div>
       </section>

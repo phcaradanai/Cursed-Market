@@ -39,7 +39,7 @@ export type ItemKind = Remaining48Kind | LegacyItemFamily | PilotItemKind | 'mem
 export type AppraisalPhase = 'PORTALS' | 'APPRAISAL' | 'TRADE' | 'REVEAL' | 'RESULTS';
 export interface AppraisalConfig {
   /** Absent in catalog5 stage1 audits: pilot8 plus E05 only. */
-  native56Effects?:2|3|4|5;
+  native56Effects?:2|3|4|5|6;
   /** Bind recovery payment to visible terms; absent in historical audits. */
   recoveryQuoteRules?:1;
   /** Versioned personal accomplishments; historical audits omit this. */
@@ -317,6 +317,8 @@ export interface AppraisalState {
   native56Meetings?:Record<string,NpcId[]>;
   native56RecoveryUses?:{encounter:number;players:string[];origins:string[]};
   native56EnergyUses?:{encounter:number;players:string[];origins:string[]};
+  /** E38 shares one tie-right quota across every sword in the family per player/encounter. */
+  native56TieRights?:{encounter:number;players:string[]};
   /** E06 rights belong to players and physical origins, never a screen or current owner. */
   native56ChallengeUses?:{encounter:number;players:string[];origins:string[]};
   personalPerformance?:import('./personal-scoring.js').PersonalPerformance;

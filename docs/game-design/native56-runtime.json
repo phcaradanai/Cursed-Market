@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "asOf": "2026-11-04",
-  "status": "experimental-effects5-not-default",
+  "asOf": "2026-11-05",
+  "status": "experimental-effects6-not-default",
   "catalogVersion": 5,
   "registeredItemIds": [
     "orc-oath-sword",
@@ -86,9 +86,10 @@
     "vampire-gloam-violin",
     "vampire-midnight-invitation",
     "vampire-mist-atomizer",
+    "vampire-mooncut-sword",
     "vampire-nocturne-signet"
   ],
-  "pendingPrimaryCount": 31,
+  "pendingPrimaryCount": 30,
   "evidence": [
     "docs/validation/native56-stage3-2026-11-04/focused-final.log",
     "docs/validation/native56-stage3-2026-11-04/green4.log",
@@ -100,9 +101,11 @@
     "docs/validation/native56-stage4-2026-11-04/verification.json",
     "docs/game-design/native56-stage4.json",
     "docs/validation/native56-stage5-2026-11-04/verification.json",
-    "docs/game-design/native56-stage5.json"
+    "docs/game-design/native56-stage5.json",
+    "docs/game-design/native56-stage6.json",
+    "docs/validation/native56-stage6-2026-11-05/verification.json"
   ],
-  "scope": "56registered,25primary owner-tested: previous24 plus E22 vampire-midnight-invitation auction rebate. Remaining31primary hooks unbound. First-positive-bid continuous physical custody, actual net B20 payment, original/lot dedup, bank-funded3/win6/run and real consignor self-bid exclusion tested. No default3/pilot4, optional effects, art/layout or balance approval; dedicated pre-bid benefit UI remains Task5 work.",
-  "stage1ReplayContract": "native56-stage1.json freezes absent revision; native56-stage2.json freezes2; native56-stage3.json freezes3. Later revision must preserve all earlier semantics and carry forward earlier effects. native56-stage4.json freezes4; recovery-quote-2026-11-04 freezes quote-enabled3. Carry all earlier effects into future revisions. native56-stage5.json freezes5; later revisions must preserve earlier effect, quote and archive semantics.",
-  "native56Effects": 5
+  "scope": "56 registered; 26 primary owner-tested including stage6 E38 sword-family tie right. 30 primary hooks remain unbound. No default change, optional effects, balance approval, or UI redesign; E22 Task5 benefit disclosure remains separate work.",
+  "stage1ReplayContract": "native56-stage1.json freezes absent revision; native56-stage2.json freezes2; native56-stage3.json freezes3. Later revision must preserve all earlier semantics and carry forward earlier effects. native56-stage4.json freezes4; recovery-quote-2026-11-04 freezes quote-enabled3. Carry all earlier effects into future revisions. native56-stage5.json freezes5; later revisions must preserve earlier effect, quote and archive semantics. native56-stage6.json freezes6 and preserves stage5 effects/archives; later revisions carry all earlier effect, quote and archive semantics.",
+  "native56Effects": 6
 }

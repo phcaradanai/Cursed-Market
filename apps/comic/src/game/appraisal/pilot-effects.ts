@@ -1,4 +1,5 @@
 import {integerEffect,itemEffectScale} from './copy-effects.js';
+import {REMAINING48_ITEMS} from './remaining48-catalog.js';
 import type {AppraisalItem,AppraisalState,Appraiser,PilotItemKind} from './types.js';
 
 /** Public kind and actual custody only; never inspect hidden truth for held effects. */
@@ -31,7 +32,11 @@ export function ringInterestBasisPoints(state:AppraisalState,p:Appraiser,start:R
   return Math.min(400,Object.entries(start).reduce((n,[id,amount])=>n+Math.min(amount,end[id]??0),0));
 }
 export function swordForDuel(state:AppraisalState,p:Appraiser):AppraisalItem|undefined {
-  return pilotHeld(state,p,'beast-riftfang-sword').find(i=>itemEffectScale(i)>=1 && pilotUses(state,i)===0);
+  if((state.config.native56Effects??0)>=6&&state.native56TieRights?.encounter===state.encounter&&state.native56TieRights.players.includes(p.id))return;
+  const pilot=pilotHeld(state,p,'beast-riftfang-sword').find(i=>itemEffectScale(i)>=1 && pilotUses(state,i)===0);
+  if(pilot||(state.config.catalogVersion!==5||(state.config.native56Effects??0)<6)||p.life===0||p.paused==='dead')return pilot;
+  return p.inventory.map(id=>state.items[id]!).filter(i=>i?.owner===p.id&&i.kind==='vampire-mooncut-sword'&&REMAINING48_ITEMS[i.kind].nativeEffect==='effect:E38'&&!p.npcContracts?.alien?.itemIds.includes(i.id))
+    .sort((a,b)=>itemEffectScale(b)-itemEffectScale(a)||a.id.localeCompare(b.id)).find(i=>itemEffectScale(i)>=1&&pilotUses(state,i)===0);
 }
 
 /** Losing custody during the interval forfeits that physical ring's age evidence. */

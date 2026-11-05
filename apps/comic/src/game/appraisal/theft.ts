@@ -270,7 +270,9 @@ export function chooseTheftHand(state: AppraisalState, p: Appraiser, duelId: str
   let won: boolean;
   if(thiefHand === opponentHand) {
     let swordEdge=0;
-    for(const [id,itemId] of Object.entries(duel.swordIds??{})){const item=state.items[itemId]!;if(pilotUses(state,item)===0){swordEdge+=id===duel.thiefId?1:-1;usePilot(state,item);trace(state,thief,'pilot-sword-used',{duelId:duel.id,playerId:id,itemId});}}
+    const sharedRights=state.config.catalogVersion===5&&(state.config.native56Effects??0)>=6;
+    const used=sharedRights&&state.native56TieRights?.encounter===state.encounter?state.native56TieRights.players:[];
+    for(const [id,itemId] of Object.entries(duel.swordIds??{})){const item=state.items[itemId]!;if(!used.includes(id)&&pilotUses(state,item)===0){swordEdge+=id===duel.thiefId?1:-1;usePilot(state,item);if(sharedRights){const rights=state.native56TieRights?.encounter===state.encounter?state.native56TieRights:(state.native56TieRights={encounter:state.encounter,players:[]});rights.players.push(id);}trace(state,thief,'pilot-sword-used',{duelId:duel.id,playerId:id,itemId});}}
     const edge = swordEdge+(state.config.statusLinks === 1 ? breakTie(state,duel,thief) : 0);
     if(edge === 0) {
       duel.round++;
@@ -342,13 +344,14 @@ function tieView(state: AppraisalState, d: TheftDuel, p: Appraiser): {tieGoesTo?
 /** Never send an NPC hand, concealed target item, or submitted opposing hand to a client. */
 export function theftViewFor(state: AppraisalState, p: Appraiser): TheftView {
   const crime = (p as Thief).crime;
+  const publicSword=(duel:TheftDuel,playerId:string)=>{const itemId=duel.swordIds?.[playerId];return !!itemId&&pilotUses(state,state.items[itemId]!)===0&&!(state.config.catalogVersion===5&&(state.config.native56Effects??0)>=6&&state.native56TieRights?.encounter===state.encounter&&state.native56TieRights.players.includes(playerId));};
   return {
     duels: ((state as TheftState).theftDuels ?? []).filter(d => d.encounter === state.encounter && [d.thiefId,d.victimId].includes(p.id)).map(d => ({
       id:d.id, thiefId:d.thiefId, ...(d.victimId ? {victimId:d.victimId} : d.npc ? {npc:d.npc} : {}),
       ...(d.npc ? {npcTell:npcTheftTell(d.npc)} : {}),
       round:d.round, status:d.status, needsChoice:d.status === 'open' && !d.hands[p.id], submitted:!!d.hands[p.id],
       ...(state.config.statusLinks === 1 && d.status === 'open' ? tieView(state,d,p) : {}),
-      ...(d.swordIds?{publicSwords:{you:!!d.swordIds[p.id] && pilotUses(state,state.items[d.swordIds[p.id]!]!)===0,opponent:!!d.swordIds[d.thiefId===p.id?d.victimId??'npc':d.thiefId] && pilotUses(state,state.items[d.swordIds[d.thiefId===p.id?d.victimId??'npc':d.thiefId]!]!)===0}}:{}),
+      ...(d.swordIds?{publicSwords:{you:publicSword(d,p.id),opponent:publicSword(d,d.thiefId===p.id?d.victimId??'npc':d.thiefId)}}:{}),
       revealed:d.revealed.map(r => ({...r})),
     })),
     targets: state.players.filter(v => v.id !== p.id && !v.paused && !v.done).map(v => {

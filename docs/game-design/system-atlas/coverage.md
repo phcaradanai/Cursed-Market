@@ -27,7 +27,7 @@
   "validationSites": 465,
   "dynamicStatusOperations": 29,
   "schemas": 135,
-  "propertyWriteSites": 552
+  "propertyWriteSites": 553
 }
 ```
 ## กฎยืนยันและสถานะ runtime
@@ -296,7 +296,7 @@
 ```
 ## การย้ายสินค้า
 
-56 ชิ้นเป็น catalog/art และ effect proposals; dedicated runtime bindings = 25 /56; registered IDs = 56 ไม่จับคู่จากรูป/ชื่อโดยอัตโนมัติ เงื่อนไข legacy ด้านล่างเป็นหลักฐานที่ต้องแก้ ไม่เพิ่มสินค้าเก่าในกราฟ
+56 ชิ้นเป็น catalog/art และ effect proposals; dedicated runtime bindings = 26 /56; registered IDs = 56 ไม่จับคู่จากรูป/ชื่อโดยอัตโนมัติ เงื่อนไข legacy ด้านล่างเป็นหลักฐานที่ต้องแก้ ไม่เพิ่มสินค้าเก่าในกราฟ
 
 ```json
 {

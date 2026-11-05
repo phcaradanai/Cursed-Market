@@ -762,7 +762,7 @@
         "line": 40,
         "endLine": 115
       },
-      "text": "export interface AppraisalConfig {\n  /** Absent in catalog5 stage1 audits: pilot8 plus E05 only. */\n  native56Effects?:2|3|4|5;\n  /** Bind recovery payment to visible terms; absent in historical audits. */\n  recoveryQuoteRules?:1;\n  /** Versioned personal accomplishments; historical audits omit this. */\n  personalScoringRules?:1;\n  /** Corrected canonical writers; absence preserves pre-review experimental audit receipts. */\n  personalScoringFacts?:2;\n  /** Dedicated personal Collector purchases; absent in historical audits. */\n  collectorWishlistRules?:1;\n  /** Absent in visual-only/old audits: no price or effect scaling. */\n  rarityEconomy?:import('../../shared/rarity-power.js').RarityEconomyConfig;\n  /** Optional in old audits. Appearance-only RNG; no hidden truths or economic multipliers. */\n  rarity?:import('../../shared/item-rarity.js').RarityConfig;\n  /** Absent in saved audits: preserve the original theft, custody and pricing rules. */\n  secureEconomy?:boolean;\n  /** Absent in saved audits: active loans stay open when the match ends. New runs foreclose them so the lender keeps the collateral. */\n  loanEndSettlement?:boolean;\n  /** Absent in old audits: preserve 4% whole-balance interest. 1 uses aged principal at 10%. */\n  vaultInterestRules?:1;\n  /** Missing in historical audits: cancel timeout instead of choosing absent hands. */\n  theftTimeoutRules?:1;\n  /** Survival only. Absent in saved audits: the run ends only when every life is gone. Otherwise the Collector arrives after this encounter settles, whoever is still alive. */\n  collectorDeadline?:number;\n  /** Absent in saved audits: keep the original event choices. 1 removes pointless decline buttons, turns E37/E40 into mishaps you handle, reprices E119/E121/E127 and gives E47 an effect. */\n  eventChoiceRules?:1;\n  /** Absent in saved audits: v0.6 statuses B21–B24/D21–D24 stay unreachable and theft buffs keep their old chance-based meaning. 1 gives every status a source and makes B21/B22/D21 and the thieves' night omen settle tied theft duels. */\n  statusLinks?:1;\n  /** Absent in saved audits: preserve historical event eligibility and defaults. 1 revalidates core2 defaults, links healing/guard choices to their requirements and excludes costless blood-pact debt. */\n  systemLinks?:1;\n  /** Absent in historical runs: keep original skills, catalogs and RNG pools exactly. */\n  trustAbilities?:boolean;\n  /** Absent in saved audits: preserve historical item effects and activation costs. */\n  itemEffects?: boolean;\n  /** Absent in original v0.4 audits: retain the original 10-item generation pool. */\n  catalogVersion?: 1 | 2 | 3 | 4 | 5;\n  /** Absent in historical audits: preserve their original economy. */\n  roundRewards?: boolean;\n  /** Absent in saved runs: retain the original single-coin, lose-all wager. */\n  multiCoinRewards?: boolean;\n  /** Absent in saved runs: retain the pre-commission/trust/market-contract rules. */\n  commerce?: boolean;\n  /** Absent in saved runs: retain the one-item bonus for trusting every merchant. */\n  totalTrustStock?: boolean;\n  /** Absent in saved runs: retain the old effects check where only B02 could reveal a curse. */\n  curseSight?: boolean;\n  /** Absent in saved runs: buying from an NPC still costs energy there. */\n  freeBuy?: boolean;\n  /** Absent in saved audits: inspections and appraisals keep their original costs. */\n  freeMerchantAction?: boolean;\n  /** Absent in saved runs: fake items never produce their good effect there. */\n  fakeEffect?: boolean;\n  /** Absent in saved runs: merchants do not clean curses and the smith tools are never stocked. */\n  cleanse?: boolean;\n  /** Absent in saved runs: merchants never announce wishes. */\n  wishlist?: boolean;\n  /** Absent in saved runs: wishes cost no energy, have no cap and never lose value. */\n  wishContract?: boolean;\n  /** Absent in saved runs: listings carry no appraiser claims and the challenge tools are never stocked. */\n  challenge?: boolean;\n  /** Absent in saved runs: the Deep Sea Monster and The Swarm never appear and their items, statuses and events stay out of play. */\n  expansion?: boolean;\n  /** Absent in saved runs: no omens, sale/fee/life modifiers beyond the original market rules, capacity relics or polish events. */\n  polish?: boolean;\n  /** Absent in saved runs: no personal merchant contracts or delayed repayments. */\n  npcEvents?: boolean;\n  /** Absent in saved runs: the v0.6 core (rebalanced prices, door tolls, overvaluation backlash, escalating survival pressure with a Collector deadline, scrap energy, merchant skills, theft, barter and the extra statuses, events and omens). */\n  core2?: boolean;\n  encounters: number; startingCredits: number; maxEnergy: number; recoveryEnergy: number;\n  bankReserve: number; marketProbability: number; marketMaxOrders: number; marketQuota: number;\n  /** Absent in v0.4: retain encounter recovery and historical scoring exactly. */\n  survival?: { maxLife:number; encounterLifeCost:number; entryEnergyCost:number };\n  /** Absent in v0.4/v0.5 audits: unsold-appraisal duty, Dark Market vault auctions and NPC × held-item events. */\n  brokerage?: { auctionProbability:number; maxLots:number; bondProbability:number };\n}"
+      "text": "export interface AppraisalConfig {\n  /** Absent in catalog5 stage1 audits: pilot8 plus E05 only. */\n  native56Effects?:2|3|4|5|6;\n  /** Bind recovery payment to visible terms; absent in historical audits. */\n  recoveryQuoteRules?:1;\n  /** Versioned personal accomplishments; historical audits omit this. */\n  personalScoringRules?:1;\n  /** Corrected canonical writers; absence preserves pre-review experimental audit receipts. */\n  personalScoringFacts?:2;\n  /** Dedicated personal Collector purchases; absent in historical audits. */\n  collectorWishlistRules?:1;\n  /** Absent in visual-only/old audits: no price or effect scaling. */\n  rarityEconomy?:import('../../shared/rarity-power.js').RarityEconomyConfig;\n  /** Optional in old audits. Appearance-only RNG; no hidden truths or economic multipliers. */\n  rarity?:import('../../shared/item-rarity.js').RarityConfig;\n  /** Absent in saved audits: preserve the original theft, custody and pricing rules. */\n  secureEconomy?:boolean;\n  /** Absent in saved audits: active loans stay open when the match ends. New runs foreclose them so the lender keeps the collateral. */\n  loanEndSettlement?:boolean;\n  /** Absent in old audits: preserve 4% whole-balance interest. 1 uses aged principal at 10%. */\n  vaultInterestRules?:1;\n  /** Missing in historical audits: cancel timeout instead of choosing absent hands. */\n  theftTimeoutRules?:1;\n  /** Survival only. Absent in saved audits: the run ends only when every life is gone. Otherwise the Collector arrives after this encounter settles, whoever is still alive. */\n  collectorDeadline?:number;\n  /** Absent in saved audits: keep the original event choices. 1 removes pointless decline buttons, turns E37/E40 into mishaps you handle, reprices E119/E121/E127 and gives E47 an effect. */\n  eventChoiceRules?:1;\n  /** Absent in saved audits: v0.6 statuses B21–B24/D21–D24 stay unreachable and theft buffs keep their old chance-based meaning. 1 gives every status a source and makes B21/B22/D21 and the thieves' night omen settle tied theft duels. */\n  statusLinks?:1;\n  /** Absent in saved audits: preserve historical event eligibility and defaults. 1 revalidates core2 defaults, links healing/guard choices to their requirements and excludes costless blood-pact debt. */\n  systemLinks?:1;\n  /** Absent in historical runs: keep original skills, catalogs and RNG pools exactly. */\n  trustAbilities?:boolean;\n  /** Absent in saved audits: preserve historical item effects and activation costs. */\n  itemEffects?: boolean;\n  /** Absent in original v0.4 audits: retain the original 10-item generation pool. */\n  catalogVersion?: 1 | 2 | 3 | 4 | 5;\n  /** Absent in historical audits: preserve their original economy. */\n  roundRewards?: boolean;\n  /** Absent in saved runs: retain the original single-coin, lose-all wager. */\n  multiCoinRewards?: boolean;\n  /** Absent in saved runs: retain the pre-commission/trust/market-contract rules. */\n  commerce?: boolean;\n  /** Absent in saved runs: retain the one-item bonus for trusting every merchant. */\n  totalTrustStock?: boolean;\n  /** Absent in saved runs: retain the old effects check where only B02 could reveal a curse. */\n  curseSight?: boolean;\n  /** Absent in saved runs: buying from an NPC still costs energy there. */\n  freeBuy?: boolean;\n  /** Absent in saved audits: inspections and appraisals keep their original costs. */\n  freeMerchantAction?: boolean;\n  /** Absent in saved runs: fake items never produce their good effect there. */\n  fakeEffect?: boolean;\n  /** Absent in saved runs: merchants do not clean curses and the smith tools are never stocked. */\n  cleanse?: boolean;\n  /** Absent in saved runs: merchants never announce wishes. */\n  wishlist?: boolean;\n  /** Absent in saved runs: wishes cost no energy, have no cap and never lose value. */\n  wishContract?: boolean;\n  /** Absent in saved runs: listings carry no appraiser claims and the challenge tools are never stocked. */\n  challenge?: boolean;\n  /** Absent in saved runs: the Deep Sea Monster and The Swarm never appear and their items, statuses and events stay out of play. */\n  expansion?: boolean;\n  /** Absent in saved runs: no omens, sale/fee/life modifiers beyond the original market rules, capacity relics or polish events. */\n  polish?: boolean;\n  /** Absent in saved runs: no personal merchant contracts or delayed repayments. */\n  npcEvents?: boolean;\n  /** Absent in saved runs: the v0.6 core (rebalanced prices, door tolls, overvaluation backlash, escalating survival pressure with a Collector deadline, scrap energy, merchant skills, theft, barter and the extra statuses, events and omens). */\n  core2?: boolean;\n  encounters: number; startingCredits: number; maxEnergy: number; recoveryEnergy: number;\n  bankReserve: number; marketProbability: number; marketMaxOrders: number; marketQuota: number;\n  /** Absent in v0.4: retain encounter recovery and historical scoring exactly. */\n  survival?: { maxLife:number; encounterLifeCost:number; entryEnergyCost:number };\n  /** Absent in v0.4/v0.5 audits: unsold-appraisal duty, Dark Market vault auctions and NPC × held-item events. */\n  brokerage?: { auctionProbability:number; maxLots:number; bondProbability:number };\n}"
     },
     {
       "id": "schema:apps/comic/src/game/appraisal/types.ts:UnsoldChoice",
@@ -1090,9 +1090,9 @@
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
         "line": 313,
-        "endLine": 337
+        "endLine": 339
       },
-      "text": "export interface AppraisalState {\n  native56Auction?:{paid:Record<string,number>;origins:string[];lots:string[]};\n  native56Commission?:{paid:Record<string,number>;keys:string[]};\n  native56SaleEnergy?:{pairs:string[];origins:string[];uses:{encounter:number;players:string[];origins:string[]}};\n  native56Meetings?:Record<string,NpcId[]>;\n  native56RecoveryUses?:{encounter:number;players:string[];origins:string[]};\n  native56EnergyUses?:{encounter:number;players:string[];origins:string[]};\n  /** E06 rights belong to players and physical origins, never a screen or current owner. */\n  native56ChallengeUses?:{encounter:number;players:string[];origins:string[]};\n  personalPerformance?:import('./personal-scoring.js').PersonalPerformance;\n  collectorWishes?:Record<string,import('./collector-wishlist.js').CollectorWishlistState>;\n  ghosts?:Record<string,import('./ghost-service.js').GhostState>;\n  theftDuels?:import('./theft.js').TheftDuel[];\n  loans?:import('./secure-storage.js').SecuredLoan[];\n  version: 4 | 5; seed: string; config: AppraisalConfig; encounter: number; phase: AppraisalPhase;\n  revision: number; players: Appraiser[]; items: Record<string,AppraisalItem>;\n  reservedRewards: number;\n  schedule: Record<string,Portal[][]>; bank: number; market: DarkMarket;\n  listings: SharedListing[]; publicKnowledge: Record<string,Knowledge>; trades: TradeOffer[];\n  ledger: LedgerEntry[]; trace: TraceEntry[]; history: EncounterResult[];\n  accepted: Record<string,string>; commands: Array<AppraisalAction | { type: 'advance' }>;\n  collector?:CollectorResult[];\n  /** Items the Dark Market bought or took on consignment; present only with brokerage rules. */\n  vault?: string[];\n}"
+      "text": "export interface AppraisalState {\n  native56Auction?:{paid:Record<string,number>;origins:string[];lots:string[]};\n  native56Commission?:{paid:Record<string,number>;keys:string[]};\n  native56SaleEnergy?:{pairs:string[];origins:string[];uses:{encounter:number;players:string[];origins:string[]}};\n  native56Meetings?:Record<string,NpcId[]>;\n  native56RecoveryUses?:{encounter:number;players:string[];origins:string[]};\n  native56EnergyUses?:{encounter:number;players:string[];origins:string[]};\n  /** E38 shares one tie-right quota across every sword in the family per player/encounter. */\n  native56TieRights?:{encounter:number;players:string[]};\n  /** E06 rights belong to players and physical origins, never a screen or current owner. */\n  native56ChallengeUses?:{encounter:number;players:string[];origins:string[]};\n  personalPerformance?:import('./personal-scoring.js').PersonalPerformance;\n  collectorWishes?:Record<string,import('./collector-wishlist.js').CollectorWishlistState>;\n  ghosts?:Record<string,import('./ghost-service.js').GhostState>;\n  theftDuels?:import('./theft.js').TheftDuel[];\n  loans?:import('./secure-storage.js').SecuredLoan[];\n  version: 4 | 5; seed: string; config: AppraisalConfig; encounter: number; phase: AppraisalPhase;\n  revision: number; players: Appraiser[]; items: Record<string,AppraisalItem>;\n  reservedRewards: number;\n  schedule: Record<string,Portal[][]>; bank: number; market: DarkMarket;\n  listings: SharedListing[]; publicKnowledge: Record<string,Knowledge>; trades: TradeOffer[];\n  ledger: LedgerEntry[]; trace: TraceEntry[]; history: EncounterResult[];\n  accepted: Record<string,string>; commands: Array<AppraisalAction | { type: 'advance' }>;\n  collector?:CollectorResult[];\n  /** Items the Dark Market bought or took on consignment; present only with brokerage rules. */\n  vault?: string[];\n}"
     },
     {
       "id": "schema:apps/comic/src/game/appraisal/types.ts:ItemView",
@@ -1100,8 +1100,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 338,
-        "endLine": 363
+        "line": 340,
+        "endLine": 365
       },
       "text": "export interface ItemView {\n  /** Public capability readiness, independent of hidden authenticity/curse. */\n  nativeEffectReady?:boolean;\n  pilotUses?:number;\n  rarityPower?:import('../../shared/rarity-power.js').RarityPower;\n  appearance?:import('../../shared/item-rarity.js').ItemAppearance;\n  lastTradePrice?:number;\n  overpriced?:boolean;\n  lastReappraisedEncounter?:number;\n  reappraisalUsed?:boolean;\n  liquidationPrice?:number;\n  copy?:{sourceId:string;sourceName:string;number:number;valuePercent:number};\n  /** This seat can inspect or appraise this merchant item once without energy. */\n  freeMerchantAction?:boolean;\n  itemEffects?:boolean;\n  trustAbilities?:boolean;\n  id: string; kind: ItemKind; name: string; image: string; owner: string;\n  npc: NpcId;\n  range?: [number,number]; ask: number; appraisal: number | null; lockedUntil: number | null;\n  price: number; appraisalAccepted: boolean | null;\n  appraisedBy?:string; commissionPaid?:boolean;\n  /** Only the owner sees what they paid. */\n  paid?:number; bonus?:boolean; stolen?:boolean;\n  knowledge: Knowledge; certificate: boolean; possibleBenefit: string; possibleDrawback: string;\n  condition: {statusId:StatusId;discount:number;available:boolean;required:boolean};\n}"
     },
@@ -1111,8 +1111,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 364,
-        "endLine": 364
+        "line": 366,
+        "endLine": 366
       },
       "text": "export interface Core2Actions { skill?:{npc:NpcId;name:string;needsItem:boolean;strong:boolean}; stealChance?:number; pickpocketChance?:number; theftUsed:boolean; trustForSkill:number }"
     },
@@ -1122,8 +1122,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 365,
-        "endLine": 407
+        "line": 367,
+        "endLine": 409
       },
       "text": "export interface AppraisalView {\n  theftTimeoutRules?:1;\n  vaultInterestPercent?:number;\n  ghosts?:ReturnType<typeof import('./ghost-service.js').ghostView>;\n  secureEconomy?:boolean;\n  theft?:ReturnType<typeof import('./theft.js').theftViewFor>;\n  sealMarket?:import('./seals.js').SealMarketView;\n  loans?:Array<import('./secure-storage.js').SecuredLoan & {item:ItemView}>;\n  trustAbilities?:boolean;\n  itemEffects?:boolean;\n  version: 4 | 5; phase: AppraisalPhase; encounter: number; encounterCount: number | null; revision: number;\n  eventChoiceRules?:1;\n  statusLinks?:1;\n  survival?:NonNullable<AppraisalConfig['survival']>; core2?:boolean; collectorAt?:number; dread?:number; curseSight?:boolean; freeBuy?:boolean; fakeEffect?:boolean; cleanse?:boolean; wishlist?:boolean; wishContract?:boolean; challenge?:boolean; polish?:boolean; omen?:{id:string;name:string;text:string}; salePct?:number; fee?:number; maxEnergy?:number; collector?:CollectorResult[]; brokerage?:boolean; roundRewardBase?:number; passives?:boolean;\n  self: Omit<Appraiser,'personalVault'|'knowledge'|'portals'|'stock'|'inventory'|'valuations'|'startWealth'|'acceptedDanger'|'seenEvents'|'resolvedEvents'> & {\n    personalScore?:import('./personal-scoring.js').PersonalScoreBreakdown;\n    personalScoreEstimate?:{min:number;max:number;unpriced:number;modifier:number};\n    collectorWishlist?:import('./collector-wishlist.js').CollectorWishlistView;\n    personalVault?:{items:ItemView[];credits:number;slots:number;nextSlotPrice:number;nextInterest:number;interestPercent?:number;canWithdrawCredits?:boolean};\n    loanItems?:ItemView[];\n    inventory: ItemView[]; stock: ItemView[]; portals: Array<{id:string; npc:NpcId; hint:ItemKind; disabled:boolean}>;\n    portalRerollCost?:number;pilotPriceChecks?:number;pilotAcceptancePercent?:number;\n    counterLimit: number;\n    /** Per-seat caps once held relics apply (polish rules). */\n    maxEnergy?: number; maxLife?: number;\n    recoveryOffer?:RecoveryOffer;\n    /** Core v0.6: what the seat can do beyond buying: the merchant's skill, theft odds and whether this encounter's one attempt is spent. */\n    core2Actions?:Core2Actions;\n    merchantAbilities?:MerchantAbilityView[];\n    abilityChoices?:ItemView[];\n    pulse?:{shards:number;perLife:number;perSale:number;wary:boolean};\n    /** Shop bonus and its threshold. `total` selects pooled trust; absent keeps the historical all-merchant rule. */\n    stockBonus?:{tier:number;extra:number;need:number;npcs:NpcId[];total?:number};\n    cleanseOffer?:CleanseOffer;\n    wishOffer?:WishOffer;\n    wishDesk?:WishDesk;\n    /** Every open wish with its current price, in any phase, so the seat can recall what to buy. */\n    wishBook?:WishBookRow[];\n  };\n  players: Array<{id:string;credits:number;energy:number;score:number;paused:Appraiser['paused'];done:boolean;itemCount:number;life?:number}>;\n  market: Omit<DarkMarket,'lots'> & { lots?: AuctionLotView[] }; listings: Array<SharedListing & { item: ItemView }>;\n  trades: Array<Omit<TradeOffer,'nativeEnergyTools'> & {item:ItemView;swapItem:ItemView|null}>; history: EncounterResult[];\n}"
     },
@@ -1133,8 +1133,8 @@
       "kind": "InterfaceDeclaration",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 408,
-        "endLine": 411
+        "line": 410,
+        "endLine": 413
       },
       "text": "export interface MerchantAbilityView {\n  npc:NpcId; name:string; description:string; trust:number; tier:number; cooldown:number; remaining:number;\n  ready:boolean; reason:string|null; target:'stock'|'inventory'|'consumable'|'debuff'|'none'; itemIds:string[]; statusIds:StatusId[];\n}"
     },
@@ -6285,8 +6285,8 @@
       "owner": "code:apps/comic/src/game/appraisal/pilot-effects.ts:usePilot",
       "source": {
         "file": "apps/comic/src/game/appraisal/pilot-effects.ts",
-        "line": 12,
-        "endLine": 12
+        "line": 13,
+        "endLine": 13
       },
       "guards": []
     },
@@ -6297,8 +6297,8 @@
       "owner": "code:apps/comic/src/game/appraisal/pilot-effects.ts:usePilot",
       "source": {
         "file": "apps/comic/src/game/appraisal/pilot-effects.ts",
-        "line": 12,
-        "endLine": 12
+        "line": 13,
+        "endLine": 13
       },
       "guards": []
     },
@@ -8021,13 +8021,30 @@
       "guards": []
     },
     {
+      "target": "state.native56TieRights",
+      "operator": "=",
+      "value": "{encounter:state.encounter,players:[]}",
+      "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/theft.ts",
+        "line": 275,
+        "endLine": 275
+      },
+      "guards": [
+        "thiefHand === opponentHand",
+        "!used.includes(id)&&pilotUses(state,item)===0",
+        "sharedRights",
+        "state.native56TieRights?.encounter===state.encounter"
+      ]
+    },
+    {
       "target": "duel.round",
       "operator": "++",
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 276,
-        "endLine": 276
+        "line": 278,
+        "endLine": 278
       },
       "guards": [
         "thiefHand === opponentHand",
@@ -8041,8 +8058,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 277,
-        "endLine": 277
+        "line": 279,
+        "endLine": 279
       },
       "guards": [
         "thiefHand === opponentHand",
@@ -8057,8 +8074,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 282,
-        "endLine": 282
+        "line": 284,
+        "endLine": 284
       },
       "guards": []
     },
@@ -8069,8 +8086,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 287,
-        "endLine": 287
+        "line": 289,
+        "endLine": 289
       },
       "guards": [
         "won",
@@ -8084,8 +8101,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 290,
-        "endLine": 290
+        "line": 292,
+        "endLine": 292
       },
       "guards": [
         "won",
@@ -8099,8 +8116,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 291,
-        "endLine": 291
+        "line": 293,
+        "endLine": 293
       },
       "guards": [
         "won"
@@ -8113,8 +8130,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 293,
-        "endLine": 293
+        "line": 295,
+        "endLine": 295
       },
       "guards": [
         "won"
@@ -8127,8 +8144,8 @@
       "owner": "code:apps/comic/src/game/appraisal/theft.ts:chooseTheftHand",
       "source": {
         "file": "apps/comic/src/game/appraisal/theft.ts",
-        "line": 296,
-        "endLine": 296
+        "line": 298,
+        "endLine": 298
       },
       "guards": [
         "won"

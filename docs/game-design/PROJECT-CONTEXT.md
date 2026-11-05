@@ -351,3 +351,11 @@ Approved vampire-midnight-invitation now returns up to the approved, bank-funded
 Evidence: `../validation/native56-stage5-2026-11-04/verification.json`. Server build passed; E22-focused 13/13 including two actual socket reconnect/retry cases; 32 sealed legacy replays plus 4 diagnostic games; approved pilot8 proof remains 16/16 audit hashes; one fixed public 40-credit/6-life pair observed held=1 credit rebate vs stored=0. This is mechanism proof, not balance acceptance.
 
 Still open: 31 primary bindings, bidder-facing E22 benefit/eligibility UI (Task5), whole predicate/custody/normal-benefit matrix, and multi-seed 2/4-player release balance. Next Task3 owner is E38 RPS tie rights. See `native56-stage5.json` and `implementations/remaining48-plan.md`.
+
+## 2026-11-05 — Native56 effects6: E38 sword-family tie right
+
+`vampire-mooncut-sword` is connected to forced theft RPS. Eligible held swords are snapshotted before hands are submitted. On a tied first round, each player can contribute at most one binary right per encounter across Mooncut and legacy Riftfang; opposing rights cancel, low-strength copies fail the threshold, rarity does not multiply rights, and a non-tie spends none. The existing public indicator now names the shared sword right rather than only Riftfang.
+
+New catalog5 runs select effects6, preserving stage5 and older configs/archives; default catalog3 and pilot4 are unchanged. Evidence: `../validation/native56-stage6-2026-11-05/verification.json` (E38 6/6, adjacent regressions 51/51 with actual sockets,32 sealed replays,4 diagnostic games, and 8 pilot pairs/16 audit hashes unchanged). This proves mechanism and compatibility, not balance.
+
+Count: 56 registered / 26 primary owner-tested / 30 pending. Still open: E22 eligibility UI, 30 remaining bindings, predicate/custody/public-benefit matrices, active-item flows, and multi-seed release balance. Next automatic owner: E40. Whole-game goal remains active.

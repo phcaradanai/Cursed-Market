@@ -9,7 +9,7 @@ import type {AppraisalState,Appraiser,AppraisalItem,NpcId,TradeOffer,AuctionLot}
 
 export const isRemaining48Kind=(kind:string):kind is Remaining48Kind=>Object.hasOwn(REMAINING48_ITEMS,kind);
 /** Registration alone never enables an effect; extend only alongside its canonical owner and tests. */
-export const remainingEffectReady=(kind:Remaining48Kind,revision?:2|3|4|5)=>REMAINING48_ITEMS[kind].nativeEffect==='effect:E05'||revision!==undefined&&REMAINING48_ITEMS[kind].nativeEffect==='effect:E06'||revision!==undefined&&revision>=3&&['effect:E28','effect:E61','effect:E63','effect:E02','effect:E11','effect:E07'].includes(REMAINING48_ITEMS[kind].nativeEffect)||revision!==undefined&&revision>=4&&['effect:E13','effect:E16'].includes(REMAINING48_ITEMS[kind].nativeEffect)||revision===5&&REMAINING48_ITEMS[kind].nativeEffect==='effect:E22';
+export const remainingEffectReady=(kind:Remaining48Kind,revision?:2|3|4|5|6)=>REMAINING48_ITEMS[kind].nativeEffect==='effect:E05'||revision!==undefined&&REMAINING48_ITEMS[kind].nativeEffect==='effect:E06'||revision!==undefined&&revision>=3&&['effect:E28','effect:E61','effect:E63','effect:E02','effect:E11','effect:E07'].includes(REMAINING48_ITEMS[kind].nativeEffect)||revision!==undefined&&revision>=4&&['effect:E13','effect:E16'].includes(REMAINING48_ITEMS[kind].nativeEffect)||revision!==undefined&&revision>=5&&REMAINING48_ITEMS[kind].nativeEffect==='effect:E22'||revision!==undefined&&revision>=6&&REMAINING48_ITEMS[kind].nativeEffect==='effect:E38';
 
 export function remainingHeld(state:AppraisalState,p:Appraiser,effect:Remaining48Effect):AppraisalItem[] {
  if(state.config.catalogVersion!==5||p.life===0||p.paused==='dead')return [];

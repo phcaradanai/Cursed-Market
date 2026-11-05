@@ -1,0 +1,97 @@
+{
+  "asOf": "2026-11-05",
+  "baseRevision": "9cf8628f151634cb1c04bc426f5cad2adfd72a81",
+  "scope": "Native56 experimental effects revision6. E38 is bound at the actual forced RPS owner for vampire-mooncut-sword; main default catalog3 and pilot4 remain unchanged. This is a mechanism/compatibility checkpoint, not whole-game or release balance acceptance.",
+  "config": {
+    "catalogVersion": 5,
+    "native56Effects": 6,
+    "recoveryQuoteRules": 1,
+    "startingCredits": 40,
+    "survival": {
+      "maxLife": 6,
+      "encounterLifeCost": 1
+    },
+    "collectorDeadline": 15
+  },
+  "verification": {
+    "serverBuild": {
+      "passed": true,
+      "command": "npm --prefix apps/comic run build:server"
+    },
+    "clientBuild": {
+      "passed": true,
+      "command": "npm --prefix apps/comic run build:client"
+    },
+    "focusedOwnerTests": {
+      "passed": 6,
+      "failed": 0,
+      "testFile": "apps/comic/tests/remaining48-theft.test.ts",
+      "command": "node --test apps/comic/dist/tests/remaining48-theft.test.js",
+      "covers": [
+        "binary public E38 tie right vs no-item command pair",
+        "one player/encounter family quota and cancellation with legacy riftfang sword",
+        "non-tie non-consumption, copy floor, no rarity multiplication",
+        "effects5 behavior preserved",
+        "two actual sockets: public pre-duel indicator and settlement"
+      ]
+    },
+    "focusedRegressionTests": {
+      "passed": 51,
+      "failed": 0,
+      "testFiles": [
+        "apps/comic/tests/remaining48-theft.test.ts",
+        "apps/comic/tests/remaining48-auction.test.ts",
+        "apps/comic/tests/remaining48-challenge.test.ts",
+        "apps/comic/tests/remaining48-automatic.test.ts"
+      ],
+      "command": "node --test apps/comic/dist/tests/remaining48-theft.test.js apps/comic/dist/tests/remaining48-auction.test.js apps/comic/dist/tests/remaining48-challenge.test.js apps/comic/dist/tests/remaining48-automatic.test.js",
+      "actualSocketCases": 3,
+      "environmentNote": "Sandbox loopback first returned EPERM; all51 tests then passed using approved local loopback access."
+    },
+    "sealedCompatibility": {
+      "passed": true,
+      "report": "docs/validation/native56-stage6-2026-11-05/compatibility/report.json",
+      "legacyReplays": 32,
+      "diagnosticCases": 4,
+      "native56Effects": 6,
+      "commands": [
+        168,
+        242,
+        286,
+        305
+      ]
+    },
+    "pilotPublic": {
+      "passed": true,
+      "report": "docs/validation/native56-stage6-2026-11-05/pilot-public/public-effects.json",
+      "cases": 8,
+      "auditFiles": 16,
+      "sameAuditHashesAs": "docs/validation/native56-stage5-2026-11-04/pilot-public/public-effects.json",
+      "sameHashes": true
+    },
+    "publicCommandPair": {
+      "passed": true,
+      "effect": "with E38 sword, the forced public tie resolves via one right and transfers the contested item; without it, the same tie remains open for the next RPS round",
+      "testFile": "apps/comic/tests/remaining48-theft.test.ts"
+    },
+    "preservedStage5": {
+      "passed": true,
+      "sha256": "3bee68ebc39400036da497eb540c2c8a4a6ecf1a5b5d0bea956664810615fcd5",
+      "archivedSemanticsTest": "apps/comic/tests/remaining48-auction.test.ts"
+    }
+  },
+  "evidenceFingerprints": {
+    "docs/validation/native56-stage6-2026-11-05/compatibility/report.json": "017894a130548ed58fb3d22af79e9b1648a69ed817b861b0581cb27b39954dcc",
+    "docs/validation/native56-stage6-2026-11-05/pilot-public/public-effects.json": "7915727ae7368feeefe118b3cad94c688bcd273f6741578e858b53271ca98417",
+    "docs/game-design/native56-stage5.json": "3bee68ebc39400036da497eb540c2c8a4a6ecf1a5b5d0bea956664810615fcd5",
+    "docs/game-design/native56-stage6.json": "b20dc560881ee05808d53eea81e68b45f3d84f1d6be4fd3534b2116e74554759",
+    "docs/game-design/native56-runtime.json": "691e07c81d0a5d8025e58e87320f26a4b46ff4085a13333bd2c7480c6b1a4dc8",
+    "apps/comic/tests/remaining48-theft.test.ts": "14023cfa3e125f54b6ce5206492add57f0e301e60379a8f6939b887a286c0b42"
+  },
+  "limitations": [
+    "26 of 56 primary item bindings owner-tested;30 remain.",
+    "Pilot public scenarios are fixed-seed mechanism checks, not statistical balance.",
+    "No global new56 enablement, release balance acceptance, or remaining Task5/6 closure is claimed.",
+    "E22 bidder-facing disclosure and the cross-catalog capability/custody/public-benefit matrices remain open."
+  ]
+}

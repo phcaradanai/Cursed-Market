@@ -1,0 +1,75 @@
+{
+  "asOf": "2026-11-05",
+  "baseRevision": "9b8c946b68a807d91a019e76dee8dead797e676f",
+  "scope": "Approved E22 auction rebate added as native56Effects5 for new experimental catalog5 runs only. Carries effects1–4 and quoteRules1. Not default rollout, full56 validation or release balance.",
+  "config": {
+    "catalogVersion": 5,
+    "native56Effects": 5,
+    "recoveryQuoteRules": 1,
+    "defaultCatalogAndEffectsUnchanged": true
+  },
+  "verification": {
+    "serverBuild": {
+      "passed": true,
+      "command": "npm --prefix apps/comic run build:server"
+    },
+    "focusedOwnerTests": {
+      "passed": 13,
+      "failed": 0,
+      "testFile": "apps/comic/tests/remaining48-auction.test.ts",
+      "command": "node --test apps/comic/dist/tests/remaining48-auction.test.js",
+      "socketCases": 2,
+      "environmentNote": "The sandboxed run could not bind loopback (EPERM); the same test file passed with local loopback access."
+    },
+    "sealedCompatibility": {
+      "passed": true,
+      "report": "docs/validation/native56-stage5-2026-11-04/compatibility/report.json",
+      "legacyReplays": 32,
+      "normalDiagnosticCases": 4,
+      "commands": [
+        168,
+        242,
+        286,
+        305
+      ]
+    },
+    "publicNormalPair": {
+      "passed": true,
+      "report": "docs/validation/native56-stage5-2026-11-04/public-normal/report.json",
+      "seed": "e22-normal-23",
+      "cases": [
+        {
+          "mode": "held",
+          "commands": 138,
+          "invitationPaid": 16,
+          "bid": 20,
+          "rebate": 1
+        },
+        {
+          "mode": "stored",
+          "commands": 139,
+          "invitationPaid": 16,
+          "bid": 20,
+          "rebate": 0
+        }
+      ]
+    },
+    "pilotPublic": {
+      "passed": true,
+      "report": "docs/validation/native56-stage5-2026-11-04/pilot-public/public-effects.json",
+      "cases": 8,
+      "auditFiles": 16,
+      "hashesUnchangedFrom": "docs/validation/pilot-public-2026-11-02/public-effects.json"
+    }
+  },
+  "evidenceFingerprints": {
+    "compatibility": "docs/validation/native56-stage5-2026-11-04/compatibility/report.json",
+    "publicNormal": "docs/validation/native56-stage5-2026-11-04/public-normal/report.json",
+    "pilotPublic": "docs/validation/native56-stage5-2026-11-04/pilot-public/public-effects.json"
+  },
+  "limitations": [
+    "One fixed eligible seed pair demonstrates a causal E22 benefit, not balance acceptance.",
+    "Auction screen still needs a player-facing E22 eligibility/benefit explanation under Task5.",
+    "31 of 56 primary effect bindings remain; full native predicate, custody, benefit, UI and multi-seed acceptance remain open."
+  ]
+}

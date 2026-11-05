@@ -39,7 +39,7 @@ export type ItemKind = Remaining48Kind | LegacyItemFamily | PilotItemKind | 'mem
 export type AppraisalPhase = 'PORTALS' | 'APPRAISAL' | 'TRADE' | 'REVEAL' | 'RESULTS';
 export interface AppraisalConfig {
   /** Absent in catalog5 stage1 audits: pilot8 plus E05 only. */
-  native56Effects?:2|3|4;
+  native56Effects?:2|3|4|5;
   /** Bind recovery payment to visible terms; absent in historical audits. */
   recoveryQuoteRules?:1;
   /** Versioned personal accomplishments; historical audits omit this. */
@@ -128,6 +128,8 @@ export interface CollectorResult {
 export interface Status { power?:number; id: StatusId; expires: number; charges: number; targetItemId?: string; starts: number }
 export interface Knowledge { range?: [number,number]; base?: number; genuine?: boolean; cursed?: boolean; effectsKnown?: boolean; activationKnown?: boolean; certificate?: boolean; comparison?: string }
 export interface AppraisalItem {
+  /** Actual market-vault consignor; private E22 self-bid provenance. */
+  nativeAuctionSellerId?:string;
   rarityPower?:import('../../shared/rarity-power.js').RarityPower;
   appearance?:import('../../shared/item-rarity.js').ItemAppearance;
   lastTradePrice?:number;
@@ -245,7 +247,7 @@ export interface MarketContract {
   fullPriceCost:{kind:'energy';amount:number}|{kind:'life';amount:number}|{kind:'debuff';statusId:Extract<StatusId,`D${string}`>};
 }
 export interface MarketOrder { rarityReserveMultiplier?:number; id: string; kind: ItemKind; price: number; quota: Record<string,number>; contract?:MarketContract }
-export interface AuctionLot { id: string; itemId: string; minimum: number; bids: Record<string,number>; winnerId?: string | null; price?: number }
+export interface AuctionLot { nativeInvitations?:Record<string,string[]>; id: string; itemId: string; minimum: number; bids: Record<string,number>; winnerId?: string | null; price?: number }
 export interface DarkMarket { encounter: number; open: boolean; budget: number; orders: MarketOrder[]; lots?: AuctionLot[] }
 export interface AuctionLotView { id: string; itemId: string; minimum: number; item: ItemView; yourBid: number | null; bidCount: number; winnerId?: string | null; price?: number }
 export interface TradeOffer {
@@ -309,6 +311,7 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
 /** `rebate` is credits the owner pays the buyer when the sale completes, so a poor item can still find a price. */
 export interface SharedListing { ownerId: string; itemId: string; purchase: boolean; claims?: { genuine?: boolean; cursed?: boolean }; rebate?: number }
 export interface AppraisalState {
+  native56Auction?:{paid:Record<string,number>;origins:string[];lots:string[]};
   native56Commission?:{paid:Record<string,number>;keys:string[]};
   native56SaleEnergy?:{pairs:string[];origins:string[];uses:{encounter:number;players:string[];origins:string[]}};
   native56Meetings?:Record<string,NpcId[]>;

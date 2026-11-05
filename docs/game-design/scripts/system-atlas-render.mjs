@@ -1,6 +1,7 @@
 import crypto from 'node:crypto';import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';
 import {renderScreenFlow} from './screen-flow-render.mjs';
 import {renderCurrentCaptures} from './current-capture-render.mjs';
+import {updateItemGallery} from './item-gallery-render.mjs';
 export async function renderAtlas({ROOT,DOC,OUT,data,base,baseGraph}){
 const nodes=baseGraph.nodes.map(n=>({...n})),edges=baseGraph.edges.map(e=>({...e})),records={},unresolvedReferences=[],ids=new Set(nodes.map(n=>n.id));
 const meanings=JSON.parse(fs.readFileSync(path.join(DOC,'remaining48-decisions.json'),'utf8'));
@@ -87,5 +88,6 @@ const compact={summary:data.summary,limitations:data.limitations,nodes,edges,rec
 const html=fs.readFileSync(path.join(DOC,'scripts/system-atlas-view.html'),'utf8'),css=fs.readFileSync(path.join(DOC,'scripts/system-atlas-view.css'),'utf8'),js=fs.readFileSync(path.join(DOC,'scripts/system-atlas-view.js'),'utf8');
 const block='<!-- SYSTEM-ATLAS-START -->\n<style>'+css+'</style>'+html+'<script id="system-atlas-data" type="application/json">'+JSON.stringify(compact).replaceAll('<','\\u003c')+'</script><script>'+js+'</script><style>'+captureView.css+'</style>'+captureView.html+'<script>'+captureView.js+'</script>\n<!-- SYSTEM-ATLAS-END -->';
 const target=path.join(DOC,'logic-item-relations.html');let page=fs.readFileSync(target,'utf8').replace(/<!-- SYSTEM-ATLAS-START -->[\s\S]*?<!-- SYSTEM-ATLAS-END -->\s*/,'');page=page.replace(/<title>[^<]*<\/title>/,'<title>Cursed Market · Context กลางและภาพเกมปัจจุบัน</title>');page=page.replace('เอกสารออกแบบจากแค็ตตาล็อก 56 ชิ้นเท่านั้น','แผนที่ runtime ทั้งระบบ + ข้อเสนอสินค้าใหม่ 56 ชิ้น');page=page.replace(/(<script id="data" type="application\/json">)[\s\S]*?(<\/script>)/,(_m,a,b)=>a+JSON.stringify(meaningData).replaceAll('<','\\u003c')+b).replace(/(<script id="graph-data" type="application\/json">)[\s\S]*?(<\/script>)/,(_m,a,b)=>a+JSON.stringify(meaningGraph).replaceAll('<','\\u003c')+b);page=page.includes('</body>')?page.replace('</body>',block+'\n</body>'):page.replace('</html>',block+'\n</html>');fs.writeFileSync(target,page);
+updateItemGallery({ROOT,DOC});
 console.log('Atlas graph: '+nodes.length+' nodes / '+edges.length+' edges; assertions passed');
 }

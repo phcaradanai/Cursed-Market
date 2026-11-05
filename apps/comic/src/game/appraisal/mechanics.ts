@@ -560,6 +560,6 @@ export function marketSell(state: AppraisalState, p: Appraiser, itemId: string, 
   if(contract || gearBonus) {p.notes.push(`Dark Market: ${matched?'ตรงเงื่อนไข รับโบนัส':resolution==='discount'?(gearBonus?'ไม่ตรงเงื่อนไข รับราคาลด':'ไม่ตรงเงื่อนไข ลดราคา 20%'):'ไม่ตรงเงื่อนไข สละตามข้อตกลงเพื่อรับราคาเต็ม'} · รับ ${price+creditsBonus+gearBonus} เครดิต${gearBonus?` รวมโบนัสของถือ ${gearBonus}`:''}`);p.notes=p.notes.slice(-30);}
   recordItemTrade(state,item,price+creditsBonus+gearBonus);
   recordPersonalSale(state,p,item,price);
-  retire(state,p,itemId,'dark-market'); if (state.config.brokerage) { item.owner='dark-market'; state.vault!.push(itemId); }
+  retire(state,p,itemId,'dark-market'); if (state.config.brokerage) { if((state.config.native56Effects??0)>=5)item.nativeAuctionSellerId=p.id;item.owner='dark-market'; state.vault!.push(itemId); }
   trace(state,p,'market-sale',{itemId,orderId,price:price+creditsBonus+gearBonus,...(contract?{matched,resolution,bonus:matched?contract.bonus:null}:{})});
 }

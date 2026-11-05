@@ -1,9 +1,9 @@
 {
-  "asOf": "2026-11-04",
+  "asOf": "2026-11-05",
   "activeSource": "apps/comic",
-  "revision": "9ec8092 runtime + auxiliary source-freshness guard",
+  "revision": "9b8c946 + native56Effects5 E22 checkpoint",
   "headline": "ยังไม่ครบตามกฎและขอบเขตเกมที่ตกลงทั้งหมด",
-  "summary": "วงจรเดิมและตลาดวิญญาณเล่นได้ แต่การย้ายกฎ/สินค้าใหม่และบาลานซ์ทั้งเกมยังค้าง ภาพหน้าจอหรือกราฟครบไม่ได้แปลว่า runtime ครบ",
+  "summary": "วงจรหลักและตลาดวิญญาณเล่นได้; การเชื่อมสินค้าใหม่และการตรวจครบทั้งเกมยังค้าง. สินค้าใหม่ 56 ชนิดมี primary owner-tested 25 ชนิด เหลือ 31; ยังไม่ใช่การรับรอง balance หรือพร้อมเปิดเป็นค่าเริ่มต้น.",
   "atlasScope": "Atlas สกัดทุก module ของ apps/comic/src/game/appraisal พร้อม random/rarity/protocol/server lifecycle และ bot ที่ระบุ; graph เป็น static dependency ไม่ใช่ execution proof; UI ใช้ capture/flow registry แยก; รุ่นเก่าตรึง9f0a972ใน legacy-atlas-baseline.json",
   "systems": [
     {
@@ -44,8 +44,8 @@
     {
       "id": "ITEM-01–03",
       "system": "สินค้าใหม่56ชิ้นและ effect",
-      "status": "catalog5 ลงทะเบียน56; ผลหลักตรวจระดับowner21; อีก35ยังไม่เชื่อม",
-      "remaining": "Current native5/effects4:56registered/24primary owner-tested/32pending. Added3kinds E13actual-commission bonus and E16paid-original PvP energy. Caps/funding/snapshot/pair/origin/retry/private DTO checks and actual two-socket mechanism proof pass. All historical effect and quote archives preserved; main defaults3/pilot4 and optional off. Normal4games show one E16 gain and no E13 gain; not full56 benefit or release balance.96related pass/2known prior UI failures remain.18menus/14approved pixels pass; no visual redesign.",
+      "status": "catalog5 ลงทะเบียน56; primary owner-tested25/56; อีก31ยังไม่เชื่อม",
+      "remaining": "E22 บัตรเชิญเที่ยงคืนคืนเครดิตประมูลเมื่อถือของต่อเนื่องและชนะ: 13 focused tests, 32 sealed replays, 4 diagnostic games และ normal public pair ถือ 1 เครดิต/เก็บก่อน bid 0 ผ่าน. ค้าง: bidder-facing E22 UI, 31 bindings, capability/custody/public-benefit matrix และ release balance.",
       "evidence": [
         "docs/game-design/logic-item-relations.json",
         "docs/game-design/system-atlas/coverage.md",
@@ -188,15 +188,15 @@
     }
   ],
   "next": [
-    "Implement remaining35 approved primary owners behind later effects revision; preserve absent/2/3 sealed semantics. Finish E63 expected-cost/quote synchronization and broader native eligibility UX before default56; no new48package approval needed.",
-    "Use targeted eligible public-view financial/theft/native-benefit cases alongside32seed-policybaseline; do not tune unexercised systems from zero bot usage",
-    "รักษางานUI-COLLECTOR-CONTEXT minorและfull-game acceptanceเป็นงานค้าง ไม่เรียกsubsystemว่าเกมเสร็จ"
+    "เดิน Task3 ต่อด้วย E38: สิทธิ์แก้ผล RPS เสมอหนึ่งครั้งต่อผู้เล่น/ช่วง; คง replay semantics ของ effects absent/2/3/4/5 และปิด owner/custody/socket cases ก่อนเปิดเพิ่ม",
+    "ทำ Task4 explicit targets, Task5 Comic interaction/benefit disclosure และ Task6 predicate reconciliation ตาม approved remaining48 plan",
+    "รัน paired full-game balance/acceptance หลาย seed และผู้เล่น 2/4 คน; อย่าเปิด default56 หรือเรียกเกมเสร็จก่อนหลักฐานครบ"
   ],
   "verification": "Whole-game goal เปิดแล้ว ดู implementations/completion-program.md; งานแต่ละส่วนมีผลตรวจเฉพาะส่วน ไม่ใช่คำรับรองครบทั้งเกม",
   "runtimeFacts": {
     "comicVaultInterestPercent": 10,
     "rootVaultInterestPercent": 10,
-    "new56DedicatedBindings": 24,
+    "new56DedicatedBindings": 25,
     "comicDefaultCatalogVersion": 3,
     "comicExperimentalCatalogVersion": 4,
     "personalScoringRules": 1,

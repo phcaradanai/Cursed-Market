@@ -619,8 +619,8 @@
       "owner": "AppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 273,
-        "endLine": 273
+        "line": 275,
+        "endLine": 275
       },
       "text": "type:'theft-hand';",
       "guards": [
@@ -633,8 +633,8 @@
       "owner": "AppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 277,
-        "endLine": 277
+        "line": 279,
+        "endLine": 279
       },
       "text": "type:'theft-expire';",
       "guards": [
@@ -647,8 +647,8 @@
       "owner": "AppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 278,
-        "endLine": 278
+        "line": 280,
+        "endLine": 280
       },
       "text": "type:'crime-clear'",
       "guards": [
@@ -661,8 +661,8 @@
       "owner": "AppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 293,
-        "endLine": 293
+        "line": 295,
+        "endLine": 295
       },
       "text": "type: 'round-flip';",
       "guards": [
@@ -675,8 +675,8 @@
       "owner": "AppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 294,
-        "endLine": 294
+        "line": 296,
+        "endLine": 296
       },
       "text": "type: 'round-raise';",
       "guards": [
@@ -689,8 +689,8 @@
       "owner": "AppraisalAction",
       "source": {
         "file": "apps/comic/src/game/appraisal/types.ts",
-        "line": 295,
-        "endLine": 295
+        "line": 297,
+        "endLine": 297
       },
       "text": "type: 'round-bank'",
       "guards": [
@@ -706,8 +706,8 @@
       "payload": "{id:spec.id,itemId,facts:spec.reveal}",
       "source": {
         "file": "apps/comic/src/game/appraisal/brokerage.ts",
-        "line": 94,
-        "endLine": 94
+        "line": 95,
+        "endLine": 95
       },
       "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:resolveBond",
       "guards": []
@@ -718,8 +718,8 @@
       "payload": "{id:spec.id,itemId:give.id}",
       "source": {
         "file": "apps/comic/src/game/appraisal/brokerage.ts",
-        "line": 104,
-        "endLine": 104
+        "line": 105,
+        "endLine": 105
       },
       "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:resolveBond",
       "guards": [
@@ -732,8 +732,8 @@
       "payload": "{id:spec.id,itemId:give.id}",
       "source": {
         "file": "apps/comic/src/game/appraisal/brokerage.ts",
-        "line": 105,
-        "endLine": 105
+        "line": 106,
+        "endLine": 106
       },
       "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:resolveBond",
       "guards": [
@@ -746,8 +746,8 @@
       "payload": "{id:spec.id,gave:give.id,received:target}",
       "source": {
         "file": "apps/comic/src/game/appraisal/brokerage.ts",
-        "line": 107,
-        "endLine": 107
+        "line": 108,
+        "endLine": 108
       },
       "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:resolveBond",
       "guards": []
@@ -758,8 +758,8 @@
       "payload": "{itemId:item.id,npc:item.npc,credits:paid,energy:drained,statuses:rule.statuses}",
       "source": {
         "file": "apps/comic/src/game/appraisal/brokerage.ts",
-        "line": 137,
-        "endLine": 137
+        "line": 138,
+        "endLine": 138
       },
       "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:unsoldPenalty",
       "guards": []
@@ -770,8 +770,8 @@
       "payload": "{itemId:item.id,outcome,paid}",
       "source": {
         "file": "apps/comic/src/game/appraisal/brokerage.ts",
-        "line": 158,
-        "endLine": 158
+        "line": 159,
+        "endLine": 159
       },
       "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:consign",
       "guards": [
@@ -784,8 +784,8 @@
       "payload": "{itemId:item.id,outcome}",
       "source": {
         "file": "apps/comic/src/game/appraisal/brokerage.ts",
-        "line": 169,
-        "endLine": 169
+        "line": 170,
+        "endLine": 170
       },
       "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:consign",
       "guards": []
@@ -796,8 +796,8 @@
       "payload": "{lotId}",
       "source": {
         "file": "apps/comic/src/game/appraisal/brokerage.ts",
-        "line": 205,
-        "endLine": 205
+        "line": 207,
+        "endLine": 207
       },
       "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:placeBid",
       "guards": [
@@ -810,8 +810,8 @@
       "payload": "{lotId}",
       "source": {
         "file": "apps/comic/src/game/appraisal/brokerage.ts",
-        "line": 208,
-        "endLine": 208
+        "line": 210,
+        "endLine": 210
       },
       "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:placeBid",
       "guards": []
@@ -822,8 +822,8 @@
       "payload": "{lotId:lot.id,itemId:item.id,price:paid,...(edge?{bid:winner.amount}:{})}",
       "source": {
         "file": "apps/comic/src/game/appraisal/brokerage.ts",
-        "line": 228,
-        "endLine": 228
+        "line": 232,
+        "endLine": 232
       },
       "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:settleAuction",
       "guards": []
@@ -1953,6 +1953,18 @@
       "guards": []
     },
     {
+      "topic": "native-auction-rebate",
+      "topicExpression": "'native-auction-rebate'",
+      "payload": "{lotId:lot.id,itemId:item.id,paid,quoted:quote,amount}",
+      "source": {
+        "file": "apps/comic/src/game/appraisal/remaining48-effects.ts",
+        "line": 133,
+        "endLine": 133
+      },
+      "owner": "code:apps/comic/src/game/appraisal/remaining48-effects.ts:remainingAuctionRebate",
+      "guards": []
+    },
+    {
       "topic": "round-coin-raised",
       "topicExpression": "'round-coin-raised'",
       "payload": "{coinCount,stake:r.base,amount:r.amount}",
@@ -2367,8 +2379,8 @@
       "message": "'ยังถูกห้ามค้าขายกับพ่อค้า'",
       "source": {
         "file": "apps/comic/src/game/appraisal/brokerage.ts",
-        "line": 84,
-        "endLine": 84
+        "line": 85,
+        "endLine": 85
       },
       "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:resolveBond",
       "guards": [
@@ -2381,8 +2393,8 @@
       "message": "'เลือกสินค้าที่อยู่ใน event'",
       "source": {
         "file": "apps/comic/src/game/appraisal/brokerage.ts",
-        "line": 85,
-        "endLine": 85
+        "line": 86,
+        "endLine": 86
       },
       "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:resolveBond",
       "guards": []
@@ -2393,8 +2405,8 @@
       "message": "'ไม่มีของที่ NPC ต้องการแล้ว'",
       "source": {
         "file": "apps/comic/src/game/appraisal/brokerage.ts",
-        "line": 86,
-        "endLine": 86
+        "line": 87,
+        "endLine": 87
       },
       "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:resolveBond",
       "guards": []
@@ -2405,8 +2417,8 @@
       "message": "'ไม่มีของที่ NPC ต้องการแล้ว'",
       "source": {
         "file": "apps/comic/src/game/appraisal/brokerage.ts",
-        "line": 88,
-        "endLine": 88
+        "line": 89,
+        "endLine": 89
       },
       "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:resolveBond",
       "guards": []
@@ -2417,8 +2429,8 @@
       "message": "'ไม่มีของที่ NPC ต้องการแล้ว'",
       "source": {
         "file": "apps/comic/src/game/appraisal/brokerage.ts",
-        "line": 90,
-        "endLine": 90
+        "line": 91,
+        "endLine": 91
       },
       "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:resolveBond",
       "guards": []
@@ -2429,8 +2441,8 @@
       "message": "'ตัวเลือกของค้างไม่ถูกต้อง'",
       "source": {
         "file": "apps/comic/src/game/appraisal/brokerage.ts",
-        "line": 172,
-        "endLine": 172
+        "line": 173,
+        "endLine": 173
       },
       "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:settleUnsold",
       "guards": []
@@ -2441,8 +2453,8 @@
       "message": "'ไม่มีของที่ประเมินแล้วค้างอยู่ในร้าน'",
       "source": {
         "file": "apps/comic/src/game/appraisal/brokerage.ts",
-        "line": 173,
-        "endLine": 173
+        "line": 174,
+        "endLine": 174
       },
       "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:settleUnsold",
       "guards": []
@@ -2453,8 +2465,8 @@
       "message": "'ไม่มีรายการประมูลนี้'",
       "source": {
         "file": "apps/comic/src/game/appraisal/brokerage.ts",
-        "line": 203,
-        "endLine": 203
+        "line": 205,
+        "endLine": 205
       },
       "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:placeBid",
       "guards": []
@@ -2465,8 +2477,8 @@
       "message": "'ราคาประมูลไม่ถูกต้อง'",
       "source": {
         "file": "apps/comic/src/game/appraisal/brokerage.ts",
-        "line": 204,
-        "endLine": 204
+        "line": 206,
+        "endLine": 206
       },
       "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:placeBid",
       "guards": []
@@ -2477,8 +2489,8 @@
       "message": "`ประมูลขั้นต่ำ ${lot.minimum} เครดิต`",
       "source": {
         "file": "apps/comic/src/game/appraisal/brokerage.ts",
-        "line": 206,
-        "endLine": 206
+        "line": 208,
+        "endLine": 208
       },
       "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:placeBid",
       "guards": []
@@ -2489,8 +2501,8 @@
       "message": "'credit ไม่พอสำหรับราคาประมูล'",
       "source": {
         "file": "apps/comic/src/game/appraisal/brokerage.ts",
-        "line": 207,
-        "endLine": 207
+        "line": 209,
+        "endLine": 209
       },
       "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:placeBid",
       "guards": []
@@ -2970,7 +2982,7 @@
     },
     {
       "code": "config",
-      "condition": "config.native56Effects===undefined||(config.native56Effects===2||config.native56Effects===3||config.native56Effects===4)&&config.catalogVersion===5",
+      "condition": "config.native56Effects===undefined||(config.native56Effects===2||config.native56Effects===3||config.native56Effects===4||config.native56Effects===5)&&config.catalogVersion===5",
       "message": "'รุ่นเอฟเฟกต์สินค้าใหม่ไม่ถูกต้อง'",
       "source": {
         "file": "apps/comic/src/game/appraisal/engine.ts",

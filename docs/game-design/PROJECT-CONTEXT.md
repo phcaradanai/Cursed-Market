@@ -342,3 +342,12 @@ Ruling: first qualifying paid original pair counts even without tools (no retroa
 Evidence and current failures: `../validation/native56-stage4-2026-11-04/verification.json`. Focused owner/lifecycle/sealed replay and actual socket cases pass;96related pass/2prior survivalSSR and scoring-disclosure failures remain.32historical normal replays+4new effects4 games at40credit/6life/deadline15 pass. One ordinary four-cautious run actually gains E16; no E13 benefit observed in this tiny normal diagnostic matrix.16original pilot audit hashes unchanged/32strict replays.18menus/14approved pixels pass, no style/art/layout change or new baseline approval. This is not full56 normal-budget benefit coverage, release balance or whole-game completion.
 
 Next: continue Task3 automatic money/custody owners (including E22 auction continuity), Task4 explicit targets and Task5/6 public-benefit/UI/predicate reconciliation. Whole-game goal active.
+
+
+## 2026-11-05 — Native56 effects5: E22 auction rebate
+
+Approved vampire-midnight-invitation now returns up to the approved, bank-funded rebate only on an actual paid auction win. The original invitation must remain physically held from the first positive bid through settlement; withdrawal does not reset the snapshot. Self-origin lots, copies, unpaid/lost bids and duplicate origin/lot settlements are excluded. New catalog5 experimental runs select effects5; old absent/2/3/4 archives, default3 and opt-in pilot4 remain unchanged.
+
+Evidence: `../validation/native56-stage5-2026-11-04/verification.json`. Server build passed; E22-focused 13/13 including two actual socket reconnect/retry cases; 32 sealed legacy replays plus 4 diagnostic games; approved pilot8 proof remains 16/16 audit hashes; one fixed public 40-credit/6-life pair observed held=1 credit rebate vs stored=0. This is mechanism proof, not balance acceptance.
+
+Still open: 31 primary bindings, bidder-facing E22 benefit/eligibility UI (Task5), whole predicate/custody/normal-benefit matrix, and multi-seed 2/4-player release balance. Next Task3 owner is E38 RPS tie rights. See `native56-stage5.json` and `implementations/remaining48-plan.md`.

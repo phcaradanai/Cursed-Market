@@ -5,11 +5,11 @@ import {personalOrigin,setPersonalTrust} from './personal-scoring.js';
 import {unlocked,trace,maxEnergyOf,maxLifeOf,reward,recover} from './mechanics.js';
 import {remainingScaled,remainingStrength,remainingFundedBonus} from './remaining48-numbers.js';
 import {TRUST_CAP} from './market-contracts.js';
-import type {AppraisalState,Appraiser,AppraisalItem,NpcId,TradeOffer} from './types.js';
+import type {AppraisalState,Appraiser,AppraisalItem,NpcId,TradeOffer,AuctionLot} from './types.js';
 
 export const isRemaining48Kind=(kind:string):kind is Remaining48Kind=>Object.hasOwn(REMAINING48_ITEMS,kind);
 /** Registration alone never enables an effect; extend only alongside its canonical owner and tests. */
-export const remainingEffectReady=(kind:Remaining48Kind,revision?:2|3|4)=>REMAINING48_ITEMS[kind].nativeEffect==='effect:E05'||revision!==undefined&&REMAINING48_ITEMS[kind].nativeEffect==='effect:E06'||revision!==undefined&&revision>=3&&['effect:E28','effect:E61','effect:E63','effect:E02','effect:E11','effect:E07'].includes(REMAINING48_ITEMS[kind].nativeEffect)||revision===4&&['effect:E13','effect:E16'].includes(REMAINING48_ITEMS[kind].nativeEffect);
+export const remainingEffectReady=(kind:Remaining48Kind,revision?:2|3|4|5)=>REMAINING48_ITEMS[kind].nativeEffect==='effect:E05'||revision!==undefined&&REMAINING48_ITEMS[kind].nativeEffect==='effect:E06'||revision!==undefined&&revision>=3&&['effect:E28','effect:E61','effect:E63','effect:E02','effect:E11','effect:E07'].includes(REMAINING48_ITEMS[kind].nativeEffect)||revision!==undefined&&revision>=4&&['effect:E13','effect:E16'].includes(REMAINING48_ITEMS[kind].nativeEffect)||revision===5&&REMAINING48_ITEMS[kind].nativeEffect==='effect:E22';
 
 export function remainingHeld(state:AppraisalState,p:Appraiser,effect:Remaining48Effect):AppraisalItem[] {
  if(state.config.catalogVersion!==5||p.life===0||p.paused==='dead')return [];
@@ -79,7 +79,7 @@ export function remainingUseRecovery(state:AppraisalState,p:Appraiser,amount:num
 
 /** Bonus money is funded once from the free bank, never counted as another sale/commission. */
 export function remainingCommissionBonus(state:AppraisalState,p:Appraiser,item:AppraisalItem,buyer:Appraiser|undefined,commission:number):void {
- if(state.config.native56Effects!==4||!buyer||buyer.id===p.id||item.copy||commission<=0)return;
+ if((state.config.native56Effects??0)<4||!buyer||buyer.id===p.id||item.copy||commission<=0)return;
  const rule=REMAINING48_RULES.E13,tools=remainingHeld(state,p,'E13'),bps=remainingScaled(rule.bonusBps,remainingStrength(tools,'E13'),2000);
  const key=JSON.stringify([personalOrigin(item),p.id,buyer.id]),ledger=state.native56Commission;if(ledger?.keys.includes(key))return;
  const paid=ledger?.paid[p.id]??0,quote=Math.min(rule.perSettlementCap,Math.max(0,rule.perRunCap-paid),Math.floor(commission*bps/10000));
@@ -90,7 +90,7 @@ export function remainingCommissionBonus(state:AppraisalState,p:Appraiser,item:A
 /** First paid original-good trade with each unordered pair; before-offer tools must still be carried. */
 export function remainingSaleEnergy(state:AppraisalState,seller:Appraiser,buyer:Appraiser,offer:TradeOffer,paid:number):void {
  const item=state.items[offer.itemId]!;
- if(state.config.native56Effects!==4||offer.source!=='inventory'||offer.swapItemId||paid<1||item.copy||seller.id===buyer.id)return;
+ if((state.config.native56Effects??0)<4||offer.source!=='inventory'||offer.swapItemId||paid<1||item.copy||seller.id===buyer.id)return;
  const ledger=state.native56SaleEnergy,pair=JSON.stringify([seller.id,buyer.id].sort());if(ledger?.pairs.includes(pair))return;
  const current=state.native56SaleEnergy={pairs:[...ledger?.pairs??[],pair],origins:[...ledger?.origins??[]],uses:ledger?.uses.encounter===state.encounter?ledger.uses:{encounter:state.encounter,players:[],origins:[]}};
  const origin=personalOrigin(item);if(current.origins.includes(origin))return;
@@ -105,4 +105,30 @@ export function remainingSaleEnergy(state:AppraisalState,seller:Appraiser,buyer:
   trace(state,p,'native-sale-energy',{offerId:offer.id,itemId:item.id,paid,amount:actual,quoted:amount,sourceItemIds:tools.map(i=>i.id)});
  }
  if(attempted)current.origins.push(origin);
+}
+
+/** Withdrawal never erases the first bid's physical-custody evidence, including an empty start. */
+export function remainingAuctionStart(state:AppraisalState,p:Appraiser,lot:AuctionLot):void {
+ if((state.config.native56Effects??0)<5)return;
+ const starts=lot.nativeInvitations??={};if(Object.hasOwn(starts,p.id))return;
+ starts[p.id]=remainingHeld(state,p,'E22').map(i=>i.id);
+}
+/** Prune after every committed custody change and again before auction settlement. */
+export function reconcileRemainingAuctionCustody(state:AppraisalState):void {
+ if((state.config.native56Effects??0)<5)return;
+ for(const lot of state.market.lots??[])for(const [id,items]of Object.entries(lot.nativeInvitations??{})){
+  const p=state.players.find(p=>p.id===id);
+  lot.nativeInvitations![id]=items.filter(itemId=>p&&p.life!==0&&p.paused!=='dead'&&p.inventory.includes(itemId)&&state.items[itemId]?.owner===p.id&&!p.npcContracts?.alien?.itemIds.includes(itemId));
+ }
+}
+export function remainingAuctionRebate(state:AppraisalState,p:Appraiser,lot:AuctionLot,item:AppraisalItem,paid:number):void {
+ if((state.config.native56Effects??0)<5||paid<=0||item.copy||!item.nativeAuctionSellerId||item.nativeAuctionSellerId===p.id)return;
+ const ledger=state.native56Auction,origin=personalOrigin(item);if(ledger?.origins.includes(origin)||ledger?.lots.includes(lot.id))return;
+ const tools=remainingHeld(state,p,'E22').filter(i=>lot.nativeInvitations?.[p.id]?.includes(i.id)),strength=remainingStrength(tools,'E22');if(!strength)return;
+ const rule=REMAINING48_RULES.E22,bps=remainingScaled(rule.rebateBps,strength,1000),runPaid=ledger?.paid[p.id]??0;
+ const quote=Math.min(rule.perWinCap,Math.floor(paid*bps/10000),Math.max(0,rule.perRunCap-runPaid)),amount=remainingFundedBonus(quote,state.bank-state.market.budget-state.reservedRewards);
+ state.native56Auction={paid:{...ledger?.paid,[p.id]:runPaid+amount},origins:[...ledger?.origins??[],origin],lots:[...ledger?.lots??[],lot.id]};
+ if(amount)reward(state,p,amount,'native-auction-rebate');
+ p.notes.push(`บัตรเชิญเที่ยงคืน: คืนเครดิตประมูล +${amount} (รวม ${runPaid+amount}/${rule.perRunCap})`);p.notes=p.notes.slice(-30);
+ trace(state,p,'native-auction-rebate',{lotId:lot.id,itemId:item.id,paid,quoted:quote,amount});
 }

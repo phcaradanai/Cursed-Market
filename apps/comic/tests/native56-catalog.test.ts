@@ -52,7 +52,7 @@ test('new native views preserve unknown truths, use real art and distinguish reg
  const s=run(),p=s.players[0]!;p.eventOffer=null;
  for(const kind of ids){const i=give(s,kind as ItemKind);const view=appraisalViewFor(s,p.id).self.inventory.find(v=>v.id===i.id)!;
   assert.equal(view.image,itemImage(i.kind));assert.equal(view.knowledge.base,undefined);assert.equal(view.knowledge.genuine,undefined);assert.equal(view.knowledge.cursed,undefined);assert(view.possibleBenefit.length>0);
-  if(kind in REMAINING48_ITEMS)assert.equal((view as ItemView&{nativeEffectReady?:boolean}).nativeEffectReady,['orc-tally-beads','orc-bone-war-drum','deepsea-kelp-saddle','autometa-coil-repeater','vampire-mist-atomizer','orc-oath-sword','orc-ironroot-greaves','autometa-servo-harness','alien-biobright-seedpod','orc-ember-salve','deepsea-whale-conch-horn','autometa-data-prism','vampire-gloam-violin','swarm-pheromone-sprayer','orc-clan-forge-tongs','deepsea-abyss-trident'].includes(kind));
+  if(kind in REMAINING48_ITEMS)assert.equal((view as ItemView&{nativeEffectReady?:boolean}).nativeEffectReady,['vampire-midnight-invitation','orc-tally-beads','orc-bone-war-drum','deepsea-kelp-saddle','autometa-coil-repeater','vampire-mist-atomizer','orc-oath-sword','orc-ironroot-greaves','autometa-servo-harness','alien-biobright-seedpod','orc-ember-salve','deepsea-whale-conch-horn','autometa-data-prism','vampire-gloam-violin','swarm-pheromone-sprayer','orc-clan-forge-tongs','deepsea-abyss-trident'].includes(kind));
  }
 });
 

@@ -1,0 +1,767 @@
+{
+  "asOf": "2026-11-05",
+  "seed": "e22-normal-23",
+  "scope": "Fixed eligible seed selected via public-hint/affordability trials, not random balance sampling.40credits/6life,2seats,core2:false/npcEvents:false/polish:false/marketProbability0/auctionProbability1. All inventory, consignment, salary, vault custody and payment acquired through public commands; held vs stored-before-first-bid is the sole planned intervention. One targeted mechanism pair, not full56/default-room balance or browser interaction proof.",
+  "sourceFingerprints": {
+    "apps/comic/scripts/auction-public-normal.mjs": "aaa13a5843e1a40a7fb797b57e49209c03e089a8b9c315fbd937dead856eff63",
+    "apps/comic/src/simulation/appraisal.ts": "29306a4db7b4fe4210ce7514e5db220b8ce29af2bc3ecc8d4cd93f7b5d72eadb",
+    "apps/comic/src/game/appraisal/ability-content.ts": "ff33530545a771c4e686640f2fca5db996ef3612f9602da6ddbf68c12377127e",
+    "apps/comic/src/game/appraisal/ability-rules.ts": "3e9f33f54b34c91fb26f6d0926f9df83e646dc3623a7c8bbf3beed5cedbc9139",
+    "apps/comic/src/game/appraisal/audit.ts": "0467d338c61749c8a7dbb061e04d9cbf31d64ba2920bbe12604f3ff266757755",
+    "apps/comic/src/game/appraisal/brokerage.ts": "bec7f351e20db1f6308d896f8a6a5b97338c4157485d933971ebafe9fa2d43ae",
+    "apps/comic/src/game/appraisal/challenge-rules.ts": "74cfbe2083106078cdc44e96caefc9e959d999f4e1cb9319dc0e363375aa7e55",
+    "apps/comic/src/game/appraisal/challenge.ts": "e05db4ac5296c69cbdba3c5fadc69a40322b22cba3efcb3f514f0825c351ac76",
+    "apps/comic/src/game/appraisal/cleanse-rules.ts": "6fb69a3f4a4aa870670248255e02eb81d3fc527dbd4d9c975ba14eac81915cd1",
+    "apps/comic/src/game/appraisal/cleanse.ts": "7f72cb7930cceafd6d4fe0ef0cda617fc39b5b60a9e9a061cc3295c88014d4bb",
+    "apps/comic/src/game/appraisal/collector-wishlist.ts": "ae5b70dcb92067c0f793dc183eca67946e6311c85d2e4cbe3eb666a8717a96be",
+    "apps/comic/src/game/appraisal/content.ts": "c07a9bdf0e094641efcfc7f941515d5990535116b50000f866ba0ad086beb7d7",
+    "apps/comic/src/game/appraisal/copy-effects.ts": "908b28f89ad8de7212adbd4636fdef6b2daaca230f97c41050ac2e436f4942f9",
+    "apps/comic/src/game/appraisal/core2-actions.ts": "a0b968bc9fd51b22cf5c63caa9c38e34dbb41bc0dd765aa449a3dfecb15a6213",
+    "apps/comic/src/game/appraisal/core2-content.ts": "e96206fa8c7d638c3b0ccbc756a8d6bf2977a84308c6c423956b63340cf789b9",
+    "apps/comic/src/game/appraisal/core2-events.ts": "bb9531af0ffe6a6ea068f049d286b2b1d0fe37deb24a44bcfe3dfa58a08424f8",
+    "apps/comic/src/game/appraisal/core2-rules.ts": "c512cac29fda1d586afcc82ece3ac15a0411650283d1226ae12787c76bfce0ea",
+    "apps/comic/src/game/appraisal/core2-specs.ts": "399d270a4c3c8d170ae2c9a995dfff13863aeba2ebce98b70b78a5f2a1ce5316",
+    "apps/comic/src/game/appraisal/core2.ts": "d9c7ac292898c29d471bc6d9bb0a7ae0557bd394a79d77978e6e1eed5b71bd17",
+    "apps/comic/src/game/appraisal/engine.ts": "dd3dc728fc2260afb96459d9c501e3eb95b0c5f2ca56dddeade899dd767178c7",
+    "apps/comic/src/game/appraisal/events.ts": "ec9f25dde4fbf2168479d80dd2044a5c4445912442aa561bd69fc31d41f0777c",
+    "apps/comic/src/game/appraisal/ghost-service.ts": "d2e836a0328d4fc4aeb40d2e6fa2974bb5b044286f044d669a4625e168b0da64",
+    "apps/comic/src/game/appraisal/ghost-tracking.ts": "1a179d345d9aac40a5122a68f376017e384284f487fcd8c369795bd0a7f9242f",
+    "apps/comic/src/game/appraisal/index.ts": "7867d91af9702cce970b74c8c6ae4d28f1f932139e439bcc86c471d293fbd557",
+    "apps/comic/src/game/appraisal/item-effects.ts": "c2ff1cbae837a24e19f6a5c81f56d27b986f870d7c277fd5d787d70728c63abd",
+    "apps/comic/src/game/appraisal/journal.ts": "ad612d764adb70f82db962c6dcdec54df83b57284961d3002bf81b30891456d9",
+    "apps/comic/src/game/appraisal/market-contracts.ts": "aef568c8fd9288c26fa6f74d696cd310f0949fddeefd4155af5c8a38db76ff9c",
+    "apps/comic/src/game/appraisal/mechanics.ts": "badb601944210ae39836f92ae2525e9f2eef1a9874cbce7f2a3dc906fa113080",
+    "apps/comic/src/game/appraisal/merchant-abilities.ts": "e90c4ea9b0c2f302ec3e005efef4d61e73c9d239a460d8aeb8859c394b226b09",
+    "apps/comic/src/game/appraisal/npc-events.ts": "f111c7cd8598b85165a91e5b88f7874d62d5502d3dce14a80b9fa71541e93bcf",
+    "apps/comic/src/game/appraisal/omen-table.ts": "8b6ab850d3722a62f735726aef4d3c9b17a40a9791fff31e284a1a90df862106",
+    "apps/comic/src/game/appraisal/omens.ts": "23bf7f701d39d380ec315aaf5050602540ee662b232006bfc51fba7561f3019d",
+    "apps/comic/src/game/appraisal/passives.ts": "3915bdda874eae43be5e7318626a6748b29aa56cb35748048669ac1f5e051280",
+    "apps/comic/src/game/appraisal/personal-scoring.ts": "6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5",
+    "apps/comic/src/game/appraisal/pilot-catalog.ts": "ad8dbb487623f3b8d0486c87fe86c5fe72c0d50c553a7a34bc526c52579e8c62",
+    "apps/comic/src/game/appraisal/pilot-effects.ts": "4b669d8f360f8d540bf9cb9e46db8ca46e4b0d25a5e65bc855c839c757d6701d",
+    "apps/comic/src/game/appraisal/polish-events.ts": "b79b7d4c1fcc159aad0d319ed3542844d28c22479637a2a70306570c01abfbb6",
+    "apps/comic/src/game/appraisal/price-integrity.ts": "b198f88cedef64e0c857b93115b8b6b19f1c220a576364ed623af924ea7b4831",
+    "apps/comic/src/game/appraisal/pulse.ts": "a2850ad9e52e5e4e8f2122affb24e8d8e9ac7fa015b249c61b6ec93076fe712d",
+    "apps/comic/src/game/appraisal/rarity.ts": "3672184a63c2899151c92ed7a413a0881ec5df613fc10d0ca16f01090936cbd6",
+    "apps/comic/src/game/appraisal/remaining48-catalog.ts": "01dd8634cdd7b2395a7d1b5f12915d4aa5c0dc15d5fba4eee0ac659cfc947310",
+    "apps/comic/src/game/appraisal/remaining48-effects.ts": "8938d2a56ac645ae71e2fbb70f8d81873918cc27ad1e644284dfc81210812054",
+    "apps/comic/src/game/appraisal/remaining48-numbers.ts": "bf5c76794c6b1fdd08045869d5d01d63d96e8c9157f932346f442d66695e625f",
+    "apps/comic/src/game/appraisal/round-rewards.ts": "0cc05a064ee355cf102ecbebd8bb8754c33d7bdc3d500f1f7196182cedfcaa5d",
+    "apps/comic/src/game/appraisal/scoring.ts": "d95a48373f066152d4bb19720f34e126ee23b0cbe38110a211a5c2e2e3cdc1c0",
+    "apps/comic/src/game/appraisal/seals.ts": "665663cb75944286130ac9597816c8a59b8631285077476cf08774037a6335f1",
+    "apps/comic/src/game/appraisal/secure-storage.ts": "5b3370bb17809e12c7394c0b501ffc346b9b2ca5d89035c6a0b75c426e10ffa5",
+    "apps/comic/src/game/appraisal/survival.ts": "f7d978481cdbb79fc1cfc6e603fa875adb2f37a65af6ffc3fe2302097ff75ac3",
+    "apps/comic/src/game/appraisal/theft.ts": "aaf4cc62d6d20f028fff9fdef405538cda8b32009770abf2f5ac9e50cd9da52a",
+    "apps/comic/src/game/appraisal/types.ts": "d46dc5d7f075d98f335c0f5ec28f222c4ddf6c7136121a205570901a2524c9f5",
+    "apps/comic/src/game/appraisal/views.ts": "01e3b677b404ba4308767e7b22c64d09011ba24a7e57fa1025592cf6339b6f8a",
+    "apps/comic/src/game/appraisal/wishlist-rules.ts": "9157cc6f7636ed765494f6fc0ae7a5c1c54cad42036728d1288853e257aa3c30",
+    "apps/comic/src/game/appraisal/wishlist.ts": "02dc444ca8a0623189389c5ab4bd78fb57d6abc0c4e93a3da2605ad58a9bbf9f",
+    "apps/comic/src/shared/appraisal-protocol.ts": "fc466f14f54cced6c40ed5c934a69d7a2c99b1f927195956560bf344f3c073b7",
+    "apps/comic/src/shared/item-rarity.ts": "bf190d3345ba346f6cb9be496e85c6d471b470d7b243f7a7447ba1a1d5e48d1e",
+    "apps/comic/src/shared/protocol.ts": "662c38b865368d8cbcaa888cfec36a05ce2d61a3c588f6e94417cb6a01129bc1",
+    "apps/comic/src/shared/rarity-power.ts": "337e80b7cd349c7e4f075df0e45a695e7f9c8d4eb5f598191eb9ceac8582e097",
+    "apps/comic/src/shared/rarity-renderer.ts": "db81272375ca01e8396c8bfee506b330e6354b165f91ae26a5bfe216d098f81b"
+  },
+  "compiledFingerprints": {
+    "apps/comic/dist/src/simulation/appraisal.js": "f309c33e155b7d6ebd0baa942a2228a340684df092ea73fffbfe62e5ce98b74c",
+    "apps/comic/dist/src/game/appraisal/ability-content.js": "7cbd3351cabae93eb0be017c592e80b34655a5cbc0aab7c040133728b3b265aa",
+    "apps/comic/dist/src/game/appraisal/ability-rules.js": "457755c8c4e6436411e62a704b5b783d16b0ca94603c3a1ecae52882df31be27",
+    "apps/comic/dist/src/game/appraisal/audit.js": "502d8d61820b23a55207bda1eae042ecc65465c43572757b64c81537cd60bb61",
+    "apps/comic/dist/src/game/appraisal/brokerage.js": "b0bce4368a2b7289d07f37662d6b1d3b4a5ecc6130af7d685a4fa14474b39a17",
+    "apps/comic/dist/src/game/appraisal/challenge-rules.js": "91579b3855ef32b04aec1c7982482c01151af8520025f98ffabd2aa26049104a",
+    "apps/comic/dist/src/game/appraisal/challenge.js": "2422fafe60ae2677a51bfa0a31c3c73b82395bc9d87bd4a9ce43177c421afc6d",
+    "apps/comic/dist/src/game/appraisal/cleanse-rules.js": "3a15104abbf00400df0b8266eadc69d59d707d1057faa8049c427ff9ecc580d9",
+    "apps/comic/dist/src/game/appraisal/cleanse.js": "493385b7e60f3e4b2c8017ec51d828eb338cf92382d89033c1fd67f7f05b1453",
+    "apps/comic/dist/src/game/appraisal/collector-wishlist.js": "1d1c3e9331040dc534767daadc3a722e7848b388d2de6f785149410911a68e61",
+    "apps/comic/dist/src/game/appraisal/content.js": "bec1f50b1dbc94e84a731d71b541e5c3da2b3286434d5dac749e50d9a4659f85",
+    "apps/comic/dist/src/game/appraisal/copy-effects.js": "d077c59b4112e8d3e2f394cb72a210a8084c374cbbe8d2f51c693590633710e3",
+    "apps/comic/dist/src/game/appraisal/core2-actions.js": "6680392cfaa583f3d6bfb0561347378e62e2769b04617cc7c1ac57e398d63b0e",
+    "apps/comic/dist/src/game/appraisal/core2-content.js": "070a43ab791d0f21e6e5397679c7c81e1f806b60295f65b89b28969d69c9d564",
+    "apps/comic/dist/src/game/appraisal/core2-events.js": "7f748e939c1fd19159ef85c5edb2a4c33382a467e78d4b7d9ffcfefbb59866c1",
+    "apps/comic/dist/src/game/appraisal/core2-rules.js": "93d60728b9a6eeb7247323044a33982c96f7c8f473f0e8ef91a3293321183ba4",
+    "apps/comic/dist/src/game/appraisal/core2-specs.js": "1db4efb228dfb75ce4d93bc896608af3062ba10094c0630348a5f73964365033",
+    "apps/comic/dist/src/game/appraisal/core2.js": "170809b030f3f772a9020d14d386bc038c2ed0a6bf5c6e861b29ccbb9c68e560",
+    "apps/comic/dist/src/game/appraisal/engine.js": "cb3ac6749f2f031c358e77908d6cc9988fd18f51d32918479b32c1a3cc7aec2b",
+    "apps/comic/dist/src/game/appraisal/events.js": "eb971ba0c8e1d63907f7ff2df0eedfd52bc2a96d1a52304c9adb3819dd871b28",
+    "apps/comic/dist/src/game/appraisal/ghost-service.js": "ce3ef3508a937d541c4ff48cc209845aca88416441e751a2d5865d7d836dc1c7",
+    "apps/comic/dist/src/game/appraisal/ghost-tracking.js": "2fe1600c50d316bcb32a3bd1c82c3014cc08369c3132802334863000a116786d",
+    "apps/comic/dist/src/game/appraisal/index.js": "42b0629f2d13e0c903eced4c0949002ca32823f92d86233fe98321e05eecded2",
+    "apps/comic/dist/src/game/appraisal/item-effects.js": "8f617ebf5892563e33d0485899c8d5ca371eb1d479347e9b0eba4269f4e2484b",
+    "apps/comic/dist/src/game/appraisal/journal.js": "bcfd6ed7f3af06a5f7b6f90ed3ff7f335c2fb42f424bfb7450c09fe3a310b290",
+    "apps/comic/dist/src/game/appraisal/market-contracts.js": "64b71a4578cc8171b95cac0be1b9c3eebbf4d713299db5f418ba0b373888f377",
+    "apps/comic/dist/src/game/appraisal/mechanics.js": "db6a17bdb4a1cb21a4c55634ef085e2ffcd1b84ac36cbe456625303a72b0b778",
+    "apps/comic/dist/src/game/appraisal/merchant-abilities.js": "61dcfc01d88963a66a5d1bdb4df91678e9f39f7d3c3117072768f42ad96633df",
+    "apps/comic/dist/src/game/appraisal/npc-events.js": "476189631efac456486220abe66c97f55eb1bda431ff0032f09bab3977c9c27b",
+    "apps/comic/dist/src/game/appraisal/omen-table.js": "86294d594f9aa59ffa23b54184583cd734a615ddf87d90706cd6ec55745ec7ba",
+    "apps/comic/dist/src/game/appraisal/omens.js": "5ad5c044f3d97aa731d24da0c00a3092530a873dfad96c9eb9ee946628a75ed7",
+    "apps/comic/dist/src/game/appraisal/passives.js": "ef475faa6db48f2bc116663ff9c990cf2a0f27654e06ec44efa38b76209a6b9f",
+    "apps/comic/dist/src/game/appraisal/personal-scoring.js": "941fce5e50645b84e81e5db86776527c62ecd578ab95fa653820576591c641d1",
+    "apps/comic/dist/src/game/appraisal/pilot-catalog.js": "477cd3fbf6cc7f36495306f1eedd7ee1c8f82dcd40da2550aecb368d906d0282",
+    "apps/comic/dist/src/game/appraisal/pilot-effects.js": "cc7b1ed4c5a3c732c6efd02dc04785a329d3f5d358bd1eb6c6fa3c88bf7cb90a",
+    "apps/comic/dist/src/game/appraisal/polish-events.js": "46fb478e6b4d24b9c9c5b408ec36d4276cdeaf920dcf54696169c4ab3f5bcf54",
+    "apps/comic/dist/src/game/appraisal/price-integrity.js": "6eb0c012227952fd9f8cba550dfcecbde6ddb7e4ce8b904543cadba775bc1ee8",
+    "apps/comic/dist/src/game/appraisal/pulse.js": "4ff06044ebc927963fe8086fa9a5cafa14be6c52ab300b93f95761ec24a3998c",
+    "apps/comic/dist/src/game/appraisal/rarity.js": "76870924a5cf51a757107b84febbd4ee9fa3b4e756128ee23d05c5a2657b705a",
+    "apps/comic/dist/src/game/appraisal/remaining48-catalog.js": "4dd8f97ab796c2c632cd996caa55866170bddf95a0a92d26ccc4d498b26fabbb",
+    "apps/comic/dist/src/game/appraisal/remaining48-effects.js": "dfdd03571b529f9cd3df2cbb05cc60ab1851cd1892d15cdb62aef75612d8aad3",
+    "apps/comic/dist/src/game/appraisal/remaining48-numbers.js": "862406f5081d6326f434a124a6f959e8bb7d0686a18ea4a38302040907ab6059",
+    "apps/comic/dist/src/game/appraisal/round-rewards.js": "cd7f284044c02d0c5f4b763e05f6800f5212a453b79370b210ad540354c04b27",
+    "apps/comic/dist/src/game/appraisal/scoring.js": "7a961ea3398a3ec880dbb30a38a790ccf21c4637981ad4a8586eed0cdf66fa43",
+    "apps/comic/dist/src/game/appraisal/seals.js": "8968fd3cf48699b0593ac181f957db5d9f038b28ef29b8e13a3ca252568620c1",
+    "apps/comic/dist/src/game/appraisal/secure-storage.js": "8bbd3d20a123d0b51f30e775e79f8caef5d505e6a417a579d368ae1880e1ee80",
+    "apps/comic/dist/src/game/appraisal/survival.js": "eac2c68859be903950308095445668fc78535ef948d8e14d2a9277de8aab39c6",
+    "apps/comic/dist/src/game/appraisal/theft.js": "3c6434b6eb1bad4c940612b70568d63ec9f77e35ae2e2bfbfacb52956a63823e",
+    "apps/comic/dist/src/game/appraisal/types.js": "73fd42ba6637f6903a9822447849e6c2183763aa78463d9debe66c9de1f4ae4a",
+    "apps/comic/dist/src/game/appraisal/views.js": "b466d210e470f0d6fe97003b730f7f5727e8b7000b93793cd08c3e5c75f135a7",
+    "apps/comic/dist/src/game/appraisal/wishlist-rules.js": "51754c1b3a0d24b093444185f210c5ef6a55a800329535f6f134492a281c3e28",
+    "apps/comic/dist/src/game/appraisal/wishlist.js": "4143a91dea8b504c9b8e2af093f00165bb9344b4f0a7c8846d226428230b6ac7",
+    "apps/comic/dist/src/shared/appraisal-protocol.js": "7c107db856a967cba05893018069b1ea10805d940f0579ac30ff14293ca8599c",
+    "apps/comic/dist/src/shared/item-rarity.js": "3b5083c66515bbd4174ec517577f159ef0a137ab73f5c85a1a72b6d7b0936369",
+    "apps/comic/dist/src/shared/protocol.js": "b5ab69287989be4a830cf388cb3030d92eb9659a48f3e37ce718ba7282bd6417",
+    "apps/comic/dist/src/shared/rarity-power.js": "56921599862d8ec073236388022f07a2b94c145354577b3171af337ea086103f",
+    "apps/comic/dist/src/shared/rarity-renderer.js": "381f0bf7b4847f684dac506da23aa6cdc102015c528df9c00ed09ef0f8abdb1c"
+  },
+  "cases": [
+    {
+      "mode": "held",
+      "config": {
+        "rarityEconomy": {
+          "version": 1,
+          "tiers": {
+            "common": {
+              "value": 1,
+              "effect": 1
+            },
+            "uncommon": {
+              "value": 2,
+              "effect": 2
+            },
+            "rare": {
+              "value": 3,
+              "effect": 3
+            },
+            "epic": {
+              "value": 4,
+              "effect": 4
+            },
+            "legendary": {
+              "value": 6,
+              "effect": 6
+            },
+            "mythic": {
+              "value": 8,
+              "effect": 8
+            }
+          }
+        },
+        "rarity": {
+          "version": 1,
+          "rates": {
+            "common": 0.6,
+            "uncommon": 0.25,
+            "rare": 0.1,
+            "epic": 0.035,
+            "legendary": 0.013,
+            "mythic": 0.002
+          },
+          "themes": {
+            "common": [
+              {
+                "theme": "plain",
+                "weight": 1
+              }
+            ],
+            "uncommon": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "rare": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "epic": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "legendary": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "mythic": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "loanEndSettlement": true,
+        "vaultInterestRules": 1,
+        "theftTimeoutRules": 1,
+        "collectorDeadline": 15,
+        "eventChoiceRules": 1,
+        "statusLinks": 1,
+        "systemLinks": 1,
+        "trustAbilities": true,
+        "catalogVersion": 5,
+        "itemEffects": true,
+        "roundRewards": true,
+        "multiCoinRewards": true,
+        "commerce": true,
+        "totalTrustStock": true,
+        "curseSight": true,
+        "freeBuy": true,
+        "freeMerchantAction": true,
+        "fakeEffect": true,
+        "cleanse": true,
+        "wishlist": true,
+        "wishContract": true,
+        "challenge": true,
+        "expansion": true,
+        "encounters": 3,
+        "startingCredits": 40,
+        "maxEnergy": 10,
+        "recoveryEnergy": 4,
+        "bankReserve": 2000,
+        "marketProbability": 0,
+        "marketMaxOrders": 3,
+        "marketQuota": 1,
+        "core2": false,
+        "npcEvents": false,
+        "polish": false,
+        "secureEconomy": true,
+        "brokerage": {
+          "auctionProbability": 1,
+          "maxLots": 4,
+          "bondProbability": 0
+        },
+        "survival": {
+          "maxLife": 6,
+          "encounterLifeCost": 1,
+          "entryEnergyCost": 2
+        },
+        "recoveryQuoteRules": 1,
+        "native56Effects": 5
+      },
+      "commands": 138,
+      "invitationPaid": 16,
+      "bid": 20,
+      "targetRebate": 1,
+      "allRunRebate": 1,
+      "audit": "held.audit.json.gz",
+      "sha256": "0937a2303df962eba3dac794f62379ce33f5bcccc14e43b9f979e95d67c14b41",
+      "rawSha256": "bf7e42467ed8d2cdc4a022f576bf5a8aeb9ca8c20bd85110b7269a8b65d2573d",
+      "strictReplay": true,
+      "walletLedger": true
+    },
+    {
+      "mode": "stored",
+      "config": {
+        "rarityEconomy": {
+          "version": 1,
+          "tiers": {
+            "common": {
+              "value": 1,
+              "effect": 1
+            },
+            "uncommon": {
+              "value": 2,
+              "effect": 2
+            },
+            "rare": {
+              "value": 3,
+              "effect": 3
+            },
+            "epic": {
+              "value": 4,
+              "effect": 4
+            },
+            "legendary": {
+              "value": 6,
+              "effect": 6
+            },
+            "mythic": {
+              "value": 8,
+              "effect": 8
+            }
+          }
+        },
+        "rarity": {
+          "version": 1,
+          "rates": {
+            "common": 0.6,
+            "uncommon": 0.25,
+            "rare": 0.1,
+            "epic": 0.035,
+            "legendary": 0.013,
+            "mythic": 0.002
+          },
+          "themes": {
+            "common": [
+              {
+                "theme": "plain",
+                "weight": 1
+              }
+            ],
+            "uncommon": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "rare": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "epic": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "legendary": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ],
+            "mythic": [
+              {
+                "theme": "inferno",
+                "weight": 1
+              },
+              {
+                "theme": "frost",
+                "weight": 1
+              },
+              {
+                "theme": "storm",
+                "weight": 1
+              },
+              {
+                "theme": "venom",
+                "weight": 1
+              },
+              {
+                "theme": "spirit",
+                "weight": 1
+              },
+              {
+                "theme": "lunar",
+                "weight": 1
+              },
+              {
+                "theme": "solar",
+                "weight": 1
+              },
+              {
+                "theme": "void",
+                "weight": 1
+              },
+              {
+                "theme": "prism",
+                "weight": 1
+              },
+              {
+                "theme": "clockwork",
+                "weight": 1
+              }
+            ]
+          }
+        },
+        "loanEndSettlement": true,
+        "vaultInterestRules": 1,
+        "theftTimeoutRules": 1,
+        "collectorDeadline": 15,
+        "eventChoiceRules": 1,
+        "statusLinks": 1,
+        "systemLinks": 1,
+        "trustAbilities": true,
+        "catalogVersion": 5,
+        "itemEffects": true,
+        "roundRewards": true,
+        "multiCoinRewards": true,
+        "commerce": true,
+        "totalTrustStock": true,
+        "curseSight": true,
+        "freeBuy": true,
+        "freeMerchantAction": true,
+        "fakeEffect": true,
+        "cleanse": true,
+        "wishlist": true,
+        "wishContract": true,
+        "challenge": true,
+        "expansion": true,
+        "encounters": 3,
+        "startingCredits": 40,
+        "maxEnergy": 10,
+        "recoveryEnergy": 4,
+        "bankReserve": 2000,
+        "marketProbability": 0,
+        "marketMaxOrders": 3,
+        "marketQuota": 1,
+        "core2": false,
+        "npcEvents": false,
+        "polish": false,
+        "secureEconomy": true,
+        "brokerage": {
+          "auctionProbability": 1,
+          "maxLots": 4,
+          "bondProbability": 0
+        },
+        "survival": {
+          "maxLife": 6,
+          "encounterLifeCost": 1,
+          "entryEnergyCost": 2
+        },
+        "recoveryQuoteRules": 1,
+        "native56Effects": 5
+      },
+      "commands": 139,
+      "invitationPaid": 16,
+      "bid": 20,
+      "targetRebate": 0,
+      "allRunRebate": 0,
+      "audit": "stored.audit.json.gz",
+      "sha256": "2f9803eb50eb59ac9978551726999dc8f85f25ab404ffb3f243239dc38917432",
+      "rawSha256": "a3d35b401cc5531f5430a246f6893f7c2f5c36ab73525da71a99886f471db3ae",
+      "strictReplay": true,
+      "walletLedger": true
+    }
+  ],
+  "passed": true
+}

@@ -129,3 +129,12 @@ Postcommit9ec8092: readiness audit had one stale types.ts hash after a comment-o
 ### Partial Task3 checkpoint: effects4 E13/E16 — 2026-11-04
 
 E13 canonical completeAppraisedSale/purchase uses actual commission, excludes self/copy goods, funds capped separate bank bonus and preserves stats. E16 canonical propose/respond snapshots before-offer tool IDs privately, checks settlement custody and actual paid original inventory goods, records unordered pairs/goods origins/player+tool-origin use. Public DTO and type omit snapshots. New4 carries previous3; archived1/2/3/quote3 remain exact.24owner-tested,32pending; all tasks3–6 still incomplete. See native56-stage4.json and validation/native56-stage4-2026-11-04/verification.json for exact test counts/scope.
+
+
+## 2026-11-05 — Native56 effects5: E22 auction rebate
+
+Approved vampire-midnight-invitation now returns up to the approved, bank-funded rebate only on an actual paid auction win. The original invitation must remain physically held from the first positive bid through settlement; withdrawal does not reset the snapshot. Self-origin lots, copies, unpaid/lost bids and duplicate origin/lot settlements are excluded. New catalog5 experimental runs select effects5; old absent/2/3/4 archives, default3 and opt-in pilot4 remain unchanged.
+
+Evidence: `../validation/native56-stage5-2026-11-04/verification.json`. Server build passed; E22-focused 13/13 including two actual socket reconnect/retry cases; 32 sealed legacy replays plus 4 diagnostic games; approved pilot8 proof remains 16/16 audit hashes; one fixed public 40-credit/6-life pair observed held=1 credit rebate vs stored=0. This is mechanism proof, not balance acceptance.
+
+Still open: 31 primary bindings, bidder-facing E22 benefit/eligibility UI (Task5), whole predicate/custody/normal-benefit matrix, and multi-seed 2/4-player release balance. Next Task3 owner is E38 RPS tie rights. See `native56-stage5.json` and `implementations/remaining48-plan.md`.

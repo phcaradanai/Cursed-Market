@@ -631,8 +631,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/brokerage.ts",
-      "line": 105,
-      "endLine": 105
+      "line": 106,
+      "endLine": 106
     },
     "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:resolveBond",
     "guards": [
@@ -901,8 +901,8 @@
     "operation": "removeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/brokerage.ts",
-      "line": 70,
-      "endLine": 70
+      "line": 71,
+      "endLine": 71
     },
     "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:applyGain",
     "guards": [
@@ -913,8 +913,8 @@
     "operation": "grant",
     "source": {
       "file": "apps/comic/src/game/appraisal/brokerage.ts",
-      "line": 104,
-      "endLine": 104
+      "line": 105,
+      "endLine": 105
     },
     "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:resolveBond",
     "guards": [
@@ -1514,8 +1514,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/brokerage.ts",
-      "line": 131,
-      "endLine": 131
+      "line": 132,
+      "endLine": 132
     },
     "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:unsoldPenalty",
     "guards": [
@@ -1551,8 +1551,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/brokerage.ts",
-      "line": 220,
-      "endLine": 220
+      "line": 223,
+      "endLine": 223
     },
     "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:settleAuction",
     "guards": [
@@ -1612,8 +1612,8 @@
     "operation": "consumeStatus",
     "source": {
       "file": "apps/comic/src/game/appraisal/brokerage.ts",
-      "line": 131,
-      "endLine": 131
+      "line": 132,
+      "endLine": 132
     },
     "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:unsoldPenalty",
     "guards": [

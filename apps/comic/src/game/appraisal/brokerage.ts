@@ -1,3 +1,4 @@
+import {remainingAuctionStart,reconcileRemainingAuctionCustody,remainingAuctionRebate} from './remaining48-effects.js';
 import {recordPersonalItemActivity,recordPersonalSale} from './personal-scoring.js';
 import { rarityValue } from '../../shared/rarity-power.js';
 import { merchantTradeBanned } from './theft.js';
@@ -139,7 +140,7 @@ export function unsoldPenalty(state:AppraisalState,p:Appraiser,item:AppraisalIte
 }
 function consign(state:AppraisalState,p:Appraiser,item:AppraisalItem):void {
   const roll=randomAt(state.seed,`${state.encounter}:${p.id}:${item.id}:consign`);
-  leaveShop(state,p,item);item.owner='dark-market';state.vault!.push(item.id);
+  leaveShop(state,p,item);if((state.config.native56Effects??0)>=5)item.nativeAuctionSellerId=p.id;item.owner='dark-market';state.vault!.push(item.id);
   let outcome='clean';
   if(state.config.core2) {
     // v0.6: the Dark Market pays a share of the item's real value (fake and cursed goods are worth less), minus its cut.
@@ -189,6 +190,7 @@ export function settleRemainingUnsold(state:AppraisalState,p:Appraiser):void {
 
 export function vaultSale(state:AppraisalState,item:AppraisalItem):void {
   if(!state.config.brokerage) return;
+  if((state.config.native56Effects??0)>=5&&state.players.some(p=>p.id===item.owner))item.nativeAuctionSellerId=item.owner;
   item.owner='dark-market';state.vault!.push(item.id);
 }
 export function auctionLots(state:AppraisalState):AuctionLot[] {
@@ -205,10 +207,11 @@ export function placeBid(state:AppraisalState,p:Appraiser,lotId:string,credits:n
   if(credits===0) {delete lot.bids[p.id];trace(state,p,'bid-withdrawn',{lotId});return;}
   check(credits>=lot.minimum,'bid',`ประมูลขั้นต่ำ ${lot.minimum} เครดิต`);
   check(p.credits>=credits,'credits','credit ไม่พอสำหรับราคาประมูล');
-  lot.bids[p.id]=credits;trace(state,p,'bid-placed',{lotId});
+  remainingAuctionStart(state,p,lot);lot.bids[p.id]=credits;trace(state,p,'bid-placed',{lotId});
 }
 /** Highest live bid that can still pay wins; ties break by seed. Bids are sealed until settlement. */
 export function settleAuction(state:AppraisalState):void {
+  reconcileRemainingAuctionCustody(state);
   for(const lot of state.market.lots??[]) {
     if(lot.winnerId!==undefined) continue;
     const bidders=Object.entries(lot.bids).map(([id,amount])=>({p:player(state,id),amount,tie:randomAt(state.seed,`${lot.id}:${id}:tie`)}))
@@ -224,6 +227,7 @@ export function settleAuction(state:AppraisalState):void {
     recordItemTrade(state,item,paid);
     item.owner=winner.p.id;winner.p.inventory.push(item.id);state.vault=state.vault!.filter(id=>id!==item.id);
     lot.winnerId=winner.p.id;lot.price=paid;
+    remainingAuctionRebate(state,winner.p,lot,item,paid);
     winner.p.darkTickets=(winner.p.darkTickets??0)+1;winner.p.notes.push(`ชนะประมูล ได้ตั๋วคำสั่งมืด ${winner.p.darkTickets}/${TRUST_RULES.ticketsToForce}`);winner.p.notes=winner.p.notes.slice(-30);
     trace(state,winner.p,'auction-won',{lotId:lot.id,itemId:item.id,price:paid,...(edge?{bid:winner.amount}:{})});
   }

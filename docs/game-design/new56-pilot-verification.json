@@ -24,15 +24,15 @@
     "apps/comic/src/game/appraisal/core2-actions.ts": "a0b968bc9fd51b22cf5c63caa9c38e34dbb41bc0dd765aa449a3dfecb15a6213",
     "apps/comic/src/game/appraisal/core2-events.ts": "bb9531af0ffe6a6ea068f049d286b2b1d0fe37deb24a44bcfe3dfa58a08424f8",
     "apps/comic/src/game/appraisal/core2.ts": "d9c7ac292898c29d471bc6d9bb0a7ae0557bd394a79d77978e6e1eed5b71bd17",
-    "apps/comic/src/game/appraisal/engine.ts": "eed5b73c5e86512f1746d66976b743d691125b59d645a1e16344ceb969b30d9e",
+    "apps/comic/src/game/appraisal/engine.ts": "dd3dc728fc2260afb96459d9c501e3eb95b0c5f2ca56dddeade899dd767178c7",
     "apps/comic/src/game/appraisal/events.ts": "ec9f25dde4fbf2168479d80dd2044a5c4445912442aa561bd69fc31d41f0777c",
-    "apps/comic/src/game/appraisal/mechanics.ts": "fd76031b99b0438ea7da5ec5ef2a83426af51c247bc115b0fc6ad7326fdcb065",
+    "apps/comic/src/game/appraisal/mechanics.ts": "badb601944210ae39836f92ae2525e9f2eef1a9874cbce7f2a3dc906fa113080",
     "apps/comic/src/game/appraisal/passives.ts": "3915bdda874eae43be5e7318626a6748b29aa56cb35748048669ac1f5e051280",
     "apps/comic/src/game/appraisal/pilot-catalog.ts": "ad8dbb487623f3b8d0486c87fe86c5fe72c0d50c553a7a34bc526c52579e8c62",
     "apps/comic/src/game/appraisal/pilot-effects.ts": "4b669d8f360f8d540bf9cb9e46db8ca46e4b0d25a5e65bc855c839c757d6701d",
     "apps/comic/src/game/appraisal/secure-storage.ts": "5b3370bb17809e12c7394c0b501ffc346b9b2ca5d89035c6a0b75c426e10ffa5",
     "apps/comic/src/game/appraisal/theft.ts": "aaf4cc62d6d20f028fff9fdef405538cda8b32009770abf2f5ac9e50cd9da52a",
-    "apps/comic/src/game/appraisal/types.ts": "53442ca73d60b9d0d7fa17ae76be1b664ab7bd862be65d42d46d87f7a9daeb30",
+    "apps/comic/src/game/appraisal/types.ts": "d46dc5d7f075d98f335c0f5ec28f222c4ddf6c7136121a205570901a2524c9f5",
     "apps/comic/src/game/appraisal/views.ts": "01e3b677b404ba4308767e7b22c64d09011ba24a7e57fa1025592cf6339b6f8a",
     "apps/comic/src/server/appraisal-main.ts": "5f67b2038007427688bd6b8c1c19227f34c6244d9d7b47537bf0bc0f1a673831",
     "apps/comic/src/simulation/appraisal.ts": "29306a4db7b4fe4210ce7514e5db220b8ce29af2bc3ecc8d4cd93f7b5d72eadb",
@@ -370,5 +370,11 @@
     },
     "publicProof": "../validation/native56-stage4-2026-11-04/pilot-public/public-effects.json",
     "verification": "../validation/native56-stage4-2026-11-04/verification.json"
+  },
+  "native56Effects5Followup": {
+    "baseRevision": "9b8c946b68a807d91a019e76dee8dead797e676f",
+    "scope": "Current-source compatibility; approved pilot8 archives remain byte-identical.25 primary owner-tested/31 pending; effects5 not default or balance acceptance.",
+    "publicProof": "../validation/native56-stage5-2026-11-04/pilot-public/public-effects.json",
+    "verification": "../validation/native56-stage5-2026-11-04/verification.json"
   }
 }

@@ -11,12 +11,12 @@ function table(power=1,copy=false){const s=make(),a=s.players[0]!,b=s.players[1]
  if(copy){s.items.origin={...mist,id:'origin',owner:'removed'};mist.copy={sourceId:'origin',number:1,valuePercent:25};}
  const offer={id:'challenge',buyerId:a.id,sellerId:b.id,itemId:item.id,challenge:'genuine',source:'npc'} as TradeOffer;return {s,a,b,item,mist,offer};}
 
-test('new catalog5 runs select effects4; exact restoration without revision remains stage1; invalid revisions reject',()=>{
- const s=make();assert.equal((s.config as AppraisalConfig&{native56Effects?:number}).native56Effects,4);
+test('new catalog5 runs select effects5; exact restoration without revision remains stage1; invalid revisions reject',()=>{
+ const s=make();assert.equal((s.config as AppraisalConfig&{native56Effects?:number}).native56Effects,5);
  const config=structuredClone(s.config) as AppraisalConfig&{native56Effects?:number};delete config.native56Effects;
  assert.equal((restoreAppraisalRun(['alice','bob'],'stage1',config).config as typeof config).native56Effects,undefined);
  assert.equal((createAppraisalRun(['alice','bob'],'default').config as typeof config).native56Effects,undefined);
- for(const bad of [{catalogVersion:4,native56Effects:2},{catalogVersion:5,native56Effects:1},{catalogVersion:5,native56Effects:5}])assert.throws(()=>createAppraisalRun(['alice','bob'],'invalid',bad as Partial<AppraisalConfig>));
+ for(const bad of [{catalogVersion:4,native56Effects:2},{catalogVersion:5,native56Effects:1},{catalogVersion:5,native56Effects:6}])assert.throws(()=>createAppraisalRun(['alice','bob'],'invalid',bad as Partial<AppraisalConfig>));
 });
 
 test('E06 exact floor/cap/copy reductions apply once per buyer encounter after a real failed challenge',()=>{

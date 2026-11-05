@@ -1,0 +1,95 @@
+{
+  "kind": "alien-thought-translator",
+  "config": {
+    "catalogVersion": 4,
+    "startingCredits": 500,
+    "secureEconomy": true,
+    "core2": true,
+    "survival": {
+      "maxLife": 6,
+      "encounterLifeCost": 1,
+      "entryEnergyCost": 0
+    },
+    "collectorDeadline": 3,
+    "marketProbability": 0,
+    "wishlist": false,
+    "npcEvents": false,
+    "polish": false,
+    "expansion": true
+  },
+  "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+  "trials": [
+    {
+      "n": 233,
+      "seed": "public-pilot-alien-thought-translator-233",
+      "status": "effect exposed + both strict replays passed"
+    }
+  ],
+  "passed": true,
+  "metric": {
+    "action": {
+      "type": "appraise",
+      "itemId": "item-2-0-0-0",
+      "value": 10,
+      "acceptDanger": true
+    },
+    "withItem": {
+      "action": {
+        "type": "appraise",
+        "itemId": "item-2-0-0-0",
+        "value": 10,
+        "acceptDanger": true
+      },
+      "before": {
+        "credits": 423,
+        "energy": 10,
+        "life": 5
+      },
+      "after": {
+        "credits": 423,
+        "energy": 10,
+        "life": 5
+      },
+      "creditsSpent": 0,
+      "energySpent": 0
+    },
+    "withoutItem": {
+      "action": {
+        "type": "appraise",
+        "itemId": "item-2-0-0-0",
+        "value": 10,
+        "acceptDanger": true
+      },
+      "before": {
+        "credits": 423,
+        "energy": 10,
+        "life": 5
+      },
+      "after": {
+        "credits": 423,
+        "energy": 10,
+        "life": 5
+      },
+      "creditsSpent": 0,
+      "energySpent": 0
+    },
+    "heldAccepted": true,
+    "storedAccepted": false
+  },
+  "seed": "public-pilot-alien-thought-translator-233",
+  "auditFiles": [
+    {
+      "file": "alien-thought-translator-held.audit.json",
+      "sha256": "c8628b5a55cd564e0159deae743e17fd3e25359eee2e547d4e5f1d24226df81f",
+      "commands": 35,
+      "strictReplay": true
+    },
+    {
+      "file": "alien-thought-translator-stored-or-unused.audit.json",
+      "sha256": "88f8ff32ed3fc56144b9e431588c29ea6b419d2fe32c19199f03e00cb4b8c41e",
+      "commands": 36,
+      "strictReplay": true
+    }
+  ],
+  "finishedAt": "2026-11-04T11:02:50.375Z"
+}

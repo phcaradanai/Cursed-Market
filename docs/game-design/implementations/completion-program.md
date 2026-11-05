@@ -105,3 +105,12 @@ Still required before default rollout:35primary hooks; full native predicate/cus
 Effects3 final source verification:229focused pass;124related pass/3priorUI failures remain;6socket pass;411UI fingerprints/10contracts and298Atlas inputs current. Main default and approved image references unchanged; no fresh browser pixel claim.
 
 Effects3 edge verification: lock expiry is evaluated after status expiry against a physical pre-boundary custody snapshot; E02 ranges retain unpowered replacement truth. Two RED→GREEN cases, final229focused pass; no candidate archive or approved image hash changed.
+
+
+## 2026-11-05 — Native56 effects5: E22 auction rebate
+
+Approved vampire-midnight-invitation now returns up to the approved, bank-funded rebate only on an actual paid auction win. The original invitation must remain physically held from the first positive bid through settlement; withdrawal does not reset the snapshot. Self-origin lots, copies, unpaid/lost bids and duplicate origin/lot settlements are excluded. New catalog5 experimental runs select effects5; old absent/2/3/4 archives, default3 and opt-in pilot4 remain unchanged.
+
+Evidence: `../validation/native56-stage5-2026-11-04/verification.json`. Server build passed; E22-focused 13/13 including two actual socket reconnect/retry cases; 32 sealed legacy replays plus 4 diagnostic games; approved pilot8 proof remains 16/16 audit hashes; one fixed public 40-credit/6-life pair observed held=1 credit rebate vs stored=0. This is mechanism proof, not balance acceptance.
+
+Still open: 31 primary bindings, bidder-facing E22 benefit/eligibility UI (Task5), whole predicate/custody/normal-benefit matrix, and multi-seed 2/4-player release balance. Next Task3 owner is E38 RPS tie rights. See `native56-stage5.json` and `implementations/remaining48-plan.md`.

@@ -17,17 +17,17 @@
   "actions": 60,
   "configKeys": 59,
   "parameters": 74,
-  "functions": 530,
-  "codeSymbols": 679,
+  "functions": 533,
+  "codeSymbols": 682,
   "policies": 212,
   "randomRules": 105,
   "legacyGateSites": 21,
-  "logSites": 122,
-  "logTopics": 107,
+  "logSites": 123,
+  "logTopics": 108,
   "validationSites": 465,
   "dynamicStatusOperations": 29,
   "schemas": 135,
-  "propertyWriteSites": 544
+  "propertyWriteSites": 552
 }
 ```
 ## กฎยืนยันและสถานะ runtime
@@ -296,7 +296,7 @@
 ```
 ## การย้ายสินค้า
 
-56 ชิ้นเป็น catalog/art และ effect proposals; dedicated runtime bindings = 24 /56; registered IDs = 56 ไม่จับคู่จากรูป/ชื่อโดยอัตโนมัติ เงื่อนไข legacy ด้านล่างเป็นหลักฐานที่ต้องแก้ ไม่เพิ่มสินค้าเก่าในกราฟ
+56 ชิ้นเป็น catalog/art และ effect proposals; dedicated runtime bindings = 25 /56; registered IDs = 56 ไม่จับคู่จากรูป/ชื่อโดยอัตโนมัติ เงื่อนไข legacy ด้านล่างเป็นหลักฐานที่ต้องแก้ ไม่เพิ่มสินค้าเก่าในกราฟ
 
 ```json
 {
@@ -1332,27 +1332,7 @@
 ```json
 [
   {
-    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:5082",
-    "name": "grant",
-    "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:applyGain",
-    "args": [
-      "state",
-      "p",
-      "id"
-    ],
-    "statusIds": [],
-    "guards": [],
-    "source": {
-      "file": "apps/comic/src/game/appraisal/brokerage.ts",
-      "line": 72,
-      "endLine": 72
-    },
-    "expression": "grant(state,p,id)",
-    "start": 5082,
-    "end": 5100
-  },
-  {
-    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:5137",
+    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:5202",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:applyGain",
     "args": [
@@ -1368,11 +1348,31 @@
       "endLine": 73
     },
     "expression": "grant(state,p,id)",
-    "start": 5137,
-    "end": 5155
+    "start": 5202,
+    "end": 5220
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:9497",
+    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:5257",
+    "name": "grant",
+    "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:applyGain",
+    "args": [
+      "state",
+      "p",
+      "id"
+    ],
+    "statusIds": [],
+    "guards": [],
+    "source": {
+      "file": "apps/comic/src/game/appraisal/brokerage.ts",
+      "line": 74,
+      "endLine": 74
+    },
+    "expression": "grant(state,p,id)",
+    "start": 5257,
+    "end": 5275
+  },
+  {
+    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:9617",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:unsoldPenalty",
     "args": [
@@ -1384,15 +1384,15 @@
     "guards": [],
     "source": {
       "file": "apps/comic/src/game/appraisal/brokerage.ts",
-      "line": 134,
-      "endLine": 134
+      "line": 135,
+      "endLine": 135
     },
     "expression": "grant(state,p,id)",
-    "start": 9497,
-    "end": 9515
+    "start": 9617,
+    "end": 9635
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:11235",
+    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:11427",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:consign",
     "args": [
@@ -1408,15 +1408,15 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/brokerage.ts",
-      "line": 155,
-      "endLine": 155
+      "line": 156,
+      "endLine": 156
     },
     "expression": "grant(state,p,debuff)",
-    "start": 11235,
-    "end": 11263
+    "start": 11427,
+    "end": 11455
   },
   {
-    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:12074",
+    "id": "operation:apps/comic/src/game/appraisal/brokerage.ts:12266",
     "name": "grant",
     "owner": "code:apps/comic/src/game/appraisal/brokerage.ts:consign",
     "args": [
@@ -1431,12 +1431,12 @@
     ],
     "source": {
       "file": "apps/comic/src/game/appraisal/brokerage.ts",
-      "line": 166,
-      "endLine": 166
+      "line": 167,
+      "endLine": 167
     },
     "expression": "grant(state,p,debuff)",
-    "start": 12074,
-    "end": 12100
+    "start": 12266,
+    "end": 12292
   },
   {
     "id": "operation:apps/comic/src/game/appraisal/collector-wishlist.ts:10920",

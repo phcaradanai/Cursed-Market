@@ -30,6 +30,6 @@
   --layout-gutter:clamp(24px,5.5vw,88px);
   --layout-chrome:48px;
 }
-#game-main .screen { --comic-paper:#f2e8d8; --comic-ink:#0a0d0e; --comic-red:#c51032; --comic-line:#e6e6e0; --comic-gap:12px; --comic-menu-header-height:65px; --comic-menu-control-height:40px; }
-#game-main .screen{--comic-menu-inset:18px}
-#game-main .screen{--comic-frame-inset:24px;--comic-frame-max:1480px;--comic-frame-top:calc(var(--layout-chrome,48px) + 12px);--comic-frame-bottom:var(--utility-bottom)}
+#game-main { --comic-paper:#f2e8d8; --comic-ink:#0a0d0e; --comic-red:#c51032; --comic-line:#e6e6e0; --comic-gap:12px; --comic-menu-header-height:65px; --comic-menu-control-height:40px; }
+#game-main{--comic-menu-inset:18px}
+#game-main{--comic-frame-inset:24px;--comic-frame-max:1480px;--comic-frame-top:calc(var(--layout-chrome,48px) + 12px);--comic-frame-bottom:var(--utility-bottom)}

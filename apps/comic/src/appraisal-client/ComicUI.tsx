@@ -21,8 +21,8 @@ export function CompactPager({page,pages,onChange,label,className=''}:{page:numb
 export function ComicMeter({value,max,label}:{value:number;max:number;label:string}) {
   return <meter className="comic-meter" min={0} max={max} value={value} aria-label={label}/>;
 }
-export function ComicMenu({id,open,title,icon,action,onClose,children,className=''}:{id:string;open:boolean;title:string;icon?:ReactNode;action?:ReactNode;onClose:()=>void;children:ReactNode;className?:string}) {
-  return <GameDialog id={id} modal={false} open={open} label={title} onClose={onClose} className={`drawer utility-panel comic-menu ${className}`}>
+export function ComicMenu({id,open,title,icon,action,onClose,children,className='',modal=false}:{id:string;open:boolean;modal?:boolean;title:string;icon?:ReactNode;action?:ReactNode;onClose:()=>void;children:ReactNode;className?:string}) {
+  return <GameDialog id={id} modal={modal} open={open} label={title} onClose={onClose} className={`drawer utility-panel comic-menu ${className}`}>
     <header className="drawer-head"><h2>{icon}{title}</h2><div className="comic-menu-actions">{action}<ComicButton className="drawer-close" aria-label={`${pick('ปิด','Close')} ${title}`} onClick={onClose}><CloseIcon/><span>{pick('ปิด','Close')}</span></ComicButton></div></header>
     <div className="drawer-body">{children}</div>
   </GameDialog>;

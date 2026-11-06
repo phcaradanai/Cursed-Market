@@ -234,3 +234,16 @@ body:has(.preview-toolbar) #game-main .screen { padding-bottom:calc(var(--layout
   .app-shell.comic-build .lobby .lobby-actions > p { flex-basis:100%; margin:0; }
   .app-shell.comic-build .lobby .lobby-actions button { flex:1; }
 }
+
+/* The entry fit is measured against main, below the masthead and notices. */
+.app-shell.comic-build:not(:has(.screen)) > #game-main:has(.entry-layout) {
+  overflow: clip;
+}
+
+/* Entry rules occupy the shared menu frame above the landing scene. */
+#game-main:has(> #entry-rules[open]) > .entry-layout {
+  visibility: hidden;
+}
+#game-main > #entry-rules[open] {
+  z-index: 90;
+}

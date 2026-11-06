@@ -10,7 +10,7 @@ const MAX_STEPS=4;
  * Scales the table down (CSS `--fit`, applied as `zoom`) until the document fits the window height.
  * Below MIN_FIT, or on a phone-width window, it stops and the page scrolls as usual so text stays readable.
  */
-export function useFitViewport():void {
+export function useFitViewport(selector=FIT_SELECTOR):void {
   useEffect(()=>{
     const root=document.documentElement;let frame=0;
     const fitModal=()=>{
@@ -30,28 +30,34 @@ export function useFitViewport():void {
     const measure=()=>{
       frame=0;
       root.style.setProperty('--fit','1');
-      if(window.innerWidth<700){root.style.setProperty('--fit-modal','1');return;}
+      if(window.innerWidth<700 && selector===FIT_SELECTOR){root.style.setProperty('--fit-modal','1');return;}
       fitModal();
+      const entryMain=selector==='.entry-layout'?document.querySelector<HTMLElement>('#game-main'):null;
+      const overflow=()=>entryMain?entryMain.scrollHeight-entryMain.clientHeight:root.scrollHeight-window.innerHeight;
       let fit=1;
       for(let step=0;step<MAX_STEPS;step++){
-        const over=root.scrollHeight-window.innerHeight;
+        const over=overflow();
         if(over<=1)break;
-        const zoomed=[...document.querySelectorAll<HTMLElement>(FIT_SELECTOR)].reduce((sum,el)=>sum+el.getBoundingClientRect().height,0);
+        const zoomed=[...document.querySelectorAll<HTMLElement>(selector)].reduce((sum,el)=>sum+el.getBoundingClientRect().height,0);
         if(zoomed<=0)break;
         fit=Math.max(MIN_FIT,fit*(zoomed-over)/zoomed);
         root.style.setProperty('--fit',fit.toFixed(3));
         if(fit===MIN_FIT)break;
       }
       // Once the table fits, the page itself is locked; if it cannot fit even at the floor it stays scrollable so nothing is unreachable.
-      root.toggleAttribute('data-fits',root.scrollHeight-window.innerHeight<=1);
+      root.toggleAttribute('data-fits',overflow()<=1);
+      if(entryMain && overflow()<=1)entryMain.scrollTop=0;
     };
     const schedule=()=>{if(!frame)frame=window.setTimeout(measure,30);};
+    const entryMain=selector==='.entry-layout'?document.querySelector('#game-main'):null;
+    const resize=new ResizeObserver(schedule);
+    if(entryMain)resize.observe(entryMain);
     const mutations=new MutationObserver(schedule);
     mutations.observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['open','hidden']});
     document.addEventListener('toggle',schedule,true);
     window.addEventListener('resize',schedule);
     document.addEventListener('load',schedule,true);
     schedule();
-    return()=>{mutations.disconnect();document.removeEventListener('toggle',schedule,true);window.removeEventListener('resize',schedule);document.removeEventListener('load',schedule,true);if(frame)clearTimeout(frame);root.style.removeProperty('--fit');root.removeAttribute('data-fits');root.style.removeProperty('--fit-modal');};
-  },[]);
+    return()=>{resize.disconnect();mutations.disconnect();document.removeEventListener('toggle',schedule,true);window.removeEventListener('resize',schedule);document.removeEventListener('load',schedule,true);if(frame)clearTimeout(frame);root.style.removeProperty('--fit');root.removeAttribute('data-fits');root.style.removeProperty('--fit-modal');};
+  },[selector]);
 }

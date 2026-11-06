@@ -1,3 +1,4 @@
+import {useFitViewport} from './useFitViewport.js';
 import {PersonalScoreResults} from './PersonalScoreResults.js';
 import {CollectorWishlist} from './CollectorWishlist.js';
 import {ComicTooltip} from './ComicTooltip.js';
@@ -87,20 +88,25 @@ function Rules({timers,survival,trustAbilities}:{timers?:AppraisalTimerSettings|
   </div></details>;
 }
 function Entry({send,disabled}:{send:Send;disabled:boolean}) {
+  useFitViewport('.entry-layout');
+  const [rulesOpen,setRulesOpen]=useState(false);
   const locked=useLock();
   const [name,setName]=useState('');const [code,setCode]=useState('');const [joining,setJoining]=useState(false);
   const validCode=/^[A-Z2-9]{6}$/.test(code.trim());
   const enter=(e:FormEvent)=>{e.preventDefault();if(disabled || !name.trim() || joining && !validCode)return;send(joining?{type:'join',roomCode:code.trim().toUpperCase(),name:name.trim()}:{type:'create',name:name.trim()});};
-  return <div className="entry-layout">
+  return <><div className="entry-layout" inert={rulesOpen}>
     <header className="entry-copy"><p className="entry-logo" aria-hidden="true">Cursed Market</p><h1>{t('ทุกข้อเสนอ')}<br/>{t('มีราคาที่ต้องจ่าย')}</h1><p>{t('ประเมินของจากต่างมิติ ลองกดราคา เก็บของที่อยากได้ และเสี่ยงกับสัญญาที่พ่อค้าเสนอ')}</p></header>
-    <div className="entry-art" aria-hidden="true"><img src="/art/comic/merchants/autometa/idle.png" alt="" width="480" height="480"/></div>
     <div className="entry-console"><div className="entry-intent" role="group" aria-label={pick('เริ่มเล่น','Start playing')}><button type="button" aria-pressed={!joining} onClick={()=>setJoining(false)}>{t('สร้างห้องใหม่')}</button><button type="button" aria-pressed={joining} onClick={()=>setJoining(true)}>{t('เข้าห้อง')}</button></div>
       <form onSubmit={enter}><label htmlFor="player-name">{t('ชื่อที่ใช้ในเกม')}</label><input id="player-name" value={name} onChange={e=>setName(e.target.value)} minLength={1} maxLength={16} autoComplete="nickname" placeholder={pick('เช่น ชื่อเล่นของคุณ','e.g. your nickname')} required disabled={disabled}/>
       <div className="entry-join-fields" hidden={!joining}><label htmlFor="room-code-entry">{t('รหัสห้องของเพื่อน')}</label><input id="room-code-entry" className="room-code" value={code} onChange={e=>setCode(e.target.value.toUpperCase())} minLength={6} maxLength={6} pattern="[A-Z2-9]{6}" autoComplete="off" spellCheck={false} placeholder="K7M2QX" required={joining} disabled={disabled || !joining}/></div>
       <button type="submit" className="primary" disabled={disabled || !name.trim() || joining && !validCode} title={tip(disabled&&locked,!name.trim()&&t('ใส่ชื่อที่ใช้ในเกมก่อน'),joining&&!validCode&&t('ใส่รหัสห้องของเพื่อน 6 ตัว'))}>{joining?t('เข้าห้อง'):t('สร้างห้องใหม่')}</button>
     </form><p className="entry-seats">{t('ห้องส่วนตัวสำหรับ 2–4 คน · เพื่อนทุกคนใช้ที่อยู่เกมเดียวกัน')}</p></div>
-    <div className="entry-more"><Rules survival trustAbilities/></div>
-  </div>;
+    <div className="entry-more"><ComicButton aria-haspopup="dialog" onClick={()=>setRulesOpen(true)}>{pick('กติกาก่อนเริ่ม','Rules before playing')}</ComicButton></div>
+  </div>
+    <ComicMenu id="entry-rules" modal open={rulesOpen} title={t('กติกา')} onClose={()=>setRulesOpen(false)}>
+      {rulesOpen&&<RulesMenu survival trustAbilities/>}
+    </ComicMenu>
+  </>;
 }
 export function RoomTimers({room,send,disabled}:{room:AppraisalRoomView;send:Send;disabled:boolean}) {
   const stored=room.timerSettings;const host=room.hostId===room.yourSeatId;

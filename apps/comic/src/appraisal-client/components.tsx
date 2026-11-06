@@ -1,4 +1,4 @@
-import { STATUS_ITEM_TARGETS } from '../game/appraisal/mechanics.js';
+import { STATUS_ITEM_TARGETS } from '../game/appraisal/status-item-targets.js';
 import {createPortal} from 'react-dom';
 import {ComicTooltip} from './ComicTooltip.js';
 import {ComicButton,ComicDestination,CompactPager} from './ComicUI.js';

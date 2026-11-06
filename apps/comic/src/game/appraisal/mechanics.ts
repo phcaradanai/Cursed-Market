@@ -1,3 +1,4 @@
+import {STATUS_ITEM_TARGETS} from './status-item-targets.js';
 import {sealInspectionFree} from './seal-inspection.js';
 import {REMAINING48_RULES} from './remaining48-catalog.js';
 import {priceCaliper,usePilot,pilotUses,pilotStrength} from './pilot-effects.js';
@@ -25,10 +26,6 @@ import { CORE2, ENERGY_DEAL_CREDITS2, lifeDealTerms2, overvalueChance, recoveryS
 import { ENERGY_DEAL_NPCS, PULSE_RULES, STOCK_RULES, TRUST_RULES, activeNpcs, extraStock, lifeDealTerms, merchantWary, shardsPerSale, trustTier } from './pulse.js';
 import type { AppraisalItem, AppraisalState, Appraiser, Knowledge, RecoveryOffer, Status, StatusId, NpcId } from './types.js';
 
-export const STATUS_ITEM_TARGETS={
-  'effect:E71':['D01','D02','D05','D06','D19','D20','D22','D23'],
-  'effect:E72':['B03','B05','B11','B14','B16'],
-} satisfies Record<string,StatusId[]>;
 const nativeStatusItems=(state:AppraisalState)=>state.config.catalogVersion===5 && Number(state.config.native56Effects)>=15;
 
 const NATIVE56_E31_ITEMS:readonly string[]=['autometa-coolant-canister','alien-phase-dial'];

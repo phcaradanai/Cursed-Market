@@ -44,7 +44,9 @@ PORT=3107 HOST=0.0.0.0 npm start
 - เล่นคนเดียว: ในล็อบบี้เจ้าของห้องกด **เพิ่มบอท** (เลือกสไตล์ ระวังตัว/บุกเบิก/นักสะสม/พ่อค้า) ได้ถึง 4 ที่นั่ง บอทพร้อมเสมอและเล่นด้วยข้อมูลเท่าผู้เล่น
 - `npm run dev`: โหมดพัฒนา เปิด `http://localhost:5174` (server พอร์ต 3103, แก้โค้ดแล้ว reload เอง)
 - `npm start`: เปิดเกม Survival โดยตรง ไม่ต้องตั้ง `APPRAISAL_RULES` หรือเลือกโหมดในล็อบบี้
-- ต้นแบบ auction เก่า (v0.3) แยกไว้: `npm run start:legacy` และ `npm run dev:legacy`
+- เกมหลักคือ Comic (catalog 5, revision 15) ผ่าน `npm run dev`, `npm run build` และ `npm start`
+- Realistic: `npm run dev:legacy` หรือ `npm run build:legacy` แล้ว `npm run start:legacy`
+- ต้นแบบ auction เก่า: `npm run dev:auction` และ `npm run start:auction`
 
 ## ตรวจและอ่าน audit
 

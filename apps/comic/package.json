@@ -8,7 +8,7 @@
   },
   "scripts": {
     "clean": "node scripts/clean.mjs",
-    "build": "npm run clean && npm run build:server && npm run build:client && npm run build:appraisal",
+    "build": "npm run clean && npm run build:server && npm run build:appraisal",
     "build:server": "tsc -p tsconfig.json",
     "build:client": "tsc -p tsconfig.client.json && vite build",
     "start": "node dist/src/server/appraisal-main.js",

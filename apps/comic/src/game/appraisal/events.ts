@@ -1,3 +1,4 @@
+import { closeEventPortal } from './portal-effects.js';
 import {recordPersonalSale,recordPersonalInspection} from './personal-scoring.js';
 import { rarityValue } from '../../shared/rarity-power.js';
 import { itemPriceRange } from './rarity.js';
@@ -311,7 +312,7 @@ export function resolveEvent(state:AppraisalState,p:Appraiser,command:Extract<Ap
   if(reworked(state) && !offer.choices.includes('decline') && !isConsequence(id) && !core2Spec(id) && !eventEligible(state,p,id)) {
     p.eventOffer=null; p.resolvedEvents.push(id); p.notes.push('ข้อเสนอนี้หมดเงื่อนไขแล้ว จึงจบไปโดยไม่มีผล'); p.notes=p.notes.slice(-30); trace(state,p,'event-lapsed',{id}); return;
   }
-  if(choice==='decline') { check(!isConsequence(id),'consequence','ปฏิเสธผลที่รับความเสี่ยงไว้ไม่ได้'); if(['E01','E10'].includes(id)) p.portals[0]!.disabled=true; p.eventOffer=null; p.resolvedEvents.push(id); trace(state,p,'event-declined',{id}); return; }
+  if(choice==='decline') { check(!isConsequence(id),'consequence','ปฏิเสธผลที่รับความเสี่ยงไว้ไม่ได้'); if(['E01','E10'].includes(id)) closeEventPortal(state,p.portals[0]!,id); p.eventOffer=null; p.resolvedEvents.push(id); trace(state,p,'event-declined',{id}); return; }
   if((ABILITY_EVENT_IDS as readonly string[]).includes(id))check(state.config.trustAbilities && eventEligible(state,p,id),'event-ineligible','เหตุการณ์เวลาไม่เข้าเงื่อนไขแล้ว');
   if(core2Spec(id)){resolveCore2Event(state,p,offer,command);p.eventOffer=null;p.resolvedEvents.push(id);trace(state,p,'event-resolved',{id,choice});return;}
   if(isNpcEvent(id)){resolvePersonalNpcEvent(state,p,offer,command);p.eventOffer=null;p.resolvedEvents.push(id);trace(state,p,'event-resolved',{id,choice});return;}
@@ -325,16 +326,16 @@ export function resolveEvent(state:AppraisalState,p:Appraiser,command:Extract<Ap
     case 'E130': {const npc=(Object.keys(MERCHANT_ABILITIES) as NpcId[]).filter(n=>(p.npcTrust?.[n]??0)>=1&&reducibleCooldown(p,n,state.encounter)>0).sort((a,b)=>(p.abilityReady?.[b]??0)-(p.abilityReady?.[a]??0))[0];check(npc,'ability-cooldown','ไม่มีสกิลที่ลดเวลารอได้');spend(state,p,3,0,id);reduceAbilityCooldown(p,npc,state.encounter,1);break;}
     case 'E131': if(choice==='haste')grant(state,p,'B25');else {reward(state,p,5,id);grant(state,p,'D25');}break;
     case 'E132': if(choice==='compass')grant(state,p,'B26');else {const selected=item();stockItem(state,p,selected);check(known(state,p,selected).genuine===undefined,'known','รู้ความแท้แล้ว');spend(state,p,0,1,id);learn(p,selected,{genuine:state.items[selected]!.genuine});}break;
-    case 'E01': if(choice==='stay') spend(state,p,0,1,id); else p.portals[0]!.disabled=true; break;
+    case 'E01': if(choice==='stay') spend(state,p,0,1,id); else closeEventPortal(state,p.portals[0]!,id); break;
     case 'E02': p.honorJob=true; break;
     case 'E03': check(state.config.systemLinks!==1 || eventChoices(state,p,id).includes(choice),'event-cost','ตัวเลือกนี้ไม่มีต้นทุนเพิ่มแล้ว'); if(choice==='pay') spend(state,p,2,0,id); else grant(state,p,'D10'); recover(state,p,3,id); if(state.config.survival && choice==='debt')damageLife(state,p,1,'blood-pact',false); break;
     case 'E04': spend(state,p,1,0,id); grant(state,p,'B01'); break;
     case 'E05': spend(state,p,0,1,id); grant(state,p,'B02'); break;
     case 'E06': {const selected=chooseStatus(offer,command); const next=choice==='interest'?'D04':'D07'; check(selected.startsWith('D') && selected!==next && status(p,selected),'event-target','ล้างสถานะที่เลือกไม่ได้'); removeStatus(p,selected); grant(state,p,next); break;}
     case 'E07': {const v=ownKind('food'),power=itemEffectScale(state.items[v]!);retire(state,p,v,id); grant(state,p,'B05',undefined,power); break;}
-    case 'E08': p.dealMode=choice==='cash'?'cash':'condition'; p.portals.forEach((portal,index)=>portal.disabled=index!==(choice==='cash'?0:1)); break;
+    case 'E08': p.dealMode=choice==='cash'?'cash':'condition'; p.portals.forEach((portal,index)=>{if(index!==(choice==='cash'?0:1))closeEventPortal(state,portal,id);else{portal.disabled=false;delete portal.causeEventId;}}); break;
     case 'E09': buy(2,'D08'); break;
-    case 'E10': if(choice==='pay') spend(state,p,2,0,id); else if(choice==='fog') grant(state,p,'D02'); else p.portals[0]!.disabled=true; break;
+    case 'E10': if(choice==='pay') spend(state,p,2,0,id); else if(choice==='fog') grant(state,p,'D02'); else closeEventPortal(state,p.portals[0]!,id); break;
     case 'E11': {const v=item(); check(known(state,p,v).genuine===undefined,'known','รู้แล้ว'); eventInspect(state,p,v,0,choice==='careful'?2:1,{genuine:state.items[v]!.genuine}); if(choice==='force') grant(state,p,'D01'); break;}
     case 'E12': {const v=item(); check(state.items[v]!.certificate && known(state,p,v).certificate===undefined,'certificate','ไม่มีใบรับรองที่ตรวจได้'); eventInspect(state,p,v,1,0,{certificate:state.items[v]!.genuine}); break;}
     case 'E13': {const ids=p.stock.slice(0,2); check(ids.length===2 && ids.every(v=>known(state,p,v).base===undefined),'comparison','ไม่มีสินค้าคู่ที่ยังไม่รู้ราคา'); eventInspect(state,p,ids[0]!,0,1,{comparison:state.items[ids[0]!]!.base>=state.items[ids[1]!]!.base?ids[0]!:ids[1]!}); break;}

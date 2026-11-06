@@ -1,0 +1,997 @@
+{
+  "startedAt": "2026-11-05T07:52:46.983Z",
+  "baseRevision": "55f8e6ee09282ab47eb1cd7b7a8ce1625571e0cf",
+  "scope": "32sealed historical catalog4 audits replayed, plus4new catalog5/recoveryQuoteRules1 diagnostics at native56Effects8,40credits/6life/deadline15,2/4seats,cautious/collector,one fixed seed. Remaining28 owner bindings are still absent. Not release balance, multiplayer sockets, all56effect exposure or whole-game completion.",
+  "sourceFingerprints": {
+    "apps/comic/scripts/native56-compatibility.mjs": "9a92a33ab8070295aaa3a2a83df63ea39d4c30150e67381398f3d424f00d7e61",
+    "apps/comic/scripts/normal-play-probe.mjs": "79fdff597c587a68fada0c2ac45401bbcf8dc3b01e0aca01659b4b0f0fb8f518",
+    "apps/comic/src/server/appraisal-main.ts": "5f67b2038007427688bd6b8c1c19227f34c6244d9d7b47537bf0bc0f1a673831",
+    "apps/comic/src/simulation/appraisal.ts": "29306a4db7b4fe4210ce7514e5db220b8ce29af2bc3ecc8d4cd93f7b5d72eadb",
+    "apps/comic/src/appraisal-client/model.ts": "58c7c80972c780aafe4e3068034a87b26ba0413baea6f0fdb52fa6be847a0924",
+    "apps/comic/src/game/appraisal/ability-content.ts": "ff33530545a771c4e686640f2fca5db996ef3612f9602da6ddbf68c12377127e",
+    "apps/comic/src/game/appraisal/ability-rules.ts": "3e9f33f54b34c91fb26f6d0926f9df83e646dc3623a7c8bbf3beed5cedbc9139",
+    "apps/comic/src/game/appraisal/audit.ts": "0467d338c61749c8a7dbb061e04d9cbf31d64ba2920bbe12604f3ff266757755",
+    "apps/comic/src/game/appraisal/brokerage.ts": "bec7f351e20db1f6308d896f8a6a5b97338c4157485d933971ebafe9fa2d43ae",
+    "apps/comic/src/game/appraisal/challenge-rules.ts": "74cfbe2083106078cdc44e96caefc9e959d999f4e1cb9319dc0e363375aa7e55",
+    "apps/comic/src/game/appraisal/challenge.ts": "e05db4ac5296c69cbdba3c5fadc69a40322b22cba3efcb3f514f0825c351ac76",
+    "apps/comic/src/game/appraisal/cleanse-rules.ts": "6fb69a3f4a4aa870670248255e02eb81d3fc527dbd4d9c975ba14eac81915cd1",
+    "apps/comic/src/game/appraisal/cleanse.ts": "7f72cb7930cceafd6d4fe0ef0cda617fc39b5b60a9e9a061cc3295c88014d4bb",
+    "apps/comic/src/game/appraisal/collector-wishlist.ts": "ae5b70dcb92067c0f793dc183eca67946e6311c85d2e4cbe3eb666a8717a96be",
+    "apps/comic/src/game/appraisal/content.ts": "c07a9bdf0e094641efcfc7f941515d5990535116b50000f866ba0ad086beb7d7",
+    "apps/comic/src/game/appraisal/copy-effects.ts": "908b28f89ad8de7212adbd4636fdef6b2daaca230f97c41050ac2e436f4942f9",
+    "apps/comic/src/game/appraisal/core2-actions.ts": "a0b968bc9fd51b22cf5c63caa9c38e34dbb41bc0dd765aa449a3dfecb15a6213",
+    "apps/comic/src/game/appraisal/core2-content.ts": "e96206fa8c7d638c3b0ccbc756a8d6bf2977a84308c6c423956b63340cf789b9",
+    "apps/comic/src/game/appraisal/core2-events.ts": "bb9531af0ffe6a6ea068f049d286b2b1d0fe37deb24a44bcfe3dfa58a08424f8",
+    "apps/comic/src/game/appraisal/core2-rules.ts": "c512cac29fda1d586afcc82ece3ac15a0411650283d1226ae12787c76bfce0ea",
+    "apps/comic/src/game/appraisal/core2-specs.ts": "399d270a4c3c8d170ae2c9a995dfff13863aeba2ebce98b70b78a5f2a1ce5316",
+    "apps/comic/src/game/appraisal/core2.ts": "d9c7ac292898c29d471bc6d9bb0a7ae0557bd394a79d77978e6e1eed5b71bd17",
+    "apps/comic/src/game/appraisal/engine.ts": "9deae0b68443d3df4da92743a304b817ee423711a2405b4cdf0866c8a23e3f25",
+    "apps/comic/src/game/appraisal/events.ts": "ec9f25dde4fbf2168479d80dd2044a5c4445912442aa561bd69fc31d41f0777c",
+    "apps/comic/src/game/appraisal/ghost-service.ts": "d2e836a0328d4fc4aeb40d2e6fa2974bb5b044286f044d669a4625e168b0da64",
+    "apps/comic/src/game/appraisal/ghost-tracking.ts": "1a179d345d9aac40a5122a68f376017e384284f487fcd8c369795bd0a7f9242f",
+    "apps/comic/src/game/appraisal/index.ts": "7867d91af9702cce970b74c8c6ae4d28f1f932139e439bcc86c471d293fbd557",
+    "apps/comic/src/game/appraisal/item-effects.ts": "c2ff1cbae837a24e19f6a5c81f56d27b986f870d7c277fd5d787d70728c63abd",
+    "apps/comic/src/game/appraisal/journal.ts": "ad612d764adb70f82db962c6dcdec54df83b57284961d3002bf81b30891456d9",
+    "apps/comic/src/game/appraisal/market-contracts.ts": "aef568c8fd9288c26fa6f74d696cd310f0949fddeefd4155af5c8a38db76ff9c",
+    "apps/comic/src/game/appraisal/mechanics.ts": "badb601944210ae39836f92ae2525e9f2eef1a9874cbce7f2a3dc906fa113080",
+    "apps/comic/src/game/appraisal/merchant-abilities.ts": "e90c4ea9b0c2f302ec3e005efef4d61e73c9d239a460d8aeb8859c394b226b09",
+    "apps/comic/src/game/appraisal/npc-events.ts": "f111c7cd8598b85165a91e5b88f7874d62d5502d3dce14a80b9fa71541e93bcf",
+    "apps/comic/src/game/appraisal/omen-table.ts": "8b6ab850d3722a62f735726aef4d3c9b17a40a9791fff31e284a1a90df862106",
+    "apps/comic/src/game/appraisal/omens.ts": "23bf7f701d39d380ec315aaf5050602540ee662b232006bfc51fba7561f3019d",
+    "apps/comic/src/game/appraisal/passives.ts": "3915bdda874eae43be5e7318626a6748b29aa56cb35748048669ac1f5e051280",
+    "apps/comic/src/game/appraisal/personal-scoring.ts": "6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5",
+    "apps/comic/src/game/appraisal/pilot-catalog.ts": "ad8dbb487623f3b8d0486c87fe86c5fe72c0d50c553a7a34bc526c52579e8c62",
+    "apps/comic/src/game/appraisal/pilot-effects.ts": "e10ebee7bd00a5110eea80266575fbf0c84a8210b39df09eae117b42bd790d02",
+    "apps/comic/src/game/appraisal/polish-events.ts": "b79b7d4c1fcc159aad0d319ed3542844d28c22479637a2a70306570c01abfbb6",
+    "apps/comic/src/game/appraisal/price-integrity.ts": "b198f88cedef64e0c857b93115b8b6b19f1c220a576364ed623af924ea7b4831",
+    "apps/comic/src/game/appraisal/pulse.ts": "a2850ad9e52e5e4e8f2122affb24e8d8e9ac7fa015b249c61b6ec93076fe712d",
+    "apps/comic/src/game/appraisal/rarity.ts": "3672184a63c2899151c92ed7a413a0881ec5df613fc10d0ca16f01090936cbd6",
+    "apps/comic/src/game/appraisal/remaining48-catalog.ts": "01dd8634cdd7b2395a7d1b5f12915d4aa5c0dc15d5fba4eee0ac659cfc947310",
+    "apps/comic/src/game/appraisal/remaining48-effects.ts": "08eb02c5e480e7390b7b93bfa74b78e95c40c537122c0acf748c6b57cc0cd9d6",
+    "apps/comic/src/game/appraisal/remaining48-numbers.ts": "bf5c76794c6b1fdd08045869d5d01d63d96e8c9157f932346f442d66695e625f",
+    "apps/comic/src/game/appraisal/round-rewards.ts": "0cc05a064ee355cf102ecbebd8bb8754c33d7bdc3d500f1f7196182cedfcaa5d",
+    "apps/comic/src/game/appraisal/scoring.ts": "d95a48373f066152d4bb19720f34e126ee23b0cbe38110a211a5c2e2e3cdc1c0",
+    "apps/comic/src/game/appraisal/seals.ts": "665663cb75944286130ac9597816c8a59b8631285077476cf08774037a6335f1",
+    "apps/comic/src/game/appraisal/secure-storage.ts": "5b3370bb17809e12c7394c0b501ffc346b9b2ca5d89035c6a0b75c426e10ffa5",
+    "apps/comic/src/game/appraisal/survival.ts": "f7d978481cdbb79fc1cfc6e603fa875adb2f37a65af6ffc3fe2302097ff75ac3",
+    "apps/comic/src/game/appraisal/theft.ts": "0308073d82cb8f75033039ba600acac94a983605da1744a02d7ded7a7659a5a4",
+    "apps/comic/src/game/appraisal/types.ts": "e438aa81448299cf3ab211d0e9a2a356e78f778264806a3abf3d1afc4aac39ce",
+    "apps/comic/src/game/appraisal/views.ts": "01e3b677b404ba4308767e7b22c64d09011ba24a7e57fa1025592cf6339b6f8a",
+    "apps/comic/src/game/appraisal/wishlist-rules.ts": "9157cc6f7636ed765494f6fc0ae7a5c1c54cad42036728d1288853e257aa3c30",
+    "apps/comic/src/game/appraisal/wishlist.ts": "02dc444ca8a0623189389c5ab4bd78fb57d6abc0c4e93a3da2605ad58a9bbf9f",
+    "apps/comic/src/shared/appraisal-protocol.ts": "fc466f14f54cced6c40ed5c934a69d7a2c99b1f927195956560bf344f3c073b7",
+    "apps/comic/src/shared/item-rarity.ts": "bf190d3345ba346f6cb9be496e85c6d471b470d7b243f7a7447ba1a1d5e48d1e",
+    "apps/comic/src/shared/protocol.ts": "662c38b865368d8cbcaa888cfec36a05ce2d61a3c588f6e94417cb6a01129bc1",
+    "apps/comic/src/shared/rarity-power.ts": "337e80b7cd349c7e4f075df0e45a695e7f9c8d4eb5f598191eb9ceac8582e097",
+    "apps/comic/src/shared/rarity-renderer.ts": "db81272375ca01e8396c8bfee506b330e6354b165f91ae26a5bfe216d098f81b"
+  },
+  "config": {
+    "rarityEconomy": {
+      "version": 1,
+      "tiers": {
+        "common": {
+          "value": 1,
+          "effect": 1
+        },
+        "uncommon": {
+          "value": 2,
+          "effect": 2
+        },
+        "rare": {
+          "value": 3,
+          "effect": 3
+        },
+        "epic": {
+          "value": 4,
+          "effect": 4
+        },
+        "legendary": {
+          "value": 6,
+          "effect": 6
+        },
+        "mythic": {
+          "value": 8,
+          "effect": 8
+        }
+      }
+    },
+    "rarity": {
+      "version": 1,
+      "rates": {
+        "common": 0.6,
+        "uncommon": 0.25,
+        "rare": 0.1,
+        "epic": 0.035,
+        "legendary": 0.013,
+        "mythic": 0.002
+      },
+      "themes": {
+        "common": [
+          {
+            "theme": "plain",
+            "weight": 1
+          }
+        ],
+        "uncommon": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "rare": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "epic": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "legendary": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "mythic": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ]
+      }
+    },
+    "loanEndSettlement": true,
+    "vaultInterestRules": 1,
+    "theftTimeoutRules": 1,
+    "collectorDeadline": 15,
+    "eventChoiceRules": 1,
+    "statusLinks": 1,
+    "systemLinks": 1,
+    "trustAbilities": true,
+    "catalogVersion": 5,
+    "itemEffects": true,
+    "roundRewards": true,
+    "multiCoinRewards": true,
+    "commerce": true,
+    "totalTrustStock": true,
+    "curseSight": true,
+    "freeBuy": true,
+    "freeMerchantAction": true,
+    "fakeEffect": true,
+    "cleanse": true,
+    "wishlist": true,
+    "wishContract": true,
+    "challenge": true,
+    "expansion": true,
+    "encounters": 3,
+    "startingCredits": 40,
+    "maxEnergy": 10,
+    "recoveryEnergy": 4,
+    "bankReserve": 2000,
+    "marketProbability": 1,
+    "marketMaxOrders": 3,
+    "marketQuota": 1,
+    "personalScoringRules": 1,
+    "collectorWishlistRules": 1,
+    "secureEconomy": true,
+    "brokerage": {
+      "auctionProbability": 0.5,
+      "maxLots": 2,
+      "bondProbability": 0.65
+    },
+    "polish": true,
+    "npcEvents": true,
+    "core2": true,
+    "survival": {
+      "maxLife": 6,
+      "encounterLifeCost": 1,
+      "entryEnergyCost": 0
+    },
+    "personalScoringFacts": 2,
+    "native56Effects": 8,
+    "recoveryQuoteRules": 1
+  },
+  "legacy": [
+    {
+      "id": "2-cautious-0",
+      "audit": "2-cautious-0.audit.json.gz",
+      "sha256": "e882a8b635bc128e934f2105732c7a94b3bd5de42b8ff6e4275b0c14bb36bad1",
+      "seed": "normal-score-baseline-0",
+      "commands": 145,
+      "replay": true
+    },
+    {
+      "id": "2-cautious-1",
+      "audit": "2-cautious-1.audit.json.gz",
+      "sha256": "391b39219ebf5e15d2d2247b667ca2d229a4a729c8934a72389f9d7050f7075d",
+      "seed": "normal-score-baseline-1",
+      "commands": 174,
+      "replay": true
+    },
+    {
+      "id": "2-cautious-2",
+      "audit": "2-cautious-2.audit.json.gz",
+      "sha256": "754670cb9eb6f1562eb281965aa9082c532561d32c146e887fb30732ebe5ac20",
+      "seed": "normal-score-baseline-2",
+      "commands": 154,
+      "replay": true
+    },
+    {
+      "id": "2-cautious-3",
+      "audit": "2-cautious-3.audit.json.gz",
+      "sha256": "f8db9d9b9126124b5c92740d8b78d06a2473b97764fadbd262220970f21eba16",
+      "seed": "normal-score-baseline-3",
+      "commands": 113,
+      "replay": true
+    },
+    {
+      "id": "2-aggressive-0",
+      "audit": "2-aggressive-0.audit.json.gz",
+      "sha256": "70a61c8b171295274ef896ad9c84432965645e9da1a1130e32df630d278fc666",
+      "seed": "normal-score-baseline-0",
+      "commands": 135,
+      "replay": true
+    },
+    {
+      "id": "2-aggressive-1",
+      "audit": "2-aggressive-1.audit.json.gz",
+      "sha256": "206e8663e6b53c8e4275219747ec8297d5ad99e19ac496fc5b2d9333400c39bf",
+      "seed": "normal-score-baseline-1",
+      "commands": 319,
+      "replay": true
+    },
+    {
+      "id": "2-aggressive-2",
+      "audit": "2-aggressive-2.audit.json.gz",
+      "sha256": "a45472c1ecb71843a854c149b855373a39e6caae606401a8d5b143379443a017",
+      "seed": "normal-score-baseline-2",
+      "commands": 255,
+      "replay": true
+    },
+    {
+      "id": "2-aggressive-3",
+      "audit": "2-aggressive-3.audit.json.gz",
+      "sha256": "40f1b5cd599df57b28d18aa7d71530eab19f6d08fceeadd707992f610a525801",
+      "seed": "normal-score-baseline-3",
+      "commands": 200,
+      "replay": true
+    },
+    {
+      "id": "2-collector-0",
+      "audit": "2-collector-0.audit.json.gz",
+      "sha256": "138d165efca022c911b8685874d906f13c3c919b33f704c37146808afad8d335",
+      "seed": "normal-score-baseline-0",
+      "commands": 113,
+      "replay": true
+    },
+    {
+      "id": "2-collector-1",
+      "audit": "2-collector-1.audit.json.gz",
+      "sha256": "c9f5724bbccbd752191937945e18553c040cfbecc737c77081ee69d3134721fb",
+      "seed": "normal-score-baseline-1",
+      "commands": 169,
+      "replay": true
+    },
+    {
+      "id": "2-collector-2",
+      "audit": "2-collector-2.audit.json.gz",
+      "sha256": "169259795b92a9696047cb09eb355382f702d62542dfa274a8062dd984079fe7",
+      "seed": "normal-score-baseline-2",
+      "commands": 189,
+      "replay": true
+    },
+    {
+      "id": "2-collector-3",
+      "audit": "2-collector-3.audit.json.gz",
+      "sha256": "f1d061dabf2d3ad7209de8ead96331b55dd11d1b9706f8aebf538468650a7635",
+      "seed": "normal-score-baseline-3",
+      "commands": 181,
+      "replay": true
+    },
+    {
+      "id": "2-trader-0",
+      "audit": "2-trader-0.audit.json.gz",
+      "sha256": "96d00723c45b99244f92553c60a82d6999d65a02f515c3a6e3d104a9efaf948a",
+      "seed": "normal-score-baseline-0",
+      "commands": 227,
+      "replay": true
+    },
+    {
+      "id": "2-trader-1",
+      "audit": "2-trader-1.audit.json.gz",
+      "sha256": "6f746f71ee4b63e19125bb643c19a8788ce5d20249c36c559a12e5ad975a1eb5",
+      "seed": "normal-score-baseline-1",
+      "commands": 448,
+      "replay": true
+    },
+    {
+      "id": "2-trader-2",
+      "audit": "2-trader-2.audit.json.gz",
+      "sha256": "1698c5b801546677ee77e4744ae3d949d1b2f00a4f6433264c5ff5121de1d804",
+      "seed": "normal-score-baseline-2",
+      "commands": 245,
+      "replay": true
+    },
+    {
+      "id": "2-trader-3",
+      "audit": "2-trader-3.audit.json.gz",
+      "sha256": "038a51e91f8fa02e42d05a0d2465c7cb220b0caefac671b2c0f6470a474d0a72",
+      "seed": "normal-score-baseline-3",
+      "commands": 218,
+      "replay": true
+    },
+    {
+      "id": "4-cautious-0",
+      "audit": "4-cautious-0.audit.json.gz",
+      "sha256": "062f17bb89b4528e111a20287b409c31a2112e896dafe606a6681f7035a98a04",
+      "seed": "normal-score-baseline-0",
+      "commands": 307,
+      "replay": true
+    },
+    {
+      "id": "4-cautious-1",
+      "audit": "4-cautious-1.audit.json.gz",
+      "sha256": "3195b61938c8902b1a223395c00b60a84cbed5280cd7bed64edde2f7b2f72821",
+      "seed": "normal-score-baseline-1",
+      "commands": 335,
+      "replay": true
+    },
+    {
+      "id": "4-cautious-2",
+      "audit": "4-cautious-2.audit.json.gz",
+      "sha256": "a9391f8af047e97f215b577b588c07d92aa8134387848f87e4f16b0b566b8798",
+      "seed": "normal-score-baseline-2",
+      "commands": 344,
+      "replay": true
+    },
+    {
+      "id": "4-cautious-3",
+      "audit": "4-cautious-3.audit.json.gz",
+      "sha256": "49c47fc4c5cb28a3b74239391a9eb6c547b34cebd0d282620772bd6977f2c1a3",
+      "seed": "normal-score-baseline-3",
+      "commands": 216,
+      "replay": true
+    },
+    {
+      "id": "4-aggressive-0",
+      "audit": "4-aggressive-0.audit.json.gz",
+      "sha256": "6d0db9790d20e1602b652fd25bba6323587f914bd0d9cd17fae81c286325c393",
+      "seed": "normal-score-baseline-0",
+      "commands": 599,
+      "replay": true
+    },
+    {
+      "id": "4-aggressive-1",
+      "audit": "4-aggressive-1.audit.json.gz",
+      "sha256": "eb197f68e00d632b7b2fdabf96a1f577a5e16fec4ce60700f728c6bc663fe7a1",
+      "seed": "normal-score-baseline-1",
+      "commands": 447,
+      "replay": true
+    },
+    {
+      "id": "4-aggressive-2",
+      "audit": "4-aggressive-2.audit.json.gz",
+      "sha256": "e3a1bfd702d709a939f23b5c67bce8c6dccfe5320866bc9c64d3f0ae2cdf577c",
+      "seed": "normal-score-baseline-2",
+      "commands": 418,
+      "replay": true
+    },
+    {
+      "id": "4-aggressive-3",
+      "audit": "4-aggressive-3.audit.json.gz",
+      "sha256": "1682aecb1acfc345dfd7045c49277e1038d1b1fa62255d9e03adb649d2ae03e1",
+      "seed": "normal-score-baseline-3",
+      "commands": 439,
+      "replay": true
+    },
+    {
+      "id": "4-collector-0",
+      "audit": "4-collector-0.audit.json.gz",
+      "sha256": "76a947d84572841cdf2472341d98977e428ffd71eb802801a6148c7afe257699",
+      "seed": "normal-score-baseline-0",
+      "commands": 253,
+      "replay": true
+    },
+    {
+      "id": "4-collector-1",
+      "audit": "4-collector-1.audit.json.gz",
+      "sha256": "498ae6f34a4b4e51923c0b64273320e5c678f6b419ec02443ff2eff839b51221",
+      "seed": "normal-score-baseline-1",
+      "commands": 271,
+      "replay": true
+    },
+    {
+      "id": "4-collector-2",
+      "audit": "4-collector-2.audit.json.gz",
+      "sha256": "89ad4f4154fc57f01139b50653d15bc2123059e48748176b1cf4656d53dd5b52",
+      "seed": "normal-score-baseline-2",
+      "commands": 321,
+      "replay": true
+    },
+    {
+      "id": "4-collector-3",
+      "audit": "4-collector-3.audit.json.gz",
+      "sha256": "9eb27f46677acfea4a5a52f1134f6e9ef2096de74349b26dd296cd47e869ceb9",
+      "seed": "normal-score-baseline-3",
+      "commands": 275,
+      "replay": true
+    },
+    {
+      "id": "4-trader-0",
+      "audit": "4-trader-0.audit.json.gz",
+      "sha256": "83c90e384dad2a79cc06cdd28428037117d630b463a298ef323f91d487aa19fb",
+      "seed": "normal-score-baseline-0",
+      "commands": 444,
+      "replay": true
+    },
+    {
+      "id": "4-trader-1",
+      "audit": "4-trader-1.audit.json.gz",
+      "sha256": "963ac4e90a17a5ab564e8a4af738cbc4ca92b5ae08d8061841202bd3331a24af",
+      "seed": "normal-score-baseline-1",
+      "commands": 672,
+      "replay": true
+    },
+    {
+      "id": "4-trader-2",
+      "audit": "4-trader-2.audit.json.gz",
+      "sha256": "02d6354325f79b450245c380b88e06fd02b46764ee44ffb026387da092f5fb20",
+      "seed": "normal-score-baseline-2",
+      "commands": 770,
+      "replay": true
+    },
+    {
+      "id": "4-trader-3",
+      "audit": "4-trader-3.audit.json.gz",
+      "sha256": "fc145f6a53600eed82c4347207c1dfe3c82beedc30c60c2000663c6fa6c7c7b4",
+      "seed": "normal-score-baseline-3",
+      "commands": 688,
+      "replay": true
+    }
+  ],
+  "cases": [
+    {
+      "id": "2-cautious",
+      "count": 2,
+      "policy": "cautious",
+      "seed": "native56-rollout-0",
+      "commands": 168,
+      "audit": "2-cautious.audit.json.gz",
+      "sha256": "39acd732b514a6bb0e3e3dec7a20002c021bfbf57986fc185b148db95f02bbd8",
+      "rawSha256": "3919ce88c53ca2bf9e9545625602911140ef94d9ef2f7c88762dff23d0857b55",
+      "strictReplay": true,
+      "itemKinds": [
+        "alien-biobright-seedpod",
+        "alien-echoweave-shawl",
+        "alien-phase-dial",
+        "alien-phase-staff",
+        "alien-spore-lantern",
+        "alien-star-chart-membrane",
+        "alien-thought-translator",
+        "autometa-clockwork-sentry",
+        "autometa-coolant-canister",
+        "autometa-data-prism",
+        "autometa-folding-beacon",
+        "autometa-servo-harness",
+        "autometa-torque-caliper",
+        "beast-amber-fur-mantle",
+        "beast-rift-saddle",
+        "beast-riftfang-sword",
+        "beast-tracker-horn",
+        "beast-trail-scent-disc",
+        "darkone-ash-seal",
+        "darkone-debt-chain",
+        "darkone-null-sword",
+        "darkone-omen-censer",
+        "deepsea-abyss-trident",
+        "deepsea-kelp-saddle",
+        "deepsea-lanternfish-cage",
+        "deepsea-tide-compass",
+        "deepsea-tideglass-buoy",
+        "deepsea-whale-conch-horn",
+        "orc-bone-war-drum",
+        "orc-clan-forge-tongs",
+        "orc-ember-salve",
+        "orc-oath-sword",
+        "orc-tally-beads",
+        "orc-tusk-shield",
+        "swarm-chitin-cuirass",
+        "swarm-pheromone-sprayer",
+        "swarm-pupa-cradle",
+        "swarm-resin-spool",
+        "swarm-wing-membrane-glider",
+        "vampire-gloam-violin",
+        "vampire-midnight-invitation",
+        "vampire-mist-cloak",
+        "vampire-mooncut-sword",
+        "vampire-shadow-wine-decanter"
+      ],
+      "walletLedger": true,
+      "final": [
+        {
+          "id": "seat0",
+          "credits": 2,
+          "energy": 0,
+          "inventory": [],
+          "score": 148,
+          "life": 0
+        },
+        {
+          "id": "seat1",
+          "credits": 13,
+          "energy": 0,
+          "inventory": [],
+          "score": 142,
+          "life": 0
+        }
+      ]
+    },
+    {
+      "id": "2-collector",
+      "count": 2,
+      "policy": "collector",
+      "seed": "native56-rollout-0",
+      "commands": 242,
+      "audit": "2-collector.audit.json.gz",
+      "sha256": "cc17a896100b0bfce8616ab71be720ccfc8498370608086586206603687c5051",
+      "rawSha256": "2ec931a77bc1e1130a35f426ff6b5c1e87399a2c64f4b2caeda190b4666e4516",
+      "strictReplay": true,
+      "itemKinds": [
+        "alien-biobright-seedpod",
+        "alien-echoweave-shawl",
+        "alien-phase-dial",
+        "alien-phase-staff",
+        "alien-spore-lantern",
+        "alien-star-chart-membrane",
+        "alien-thought-translator",
+        "autometa-clockwork-sentry",
+        "autometa-coil-repeater",
+        "autometa-coolant-canister",
+        "autometa-data-prism",
+        "autometa-folding-beacon",
+        "autometa-servo-harness",
+        "autometa-torque-caliper",
+        "beast-amber-fur-mantle",
+        "beast-fangline-lasso",
+        "beast-rift-saddle",
+        "beast-riftfang-sword",
+        "beast-tracker-horn",
+        "beast-trail-scent-disc",
+        "darkone-ash-seal",
+        "darkone-debt-chain",
+        "darkone-null-sword",
+        "darkone-omen-censer",
+        "deepsea-abyss-trident",
+        "deepsea-kelp-saddle",
+        "deepsea-lanternfish-cage",
+        "deepsea-tide-compass",
+        "deepsea-tideglass-buoy",
+        "deepsea-whale-conch-horn",
+        "orc-bone-war-drum",
+        "orc-clan-forge-tongs",
+        "orc-ember-salve",
+        "orc-ironroot-greaves",
+        "orc-oath-sword",
+        "orc-tally-beads",
+        "orc-tusk-shield",
+        "swarm-brood-hammer",
+        "swarm-chitin-cuirass",
+        "swarm-pheromone-sprayer",
+        "swarm-pupa-cradle",
+        "swarm-resin-spool",
+        "swarm-wing-membrane-glider",
+        "vampire-gloam-violin",
+        "vampire-midnight-invitation",
+        "vampire-mist-cloak",
+        "vampire-mooncut-sword",
+        "vampire-nocturne-signet",
+        "vampire-shadow-wine-decanter"
+      ],
+      "walletLedger": true,
+      "final": [
+        {
+          "id": "seat0",
+          "credits": 0,
+          "energy": 3,
+          "inventory": [],
+          "score": 189,
+          "life": 0
+        },
+        {
+          "id": "seat1",
+          "credits": 54,
+          "energy": 1,
+          "inventory": [],
+          "score": 769,
+          "life": 0
+        }
+      ]
+    },
+    {
+      "id": "4-cautious",
+      "count": 4,
+      "policy": "cautious",
+      "seed": "native56-rollout-0",
+      "commands": 286,
+      "audit": "4-cautious.audit.json.gz",
+      "sha256": "a012db678d6dc80f19fd3d33cdf856fef17dabf8ea442ce3d905124c6ccfb5d6",
+      "rawSha256": "a854c8eee53bf7b744e5a7ff83683f4cd3981cec420f17554f21b22adecabf29",
+      "strictReplay": true,
+      "itemKinds": [
+        "alien-biobright-seedpod",
+        "alien-echoweave-shawl",
+        "alien-phase-dial",
+        "alien-phase-staff",
+        "alien-spore-lantern",
+        "alien-star-chart-membrane",
+        "alien-thought-translator",
+        "autometa-clockwork-sentry",
+        "autometa-coil-repeater",
+        "autometa-coolant-canister",
+        "autometa-data-prism",
+        "autometa-servo-harness",
+        "autometa-torque-caliper",
+        "beast-amber-fur-mantle",
+        "beast-fangline-lasso",
+        "beast-rift-saddle",
+        "beast-riftfang-sword",
+        "beast-springjaw-trap",
+        "beast-tracker-horn",
+        "beast-trail-scent-disc",
+        "darkone-ash-seal",
+        "darkone-debt-chain",
+        "darkone-null-sword",
+        "darkone-null-testament",
+        "darkone-omen-censer",
+        "darkone-silence-snuffer",
+        "deepsea-abyss-trident",
+        "deepsea-kelp-saddle",
+        "deepsea-lanternfish-cage",
+        "deepsea-pressure-cuirass",
+        "deepsea-tide-compass",
+        "deepsea-tideglass-buoy",
+        "deepsea-whale-conch-horn",
+        "orc-bone-war-drum",
+        "orc-clan-forge-tongs",
+        "orc-ember-salve",
+        "orc-ironroot-greaves",
+        "orc-oath-sword",
+        "orc-tally-beads",
+        "orc-tusk-shield",
+        "swarm-brood-hammer",
+        "swarm-chitin-cuirass",
+        "swarm-hive-egg-cluster",
+        "swarm-pheromone-sprayer",
+        "swarm-pupa-cradle",
+        "swarm-resin-spool",
+        "swarm-wing-membrane-glider",
+        "vampire-midnight-invitation",
+        "vampire-mist-atomizer",
+        "vampire-mist-cloak",
+        "vampire-shadow-wine-decanter"
+      ],
+      "walletLedger": true,
+      "final": [
+        {
+          "id": "seat0",
+          "credits": 2,
+          "energy": 0,
+          "inventory": [],
+          "score": 148,
+          "life": 0
+        },
+        {
+          "id": "seat1",
+          "credits": 2,
+          "energy": 2,
+          "inventory": [],
+          "score": 107,
+          "life": 0
+        },
+        {
+          "id": "seat2",
+          "credits": 2,
+          "energy": 0,
+          "inventory": [],
+          "score": 124,
+          "life": 0
+        },
+        {
+          "id": "seat3",
+          "credits": 5,
+          "energy": 0,
+          "inventory": [],
+          "score": 97,
+          "life": 0
+        }
+      ]
+    },
+    {
+      "id": "4-collector",
+      "count": 4,
+      "policy": "collector",
+      "seed": "native56-rollout-0",
+      "commands": 305,
+      "audit": "4-collector.audit.json.gz",
+      "sha256": "47ccc0dcb43d0ee5c670c535f65b6bce7f693cd72f24544e2bb902616046fdfb",
+      "rawSha256": "73ca0b4aaa55a59f2117b2d9febc85178f1c01dca1691f50df1807d9d5edb446",
+      "strictReplay": true,
+      "itemKinds": [
+        "alien-biobright-seedpod",
+        "alien-echoweave-shawl",
+        "alien-phase-dial",
+        "alien-phase-staff",
+        "alien-spore-lantern",
+        "alien-star-chart-membrane",
+        "alien-thought-translator",
+        "autometa-clockwork-sentry",
+        "autometa-coil-repeater",
+        "autometa-coolant-canister",
+        "autometa-data-prism",
+        "autometa-servo-harness",
+        "autometa-torque-caliper",
+        "beast-amber-fur-mantle",
+        "beast-fangline-lasso",
+        "beast-rift-saddle",
+        "beast-riftfang-sword",
+        "beast-tracker-horn",
+        "beast-trail-scent-disc",
+        "darkone-ash-seal",
+        "darkone-debt-chain",
+        "darkone-null-sword",
+        "darkone-null-testament",
+        "darkone-omen-censer",
+        "darkone-silence-snuffer",
+        "deepsea-abyss-trident",
+        "deepsea-kelp-saddle",
+        "deepsea-lanternfish-cage",
+        "deepsea-pressure-cuirass",
+        "deepsea-tide-compass",
+        "deepsea-tideglass-buoy",
+        "deepsea-whale-conch-horn",
+        "orc-bone-war-drum",
+        "orc-clan-forge-tongs",
+        "orc-ember-salve",
+        "orc-ironroot-greaves",
+        "orc-oath-sword",
+        "orc-tally-beads",
+        "orc-tusk-shield",
+        "swarm-brood-hammer",
+        "swarm-chitin-cuirass",
+        "swarm-hive-egg-cluster",
+        "swarm-pheromone-sprayer",
+        "swarm-pupa-cradle",
+        "swarm-resin-spool",
+        "swarm-wing-membrane-glider",
+        "vampire-gloam-violin",
+        "vampire-midnight-invitation",
+        "vampire-mist-atomizer",
+        "vampire-mist-cloak",
+        "vampire-mooncut-sword",
+        "vampire-nocturne-signet",
+        "vampire-shadow-wine-decanter"
+      ],
+      "walletLedger": true,
+      "final": [
+        {
+          "id": "seat0",
+          "credits": 2,
+          "energy": 6,
+          "inventory": [],
+          "score": 172,
+          "life": 0
+        },
+        {
+          "id": "seat1",
+          "credits": 16,
+          "energy": 4,
+          "inventory": [],
+          "score": 541,
+          "life": 0
+        },
+        {
+          "id": "seat2",
+          "credits": 3,
+          "energy": 0,
+          "inventory": [],
+          "score": 88,
+          "life": 0
+        },
+        {
+          "id": "seat3",
+          "credits": 1,
+          "energy": 8,
+          "inventory": [],
+          "score": 55,
+          "life": 0
+        }
+      ]
+    }
+  ],
+  "passed": true,
+  "finishedAt": "2026-11-05T07:53:39.882Z"
+}

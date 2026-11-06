@@ -1,0 +1,122 @@
+{
+  "asOf": "2026-11-05",
+  "baseRevision": "55f8e6ee09282ab47eb1cd7b7a8ce1625571e0cf",
+  "scope": "Native56 experimental effects revision7, E40 only. New catalog5 runs activate revision7; main default catalog3, opt-in pilot4 and older archived revisions remain unchanged. This proves the E40 mechanism and compatibility, not release balance or whole-game completion.",
+  "config": {
+    "catalogVersion": 5,
+    "native56Effects": 7,
+    "recoveryQuoteRules": 1,
+    "startingCredits": 40,
+    "survival": {
+      "maxLife": 6,
+      "encounterLifeCost": 1
+    },
+    "collectorDeadline": 15
+  },
+  "verification": {
+    "serverBuild": {
+      "passed": true,
+      "command": "npm --prefix apps/comic run build:server"
+    },
+    "clientBuild": {
+      "passed": true,
+      "command": "npm --prefix apps/comic run build:client"
+    },
+    "focusedOwnerTests": {
+      "passed": 3,
+      "failed": 0,
+      "testFile": "apps/comic/tests/remaining48-theft.test.ts",
+      "command": "node --test apps/comic/dist/tests/remaining48-theft.test.js",
+      "covers": [
+        "E40 reduces only the real NPC theft loss of at least2 trust, while retaining crime/D21 penalties",
+        "E40 snapshots a qualifying held item before the duel and excludes a later-acquired or insufficient-strength copy",
+        "E40 is NPC-only and consumes one player/encounter right"
+      ]
+    },
+    "focusedRegressionTests": {
+      "passed": 55,
+      "failed": 0,
+      "testFiles": [
+        "apps/comic/tests/remaining48-theft.test.ts",
+        "apps/comic/tests/remaining48-automatic.test.ts",
+        "apps/comic/tests/remaining48-challenge.test.ts",
+        "apps/comic/tests/remaining48-auction.test.ts"
+      ],
+      "command": "node --test apps/comic/dist/tests/remaining48-theft.test.js apps/comic/dist/tests/remaining48-automatic.test.js apps/comic/dist/tests/remaining48-challenge.test.js apps/comic/dist/tests/remaining48-auction.test.js",
+      "actualSocketCases": 3
+    },
+    "uiSourceCheck": {
+      "passed": true,
+      "sourceFingerprints": 415,
+      "command": "npm run ui:check",
+      "sourceManifestRefreshedAfterReview": true
+    },
+    "uiContractTests": {
+      "passed": 10,
+      "failed": 0,
+      "command": "npm run ui:test"
+    },
+    "uiSmoke": {
+      "passed": null,
+      "notRunReason": "The approved agent TaskSpace4 is no longer available; the only listed TaskSpace is user-owned. No replacement or user-owned browser space was opened."
+    },
+    "uiVisual": {
+      "passed": null,
+      "notRunReason": "No current agent TaskSpace was available for the approved baseline browser comparison. No screenshot baseline was rewritten."
+    },
+    "sealedCompatibility": {
+      "passed": true,
+      "report": "docs/validation/native56-stage7-2026-11-05/compatibility/report.json",
+      "legacyReplays": 32,
+      "diagnosticCases": 4,
+      "native56Effects": 7,
+      "commands": [
+        168,
+        242,
+        286,
+        305
+      ]
+    },
+    "pilotPublic": {
+      "passed": true,
+      "report": "docs/validation/native56-stage7-2026-11-05/pilot-public/public-effects.json",
+      "cases": 8,
+      "auditFiles": 16,
+      "sameAuditHashesAs": "docs/validation/native56-stage6-2026-11-05/pilot-public/public-effects.json",
+      "sameHashes": true
+    },
+    "publicCommandPair": {
+      "passed": true,
+      "effect": "Same forced NPC theft flow: without sentry, trust falls by2; with qualifying held sentry, it falls by1. RPS still resolves, crime/D21 still apply.",
+      "testFile": "apps/comic/tests/remaining48-theft.test.ts"
+    },
+    "preservedStage6": {
+      "passed": true,
+      "sha256": "b20dc560881ee05808d53eea81e68b45f3d84f1d6be4fd3534b2116e74554759",
+      "archivedSemanticsTest": "apps/comic/tests/remaining48-theft.test.ts"
+    }
+  },
+  "evidenceFingerprints": {
+    "docs/validation/native56-stage7-2026-11-05/compatibility/report.json": "5d622a213cbff58d4e1dc060fc0912036107151d81092490d77830f57984d3f6",
+    "docs/validation/native56-stage7-2026-11-05/pilot-public/public-effects.json": "1799a595e254e2ea69d314f6ffaf492b688e5d1e2f9b4fc85fecf9520af5b67b",
+    "docs/game-design/native56-stage6.json": "b20dc560881ee05808d53eea81e68b45f3d84f1d6be4fd3534b2116e74554759",
+    "docs/game-design/native56-stage7.json": "fd79225a6b8ae9946f16134b47602aac85e5d841d065b85b680e0f9ab83dae31",
+    "apps/comic/src/game/appraisal/engine.ts": "c0dd48efc313f1dffa576cc2b9629aa1cc15ad46b9140a43252c3a337efb1a5a",
+    "apps/comic/src/game/appraisal/remaining48-effects.ts": "c8ad82a3d4c4affe88fc679e59841c27c67ce60298ed6e7fda463958dd8991ac",
+    "apps/comic/src/game/appraisal/theft.ts": "cf3f08f2d2ac3e731117be528655ffec7a98d30bb1548b052c476b215db4e692",
+    "apps/comic/src/game/appraisal/types.ts": "3f094a5a354c66d7fb8fccfe4e5876f6b37f0da631b850fac9625b5f521d4c2e",
+    "apps/comic/src/appraisal-client/HeldEffects.tsx": "d512121ac15fec2c9070233014bba1c499876f242511d73f608f03b5e5311e14",
+    "apps/comic/src/appraisal-client/catalog-text.ts": "273b058d96684baea90cf3235e1878f1dd9b054bc931ef9874cb0738c5880145",
+    "apps/comic/src/appraisal-client/components.tsx": "e7b6f3ada6be63f8e7ca45483c2756a37ab4a0f2c9f62d6859133a6866b0e4fa",
+    "apps/comic/tests/remaining48-theft.test.ts": "c13b28fb77f82b58b6c4ef304b3692cb5facc08c657b404f988217bbd10ae6ca",
+    "apps/comic/tests/remaining48-automatic.test.ts": "5dc9c176b1875628a7c90687bc57c64d0f5d0ae6156cdf3c53ebe4c4b4861b7e",
+    "apps/comic/tests/remaining48-challenge.test.ts": "c55a061ac222cb4fd6886c2557f71b81e46a888d435e8d9bf2e40529e0cea3ea",
+    "apps/comic/scripts/native56-compatibility.mjs": "82596c9bd9956f12a45ebf22b2258bba095f9198fb6724ff36bf9a8fb55388ae"
+  },
+  "limitations": [
+    "27 of56 primary bindings owner-tested;29 remain.",
+    "Experimental catalog5 revision7 only; no default56 activation.",
+    "No complete normal-budget effect exposure, whole-game predicate/custody matrix, or multi-seed 2/4-player release balance.",
+    "UI smoke and visual comparison were not run because the prior agent TaskSpace is gone; no human-approved baseline changed."
+  ]
+}

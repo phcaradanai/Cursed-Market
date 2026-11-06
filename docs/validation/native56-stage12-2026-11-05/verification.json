@@ -1,0 +1,102 @@
+{
+  "asOf": "2026-11-05",
+  "baseRevision": "55f8e6ee09282ab47eb1cd7b7a8ce1625571e0cf",
+  "workingTree": "E34 source and checkpoint documentation are uncommitted; repository HEAD remains the recorded base revision.",
+  "scope": "Native56 effects12 / E34 only. The primary quote and action agree under the shared cap and minimum; existing event/portal guards remain. This is not full56 exposure, release balance, live-socket acceptance or whole-game completion.",
+  "verification": {
+    "serverBuild": {
+      "passed": true,
+      "command": "npm run build:server (from apps/comic)"
+    },
+    "clientBuild": {
+      "passed": true,
+      "command": "npm run build:appraisal (from apps/comic)",
+      "note": "Vite reports the existing >500 kB JS chunk warning; build completes."
+    },
+    "focusedOwnerTests": {
+      "passed": 2,
+      "failed": 0,
+      "testFile": "apps/comic/tests/remaining48-reroll-cost.test.ts",
+      "command": "node --test dist/tests/remaining48-reroll-cost.test.js",
+      "covers": [
+        "E34 is inactive at revision11 and active at revision12",
+        "Compass and glider strength share cap2",
+        "Quoted cost equals the cost actually paid by reroll-portal",
+        "Final reroll cost remains at least1",
+        "Passive item disclosure appears only when nativeEffectReady is true"
+      ]
+    },
+    "relatedRegressionGroup": {
+      "passed": 33,
+      "failed": 1,
+      "environmentBlocked": 1,
+      "tests": 34,
+      "command": "node --test dist/tests/remaining48-reroll-cost.test.js dist/tests/remaining48-seal-energy.test.js dist/tests/native56-catalog.test.js dist/tests/remaining48-theft.test.js",
+      "blocked": "One existing real-socket E38 test cannot bind 127.0.0.1: EPERM before assertions; the other33 tests passed."
+    },
+    "e52OwnerTests": {
+      "passed": 7,
+      "failed": 0,
+      "testFile": "apps/comic/tests/remaining48-seal-energy.test.ts"
+    },
+    "sealedCompatibility": {
+      "passed": true,
+      "legacyReplays": 32,
+      "diagnosticCases": 4,
+      "native56Effects": 12,
+      "report": "docs/validation/native56-stage12-2026-11-05/compatibility/report.json"
+    },
+    "pilotPublic": {
+      "passed": true,
+      "cases": 8,
+      "source": "Reused Stage10 proof byte-for-byte; this fixture does not exercise E34."
+    },
+    "uiSourceCheck": {
+      "passed": true,
+      "sourceFingerprints": 418,
+      "approvedBaselineHashes": 14,
+      "command": "npm run ui:check -- --refresh; npm run ui:check (no visual baselines re-recorded)"
+    },
+    "uiContracts": {
+      "passed": 10,
+      "failed": 0,
+      "command": "npm run ui:test"
+    },
+    "uiSmoke": {
+      "passed": null,
+      "checks": null,
+      "blocked": "Default Ego Lite bootstrap failed; escalated retry could not find finished TaskSpace9. No current smoke report."
+    },
+    "uiVisual": {
+      "passed": null,
+      "blocked": "Not run because the approved TaskSpace9 no longer exists; existing14 image baselines were not changed."
+    },
+    "galleryIntegrity": {
+      "passed": true,
+      "merchants": 8,
+      "images": 56,
+      "command": "node docs/game-design/scripts/item-gallery-render.mjs --check"
+    },
+    "browserBootstrapRetry": {
+      "firstDefaultSandboxAttempt": "failed to start ego lite",
+      "retry": "escalated retry reported task space not found: 9"
+    }
+  },
+  "sourceFingerprints": {
+    "apps/comic/scripts/native56-compatibility.mjs": "4ca368b3d1e0df146a872b9b37669e988bf222b087262abeee16e687c51f1695",
+    "apps/comic/src/game/appraisal/types.ts": "3bed36c34667d280869caf4913d91a6340e1e80c464f19c2950133a94037aaf9",
+    "apps/comic/src/game/appraisal/remaining48-effects.ts": "9ce2d1c2ebd158b3e173a12885ba8a6e348475218a2efea8d01b8e238c24e34b",
+    "apps/comic/src/game/appraisal/pilot-effects.ts": "dd0a5e9e23d68920b86d6bbd60ed5b880e046418814b13915fabc5dee8f8a4bd",
+    "apps/comic/src/game/appraisal/engine.ts": "86ec80fa24e09d45fae0d017958a8574c18a2c40e13de2bcd6394abd1e4e0eb1",
+    "apps/comic/src/game/appraisal/views.ts": "18190092d69d4d17f15c243ebc95662bb0bd23541e7179748581b7b7722cf295",
+    "apps/comic/src/appraisal-client/catalog-text.ts": "8bb88b453a11fa192324157e554c596fc1ceade4db3ad26f41f8b627220cd95f",
+    "apps/comic/src/appraisal-client/components.tsx": "13c74d5887a90809586f3e16b12a50006e43909a1ddce45c805a9e599c8c74d0",
+    "apps/comic/tests/remaining48-reroll-cost.test.ts": "66171e81d5b4512eafed072273728132f686cd68867394be2684d27b7c72e71b",
+    "apps/comic/tests/remaining48-theft.test.ts": "8e9f31bf6aa2d18dd564e1debcfff25006e13ad3754a63754249e88578a83022"
+  },
+  "evidenceFingerprints": {
+    "compatibility": "4c63192a351a0c45b732c03f8835b91342731f1078412a9c99fe54045c8ea212",
+    "docs/ui-system/source-manifest.json": "707d3a02c71633dcbc4648ddf0dde57c381c7cb288793cff5d9059de806822e2",
+    "docs/ui-system/baselines/manifest.json": "60d3c35ce98363a56475ab86e48bf688020db9cd170ffb4fb4ed7186fa5a8b97"
+  }
+}

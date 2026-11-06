@@ -1,8 +1,12 @@
 import {personalOrigin,recordPersonalActivity} from './personal-scoring.js';
 import {pilotCrimeCost,swordForDuel,pilotUses,usePilot} from './pilot-effects.js';
+import {remainingHeld} from './remaining48-effects.js';
+import {remainingStrength,remainingScaled,remainingFundedBonus} from './remaining48-numbers.js';
+import {REMAINING48_RULES} from './remaining48-catalog.js';
+import {itemEffectScale} from './copy-effects.js';
 import { randomAt } from '../random.js';
 import { CORE2 } from './core2.js';
-import { check, consumeStatus, grant, omenNow, spend, status, stockItem, trace, transfer, unlocked } from './mechanics.js';
+import { check, consumeStatus, grant, omenNow, reward, spend, status, stockItem, trace, transfer, unlocked } from './mechanics.js';
 import type { AppraisalItem, AppraisalState, Appraiser, NpcId } from './types.js';
 
 export type RpsHand = 'rock' | 'paper' | 'scissors';
@@ -33,6 +37,7 @@ export interface PvpCompensation {
   settled: Array<{encounter: number; paid: number}>;
 }
 export interface TheftDuel {
+  freeStart?:true;
   id: string;
   encounter: number;
   thiefId: string;
@@ -41,12 +46,15 @@ export interface TheftDuel {
   itemId: string;
   ask: number;
   swordIds?:Record<string,string>;
+  sentryItemIds?:string[];
+  insuranceItemIds?:string[];
   hands: Record<string, RpsHand>;
   round: number;
   status: 'open' | 'won' | 'lost' | 'cancelled';
   revealed: Array<{thief: RpsHand; opponent: RpsHand}>;
 }
 export interface TheftDuelView {
+  freeStart?:true;
   id: string;
   thiefId: string;
   victimId?: string;
@@ -62,6 +70,7 @@ export interface TheftDuelView {
   revealed: TheftDuel['revealed'];
 }
 export interface TheftView {
+  startEnergy?:number;
   duels: TheftDuelView[];
   targets: Array<{playerId: string; blockedUntilEncounter?: number}>;
   seals: Array<{id: string; thiefId: string}>;
@@ -128,6 +137,11 @@ export function merchantTradeBanned(state: AppraisalState, p: Appraiser): boolea
 }
 
 /** Start one paid attempt. Merchant hands are sealed before the thief submits a choice. */
+function theftStartEnergy(state:AppraisalState,p:Appraiser):number {
+  if(Number(state.config.native56Effects)>=15 && !p.stealTried?.length && remainingStrength(remainingHeld(state,p,'E37'),'E37')>=1)return 0;
+  return CORE2.steal.energy;
+}
+
 export function startTheftDuel(state: AppraisalState, p: Appraiser, target: {itemId?: string; victimId?: string}): void {
   check(state.config.core2 && ['APPRAISAL','TRADE'].includes(state.phase) && !p.paused && !p.done && !p.eventOffer && !p.abilityChoice,'steal','ช่วงนี้ขโมยไม่ได้');
   check(!p.stealTried?.length && !openDuel(state,p.id),'steal','ขโมยได้ครั้งเดียวต่อช่วง');
@@ -146,7 +160,8 @@ export function startTheftDuel(state: AppraisalState, p: Appraiser, target: {ite
     check(target.itemId,'steal','เลือกสินค้าที่จะขโมย');
     item = stockItem(state,p,target.itemId);
   }
-  spend(state,p,0,CORE2.steal.energy,'theft-duel');
+  const energy=theftStartEnergy(state,p);
+  spend(state,p,0,energy,'theft-duel');
   (p.stealTried ??= []).push(victim ? `p:${victim.id}` : item.id);
   // Status links: B22 waits for a tied round to matter instead of being spent here for nothing.
   if(state.config.statusLinks !== 1)consumeStatus(p,'B22');
@@ -156,8 +171,18 @@ export function startTheftDuel(state: AppraisalState, p: Appraiser, target: {ite
     encounter: state.encounter, thiefId: p.id, itemId: item.id, ask: item.ask,
     ...(victim ? {victimId: victim.id} : {npc: item.npc}),
     hands: {}, round: 1, status: 'open', revealed: [],
+    ...(energy===0?{freeStart:true}:{}),
   };
   if((state.config.catalogVersion===4 || state.config.catalogVersion===5)){duel.swordIds={};for(const seat of [p,...(victim?[victim]:[])]){const sword=swordForDuel(state,seat);if(sword)duel.swordIds[seat.id]=sword.id;}}
+  if(!victim&&state.config.catalogVersion===5&&(state.config.native56Effects??0)>=7){
+    const used=state.native56SentryTrustUses?.encounter===state.encounter?state.native56SentryTrustUses:undefined;
+    const tools=remainingHeld(state,p,'E40').sort((a,b)=>itemEffectScale(b)-itemEffectScale(a)||a.id.localeCompare(b.id));
+    if(!used?.players.includes(p.id)&&remainingStrength(tools,'E40')>=1)duel.sentryItemIds=tools.slice(0,1).map(i=>i.id);
+  }
+  if(victim&&state.config.catalogVersion===5&&(state.config.native56Effects??0)>=8){
+    const tools=remainingHeld(state,victim,'E42').sort((a,b)=>itemEffectScale(b)-itemEffectScale(a)||a.id.localeCompare(b.id)).slice(0,5);
+    if(tools.length)duel.insuranceItemIds=tools.map(i=>i.id);
+  }
   if(!victim)duel.hands.npc = npcHand(state,duel);
   duels.push(duel);
   trace(state,p,'theft-started',{duelId:duel.id,...(victim ? {victimId:victim.id} : {itemId:item.id,npc:item.npc})});
@@ -241,7 +266,11 @@ function breakTie(state: AppraisalState, duel: TheftDuel, thief: Appraiser): num
 
 function merchantFailure(state: AppraisalState, p: Appraiser, duel: TheftDuel): void {
   const npc = duel.npc!;
-  (p.npcTrust ??= {})[npc] = Math.max(0,(p.npcTrust[npc] ?? 0)-2);
+  const trust=p.npcTrust??={},before=trust[npc]??0,used=state.native56SentryTrustUses?.encounter===state.encounter?state.native56SentryTrustUses:undefined;
+  const reduced=state.config.catalogVersion===5&&(state.config.native56Effects??0)>=7&&before>=2&&!!duel.sentryItemIds?.length&&!used?.players.includes(p.id);
+  const loss=reduced?1:2;
+  trust[npc]=Math.max(0,before-loss);p.npcTrust=trust;
+  if(reduced){state.native56SentryTrustUses={encounter:state.encounter,players:[...(used?.players??[]),p.id]};trace(state,p,'native-theft-trust-loss-reduced',{npc,lossBefore:2,lossAfter:1,sourceItemIds:duel.sentryItemIds});}
   const previous = (p as Thief).crime;
   (p as Thief).crime = {
     failures: (previous?.failures ?? 0)+1,
@@ -251,7 +280,24 @@ function merchantFailure(state: AppraisalState, p: Appraiser, duel: TheftDuel): 
   };
   // Status links: a merchant who caught you keeps an eye on you (D21) until the end of next encounter.
   if(state.config.statusLinks === 1)grant(state,p,'D21');
-  note(p,'ขโมยพลาด: ความเชื่อใจพ่อค้าคนนี้ลด 2 และเพิ่มโทษห้ามค้าขายหนึ่งช่วง');
+  note(p,`ขโมยพลาด: ความเชื่อใจพ่อค้าคนนี้ลด ${Math.min(before,loss)} และเพิ่มโทษห้ามค้าขายหนึ่งช่วง`);
+}
+
+/** Pay once per stolen origin only after a PvP transfer, if the snapshotted cloak is still held. */
+function remainingTheftInsurance(state:AppraisalState,victim:Appraiser,duel:TheftDuel,item:AppraisalItem):void {
+  if(state.config.catalogVersion!==5||(state.config.native56Effects??0)<8||duel.victimId!==victim.id||item.copy||item.kind==='vampire-mist-cloak')return;
+  const snapshot=new Set(duel.insuranceItemIds??[]);
+  const tools=remainingHeld(state,victim,'E42').filter(i=>snapshot.has(i.id)&&i.id!==item.id).sort((a,b)=>itemEffectScale(b)-itemEffectScale(a)||a.id.localeCompare(b.id)).slice(0,5);
+  const strength=remainingStrength(tools,'E42');if(!strength)return;
+  const origin=personalOrigin(item),ledger=state.native56TheftInsurance;if(ledger?.origins.includes(origin))return;
+  const rule=REMAINING48_RULES.E42,price=Number.isSafeInteger(item.lastTradePrice)?item.lastTradePrice!:0;
+  // Creation has already applied rarity's value multiplier to item.base; effect scaling belongs to S only.
+  const scaledBase=Number.isSafeInteger(item.base)?Math.max(0,item.base):0,bps=remainingScaled(rule.refundBps,strength,3000),runPaid=ledger?.paid[victim.id]??0;
+  const quote=Math.min(rule.perLossCap,Math.floor(Math.min(price,scaledBase)*bps/10000),Math.max(0,rule.perRunCap-runPaid));
+  const amount=remainingFundedBonus(quote,state.bank-state.market.budget-state.reservedRewards);
+  state.native56TheftInsurance={paid:{...ledger?.paid,[victim.id]:runPaid+amount},origins:[...ledger?.origins??[],origin]};
+  if(amount){reward(state,victim,amount,'native-theft-insurance');note(victim,`เสื้อคลุมหมอก: รับเงินประกัน ${amount} เครดิต`);}
+  trace(state,victim,'native-theft-insurance',{duelId:duel.id,quoted:quote,amount,runPaid:runPaid+amount});
 }
 
 export function chooseTheftHand(state: AppraisalState, p: Appraiser, duelId: string, hand: RpsHand): void {
@@ -294,6 +340,7 @@ export function chooseTheftHand(state: AppraisalState, p: Appraiser, duelId: str
     // Preserve the existing stolen-good restriction until laundering rules are agreed.
     item.stolen = true;
     thief.inventory.push(item.id);
+      if(duel.victimId)remainingTheftInsurance(state,state.players.find(p=>p.id===duel.victimId)!,duel,item);
     recordPersonalActivity(state,thief,'theft',1,JSON.stringify([thief.id,'item',personalOrigin(item)]));
     state.listings = state.listings.filter(l => l.itemId !== item.id);
     note(thief,'เป่ายิ้งฉุบชนะ ขโมยสินค้าได้');
@@ -346,12 +393,14 @@ export function theftViewFor(state: AppraisalState, p: Appraiser): TheftView {
   const crime = (p as Thief).crime;
   const publicSword=(duel:TheftDuel,playerId:string)=>{const itemId=duel.swordIds?.[playerId];return !!itemId&&pilotUses(state,state.items[itemId]!)===0&&!(state.config.catalogVersion===5&&(state.config.native56Effects??0)>=6&&state.native56TieRights?.encounter===state.encounter&&state.native56TieRights.players.includes(playerId));};
   return {
+    ...(theftStartEnergy(state,p)===0?{startEnergy:0}:{}),
     duels: ((state as TheftState).theftDuels ?? []).filter(d => d.encounter === state.encounter && [d.thiefId,d.victimId].includes(p.id)).map(d => ({
       id:d.id, thiefId:d.thiefId, ...(d.victimId ? {victimId:d.victimId} : d.npc ? {npc:d.npc} : {}),
       ...(d.npc ? {npcTell:npcTheftTell(d.npc)} : {}),
       round:d.round, status:d.status, needsChoice:d.status === 'open' && !d.hands[p.id], submitted:!!d.hands[p.id],
       ...(state.config.statusLinks === 1 && d.status === 'open' ? tieView(state,d,p) : {}),
       ...(d.swordIds?{publicSwords:{you:publicSword(d,p.id),opponent:publicSword(d,d.thiefId===p.id?d.victimId??'npc':d.thiefId)}}:{}),
+      ...(d.freeStart&&d.thiefId===p.id?{freeStart:true}:{}),
       revealed:d.revealed.map(r => ({...r})),
     })),
     targets: state.players.filter(v => v.id !== p.id && !v.paused && !v.done).map(v => {

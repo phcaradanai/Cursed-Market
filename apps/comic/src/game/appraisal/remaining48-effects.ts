@@ -1,6 +1,6 @@
 import {REMAINING48_ITEMS,REMAINING48_RULES} from './remaining48-catalog.js';
 import type {Remaining48Kind,Remaining48Effect} from './remaining48-catalog.js';
-import {itemEffectScale} from './copy-effects.js';
+import {integerEffect,itemEffectScale} from './copy-effects.js';
 import {personalOrigin,setPersonalTrust} from './personal-scoring.js';
 import {unlocked,trace,maxEnergyOf,maxLifeOf,reward,recover} from './mechanics.js';
 import {remainingScaled,remainingStrength,remainingFundedBonus} from './remaining48-numbers.js';
@@ -9,11 +9,29 @@ import type {AppraisalState,Appraiser,AppraisalItem,NpcId,TradeOffer,AuctionLot}
 
 export const isRemaining48Kind=(kind:string):kind is Remaining48Kind=>Object.hasOwn(REMAINING48_ITEMS,kind);
 /** Registration alone never enables an effect; extend only alongside its canonical owner and tests. */
-export const remainingEffectReady=(kind:Remaining48Kind,revision?:2|3|4|5|6)=>REMAINING48_ITEMS[kind].nativeEffect==='effect:E05'||revision!==undefined&&REMAINING48_ITEMS[kind].nativeEffect==='effect:E06'||revision!==undefined&&revision>=3&&['effect:E28','effect:E61','effect:E63','effect:E02','effect:E11','effect:E07'].includes(REMAINING48_ITEMS[kind].nativeEffect)||revision!==undefined&&revision>=4&&['effect:E13','effect:E16'].includes(REMAINING48_ITEMS[kind].nativeEffect)||revision!==undefined&&revision>=5&&REMAINING48_ITEMS[kind].nativeEffect==='effect:E22'||revision!==undefined&&revision>=6&&REMAINING48_ITEMS[kind].nativeEffect==='effect:E38';
+export const remainingEffectReady=(kind:Remaining48Kind,revision?:2|3|4|5|6|7|8|9|10|11|12|13|14|15)=>REMAINING48_ITEMS[kind].nativeEffect==='effect:E05'||revision!==undefined&&REMAINING48_ITEMS[kind].nativeEffect==='effect:E06'||revision!==undefined&&revision>=3&&['effect:E28','effect:E61','effect:E63','effect:E02','effect:E11','effect:E07'].includes(REMAINING48_ITEMS[kind].nativeEffect)||revision!==undefined&&revision>=4&&['effect:E13','effect:E16'].includes(REMAINING48_ITEMS[kind].nativeEffect)||revision!==undefined&&revision>=5&&REMAINING48_ITEMS[kind].nativeEffect==='effect:E22'||revision!==undefined&&revision>=6&&REMAINING48_ITEMS[kind].nativeEffect==='effect:E38'||revision!==undefined&&revision>=7&&REMAINING48_ITEMS[kind].nativeEffect==='effect:E40'||revision!==undefined&&revision>=8&&REMAINING48_ITEMS[kind].nativeEffect==='effect:E42'||revision!==undefined&&revision>=9&&REMAINING48_ITEMS[kind].nativeEffect==='effect:E46'||revision!==undefined&&revision>=10&&REMAINING48_ITEMS[kind].nativeEffect==='effect:E33'||revision!==undefined&&revision>=11&&REMAINING48_ITEMS[kind].nativeEffect==='effect:E52'||revision!==undefined&&revision>=12&&REMAINING48_ITEMS[kind].nativeEffect==='effect:E34'||revision!==undefined&&revision>=13&&['effect:E49','effect:E58','effect:E67'].includes(REMAINING48_ITEMS[kind].nativeEffect)||revision!==undefined&&revision>=14&&['effect:E25','effect:E31','effect:E32','effect:E57','effect:E59','effect:E62','effect:E68'].includes(REMAINING48_ITEMS[kind].nativeEffect)||revision!==undefined&&revision>=15&&['effect:E35','effect:E36','effect:E37','effect:E53','effect:E69','effect:E71','effect:E72'].includes(REMAINING48_ITEMS[kind].nativeEffect);
 
 export function remainingHeld(state:AppraisalState,p:Appraiser,effect:Remaining48Effect):AppraisalItem[] {
  if(state.config.catalogVersion!==5||p.life===0||p.paused==='dead')return [];
  return p.inventory.map(id=>state.items[id]!).filter(item=>item?.owner===p.id&&isRemaining48Kind(item.kind)&&REMAINING48_ITEMS[item.kind].nativeEffect===`effect:${effect}`&&!p.npcContracts?.alien?.itemIds.includes(item.id)&&(state.config.native56Effects===undefined||unlocked(p,item.id)));
+}
+export function remainingPortalRerollTools(state:AppraisalState,p:Appraiser):AppraisalItem[] {
+ if(state.config.catalogVersion!==5||(state.config.native56Effects??0)<12)return [];
+ return remainingHeld(state,p,'E34');
+}
+export function heldInterestBuoys(state:AppraisalState,p:Appraiser):Record<string,number> {
+ if((state.config.native56Effects??0)<9)return {};
+ const tools=remainingHeld(state,p,'E46').sort((a,b)=>itemEffectScale(b)-itemEffectScale(a)||(a.id<b.id?-1:a.id>b.id?1:0)).slice(0,5);
+ return Object.fromEntries(tools.map(item=>[item.id,integerEffect(REMAINING48_RULES.E46.bonusBps*itemEffectScale(item))]));
+}
+export function remainingCopyValueBonus(state:AppraisalState,p:Appraiser):{amount:number;sourceItemIds:string[]} {
+ if(state.config.catalogVersion!==5||(state.config.native56Effects??0)<10||p.life===0||p.paused==='dead')return {amount:0,sourceItemIds:[]};
+ const tools=remainingHeld(state,p,'E33').sort((a,b)=>itemEffectScale(b)-itemEffectScale(a)||(a.id<b.id?-1:a.id>b.id?1:0)).slice(0,5),rule=REMAINING48_RULES.E33;
+ return {amount:remainingScaled(rule.copyValueBonusPoints,remainingStrength(tools,'E33'),rule.familyCapPoints),sourceItemIds:tools.map(i=>i.id)};
+}
+export function reconcileRemainingInterestCustody(state:AppraisalState):void {
+ if(state.config.catalogVersion!==5||(state.config.native56Effects??0)<9)return;
+ for(const p of state.players){const buoys=p.personalVault?.interest?.buoys;if(!buoys)continue;const held=new Set(Object.keys(heldInterestBuoys(state,p)));for(const id of Object.keys(buoys))if(!held.has(id))delete buoys[id];}
 }
 
 export function remainingChallengeBps(state:AppraisalState,p:Appraiser):number {

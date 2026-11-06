@@ -1,4 +1,5 @@
 import type { Appraiser, NpcId } from './types.js';
+import { REMAINING48_RULES } from './remaining48-catalog.js';
 
 export const MERCHANT_ABILITIES = {
   orc:{name:'ปิดดีล',cooldown:3,target:'stock',description:'ลดราคาซื้อสินค้า 1 ชิ้น 10/15/20% ตามขั้นความไว้ใจ ใช้กับเครดิตที่จ่ายจริง ไม่ลดค่าธรรมเนียม'},
@@ -16,6 +17,10 @@ export const abilityRemaining=(p:Appraiser,npc:NpcId,encounter:number)=>Math.max
 export function reducibleCooldown(p:Pick<Appraiser,'abilityReady'|'abilityLastUsed'|'abilityAdjusted'>,npc:NpcId,encounter:number):number {
   const ready=p.abilityReady?.[npc]??0;
   return Math.max(0,Math.min(ready-Math.max(encounter,(p.abilityLastUsed?.[npc]??0)+1),Math.floor(MERCHANT_ABILITIES[npc].cooldown/2)-(p.abilityAdjusted?.[npc]??0)));
+}
+/** E31 quote shared by the UI, server activation and the bot policy. */
+export function cooldownReductionQuote(p:Pick<Appraiser,'abilityReady'|'abilityLastUsed'|'abilityAdjusted'>,npc:NpcId,encounter:number,strength:number):number {
+  return Math.max(0,Math.min(REMAINING48_RULES.E31.familyCap,Math.floor(strength),reducibleCooldown(p,npc,encounter)));
 }
 export function reduceAbilityCooldown(p:Appraiser,npc:NpcId,encounter:number,amount:number):number {
   const reduced=Math.round(Math.min(amount,reducibleCooldown(p,npc,encounter))*100)/100;

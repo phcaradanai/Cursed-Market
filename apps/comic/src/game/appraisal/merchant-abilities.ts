@@ -6,6 +6,9 @@ import { anchorOf } from './core2.js';
 import { itemScoreValue } from './scoring.js';
 import { ABILITY_ITEM_IDS } from './types.js';
 import { MERCHANT_ABILITIES, abilityRemaining, abilityTier } from './ability-rules.js';
+import { remainingCopyValueBonus, remainingHeld } from './remaining48-effects.js';
+import { REMAINING48_ITEMS, REMAINING48_RULES } from './remaining48-catalog.js';
+import { remainingScaled, remainingStrength } from './remaining48-numbers.js';
 import { check, grant, known, learn, ownedItem, recover, removeStatus, retire, status, stockItem, trace, unlocked } from './mechanics.js';
 import type { AppraisalAction, AppraisalItem, AppraisalState, Appraiser, MerchantAbilityView, NpcId } from './types.js';
 
@@ -13,6 +16,11 @@ const npcs=Object.keys(MERCHANT_ABILITIES) as NpcId[];
 const activeNpcs=(state:AppraisalState)=>npcs.filter(n=>expansionActive(state.config)||!['swarm','deepsea'].includes(n));
 const liveCopy=(state:AppraisalState,id:string)=>Object.values(state.items).some(i=>i.copy?.sourceId===id && !['consumed','removed','retired','collector'].includes(i.owner));
 const movable=(state:AppraisalState,p:Appraiser,id:string)=>state.items[id]?.owner===p.id && unlocked(p,id) && !p.inventory.some(other=>other!==id && state.items[other]?.id===id);
+export function e25CandidatePromotionChanceBps(state:AppraisalState,p:Appraiser):number {
+  if(state.config.catalogVersion!==5||Number(state.config.native56Effects??0)<14||p.life===0||p.paused==='dead')return 0;
+  const tools=remainingHeld(state,p,'E25');
+  return remainingScaled(REMAINING48_RULES.E25.promotionChanceBps,remainingStrength(tools,'E25'),REMAINING48_RULES.E25.familyCapBps);
+}
 export function abilityTargets(state:AppraisalState,p:Appraiser,npc:NpcId):string[] {
   if(npc==='orc' || npc==='autometa' || npc==='beast')return p.stock.filter(id=>state.items[id]?.owner===`npc:${p.id}:${state.encounter}` && (npc!=='beast' || state.items[id]?.lastAppraisal===null && !state.listings.some(l=>l.itemId===id)));
   if(npc==='darkone')return [];
@@ -28,7 +36,7 @@ export function merchantAbilityViews(state:AppraisalState,p:Appraiser):MerchantA
   });
 }
 /** Candidate facts are server-generated and persisted on opening; retries never reroll them. */
-function makeCandidate(state:AppraisalState,p:Appraiser,npc:NpcId,key:string,slot:number,source?:AppraisalItem):AppraisalItem {
+function makeCandidate(state:AppraisalState,p:Appraiser,npc:NpcId,key:string,slot:number,source?:AppraisalItem,allowE25Promotion=false):AppraisalItem {
   const config=state.config;
   let pool=merchantKinds(npc,config.catalogVersion??1,!!config.cleanse,!!config.challenge,expansionActive(config),!!config.polish,!!config.trustAbilities);
   if(source && pool.length>1)pool=pool.filter(kind=>kind!==source.kind);
@@ -40,7 +48,8 @@ function makeCandidate(state:AppraisalState,p:Appraiser,npc:NpcId,key:string,slo
   const base=range[0]+Math.floor(randomAt(state.seed,`${id}:base`)*(range[1]-range[0]+1));
   const ask=Math.max(1,anchor-2+Math.floor(randomAt(state.seed,`${id}:ask`)*6));
   const item:AppraisalItem={id,kind,base,ask,genuine:randomAt(state.seed,`${id}:genuine`)<.75,cursed:randomAt(state.seed,`${id}:cursed`)<.35,owner:`ability-choice:${p.id}`,npcOwnerId:p.id,npc,encounter:state.encounter,certificate:false,lastAppraisal:null,lastAccepted:null,reservation:Math.max(1,Math.ceil(base*NPC_SPECS[npc].reservation[0]))};
-  ensureItemAppearance(state,item);
+  const e25=allowE25Promotion&&Object.hasOwn(REMAINING48_ITEMS,kind)&&REMAINING48_ITEMS[kind as keyof typeof REMAINING48_ITEMS].nativeEffect==='effect:E25';
+  ensureItemAppearance(state,item,e25?e25CandidatePromotionChanceBps(state,p):0);
   if(source){
     // Preserve quality instead of laundering fakes/curses; the new item cannot create score value.
     item.genuine=source.genuine;item.cursed=source.cursed;
@@ -92,20 +101,22 @@ export function useMerchantAbility(state:AppraisalState,p:Appraiser,action:Extra
     case 'darkone': {check(action.statusId && view.statusIds.includes(action.statusId),'ability-target','เลือก debuff ที่มีอยู่');removeStatus(p,action.statusId);if(tier>=1)recover(state,p,1,'darkone-release');if(tier>=2)grant(state,p,'B06');break;}
     case 'deepsea': {const item=target();item.cursed=false;for(const seat of state.players)if(seat.knowledge[item.id]?.cursed!==undefined)seat.knowledge[item.id]!.cursed=false;if(state.publicKnowledge[item.id]?.cursed!==undefined)state.publicKnowledge[item.id]!.cursed=false;learn(p,item.id,{cursed:false,...(tier>=1?{genuine:item.genuine}:{}),...(tier>=2?{base:item.base}:{})});break;}
     case 'swarm': {
-      const item=target(),percent=[25,35,50][tier]!;
+      const item=target(),basePercent=[25,35,50][tier]!,bonus=remainingCopyValueBonus(state,p),percent=basePercent+bonus.amount;
       const id=`copy-${item.id}-1`;
       check(!state.items[id],'ability-copy','ต้นฉบับนี้เคยมีสำเนาแล้ว');
       const copy:AppraisalItem={...item,id,base:Math.floor(item.base*percent/100),ask:Math.floor(item.ask*percent/100),reservation:0,owner:p.id,certificate:false,lastAppraisal:null,lastAccepted:null,copy:{sourceId:item.id,number:Object.values(state.items).filter(i=>i.copy).length+1,valuePercent:percent}};
       delete copy.appraisedBy;delete copy.commissionPaid;delete copy.preserved;delete copy.copyConsumed;
       state.items[id]=copy;p.inventory.push(id);
+      if(bonus.amount){p.notes.push(`กลุ่มไข่รัง: เพิ่มมูลค่าสำเนา +${bonus.amount} จุด (${basePercent} → ${percent}%)`);trace(state,p,'native-copy-value',{sourceItemId:item.id,copyId:id,basePercent,bonusPercent:bonus.amount,valuePercent:percent,sourceItemIds:bonus.sourceItemIds});}
       const facts=known(state,p,item.id);learn(p,id,{...(facts.base!==undefined?{base:copy.base}:{}),...(facts.genuine!==undefined?{genuine:copy.genuine}:{}),...(facts.cursed!==undefined?{cursed:copy.cursed}:{}),...(facts.effectsKnown?{effectsKnown:true}:{})});break;
     }
     case 'alien': case 'beast': {
       const source=target(),key=`${state.encounter}-${p.id}-${npc}`;
-      const count=2+tier+(npc==='beast'&&status(p,'B26')?1:0),itemIds:string[]=[];
+      const extraBeastChoices=npc==='beast'&&state.config.catalogVersion===5&&(state.config.native56Effects??0)>=14?remainingScaled(REMAINING48_RULES.E32.extraChoices,remainingStrength(remainingHeld(state,p,'E32'),'E32'),REMAINING48_RULES.E32.familyCap):0;
+      const count=2+tier+(npc==='beast'&&status(p,'B26')?1:0)+extraBeastChoices,itemIds:string[]=[];
       // Beast replaces a shop slot. Alien swaps an owned item, never the number of owned goods.
       if(npc==='beast')itemIds.push(source.id);
-      for(let i=0;i<count-(npc==='beast'?1:0);i++)itemIds.push(makeCandidate(state,p,npc==='beast'?source.npc:npc,key,i,npc==='alien'?source:undefined).id);
+      for(let i=0;i<count-(npc==='beast'?1:0);i++)itemIds.push(makeCandidate(state,p,npc==='beast'?source.npc:npc,key,i,npc==='alien'?source:undefined,true).id);
       p.abilityChoice={npc,sourceId:source.id,itemIds};
       if(npc==='alien'){state.listings=state.listings.filter(l=>l.itemId!==source.id);for(const offer of state.trades)if(offer.status==='open' && (offer.itemId===source.id||offer.swapItemId===source.id))offer.status='rejected';}if(npc==='beast')removeStatus(p,'B26');break;
     }

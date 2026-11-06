@@ -1,5 +1,6 @@
 import {ITEM_SPECS} from '../game/appraisal/content.js';
-import { reducibleCooldown } from '../game/appraisal/ability-rules.js';
+import { cooldownReductionQuote, reducibleCooldown } from '../game/appraisal/ability-rules.js';
+import { itemEffectScale } from '../game/appraisal/copy-effects.js';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -9,6 +10,7 @@ import type { AppraisalAction, AppraisalAudit, AppraisalConfig, AppraisalState, 
 
 export const APPRAISAL_POLICIES=['cautious','aggressive','collector','trader'] as const;
 export type AppraisalPolicy=typeof APPRAISAL_POLICIES[number];
+const NATIVE56_E31_ITEMS:readonly string[]=['autometa-coolant-canister','alien-phase-dial'];
 type Body=AppraisalAction extends infer A ? A extends AppraisalAction ? Omit<A,'playerId'|'requestId'|'encounter'> : never : never;
 function npcEnergy(v:AppraisalView):number {return (v.freeBuy?0:1)+(v.self.statuses.some(s=>s.id==='D06')?1:0);}
 function buyPrice(v:AppraisalView,item:ItemView):number {return Math.max(0,item.price-(v.self.statuses.some(s=>s.id==='B03')?2:0)+(v.self.statuses.some(s=>s.id==='D12')?2:0)+(v.fee??0));}
@@ -211,7 +213,10 @@ export function appraisalBotDecision(v:AppraisalView,policy:AppraisalPolicy):Bod
     const toBuy=p.stock.find(i=>p.credits>=buyPrice(v,i) && !(knownBad(i) && policy!=='aggressive') && worth(v,i)>=buyPrice(v,i)*BUY_RATIO[policy]);
     if(toBuy && p.energy>=npcEnergy(v)) return {type:'buy',itemIds:[toBuy.id],condition:false};
     if(policy==='collector' && p.energy>=4) {
-      const item=p.inventory.find(i=>i.nativeEffectReady!==false && !p.activated.includes(i.id) && !p.abilityItemUsed?.includes(i.kind) && !['chrono-gear','burden-hourglass'].includes(i.kind) && (!ITEM_SPECS[i.kind].nativeEffect || ITEM_SPECS[i.kind].explicitActivation && !i.pilotUses));if(item) return {type:'activate',itemId:item.id};
+      const cooldownItem=p.inventory.find(i=>NATIVE56_E31_ITEMS.includes(i.kind)&&i.nativeEffectReady===true&&!p.activated.includes(i.id)&&!i.pilotUses&&!NATIVE56_E31_ITEMS.some(kind=>p.abilityItemUsed?.includes(kind as typeof i.kind))&&!p.npcContracts?.alien?.itemIds.includes(i.id));
+      const cooldownTarget=cooldownItem&&p.merchantAbilities?.find(a=>a.trust>=1&&cooldownReductionQuote(p,a.npc,v.encounter,itemEffectScale(cooldownItem))>0);
+      if(cooldownItem&&cooldownTarget)return {type:'activate',itemId:cooldownItem.id,npc:cooldownTarget.npc};
+      const item=p.inventory.find(i=>i.nativeEffectReady!==false && !p.activated.includes(i.id) && !p.abilityItemUsed?.includes(i.kind) && !['chrono-gear','burden-hourglass',...NATIVE56_E31_ITEMS].includes(i.kind) && (!ITEM_SPECS[i.kind].nativeEffect || ITEM_SPECS[i.kind].explicitActivation && !i.pilotUses));if(item) return {type:'activate',itemId:item.id};
       const source=p.merchantAbilities?.find(a=>a.trust>=1&&reducibleCooldown(p,a.npc,v.encounter)>0);
       const gear=p.inventory.find(i=>i.kind==='chrono-gear'&&!p.activated.includes(i.id)&&!p.abilityItemUsed?.includes(i.kind));
       if(source&&gear)return {type:'activate',itemId:gear.id,npc:source.npc};

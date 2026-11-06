@@ -1,0 +1,33 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {createAppraisalRun,appraisalViewFor} from '../src/game/appraisal/index.js';
+import {grantSealInspection,reconcileE53,sealInspectionTool} from '../src/game/appraisal/seal-inspection.js';
+import {inspect} from '../src/game/appraisal/mechanics.js';
+
+test('E53 grants one private inspection, spends normal quota, and revokes on custody loss',()=>{
+  const state=createAppraisalRun(['alice','bob'],'seal-inspect',{catalogVersion:5});
+  Object.assign(state.config,{native56Effects:15});
+  state.phase='APPRAISAL';
+  const [p,b]=state.players;
+  assert(p&&b);
+  const source=Object.values(state.items)[0]!;
+  const tool={...source,id:'tool',kind:'darkone-ash-seal' as const,owner:p.id};
+  const seized={...source,id:'seized',owner:p.id};
+  state.items[tool.id]=tool;state.items[seized.id]=seized;p.inventory.push(tool.id,seized.id);
+  const eligibility=sealInspectionTool(state,p);
+  assert.equal(eligibility,tool.id);
+  grantSealInspection(state,p,seized,eligibility);
+  assert.equal(sealInspectionTool(state,p),undefined);
+  assert.equal(appraisalViewFor(state,p.id).self.inventory.find(i=>i.id===seized.id)?.sealInspectionFree,true);
+  const snapshot=structuredClone(state);
+  p.energy=0;
+  inspect(state,p,seized.id,'authenticity');
+  assert.equal(p.energy,0);
+  assert.equal(p.inspections,1);
+  assert.throws(()=>inspect(state,p,seized.id,'effects'));
+  const owner=snapshot.players[0]!;
+  snapshot.items[tool.id]!.owner=b.id;
+  reconcileE53(snapshot);
+  snapshot.items[tool.id]!.owner=owner.id;
+  assert.equal(appraisalViewFor(snapshot,owner.id).self.inventory.find(i=>i.id===seized.id)?.sealInspectionFree,undefined);
+});

@@ -1,3 +1,4 @@
+import { closeEventPortal } from './portal-effects.js';
 import { randomAt } from '../random.js';
 import { ITEM_SPECS } from './content.js';
 import { check, damageLife, grant, healLife, maxEnergyOf, maxLifeOf, penaltyItem, recover, reward, spend, status, trace, transfer } from './mechanics.js';
@@ -100,7 +101,7 @@ export function resolveCore2Event(state:AppraisalState,p:Appraiser,offer:EventOf
     p.notes.push(won?`${spec.name}: ได้ผลดี`:`${spec.name}: ผลข้างเคียงร้าย`);
     trace(state,p,'core2-gamble',{id:spec.id,won});
   }
-  if(picked.door)p.portals.forEach((portal,index)=>{if(index===(picked.door==='first'?1:0))portal.disabled=true;});
+  if(picked.door)p.portals.forEach((portal,index)=>{if(index===(picked.door==='first'?1:0))closeEventPortal(state,portal,spec.id);});
   if(picked.deal)p.dealMode=picked.deal;
   if(spec.consequence){delete p.inflated;delete p.theft;}
   p.notes.push(`${spec.name}: ${choice}`);p.notes=p.notes.slice(-30);

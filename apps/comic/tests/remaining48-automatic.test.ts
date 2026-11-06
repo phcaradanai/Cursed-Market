@@ -13,7 +13,7 @@ function portal(s:AppraisalState,npc:NpcId='orc'){const p=s.players[0]!;p.portal
 function shop(s:AppraisalState,npc:NpcId='orc'){const p=s.players[0]!,door=portal(s,npc);s.phase='APPRAISAL';p.selectedPortalId=door.id;p.stock=[...door.stock];for(const id of p.stock)s.items[id]!.npc=npc;return s.items[p.stock[0]!]!;}
 function range(s:AppraisalState){const item=shop(s);item.base=100;s.config.rarity??=defaultRarityConfig();s.config.rarityEconomy??=defaultRarityEconomy();item.appearance={version:1,rarity:'common',theme:'plain',visualSeed:1};item.rarityPower={version:1,valueMultiplier:1,effectMultiplier:1};const p=s.players[0]!;inspect(s,p,item.id,'price');return {item,facts:p.knowledge[item.id]!};}
 
-test('new native runs select effects6, retaining historical revisions as explicit config',()=>{assert.equal((createAppraisalRun(['a','b'],'new',{catalogVersion:5}).config as {native56Effects?:number}).native56Effects,6);assert.doesNotThrow(()=>createAppraisalRun(['a','b'],'two',{catalogVersion:5,native56Effects:2}));});
+test('new native runs select effects14, retaining historical revisions as explicit config',()=>{assert.equal((createAppraisalRun(['a','b'],'new',{catalogVersion:5}).config as {native56Effects?:number}).native56Effects,14);for(const revision of [2,3,4,5,6,7,8,9,10,11,12,13,14] as const)assert.doesNotThrow(()=>createAppraisalRun(['a','b'],'historical',{catalogVersion:5,native56Effects:revision}));});
 
 test('E28 awards only a first actual meeting, records meetings without sword and counts only actual trust gain',()=>{
  let s=make();s.config.personalScoringRules=1;s.personalPerformance={version:1,facts:[]};const sword=give(s,'orc-oath-sword',8),door=portal(s);s.players[0]!.npcTrust!.orc=9;

@@ -1,0 +1,422 @@
+{
+  "version": 1,
+  "catalogVersion": 5,
+  "native56Effects": 12,
+  "scope": "Frozen E34 experimental binding: Swarm Wing Membrane Glider combines with the Deepsea Tide Compass; floor(total held strength) discounts portal reroll energy, shared cap2, final cost at least1. Existing escalating reroll count and portal/event guards remain. Catalog5/effects12 only; default3, pilot4 and historical revisions1–11 stay unchanged. Owner/compatibility evidence is not release balance or whole-game completion.",
+  "config": {
+    "rarityEconomy": {
+      "version": 1,
+      "tiers": {
+        "common": {
+          "value": 1,
+          "effect": 1
+        },
+        "uncommon": {
+          "value": 2,
+          "effect": 2
+        },
+        "rare": {
+          "value": 3,
+          "effect": 3
+        },
+        "epic": {
+          "value": 4,
+          "effect": 4
+        },
+        "legendary": {
+          "value": 6,
+          "effect": 6
+        },
+        "mythic": {
+          "value": 8,
+          "effect": 8
+        }
+      }
+    },
+    "rarity": {
+      "version": 1,
+      "rates": {
+        "common": 0.6,
+        "uncommon": 0.25,
+        "rare": 0.1,
+        "epic": 0.035,
+        "legendary": 0.013,
+        "mythic": 0.002
+      },
+      "themes": {
+        "common": [
+          {
+            "theme": "plain",
+            "weight": 1
+          }
+        ],
+        "uncommon": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "rare": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "epic": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "legendary": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "mythic": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ]
+      }
+    },
+    "loanEndSettlement": true,
+    "vaultInterestRules": 1,
+    "theftTimeoutRules": 1,
+    "collectorDeadline": 15,
+    "eventChoiceRules": 1,
+    "statusLinks": 1,
+    "systemLinks": 1,
+    "trustAbilities": true,
+    "catalogVersion": 5,
+    "itemEffects": true,
+    "roundRewards": true,
+    "multiCoinRewards": true,
+    "commerce": true,
+    "totalTrustStock": true,
+    "curseSight": true,
+    "freeBuy": true,
+    "freeMerchantAction": true,
+    "fakeEffect": true,
+    "cleanse": true,
+    "wishlist": true,
+    "wishContract": true,
+    "challenge": true,
+    "expansion": true,
+    "encounters": 3,
+    "startingCredits": 40,
+    "maxEnergy": 10,
+    "recoveryEnergy": 4,
+    "bankReserve": 2000,
+    "marketProbability": 1,
+    "marketMaxOrders": 3,
+    "marketQuota": 1,
+    "personalScoringRules": 1,
+    "collectorWishlistRules": 1,
+    "secureEconomy": true,
+    "brokerage": {
+      "auctionProbability": 0.5,
+      "maxLots": 2,
+      "bondProbability": 0.65
+    },
+    "polish": true,
+    "npcEvents": true,
+    "core2": true,
+    "survival": {
+      "maxLife": 6,
+      "encounterLifeCost": 1,
+      "entryEnergyCost": 0
+    },
+    "personalScoringFacts": 2,
+    "native56Effects": 12,
+    "recoveryQuoteRules": 1
+  },
+  "implementedPrimaryItemIds": [
+    "alien-biobright-seedpod",
+    "alien-thought-translator",
+    "autometa-clockwork-sentry",
+    "autometa-coil-repeater",
+    "autometa-data-prism",
+    "autometa-servo-harness",
+    "autometa-torque-caliper",
+    "beast-riftfang-sword",
+    "darkone-crossing-token",
+    "deepsea-abyss-trident",
+    "deepsea-kelp-saddle",
+    "deepsea-tide-compass",
+    "deepsea-tideglass-buoy",
+    "deepsea-whale-conch-horn",
+    "orc-bone-war-drum",
+    "orc-clan-forge-tongs",
+    "orc-ember-salve",
+    "orc-ironroot-greaves",
+    "orc-oath-sword",
+    "orc-tally-beads",
+    "orc-tusk-shield",
+    "swarm-brood-hammer",
+    "swarm-hive-egg-cluster",
+    "swarm-pheromone-sprayer",
+    "swarm-resin-spool",
+    "swarm-wing-membrane-glider",
+    "vampire-gloam-violin",
+    "vampire-midnight-invitation",
+    "vampire-mist-atomizer",
+    "vampire-mist-cloak",
+    "vampire-mooncut-sword",
+    "vampire-nocturne-signet"
+  ],
+  "archives": [
+    {
+      "id": "2-cautious",
+      "count": 2,
+      "policy": "cautious",
+      "seed": "native56-rollout-0",
+      "commands": 168,
+      "sha256": "0099e63e6d0444de1fd5bd6773739c66cb27d1072702b1a231dc7b4d09bbcd3d",
+      "rawSha256": "385c564e5b7e0b908a54f43d9a952671af51ce8a3538f7984f4cdb54454431e4",
+      "file": "docs/validation/native56-stage10-2026-11-05/compatibility/2-cautious.audit.json.gz"
+    },
+    {
+      "id": "2-collector",
+      "count": 2,
+      "policy": "collector",
+      "seed": "native56-rollout-0",
+      "commands": 242,
+      "sha256": "e08850adfa6f662ddf2a81378e2463a2228a558a040bf14e49b935dbbe64f03e",
+      "rawSha256": "bcd33a003b634e710fbcef764c78c7fbe1601eb2a0b67a8a921a0e81cbc6c39b",
+      "file": "docs/validation/native56-stage10-2026-11-05/compatibility/2-collector.audit.json.gz"
+    },
+    {
+      "id": "4-cautious",
+      "count": 4,
+      "policy": "cautious",
+      "seed": "native56-rollout-0",
+      "commands": 286,
+      "sha256": "46a02e7b4298eaada68619209005b37a45ee31083a0cad77503d0eb6a3e7db4e",
+      "rawSha256": "90a6a2412e544b165f2f8fba47ac2671fac0e988ac04e3428dc6e3d0313c8574",
+      "file": "docs/validation/native56-stage10-2026-11-05/compatibility/4-cautious.audit.json.gz"
+    },
+    {
+      "id": "4-collector",
+      "count": 4,
+      "policy": "collector",
+      "seed": "native56-rollout-0",
+      "commands": 305,
+      "sha256": "33422d527e83eabe8f23d9e5f9ae230c1006a3ba85c38b33fc3dd0809f9cc407",
+      "rawSha256": "51774bb880aef37386d30b5fdaca187a50bb96a018016808446e7c40f11a9134",
+      "file": "docs/validation/native56-stage10-2026-11-05/compatibility/4-collector.audit.json.gz"
+    }
+  ],
+  "evidence": [
+    "docs/validation/native56-stage11-2026-11-05/verification.json",
+    "docs/validation/native56-stage11-2026-11-05/compatibility/report.json",
+    "docs/validation/native56-stage10-2026-11-05/pilot-public/public-effects.json",
+    "docs/game-design/native56-stage12.json",
+    "docs/validation/native56-stage12-2026-11-05/verification.json",
+    "docs/validation/native56-stage12-2026-11-05/compatibility/report.json",
+    "apps/comic/tests/remaining48-reroll-cost.test.ts"
+  ],
+  "priorStage6Sha256": "b20dc560881ee05808d53eea81e68b45f3d84f1d6be4fd3534b2116e74554759",
+  "pendingPrimaryCount": 24,
+  "asOf": "2026-11-05",
+  "priorStage7Sha256": "fd79225a6b8ae9946f16134b47602aac85e5d841d065b85b680e0f9ab83dae31",
+  "priorStage9Sha256": "0614e78358f5402b59a7bcc992096a8802b1e913bb156c47db47f1022c97a7a1",
+  "priorStage8Sha256": "f946e2693befdaebb3edd79f746be98ef2d6b876f2217b04883fd0fcd76ff9b4",
+  "priorStage10Sha256": "7fd5036f2607b760f57778d36e4440d14a76fa8b4511044f5f4ce4f6b7348a46",
+  "priorStage11Sha256": "bf66ef6d4e9ac9dcbacc5ce190fd0e316b9cb373ce448c3d925204da3b5fb8d0",
+  "verification": "docs/validation/native56-stage12-2026-11-05/verification.json",
+  "sourceFingerprints": {
+    "apps/comic/scripts/native56-compatibility.mjs": "4ca368b3d1e0df146a872b9b37669e988bf222b087262abeee16e687c51f1695",
+    "apps/comic/src/game/appraisal/types.ts": "3bed36c34667d280869caf4913d91a6340e1e80c464f19c2950133a94037aaf9",
+    "apps/comic/src/game/appraisal/remaining48-effects.ts": "9ce2d1c2ebd158b3e173a12885ba8a6e348475218a2efea8d01b8e238c24e34b",
+    "apps/comic/src/game/appraisal/pilot-effects.ts": "dd0a5e9e23d68920b86d6bbd60ed5b880e046418814b13915fabc5dee8f8a4bd",
+    "apps/comic/src/game/appraisal/engine.ts": "86ec80fa24e09d45fae0d017958a8574c18a2c40e13de2bcd6394abd1e4e0eb1",
+    "apps/comic/src/game/appraisal/views.ts": "18190092d69d4d17f15c243ebc95662bb0bd23541e7179748581b7b7722cf295",
+    "apps/comic/src/appraisal-client/catalog-text.ts": "8bb88b453a11fa192324157e554c596fc1ceade4db3ad26f41f8b627220cd95f",
+    "apps/comic/src/appraisal-client/components.tsx": "13c74d5887a90809586f3e16b12a50006e43909a1ddce45c805a9e599c8c74d0",
+    "apps/comic/tests/remaining48-reroll-cost.test.ts": "66171e81d5b4512eafed072273728132f686cd68867394be2684d27b7c72e71b",
+    "apps/comic/tests/remaining48-theft.test.ts": "8e9f31bf6aa2d18dd564e1debcfff25006e13ad3754a63754249e88578a83022"
+  }
+}

@@ -20,6 +20,7 @@ import type { AppraisalView, EventOffer, ItemView, NpcId, StatusId } from '../ga
 import type { AppraisalSeatAction } from '../shared/appraisal-protocol.js';
 
 export type Decision = AppraisalSeatAction extends infer A ? A extends AppraisalSeatAction ? Omit<A,'requestId'|'encounter'> : never : never;
+const NATIVE56_E31_ITEMS:readonly string[]=['autometa-coolant-canister','alien-phase-dial'];
 const PHASE_LABEL:Record<AppraisalView['phase'],string>={PORTALS:'เลือกประตู',APPRAISAL:'ประเมินและซื้อ',TRADE:'ต่อรองกับผู้เล่น',REVEAL:'รับเครดิตหลังซื้อขาย',RESULTS:'จบการเดินทาง'};
 /** Phase title in the active language. */
 export const phaseLabel=(phase:AppraisalView['phase'])=>t(PHASE_LABEL[phase]);
@@ -58,7 +59,7 @@ export const npcAcceptanceChance=(game:AppraisalView,npc:NpcId)=>Math.min(95,(ga
 export const inspectionQuota=(game:AppraisalView)=>2+playerPassives(game).inspections;
 export const freeInspectionRemaining=(game:AppraisalView,property:InspectionProperty)=>freeInspectionCount(playerPassives(game),game.self,property);
 export const appraisalCost=(item:ItemView)=>item.appraisal===null && item.freeMerchantAction?0:1;
-export const inspectionCost = (game:AppraisalView,property:InspectionProperty='price',item?:ItemView) => item?.freeMerchantAction || freeInspectionRemaining(game,property)>0 || property==='price' && (game.self.pilotPriceChecks??0)>0?0:Math.max(0,1+integerEffect(statusMagnitude(game.self,'D01',1))-integerEffect(statusMagnitude(game.self,'B05',1)))*Number(!hasStatus(game,'B11'));
+export const inspectionCost = (game:AppraisalView,property:InspectionProperty='price',item?:ItemView) => item?.freeMerchantAction || item?.sealInspectionFree || freeInspectionRemaining(game,property)>0 || property==='price' && (game.self.pilotPriceChecks??0)>0?0:Math.max(0,1+integerEffect(statusMagnitude(game.self,'D01',1))-integerEffect(statusMagnitude(game.self,'B05',1)))*Number(!hasStatus(game,'B11'));
 /** Survival: goods a friend appraised and the merchant accepted cost no energy to buy. Mirrors friendAppraised in the engine. */
 export const friendGoods = (game:AppraisalView, items:ItemView[]) => !!game.survival && items.length>0 && items.every(i=>i.appraisedBy!==undefined && i.appraisedBy!==game.self.id && i.appraisalAccepted===true && i.owner.startsWith(`npc:${i.appraisedBy}:`));
 export const purchaseEnergy = (game:AppraisalView, items:ItemView[]=[]) => Math.max(0,(game.freeBuy || friendGoods(game,items)?0:1)+integerEffect(statusMagnitude(game.self,'D06',1))-playerPassives(game).buyEnergy);
@@ -88,6 +89,12 @@ export function activationBlock(game:AppraisalView,itemId:string,quiet:boolean):
   const nativeItem=game.self.inventory.find(i=>i.id===itemId);
   if(nativeItem?.nativeEffectReady===false)return pick('ตอนนี้ใช้ความสามารถนี้ไม่ได้','This ability is currently unavailable');
   if(nativeItem && ITEM_SPECS[nativeItem.kind].nativeEffect){if(!ITEM_SPECS[nativeItem.kind].explicitActivation)return ITEM_SPECS[nativeItem.kind].usage??null;if(nativeItem.pilotUses)return pick('สินค้าชิ้นนี้ใช้ในช่วงนี้แล้ว','This item was used this encounter');}
+  if(nativeItem&&NATIVE56_E31_ITEMS.includes(nativeItem.kind)){
+    if(NATIVE56_E31_ITEMS.some(kind=>game.self.abilityItemUsed?.includes(kind as typeof nativeItem.kind)))return pick('สินค้ากลุ่มลดเวลารอใช้ในช่วงนี้แล้ว','The cooldown tool family was used this encounter');
+    const originUsed=nativeItem.copy&&game.self.inventory.find(item=>item.id===nativeItem.copy!.sourceId)?.pilotUses;
+    if(originUsed)return pick('สินค้าต้นทางใช้ในช่วงนี้แล้ว','The original item was used this encounter');
+    if(game.self.npcContracts?.alien?.itemIds.includes(nativeItem.id))return pick('สินค้าถูกยืมอยู่','This item is currently lent out');
+  }
   if(game.self.abilityChoice)return pick('เลือกสินค้าที่พ่อค้าเสนอให้ก่อน','Choose the pending merchant offer first');
   if(game.self.abilityItemUsed?.includes(game.self.inventory.find(i=>i.id===itemId)?.kind as never))return pick('สินค้าชนิดนี้ใช้ในช่วงนี้แล้ว','This item kind was used this encounter');
   if(game.self.eventOffer) return t('ตอบเหตุการณ์ก่อน จึงเปิดใช้ได้');

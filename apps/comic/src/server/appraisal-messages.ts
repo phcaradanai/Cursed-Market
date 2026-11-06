@@ -92,7 +92,16 @@ function action(value: unknown): AppraisalSeatAction {
       return { type: 'buy', ...base, itemIds, condition: boolean(body.condition) };
     }
     case 'activate': {
-      keys(body,[...fields,'itemId','npc','otherNpc']);
+      keys(body,[...fields,'itemId','npc','otherNpc','target']);
+      if(body.target!==undefined){
+        if(body.npc!==undefined||body.otherNpc!==undefined)throw new MessageError();
+        const target=object(body.target);
+        if(target.portalId!==undefined){keys(target,['portalId']);return {type:'activate',...base,itemId:string(body.itemId),target:{portalId:string(target.portalId)}};}
+        keys(target,['statusId']);
+        const statusId=string(target.statusId) as StatusId;
+        if(!ALL_STATUS_IDS.includes(statusId))throw new MessageError();
+        return {type:'activate',...base,itemId:string(body.itemId),target:{statusId}};
+      }
       for(const key of ['npc','otherNpc'] as const)if(body[key]!==undefined && (typeof body[key]!=='string'||!Object.hasOwn(NPC_SPECS,body[key])))throw new MessageError();
       return {type:'activate',...base,itemId:string(body.itemId),...(body.npc===undefined?{}:{npc:body.npc as keyof typeof NPC_SPECS}),...(body.otherNpc===undefined?{}:{otherNpc:body.otherNpc as keyof typeof NPC_SPECS})};
     }

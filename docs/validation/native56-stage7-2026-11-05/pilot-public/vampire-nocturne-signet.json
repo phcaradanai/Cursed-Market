@@ -1,0 +1,53 @@
+{
+  "kind": "vampire-nocturne-signet",
+  "config": {
+    "catalogVersion": 4,
+    "startingCredits": 500,
+    "secureEconomy": true,
+    "core2": true,
+    "survival": {
+      "maxLife": 6,
+      "encounterLifeCost": 1,
+      "entryEnergyCost": 0
+    },
+    "collectorDeadline": 3,
+    "marketProbability": 0,
+    "wishlist": false,
+    "npcEvents": false,
+    "polish": false,
+    "expansion": true
+  },
+  "scope": "Two supported-config command-driven paths, public-view actors and legal custody counterfactual. Starting500 is a mechanism fixture, not default40-credit balance. Cooperative fixed PvP hands; no hidden-hand policy. Seed search targets eligibility/outcome boundary and is not unbiased sampling.",
+  "trials": [
+    {
+      "n": 1,
+      "seed": "public-pilot-vampire-nocturne-signet-1",
+      "status": "effect exposed + both strict replays passed"
+    }
+  ],
+  "passed": true,
+  "metric": {
+    "principal": 100,
+    "heldQuote": 12,
+    "storedQuote": 10,
+    "heldPaid": 12,
+    "storedPaid": 10,
+    "bonusCredits": 2
+  },
+  "seed": "public-pilot-vampire-nocturne-signet-1",
+  "auditFiles": [
+    {
+      "file": "vampire-nocturne-signet-held.audit.json",
+      "sha256": "8f9f7777883c3a12ecd10ddc77ffc700b0be4a1cfebc9dd41935c23a1f509b62",
+      "commands": 35,
+      "strictReplay": true
+    },
+    {
+      "file": "vampire-nocturne-signet-stored-or-unused.audit.json",
+      "sha256": "181c5f38210fe2883b7885aec14b1d30583d4e54a6dc500165a7ef95807a5db8",
+      "commands": 36,
+      "strictReplay": true
+    }
+  ],
+  "finishedAt": "2026-11-05T06:50:33.579Z"
+}

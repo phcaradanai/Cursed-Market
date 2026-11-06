@@ -1,0 +1,176 @@
+{
+  "asOf": "2026-11-05",
+  "baseRevision": "55f8e6ee09282ab47eb1cd7b7a8ce1625571e0cf",
+  "workingTree": "Dirty working tree; source and related owner tests are fingerprinted below.",
+  "scope": "Native56 effects10 / E33 only. Compatibility preserves32 catalog4 replays and exercises four fixed-seed catalog5 scenarios; focused tests cover E33. Not release balance, all56 exposure or whole-game completion.",
+  "config": {
+    "catalogVersion": 5,
+    "native56Effects": 10,
+    "recoveryQuoteRules": 1,
+    "startingCredits": 40,
+    "survival": {
+      "maxLife": 6,
+      "encounterLifeCost": 1
+    },
+    "collectorDeadline": 15
+  },
+  "verification": {
+    "serverBuild": {
+      "passed": true,
+      "command": "npm run build:server (from apps/comic)"
+    },
+    "clientBuild": {
+      "passed": true,
+      "command": "npm run build:appraisal (from apps/comic)"
+    },
+    "focusedOwnerTests": {
+      "passed": 3,
+      "failed": 0,
+      "testFile": "apps/comic/tests/remaining48-swarm-copy.test.ts",
+      "command": "node --test dist/tests/remaining48-swarm-copy.test.js",
+      "covers": [
+        "E33 adds five value-percent points per held strength atop actual Swarm trust tier, capped at +10",
+        "Existing 40% copy effect strength and pre-effects10 lock remain unchanged",
+        "Comic held-effect explanation appears after unlock and scales copied tools"
+      ]
+    },
+    "sealedCompatibility": {
+      "passed": true,
+      "report": "docs/validation/native56-stage10-2026-11-05/compatibility/report.json",
+      "legacyReplays": 32,
+      "diagnosticCases": 4,
+      "native56Effects": 10,
+      "commands": [
+        168,
+        242,
+        286,
+        305
+      ]
+    },
+    "pilotPublic": {
+      "passed": true,
+      "report": "docs/validation/native56-stage10-2026-11-05/pilot-public/public-effects.json",
+      "cases": 8,
+      "auditFiles": 16,
+      "sameAuditHashesAs": "docs/validation/native56-stage9-2026-11-05/pilot-public/public-effects.json",
+      "sameHashes": true
+    },
+    "uiSourceCheck": {
+      "passed": true,
+      "sourceFingerprints": 416,
+      "baselineHashes": 14,
+      "command": "npm run ui:check",
+      "scope": "Current source fingerprints pass; approved baseline hashes were not changed."
+    },
+    "uiContractTests": {
+      "passed": 10,
+      "failed": 0,
+      "command": "npm run ui:test"
+    },
+    "galleryIntegrity": {
+      "passed": true,
+      "merchants": 8,
+      "images": 56,
+      "command": "node docs/game-design/scripts/item-gallery-render.mjs --check"
+    },
+    "relatedTestGroup": {
+      "passed": 162,
+      "failed": 0,
+      "environmentBlocked": 1,
+      "command": "node --test dist/tests/remaining48-swarm-copy.test.js dist/tests/native56-catalog.test.js dist/tests/remaining48-automatic.test.js dist/tests/remaining48-challenge.test.js dist/tests/remaining48-theft.test.js dist/tests/appraisal-vault-interest.test.js dist/tests/appraisal-merchant-abilities.test.js dist/tests/new56-pilot-lifecycle.test.js",
+      "environmentFailure": "One existing E38 localhost socket test failed before assertions with listen EPERM on 127.0.0.1; all other 162 tests passed."
+    },
+    "uiSmoke": {
+      "passed": null,
+      "attempted": true,
+      "command": "npm run ui:smoke -- --space 8",
+      "exitCode": 4,
+      "reason": "Ego Lite failed during desktop bootstrap before opening a page; its fresh invocation receipt records the failure and the older detailed menu report is stale."
+    },
+    "uiVisual": {
+      "passed": null,
+      "attempted": true,
+      "command": "npm run ui:visual -- --space 8",
+      "exitCode": 4,
+      "reason": "Same Ego Lite bootstrap failure before page capture; no screenshot baseline was rewritten."
+    }
+  },
+  "sourceFingerprints": {
+    "apps/comic/scripts/native56-compatibility.mjs": "0bfe72e208b8e48f7ab3c14a512a3a137f6fc9f3486f6382f34401cf6b53a48d",
+    "apps/comic/scripts/normal-play-probe.mjs": "79fdff597c587a68fada0c2ac45401bbcf8dc3b01e0aca01659b4b0f0fb8f518",
+    "apps/comic/src/server/appraisal-main.ts": "5f67b2038007427688bd6b8c1c19227f34c6244d9d7b47537bf0bc0f1a673831",
+    "apps/comic/src/simulation/appraisal.ts": "29306a4db7b4fe4210ce7514e5db220b8ce29af2bc3ecc8d4cd93f7b5d72eadb",
+    "apps/comic/src/appraisal-client/model.ts": "58c7c80972c780aafe4e3068034a87b26ba0413baea6f0fdb52fa6be847a0924",
+    "apps/comic/src/game/appraisal/ability-content.ts": "ff33530545a771c4e686640f2fca5db996ef3612f9602da6ddbf68c12377127e",
+    "apps/comic/src/game/appraisal/ability-rules.ts": "3e9f33f54b34c91fb26f6d0926f9df83e646dc3623a7c8bbf3beed5cedbc9139",
+    "apps/comic/src/game/appraisal/audit.ts": "0467d338c61749c8a7dbb061e04d9cbf31d64ba2920bbe12604f3ff266757755",
+    "apps/comic/src/game/appraisal/brokerage.ts": "bec7f351e20db1f6308d896f8a6a5b97338c4157485d933971ebafe9fa2d43ae",
+    "apps/comic/src/game/appraisal/challenge-rules.ts": "74cfbe2083106078cdc44e96caefc9e959d999f4e1cb9319dc0e363375aa7e55",
+    "apps/comic/src/game/appraisal/challenge.ts": "e05db4ac5296c69cbdba3c5fadc69a40322b22cba3efcb3f514f0825c351ac76",
+    "apps/comic/src/game/appraisal/cleanse-rules.ts": "6fb69a3f4a4aa870670248255e02eb81d3fc527dbd4d9c975ba14eac81915cd1",
+    "apps/comic/src/game/appraisal/cleanse.ts": "7f72cb7930cceafd6d4fe0ef0cda617fc39b5b60a9e9a061cc3295c88014d4bb",
+    "apps/comic/src/game/appraisal/collector-wishlist.ts": "ae5b70dcb92067c0f793dc183eca67946e6311c85d2e4cbe3eb666a8717a96be",
+    "apps/comic/src/game/appraisal/content.ts": "c07a9bdf0e094641efcfc7f941515d5990535116b50000f866ba0ad086beb7d7",
+    "apps/comic/src/game/appraisal/copy-effects.ts": "908b28f89ad8de7212adbd4636fdef6b2daaca230f97c41050ac2e436f4942f9",
+    "apps/comic/src/game/appraisal/core2-actions.ts": "a0b968bc9fd51b22cf5c63caa9c38e34dbb41bc0dd765aa449a3dfecb15a6213",
+    "apps/comic/src/game/appraisal/core2-content.ts": "e96206fa8c7d638c3b0ccbc756a8d6bf2977a84308c6c423956b63340cf789b9",
+    "apps/comic/src/game/appraisal/core2-events.ts": "bb9531af0ffe6a6ea068f049d286b2b1d0fe37deb24a44bcfe3dfa58a08424f8",
+    "apps/comic/src/game/appraisal/core2-rules.ts": "c512cac29fda1d586afcc82ece3ac15a0411650283d1226ae12787c76bfce0ea",
+    "apps/comic/src/game/appraisal/core2-specs.ts": "399d270a4c3c8d170ae2c9a995dfff13863aeba2ebce98b70b78a5f2a1ce5316",
+    "apps/comic/src/game/appraisal/core2.ts": "d9c7ac292898c29d471bc6d9bb0a7ae0557bd394a79d77978e6e1eed5b71bd17",
+    "apps/comic/src/game/appraisal/engine.ts": "ca646646c62611ee0a23cbe23be463c85fa1deeebe22bded37a0729d46b5cd73",
+    "apps/comic/src/game/appraisal/events.ts": "ec9f25dde4fbf2168479d80dd2044a5c4445912442aa561bd69fc31d41f0777c",
+    "apps/comic/src/game/appraisal/ghost-service.ts": "d2e836a0328d4fc4aeb40d2e6fa2974bb5b044286f044d669a4625e168b0da64",
+    "apps/comic/src/game/appraisal/ghost-tracking.ts": "1a179d345d9aac40a5122a68f376017e384284f487fcd8c369795bd0a7f9242f",
+    "apps/comic/src/game/appraisal/index.ts": "7867d91af9702cce970b74c8c6ae4d28f1f932139e439bcc86c471d293fbd557",
+    "apps/comic/src/game/appraisal/item-effects.ts": "c2ff1cbae837a24e19f6a5c81f56d27b986f870d7c277fd5d787d70728c63abd",
+    "apps/comic/src/game/appraisal/journal.ts": "ad612d764adb70f82db962c6dcdec54df83b57284961d3002bf81b30891456d9",
+    "apps/comic/src/game/appraisal/market-contracts.ts": "aef568c8fd9288c26fa6f74d696cd310f0949fddeefd4155af5c8a38db76ff9c",
+    "apps/comic/src/game/appraisal/mechanics.ts": "badb601944210ae39836f92ae2525e9f2eef1a9874cbce7f2a3dc906fa113080",
+    "apps/comic/src/game/appraisal/merchant-abilities.ts": "5edb4367cfbd45d8370fe7b84f2e9ce39e8744f65f8a0b5c6896ecd01c1577f4",
+    "apps/comic/src/game/appraisal/npc-events.ts": "f111c7cd8598b85165a91e5b88f7874d62d5502d3dce14a80b9fa71541e93bcf",
+    "apps/comic/src/game/appraisal/omen-table.ts": "8b6ab850d3722a62f735726aef4d3c9b17a40a9791fff31e284a1a90df862106",
+    "apps/comic/src/game/appraisal/omens.ts": "23bf7f701d39d380ec315aaf5050602540ee662b232006bfc51fba7561f3019d",
+    "apps/comic/src/game/appraisal/passives.ts": "3915bdda874eae43be5e7318626a6748b29aa56cb35748048669ac1f5e051280",
+    "apps/comic/src/game/appraisal/personal-scoring.ts": "6352a843a413a240d6398570036a3d7f2bb532ca6ad2b0426b0fa859b8f815e5",
+    "apps/comic/src/game/appraisal/pilot-catalog.ts": "ad8dbb487623f3b8d0486c87fe86c5fe72c0d50c553a7a34bc526c52579e8c62",
+    "apps/comic/src/game/appraisal/pilot-effects.ts": "e10ebee7bd00a5110eea80266575fbf0c84a8210b39df09eae117b42bd790d02",
+    "apps/comic/src/game/appraisal/polish-events.ts": "b79b7d4c1fcc159aad0d319ed3542844d28c22479637a2a70306570c01abfbb6",
+    "apps/comic/src/game/appraisal/price-integrity.ts": "b198f88cedef64e0c857b93115b8b6b19f1c220a576364ed623af924ea7b4831",
+    "apps/comic/src/game/appraisal/pulse.ts": "a2850ad9e52e5e4e8f2122affb24e8d8e9ac7fa015b249c61b6ec93076fe712d",
+    "apps/comic/src/game/appraisal/rarity.ts": "3672184a63c2899151c92ed7a413a0881ec5df613fc10d0ca16f01090936cbd6",
+    "apps/comic/src/game/appraisal/remaining48-catalog.ts": "01dd8634cdd7b2395a7d1b5f12915d4aa5c0dc15d5fba4eee0ac659cfc947310",
+    "apps/comic/src/game/appraisal/remaining48-effects.ts": "f44235d9c0694de40bb1b2f7238ce8aa9b992a6cbfaeabedc4326a34b82993ae",
+    "apps/comic/src/game/appraisal/remaining48-numbers.ts": "bf5c76794c6b1fdd08045869d5d01d63d96e8c9157f932346f442d66695e625f",
+    "apps/comic/src/game/appraisal/round-rewards.ts": "0cc05a064ee355cf102ecbebd8bb8754c33d7bdc3d500f1f7196182cedfcaa5d",
+    "apps/comic/src/game/appraisal/scoring.ts": "d95a48373f066152d4bb19720f34e126ee23b0cbe38110a211a5c2e2e3cdc1c0",
+    "apps/comic/src/game/appraisal/seals.ts": "665663cb75944286130ac9597816c8a59b8631285077476cf08774037a6335f1",
+    "apps/comic/src/game/appraisal/secure-storage.ts": "ed8ee9b055e175b909bb35893515a5ad75a40509f866f1ab60ebede542160c61",
+    "apps/comic/src/game/appraisal/survival.ts": "f7d978481cdbb79fc1cfc6e603fa875adb2f37a65af6ffc3fe2302097ff75ac3",
+    "apps/comic/src/game/appraisal/theft.ts": "0308073d82cb8f75033039ba600acac94a983605da1744a02d7ded7a7659a5a4",
+    "apps/comic/src/game/appraisal/types.ts": "0146ac52b9312cb840b0aaaa819bdf169aa068d1b5b13163659c5a53e9fb34c8",
+    "apps/comic/src/game/appraisal/views.ts": "01e3b677b404ba4308767e7b22c64d09011ba24a7e57fa1025592cf6339b6f8a",
+    "apps/comic/src/game/appraisal/wishlist-rules.ts": "9157cc6f7636ed765494f6fc0ae7a5c1c54cad42036728d1288853e257aa3c30",
+    "apps/comic/src/game/appraisal/wishlist.ts": "02dc444ca8a0623189389c5ab4bd78fb57d6abc0c4e93a3da2605ad58a9bbf9f",
+    "apps/comic/src/shared/appraisal-protocol.ts": "fc466f14f54cced6c40ed5c934a69d7a2c99b1f927195956560bf344f3c073b7",
+    "apps/comic/src/shared/item-rarity.ts": "bf190d3345ba346f6cb9be496e85c6d471b470d7b243f7a7447ba1a1d5e48d1e",
+    "apps/comic/src/shared/protocol.ts": "662c38b865368d8cbcaa888cfec36a05ce2d61a3c588f6e94417cb6a01129bc1",
+    "apps/comic/src/shared/rarity-power.ts": "337e80b7cd349c7e4f075df0e45a695e7f9c8d4eb5f598191eb9ceac8582e097",
+    "apps/comic/src/shared/rarity-renderer.ts": "db81272375ca01e8396c8bfee506b330e6354b165f91ae26a5bfe216d098f81b",
+    "apps/comic/src/appraisal-client/catalog-text.ts": "75da1e8c702d4c3514b0ba5be5442920010aa8e56cbc0cfea5a2d1c23b0544e1",
+    "apps/comic/src/appraisal-client/components.tsx": "aaf3614eac2bd208d36b3770b0868b1eafe88ca41099bd2eb3acf2be9d78a180",
+    "apps/comic/tests/remaining48-swarm-copy.test.ts": "e4552795cdb20a09d8bff4bcb1253929b849e1089879dcfbacb25045bd7e64fa",
+    "apps/comic/tests/appraisal-vault-interest.test.ts": "ebf63b72deeed23b0d57942fde129d54228aca325332d9f855b05a39423ab0c3",
+    "apps/comic/tests/native56-catalog.test.ts": "943062e6b498fb140534c033d9f4471bbe91bd7a9e08dddf54ba0a6c7eeb9aab"
+  },
+  "evidenceFingerprints": {
+    "compatibility": "7ab793782d4e41cf63a88c7675d32c93bfc1f5d9b33367e5d59931a85cce7130",
+    "pilotPublic": "4c0c1cc6400b6437bfe1167b726545e40be9af16b25822ffe18bfbd3f0bba846"
+  },
+  "limitations": [
+    "Experimental mechanism evidence only; default catalog3 and opt-in pilot4 are unchanged.",
+    "The 32 strict historical replays and four fixed-seed diagnostics are compatibility evidence, not release balance or full56-effect exposure.",
+    "No whole-game balance, full predicate/custody/public-benefit matrix, or release acceptance is claimed.",
+    "Browser smoke and visual comparison remain blocked before page open by the desktop browser bootstrap failure; approved screenshot baselines remain untouched."
+  ]
+}

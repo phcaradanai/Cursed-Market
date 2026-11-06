@@ -2,13 +2,15 @@ import {recordPersonalActivity,recordPersonalSale,setPersonalTrust} from './pers
 import { rarityValue } from '../../shared/rarity-power.js';
 import { merchantTradeBanned } from './theft.js';
 import { recordItemTrade, systemSaleQuote } from './price-integrity.js';
-import { copySaleQuote, statusMagnitude } from './copy-effects.js';
+import { copySaleQuote, itemEffectScale, statusMagnitude } from './copy-effects.js';
+import { remainingHeld } from './remaining48-effects.js';
+import { remainingStrength } from './remaining48-numbers.js';
 import { randomAt } from '../random.js';
 import { ITEM_SPECS, NPC_SPECS, merchantKinds } from './content.js';
 import { TRUST_CAP } from './market-contracts.js';
 import { check, consumeStatus, learn, ownedItem, retire, reward, saleApply, salePreview, spend, trace, wishSlotsOf } from './mechanics.js';
 import { WISH_ENERGY, WISH_MARKUPS, WISH_MAX_ACTIVE, WISH_PROBABILITY, wishAsk, wishChance, wishDecayed, wishFloor, wishPrice } from './wishlist-rules.js';
-import type { AppraisalState, Appraiser, ItemKind, NpcId, WishBookRow, WishDesk, WishOffer } from './types.js';
+import type { AppraisalItem, AppraisalState, Appraiser, ItemKind, NpcId, WishBookRow, WishDesk, WishOffer } from './types.js';
 
 export function shopNpcOf(p:Appraiser):NpcId|undefined {
   return p.selectedPortalId?p.portals.find(portal=>portal.id===p.selectedPortalId)?.npc:undefined;
@@ -35,15 +37,23 @@ export function wishEligible(state:AppraisalState,p:Appraiser):boolean {
   const npc=shopNpcOf(p);
   return !!state.config.wishlist && state.phase==='APPRAISAL' && !!npc && !p.wishes?.[npc] && (!contractOn(state) || p.energy>=WISH_ENERGY) && freeBank(state)>=maxAsk(wishPick(state,p,npc).price);
 }
+function phaseStaffWishChange(state:AppraisalState,p:Appraiser,npc:NpcId,pick?:{kind:ItemKind;price:number}):AppraisalItem|undefined {
+  const current=p.wishes?.[npc];
+  if(state.config.catalogVersion!==5||(state.config.native56Effects??0)<14||!current||p.activated.some(id=>state.items[id]?.kind==='alien-phase-staff'))return;
+  const candidate=pick??wishPick(state,p,npc,(p.wishRolls??0)+1,current.kind);
+  if(candidate.kind===current.kind)return;
+  const tool=remainingHeld(state,p,'E57').sort((a,b)=>itemEffectScale(b)-itemEffectScale(a)||a.id.localeCompare(b.id))[0];
+  return tool&&remainingStrength([tool],'E57')>=1?tool:undefined;
+}
 /** Record a wish. With contract rules it costs energy, keeps at most two open, and may replace an older one. */
-export function applyWish(state:AppraisalState,p:Appraiser,npc:NpcId,pick:{kind:ItemKind;price:number},replaceNpc?:NpcId):void {
+export function applyWish(state:AppraisalState,p:Appraiser,npc:NpcId,pick:{kind:ItemKind;price:number},replaceNpc?:NpcId,energyCost=WISH_ENERGY):void {
   const performance=state.config.personalScoringRules===1?{performanceId:JSON.stringify([p.id,npc,state.encounter,state.commands.length])}:{};
   if(!contractOn(state)) {p.wishes![npc]={...pick,...performance};return;}
   const here=p.wishes![npc];const open=Object.keys(p.wishes!).length;
   if(here) check(replaceNpc===undefined || replaceNpc===npc,'wish','คำขอใหม่แทนได้เฉพาะคำขอเดิมของพ่อค้านี้');
   else if(open>=wishSlotsOf(state,p,WISH_MAX_ACTIVE)) check(replaceNpc!==undefined && !!p.wishes![replaceNpc],'wish',`มีคำขอครบ ${wishSlotsOf(state,p,WISH_MAX_ACTIVE)} รายการแล้ว เลือกคำขอเดิมที่จะแทน`);
   else check(replaceNpc===undefined,'wish','ยังมีที่ว่าง ไม่ต้องแทนคำขอเดิม');
-  spend(state,p,0,WISH_ENERGY,'wish-contract');
+  spend(state,p,0,energyCost,'wish-contract');
   if(!here && replaceNpc) {delete p.wishes![replaceNpc];p.notes.push(`ยกเลิกคำขอของ${NPC_SPECS[replaceNpc].name}เพื่อทำสัญญาใหม่`);}
   p.wishes![npc]={...pick,set:state.encounter,...performance};
 }
@@ -51,11 +61,12 @@ export function applyWish(state:AppraisalState,p:Appraiser,npc:NpcId,pick:{kind:
 export function wishNew(state:AppraisalState,p:Appraiser,replaceNpc?:NpcId):void {
   check(contractOn(state) && state.phase==='APPRAISAL','wish','พ่อค้านี้ยังรับทำสัญญาตามหาของไม่ได้');
   const npc=shopNpcOf(p);check(npc,'wish','ต้องเลือกพ่อค้าก่อน');
-  const rolls=(p.wishRolls??0)+1;const pick=wishPick(state,p,npc,rolls,p.wishes![npc]?.kind);
+  const rolls=(p.wishRolls??0)+1;const pick=wishPick(state,p,npc,rolls,p.wishes![npc]?.kind),tool=replaceNpc===undefined||replaceNpc===npc?phaseStaffWishChange(state,p,npc,pick):undefined;
   check(freeBank(state)>=maxAsk(pick.price),'bank','งบธนาคารไม่พอสำหรับคำขอนี้');
-  applyWish(state,p,npc,pick,replaceNpc);p.wishRolls=rolls;
+  applyWish(state,p,npc,pick,replaceNpc,tool?0:WISH_ENERGY);p.wishRolls=rolls;
+  if(tool){p.activated??=[];p.activated.push(tool.id);}
   p.notes.push(`${NPC_SPECS[npc].name}อยากได้ ${ITEM_SPECS[pick.kind].name} ให้ ${pick.price} เครดิต แต่ราคาลดลงทุกช่วง ไม่ต่ำกว่า ${wishFloor(pick.kind)} เครดิต`);p.notes=p.notes.slice(-30);
-  trace(state,p,'wish-new',{npc,kind:pick.kind,price:pick.price,...(replaceNpc?{replaced:replaceNpc}:{})});
+  trace(state,p,'wish-new',{npc,kind:pick.kind,price:pick.price,...(replaceNpc?{replaced:replaceNpc}:{}),...(tool?{freeChange:true,itemId:tool.id}:{})});
 }
 /** What the seat can do about wishes at this table, and what every open wish is worth now. */
 export function wishDesk(state:AppraisalState,p:Appraiser):WishDesk|undefined {
@@ -63,7 +74,7 @@ export function wishDesk(state:AppraisalState,p:Appraiser):WishDesk|undefined {
   if(!contractOn(state) || state.phase!=='APPRAISAL' || !npc || p.life===0) return;
   const book=wishBook(state,p);const here=!!p.wishes?.[npc];
   const cap=wishSlotsOf(state,p,WISH_MAX_ACTIVE);
-  return {npc,cost:WISH_ENERGY,cap,book,replaces:here?npc:null,replaceable:!here && book.length>=cap?book.map(row=>row.npc):[]};
+  return {npc,cost:phaseStaffWishChange(state,p,npc)?0:WISH_ENERGY,cap,book,replaces:here?npc:null,replaceable:!here && book.length>=cap?book.map(row=>row.npc):[]};
 }
 export function drawWishEvent(state:AppraisalState,p:Appraiser,offer:(id:'E73')=>void):boolean {
   if(!state.config.wishlist || p.eventOffer || p.paused || p.done || p.offerSlots>=2 || !wishEligible(state,p)) return false;

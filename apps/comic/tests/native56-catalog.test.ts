@@ -7,7 +7,7 @@ import {REMAINING48_ITEMS} from '../src/game/appraisal/remaining48-catalog.js';
 import {pilotRerollCost,priceCaliper,swordForDuel,pilotExpansionCost,pilotCrimeCost,pilotStrength,heldInterestRings,ringInterestBasisPoints} from '../src/game/appraisal/pilot-effects.js';
 import {defaultRarityConfig} from '../src/shared/item-rarity.js';
 import {defaultRarityEconomy} from '../src/shared/rarity-power.js';
-import {remainingChallengeBps} from '../src/game/appraisal/remaining48-effects.js';
+import {remainingChallengeBps,remainingEffectReady} from '../src/game/appraisal/remaining48-effects.js';
 import {collectorWishlistView,reconcileCollectorWishlist,handleCollectorWishlist} from '../src/game/appraisal/collector-wishlist.js';
 import {ghostQuotes,ghostView} from '../src/game/appraisal/ghost-service.js';
 import {publicOfferItems} from '../src/game/appraisal/mechanics.js';
@@ -15,7 +15,7 @@ import {wishPick} from '../src/game/appraisal/wishlist.js';
 import {activationBlock,activationEnergy} from '../src/appraisal-client/model.js';
 import {appraisalBotDecision} from '../src/simulation/appraisal.js';
 import {activate,damageLife,npcQuote} from '../src/game/appraisal/mechanics.js';
-import type {AppraisalAction,AppraisalItem,ItemKind,ItemView,NpcId} from '../src/game/appraisal/types.js';
+import type {AppraisalAction,AppraisalItem,ItemKind,NpcId} from '../src/game/appraisal/types.js';
 const repo=new URL('../../../../',import.meta.url),read=(file:string)=>JSON.parse(fs.readFileSync(new URL(file,repo),'utf8'));
 const catalog=read('apps/comic/src/appraisal-client/public/art/comic/items/merchant-set-v1/catalog.json') as {merchants:Array<{id:NpcId;items:Array<{id:string;image:string;sha256:string}>}>};
 const ids=new Set(catalog.merchants.flatMap(m=>m.items.map(i=>i.id)));
@@ -52,18 +52,18 @@ test('new native views preserve unknown truths, use real art and distinguish reg
  const s=run(),p=s.players[0]!;p.eventOffer=null;
  for(const kind of ids){const i=give(s,kind as ItemKind);const view=appraisalViewFor(s,p.id).self.inventory.find(v=>v.id===i.id)!;
   assert.equal(view.image,itemImage(i.kind));assert.equal(view.knowledge.base,undefined);assert.equal(view.knowledge.genuine,undefined);assert.equal(view.knowledge.cursed,undefined);assert(view.possibleBenefit.length>0);
-  if(kind in REMAINING48_ITEMS)assert.equal((view as ItemView&{nativeEffectReady?:boolean}).nativeEffectReady,['vampire-midnight-invitation','orc-tally-beads','orc-bone-war-drum','deepsea-kelp-saddle','autometa-coil-repeater','vampire-mist-atomizer','orc-oath-sword','orc-ironroot-greaves','autometa-servo-harness','alien-biobright-seedpod','orc-ember-salve','deepsea-whale-conch-horn','autometa-data-prism','vampire-gloam-violin','swarm-pheromone-sprayer','orc-clan-forge-tongs','deepsea-abyss-trident'].includes(kind));
+  if(kind in REMAINING48_ITEMS)assert.equal(view.nativeEffectReady,remainingEffectReady(kind as keyof typeof REMAINING48_ITEMS,s.config.native56Effects));
  }
 });
 
 test('unbound native activations reject before charging, consuming, revealing or recording a use',()=>{
  const s=run(),p=s.players[0]!;p.eventOffer=null;
- for(const [kind,spec]of Object.entries(REMAINING48_ITEMS)){if(!spec.explicitActivation)continue;const i=give(s,kind as ItemKind),before=structuredClone(s);assert.throws(()=>activate(s,p,i.id));assert.deepEqual(s,before);}
+ for(const [kind,spec]of Object.entries(REMAINING48_ITEMS)){if(!spec.explicitActivation||remainingEffectReady(kind as keyof typeof REMAINING48_ITEMS,s.config.native56Effects))continue;const i=give(s,kind as ItemKind),before=structuredClone(s);assert.throws(()=>activate(s,p,i.id));assert.deepEqual(s,before);}
 });
 
 test('shared client eligibility and bot policy do not repeatedly submit an unbound activation',()=>{
  const s=run(),p=s.players[0]!;s.phase='APPRAISAL';p.eventOffer=null;p.stock=[];p.energy=20;
- const item=give(s,'autometa-coolant-canister');const view=appraisalViewFor(s,p.id);
+ const item=give(s,'alien-echoweave-shawl');const view=appraisalViewFor(s,p.id);
  assert.deepEqual({blocked:activationBlock(view,item.id,false)!==null,botActivates:appraisalBotDecision(view,'collector')?.type==='activate'},{blocked:true,botActivates:false});
  const consumable=give(s,'darkone-null-sword');const next=appraisalViewFor(s,p.id);assert.equal(activationEnergy(next,next.self.inventory.find(i=>i.id===consumable.id)!),1);
 });

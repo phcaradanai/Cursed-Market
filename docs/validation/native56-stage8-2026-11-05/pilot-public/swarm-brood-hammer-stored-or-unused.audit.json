@@ -1,0 +1,1738 @@
+{
+  "schemaVersion": 5,
+  "playerIds": [
+    "alice",
+    "bob"
+  ],
+  "seed": "public-pilot-swarm-brood-hammer-1",
+  "config": {
+    "rarityEconomy": {
+      "version": 1,
+      "tiers": {
+        "common": {
+          "value": 1,
+          "effect": 1
+        },
+        "uncommon": {
+          "value": 2,
+          "effect": 2
+        },
+        "rare": {
+          "value": 3,
+          "effect": 3
+        },
+        "epic": {
+          "value": 4,
+          "effect": 4
+        },
+        "legendary": {
+          "value": 6,
+          "effect": 6
+        },
+        "mythic": {
+          "value": 8,
+          "effect": 8
+        }
+      }
+    },
+    "rarity": {
+      "version": 1,
+      "rates": {
+        "common": 0.6,
+        "uncommon": 0.25,
+        "rare": 0.1,
+        "epic": 0.035,
+        "legendary": 0.013,
+        "mythic": 0.002
+      },
+      "themes": {
+        "common": [
+          {
+            "theme": "plain",
+            "weight": 1
+          }
+        ],
+        "uncommon": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "rare": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "epic": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "legendary": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ],
+        "mythic": [
+          {
+            "theme": "inferno",
+            "weight": 1
+          },
+          {
+            "theme": "frost",
+            "weight": 1
+          },
+          {
+            "theme": "storm",
+            "weight": 1
+          },
+          {
+            "theme": "venom",
+            "weight": 1
+          },
+          {
+            "theme": "spirit",
+            "weight": 1
+          },
+          {
+            "theme": "lunar",
+            "weight": 1
+          },
+          {
+            "theme": "solar",
+            "weight": 1
+          },
+          {
+            "theme": "void",
+            "weight": 1
+          },
+          {
+            "theme": "prism",
+            "weight": 1
+          },
+          {
+            "theme": "clockwork",
+            "weight": 1
+          }
+        ]
+      }
+    },
+    "loanEndSettlement": true,
+    "vaultInterestRules": 1,
+    "theftTimeoutRules": 1,
+    "collectorDeadline": 3,
+    "eventChoiceRules": 1,
+    "statusLinks": 1,
+    "systemLinks": 1,
+    "trustAbilities": true,
+    "catalogVersion": 4,
+    "itemEffects": true,
+    "roundRewards": true,
+    "multiCoinRewards": true,
+    "commerce": true,
+    "totalTrustStock": true,
+    "curseSight": true,
+    "freeBuy": true,
+    "freeMerchantAction": true,
+    "fakeEffect": true,
+    "cleanse": true,
+    "wishlist": false,
+    "wishContract": true,
+    "challenge": true,
+    "expansion": true,
+    "encounters": 3,
+    "startingCredits": 500,
+    "maxEnergy": 10,
+    "recoveryEnergy": 4,
+    "bankReserve": 2000,
+    "marketProbability": 0,
+    "marketMaxOrders": 3,
+    "marketQuota": 1,
+    "secureEconomy": true,
+    "core2": true,
+    "survival": {
+      "maxLife": 6,
+      "encounterLifeCost": 1,
+      "entryEnergyCost": 0
+    },
+    "npcEvents": false,
+    "polish": false
+  },
+  "commands": [
+    {
+      "type": "event",
+      "key": "1:bob:E118:0:0",
+      "choice": "cash",
+      "playerId": "bob",
+      "requestId": "proof-0",
+      "encounter": 1
+    },
+    {
+      "type": "enter",
+      "portalId": "portal-1-0-2",
+      "playerId": "alice",
+      "requestId": "proof-1",
+      "encounter": 1
+    },
+    {
+      "type": "enter",
+      "portalId": "portal-1-1-0",
+      "playerId": "bob",
+      "requestId": "proof-2",
+      "encounter": 1
+    },
+    {
+      "type": "event",
+      "key": "1:alice:E93:0:0",
+      "choice": "decline",
+      "itemId": "item-1-0-2-0",
+      "playerId": "alice",
+      "requestId": "proof-3",
+      "encounter": 1
+    },
+    {
+      "type": "event",
+      "key": "1:bob:E46:1:0",
+      "choice": "decline",
+      "itemId": "item-1-1-0-0",
+      "guess": true,
+      "playerId": "bob",
+      "requestId": "proof-4",
+      "encounter": 1
+    },
+    {
+      "type": "buy",
+      "itemIds": [
+        "item-1-0-2-0"
+      ],
+      "condition": false,
+      "playerId": "alice",
+      "requestId": "proof-5",
+      "encounter": 1
+    },
+    {
+      "type": "done",
+      "playerId": "alice",
+      "requestId": "proof-6",
+      "encounter": 1
+    },
+    {
+      "type": "done",
+      "playerId": "bob",
+      "requestId": "proof-7",
+      "encounter": 1
+    },
+    {
+      "type": "event",
+      "key": "1:alice:E92:1:0",
+      "choice": "decline",
+      "itemId": "item-1-0-2-1",
+      "playerId": "alice",
+      "requestId": "proof-8",
+      "encounter": 1
+    },
+    {
+      "type": "done",
+      "playerId": "alice",
+      "requestId": "proof-9",
+      "encounter": 1
+    },
+    {
+      "type": "done",
+      "playerId": "bob",
+      "requestId": "proof-10",
+      "encounter": 1
+    },
+    {
+      "type": "round-bank",
+      "playerId": "alice",
+      "requestId": "proof-11",
+      "encounter": 1
+    },
+    {
+      "type": "round-bank",
+      "playerId": "bob",
+      "requestId": "proof-12",
+      "encounter": 1
+    },
+    {
+      "type": "vault-deposit-item",
+      "itemId": "item-1-0-2-0",
+      "playerId": "alice",
+      "requestId": "proof-13",
+      "encounter": 1
+    },
+    {
+      "type": "vault-expand",
+      "playerId": "alice",
+      "requestId": "proof-14",
+      "encounter": 1
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "done",
+      "playerId": "alice",
+      "requestId": "proof-15",
+      "encounter": 2
+    },
+    {
+      "type": "done",
+      "playerId": "bob",
+      "requestId": "proof-16",
+      "encounter": 2
+    },
+    {
+      "type": "event",
+      "key": "2:alice:E43:0:0",
+      "choice": "accept",
+      "playerId": "alice",
+      "requestId": "proof-17",
+      "encounter": 2
+    },
+    {
+      "type": "event",
+      "key": "2:bob:E43:0:0",
+      "choice": "accept",
+      "playerId": "bob",
+      "requestId": "proof-18",
+      "encounter": 2
+    },
+    {
+      "type": "done",
+      "playerId": "alice",
+      "requestId": "proof-19",
+      "encounter": 2
+    },
+    {
+      "type": "done",
+      "playerId": "bob",
+      "requestId": "proof-20",
+      "encounter": 2
+    },
+    {
+      "type": "round-bank",
+      "playerId": "alice",
+      "requestId": "proof-21",
+      "encounter": 2
+    },
+    {
+      "type": "round-bank",
+      "playerId": "bob",
+      "requestId": "proof-22",
+      "encounter": 2
+    },
+    {
+      "type": "advance"
+    },
+    {
+      "type": "event",
+      "key": "3:alice:E119:0:0",
+      "choice": "pay",
+      "playerId": "alice",
+      "requestId": "proof-23",
+      "encounter": 3
+    },
+    {
+      "type": "done",
+      "playerId": "alice",
+      "requestId": "proof-24",
+      "encounter": 3
+    },
+    {
+      "type": "done",
+      "playerId": "bob",
+      "requestId": "proof-25",
+      "encounter": 3
+    },
+    {
+      "type": "event",
+      "key": "3:alice:E43:1:0",
+      "choice": "accept",
+      "playerId": "alice",
+      "requestId": "proof-26",
+      "encounter": 3
+    },
+    {
+      "type": "event",
+      "key": "3:bob:E43:0:0",
+      "choice": "accept",
+      "playerId": "bob",
+      "requestId": "proof-27",
+      "encounter": 3
+    },
+    {
+      "type": "done",
+      "playerId": "alice",
+      "requestId": "proof-28",
+      "encounter": 3
+    },
+    {
+      "type": "done",
+      "playerId": "bob",
+      "requestId": "proof-29",
+      "encounter": 3
+    }
+  ],
+  "ledger": [
+    {
+      "from": "bob",
+      "to": "bank",
+      "amount": 3,
+      "reason": "E118",
+      "encounter": 1
+    },
+    {
+      "from": "alice",
+      "to": "bank",
+      "amount": 50,
+      "reason": "npc-purchase",
+      "encounter": 1
+    },
+    {
+      "from": "bob",
+      "to": "bank",
+      "amount": 2,
+      "reason": "dread-tax",
+      "encounter": 1
+    },
+    {
+      "from": "@round-fund",
+      "to": "alice",
+      "amount": 10,
+      "reason": "round-reward",
+      "encounter": 1
+    },
+    {
+      "from": "@round-fund",
+      "to": "bob",
+      "amount": 10,
+      "reason": "round-reward",
+      "encounter": 1
+    },
+    {
+      "from": "alice",
+      "to": "bank",
+      "amount": 10,
+      "reason": "vault-expand",
+      "encounter": 1
+    },
+    {
+      "from": "@round-fund",
+      "to": "alice",
+      "amount": 15,
+      "reason": "round-reward",
+      "encounter": 2
+    },
+    {
+      "from": "@round-fund",
+      "to": "bob",
+      "amount": 15,
+      "reason": "round-reward",
+      "encounter": 2
+    },
+    {
+      "from": "alice",
+      "to": "bank",
+      "amount": 2,
+      "reason": "E119",
+      "encounter": 3
+    }
+  ],
+  "history": [
+    {
+      "encounter": 1,
+      "playerId": "alice",
+      "gain": 0,
+      "accuracy": 0,
+      "score": 0,
+      "paused": null
+    },
+    {
+      "encounter": 1,
+      "playerId": "bob",
+      "gain": 0,
+      "accuracy": 0,
+      "score": 0,
+      "paused": null
+    },
+    {
+      "encounter": 2,
+      "playerId": "alice",
+      "gain": 0,
+      "accuracy": 0,
+      "score": 0,
+      "paused": null
+    },
+    {
+      "encounter": 2,
+      "playerId": "bob",
+      "gain": 0,
+      "accuracy": 0,
+      "score": 0,
+      "paused": null
+    },
+    {
+      "encounter": 3,
+      "playerId": "alice",
+      "gain": 0,
+      "accuracy": 0,
+      "score": 0,
+      "paused": null
+    },
+    {
+      "encounter": 3,
+      "playerId": "bob",
+      "gain": 0,
+      "accuracy": 0,
+      "score": 0,
+      "paused": null
+    }
+  ],
+  "trace": [
+    {
+      "type": "event-offered",
+      "encounter": 1,
+      "playerId": "bob",
+      "details": {
+        "id": "E118",
+        "key": "1:bob:E118:0:0",
+        "choices": [
+          "cash",
+          "condition"
+        ]
+      }
+    },
+    {
+      "type": "core2-event",
+      "encounter": 1,
+      "playerId": "bob",
+      "details": {
+        "id": "E118",
+        "choice": "cash"
+      }
+    },
+    {
+      "type": "event-resolved",
+      "encounter": 1,
+      "playerId": "bob",
+      "details": {
+        "id": "E118",
+        "choice": "cash"
+      }
+    },
+    {
+      "type": "portal-entered",
+      "encounter": 1,
+      "playerId": "alice",
+      "details": {
+        "portalId": "portal-1-0-2",
+        "npc": "swarm"
+      }
+    },
+    {
+      "type": "portal-entered",
+      "encounter": 1,
+      "playerId": "bob",
+      "details": {
+        "portalId": "portal-1-1-0",
+        "npc": "alien"
+      }
+    },
+    {
+      "type": "event-offered",
+      "encounter": 1,
+      "playerId": "alice",
+      "details": {
+        "id": "E93",
+        "key": "1:alice:E93:0:0",
+        "choices": [
+          "accept",
+          "decline"
+        ]
+      }
+    },
+    {
+      "type": "event-offered",
+      "encounter": 1,
+      "playerId": "bob",
+      "details": {
+        "id": "E46",
+        "key": "1:bob:E46:1:0",
+        "choices": [
+          "accept",
+          "decline"
+        ]
+      }
+    },
+    {
+      "type": "event-declined",
+      "encounter": 1,
+      "playerId": "alice",
+      "details": {
+        "id": "E93"
+      }
+    },
+    {
+      "type": "event-declined",
+      "encounter": 1,
+      "playerId": "bob",
+      "details": {
+        "id": "E46"
+      }
+    },
+    {
+      "encounter": 1,
+      "playerId": "npc:alice:1",
+      "type": "price-audited",
+      "details": {
+        "itemId": "item-1-0-2-0",
+        "value": 50,
+        "source": "trade",
+        "chance": 0,
+        "flagged": false
+      }
+    },
+    {
+      "type": "npc-purchased",
+      "encounter": 1,
+      "playerId": "alice",
+      "details": {
+        "itemIds": [
+          "item-1-0-2-0"
+        ],
+        "shopId": "alice",
+        "price": 50,
+        "energy": 0,
+        "condition": false
+      }
+    },
+    {
+      "type": "event-offered",
+      "encounter": 1,
+      "playerId": "alice",
+      "details": {
+        "id": "E92",
+        "key": "1:alice:E92:1:0",
+        "choices": [
+          "accept",
+          "decline"
+        ]
+      }
+    },
+    {
+      "type": "event-declined",
+      "encounter": 1,
+      "playerId": "alice",
+      "details": {
+        "id": "E92"
+      }
+    },
+    {
+      "type": "life-lost",
+      "encounter": 1,
+      "playerId": "alice",
+      "details": {
+        "amount": 1,
+        "reason": "dread-storm"
+      }
+    },
+    {
+      "type": "dread-hit",
+      "encounter": 1,
+      "playerId": "alice",
+      "details": {
+        "kind": "storm",
+        "chance": 0.08
+      }
+    },
+    {
+      "type": "life-lost",
+      "encounter": 1,
+      "playerId": "alice",
+      "details": {
+        "amount": 1,
+        "reason": "dimensional-decay"
+      }
+    },
+    {
+      "type": "dread-hit",
+      "encounter": 1,
+      "playerId": "bob",
+      "details": {
+        "kind": "tax",
+        "chance": 0.08
+      }
+    },
+    {
+      "type": "life-lost",
+      "encounter": 1,
+      "playerId": "bob",
+      "details": {
+        "amount": 1,
+        "reason": "dimensional-decay"
+      }
+    },
+    {
+      "type": "round-reward-banked",
+      "encounter": 1,
+      "playerId": "alice",
+      "details": {
+        "amount": 10,
+        "flips": 0
+      }
+    },
+    {
+      "type": "round-reward-banked",
+      "encounter": 1,
+      "playerId": "bob",
+      "details": {
+        "amount": 10,
+        "flips": 0
+      }
+    },
+    {
+      "type": "vault-deposit-item",
+      "encounter": 1,
+      "playerId": "alice",
+      "details": {
+        "type": "vault-deposit-item",
+        "itemId": "item-1-0-2-0",
+        "playerId": "alice",
+        "requestId": "proof-13",
+        "encounter": 1
+      }
+    },
+    {
+      "type": "vault-expand",
+      "encounter": 1,
+      "playerId": "alice",
+      "details": {
+        "type": "vault-expand",
+        "playerId": "alice",
+        "requestId": "proof-14",
+        "encounter": 1
+      }
+    },
+    {
+      "type": "event-offered",
+      "encounter": 2,
+      "playerId": "alice",
+      "details": {
+        "id": "E43",
+        "key": "2:alice:E43:0:0",
+        "choices": [
+          "accept"
+        ]
+      }
+    },
+    {
+      "type": "event-offered",
+      "encounter": 2,
+      "playerId": "bob",
+      "details": {
+        "id": "E43",
+        "key": "2:bob:E43:0:0",
+        "choices": [
+          "accept"
+        ]
+      }
+    },
+    {
+      "type": "event-resolved",
+      "encounter": 2,
+      "playerId": "alice",
+      "details": {
+        "id": "E43",
+        "choice": "accept"
+      }
+    },
+    {
+      "type": "event-resolved",
+      "encounter": 2,
+      "playerId": "bob",
+      "details": {
+        "id": "E43",
+        "choice": "accept"
+      }
+    },
+    {
+      "type": "life-lost",
+      "encounter": 2,
+      "playerId": "alice",
+      "details": {
+        "amount": 1,
+        "reason": "dimensional-decay"
+      }
+    },
+    {
+      "type": "life-lost",
+      "encounter": 2,
+      "playerId": "bob",
+      "details": {
+        "amount": 1,
+        "reason": "dimensional-decay"
+      }
+    },
+    {
+      "type": "round-reward-banked",
+      "encounter": 2,
+      "playerId": "alice",
+      "details": {
+        "amount": 15,
+        "flips": 0
+      }
+    },
+    {
+      "type": "round-reward-banked",
+      "encounter": 2,
+      "playerId": "bob",
+      "details": {
+        "amount": 15,
+        "flips": 0
+      }
+    },
+    {
+      "type": "event-offered",
+      "encounter": 3,
+      "playerId": "alice",
+      "details": {
+        "id": "E119",
+        "key": "3:alice:E119:0:0",
+        "choices": [
+          "pay",
+          "interest",
+          "switch"
+        ]
+      }
+    },
+    {
+      "type": "core2-event",
+      "encounter": 3,
+      "playerId": "alice",
+      "details": {
+        "id": "E119",
+        "choice": "pay"
+      }
+    },
+    {
+      "type": "event-resolved",
+      "encounter": 3,
+      "playerId": "alice",
+      "details": {
+        "id": "E119",
+        "choice": "pay"
+      }
+    },
+    {
+      "type": "event-offered",
+      "encounter": 3,
+      "playerId": "alice",
+      "details": {
+        "id": "E43",
+        "key": "3:alice:E43:1:0",
+        "choices": [
+          "accept"
+        ]
+      }
+    },
+    {
+      "type": "event-offered",
+      "encounter": 3,
+      "playerId": "bob",
+      "details": {
+        "id": "E43",
+        "key": "3:bob:E43:0:0",
+        "choices": [
+          "accept"
+        ]
+      }
+    },
+    {
+      "type": "event-resolved",
+      "encounter": 3,
+      "playerId": "alice",
+      "details": {
+        "id": "E43",
+        "choice": "accept"
+      }
+    },
+    {
+      "type": "event-resolved",
+      "encounter": 3,
+      "playerId": "bob",
+      "details": {
+        "id": "E43",
+        "choice": "accept"
+      }
+    },
+    {
+      "type": "life-lost",
+      "encounter": 3,
+      "playerId": "alice",
+      "details": {
+        "amount": 1,
+        "reason": "dimensional-decay"
+      }
+    },
+    {
+      "type": "life-lost",
+      "encounter": 3,
+      "playerId": "bob",
+      "details": {
+        "amount": 1,
+        "reason": "dimensional-decay"
+      }
+    },
+    {
+      "type": "collector-scored",
+      "encounter": 3,
+      "playerId": "alice",
+      "details": {
+        "credits": 463,
+        "itemValue": 11,
+        "modifierPercent": 0,
+        "score": 474,
+        "itemIds": [
+          "item-1-0-2-0"
+        ],
+        "statusIds": []
+      }
+    },
+    {
+      "type": "collector-scored",
+      "encounter": 3,
+      "playerId": "bob",
+      "details": {
+        "credits": 520,
+        "itemValue": 0,
+        "modifierPercent": 0,
+        "score": 520,
+        "itemIds": [],
+        "statusIds": []
+      }
+    }
+  ],
+  "items": {
+    "item-1-0-0-0": {
+      "id": "item-1-0-0-0",
+      "kind": "darkone-crossing-token",
+      "base": 16,
+      "ask": 21,
+      "genuine": false,
+      "cursed": true,
+      "owner": "npc:alice:1",
+      "npcOwnerId": "alice",
+      "npc": "darkone",
+      "encounter": 1,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 10
+    },
+    "item-1-0-0-1": {
+      "id": "item-1-0-0-1",
+      "kind": "darkone-crossing-token",
+      "base": 17,
+      "ask": 20,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:alice:1",
+      "npcOwnerId": "alice",
+      "npc": "darkone",
+      "encounter": 1,
+      "certificate": false,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 8
+    },
+    "item-1-0-1-0": {
+      "id": "item-1-0-1-0",
+      "kind": "alien-thought-translator",
+      "base": 14,
+      "ask": 20,
+      "genuine": false,
+      "cursed": true,
+      "owner": "npc:alice:1",
+      "npcOwnerId": "alice",
+      "npc": "alien",
+      "encounter": 1,
+      "certificate": false,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 11
+    },
+    "item-1-0-1-1": {
+      "id": "item-1-0-1-1",
+      "kind": "alien-thought-translator",
+      "base": 16,
+      "ask": 23,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:alice:1",
+      "npcOwnerId": "alice",
+      "npc": "alien",
+      "encounter": 1,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 13
+    },
+    "item-1-0-2-0": {
+      "id": "item-1-0-2-0",
+      "kind": "swarm-brood-hammer",
+      "base": 44,
+      "ask": 50,
+      "genuine": false,
+      "cursed": false,
+      "owner": "collector",
+      "npcOwnerId": "alice",
+      "npc": "swarm",
+      "encounter": 1,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 22,
+      "appearance": {
+        "version": 1,
+        "rarity": "uncommon",
+        "theme": "frost",
+        "visualSeed": 726366324
+      },
+      "rarityPower": {
+        "version": 1,
+        "valueMultiplier": 2,
+        "effectMultiplier": 2
+      },
+      "lastTradePrice": 50,
+      "priceIntegrity": {
+        "overpriced": false,
+        "audits": 1
+      }
+    },
+    "item-1-0-2-1": {
+      "id": "item-1-0-2-1",
+      "kind": "swarm-brood-hammer",
+      "base": 25,
+      "ask": 25,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:alice:1",
+      "npcOwnerId": "alice",
+      "npc": "swarm",
+      "encounter": 1,
+      "certificate": false,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 15,
+      "appearance": {
+        "version": 1,
+        "rarity": "common",
+        "theme": "plain",
+        "visualSeed": 3909403419
+      },
+      "rarityPower": {
+        "version": 1,
+        "valueMultiplier": 1,
+        "effectMultiplier": 1
+      }
+    },
+    "item-1-1-0-0": {
+      "id": "item-1-1-0-0",
+      "kind": "alien-thought-translator",
+      "base": 28,
+      "ask": 46,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:bob:1",
+      "npcOwnerId": "bob",
+      "npc": "alien",
+      "encounter": 1,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 24,
+      "appearance": {
+        "version": 1,
+        "rarity": "uncommon",
+        "theme": "inferno",
+        "visualSeed": 4203400732
+      },
+      "rarityPower": {
+        "version": 1,
+        "valueMultiplier": 2,
+        "effectMultiplier": 2
+      }
+    },
+    "item-1-1-0-1": {
+      "id": "item-1-1-0-1",
+      "kind": "alien-thought-translator",
+      "base": 22,
+      "ask": 22,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:bob:1",
+      "npcOwnerId": "bob",
+      "npc": "alien",
+      "encounter": 1,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 12,
+      "appearance": {
+        "version": 1,
+        "rarity": "common",
+        "theme": "plain",
+        "visualSeed": 2381263472
+      },
+      "rarityPower": {
+        "version": 1,
+        "valueMultiplier": 1,
+        "effectMultiplier": 1
+      }
+    },
+    "item-1-1-1-0": {
+      "id": "item-1-1-1-0",
+      "kind": "swarm-brood-hammer",
+      "base": 20,
+      "ask": 25,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:bob:1",
+      "npcOwnerId": "bob",
+      "npc": "swarm",
+      "encounter": 1,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 13
+    },
+    "item-1-1-1-1": {
+      "id": "item-1-1-1-1",
+      "kind": "swarm-brood-hammer",
+      "base": 26,
+      "ask": 22,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:bob:1",
+      "npcOwnerId": "bob",
+      "npc": "swarm",
+      "encounter": 1,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 18
+    },
+    "item-1-1-2-0": {
+      "id": "item-1-1-2-0",
+      "kind": "vampire-nocturne-signet",
+      "base": 26,
+      "ask": 19,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:bob:1",
+      "npcOwnerId": "bob",
+      "npc": "vampire",
+      "encounter": 1,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 13
+    },
+    "item-1-1-2-1": {
+      "id": "item-1-1-2-1",
+      "kind": "vampire-nocturne-signet",
+      "base": 17,
+      "ask": 18,
+      "genuine": false,
+      "cursed": false,
+      "owner": "npc:bob:1",
+      "npcOwnerId": "bob",
+      "npc": "vampire",
+      "encounter": 1,
+      "certificate": false,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 11
+    },
+    "item-2-0-0-0": {
+      "id": "item-2-0-0-0",
+      "kind": "orc-tusk-shield",
+      "base": 21,
+      "ask": 25,
+      "genuine": true,
+      "cursed": true,
+      "owner": "npc:alice:2",
+      "npcOwnerId": "alice",
+      "npc": "orc",
+      "encounter": 2,
+      "certificate": false,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 10
+    },
+    "item-2-0-0-1": {
+      "id": "item-2-0-0-1",
+      "kind": "orc-tusk-shield",
+      "base": 16,
+      "ask": 22,
+      "genuine": false,
+      "cursed": true,
+      "owner": "npc:alice:2",
+      "npcOwnerId": "alice",
+      "npc": "orc",
+      "encounter": 2,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 13
+    },
+    "item-2-0-1-0": {
+      "id": "item-2-0-1-0",
+      "kind": "beast-riftfang-sword",
+      "base": 28,
+      "ask": 23,
+      "genuine": true,
+      "cursed": true,
+      "owner": "npc:alice:2",
+      "npcOwnerId": "alice",
+      "npc": "beast",
+      "encounter": 2,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 11
+    },
+    "item-2-0-1-1": {
+      "id": "item-2-0-1-1",
+      "kind": "beast-riftfang-sword",
+      "base": 32,
+      "ask": 23,
+      "genuine": false,
+      "cursed": false,
+      "owner": "npc:alice:2",
+      "npcOwnerId": "alice",
+      "npc": "beast",
+      "encounter": 2,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 16
+    },
+    "item-2-0-2-0": {
+      "id": "item-2-0-2-0",
+      "kind": "autometa-torque-caliper",
+      "base": 14,
+      "ask": 21,
+      "genuine": false,
+      "cursed": false,
+      "owner": "npc:alice:2",
+      "npcOwnerId": "alice",
+      "npc": "autometa",
+      "encounter": 2,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 12
+    },
+    "item-2-0-2-1": {
+      "id": "item-2-0-2-1",
+      "kind": "autometa-torque-caliper",
+      "base": 23,
+      "ask": 18,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:alice:2",
+      "npcOwnerId": "alice",
+      "npc": "autometa",
+      "encounter": 2,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 18
+    },
+    "item-2-1-0-0": {
+      "id": "item-2-1-0-0",
+      "kind": "vampire-nocturne-signet",
+      "base": 18,
+      "ask": 20,
+      "genuine": false,
+      "cursed": false,
+      "owner": "npc:bob:2",
+      "npcOwnerId": "bob",
+      "npc": "vampire",
+      "encounter": 2,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 11
+    },
+    "item-2-1-0-1": {
+      "id": "item-2-1-0-1",
+      "kind": "vampire-nocturne-signet",
+      "base": 16,
+      "ask": 23,
+      "genuine": false,
+      "cursed": false,
+      "owner": "npc:bob:2",
+      "npcOwnerId": "bob",
+      "npc": "vampire",
+      "encounter": 2,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 8
+    },
+    "item-2-1-1-0": {
+      "id": "item-2-1-1-0",
+      "kind": "deepsea-tide-compass",
+      "base": 23,
+      "ask": 16,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:bob:2",
+      "npcOwnerId": "bob",
+      "npc": "deepsea",
+      "encounter": 2,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 11
+    },
+    "item-2-1-1-1": {
+      "id": "item-2-1-1-1",
+      "kind": "deepsea-tide-compass",
+      "base": 12,
+      "ask": 19,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:bob:2",
+      "npcOwnerId": "bob",
+      "npc": "deepsea",
+      "encounter": 2,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 8
+    },
+    "item-2-1-2-0": {
+      "id": "item-2-1-2-0",
+      "kind": "beast-riftfang-sword",
+      "base": 18,
+      "ask": 22,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:bob:2",
+      "npcOwnerId": "bob",
+      "npc": "beast",
+      "encounter": 2,
+      "certificate": false,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 11
+    },
+    "item-2-1-2-1": {
+      "id": "item-2-1-2-1",
+      "kind": "beast-riftfang-sword",
+      "base": 27,
+      "ask": 27,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:bob:2",
+      "npcOwnerId": "bob",
+      "npc": "beast",
+      "encounter": 2,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 13
+    },
+    "item-3-0-0-0": {
+      "id": "item-3-0-0-0",
+      "kind": "alien-thought-translator",
+      "base": 14,
+      "ask": 23,
+      "genuine": true,
+      "cursed": true,
+      "owner": "npc:alice:3",
+      "npcOwnerId": "alice",
+      "npc": "alien",
+      "encounter": 3,
+      "certificate": false,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 9
+    },
+    "item-3-0-0-1": {
+      "id": "item-3-0-0-1",
+      "kind": "alien-thought-translator",
+      "base": 23,
+      "ask": 22,
+      "genuine": true,
+      "cursed": true,
+      "owner": "npc:alice:3",
+      "npcOwnerId": "alice",
+      "npc": "alien",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 19
+    },
+    "item-3-0-1-0": {
+      "id": "item-3-0-1-0",
+      "kind": "orc-tusk-shield",
+      "base": 20,
+      "ask": 24,
+      "genuine": true,
+      "cursed": true,
+      "owner": "npc:alice:3",
+      "npcOwnerId": "alice",
+      "npc": "orc",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 15
+    },
+    "item-3-0-1-1": {
+      "id": "item-3-0-1-1",
+      "kind": "orc-tusk-shield",
+      "base": 23,
+      "ask": 23,
+      "genuine": true,
+      "cursed": true,
+      "owner": "npc:alice:3",
+      "npcOwnerId": "alice",
+      "npc": "orc",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 18
+    },
+    "item-3-0-2-0": {
+      "id": "item-3-0-2-0",
+      "kind": "darkone-crossing-token",
+      "base": 13,
+      "ask": 20,
+      "genuine": true,
+      "cursed": true,
+      "owner": "npc:alice:3",
+      "npcOwnerId": "alice",
+      "npc": "darkone",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 5
+    },
+    "item-3-0-2-1": {
+      "id": "item-3-0-2-1",
+      "kind": "darkone-crossing-token",
+      "base": 15,
+      "ask": 18,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:alice:3",
+      "npcOwnerId": "alice",
+      "npc": "darkone",
+      "encounter": 3,
+      "certificate": false,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 6
+    },
+    "item-3-1-0-0": {
+      "id": "item-3-1-0-0",
+      "kind": "orc-tusk-shield",
+      "base": 31,
+      "ask": 25,
+      "genuine": false,
+      "cursed": true,
+      "owner": "npc:bob:3",
+      "npcOwnerId": "bob",
+      "npc": "orc",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 16
+    },
+    "item-3-1-0-1": {
+      "id": "item-3-1-0-1",
+      "kind": "orc-tusk-shield",
+      "base": 30,
+      "ask": 22,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:bob:3",
+      "npcOwnerId": "bob",
+      "npc": "orc",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 17
+    },
+    "item-3-1-1-0": {
+      "id": "item-3-1-1-0",
+      "kind": "alien-thought-translator",
+      "base": 23,
+      "ask": 22,
+      "genuine": true,
+      "cursed": true,
+      "owner": "npc:bob:3",
+      "npcOwnerId": "bob",
+      "npc": "alien",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 15
+    },
+    "item-3-1-1-1": {
+      "id": "item-3-1-1-1",
+      "kind": "alien-thought-translator",
+      "base": 16,
+      "ask": 23,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:bob:3",
+      "npcOwnerId": "bob",
+      "npc": "alien",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 11
+    },
+    "item-3-1-2-0": {
+      "id": "item-3-1-2-0",
+      "kind": "beast-riftfang-sword",
+      "base": 28,
+      "ask": 23,
+      "genuine": true,
+      "cursed": false,
+      "owner": "npc:bob:3",
+      "npcOwnerId": "bob",
+      "npc": "beast",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 11
+    },
+    "item-3-1-2-1": {
+      "id": "item-3-1-2-1",
+      "kind": "beast-riftfang-sword",
+      "base": 28,
+      "ask": 27,
+      "genuine": true,
+      "cursed": true,
+      "owner": "npc:bob:3",
+      "npcOwnerId": "bob",
+      "npc": "beast",
+      "encounter": 3,
+      "certificate": true,
+      "lastAppraisal": null,
+      "lastAccepted": null,
+      "reservation": 16
+    }
+  },
+  "final": [
+    {
+      "id": "alice",
+      "credits": 463,
+      "energy": 10,
+      "inventory": [],
+      "score": 474,
+      "life": 2
+    },
+    {
+      "id": "bob",
+      "credits": 520,
+      "energy": 10,
+      "inventory": [],
+      "score": 520,
+      "life": 3
+    }
+  ],
+  "collector": [
+    {
+      "playerId": "alice",
+      "credits": 463,
+      "itemValue": 11,
+      "modifierPercent": 0,
+      "statusIds": [],
+      "score": 474,
+      "items": [
+        {
+          "id": "item-1-0-2-0",
+          "kind": "swarm-brood-hammer",
+          "base": 44,
+          "genuine": false,
+          "cursed": false,
+          "value": 11
+        }
+      ]
+    },
+    {
+      "playerId": "bob",
+      "credits": 520,
+      "itemValue": 0,
+      "modifierPercent": 0,
+      "statusIds": [],
+      "score": 520,
+      "items": []
+    }
+  ]
+}

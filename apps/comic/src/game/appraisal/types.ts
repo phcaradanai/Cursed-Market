@@ -39,7 +39,7 @@ export type ItemKind = Remaining48Kind | LegacyItemFamily | PilotItemKind | 'mem
 export type AppraisalPhase = 'PORTALS' | 'APPRAISAL' | 'TRADE' | 'REVEAL' | 'RESULTS';
 export interface AppraisalConfig {
   /** Absent in catalog5 stage1 audits: pilot8 plus E05 only. */
-  native56Effects?:2|3|4|5|6;
+  native56Effects?:2|3|4|5|6|7|8|9|10|11|12|13|14|15;
   /** Bind recovery payment to visible terms; absent in historical audits. */
   recoveryQuoteRules?:1;
   /** Versioned personal accomplishments; historical audits omit this. */
@@ -121,11 +121,12 @@ export interface WishOffer { npc:NpcId; kind:ItemKind; price:number; initial:num
 /** `amount` is the most the deal can restore; `min` (life deals) is the least, rolled per encounter. */
 export interface RecoveryOffer { quoteId?:string; nativeDiscount?:number; target:'energy'|'life'; credits:number; amount:number; min?:number }
 export interface CollectorResult {
+  assetBonus?:number;
   personalScore?:import('./personal-scoring.js').PersonalScoreBreakdown;
   playerId:string; credits:number; itemValue:number; modifierPercent:number; statusIds:StatusId[]; score:number;
   items:Array<{id:string;kind:ItemKind;base:number;genuine:boolean;cursed:boolean;value:number;certified?:boolean}>;
 }
-export interface Status { power?:number; id: StatusId; expires: number; charges: number; targetItemId?: string; starts: number }
+export interface Status { instanceId?:string; extendedByShawl?:boolean; power?:number; id: StatusId; expires: number; charges: number; targetItemId?: string; starts: number }
 export interface Knowledge { range?: [number,number]; base?: number; genuine?: boolean; cursed?: boolean; effectsKnown?: boolean; activationKnown?: boolean; certificate?: boolean; comparison?: string }
 export interface AppraisalItem {
   /** Actual market-vault consignor; private E22 self-bid provenance. */
@@ -149,7 +150,7 @@ export interface AppraisalItem {
   stolen?:boolean;
   reservation: number; lastAccepted: boolean | null;
 }
-export interface Portal { id: string; npc: NpcId; stock: string[]; disabled: boolean }
+export interface Portal { id: string; npc: NpcId; stock: string[]; disabled: boolean; causeEventId?:EventId }
 export interface Valuation { value: number; accuracy: boolean; caught: boolean; accepted: boolean }
 export interface EventOffer {
   id: EventId; key: string; choices: string[]; itemIds: string[]; statusIds: StatusId[];
@@ -165,7 +166,13 @@ export interface EventOffer {
 }
 export interface NpcContracts {
   vampire?: {signedAt:number;performanceId?:string};
-  alien?: {lentAt:number;dueAt:number;itemIds:string[];key:string;reservedCredits:number};
+  alien?: {
+    lentAt:number;dueAt:number;itemIds:string[];key:string;reservedCredits:number;
+    /** E59's separate guaranteed bonus escrow; base principal reserve above remains 8 per loaned item. */
+    native56SwarmPupaCradleItemIds?:string[];
+    native56SwarmPupaCradleStrength?:number;
+    native56SwarmPupaCradleReservedCredits?:number;
+  };
 }
 export type CoinSide = 'heads' | 'tails';
 export interface RoundReward {
@@ -175,6 +182,8 @@ export interface RoundReward {
   lastFlip?:{guess:CoinSide; side:CoinSide; correct:boolean; coins?:Array<{guess:CoinSide;side:CoinSide;correct:boolean}>; delta?:number};
 }
 export interface Appraiser {
+  native56PortalClue?:{encounter:number;portalId:string;itemId:string;kind:ItemKind};
+  native56PortalReopenAt?:number;
   journal?: JournalEntry[];
   personalVault?:import('./secure-storage.js').PersonalVault;
   crime?:import('./theft.js').CrimeRecord;
@@ -285,7 +294,7 @@ export type AppraisalAction = { playerId: string; requestId: string; encounter: 
   | { type: 'inspect'; itemId: string; property: 'price'|'authenticity'|'effects' }
   | { type: 'appraise'|'counter'; itemId: string; value: number; acceptDanger?: boolean }
   | { type: 'buy'; itemIds: string[]; condition: boolean }
-  | { type: 'activate'; itemId: string; npc?:NpcId; otherNpc?:NpcId }
+  | { type: 'activate'; itemId: string; npc?:NpcId; otherNpc?:NpcId; target?:{portalId:string}|{statusId:StatusId} }
   | { type: 'event'; key: string; choice: string; itemId?: string; itemIds?:string[]; statusId?: StatusId; otherPlayerId?: string; fact?: 'base'|'genuine'|'cursed'; guess?: boolean }
   | { type: 'market-sell'; itemId: string; orderId: string; resolution?:'discount'|'sacrifice' }
   | { type: 'share'; itemId: string; allow: boolean; purchase: boolean; claims?: { genuine?: boolean; cursed?: boolean }; rebate?: number }
@@ -319,6 +328,10 @@ export interface AppraisalState {
   native56EnergyUses?:{encounter:number;players:string[];origins:string[]};
   /** E38 shares one tie-right quota across every sword in the family per player/encounter. */
   native56TieRights?:{encounter:number;players:string[]};
+  /** E40 reduces one qualifying NPC theft trust loss per player/encounter. */
+  native56SentryTrustUses?:{encounter:number;players:string[]};
+  /** E42 settles one qualifying stolen origin for the whole run, within each victim's cap. */
+  native56TheftInsurance?:{paid:Record<string,number>;origins:string[]};
   /** E06 rights belong to players and physical origins, never a screen or current owner. */
   native56ChallengeUses?:{encounter:number;players:string[];origins:string[]};
   personalPerformance?:import('./personal-scoring.js').PersonalPerformance;
@@ -338,6 +351,7 @@ export interface AppraisalState {
   vault?: string[];
 }
 export interface ItemView {
+  portalTargets?:string[];
   /** Public capability readiness, independent of hidden authenticity/curse. */
   nativeEffectReady?:boolean;
   pilotUses?:number;
@@ -351,6 +365,7 @@ export interface ItemView {
   copy?:{sourceId:string;sourceName:string;number:number;valuePercent:number};
   /** This seat can inspect or appraise this merchant item once without energy. */
   freeMerchantAction?:boolean;
+  sealInspectionFree?:boolean;
   itemEffects?:boolean;
   trustAbilities?:boolean;
   id: string; kind: ItemKind; name: string; image: string; owner: string;
@@ -384,7 +399,7 @@ export interface AppraisalView {
     collectorWishlist?:import('./collector-wishlist.js').CollectorWishlistView;
     personalVault?:{items:ItemView[];credits:number;slots:number;nextSlotPrice:number;nextInterest:number;interestPercent?:number;canWithdrawCredits?:boolean};
     loanItems?:ItemView[];
-    inventory: ItemView[]; stock: ItemView[]; portals: Array<{id:string; npc:NpcId; hint:ItemKind; disabled:boolean}>;
+    inventory: ItemView[]; stock: ItemView[]; portals: Array<{id:string; npc:NpcId; hint:ItemKind; disabled:boolean; clue?:ItemKind; causeEventId?:EventId}>;
     portalRerollCost?:number;pilotPriceChecks?:number;pilotAcceptancePercent?:number;
     counterLimit: number;
     /** Per-seat caps once held relics apply (polish rules). */

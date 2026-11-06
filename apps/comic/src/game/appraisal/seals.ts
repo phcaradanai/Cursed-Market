@@ -1,6 +1,10 @@
+import {grantSealInspection,sealInspectionTool} from './seal-inspection.js';
 import {recordPersonalActivity} from './personal-scoring.js';
 import { randomAt } from '../random.js';
-import { check, maxEnergyOf, maxLifeOf, ownedItem, player, trace, transfer } from './mechanics.js';
+import { check, maxEnergyOf, maxLifeOf, ownedItem, player, recover, trace, transfer } from './mechanics.js';
+import { remainingHeld } from './remaining48-effects.js';
+import { remainingScaled, remainingStrength } from './remaining48-numbers.js';
+import { REMAINING48_RULES } from './remaining48-catalog.js';
 import { eligibleItems } from './theft.js';
 import type { SinnerSeal } from './theft.js';
 import type { AppraisalItem, AppraisalState, Appraiser } from './types.js';
@@ -46,10 +50,11 @@ export interface SealMarketView {
   holdings: Array<{thiefId: string; count: number}>;
 }
 
-type SealState = AppraisalState & {sinnerSeals?: SinnerSeal[]; sealOffers?: SealOffer[]; sealRedemptions?: SealRedemption[]};
+type SealState = AppraisalState & {sinnerSeals?: SinnerSeal[]; sealOffers?: SealOffer[]; sealRedemptions?: SealRedemption[]; native56SealEnergy?:{origins:string[];uses:{encounter:number;players:string[]};offers:Record<string,{buyerId:string;encounter:number;itemIds:string[]}>}};
 const seals = (state: AppraisalState) => (state as SealState).sinnerSeals ??= [];
 const offers = (state: AppraisalState) => (state as SealState).sealOffers ??= [];
 const redemptions = (state: AppraisalState) => (state as SealState).sealRedemptions ??= [];
+const sealEnergy = (state: AppraisalState) => (state as SealState).native56SealEnergy ??= {origins:[],uses:{encounter:state.encounter,players:[]},offers:{}};
 const alive = (p: Appraiser) => p.paused !== 'dead' && p.life !== 0;
 const text = (value: unknown) => {
   check(value === undefined || typeof value === 'string' && value.length <= 500,'seal-terms','ข้อตกลงยาวได้ไม่เกิน 500 ตัวอักษร');
@@ -85,6 +90,8 @@ function offerSeal(state: AppraisalState, p: Appraiser, action: Extract<SealActi
   check(!offers(state).some(o => o.status === 'open' && o.sealId === seal.id),'seal-locked','ตรานี้มีข้อเสนอค้างอยู่');
   const list = offers(state);
   list.push({id:`seal-offer:${list.length+1}`,sealId:seal.id,holderId:p.id,buyerId:buyer.id,credits:action.credits,energy:action.energy,life:action.life,goods:action.goods,terms:text(action.terms),encounter:state.encounter,status:'open'});
+  const eligibleSpools=action.credits>=1&&state.config.catalogVersion===5&&(state.config.native56Effects??0)>=11?remainingHeld(state,buyer,'E52').filter(i=>!i.copy):[];
+  if(eligibleSpools.length)sealEnergy(state).offers[list.at(-1)!.id]={buyerId:buyer.id,encounter:state.encounter,itemIds:eligibleSpools.map(i=>i.id)};
   trace(state,p,action.type,{offerId:list.at(-1)!.id});
 }
 
@@ -92,7 +99,7 @@ function respondOffer(state: AppraisalState, p: Appraiser, offerId: string, acce
   check(typeof accept === 'boolean','seal-response','คำตอบไม่ถูกต้อง');
   const offer = offers(state).find(o => o.id === offerId);
   check(offer && offer.status === 'open' && offer.buyerId === p.id && offer.encounter === state.encounter,'seal-offer','ไม่มีข้อเสนอซื้อตรานี้ให้ตอบ');
-  if(!accept) { offer.status = 'declined'; return; }
+  if(!accept) { offer.status = 'declined'; delete (state as SealState).native56SealEnergy?.offers[offer.id]; return; }
   const holder = player(state,offer.holderId);
   const seal = seals(state).find(s => s.id === offer.sealId);
   check(seal && seal.holderId === holder.id && !redemptions(state).some(r => r.status === 'open' && r.sealIds.includes(seal.id)),'seal-owner','ผู้ขายไม่ได้ถือตรานี้แล้ว');
@@ -112,6 +119,21 @@ function respondOffer(state: AppraisalState, p: Appraiser, offerId: string, acce
     (state as SealState).sinnerSeals = seals(state).filter(s => s.id !== seal.id);
     trace(state,p,'seal-destroyed',{sealId:seal.id});
   } else seal.holderId = p.id;
+  const native=(state as SealState).native56SealEnergy,snapshot=native?.offers[offer.id];
+  if(native)delete native.offers[offer.id];
+  if(seal.thiefId!==p.id&&offer.credits>=1&&snapshot?.buyerId===p.id&&snapshot.encounter===offer.encounter&&state.config.catalogVersion===5&&(state.config.native56Effects??0)>=11){
+    const used=native!.uses.encounter===state.encounter?native!.uses:{encounter:state.encounter,players:[]};
+    if(!native!.origins.includes(seal.id)&&!used.players.includes(p.id)){
+      const tools=remainingHeld(state,p,'E52').filter(item=>snapshot.itemIds.includes(item.id)&&!item.copy),strength=remainingStrength(tools,'E52');
+      const bonus=remainingScaled(REMAINING48_RULES.E52.energy,strength,REMAINING48_RULES.E52.familyCap),amount=Math.min(bonus,Math.max(0,maxEnergyOf(state,p)-p.energy));
+      if(amount>0){const before=p.energy;recover(state,p,amount,'native-seal-energy',true);const gained=p.energy-before;
+        if(gained>0){native!.origins.push(seal.id);native!.uses={encounter:state.encounter,players:[...used.players,p.id]};
+          p.notes.push(`หลอดม้วนยางไม้: ซื้อขายตราสำเร็จ ฟื้นพลัง +${gained}`);p.notes=p.notes.slice(-30);
+          trace(state,p,'native-seal-energy',{offerId:offer.id,sealId:seal.id,amount:gained,sourceItemIds:tools.map(i=>i.id)});
+        }
+      }
+    }
+  }
   trace(state,p,'seal-sold',{offerId:offer.id,sealId:seal.id});
 }
 
@@ -149,7 +171,9 @@ function pick(state: AppraisalState, p: Appraiser, redemptionId: string, slotInd
     if(redemption.slots.every(s => s.gone))redemption.status = 'cancelled';
     return;
   }
+  const inspectionTool=sealInspectionTool(state,p);
   moveGoods(state,thief,p,item);
+  grantSealInspection(state,p,item,inspectionTool);
   // Mirrors a successful theft: seized goods keep the stolen restriction.
   item.stolen = true;
   (state as SealState).sinnerSeals = seals(state).filter(s => !redemption.sealIds.includes(s.id));
@@ -165,7 +189,7 @@ export function handleSealAction(state: AppraisalState, p: Appraiser, action: Se
     case 'seal-cancel': {
       const offer = offers(state).find(o => o.id === action.offerId);
       check(offer && offer.status === 'open' && offer.holderId === p.id,'seal-offer','ไม่มีข้อเสนอที่ยกเลิกได้');
-      offer.status = 'cancelled'; break;
+      offer.status = 'cancelled'; delete (state as SealState).native56SealEnergy?.offers[offer.id]; break;
     }
     case 'seal-redeem': redeem(state,p,action.thiefId); break;
     case 'seal-pick': pick(state,p,action.redemptionId,action.slot); break;
@@ -175,7 +199,21 @@ export function handleSealAction(state: AppraisalState, p: Appraiser, action: Se
 /** Offers and unfinished redemptions last one encounter; the seals themselves never expire. */
 export function closeSealOffers(state: AppraisalState): void {
   for(const offer of (state as SealState).sealOffers ?? [])if(offer.status === 'open')offer.status = 'cancelled';
+  if((state as SealState).native56SealEnergy) (state as SealState).native56SealEnergy!.offers={};
   for(const r of (state as SealState).sealRedemptions ?? [])if(r.status === 'open')r.status = 'cancelled';
+}
+
+/** A tool must stay in the buyer's inventory for every state transition while the offer is open. */
+export function reconcileNative56SealEnergyCustody(state:AppraisalState):void {
+  const native=(state as SealState).native56SealEnergy;
+  if(!native)return;
+  for(const [offerId,snapshot] of Object.entries(native.offers)){
+    const offer=(state as SealState).sealOffers?.find(o=>o.id===offerId),buyer=state.players.find(p=>p.id===snapshot.buyerId);
+    if(!offer||offer.status!=='open'||!buyer||offer.buyerId!==snapshot.buyerId||offer.encounter!==snapshot.encounter||snapshot.encounter!==state.encounter){delete native.offers[offerId];continue;}
+    const held=new Set(remainingHeld(state,buyer,'E52').filter(item=>!item.copy).map(item=>item.id));
+    snapshot.itemIds=snapshot.itemIds.filter(id=>held.has(id));
+    if(!snapshot.itemIds.length)delete native.offers[offerId];
+  }
 }
 
 export function sealMarketViewFor(state: AppraisalState, p: Appraiser): SealMarketView {

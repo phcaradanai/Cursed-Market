@@ -1,6 +1,9 @@
 import {recordPersonalActivity} from './personal-scoring.js';
 import { randomAt } from '../random.js';
 import { linkedStatuses } from './core2.js';
+import { remainingHeld } from './remaining48-effects.js';
+import { remainingStrength } from './remaining48-numbers.js';
+import { REMAINING48_RULES } from './remaining48-catalog.js';
 // The full catalog: status links can hand out the v0.6 statuses too.
 import { ITEM_SPECS, ALL_STATUS_CATALOG as STATUS_CATALOG } from './content.js';
 import { check, grant, healLife, known, learn, maxEnergyOf, maxLifeOf, ownedItem, recover, removeStatus, retire, reward, spend, status, trace, unlocked } from './mechanics.js';
@@ -15,6 +18,35 @@ const livingOthers=(state:AppraisalState,p:Appraiser)=>state.players.filter(othe
 const freeBank=(state:AppraisalState)=>state.bank-state.market.budget-state.reservedRewards;
 const pick=<T>(state:AppraisalState,key:string,pool:readonly T[]):T=>pool[Math.floor(randomAt(state.seed,key)*pool.length)]!;
 const note=(p:Appraiser,text:string)=>{p.notes.push(text);p.notes=p.notes.slice(-30);};
+const native56E59=(state:AppraisalState)=>state.config.catalogVersion===5&&(state.config.native56Effects??0)>=14;
+function e59RunPaid(state:AppraisalState,p:Appraiser):number {
+  return state.trace.filter(entry=>entry.type==='alien-cradle-bonus'&&entry.playerId===p.id).reduce((sum,entry)=>sum+Number(entry.details.credits??0),0);
+}
+function e59Quote(strength:number,returnedCount:number,runPaid:number):number {
+  const rule=REMAINING48_RULES.E59;
+  return Math.max(0,Math.min(rule.perContractCap,Math.floor(strength)*returnedCount*rule.bonusCreditsPerReturnedItem,rule.perRunCap-runPaid));
+}
+function e59CustodyBroken(state:AppraisalState,p:Appraiser,loan:NonNullable<Appraiser['npcContracts']>['alien'],itemId:string):boolean {
+  if(!loan)return true;
+  const signedIndex=state.trace.findLastIndex(entry=>entry.type==='alien-loan'&&entry.playerId===p.id&&entry.details.contractKey===loan.key);
+  const after=signedIndex>=0?state.trace.slice(signedIndex+1):state.trace.filter(entry=>entry.encounter>loan.lentAt);
+  if(after.some(entry=>['item-removed','market-sale','forced-purchase','vault-deposit-item'].includes(entry.type)&&entry.details.itemId===itemId))return true;
+  for(const entry of after) {
+    if(entry.type==='trade-completed') {
+      const offer=state.trades.find(value=>value.id===entry.details.offerId);
+      if(entry.details.itemId===itemId||offer?.swapItemId===itemId)return true;
+    }
+    if(entry.type==='theft-started'&&typeof entry.details.duelId==='string') {
+      const duel=state.theftDuels?.find(value=>value.id===entry.details.duelId);
+      if(duel?.status==='won'&&duel.victimId===p.id&&duel.itemId===itemId)return true;
+    }
+    if((entry.type==='loan-respond'||entry.type==='loan-repay'||entry.type==='secured-loan-foreclosed')&&typeof entry.details.loanId==='string') {
+      const secured=state.loans?.find(value=>value.id===entry.details.loanId);
+      if(secured?.borrowerId===p.id&&secured.itemId===itemId)return true;
+    }
+  }
+  return false;
+}
 
 /** No seed, hidden item truths or pre-rolled rewards are sent in the contract. */
 export function npcEventEligible(state:AppraisalState,p:Appraiser,id:EventId):boolean {
@@ -38,7 +70,10 @@ export function npcEventEligible(state:AppraisalState,p:Appraiser,id:EventId):bo
 export function personalNpcOffer(state:AppraisalState,p:Appraiser,id:EventId,key:string):Partial<EventOffer> {
   const itemIds=movable(state,p),terms:NonNullable<EventOffer['npcTerms']>={credits:0,energy:0,life:0,items:0};
   let choices=['accept','decline'];
-  if(id==='E109')terms.life=2;
+  if(id==='E109') {
+    const wine=state.config.catalogVersion===5&&(state.config.native56Effects??0)>=13&&remainingStrength(remainingHeld(state,p,'E58'),'E58')>=1;
+    terms.life=wine?1:2;
+  }
   if(id==='E110') {
     terms.loanMax=Math.min(itemIds.length,1+Math.floor(randomAt(state.seed,`${key}:loan-size`)*3),Math.floor(freeBank(state)/8));
     choices=[...Array.from({length:terms.loanMax},(_,i)=>`lend-${i+1}`),'decline'];
@@ -97,11 +132,13 @@ export function resolvePersonalNpcEvent(state:AppraisalState,p:Appraiser,offer:E
       const count=Number(command.choice.slice(5)),ids=command.itemIds;
       check(Number.isInteger(count) && count>=1 && count<=terms.loanMax! && Array.isArray(ids) && ids.length===count && new Set(ids).size===count && ids.every(id=>offer.itemIds.includes(id)),'event-target','เลือกของให้ยืมให้ครบจำนวนและห้ามซ้ำ');
       for(const id of ids)ownedItem(state,p,id,true);
-      check(freeBank(state)>=8*count,'bank','งบผลตอบแทนไม่พอ');
+      const e59Enabled=native56E59(state),cradles=e59Enabled?remainingHeld(state,p,'E59').filter(item=>!ids.includes(item.id)):[],strength=e59Enabled?remainingStrength(cradles,'E59'):0;
+      const e59Reserve=e59Enabled?e59Quote(strength,count,e59RunPaid(state,p)):0;
+      check(freeBank(state)>=8*count+e59Reserve,'bank','งบ Alien และโบนัสแท่นรองดักแด้ที่รับประกันไม่พอ');
       for(const id of ids){p.inventory=p.inventory.filter(itemId=>itemId!==id);state.items[id]!.owner=`alien-loan:${p.id}`;}
       state.listings=state.listings.filter(l=>!ids.includes(l.itemId));
-      state.reservedRewards+=8*count;(p.npcContracts??={}).alien={lentAt:state.encounter,dueAt:state.encounter+2,itemIds:[...ids],key:offer.key,reservedCredits:8*count};
-      trace(state,p,'alien-loan',{itemIds:ids,dueAt:state.encounter+2});note(p,`Alien ยืมของ ${count} ชิ้น พบอีกครั้งตั้งแต่ช่วง ${state.encounter+2} เพื่อคืนของพร้อมโบนัสตามจำนวนชิ้น`);break;
+      state.reservedRewards+=8*count+e59Reserve;(p.npcContracts??={}).alien={lentAt:state.encounter,dueAt:state.encounter+2,itemIds:[...ids],key:offer.key,reservedCredits:8*count,...(e59Enabled?{native56SwarmPupaCradleItemIds:cradles.map(item=>item.id),native56SwarmPupaCradleStrength:strength,native56SwarmPupaCradleReservedCredits:e59Reserve}:{})};
+      trace(state,p,'alien-loan',{itemIds:ids,dueAt:state.encounter+2,...(e59Enabled?{contractKey:offer.key}:{})});note(p,`Alien ยืมของ ${count} ชิ้น พบอีกครั้งตั้งแต่ช่วง ${state.encounter+2} เพื่อคืนของพร้อมโบนัสตามจำนวนชิ้น`);break;
     }
     case 'E111': {
       if(command.choice==='purge'){removeStatus(p,command.statusId!);note(p,`Dark One ล้าง ${STATUS_CATALOG.find(s=>s.id===command.statusId)!.name} ให้แล้ว`);}
@@ -148,7 +185,14 @@ export function redeemNpcContracts(state:AppraisalState,p:Appraiser,npc:NpcId):v
   const loan=p.npcContracts?.alien;
   if(npc==='alien' && loan && state.encounter>=loan.dueAt) {
     const perItem=4+Math.floor(randomAt(state.seed,`${loan.key}:credits`)*5),energy=1+Math.floor(randomAt(state.seed,`${loan.key}:energy`)*2);
+    const e59Reserve=loan.native56SwarmPupaCradleReservedCredits??0,sourceIds=new Set(loan.native56SwarmPupaCradleItemIds??[]);
+    const canEarnE59=native56E59(state)&&p.life!==0&&p.paused!=='dead';
+    const e59Tools=canEarnE59?remainingHeld(state,p,'E59').filter(item=>sourceIds.has(item.id)&&!e59CustodyBroken(state,p,loan,item.id)):[];
+    const e59Strength=canEarnE59?remainingStrength(e59Tools,'E59'):0;
     const count=returnLoanItems(state,p);reward(state,p,perItem*count,'alien-return');recover(state,p,energy*count,'alien-return');
+    const e59Credits=e59Quote(e59Strength,count,e59RunPaid(state,p));check(e59Credits<=e59Reserve,'reward-reserve','เงินสำรองโบนัสแท่นรองดักแด้ไม่พอ');
+    if(e59Reserve)state.reservedRewards-=e59Reserve;
+    if(e59Credits){reward(state,p,e59Credits,'alien-cradle-bonus');note(p,`แท่นรองดักแด้มอบโบนัส ${e59Credits} เครดิตเมื่อ Alien คืนของเดิม`);trace(state,p,'alien-cradle-bonus',{contractKey:loan.key,credits:e59Credits,returnedCount:count,sourceItemIds:e59Tools.map(item=>item.id),strength:e59Strength});}
     note(p,`Alien คืนของเดิม ${count} ชิ้น พร้อมโบนัส ${perItem*count} เครดิตและฟื้นพลังสูงสุด ${energy*count}`);
     trace(state,p,'alien-repaid',{count,credits:perItem*count,energy:energy*count});
     if(count>0)recordPersonalActivity(state,p,'npcContract',1,loan.key);
@@ -157,5 +201,5 @@ export function redeemNpcContracts(state:AppraisalState,p:Appraiser,npc:NpcId):v
 /** Principal always returns for final scoring, even for a dead spectator; no meeting means no bonus. */
 export function closeNpcContracts(state:AppraisalState):void {
   if(!state.config.npcEvents)return;
-  for(const p of state.players){const count=returnLoanItems(state,p);if(count)note(p,`จบรัน: Alien คืนของ ${count} ชิ้นเพื่อคิดคะแนน แต่ไม่ได้โบนัสเพราะยังไม่ได้พบกันตามเงื่อนไข`);if(p.npcContracts)delete p.npcContracts.vampire;delete p.vampireDiscount;}
+  for(const p of state.players){const e59Reserve=p.npcContracts?.alien?.native56SwarmPupaCradleReservedCredits??0,count=returnLoanItems(state,p);if(e59Reserve)state.reservedRewards-=e59Reserve;if(count)note(p,`จบรัน: Alien คืนของ ${count} ชิ้นเพื่อคิดคะแนน แต่ไม่ได้โบนัสเพราะยังไม่ได้พบกันตามเงื่อนไข`);if(p.npcContracts)delete p.npcContracts.vampire;delete p.vampireDiscount;}
 }

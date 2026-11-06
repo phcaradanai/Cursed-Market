@@ -2,7 +2,8 @@ import { useState } from 'react';
 import {ComicButton} from './ComicUI.js';
 import type { AppraisalView, ItemView, NpcId } from '../game/appraisal/types.js';
 import { npcImage } from '../game/appraisal/content.js';
-import { reducibleCooldown } from '../game/appraisal/ability-rules.js';
+import { cooldownReductionQuote, reducibleCooldown } from '../game/appraisal/ability-rules.js';
+import { itemEffectScale } from '../game/appraisal/copy-effects.js';
 import { npcName, statusDescription, statusName } from './catalog-text.js';
 import { ChoiceCards } from './lore.js';
 import { activationBlock, type Decision } from './model.js';
@@ -11,6 +12,7 @@ import { abilityDescription, abilityItemFacts, abilityItemLabel, abilityName, ab
 
 interface AbilityProps {game:AppraisalView;submit:(action:Decision)=>void;disabled:boolean}
 const touch={minHeight:44};
+const NATIVE56_E31_ITEMS:readonly string[]=['autometa-coolant-canister','alien-phase-dial'];
 
 /** One focused ability at a time; the other merchants remain a compact readiness ledger. */
 export function MerchantAbilities({game,submit,disabled,focusNpc,panel=false}:AbilityProps&{focusNpc?:NpcId;panel?:boolean}) {
@@ -59,25 +61,28 @@ export function AbilityItemControls({game,item,submit,disabled}:AbilityProps&{it
   useLang();
   const [source,setSource]=useState<NpcId|null>(null);
   const [destination,setDestination]=useState<NpcId|null>(null);
-  if(!game.trustAbilities || !['chrono-gear','burden-hourglass','shifting-compass'].includes(item.kind))return null;
+  const nativeCooldown=NATIVE56_E31_ITEMS.includes(item.kind);
+  if((!game.trustAbilities&&!nativeCooldown) || !['chrono-gear','burden-hourglass','shifting-compass',...NATIVE56_E31_ITEMS].includes(item.kind))return null;
   const transfer=item.kind==='burden-hourglass';
   const compass=item.kind==='shifting-compass';
   const abilities=game.self.merchantAbilities??[];
-  const cooling=abilities.filter(a=>a.trust>=1 && reducibleCooldown(game.self,a.npc,game.encounter)>0);
+  const effectStrength=nativeCooldown?itemEffectScale(item):0;
+  const cooling=abilities.filter(a=>a.trust>=1 && (nativeCooldown?cooldownReductionQuote(game.self,a.npc,game.encounter,effectStrength)>0:reducibleCooldown(game.self,a.npc,game.encounter)>0));
   const selectedSource=cooling.find(a=>a.npc===source);
   const destinations=abilities.filter(a=>a.trust>=1 && a.remaining>0 && a.npc!==source);
   const selectedDestination=destinations.find(a=>a.npc===destination);
   const blocked=activationBlock(game,item.id,disabled);
+  const cooldownQuote=selectedSource&&nativeCooldown?cooldownReductionQuote(game.self,selectedSource.npc,game.encounter,effectStrength):0;
   const ready=compass || (!!selectedSource && (!transfer || !!selectedDestination));
-  const selectOptions=(rows:typeof abilities)=>rows.map(a=>({value:a.npc,title:npcName(a.npc),detail:text('เวลารอเหลือ {n} การพบ','{n} encounters remaining',{n:a.remaining})}));
+  const selectOptions=(rows:typeof abilities)=>rows.map(a=>({value:a.npc,title:npcName(a.npc),detail:nativeCooldown?text('ลดเวลารอ {n} ช่วง · เวลารอที่แสดง {remaining}','Reduce cooldown by {n} · current wait {remaining}',{n:cooldownReductionQuote(game.self,a.npc,game.encounter,effectStrength),remaining:a.remaining}):text('เวลารอเหลือ {n} การพบ','{n} encounters remaining',{n:a.remaining})}));
   return <div className="ability-item-controls">
-    <p>{compass?text('ใช้แล้วหมด · การเปลี่ยนสินค้าด้วยสัตว์นำทางครั้งถัดไปมีตัวเลือกเพิ่ม 1 ชิ้น สูงสุด 5 ชิ้น','Consumed on use. The next Beast replacement offers one extra choice, up to five.'):transfer?text('เปิดใช้ได้ช่วงละครั้ง · ย้ายเวลารอ {n} การพบจากสกิลหนึ่งไปเพิ่มให้อีกสกิลที่กำลังรอ','Use once per encounter. Transfer {n} encounter of cooldown from one cooling ability to another.',{n:item.copy?0.4:1}):text('ใช้แล้วหมด · ลดเวลารอของสกิลที่เลือก {n} การพบ ชนิดนี้ใช้ได้ครั้งเดียวต่อช่วง','Consumed on use. Reduce one ability’s remaining cooldown by {n} encounter. This item kind works once per encounter.',{n:item.copy?0.4:1})}</p>
-    {!compass && <ChoiceCards legend={transfer?text('ลดเวลารอของสกิล','Reduce cooldown on'):text('เลือกสกิลที่จะเร่ง','Choose an ability to accelerate')} value={selectedSource?.npc??''} onChange={npc=>{setSource(npc as NpcId);if(destination===npc)setDestination(null);}} disabled={disabled || !!blocked} options={selectOptions(cooling)}/>}
+    <p>{nativeCooldown?text('ใช้ 1 พลัง · ไม่เสียสินค้า · กระป๋องและหน้าปัดรวมใช้ได้ 1 ครั้งต่อช่วง','Costs 1 energy · Keeps the item · Canister and dial share one use per encounter'):compass?text('ใช้แล้วหมด · การเปลี่ยนสินค้าด้วยสัตว์นำทางครั้งถัดไปมีตัวเลือกเพิ่ม 1 ชิ้น สูงสุด 5 ชิ้น','Consumed on use. The next Beast replacement offers one extra choice, up to five.'):transfer?text('เปิดใช้ได้ช่วงละครั้ง · ย้ายเวลารอ {n} การพบจากสกิลหนึ่งไปเพิ่มให้อีกสกิลที่กำลังรอ','Use once per encounter. Transfer {n} encounter of cooldown from one cooling ability to another.',{n:item.copy?0.4:1}):text('ใช้แล้วหมด · ลดเวลารอของสกิลที่เลือก {n} การพบ ชนิดนี้ใช้ได้ครั้งเดียวต่อช่วง','Consumed on use. Reduce one ability’s remaining cooldown by {n} encounter. This item kind works once per encounter.',{n:item.copy?0.4:1})}</p>
+    {!compass && <ChoiceCards legend={transfer?text('ลดเวลารอของสกิล','Reduce cooldown on'):nativeCooldown?text('เลือกความสามารถพ่อค้าที่กำลังรอ','Choose a merchant ability on cooldown'):text('เลือกสกิลที่จะเร่ง','Choose an ability to accelerate')} value={selectedSource?.npc??''} onChange={npc=>{setSource(npc as NpcId);if(destination===npc)setDestination(null);}} disabled={disabled || !!blocked} options={selectOptions(cooling)}/>}
     {transfer && selectedSource && <ChoiceCards legend={text('เพิ่มเวลารอให้สกิล','Add cooldown to')} value={selectedDestination?.npc??''} onChange={npc=>setDestination(npc as NpcId)} disabled={disabled || !!blocked} options={selectOptions(destinations)}/>}
     {!compass && <p className="supporting">{text('เร่งได้ไม่เกินครึ่งหนึ่งของเวลารอพื้นฐาน และใช้สกิลเดิมซ้ำในการพบเดียวกันไม่ได้','At most half the base cooldown can be removed. The same ability cannot be used twice in one encounter.')}</p>}
-    {!compass && cooling.length===0 && <p className="why">{text('ไม่มีสกิลที่ลดเวลารอได้ อาจพร้อมใช้แล้วหรือเร่งถึงเพดานแล้ว','No ability can be accelerated. It may already be ready or have reached its reduction limit.')}</p>}
+    {!compass && cooling.length===0 && <p className="why">{nativeCooldown?text('ไม่มีความสามารถพ่อค้าที่ลดเวลารอได้','No merchant ability has a removable cooldown'):text('ไม่มีสกิลที่ลดเวลารอได้ อาจพร้อมใช้แล้วหรือเร่งถึงเพดานแล้ว','No ability can be accelerated. It may already be ready or have reached its reduction limit.')}</p>}
     {transfer && selectedSource && destinations.length===0 && <p className="why">{text('ต้องมีอีกสกิลที่กำลังรอเพื่อรับเวลาที่ถ่ายโอน','Another cooling ability is needed to receive the transferred wait.')}</p>}
     {blocked && <p className="why" role="status">{blocked}</p>}
-    <button style={touch} disabled={disabled || !!blocked || !ready} title={disabled?text('รอคำสั่งก่อนหน้า','Wait for the previous action'):blocked??(!ready?text('เลือกสกิลที่ใช้ได้ก่อน','Choose eligible abilities first'):undefined)} onClick={()=>submit({type:'activate',itemId:item.id,...(selectedSource?{npc:selectedSource.npc}:{}),...(transfer && selectedDestination?{otherNpc:selectedDestination.npc}:{})})}>{text('เปิดใช้ {name}','Activate {name}',{name:abilityItemLabel(item)})}</button>
+    <button style={touch} disabled={disabled || !!blocked || !ready} title={disabled?text('รอคำสั่งก่อนหน้า','Wait for the previous action'):blocked??(!ready?text('เลือกสกิลที่ใช้ได้ก่อน','Choose eligible abilities first'):undefined)} onClick={()=>submit({type:'activate',itemId:item.id,...(selectedSource?{npc:selectedSource.npc}:{}),...(transfer && selectedDestination?{otherNpc:selectedDestination.npc}:{})})}>{text('เปิดใช้ {name}','Activate {name}',{name:abilityItemLabel(item)})}{nativeCooldown&&cooldownQuote>0?` · −${cooldownQuote}`:''}</button>
   </div>;
 }

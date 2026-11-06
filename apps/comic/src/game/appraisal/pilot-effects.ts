@@ -14,8 +14,12 @@ export function usePilot(state:AppraisalState,item:AppraisalItem):void {const us
 export function priceCaliper(state:AppraisalState,p:Appraiser):AppraisalItem|undefined {
   return pilotHeld(state,p,'autometa-torque-caliper').find(i=>pilotUses(state,i)<integerEffect(itemEffectScale(i)));
 }
-export function pilotRerollCost(state:AppraisalState,p:Appraiser,base:number):number {
-  return Math.max(1,base-Math.min(2,integerEffect(pilotStrength(state,p,'deepsea-tide-compass'))));
+export function pilotRerollStrength(state:AppraisalState,p:Appraiser,extraTools:readonly AppraisalItem[]=[]):number {
+ return [...pilotHeld(state,p,'deepsea-tide-compass'),...extraTools.filter(item=>item.kind==='swarm-wing-membrane-glider')]
+  .sort((a,b)=>itemEffectScale(b)-itemEffectScale(a)||a.id.localeCompare(b.id)).slice(0,5).reduce((sum,item)=>sum+itemEffectScale(item),0);
+}
+export function pilotRerollCost(state:AppraisalState,p:Appraiser,base:number,extraTools:readonly AppraisalItem[]=[]):number {
+  return Math.max(1,base-Math.min(2,integerEffect(pilotRerollStrength(state,p,extraTools))));
 }
 export function pilotExpansionCost(state:AppraisalState,p:Appraiser,base:number):number {
   return Math.max(1,base-Math.min(Math.floor(base/2),integerEffect(2*pilotStrength(state,p,'swarm-brood-hammer'))));

@@ -1,15 +1,22 @@
 import {personalOrigin,recordPersonalActivity} from './personal-scoring.js';
 import {collectorCanWithdraw} from './collector-wishlist.js';
-import {heldInterestRings,ringInterestBasisPoints,pilotExpansionCost} from './pilot-effects.js';
+import {heldInterestRings,pilotExpansionCost} from './pilot-effects.js';
+import {heldInterestBuoys,remainingHeld} from './remaining48-effects.js';
+import {REMAINING48_RULES} from './remaining48-catalog.js';
+import {remainingFundedBonus,remainingStrength} from './remaining48-numbers.js';
 import type {AppraisalItem, AppraisalState, Appraiser} from './types.js';
 import {check, ownedItem, player, reward, spend, trace, transfer} from './mechanics.js';
 
 export const VAULT_INTEREST_PERCENT=10;
 export const vaultInterestOf=(credits:number,percent=VAULT_INTEREST_PERCENT):number=>percent===10?Math.floor(credits/10):Math.floor(credits*percent/100);
-export interface PersonalVault {items:string[]; credits:number; slots:number; interest?:{principal:number;encounter:number;rings?:Record<string,number>}}
+export interface PersonalVault {items:string[]; credits:number; slots:number; interest?:{principal:number;encounter:number;rings?:Record<string,number>;buoys?:Record<string,number>}}
+function vaultInterestBonusBps(state:AppraisalState,p:Appraiser,startRings:Record<string,number>={},startBuoys:Record<string,number>={}):number {
+  const start={...startRings,...startBuoys},end={...heldInterestRings(state,p),...heldInterestBuoys(state,p)};
+  return Math.min(REMAINING48_RULES.E46.sharedBonusCapBps,Object.entries(start).reduce((n,[id,amount])=>n+Math.min(amount,end[id]??0),0));
+}
 export function nextVaultInterest(state:AppraisalState,vault:PersonalVault):number {
   const p=state.players.find(p=>p.personalVault===vault);
-  const bonus=p?ringInterestBasisPoints(state,p,vault.interest?.rings):0;
+  const bonus=p?vaultInterestBonusBps(state,p,vault.interest?.rings,vault.interest?.buoys):0;
   return state.config.vaultInterestRules===1?Math.floor((vault.interest?.encounter===state.encounter?vault.interest.principal:0)*(1000+bonus)/10000):vaultInterestOf(vault.credits,4);
 }
 export interface SecuredLoan {
@@ -17,6 +24,8 @@ export interface SecuredLoan {
   /** Agreed item value and deadline never change after funding. */
   collateralValue:number; principal:number; repaid:number; proposedAt:number;
   firstPayoutAt:number; dueAt:number; fundedAt?:number; settledAt?:number;
+  /** Internal E49 custody ledger: only physical original chains held continuously since funding remain eligible. */
+  native56DebtChainItemIds?:string[]; native56DebtChainKey?:string; native56DebtChainBonusPaid?:number;
   terms:string; status:'proposed'|'countered'|'active'|'repaid'|'foreclosed'|'cancelled';
 }
 export type StorageAction =
@@ -162,6 +171,7 @@ export function handleLoanAction(state:AppraisalState,p:Appraiser,action:LoanAct
       check(!state.loans!.some(other=>other!==loan && other.itemId===item.id && other.status==='active'),'loan-collateral','สินค้านี้ถูกใช้ค้ำแล้ว');
       const first=firstPayout(state),dueAt=quoteLoanDeadline(loan.collateralValue,first);
       transfer(state,lender,borrower,loan.principal,'secured-loan-fund');
+      if(state.config.catalogVersion===5&&(state.config.native56Effects??0)>=13)loan.native56DebtChainItemIds=remainingHeld(state,borrower,'E49').filter(chain=>chain.id!==item.id).map(chain=>chain.id);
       removeFromHand(state,borrower,item,`collateral:${loan.id}`);
       loan.status='active';loan.fundedAt=state.encounter;loan.firstPayoutAt=first;loan.dueAt=dueAt;
     }
@@ -177,10 +187,41 @@ export function handleLoanAction(state:AppraisalState,p:Appraiser,action:LoanAct
       const eligible=loan.fundedAt!==undefined&&state.encounter>=loan.fundedAt+2;
       const source=JSON.stringify([[loan.borrowerId,loan.lenderId].sort(),personalOrigin(state.items[loan.itemId]!)]);
       for(const party of [p,lender])recordPersonalActivity(state,party,'loanRepaid',1,source,eligible,eligible?'aged full repayment':'loan did not span a full encounter');
+      settleDebtChainBonus(state,p,loan,source);
     }
   }
   trace(state,p,action.type,{loanId:loan.id});
 }
+
+function settleDebtChainBonus(state:AppraisalState,p:Appraiser,loan:SecuredLoan,collateralKey:string):void {
+  if(state.config.catalogVersion!==5||(state.config.native56Effects??0)<13||loan.fundedAt===undefined||state.encounter<loan.fundedAt+2||!loan.native56DebtChainItemIds?.length)return;
+  const eligibleIds=new Set(loan.native56DebtChainItemIds);
+  const tools=remainingHeld(state,p,'E49').filter(item=>eligibleIds.has(item.id));
+  const strength=remainingStrength(tools,'E49');if(strength<=0)return;
+  const key=collateralKey;
+  if((state.loans??[]).some(other=>other!==loan&&other.borrowerId===p.id&&other.native56DebtChainKey===key))return;
+  const runPaid=(state.loans??[]).filter(other=>other.borrowerId===p.id).reduce((sum,other)=>sum+(other.native56DebtChainBonusPaid??0),0);
+  const rule=REMAINING48_RULES.E49,bps=Math.min(1000,Math.floor(strength*rule.refundBps));
+  const quote=Math.min(rule.perLoanCap,Math.floor(loan.repaid*bps/10000),Math.max(0,rule.perRunCap-runPaid));
+  const freeBank=Math.max(0,state.bank-state.market.budget-state.reservedRewards);
+  const amount=remainingFundedBonus(quote,freeBank);
+  if(amount)addable(p.credits,amount);
+  loan.native56DebtChainKey=key;loan.native56DebtChainBonusPaid=amount;
+  if(amount)reward(state,p,amount,'native56-debt-chain');
+  trace(state,p,'native56-debt-chain',{loanId:loan.id,credits:amount});
+}
+
+/** Irreversibly drop E49 eligibility as soon as a funded borrower stops carrying that same original instance. */
+export function reconcileNative56DebtChainCustody(state:AppraisalState):void {
+  if(state.config.catalogVersion!==5||(state.config.native56Effects??0)<13)return;
+  for(const loan of state.loans??[]) {
+    if(loan.status!=='active'||!loan.native56DebtChainItemIds?.length)continue;
+    const borrower=state.players.find(seat=>seat.id===loan.borrowerId);if(!borrower)continue;
+    const held=new Set(remainingHeld(state,borrower,'E49').map(item=>item.id));
+    loan.native56DebtChainItemIds=loan.native56DebtChainItemIds.filter(id=>held.has(id));
+  }
+}
+
 /**
  * Call after the last REVEAL repayment opportunity, before advancing.
  * `final` is the end of the match: every active loan is foreclosed as if due, so no borrower keeps both the principal and the collateral.
@@ -211,8 +252,8 @@ export function payVaultInterest(state:AppraisalState):void {
     if(state.config.vaultInterestRules===1){
       if(vault.interest && vault.interest.encounter>=state.encounter)continue;
       principal=vault.interest?.encounter===state.encounter-1?vault.interest.principal:0;
-      if(principal>0)bonus=ringInterestBasisPoints(state,p,vault.interest?.rings);
-      vault.interest={principal:vault.credits,encounter:state.encounter,...((state.config.catalogVersion===4 || state.config.catalogVersion===5)?{rings:heldInterestRings(state,p)}:{})};
+      if(principal>0)bonus=vaultInterestBonusBps(state,p,vault.interest?.rings,vault.interest?.buoys);
+      vault.interest={principal:vault.credits,encounter:state.encounter,...((state.config.catalogVersion===4 || state.config.catalogVersion===5)?{rings:heldInterestRings(state,p)}:{}),...(state.config.catalogVersion===5&&(state.config.native56Effects??0)>=9?{buoys:heldInterestBuoys(state,p)}:{})};
     }
     const owed=state.config.vaultInterestRules===1?Math.floor(principal*(1000+bonus)/10000):vaultInterestOf(principal,4);
     const amount=Math.min(owed,Math.max(0,state.bank-state.market.budget-state.reservedRewards));
@@ -223,7 +264,9 @@ export function payVaultInterest(state:AppraisalState):void {
   }
 }
 export function loanViewFor(state:AppraisalState,p:Appraiser):SecuredLoan[] {
-  return structuredClone((state.loans??[]).filter(loan=>loan.borrowerId===p.id || loan.lenderId===p.id));
+  return structuredClone((state.loans??[]).filter(loan=>loan.borrowerId===p.id || loan.lenderId===p.id).map(loan=>{
+    const view={...loan};delete view.native56DebtChainItemIds;delete view.native56DebtChainKey;delete view.native56DebtChainBonusPaid;return view;
+  }));
 }
 export function secureStorageInvariants(state:AppraisalState):void {
   const held=new Set<string>();const ids=new Set<string>();
@@ -237,6 +280,12 @@ export function secureStorageInvariants(state:AppraisalState):void {
     check(state.config.secureEconomy && !ids.has(loan.id) && loan.borrowerId!==loan.lenderId && state.players.some(p=>p.id===loan.borrowerId) && state.players.some(p=>p.id===loan.lenderId),'loan','คู่สัญญาไม่ถูกต้อง');ids.add(loan.id);
     validPrincipal(loan.collateralValue,loan.principal);
     check(Number.isSafeInteger(loan.repaid) && loan.repaid>=0 && loan.repaid<=loan.principal && loan.dueAt===quoteLoanDeadline(loan.collateralValue,loan.firstPayoutAt),'loan','ยอดหรือกำหนดชำระไม่ถูกต้อง');
+    if(loan.native56DebtChainItemIds!==undefined){
+      const borrower=player(state,loan.borrowerId),unique=new Set(loan.native56DebtChainItemIds);
+      check(state.config.catalogVersion===5&&(state.config.native56Effects??0)>=13 && unique.size===loan.native56DebtChainItemIds.length,'loan-effect','ข้อมูลสิทธิ์โซ่พันธะหนี้ไม่ถูกต้อง');
+      if(loan.status==='active')for(const id of unique){const item=state.items[id];check(item?.kind==='darkone-debt-chain'&&item.owner===borrower.id&&borrower.inventory.includes(id),'loan-effect-custody','สินค้าโซ่พันธะหนี้ที่เข้าเกณฑ์ไม่ได้อยู่กับผู้กู้');}
+    }
+    if(loan.native56DebtChainBonusPaid!==undefined)check(Number.isSafeInteger(loan.native56DebtChainBonusPaid)&&loan.native56DebtChainBonusPaid>=0&&loan.native56DebtChainBonusPaid<=REMAINING48_RULES.E49.perLoanCap&&!!loan.native56DebtChainKey,'loan-effect-payment','ข้อมูลเครดิตคืนจากโซ่พันธะหนี้ไม่ถูกต้อง');
     if(loan.status==='active'){
       check(loan.repaid<loan.principal && !held.has(loan.itemId) && state.items[loan.itemId]?.owner===`collateral:${loan.id}`,'loan-owner','หลักประกันไม่ตรงสัญญา');held.add(loan.itemId);
     }
@@ -244,6 +293,7 @@ export function secureStorageInvariants(state:AppraisalState):void {
   for(const item of Object.values(state.items)){
     if(item.owner.startsWith('personal-vault:') || item.owner.startsWith('collateral:'))check(held.has(item.id),'secure-owner','สินค้าฝากหรือค้ำไม่มีบัญชีรองรับ');
   }
+  for(const p of state.players)check((state.loans??[]).filter(loan=>loan.borrowerId===p.id).reduce((sum,loan)=>sum+(loan.native56DebtChainBonusPaid??0),0)<=REMAINING48_RULES.E49.perRunCap,'loan-effect-cap','เครดิตคืนจากโซ่พันธะหนี้เกินเพดาน');
 }
 
 /** Custody changes where an asset is kept, not who owns it before a loan expires. */

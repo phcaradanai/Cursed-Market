@@ -1,12 +1,55 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {createAppraisalRun,appraisalViewFor} from '../src/game/appraisal/index.js';
+import {createAppraisalRun,appraisalViewFor,applyAppraisalAction} from '../src/game/appraisal/index.js';
 import {handleStorageAction,payVaultInterest} from '../src/game/appraisal/secure-storage.js';
+import type {AppraisalItem} from '../src/game/appraisal/types.js';
 function table(){const s=createAppraisalRun(['alice','bob'],'aged-vault',{secureEconomy:true});s.phase='REVEAL';const p=s.players[0]!;p.credits=1000;p.roundReward={encounter:s.encounter,base:10,amount:10,flips:0,settled:true};return {s,p}}
+function nativeTable(revision:number){const config={catalogVersion:5,native56Effects:revision,secureEconomy:true,startingCredits:1000,bankReserve:1000} as Parameters<typeof createAppraisalRun>[2];const s=createAppraisalRun(['alice','bob'],'aged-vault-native',config);s.phase='REVEAL';const p=s.players[0]!;p.roundReward={encounter:s.encounter,base:10,amount:10,flips:0,settled:true};return {s,p}}
+function giveNative(t:ReturnType<typeof nativeTable>,kind:string){const source=Object.values(t.s.items)[0]!;const item={...source,id:`native-held-${Object.keys(t.s.items).length}`,kind:kind as AppraisalItem['kind'],owner:t.p.id,genuine:true,cursed:false};delete item.copy;t.s.items[item.id]=item;t.p.inventory.push(item.id);return item}
 function reveal(t:ReturnType<typeof table>){t.s.phase='REVEAL';t.p.roundReward={encounter:t.s.encounter,base:10,amount:10,flips:0,settled:true}}
 function advance(t:ReturnType<typeof table>){t.s.encounter++;t.s.phase='PORTALS';payVaultInterest(t.s)}
 function deposit(t:ReturnType<typeof table>,amount:number){handleStorageAction(t.s,t.p,{type:'vault-deposit-credits',amount})}
 function withdraw(t:ReturnType<typeof table>,amount:number){handleStorageAction(t.s,t.p,{type:'vault-withdraw-credits',amount})}
+test('E46 buoy bonus shares the 4 percent cap with pilot rings on a fully aged principal',()=>{
+ const t=nativeTable(9);giveNative(t,'deepsea-tideglass-buoy');giveNative(t,'deepsea-tideglass-buoy');giveNative(t,'deepsea-tideglass-buoy');giveNative(t,'vampire-nocturne-signet');
+ deposit(t,100);advance(t);assert.equal(appraisalViewFor(t.s,t.p.id).self.personalVault!.nextInterest,14);advance(t);assert.equal(t.p.credits,914);
+});
+test('E46 buoy loses its age if custody breaks even when the same item returns',()=>{
+ const t=nativeTable(9),buoy=giveNative(t,'deepsea-tideglass-buoy');let seq=0;
+ deposit(t,100);advance(t);
+ t.s.phase='REVEAL';t.p.roundReward={encounter:t.s.encounter,base:15,amount:15,flips:0,settled:true,coinCount:1,staked:0,net:0};
+ const act=(type:'vault-deposit-item'|'vault-withdraw-item')=>{t.s=applyAppraisalAction(t.s,{type,itemId:buoy.id,playerId:t.p.id,requestId:`buoy-age-${seq++}`,encounter:t.s.encounter});t.p=t.s.players[0]!};
+ act('vault-deposit-item');assert.equal(appraisalViewFor(t.s,t.p.id).self.personalVault!.nextInterest,10);
+ act('vault-withdraw-item');assert.equal(appraisalViewFor(t.s,t.p.id).self.personalVault!.nextInterest,10);
+ advance(t);assert.equal(t.p.credits,910);
+});
+test('E46 bonus remains inside the bank reserve payout cap',()=>{
+ const t=nativeTable(9);giveNative(t,'deepsea-tideglass-buoy');giveNative(t,'deepsea-tideglass-buoy');deposit(t,100);advance(t);t.s.bank=11;t.s.market.budget=0;t.s.reservedRewards=0;advance(t);assert.equal(t.p.credits,911);
+});
+test('E46 adds one real interest credit after catalog purchase and public vault commands, with strict result replay',async()=>{
+ const {advanceAppraisalEncounter}=await import('../src/game/appraisal/engine.js');const {exportAppraisalAudit,replayAppraisalAudit}=await import('../src/game/appraisal/audit.js');
+ const run=(buyBuoy:boolean)=>{
+  let s=createAppraisalRun(['alice','bob'],'e46-public-34',{catalogVersion:5,native56Effects:9,secureEconomy:true,startingCredits:200,encounters:4,marketProbability:0}),seq=0;
+  const act=(id:string,body:Record<string,unknown>)=>{s=applyAppraisalAction(s,{...body,playerId:id,requestId:`e46-public-${seq++}`,encounter:s.encounter} as Parameters<typeof applyAppraisalAction>[1]);};
+  const alice=s.players[0]!,bob=s.players[1]!,door=alice.portals.find(portal=>portal.stock.some(id=>s.items[id]?.kind==='deepsea-tideglass-buoy'))!;
+  assert(door);const buoyId=door.stock.find(id=>s.items[id]?.kind==='deepsea-tideglass-buoy')!;
+  act('bob',{type:'enter',portalId:bob.portals[0]!.id});act('alice',{type:'enter',portalId:door.id});
+  for(const p of [...s.players])if(p.eventOffer)act(p.id,{type:'event',key:p.eventOffer.key,choice:'decline'});
+  if(buyBuoy)act('alice',{type:'buy',itemIds:[buoyId]});
+  const finish=()=>{for(let steps=0;s.phase!=='REVEAL'&&steps<24;steps++){const p=s.players.find(p=>!p.done&&!p.paused);assert(p);act(p.id,{type:'done'});}assert.equal(s.phase,'REVEAL');};
+  finish();for(const p of s.players)if(p.roundReward&&!p.roundReward.settled)act(p.id,{type:'round-bank'});
+  act('alice',{type:'vault-deposit-credits',amount:100});
+  while(s.phase!=='RESULTS'){finish();s=advanceAppraisalEncounter(s);}
+  const paid=s.trace.filter(entry=>entry.playerId==='alice'&&entry.type==='vault-interest').map(entry=>Number(entry.details.paid));
+  assert.deepEqual(replayAppraisalAudit(exportAppraisalAudit(s)),s);
+  return {paid,credits:s.players[0]!.credits,spent:s.players[0]!.paid?.[buoyId]??0};
+ };
+ const base=run(false),held=run(true);assert.deepEqual(base.paid,[10,10]);assert.deepEqual(held.paid,[11,11]);assert.equal(held.spent,21);assert.equal(held.credits-base.credits,-19);
+});
+test('new catalog5 selects effects13 while an explicitly restored effects8 run keeps its original interest',()=>{
+ assert.equal(createAppraisalRun(['alice','bob'],'aged-vault-native-default',{catalogVersion:5}).config.native56Effects,14);
+ const t=nativeTable(8);giveNative(t,'deepsea-tideglass-buoy');deposit(t,100);advance(t);assert.equal(appraisalViewFor(t.s,t.p.id).self.personalVault!.nextInterest,10);advance(t);assert.equal(t.p.credits,910);
+});
 test('fresh deposit matures only after a complete encounter, pays 10 percent to wallet once',()=>{
  const t=table();deposit(t,100);advance(t);assert.equal(t.p.credits,900);assert.equal(appraisalViewFor(t.s,t.p.id).self.personalVault!.nextInterest,10);
  advance(t);assert.equal(t.p.credits,910);assert.equal(t.p.personalVault!.credits,100);payVaultInterest(t.s);assert.equal(t.p.credits,910);

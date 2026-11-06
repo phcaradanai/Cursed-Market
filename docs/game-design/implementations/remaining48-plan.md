@@ -1,6 +1,6 @@
 # Approved remaining48 Implementation Plan
 
-> **For agentic workers:** Use superpowers:executing-plans task by task in the current session. No new delegation is authorized by this plan. Preserve the whole-game goal after each checkpoint.
+> **For agentic workers:** Use superpowers:executing-plans task by task. The user explicitly directs parallel binding for independent effects; group by disjoint source owners, do not overlap modified files, and keep shared revision/config/docs integration with the root agent. Preserve the whole-game goal after each checkpoint.
 
 **Goal:** Bind all approved56 primary item contracts to actual Comic play, preserving old runs and shared Comic UX.
 
@@ -9,6 +9,12 @@
 **Tech Stack:** Existing TypeScript/Node tests, seeded engine, React Comic components, existing audit/replay/Atlas/UI tools. No new dependency.
 
 **Spec:** ../proposals/remaining48-experimental-v1.json (SHA f16175ff4bc0ad8162b56a5266552d9efc730c9681910e36684d71dba2ce7508), ../remaining48-approval.json. Pilot8 approval remains separate and frozen.
+
+## Current checkpoint — E49/E58/E67 effects13
+
+Current approved experimental implementation is catalog5 / native56Effects13: 56 registered, 36 primary owner-tested, 20 pending. E46 buoy interest, E33 Swarm copy value, E52 seal energy, E34 Swarm Glider reroll discount, E49 Debt Chain, E58 Vampire Shadow Wine Decanter and E67 Spore Lantern/Censer are bound; default3, pilot4 and historical revisions1–12 are unchanged. E49 tests3/3, E58 tests2/2, E67 tests3/3, E34 combined strongest-five regression passes; 32 sealed replays and 4 fixed-seed compatibility diagnostics pass. The inventory item gallery has 56/56 verified art assets. One E38 real-socket regression remains blocked by local EPERM before assertions; current UI verification is recorded separately.
+
+Revision14 is in progress as three disjoint owner groups: E31 cooldown, E62 damage protection, E25 eligible stock creation. Keep E22 disclosure, remaining 20 owner bindings, Task4–6 active/custody/predicate/public-benefit coverage, full browser/reconnect acceptance and multi-seed 2/4-player balance open. This checkpoint is not release balance or game-complete.
 
 ## Global constraints
 
@@ -52,7 +58,7 @@
 
 **Interfaces:** engine-produced effect facts record instance/origin/target/action/encounter/actual amount. Shared custody reconciliation invalidates continuous hold rights before settlement. E69 is asset-only capped20 added to A, excludes testament/copies/estate/credits; scoring weights and P/G unchanged.
 
-- [ ] For E28/E61/E63/E16/E13/E07/E42/E58/E11/E06/E22/E38/E05/E40/E02/E67/E69/E49/E53/E62/E46/E33/E52/E34/E59/E32/E68/E37, write owner-level tests with exact approved formulas, positive/negative/copy/rarity/cap/zero-bank cases before binding.
+- [ ] For E28/E61/E63/E16/E13/E07/E42/E11/E06/E22/E38/E05/E40/E02/E69/E53/E62/E46/E33/E52/E34/E59/E32/E68/E37, write owner-level tests with exact approved formulas, positive/negative/copy/rarity/cap/zero-bank cases before binding.
 - [ ] Implement canonical quotes/triggers and ledgers; no minting, no double actual stats, no returning custody/charge rights after transfer; preserve old behavior without version5.
 - [ ] Run focused tests and sealed legacy replays after each owner group; add actual public-command benefit pairs rather than counting acquired items as exposure.
 
@@ -148,3 +154,27 @@ New catalog5/effects6 runs preserve effects5 and earlier restore semantics; defa
 Evidence: `../validation/native56-stage6-2026-11-05/verification.json`. E38-focused 6/6 and neighboring automatic/E22/challenge regressions 51/51 pass, including three actual socket cases. 32 sealed compatibility replays and four effects6 diagnostic games pass. The eight public pilot pairs (16 audits) remain hash-identical. No full balance or default56 claim.
 
 Count: 56 registered / 26 primary owner-tested / 30 pending. Still open: E22 bidder-facing benefit/eligibility UI, 30 primary bindings, whole predicate/custody/normal-benefit matrix, Task4 active/consumable flows, and multi-seed 2/4-player release balance. Next Task3 owner is E40 theft-loss reduction. Whole-game goal remains active.
+
+## 2026-11-05 — Native56 effects7 checkpoint: E40 theft-loss reduction
+
+`autometa-clockwork-sentry` reduces a qualifying NPC theft defeat's actual trust loss from2 to1 when physically held before duel start. It preserves forced RPS, crime, trade-ban and D21 consequences; excludes PvP; and grants one binary right per player/encounter. Experimental catalog5 selects effects7 only for new runs; default catalog3, pilot4 and archived effects1–6 remain unchanged.
+
+Evidence: `../validation/native56-stage7-2026-11-05/verification.json` and `../game-design/native56-stage7.json`. Server/client builds pass, E40 owner tests3/3, focused regression55/55 (3 real socket cases), 32 sealed compatibility replays,4 diagnostic games and8 public pilot pairs/16 preserved audit hashes pass. UI source check415 and contracts10/10 pass. Browser smoke/visual were not run because the prior agent TaskSpace4 no longer exists; no approved baseline was overwritten.
+
+Current count: 56 registered /27 primary owner-tested /29 pending. Next Task3 owner is E42 theft insurance. E22 disclosure, Task4 active targets, Task5 live interactions/benefit disclosure, Task6 predicate/custody/public exposure, and measured multi-seed 2/4-player release balance are still open. Whole-game goal remains active.
+
+## Task 3 checkpoint — effects8 / E42 theft insurance (2026-11-05)
+
+E42 is bound at the successful PvP transfer owner. A qualifying held Vampire Mist Cloak pays the victim against the original stolen good using `min(lastTradePrice, rarity-scaled item.base)`, 20% scaled up to30%, cap4 per loss and6 per victim/run, one original origin per run globally. The bank pays only from free reserve. The transferred item stays stolen and all existing theft penalties remain; NPC, failed/cancelled, copy, and cloak-self cases are excluded. Do not double-apply rarity to `item.base`.
+
+Validation: E42 focused tests5/5, adjacent non-socket theft regressions14/14, server/client builds, 32 sealed replay +4 normal diagnostics, unchanged public pilot hashes16/16, UI source fingerprints415, UI contracts10/10 and gallery integrity56/56. The actual socket case could not bind `127.0.0.1` (`EPERM`), and browser smoke/visual were skipped because only the user's browser space was listed. No screenshot baseline changed. See `../validation/native56-stage8-2026-11-05/verification.json` and `../game-design/native56-stage8.json`.
+
+Current count: 56 registered /28 primary owner-tested /28 pending. Next owner binding is E46 vault-interest rings. Then continue approved Task4–6, E22 disclosure, full predicate/custody/public-benefit coverage, and normal-budget multi-seed 2/4-player balance. Whole-game goal remains active.
+
+### Revision 14 integration checkpoint
+
+Catalog 5 revision 14 binds 46 of 56 primary effects. The compatibility report for this revision records 32 sealed replays and four seeded games reaching results. The focused catalog and remaining48 suite passed 146 of 150 under the sandbox. Four tests could not open a local socket; the separate E16/E13 and E38 socket retry passed. The normal Comic room entry still selects catalog 3 or pilot catalog 4.
+
+E69 continuous custody is under implementation review. The targeted activation proposal covers eight other items. E37 requires a gameplay decision because its current energy floor equals the base cost.
+
+E37 decision (2026-11-06): the user selected B. In revision 15, an eligible held Fangline Lasso waives the energy cost of the first valid forced theft duel in an encounter, including at zero energy. The existing attempt limit applies.

@@ -1,3 +1,4 @@
+import {sealInspectionFree} from './seal-inspection.js';
 import {REMAINING48_RULES} from './remaining48-catalog.js';
 import {priceCaliper,usePilot,pilotUses,pilotStrength} from './pilot-effects.js';
 import {isRemaining48Kind,remainingHeldBonus,remainingRecoveryPrice,remainingPriceRange,remainingCommissionBonus} from './remaining48-effects.js';
@@ -9,7 +10,7 @@ import { merchantTradeBanned } from './theft.js';
 import { auditItemPrice, recordItemTrade, systemSaleQuote } from './price-integrity.js';
 import { ABILITY_ITEM_TEXT, MODERN_ACTIVATIONS } from './ability-content.js';
 import { ABILITY_ITEM_IDS } from './types.js';
-import { MERCHANT_ABILITIES, reduceAbilityCooldown, reducibleCooldown } from './ability-rules.js';
+import { MERCHANT_ABILITIES, cooldownReductionQuote, reduceAbilityCooldown, reducibleCooldown } from './ability-rules.js';
 import { copySaleQuote, itemEffectScale, itemDrawbackScale, statusMagnitude, integerEffect } from './copy-effects.js';
 import { marketConditionMatch, marketOrderReserve, trustAcceptanceBonus, TRUST_CAP } from './market-contracts.js';
 import { commissionRate, freeInspectionCount, inspectionLimit, MAX_ENERGY_CAP, MAX_LIFE_BONUS_CAP, passiveBonuses, passiveMarketBonus, passivesEnabled, WISH_SLOT_CAP } from './passives.js';
@@ -23,6 +24,32 @@ import { omenOf } from './omens.js';
 import { CORE2, ENERGY_DEAL_CREDITS2, lifeDealTerms2, overvalueChance, recoverySurcharge } from './core2.js';
 import { ENERGY_DEAL_NPCS, PULSE_RULES, STOCK_RULES, TRUST_RULES, activeNpcs, extraStock, lifeDealTerms, merchantWary, shardsPerSale, trustTier } from './pulse.js';
 import type { AppraisalItem, AppraisalState, Appraiser, Knowledge, RecoveryOffer, Status, StatusId, NpcId } from './types.js';
+
+export const STATUS_ITEM_TARGETS={
+  'effect:E71':['D01','D02','D05','D06','D19','D20','D22','D23'],
+  'effect:E72':['B03','B05','B11','B14','B16'],
+} satisfies Record<string,StatusId[]>;
+const nativeStatusItems=(state:AppraisalState)=>state.config.catalogVersion===5 && Number(state.config.native56Effects)>=15;
+
+const NATIVE56_E31_ITEMS:readonly string[]=['autometa-coolant-canister','alien-phase-dial'];
+const NATIVE56_E62_ITEMS:readonly string[]=['deepsea-pressure-cuirass','swarm-chitin-cuirass'];
+const native56Effects14=(state:AppraisalState):boolean=>state.config.catalogVersion===5 && (state.config.native56Effects??0)>=14;
+function native56Origin(state:AppraisalState,item:AppraisalItem):AppraisalItem|undefined{return item.copy?state.items[item.copy.sourceId]:item;}
+function native56OriginUsed(state:AppraisalState,item:AppraisalItem):boolean {
+  const origin=native56Origin(state,item);
+  return pilotUses(state,item)>0 || !!origin && origin.id!==item.id && pilotUses(state,origin)>0;
+}
+function markNative56OriginUsed(state:AppraisalState,item:AppraisalItem,markedOrigins?:Set<string>):void {
+  usePilot(state,item);
+  const origin=native56Origin(state,item);
+  if(origin && origin.id!==item.id && !markedOrigins?.has(origin.id))usePilot(state,origin);
+  if(origin)markedOrigins?.add(origin.id);
+}
+function native56ArmorTools(state:AppraisalState,p:Appraiser):AppraisalItem[] {
+  if(!native56Effects14(state)||p.life===0||p.paused==='dead'||NATIVE56_E62_ITEMS.some(kind=>p.abilityItemUsed?.includes(kind as AppraisalItem['kind'])))return [];
+  return p.inventory.map(id=>state.items[id]).filter((item):item is AppraisalItem=>!!item&&item.owner===p.id&&NATIVE56_E62_ITEMS.includes(item.kind)&&!p.npcContracts?.alien?.itemIds.includes(item.id)&&!native56OriginUsed(state,item))
+    .sort((a,b)=>itemEffectScale(b)-itemEffectScale(a)||(a.id<b.id?-1:a.id>b.id?1:0)).slice(0,5);
+}
 
 export function check(condition: unknown, code: string, message: string): asserts condition {
   if (!condition) throw new RuleError(code, message);
@@ -100,7 +127,7 @@ export function grant(state: AppraisalState, p: Appraiser, id: StatusId, targetI
   const starts = state.encounter + (['B09','D04','D07'].includes(id) ? 1 : 0);
   const old = status(p,id);
   if (old) { old.charges = Math.max(old.charges,charges); old.expires = Math.max(old.expires,expires); const merged=Math.max(old.power??1,power);if(merged===1)delete old.power;else old.power=merged; }
-  else p.statuses.push({id,expires,charges,starts,...(power!==1?{power}:{}),...(targetItemId ? {targetItemId} : {})});
+  else p.statuses.push({id,expires,charges,starts,...(nativeStatusItems(state)&&STATUS_ITEM_TARGETS['effect:E72'].some(target=>target===id)?{instanceId:`status-${state.trace.length}`}:{}),...(power!==1?{power}:{}),...(targetItemId ? {targetItemId} : {})});
   trace(state,p,'status-granted',{id,expires,charges,...(targetItemId ? {targetItemId} : {})});
 }
 export function spend(state: AppraisalState, p: Appraiser, credits: number, energy: number, reason: string): void {
@@ -141,7 +168,21 @@ export function healLife(state:AppraisalState,p:Appraiser,amount:number,reason:s
 export function damageLife(state:AppraisalState,p:Appraiser,amount:number,reason:string,shieldable=true):void {
   check(p.life!==undefined,'life','กติกานี้ไม่มีชีวิตแยก');
   let hit=amount;
-  if(hit>0 && shieldable && !['blood-pact','dark-one-contract','market-condition','vampire-rite','darkone-pact'].includes(reason) && (state.config.catalogVersion===4 || state.config.catalogVersion===5) && p.pilotGuard?.encounter===state.encounter){const before=hit;hit=Math.max(0,hit-p.pilotGuard.amount);delete p.pilotGuard;trace(state,p,'pilot-guard-absorbed',{amount:before-hit,reason});}
+  const shieldableHarm=hit>0 && shieldable && !['blood-pact','dark-one-contract','market-condition','vampire-rite','darkone-pact'].includes(reason) && (state.config.catalogVersion===4 || state.config.catalogVersion===5);
+  const pilotShieldEligible=shieldableHarm && p.pilotGuard?.encounter===state.encounter;
+  const heldArmorTools=shieldableHarm && reason!=='cursed-activation' ? native56ArmorTools(state,p) : [];
+  const heldArmorStrength=heldArmorTools.reduce((sum,item)=>sum+itemEffectScale(item),0);
+  const heldArmorReduction=Math.min(REMAINING48_RULES.E62.familyCap,Math.floor(heldArmorStrength),hit);
+  const pilotGuardReduction=pilotShieldEligible?p.pilotGuard!.amount:0;
+  if(heldArmorReduction>pilotGuardReduction){
+    hit=Math.max(0,hit-heldArmorReduction);
+    const selected:AppraisalItem[]=[];let selectedStrength=0;
+    for(const item of heldArmorTools){selected.push(item);selectedStrength+=itemEffectScale(item);if(Math.floor(selectedStrength)>=heldArmorReduction)break;}
+    const markedOrigins=new Set<string>();for(const item of selected)markNative56OriginUsed(state,item,markedOrigins);
+    p.abilityItemUsed??=[];
+    for(const kind of NATIVE56_E62_ITEMS)if(!p.abilityItemUsed.includes(kind as AppraisalItem['kind']))p.abilityItemUsed.push(kind as AppraisalItem['kind']);
+    trace(state,p,'native56-armor-absorbed',{amount:heldArmorReduction,reason,itemIds:selected.map(item=>item.id)});
+  }else if(pilotShieldEligible){const before=hit;hit=Math.max(0,hit-p.pilotGuard!.amount);delete p.pilotGuard;trace(state,p,'pilot-guard-absorbed',{amount:before-hit,reason});}
   if(hit>0 && status(p,'B19')){hit=Math.max(0,hit-integerEffect(statusMagnitude(p,'B19',1)));consumeStatus(p,'B19');}
   if(hit>0 && status(p,'D20')){hit+=integerEffect(statusMagnitude(p,'D20',1));consumeStatus(p,'D20');}
   const before=p.life;const remaining=Math.max(0,p.life-hit);
@@ -235,8 +276,11 @@ export function inspect(state: AppraisalState, p: Appraiser, itemId: string, pro
   const insight=!merchantFree && cost>0 && !free && p.inspections===0 && !!omenNow(state)?.firstInspectFree;
   const caliper=!merchantFree && cost>0 && !free && !insight && property==='price'?priceCaliper(state,p):undefined;
   const compoundEyes=!merchantFree && cost>0 && !free && !insight && !caliper && !!status(p,'B11');
-  spend(state,p,0,merchantFree||free||compoundEyes||insight||caliper?0:cost,'inspect');
+  const sealFree=sealInspectionFree(state,p,itemId);
+  spend(state,p,0,merchantFree||sealFree||free||compoundEyes||insight||caliper?0:cost,'inspect');
+  if(sealFree)trace(state,p,'e53-permit-ended',{itemId,property});
   if(merchantFree)(p.merchantActionsUsed??=[]).push(itemId);
+  else if(sealFree) {/* the seal permit pays for it */}
   else if(free){p.passiveUses??={};p.passiveUses[property]=(p.passiveUses[property]??0)+1;}
   else if(caliper){usePilot(state,caliper);trace(state,p,'pilot-price-check',{sourceItemId:caliper.id,itemId,savedEnergy:cost});}
   else if(insight) {/* the omen pays for it */}
@@ -427,20 +471,58 @@ export function purchase(state: AppraisalState, buyer: Appraiser, shop: Appraise
   if (options.lock) grant(state,buyer,'D09',items[0]!.id);
   trace(state,buyer,'npc-purchased',{itemIds,shopId:shop.id,price,energy,condition:options.condition ?? false,...(fee?{fee}:{})});
 }
-export function activate(state: AppraisalState, p: Appraiser, itemId: string, npc?:NpcId, otherNpc?:NpcId): void {
+function selectStatusActivation(state:AppraisalState,p:Appraiser,item:AppraisalItem,effect:keyof typeof STATUS_ITEM_TARGETS,statusId?:StatusId):Status {
+  check(nativeStatusItems(state)&&p.life!==0&&p.paused!=='dead'&&unlocked(p,item.id)&&!p.npcContracts?.alien?.itemIds.includes(item.id),'activation','สินค้านี้ยังไม่มีสิทธิ์เปิดใช้');
+  check(itemEffectScale(item)>=1&&native56Origin(state,item)&&!native56OriginUsed(state,item),'activation','พลังของสินค้าหรือสิทธิ์ต้นทางไม่พอ');
+  const target=p.statuses.find(value=>value.id===statusId&&value.starts<=state.encounter&&value.expires>=state.encounter&&value.charges>0&&Number.isSafeInteger(value.expires));
+  check(target&&STATUS_ITEM_TARGETS[effect].some(id=>id===target.id),'activation-status','เลือกสถานะที่ยังมีผลและใช้กับสินค้านี้ได้');
+  const limit=effect==='effect:E71'?REMAINING48_RULES.E71.perEncounter:REMAINING48_RULES.E72.perEncounter;
+  const used=state.trace.filter(row=>row.type==='native56-status-attempt'&&row.encounter===state.encounter&&row.playerId===p.id&&row.details.effect===effect).length;
+  check(used<limit,'activation-status','ใช้สิทธิ์กลุ่มนี้ครบแล้ว');
+  if(effect==='effect:E72')check(target.expires<Number.MAX_SAFE_INTEGER&&target.instanceId&&!target.extendedByShawl&&!state.trace.some(row=>row.type==='native56-status-extended'&&row.details.instanceId===target.instanceId),'activation-status','สถานะนี้ยืดอายุไม่ได้อีก');
+  return target;
+}
+
+export function activate(state: AppraisalState, p: Appraiser, itemId: string, npc?:NpcId, otherNpc?:NpcId, statusId?:StatusId): void {
   const item = ownedItem(state,p,itemId); check(!p.activated.includes(itemId),'activated','เปิดใช้ชิ้นนี้ใน encounter แล้ว');
   const spec = ITEM_SPECS[item.kind];
-  check(!isRemaining48Kind(item.kind),'activation','สินค้านี้ยังไม่มีสิทธิ์เปิดใช้ในรันนี้');
+  const nativeCooldown=NATIVE56_E31_ITEMS.includes(item.kind);
+  const statusEffect=spec.nativeEffect==='effect:E71'||spec.nativeEffect==='effect:E72'?spec.nativeEffect:undefined;
+  const statusTarget=statusEffect?selectStatusActivation(state,p,item,statusEffect,statusId):undefined;
+  check(statusId===undefined||statusTarget,'activation-status','สินค้านี้ใช้กับสถานะไม่ได้');
+  check(!isRemaining48Kind(item.kind) || statusTarget || nativeCooldown && native56Effects14(state),'activation','สินค้านี้ยังไม่มีสิทธิ์เปิดใช้ในรันนี้');
+  let cooldownQuote=0;
+  if(nativeCooldown){
+    check(native56Effects14(state)&&spec.nativeEffect==='effect:E31'&&spec.explicitActivation,'activation','สินค้านี้ยังไม่มีสิทธิ์เปิดใช้ในรันนี้');
+    check(!p.npcContracts?.alien?.itemIds.includes(item.id),'activation','สินค้าถูกยืมอยู่');
+    check(!NATIVE56_E31_ITEMS.some(kind=>p.abilityItemUsed?.includes(kind as AppraisalItem['kind'])),'ability-item','สินค้ากลุ่มลดเวลารอใช้ได้ครั้งเดียวต่อช่วง');
+    const origin=native56Origin(state,item);check(origin,'activation','ไม่พบสินค้าต้นทางสำหรับยืนยันสิทธิ์ใช้');
+    check(!native56OriginUsed(state,item),'activated','สินค้าชิ้นนี้หรือสินค้าต้นทางใช้ในช่วงนี้แล้ว');
+    check(npc!==undefined&&Object.hasOwn(MERCHANT_ABILITIES,npc)&&(p.npcTrust?.[npc]??0)>=1,'ability-cooldown','เลือกความสามารถพ่อค้าที่ปลดล็อกแล้ว');
+    cooldownQuote=cooldownReductionQuote(p,npc!,state.encounter,itemEffectScale(item));
+    check(cooldownQuote>0,'ability-cooldown','ความสามารถนี้ไม่มีเวลารอที่ลดได้');
+  }
   if(spec.nativeEffect){check((state.config.catalogVersion===4 || state.config.catalogVersion===5) && spec.explicitActivation,'activation','สินค้านี้ทำงานผ่านระบบที่ระบุ ไม่เปิดใช้แยก');check(pilotUses(state,item)===0,'activated','สินค้าชิ้นนี้ใช้ในช่วงนี้แล้ว');}
-  spend(state,p,0,state.config.itemEffects && spec.consumable?0:1,'activate'); p.activated.push(itemId);
+  spend(state,p,0,!statusTarget && state.config.itemEffects && spec.consumable?0:1,'activate'); p.activated.push(itemId);
   const power=itemEffectScale(item);
-  if(spec.nativeEffect)usePilot(state,item);
+  if(spec.nativeEffect){if(nativeCooldown||statusTarget)markNative56OriginUsed(state,item);else usePilot(state,item);}
+  if(statusTarget)trace(state,p,'native56-status-attempt',{effect:statusEffect,statusId:statusTarget.id,itemId});
+  if(nativeCooldown){p.abilityItemUsed??=[];for(const kind of NATIVE56_E31_ITEMS)if(!p.abilityItemUsed.includes(kind as AppraisalItem['kind']))p.abilityItemUsed.push(kind as AppraisalItem['kind']);}
   const shielded = !!status(p,'B06') && !!spec.drawback?.startsWith('D');
   if (item.cursed && spec.drawback) grant(state,p,spec.drawback,undefined,itemDrawbackScale(item));
   const fogged = !!status(p,'D14'); consumeStatus(p,'D14');
   const works = !fogged && item.genuine || !fogged && (!!state.config.fakeEffect && randomAt(state.seed,`${state.encounter}:${p.id}:${itemId}:fake-effect`) < FAKE_EFFECT_CHANCE);
   if (works) {
-    if(spec.nativeEffect==='effect:E62'){const amount=Math.min(2,integerEffect(power));if(amount>0)p.pilotGuard={encounter:state.encounter,amount:Math.max(amount,p.pilotGuard?.encounter===state.encounter?p.pilotGuard.amount:0)};}
+    if(statusTarget){
+      if(statusEffect==='effect:E71')p.statuses=p.statuses.filter(value=>value!==statusTarget);
+      else{
+        statusTarget.expires+=REMAINING48_RULES.E72.extraEncounters;
+        statusTarget.extendedByShawl=true;
+        trace(state,p,'native56-status-extended',{statusId:statusTarget.id,instanceId:statusTarget.instanceId});
+      }
+    }
+    else if(nativeCooldown){const reduced=reduceAbilityCooldown(p,npc!,state.encounter,cooldownQuote);check(reduced>0,'ability-cooldown','ความสามารถนี้ไม่มีเวลารอที่ลดได้');trace(state,p,'native56-cooldown-adjusted',{itemId,npc,reduced});}
+    else if(spec.nativeEffect==='effect:E62'){const amount=Math.min(2,integerEffect(power));if(amount>0)p.pilotGuard={encounter:state.encounter,amount:Math.max(amount,p.pilotGuard?.encounter===state.encounter?p.pilotGuard.amount:0)};}
     else if(state.config.trustAbilities && (ABILITY_ITEM_IDS as readonly string[]).includes(item.kind)){
       check(!p.abilityItemUsed?.includes(item.kind),'ability-item','สินค้าชนิดนี้ใช้ได้ครั้งเดียวต่อช่วง');
       if(item.kind==='chrono-gear' || item.kind==='burden-hourglass'){
@@ -482,7 +564,8 @@ export function activate(state: AppraisalState, p: Appraiser, itemId: string, np
   }
   if(state.config.survival && item.cursed)damageLife(state,p,integerEffect(itemDrawbackScale(item)),'cursed-activation',spec.nativeEffect!=='effect:E62');
   if (spec.consumable) {
-    if(p.preserveItemId===item.id && !item.copy && !item.preserved){item.preserved=true;delete p.preserveItemId;}
+    if(statusTarget&&p.preserveItemId===item.id)delete p.preserveItemId;
+    if(!statusTarget && p.preserveItemId===item.id && !item.copy && !item.preserved){item.preserved=true;delete p.preserveItemId;}
     else {if(item.copy)state.items[item.copy.sourceId]!.copyConsumed=true;retire(state,p,itemId,'consumed',false);}
   }
   learn(p,itemId,{activationKnown:true});

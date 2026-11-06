@@ -1,0 +1,160 @@
+{
+  "asOf": "2026-11-05",
+  "baseRevision": "55f8e6ee09282ab47eb1cd7b7a8ce1625571e0cf",
+  "scope": "Native56 experimental catalog5 effects revision8, E42 only. New catalog5 runs default to8; catalog3 default, pilot4 and archived revisions are preserved. Confirms E42 mechanism and compatibility; not release balance, full56, or complete game.",
+  "config": {
+    "catalogVersion": 5,
+    "native56Effects": 8,
+    "recoveryQuoteRules": 1,
+    "startingCredits": 40,
+    "survival": {
+      "maxLife": 6,
+      "encounterLifeCost": 1
+    },
+    "collectorDeadline": 15
+  },
+  "verification": {
+    "serverBuild": {
+      "passed": true,
+      "command": "npm --prefix apps/comic run build:server"
+    },
+    "clientBuild": {
+      "passed": true,
+      "command": "npm --prefix apps/comic run build:appraisal"
+    },
+    "focusedOwnerTests": {
+      "passed": 5,
+      "failed": 0,
+      "testFile": "apps/comic/tests/remaining48-theft.test.ts",
+      "command": "node --test --test-name-pattern='E42|effects8' apps/comic/dist/tests/remaining48-theft.test.js",
+      "covers": [
+        "E42 unlock/default revision behavior and passive disclosure",
+        "pays only after successful original PvP theft; private pre-duel cloak snapshot",
+        "rarity stacking, per-loss/per-run caps, free bank reserve",
+        "cloak held before and through settlement; exclusions for defense, cancellation, NPC and copy",
+        "no self-insurance or duplicate origin payout across owners"
+      ]
+    },
+    "focusedRegressionFile": {
+      "passed": 14,
+      "failed": 0,
+      "environmentBlocked": 1,
+      "testFile": "apps/comic/tests/remaining48-theft.test.ts",
+      "command": "node --test --test-name-pattern='^(?!two actual sockets)' apps/comic/dist/tests/remaining48-theft.test.js",
+      "environmentFailure": "The file-level run reports 14 passing tests and the existing socket case fails before assertions: listen EPERM on 127.0.0.1. No gameplay assertion failed; this is not counted as a passing network test."
+    },
+    "sealedCompatibility": {
+      "passed": true,
+      "report": "docs/validation/native56-stage8-2026-11-05/compatibility/report.json",
+      "legacyReplays": 32,
+      "diagnosticCases": 4,
+      "native56Effects": 8,
+      "commands": [
+        168,
+        242,
+        286,
+        305
+      ]
+    },
+    "pilotPublic": {
+      "passed": true,
+      "report": "docs/validation/native56-stage8-2026-11-05/pilot-public/public-effects.json",
+      "cases": 8,
+      "auditFiles": 16,
+      "sameAuditHashesAs": "docs/validation/native56-stage7-2026-11-05/pilot-public/public-effects.json",
+      "sameHashes": true
+    },
+    "uiSourceCheck": {
+      "passed": true,
+      "sourceFingerprints": 415,
+      "command": "npm run ui:check",
+      "scope": "Exact source hashes refreshed for changed implementation files; all14 approved screenshot hashes unchanged."
+    },
+    "uiContractTests": {
+      "passed": 10,
+      "failed": 0,
+      "command": "npm run ui:test"
+    },
+    "galleryIntegrity": {
+      "passed": true,
+      "merchants": 8,
+      "images": 56,
+      "command": "node docs/game-design/scripts/item-gallery-render.mjs --check"
+    },
+    "uiSmoke": {
+      "passed": null,
+      "notRunReason": "Only listed browser TaskSpace belongs to the user; no user-owned browser tab was taken over."
+    },
+    "uiVisual": {
+      "passed": null,
+      "notRunReason": "Only listed browser TaskSpace belongs to the user; no screenshot baseline was rewritten."
+    }
+  },
+  "sourceFingerprints": {
+    "apps/comic/scripts/new56-pilot-experiment.mjs": "765044c9febc45ae3e2f3c50e572304b40bd14c2bbad471deba4280a9d88123e",
+    "apps/comic/src/appraisal-client/App.tsx": "fa2e647f4971e42b9aa6fb55ea8bc377620d11d1fdd5ed03b641299f699fe691",
+    "apps/comic/src/appraisal-client/SecureEconomy.tsx": "dc699f204fad13666da5a7ccd705949aaa2e000c2a14337a83486ecda29b3ada",
+    "apps/comic/src/appraisal-client/components.tsx": "dd304a141787e95219dbbb0856af7bce892699986b00ba2b845972c449006fd0",
+    "apps/comic/src/appraisal-client/lore.tsx": "189390c4d9ceb246c2f1a5aa4e4891b7a91d2023348ac49f91b8029d2f788354",
+    "apps/comic/src/appraisal-client/model.ts": "58c7c80972c780aafe4e3068034a87b26ba0413baea6f0fdb52fa6be847a0924",
+    "apps/comic/src/appraisal-client/validation/pilot-item-fixture.tsx": "8669d6031ca964265e7b79bd8fd6fa1930776f45644a8b4a0a16e6d17a68b70f",
+    "apps/comic/src/game/appraisal/content.ts": "c07a9bdf0e094641efcfc7f941515d5990535116b50000f866ba0ad086beb7d7",
+    "apps/comic/src/game/appraisal/core2-actions.ts": "a0b968bc9fd51b22cf5c63caa9c38e34dbb41bc0dd765aa449a3dfecb15a6213",
+    "apps/comic/src/game/appraisal/core2-events.ts": "bb9531af0ffe6a6ea068f049d286b2b1d0fe37deb24a44bcfe3dfa58a08424f8",
+    "apps/comic/src/game/appraisal/core2.ts": "d9c7ac292898c29d471bc6d9bb0a7ae0557bd394a79d77978e6e1eed5b71bd17",
+    "apps/comic/src/game/appraisal/engine.ts": "9deae0b68443d3df4da92743a304b817ee423711a2405b4cdf0866c8a23e3f25",
+    "apps/comic/src/game/appraisal/events.ts": "ec9f25dde4fbf2168479d80dd2044a5c4445912442aa561bd69fc31d41f0777c",
+    "apps/comic/src/game/appraisal/mechanics.ts": "badb601944210ae39836f92ae2525e9f2eef1a9874cbce7f2a3dc906fa113080",
+    "apps/comic/src/game/appraisal/passives.ts": "3915bdda874eae43be5e7318626a6748b29aa56cb35748048669ac1f5e051280",
+    "apps/comic/src/game/appraisal/pilot-catalog.ts": "ad8dbb487623f3b8d0486c87fe86c5fe72c0d50c553a7a34bc526c52579e8c62",
+    "apps/comic/src/game/appraisal/pilot-effects.ts": "e10ebee7bd00a5110eea80266575fbf0c84a8210b39df09eae117b42bd790d02",
+    "apps/comic/src/game/appraisal/secure-storage.ts": "5b3370bb17809e12c7394c0b501ffc346b9b2ca5d89035c6a0b75c426e10ffa5",
+    "apps/comic/src/game/appraisal/theft.ts": "0308073d82cb8f75033039ba600acac94a983605da1744a02d7ded7a7659a5a4",
+    "apps/comic/src/game/appraisal/types.ts": "e438aa81448299cf3ab211d0e9a2a356e78f778264806a3abf3d1afc4aac39ce",
+    "apps/comic/src/game/appraisal/views.ts": "01e3b677b404ba4308767e7b22c64d09011ba24a7e57fa1025592cf6339b6f8a",
+    "apps/comic/src/server/appraisal-main.ts": "5f67b2038007427688bd6b8c1c19227f34c6244d9d7b47537bf0bc0f1a673831",
+    "apps/comic/src/simulation/appraisal.ts": "29306a4db7b4fe4210ce7514e5db220b8ce29af2bc3ecc8d4cd93f7b5d72eadb",
+    "apps/comic/tests/appraisal-expansion.test.ts": "781216f29bc311215d4f05cbcf765d72dea693f611a353492b12377bd05f51b5",
+    "apps/comic/tests/appraisal-item-effects.test.ts": "09e53c6f8169d41c6dbde39e750e70cd2c142f56be61f990caa86df939b87125",
+    "apps/comic/tests/appraisal-merchant-abilities.test.ts": "4198a001b127a8f70612c184291a2811e160be03deb1de0f7be7262464cabb87",
+    "apps/comic/tests/appraisal-network.test.ts": "21aeafee1bda2fc8adf91cbd566069e7357a8f7a8e75fcb8b913932c7b9404b4",
+    "apps/comic/tests/appraisal-passives.test.ts": "3d7a2e70217b18ff31d08538e00bac3ab14ce1f943be51daf2aa636e80a4a382",
+    "apps/comic/tests/appraisal-status-links.test.ts": "1569d94b22294ac24496a4cc0bb669479415bc5f11f772f248b1c609f45c8603",
+    "apps/comic/tests/new56-pilot-catalog.test.ts": "569b560da781586f4cd2ae988e774ff74daa45e131e0f3f696119aab2926362d",
+    "apps/comic/tests/new56-pilot-custody.test.ts": "b2cd8cc9507fa849da757c87659ab9bfc0d683531b110de7e21d7656bd43c3f2",
+    "apps/comic/tests/new56-pilot-effects.test.ts": "f9e56a31b6c8c16e22fde21d30a626fa6635a9c0321162a79359e00cd04e4668",
+    "apps/comic/tests/new56-pilot-lifecycle.test.ts": "e2460608ca5424d277e977b3a39dbbff8421d0c0bec97bb62c3569ff2b223bee",
+    "scripts/ui/pilot-items-smoke.mjs": "5b0fcf1dccaaef77e06440ff3c5348432385ac7acbf064da94e044eb713309f2",
+    "apps/comic/src/appraisal-client/HeldEffects.tsx": "d512121ac15fec2c9070233014bba1c499876f242511d73f608f03b5e5311e14",
+    "apps/comic/src/appraisal-client/catalog-text.ts": "54c17f1d8276119690902dec28ae56d8311764bc24b11f2c2e7a615d7c16b586",
+    "apps/comic/src/appraisal-client/main.tsx": "3863af43713c4a1b05287d4e64d26c3840b3718d7e0116d79f9a40f0e3c4980a",
+    "apps/comic/src/game/appraisal/remaining48-effects.ts": "08eb02c5e480e7390b7b93bfa74b78e95c40c537122c0acf748c6b57cc0cd9d6",
+    "apps/comic/tests/remaining48-theft.test.ts": "24c6d8fe83de07a3bd26013806c9ef00d355d314f1b1452393316718ba8d6e85",
+    "apps/comic/scripts/native56-compatibility.mjs": "9a92a33ab8070295aaa3a2a83df63ea39d4c30150e67381398f3d424f00d7e61",
+    "apps/comic/scripts/pilot-public-run.mjs": "3868307b90cad06f8d189e3dbb07556a26af0d3f19143c1a24b0e4219b93d086",
+    "docs/game-design/scripts/system-atlas-render.mjs": "84bd2f7b41e3b6cfffb837180edfa8f6fa3b77ee973b500e3cd91e1f8a811bb3",
+    "docs/game-design/scripts/check-system-atlas.mjs": "2faeeaf6ed971af1a594e33a588188e5964b5188057a739801d6ed3be46e9932",
+    "docs/game-design/scripts/build-system-atlas.mjs": "0841cd9129e63d9476c7113011b3f691e351d8ecb7da09bb53e8b90986d26f8f",
+    "docs/game-design/scripts/audit-remaining48.mjs": "fc99907a177f5b5db9379ec34ae58cb606e60fa8aff111f4927c18d55ed82cb1",
+    "docs/game-design/scripts/item-gallery-render.mjs": "92c9f2967824a216a3a57bee86cf74268a2b21ec31b93ce88f5dfc8bf11c44c1",
+    "docs/ui-system/source-manifest.json": "9971045d19dc2b966cea0699c1625496f853340068312667961e6ae10e0055da"
+  },
+  "evidenceFingerprints": {
+    "docs/validation/native56-stage8-2026-11-05/compatibility/report.json": "2d09a24de3a45c1839a32eb81405719569af5dd3a06fe11af0895099d0f2104b",
+    "docs/validation/native56-stage8-2026-11-05/pilot-public/public-effects.json": "6e0dbe9be0aa0a332a080fa027a81e9670e95ae9d1c25aa889cdb6c5104dc3cd",
+    "docs/game-design/native56-stage7.json": "fd79225a6b8ae9946f16134b47602aac85e5d841d065b85b680e0f9ab83dae31",
+    "docs/game-design/native56-stage8.json": "f946e2693befdaebb3edd79f746be98ef2d6b876f2217b04883fd0fcd76ff9b4",
+    "apps/comic/src/game/appraisal/engine.ts": "9deae0b68443d3df4da92743a304b817ee423711a2405b4cdf0866c8a23e3f25",
+    "apps/comic/src/game/appraisal/remaining48-effects.ts": "08eb02c5e480e7390b7b93bfa74b78e95c40c537122c0acf748c6b57cc0cd9d6",
+    "apps/comic/src/game/appraisal/theft.ts": "0308073d82cb8f75033039ba600acac94a983605da1744a02d7ded7a7659a5a4",
+    "apps/comic/src/game/appraisal/types.ts": "e438aa81448299cf3ab211d0e9a2a356e78f778264806a3abf3d1afc4aac39ce",
+    "apps/comic/tests/remaining48-theft.test.ts": "24c6d8fe83de07a3bd26013806c9ef00d355d314f1b1452393316718ba8d6e85",
+    "docs/ui-system/source-manifest.json": "9971045d19dc2b966cea0699c1625496f853340068312667961e6ae10e0055da"
+  },
+  "limitations": [
+    "28 of56 primary bindings remain untested/unbound; full exposure and whole-game balance are not established.",
+    "E42 has focused deterministic engine proof, not an E42 live-socket command proof; the existing socket test could not bind 127.0.0.1 (EPERM).",
+    "Browser UI smoke/visual comparison were not run; no screenshot baseline was regenerated.",
+    "No default56 rollout, release-balance, or whole-game completion claim."
+  ]
+}

@@ -1,6 +1,10 @@
+import {activatePortalTool} from './portal-effects.js';
+import {reconcileE53} from './seal-inspection.js';
 import {personalPerformanceInvariants,recordPersonalActivity,recordPersonalItemActivity,recordPersonalSale} from './personal-scoring.js';
 import {handleCollectorWishlist,reconcileCollectorWishlist,assertCollectorWishlistInvariants} from './collector-wishlist.js';
-import {remainingMeet,remainingBoundaryEnergy,remainingUseRecovery,remainingHeld,remainingSaleEnergy,reconcileRemainingAuctionCustody} from './remaining48-effects.js';
+import {remainingMeet,remainingBoundaryEnergy,remainingUseRecovery,remainingHeld,remainingSaleEnergy,remainingPortalRerollTools,reconcileRemainingAuctionCustody,reconcileRemainingInterestCustody} from './remaining48-effects.js';
+import { remainingStrength } from './remaining48-numbers.js';
+import { REMAINING48_RULES } from './remaining48-catalog.js';
 import {pilotRerollCost,reconcilePilotCustody} from './pilot-effects.js';
 import {handleGhostAction,reconcileGhostJobs} from './ghost-service.js';
 import { integerEffect, statusMagnitude } from './copy-effects.js';
@@ -8,8 +12,8 @@ import { defaultRarityConfig, validateRarityConfig, validateItemAppearance } fro
 import { defaultRarityEconomy, validateRarityEconomy, validateRarityPower, MAX_RARITY_MULTIPLIER } from '../../shared/rarity-power.js';
 import { ensureItemAppearance } from './rarity.js';
 import { startTheftDuel, chooseTheftHand, expireTheftDuel, clearCrime, cancelTheftDuels, collectCompensations, merchantTradeBanned } from './theft.js';
-import { handleSealAction, closeSealOffers, sealInvariants } from './seals.js';
-import { handleStorageAction, handleLoanAction, payVaultInterest, settleLoansBeforeAdvance, secureStorageInvariants } from './secure-storage.js';
+import { handleSealAction, closeSealOffers, sealInvariants, reconcileNative56SealEnergyCustody } from './seals.js';
+import { handleStorageAction, handleLoanAction, payVaultInterest, settleLoansBeforeAdvance, secureStorageInvariants, reconcileNative56DebtChainCustody } from './secure-storage.js';
 import { recordItemTrade, reappraiseOwnedItem, liquidateOwnedItem } from './price-integrity.js';
 import { finishAbilityChoice, useMerchantAbility } from './merchant-abilities.js';
 import { passivesEnabled } from './passives.js';
@@ -29,7 +33,7 @@ import { settleChallenge } from './challenge.js';
 import { challengePenalty } from './challenge-rules.js';
 import type { Claims } from './challenge-rules.js';
 import { makeMarketContract, marketOrderReserve, TRUST_CAP } from './market-contracts.js';
-import { collectRun, collectorDue } from './survival.js';
+import { collectRun, collectorDue, reconcileTestamentCustody, snapshotTestamentCustody } from './survival.js';
 import { PULSE_RULES, TRUST_RULES, activeNpcs, linkTrade } from './pulse.js';
 import { bankRoundReward, flipRoundReward, openRoundRewards, raiseRoundReward } from './round-rewards.js';
 import type { AppraisalAction, AppraisalConfig, AppraisalState, Appraiser, DarkMarket, ItemKind, NpcId, Portal } from './types.js';
@@ -43,7 +47,7 @@ export const DEFAULT_APPRAISAL_CONFIG: AppraisalConfig = {
   bankReserve:2000, marketProbability:1, marketMaxOrders:3, marketQuota:1,
 };
 function validateConfig(config:AppraisalConfig):void {
-  check(config.native56Effects===undefined||(config.native56Effects===2||config.native56Effects===3||config.native56Effects===4||config.native56Effects===5||config.native56Effects===6)&&config.catalogVersion===5,'config','รุ่นเอฟเฟกต์สินค้าใหม่ไม่ถูกต้อง');
+  check(config.native56Effects===undefined||(Number.isInteger(config.native56Effects)&&config.native56Effects>=2&&config.native56Effects<=15)&&config.catalogVersion===5,'config','รุ่นเอฟเฟกต์สินค้าใหม่ไม่ถูกต้อง');
   check(config.recoveryQuoteRules===undefined||config.recoveryQuoteRules===1,'config','กติกาข้อเสนอฟื้นทรัพยากรไม่ถูกต้อง');
   check(config.personalScoringRules===undefined||config.personalScoringRules===1,'config','กติกาคะแนนผลงานไม่ถูกต้อง');
   check(config.personalScoringFacts===undefined||config.personalScoringFacts===2,'config','รุ่นตัวบันทึกคะแนนไม่ถูกต้อง');
@@ -96,7 +100,7 @@ function validateConfig(config:AppraisalConfig):void {
   }
 }
 export function createAppraisalRun(playerIds:string[],seed:string,overrides:Partial<AppraisalConfig>={}):AppraisalState {
-  return initialiseAppraisalRun(playerIds,seed,structuredClone({...DEFAULT_APPRAISAL_CONFIG,...overrides,...(overrides.catalogVersion===5&&overrides.native56Effects!==2&&overrides.recoveryQuoteRules===undefined?{recoveryQuoteRules:1 as const}:{}),...(overrides.catalogVersion===5&&overrides.native56Effects===undefined?{native56Effects:6 as const}:{}),...(overrides.personalScoringRules===1&&overrides.personalScoringFacts===undefined?{personalScoringFacts:2 as const}:{}),...(overrides.catalogVersion!==undefined&&overrides.catalogVersion<3&&overrides.trustAbilities===undefined?{trustAbilities:false}:{})}));
+  return initialiseAppraisalRun(playerIds,seed,structuredClone({...DEFAULT_APPRAISAL_CONFIG,...overrides,...(overrides.catalogVersion===5&&overrides.native56Effects!==2&&overrides.recoveryQuoteRules===undefined?{recoveryQuoteRules:1 as const}:{}),...(overrides.catalogVersion===5&&overrides.native56Effects===undefined?{native56Effects:14 as const}:{}),...(overrides.personalScoringRules===1&&overrides.personalScoringFacts===undefined?{personalScoringFacts:2 as const}:{}),...(overrides.catalogVersion!==undefined&&overrides.catalogVersion<3&&overrides.trustAbilities===undefined?{trustAbilities:false}:{})}));
 }
 /** Restore an exact saved config, including original audits without a catalog version. */
 export function restoreAppraisalRun(playerIds:string[],seed:string,config:AppraisalConfig):AppraisalState {
@@ -123,7 +127,7 @@ function initialiseAppraisalRun(playerIds:string[],seed:string,config:AppraisalC
   state.market=makeMarket(state);
   for(const p of state.players) if(randomAt(seed,`${state.encounter}:${p.id}:entry-event`)<.55) drawEvent(state,p);
   for(const p of state.players)p.journal=[{id:0,encounter:1,phase:'PORTALS',action:'เริ่มการเดินทาง',cause:'ทรัพยากรตั้งต้นของห้อง',changes:[`เครดิต +${p.credits}`,`พลัง +${p.energy}`,...(p.life!==undefined?[`ชีวิต +${p.life}`]:[])]}];
-  reconcileCollectorWishlist(state);assertAppraisalInvariants(state); return state;
+  reconcileCollectorWishlist(state);snapshotTestamentCustody(state);assertAppraisalInvariants(state); return state;
 }
 /** One merchant item; the same recipe fills the portals up front and the extra slots earned through trust. */
 function spawnStockItem(state:AppraisalState,id:string,seat:number,encounter:number,index:number|string,slot:number,npc:NpcId):string {
@@ -162,7 +166,7 @@ function rerollPortal(state:AppraisalState,p:Appraiser,portalId:string):void {
   const unseen=activeNpcs(state.config).filter(npc=>!shown.has(npc));
   const pool=unseen.length?unseen:activeNpcs(state.config).filter(npc=>npc!==old.npc);
   check(pool.length,'reroll','ไม่มีพ่อค้าให้เปลี่ยน');
-  const done=p.portalRerolls??0,cost=pilotRerollCost(state,p,rerollCost(done));spend(state,p,0,cost,'portal-reroll');
+  const done=p.portalRerolls??0,cost=pilotRerollCost(state,p,rerollCost(done),remainingPortalRerollTools(state,p));spend(state,p,0,cost,'portal-reroll');
   const seat=state.players.indexOf(p);const tag=`${index}r${done+1}`;
   const npc=pool.map(npc=>({npc,rank:randomAt(state.seed,`${state.encounter}:${seat}:${npc}:portal:reroll${done+1}`)})).sort((a,b)=>a.rank-b.rank)[0]!.npc;
   const stock=[0,1].map(slot=>spawnStockItem(state,p.id,seat,state.encounter,tag,slot,npc));
@@ -227,6 +231,7 @@ function settleEncounter(state:AppraisalState):void {
   if(state.config.secureEconomy)cancelTheftDuels(state);
 }
 function progress(state:AppraisalState):void {
+  reconcileTestamentCustody(state);
   let moves=0;
   while(moves++<4 && state.players.every(p=>p.done || !!p.paused)) {
     if(state.phase==='PORTALS') {
@@ -355,7 +360,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
   const financeAction=storageAction || loanAction || sealAction || action.type==='crime-clear';
   check(ghostAction?previous.phase!=='RESULTS':roundAction?previous.phase==='REVEAL':financeAction?previous.phase!=='RESULTS':!['REVEAL','RESULTS'].includes(previous.phase),'phase','ช่วงนี้ไม่รับ action');
   const state=structuredClone(previous); const p=player(state,action.playerId);
-  if(ghostAction){handleGhostAction(state,p.id,action as import('./ghost-service.js').GhostAction);enforceCaps(state);state.revision++;state.accepted[key]=signature;state.commands.push(structuredClone(action));reconcileGhostJobs(state);reconcileRemainingAuctionCustody(state);reconcilePilotCustody(state);reconcileCollectorWishlist(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;}
+  if(ghostAction){handleGhostAction(state,p.id,action as import('./ghost-service.js').GhostAction);enforceCaps(state);state.revision++;state.accepted[key]=signature;state.commands.push(structuredClone(action));reconcileGhostJobs(state);reconcileRemainingAuctionCustody(state);reconcilePilotCustody(state);reconcileRemainingInterestCustody(state);reconcileNative56SealEnergyCustody(state);reconcileNative56DebtChainCustody(state);reconcileCollectorWishlist(state);reconcileTestamentCustody(state);reconcileE53(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;}
   const duelling=state.config.secureEconomy && state.theftDuels?.some(d=>d.status==='open' && [d.thiefId,d.victimId].includes(p.id));
   check(!duelling || action.type==='theft-hand' || action.type==='theft-timeout' || action.type==='theft-expire','theft-pending','เลือกมือเป่ายิ้งฉุบให้เสร็จก่อน');
   check(!p.abilityChoice || action.type==='merchant-ability' && !!action.choiceId || action.type==='done' || action.type==='theft-timeout' || action.type==='theft-expire','ability-choice','เลือกสินค้าที่พ่อค้าเสนอให้ก่อน');
@@ -363,7 +368,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
     if(action.type==='round-flip')flipRoundReward(state,p,action.guess,action.attempt,action.guesses);
     else if(action.type==='round-raise')raiseRoundReward(state,p,action.coinCount,action.attempt);
     else bankRoundReward(state,p);
-    state.revision++;state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);reconcileGhostJobs(state);reconcileRemainingAuctionCustody(state);reconcilePilotCustody(state);reconcileCollectorWishlist(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;
+    state.revision++;state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);reconcileGhostJobs(state);reconcileRemainingAuctionCustody(state);reconcilePilotCustody(state);reconcileRemainingInterestCustody(state);reconcileNative56SealEnergyCustody(state);reconcileNative56DebtChainCustody(state);reconcileCollectorWishlist(state);reconcileTestamentCustody(state);reconcileE53(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;
   }
   const forcedTimeout=action.type==='theft-timeout'&&state.config.theftTimeoutRules===1;
   if(financeAction || action.type==='theft-hand' || action.type==='theft-expire' || forcedTimeout) {
@@ -379,7 +384,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
     else if(action.type==='theft-expire')expireTheftDuel(state,p,action.duelId);
     else if(action.type==='theft-timeout')for(const duel of state.theftDuels??[])if(duel.status==='open'&&[duel.thiefId,duel.victimId].includes(p.id))expireTheftDuel(state,p,duel.id);
     cancelTheftDuels(state);for(const seat of state.players)pauseIfNeeded(state,seat);reconcileRemainingAuctionCustody(state);progress(state);expireUnavailableOffers(state);
-    state.revision++;state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);reconcileGhostJobs(state);reconcileRemainingAuctionCustody(state);reconcilePilotCustody(state);reconcileCollectorWishlist(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;
+    state.revision++;state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);reconcileGhostJobs(state);reconcileRemainingAuctionCustody(state);reconcilePilotCustody(state);reconcileRemainingInterestCustody(state);reconcileNative56SealEnergyCustody(state);reconcileNative56DebtChainCustody(state);reconcileCollectorWishlist(state);reconcileTestamentCustody(state);reconcileE53(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;
   }
   check(!p.paused && !p.done,'inactive','ผู้เล่นพักหรือจบช่วงแล้ว');
   check(!p.eventOffer || !isConsequence(p.eventOffer.id) || action.type==='event' || action.type==='done' || action.type==='theft-timeout','consequence','resolve ผล NPC ก่อน');
@@ -403,7 +408,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
       const caught=appraise(state,p,action.itemId,action.value,action.type==='counter',action.acceptDanger===true); drawBacklashEvent(state,p);if(caught && !p.eventOffer) drawEvent(state,p,true);break;
     }
     case 'buy': npcActionAllowed(state,p);purchase(state,p,p,action.itemIds,{condition:action.condition});break;
-    case 'activate': check(['APPRAISAL','TRADE'].includes(state.phase) && !p.eventOffer,'phase','resolve event ก่อนเปิดใช้');activate(state,p,action.itemId,action.npc,action.otherNpc);break;
+    case 'activate': if(action.target&&'portalId' in action.target){activatePortalTool(state,p,action.itemId,action.target.portalId);break;}check(['APPRAISAL','TRADE'].includes(state.phase) && !p.eventOffer,'phase','resolve event ก่อนเปิดใช้');activate(state,p,action.itemId,action.npc,action.otherNpc,action.target&&"statusId" in action.target?action.target.statusId:undefined);break;
     case 'recover-resource': {
       npcActionAllowed(state,p);check(!merchantTradeBanned(state,p),'merchant-banned','พ่อค้าทั้งหมดระงับการค้าชั่วคราว');const offer=recoveryOffer(state,p);
       check(offer && offer.target===action.target,'recovery','พ่อค้านี้ไม่มีดีลฟื้นที่เลือกหรือใช้สิทธิ์แล้ว');
@@ -441,7 +446,7 @@ export function applyAppraisalAction(previous:AppraisalState,action:AppraisalAct
     default: check(false,'action-type','ไม่รู้จักคำสั่ง');
   }
   pauseIfNeeded(state,p); reconcileRemainingAuctionCustody(state);progress(state); if(state.config.secureEconomy)cancelTheftDuels(state);expireUnavailableOffers(state); state.revision++;
-  state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);reconcileGhostJobs(state);reconcileRemainingAuctionCustody(state);reconcilePilotCustody(state);reconcileCollectorWishlist(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;
+  state.accepted[key]=signature;state.commands.push(structuredClone(action));enforceCaps(state);reconcileGhostJobs(state);reconcileRemainingAuctionCustody(state);reconcilePilotCustody(state);reconcileRemainingInterestCustody(state);reconcileNative56SealEnergyCustody(state);reconcileNative56DebtChainCustody(state);reconcileCollectorWishlist(state);reconcileTestamentCustody(state);reconcileE53(state);recordJournal(previous,state,action);assertAppraisalInvariants(state);return state;
 }
 export function advanceAppraisalEncounter(previous:AppraisalState):AppraisalState {
   check(previous.phase==='REVEAL','phase','ต้องเปิดผลก่อน');
@@ -449,7 +454,8 @@ export function advanceAppraisalEncounter(previous:AppraisalState):AppraisalStat
   const state=structuredClone(previous);state.commands.push({type:'advance'});state.revision++;
   for(const p of state.players)if(p.roundReward && !p.roundReward.settled)bankRoundReward(state,p);
   if(state.config.secureEconomy)settleLoansBeforeAdvance(state);
-  if(!state.config.survival && state.encounter===state.config.encounters) {if(state.config.secureEconomy && state.config.loanEndSettlement)settleLoansBeforeAdvance(state,true);closeNpcContracts(state);state.phase='RESULTS';enforceCaps(state);reconcileGhostJobs(state);reconcileRemainingAuctionCustody(state);reconcilePilotCustody(state);reconcileCollectorWishlist(state);recordJournal(previous,state,{type:'advance'});assertAppraisalInvariants(state);return state;}
+  reconcileRemainingInterestCustody(state);
+  if(!state.config.survival && state.encounter===state.config.encounters) {if(state.config.secureEconomy && state.config.loanEndSettlement)settleLoansBeforeAdvance(state,true);closeNpcContracts(state);state.phase='RESULTS';enforceCaps(state);reconcileGhostJobs(state);reconcileRemainingAuctionCustody(state);reconcilePilotCustody(state);reconcileRemainingInterestCustody(state);reconcileCollectorWishlist(state);reconcileE53(state);recordJournal(previous,state,{type:'advance'});assertAppraisalInvariants(state);return state;}
   state.encounter++;state.phase='PORTALS';state.listings=[];state.market={encounter:state.encounter,open:false,budget:0,orders:[]};
   if(state.config.secureEconomy){cancelTheftDuels(state);collectCompensations(state);payVaultInterest(state);closeSealOffers(state);}
   for(const p of state.players) {
@@ -474,7 +480,7 @@ export function advanceAppraisalEncounter(previous:AppraisalState):AppraisalStat
   }
   state.market=makeMarket(state);
   for(const p of state.players) if(randomAt(state.seed,`${state.encounter}:${p.id}:entry-event`)<.55) drawEvent(state,p);
-  enforceCaps(state);reconcileGhostJobs(state);reconcileRemainingAuctionCustody(state);reconcilePilotCustody(state);reconcileCollectorWishlist(state);recordJournal(previous,state,{type:'advance'});assertAppraisalInvariants(state);return state;
+  enforceCaps(state);reconcileGhostJobs(state);reconcileRemainingAuctionCustody(state);reconcilePilotCustody(state);reconcileRemainingInterestCustody(state);reconcileCollectorWishlist(state);snapshotTestamentCustody(state);reconcileE53(state);recordJournal(previous,state,{type:'advance'});assertAppraisalInvariants(state);return state;
 }
 export function defaultAppraisalAction(state:AppraisalState,playerId:string,requestId:string):AppraisalAction | null {
   const p=player(state,playerId);if(p.paused || p.done || ['RESULTS','REVEAL'].includes(state.phase)) return null;
@@ -487,7 +493,19 @@ export function assertAppraisalInvariants(state:AppraisalState):void {
   for(const item of Object.values(state.items))if(item.rarityPower){check(!!state.config.rarityEconomy&&!!item.appearance,'rarity','พลัง rarity ไม่มีที่มา');validateRarityPower(item.rarityPower);}
   for(const item of Object.values(state.items))if(item.appearance){check(!!state.config.rarity,'rarity','รูปลักษณ์สินค้าไม่มี config');validateItemAppearance(item.appearance);}
   if(state.config.secureEconomy){secureStorageInvariants(state);sealInvariants(state);}
-  check(state.reservedRewards===state.players.filter(p=>p.subsidy).length+state.players.reduce((sum,p)=>sum+(p.npcContracts?.alien?.reservedCredits??0),0),'reward-reserve','งบรางวัลไม่ตรงสิทธิ์ที่จอง');
+  const e59Enabled=state.config.catalogVersion===5&&(state.config.native56Effects??0)>=14,e59Payments=state.trace.filter(entry=>entry.type==='alien-cradle-bonus');
+  check(e59Enabled||e59Payments.length===0,'reward-reserve','โบนัสแท่นรองดักแด้ใช้ได้ตั้งแต่ native56Effects 14');
+  const e59PaymentKeys=new Set<string>(),e59PaidByPlayer=new Map<string,number>();
+  for(const entry of e59Payments){
+    const credits=entry.details.credits,returnedCount=entry.details.returnedCount,strength=entry.details.strength,contractKey=entry.details.contractKey,sourceItemIds=entry.details.sourceItemIds;
+    check(state.players.some(p=>p.id===entry.playerId)&&Number.isSafeInteger(credits)&&Number(credits)>0&&Number(credits)<=REMAINING48_RULES.E59.perContractCap&&Number.isSafeInteger(returnedCount)&&Number(returnedCount)>0&&Number.isFinite(strength)&&Number(strength)>=1&&typeof contractKey==='string'&&contractKey.length>0&&Array.isArray(sourceItemIds)&&sourceItemIds.length>0&&sourceItemIds.every(id=>typeof id==='string'&&state.items[id]?.kind==='swarm-pupa-cradle'),'reward-reserve','การจ่ายโบนัสแท่นรองดักแด้ไม่ถูกต้อง');
+    const key=JSON.stringify([entry.playerId,contractKey]);check(!e59PaymentKeys.has(key),'reward-reserve','สัญญาแท่นรองดักแด้จ่ายซ้ำ');e59PaymentKeys.add(key);
+    const prior=e59PaidByPlayer.get(entry.playerId)??0,expected=Math.max(0,Math.min(REMAINING48_RULES.E59.perContractCap,Math.floor(Number(strength))*Number(returnedCount)*REMAINING48_RULES.E59.bonusCreditsPerReturnedItem,REMAINING48_RULES.E59.perRunCap-prior));
+    check(Number(credits)===expected,'reward-reserve','ยอดโบนัสแท่นรองดักแด้ไม่ตรงสูตร');
+    e59PaidByPlayer.set(entry.playerId,prior+Number(credits));
+  }
+  for(const p of state.players)check((e59PaidByPlayer.get(p.id)??0)<=REMAINING48_RULES.E59.perRunCap,'reward-reserve','โบนัสแท่นรองดักแด้เกินเพดานต่อรัน');
+  check(state.reservedRewards===state.players.filter(p=>p.subsidy).length+state.players.reduce((sum,p)=>sum+(p.npcContracts?.alien?.reservedCredits??0)+(p.npcContracts?.alien?.native56SwarmPupaCradleReservedCredits??0),0),'reward-reserve','งบรางวัลไม่ตรงสิทธิ์ที่จอง');
   check(Number.isSafeInteger(state.bank) && state.bank>=0 && state.market.budget>=0 && state.bank>=state.market.budget+state.reservedRewards,'economy','bank reserve ไม่ถูกต้อง');
   const roundFunding=state.ledger.filter(e=>e.from==='@round-fund');
   check(roundFunding.every(e=>state.config.roundRewards && e.reason==='round-reward' && state.players.some(p=>p.id===e.to)),'ledger','เงินรางวัลจบรอบไม่ถูกต้อง');
@@ -501,7 +519,7 @@ export function assertAppraisalInvariants(state:AppraisalState):void {
   for(const entry of state.ledger) {check(Number.isSafeInteger(entry.amount) && entry.amount>0 && initial[entry.from]!==undefined && initial[entry.to]!==undefined,'ledger','ledger ไม่ถูกต้อง');initial[entry.from]!-=entry.amount;initial[entry.to]!+=entry.amount;}
   check(initial.bank===state.bank && state.players.every(p=>initial[p.id]===p.credits && (!state.config.secureEconomy || initial[`vault:${p.id}`]===(p.personalVault?.credits??0))),'ledger','ledger ไม่ตรง state');
   const owned=new Set<string>();
-  for(const item of Object.values(state.items))if(item.copy){const source=state.items[item.copy.sourceId];check(state.config.trustAbilities && source && !source.copy && source.kind===item.kind && Number.isSafeInteger(item.copy.number) && item.copy.number>=1 && [25,35,50].includes(item.copy.valuePercent),'copy','ที่มาสำเนาไม่ถูกต้อง');}
+  for(const item of Object.values(state.items))if(item.copy){const source=state.items[item.copy.sourceId],percent=item.copy.valuePercent,experimentalBonus=state.config.catalogVersion===5 && (state.config.native56Effects??0)>=10 && Number.isSafeInteger(percent) && [25,35,50].some(base=>percent>base && percent<=base+10);check(state.config.trustAbilities && source && !source.copy && source.kind===item.kind && Number.isSafeInteger(item.copy.number) && item.copy.number>=1 && ([25,35,50].includes(percent)||experimentalBonus),'copy','ที่มาสำเนาไม่ถูกต้อง');}
   for(const p of state.players) {
     check(!!p.npcTrust===!!state.config.commerce && Object.entries(p.npcTrust??{}).every(([npc,n])=>npc in NPC_SPECS && Number.isSafeInteger(n) && n>=0 && n<=TRUST_CAP),'npc-trust','ความไว้ใจ NPC ไม่ถูกต้อง');
     check(Object.values(p.passiveUses??{}).every(n=>Number.isSafeInteger(n) && n>=0),'passive-use','สิทธิ์ตรวจฟรีไม่ถูกต้อง');
@@ -521,7 +539,17 @@ export function assertAppraisalInvariants(state:AppraisalState):void {
     check(p.pulseShards===undefined || state.config.survival && Number.isSafeInteger(p.pulseShards) && p.pulseShards>=0 && p.pulseShards<=PULSE_RULES.bankCap,'pulse','เศษชีพจรไม่ถูกต้อง');
     check(p.inventory.every(id=>!owned.has(id) && !!owned.add(id) && state.items[id]?.owner===p.id),'owner','สินค้าซ้ำหรือเจ้าของไม่ตรง');
     const loan=p.npcContracts?.alien;
-    if(loan){check(state.config.npcEvents && loan.itemIds.length>=1 && loan.itemIds.length<=3 && loan.reservedCredits===8*loan.itemIds.length && loan.dueAt===loan.lentAt+2 && loan.lentAt<=state.encounter,'alien-loan','สัญญายืมไม่ถูกต้อง');check(loan.itemIds.every(id=>!owned.has(id) && !!owned.add(id) && state.items[id]?.owner===`alien-loan:${p.id}`),'loan-owner','ของที่ให้ยืมซ้ำหรือเจ้าของไม่ตรง');}
+    if(loan){check(state.config.npcEvents && loan.itemIds.length>=1 && loan.itemIds.length<=3 && loan.reservedCredits===8*loan.itemIds.length && loan.dueAt===loan.lentAt+2 && loan.lentAt<=state.encounter,'alien-loan','สัญญายืมไม่ถูกต้อง');check(loan.itemIds.every(id=>!owned.has(id) && !!owned.add(id) && state.items[id]?.owner===`alien-loan:${p.id}`),'loan-owner','ของที่ให้ยืมซ้ำหรือเจ้าของไม่ตรง');
+      const e59Fields=[loan.native56SwarmPupaCradleItemIds,loan.native56SwarmPupaCradleStrength,loan.native56SwarmPupaCradleReservedCredits],hasE59=e59Fields.some(value=>value!==undefined);
+      if(hasE59){
+        const ids=loan.native56SwarmPupaCradleItemIds,strength=loan.native56SwarmPupaCradleStrength,reserve=loan.native56SwarmPupaCradleReservedCredits;
+        check(e59Enabled&&Array.isArray(ids)&&Number.isFinite(strength)&&Number(strength)>=0&&Number(strength)<=40&&Number.isSafeInteger(reserve)&&Number(reserve)>=0&&Number(reserve)<=REMAINING48_RULES.E59.perContractCap,'alien-loan-effect','ข้อมูลสำรองโบนัสแท่นรองดักแด้ไม่ถูกต้อง');
+        check(new Set(ids).size===ids.length&&ids.every(id=>typeof id==='string'&&!loan.itemIds.includes(id)&&state.items[id]?.kind==='swarm-pupa-cradle'),'alien-loan-effect','รายการแท่นรองดักแด้ในสัญญาซ้ำหรือไม่ถูกต้อง');
+        const snapshot=ids.map(id=>state.items[id]!);check(remainingStrength(snapshot,'E59')===Number(strength),'alien-loan-effect','กำลังแท่นรองดักแด้ในสัญญาเปลี่ยนไป');
+        const paid=e59Payments.filter(entry=>entry.playerId===p.id).reduce((sum,entry)=>sum+Number(entry.details.credits),0),expected=Math.max(0,Math.min(REMAINING48_RULES.E59.perContractCap,Math.floor(Number(strength))*loan.itemIds.length*REMAINING48_RULES.E59.bonusCreditsPerReturnedItem,REMAINING48_RULES.E59.perRunCap-paid));
+        check(Number(reserve)===expected,'alien-loan-effect','ยอดสำรองโบนัสแท่นรองดักแด้ไม่ตรงสูตร');
+      }
+    }
     check(p.statuses.every(s=>s.charges>0 && (s.power===undefined||Number.isFinite(s.power)&&s.power>0&&s.power<=(state.config.rarityEconomy?MAX_RARITY_MULTIPLIER:1)) && (s.expires>=state.encounter || !!state.config.survival && p.life===0)) && new Set(p.statuses.map(s=>s.id)).size===p.statuses.length,'status','สถานะไม่ถูกต้อง');
   }
   for(const item of Object.values(state.items)) if(state.players.some(p=>p.id===item.owner)) check(owned.has(item.id),'owner','ของมีเจ้าของแต่ไม่มีใน inventory');

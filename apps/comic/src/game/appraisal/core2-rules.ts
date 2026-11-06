@@ -2,12 +2,21 @@ import { randomAt } from '../random.js';
 import { consignPayout, dreadChance, dreadKinds, dreadTax, overvalueChance } from './core2.js';
 import { ITEM_SPECS } from './content.js';
 import { consumeStatus, damageLife, grant, healLife, omenNow, recover, retire, spend, status, trace, unlocked } from './mechanics.js';
+import { remainingHeld } from './remaining48-effects.js';
+import { remainingScaled, remainingStrength } from './remaining48-numbers.js';
+import { REMAINING48_RULES } from './remaining48-catalog.js';
 import type { AppraisalState, Appraiser } from './types.js';
 
 const note=(p:Appraiser,text:string)=>{p.notes.push(text);p.notes=p.notes.slice(-30);};
 
 /** The chance a living seat draws a dread affliction at settlement, shown to every seat. */
-export const dreadNow=(state:AppraisalState,p?:Appraiser)=>dreadChance(state.encounter,(omenNow(state)?.dread??1)*(p && status(p,'B23')?.5:1));
+export const dreadNow=(state:AppraisalState,p?:Appraiser)=>{
+  const chance=dreadChance(state.encounter,(omenNow(state)?.dread??1)*(p && status(p,'B23')?.5:1));
+  if(!p||state.config.catalogVersion!==5||(state.config.native56Effects??0)<13)return chance;
+  const rule=REMAINING48_RULES.E67;
+  const reductionBps=remainingScaled(rule.riskReductionBps,remainingStrength(remainingHeld(state,p,'E67'),'E67'),rule.familyCapBps);
+  return chance*(1-reductionBps/10000);
+};
 
 /**
  * Settlement pressure: every living seat rolls against a chance that grows with the run. A hit is one of a few
@@ -26,6 +35,7 @@ export function applyDread(state:AppraisalState,p:Appraiser):void {
     case 'rot': {
       const itemId=movable[Math.floor(randomAt(state.seed,`${state.encounter}:${p.id}:dread:item`)*movable.length)]!;
       if(status(p,'B07')){consumeStatus(p,'B07');note(p,'ของเกือบถูกยึด แต่กรมธรรม์พ่อค้าคุ้มครองไว้');}
+      else if(state.config.catalogVersion===5&&(state.config.native56Effects??0)>=14&&!state.items[itemId]!.copy&&remainingStrength(remainingHeld(state,p,'E68'),'E68')>=1){note(p,'ของเกือบผุพัง แต่เสื้อคลุมขนอำพันคุ้มครองไว้');}
       else {const name=ITEM_SPECS[state.items[itemId]!.kind].name;retire(state,p,itemId,'dread-rot',false);note(p,`${name}ผุพังหายไปในความมืด`);}
       break;
     }

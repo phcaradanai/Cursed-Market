@@ -17,7 +17,7 @@
 /* The read-only desk uses existing HUD/menu controls, never phase height. */
 #game-main .phase-heading{display:flex;align-items:center;justify-content:space-between;gap:var(--layout-space);min-width:0}
 #game-main .phase-heading .cabinet-brand{min-width:0}
-#game-main .theft-desk-launch{width:var(--comic-menu-control-height);height:var(--comic-menu-control-height);min-width:var(--comic-menu-control-height);padding:8px}
+#game-main .theft-desk-launch{width:auto;height:var(--comic-menu-control-height);min-width:0}
 #game-main .theft-desk .drawer-body{padding:0;overflow:hidden}
 #game-main .theft-desk-spread{height:100%;grid-template-rows:40px minmax(0,1fr) 96px;box-sizing:border-box}
 #game-main .theft-desk-stock{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:center;gap:var(--layout-space);min-height:0}

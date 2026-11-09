@@ -2,10 +2,10 @@
 /* One corner token for every control, including legacy and selected/disabled states. */
 .comic-build :is(button,[role="button"],input:not([type="radio"]):not([type="range"]),select,textarea) { border-radius:var(--comic-radius)!important; }
 #game-main .comic-button { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:40px; padding:6px 16px; border:1px solid var(--comic-line,#eee); border-radius:var(--comic-radius); background:#0c1011; color:#f4eee0; font:inherit; font-weight:600; line-height:1.35; box-shadow:none; }
-#game-main .comic-button-primary { background:var(--comic-red,#c51032); border-color:#ff315c; color:#fff; }
+#game-main .comic-button-primary { background:var(--comic-red,#c51032); border-color:var(--comic-interaction-accent); color:#fff; }
 #game-main .comic-button:disabled { opacity:1; color:#7e888d; border-color:#596065; background:#131718; cursor:not-allowed; }
-#game-main .comic-button:focus-visible { outline:3px solid #fff; outline-offset:3px; }
-#game-main .comic-button:hover:not(:disabled) { border-color:#ff315c; background:#421320; }
+#game-main .comic-button:focus-visible { outline:3px solid var(--comic-interaction-focus); outline-offset:4px; }
+#game-main .comic-button:hover:not(:disabled) { border-color:var(--comic-interaction-accent); background:#421320; }
 #game-main .comic-button-primary:hover:not(:disabled) { background:#e11941; }
 #game-main .comic-pagination { display:flex; flex:0 0 auto; align-items:center; justify-content:center; gap:12px; margin:0; padding:0; border:0; background:none; }
 #game-main .comic-pagination .comic-button { width:40px; height:36px; min-height:36px!important; padding:0; font-size:27px; line-height:1; }

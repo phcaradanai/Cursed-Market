@@ -57,3 +57,23 @@
 
 #game-main .table-goods.is-empty{display:grid;place-items:center;align-self:stretch;width:100%;max-width:none}
 #game-main .table-goods.is-empty .table-empty{margin:0;padding:16px;text-align:center;align-self:center;justify-self:center;color:#fff;text-shadow:1px 2px 4px #000;font-size:clamp(16px,1.8vw,24px)}
+
+#game-main .unsold-item-trigger{display:flex;align-items:center;justify-content:center;min-width:0}
+#game-main .unsold-item-trigger:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+
+/* Keep unsold handling inside the offers menu, one item per shared page. */
+#game-main #table-offers-detail .unsold{padding:12px;margin:0}
+#game-main #table-offers-detail .unsold>h2{display:flex;justify-content:space-between;font-size:18px;line-height:1.4;margin:0 0 8px}
+#game-main #table-offers-detail .unsold>h2 span{display:inline}
+#game-main #table-offers-detail .unsold>.info-fold{margin:0}
+#game-main #table-offers-detail .unsold li{display:grid;grid-template-columns:130px minmax(0,1fr);gap:12px;align-items:center;padding:8px 0 0}
+#game-main #table-offers-detail .unsold .pedestal{width:130px;margin:0}
+#game-main #table-offers-detail .unsold .pedestal-item{width:120px;height:120px}
+#game-main #table-offers-detail .unsold .option-cards{grid-template-columns:minmax(0,1fr);gap:8px;margin:0}
+#game-main #table-offers-detail .unsold .option-card{display:block;min-height:0;padding:6px}
+#game-main #table-offers-detail .unsold .option-art{display:none}
+#game-main #table-offers-detail .unsold .option-copy{display:block}
+#game-main #table-offers-detail .unsold .option-copy>button{width:100%;height:40px;min-height:40px;margin:0;padding:6px 10px;font-size:14px;line-height:1.4}
+#game-main #table-offers-detail .unsold .option-copy .term{display:inline-flex;width:auto;min-height:0;padding:0 3px;font-size:inherit}
+#game-main #table-offers-detail .unsold .option-copy small{font-size:12px;line-height:1.4}
+@media(max-width:760px){#game-main #table-offers-detail .unsold li{grid-template-columns:64px minmax(0,1fr)}#game-main #table-offers-detail .unsold .pedestal{width:64px}#game-main #table-offers-detail .unsold .pedestal-item{width:64px;height:80px}}

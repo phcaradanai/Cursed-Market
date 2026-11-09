@@ -26,7 +26,7 @@ import type { AppraisalBotPolicy, AppraisalRoomView, AppraisalClientMessage, App
 import { APPRAISAL_BOT_POLICIES, APPRAISAL_TIMER_PHASES } from '../shared/appraisal-protocol.js';
 import { useConnection } from './connection.js';
 import { RoundReward } from './RoundReward.js';
-import { AppraisalDesk, CleanseDeal, WishDeal, DarkMarket, Inventory, Unsold } from './components.js';
+import { AppraisalDesk, CleanseDeal, WishDeal, DarkMarket, Inventory } from './components.js';
 import { EventModal, Toasts, useOutcomes } from './feedback.js';
 import type { Decision } from './model.js';
 import { ChoiceCards, ItemTerm } from './lore.js';
@@ -294,7 +294,6 @@ export function GameTable({room,submit,send,disabled,tools,connected=true,connec
         {!npc && <><WishDeal game={game} submit={submit} disabled={inactive}/><CleanseDeal game={game} submit={submit} disabled={inactive}/></>}
         {!item?<div className="empty-shop">{merchantCard}<div id="appraisal-reading-panel" className="appraisal-controls information-page">{deskPage==='offers'?merchantOffers:<p className="notice">{t('ไม่มีของเหลือในร้าน เก็บของ เปิดใช้ หรือจบช่วงประเมินเพื่อไปต่อรองกับเพื่อน')}</p>}</div></div>:<AppraisalDesk key={item.id} game={game} item={item} submit={submit} disabled={inactive} merchant={merchantCard} stockSelector={stockSelector} page={deskPage} onPageChange={setDeskPage} offers={merchantOffers}/>}
       </div>}
-      {phase==='TRADE' && !self.paused && <Unsold game={game} submit={submit} disabled={inactive}/>}
       {phase==='TRADE' && <TradeScreen game={game} room={room} submit={submit} disabled={inactive} completion={endPhasePanel} utilityOpen={openDrawer!==null||settingsOpen}/>}
       
       {phase==='REVEAL' && self.roundReward && <RoundReward hideSettled key={game.encounter} reward={self.roundReward} credits={self.credits} submit={submit} disabled={disabled || room.revealReady.includes(room.yourSeatId)} onTossing={setCoinTossing}/>}

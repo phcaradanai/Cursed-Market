@@ -1,11 +1,13 @@
 import {createPortal} from 'react-dom';
 import {useEffect,useState,type ReactNode} from 'react';
 import type {AppraisalRoomView} from '../shared/appraisal-protocol.js';
-import {Trades,TradeListing,type Actions} from './components.js';
+import {Trades,TradeListing,Unsold,type Actions} from './components.js';
 import {ComicButton,ComicMenu} from './ComicUI.js';
 import {itemName} from './catalog-text.js';
 import {ItemSalePanel} from './ItemSalePanel.js';
 import {ComicTooltip} from './ComicTooltip.js';
+import {Pager} from './Pager.js';
+import {unsoldItems} from './model.js';
 import {BagIcon,NavigationIcon,TableReturnIcon,PlayerOutlineIcon} from './icons.js';
 export function TradeScreen({game,room,submit,disabled,completion,utilityOpen=false}:Actions&{room:AppraisalRoomView;completion?:ReactNode;utilityOpen?:boolean}) {
  const [other,setOther]=useState<string|null>(null),[bag,setBag]=useState(false),[page,setPage]=useState(0),[selected,setSelected]=useState<string|null>(null),[offers,setOffers]=useState(false);
@@ -26,6 +28,6 @@ export function TradeScreen({game,room,submit,disabled,completion,utilityOpen=fa
   {other?<ComicTooltip content="กลับโต๊ะของคุณ เพื่อเลือกสินค้าและไปโต๊ะผู้เล่นคนอื่น"><button className="comic-overlay-control table-overlay table-return" type="button" aria-label="กลับโต๊ะของคุณ" onClick={()=>navigate(null)}><TableReturnIcon/></button></ComicTooltip>:!bag&&<ComicTooltip content="เลื่อนลงไปดูของในกระเป๋าของคุณ"><button className="comic-overlay-control table-overlay table-down" type="button" aria-label="ของในกระเป๋า" onClick={()=>navigate(null,true)}><BagIcon/><span className="table-bag-direction"><NavigationIcon direction="down"/></span></button></ComicTooltip>}
   <div className="table-completion">{completion}</div>
   <ComicButton className="table-offers" onClick={()=>setOffers(true)}>ข้อเสนอซื้อขาย {game.trades.filter(t=>t.status==='open').length||''}</ComicButton>
-  {menuTarget&&createPortal(<><ComicMenu id="table-item-detail" open={!!picked&&!utilityOpen} title={picked?itemName(picked.kind):'สินค้า'} onClose={()=>setSelected(null)} className="table-item-menu">{picked&&(listing?<TradeListing game={game} room={room} listing={listing} submit={submit} disabled={disabled}/>:<ItemSalePanel game={game} item={picked} submit={submit} disabled={disabled}/>)}</ComicMenu><ComicMenu id="table-offers-detail" open={offers&&!utilityOpen} title="ข้อเสนอซื้อขาย" onClose={()=>setOffers(false)}><Trades game={game} room={room} submit={submit} disabled={disabled}/></ComicMenu></>,menuTarget)}
+  {menuTarget&&createPortal(<><ComicMenu id="table-item-detail" open={!!picked&&!utilityOpen} title={picked?itemName(picked.kind):'สินค้า'} onClose={()=>setSelected(null)} className="table-item-menu">{picked&&(listing?<TradeListing game={game} room={room} listing={listing} submit={submit} disabled={disabled}/>:<ItemSalePanel game={game} item={picked} submit={submit} disabled={disabled}/>)}</ComicMenu><ComicMenu id="table-offers-detail" open={offers&&!utilityOpen} title="ข้อเสนอซื้อขาย" onClose={()=>setOffers(false)}><Pager label="หน้าข้อเสนอซื้อขาย">{!game.self.paused&&unsoldItems(game).length>0&&<div>{offers&&!utilityOpen&&<Unsold game={game} submit={submit} disabled={disabled}/>}</div>}<Trades game={game} room={room} submit={submit} disabled={disabled}/></Pager></ComicMenu></>,menuTarget)}
  </section>;
 }

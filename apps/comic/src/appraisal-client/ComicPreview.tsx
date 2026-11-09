@@ -16,6 +16,11 @@ export function ComicPreview(){
   const time=useRef(Date.now());
   const room=useMemo<AppraisalRoomView>(()=>{
     const base=structuredClone(personalScorePreview[scene]??previewRooms[scene]??previewRooms.inspection!) as AppraisalRoomView;
+    if(scene==='trade'&&new URLSearchParams(location.search).has('unsold')){
+      const game=base.game!;game.brokerage=true;game.self.stock[0]!.appraisal=21;
+      const other=base.matchSeats.find(seat=>seat.id!==game.self.id)!;
+      game.listings=game.self.inventory.slice(0,3).map(item=>({ownerId:other.id,itemId:item.id,item:{...item,owner:other.id},purchase:true}));
+    }
     if(scene.startsWith('collector-')){base.game=structuredClone(collectorPreview[scene.slice(10)]!);base.yourSeatId='alice';base.matchSeats=[{id:'alice',name:'คุณ'},{id:'bob',name:'ผู้เล่น 2'}];base.seats=base.seats.map((seat,index)=>({...seat,id:index?'bob':'alice'}));}
     if(['ghost','ghost-busy','ghost-working','ghost-lost','ghost-funds'].includes(scene)){const game=base.game!;game.self.life=0;game.self.paused='dead';game.self.eventOffer=null;
      if(scene!=='ghost'){base.matchSeats=base.matchSeats.filter(s=>s.id===game.self.id);game.players=game.players.filter(s=>s.id===game.self.id);game.players.push(...[0,1,2].map(i=>({...game.players[0]!,id:`buyer-${i}`,life:6,paused:null,credits:scene==='ghost-funds'&&i===0?0:200})));base.matchSeats.push(...[0,1,2].map(i=>({id:`buyer-${i}`,name:`ผู้ว่าจ้าง ${i+1}`})));const kinds=[...game.self.inventory,...game.self.stock].slice(0,3).map(i=>i.kind);game.ghosts={services:[],jobs:kinds.map((kind,i)=>({id:`preview-job-${i}`,buyerId:`buyer-${i}`,ghostId:game.self.id,kind,price:20,fee:2,status:scene==='ghost-busy'?'offered':'accepted'})),self:{startedAt:0,cards:kinds,round:1,available:true,swaps:[],tracking:'available',slots:kinds.map(kind=>({kind,lost:scene==='ghost-lost'})),encounter:game.encounter,bonus:0}};}

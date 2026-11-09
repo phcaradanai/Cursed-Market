@@ -29,7 +29,6 @@
 #game-main #table-item-detail .comic-sale-controls .choice-card input{position:absolute!important;width:1px!important;height:1px!important;opacity:0!important;clip-path:inset(50%);overflow:hidden}
 #game-main #table-item-detail .comic-sale-controls :is(.choice-title,.choice-text){display:block;text-align:center;white-space:nowrap;font-size:15px;color:inherit;background:none!important;border:0!important;box-shadow:none!important;padding:0!important;outline:0!important}
 #game-main #table-item-detail .comic-sale-controls .choice-card.selected .choice-title::after{content:'✓';margin-left:6px}
-#game-main #table-item-detail .comic-sale-controls .choice-card:has(input:focus-visible){outline:2px solid #fff;outline-offset:3px}
 #game-main #table-item-detail .comic-sale-controls fieldset:disabled .choice-card{opacity:.55}
 #game-main #table-item-detail .comic-sale-rebate{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;border:0;background:none!important}
 #game-main #table-item-detail .comic-sale-rebate-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--sale-gap);align-items:center}
@@ -51,8 +50,6 @@
 #game-main #table-item-detail .comic-sale-rebate-row{display:flex;flex-direction:column;align-items:stretch;gap:var(--sale-gap)}
 #game-main #table-item-detail .comic-sale-stepper{margin-left:var(--sale-label)}
 #game-main #table-item-detail .comic-sale-rebate>.comic-sale-note{margin-left:var(--sale-label)}
-#game-main #table-item-detail .comic-sale-controls .choice-card.selected{outline:none}
-#game-main #table-item-detail .comic-sale-controls .choice-card:has(input:focus-visible){outline:2px solid #fff;outline-offset:3px}
 
 /* The stepper is symmetric about the same centre as the action pair below. */
 #game-main #table-item-detail .comic-sale-stepper{margin-left:0;grid-template-columns:40px minmax(0,1fr) 40px;gap:var(--sale-gap)}

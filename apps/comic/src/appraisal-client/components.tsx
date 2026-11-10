@@ -42,14 +42,14 @@ const claimText=(key:ClaimKey,value:boolean)=>key==='genuine'?(value?t('เป�
 
 export interface Actions { game:AppraisalView; submit:(action:Decision)=>void; disabled:boolean }
 /** The item's known facts as a row of seals: what the appraiser has learned at a glance, details below. */
-export function FactSeals({item}:{item:ItemView}) {
+export function FactSeals({item,certificate=true}:{item:ItemView;certificate?:boolean}) {
   const k=item.knowledge;
   const seal=(key:string,icon:ReactElement,label:string,value:string,state:'unknown'|'good'|'bad'|'known')=><li key={key} className={`seal ${state}`} data-seal={key} title={`${label}: ${value}`}>{icon}<span className="seal-label">{label}</span><strong>{value}</strong></li>;
   return <ul className="fact-seals" aria-label={t('สิ่งที่รู้แล้ว')}>
     {seal('base',<CoinIcon/>,t('มูลค่าจริง'),k.base!==undefined?t('{n} เครดิต',{n:k.base}):k.range?`${k.range[0]}–${k.range[1]}`:'?',k.base!==undefined?'known':'unknown')}
     {seal('genuine',<AuthenticityIcon/>,t('ความแท้'),k.genuine===undefined?'?':k.genuine?t('ของแท้'):t('ของปลอม'),k.genuine===undefined?'unknown':k.genuine?'good':'bad')}
     {seal('cursed',<FlameIcon/>,t('คำสาป'),k.cursed===undefined?'?':k.cursed?t('มีคำสาป'):t('ไม่มีคำสาป'),k.cursed===undefined?'unknown':k.cursed?'bad':'good')}
-    {item.certificate && seal('certificate',<TrustIcon/>,t('ใบรับรองพ่อค้า'),k.certificate===undefined?'?':k.certificate?t('ตรวจแล้วตรงความจริง'):t('ตรวจแล้วเป็นเท็จ'),k.certificate===undefined?'unknown':k.certificate?'good':'bad')}
+    {certificate && item.certificate && seal('certificate',<TrustIcon/>,t('ใบรับรองพ่อค้า'),k.certificate===undefined?'?':k.certificate?t('ตรวจแล้วตรงความจริง'):t('ตรวจแล้วเป็นเท็จ'),k.certificate===undefined?'unknown':k.certificate?'good':'bad')}
     {item.overpriced && seal('overpriced',<CoinIcon/>,pick('ราคาเกินจริง','Overpriced'),pick('ขายให้ระบบ 0 เครดิต จนกว่าจะประเมินใหม่สำเร็จ','System sales pay 0 credits until successful reappraisal.'),'bad')}
   </ul>;
 }
@@ -290,7 +290,7 @@ export function AppraisalDesk({game,item,submit,disabled,merchant,stockSelector,
   return <section className="desk" aria-label={t('ประเมิน {name}',{name})}>
     <div className="appraisal-visual">
       {merchant}
-      <div className="relic-art"><ItemVisual item={item} alt={name} loading="eager"/></div>
+      <div className="relic-art"><ItemVisual item={item} alt={name} loading="eager"/>{item.certificate&&<p className="certificate-banner" role="note"><TrustIcon/><strong>{t('ใบรับรองพ่อค้า')}</strong><span>{item.knowledge.certificate===undefined?t('มีใบรับรอง · ยังไม่ตรวจ'):item.knowledge.certificate?t('ตรวจแล้วตรงความจริง'):t('ตรวจแล้วเป็นเท็จ')}</span></p>}</div>
       {stockSelector}
     </div>
     <div className="desk-reading">
@@ -309,7 +309,7 @@ export function AppraisalDesk({game,item,submit,disabled,merchant,stockSelector,
         e.preventDefault();setDeskStep(steps[next]!.id);e.currentTarget.querySelectorAll<HTMLButtonElement>('[role="tab"]')[next]?.focus();
       }}>{steps.map((s,index)=><button key={s.id} type="button" role="tab" id={`${tabs}-${s.id}`} aria-controls={`${tabs}-${s.id}-panel`} aria-selected={deskStep===s.id} tabIndex={deskStep===s.id?0:-1} className={deskStep===s.id?'current':''} onClick={()=>setDeskStep(s.id)}>
         <span className="step-number" aria-hidden="true">{index+1}</span>{s.id==='inspect'?<InspectIcon/>:s.id==='appraise'?<AppraiseIcon/>:<BuyIcon/>}<span className="step-label">{s.label}<small>{s.meta}</small></span></button>)}</div>
-      <FactSeals item={item}/>
+      <FactSeals item={item} certificate={false}/>
       <div role="tabpanel" id={`${tabs}-inspect-panel`} aria-labelledby={`${tabs}-inspect`} hidden={deskStep!=='inspect'} className="step-panel">
         <Inspect game={game} item={item} submit={submit} disabled={disabled} compact/>
       </div>
@@ -372,6 +372,9 @@ export function EventDecision({game,offer,submit,disabled,playerNames={},onTuck}
     if(eventNeedsItem(offer,c) && !usableIds(c).length) return t('ไม่มีสินค้าที่ใช้ได้ (รู้ข้อมูลนี้แล้ว)');
     return needShort(game,eventNeeds(game,offer,c,usableIds(c).includes(id)?id:usableIds(c)[0]??''));
   };
+  const [eventSmall,setEventSmall]=useState(()=>typeof window!=='undefined'&&window.innerWidth<=600);
+  useEffect(()=>{const update=()=>setEventSmall(window.innerWidth<=600);window.addEventListener('resize',update);return()=>window.removeEventListener('resize',update);},[]);
+  const [loanPage,setLoanPage]=useState(0);
   const firstOpen=offer.choices.find(c=>!blockedReason(c,offer.itemIds[0]??''))??offer.choices[0]!;
   const [pickedChoice,setChoice]=useState(firstOpen);
   const [pickedItem,setItemId]=useState(offer.itemIds[0]??'');
@@ -395,32 +398,41 @@ export function EventDecision({game,offer,submit,disabled,playerNames={},onTuck}
   const portalEvent=game.phase==='PORTALS';
   // E01/E10 decline closes the same door as switch; show that outcome once.
   const choices=portalEvent && ['E01','E10'].includes(offer.id)?offer.choices.filter(c=>c!=='decline'):offer.choices;
-  return <section className={`event-offer${consequence?' consequence':''}${portalEvent?' portal-event':''}`} aria-labelledby={`event-${offer.id}`}>
+  const needsTargets=eventNeedsItem(offer,choice)||eventNeedsStatus(offer,choice)||offer.id==='E110'&&loanItemCount(choice)>0||offer.id==='E111'&&choice==='send-debuff'||['E45','E46'].includes(offer.id)&&choice!=='decline';
+  return <section className={`event-offer event-paged event-overview${choices.length===1&&!needsTargets&&!portalEvent?' event-simple':''}${consequence?' consequence':''}${portalEvent?' portal-event':''}`} aria-labelledby={`event-${offer.id}`}>
     <h2 id={`event-${offer.id}`}><span className="event-heading-title"><EventIcon/>{catalog.name}</span>{onTuck && <button type="button" className="event-tuck" aria-label={t('ซ่อนไว้ก่อน ขอดูโต๊ะ')} title={t('ซ่อนไว้ก่อน ขอดูโต๊ะ')} onClick={onTuck}><CloseIcon/></button>}</h2>
-    <PortalEventPreview game={game} offer={offer} choice={choice}/>
+    <div className={`event-context${!portalEvent?' event-text-context':''}`}>{!portalEvent&&!(choices.length===1&&!needsTargets)&&<h3 className="event-context-heading">{pick('รายละเอียดเหตุการณ์','Event details')}</h3>}<PortalEventPreview game={game} offer={offer} choice={choice}/>
     <div className="event-copy">
       <p className="event-say">{survival && offer.id==='E50'?t('คุณผิดสัญญา Dark One สละของหนึ่งชิ้นเพื่อรอด หรือชีวิตเป็น 0 แล้วเป็นผู้ชมจนจบ run ของและเครดิตที่เหลือยังรอ Collector'):<Rich text={catalog.description} survival={survival}/>}</p>
       {offer.wish && <p className="event-give">{t('{npc}อยากได้',{npc:npcName(game.self.portals.find(p=>p.id===game.self.selectedPortalId)?.npc ?? 'orc')})} <ItemTerm kind={offer.wish.kind}/> {t('ให้ {n} เครดิต ซึ่งสูงกว่าตลาด · ถ้าครั้งหน้าคุณเลือกพ่อค้านี้และถือของชนิดนี้อยู่ ขายให้ได้ ต่อรองราคาได้',{n:offer.wish.price})}</p>}
       {offer.giveItemId && <p className="event-give">{t('พ่อค้าขอ')} <ItemTerm kind={offer.targetKinds[offer.giveItemId]!} item={visible.find(i=>i.id===offer.giveItemId)}/> {t('จากคลังของคุณ')}</p>}
     </div>
-    <form className="event-form" onSubmit={e=>{e.preventDefault();if(action)submit(action);}}>
-      <ChoiceCards legend={t('คุณจะเลือกทางไหน')} value={choice} onChange={c=>{setChoice(c);const count=loanItemCount(c);if(count)setLoanIds(ids=>ids.slice(0,count));}} disabled={disabled} options={choices.map(c=>{const why=blockedReason(c,itemId);return {value:c,title:title(c),disabled:!!why,
+    </div>
+    <form className={`event-form${needsTargets&&choices.length>1?' has-targets':''}${!needsTargets&&choices.length===1?' confirm-only':''}`} onSubmit={e=>{e.preventDefault();if(action)submit(action);}}>
+      <div className="event-choice-panel" hidden={choices.length===1}><ChoiceCards pageSize={eventSmall?1:2} legend={t('คุณจะเลือกทางไหน')} value={choice} onChange={c=>{setChoice(c);const count=loanItemCount(c);if(count)setLoanIds(ids=>ids.slice(0,count));}} disabled={disabled} options={choices.map(c=>{const why=blockedReason(c,itemId);return {value:c,title:<ComicTooltip content={<Rich passive survival={survival} text={`${eventCost(game,offer,c,itemId)}${eventScoreText(game,offer,c,effectiveStatus)}`}/>}><span tabIndex={0}>{title(c)}</span></ComicTooltip>,disabled:!!why,
         detail:<><Rich passive survival={survival} text={`${eventCost(game,offer,c,itemId)}${eventScoreText(game,offer,c,effectiveStatus)}`}/>{why && <span className="why"> {why}</span>}</>,
         tone:c==='decline'?'quiet':consequence && dangerChoices.has(c)?'danger':undefined};})}/>
-      {eventNeedsItem(offer,choice) && <ChoiceCards legend={offer.giveItemId?t('เลือกของในร้านที่จะได้'):t('เลือกสินค้า')} value={itemId} onChange={setItemId} disabled={disabled} options={choiceItems.map((id,index)=>{
+      </div>
+      <div className="event-target-panel" hidden={!needsTargets}>
+      {eventNeedsItem(offer,choice) && <ChoiceCards pageSize={eventSmall?1:2} legend={offer.giveItemId?t('เลือกของในร้านที่จะได้'):t('เลือกสินค้า')} value={itemId} onChange={setItemId} disabled={disabled} options={choiceItems.map((id,index)=>{
         const seen=visible.find(i=>i.id===id);const kind=offer.targetKinds[id];
         return {value:id,title:offer.npcTerms && seen?.owner===game.self.id?inventoryLabel(game,seen):eventItemName(offer,id),...(kind?{art:itemImage(kind),...(seen?{item:seen}:{})}:{}),
           detail:priced?t('รับ {n} เครดิต',{n:offer.quotedPrices[id]}):seen?(seen.owner===game.self.id?inventoryLabel(game,seen):t('ราคาร้าน {n} เครดิต',{n:seen.price})):t('รายการ {n}',{n:index+1})};
       })}/>}
       {offer.id==='E110' && loanItemCount(choice)>0 && <fieldset className="loan-selection" disabled={disabled}><legend>{t('เลือกของให้ยืม · {a}/{b} ชิ้น',{a:loanIds.length,b:loanItemCount(choice)})}</legend>
-        {offer.itemIds.map(id=>{const item=game.self.inventory.find(i=>i.id===id);return <label className="check" key={id}><input type="checkbox" checked={loanIds.includes(id)} disabled={!loanIds.includes(id) && loanIds.length>=loanItemCount(choice)} onChange={e=>setLoanIds(ids=>e.target.checked?[...ids,id]:ids.filter(value=>value!==id))}/><span>{item?inventoryLabel(game,item):eventItemName(offer,id)}</span></label>;})}
+        {offer.itemIds.slice(loanPage*2,loanPage*2+2).map(id=>{const item=game.self.inventory.find(i=>i.id===id);return <label className="check" key={id}><input type="checkbox" checked={loanIds.includes(id)} disabled={!loanIds.includes(id) && loanIds.length>=loanItemCount(choice)} onChange={e=>setLoanIds(ids=>e.target.checked?[...ids,id]:ids.filter(value=>value!==id))}/><span>{item?inventoryLabel(game,item):eventItemName(offer,id)}</span></label>;})}
+        {offer.itemIds.length>2&&<CompactPager page={loanPage} pages={Math.ceil(offer.itemIds.length/2)} onChange={setLoanPage} label={t('เลือกสินค้า')}/>}
         <p className="supporting">{t('เลือกให้ครบจำนวน · ของที่ให้ยืมจะใช้ ขาย หรือรับผลติดตัวไม่ได้จนกว่าจะคืน')}</p>
       </fieldset>}
-      {offer.id==='E111' && choice==='send-debuff' && <ChoiceCards compact legend={t('ส่งผลเสียสุ่มให้ใคร')} value={otherPlayerId} onChange={setOtherPlayerId} disabled={disabled} options={offer.otherPlayerIds.map((id,index)=>({value:id,title:playerNames[id]??t('ผู้เล่นคนที่ {n}',{n:index+1})}))}/>}
-      {eventNeedsStatus(offer,choice) && <ChoiceCards compact legend={t('เลือกสถานะ')} value={effectiveStatus} onChange={setStatusId} disabled={disabled} options={statusOptions.map(id=>({value:id,title:<><span className={id.startsWith('D')?'danger-text':'positive-text'}>{id.startsWith('D')?<DebuffIcon/>:<BuffIcon/>}</span>{statusName(id)}</>,...(offer.id==='E108'?{detail:readable(statusDescription(id))}:{})}))}/>}
-      {offer.id==='E45' && choice!=='decline' && <ChoiceCards compact legend={t('ผลตรวจที่จะเปิดให้ทุกคน')} value={effectiveFact} onChange={setFact} disabled={disabled} options={facts.map(f=>{const v=offer.facts[itemId]?.[f];return {value:f,title:`${factLabel(f)}: ${typeof v==='boolean'?v?t('ใช่'):t('ไม่ใช่'):String(v)}`};})}/>}
-      {offer.id==='E46' && choice!=='decline' && <ChoiceCards compact legend={t('คุณทายว่า')} value={String(guess)} onChange={v=>setGuess(v==='true')} disabled={disabled} options={[{value:'true',title:t('ของแท้')},{value:'false',title:t('ของปลอม')}]}/>}
+      {offer.id==='E111' && choice==='send-debuff' && <ChoiceCards pageSize={eventSmall?1:2} compact legend={t('ส่งผลเสียสุ่มให้ใคร')} value={otherPlayerId} onChange={setOtherPlayerId} disabled={disabled} options={offer.otherPlayerIds.map((id,index)=>({value:id,title:playerNames[id]??t('ผู้เล่นคนที่ {n}',{n:index+1})}))}/>}
+      {eventNeedsStatus(offer,choice) && <ChoiceCards pageSize={1} compact legend={t('เลือกสถานะ')} value={effectiveStatus} onChange={setStatusId} disabled={disabled} options={statusOptions.map(id=>({value:id,title:<><span className={id.startsWith('D')?'danger-text':'positive-text'}>{id.startsWith('D')?<DebuffIcon/>:<BuffIcon/>}</span><StatusTerm id={id} survival={survival}/></>,detail:<Rich passive survival={survival} text={`${statusDescription(id)} · ${statusDuration(id)}`}/>}))}/>}
+      {offer.id==='E45' && choice!=='decline' && <ChoiceCards pageSize={eventSmall?1:2} compact legend={t('ผลตรวจที่จะเปิดให้ทุกคน')} value={effectiveFact} onChange={setFact} disabled={disabled} options={facts.map(f=>{const v=offer.facts[itemId]?.[f];return {value:f,title:`${factLabel(f)}: ${typeof v==='boolean'?v?t('ใช่'):t('ไม่ใช่'):String(v)}`};})}/>}
+      {offer.id==='E46' && choice!=='decline' && <ChoiceCards pageSize={eventSmall?1:2} compact legend={t('คุณทายว่า')} value={String(guess)} onChange={v=>setGuess(v==='true')} disabled={disabled} options={[{value:'true',title:t('ของแท้')},{value:'false',title:t('ของปลอม')}]}/>}
+      </div>
+      {<div className="event-review"><h3>{title(choice)}</h3><p><Rich passive survival={survival} text={`${eventCost(game,offer,choice,itemId)}${eventScoreText(game,offer,choice,effectiveStatus)}`}/></p>{eventNeedsItem(offer,choice)&&<p>{eventItemName(offer,itemId)}</p>}{eventNeedsStatus(offer,choice)&&<p>{statusName(effectiveStatus as Parameters<typeof statusName>[0])}</p>}
+      {offer.id==='E110'&&loanItemCount(choice)>0&&<p>{loanIds.map(id=>eventItemName(offer,id)).join(' · ')}</p>}{offer.id==='E111'&&choice==='send-debuff'&&<p>{playerNames[otherPlayerId]??otherPlayerId}</p>}{offer.id==='E45'&&choice!=='decline'&&<p>{factLabel(effectiveFact as Parameters<typeof factLabel>[0])}</p>}{offer.id==='E46'&&choice!=='decline'&&<p>{guess?t('ของแท้'):t('ของปลอม')}</p>}
       <button className={consequence?'danger':'primary'} disabled={disabled || !action || !!blockedReason(choice,itemId)} title={tip(disabled&&locked,blockedReason(choice,itemId),!action&&t('ยังเลือกรายละเอียดไม่ครบ ตรวจตัวเลือกด้านบน'))}>{t('ยืนยัน: {title}',{title:portalEvent && isCore2Event(offer.id)?choiceTitle(offer,choice,survival):title(choice)})}</button>
+      </div>}
     </form>
   </section>;
 }
@@ -646,7 +658,16 @@ export function TradeListing({game,listing,room,submit,disabled}:Actions&{listin
   const name=room.matchSeats.find(s=>s.id===listing.ownerId)?.name??t('นักประเมิน');
   const itemTitle=abilityItemLabel(item);
   const sellerOff=!!(seller?.paused || seller?.done);const offerOff=disabled || sellerOff;
-  return <article className="trade-listing"><figure className="pedestal"><ItemVisual className="pedestal-item" item={item} alt={itemTitle}/></figure><div><h3>{itemTitle} · {name}</h3><p>{source==='npc'?t('ของในร้าน NPC · ต้องให้เจ้าของร้านอนุมัติ'):t('สินค้าของผู้เล่น · ราคาที่ต่ำไม่มีบทลงโทษจาก NPC')}</p><Provenance game={game} item={item} rebate={listing.rebate}/><FactSeals item={item}/><details className="listing-more"><summary>{t('รายละเอียดของชิ้นนี้')}</summary><AppraisalPrice item={item}/><ItemFacts item={item}/></details>
+  return <article className="trade-listing selected-listing">
+    <section className="trade-listing-info">
+      <figure className="pedestal"><ItemVisual className="pedestal-item" item={item} alt={itemTitle}/></figure>
+      <h3>{itemTitle} · {name}</h3>
+      <p>{source==='npc'?t('ของในร้าน NPC · ต้องให้เจ้าของร้านอนุมัติ'):t('สินค้าของผู้เล่น · ราคาที่ต่ำไม่มีบทลงโทษจาก NPC')}</p>
+      <Provenance game={game} item={item} rebate={listing.rebate}/>
+      <FactSeals item={item}/>
+      <details className="listing-more"><summary>{t('รายละเอียดของชิ้นนี้')}</summary><AppraisalPrice item={item}/><ItemFacts item={item}/></details>
+    </section>
+    <section className="trade-listing-offer" aria-label={t('ข้อเสนอซื้อขาย')}>
     {listing.purchase?<form onSubmit={e=>{e.preventDefault();if(valid)submit({type:'propose',sellerId:listing.ownerId,itemId:item.id,credits:price,...(swap?{swapItemId:swap}:{}),condition:useCondition,...(disputed?{challenge:disputed}:{}),...(seal?{sealId:seal.id}:{})});}}>
       {claimKeys.length>0 && <div className="claim-box"><h4>{t('ผู้ประเมินระบุว่า:')} {claimKeys.map(k=>claimText(k,claims![k]!)).join(' · ')}</h4>
         <ChoiceCards compact legend={t('ท้าทายคำระบุไหม')} value={disputed} onChange={setChallenge} disabled={disabled} options={[{value:'',title:t('เชื่อตามที่ระบุ'),tone:'quiet'},...claimKeys.map(k=>({value:k,title:t('ท้าทาย: {v}',{v:claimText(k,claims![k]!)})}))]}/>
@@ -663,7 +684,8 @@ export function TradeListing({game,listing,room,submit,disabled}:Actions&{listin
       const why=seller?.paused==='dead'?t('เจ้าของไม่อยู่แล้ว'):short;
       return <div className="force-buy"><p>{t('ตั๋วคำสั่งมืดครบ {n} ใบ · บังคับซื้อตามราคาประเมิน {price} เครดิต เจ้าของปฏิเสธหรือต่อรองไม่ได้',{n:TRUST_RULES.ticketsToForce,price:cost})}</p>
         <button type="button" disabled={disabled || !!why} title={tip(disabled&&locked,why)} onClick={()=>submit({type:'force-buy',sellerId:listing.ownerId,itemId:item.id})}><span className="ticket-cost" aria-hidden="true">{Array.from({length:TRUST_RULES.ticketsToForce},(_,i)=><TicketIcon key={i}/>)}</span>{t('บังคับซื้อ · ใช้ตั๋ว {n} ใบ',{n:TRUST_RULES.ticketsToForce})}</button>{why && !disabled && <p className="why" role="status">{why}</p>}</div>;})()}
-  </div></article>;
+    </section>
+  </article>;
 }
 export function Trades({game,room,submit,disabled}:Actions&{room:AppraisalRoomView}) {
   const locked=useLock();

@@ -99,9 +99,6 @@
 
 /* Show the market itself around the bag without a dimmed modal veil. */
 #game-main .screen #drawer-bag::backdrop { background:transparent; backdrop-filter:none; }
-body:has(#drawer-bag[open]), body:has(#drawer-bag[open])::before { background:url("/art/comic/market-night-v2.png") center/cover fixed no-repeat!important; }
-#game-main .screen:has(#drawer-bag[open]) { background:transparent!important; }
-#game-main .screen:has(#drawer-bag[open]) > .table-stage { visibility:hidden; }
 #game-main .screen #drawer-bag .inventory-art::before { content:''; position:absolute; z-index:0; inset:0; border:0; border-radius:0 0 var(--comic-radius) var(--comic-radius); background:#101416 url("/art/comic/display-cloth.png") center/cover!important; }
 #game-main .screen #drawer-bag .inventory-effect-card h4 { color:#f4f1eb; }
 #game-main .screen #drawer-bag .inventory-effect-card.risk h4 svg { color:#ff315c; }

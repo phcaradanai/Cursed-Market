@@ -1,6 +1,6 @@
 /* Main destination frame: inventory is the reference for every comic menu/screen.
    Change geometry here, never introduce per-screen widths or edge insets. */
-#game-main #entry-rules.game-dialog.comic-menu,#game-main .screen :is(dialog.game-dialog.utility-panel.comic-menu,#drawer-bag.game-dialog.utility-panel,.comic-main-frame){position:fixed;inset:var(--comic-frame-top) 0 var(--comic-frame-bottom);width:calc(100vw - 2 * var(--comic-frame-inset));max-width:var(--comic-frame-max);height:auto;min-height:0;max-height:none;margin:auto;box-sizing:border-box;border-width:2px;border-radius:var(--comic-radius)}
+#game-main #entry-rules.game-dialog.comic-menu,#game-main :is(dialog.game-dialog.utility-panel.comic-menu,#drawer-bag.game-dialog.utility-panel){position:fixed;inset:var(--comic-frame-top) 0 var(--comic-frame-bottom);width:calc(100vw - 2 * var(--comic-frame-inset));max-width:var(--comic-frame-max);height:auto;min-height:0;max-height:none;margin:auto;box-sizing:border-box;border-width:2px;border-radius:var(--comic-radius)}
 @media(max-width:760px){#game-main .screen{--comic-frame-inset:6px;--comic-frame-top:6px}}
 
 #game-main #entry-rules.game-dialog.comic-menu {
@@ -9,4 +9,37 @@
 }
 @media(max-width:760px) {
   #game-main #entry-rules.game-dialog.comic-menu { --comic-frame-inset: 12px; }
+}
+
+/* Dock menus share one centred popup footprint, leaving HUD and dock accessible. */
+#game-main :is(dialog.game-dialog.utility-panel.comic-menu,#drawer-bag.game-dialog.utility-panel) {
+  inset:50% auto auto 50%;
+  translate:-50% -50%;
+  margin:0;
+  width:min(1120px,calc(100vw - 2 * var(--comic-frame-inset)));
+  max-width:1120px;
+  height:min(720px,calc(100dvh - 2 * (var(--utility-bottom,80px) + 12px)));
+  min-width:0;
+  box-shadow:var(--comic-shadow);
+}
+#game-main .screen dialog.comic-menu .drawer-head h2 { min-width:0; font-size:clamp(21px,2.1vw,30px); overflow-wrap:anywhere; }
+#game-main .screen dialog.comic-menu .comic-menu-actions { flex-shrink:0; }
+@media(max-width:760px) {
+  #game-main :is(dialog.game-dialog.utility-panel.comic-menu,#drawer-bag.game-dialog.utility-panel) { --comic-menu-inset:12px; }
+  #game-main .screen dialog.comic-menu .drawer-head { padding-inline:var(--comic-menu-inset); }
+}
+/* Resolve play-area bounds where dock/preview variables are defined. */
+#game-main .screen {
+ --comic-frame-top:calc(var(--layout-chrome,48px) + 12px);
+ --comic-frame-bottom:var(--utility-bottom,80px);
+}
+/* Fixed phase frames must not inherit the old viewport-fitting zoom. */
+#game-main .screen > .table-stage,
+#game-main .screen .scene-play { zoom:1; transform:none; translate:none; filter:none; }
+#game-main .screen .comic-main-frame {
+ position:fixed; inset:var(--comic-frame-top) var(--comic-frame-inset) var(--utility-bottom,80px);
+ width:auto; max-width:none; height:auto; margin:0; min-width:0; min-height:0; box-sizing:border-box;
+}
+#game-main .screen .comic-main-frame.reward-screen {
+ top:var(--comic-frame-top); bottom:var(--utility-bottom,80px); height:calc(100dvh - var(--comic-frame-top) - var(--utility-bottom,80px)); max-height:none;
 }

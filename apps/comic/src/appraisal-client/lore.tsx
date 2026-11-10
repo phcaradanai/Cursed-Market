@@ -1,3 +1,4 @@
+import {CompactPager} from './ComicUI.js';
 import { ItemVisual, RarityLabel } from './ItemVisual.js';
 import { itemEffectScale, integerEffect } from '../game/appraisal/copy-effects.js';
 import { ABILITY_ITEM_TEXT, MODERN_ACTIVATIONS } from '../game/appraisal/ability-content.js';
@@ -124,14 +125,19 @@ export function Rich({text,survival=false,passive=false}:{text:string;survival?:
 
 export interface ChoiceOption { value:string; title:ReactNode; detail?:ReactNode; art?:string; item?:ItemView; tone?:'quiet'|'danger'|undefined; disabled?:boolean|undefined }
 /** Selectable cards backed by native radios: keyboard arrows, labels and form semantics stay intact. */
-export function ChoiceCards({legend,options,value,onChange,disabled=false,compact=false,hideLegend=false}:{legend:string;options:ChoiceOption[];value:string;onChange:(value:string)=>void;disabled?:boolean;compact?:boolean;hideLegend?:boolean}) {
+export function ChoiceCards({legend,options,value,onChange,disabled=false,compact=false,hideLegend=false,pageSize}:{legend:string;options:ChoiceOption[];value:string;onChange:(value:string)=>void;disabled?:boolean;compact?:boolean;hideLegend?:boolean;pageSize?:number}) {
   const name=useId();
+  const [page,setPage]=useState(0);
+  const pages=pageSize?Math.max(1,Math.ceil(options.length/pageSize)):1;
+  const at=Math.min(page,pages-1);
+  const shown=pageSize?options.slice(at*pageSize,(at+1)*pageSize):options;
   return <fieldset className={`choice-cards${compact?' compact':''}`} disabled={disabled}>
     <legend className={hideLegend?'sr-only':''}>{legend}</legend>
-    <div className="choice-grid">{options.map(option=><label key={option.value} className={`choice-card${option.value===value?' selected':''}${option.tone?` ${option.tone}`:''}${option.art?' has-art':''}${option.disabled?' unavailable':''}`}>
+    <div className="choice-grid">{shown.map(option=><label key={option.value} className={`choice-card${option.value===value?' selected':''}${option.tone?` ${option.tone}`:''}${option.art?' has-art':''}${option.disabled?' unavailable':''}`}>
       <input type="radio" name={name} value={option.value} checked={option.value===value} disabled={option.disabled} onChange={()=>onChange(option.value)}/>
       {option.item?<ItemVisual item={option.item} width={56} height={56}/>:option.art && <img src={option.art} alt="" width="56" height="56"/>}
       <span className="choice-text"><span className="choice-title">{option.title}</span>{option.detail && <span className="choice-detail">{option.detail}</span>}</span>
     </label>)}</div>
+    {pages>1&&<CompactPager page={at} pages={pages} onChange={setPage} label={legend}/>}
   </fieldset>;
 }

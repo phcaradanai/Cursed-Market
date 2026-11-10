@@ -1,4 +1,4 @@
-.item-visual{position:relative;display:inline-block;vertical-align:middle;width:100%;aspect-ratio:1;overflow:hidden;isolation:isolate;background:#0e0c09}
+.item-visual{position:relative;display:inline-block;vertical-align:middle;width:100%;aspect-ratio:1;overflow:hidden;isolation:isolate;background:transparent}
 .item-visual>img{display:block;width:100%;height:100%;object-fit:cover;margin:0}
 .item-visual>canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity 180ms ease-out}
 .item-visual.visual-ready>canvas{opacity:1}

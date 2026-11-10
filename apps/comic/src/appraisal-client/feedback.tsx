@@ -3,6 +3,7 @@ import type { AppraisalView, EventOffer } from '../game/appraisal/types.js';
 import { EventDecision } from './components.js';
 import { BloodPactEvent } from './BloodPactEvent.js';
 import { GameDialog } from './GameDialog.js';
+import {EventMenu} from './EventMenu.js';
 import type { Actions } from './components.js';
 import { BuffIcon, CloseIcon, DebuffIcon, EventIcon } from './icons.js';
 import { Rich } from './lore.js';
@@ -47,9 +48,8 @@ export function Toasts({toasts,dismiss,survival,playerNames={}}:{toasts:Toast[];
 export function EventModal({game,offer,submit,disabled,tucked,setTucked,playerNames={}}:Actions&{offer:EventOffer;tucked:boolean;setTucked:(value:boolean)=>void;playerNames?:Record<string,string>}) {
   if(tucked) return <button type="button" className={`event-pill${isConsequence(offer.id)?' danger':''}`} onClick={()=>setTucked(false)}><EventIcon/><span>{t('เหตุการณ์รอคุณ: {name}',{name:eventCatalog(offer).name})}</span><strong>{t('กลับไปตัดสินใจ')}</strong></button>;
   const bloodPact=offer.id==='E109' && game.phase==='APPRAISAL';
-  return <GameDialog open modal={!bloodPact} label={eventCatalog(offer).name} onClose={()=>setTucked(true)} className={`event-dialog${game.phase==='PORTALS'?' portal-event-dialog':''}${bloodPact?' comic-event-dialog':''}`}>
-      {bloodPact?<BloodPactEvent game={game} offer={offer} submit={submit} disabled={disabled} onTuck={()=>setTucked(true)}/>:<>
-      <EventDecision game={game} offer={offer} submit={submit} disabled={disabled} playerNames={playerNames}/>
-      <button type="button" className="modal-tuck" onClick={()=>setTucked(true)}>{t('ซ่อนไว้ก่อน ขอดูโต๊ะ')}</button></>}
-  </GameDialog>;
+  if(bloodPact)return <GameDialog open modal={false} label={eventCatalog(offer).name} onClose={()=>setTucked(true)} className="event-dialog comic-event-dialog"><BloodPactEvent game={game} offer={offer} submit={submit} disabled={disabled} onTuck={()=>setTucked(true)}/></GameDialog>;
+  return <EventMenu title={eventCatalog(offer).name} onClose={()=>setTucked(true)}>
+    <EventDecision game={game} offer={offer} submit={submit} disabled={disabled} playerNames={playerNames}/>
+  </EventMenu>;
 }

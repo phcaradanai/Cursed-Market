@@ -43,7 +43,7 @@ void main(){
  if(level<.5){col=src.rgb;}
  vec3 result=mix(bg,col,src.a);
  if(level>.5){for(int i=0;i<40;i++){float n=float(i);if(n>=particles)break;float h=hash(vec2(n,phase));vec2 pt=vec2(hash(vec2(n+phase,7.))-.5,fract(h+t*(.02+.02*h))-.5);pt.x+=.02*sin(t*.5+n);vec2 d=p-pt;float spark=exp(-dot(d,d)*(18000.+h*18000.));float pulse=.3+.7*pow(.5+.5*sin(t*(1.+h)+n),3.);result+=mix(primary,accent,h)*spark*pulse*strength;}}
- gl_FragColor=vec4(result*(1.-.25*cutout*smoothstep(.3,.8,length(p))),1.);
+ gl_FragColor=vec4(result*(1.-.25*cutout*smoothstep(.3,.8,length(p))),src.a);
 }`;
 
 export interface RarityVisualOptions {
@@ -68,7 +68,7 @@ function compile(context:WebGLRenderingContext,type:number,source:string){
 }
 function initialise(){
   if(gl)return;
-  surface=document.createElement('canvas');const context=surface.getContext('webgl',{alpha:false,antialias:false,preserveDrawingBuffer:true});
+  surface=document.createElement('canvas');const context=surface.getContext('webgl',{alpha:true,antialias:false,preserveDrawingBuffer:true});
   if(!context)throw Error('WebGL unavailable');
   const vertex=compile(context,context.VERTEX_SHADER,VERTEX),fragment=compile(context,context.FRAGMENT_SHADER,FRAGMENT),p=context.createProgram()!;
   context.attachShader(p,vertex);context.attachShader(p,fragment);context.linkProgram(p);context.deleteShader(vertex);context.deleteShader(fragment);
@@ -114,6 +114,7 @@ function draw(view:View,time:number){
   context.viewport(0,0,w,h);context.useProgram(program);context.activeTexture(context.TEXTURE0);context.bindTexture(context.TEXTURE_2D,view.texture.texture);
   for(const [k,v] of Object.entries({time,level:style.level,theme:style.themeIndex,strength:style.strength,speed:style.speed,phase:style.phase,particles:style.particleCount,cutout:view.cutout?1:0}))context.uniform1f(uniforms[k]!,v);
   context.uniform2f(uniforms.resolution!,w,h);context.uniform3fv(uniforms.primary!,style.primary);context.uniform3fv(uniforms.accent!,style.accent);context.drawArrays(context.TRIANGLES,0,6);
+  view.context.clearRect(0,0,w,h);
   view.context.drawImage(canvas,0,0,w,h);if(!view.ready){view.ready=true;view.onReady?.();}
 }
 /** One shared GPU renderer/texture cache for every visible item; host owns the canvas. */

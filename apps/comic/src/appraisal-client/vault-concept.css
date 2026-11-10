@@ -67,3 +67,6 @@
 }
 
 #game-main .post-reward-screen .vault-money > h3 {align-self:center;}
+#game-main .post-reward-screen .vault-goods { display:grid; grid-template-rows:minmax(0,1fr) minmax(0,1fr) auto; min-height:0; }
+#game-main .post-reward-screen .vault-shelf .vault-item-row { grid-template-rows:minmax(0,1fr); }
+#game-main .post-reward-screen .vault-empty-slot:only-child { height:100%; box-sizing:border-box; }

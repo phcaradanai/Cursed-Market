@@ -1,0 +1,223 @@
+/* Comic panels advance through story, choice, targets and confirmation. */
+#game-main .event-paged { display:flex; flex-direction:column; gap:12px; min-height:0; max-height:100%; overflow:hidden; }
+#game-main .event-paged [hidden] { display:none!important; }
+#game-main .event-page-navigation { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px; border:1px solid var(--comic-line); border-radius:var(--comic-radius); background:#0b1011; }
+#game-main .event-paged .event-form { min-height:0; margin:0; padding:12px; overflow:hidden; }
+#game-main .event-paged .choice-cards { margin:0 0 12px; }
+#game-main .event-paged .choice-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+#game-main .event-paged .choice-card { min-height:72px; padding:12px; }
+#game-main .event-paged .choice-detail { font-size:14px; line-height:1.5; }
+#game-main .event-review > button { width:100%; min-height:44px; }
+@media(max-width:600px) {
+ #game-main .event-paged .choice-grid { grid-template-columns:minmax(0,1fr); }
+ #game-main .event-paged .choice-card { min-height:56px; padding:8px; }
+}
+/* Standard encounters have a bounded body and a separate, persistent footer. */
+#game-main dialog.game-dialog.event-dialog:not(.comic-event-dialog) {
+ position:fixed; inset:60px 12px 80px; width:min(1000px,calc(100vw - 24px)); height:auto; max-height:none; margin:auto; padding:18px; box-sizing:border-box; overflow:hidden;
+ border:2px solid var(--comic-line); border-radius:var(--comic-radius); background:#0b0e0f;
+}
+#game-main dialog.event-dialog:not(.comic-event-dialog) > .dialog-content { display:flex; flex-direction:column; gap:12px; height:100%; min-height:0; max-height:none; padding:0; overflow:hidden; }
+#game-main .event-dialog .event-paged { flex:1; min-height:0; padding:0; border:0; border-image:none; }
+#game-main .event-paged > h2 { margin:0; padding:0; font-size:26px; flex:0 0 auto; }
+#game-main .event-paged > h2::after { display:none; }
+#game-main .event-dialog .modal-tuck { flex:0 0 44px; min-height:44px; margin:0; }
+#game-main .event-paged .event-portal-grid { grid-template-columns:minmax(0,1fr); }
+#game-main .event-portals-header { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:8px; }
+#game-main .event-paged .event-portal { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,3fr); gap:8px 16px; padding:12px; }
+#game-main .event-paged .event-portal > .portal-number { grid-column:1; margin:0; }
+#game-main .event-paged .event-portal > div:not(.event-portal-portrait) { grid-column:2; grid-row:1 / 3; }
+#game-main .event-paged .event-portal-portrait { display:none; }
+#game-main .event-paged .portal-projection { grid-column:1 / -1; padding:8px; margin:0; }
+#game-main .event-paged .event-portal h4,#game-main .event-paged .event-portal p { margin:0 0 6px; }
+#game-main .event-paged .portal-preview-help { display:none; }
+#game-main .event-paged .event-copy p { margin:8px 0 0; font-size:14px; }
+/* Every event page fills the same content track with equal card geometry. */
+#game-main .event-paged > div:not(.event-page-navigation):not([hidden]),
+#game-main .event-paged .event-form:not([hidden]) {
+ display:flex; flex:1; flex-direction:column; align-items:stretch; align-self:stretch;
+ width:100%; max-width:none; min-width:0; min-height:0; box-sizing:border-box;
+}
+#game-main .event-paged .event-form { border:0; border-image:none; background:transparent; padding:0; gap:12px; }
+#game-main .event-paged .event-form > div:not([hidden]) { display:flex; flex:1; flex-direction:column; gap:12px; min-height:0; width:100%; }
+#game-main .event-paged .choice-cards { display:flex; flex:1; flex-direction:column; width:100%; min-width:0; min-height:0; box-sizing:border-box; padding:12px; margin:0; }
+#game-main .event-paged .choice-grid { display:grid; flex:1; grid-template-columns:repeat(2,minmax(0,1fr)); grid-auto-rows:minmax(0,1fr); gap:12px; width:100%; min-height:0; }
+#game-main .event-paged .choice-card { display:flex; align-items:center; justify-content:flex-start; gap:12px; width:100%; min-width:0; box-sizing:border-box; padding:18px; }
+#game-main .event-paged .choice-card::before { display:none; }
+#game-main .event-paged .choice-card input[type=radio] { position:static; flex:0 0 20px; width:20px; height:20px; margin:0; opacity:1; clip-path:none; }
+#game-main .event-paged .choice-text { display:flex; flex-direction:column; gap:8px; min-width:0; }
+#game-main .event-paged .choice-title { font-size:clamp(18px,2vw,26px); line-height:1.4; }
+#game-main .event-paged .event-review { display:flex; align-items:stretch; justify-content:center; gap:18px; padding:24px; border:1px solid var(--comic-line); border-radius:var(--comic-radius); text-align:center; box-sizing:border-box; }
+#game-main .event-review h3 { margin:0; font-size:clamp(24px,3vw,36px); }
+#game-main .event-review p { margin:0; font-size:18px; line-height:1.5; }
+#game-main .event-paged .event-review > button { flex:0 0 auto; width:100%; min-height:52px; margin:0; padding:12px; font-size:20px; }
+#game-main .event-paged .event-copy { display:flex; flex:1; align-items:center; justify-content:center; padding:18px; box-sizing:border-box; }
+#game-main .event-paged .event-copy .event-say { width:100%; max-width:65ch; font-size:clamp(16px,1.7vw,24px); line-height:1.7; }
+@media(max-width:600px) {
+ #game-main .event-paged .choice-grid { grid-template-columns:minmax(0,1fr); }
+ #game-main .event-paged .choice-card,#game-main .event-paged .event-review { padding:12px; }
+}
+/* Decisions stay together; only long option lists are paged. */
+#game-main .event-overview > .event-context { flex:0 0 auto!important; display:block!important; }
+#game-main .event-overview .event-copy { display:block; padding:0; }
+#game-main .event-overview .event-copy .event-say { max-width:none; font-size:15px; line-height:1.5; margin:0; }
+#game-main .event-overview .event-form { display:grid!important; grid-template-columns:minmax(0,1fr); grid-template-rows:minmax(0,1fr) auto; gap:12px; }
+#game-main .event-overview .event-form.has-targets { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+#game-main .event-overview .event-review { grid-column:1 / -1; flex:none; display:flex; flex-direction:column; padding:12px; gap:6px; }
+#game-main .event-overview .event-review h3 { display:none; }
+#game-main .event-overview .event-review p { font-size:14px; line-height:1.4; }
+#game-main .event-overview .choice-grid { grid-template-columns:minmax(0,1fr); }
+#game-main .event-overview .choice-card { padding:12px; min-height:56px; }
+#game-main .event-overview .choice-title { font-size:18px; }
+#game-main .event-overview .choice-detail { font-size:13px; }
+#game-main .event-overview .event-review > button { min-height:44px; padding:8px; font-size:18px; }
+#game-main .event-overview .event-portal-context { margin:0 0 8px; }
+#game-main .event-overview .event-portal { padding:6px; }
+#game-main .event-overview .event-portal .portal-personality,#game-main .event-overview .event-portal .trust-note { display:none; }
+@media(max-width:600px) { #game-main .event-overview .event-form.has-targets { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:6px; } #game-main .event-overview .choice-card { padding:6px; gap:6px; } }
+#game-main .event-overview .choice-card:only-child { grid-column:1 / -1; }
+#game-main .event-overview .choice-title .term { font-size:inherit; padding:0; min-height:0; }
+#game-main .event-overview .choice-card .choice-text { outline:none; border:0; }
+/* Context and controls get separate tracks so portal information cannot crush choices. */
+#game-main .event-overview { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); grid-template-rows:auto minmax(0,1fr); gap:16px; }
+#game-main .event-overview > h2 { grid-column:1 / -1; }
+#game-main .event-overview > .event-context { min-height:0; width:100%; }
+#game-main .event-overview .event-form { height:100%; min-height:0; align-content:stretch; }
+#game-main .event-overview .event-form.confirm-only { grid-template-rows:minmax(0,1fr); }
+#game-main .event-overview .event-form > .event-review { min-height:min-content; }
+#game-main .event-overview .event-form .choice-grid { grid-auto-rows:minmax(min-content,1fr); }
+#game-main .event-overview .event-form .choice-card { height:auto; min-height:min-content; }
+#game-main .event-overview .event-portal { grid-template-columns:minmax(0,1fr); }
+#game-main .event-overview .event-portal > div:not(.event-portal-portrait) { grid-column:1; grid-row:auto; }
+#game-main .event-overview .event-portal .term { font-size:16px; padding:4px; min-height:0; }
+@media(max-width:600px) {
+ #game-main .event-overview { grid-template-columns:minmax(0,1fr); grid-template-rows:auto auto minmax(0,1fr); gap:8px; }
+ #game-main .event-overview .event-portal-context { margin:0; }
+ #game-main .event-overview .event-portal > div:not(.event-portal-portrait) p { display:none; }
+ #game-main .event-overview .event-portal { gap:2px; padding:4px; }
+ #game-main .event-overview .portal-preview-note { margin:4px 0; font-size:12px; }
+ #game-main .event-overview .event-copy .event-say { font-size:13px; }
+}
+/* Override inherited full-row event-form placement from the cabinet layout. */
+#game-main .event-overview > .event-context { grid-column:1; grid-row:2; }
+#game-main .event-overview > .event-form { grid-column:2; grid-row:2; align-self:stretch; }
+@media(max-width:600px) {
+ #game-main .event-overview > .event-context { grid-column:1; grid-row:2; }
+ #game-main .event-overview > .event-form { grid-column:1; grid-row:3; }
+}
+/* Shared column rhythm: matching insets, heading tracks and bottom summaries. */
+#game-main .event-overview { gap:12px; }
+#game-main .event-overview > .event-context { display:grid!important; grid-template-rows:minmax(0,1fr) 112px; gap:12px; }
+#game-main .event-overview .event-portal-context { display:grid; grid-template-rows:44px minmax(0,1fr) auto; gap:12px; margin:0; min-height:0; }
+#game-main .event-overview .event-portals-header { height:44px; margin:0; gap:12px; }
+#game-main .event-overview .event-portals-header h3 { margin:0; font-size:16px; text-align:left; }
+#game-main .event-overview .event-portal-grid { min-height:0; }
+#game-main .event-overview .event-portal { display:flex; flex-direction:column; justify-content:center; padding:16px; gap:8px; }
+#game-main .event-overview .portal-projection { width:100%; box-sizing:border-box; margin:0; padding:8px 0 0; border:0; border-radius:0; background:transparent; box-shadow:none; }
+#game-main .event-overview .portal-preview-note { margin:0; font-size:14px; line-height:1.4; text-align:left; }
+#game-main .event-overview .event-copy { border:1px solid var(--comic-line); border-radius:var(--comic-radius); padding:12px; box-sizing:border-box; display:flex; flex-direction:column; align-items:stretch; }
+#game-main .event-overview .event-form { grid-template-rows:minmax(0,1fr) 112px; gap:12px; }
+#game-main .event-overview .event-form .choice-cards { padding:0; border:0; gap:12px; }
+#game-main .event-overview .choice-cards legend { box-sizing:border-box; height:44px; padding:0; display:flex; align-items:center; margin:0; font-size:16px; }
+#game-main .event-overview .event-form .choice-grid { gap:12px; grid-auto-rows:minmax(0,1fr); }
+#game-main .event-overview .event-form .choice-card { height:100%; min-height:0; padding:16px; gap:12px; }
+#game-main .event-overview .choice-text { width:100%; }
+#game-main .event-overview .choice-title { font-size:17px; line-height:1.4; }
+#game-main .event-overview .choice-detail { font-size:13px; line-height:1.4; }
+#game-main .event-overview .event-form > .event-review { padding:12px; gap:8px; justify-content:space-between; min-height:0; }
+#game-main .event-overview .event-review > button { height:44px; min-height:44px; font-size:16px; }
+#game-main .event-overview .comic-pagination .comic-button { width:40px; height:40px; min-height:40px!important; }
+@media(max-width:600px) {
+ #game-main .event-overview > .event-context { display:block!important; }
+ #game-main .event-overview .event-copy { margin-top:8px; padding:8px; }
+ #game-main .event-overview .event-form { grid-template-rows:minmax(0,1fr) auto; }
+ #game-main .event-overview .event-form .choice-card { padding:8px; }
+}
+#game-main .event-overview .choice-cards .choice-grid { margin-top:12px; }
+/* Standard events use ComicMenu's dock-menu frame, header and body padding. */
+#game-main .event-menu .drawer-body { overflow:hidden; }
+#game-main .event-menu .event-overview { height:100%; max-height:100%; grid-template-rows:minmax(0,1fr); }
+#game-main .event-menu .event-overview > h2 { display:none; }
+#game-main .event-menu .event-overview > .event-context,
+#game-main .event-menu .event-overview > .event-form { grid-row:1; }
+@media(max-width:600px) {
+ #game-main .event-menu .event-overview { grid-template-rows:auto minmax(0,1fr); }
+ #game-main .event-menu .event-overview > .event-context { grid-row:1; }
+ #game-main .event-menu .event-overview > .event-form { grid-row:2; }
+}
+
+/* Events live beside .screen, so provide its dock reserve without changing other menus. */
+#game-main .event-menu { --utility-bottom:60px; --comic-frame-inset:24px; }
+body:has(.preview-toolbar) #game-main .event-menu { --utility-bottom:100px; }
+@media(max-width:760px) {
+ #game-main .event-menu { --comic-frame-inset:6px; --comic-menu-header-height:53px; --comic-menu-inset:12px; --utility-bottom:74px; }
+ body:has(.preview-toolbar) #game-main .event-menu { --utility-bottom:114px; }
+}
+#game-main .event-menu .drawer-body { display:flex; min-height:0; overflow:hidden; }
+#game-main .event-menu .event-overview { flex:1; height:auto; min-height:0; width:100%; margin:0; padding:0; border:0; box-sizing:border-box; }
+/* A single spacing scale for readable text, cards and summaries. */
+#game-main .event-menu { --event-inset:12px; --event-gap:12px; }
+#game-main .event-menu .event-overview { box-shadow:none; background:none; }
+#game-main .event-menu .event-portals-header,
+#game-main .event-menu .choice-cards legend { padding-inline:var(--event-inset); }
+#game-main .event-menu .portal-preview-note { padding-inline:var(--event-inset); box-sizing:border-box; }
+#game-main .event-menu .event-portal,
+#game-main .event-menu .event-copy,
+#game-main .event-menu .event-form .choice-card,
+#game-main .event-menu .event-form > .event-review { padding:var(--event-inset); }
+#game-main .event-menu .event-context { grid-template-rows:minmax(0,1fr) auto!important; }
+#game-main .event-menu .event-form { grid-template-rows:minmax(0,1fr) auto; }
+#game-main .event-menu .event-review { min-height:0; }
+#game-main .event-menu .event-review p { line-height:1.5; }
+#game-main .event-menu .event-form .choice-grid { grid-auto-rows:minmax(min-content,1fr); }
+#game-main .event-menu .event-form .choice-card { min-height:min-content; height:auto; }
+@media(max-width:600px) {
+ #game-main .event-menu .event-overview { gap:12px; }
+ #game-main .event-menu .event-portal-context { grid-template-rows:40px auto auto; gap:6px; }
+ #game-main .event-menu .event-portals-header h3 { font-size:13px; }
+ #game-main .event-menu .event-copy { margin-top:6px; }
+ #game-main .event-menu .event-review p { font-size:12px; }
+}
+@media(max-width:600px) {
+ #game-main .event-menu .event-portal { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:8px; }
+ #game-main .event-menu .event-portal > .portal-number { display:none; }
+ #game-main .event-menu .event-portal > div:not(.event-portal-portrait) { grid-column:1; grid-row:1; }
+ #game-main .event-menu .event-portal .portal-projection { grid-column:2; grid-row:1; border:0; padding:0; font-size:12px; }
+ #game-main .event-menu .event-portal h4 { margin:0; }
+ #game-main .event-menu .event-portal .term { font-size:13px; }
+}
+/* Short, mandatory events use one compact reading column inside the shared frame. */
+#game-main .event-menu .event-overview.event-simple {
+ display:flex; flex-direction:column; justify-content:center; align-items:center; gap:12px;
+}
+#game-main .event-menu .event-simple > .event-context,
+#game-main .event-menu .event-simple > .event-form {
+ display:block!important; flex:0 0 auto; width:100%; max-width:760px; height:auto; min-height:0;
+}
+#game-main .event-menu .event-simple .event-copy,
+#game-main .event-menu .event-simple .event-review {
+ margin:0; padding:18px; border:1px solid var(--comic-line); border-radius:var(--comic-radius); box-sizing:border-box;
+}
+#game-main .event-menu .event-simple .event-copy .event-say { text-align:center; margin:0; font-size:18px; line-height:1.6; }
+#game-main .event-menu .event-simple .event-form > .event-review { display:flex; justify-content:flex-start; gap:12px; padding:18px; }
+#game-main .event-menu .event-simple .event-review > button { margin:0; }
+#game-main .event-menu .event-overview.event-simple > :is(.event-context,.event-form) {
+ align-self:center; width:min(760px,100%); max-width:760px;
+}
+#game-main .event-menu .event-overview.event-simple .event-review { width:100%; }
+/* Text-only encounters align the description heading and panel with the choice column. */
+#game-main .event-menu .event-overview:not(.event-simple) > .event-text-context {
+ display:grid!important; grid-template-rows:44px minmax(0,1fr)!important; gap:12px; align-self:stretch; height:100%;
+}
+#game-main .event-menu .event-context-heading { display:flex; align-items:center; height:44px; box-sizing:border-box; margin:0; padding:0 12px; font-size:16px; }
+#game-main .event-menu .event-text-context .event-copy { height:100%; min-height:0; margin:0; padding:12px; box-sizing:border-box; }
+#game-main .event-menu .event-overview > .event-form { margin:0; padding:0; box-sizing:border-box; }
+#game-main .event-menu .event-overview:not(.event-simple) .event-review { gap:12px; }
+#game-main .event-menu .event-overview:not(.event-simple) .choice-text { gap:12px; }
+@media(max-width:600px) {
+ #game-main .event-menu .event-overview:not(.event-simple) > .event-text-context { grid-template-rows:auto auto!important; height:auto; gap:6px; }
+ #game-main .event-menu .event-context-heading { height:auto; min-height:28px; }
+}
+#game-main .event-menu .event-overview > .event-form,
+#game-main .event-menu .event-overview .event-form .choice-cards,
+#game-main .event-menu .event-overview .event-form .choice-grid { gap:12px; }

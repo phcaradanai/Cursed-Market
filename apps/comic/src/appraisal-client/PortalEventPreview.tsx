@@ -1,3 +1,5 @@
+import {useState} from 'react';
+import {CompactPager} from './ComicUI.js';
 import { npcAcceptanceChance } from './model.js';
 import { NPC_SPECS, npcImage } from '../game/appraisal/content.js';
 import type { AppraisalView, EventOffer } from '../game/appraisal/types.js';
@@ -31,10 +33,11 @@ export function portalChoiceTitle(game:AppraisalView,offer:EventOffer,choice:str
   return `${offer.id==='E01'?t('เก็บประตู'):choice==='pay'?t('จ่ายค่าผ่านให้'):t('รับหมอกเพื่อเก็บประตู')} ${first}`;
 }
 export function PortalEventPreview({game,offer,choice}:{game:AppraisalView;offer:EventOffer;choice:string}) {
+  const [page,setPage]=useState(0);
   const open=portalAvailability(game,offer,choice);if(!open)return null;
   return <section className="event-portal-context" aria-labelledby="event-portals-title">
-    <h3 id="event-portals-title">{t('พ่อค้าที่รออยู่หลังประตู')}</h3>
-    <div className="event-portal-grid">{game.self.portals.map((portal,index)=><article key={portal.id} className={`event-portal${open[index]?'':' will-close'}`} aria-label={t('ประตู {n}: {npc}',{n:index+1,npc:npcName(portal.npc)})}>
+    <header className="event-portals-header"><h3 id="event-portals-title">{t('พ่อค้าที่รออยู่หลังประตู')}</h3><CompactPager page={page} pages={Math.max(1,game.self.portals.length)} onChange={setPage} label={t('พ่อค้าที่รออยู่หลังประตู')}/></header>
+    <div className="event-portal-grid">{game.self.portals.map((portal,index)=>index===page&&<article key={portal.id} className={`event-portal${open[index]?'':' will-close'}`} aria-label={t('ประตู {n}: {npc}',{n:index+1,npc:npcName(portal.npc)})}>
       <p className="portal-number">{t('ประตู {n}',{n:index+1})}</p>
       <div className="event-portal-portrait comic-event-portrait" aria-hidden="true"><img className="event-portal-figure" src={npcImage(portal.npc)} alt="" width="76" height="96"/></div>
       <div><h4><NpcTerm npc={portal.npc}/></h4><p>{t('อาจมี {name}',{name:itemName(portal.hint)})}</p><p className="portal-personality">{npcHint(portal.npc)}</p>

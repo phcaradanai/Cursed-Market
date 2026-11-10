@@ -1,0 +1,106 @@
+/* Entry and waiting room share the same shell and spacing scale. */
+.app-shell.comic-build:has(.entry-lobby-frame) { height:100dvh; min-height:0; overflow:hidden; }
+.app-shell.comic-build .entry-lobby-frame.entry-lobby-frame {
+  box-sizing:border-box; width:min(1120px,calc(100% - 24px)); max-width:1120px;
+  height:calc(100dvh - 120px); min-height:0; margin:12px auto; padding:24px;
+  border:2px solid var(--comic-line); border-radius:var(--comic-radius);
+  background:#090d0ef5; color:var(--comic-white); gap:18px; overflow:hidden;
+}
+.app-shell.comic-build .entry-lobby-frame.lobby { display:grid; grid-template-rows:auto auto minmax(0,1fr) auto; }
+.app-shell.comic-build .entry-lobby-frame.entry-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); grid-template-rows:minmax(0,1fr) auto; align-items:center; }
+.app-shell.comic-build .entry-lobby-frame .entry-copy { grid-column:1; grid-row:1; }
+.app-shell.comic-build .entry-lobby-frame .entry-console { grid-column:2; grid-row:1; padding:18px; }
+.app-shell.comic-build .entry-lobby-frame .entry-more { grid-column:1 / -1; grid-row:2; }
+.app-shell.comic-build .entry-lobby-frame h1 { font-size:clamp(24px,3vw,36px); line-height:1.35; margin:0; }
+.app-shell.comic-build .entry-lobby-frame :is(p,label,button,input) { font-size:15px; line-height:1.4; }
+.app-shell.comic-build .entry-lobby-frame :is(button,input) { min-height:44px; box-sizing:border-box; border-radius:var(--comic-radius); }
+.app-shell.comic-build .entry-lobby-tabs { display:flex; gap:12px; }
+.app-shell.comic-build .entry-lobby-tabs button { flex:1; }
+.app-shell.comic-build .entry-lobby-tabs [aria-pressed=true] { border-color:var(--comic-red); background:#4b1019; }
+.app-shell.comic-build .entry-lobby-content { min-height:0; overflow:hidden; }
+.app-shell.comic-build .entry-lobby-frame .seat-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); overflow:hidden; }
+.app-shell.comic-build .entry-lobby-frame :is(.lobby-foot,.lobby-settings,.bot-controls,.timer-settings) { margin:0; padding:0; max-height:none; overflow:visible; }
+.app-shell.comic-build .entry-lobby-frame .timer-fields { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+@media(max-width:760px) {
+ .app-shell.comic-build .entry-lobby-frame.entry-lobby-frame { padding:12px; gap:12px; }
+ .app-shell.comic-build .entry-lobby-frame.entry-layout { grid-template-columns:minmax(0,1fr); grid-template-rows:auto minmax(0,1fr) auto; }
+ .app-shell.comic-build .entry-lobby-frame .entry-console { grid-column:1; grid-row:2; padding:12px; }
+ .app-shell.comic-build .entry-lobby-frame .entry-more { grid-row:3; }
+ .app-shell.comic-build .entry-lobby-frame .entry-copy > p:last-child { font-size:13px; }
+ .app-shell.comic-build .entry-lobby-tabs { gap:6px; }
+ .app-shell.comic-build .entry-lobby-frame .timer-fields { grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px; }
+}
+.app-shell.comic-build .entry-lobby-frame.lobby { grid-template-columns:minmax(0,1fr); }
+.app-shell.comic-build .entry-lobby-frame.lobby > * { grid-column:1; grid-row:auto; min-width:0; }
+.app-shell.comic-build .entry-lobby-frame .lobby-head { padding:0; margin:0; }
+.app-shell.comic-build .entry-lobby-content .rules-spread { display:grid; grid-template-columns:180px minmax(0,1fr) minmax(0,1fr); gap:12px; height:100%; min-height:0; }
+.app-shell.comic-build .entry-lobby-content .rules-rail { display:grid; grid-template-rows:repeat(5,minmax(0,1fr)); gap:6px; padding:0; }
+.app-shell.comic-build .entry-lobby-content .comic-destination { position:relative; display:flex; align-items:center; gap:8px; min-height:0; padding:6px; }
+.app-shell.comic-build .entry-lobby-content .comic-destination :is(small,.comic-destination-arrow) { display:none; }
+.app-shell.comic-build .entry-lobby-content .comic-destination svg { width:22px; height:22px; }
+.app-shell.comic-build .entry-lobby-content :is(.rules-center,.rules-detail) { display:flex; flex-direction:column; gap:8px; min-width:0; min-height:0; padding:12px; }
+.app-shell.comic-build .entry-lobby-content h3 { margin:0; font-size:18px; }
+.app-shell.comic-build .entry-lobby-content .rules-step-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+.app-shell.comic-build .entry-lobby-content .rules-step { padding:8px; }
+.app-shell.comic-build .entry-lobby-content .rules-step-caption { display:block; font-size:12px; }
+.app-shell.comic-build .entry-lobby-content .rules-facts { padding:0 0 0 18px; margin:0; font-size:14px; }
+.app-shell.comic-build .entry-lobby-content .rules-facts li { margin-bottom:12px; }
+.app-shell.comic-build .entry-lobby-content .rules-fact-mark { display:none; }
+@media(max-width:760px) {
+ .app-shell.comic-build .entry-lobby-content .rules-spread { grid-template-columns:100px minmax(0,1fr); grid-template-rows:auto minmax(0,1fr); }
+ .app-shell.comic-build .entry-lobby-content .rules-rail { grid-row:1 / 3; }
+ .app-shell.comic-build .entry-lobby-content .rules-center { padding:0; }
+ .app-shell.comic-build .entry-lobby-content .rules-detail { grid-column:2; padding:0; }
+ .app-shell.comic-build .entry-lobby-content .rules-step-caption { display:none; }
+}
+.app-shell.comic-build .entry-lobby-frame .lobby-head { align-items:center; }
+.app-shell.comic-build .entry-lobby-frame .lobby-head h1::after { content:none; }
+.app-shell.comic-build .entry-lobby-frame .code-plaque { border:0; border-image:none; min-width:0; padding:0; }
+.app-shell.comic-build .entry-lobby-frame .code-copy { display:flex; align-items:center; gap:12px; }
+.app-shell.comic-build .entry-lobby-frame .code-copy input.room-code { width:150px; font-family:inherit; font-size:20px; }
+.app-shell.comic-build .entry-lobby-frame .lobby-foot { display:block; align-self:end; }
+.app-shell.comic-build .entry-lobby-frame .lobby-actions { display:flex; flex-wrap:wrap; align-items:center; justify-content:flex-end; }
+.app-shell.comic-build .entry-lobby-frame .lobby-start-hint { margin:0 auto 0 0; }
+.app-shell.comic-build .entry-lobby-frame.lobby { grid-template-rows:90px 44px minmax(0,1fr) 56px; }
+.app-shell.comic-build .entry-lobby-frame .entry-lobby-content { height:100%; max-height:100%; min-height:0; }
+.app-shell.comic-build .entry-lobby-frame .lobby-foot { position:static; height:auto; min-height:0; max-height:56px; margin:0; transform:none; }
+.app-shell.comic-build .entry-lobby-frame .lobby-actions { height:auto; min-height:0; }
+.app-shell.comic-build .entry-lobby-frame .rules-spread { min-height:0; max-height:100%; }
+.app-shell.comic-build .entry-lobby-frame .rules-step-heading strong { font-size:16px; }
+.app-shell.comic-build .entry-lobby-frame .rules-detail-hero { min-height:0; padding:6px; }
+.app-shell.comic-build .entry-lobby-frame .rules-facts li { font-size:13px; padding:6px; margin:0; }
+.app-shell.comic-build .entry-lobby-frame .lobby-actions { flex-direction:row; padding:0; }
+.app-shell.comic-build .entry-lobby-frame .lobby-actions button { min-width:0; border-image:none; }
+.app-shell.comic-build .entry-lobby-frame .lobby-actions button.start { color:var(--comic-white); background:var(--comic-red); border:1px solid var(--comic-line); }
+.app-shell.comic-build .entry-lobby-frame.lobby .lobby-foot .lobby-actions { flex-direction:row; flex-wrap:nowrap; }
+.app-shell.comic-build .entry-lobby-frame .timer-settings { border:0; display:grid; gap:8px; }
+.app-shell.comic-build .entry-lobby-frame .timer-settings p { margin:0; font-size:12px; }
+.app-shell.comic-build .entry-lobby-frame .timer-settings .choice-cards { margin:0; }
+/* Four seats must fit the content track, including their remove controls. */
+.app-shell.comic-build .entry-lobby-frame.lobby .seat-list {
+ height:100%; min-height:0; grid-template-rows:repeat(2,minmax(0,1fr)); align-content:stretch; gap:12px;
+}
+.app-shell.comic-build .entry-lobby-frame.lobby .seat-list li {
+ display:grid; grid-template-columns:44px minmax(0,1fr) auto; grid-template-rows:auto auto;
+ align-content:center; align-items:center; gap:6px 12px; min-height:0; padding:12px; box-sizing:border-box;
+}
+.app-shell.comic-build .entry-lobby-frame.lobby .seat-list .seat-disc { grid-row:1 / 3; width:40px; height:40px; display:grid; place-items:center; line-height:1; }
+.app-shell.comic-build .entry-lobby-frame.lobby .seat-list strong { grid-column:2; margin:0; font-size:16px; }
+.app-shell.comic-build .entry-lobby-frame.lobby .seat-list span:not(.seat-disc) { grid-column:2; font-size:13px; }
+.app-shell.comic-build .entry-lobby-frame.lobby .seat-list li button { grid-column:3; grid-row:1 / 3; min-width:0; padding:6px 10px; font-size:13px; }
+@media(max-width:760px) {
+ .app-shell.comic-build .entry-lobby-frame.lobby { grid-template-rows:120px 44px minmax(0,1fr) 56px; }
+ .app-shell.comic-build .entry-lobby-frame.lobby .lobby-head { gap:8px; }
+ .app-shell.comic-build .entry-lobby-frame.lobby .lobby-head p { margin:4px 0 0; font-size:12px; }
+ .app-shell.comic-build .entry-lobby-frame.lobby .code-copy { gap:6px; }
+ .app-shell.comic-build .entry-lobby-frame.lobby .code-copy input.room-code { width:110px; }
+ .app-shell.comic-build .entry-lobby-frame.lobby .seat-list { gap:8px; }
+ .app-shell.comic-build .entry-lobby-frame.lobby .seat-list li { grid-template-columns:32px minmax(0,1fr); padding:8px; gap:4px 6px; }
+ .app-shell.comic-build .entry-lobby-frame.lobby .seat-list .seat-disc { width:30px; height:30px; font-size:16px; }
+ .app-shell.comic-build .entry-lobby-frame.lobby .seat-list strong { font-size:14px; }
+ .app-shell.comic-build .entry-lobby-frame.lobby .seat-list li button { grid-column:1 / -1; grid-row:3; padding:4px 8px; }
+}
+@media(max-height:650px) and (min-width:761px) {
+ .app-shell.comic-build .entry-lobby-frame.entry-lobby-frame { padding:12px; gap:8px; }
+ .app-shell.comic-build .entry-lobby-frame.lobby { grid-template-rows:70px 44px minmax(0,1fr) 48px; }
+}

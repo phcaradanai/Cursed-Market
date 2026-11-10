@@ -37,9 +37,9 @@
   position:relative; padding:var(--layout-space); border:1px solid #8e979a; border-inline:0; border-radius:0;
   background-color:#101719!important;
   background-image:linear-gradient(rgb(4 11 14 / 55%),rgb(3 8 11 / 65%)),url('/art/comic/display-cloth.png')!important;
-  background-size:cover!important; background-position:center!important; overflow:visible;
+  background-size:cover!important; background-position:center!important; overflow:hidden;
 }
-#game-main .screen.phase-APPRAISAL .desk .relic-art > :is(img,.item-visual) { width:100%; height:100%; max-width:100%; max-height:100%; object-fit:contain; transform:scale(1.04); pointer-events:none; }
+#game-main .screen.phase-APPRAISAL .desk .relic-art > :is(img,.item-visual) { width:100%; height:100%; max-width:100%; max-height:100%; object-fit:contain; transform:none; pointer-events:none; }
 #game-main .screen.phase-APPRAISAL .stock-shelf { padding:var(--layout-space-small) var(--layout-space); border:0; background:transparent!important; }
 #game-main .screen.phase-APPRAISAL .stock-carousel { display:grid; grid-template-columns:44px minmax(0,1fr) 44px; align-items:center; gap:var(--layout-space); width:100%; height:100%; }
 #game-main .screen.phase-APPRAISAL .stock-arrow { display:grid; place-items:center; width:44px; height:44px; min-width:44px; min-height:var(--layout-control); padding:var(--layout-space-small); border:1px solid #aaa; border-radius:var(--comic-radius); background:transparent!important; }
@@ -237,3 +237,16 @@
 #game-main .screen.phase-APPRAISAL .information-page .wish-book { margin:0; border:0; box-shadow:none; background:transparent!important; }
 #game-main .screen.phase-APPRAISAL .information-page .wish-deal:has(> .pager) { padding:0; }
 #game-main .screen.phase-APPRAISAL .information-page .wish-book > button.primary { width:100%; }
+
+#game-main .relic-art .certificate-banner { position:absolute; z-index:2; right:0; bottom:12px; display:grid; grid-template-columns:20px minmax(0,1fr); gap:2px 8px; max-width:calc(100% - 24px); box-sizing:border-box; margin:0; padding:10px 16px 10px 24px; background:var(--comic-red); color:var(--comic-white); clip-path:polygon(0 0,100% 0,100% 100%,0 100%,10px 50%); font-size:14px; line-height:1.4; }
+#game-main .certificate-banner svg { width:20px; height:20px; grid-row:1 / 3; align-self:center; }
+#game-main .certificate-banner span { grid-column:2; font-size:12px; }
+
+#game-main .relic-art .item-visual { background:transparent; }
+/* Title and rarity wrap naturally instead of overflowing a fixed 48px header. */
+#game-main .screen.phase-APPRAISAL .desk-reading .specimen-data {
+ height:auto; min-height:var(--layout-row); padding:6px var(--layout-space) 12px; align-items:center;
+}
+#game-main .screen.phase-APPRAISAL .desk-reading .desk-title .rarity-label {
+ display:block; margin:6px 0 0; font-size:14px; line-height:1.5; overflow-wrap:anywhere;
+}

@@ -48,6 +48,22 @@
 #game-main .table-offers{bottom:auto;top:20px;right:20px;height:36px;min-height:36px;font-size:13px;background:#111c!important;border:1px solid #888!important;padding:6px 12px}
 @media(max-width:900px){#game-main .screen .scene-play>.trade-table{padding:20px 80px 88px}#game-main .table-goods{gap:12px}#game-main .table-down::after{display:none}#game-main .table-offers{top:12px;right:12px;font-size:11px}#game-main .table-completion{bottom:20px;right:16px}#game-main .table-completion .pass{min-width:132px;font-size:12px}#game-main .table-good img{height:clamp(120px,28vh,260px)}}
 @media(prefers-reduced-motion:reduce){#game-main .table-good img{transition:none}}
+
+#game-main .unsold-item-trigger{display:flex;align-items:center;justify-content:center;min-width:0}
+#game-main .unsold-item-trigger:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+
+/* Selected listings keep product facts and the offer as two readable groups. */
+#game-main #table-offers-detail .trades{width:100%;min-width:0;margin:0}
+#game-main #table-offers-detail .trades>.pager,#game-main #table-offers-detail .pager-page{width:100%;min-width:0}
+#game-main #table-offers-detail .trades>.pager{margin-top:var(--comic-gap)}
+#game-main :is(#table-item-detail,#table-offers-detail) .trade-listing.selected-listing{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--comic-gap);width:100%;min-width:0;box-sizing:border-box;margin:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none}
+#game-main :is(#table-item-detail,#table-offers-detail) .trade-listing-info,#game-main :is(#table-item-detail,#table-offers-detail) .trade-listing-offer{display:flex;flex-direction:column;gap:var(--comic-gap);min-width:0}
+#game-main :is(#table-item-detail,#table-offers-detail) .trade-listing-info>.pedestal{width:100%;max-width:180px;aspect-ratio:1;justify-content:center;margin:0 auto;padding:0}
+#game-main :is(#table-item-detail,#table-offers-detail) .trade-listing-info>.pedestal .pedestal-item{width:150px;height:150px;margin:0}
+#game-main :is(#table-item-detail,#table-offers-detail) .trade-listing-info h3,#game-main :is(#table-item-detail,#table-offers-detail) .trade-listing-info p,#game-main :is(#table-item-detail,#table-offers-detail) .trade-listing-info .prov,#game-main :is(#table-item-detail,#table-offers-detail) .trade-listing-info .fact-seals,#game-main :is(#table-item-detail,#table-offers-detail) .trade-listing-info .listing-more{margin:0}
+#game-main :is(#table-item-detail,#table-offers-detail) .trade-listing-offer form{width:100%;max-width:none;gap:var(--comic-gap);margin:0}
+#game-main :is(#table-item-detail,#table-offers-detail) .trade-listing-offer form>button{width:100%;justify-self:stretch}
+@media(min-width:1000px){#game-main :is(#table-item-detail,#table-offers-detail) .trade-listing.selected-listing{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}}
 #game-main .phase-TRADE .scene-play:has(>.trade-table){display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr);height:100%;min-height:0;gap:0}
 #game-main .phase-TRADE .table-goods{position:relative;align-self:stretch;grid-template-rows:minmax(0,1fr);padding:0;max-width:1000px}
 #game-main .table-good{min-width:0;align-self:end;height:auto}
@@ -57,9 +73,16 @@
 
 #game-main .table-goods.is-empty{display:grid;place-items:center;align-self:stretch;width:100%;max-width:none}
 #game-main .table-goods.is-empty .table-empty{margin:0;padding:16px;text-align:center;align-self:center;justify-self:center;color:#fff;text-shadow:1px 2px 4px #000;font-size:clamp(16px,1.8vw,24px)}
-
-#game-main .unsold-item-trigger{display:flex;align-items:center;justify-content:center;min-width:0}
-#game-main .unsold-item-trigger:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+/* The tabletop owns the play area between persistent HUD and dock. */
+#game-main .screen.phase-TRADE .scene-play > .trade-table {
+ position:fixed; inset:calc(var(--layout-chrome,48px) + 12px) var(--comic-frame-inset,24px) var(--utility-bottom,80px);
+ width:auto; max-width:none; height:auto; min-width:0; min-height:0; margin:0; box-sizing:border-box;
+}
+@media(max-width:760px) {
+ #game-main .screen.phase-TRADE .scene-play > .trade-table { padding:16px 56px 88px; }
+}
+#game-main .screen.phase-TRADE > .table-stage,
+#game-main .screen.phase-TRADE .scene-play { zoom:1; transform:none; translate:none; filter:none; }
 
 /* Keep unsold handling inside the offers menu, one item per shared page. */
 #game-main #table-offers-detail .unsold{padding:12px;margin:0}
